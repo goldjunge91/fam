@@ -1,0 +1,1082 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-turkey-stuffed-pepper-bowl",
+      "slug": "mfr-turkey-stuffed-pepper-bowl",
+      "title": "Gefüllte-Paprika-Bowl mit Pute",
+      "instructions": "Alle Aromen gefüllter Paprika, als Bowl angerichtet: italienisch gewürztes Putenhack, Reis und zarte Paprika in einer frischen Tomatensauce.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses gefüllte-Paprika-Abendessen kommt ohne das Füllen aus. Der ganze Geschmack ist in der halben Zeit auf dem Teller.",
+        "Putenhack kostet genauso viel wie Rinderhack, enthält aber deutlich weniger Fett."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack für den klassischen Geschmack gefüllter Paprika"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Quinoa für zusätzliches Eiweiß"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-stuffed-pepper-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Bowl",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 950,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-stuffed-pepper-bowl/",
+      "components": [
+        {
+          "key": "fbbe6d89-56a5-5587-8ccc-8b2725918709",
+          "name": "Zutaten",
+          "servingGrams": 650.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "67a11005-40c0-5080-bb1d-814fbc3b389f",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1838ba60-0b13-5f6d-bfce-6add575282d5",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ed4a374-834c-51ff-b815-861d68ee58bc",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a93ab44-6e3c-5ef0-b5d2-5c929cf5728d",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb764e37-b540-5191-b3b6-fa4f4f89a21d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fd77691-a615-5021-b503-c4f58b48afdd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c01473d-e38e-5578-8ea0-a01463fcdf09",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70f05a93-1b6c-506c-9c4e-d46a2fb018d3",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3391dc8-4ef3-5c2b-af99-560f1020f954",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "169d01a6-2249-5588-98e6-e32f96635f84",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4b759a9-2511-598c-a387-b6fe36da70c3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Zwiebel und gewürfelte Paprika 5 Minuten in Olivenöl anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch, italienische Kräutermischung, Paprikapulver und Putenhack dazugeben. 8 Minuten braten, bis das Fleisch gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatensauce einrühren und 5 Minuten köcheln lassen. Abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl Reis und die Puten-Paprika-Mischung anrichten und mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2021/05/Ground-Turkey-Stuffed-Peppers-SpendWithPennies-9.jpeg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2021/05/Ground-Turkey-Stuffed-Peppers-SpendWithPennies-9.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-tomato-pasta",
+      "slug": "mfr-chicken-tomato-pasta",
+      "title": "Pasta mit Hähnchen und Kirschtomaten",
+      "instructions": "Gebratene Hähnchenbrust mit aufgeplatzten Tomaten, Knoblauch und Basilikum unter Pasta gehoben. Ein italienisch-amerikanisches Abendessen, das in 20 Minuten fertig ist und schmeckt, als hätte es den ganzen Abend geköchelt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nudelwasser ist die Geheimzutat der Sauce: Die Stärke macht das Gericht sämig, ganz ohne zusätzliches Fett.",
+        "Parmesan am Stück kostet nur halb so viel wie bereits geriebener Parmesan."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Putenhack oder Garnelen"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Nährhefe für einen milchfreien Abschluss"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-tomato-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "Pasta",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 951,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-tomato-pasta/",
+      "components": [
+        {
+          "key": "e3f3c2ee-1d60-5ea0-9e31-ff693fa522a3",
+          "name": "Zutaten",
+          "servingGrams": 443.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2bbbe6d2-1869-58c5-ad84-81052cd41ef1",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dfcaf47-dff5-59f5-8afa-400b0ff7b83b",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62fa4829-34f0-539c-a931-93c7a086f431",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dee4da0-ca98-50f3-944e-f7f9a16a219f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "316638be-927a-5eeb-a074-5c072659f357",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5de417f-8c4d-5b63-bccc-8ea24c86944b",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fded77a-087f-5cec-b404-6fcfb2067b78",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c93f5447-0fdc-5f15-8f79-d5c050226990",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c4ed68b-343d-541f-b48d-9406ba7855d8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab52b6b9-4cfc-544a-877d-659dfa6f6e64",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta nach Packungsanleitung kochen und ¼ Tasse Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen in Streifen schneiden und mit italienischer Kräutermischung, Salz und Pfeffer würzen. In Olivenöl 5–6 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch dazugeben und 1 Minute braten. Gewürfelte Tomaten dazugeben und 5 Minuten kochen, bis sie aufplatzen und eine sämige Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta mit der Hähnchen-Tomaten-Sauce vermengen. Falls sie zu dick ist, etwas Nudelwasser dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit frischem Basilikum und Parmesan abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/55f72d733c346243461d496e/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/55f72d733c346243461d496e/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-bolognese-pasta",
+      "slug": "mfr-turkey-bolognese-pasta",
+      "title": "Pasta mit Puten-Bolognese",
+      "instructions": "Aromatische, langsam geköchelte Puten-Bolognese, in 25 Minuten fertig. Knoblauch, Tomatenmark und italienische Kräuter sorgen für einen kräftigen Geschmack. Mit Pasta nach Wahl servieren.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Karotte und Zwiebel sorgen für natürliche Süße, die an lange geköchelte Bolognese erinnert. Ein klassischer italienischer Küchentrick.",
+        "Eine Dose gehackte Tomaten und Tomatenmark ergeben für $2.10 eine Sauce in Restaurantqualität."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Linsen für eine vegetarische Variante"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Marinarasauce als schnelle Abkürzung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-bolognese-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "Pasta",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 952,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-bolognese-pasta/",
+      "components": [
+        {
+          "key": "247842a7-b4b7-5a2e-9957-b2d3cbfd5dae",
+          "name": "Zutaten",
+          "servingGrams": 462.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "2938e0fe-9d66-5498-a95a-e793bbf37486",
+              "ingredientName": "Putenhack",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b17e37fd-8315-5839-b709-7459d63c9235",
+              "ingredientName": "Pasta",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8eb0546c-8a99-5b0c-bc01-c62a18e03bb9",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70e55d5b-aae3-538d-821d-693b9ffada8f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "769aeb28-771b-5cd5-b9f1-a6f8223d2b7f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bbba19e-3766-5622-99ff-81faac935086",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1ffdd3d-5154-58b8-9743-a06248a540c6",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a04101f-d563-5fcb-aeb7-f012e797ece6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67a1a45f-3490-54a2-ae71-c4a753749b42",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7fc989d-1fc9-55dc-9b0d-a7123d7a582d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc4ba3aa-a8b7-53ef-aa7d-d221a5f8765b",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Karotte fein würfeln. In Olivenöl bei mittlerer Hitze 8 Minuten anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Putenhack dazugeben und 8 Minuten braten, bis das Fleisch gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 2 Minuten braten. Gehackte Tomaten und italienische Kräutermischung dazugeben und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta kochen und mit der Bolognese vermengen. Mit Parmesan abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/04/Turkey-Bolognese-Pasta-Recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/04/Turkey-Bolognese-Pasta-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shrimp-lemon-garlic-pasta",
+      "slug": "mfr-shrimp-lemon-garlic-pasta",
+      "title": "Pasta mit Garnelen, Zitrone und Knoblauch",
+      "instructions": "Saftige Garnelen in einer frischen Zitronen-Knoblauch-Buttersauce, mit Pasta vermengt. Ein elegantes Abendessen, das in 15 Minuten fertig ist und weniger als $4 pro Portion kostet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zitrone, Knoblauch und Butter ergeben eine einfache, köstliche Pastasauce. Fertigsauce aus dem Glas ist nicht nötig.",
+        "Tiefgekühlte Garnelen sind in dieser Sauce nicht von frischen zu unterscheiden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Zusätzliches Olivenöl für eine milchfreie Variante"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Nährhefe für eine vegane Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-lemon-garlic-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "Pasta",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 953,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-lemon-garlic-pasta/",
+      "components": [
+        {
+          "key": "a2698cd2-afa7-5a4d-979d-e34719679bd3",
+          "name": "Zutaten",
+          "servingGrams": 550.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d715f1e9-8c74-5a22-b3f4-af0ccce63ab2",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f58d8190-e2d7-56a6-8422-f32b3a0d0475",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2ce44c9-7759-5342-91ca-47850ea8698b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f59e2e2-8356-5552-9345-c2db33e27dde",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6ed54c2-fd23-5493-bce7-2439d7980dc4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a722c6e-1643-5b5c-a39b-efbe6283b995",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47df9cf3-7ec4-54cc-9b14-bf2a7bb3019d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1dfa73d-23ab-5516-ad99-2b5d90bbd5a2",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "877c0278-c134-59ff-8918-6ca3a034e42d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f31a8452-3bac-50ff-8fd8-57428e480697",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "354d4a91-b533-5759-bc69-1824d271aab8",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta kochen und Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Olivenöl erhitzen. Knoblauch 30 Sekunden anschwitzen. Garnelen dazugeben und 2 Minuten pro Seite garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zitronensaft, Petersilie und Spinat dazugeben und vermengen, bis der Spinat zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta mit den Garnelen und einem Schuss Nudelwasser vermengen. Mit Parmesan abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2016/10/Garlic-Butter-Shrimp-Pasta-7.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2016/10/Garlic-Butter-Shrimp-Pasta-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuna-arrabbiata-pasta",
+      "slug": "mfr-tuna-arrabbiata-pasta",
+      "title": "Thunfisch-Pasta Arrabbiata",
+      "instructions": "Scharfe Arrabbiata-Tomatensauce mit Thunfisch aus der Dose. Diese würzige Vorrats-Pasta steht in 15 Minuten auf dem Tisch und liefert 38 g Eiweiß.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das ist eines der günstigsten eiweißreichen Abendessen überhaupt: weniger als $2.50 pro Portion.",
+        "Thunfisch aus der Dose in scharfer Tomatensauce ist ein klassisches neapolitanisches Pastagericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-garlic-sauce",
+          "swap": "Rote Chiliflocken und zusätzlicher Knoblauch"
+        },
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs oder Sardinen aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-arrabbiata-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Pasta",
+        "scharf",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 954,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-arrabbiata-pasta/",
+      "components": [
+        {
+          "key": "aa116fa7-a785-5cc6-a321-8492194c8cfb",
+          "name": "Zutaten",
+          "servingGrams": 764.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "797d3a54-4e23-54ae-8032-3879892b2e30",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3bd4579-7095-5e51-937e-0de427470793",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "affbe8c7-4b3d-50fb-8fe3-695c92784a56",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d2a9750-6c3d-5ac1-96de-529aeb782f0c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e28c4a2f-4ffb-508f-aa11-eb8dea312da4",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bb84dc7-5b94-59bf-93de-aed58ed485f5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ab24e58-ae9a-5dc5-a7d0-3e0f2047eb66",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b682cc36-811a-5c81-a0a6-c00f31f28055",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0c68007-1cc2-5891-a293-f6154f4798e9",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta kochen. Olivenöl in einer Pfanne erhitzen und den Knoblauch 30 Sekunden anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Chili-Knoblauch-Sauce und gehackte Tomaten dazugeben. 8 Minuten köcheln lassen, bis die Sauce etwas eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgetropften Thunfisch einrühren und 2 Minuten erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta mit der Sauce vermengen. Mit Petersilie und Parmesan garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.genovaseafood.com/wp-content/uploads/2025/02/GEN_TunaLinguineArriabata-1024x890.jpg",
+          "sourcePageUrl": "https://www.genovaseafood.com/wp-content/uploads/2025/02/GEN_TunaLinguineArriabata-1024x890.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

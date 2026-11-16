@@ -1,0 +1,1340 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-lazy-salmon-rice-bowl",
+      "slug": "rice-cooker-lazy-salmon-rice-bowl",
+      "title": "Mühelose Lachs-Reisschale aus dem Reiskocher",
+      "instructions": "Die beliebte gemütliche Lachs-Reisschale aus dem Internet, noch einfacher zubereitet: Ein Filet dämpft direkt auf dem Reis, während du nichts tun musst. Zerflocke es im lockeren Reis und gib Furikake, einen Wirbel aus Sriracha und Kewpie-Mayo sowie Frühlingszwiebel dazu. So entsteht eine cremige, herzhafte, leicht scharfe Schüssel, die viel aufwendiger schmeckt, als sie war. Inspiriert von @mamalindacooks auf TikTok (https://www.tiktok.com/@mamalindacooks/video/7500008025764138283).",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 37,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein einzelnes Lachsfilet reicht für zwei Schüsseln, wenn du es im Reis zerflockst. So bekommst du ein Essen wie im Restaurant zum Preis eines Fischstücks.",
+        "Tiefgekühlter Lachs funktioniert hervorragend und kostet meist halb so viel wie frischer. Taue ihn vorher etwa 15 Minuten unter kaltem, fließendem Wasser auf, damit er auf dem Reis gleichmäßig gart.",
+        "Keine Kewpie-Mayo da? Normale Mayonnaise mit einer winzigen Prise Zucker kommt geschmacklich zu 90% an Kewpie heran. Etwas Sriracha reicht für den würzigen Mayo-Kick."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Eine Dose Lachs oder Thunfisch; nach dem Garen des Reises unterrühren, Dämpfen ist nicht nötig.",
+          "savings": "Spart ~$0.50 und erspart das Auftauen"
+        },
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "Beliebiger kurzer oder mittelkörniger Jasminreis oder normaler Reis; dasselbe Verhältnis von 1:1.25 für Reis und Wasser beibehalten.",
+          "savings": "Spart ~$0.10 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "kewpie-mayo",
+          "swap": "Normale Mayonnaise mit einer Prise Zucker ahmt den reichhaltigeren, süßeren Kewpie-Geschmack nach.",
+          "savings": "Spart ~$0.09 pro Esslöffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch-koreanische Fusion",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "japanisch",
+        "koreanisch",
+        "Lachs",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 635,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-lazy-salmon-rice-bowl/",
+      "components": [
+        {
+          "key": "43fcbba2-42c1-5b91-b2c7-a5561e335786",
+          "name": "Zutaten",
+          "servingGrams": 458.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fac76985-5e39-5e44-aca7-be4f94c3a5bc",
+              "ingredientName": "Sushi-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3241188f-8066-5253-aaf5-aed3f0c26507",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c95121bb-9140-5830-973c-2d915b857069",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6aebe0ab-c2d0-5dc0-95e8-6d9f35330a26",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e2b787d-7b98-5a97-b5f8-197b7503dd2e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "070166c2-b92f-5917-a5b3-f4af17d391b7",
+              "ingredientName": "Kewpie-Mayo",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4291aba9-ed99-5d2c-9af9-3c97d0997a88",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2ca4452-0a50-5f01-a107-83c7ff3e96d7",
+              "ingredientName": "Furikake",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8560988f-c209-571f-8208-a3bfb1adbbfc",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1d5cfc8-cfa3-5056-809a-eff6ae94a3f8",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "7289954c-2611-5b33-be83-767da304c846",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, als Belag"
+            },
+            {
+              "key": "e028def6-8b93-5165-8a3b-8101d68608a3",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "cut into strips für scooping"
+            },
+            {
+              "key": "74ae64f1-c860-5fcf-8f61-167d11c1df73",
+              "ingredientName": "Kimchi",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "auf the side"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 cup Sushi-Reis im Innentopf ab. Wirble ihn im Wasser und gieße es 2-3 Mal ab, bis das Wasser größtenteils klar abläuft. Lass den Reis gut abtropfen, gib dann 1 1/4 cups frisches Wasser dazu und verteile ihn gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe das Lachsfilet mit Küchenpapier trocken und bestreue beide Seiten mit Salz. Lege es mit der Hautseite nach unten direkt auf den Reis und das Wasser, damit es während des Kochens dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen normalen Kochzyklus für weißen Reis. Öffne den Deckel während des Zyklus nicht. Lass den Reiskocher die Arbeit erledigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und halte den Reis 5-10 Minuten warm. So gart der Lachs vollständig (er sollte sich leicht zerteilen lassen und bis zur Mitte undurchsichtig sein) und der Reis wird locker gedämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe den Lachs auf einen Teller, ziehe die Haut ab und entsorge sie. Zerflocke das Filet mit einer Gabel in große Stücke und prüfe, ob die Mitte vollständig undurchsichtig ist. Hebe den Lachs zusammen mit Sojasauce und Sesamöl wieder unter den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre Kewpie-Mayo und Sriracha in einer kleinen Tasse zu einer schnellen würzigen Mayo und träufle sie über die Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue Furikake und geschnittene Frühlingszwiebel darüber. Gib Avocado und Nori-Streifen dazu, serviere nach Wunsch Kimchi daneben und iss alles warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Salmon_don_of_Nakau.jpg/1280px-Salmon_don_of_Nakau.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Salmon_don_of_Nakau.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: ノボホショコロトソ — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer mühelosen Lachs-Reisschale aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-yakult-kakuni-pork-belly",
+      "slug": "rice-cooker-yakult-kakuni-pork-belly",
+      "title": "Geschmorter Schweinebauch mit Yakult aus dem Reiskocher (Kakuni)",
+      "instructions": "Glänzendes, butterzartes japanisches Kakuni, bei dem gekühltes probiotisches Yakult gleich zwei Aufgaben erfüllt: Es gibt eine klare süß-säuerliche Note statt Zucker, während der Schweinebauch zu zartschmelzenden Würfeln schmort. Alles wird in einem Reiskochertopf zubereitet. Die Schmorflüssigkeit reduziert sich zu einer süß-herzhaften Glasur, die du über Reis löffeln möchtest. Inspiriert von einem viralen Trend für Yakult-Kakuni aus dem Reiskocher auf Reels.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Yakult ist hier der günstige Trumpf: Eine Flasche kostet etwa $0.55 und liefert Süße und Säure wie eine Marinade. So musst du Mirin oder Sake nicht extra kaufen, wenn du sparen möchtest. Yakult und Sojasauce reichen.",
+        "Kaufe Schweinebauch im Angebot als ganzes Stück und friere ihn portionsweise gewürfelt ein. Das ist pro Portion viel günstiger als vorgeschnittene Packungen von der Fleischtheke.",
+        "Wirf die übrige Glasur nicht weg. Löffle sie am nächsten Tag über Reis, Eier oder Instant-Ramen. So bekommst du praktisch kostenlos eine zweite Mahlzeit mit viel Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-belly",
+          "swap": "Schweineschulter in Würfeln für eine magerere, deutlich günstigere Schmorvariante (beide Kochzyklen vollständig laufen lassen, damit sie zart wird)",
+          "savings": "~$1.75 pro Portion"
+        },
+        {
+          "forIngredientId": "sake",
+          "swap": "Reiswein oder zusätzliches Wasser mit einem Schuss Essig",
+          "savings": "~$0.70 insgesamt"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "Eine zusätzliche Flasche Yakult oder 1 tbsp Honig für die Süße",
+          "savings": "~$0.50 insgesamt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Schweinefleisch",
+        "geschmort",
+        "Kakuni"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 636,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-yakult-kakuni-pork-belly/",
+      "components": [
+        {
+          "key": "5c5a6204-d707-536a-b507-95a76da1fa65",
+          "name": "Zutaten",
+          "servingGrams": 579.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0499e35-8d38-55da-bcec-da784eba9593",
+              "ingredientName": "Schweinebauch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "in 1.5-Zoll-Würfel geschnitten"
+            },
+            {
+              "key": "92c2b809-e660-558f-86f9-31df0a2df5e6",
+              "ingredientName": "Yakult (probiotisches Getränk)",
+              "grams": 1000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "das Geheimnis sweet-tangy braising liquid"
+            },
+            {
+              "key": "e1cd3b44-6bf4-589b-bc43-9504a8d3b0e4",
+              "ingredientName": "Sojasauce",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b6e6e83-b07a-5b92-9e0c-7153853397d9",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder rice-wine"
+            },
+            {
+              "key": "0bdd8732-5080-5600-be19-6c6d076c2b26",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c428f91-8a50-579f-b008-2e0691e8bf29",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "gemahlener Ingwer; oder verwende einige Scheiben frischen Ingwer, falls vorhanden"
+            },
+            {
+              "key": "f94d8ce9-110e-5227-8487-541bb0de65fc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "angedrückt"
+            },
+            {
+              "key": "ff4c48dc-edd6-5b71-b9d2-9e28388236c1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "whites in the braise, greens zum Garnieren"
+            },
+            {
+              "key": "4349797e-ae41-532c-999c-986cafabea69",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "gekocht in the pot, then soaked in the glaze"
+            },
+            {
+              "key": "fd8830e8-69e0-5afe-b3de-36934c256c24",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gedämpft, zum Servieren underneath"
+            },
+            {
+              "key": "21ef3c0f-9eb4-5b8f-ae2e-5ee20f06210b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Schweinebauch in etwa 1.5-inch-Würfel. Wenn dein Reiskocher eine Anbrat- oder Kochfunktion hat, bräune die Würfel 5-6 Minuten und wende sie dabei, damit Fett austritt und die Ränder Farbe bekommen. Wenn dein Gerät nur eine einzelne Kochtaste ohne Anbratfunktion hat, überspringe diesen Schritt und gib im nächsten Schritt alles zusammen hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib zerdrückten Knoblauch, die weißen Teile der Frühlingszwiebel und gemahlenen Ingwer in den Topf. Gieße alle 4 Flaschen Yakult, Sojasauce, Sake und Mirin dazu. Die Flüssigkeit sollte fast bis zur Oberkante des Schweinefleischs reichen. Gib bei Bedarf einen Schuss Wasser dazu, damit die Würfel beinahe bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus für weißen Reis. Während des Erhitzens schmort das Schweinefleisch in der süß-säuerlichen Flüssigkeit, gibt Fett ab und wird weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn der Zyklus endet, rühre um und starte dann einen ZWEITEN Kochzyklus für weißen Reis. So schmort das Fleisch gleichmäßig weiter, bis es mit der Gabel zart und vollständig gar ist. Gleichzeitig reduziert sich die Flüssigkeit zu einer glänzenden, sirupartigen Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Optionale weich gekochte Eier: Lege zu Beginn des zweiten Zyklus rohe Eier in ihrer Schale in die Schmorflüssigkeit und lass sie den gesamten Zyklus mitgaren. Nimm sie heraus, kühle sie unter kaltem Leitungswasser ab, schäle sie und gib die geschälten Eier zurück in die warme Glasur, damit sie Geschmack und Farbe aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Prüfe das Schweinefleisch. Es sollte sich leicht mit einer Gabel zerteilen lassen und innen kein Rosa mehr zeigen. Ist es noch fest, starte einen kurzen zusätzlichen Kochzyklus oder halte es weitere 15 Minuten warm. Schalte dann auf Warmhalten und lass es 10 Minuten ruhen, damit die Glasur eindickt und sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löffle Kakuni und Glasur über gedämpften Reis, halbiere die Eier darauf und garniere mit geschnittenem Grün der Frühlingszwiebel und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Butakakuni_-_Dec_2014.jpg/1280px-Butakakuni_-_Dec_2014.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Butakakuni_-_Dec_2014.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: nesnad — CC BY 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von geschmortem Schweinebauch mit Yakult aus dem Reiskocher (Kakuni)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-spicy-rabokki",
+      "slug": "rice-cooker-spicy-rabokki",
+      "title": "Scharfes Rabokki aus dem Reiskocher (Tteokbokki und Ramen)",
+      "instructions": "Zähe koreanische Reiskuchen und federnde Instant-Ramen liegen in einer glänzenden Gochujang-Sauce, die durch die Stärke der Reiskuchen von selbst eindickt: süß, scharf und unglaublich gemütlich. Eine Decke aus geschmolzenem Käse macht daraus eine besonders einfache Wohlfühlschüssel für einen kalten Abend im Wohnheim. Inspiriert von @nomadetteats auf ihrem Blog (https://nomadette.com/rice-cooker-tteokbokki/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Tüte Tteok und eine Packung Instant-Ramen sind die beiden günstigen Hauptzutaten. Kaufe die Reiskuchen tiefgekühlt oder gekühlt im Asialaden. Sie halten sich wochenlang und diese Schüssel kostet nur ein paar Dollar pro Portion.",
+        "Lass Fischkuchen weg und verwende die Würzmischung der Ramen mit einem zusätzlichen Schuss Sojasauce. Damit bekommst du kostenlos mehr Geschmack.",
+        "Eine Scheibe amerikanischer Schmelzkäse zieht genauso gut Fäden wie teurer Mozzarella und kostet nur einen Bruchteil. Ein einzelnes weich gekochtes Ei macht die Schüssel außerdem zu einer vollständigen Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-cake",
+          "swap": "Geschnittene Hotdogs oder Spam für denselben zähen, herzhaften Biss",
+          "savings": "oft günstiger pro Portion als Fischfrikadellen"
+        },
+        {
+          "forIngredientId": "american-singles",
+          "swap": "Eine Handvoll geriebener Mozzarella für längere Käsefäden",
+          "savings": "Lass es weg und spare etwa $0.25"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Honig oder Maissirup für eine glänzendere, etwas klebrigere Sauce",
+          "savings": "in beiden Fällen nur wenige Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "koreanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "scharf",
+        "Tteokbokki",
+        "Ramen",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 637,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-spicy-rabokki/",
+      "components": [
+        {
+          "key": "effd6a9d-69c4-5754-82a6-00f33bf9a517",
+          "name": "Zutaten",
+          "servingGrams": 787,
+          "position": 0,
+          "items": [
+            {
+              "key": "2655a503-88d6-5c16-952c-372cbe77c2e4",
+              "ingredientName": "Koreanische Reiskuchen (Tteok)",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Korean Reiskuchen; soak in warm water 10 min falls hart oder tiefgekühlt"
+            },
+            {
+              "key": "02b94ae4-fd8b-5d8e-a0aa-f8a394520eed",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "verwende the noodles; save oder verwende Hälfte the seasoning packet"
+            },
+            {
+              "key": "9b76191b-5731-5c16-9c86-d690693e2184",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "750dca25-a205-5350-bb96-be62dd9f4b9c",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "füge hinzu more für mehr Schärfe"
+            },
+            {
+              "key": "6403c39e-859a-5f85-8b73-936c4ca47380",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90925094-294d-5628-879f-412715fd5073",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a2eb0e9-2e73-51c2-8cd1-38719633227e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "e7732215-21d3-57c1-a46d-06dd48a682fa",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f1b12fc-6d6e-5b92-a359-7e35abff59ca",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten thin"
+            },
+            {
+              "key": "c6f8f5a3-1f99-5825-ba47-f872ae9d9135",
+              "ingredientName": "Fischkuchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten into strips"
+            },
+            {
+              "key": "3ecacb49-52a6-5c8d-8699-634e48bf4708",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "0f178e99-e0b4-56bf-8693-9b9de9626c0e",
+              "ingredientName": "Amerikanische Schmelzkäsescheiben",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "oder a Handvoll of mozzarella für lange Käsefäden"
+            },
+            {
+              "key": "b6a028dd-6581-58f9-a96e-d8c9cc04397b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "0896a311-eac8-5969-b316-945a030da5f3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Schluss"
+            },
+            {
+              "key": "b9f71ca6-3d91-574b-b6a5-29a22b69f28a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "drizzle bei the end"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "(Optionale Eier) Gib die Eier in den Reiskochertopf, bedecke sie mit Wasser, schließe den Deckel und starte den Kochzyklus für weißen Reis. Sobald das Wasser kocht, stelle für wachsweiche Eigelbe 9 Minuten oder für vollständig gestockte Eigelbe 12 Minuten ein und beende dann den Zyklus. Nimm die Eier heraus, kühle sie unter kaltem fließendem Wasser ab, schäle sie und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße den Topf aus und wische ihn trocken. Gib 2 cups Wasser hinein und verrühre Gochujang, Gochugaru, Sojasauce, Zucker und gehackten Knoblauch, bis die Sauce glatt und klümpchenfrei ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib eingeweichte Tteok, geschnittene Zwiebel und Fischkuchenstreifen dazu. Rühre um, damit alle Reiskuchen mit Sauce bedeckt sind. Schließe den Deckel und starte für 20 bis 25 Minuten den Kochzyklus für weißen Reis. Öffne den Deckel ein- oder zweimal zum Umrühren, damit nichts festklebt. Die Sauce blubbert und dickt von selbst ein, während Stärke aus den Reiskuchen austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öffne den Deckel und prüfe die Sauce. Sie sollte einen Löffelrücken überziehen. Ist sie noch dünn, lass sie bei geöffnetem Deckel im Kochzyklus weitere 3 bis 5 Minuten blubbern. Ist sie zu dick, rühre einen Schuss Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Ramen-Nudeln in die heiße Sauce und drücke sie hinein, damit sie bedeckt sind. Schließe den Deckel und gare sie 4 bis 5 Minuten. Trenne die Nudeln nach der Hälfte der Zeit vorsichtig mit Essstäbchen, bis sie elastisch und locker sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Käsescheibe darauf und setze die geschälten, halbierten Eier dazu. Schließe den Deckel und lass den Käse auf der Warmhaltestufe 1 bis 2 Minuten schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Träufle Sesamöl darüber, streue Frühlingszwiebeln und Sesamsamen darauf und serviere das Gericht direkt aus dem Topf, solange es geschmolzen und heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Ra-bokki%2C_stir-fried_rice_cakes_and_ramyeon_noodles.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ra-bokki,_stir-fried_rice_cakes_and_ramyeon_noodles.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Korea.net / Korean Culture and Information Service — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von scharfem Rabokki aus dem Reiskocher (Tteokbokki und Ramen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-oyakodon",
+      "slug": "rice-cooker-oyakodon",
+      "title": "Oyakodon aus dem Reiskocher (Hähnchen-Ei-Reisschale)",
+      "instructions": "Seidig-weiches Hähnchen und süße Zwiebel in Sojasauce auf lockerem Reis, dann mit verquirltem Ei übergossen, das direkt im Reiskocher glänzend und gerade gestockt wird. Schmeckt wie eine gemütliche Donburi-Schüssel aus einem Lokal in Tokio, wird aber ganz einfach gedämpft und kommt ohne Herd aus. Inspiriert von @nomadetteats auf TikTok (https://www.tiktok.com/@nomadetteats/video/7358422488570760466).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mirin und Sake sind die teuersten kleinen Zutaten hier, aber eine Flasche von jeder reicht für Dutzende Schüsseln. Sobald du sie im Vorrat hast, bleiben die Kosten pro Portion niedrig.",
+        "Kein Dashi da? Verwende klares Wasser mit einer Prise Dashipulver oder etwas Hühnerbrühpulver und einem Teelöffel Zucker. So erhältst du für wenige Cent eine ähnliche süß-herzhafte Brühe.",
+        "Kaufe eine Vorteilspackung Hähnchenschenkel und portioniere sie in Gefrierbeutel. Schenkel sind günstiger als Brust und bleiben während des ganzen Kochzyklus saftig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust für eine magerere Schüssel; besonders klein schneiden, damit sie im Kochzyklus vollständig gart.",
+          "savings": "ähnliche Kosten, magerer"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "Kein Mirin? 1 tbsp Reisessig und ein zusätzlicher Teelöffel Zucker ergeben dieselbe süß-säuerliche Glasur.",
+          "savings": "verwendet Vorratszutaten"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Beliebiger weißer Rund- oder Mittelkornreis; Sushi-Reis ergibt eine noch klebrigere, authentischere Donburi-Grundlage.",
+          "savings": "Verwende Vorrätiges"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Donburi",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 638,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-oyakodon/",
+      "components": [
+        {
+          "key": "e28ce673-cdef-51d4-af74-552057a2e472",
+          "name": "Zutaten",
+          "servingGrams": 770,
+          "position": 0,
+          "items": [
+            {
+              "key": "96874be0-679b-5d1e-ab65-105599c7b5ad",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "abspülen, bis das Wasser weitgehend klar bleibt"
+            },
+            {
+              "key": "e798d6f8-f5fc-54a4-a991-882bd47ded83",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Kochen des Reises"
+            },
+            {
+              "key": "549d6a2b-da62-53e0-922d-f2c784f900e9",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "in kleine mundgerechte Stücke schneiden und vollständig garen"
+            },
+            {
+              "key": "86669b9d-cc96-50be-be7d-23a73b382ca3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "cbc11ed1-df4e-5c0f-93d7-e48e3cc9c02e",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "schlagen, bis noch Schlieren zu sehen sind; nicht vollständig vermengen"
+            },
+            {
+              "key": "22541bbb-9e39-5502-bdee-896512f0041e",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4014ad1-8545-5d80-90bf-456ab0474ea0",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dd33bab-9ca0-51ae-99ac-0392dbf1b406",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "4e1bbb69-9fcb-5e4b-bea5-2a6d068a35e9",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "oder Wasser zusätzlich a Prise of dashi powder"
+            },
+            {
+              "key": "67db9955-5cb9-57b5-87fc-2500da753470",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77ab2612-61a2-5816-9a5f-64e29938bc15",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "869e7531-bd71-5b67-a612-4577e6208859",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "sprinkled auf top"
+            },
+            {
+              "key": "06a12622-2c3a-5191-bc39-c06e429a08e8",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in feine Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Jasminreis in der Reiskocherschüssel, bis das Wasser größtenteils klar abläuft. Lass ihn gut abtropfen, gib dann 1.5 cups frisches Wasser dazu und verteile den Reis gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sojasauce, Mirin, Sake, Dashi und Zucker in einem Becher oder einer kleinen Schüssel, bis sich der Zucker aufgelöst hat und eine Donburi-Sauce entsteht. Wende die mundgerecht geschnittenen Hähnchenschenkelstücke und geschnittene Zwiebel in etwa der Hälfte der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile das marinierte Hähnchen und die Zwiebel in einer gleichmäßigen Lage direkt auf dem Reis. Träufle die übrige Sauce darüber, damit sie den Reis beim Dämpfen aromatisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen normalen Kochzyklus für weißen Reis. Der Reis gart darunter, während das Hähnchen pochiert und die Zwiebel oben süß und weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet, öffne den Deckel und prüfe, ob das Hähnchen vollständig gar und innen nicht mehr rosa ist. Falls Stücke noch nicht gar sind, schließe den Deckel und starte den Kochzyklus für einige weitere Minuten. Rühre Hähnchen und Zwiebel dann vorsichtig unter, damit der saucige Reis darunter überzogen wird, und verteile alles wieder gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße verquirlte Eier gleichmäßig über Hähnchen und Reis. Schließe den Deckel und starte den Kochzyklus erneut. Lass ihn etwa 2 Minuten laufen und schalte dann auf Warmhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Gericht bei geschlossenem Deckel 3 bis 5 Minuten ruhen, damit das Ei zu einer weichen, glänzenden Masse über der noch heißen Schüssel stockt. Wenn du es fester magst, starte den Kochzyklus für eine weitere Minute. Das Ei sollte gestockt und nicht flüssig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löffle das Gericht in Schüsseln und garniere es mit Frühlingszwiebeln, Furikake und Nori-Streifen. Sofort essen, solange das Ei noch seidig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Oyakodon_003.jpg/1280px-Oyakodon_003.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Oyakodon_003.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ocdp — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Oyakodon aus dem Reiskocher (Hähnchen-Ei-Reisschale)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-lap-cheong-sausage-rice",
+      "slug": "rice-cooker-lap-cheong-sausage-rice",
+      "title": "Reis mit Lap-Cheong-Wurst aus dem Reiskocher",
+      "instructions": "Eine günstige süß-herzhafte chinesische Wurst dämpft direkt auf dem Reis und gibt ihr glänzendes Fett an jedes Reiskorn ab. So entsteht der gemütliche Geschmack von Reis aus dem Tontopf, ganz ohne ständiges Aufpassen. Ein Schuss Soja-Sesam-Sauce und Frühlingszwiebeln zum Schluss lassen das Gericht viel aufwendiger schmecken. Inspiriert von @thewoksoflife auf ihrem Blog (https://thewoksoflife.com/chinese-sausage-rice-cooker-lap-cheong/).",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 32,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein $1-Stück Lap Cheong aromatisiert einen ganzen Topf. Eine Packung vom Asiamarkt reicht also für mehrere Abendessen.",
+        "Kaufe Jasminreis im großen Beutel statt in kleinen Schachteln. So sinken die Kosten pro Tasse auf wenige Cent und der Reis hält sich in einem verschlossenen Behälter lange.",
+        "Lass den Reis aus dem Restaurant-Tontopf weg. Mit Sojasauce und Sesamöl aus dem Vorrat erhältst du denselben süß-herzhaften Geschmack für einen Bruchteil des Preises."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chinese-sausage",
+          "swap": "Ein paar Unzen Spam in Scheiben für eine salzigere, günstige Variante",
+          "savings": "~$0.40 pro Würstchen"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfacher weißer Langkornreis funktioniert gut; dieselbe Wassermenge verwenden",
+          "savings": "etwa gleich"
+        },
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Etwas mehr normale Sojasauce und eine Prise Zucker",
+          "savings": "Spart den Kauf einer Spezialflasche"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch-kantonesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "chinesisch",
+        "kantonesisch",
+        "Lap Cheong",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 639,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-lap-cheong-sausage-rice/",
+      "components": [
+        {
+          "key": "2e08d0d6-5c40-53bb-824a-95296e0e703d",
+          "name": "Zutaten",
+          "servingGrams": 489,
+          "position": 0,
+          "items": [
+            {
+              "key": "16b06d1e-85c0-56a8-8c4c-4a125fb25969",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5271ba5c-2355-5457-b296-31e7b20b82e1",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 150,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "lap cheong links, left ganz"
+            },
+            {
+              "key": "36097b8b-9f81-5eb9-884e-fe1719f01101",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder fill zu the line marked auf your Reiskocher bowl für your Tasse count"
+            },
+            {
+              "key": "7cb82370-b0c3-5242-bc38-9ab5796d154c",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e241ecc-d1c3-50da-ab21-f2f7d411f2b6",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "für die Farbe und a deeper savory note"
+            },
+            {
+              "key": "d4c5e125-de22-5cd3-b941-9116fc452793",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b1a8fcc-044a-538c-9506-0210d1dd8cc7",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2759d0fa-6735-5379-bd7c-e1bbc70c09f3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "gerieben oder fein gehackt"
+            },
+            {
+              "key": "6b5de742-b2eb-5451-8557-286bae94c0cb",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, für finishing"
+            },
+            {
+              "key": "9f298d60-8828-5d5e-a4ea-cb51c0193cf6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "gehackt, optional aromatic"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Jasminreis direkt in der Reiskocherschüssel ab: Gib Wasser dazu, wirble den Reis mit der Hand herum und gieße das trübe Wasser ab. Wiederhole dies 2-3 Mal, bis das Wasser fast klar abläuft. Lass den Reis dann gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 2 cups Wasser dazu (oder fülle bis zur Markierung für die verwendete Reismenge). Rühre geriebenen Ingwer und gehackten Knoblauch nach Wunsch ein und verteile den Reis gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die ganzen Lap-Cheong-Würste direkt auf den Reis. Schneide sie nicht auf und rühre nicht um, damit das Fett beim Dämpfen direkt in die Reiskörner tropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen normalen Kochzyklus für weißen Reis. Während des Kochens wird die Wurst weich und gibt ihr süß-herzhaftes Fett an den Reis darunter ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre währenddessen Sojasauce, dunkle Sojasauce, Sesamöl und Zucker in einer kleinen Tasse, bis sich der Zucker aufgelöst hat. Das ist die Sauce zum Darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Kochzyklus endet, lass den Deckel geschlossen und halte den Reis 5 Minuten warm. Nimm dann die Würste heraus, schneide sie schräg in dünne Scheiben und gib sie zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Soja-Sesam-Sauce darüber und hebe alles vorsichtig mit einem Pfannenwender oder Reislöffel unter, damit jedes Korn glänzt und gewürzt ist. Gib geschnittene Frühlingszwiebeln darauf und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/%E8%85%8A%E5%91%B3%E7%85%B2%E4%BB%94%E9%A5%AD_Chinese_Sausage_and_Cured_Pork_Hotpot_Rice_-_First_Taste_%282238752684%29.jpg/1280px-%E8%85%8A%E5%91%B3%E7%85%B2%E4%BB%94%E9%A5%AD_Chinese_Sausage_and_Cured_Pork_Hotpot_Rice_-_First_Taste_%282238752684%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E8%85%8A%E5%91%B3%E7%85%B2%E4%BB%94%E9%A5%AD_Chinese_Sausage_and_Cured_Pork_Hotpot_Rice_-_First_Taste_(2238752684).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Alpha from Melbourne, Australia — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Reis mit Lap-Cheong-Wurst aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

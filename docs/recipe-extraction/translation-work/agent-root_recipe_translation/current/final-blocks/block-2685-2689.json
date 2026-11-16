@@ -1,0 +1,1043 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tibs",
+      "slug": "gen-tibs",
+      "title": "Tibs",
+      "instructions": "Äthiopisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter statt Roastbeef und würfle das Fleisch selbst",
+        "Kaufe Gemüse der Saison zu günstigeren Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "äthiopisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2685,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tibs/",
+      "components": [
+        {
+          "key": "2d56acb5-fe15-579e-9826-1ca5dcd8f7a9",
+          "name": "Zutaten",
+          "servingGrams": 202.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0df7762-11ee-5542-a0db-c6a5e0c33915",
+              "ingredientName": "Rinderlende",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "1ae8a2f1-4633-54e4-9f67-a2b7a6f75bcc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "6742d1fa-1df0-578b-85ce-7ee9389c2753",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ec6dfa2-d38f-5df3-9af6-b48bfbfb955f",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "eab1fd5e-38c8-5a5a-a541-c5e0283cc440",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "57f0b64e-dba6-555c-b96b-6d8d510e8b89",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "1cecabda-1405-5e84-8d53-57d48a498e50",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "119ed32a-28f1-5dca-afb3-69ed313a102e",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a5f36462-5446-5c91-91fc-edd68f381c4d",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch in 1-Zoll-Würfel und würze es mit Salz und Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Zwiebel, Paprika und Tomate und hacke den Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz Butter in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bräune die Rindfleischwürfel portionsweise 5 Minuten und stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dünste in derselben Pfanne die Zwiebel etwa 5 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Knoblauch, Ingwer und Paprika hinzu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Fleisch zurück in die Pfanne, füge gewürfelte Tomate hinzu und lasse alles 10 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gradfood.com/wp-content/uploads/2020/02/Siga-Tibs-Ethiopian-Beef-Stew-2048x1536.jpg",
+          "sourcePageUrl": "https://gradfood.com/wp-content/uploads/2020/02/Siga-Tibs-Ethiopian-Beef-Stew-2048x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-injera",
+      "slug": "gen-injera",
+      "title": "Injera",
+      "instructions": "Äthiopisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Teffmehl online in größeren Mengen zu deutlich günstigeren Preisen",
+        "Bereite mehrere Portionen auf einmal zu und friere sie mit Backpapier dazwischen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "äthiopisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2686,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-injera/",
+      "components": [
+        {
+          "key": "25185c7c-f418-54fe-9d9c-07517a05657f",
+          "name": "Zutaten",
+          "servingGrams": 363.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce1f67fb-3f1c-5e89-8e0b-6610a3a29062",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4b0eb9e7-7aa7-5fed-a28b-72cbc79d3836",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "681aa33c-5cbf-59fb-a439-d0ce6415d44d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7218686d-a756-52bd-8a02-616de5be23db",
+              "ingredientName": "Nährhefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Teffmehl, Weizenmehl und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße nach und nach Wasser unter Rühren hinzu, bis ein glatter, klumpenfreier Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Hefe ein und decke die Schüssel mit einem Tuch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Teig 3-5 Tage bei Raumtemperatur fermentieren und rühre ihn einmal täglich um, bis er säuerlich riecht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine beschichtete Pfanne oder Crêpe-Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße etwa 1/2 Tasse Teig in die Mitte der heißen Pfanne und neige sie, damit sich der Teig zu einem dünnen Kreis verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Pfanne ab und gare den Teig 2-3 Minuten, bis die Oberfläche fest, aber noch leicht feucht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege das Injera auf einen Teller und lasse es vollständig abkühlen, bevor du es stapelst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/g1lgbVqA9NFg9zI8SHlEGVjYsaY=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/dairy-free-injera-1000599-step-10-8462d632e79a45139b177e5d4da149e6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/g1lgbVqA9NFg9zI8SHlEGVjYsaY=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/dairy-free-injera-1000599-step-10-8462d632e79a45139b177e5d4da149e6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wat",
+      "slug": "gen-wat",
+      "title": "Wat",
+      "instructions": "Äthiopisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter statt teurerer Stücke für authentischen Geschmack zu geringeren Kosten",
+        "Kaufe Paprika- und Cayennepulver lose auf Märkten mit internationalen Lebensmitteln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "äthiopisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2687,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wat/",
+      "components": [
+        {
+          "key": "5297c8f2-827f-5385-8a8b-fcea78c56b24",
+          "name": "Zutaten",
+          "servingGrams": 254.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "23f3eaf8-48aa-5aba-b384-ab95a242d508",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "8ed4c669-de56-529c-ad07-703079a9bdae",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 großes Stück"
+            },
+            {
+              "key": "a67ff2a1-b05c-5466-9605-ad218ffad0df",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Knoblauchzehen"
+            },
+            {
+              "key": "3fd3ebdd-8e4a-554e-9f01-7a7d2cc2aff6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "45175c93-07a7-5a7e-b6e1-40e38babefb5",
+              "ingredientName": "Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bcc1954c-cbd2-5c0f-a4bf-9a09f4652eb1",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1-2 TL"
+            },
+            {
+              "key": "5255f1ac-b574-59c4-a7f3-7d27dbd081bb",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "641057e7-7534-574c-a793-1ed08100f732",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "9d58fbff-6bf4-5e47-a367-c359a4935d05",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "aafdb448-f422-5217-8fec-50b427c2a9d4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und gare gewürfelte Zwiebeln etwa 8 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer hinzu und rühre 2 Minuten ständig um, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Paprikapulver und Cayennepfeffer ein und gare alles 1 Minute, damit sich die Gewürze entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Rindfleischwürfel hinzu und bräune sie 5 Minuten von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Wasser hinzu, salze und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Topf ab und lasse alles 50-60 Minuten köcheln, bis das Rindfleisch sehr zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke das Gericht ab und serviere es heiß auf Injera.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/PumiBK5MJAK5GVeyEyXvqda2_Gk=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/doro-wat-39441-step-06-4c68f5b26c59488e9cf7a40632673277.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/PumiBK5MJAK5GVeyEyXvqda2_Gk=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/doro-wat-39441-step-06-4c68f5b26c59488e9cf7a40632673277.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-doro-tibs",
+      "slug": "gen-doro-tibs",
+      "title": "Doro Tibs",
+      "instructions": "Äthiopisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen in Familienpackungen und friere Portionen ein",
+        "Verwende Tomaten der Saison für besseren Geschmack und niedrigere Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "äthiopisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2688,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-doro-tibs/",
+      "components": [
+        {
+          "key": "485b3576-2865-5b0a-a970-1906acf33bdc",
+          "name": "Zutaten",
+          "servingGrams": 154.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd094a28-2a73-5e26-a351-ea76aed25b9b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2dcfcaad-6dca-5a1a-b4e0-cc721f17e7c6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "95b4280d-3bc0-5f54-8486-7ad8fef0f2ff",
+              "ingredientName": "Aufschnittschinken",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa12a9b9-cada-5516-8eda-cc1bfa62739d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "bcd5307d-d7b5-5c0e-a101-5f23f4bb4a4f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2f1dd884-a919-53b0-ad3f-db8eaad2ec88",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "853bcb49-4c8f-5f6a-b624-0e51842c94ce",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ae8d72cf-4306-5f21-b74f-5ddce34b310d",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2c861b04-1d84-5a81-a702-5eb767fca9b2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Zwiebeln hinzu und gare sie etwa 5 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Knoblauch und Ingwer ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Hähnchenwürfel hinzu und gare sie etwa 8 Minuten, bis sie von allen Seiten leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Jalapeños und gewürfelte Tomate hinzu und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer und presse Zitronensaft über das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles 10 Minuten köcheln, bis das Hähnchen gar und das Gemüse zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es heiß auf Injera oder mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gradfood.com/wp-content/uploads/2020/02/Doro-Wot-Ethiopian-Chicken-Stew-2048x1536.jpg",
+          "sourcePageUrl": "https://gradfood.com/wp-content/uploads/2020/02/Doro-Wot-Ethiopian-Chicken-Stew-2048x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shiro-wot",
+      "slug": "gen-shiro-wot",
+      "title": "Shiro Wot",
+      "instructions": "Äthiopisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsenmehl in größeren Mengen in indischen oder Spezialitätengeschäften",
+        "Bereite die doppelte Menge zu und friere Portionen für schnelle Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "äthiopisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2689,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shiro-wot/",
+      "components": [
+        {
+          "key": "cd9d9661-2067-5e4d-9b22-53513c178a8e",
+          "name": "Zutaten",
+          "servingGrams": 310.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "00f0a683-091b-5eef-b643-53fc2f50dcbc",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "77f4faa0-6c9b-5956-aa24-09a34895e93a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "8a061c57-dc6d-5e69-bbfc-0de1e894d681",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Knoblauchzehen"
+            },
+            {
+              "key": "4e4e5e12-3608-5748-8936-81104e3e1217",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "2b6e4367-e166-5e4c-81df-6bcd2cb6ee51",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f6d72b52-165e-5dac-846b-119bd183e8b7",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5-1 TL"
+            },
+            {
+              "key": "e1217fe5-dad0-5b3a-9030-d5463ade048a",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "67e5da0c-ec1b-5913-9ced-eceae87bedb3",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b4642401-f227-5bb8-b707-28faee9e3e07",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf bei mittlerer Hitze und dünste die Zwiebeln etwa 8 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer hinzu und rühre 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Paprikapulver und Cayennepfeffer unter die Zwiebelmischung und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Kichererbsenmehl mit 1 Tasse Wasser in einer Schüssel zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Mehlmischung nach und nach unter ständigem Rühren in den Topf, damit sich keine Klumpen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das restliche Wasser hinzu und rühre gut um. Lasse die Mischung sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles 20-25 Minuten unter häufigem Rühren köcheln, bis die Mischung eingedickt und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und serviere das Gericht auf einer mit Injera ausgelegten Platte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/b6zg049pexb51.jpg",
+          "sourcePageUrl": "https://i.redd.it/b6zg049pexb51.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

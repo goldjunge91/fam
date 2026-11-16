@@ -1,0 +1,1326 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-creamy-lemon-pepper-chicken",
+      "slug": "she-creamy-lemon-pepper-chicken",
+      "title": "Cremiges Zitronen-Pfeffer-Hähnchen",
+      "instructions": "Goldbraune, in der Pfanne gebratene Hähnchensteaks in einer seidigen Zitronen-Pfeffer-Sahnesoße mit Parmesan, Dijon-Senf und Knoblauch: frisch, würzig und in 20 Minuten fertig. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-lemon-pepper-chicken/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Hähnchenbrust durch Oberkeulen. Sie kosten pro Portion weniger und bleiben in der Sahnesoße saftiger.",
+        "Verwende Zitronensaft aus der Flasche und lass die frische Zitronenschale weg, um etwas zu sparen. Eine frische Zitrone sorgt dennoch für viel Aroma und kostet nur wenige Cent.",
+        "Serviere Reis statt Kartoffelstampf dazu. So reicht die reichhaltige Soße für vier Portionen, ohne dass es viel kostet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen",
+          "savings": "ca. $0.20/Portion und harder to overcook"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Doppelrahm oder leichte Sahne für eine leichtere Soße",
+          "savings": "light-cream trims richness; double-cream is mehr decadent"
+        },
+        {
+          "forIngredientId": "grated-parmesan",
+          "swap": "Geriebener Parmesan",
+          "savings": "verwenden Vorhundenes vorrätig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Hähnchen",
+        "cremig",
+        "Zitrone",
+        "aus-einer-Pfanne",
+        "Abendessen",
+        "30-Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 355,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-lemon-pepper-chicken/",
+      "components": [
+        {
+          "key": "4a6ad72f-ed42-536f-bc96-74ab9b7c1220",
+          "name": "Zutaten",
+          "servingGrams": 790.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7011d547-ca23-57d5-b0cf-4d11b442cc5b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 breasts, cut halbiert horizontally to make 4 steaks"
+            },
+            {
+              "key": "18670e40-6c1f-5789-b38a-eb3ac86539c0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken, plus weitere nach Geschmack"
+            },
+            {
+              "key": "33d465bb-df42-5e86-9793-fc326b06cb47",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL für chicken + 1 TL für sauce, plus extra zum Servieren"
+            },
+            {
+              "key": "e36ee8ab-ed3e-5581-a0fd-eb61dc04622d",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ca673129-df3c-56b6-b0da-3b87813901bd",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "35g plain (Weizen-) flour, für dredging"
+            },
+            {
+              "key": "3d6ef138-cb67-560b-ad51-3cd575cf4ea4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c6c40d6a-1d6d-5e84-90f9-c59b07aee615",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL für searing + 1 EL für die Sauce"
+            },
+            {
+              "key": "0d80859a-82d8-5c81-97b6-0af6496bfc9d",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "60ml, zum Ablöschen"
+            },
+            {
+              "key": "3ba03939-08ad-55c3-be76-265a8871dd0c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt"
+            },
+            {
+              "key": "89e0938e-29a8-55a1-853e-68cd4d079bc8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "125ml"
+            },
+            {
+              "key": "b8733cfa-57ed-5a6f-aaab-eb6e79800438",
+              "ingredientName": "Sahne",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "300ml Schlagsahne"
+            },
+            {
+              "key": "3c18f354-2065-505b-b0fa-51d7edb866ad",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL dijon mustard"
+            },
+            {
+              "key": "925ed5cf-0a67-5496-849b-db382d68373e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 lemon, juiced und zested; extra slices zum Servieren"
+            },
+            {
+              "key": "3e654be9-c5bc-5126-b733-8027bcd07f6f",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "zest of the lemon, ~1 TL"
+            },
+            {
+              "key": "87cd81a3-025a-5a77-9731-fb8ccc75b276",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "50g frisch gerieben parmesan"
+            },
+            {
+              "key": "429f923f-120d-501e-8ff4-fc3fbf89b858",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "steamed green beans, zum Servieren"
+            },
+            {
+              "key": "2b57fc96-cdb0-5bc5-b291-41d65f3ccc53",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "rice oder mashed potatoes, zum Servieren"
+            },
+            {
+              "key": "1b6bc5a2-f515-5be4-a818-4a3b172dac47",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "1 EL frisch gehackt flat-leaf parsley"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchensteaks rundherum mit Salz, 1 TL schwarzem Pfeffer und edelsüßem Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile das Mehl auf einem Teller und drücke die Hähnchensteaks hinein, bis alle Seiten gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl und 1 EL Butter in einer großen, tiefen, schweren Pfanne bei mittlerer bis hoher Hitze. Gib das Hähnchen dazu und brate es unter einmaligem Wenden 5-6 Minuten, bis es gerade gar ist. Lege es auf einem Teller beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lösche die Pfanne mit Wasser ab oder wische sie sauber. Gib die übrige 1 EL Butter und den Knoblauch dazu und brate alles unter Rühren 30-60 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Hühnerbrühe dazu und koche sie 1-2 Minuten, bis sie um die Hälfte reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe. Gib Sahne, Dijon-Senf, Zitronensaft, Zitronenschale und 1 TL schwarzen Pfeffer dazu. Lass die Soße 2-3 Minuten köcheln, bis sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre den Parmesan ein und schmecke mit Salz ab. Gib das Hähnchen und den ausgetretenen Fleischsaft zurück in die Pfanne und lass alles 2-3 Minuten köcheln, bis es heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Hähnchen auf Reis oder Kartoffelstampf mit gedämpften grünen Bohnen, Zitronenscheiben, etwas frisch gemahlenem Pfeffer und nach Wunsch Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/03/Creamy-Lemon-Pepper-Chicken-2.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-lemon-pepper-chicken/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigem Zitronen-Pfeffer-Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-creamy-lemon-tortellini",
+      "slug": "she-creamy-lemon-tortellini",
+      "title": "Cremige Zitronen-Tortellini",
+      "instructions": "Zarte Tortellini mit Spinat und Ricotta köcheln direkt in einer frischen Zitronen-Parmesan-Sahnesoße mit weicher Zucchini und zusammengefallenem Spinat. Ein wunderbares Gericht aus einer Pfanne, das in genau 15 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-lemon-tortellini/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Das ist günstiger als fertig geriebener Parmesan und er schmilzt besser.",
+        "Ersetze Sahne durch Kaffeesahne und einen Schuss Milch, wenn du Geld sparen möchtest. Für eine vegetarische Variante kannst du Gemüsebrühe zum gleichen Preis verwenden.",
+        "Eine ganze Zitrone liefert Saft und kostenlose Schale. Reibe die Schale vor dem Auspressen ab und gib für zusätzliche Frische eine Prise davon dazu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tortellini",
+          "swap": "Jede frische gefüllte Pasta wie Ravioli oder Käse-Tortelloni",
+          "savings": "Store-brund frisch pasta is oft günstiger"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Leichte Sahne oder Kaffeesahne für eine leichtere und günstigere Soße",
+          "savings": "ca. $0.50/Portion"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Gemüsebrühe für eine vollständig vegetarische Variante",
+          "savings": "Same Preis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Pasta",
+        "cremig",
+        "Zitrone",
+        "vegetarisch",
+        "schnell",
+        "aus-einer-Pfanne",
+        "Abendessen",
+        "Tortellini"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 356,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-lemon-tortellini/",
+      "components": [
+        {
+          "key": "54f91b5b-a7f5-5edd-b83a-c7b557c7f479",
+          "name": "Zutaten",
+          "servingGrams": 563.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a87def7e-87c7-5c34-9e52-d6e940a7dd7b",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9725e564-f741-5377-bb4a-008530f04456",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt"
+            },
+            {
+              "key": "2342fcd2-1109-5c8d-a3f3-76330a853ced",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 zucchini, fein geschnitten"
+            },
+            {
+              "key": "8f2778bd-b34b-545b-88b3-c57da10aad73",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 lemon, ausgepresst"
+            },
+            {
+              "key": "960e94e4-f1ff-5382-ab98-f0b03b32abfe",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "250 ml chicken oder Gemüsebrühe"
+            },
+            {
+              "key": "872331b9-31b7-57c5-b4e5-c78c35677136",
+              "ingredientName": "Sahne",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "300 ml thickened/Schlagsahne"
+            },
+            {
+              "key": "ca51e474-9d44-5bac-856b-a58b98001e7b",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken, oder nach Geschmack"
+            },
+            {
+              "key": "c8a5c02e-187c-5ad9-9aac-81206c72bc7d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen, oder nach Geschmack"
+            },
+            {
+              "key": "fdc6d74a-c70b-5de3-a42b-4109a7650bef",
+              "ingredientName": "Tortellini",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "500 g spinach und ricotta tortellini"
+            },
+            {
+              "key": "2ea89d41-c096-5839-8597-80ee0ff5a088",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "100 g Babyspinat"
+            },
+            {
+              "key": "3497b0b3-2192-5396-8050-fa0db9b85b24",
+              "ingredientName": "Parmesan",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "100 g frisch gerieben, plus extra zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Butter in einer großen, tiefen, schweren Pfanne bei mittlerer bis hoher Hitze. Gib den Knoblauch dazu und brate ihn unter Rühren 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die in Scheiben geschnittene Zucchini dazu und gare sie 2-3 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den Zitronensaft, dann Brühe, Sahne, Salz und Pfeffer ein. Lass alles leicht köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die frischen Tortellini dazu; sie müssen nicht vorgekocht werden. Rühre sie unter und drücke sie mit der Rückseite des Löffels vorsichtig so weit wie möglich in die Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe, sodass die Soße nur leicht köchelt. Decke die Pfanne ab und gare alles 3-5 Minuten, bis die Pasta gar ist. Rühre nach der Hälfte der Zeit einmal um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre den jungen Spinat und den Parmesan unter. Sobald der Spinat zusammengefallen ist, schalte den Herd aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue das Gericht mit zusätzlichem Parmesan und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/12/Creamy-Lemon-Tortellini.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-lemon-tortellini/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigen Zitronen-Tortellini",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-creamy-mushroom-bacon-fettuccine",
+      "slug": "she-creamy-mushroom-bacon-fettuccine",
+      "title": "Cremige Fettuccine mit Pilzen und Speck",
+      "instructions": "Seidige Fettuccine in einer reichhaltigen Parmesan-Sahnesoße mit goldbraunen Pilzen und knusprigem Speck: ein wohltuendes Abendessen für unter der Woche, das in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-mushroom-bacon-fettuccine/",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Stück Parmesan und reibe ihn selbst. Das ist pro Gramm günstiger als fertig geriebener Parmesan und er schmilzt besser.",
+        "Einfache weiße Champignons sind hier am günstigsten und bräunen genauso gut wie braune Champignons.",
+        "Ersetze die Sahne durch eine günstigere Kochsahne oder verdünne die Soße mit etwas aufgefangenem Nudelwasser, damit sie für mehr Portionen reicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck oder pflanzlicher Speck für eine leichtere oder fleischfreie Variante",
+          "savings": "spart ca. $1.00"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Leichte Sahne oder Kondensmilch für eine fettärmere Soße",
+          "savings": "ähnlicher Preis"
+        },
+        {
+          "forIngredientId": "chicken-stock",
+          "swap": "Gemüse- oder Pilzbrühe für eine fleischfreie Variante in Verbindung mit pflanzlichem Speck",
+          "savings": "ähnlicher Preis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "Pasta",
+        "cremig",
+        "Pilze",
+        "Speck",
+        "Wohlfühlessen",
+        "Abendessen",
+        "schnell",
+        "Fettuccine"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 357,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-mushroom-bacon-fettuccine/",
+      "components": [
+        {
+          "key": "9ad1fb38-ee66-5097-bdb0-6d55afceec9c",
+          "name": "Zutaten",
+          "servingGrams": 630.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1d34914-5750-525b-81e4-22b8976881c9",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "300 g fettuccine (oder any pasta)"
+            },
+            {
+              "key": "442082b8-0069-5d6c-880a-6a45adbf3674",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0b28134c-3267-5e11-a0b7-cd6a9933fd4b",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "200 g, in dicke Streifen geschnitten"
+            },
+            {
+              "key": "c76b3ad4-626d-527e-945f-0083f36cdad8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 klein, fein gewürfelt"
+            },
+            {
+              "key": "f0863bb6-fdfe-5151-be98-67ebd9ee4830",
+              "ingredientName": "Champignons",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "400 g, in Scheiben geschnitten"
+            },
+            {
+              "key": "1f53d200-ea9d-5f2c-8818-48dadaeca66f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt"
+            },
+            {
+              "key": "ad2499f1-cbe6-5b03-aa8c-7c8d24bee66c",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige, plus extra Blätter zum Garnieren"
+            },
+            {
+              "key": "69942db6-48a5-5ce6-bfac-38fc6ac8dce2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "125 ml"
+            },
+            {
+              "key": "bec1c3ea-c6fd-576f-8ac5-6280f343fb41",
+              "ingredientName": "Sahne",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "300 ml Schlagsahne"
+            },
+            {
+              "key": "86c37fb8-a07b-5397-a9db-a2332e8fd52f",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "50 g frisch gerieben, plus extra zum Servieren"
+            },
+            {
+              "key": "e3560c36-fdb5-5e22-9516-8cac08877dc1",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL, oder nach Geschmack"
+            },
+            {
+              "key": "ae705c4d-166c-5a2b-86a1-c343ce3ee8e8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "frisch gemahlen, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Fettuccine nach Packungsanleitung, aber 1-2 Minuten kürzer, damit sie bissfest bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze in der Zwischenzeit das Olivenöl in einer großen, tiefen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Speck dazu und brate ihn unter Rühren 2-3 Minuten, bis er langsam bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die rote Zwiebel dazu und gare sie 1-2 Minuten. Füge dann die Pilze hinzu und brate sie 4-5 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Knoblauch und Thymian dazu und brate alles unter Rühren 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Hühnerbrühe dazu, löse die anhaftenden Röststoffe vom Pfannenboden und koche alles 1-2 Minuten, bis der Großteil der Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Sahne und Parmesan dazu, lass die Soße aufkochen und gare sie 2-3 Minuten, bis sie eindickt. Schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße die Pasta ab und spüle sie mit kaltem Wasser, damit sie nicht weitergart oder zusammenklebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Entferne die Thymianzweige. Gib dann die Pasta zur Soße und schwenke sie mit einer Zange 1 Minute, bis sie gerade durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Serviere das Gericht mit zusätzlichem Parmesan, frisch gemahlenem schwarzem Pfeffer und frischen Thymianblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/04/Creamy-Mushroom-and-Bacon-Pasta-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-mushroom-bacon-fettuccine/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigen Fettuccine mit Pilzen und Speck",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-creamy-oatmeal",
+      "slug": "she-creamy-oatmeal",
+      "title": "Cremiger Haferbrei",
+      "instructions": "Eine warme, samtige Schüssel Haferflocken, in Milch gekocht und mit Banane, frischen Erdbeeren, knackigen Walnüssen, Kokosflocken und etwas Ahornsirup verfeinert. Ein gemütliches, nahrhaftes Frühstück, das in fünf Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-oatmeal/",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Haferflocken in einer großen Packung statt in Einzelportionen. So sinken die Kosten pro Schüssel deutlich.",
+        "Ersetze frische Erdbeeren außerhalb der Saison durch tiefgekühlte, aufgetaute Erdbeeren, um Geld zu sparen.",
+        "Verwende beliebige Nüsse aus dem Vorrat statt Walnüssen. Auch andere übrige Nüsse sorgen für Biss."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Hafer- oder Mandelmilch für eine milchfreie Portion",
+          "savings": "vergleichbar Kosten; makes it vegan"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Mit Honig beträufeln oder mit etwas Kokosblütenzucker bestreuen",
+          "savings": "spart etwa $0.25 pro Portion"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Erdnüsse oder beliebige gemischte Nüsse",
+          "savings": "spart etwa $0.45 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "Haferbrei",
+        "schnell",
+        "vegetarisch",
+        "gesund",
+        "5-Minuten",
+        "Porridge",
+        "Obst"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 358,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-oatmeal/",
+      "components": [
+        {
+          "key": "7e0c28c2-1cee-5863-8826-019e7f96bbbc",
+          "name": "Zutaten",
+          "servingGrams": 816.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "c071d2ba-62e8-5604-85a4-2b3691c1298a",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "75 g zarte Haferflocken"
+            },
+            {
+              "key": "e40cd961-2728-5add-8a7a-c4fe17efd0f7",
+              "ingredientName": "Milch",
+              "grams": 384,
+              "quantity": 384,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "375 ml plus 1 EL milk"
+            },
+            {
+              "key": "ba0e2c3b-0d25-5e50-96a8-fa1e11bba10a",
+              "ingredientName": "Chiasamen",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": true,
+              "source_note": "1 EL, optional"
+            },
+            {
+              "key": "84cd5bd5-e44a-5dd6-8fdc-22d0e4125e80",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL in oats plus 1/4 TL zum Servieren"
+            },
+            {
+              "key": "016b5114-899b-5486-9628-4ee0aeeddf0d",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 banana, in Scheiben geschnitten"
+            },
+            {
+              "key": "1ec87664-8f16-5259-9277-bbe64bd0f891",
+              "ingredientName": "Erdbeeren",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 strawberries, in Scheiben geschnitten"
+            },
+            {
+              "key": "e2f0dcc7-0715-5b23-8440-fcb321b96d07",
+              "ingredientName": "Walnüsse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, gehackt"
+            },
+            {
+              "key": "967a1f08-0b06-5c5a-9c10-aa941e781fc4",
+              "ingredientName": "Kokosflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a39919d3-8b9a-5f78-80cf-df7daff8ac04",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL pure maple syrup"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Haferflocken, Milch, nach Wunsch Chiasamen und 1/4 TL Zimt in einen kleinen Topf und erhitze alles bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Mischung unter ständigem Rühren 2-3 Minuten oder bis sie die gewünschte Konsistenz erreicht. Beim Abkühlen dickt der Haferbrei weiter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Haferbrei in eine Schüssel und rühre einen Schuss der zurückbehaltenen Milch ein, damit er etwas dünner wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege ihn mit geschnittener Banane, Erdbeeren, Walnüssen und Kokosflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Träufle Ahornsirup darüber, bestäube alles mit dem übrigen 1/4 TL Zimt und serviere den Haferbrei warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2021/10/Creamy-Oatmeal-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-oatmeal/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigem Haferbrei",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-creamy-pesto-chicken-breast",
+      "slug": "she-creamy-pesto-chicken-breast",
+      "title": "Cremiges Pesto-Hähnchenbrustfilet",
+      "instructions": "Goldbraune Hähnchensteaks aus der Pfanne in einer reichhaltigen, basilikumfrischen Sahnesoße mit süßen halbgetrockneten Tomaten, weichem Spinat und reichlich Parmesan. Ein Abendessen für unter der Woche, das in 20 Minuten fertig ist und viel länger geschmort zu sein scheint. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-pesto-chicken-breast/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchenbrüste und schneide sie selbst seitlich auf, statt vorgeschnittene Filets zu nehmen. So sparst du Geld pro Pfund.",
+        "Bereite Pesto selbst aus einem Bund Basilikum, Knoblauch und Öl zu, wenn Basilikum Saison hat und günstig ist. Das kostet nur einen Bruchteil von Pesto aus dem Glas.",
+        "Ein Stück Parmesan, das du selbst reibst, reicht weiter als fertig geriebener Parmesan und hält sich wochenlang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kaffeesahne oder Kondensmilch mit einem Teelöffel Speisestärke für eine leichtere Soße",
+          "savings": "~30%"
+        },
+        {
+          "forIngredientId": "sun-dried-tomatoes",
+          "swap": "Geröstete Paprika aus dem Glas oder halbierte frische Kirschtomaten",
+          "savings": "~40%"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefgekühlter Spinat, aufgetaut und gut ausgedrückt, oder gehackter Grünkohl",
+          "savings": "~20%"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Hähnchen",
+        "cremig",
+        "Pesto",
+        "aus-einer-Pfanne",
+        "Abendessen",
+        "schnell",
+        "kohlenhydratarm",
+        "keto-freundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 359,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-pesto-chicken-breast/",
+      "components": [
+        {
+          "key": "22029b54-681c-5f59-befb-f38030ed4751",
+          "name": "Zutaten",
+          "servingGrams": 560.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca068cb3-3026-523d-93e4-a50e8c1829be",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "900g ohne Knochen ohne Haut, halbiert horizontally into thin steaks"
+            },
+            {
+              "key": "603e3b99-e828-53d7-a5fd-01a1c1cc64a8",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            },
+            {
+              "key": "e01c400c-e5c1-5dd0-b325-14d1c259af7c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fe2c7ed5-5edb-55e5-938b-a9dc60948f68",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "9f575ff5-9455-5cca-80b0-31bb3e1e79dc",
+              "ingredientName": "Getrocknete Tomaten in Öl",
+              "grams": 175,
+              "quantity": 0.35,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "80g halbtrockene (sonnengetrocknete) Tomaten"
+            },
+            {
+              "key": "5b312f52-90dc-501d-be12-15361ab32bf2",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "90g baby spinach Blätter"
+            },
+            {
+              "key": "5f871d1b-d2f2-5639-b635-7078f0f7897f",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "250ml Schlagsahne"
+            },
+            {
+              "key": "151ab592-48c9-54b8-91d5-b62f6120503b",
+              "ingredientName": "Pesto",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "185g, store-bought oder homemade"
+            },
+            {
+              "key": "b988f515-58f2-50e9-a1a2-99ce1cd4ec4a",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "100g frisch gerieben, plus extra zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchensteaks rundherum mit Meersalzflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Olivenöl in einer großen, schweren Pfanne bei mittlerer bis hoher Hitze. Gib das Hähnchen hinein und brate es auf jeder Seite 3-4 Minuten, bis es goldbraun ist. Lege es auf einem Teller beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lösche die Pfanne mit etwa 60 ml (1/4 Tasse) Wasser ab und kratze die knusprigen, gebräunten Reste mit einem Holzlöffel vom Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gehackten Knoblauch in dieselbe Pfanne und brate ihn unter Rühren 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die halbgetrockneten Tomaten, den Spinat und die Sahne ein. Lass die Soße leicht köcheln, etwa 1-2 Minuten, bis der Spinat zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Pesto und geriebenen Parmesan unter, bis die Soße glatt ist. Gib dann das Hähnchen samt ausgetretenem Fleischsaft zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass alles bei niedriger Hitze 3-5 Minuten köcheln, bis das Hähnchen durchgegart und die Soße eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue das Gericht mit zusätzlichem Parmesan und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2021/08/Creamy-Pesto-Chicken-Breast-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-pesto-chicken-breast/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigem Pesto-Hähnchenbrustfilet",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

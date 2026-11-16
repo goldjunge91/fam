@@ -1,0 +1,1087 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-olivier-salad",
+      "slug": "gen-olivier-salad",
+      "title": "Olivier-Salat",
+      "instructions": "Russisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstigeren Aufschnitt wie Lyoner statt Schinken",
+        "Kaufe Erbsen tiefgekühlt in größeren Mengen und lagere sie lange"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "russisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3190,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-olivier-salad/",
+      "components": [
+        {
+          "key": "a3e0a0ce-a777-59f7-8dc0-24fd5be29147",
+          "name": "Zutaten",
+          "servingGrams": 427.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1854d70-7e5c-5655-8876-ed9a050dd029",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroßes Stück"
+            },
+            {
+              "key": "1d273fc4-64e8-564c-a62f-1f16e31d70f9",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "a06b6ce6-203d-5af0-b6a8-efb5878f2bc5",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 großes Stück"
+            },
+            {
+              "key": "7d51ab5f-dd02-500a-870c-b20428deab58",
+              "ingredientName": "Gewürzgurken (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "414eeb79-5ad7-58c3-938a-1f8bffd97271",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen tiefgekühlt"
+            },
+            {
+              "key": "047e2b82-eac1-54c9-a86f-010c399672fa",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "36179682-45dc-5e41-942a-14f5d82f909c",
+              "ingredientName": "Mayonnaise",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2/3 Tassen"
+            },
+            {
+              "key": "630406ca-9c62-56a0-98a1-e54e8e7d1680",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln und Karotten 15 Minuten in Salzwasser, bis sie weich sind. Gieße sie ab und lasse sie vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Eier 10 Minuten hart, schäle sie und kühle sie in Eiswasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die abgekühlten Kartoffeln, Karotten und Eier in kleine 1/4 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle Gewürzgurken und Schinken in ähnlich große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Kartoffeln, Karotten, Eier, Gewürzgurken, Schinken und Erbsen in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Mayonnaise, Salz und Pfeffer hinzu und hebe alles vorsichtig unter, bis die Zutaten bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle den Salat vor dem Servieren mindestens 1 Stunde kalt, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Ne_0Hm_g9SgWSQLqwi5nk4AFiJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Olivier-Potato-Salad-LEAD-08-c764b73b913240e5aa89f5dddb3df53d.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Ne_0Hm_g9SgWSQLqwi5nk4AFiJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Olivier-Potato-Salad-LEAD-08-c764b73b913240e5aa89f5dddb3df53d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shopska-salad",
+      "slug": "gen-shopska-salad",
+      "title": "Schopska-Salat",
+      "instructions": "Bulgarisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Feta statt importierter Sorten",
+        "Kaufe Tomaten und Paprika der Saison auf Bauernmärkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "bulgarisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3191,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shopska-salad/",
+      "components": [
+        {
+          "key": "623ee855-696c-5e0f-a03e-f0141f127e63",
+          "name": "Zutaten",
+          "servingGrams": 776.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "40d7e697-f843-5ad1-a275-cfa3ddd125fb",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 großes Stück"
+            },
+            {
+              "key": "702835e9-31f6-5e5f-96f5-9e6f22182e5e",
+              "ingredientName": "Gurke",
+              "grams": 900,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroßes Stück"
+            },
+            {
+              "key": "840a81bd-ff2e-5d2d-a93f-0a13ae5c9b34",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd2a4320-9e13-53e0-adc8-f380c90a8c12",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "477951a1-c89f-52a4-b08e-20ce65a7e4aa",
+              "ingredientName": "Feta",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "47be7752-388c-5391-bb9b-d39c6d77184c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen gehackt"
+            },
+            {
+              "key": "09b88476-80d6-504c-a3d0-45ba1d3caa55",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "d1ebdc29-01ce-5856-b3a8-6cd937d5a535",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d82efa69-a775-5cc1-b826-f859cb139dfc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Tomaten, Gurken und rote Paprika in mittelgroße Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide rote Zwiebel in dünne Scheiben und spüle sie unter kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische alles Gemüse und Petersilie in einer großen Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle den Weißkäse und gib ihn zum Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Olivenöl, Essig, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das Dressing über den Salat und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren oder 10 Minuten ziehen lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/VzcRDI6gosnpljjvtujQevcu06U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bulgarian-salad-recipe-shopska-salata-1137345-hero-05-fb2b0eb7526b4ac4afd5f83760b344e8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/VzcRDI6gosnpljjvtujQevcu06U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bulgarian-salad-recipe-shopska-salata-1137345-hero-05-fb2b0eb7526b4ac4afd5f83760b344e8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-salad",
+      "slug": "gen-chicken-salad",
+      "title": "Hähnchensalat",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Grillhähnchen und zerpflücke sie selbst, statt vorgegarte Hähnchenbrust zu kaufen",
+        "Verwende normale Mayonnaise statt spezieller Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3192,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-salad/",
+      "components": [
+        {
+          "key": "a78411e2-b574-5f7f-9175-12b1dc26f318",
+          "name": "Zutaten",
+          "servingGrams": 75.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce3715b8-dd59-5151-bce8-7726da6853cf",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3f63df15-c4f3-50ff-b8b7-ca2ff6a71e76",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "3ace6ca0-4813-5473-a7b7-1b2b53f1a62f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 kleines Stück"
+            },
+            {
+              "key": "a21e6c6a-4ebd-5c38-b16f-defb041105d6",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "84e7ffce-cc92-5a3e-bb35-5ffbddc4e9db",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "54a1a484-185d-50d0-82f1-f15448c1c84a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a5b5d6a9-8ff4-53c9-b822-d3de4dca1b09",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1559a2aa-7793-5c77-b2f6-b7510376f92d",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die gegarte Hähnchenbrust in 1/2 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Sellerie und hacke rote Zwiebel fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Hähnchen, Sellerie und Zwiebel in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Mayonnaise, Senf, Zitronensaft, Salz, Pfeffer und Kräuter in einer separaten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über die Hähnchenmischung und hebe es vorsichtig unter, bis alles gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kühle den Salat vor dem Servieren auf Brot oder in Salatblättern mindestens 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/grilled-chicken-salad-lead-6628169550105.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/grilled-chicken-salad-lead-6628169550105.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salade-ni-oise",
+      "slug": "gen-salade-ni-oise",
+      "title": "Salade Niçoise",
+      "instructions": "Französisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Sardellen weg, wenn du sparen möchtest",
+        "Kaufe Thunfisch aus der Dose im Angebot und lege einen Vorrat an"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3193,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salade-ni-oise/",
+      "components": [
+        {
+          "key": "a7d92b8c-96a3-55dc-af1d-02f3a9674765",
+          "name": "Zutaten",
+          "servingGrams": 530.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b62cc57-9b11-5c0d-98f4-3b05e2fc4dd9",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (5 Unzen je)"
+            },
+            {
+              "key": "9e277614-8eb2-5eed-a55c-6435b155aa9b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "f6c13633-6b40-5f52-822b-483925980c5b",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "506c456d-7bc2-507c-9d4a-ecf3d97afad5",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "7b36cebd-8bc5-5eb0-8b27-a7252e4cc6a3",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "9e1b5c2f-d493-5de6-b0b5-9e525a4583ce",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "596f0c0d-d453-53c6-8aab-cb2a1252686d",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleines Stück, Kopf"
+            },
+            {
+              "key": "f6612741-f8dd-5efa-8545-f0755667f954",
+              "ingredientName": "Sardellenpaste",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Filets"
+            },
+            {
+              "key": "498b4a80-2cd7-597b-aa63-d3dce190abc1",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "bc20e956-3227-5278-9eb6-ce0b6da13ab3",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "69883db1-330f-550b-9c4c-ba744d23b483",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ea326114-e0ee-5cec-b881-a378b0056cb9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln 12 Minuten in Salzwasser, bis sie weich sind. Lasse sie abkühlen und schneide sie in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche grüne Bohnen 4 Minuten, bis sie bissfest sind, und gieße sie ab. Lasse sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche Eier 10 Minuten hart, schäle sie und viertle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Olivenöl, Essig, Senf, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege Römersalat auf eine große Platte und richte für jede Zutat einen eigenen Bereich ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Häufe Kartoffeln, grüne Bohnen, Thunfisch, Eier, Oliven, Tomaten und Sardellen auf dem Salat an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle den ganzen Salat mit Dressing und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/pYuuTOOjMBZyKt-B5uOmkeT9mQc=/2714x0/filters:no_upscale():max_bytes(150000):strip_icc()/nicoise-style-tuna-salad-dijon-dressing-3056856-hero-06-d4b7411ba5e7491095e4281c9ecbc9d2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/pYuuTOOjMBZyKt-B5uOmkeT9mQc=/2714x0/filters:no_upscale():max_bytes(150000):strip_icc()/nicoise-style-tuna-salad-dijon-dressing-3056856-hero-06-d4b7411ba5e7491095e4281c9ecbc9d2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-warm-lentil-salad",
+      "slug": "gen-warm-lentil-salad",
+      "title": "Warmer Linsensalat",
+      "instructions": "Französisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Linsen lose",
+        "Verwende normale Zwiebel statt Schalotten, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3194,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-warm-lentil-salad/",
+      "components": [
+        {
+          "key": "9f51ba5f-0506-521b-a2c5-57aa02746795",
+          "name": "Zutaten",
+          "servingGrams": 311.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b61c632-a64f-568c-bfec-f0589db10583",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen getrocknet"
+            },
+            {
+              "key": "357f22aa-701a-5c7b-8c42-be2322b9a49a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "44e48065-490e-5bfe-9f16-2e515ae05387",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "f038aac6-fa47-5453-afa1-1dd22785218f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 kleines Stück"
+            },
+            {
+              "key": "e8f7af04-9cc9-52c5-a64d-b3cc4d75ce97",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "6bfb4d07-601a-5d45-b1ec-76dd6b1a77c4",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen gehackt"
+            },
+            {
+              "key": "00ec5e80-05fe-5d99-8eca-813577b8abbf",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c2bec542-2e89-525e-836e-1e5753d60bb7",
+              "ingredientName": "Rotweinessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3e5143ce-ecc3-57e1-9dcd-1eb6adbcbfc3",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "efb83c9e-ad9d-5f1c-a1f1-6204865fd225",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "b4007665-f152-5916-af0b-780f05f0180c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Linsen unter kaltem Wasser ab und gib sie mit Gemüsebrühe in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lasse die Linsen 20-25 Minuten köcheln, bis sie weich, aber nicht matschig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle währenddessen Karotten, Sellerie, rote Zwiebel und Schalotten fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Senf, Essig und Olivenöl in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die gegarten Linsen ab und gib sie noch warm in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gewürfeltes Gemüse und Petersilie zu den warmen Linsen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße das Dressing darüber und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer und lasse den Salat vor dem Servieren 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/04/6b986b05b5078bcff763c2c71216b679167ef29f.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/04/6b986b05b5078bcff763c2c71216b679167ef29f.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

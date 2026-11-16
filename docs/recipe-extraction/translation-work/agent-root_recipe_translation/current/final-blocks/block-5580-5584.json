@@ -1,0 +1,945 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-shaved-ice",
+      "slug": "gen-shaved-ice",
+      "title": "Gericht: Shaved Ice",
+      "instructions": "Zubereitung: japanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Make your own ice from tap water instead of buying bagged ice",
+        "Hinweis: Skip the condensed milk or use a smaller amount to reduce cost"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "dairy-free",
+        "japanese",
+        "snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5580,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shaved-ice/",
+      "components": [
+        {
+          "key": "93ec78aa-4419-5706-95de-f2eb512788c9",
+          "name": "Zutaten",
+          "servingGrams": 730,
+          "position": 0,
+          "items": [
+            {
+              "key": "a75f365b-6e1c-5f72-b365-ea39ba20aef0",
+              "ingredientName": "Eiswürfel",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "58f986f6-a675-5045-a6ab-ea46405625a9",
+              "ingredientName": "Matcha-Pulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1a3c225b-00c5-58a6-81ed-1815d258f3da",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "de31b74b-0f13-5e0e-9e58-69a922f1ba91",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "140a04c0-b686-5678-8bec-8527a9861b5f",
+              "ingredientName": "gezuckerte Kondensmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "40797b20-3993-518d-999d-bec92284d111",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Crush the ice into fine shavings using a blender or ice shaver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: In a small bowl, whisk together the matcha powder mit the water bis smooth.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Hinzufügen the sugar and salt to the matcha mixture and rühren bis dissolved.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Divide the shaved ice between two bowls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Gieße the matcha syrup evenly over each portion of shaved ice.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Träufle the sweetened condensed milk on top and servieren immediately mit a spoon.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2014/07/e38dcdfff014d2da409d4e42acf9e176eb896bfd.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2014/07/e38dcdfff014d2da409d4e42acf9e176eb896bfd.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-granita",
+      "slug": "gen-granita",
+      "title": "Gericht: Granita",
+      "instructions": "Zubereitung: italienisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Use bottled lemon juice instead of frisch to save significantly",
+        "Hinweis: Skip the lemon zest garnieren to reduce cost further"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "dairy-free",
+        "italian",
+        "snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5581,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-granita/",
+      "components": [
+        {
+          "key": "36a7bfdc-62eb-5a95-9af2-a608d545598a",
+          "name": "Zutaten",
+          "servingGrams": 129.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "b7ba9064-d570-5765-af98-a431e08bbcd7",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8aa3a948-58de-5484-b061-4078b537deac",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0f25cb4e-46ec-5363-bf70-238727ff1e22",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "1de497e4-5711-5328-8f19-cf3e3066c6de",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ab4f468c-c3db-53a6-bfd6-f7c1ea1ad90c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: In a saucepan, combine the water and sugar and bring to a boil, rührenring bis sugar dissolves completely.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Entferne from Hitze and let the syrup cool to room temperature.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Rühren in the frisch lemon juice, lemon zest, and salt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Gieße the mixture into a 9-inch square baking pan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Lege in the freezer for 45 Minuten bis the edges begin to freeze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Scrape the gefroren edges toward the center mit a fork and return to the freezer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Repeat this scraping process every 30 Minuten for 2-3 hours bis the granita is completely gefroren but slushy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zubereitung: Servieren immediately in chilled bowls or store in the freezer in an airtight container.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/7754_4k.jpg",
+          "sourcePageUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/7754_4k.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-halo-halo",
+      "slug": "gen-halo-halo",
+      "title": "Gericht: Halo-halo",
+      "instructions": "Zubereitung: philippinisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Use canned ube (purple yam) instead of frisch to save money and effort",
+        "Hinweis: Skip expensive toppings like jackfruit and buy only basic canned beans"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "filipino",
+        "snack",
+        "vegetarian"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5582,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-halo-halo/",
+      "components": [
+        {
+          "key": "571cc5f8-8edd-5809-b48f-ecf49d66ebd9",
+          "name": "Zutaten",
+          "servingGrams": 820,
+          "position": 0,
+          "items": [
+            {
+              "key": "8479773d-c6a7-5a67-a569-b44972a29488",
+              "ingredientName": "Eiswürfel",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen zerdrückt"
+            },
+            {
+              "key": "7c04b8e4-dec3-543c-9217-fef5574094a7",
+              "ingredientName": "gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f2db7055-0698-5c8d-ad56-f7b95b8beb66",
+              "ingredientName": "ungesüßte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f02c3af0-7ebb-5c55-a63b-499155450d4c",
+              "ingredientName": "rote Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse abgetropft"
+            },
+            {
+              "key": "900c9fa7-5dd3-5fe3-8eb7-fe1534ba685f",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse abgetropft"
+            },
+            {
+              "key": "e4cb8536-06dc-53c1-bcb6-14e488dd69e4",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "77261f94-072f-5df2-a884-ae14107417e8",
+              "ingredientName": "ungesüßte Kokosraspeln",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c407ad35-f6b6-56e6-a680-2e94f0ec8f65",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7851b7fa-9ba5-5c41-ba2d-a61b1801853e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9a67d899-5e35-596f-a54f-6cea6b6b1d37",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Divide the crushed ice evenly between two tall glasses.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Layer the red beans, chickpeas, ube, and coconut over the ice in each glass.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: In a small bowl, rühren together the sweetened condensed milk, evaporated milk, water, sugar, and vanilla extract.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Gieße the milk mixture evenly over each glass bis they are about three-quarters full.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Rühren vigorously to mix all the ingredients together bis the mixture becomes colorful and combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Top mit hinzufügenitional crushed ice if desired and servieren immediately mit a long spoon and straw.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/60e46c6701084801b06de2a3/1:1/w_2560%2Cc_limit/Halo-Halo-Recipe-2021.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/60e46c6701084801b06de2a3/1:1/w_2560%2Cc_limit/Halo-Halo-Recipe-2021.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-potato-salad",
+      "slug": "gen-potato-salad",
+      "title": "Gericht: Kartoffel Salad",
+      "instructions": "Zubereitung: amerikanisch Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy potatoes in bulk from discount stores for niedrigest per-pound cost",
+        "Hinweis: Use store-brand mayo to cut mayo costs by 40%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "american",
+        "lunch",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5583,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-potato-salad/",
+      "components": [
+        {
+          "key": "88cc3204-315c-52df-ae83-dcd387b2756b",
+          "name": "Zutaten",
+          "servingGrams": 243.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4ce082e-560f-5a3a-ab32-5af8910201c4",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroß"
+            },
+            {
+              "key": "afa2f9b4-b987-51ae-9679-7cc54ab93071",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Stangen gehackt"
+            },
+            {
+              "key": "812451ff-3a34-5cde-a3a1-110abcab4f50",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse gewürfelt"
+            },
+            {
+              "key": "f3bc616b-d233-5e4c-b0c2-dda795d8669e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 groß hart gekocht"
+            },
+            {
+              "key": "a9715554-aa5a-5b0f-8811-ccc5c13c6f31",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "dcae201a-a54e-52dc-9911-f70db1656057",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2c5b96db-05cd-5b2c-8201-80687c0ce7e3",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "673c7b00-4f84-5564-adb0-791c2be97991",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f3821efa-3c5c-5162-ad26-284597a016e6",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Schneide the unpeeled potatoes into bite-sized cubes and boil them in salted water for 15 Minuten bis just tender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Drain the potatoes thoroughly and let them cool slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Boil the eggs for 10 Minuten, cool in ice water, peel, and chop into small pieces.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: In a large bowl, whisk together the mayonnaise, apple cider vinegar, mustard, salt, and pepper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Hinzufügen the cooled potatoes, gehackt celery, gewürfelt red onion, and gehackt eggs to the mayo mixture.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Fold gently bis all ingredients are evenly coated mit dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Refrigerate bis ready to servieren; taste and adjust seasoning if needed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/nTB1JDHzeNiTARcHS9EGbdrEh2c=/5472x0/filters:no_upscale():max_bytes(150000):strip_icc()/SIMPLY-RECIPES-Classic-Potato-Salad-LEAD-2-Horizontal-3dc58bbc058844cbb1e9242e8b1515a7.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/nTB1JDHzeNiTARcHS9EGbdrEh2c=/5472x0/filters:no_upscale():max_bytes(150000):strip_icc()/SIMPLY-RECIPES-Classic-Potato-Salad-LEAD-2-Horizontal-3dc58bbc058844cbb1e9242e8b1515a7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-prosciutto-e-melone",
+      "slug": "gen-prosciutto-e-melone",
+      "title": "Gericht: Prosciutto e Melone",
+      "instructions": "Zubereitung: italienisch Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy pre-geschnitten deli ham instead of prosciutto for significant savings",
+        "Hinweis: Buy cantaloupe in season (June-September) when prices drop 50%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italian",
+        "lunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5584,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-prosciutto-e-melone/",
+      "components": [
+        {
+          "key": "25d4ee2a-7df2-5c92-b35d-35de3937d176",
+          "name": "Zutaten",
+          "servingGrams": 136.07,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd2cf36d-3511-57a1-99a3-d838435f2b27",
+              "ingredientName": "Cantaloupe-Melone",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "91b678d6-7e17-569b-8e7d-20aa98bddc41",
+              "ingredientName": "Prosciutto",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen (16 Scheiben)"
+            },
+            {
+              "key": "d9003a6a-cbc1-56b8-8b3d-8c4c6052bf10",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "994b53b5-7707-5f42-974c-958f48cbfbcc",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "a80dee7a-a9cb-5e6b-9146-1635c17d04be",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Schneide the cantaloupe in half and remove the seeds.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Schneide each half into thin wedges and remove the rind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Divide the cantaloupe wedges among four serving plates, arranging them decoratively.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Drape the prosciutto slices over and around the cantaloupe pieces.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Träufle lightly mit frisch lemon juice.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Streue mit sea salt and black pepper to taste and servieren immediately.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/01/Prosciutto-and-Melon-Prosciutto-e-Melone-_EXPS_TOHcom23_273618_DR_05_02_10b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/01/Prosciutto-and-Melon-Prosciutto-e-Melone-_EXPS_TOHcom23_273618_DR_05_02_10b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

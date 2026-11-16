@@ -1,0 +1,1120 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-souvlaki-psariko",
+      "slug": "gen-souvlaki-psariko",
+      "title": "Souvlaki Psariko",
+      "instructions": "Griechisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fisch im Angebot und friere ihn bis zur Verwendung ein",
+        "Verwende tiefgekühlten Fisch, wenn frischer zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "griechisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2540,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-souvlaki-psariko/",
+      "components": [
+        {
+          "key": "b972642c-61c5-5fe4-84ca-02cd7f2ac928",
+          "name": "Zutaten",
+          "servingGrams": 325.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "991a719a-2c2e-5e15-a2c2-5ee0a241bece",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "64a3066f-51e6-5bbd-a2d3-00108b5693e0",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "29335556-8761-5ff9-9890-e4e17eb51414",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b106ce18-4f61-50af-afaf-58204e399f9e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "6be83ec0-69ef-56c6-9f4e-de7dde8b1d0e",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "241e390c-6fd1-51a4-9e00-9cd68b621dd9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f72979e8-4b03-540e-9efa-6a1273794bde",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ffbefcbd-aa49-5c52-87fa-38fb80d1df7a",
+              "ingredientName": "Holzspieße",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "786aef52-b2a8-5cf1-b59a-8fd82e528199",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zitronen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Holzspieße 30 Minuten in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Olivenöl, Zitronensaft, Knoblauch, Oregano, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Fisch in 1.5 Zoll große Würfel und gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Marinade über den Fisch und lasse ihn mindestens 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stecke die Fischwürfel abwechselnd auf die Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze einen Grill oder eine Grillpfanne auf mittlere bis hohe Hitze und öle den Rost ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Grille das Souvlaki 3-4 Minuten pro Seite, bis es gar und leicht angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6838c7a0ffbcb05b4610f6c3/1:1/w_2560%2Cc_limit/chicken-souvlaki_RECIPE_V2_050825_12186_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6838c7a0ffbcb05b4610f6c3/1:1/w_2560%2Cc_limit/chicken-souvlaki_RECIPE_V2_050825_12186_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paidakia",
+      "slug": "gen-paidakia",
+      "title": "Paidakia",
+      "instructions": "Griechisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammkoteletts im Angebot und friere sie ein",
+        "Vergleiche die Lammfleischpreise auf Märkten mit internationalen Lebensmitteln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "griechisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2541,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paidakia/",
+      "components": [
+        {
+          "key": "a9b06442-d6fd-56ef-8539-98e69bc78e07",
+          "name": "Zutaten",
+          "servingGrams": 281.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4fd84fa8-0284-5ace-be97-1cbfa1dd89ba",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Koteletts"
+            },
+            {
+              "key": "33fa29c2-d651-5cd3-83d7-f09b7ac73a75",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "95a90b13-d0e1-52df-8f64-5e637ac48905",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "18336c8a-6f35-5909-b0ca-f1a159883c73",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "bbda1678-06dd-590e-aaee-8bac41d94783",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "29f9e352-ccd0-58be-b969-87e33348c88f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "778f9541-c36f-5291-bdc3-1a3f6dfae3b6",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "c0b11038-53e9-5e1a-b62c-89aea649be12",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zitronen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Olivenöl, Zitronensaft, Knoblauch, Oregano, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Marinade großzügig auf beide Seiten jedes Lammkoteletts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse die Koteletts mindestens 10 Minuten bei Raumtemperatur marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze einen Grill oder eine Grillpfanne auf hohe Hitze und öle den Rost leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Koteletts 3-4 Minuten pro Seite für einen medium-rare Gargrad.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie vor dem Servieren mit Zitronenspalten 2 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_744,ar_5:4/v1/gk-static/gk/img/recipe-default-images/image-03.svg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_744,ar_5:4/v1/gk-static/gk/img/recipe-default-images/image-03.svg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-koulouri",
+      "slug": "gen-koulouri",
+      "title": "Koulouri",
+      "instructions": "Griechisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine große Menge zu und friere den Überschuss ein",
+        "Kaufe Mehl in größeren Mengen, um die Kosten pro Portion zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "griechisch",
+        "frühstück",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2542,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-koulouri/",
+      "components": [
+        {
+          "key": "fd047af8-3383-5c97-9b9b-6aa0a8011b66",
+          "name": "Zutaten",
+          "servingGrams": 211.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "aea5c52c-0b93-51b1-8f5d-c8b32a972abf",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "f2c37dea-1880-537e-9ff2-9d14d9680ba8",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "f0a22577-6964-52d4-8247-a7d73f3af650",
+              "ingredientName": "Trockenhefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "485674e7-d2ed-5505-9327-c246aa44e33f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d1c48416-1e21-5314-aa2d-09c443f68064",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f4e92ca1-fac9-56af-ac5e-eea7544fb32c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "038a6e78-7027-5b51-b498-57b4566d377d",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "57ac46a6-7b27-552a-9711-9ef13feec1eb",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 großes Ei zum Bestreichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische warmes Wasser, Hefe und Zucker in einer Schüssel und lasse alles 5 Minuten stehen, bis es schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Salz in einer großen Schüssel und gib dann die Hefemischung und Olivenöl hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig 10 Minuten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Teig in eine geölte Schüssel, decke sie ab und lasse ihn 1 Stunde gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in 8 gleich große Stücke und rolle jedes zu einem etwa 12 Zoll langen Strang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme jeden Strang zu einem Ring, indem du ihn um deine Hand legst und die Enden zusammendrückst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle das Ei, bestreiche jedes Koulouri damit und tauche es dann in Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege die Ringe auf ein Backblech, decke sie ab und lasse sie 30 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Backe sie bei 375°F 20-25 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.mygreekdish.com/wp-content/uploads/2014/03/Greek-Sesame-Bread-rings-recipe-Koulouri-Thessalonikis-2.jpg?ad92dc",
+          "sourcePageUrl": "http://www.mygreekdish.com/wp-content/uploads/2014/03/Greek-Sesame-Bread-rings-recipe-Koulouri-Thessalonikis-2.jpg?ad92dc",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paella-valenciana",
+      "slug": "gen-paella-valenciana",
+      "title": "Paella Valenciana",
+      "instructions": "Spanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Safran weg und verwende Kurkuma für eine ähnliche Farbe zu einem Bruchteil der Kosten",
+        "Verwende Hähnchenoberkeulen ohne Knochen statt Hähnchenbrust für mehr Geschmack und geringere Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "spanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2543,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paella-valenciana/",
+      "components": [
+        {
+          "key": "fc6644e4-d9f9-546e-9c0d-0338a4634736",
+          "name": "Zutaten",
+          "servingGrams": 563.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "eae0ea0b-70a6-50b1-b92f-ffd9ef7af327",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "892056de-fc0a-594e-b8b0-524b3d423071",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "05933c76-0951-541f-97e1-bd70ccb86e73",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9f8f828a-1505-59d5-89af-258eac786f76",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große, gewürfelt"
+            },
+            {
+              "key": "cf581d4f-8113-5962-9758-2024254da673",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "5bd7a4d3-af91-5a88-a667-05ccc783e4d4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "cefe9dd4-ed9c-5b10-964a-eb616068dded",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "931c1f23-13b4-5650-b34d-e2517cccd04c",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "01e671dd-b862-5df0-ad50-e7c41a856326",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ede952fa-245a-5d8c-badf-1aba5d9255fa",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "688dff79-bd90-5e64-81c8-c74652ed7c02",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Zitronen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Hühnerbrühe mit Safranfäden und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Paellapfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Hähnchenwürfel etwa 5 Minuten, bis sie gebräunt sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste Zwiebel und Knoblauch in derselben Pfanne 3 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Reis hinzu und rühre 2 Minuten um, damit er mit Öl überzogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die warme Safranbrühe hinzu und bringe alles ohne Rühren zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib grüne Bohnen und das Hähnchen zurück in die Pfanne und lasse alles 20 Minuten köcheln, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer und serviere das Gericht mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/1127727.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/1127727.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paella-de-marisco",
+      "slug": "gen-paella-de-marisco",
+      "title": "Paella de Marisco",
+      "instructions": "Spanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Meeresfrüchte statt frischer, um deutlich zu sparen",
+        "Mische tiefgekühlte und frische Meeresfrüchte, um Kosten und Qualität auszubalancieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "spanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2544,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paella-de-marisco/",
+      "components": [
+        {
+          "key": "5039aedd-657f-5e8b-854d-85349849afe6",
+          "name": "Zutaten",
+          "servingGrams": 1925.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b326676-cdd3-5f5c-9eb1-39d567a8b624",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d18634f1-98a7-5d39-ac7f-5f81b656ea29",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, geschält"
+            },
+            {
+              "key": "2c84e6ad-619c-59a0-b081-a972d84f13fd",
+              "ingredientName": "Miesmuscheln",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe2188ce-ad06-5cc1-962a-1abb2e7b6661",
+              "ingredientName": "Venusmuscheln aus der Dose",
+              "grams": 4800,
+              "quantity": 12,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "861c2b81-e013-5804-bf76-3d0e3f3344ca",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große, gewürfelt"
+            },
+            {
+              "key": "f3d23602-9143-5617-9bed-eced1717a744",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "9b9e50b0-ab27-5b36-9ea5-1f22a3a7ba6b",
+              "ingredientName": "Fischbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9af68ffc-0ad2-586b-9606-cd70d0b18a49",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "699ad83a-8102-5561-902d-1e35ac7e0ac8",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "0f355940-c64c-5d70-95c3-04fd91472d05",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2b8b079f-477b-52b3-98f4-cf052a1b9680",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "39b4d4ad-b8b0-540a-ab39-b4c814d7c39f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Fischbrühe mit Safranfäden und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Paellapfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste Zwiebel und Knoblauch 3 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Reis und Paprikapulver hinzu und rühre 2 Minuten um, damit alles mit Öl überzogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die warme Safranbrühe hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche alles 15 Minuten, ohne umzurühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bette Garnelen, Miesmuscheln und Venusmuscheln in den Reis, decke die Pfanne ab und lasse alles 10 Minuten köcheln, bis die Meeresfrüchte gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Pfanne vom Herd und garniere das Gericht nach Geschmack mit Petersilie und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/192_1_1677880298.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/192_1_1677880298.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1189 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-puy-lentil-salad",
+      "slug": "gen-puy-lentil-salad",
+      "title": "Salat mit Puy-Linsen",
+      "instructions": "Französisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Puy-Linsen online in großen Mengen und spare gegenüber Spezialgeschäften 30 %",
+        "Verwende gewöhnliche grüne Linsen als günstige Alternative zu Puy-Linsen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "französisch",
+        "lunch",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5915,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puy-lentil-salad/",
+      "components": [
+        {
+          "key": "e7990c17-7040-58ea-a985-e256a8a3111a",
+          "name": "Zutaten",
+          "servingGrams": 437.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "40563da2-a3a2-520e-b3a5-2b4383222ddd",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5ad50154-194f-5a2e-a9b3-2cf25ee07ba1",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "25b1df92-4918-5d45-ab87-93ee3c82ccb1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "8f30e470-684a-5d6f-afd3-97066b1ef7f7",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "9b9c8e4e-1d69-5182-9242-a815c7c0a397",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "074866fc-dd30-52c9-a5ee-103a6e723cd4",
+              "ingredientName": "frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "80b7af49-af1b-5b51-a1f6-38cf81c4aca3",
+              "ingredientName": "frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4091eb26-2008-5785-9e8c-582478d81122",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f928a4c1-cc00-5643-9d66-1026851d2cfe",
+              "ingredientName": "Balsamicoessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "18d976dd-4aa5-519d-83ea-2a12cc26b255",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "29a191b4-8492-5ce4-ae71-af151edf2a68",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "667bbf53-4aac-55d9-9eb2-35d3fd5cfe4e",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Puy-Linsen ab und gib sie mit 3 cups Wasser in einen Topf. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und lass die Linsen 20-25 Minuten köcheln, bis sie weich, aber noch bissfest sind. Gieße sie ab und lass sie etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle währenddessen rote Zwiebel und Gurke fein und halbiere die Kirschtomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Dijon-Senf, Balsamicoessig, Olivenöl, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die abgekühlten Linsen und das gewürfelte Gemüse in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das Dressing darüber und mische alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre frische Petersilie und Minzblätter unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke den Salat ab und serviere ihn bei Zimmertemperatur oder gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.myrelationshipwithfood.com/wp-content/uploads/2021/11/Mediterranean-Puy-Lentil-Salad-1.jpg",
+          "sourcePageUrl": "https://www.myrelationshipwithfood.com/wp-content/uploads/2021/11/Mediterranean-Puy-Lentil-Salad-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tig-adeemed",
+      "slug": "gen-tig-adeemed",
+      "title": "Tig Adeemed",
+      "instructions": "Marokkanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Kichererbsen lose statt Kichererbsen aus der Dose und spare 50 %",
+        "Verwende Hähnchenschenkel mit Knochen statt Hähnchenbrust: Das sorgt für mehr Geschmack und ist günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "lunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5916,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tig-adeemed/",
+      "components": [
+        {
+          "key": "455b9737-0fc8-5bc0-8103-bfc35d641430",
+          "name": "Zutaten",
+          "servingGrams": 418,
+          "position": 0,
+          "items": [
+            {
+              "key": "48eb9d71-f176-5e98-8cf5-57f4771b3917",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2e8a4a0f-96ed-542e-ba92-6fb3afd364e8",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2065c1bd-7a2c-5fbd-b84e-f2743ac14c37",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "6b01ffc2-8410-52c4-8e03-2e0168e94d87",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "67579c36-95a7-5a49-ae15-1fd2ea3d5c08",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "aba83f68-c9f8-56c0-abdc-61d4776620b4",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1e41e07e-26f6-5c7a-905c-60b0a0b22fb8",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ff335dbe-a48f-5cb8-adc8-739096f1aae0",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0be60a9-c1b2-5955-b6e2-82b08dc9eb40",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "f2aeb34a-3904-5403-913f-8fa572dc7436",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "317c9b65-4e16-57fd-ae25-413529222961",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "abb46590-30bb-5738-9cf5-4b136fdfd913",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die getrockneten Kichererbsen 6 Stunden oder über Nacht in Wasser ein und gieße sie anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate die Hähnchenschenkel rundherum an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate gewürfelte Zwiebel und Knoblauch im selben Topf weich. Gib Ingwer und Gewürze dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen zurück in den Topf und füge die eingeweichten Kichererbsen und Gemüsebrühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lass es zugedeckt 30-35 Minuten köcheln, bis das Hähnchen zart und die Kichererbsen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und garniere das Gericht vor dem Servieren mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/NSDeh6i8BDHnd_Tig9EPG3eT4SM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-recipe-8509206-jerky-roast-turkey-hero-01-4x3-53ee5eac57ce43db80b7f5ce89d35164.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/NSDeh6i8BDHnd_Tig9EPG3eT4SM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-recipe-8509206-jerky-roast-turkey-hero-01-4x3-53ee5eac57ce43db80b7f5ce89d35164.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-seafood-paella",
+      "slug": "gen-seafood-paella",
+      "title": "Meeresfrüchte-Paella",
+      "instructions": "Spanisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Safran weg und verwende Kurkuma mit einer Prise geräuchertem Paprikapulver für eine ähnliche Farbe zu 1/10 der Kosten.",
+        "Verwende tiefgekühlte Garnelen statt frischer und lass die Muscheln weg, um die Kosten auf $3.50 pro Portion zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "spanisch",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5917,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seafood-paella/",
+      "components": [
+        {
+          "key": "f77cabbd-e365-5370-8629-64a6d978b559",
+          "name": "Zutaten",
+          "servingGrams": 525.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "4923fc36-6e98-54e1-8f53-4e422c26ab3e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c2a64a9b-3555-58d2-9cd6-661718d02935",
+              "ingredientName": "gefrorene Garnelen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f3a46a7e-fcac-50fc-8c27-e15dd1406be8",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f8b810bd-c6c1-54d6-a4a4-e5298ef78957",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "278b46b0-6891-51a4-ae14-79f203ef89e7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "32d3a8cd-1975-54d5-a463-9e8a1764ea5e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "3b8b3ab1-98c0-5133-97bf-00b040a175a8",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e5e53b73-b528-5333-a320-984c82d64671",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "47dbef75-459c-5f64-82d3-bc363a417469",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "913c75e8-91ca-5ccf-a1c6-3581aacb0889",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6465177c-479e-567c-ba4c-f9782ab080e9",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "c1d5bfd6-5b54-59ba-9ae4-e546dcffdae9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Safranfäden in 0.25 cup heißer Brühe 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer 12-inch-Paella-Pfanne oder großen Pfanne bei mittlerer bis hoher Hitze. Brate gewürfelte Zwiebel und Knoblauch weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Reis dazu und rühre 2 Minuten, bis er leicht angeröstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Safranbrühe und die restliche Brühe dazu, gib die gewürfelte Tomate hinein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittlere Stufe und lass den Reis ohne Deckel 18-20 Minuten köcheln, ohne umzurühren, bis er fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze Garnelen, Muscheln und Tintenfisch in den Reis, verteile Erbsen darüber und gare alles 5-7 Minuten, bis die Meeresfrüchte gar und die Muscheln geöffnet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entsorge geschlossene Muscheln, beträufle die Paella mit Zitronensaft und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/6k7iJR7jp22-dZl52TwqmY22PYs=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__07__Seafood-Paella-LEAD-4-b0e0b3bceb804b27b9de387e42521557.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/6k7iJR7jp22-dZl52TwqmY22PYs=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__07__Seafood-Paella-LEAD-4-b0e0b3bceb804b27b9de387e42521557.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-buriyani-hyderabadi",
+      "slug": "gen-buriyani-hyderabadi",
+      "title": "Hyderabadi-Biryani",
+      "instructions": "Indisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Speiseöl statt Ghee und spare $1.50 pro Portion bei ähnlichem Ergebnis.",
+        "Kaufe ganze Gewürze lose auf indischen Märkten statt vorgemahlene und spare 40 %"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5918,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buriyani-hyderabadi/",
+      "components": [
+        {
+          "key": "2d2ce8f7-b4dd-5e2a-9759-016c99987059",
+          "name": "Zutaten",
+          "servingGrams": 262.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "a8d57c67-7e98-521f-9c6a-b2fe9f16afdd",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "30260c81-d23f-560d-9ffb-a8f914edd17c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8279d663-f634-5c4c-900e-4baa83d171dc",
+              "ingredientName": "griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b3ed2c04-be63-529e-9d3c-f4f1407a04d8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "f729d128-58cd-59e7-8d2b-8ea876557331",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ea793eab-e6d4-567e-9356-ee5c98028943",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2e9b41d6-7cdb-5f8e-8cb0-a28803d69298",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "724a5e86-e7cd-52af-b10c-25680dbabfb6",
+              "ingredientName": "Kreuzkümmel seeds",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8f4e570c-268c-5697-82a6-9c5bcf4c3634",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "965d5864-9c3a-575c-a846-e12a0d12c959",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49bf24f0-0cc2-55ae-aeec-8e924fa142b9",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "615bc731-3cd5-5775-a9c0-ccbbd2dac6a8",
+              "ingredientName": "frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "eb5d1cb6-d8b4-571b-a112-2a1587c39d68",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Basmatireis mit 4 cups Salzwasser, Kreuzkümmelsamen, Zimt und Lorbeerblättern 6-7 Minuten, bis er zu 70 % gar ist. Gieße ihn ab und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere die Hähnchenstücke 20 Minuten in Joghurt, Ingwer-Knoblauch-Paste, Chilipulver und Kurkuma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Zwiebeln in Scheiben und frittiere sie in 2 tbsp Ghee goldbraun und knusprig. Nimm die Hälfte für die Garnitur heraus und zerdrücke den Rest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte in einem Topf mit dickem Boden die Hälfte des marinierten Hähnchens, zerdrückte Röstzwiebeln, Minze und Koriander, dann Reis, das übrige Hähnchen und den restlichen Reis. Belege alles mit den knusprigen Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle alles mit dem restlichen Ghee. Decke den Topf mit Folie und einem dicht schließenden Deckel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze alles bei starker Hitze 2 Minuten, bis Dampf entsteht. Reduziere dann die Hitze auf niedrige Stufe und gare das Gericht 45 Minuten, ohne den Deckel zu öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte die Hitze aus und lass den Biryani 5 Minuten ruhen. Öffne den Deckel vorsichtig und lockere den Reis vor dem Servieren mit einer Gabel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Hyderabadi-Chicken-Biryani.webp",
+          "sourcePageUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Hyderabadi-Chicken-Biryani.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-risotto-ai-tartufi",
+      "slug": "gen-risotto-ai-tartufi",
+      "title": "Risotto mit Trüffeln",
+      "instructions": "Italienisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass das Trüffelöl weg und verwende stattdessen 2 tbsp geriebenen Pecorino Romano mit einer Prise schwarzem Trüffelsalz. So sparst du 75 %",
+        "Verwende je zur Hälfte Arborio- und gewöhnlichen Langkornreis, um Kosten zu senken, ohne die Konsistenz wesentlich zu verändern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "dinner",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5919,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-ai-tartufi/",
+      "components": [
+        {
+          "key": "ca1fb652-9890-523d-874b-1001ef35918a",
+          "name": "Zutaten",
+          "servingGrams": 487.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfdcea1c-20d0-56d0-84ef-2c46a194b13c",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "dae0e801-f379-503c-9dad-bdab2a123b5e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1080,
+              "quantity": 1080,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4.5 Tassen"
+            },
+            {
+              "key": "bb2517b2-ebed-57e3-9abb-5a292b78388a",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "54b91b4f-2192-5a31-aa41-349772fdf5c5",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "4c347895-e5f8-575a-985a-42e9e9e495c0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "1d5d71b5-447a-58c9-9c22-52aee4553995",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8c81505f-9d55-5a5f-9f48-8630ec05339d",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse gerieben"
+            },
+            {
+              "key": "244d93bf-d0f1-5be8-a753-3253dbf864a8",
+              "ingredientName": "Trüffelöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "57b31fd5-59cc-527b-9cb3-a4b6865d0199",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cb0e1275-5968-5c65-919c-3705f4326888",
+              "ingredientName": "frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Gemüsebrühe in einem separaten Topf und halte sie während des Kochens leicht köchelnd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 1 tbsp Butter in einer großen Pfanne bei mittlerer Hitze und brate fein gehackte Schalotte und Knoblauch etwa 2 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Arborio-Reis dazu und rühre 2 Minuten ständig, bis die Körner am Rand leicht glasig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Weißwein dazu und rühre, bis der Reis ihn vollständig aufgenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die warme Brühe schöpflöffelweise dazu und rühre regelmäßig. Warte jeweils, bis die Brühe aufgenommen ist, bevor du mehr zugibst. Fahre etwa 18-20 Minuten fort, bis der Reis cremig und al dente ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und rühre die restliche Butter, geriebenen Parmesan, Trüffelöl und frischen Thymian ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere das Risotto sofort in vorgewärmten Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.agrodolce.it/app/uploads/2018/01/Still-life-risotto-al-tartufo5.jpg",
+          "sourcePageUrl": "https://www.agrodolce.it/app/uploads/2018/01/Still-life-risotto-al-tartufo5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

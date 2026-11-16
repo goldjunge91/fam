@@ -1,0 +1,1162 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mi-quang",
+      "slug": "gen-mi-quang",
+      "title": "Mì Quảng",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Günstige Schweinefleischstücke wie Schulter statt hochwertiger Stücke verwenden",
+        "Tiefgekühlte Garnelen in großen Mengen für einen stabil niedrigen Preis kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2475,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mi-quang/",
+      "components": [
+        {
+          "key": "e08eff5d-a485-512a-9098-ee9313624f07",
+          "name": "Zutaten",
+          "servingGrams": 565.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "998c77c2-b9ec-55de-a80e-577dec7f23d3",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "046fb304-d6ca-5115-ace0-d0840dc037f7",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "2ab90754-bfba-5530-8d25-ff4b2ffd0293",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e40f7e8a-b439-54b7-84e7-048550678416",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen fein gehackt"
+            },
+            {
+              "key": "3397bb88-66c2-599b-9f03-96f3d779be01",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "166ae5ac-93e0-54b5-9159-776cebfee512",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "fad3e66c-0ac4-572d-a5d1-ab46e877a763",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "1d5d61a8-5658-5fb0-ad91-b2af840d4e9e",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Kopf"
+            },
+            {
+              "key": "15ce705e-8ada-5208-89cf-1fc540620185",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Bund Minze und Koriander"
+            },
+            {
+              "key": "f81202cb-255a-5cb4-b44b-e8b1bd599922",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/3 Tasse zerstoßen"
+            },
+            {
+              "key": "d8415070-dafe-5e61-be18-31aa028795e4",
+              "ingredientName": "Cracker",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter würfeln und 15 Minuten mit Kurkuma, Knoblauch und Fischsauce marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "5 Tassen Wasser zum Kochen bringen und mariniertes Schweinefleisch etwa 20 Minuten zart garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen in die Brühe geben und etwa 3–4 Minuten rosa garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mì-Quảng-Nudeln separat nach Packungsanleitung weich und kringelig kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Salat und frische Kräuter auf Serviertellern anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Nudeln, Schweinefleisch, Garnelen und Brühe daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit zerstoßenen Erdnüssen garnieren und Sesamcracker dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Limettenspalten und zusätzlicher Fischsauce zum Abschmecken servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://8bitsoffood.com/wp-content/uploads/2017/03/IMG_3421_1488750221137.jpg",
+          "sourcePageUrl": "https://8bitsoffood.com/wp-content/uploads/2017/03/IMG_3421_1488750221137.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banh-xeo",
+      "slug": "gen-banh-xeo",
+      "title": "Bánh Xèo",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinebauch statt Garnelen verwenden; er ist meist günstiger und aromatischer",
+        "Reismehl in großen Mengen auf asiatischen Märkten kaufen und deutlich sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2476,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-xeo/",
+      "components": [
+        {
+          "key": "4afb39a7-34a6-5079-b0b0-bbd3e5305145",
+          "name": "Zutaten",
+          "servingGrams": 537.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6349fbf4-26df-538e-a768-a9bc6cd1b91f",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "71ca37a8-f434-529f-8675-3b89982536ab",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a74cccc5-ae8f-56de-baae-7b5a47a64510",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d9f4c522-8606-54a1-b2ba-118da93d9628",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b637f5bb-4a0f-548d-bcc6-0b752cdaa59c",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "b0db45fc-de2e-512d-a5e7-f1fed047672a",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "09b53548-271c-5cee-a293-140f80aab79b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 große in Scheiben geschnitten"
+            },
+            {
+              "key": "7f2cc893-4778-59d3-ad58-03f85bf0076b",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "1ebcb7b7-bac0-546d-9bf6-3fc85cc3e326",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9369ade0-6ef5-5fd0-b871-5b79fffbf5c3",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Kopf"
+            },
+            {
+              "key": "af5432ca-9664-58a4-b53f-30e2c1285ba0",
+              "ingredientName": "Kräuter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Bund Minze und Koriander"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reismehl, Kurkuma, Salz, Kokosmilch und Wasser in einer Schüssel zu einem dünnen Teig verrühren und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinebauch in dünne Streifen schneiden oder Garnelen verwenden, mit Fischsauce würzen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 EL Öl in einer großen beschichteten Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Portion Teig (etwa 1/2 Tasse) in die heiße Pfanne gießen und schwenken, damit er sich dünn zu einem großen runden Crêpe verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald die Unterseite knusprig und goldbraun wird, eine Portion Schweinefleisch, Sojasprossen und geschnittene Zwiebel auf eine Hälfte des Crêpes geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Crêpe halb zusammenklappen und etwa 2 Minuten weitergaren, bis die Ränder knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller geben und mit übrigem Teig und Füllung wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Salatblättern, frischen Kräutern und einer Dip-Sauce aus Fischsauce, Zucker, Limette und Knoblauch servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5ec2de0b5c440b5a0d6a5035/1:1/w_2560%2Cc_limit/Spring-Banh-Xeo-GoLive-1.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5ec2de0b5c440b5a0d6a5035/1:1/w_2560%2Cc_limit/Spring-Banh-Xeo-GoLive-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vindaloo",
+      "slug": "gen-vindaloo",
+      "title": "Vindaloo",
+      "instructions": "Goanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter im Angebot kaufen und für später einfrieren",
+        "Getrocknete statt frische Chilis verwenden, das ist günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "goanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2477,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vindaloo/",
+      "components": [
+        {
+          "key": "c8d1c438-0180-51a7-89c0-73634861a0d0",
+          "name": "Zutaten",
+          "servingGrams": 407.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "3bc215e7-764d-5d06-95e6-9cb45b8b2e33",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f16da318-d05e-52b3-b70c-1d51630be967",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "148929fe-0317-5732-8bc1-2c92f05e7b26",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "33eba1cd-cb6e-53dc-b5ec-c9204ff28216",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb6abb7b-ad95-5d0d-bc29-ebd5709ab5ff",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a6e50617-6b1f-555c-bded-8b34f2d92c92",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "2b00881c-4cd7-535f-9c0a-bf5fc7d32b96",
+              "ingredientName": "Kokosöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c2a1ac64-c888-5fb2-81ad-40a15b6ba236",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "0f0000aa-d443-5d13-946f-11578b7ddfa0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9c220a8e-a70f-55a5-abf4-71e32db49024",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4cd0f9d5-db97-544f-ba0a-4593454561ed",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete rote Chilis 10 Minuten in warmem Wasser einweichen, dann mit Knoblauch, Ingwer und Essig zu einer glatten Paste pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kokosöl in einem schweren Topf erhitzen und Kreuzkümmelsamen darin rösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittene Zwiebeln dazugeben und etwa 5 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chilipaste dazugeben und unter ständigem Rühren 2 Minuten garen, damit sie nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfeltes Schweinefleisch dazugeben und 5 Minuten unter Rühren garen, damit es mit der Gewürzmischung überzogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kartoffeln, Salz und Wasser dazugeben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze reduzieren, abdecken und 25–30 Minuten köcheln lassen, bis das Schweinefleisch zart und die Kartoffeln gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und Salz sowie Schärfe nach Bedarf anpassen. Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/63db12e67c45c38a08c3875a/1:1/w_2560%2Cc_limit/pork-vindaloo.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/63db12e67c45c38a08c3875a/1:1/w_2560%2Cc_limit/pork-vindaloo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-samosa",
+      "slug": "gen-samosa",
+      "title": "Samosa",
+      "instructions": "Nordindischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine große Menge zubereiten und ungegarte Samosas für schnelles Frittieren später einfrieren",
+        "Tiefgekühlte Erbsen statt frischer verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "nordindisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2478,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-samosa/",
+      "components": [
+        {
+          "key": "dda2d383-2980-5021-8bb1-2301a4b7cdf4",
+          "name": "Zutaten",
+          "servingGrams": 387.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e6bf007-baf9-5a50-92f2-2ee8f50b803e",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "dd7bf17c-12ee-535b-80b2-818d7daef581",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "1107ec1d-af33-5b78-a88b-6f05587dada8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "b7864469-b393-5a0d-b6c9-6034370b27c7",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "963c5184-90f9-5fcf-811d-f75c02449252",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "9aa06330-09f8-5a70-8b15-9fd741eed8c1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "3debd741-bd2f-50bd-b66f-ba2889a9f641",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6f01f1f5-5d30-5728-809d-861164b9890c",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "145cffc6-c42e-500a-9595-7303725a918a",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "698454f5-9faf-5225-9d13-a518c11adcbf",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und 2 Esslöffel Öl mit Wasser vermengen, bis ein fester Teig entsteht. 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Öl in einer Pfanne erhitzen und Kreuzkümmelsamen dazugeben. Zwiebel hinzufügen und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gekochte Kartoffeln, Erbsen, grüne Chili und Garam Masala dazugeben und vermengen. Abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 12 Kugeln teilen und jede dünn rund ausrollen, dann halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Hälfte nehmen, gerade Kante anfeuchten und einen Kegel formen, indem die beiden Ecken zusammengeführt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeden Kegel mit 1 Esslöffel Kartoffelfüllung füllen und die offene Seite verschließen, indem die Ränder zusammengedrückt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl in einem Topf mit schwerem Boden erhitzen und Samosas portionsweise etwa 3–4 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit Tamarinden- und Minz-Chutney servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/r8q3yr0GCULZx13n5u5pWxIzVxQ=/2121x1414/filters:fill(auto,1)/GettyImages-1127143255-5c5f7e3546e0fb0001442255.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/r8q3yr0GCULZx13n5u5pWxIzVxQ=/2121x1414/filters:fill(auto,1)/GettyImages-1127143255-5c5f7e3546e0fb0001442255.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dosa",
+      "slug": "gen-dosa",
+      "title": "Dosa",
+      "instructions": "Südindisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reis und Urad Dal in größeren Mengen in indischen Lebensmittelgeschäften kaufen",
+        "Fermentieren kostet nichts; Vorratszeit nutzen, um den Geschmack auf natürliche Weise zu entwickeln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "südindisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2479,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dosa/",
+      "components": [
+        {
+          "key": "0c2f8def-34b6-54b0-94b8-56cf891273b8",
+          "name": "Zutaten",
+          "servingGrams": 303.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c9d249b-b393-5afd-9cb0-5560bdd1d477",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "40d04a60-1646-504f-985a-290de135a833",
+              "ingredientName": "Urad Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f2094156-45b9-51d8-96a2-a5c1f29df0d8",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "d130f419-04bd-5b0b-ae63-9f1ad3c486d4",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "9bbd443a-fc3a-52dc-a0eb-3731c040644f",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "100ce8fe-36aa-5f26-ad34-76924d619027",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8e1499d0-1569-5cf5-a2c0-a345f85f8e97",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "ea800ee4-5390-569d-8a5b-b0e1c948f409",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e6d9cdc-1884-5919-b7dd-6163339103af",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis, Urad Dal und Bockshornkleesamen getrennt mindestens 4 Stunden in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Abgießen und Reis mit etwas Wasser zu einer glatten Paste mahlen, dann in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Urad Dal mit Bockshornklee und möglichst wenig Wasser 10–15 Minuten mahlen, bis die Masse luftig und leicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis- und Dal-Pasten mit Salz vermengen und bei Zimmertemperatur 8–12 Stunden fermentieren lassen, bis der Teig leicht aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine gusseiserne Grillplatte oder beschichtete Pfanne bei mittelhoher Hitze erhitzen und leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "0.25 Tasse Teig auf die Grillplatte gießen und rasch mit der Rückseite eines Löffels dünn zu einem großen Crêpe verstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gebratene Zwiebeln, grüne Chili und Curryblätter daraufgeben, Öl an den Rändern entlangträufeln und etwa 2 Minuten pro Seite goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Dosa falten oder aufrollen und heiß mit Sambar und Kokos-Chutney servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2015/01/28/dining/28KITCHEN1/28KITCHEN1-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2015/01/28/dining/28KITCHEN1/28KITCHEN1-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

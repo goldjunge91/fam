@@ -1,0 +1,996 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicken-and-mushroom-pie",
+      "slug": "gen-chicken-and-mushroom-pie",
+      "title": "Hähnchen-Pilz-Pastete",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hühnchen, wenn es im Angebot ist, und frieren Sie es bis zur Verwendung ein",
+        "Verwenden Sie Kuchenboden von Handelsmarken, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7035,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-and-mushroom-pie/",
+      "components": [
+        {
+          "key": "cc1f4261-fba3-5fae-947b-a0720caaabca",
+          "name": "Zutaten",
+          "servingGrams": 452.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff2bbc04-ec1e-5708-b4d1-92c1a6786e70",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 125,
+              "quantity": 1.25,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "0f0afb15-d30f-56ff-88d7-eebaf57dfa5d",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cbafc786-a895-5f4d-bc2b-df20d1f35692",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "a956b432-f970-578d-99b7-17eacb1690b9",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "40695df9-2bd1-577c-a733-0bb2dad204d3",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b36b0847-ac63-5d07-9018-0c3ddb006be8",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c4721559-2196-5a24-986a-bbcaa21da24a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ef6e5ec9-de5f-514f-a2ec-a8de22fa50eb",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "f69d7a6d-a694-5320-bbc1-1089f9b4e692",
+              "ingredientName": "Tortenkruste",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 vorbereitet"
+            },
+            {
+              "key": "54df63c6-9ae7-5f69-a4ca-98bbb4d1fbe1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "37ca668a-5f4a-5e98-a114-6a5b989dafef",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust in Salzwasser 12–15 Minuten pochieren, bis sie gar sind, dann in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In Scheiben geschnittene Pilze und Zwiebelwürfel in 2 Esslöffeln Butter anbraten, bis die Flüssigkeit weich und verdampft ist (ca. 8 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Machen Sie eine Mehlschwitze, indem Sie die restlichen 2 Esslöffel Butter schmelzen, Mehl unterrühren, bis eine glatte Masse entsteht, und 1 Minute kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Milch und Hühnerbrühe langsam unter ständigem Rühren einrühren, bis die Soße eindickt (ca. 5 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerkleinertes Hähnchenfleisch, gekochte Pilze und Zwiebeln, Thymian, Salz und Pfeffer unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Füllung in eine Kuchenform füllen und mit dem Kuchenboden belegen, die Ränder verschließen und mit geschlagenem Ei bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "400–25 Minuten bei 30 °C backen, bis die Kruste goldbraun ist und die Füllung an den Rändern Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/20/29ba038c44464d0e8b7b5ade2a06312d/chicken-and-mushroom-pie.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/20/29ba038c44464d0e8b7b5ade2a06312d/chicken-and-mushroom-pie.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-black-pudding",
+      "slug": "gen-black-pudding",
+      "title": "Blutwurst",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Beziehen Sie Schweineblut zu niedrigsten Kosten von Spezialmetzgern oder auf ethnischen Märkten",
+        "Machen Sie große Mengen und frieren Sie einzelne Scheiben ein, um die Frühstückszubereitung zu erleichtern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7036,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-black-pudding/",
+      "components": [
+        {
+          "key": "c998b379-d125-5287-be03-db57326a95fe",
+          "name": "Zutaten",
+          "servingGrams": 180.62,
+          "position": 0,
+          "items": [
+            {
+              "key": "7a8293d7-3688-582e-a66e-3313020e31f0",
+              "ingredientName": "Schweineblut",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6210eadd-afb2-57f2-ba81-7cde49ada65e",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "2e1c33d4-3fc4-5c4a-bc25-ab97c2b74e4b",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "18dbf9ae-4cc2-56f6-8297-d184710bf235",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "a0ca1501-d3a2-512b-8b8c-74a03bbae6e4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59b8ef58-3b66-5da6-9aff-79de98f7a2f6",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c4c29f5e-7800-58b5-b27e-420f8d81cafe",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "f6442b3d-847a-578a-99c5-9145bc551212",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinefett zerkleinern und mit gewürfelten Zwiebeln und Knoblauch etwa 5 Minuten anbraten, bis es weich ist; etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die abgekühlte Schweinefettmischung mit Blut, Hafer, Thymian, Salbei, Salz und Pfeffer gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wursthüllen 5 Minuten in warmem Wasser einweichen, damit sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füllen Sie die Hüllen mithilfe eines Spritzbeutels oder einer Wurstfüllmaschine mit der Puddingmischung und verknoten Sie die Enden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gefüllte Därme in kochendem Wasser (180 °F) 20 Minuten lang pochieren, bis sie fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vollständig abkühlen lassen, dann in Scheiben schneiden und in etwas Fett auf beiden Seiten etwa 3 Minuten pro Seite knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/09/Black-Pudding-Blood-Sausage--1536x1124.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/09/Black-Pudding-Blood-Sausage--1536x1124.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-meat-pie-with-mash-and-liquor",
+      "slug": "gen-meat-pie-with-mash-and-liquor",
+      "title": "Fleischpastete mit Kartoffelstampf und Petersiliensauce",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch im Sonderangebot und frieren Sie es in Portionsbeuteln ein",
+        "Verwenden Sie statt frischer Tortenkruste normale Tortenböden von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7037,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-meat-pie-with-mash-and-liquor/",
+      "components": [
+        {
+          "key": "f959f1cd-1f9a-5a10-b42d-e9d4e327bee2",
+          "name": "Zutaten",
+          "servingGrams": 384.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e0d1d40-556c-578c-9af4-9d740dbcf65e",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "47a4a7ca-9274-5620-80ee-b79e33b5d744",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "50df9f8f-4412-53e5-9342-1096382a720b",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "946b0668-ac77-53d2-8bac-caf6eb4b7bcb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a7062002-2b48-5936-8954-c65707ae5a6c",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "53b25223-5749-50a7-8bc4-adb1e481a088",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0c2c4c7f-c69c-5039-8d54-f53fc2a2cd37",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "6d95cf98-bb99-558e-ba6c-06df53f0a9f3",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3044b4a6-b308-51aa-ba0a-253d01aa3c42",
+              "ingredientName": "Tortenkruste",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 vorbereitet"
+            },
+            {
+              "key": "9fb2797a-034f-5bec-8acf-04183b3da053",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f70d3cd1-d463-5ccd-8462-51a121aa9a29",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch mit Zwiebelwürfeln in einer großen Pfanne bei mittlerer bis hoher Hitze anbraten und das Fleisch dabei zerkleinern, etwa 8 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl über das Rindfleisch streuen und 1 Minute lang rühren, dann Rinderbrühe und Worcestershire-Sauce hinzufügen; 10 Minuten köcheln lassen, bis es eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschälte und gewürfelte Kartoffeln in Salzwasser etwa 15 Minuten kochen, bis sie weich sind; Abgießen und mit 2 EL Butter und Milch zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Rindfleischmischung in eine Kuchenform füllen und mit dem Kuchenboden belegen, die Ränder andrücken, um sie zu verschließen, und mit geschlagenem Ei bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "400–20 Minuten bei 25 °C backen, bis die Kruste goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bereiten Sie eine Likörsoße zu, indem Sie die restlichen 2 Esslöffel Butter mit Mehl zu einer Paste verrühren und diese dann etwa 3 Minuten lang in Rinderbrühe kochen, bis sie eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Kuchen heiß mit cremigem Püree als Beilage und darüber geträufelter Likörsoße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/08/02/multimedia/02FD-PIE-MASHREX-DP-Traditional-Pie-and-Mash-lkjb/02FD-PIE-MASHREX-DP-Traditional-Pie-and-Mash-lkjb-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/08/02/multimedia/02FD-PIE-MASHREX-DP-Traditional-Pie-and-Mash-lkjb/02FD-PIE-MASHREX-DP-Traditional-Pie-and-Mash-lkjb-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coddle",
+      "slug": "gen-coddle",
+      "title": "Coddle-Eintopf",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Speck und Würstchen zum Mengenrabatt an der Metzgertheke",
+        "Verwenden Sie Hühnerbrühe von Handelsmarken, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "irisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7038,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coddle/",
+      "components": [
+        {
+          "key": "9c268670-9ac4-54f5-b497-9d50a44e20b9",
+          "name": "Zutaten",
+          "servingGrams": 367.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "feec3b26-de38-56fc-8b4c-299d5e2bafcc",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "7a87b05c-26b9-5036-b184-59e8e4590f39",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "af5136d6-e252-5314-9031-1c812e0f88ae",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2ecb54b2-a425-52dd-8274-fb04b28577cf",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "44a40597-5898-5cab-8efe-95acca1d1711",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "f59b5fc0-06bf-5b03-be0f-e1601c4c8d59",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ead5674c-30ce-5b17-8cf0-e5eba0124ffb",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d33cc4d-3b78-5814-a461-eaa8cb619dea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "22268867-18f7-5c77-8001-28903ed46222",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Speck in Stücke schneiden und die Würstchen halbieren; Beides in einen großen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln und Zwiebeln schälen, in Scheiben schneiden und über das Fleisch schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Alles mit Hühnerbrühe übergießen, Thymian und Lorbeerblatt dazugeben und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei mittlerer Hitze köcheln lassen, mit einem Deckel abdecken und 30–35 Minuten kochen lassen, bis die Kartoffeln weich und die Würste gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit der Brühe in Schüsseln füllen und heiß servieren, traditionell mit knusprigem Brot zum Aufsaugen der Flüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/BgL0zI7jS-mg5pQiTtw8XATnty4=/6016x4000/filters:fill(auto,1)/dublin-coddle-recipe-p2-434877-hero-02-5c1047ca4cedfd0001d9193c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/BgL0zI7jS-mg5pQiTtw8XATnty4=/6016x4000/filters:fill(auto,1)/dublin-coddle-recipe-p2-434877-hero-02-5c1047ca4cedfd0001d9193c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-scratchings",
+      "slug": "gen-pork-scratchings",
+      "title": "Knusprige Schweineschwarten",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fragen Sie Ihren Metzger nach Schweinehautresten, die oft günstiger sind als vorgeschnittene Portionen.",
+        "In großen Mengen zubereiten und in einem luftdichten Behälter 3 Tage lang aufbewahren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "britisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7039,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-scratchings/",
+      "components": [
+        {
+          "key": "b4356bd7-8c6f-5d57-ae69-68dc9a2c4286",
+          "name": "Zutaten",
+          "servingGrams": 62.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "847c0b51-a682-5aac-abdc-8627e6727028",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "513bad99-43f2-5e78-af85-a457a04f3a3a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8b342c97-3d78-5f9d-8e04-b1d22b7a486e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "922fcdef-af3d-580e-a41f-555f467bd9a1",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 400 °F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneiden Sie die Schweinehaut in 1 cm große Quadrate und tupfen Sie sie mit Papiertüchern trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hautstücke mit Salz, Pfeffer und Paprika in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer einzigen Schicht auf einem mit Folie ausgelegten Backblech verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "35–40 Minuten backen, dabei nach der Hälfte der Zeit umrühren, bis es goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Papiertüchern abtropfen lassen und vor dem Servieren 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/long-delish-191119-pork-scratchings-0497-landscape-pf-1574697416.jpg?crop=1.00xw:0.753xh;0,0.127xh&resize=1200:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/long-delish-191119-pork-scratchings-0497-landscape-pf-1574697416.jpg?crop=1.00xw:0.753xh;0,0.127xh&resize=1200:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

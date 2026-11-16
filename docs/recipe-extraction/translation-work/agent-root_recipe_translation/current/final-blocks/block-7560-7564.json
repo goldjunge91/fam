@@ -1,0 +1,1152 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-conchas",
+      "slug": "bake2-conchas",
+      "title": "Conchas (mexikanisches Pan Dulce)",
+      "instructions": "Klassische mexikanische süße Brötchen: ein weicher, buttriger Hefeteig, gekrönt von einer knusprigen Zuckerpaste wie für Kekse, die im typischen Muschelmuster eingeritzt wird. Zart und leicht süß, mit mürber, knackiger Kruste; zur Hälfte mit Vanille, zur Hälfte mit Zimt und Kakao, wie aus der Panadería.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hefe im Glas statt in einzelnen Tütchen kaufen; pro Backrunde ist das deutlich günstiger und im Kühlschrank monatelang haltbar.",
+        "Ein Concha-Ausstecher ist nicht nötig: Mit einem kleinen Küchenmesser gelingt ein schönes Gitter- oder Muschelmuster; notfalls funktioniert auch ein sauberes Buttermesser.",
+        "Die Brötchen lassen sich gut einfrieren: die ganze Portion backen, vollständig abkühlen lassen und in einem Beutel einfrieren. Ein paar Sekunden in der Mikrowelle machen sie wieder weich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Beliebige Milch, auch Kondensmilch im Verhältnis 1:1 mit Wasser verdünnt; Vollmilch sorgt für die reichhaltigste, weichste Krume",
+          "savings": "Nimm, was vorhanden ist, statt eine Packung zu kaufen."
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Kristallzucker im Mixer fein mahlen oder für eine etwas körnigere, aber authentische Kruste ungemahlen verwenden",
+          "savings": "Spart den Kauf einer eigenen Packung Puderzucker."
+        },
+        {
+          "forIngredientId": "cocoa",
+          "swap": "Für eine reine Vanilleportion weglassen oder mit Erdbeer- oder Matcha-Farbe die klassische dreifarbige Panadería-Auswahl nachahmen",
+          "savings": "Kostenlos, wenn du es weglässt."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "backen",
+        "pan-dulce",
+        "süßes-hefebrot",
+        "hefebrot",
+        "angereicherter-teig",
+        "dessert",
+        "snack"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7560,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-conchas/",
+      "components": [
+        {
+          "key": "04851984-48af-57c2-a1e7-639dd856d338",
+          "name": "Zutaten",
+          "servingGrams": 178.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "f71fdefb-32c3-5c88-b2f3-1e3cd383bc76",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen Weizenmehl für den Teig"
+            },
+            {
+              "key": "c9bfd987-5b16-535e-b5b6-31cb74d26c04",
+              "ingredientName": "Trockenhefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL (1 Päckchen) Trockenhefe, instant"
+            },
+            {
+              "key": "8cd2b641-241f-57e6-851c-f666fd6859a1",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "39887af1-fbf9-5346-b66c-3b22d22f7373",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Salz"
+            },
+            {
+              "key": "061c52e4-bbd8-509c-bf3b-cba9d1398d9e",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse Vollmilch, auf 110F erwärmt"
+            },
+            {
+              "key": "a8d163c1-ea7b-5ad3-8be3-80fbc51b2800",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "12c74296-ed53-589f-8108-56a31f2a7d8a",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich (für den Teig)"
+            },
+            {
+              "key": "e70c2a30-5789-5196-91c2-40d51ea092fc",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt für den Teig"
+            },
+            {
+              "key": "16bdfdf6-bfe0-51c7-90c8-27f3f567d75b",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "BELAG: 1/2 Tasse (1 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "07082e60-cd8c-59d6-8335-96dddeb06de9",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "BELAG: 1 Tasse Puderzucker"
+            },
+            {
+              "key": "af8ed1a5-6833-51e0-81e4-83b98c57cbf0",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "BELAG: 1 Tasse Weizenmehl"
+            },
+            {
+              "key": "09353158-e29a-5db4-8db0-c173aad6c27d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "BELAG: 1 TL Vanilleextrakt"
+            },
+            {
+              "key": "6b76f9a1-7858-5fc5-b891-150612f68fba",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "BELAG: 2 EL Kakaopulver für die Schokoladenhälfte"
+            },
+            {
+              "key": "3fa76e2d-813d-536f-a7e3-ed61f974a884",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "BELAG: 1 TL gemahlener Zimt für die Zimthälfte"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Teig zubereiten: In einer großen Schüssel 4 cups Mehl, Trockenhefe, 1/2 cup Kristallzucker und Salz verquirlen. In einer zweiten Schüssel warme Milch (110F), Eier und 2 tsp Vanille verquirlen. Flüssige Zutaten zum Mehl geben und rühren, bis ein grober Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die weiche 1/2 cup Butter esslöffelweise einkneten. Den Teig anschließend auf einer leicht bemehlten Fläche oder mit dem Knethaken 8-10 Minuten kneten, bis er glatt, elastisch und leicht klebrig ist. Zu einer Kugel formen, in eine gefettete Schüssel legen, abdecken und an einem warmen Ort 1 bis 1 1/2 Stunden gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während der Teig geht, den Belag zubereiten: 1/2 cup weiche Butter und Puderzucker cremig aufschlagen. 1 cup Mehl und 1 tsp Vanille einrühren, bis eine glatte, knetmassenartige Paste entsteht. Halbieren: Eine Hälfte bleibt pur mit Vanille; in die andere Kakao und nach Wunsch Zimt einkneten, bis sie gleichmäßig gefärbt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Belagfarbe in 6 gleich große Kugeln teilen (12 insgesamt). Jede Kugel zwischen zwei Stücken Frischhaltefolie zu einer 3 1/2-inch großen und etwa 1/8 inch dicken Scheibe flach drücken. Abgedeckt halten, damit sie nicht austrocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den aufgegangenen Teig zusammendrücken und in 12 gleich große Stücke teilen (je etwa 3 oz). Jedes Stück zu einer straffen, glatten Kugel formen und mit etwa 3 Zoll Abstand auf zwei mit Backpapier belegte Bleche setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Je eine Belagscheibe auf eine Teigkugel legen und sanft andrücken, sodass sie die Kuppel bedeckt. Mit einem kleinen Küchenmesser oder einem Concha-Ausstecher das typische Muschel- oder Gittermuster einritzen. Dabei nur den Belag, nicht den Teig einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abgedeckt 45–60 Minuten gehen lassen, bis die Brötchen luftig und fast doppelt so groß sind; der Belag reißt entlang der eingeritzten Linien auf. Inzwischen den Ofen auf 350 °F (175 °C) vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Ein Blech nach dem anderen 18–22 Minuten backen, bis das Gebäck durchgebacken und die Unterseite goldbraun ist. Der Belag bleibt hell; nicht warten, bis er bräunt. Mindestens 15 Minuten auf einem Gitter abkühlen lassen. Am besten schmecken sie am Backtag.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Concha_%28pan_dulce_mexicano%29_01.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Concha_(pan_dulce_mexicano)_01.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "ProtoplasmaKid, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Conchas (mexikanisches Pan Dulce)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-pandesal",
+      "slug": "bake2-pandesal",
+      "title": "Klassische philippinische Pandesal-Brötchen",
+      "instructions": "Das beliebte philippinische Frühstücksbrötchen: weich, leicht süß und fluffig, mit zarter Krume und einer typischen Panade aus Semmelbröseln. Der reichhaltige Hefeteig wird goldbraun gebacken und schmeckt warm aufgebrochen am besten, oft in Kaffee oder heiße Schokolade getunkt. Hier gibt es keine Abkürzungen, sondern einen sorgfältig gegangenen Teig mit Milch und Ei.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Statt Vollmilch Wasser und einen kleinen Schuss zusätzliche geschmolzene Butter verwenden. Viele traditionelle philippinische Bäckereien backen mit Wasserteig, der genauso weich und günstiger ist.",
+        "Semmelbrösel selbst machen: Brotreste und trockene Endstücke toasten und fein mahlen, statt sie wegzuwerfen oder eine Packung zu kaufen.",
+        "Hefe im Glas statt in einzelnen Tütchen kaufen; pro Brotlaib ist das viel günstiger und im Kühlschrank monatelang haltbar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "1 cup Wasser (oder Kondensmilch im Verhältnis 1:1 verdünnt) statt Vollmilch verwenden",
+          "savings": "Spart etwa $0.30 pro Backladung."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenöl oder Rapsöl statt geschmolzener Butter verwenden",
+          "savings": "Spart etwa $0.40 pro Backladung."
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Aktive Trockenhefe in derselben Menge verwenden, aber zuerst vollständig in der warmen Milch aktivieren",
+          "savings": "Ungefähr kostenneutral."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "philippinisch",
+        "backen",
+        "brot",
+        "frühstück",
+        "hefebrot"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7561,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-pandesal/",
+      "components": [
+        {
+          "key": "717cc71c-4124-580e-9ab6-aa79b29db93c",
+          "name": "Zutaten",
+          "servingGrams": 128.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "22ffb611-2afd-5f65-bab1-aa3f507fab49",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen Weizenmehl (oder Brotmehl), aufgeteilt"
+            },
+            {
+              "key": "70a7c014-31ce-5bf2-8dca-e7b9502e3037",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Vollmilch, auf etwa 110°F erwärmt"
+            },
+            {
+              "key": "fac5a694-4d7b-511c-a428-2ff72a713a16",
+              "ingredientName": "Zucker",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 EL weißer Zucker (eine großzügige 1/3 Tasse)"
+            },
+            {
+              "key": "0afd0a55-b44e-5d91-844b-0c1cb47da297",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesalzene Butter, geschmolzen"
+            },
+            {
+              "key": "f54bcfea-e581-50af-b3d7-25134fb04ba2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Ei, zimmerwarm"
+            },
+            {
+              "key": "f08563f8-a8d3-50c8-bbfc-e8012c5e23e7",
+              "ingredientName": "Trockenhefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 1/4 TL Instanthefe (1 Standardpäckchen)"
+            },
+            {
+              "key": "584c9cf5-e327-567f-83ac-541bffbb0f0b",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 TL Salz"
+            },
+            {
+              "key": "660c7b94-6329-5630-a068-8c1c7edba3d5",
+              "ingredientName": "Semmelbrösel nach italienischer Art",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse feine, ungewürzte Semmelbrösel zum Wälzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe aktivieren: Warme Milch (etwa 110 °F), 1 EL Zucker und Trockenhefe in der Schüssel einer Küchenmaschine vermischen. 5–10 Minuten stehen lassen, bis sich Schaum bildet. Schäumt die Mischung nicht, ist die Hefe nicht mehr aktiv; mit frischer Hefe neu beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig ansetzen: Restlichen Zucker, geschmolzene Butter, Ei, Salz und 3 Tassen Mehl hinzufügen. Mit dem Knethaken auf niedriger Stufe mischen, bis ein grober Teig entsteht. Das letzte Mehl esslöffelweise einarbeiten, bis sich der Teig vom Schüsselrand löst, aber noch leicht klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kneten: Den Teig mit dem Knethaken auf mittlerer Stufe 8–10 Minuten (oder von Hand 12–15 Minuten) kneten, bis er glatt und elastisch ist und den Fenstertest besteht: Ein kleines Stück lässt sich dünn ausziehen, ohne zu reißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erste Gehzeit: Zu einer Kugel formen, in eine leicht geölte Schüssel legen, abdecken und an einem warmen Ort 1 bis 1.5 Stunden gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Formen: Den Teig zusammendrücken und auf eine leicht bemehlte Fläche geben. Zu einer Rolle formen und in 12 gleich große Stücke teilen. Jedes Stück zu einer festen Kugel rollen und rundherum in Semmelbröseln wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zweite Gehzeit: Die panierten Kugeln mit der Schnittseite nach oben oder mit dem Schluss nach unten und mit etwas Abstand auf ein mit Backpapier belegtes Blech setzen. Locker abdecken und 45–60 Minuten gehen lassen, bis sie luftig und fast doppelt so groß sind. Inzwischen den Ofen auf 350 °F (175 °C) vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backen: Auf der mittleren Schiene 18–22 Minuten backen, bis die Oberseiten hellgolden sind und die Brötchen beim Klopfen hohl klingen. Das Blech nach der Hälfte der Backzeit drehen, damit sie gleichmäßig bräunen. Pandesal soll hellgolden bleiben und nicht kräftig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abkühlen und servieren: 5 Minuten auf dem Blech abkühlen lassen, dann auf ein Gitter setzen. Warm servieren, aufgebrochen und mit Butter bestrichen oder in Kaffee beziehungsweise heiße Schokolade getunkt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Fresh_baked_Pandesal.jpg/1280px-Fresh_baked_Pandesal.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fresh_baked_Pandesal.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische philippinische Pandesal-Brötchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-parker-house-rolls",
+      "slug": "bake2-parker-house-rolls",
+      "title": "Parker-House-Brötchen",
+      "instructions": "Der klassische amerikanische Dinner-Roll entstand in den 1870er-Jahren im Bostoner Parker House Hotel. Die weichen, buttrigen, leicht süßen Brötchen werden mit Milch und Ei angereichert, zur typischen Halbmondform gefaltet und innen wie außen mit geschmolzener Butter bestrichen. Ihre zarte, auseinanderzupfbare Krume wird von einer glänzend goldenen Oberseite und einer buttrigen Falte gekrönt.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein einzelnes Päckchen Hefe mit 1/4 oz enthält genau 2 1/4 tsp. Wer nur gelegentlich bäckt, fährt mit Päckchenstreifen günstiger als mit einem Glas.",
+        "Eine Küchenmaschine ist nicht nötig: 8-10 Minuten von Hand kneten ergibt dasselbe, abgesehen von etwas Muskelarbeit.",
+        "Mit der Butter haushalten: 4 tbsp in den Teig geben und die geschmolzene Butter für das Falten und Bestreichen am Ende aufheben, wo ihr Aroma besonders zur Geltung kommt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "1 cup 2%-Milch oder ungesüßte Vollfett-Pflanzenmilch verwenden und auf 110F erwärmen; die Brötchen bleiben zart, nur etwas weniger reichhaltig.",
+          "savings": "Verwende, was bereits im Kühlschrank ist."
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Aktive Trockenhefe im Verhältnis 1:1 verwenden; vor der Zugabe zum Mehl 5 Minuten in der warmen Milch-Zucker-Mischung schaumig werden lassen.",
+          "savings": "Oft günstiger pro Päckchen."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Feste Pflanzenbutter (am besten als Block, nicht als streichfähige Variante) lässt sich zum Schmelzen und Bestreichen im Verhältnis 1:1 verwenden, wenn die Brötchen milchfrei sein sollen.",
+          "savings": "Ähnlicher Preis."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "brot",
+        "brötchen",
+        "hefe",
+        "amerikanischer-klassiker",
+        "festlich"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7562,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-parker-house-rolls/",
+      "components": [
+        {
+          "key": "86dce00c-9cc9-5c3a-aa6d-865bfd78a412",
+          "name": "Zutaten",
+          "servingGrams": 124.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "0567f543-828d-50c0-9816-0f0e66de78fb",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen Weizenmehl, plus etwas zum Bestäuben"
+            },
+            {
+              "key": "3c495be0-a56a-5032-8919-2fad71513355",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Vollmilch, auf etwa 110F erwärmt"
+            },
+            {
+              "key": "b0093644-ea28-59e8-a135-c93b34a50f55",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse ungesalzene Butter insgesamt: 4 EL geschmolzen für den Teig, 8 EL geschmolzen zum Falten und Bestreichen"
+            },
+            {
+              "key": "b80b449c-96f7-5851-9746-fc21e97feabd",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL Kristallzucker"
+            },
+            {
+              "key": "21557cd5-f29e-5fcb-b457-f9e9942f7825",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Ei, zimmerwarm"
+            },
+            {
+              "key": "9e481daf-e4d0-5660-8a29-c7ed3d6f736f",
+              "ingredientName": "Trockenhefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 1/4 TL Instanthefe (ein 1/4 oz-Päckchen)"
+            },
+            {
+              "key": "e1600341-9309-5622-a2c2-14fdcb9b833a",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 TL feines Salz"
+            },
+            {
+              "key": "9e323c28-27e0-5446-8922-656351f47c0f",
+              "ingredientName": "Flockiges Meersalz (Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1/2 TL grobes Meersalz für die Oberseite (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch auf etwa 110 °F erwärmen (etwas wärmer als Körpertemperatur, aber nicht dampfend) und den Zucker einrühren. In einer großen Schüssel oder der Rührschüssel der Küchenmaschine Mehl, Trockenhefe und feines Salz vermischen. Warme Milch, Ei und 4 EL der geschmolzenen, leicht abgekühlten Butter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zu einem groben Teig vermengen und dann von Hand 8–10 Minuten oder mit Knethaken auf mittlerer bis niedriger Stufe 6–7 Minuten kneten, bis der Teig glatt, elastisch und leicht klebrig, aber nicht nass ist. Er sollte den Fenstertest bestehen: Ein kleines Stück lässt sich dünn ausziehen, ohne zu reißen. Nur falls der Teig weiterhin nass wirkt, esslöffelweise Mehl zugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zu einer Kugel formen, in eine leicht gebutterte Schüssel legen, abdecken und an einem warmen Ort gehen lassen, bis sich das Volumen verdoppelt hat, etwa 1 bis 1 1/2 Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig vorsichtig entgasen und auf eine leicht bemehlte Fläche geben. In 12 gleich große Stücke teilen (für gleichmäßige Brötchen jeweils etwa 70 g). Zu festen Kugeln rollen, dann flach drücken und zu etwa 4 Zoll langen und 3 Zoll breiten Ovalen ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jedes Oval mit geschmolzener Butter aus den übrigen 8 EL bestreichen. Mit der Messerrückseite oder einem Essstäbchen etwas neben der Mitte eine Falte eindrücken. Die größere Seite über die kleinere klappen, sodass sich die Kanten fast treffen und die typische Halbmondform entsteht. Die Falte leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die gefalteten Brötchen mit der Falte nach unten und dicht nebeneinander in eine gebutterte Form von 9 × 13 Zoll oder zwei runde Formen von 9 Zoll setzen. Locker abdecken und 35–45 Minuten gehen lassen, bis sie luftig sind und sich berühren. Gegen Ende den Ofen auf 375 °F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Oberseiten großzügig mit geschmolzener Butter bestreichen und nach Wunsch mit grobem Meersalz bestreuen. 18–22 Minuten backen, bis sie kräftig goldbraun sind und im Inneren etwa 195 °F erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die heißen Brötchen mit der restlichen geschmolzenen Butter bestreichen, damit sie glänzen und aromatisch werden. 5 Minuten in der Form abkühlen lassen und warm servieren. An der Falte lassen sie sich leicht auseinanderziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Parker_House_Rolls_--_2026-05-31.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Parker_House_Rolls_--_2026-05-31.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto: Parker-House-Brötchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-beer-bread",
+      "slug": "bake2-beer-bread",
+      "title": "Klassisches Bierbrot",
+      "instructions": "Ein rustikales amerikanisches Rührbrot ohne Kneten, mit buttrig-knuspriger Kruste und zarter, leicht malziger Krume. Bier sorgt für Kohlensäure und Aroma; Backpulver gibt zusätzlich einen zuverlässigen Auftrieb. Der Teig muss weder gehen noch geknetet werden: verrühren, in die Form füllen, die Oberfläche buttern und backen. Das Ergebnis liegt zwischen weichem Sandwichbrot und herzhaftem Scone und schmeckt warm zu Suppe oder Chili.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jedes günstige Bier eignet sich. Ein einfaches Lager oder sogar eine abgestandene Flasche aus dem Kühlschrank sorgt für denselben Auftrieb und ein milderes Aroma. Gutes Craft-Bier ist hier nicht nötig.",
+        "Backpapier weglassen und die Form mit dem Butterpapier gut einfetten; das kostet nichts und nach 10 Minuten Ruhe lässt sich der Laib gut lösen.",
+        "Weizenmehl in der größten verfügbaren Eigenmarken-Packung kaufen. Mit etwa 3 cups pro Laib gehört dieses Rezept zu den günstigsten frisch gebackenen Broten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beer",
+          "swap": "Gleiche Menge Sodawasser oder Sprudelwasser plus 1 tbsp zusätzlichen Zucker für ein alkoholfreies Brot mit demselben Auftrieb durch Kohlensäure",
+          "savings": "Günstiger als Bier und eine gute Vorratszutat."
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Honig oder Ahornsirup (dieselben 3 tbsp) sorgen für eine etwas reichhaltigere, stärker karamellisierte Kruste",
+          "savings": "Verwende, was bereits geöffnet ist."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Geschmolzenes Pflanzenöl für die Oberfläche macht das Brot milchfrei; etwas Aroma geht verloren, die knusprige Kruste bleibt.",
+          "savings": "Öl ist günstiger als Butter."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "schnellbrot",
+        "ohne-kneten",
+        "brot",
+        "herzhaft",
+        "bier",
+        "einfach",
+        "wohlfühlessen",
+        "beilage"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7563,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-beer-bread/",
+      "components": [
+        {
+          "key": "cf301a95-cea4-554f-981c-478a6f4a9ebb",
+          "name": "Zutaten",
+          "servingGrams": 99.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "69fff861-cc38-516a-9a4f-b5d98d0b613f",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Weizenmehl"
+            },
+            {
+              "key": "621fc639-0a3e-5a8f-84f1-4d699e9fa92b",
+              "ingredientName": "Backpulver",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 TL Backpulver"
+            },
+            {
+              "key": "84374a2f-7c7b-576c-a4d5-7f3e65bcbc86",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/2 TL Salz"
+            },
+            {
+              "key": "bac92e51-db03-507a-abbc-f06020ced68a",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL Kristallzucker"
+            },
+            {
+              "key": "24284c5c-7568-51c3-bc99-6e680fb0e25e",
+              "ingredientName": "Bier zum Kochen",
+              "grams": 340.2,
+              "quantity": 340.2,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "12 oz (1 Flasche) Bier, zimmerwarm: Lager oder Amber Ale"
+            },
+            {
+              "key": "9b0d157a-293a-5130-8866-83b2d36caea3",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse (4 EL) ungesalzene Butter, geschmolzen (für die Oberfläche)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Ofengitter in die Mitte setzen und den Ofen auf 375 °F (190 °C) vorheizen. Eine Kastenform von 9 × 5 Zoll gründlich einfetten oder mit Backpapier auslegen, das an den langen Seiten übersteht, damit sich das Brot später leicht herausheben lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver, Salz und Zucker in einer großen Schüssel gründlich verquirlen. Das sorgt für gleichmäßigen Auftrieb, da das Triebmittel nicht durch Kneten verteilt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zimmertemperiertes Bier auf einmal zugießen. Mit einem stabilen Löffel oder Teigschaber nur so lange rühren, bis keine trockenen Mehlstellen mehr zu sehen sind. Der Teig ist dick, klebrig und grob. Nicht zu lange rühren: Ein paar Klümpchen sind richtig und halten die Krume zart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in die vorbereitete Kastenform geben und die Oberfläche grob mit der Löffelrückseite glätten. Etwa die Hälfte der geschmolzenen Butter gleichmäßig darüberträufeln. Sie sammelt sich zunächst und zieht beim Backen in die Risse ein, wodurch die typische knusprige, goldene Kruste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "30 Minuten backen, dann die Form herausnehmen und die restliche geschmolzene Butter über das Brot träufeln. Weitere 15–25 Minuten backen, bis die Oberseite kräftig goldbraun ist und ein Holzstäbchen in der Mitte sauber herauskommt. Die gesamte Backzeit beträgt 45–55 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ein Einstichthermometer sollte in der Mitte etwa 200–205 °F (93–96 °C) anzeigen, wenn das Brot durchgebacken ist. Bräunt die Oberseite zu schnell, bevor das Innere fertig ist, locker mit Alufolie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "10 Minuten in der Form abkühlen lassen. Dann mithilfe des überstehenden Backpapiers herausheben oder mit einem Messer am Rand entlangfahren und auf ein Kuchengitter setzen. Vor dem Anschneiden mindestens weitere 15 Minuten abkühlen lassen, sonst wird die Krume klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Dick aufschneiden und warm servieren. Am besten schmeckt es am Backtag, zum Beispiel zu Suppe, Chili oder Eintopf oder einfach mit zusätzlicher Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Beer_bread_-_loaf_sliced_in_half.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beer_bread_-_loaf_sliced_in_half.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Mark Bonica, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassisches Bierbrot",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-palmiers",
+      "slug": "bake2-palmiers",
+      "title": "Klassische Palmiers",
+      "instructions": "Knusprige, karamellisierte „Schweineohren“-Plätzchen aus echtem, schnell gemachtem Blätterteig: Der Teig wird in Zucker ausgerollt, zu den typischen Palmblatt-Schnecken gefaltet und gebacken, bis der Zucker eine dunkle Bernsteinfarbe annimmt. An den Rändern splittern sie knusprig, in der Mitte bleiben sie zart. Butter, Mehl und Zucker erledigen die ganze Arbeit.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Statt den Teig selbst zu machen eine Lage tiefgekühlten Blätterteig aus dem Laden verwenden. Das ist die klassische Abkürzung, die auch viele Bäckereien nutzen: auftauen, in Zucker ausrollen, falten, schneiden und backen.",
+        "Butter im Angebot kaufen und einfrieren. Für dieses Rezept ist kalte Butter ideal; gefrorene Stücke lassen sich direkt aus dem Gefrierfach reiben oder würfeln.",
+        "Einfacher weißer Kristallzucker reicht völlig aus; teurer Rohrohr- oder Vanillezucker ist unnötig. Eine Prise Zimt im Ausrollzucker ist ein kostenloses Extra, falls vorhanden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "1 sheet aufgetauten Blätterteig aus dem Laden verwenden und die Teigherstellung ganz überspringen",
+          "savings": "Spart etwa 2 Stunden Falten und Kühlen."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Kalte Streichfett-Blöcke auf Pflanzenbasis für eine milchfreie Variante verwenden",
+          "savings": "Ähnlicher Preis."
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Rohrohrzucker sorgt für extra Knusprigkeit und ein karamellartiges Toffee-Aroma",
+          "savings": "Etwas teurer, aber verleiht einen schönen Abschluss."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "backen",
+        "feingebäck",
+        "kekse",
+        "dessert",
+        "vegetarisch",
+        "vorbereitbar"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7564,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-palmiers/",
+      "components": [
+        {
+          "key": "6bac3b96-ec5b-5e08-8f4c-78c90e4d6914",
+          "name": "Zutaten",
+          "servingGrams": 42.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "77c15206-5caa-5f46-a195-ef1be7e5833e",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl, plus etwas zum Ausrollen"
+            },
+            {
+              "key": "3a5d3127-2f4e-5a61-9b1f-23193ddc105c",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) kalte ungesalzene Butter, in 1/2-inch Würfel geschnitten"
+            },
+            {
+              "key": "111ff4d8-fe0f-52ad-ad64-0c1d5326328f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL feines Salz"
+            },
+            {
+              "key": "413104b2-3993-5066-bf6c-e75aceddf45b",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse eiskaltes Wasser"
+            },
+            {
+              "key": "e3fbb8ca-f2e1-56a6-8eaf-f9686cc41793",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker zum Ausrollen und Wälzen (bei Bedarf mehr verwenden)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den schnellen Blätterteig Mehl und Salz in einer großen Schüssel verquirlen. Kalte Butterwürfel zugeben und darin wenden. Die Würfel zwischen den Fingern zu groben Flocken flach drücken; sichtbare Butterstücke und -streifen sind erwünscht, feine Krümel nicht. Eiswasser darüberträufeln und mit einer Gabel rühren, bis ein grober, gerade zusammenhaltender Teig entsteht. Zu einem groben Rechteck drücken, einwickeln und 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig auf einer leicht bemehlten Fläche zu einem 10x16-inch Rechteck ausrollen. Wie einen Brief in Dritteln falten, um eine Vierteldrehung wenden und erneut ausrollen. Diesen Falt- und Ausrollvorgang noch zweimal wiederholen (4 Faltungen insgesamt); wird der Teig weich, jeweils 15-20 Minuten kühlen. Nach der letzten Faltung einwickeln und mindestens 1 Stunde kühlen. So entstehen knusprige Blätterteigschichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Formen Zucker statt Mehl verwenden: Die Arbeitsfläche großzügig mit Kristallzucker bestreuen. Den Teig darauflegen und auch die Oberseite mit Zucker bestreuen. Zu einem Rechteck von 10 × 18 Zoll ausrollen und dabei den Zucker auf beiden Seiten eindrücken. Er ersetzt hier das Mehl und karamellisiert beim Backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Palmblattform die Mitte der langen Seite markieren. Beide langen Seiten bis kurz vor die Mittellinie einklappen, dann nochmals zur Mitte falten. Zum Schluss die beiden Hälften wie ein Buch zusammenklappen, sodass eine feste Rolle mit sechs Teiglagen entsteht. Leicht andrücken und außen mit mehr Zucker bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Rolle einwickeln und 20–30 Minuten einfrieren, bis sie fest ist. Das ist wichtig, damit sich saubere Scheiben schneiden lassen, die ihre Form behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Ofen auf 400 F (205 C) vorheizen und zwei Bleche mit Backpapier belegen. Die gekühlte Rolle in 1/2-inch dicke Scheiben schneiden und mit der Schnittfläche nach oben mit mindestens 2 inches Abstand aufs Blech legen, da sie sich beim Backen ausbreiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "10–12 Minuten backen, bis die Unterseiten kräftig goldbraun sind und der Zucker karamellisiert. Bleche herausnehmen, jedes Palmier vorsichtig mit einem dünnen Pfannenwender wenden und weitere 5–8 Minuten backen, bis beide Seiten glänzend bernsteinfarben und knusprig sind. Zum Schluss gut aufpassen: Karamell verbrennt schnell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort auf ein Kuchengitter setzen; beim Abkühlen werden die Palmiers fest. Auf dem heißen Blech könnte der Zucker nachdunkeln und verbrennen. Vor dem Servieren vollständig abkühlen lassen; sie sollten durch und durch knusprig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Palmiers.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Palmiers.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Shisma, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Palmiers",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1082 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-elk-steak",
+      "slug": "gen-elk-steak",
+      "title": "Elchsteak",
+      "instructions": "Abendessen aus dem Pazifischen Nordwesten – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Elchsteaks während der Jagdsaison im Herbst und Winter, wenn die Preise um 30 % sinken.",
+        "Ersetzen Sie Elch bei Nichtverfügbarkeit durch Rinderlende und bereiten Sie sie auf dieselbe Weise zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Pazifischer Nordwesten",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4370,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-elk-steak/",
+      "components": [
+        {
+          "key": "5f4aecb6-8f1c-5db3-ab70-bfca9632a950",
+          "name": "Zutaten",
+          "servingGrams": 151.22,
+          "position": 0,
+          "items": [
+            {
+              "key": "39bf4c02-3936-54b4-a269-2fb791b9f05a",
+              "ingredientName": "Schweinefilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "0fc86dcf-e8ee-5425-95a8-f3c0dbafa614",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e2d299f2-ca9b-5869-a80c-2b223f2efd9a",
+              "ingredientName": "Frischer Thymian",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "999d7911-fc0c-582e-bd14-60de8b635764",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "150b06ad-42c6-5602-a9a5-2b6d8f154423",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "7260500c-65d1-5209-a825-51d9badfda84",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "50cd0f26-ed50-52ab-b1b1-7dd1cec56dcc",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9ef812b8-9d75-5271-bede-e34ac0d4e0c6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "affb8e24-4c2c-5b75-b1b6-251c66be800f",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "cd707479-fa09-55a1-99b1-9db575880da8",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Elchsteaks 20 Minuten vor dem Garen aus dem Kühlschrank nehmen und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beide Seiten großzügig mit 0.75 TL Salz und 0.5 TL schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 EL Olivenöl in einer gusseisernen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Elchsteaks pro Seite 3 Minuten medium-rare braten und dann auf einen warmen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf mittlere Stufe reduzieren, 3 EL Butter, gehackte Schalotte, 2 gehackte Knoblauchzehen und 3 Thymianzweige hinzufügen und 1 Minute ständig rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "0.25 Tasse Rotwein und 0.25 Tasse Rinderbrühe zugießen, Bratrückstände lösen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Steaks 30 Sekunden zurück in die Pfanne geben und mit Sauce überziehen, dann anrichten und mit der Pfannensauce beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/d6DL6W2BHQxVMhiXYVGMNL1W8lY=/6016x4016/filters:fill(auto,1)/slow-cooker-venison-steaks-3062098-hero-01-a216e3f53a544a44872d627d1e771632.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/d6DL6W2BHQxVMhiXYVGMNL1W8lY=/6016x4016/filters:fill(auto,1)/slow-cooker-venison-steaks-3062098-hero-01-a216e3f53a544a44872d627d1e771632.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-butter-poached-lobster",
+      "slug": "gen-butter-poached-lobster",
+      "title": "In Butter pochierter Hummer",
+      "instructions": "Abendessen aus dem Pazifischen Nordwesten – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hummerschwänze im Angebot oder kurz vor Ablauf des Mindesthaltbarkeitsdatums und verbrauchen Sie sie sofort, um 20–30 % zu sparen.",
+        "Klären Sie Butter selbst, statt ganze Butter zu verwenden, um das Pochieren preiswert zu verbessern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Pazifischer Nordwesten",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4371,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-butter-poached-lobster/",
+      "components": [
+        {
+          "key": "95774a93-289d-5c1e-8f40-5bec4bbdde97",
+          "name": "Zutaten",
+          "servingGrams": 106.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "b45f9646-443b-530e-a7d1-5790af68b9d8",
+              "ingredientName": "Lebende Hummerschwänze",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Stück (je 6 Unzen)"
+            },
+            {
+              "key": "a3f1c2d9-f7fd-5044-831a-3672cf4dd471",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4cc80d09-4757-5443-ad19-4f33d53c4cb0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cff8dc99-8aec-5fe4-84ee-79e56bd706f8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "4e749cdb-232a-599a-a0ee-426684a9836c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b44b637-20c1-5271-9433-33f4d1057c67",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "80277461-7f8a-504c-a425-ffeff4035f57",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93f877c9-dc78-5ce1-9e15-c39846aa1afa",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "23d8ee4e-33a4-5995-8676-09e174095e1a",
+              "ingredientName": "Schalotte",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e491b52c-9b16-59d9-8720-b6429ad56ac5",
+              "ingredientName": "Kräuter der Provence",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hummerschwänze längs halbieren, den Darm entfernen und die Schale intakt lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Tasse Butter in einem Topf mit schwerem Boden bei niedriger Hitze schmelzen. 2 gehackte Knoblauchzehen, 0.5 gehackte Schalotte und Thymianzweige hinzufügen und 2 Minuten vorsichtig rühren, ohne sie zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "0.25 Tasse Weißwein zugießen und sanft köcheln lassen, dann Hitze auf die niedrigste Stufe reduzieren, sodass 160–170 °F gehalten werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hummerschwänze mit der Fleischseite nach unten in das Butterbad legen und 1 TL Salz sowie 0.25 TL Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "12–15 Minuten sanft pochieren, bis das Fleisch undurchsichtig ist und 140 °F erreicht. Gelegentlich mit Butter übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hummer mit einer Schaumkelle aus der Butter nehmen und mit der Schale nach oben auf Serviertellern anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Butter durch ein Seihtuch in eine Servierschüssel abseihen, mit Fleur de Sel würzen und zusammen mit frischen Zitronenspalten zum Hummer reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2017/12/Butter-Poached-Lobster-Tails-with-Risotto.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2017/12/Butter-Poached-Lobster-Tails-with-Risotto.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-almond-roca",
+      "slug": "gen-almond-roca",
+      "title": "Almond Roca",
+      "instructions": "Snack aus dem Pazifischen Nordwesten – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie große Mengen zu und verschenken Sie Portionen als Feiertagsgeschenke statt teurer gekaufter Süßigkeiten.",
+        "Kaufen Sie Schokolade und Mandeln in größeren Mengen und sparen Sie 40 % bei den Zutaten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Pazifischer Nordwesten",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4372,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-almond-roca/",
+      "components": [
+        {
+          "key": "9164c976-1702-5ffb-8a95-016768ef09a4",
+          "name": "Zutaten",
+          "servingGrams": 61.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "b38bc282-cd8c-54f2-a4d6-f80ae35c89d7",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "c08fc637-d180-5cd8-80da-40cbf7325fba",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "954e7053-2da0-5bb8-97c9-26500b9c69e7",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b0ab251b-f4fd-5655-a3b8-74a321c348c7",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a02abf71-c5fb-586b-b32f-03ad10db2d42",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "a801840f-2b0b-589a-98e4-8d52264eeeb7",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "3babac6d-a774-538f-9dc7-e71f315ca28e",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "351d9cf2-d19d-5264-9693-49a97932ab19",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Backblech mit Backpapier auslegen und in die Nähe des Herdes stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "0.75 Tasse Butter, 1 Tasse Zucker und 1 EL Wasser in einem Topf mit schwerem Boden bei mittlerer Hitze verrühren, bis sich der Zucker auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nicht mehr rühren. Zuckerthermometer am Topf befestigen und unter gelegentlichem Schwenken auf 300 °F (Hartbruchstufe) erhitzen, etwa 8–10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen, sofort 1 Tasse ganze Mandeln und 0.25 TL Salz einrühren, auf das vorbereitete Blech gießen und dünn verstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "8 oz Zartbitterschokolade hacken und in der Mikrowelle in Intervallen von 30 Sekunden schmelzen. Dazwischen rühren, bis sie glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geschmolzene Schokolade gleichmäßig auf dem abgekühlten Toffee verstreichen. Mit 0.5 Tasse gehobelten Mandeln und 2 EL Kakaopulver bestreuen und leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei Raumtemperatur 30 Minuten fest werden lassen, dann in Stücke brechen und luftdicht aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/nE7EodY3NONuP5BSNlqTE6y_m-A=/2300x3450/filters:fill(auto,1)/Simply-Recipes-Homemade-Almond-Roca-Lead-5a-bce30b229b9442b3be7b33b98a97b1aa.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/nE7EodY3NONuP5BSNlqTE6y_m-A=/2300x3450/filters:fill(auto,1)/Simply-Recipes-Homemade-Almond-Roca-Lead-5a-bce30b229b9442b3be7b33b98a97b1aa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sockeye-salmon-burger",
+      "slug": "gen-sockeye-salmon-burger",
+      "title": "Sockeye-Lachsburger",
+      "instructions": "Mittagessen aus dem Pazifischen Nordwesten – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lachs im Angebot und frieren Sie ihn für später ein.",
+        "Lassen Sie spezielle Saucen weg und verwenden Sie stattdessen normalen Senf und Mayonnaise."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Pazifischer Nordwesten",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4373,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sockeye-salmon-burger/",
+      "components": [
+        {
+          "key": "bbfe7b4e-519f-59aa-9ffa-bfa835aac9a9",
+          "name": "Zutaten",
+          "servingGrams": 191.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d12896d-faba-5dd4-80bd-d41b0ac384e0",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7c182127-2750-513b-b624-7199d1be0893",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "c637c84d-a1fb-5251-9f2b-b23ea48d8723",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "2bba850d-9703-502e-9108-354554088f64",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "792b3419-76ef-569f-a875-c891731daa1f",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d4d2cf16-e4e1-574b-8dc4-30e66654ecd1",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "760587d9-8426-5cf0-8982-a125efbd386a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "8690a3e9-13d1-5210-a02a-5b4edf3a2d85",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "b88eeed7-3723-55e7-b066-82dfbd0b3dc8",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1378c2cd-1b06-5f41-8866-9986c0b5002b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haut und Gräten vom Lachs entfernen und ihn fein hacken oder in der Küchenmaschine pulsieren, bis die Masse grobem Schrot ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lachs, Panko, Ei, Senf, Zitronensaft, Dill, Salz und Pfeffer in einer Schüssel gerade eben vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Mischung zu 4 Bratlingen von etwa 3/4 Zoll Dicke formen und 10 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter in einer Pfanne bei mittlerer bis hoher Hitze erhitzen und Bratlinge pro Seite 3–4 Minuten goldbraun und gar braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brötchen in derselben Pfanne oder im Toaster leicht rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Burger nach Wunsch mit Belägen wie Salat, Tomate und Aioli zusammensetzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://marithymeseafood.com/cdn/shop/articles/IMG_1256-e1560963660229-scaled.jpg?v=1740522231&width=1100",
+          "sourcePageUrl": "https://marithymeseafood.com/cdn/shop/articles/IMG_1256-e1560963660229-scaled.jpg?v=1740522231&width=1100",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chanterelle-mushroom-tart",
+      "slug": "gen-chanterelle-mushroom-tart",
+      "title": "Pfifferlingstarte",
+      "instructions": "Mittagessen aus dem Pazifischen Nordwesten – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie statt Pfifferlingen gewöhnliche Champignons und sparen Sie deutlich.",
+        "Kaufen Sie Blätterteig von Handelsmarken statt Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Pazifischer Nordwesten",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4374,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chanterelle-mushroom-tart/",
+      "components": [
+        {
+          "key": "4773c498-dc46-5083-a8de-487dc6d2dc1c",
+          "name": "Zutaten",
+          "servingGrams": 161.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "c66b9bd2-f9f5-52aa-bc0f-772ced8ac209",
+              "ingredientName": "Tiefgekühltes gemischtes Gemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcdb6594-789e-58e2-a8e5-b9763d78b3af",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "746c22f1-3d1f-5735-af6c-7f7ee3f482a6",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "2f8c56db-3484-59c2-b756-eea56c0c956f",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "2271df66-e32a-5dcc-a11a-a81b806cecd4",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1d1dbc6d-e9c5-5fce-bd62-9ae6543f6322",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gerieben"
+            },
+            {
+              "key": "52800d96-daca-5f74-a12a-91cff10c7487",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f0e18b10-1190-5a72-8568-b8d0bc4a4274",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5920ed24-4e3d-539f-ac06-8283e40b5496",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a54722b6-dbbd-53ab-b77b-f14553633c70",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blätterteig nach Packungsanweisung auftauen und den Ofen auf 400 °F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pilze mit einem feuchten Tuch säubern und in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze schmelzen und Schalotten sowie Knoblauch 1 Minute anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pilze und Thymian hinzufügen und 5–7 Minuten garen, bis Flüssigkeit austritt und verdampft. Dann Sahne und Käse einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer würzen und 2 Minuten köcheln lassen, bis die Mischung leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Blätterteig auf ein Backblech legen und die Pilzmischung gleichmäßig darauf verteilen, dabei einen halben Zoll Rand frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15–18 Minuten backen, bis der Teig goldbraun und aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "2 Minuten abkühlen lassen, in Portionen schneiden und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2013/12/17/science/18recipehealth/18recipehealth-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2013/12/17/science/18recipehealth/18recipehealth-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

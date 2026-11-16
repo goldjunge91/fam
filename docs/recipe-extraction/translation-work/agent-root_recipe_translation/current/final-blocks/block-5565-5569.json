@@ -1,0 +1,986 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-buttered-corn-on-the-cob",
+      "slug": "gen-buttered-corn-on-the-cob",
+      "title": "Gericht: Buttered Corn on the Cob",
+      "instructions": "Zubereitung: amerikanisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy corn during summer season when prices drop significantly",
+        "Hinweis: Skip the frisch parsley and use dried herbs to reduce cost"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "american",
+        "dinner",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5565,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buttered-corn-on-the-cob/",
+      "components": [
+        {
+          "key": "ff7e1f39-3261-59e8-b554-e9a45b98e553",
+          "name": "Zutaten",
+          "servingGrams": 301.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6fb6bead-614d-5229-83ea-7c8cfbba128c",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Maiskolben"
+            },
+            {
+              "key": "7a99b2ca-b7a5-5667-803d-b39f3e3883a2",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "61dc7e6d-2b8a-5cd2-8bc9-7fd4e71058f6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d8e0d829-86b7-5fca-8084-cb87809e4d41",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "5e897f76-50e4-5ecb-9b36-6f176dc0c7b6",
+              "ingredientName": "frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Bring a large pot of salted water to a boil.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Hinzufügen corn ears and kochen for 6-8 Minuten bis kernels are tender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Entferne corn mit tongs and place on a serving platter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Spread softened butter generously over each ear while still hot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Würze mit salt, black pepper, and frisch parsley.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Servieren immediately.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.healthyfood.com/wp-content/uploads/2016/09/Corn-on-the-cob-with-garlic-and-chive-butter-iStock-171575379.jpg",
+          "sourcePageUrl": "https://www.healthyfood.com/wp-content/uploads/2016/09/Corn-on-the-cob-with-garlic-and-chive-butter-iStock-171575379.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-guacamole-and-chips",
+      "slug": "gen-guacamole-and-chips",
+      "title": "Gericht: Guacamole and Chips",
+      "instructions": "Zubereitung: mexikanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy avocados in bulk when on sale and ripen at home",
+        "Hinweis: Make your own tortilla chips by baking corn tortillas cut into triangles mit salt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "mexican",
+        "snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5566,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-guacamole-and-chips/",
+      "components": [
+        {
+          "key": "ddf06f2e-48f8-5023-8782-608449b0c75d",
+          "name": "Zutaten",
+          "servingGrams": 202.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "715e6c8d-86f5-5c0e-93a5-5592201ce979",
+              "ingredientName": "Avocado",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8909f82b-61f0-534d-b35d-8670cfc026bc",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6183c65-7cb1-5af5-bba8-4be2ae56a213",
+              "ingredientName": "weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse gewürfelt"
+            },
+            {
+              "key": "38e75b3f-7c45-5aa0-92f0-7b4d799de67b",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "1df2699a-3766-5c35-9043-ae8144b8c0e0",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "b1724b9d-da91-5533-b4f1-fccf65471259",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "0bebfbd4-419d-5f7b-9ecc-4923963d4040",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "d14416c0-432d-56d5-8880-47cf46df16b8",
+              "ingredientName": "Tortilla-Chips",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Unzen Beutel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Schneide avocados in half lengthwise, remove the pit, and scoop flesh into a mittel bowl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Mash the avocado mit a fork bis you reach your desired consistency, leaving some chunks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Squeeze lime juice over the avocado and rühren immediately to prevent browning.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Fold in gewürfelt onion, cilantro, jalapeño, salt, and black pepper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Schmecke ab and adjust seasonings as needed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Gib to a serving bowl and servieren immediately mit tortilla chips.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://heatherlikesfood.com/wp-content/uploads/2015/06/DSC02196.jpg",
+          "sourcePageUrl": "https://heatherlikesfood.com/wp-content/uploads/2015/06/DSC02196.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-queso-blanco-dip",
+      "slug": "gen-queso-blanco-dip",
+      "title": "Gericht: Queso Blanco Dip",
+      "instructions": "Zubereitung: mexikanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Use standard cheddar cheese instead of white American to save money",
+        "Hinweis: Buy cheese on sale and freeze for later use"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "mexican",
+        "snack",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5567,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-queso-blanco-dip/",
+      "components": [
+        {
+          "key": "38f2285c-0a3f-5e28-a351-364f34ce9a83",
+          "name": "Zutaten",
+          "servingGrams": 112.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "58649dc0-10c6-57c1-863b-11283bcf44af",
+              "ingredientName": "Schmelzkäsescheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen in Scheiben geschnitten"
+            },
+            {
+              "key": "45c178d8-ba48-537b-a907-e06af76940db",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen gerieben"
+            },
+            {
+              "key": "f318bebc-837c-5698-8b5c-aae003e18a3c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 geröstet und gewürfelt"
+            },
+            {
+              "key": "2c7aa082-294a-559c-9424-23c5cd278d27",
+              "ingredientName": "weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse gewürfelt"
+            },
+            {
+              "key": "a57f162b-c9fd-53f3-a2c3-1372a40ec998",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7841d30d-8dc6-56a9-a96b-cee2d3ad1c77",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "086d0e43-72bc-5cb4-abe9-186df7cd2e5b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "9e6bd29a-f46d-5a44-9633-0770f3d692f7",
+              "ingredientName": "Tortilla-Chips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Beutel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Melt butter in a saucepan over mittel Hitze and sauté gewürfelt onion bis softened, about 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Hinzufügen the roasted poblano pepper and rühren for 1 minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Reduce Hitze to niedrig and hinzufügen white amerikanisch cheese and mozzarella in small handfuls, rührenring constantly bis melted.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Gieße in heavy cream sniedrigly while rührenring bis the dip reaches a smooth, pourable consistency.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Würze mit salt and rühren well.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Gib to a serving dish and servieren warm mit tortilla chips.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2012/05/Queso-Blanco-Cheese-Dip-Recipe-7-1100x1651.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2012/05/Queso-Blanco-Cheese-Dip-Recipe-7-1100x1651.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sliders",
+      "slug": "gen-sliders",
+      "title": "Gericht: Sliders",
+      "instructions": "Zubereitung: amerikanisch Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy gemahlen beef in bulk and form patties ahead of time",
+        "Hinweis: Skip cheese or use store-brand to reduce cost"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "american",
+        "lunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5568,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sliders/",
+      "components": [
+        {
+          "key": "7b14f4b9-efaf-5150-8b9c-e003b68e798c",
+          "name": "Zutaten",
+          "servingGrams": 418.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "be470d6f-33d8-5d01-9912-75e066a58994",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "dbb93801-3f03-5ad4-a1d5-2b43b7778d3a",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "599efd9e-1672-5248-b224-10734a25e341",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "67dbdb56-b975-5a3e-aeb1-5f6286399f38",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "34065387-d927-55a7-a31f-0ec18cb4c15c",
+              "ingredientName": "Schmelzkäsescheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01530743-9f8c-5950-acab-07f6f16a9c30",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "bdce6808-115f-5bd1-8675-e7819e5d7df1",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 in Scheiben geschnitten"
+            },
+            {
+              "key": "43afe29a-f040-5792-8517-8fad5a1c9ffe",
+              "ingredientName": "getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "0a98da85-4097-514f-b28f-1142d79cbdd4",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ac1fdff0-52e2-5df5-87c5-dc601e2ed122",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Divide gemahlen beef into 8 equal portions and gently form into thin patties mitout overworking the meat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Hitze a large skillet or griddle over mittel-hoch Hitze bis hot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Kochen patties for 1-2 Minuten per side, seasoning mit salt and pepper as they kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: In the last minute of kochening, top each patty mit a half slice of cheese and cover to melt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Röste the slider buns lightly in the skillet or in a toaster oven.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Build each slider mit lettuce, tomato, pickle slices, patty mit cheese, ketchup, and mustard.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/04/Pork-and-Cheesy-Macaroni-Sliders_EXPS_MTBZ20_249402_E02_28_8b-2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/04/Pork-and-Cheesy-Macaroni-Sliders_EXPS_MTBZ20_249402_E02_28_8b-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-ribs",
+      "slug": "gen-pork-ribs",
+      "title": "Gericht: Pork Ribs",
+      "instructions": "Zubereitung: amerikanisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy ribs on sale and freeze for later kochening",
+        "Hinweis: Make your own dry rub from pantry staples instead of buying pre-made seasoning blends"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "high-protein",
+        "american",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5569,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-ribs/",
+      "components": [
+        {
+          "key": "47616312-8b15-529f-a252-190549b2bf20",
+          "name": "Zutaten",
+          "servingGrams": 118.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "e48301cc-2376-5a24-ac67-a51f29a4b50d",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Rippchenstücke (4-5 Pfund)"
+            },
+            {
+              "key": "b4e739c3-f9e1-5df0-9321-4ba8017f137d",
+              "ingredientName": "brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "44b96de2-afc6-5bdf-bf3b-76bc2c253f3e",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "616ab567-7a57-5457-b599-26ea3a818921",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "09e6cfc3-c78c-51b9-a868-832a2106c888",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "58873a2a-b1b4-5c58-bb4d-f3349c338ee4",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9092d9ea-dd29-50eb-a81e-84724940d433",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "af8738df-0925-58c6-93c8-380bcf31677c",
+              "ingredientName": "Tomatensoße",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "988aa946-bb0a-5cdc-ad36-45c039a7610e",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Entferne the thin membrane from the back of each rib rack by sliding a knife under it and pulling it away.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Mische brown sugar, paprika, garlic powder, onion powder, black pepper, and salt in a bowl to create a dry rub.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Generously coat both sides of the ribs mit the dry rub and let sit for 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: PreHitze oven to 275°F and place ribs on a foil-lined baking sheet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Cover tightly mit foil and backen for 2.5 hours bis meat pulls away from bones.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Mische barbecue sauce mit apple cider vinegar and brush onto ribs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Increase oven temperature to 350°F and backen uncovered for 20 Minuten bis sauce caramelizes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zubereitung: Lass rest for 5 Minuten before serving.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/beef-ribs-recipe-1730820746.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/beef-ribs-recipe-1730820746.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1127 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-stew-pork",
+      "slug": "gen-stew-pork",
+      "title": "Schweineeintopf",
+      "instructions": "Trinidadisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter in großen Mengen und frieren Sie sie ein – sie ist deutlich günstiger als andere Teilstücke",
+        "Verzichten Sie bei Tomatenmark auf Premium-Marken und verwenden Sie Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Trinidad",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6680,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stew-pork/",
+      "components": [
+        {
+          "key": "5b37e5bf-bdf7-5b51-8260-5f51347fd04b",
+          "name": "Zutaten",
+          "servingGrams": 244.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "0afefdc3-703c-599e-ae1d-5c46f78e5465",
+              "ingredientName": "Schweineschulter",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, in 1.5 Zoll große Würfel geschnitten"
+            },
+            {
+              "key": "c7939830-fb39-5b2e-a7cd-907f271b9a84",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "886a6dbd-7219-51b6-8414-b2a4d474d03e",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6957dee7-a3fb-5c3c-85db-7989aab81d5f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große gewürfelt"
+            },
+            {
+              "key": "0283529d-4fb6-5479-a222-92857eb16d2f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "ea937cbe-03d2-5f14-8206-998b400a3afc",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "15f19457-958b-50aa-94da-061807bd5528",
+              "ingredientName": "Schnittlauch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f270322b-9bd1-5830-818e-6cf045570356",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "41a14fb2-ee74-5e1b-82ad-8655bea6cc3f",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e4bda849-b6fc-5166-af2f-770eb8ad4003",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ceca1e48-d496-5b79-b6e6-3b70ce727172",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 ganze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und braunen Zucker unter Rühren hinzufügen, bis er dunkelbraun und karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Schweinefleischwürfel portionsweise im karamellisierten Zucker pro Portion von allen Seiten 3–4 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sobald das gesamte Schweinefleisch gebräunt ist, fügen Sie gewürfelte Zwiebeln und Knoblauch hinzu und braten Sie es 2 Minuten lang an, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark, grüne Gewürze und Thymian einrühren und 1 Minute kochen lassen, um die Aromen zu verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Rinderbrühe aufgießen und bei Bedarf scharfe Paprika hinzufügen, dann zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe, decken Sie es mit einem Deckel ab und lassen Sie es 45 Minuten köcheln, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß mit Roti, Reis oder Dhal und Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/11/red-wine-braised-pork-stew-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/11/red-wine-braised-pork-stew-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oil-down",
+      "slug": "gen-oil-down",
+      "title": "Oil Down",
+      "instructions": "Mittagessen aus Trinidad – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Karotten und Kohl der Saison oder im Sonderangebot zu niedrigsten Preisen",
+        "Kaufen Sie Kokosmilch in großen Mengen auf asiatischen Märkten statt in normalen Supermärkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Trinidad",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6681,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oil-down/",
+      "components": [
+        {
+          "key": "16960e23-81e3-51af-99f0-58258b196982",
+          "name": "Zutaten",
+          "servingGrams": 353.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fdee855b-ce10-53aa-9f37-2206ac29e879",
+              "ingredientName": "Grüne Kochbanane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "adf476b9-0b96-5731-9619-75d3bdee6345",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0d5e8e55-a1db-52e6-8207-292d4c5bc506",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "27f02664-0521-5fbd-8526-e7106d4a8ad4",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 kleine Kopf gehackt"
+            },
+            {
+              "key": "8bfe0063-213d-51ee-90f8-e42807ed1781",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (13.5 oz)"
+            },
+            {
+              "key": "9ceba3a5-008f-567b-8153-36ad8be1bf56",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (15 oz) abgetropft"
+            },
+            {
+              "key": "44cf2321-e0ae-5b6d-bd93-d6df244b16aa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 große gewürfelt"
+            },
+            {
+              "key": "8098c7b3-a551-51a8-ad30-c525345ca0f6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "e2d3f783-48db-5f5f-868a-be26916f60ea",
+              "ingredientName": "Schnittlauch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c84423cc-7352-5547-bba9-5b24c117a67e",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0d4201eb-0e71-550a-ad1e-3d28371e9070",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9213f597-d35f-558b-b6ec-077c2302f9e7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 ganze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grüne Kochbananen und Dasheen schälen, in 1 Zoll große Stücke schneiden und die Karotten würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einem großen Topf Bananen, Dasheen, Karotten und 2 Tassen Wasser mit 1 Teelöffel Salz vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Kochen bringen und 15 Minuten kochen lassen, bis das Gemüse weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fügen Sie gehackten Kohl, Kichererbsen, Kokosmilch, Zwiebeln, Knoblauch, grüne Gewürze, Thymian und ggf. scharfe Paprika hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gut umrühren und erneut zum Kochen bringen, dann die Hitze auf mittlere Stufe reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ohne Deckel 15–20 Minuten unter gelegentlichem Rühren kochen, bis die meiste Flüssigkeit verdampft ist und die Zutaten vermischt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß als Hauptgericht oder Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/bd/8d/8a/bd8d8a2f0f0b8f2a4996b8b57723a709.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/bd/8d/8a/bd8d8a2f0f0b8f2a4996b8b57723a709.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-punta",
+      "slug": "gen-punta",
+      "title": "Punta",
+      "instructions": "Honduranisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kutteln zu günstigeren Preisen auf ethnischen Märkten",
+        "Machen Sie Ihre eigene Brühe aus Knochen, anstatt sie in Dosen zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "honduranisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6682,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-punta/",
+      "components": [
+        {
+          "key": "368f1193-4854-5863-ab2c-f0cf4c9d9717",
+          "name": "Zutaten",
+          "servingGrams": 822.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "96c321df-ca5f-511a-b94c-ab329fa1688c",
+              "ingredientName": "Kutteln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "216f8de5-1f02-51e8-a6b8-534d76d5a883",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "dd73418c-4751-5e50-84c0-3355dce5e176",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ffbf07b-6c49-52a5-9cb7-3183be484d11",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a972343-0e6f-561e-856c-e8bf28868ede",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "d7144b93-b7c1-5d1a-8764-6426618521ff",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ee522a6d-0032-5a90-9641-33aa7647b4cc",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c2ad3314-8f00-5577-b2f6-886c6b88ca55",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c84e09e5-abe2-5dae-ac63-25a61717ae73",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "211794b1-8f26-566e-b0e1-cf7956fb1af8",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "6 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinigen Sie die Kutteln gründlich unter fließendem kaltem Wasser und schrubben Sie alle Rückstände ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Kutteln in mundgerechte Stücke schneiden und in Salzwasser 45 Minuten kochen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln, Knoblauch, Jalapeños und Tomaten in kleine Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einem großen Topf erhitzen und Zwiebeln und Knoblauch darin anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die gewürfelten Jalapeños und Tomaten hinzufügen und 5 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die gekochten Kutteln und 6 Tassen Brühe in den Topf geben und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frischen Koriander und Limettensaft unterrühren und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schüsseln mit Tortillas als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-requeson",
+      "slug": "gen-requeson",
+      "title": "Frischer Käse (Requesón)",
+      "instructions": "Hondurischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um Kosten zu sparen, verwenden Sie Markenmilch",
+        "Ersetzen Sie Bananenblätter durch Pergamentpapier, falls diese nicht verfügbar sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "honduranisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6683,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-requeson/",
+      "components": [
+        {
+          "key": "f681abfb-237c-58b8-9aba-75d289f2f40b",
+          "name": "Zutaten",
+          "servingGrams": 292.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "f16d8441-1af4-57b5-8740-1250574b7e36",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Quart"
+            },
+            {
+              "key": "c741bc50-d19a-5e41-bb47-7b0301297445",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bd9d21a4-7ab6-5ff4-8963-aacdff8cfdff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "42c90cd9-4abf-541c-8610-3156503a8d15",
+              "ingredientName": "Bananenblätter",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Blätter"
+            },
+            {
+              "key": "85f46ce0-fb1e-599b-9335-f916d439ae05",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch in einem großen Topf unter gelegentlichem Rühren auf 180 °F erhitzen, damit sie nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vom Herd nehmen und unter leichtem Rühren langsam Essig hinzufügen, bis sich der Quark von der Molke trennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5 Minuten ruhen lassen, dann durch ein Käsetuch gießen, um den Quark aufzufangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Quark unter kaltem Wasser abspülen und in ein feinmaschiges Sieb geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Quark salzen und vorsichtig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitzen Sie Bananenblätter über einer Flamme, um sie biegsam zu machen, und legen Sie dann eine Form oder Tasse aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Füllen Sie die mit Bananenblättern ausgelegte Form mit Quark und falten Sie die Blätter darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mindestens 30 Minuten im Kühlschrank lagern und mit Honig beträufelt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/665df16b29a85f215ba14b4a/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/665df16b29a85f215ba14b4a/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sopa-de-mariscos",
+      "slug": "gen-sopa-de-mariscos",
+      "title": "Sopa de Mariscos",
+      "instructions": "Honduranisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene statt frische Meeresfrüchte, um die Kosten zu senken",
+        "Verwenden Sie Muscheln aus der Dose, wenn frische Muscheln teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "honduranisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6684,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopa-de-mariscos/",
+      "components": [
+        {
+          "key": "49448159-fcd1-5ead-a66f-89f1a6dfe1f4",
+          "name": "Zutaten",
+          "servingGrams": 686.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "73e1b703-cf4d-59e6-8be7-e56cf216379f",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "eab1ddf6-a8ee-5210-9bf5-0433ae2a3980",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cda539f1-9429-5180-a260-61e4694f6ba9",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0b3b979f-b32a-50b2-8d32-96319cce3325",
+              "ingredientName": "Fischfond",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cc89cb8c-9349-5a42-808a-fc3fc29b0018",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "32c2317d-fc5d-5f04-8947-dbc67fed9c0f",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09e31202-c257-57f0-ad8e-2697ce0e4cca",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "77c47724-9a85-50ff-a863-c059ea6c5f1e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "8029cfd5-f291-5e23-871a-168157efe72f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "3d6768fe-784c-5049-882f-58b8c49f3398",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "36ca8294-ed2f-57c9-83ec-cd31db0947c1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "44ab926e-6594-569d-bf01-b8d9da470bf8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebeln und Knoblauch 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomatensauce hinzufügen und 2 Minuten kochen lassen, dabei häufig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit der Brühe aufgießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die in Stücke geschnittenen Fischfilets dazugeben und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen hinzufügen und 3 Minuten köcheln lassen, bis sie anfangen, rosa zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Muscheln und Venusmuscheln hinzufügen, abdecken und 5 Minuten kochen lassen, bis sich die Muscheln öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entsorgen Sie alle ungeöffneten Schalen und rühren Sie Koriander und Limettensaft unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen und heiß in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/bd/27/90/bd27909a04612d04f06ae5a939440a23.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/bd/27/90/bd27909a04612d04f06ae5a939440a23.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

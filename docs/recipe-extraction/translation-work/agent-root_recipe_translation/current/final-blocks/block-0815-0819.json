@@ -1,0 +1,1160 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-korean-japchae-chicken",
+      "slug": "mfr-korean-japchae-chicken",
+      "title": "Hähnchen-Japchae mit Glasnudeln",
+      "instructions": "Koreanische Süßkartoffel-Glasnudeln mit Hähnchen, Spinat, Pilzen und einem süßlichen Soja-Sesam-Dressing anbraten. Ein festliches Gericht, das sich auch für den Alltag eignet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Soba-Nudeln sind ein guter Ersatz für Glasnudeln und überall erhältlich.",
+        "Japchae hält sich 3 Tage. Bereite ruhig mehr zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "soba-noodles",
+          "swap": "Echte Süßkartoffel-Glasnudeln (Dangmyeon) aus einem Asia-Laden verwenden."
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Rinderhack für eine traditionellere Japchae-Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-korean-japchae-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 815,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-korean-japchae-chicken/",
+      "components": [
+        {
+          "key": "bd066dcf-934f-5d82-87ea-5ead2aba5802",
+          "name": "Zutaten",
+          "servingGrams": 651.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "90d37ea2-f8c0-5b31-bc2d-7b430e7c74e3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66524d1d-6955-5dc7-a58d-bc943da90b69",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98749630-e9eb-522c-ad0a-988bb26989b4",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "287db893-ad2b-5d86-acc5-7d33b8fe1c14",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ff318e9-3426-5bd4-9968-617a7eaa7ffb",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec97f5fc-0971-53b8-a265-fbd7f2c9f977",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1918c3b-8d8f-5028-9fa0-c2cd0143979d",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27e8d0fc-f053-5aa6-a78d-80aadbbf79bd",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "120df39a-4d39-5f9f-8265-663da4d900b0",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0676e5b4-033f-5ee1-a72c-713e90a27bb3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c816d0f3-72a6-58a1-aa88-175ce36b2341",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8162e6cf-940b-5cb0-b2d1-68e6ab31012c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare Glasnudeln oder ersatzweise Soba nach Packungsanleitung und spüle sie mit kaltem Wasser ab. Vermische sie mit 1 TL Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Japchae-Sauce zu: Vermische Sojasauce, Sesamöl, braunen Zucker und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das geschnittene Hähnchen 4–5 Minuten an und nimm es heraus. Brate Pilze, Karotte und Zwiebel 3 Minuten an. Gib den Spinat dazu und lass ihn zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Nudeln, Gemüse und Hähnchen zurück in die Pfanne. Füge die Sauce hinzu und schwenke alles bei mittlerer Hitze 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere das Gericht mit Sesamsamen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/02/Japchae-Recipe-Korean-Noodle-Stir-Fry-with-Steak-Beef-2.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/02/Japchae-Recipe-Korean-Noodle-Stir-Fry-with-Steak-Beef-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mapo-tofu-bowl",
+      "slug": "mfr-mapo-tofu-bowl",
+      "title": "Mapo-Tofu-Reisschüssel",
+      "instructions": "Seidiger Tofu in einer scharfen, betäubend würzigen Sauce nach Sichuan-Art mit Rinderhack und fermentierten schwarzen Bohnen. Eine kräftige, wärmende Schüssel für $3 pro Portion.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein halbes Pfund Rindfleisch und ein Block Tofu für 3 Portionen sind eine sparsame Kombination.",
+        "Gochujang ist eine fermentierte koreanische Paste. Eine Dose hält monatelang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere Variante verwenden."
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Falls verfügbar, Doubanjiang für die echte Sichuan-Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mapo-tofu-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 816,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mapo-tofu-bowl/",
+      "components": [
+        {
+          "key": "81937870-c054-5bb0-a38c-c11c6623d94f",
+          "name": "Zutaten",
+          "servingGrams": 247.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ca005c9-6b89-552f-b5d5-6ef0c53a273f",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36a5dbaf-f6ef-5ac6-8f8b-455e5ea5ca56",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a972126a-e5ac-53d0-be7b-e8e2d2cc274e",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad876449-27d5-584d-bfee-690306254652",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29edf5f9-335d-5ec7-8ad6-ac0f55b4c360",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34248be9-155b-5e21-86d5-04d3ab920257",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17eeba97-bc9c-58f2-a537-49ae3714d2b8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab2eeb31-155a-5e53-a09e-ba423780c01b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a2ea439-f834-58bf-8dd7-31343c676df4",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e15bc97-1ab2-5e39-8e3d-b63542d36962",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d3b4d89-964e-5831-aabe-dae7fa0c88e2",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tofu in 1-Zoll-Würfel. Gare den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune das Rinderhack 3–4 Minuten in Sesamöl. Gib Knoblauch und Ingwer dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Gochujang, Sojasauce und Chiliflocken ein und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Brühe dazu. Setze den Tofu vorsichtig in die Sauce und lass alles 4–5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht auf Reis und garniere es mit geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/624b45cc1184c47f7e94b17e/1:1/w_2560%2Cc_limit/MapoTofu_RECIPE_033122_31225.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/624b45cc1184c47f7e94b17e/1:1/w_2560%2Cc_limit/MapoTofu_RECIPE_033122_31225.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-marsala-lite",
+      "slug": "mfr-chicken-marsala-lite",
+      "title": "Leichtes Hähnchen Marsala",
+      "instructions": "Dünne Hähnchenschnitzel in einer Marsala-Wein-Pilz-Sauce, die statt Sahne mit Brühe leichter gemacht wird. Dieser italienisch-amerikanische Klassiker ist in 25 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dünn geklopfte Hähnchenbrust gart schnell und reicht für mehr Portionen.",
+        "Lass den Wein weg, wenn du keinen hast. Mehr Brühe mit einem Schuss Essig funktioniert ebenfalls."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Putenschnitzel oder dünne Schweinekoteletts verwenden."
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Beliebige Pilze verwenden, zum Beispiel Cremini, Shiitake oder weiße Champignons."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-marsala-lite",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 817,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-marsala-lite/",
+      "components": [
+        {
+          "key": "001b915c-70c3-5de6-8254-fbfb44400eae",
+          "name": "Zutaten",
+          "servingGrams": 706,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e91812d-53f2-5a0f-9b2c-88485d6f2fb4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbab449d-4e60-52b9-a653-55d8be545765",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38c6098c-c3df-5cce-82b9-9015809c317d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "058a9a08-ae1c-5464-9e21-09c639a356f5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "261b5acd-d5b5-512d-afb4-a07f06750bfa",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f9e053a-dec1-5186-a30c-c6600e7cebb7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c880993-7d83-50bf-9ac1-f30131560042",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fd266b0-7c7b-538c-b336-eafa9d298d61",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8db3e0cd-83fe-5dbc-9b1c-18c9ab69cffb",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e875db1-d4e9-57f1-86e0-a174c46b42a7",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b6a8fcc-1f62-5d02-bec5-cf597ddcbc43",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4f5a04b-7e57-5cef-b90d-484e5a697969",
+              "ingredientName": "Brauner Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe die Hähnchenbrüste auf eine Dicke von ½ Zoll. Würze sie mit Salz und Pfeffer und wende sie leicht in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Hähnchen in Olivenöl bei mittlerer bis hoher Hitze pro Seite 3–4 Minuten goldbraun an. Nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Schalotte 2 Minuten in derselben Pfanne an. Gib Pilze und Knoblauch dazu und gare sie 4–5 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lösche die Pfanne mit ¼ Tasse Rotwein oder zusätzlicher Brühe ab. Gib Hühnerbrühe, Thymian und Butter dazu und lass alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Hähnchen zurück in die Pfanne und lass es 3 Minuten in der Sauce köcheln. Serviere es auf braunem Reis mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/10/1200-Easy-Chicken-Marsala-Recipe-2-SpendWithPennies.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/10/1200-Easy-Chicken-Marsala-Recipe-2-SpendWithPennies.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pasta-e-fagioli",
+      "slug": "mfr-pasta-e-fagioli",
+      "title": "Pasta e Fagioli (Nudel-Bohnensuppe)",
+      "instructions": "Italiens einfache Nudel-Bohnensuppe: eine dicke, wärmende Schüssel mit Cannellini-Bohnen, kleinen Nudeln und Gemüse in herzhafter Tomatenbrühe. Weniger als $2 pro Portion.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen weiße Bohnen und eine Handvoll Pasta liefern reichlich Eiweiß für $3.",
+        "Diese Suppe schmeckt am nächsten Tag sogar besser. Die Pasta nimmt die Brühe auf und dickt sie ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Cannellini- oder Borlotti-Bohnen für eine noch italienischere Variante verwenden."
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Nährhefe für einen veganen Parmesan-Geschmack verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pasta-e-fagioli",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Essensvorbereitung",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 818,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pasta-e-fagioli/",
+      "components": [
+        {
+          "key": "265bc74a-ae5f-50f9-82ea-caf96381b4d1",
+          "name": "Zutaten",
+          "servingGrams": 626.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "9dc69eda-581c-5cda-9366-9b517cee55e3",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f771ccd-3638-5865-8891-309b77aea37e",
+              "ingredientName": "Pasta",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d957d41a-e23e-5dca-ac8c-1f13016520cf",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "298f8a72-8c94-5b8e-8768-2dd07fdf67bc",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb2be43a-20f9-53bf-bcc9-49e14038bf81",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4128bfea-70cf-5f22-b57d-3bb5deadfa77",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7337a8c-847d-514e-aecd-ea6884db9746",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "487f1ad8-2466-55b3-aabd-386147d101a0",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8afd49e5-3908-5430-beb4-cd447cb2cbde",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cce7f61-01d5-5980-be6b-09d8dad5a451",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e10a22a-7771-5f33-a413-941e514bf657",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e89a2fee-c216-5ac2-b09c-309157643578",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel, Karotte und Sellerie 6 Minuten in Olivenöl an. Gib Knoblauch und Rosmarin dazu und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib zerkleinerte Tomaten und italienische Kräuter dazu und lass alles 4 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Brühe und eine Dose abgegossene Bohnen hinzu. Lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere eine Kelle Suppe oder verwende einen Stabmixer in einer Ecke des Topfes, damit die Suppe cremiger wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die übrigen Bohnen und kleinen Nudeln dazu. Gare sie 8–10 Minuten, bis die Nudeln al dente sind. Serviere die Suppe mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/zXHJtvnLbrJk7k9B4ETTb-mS3o4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2013__03__pasta-fagioli-vertical-a-1300-241fd3d1a32a4da3956dff4cb0b3f913.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/zXHJtvnLbrJk7k9B4ETTb-mS3o4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2013__03__pasta-fagioli-vertical-a-1300-241fd3d1a32a4da3956dff4cb0b3f913.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-nicoise-pasta",
+      "slug": "mfr-salmon-nicoise-pasta",
+      "title": "Pasta Puttanesca mit Lachs",
+      "instructions": "Dosensalmon mit einer kräftigen Puttanesca-Sauce aus Oliven, Kapern und Tomaten vermengen und auf Pasta servieren. Eiweiß ohne Kochen, mit einer Vorratssauce, die luxuriös schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dosensalmon kostet $2–3 pro Dose und enthält mehr Omega-3-Fettsäuren als viele frische Alternativen.",
+        "Sardellenpaste ist optional, bringt aber für etwa $0.10 eine tiefe, herzhafte Note."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-salmon",
+          "swap": "Dosenthunfisch eignet sich ebenfalls gut."
+        },
+        {
+          "forIngredientId": "anchovy-paste",
+          "swap": "Weglassen oder einen Spritzer Worcestershiresauce verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-nicoise-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 819,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-nicoise-pasta/",
+      "components": [
+        {
+          "key": "9c6280da-178b-564c-93f8-959f6a930b47",
+          "name": "Zutaten",
+          "servingGrams": 727.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c4f136a-8c26-58b8-9036-ccc0f44e4b1d",
+              "ingredientName": "Lachs aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51e60dca-b51b-579f-be1e-82fe93e31e44",
+              "ingredientName": "Pasta",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb529983-3115-5382-b8e2-02ac0f14a7bf",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce07cec5-723f-5579-b83e-ee08bedc7bb0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74ca233a-633e-5480-b060-d4542b2a8ac4",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "563bf3f5-6c37-5a46-a986-a982864918bd",
+              "ingredientName": "Sardellenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a90a60bc-5f98-53d0-95b4-31a30f04442c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9adfeaf2-cf5e-571d-af56-d728a1f91b6f",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c179a0ee-8c8a-56d7-97ed-69e7ec0f62a3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd4107ff-4a47-5efa-81f1-39230c0ce8e4",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 75,
+              "quantity": 0.15,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Pasta. Erhitze Olivenöl in einer Pfanne und gib Knoblauch, rote Chiliflocken und, falls verwendet, Sardellenpaste hinein. Gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib zerkleinerte Tomaten dazu und lass die Sauce 8 Minuten köcheln, bis sie kräftiger schmeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den Dosensalmon ab und zerteile ihn. Hebe ihn vorsichtig unter die Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische die Sauce mit abgegossener Pasta, einem Spritzer Zitrone und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Probiere das Gericht und würze es. Puttanesca sollte kräftig und salzig schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1627315577/k/Photo/Recipe%20Ramp%20Up/2021-07-Salmon-Pasta/Salmon-pasta_IMG_3569_01.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1627315577/k/Photo/Recipe%20Ramp%20Up/2021-07-Salmon-Pasta/Salmon-pasta_IMG_3569_01.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

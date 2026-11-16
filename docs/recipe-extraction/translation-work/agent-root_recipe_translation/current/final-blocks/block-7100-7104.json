@@ -1,0 +1,1031 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-poutine-spaghetti",
+      "slug": "gen-poutine-spaghetti",
+      "title": "Poutine-Spaghetti",
+      "instructions": "Quebecer Abendessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch im Angebot in großen Mengen und frieren Sie es portionsweise ein",
+        "Verwenden Sie Marinara-Sauce von Handelsmarken anstelle von Premium-Marken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7100,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-spaghetti/",
+      "components": [
+        {
+          "key": "5c757799-ce16-5557-90f7-6359f332739d",
+          "name": "Zutaten",
+          "servingGrams": 311.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8cc1384-188f-523a-b37a-627d9b1336c8",
+              "ingredientName": "Gefrorene Pommes Frites",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "31e79fcd-77de-51b4-a58b-d9e8d8198226",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "1b37e030-570a-5014-959e-b1c512aa8678",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "14b1c9d3-6939-5dbe-b0c8-c02a58b5fcf1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "6a2e6828-59e6-5b30-845d-efe3470f7664",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "c0eefbad-e9f6-5794-ace8-582480d2e82f",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ad550958-bbd9-508a-9652-4397a090eeb9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b36b2f24-81b5-5f91-a281-af50cc8ea116",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "fc810bdc-d32b-5900-8598-f3a2c9c1d898",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "04a2cad0-60f7-5ee1-a11d-bccb8d8a9d6e",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spaghetti nach Packungsanweisung kochen; abtropfen lassen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl auf 350 °F erhitzen und gefrorene Pommes frittieren, bis sie knusprig sind; Auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch in einer großen Pfanne bei mittlerer bis hoher Hitze anbraten und beim Kochen auseinanderbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebeln und gehackten Knoblauch zum Rindfleisch geben und 2 Minuten kochen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Marinara-Sauce einrühren und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Spaghetti mit der Fleischsauce vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Pommes auf einen Teller schichten, mit der Mischung aus Spaghetti und Fleischsoße belegen und dann Käsequark und Parmesan hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren, solange die Pommes noch warm und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/08/AMAZING-Vegan-Poutine-Crispy-baked-fries-mushroom-gravy-and-vegan-cheese-curds-10-Ingredients-BIG-flavor-SO-delicious-poutine-recipe-plantbased-glutenfree-minimalistbaker-13.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/08/AMAZING-Vegan-Poutine-Crispy-baked-fries-mushroom-gravy-and-vegan-cheese-curds-10-Ingredients-BIG-flavor-SO-delicious-poutine-recipe-plantbased-glutenfree-minimalistbaker-13.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-steak",
+      "slug": "gen-poutine-steak",
+      "title": "Poutine-Steak",
+      "instructions": "Mittagessen in Quebec  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um die Kosten zu senken, verwenden Sie statt Lendenstück rundes Steak oder Rinderfilet",
+        "Kaufen Sie Steaks kurz vor Ladenschluss zu einem Preisnachlass oder kaufen Sie es in großen Mengen und frieren Sie es ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7101,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-steak/",
+      "components": [
+        {
+          "key": "6ffb46df-d209-5315-a6fa-1f9e40073f92",
+          "name": "Zutaten",
+          "servingGrams": 219.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "169863c3-4284-5b07-ae8b-68cbaeb880a6",
+              "ingredientName": "Gefrorene Pommes Frites",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "29aedfac-6bf8-546a-9921-773010facb86",
+              "ingredientName": "Lendensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "90c59a19-4d46-5ce5-b8e2-f8e93c36526f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0a2fe19b-b721-5291-973f-0934fced2b76",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "153d0545-8edd-5783-bc74-b95c501da5be",
+              "ingredientName": "Hackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f899257d-8d7e-5a40-a8d0-0093af05e5fd",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "cd31775e-8c9e-58a5-aa89-c47e057c5140",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "99bf0e6b-68f6-54e7-8f39-edcb359ec2ea",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nehmen Sie das Steak 15 Minuten vor dem Garen aus dem Kühlschrank und tupfen Sie es trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Steak auf beiden Seiten großzügig mit Salz, Pfeffer und Knoblauchpulver würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Frittieren von Pommes Frites Öl in einem tiefen Topf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter in einer gusseisernen Pfanne bei starker Hitze erhitzen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Steak 4-5 Minuten pro Seite anbraten, wenn es mittel-selten ist (Innentemperatur 135 °F); 5 Minuten ruhen lassen und dann gegen die Faser aufschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gefrorene Pommes Frites goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitzen Sie die Rindersoße in einem Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Pommes auf einen Teller schichten und mit geschnittenem Steak, Käsebruch und heißer Soße belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.ctfassets.net/0dkgxhks0leg/7IZrYmdJiAY7vQSSQMB6ai/b5e1a7ba188f41a903985c977579a732/Steak_and_Ale_Poutine.jpg",
+          "sourcePageUrl": "https://images.ctfassets.net/0dkgxhks0leg/7IZrYmdJiAY7vQSSQMB6ai/b5e1a7ba188f41a903985c977579a732/Steak_and_Ale_Poutine.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-r-p-e",
+      "slug": "gen-poutine-r-p-e",
+      "title": "Poutine Râpée",
+      "instructions": "Quebecer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln in großen Säcken; Hackfleisch zum Verkauf und Einfrieren",
+        "Machen Sie mehrere Portionen auf einmal und frieren Sie sie ungekocht zum späteren Braten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Quebec",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7102,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-r-p-e/",
+      "components": [
+        {
+          "key": "2a33902d-60e4-5742-bcf0-18d1c7c495da",
+          "name": "Zutaten",
+          "servingGrams": 155.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7c7a89d-e087-5ccb-b9a5-e5a223528482",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "73eddb75-44de-5ea2-9f26-2ad16d05a0db",
+              "ingredientName": "Allzweckmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "5a68099f-8a0c-5002-92e9-e70db045f638",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "2e876df1-9cb6-56f2-8f22-d6b6c0b7d512",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9421b898-1c80-5ecd-9f75-7916db1f3f8f",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "c9df06c8-8d8a-546a-8161-4305068324e3",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "f8239b41-d16c-504c-b31d-dd0d0fbc9c07",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und fein reiben; In ein sauberes Küchentuch legen und überschüssige Feuchtigkeit über einer Schüssel ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hackfleisch mit Zwiebelwürfeln in einer Pfanne bei mittlerer bis hoher Hitze anbraten; abgießen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geriebene Kartoffeln mit Mehl, Salz und Pfeffer vermischen, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Aus der Kartoffelmasse eine kleine Kugel formen, eine Vertiefung hineindrücken, mit einem Löffel der gekochten Fleischmischung füllen und zu einer Kugel mit etwa 2.5 Zoll Durchmesser verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einem tiefen Topf oder Schmortopf auf 325 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kartoffelbällchen vorsichtig in heißes Öl legen und unter gelegentlichem Wenden 6-8 Minuten braten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Schaumlöffel herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren, wahlweise mit Soße oder Sauerrahm zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/08/AMAZING-Vegan-Poutine-Crispy-baked-fries-mushroom-gravy-and-vegan-cheese-curds-10-Ingredients-BIG-flavor-SO-delicious-poutine-recipe-plantbased-glutenfree-minimalistbaker-8.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/08/AMAZING-Vegan-Poutine-Crispy-baked-fries-mushroom-gravy-and-vegan-cheese-curds-10-Ingredients-BIG-flavor-SO-delicious-poutine-recipe-plantbased-glutenfree-minimalistbaker-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-hamburger",
+      "slug": "gen-poutine-hamburger",
+      "title": "Poutine-Hamburger",
+      "instructions": "Mittagessen in Quebec  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch in großen Mengen und portionsweise zum Einfrieren im Angebot",
+        "Verwenden Sie Käse und Brötchen von Handelsmarken, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7103,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-hamburger/",
+      "components": [
+        {
+          "key": "544ef102-e3f0-5680-b444-4f2aa05ddebc",
+          "name": "Zutaten",
+          "servingGrams": 765,
+          "position": 0,
+          "items": [
+            {
+              "key": "26e78978-10f8-5809-948e-7b1fa2179aee",
+              "ingredientName": "Gefrorene Pommes Frites",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "99a5c043-a420-5e25-9f37-fc8b87aee691",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "76a84cc0-6e4e-59ee-8325-971e4624ab30",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46e84f93-bff3-5ddb-8dd3-ee8d8aca9c03",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "5c4f1a92-9a10-5d8c-8564-3330a56ca512",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "ee94eeb6-7747-576f-a42b-eaf3f031c6cc",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "4e089ec1-78a0-5344-b3ef-ac1dd4cbd808",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "bfbbddbf-2d8a-54d6-92ef-969b1b5a8ad8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zum Frittieren von Pommes Frites Öl in einem tiefen Topf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aus dem Hackfleisch zwei Patties formen, mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Braten Sie die Pastetchen in einer Pfanne bei mittlerer bis hoher Hitze 3–4 Minuten pro Seite, um einen mittleren Gargrad zu erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belegen Sie jedes Pastetchen mit einer Käsescheibe und lassen Sie es zugedeckt etwa 1 Minute lang schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gefrorene Pommes Frites goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hamburgerbrötchen in einer Pfanne oder einem Toaster leicht rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In einem Topf die Rindersoße erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stellen Sie die Burger mit Salat, Tomaten und gekochtem Patty auf gerösteten Brötchen zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf einem separaten Teller die Pommes frites schichten, mit Käsebruch und heißer Soße belegen; Zum Burger servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/05/15/multimedia/mk-poutine-vqkt/mk-poutine-vqkt-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/05/15/multimedia/mk-poutine-vqkt/mk-poutine-vqkt-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-fromage",
+      "slug": "gen-poutine-fromage",
+      "title": "Poutine Fromage",
+      "instructions": "Quebecer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie weiße Soße selbst mit Mehl, Butter und Milch, anstatt Fertiggerichte zu kaufen",
+        "Verwenden Sie normalen geriebenen Cheddar anstelle von Premium-Käse"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7104,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-fromage/",
+      "components": [
+        {
+          "key": "a026d717-dfd8-589b-a23c-0f9f022d0f5a",
+          "name": "Zutaten",
+          "servingGrams": 297.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b748ac7-0177-51a0-ac88-7654ba3a9fcd",
+              "ingredientName": "Gefrorene Pommes Frites",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1750524a-d278-5054-9b83-e4ae52cdc496",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "496cf26d-591d-5a86-b112-78bb244eca89",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6794a46b-7d09-5463-a86e-456eb9403ac9",
+              "ingredientName": "Tomatensauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "82b52bc2-8a01-5e0b-b332-51e72ee5a2d3",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4dc31ade-4a5a-5e9a-9f67-fe52aee42426",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem tiefen Topf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gefrorene Pommes Frites goldbraun und knusprig frittieren; Auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einem Topf Butter bei mittlerer Hitze schmelzen und weiße Soße oder Sahnesauce hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den geriebenen Cheddar-Käse hinzufügen und rühren, bis er geschmolzen und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Käsesauce mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die frittierten Pommes auf einen Teller legen und mit Käsebruch belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiße Käsesoße über die Pommes Frites und den Käsebruch gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/vICHAu16XWhAc-WLQV-7avihHKY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ultimate-perfect-poutine-fries-cheese-curds-gravy-recipe-hero-2-7637732f8c174bc59f9b84e7b6e6b660.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/vICHAu16XWhAc-WLQV-7avihHKY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ultimate-perfect-poutine-fries-cheese-curds-gravy-recipe-hero-2-7637732f8c174bc59f9b84e7b6e6b660.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1511 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-karidopita",
+      "slug": "bake2-karidopita",
+      "title": "Karidopita (griechischer Walnuss-Sirupkuchen)",
+      "instructions": "Klassischer griechischer Walnusskuchen mit saftiger, leicht gewürzter Krume aus gerösteten Walnüssen, Semmelbröseln, Zimt und Nelken. In einer Form gebacken und warm mit Zitronen-Zimt-Sirup getränkt. Der Sirup zieht in jeden Bissen ein und macht den Kuchen zart, glänzend und kräftig nussig. Ein fester Bestandteil griechischer Dorfküchen und Namenstagsfeiern.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Walnüsse lose oder als Hälften statt fertig gehackt; sie sind nach Gewicht günstiger und müssen ohnehin gehackt werden.",
+        "Stelle Semmelbrösel aus trockenem Brot her, das du im Mixer zerkleinerst oder reibst. Das kostet nichts und entspricht dem Ursprung des Kuchens als Resteverwertung.",
+        "Orangenschale und Zimtstange sind optional. Gemahlener Zimt und etwas Zitronensaft reichen für den Sirup, wenn das Budget knapp ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "verwenden pecans für part von der Walnüsse — close in fat und texture, still authentic-tasting.",
+          "savings": "im Angebot oft ähnlich teuer oder günstiger"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "weglassen der Honig und verwenden ein extra Esslöffel von Zucker in der syrup; Honig mainly adds floral depth.",
+          "savings": "spart den Kauf eines teuren Glases"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenöl works in legen von geschmolzen Butter und keeps der crumb even moister.",
+          "savings": "günstiger als Butter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Backen",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "syrup-soaked (deutsche Fassung)",
+        "walnut (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7625,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-karidopita/",
+      "components": [
+        {
+          "key": "edb2f574-4213-596a-bc12-c9c3f13a53d0",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 194.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "1004ae51-90d9-53c0-859a-daefa00170b5",
+              "ingredientName": "Walnüsse",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Walnüsse, grob gehackt und geröstet"
+            },
+            {
+              "key": "634c7de6-270b-550b-86e3-377eae231db7",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen feine, trockene Semmelbrösel"
+            },
+            {
+              "key": "07dd4b99-1ab9-58cd-82a8-b2a1cf5f38c1",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Weizenmehl"
+            },
+            {
+              "key": "cd2613b7-0bca-5cd8-bab5-96cee19159bd",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 große Eier, getrennt"
+            },
+            {
+              "key": "adfeb899-7bfa-532f-9897-c9ccf14937a6",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "a3dbca0a-0d78-5295-832c-0df7441f1de5",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse ungesalzene Butter, geschmolzen"
+            },
+            {
+              "key": "a53ea1b3-05af-5ba2-9ec8-c7f4bb3c046d",
+              "ingredientName": "Zimt",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 TL gemahlener Zimt (1 1/3 EL)"
+            },
+            {
+              "key": "e5c586d6-de57-5183-b0c6-d2f502e89987",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL gemahlene Nelken"
+            },
+            {
+              "key": "c2ab07b2-ac41-58a7-8631-550c155e1caf",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 TL Backpulver (1 EL)"
+            },
+            {
+              "key": "c1d60206-89a1-53d4-802c-1c6bc78968d7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "50e2e37b-204d-52a9-855d-6a9f389b99cc",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Orange, abgerieben (nur die Schale für den Teig)"
+            },
+            {
+              "key": "2630f785-83da-5a7c-9f94-7ad884b0ab8f",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "525662bf-0c62-5b9e-8808-405ff4a819e8",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker für den Sirup"
+            },
+            {
+              "key": "72be190d-2d3e-5fff-a7c2-7688780cb5f8",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Tassen Wasser für den Sirup"
+            },
+            {
+              "key": "f5e713f4-8b07-5560-bc23-d5b03d6aa4e6",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "2 EL Honig für den Sirup"
+            },
+            {
+              "key": "3a857862-0895-5e03-8293-f2b646e1b7bd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 Zitrone: 1 Streifen Schale plus 1 EL Saft für den Sirup"
+            },
+            {
+              "key": "148bb90a-ce2e-5547-b173-df0eccc54f4a",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1 Zimtstange oder 1 TL gemahlener Zimt für den Sirup"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Sirup, damit er vollständig abkühlt; beim Kuchen muss er kalt sein. 2 Tassen Zucker, 2 Tassen Wasser, Honig, Zitronenschale und Zimtstange in einem Topf aufkochen. 8-10 Minuten leicht sirupartig köcheln lassen. Zitronensaft einrühren, vom Herd nehmen und vollständig abkühlen lassen; nach Wunsch kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 350F (175C) vor und buttere eine Form von 9x13-Zoll. Verteile gehackte Walnüsse auf einem Blech und röste sie 7-8 Minuten duftend. Abkühlen lassen, eine kleine Handvoll zum Garnieren zurückbehalten und den Rest mit Semmelbröseln, Mehl, Backpulver, Zimt, Nelken und Salz vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eigelb mit 1 Tasse Zucker 3-4 Minuten hell und dick. Geschmolzene Butter, Vanille und Orangenschale glatt und gebunden einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die trockene Walnussmischung unter die Eigelbmischung. Sie ist sehr fest und sandig – das ist richtig, sie wird lockerer, sobald das Eiweiß dazukommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage Eiweiß in einer sauberen Schüssel zu festen, glänzenden Spitzen. Rühre ein Drittel unter den schweren Teig, um ihn aufzulockern, und hebe den Rest in zwei Portionen vorsichtig unter, damit die Luft erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den Teig in die vorbereitete Form und streiche die Oberfläche glatt. Backe 35-40 Minuten, bis der Kuchen dunkelgolden und ein Holzspieß sauber ist. Bei leichtem Druck soll er zurückfedern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ritze den Kuchen sofort nach dem Backen mit einem scharfen Messer in 16 Quadrate oder Rauten. Gieße den kalten Sirup langsam und gleichmäßig darüber; er zischt und zieht ein. Mindestens 3-4 Stunden, idealerweise über Nacht, stehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue die übrigen Walnüsse darüber, schneide entlang der Markierungen und serviere den Kuchen bei Raumtemperatur. Zugedeckt bis zu 5 Tage haltbar; er wird mit der Zeit besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Karydopita_%28walnut_pie%29.jpg/1280px-Karydopita_%28walnut_pie%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Karydopita_(walnut_pie).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Dianeira, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Karidopita (griechischer Walnuss-Sirupkuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-ekerpare",
+      "slug": "bake2-ekerpare",
+      "title": "Şekerpare (türkische Grießkekse in Zitronensirup)",
+      "instructions": "Weiche, auf der Zunge schmelzende türkische Grieß-Mehl-Kekse, jeweils mit einer blanchierten Mandel belegt. Goldbraun gebacken und anschließend mit kühlem Zitronensirup getränkt. Der Kontrast aus warmem Keks und kaltem Sirup macht sie unwiderstehlich: innen dicht, saftig und fast puddingartig, oben leicht knusprig. Ein Klassiker türkischer Teehäuser.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse blanchierte Mandeln weg und verwende normale. Blanchiere sie selbst: 1 Minute in frisch aufgekochtem Wasser einweichen und die Schale abziehen.",
+        "Zitronensaft aus der Flasche und eine Prise zusätzliche Schale funktionieren im Sirup viel günstiger als frische Zitrone.",
+        "Bereite die ganze Menge zu. Die Kekse kosten nur wenige Cent pro Stück und halten tagelang; eine Portion reicht für eine Woche Teegebäck."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "semolina",
+          "swap": "gleich amount von fine cornmeal oder extra Mehl; semolina gives der klassisch slightly sandy bite but der cookies still work ohne it.",
+          "savings": "Nutzen Sie das, was sich im Vorratsschrank befindet, ohne zusätzliche Ausgaben"
+        },
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "1 tbsp Zitronensaft aus ein frisch Zitrone, oder ein few drops von vinegar zu behalten der syrup aus crystallizing.",
+          "savings": "kostet nur ein paar Cent, wenn bereits eine Zitrone da ist"
+        },
+        {
+          "forIngredientId": "almonds",
+          "swap": "Half ein walnut, ein pistachio, oder even ein clove pressed in je cookie wenn du have no Mandeln.",
+          "savings": "verwende vorhandene Nüsse, statt blanchierte Mandeln zu kaufen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "Backen",
+        "Nachtisch",
+        "syrup-soaked (deutsche Fassung)",
+        "cookies (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 18,
+      "status": "published",
+      "sortOrder": 7626,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-ekerpare/",
+      "components": [
+        {
+          "key": "a10794a0-b87f-5c00-9e85-dc9bdd2f3147",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 110.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d997669-1798-5828-b7ce-d7ce14f7a98c",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Tasse (170g) ungesalzene Butter, geschmolzen und abgekühlt"
+            },
+            {
+              "key": "804fdd7b-b49a-59a5-9f9e-111e045d233a",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Puderzucker"
+            },
+            {
+              "key": "198144ea-4a15-5e47-955e-cbc87c51234e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Ei und 1 Eigelb (Eiweiß nach Wunsch zum Bestreichen aufbewahren)"
+            },
+            {
+              "key": "bffe17f1-d320-5bae-bfae-0e47421d18bb",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL neutrales Pflanzenöl"
+            },
+            {
+              "key": "70c07d56-7f96-5a51-a18e-a1f4182219e9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "fe338e7a-edf0-5623-acc5-11409ea5d48d",
+              "ingredientName": "Grieß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse feiner Grieß"
+            },
+            {
+              "key": "89f611a9-6487-5e55-be83-c9c7968acd72",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl, nach und nach zugeben, bis ein weicher, nicht klebriger Teig entsteht"
+            },
+            {
+              "key": "af0d51f2-2e2d-581d-83cf-f81277f6d1c7",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 1/2 TL Backpulver"
+            },
+            {
+              "key": "38a8af40-0998-5db1-afa1-a546d6364516",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL fein abgeriebene Zitronenschale"
+            },
+            {
+              "key": "285d3280-75be-56a3-aac8-92d711fd2693",
+              "ingredientName": "Mandeln",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 18 blanchierte Mandeln (1/4 Tasse), eine pro Keks"
+            },
+            {
+              "key": "2a4243fd-5310-5138-87c4-a552d005a285",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker für den Sirup"
+            },
+            {
+              "key": "74846306-b99d-57f0-9659-c71a5a63ca8d",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Wasser für den Sirup"
+            },
+            {
+              "key": "855ee858-8052-534d-91b5-c3dbda5c3a77",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL Zitronensaft (oder der Saft einer halben frischen Zitrone)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Sirup und lasse ihn vollständig abkühlen: Zucker und Wasser in einem Topf aufkochen, Hitze reduzieren und 12-15 Minuten leicht dicklich köcheln. Zitronensaft einrühren und 1 Minute weiterköcheln. Vom Herd nehmen und auf Raumtemperatur abkühlen lassen. Kalter Sirup über warmen Keksen ergibt die richtige Textur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 350°F (175°C) vor und belege ein Backblech mit Backpapier. Verrühre geschmolzene Butter, Öl und Puderzucker glatt. Ei, zusätzliches Eigelb, Vanille und Zitronenschale einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Grieß, Backpulver und den Großteil des Mehls und gib alles zur feuchten Mischung. Vorsichtig kneten und das restliche Mehl nach und nach einarbeiten, bis ein weicher Teig entsteht, der gerade nicht mehr an den Händen klebt. Nicht überarbeiten, sonst werden die Kekse hart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm walnussgroße Portionen (je etwa 1 1/2 EL) und rolle glatte Kugeln. Setze sie mit etwa 1 1/2 Zoll Abstand aufs Blech, drücke die Oberseite leicht flach und drücke je eine blanchierte Mandel fest in die Mitte. Für extra Glanz nach Wunsch mit etwas Eiweiß bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe 20-25 Minuten, bis die Oberseiten blassgolden und die Unterseiten leicht gebräunt sind. Sie sollen fest, aber nicht dunkel sein; beim Tränken werden sie noch fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den abgekühlten Sirup sofort nach dem Backen über die heißen Kekse auf dem Blech oder in einer flachen Form. Es zischt. Den gesamten Sirup verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Kekse mindestens 1 Stunde stehen und den Sirup aufnehmen. Schöpfe ein- oder zweimal Pfützen wieder darüber, bis die Kekse vollgesogen und glänzend sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei Raumtemperatur mit türkischem Tee servieren. Zugedeckt bei Raumtemperatur 3-4 Tage haltbar; durch das Ruhen werden sie noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/%C5%9Eekerpare_mit_Mandel.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%C5%9Eekerpare_mit_Mandel.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "August.Kollmann, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Şekerpare (türkische Grießkekse in Zitronensirup)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-mawa-cake",
+      "slug": "bake2-mawa-cake",
+      "title": "Parsi Mawa Cake",
+      "instructions": "Klassischer Parsi-Kuchen zum Tee mit Mawa (eingekochten Milchbestandteilen), hier mit reichhaltigem Ricotta, ungezuckerter und gezuckerter Kondensmilch nachgebildet. So entsteht die typische dichte, milchige, auf der Zunge schmelzende Krume. Mit grünem Kardamom und etwas Muskatnuss aromatisiert, mit Mandeln bestreut und langsam dunkelgolden gebacken. Ein fester Bestandteil der Irani-Bäckereien Mumbais: aromatisch, kompakt und nicht zu süß.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze grüne Kardamomkapseln und mahle sie selbst. Pro Gramm ist das viel günstiger und das Aroma unvergleichlich besser. Gemahlener Kardamom verliert schnell an Kraft.",
+        "Ricotta sowie ungezuckerte und gezuckerte Kondensmilch sind eine günstige Alternative zu Mawa, das schwer zu finden und teuer ist. Zusammen ergeben sie den dichten, milchigen Charakter ohne Spezialeinkauf.",
+        "Keine Küchenmaschine nötig. Butter und Zucker lassen sich mit einem Schneebesen und 5 Minuten Handarbeit gut cremig schlagen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indian-parsi (deutsche Fassung)",
+        "Backen",
+        "indisch",
+        "parsi (deutsche Fassung)",
+        "tea-cake (deutsche Fassung)",
+        "cardamom (deutsche Fassung)",
+        "Nachtisch",
+        "Vegetarier",
+        "mawa (deutsche Fassung)",
+        "irani-bakery (deutsche Fassung)"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7627,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-mawa-cake/",
+      "components": [
+        {
+          "key": "c72c2414-aeca-5156-a414-80bad4fe95c4",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 194.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "538b5c3b-c87f-5e58-96a1-4c08200906db",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "ccb41af7-6060-5eda-810b-c5ee1bc52075",
+              "ingredientName": "Grieß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse feiner Grieß (Sooji) für eine zarte, kompakte Krume"
+            },
+            {
+              "key": "74ff3805-5562-5368-aef3-7bc5728b329c",
+              "ingredientName": "Ricotta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Ricotta aus Vollmilch als Ersatz für körniges Mawa/Khoya (dies entspricht zwei 1/2-Tassen-Einheiten)"
+            },
+            {
+              "key": "145d9a44-e766-5409-8aa8-16ce103ee920",
+              "ingredientName": "ungesüßte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse Kondensmilch für den konzentrierten Milchgeschmack von Mawa"
+            },
+            {
+              "key": "1bf2fbc3-6b9d-5872-a417-64c6e67e73fd",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse gezuckerte Kondensmilch, verstärkt den Mawa-Geschmack"
+            },
+            {
+              "key": "2a410ed6-d5c0-5b34-ac0a-1912930a22f0",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stangen) ungesalzene Butter, weich"
+            },
+            {
+              "key": "367439f7-203f-5bd3-a4ee-95f38853fb93",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "3ad22009-c135-529b-bf82-6ecd30cd810b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 große Eier, zimmerwarm"
+            },
+            {
+              "key": "f2dab416-a860-5f25-964c-89cb38016aad",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 1/2 TL Backpulver"
+            },
+            {
+              "key": "50c465a0-0e77-5b1f-971d-79a4619b3281",
+              "ingredientName": "Kardamom",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 1/2 TL frisch gemahlener grüner Kardamom als charakteristisches Aroma"
+            },
+            {
+              "key": "c400dc24-1207-5866-a7c1-02b2491f02cf",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL frisch geriebene Muskatnuss"
+            },
+            {
+              "key": "829c84db-a62c-5e83-a90c-54157ff6d3ce",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "92db2392-e6ab-58bc-90d9-a14ccc5d9533",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "16dd1802-90d6-5824-be24-b001f5c68791",
+              "ingredientName": "Mandelstifte",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/4 Tasse Mandelblättchen zum Darüberstreuen"
+            },
+            {
+              "key": "1a8bf1cd-b70e-5c1b-b510-33773bfa08d3",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/4 Tasse Vollmilch, um den Teig nach Bedarf aufzulockern"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter mittig in den Ofen und heize auf 325F (165C) vor. Fette eine runde Form von 8-Zoll oder Kastenform von 8.5x4.5-Zoll ein, lege den Boden mit Backpapier aus und fette erneut. Die niedrige Temperatur ist entscheidend, damit die Milchbestandteile langsam zu einer saftigen, gleichmäßigen Krume stocken, ohne dass der Kuchen wölbt oder reißt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Grieß, Backpulver, gemahlenen Kardamom, Muskatnuss und Salz in einer Schüssel. Während der Teig entsteht, beginnt der Grieß zu quellen und verleiht die typische dichte, leicht körnige Struktur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage weiche Butter und Zucker in einer großen Schüssel 4 bis 5 Minuten hell und luftig. Das lange Rühren schafft die Struktur für die schweren Milchbestandteile. Eier einzeln dazugeben und nach jedem gut schlagen, damit der Teig gebunden und glatt bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ricotta, ungezuckerte Kondensmilch, gezuckerte Kondensmilch und Vanille einrühren. Der Teig kann leicht geronnen aussehen; mit dem Mehl verbindet er sich wieder. Die drei Milchprodukte ersetzen traditionelles Mawa und geben den kräftigen Milchgeschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die trockenen Zutaten in zwei Portionen dazu und hebe sie nur ein, bis keine Mehlstreifen bleiben. Nicht überrühren. Ist der Teig fester als ein dickes Band, Milch esslöffelweise unterheben, bis er langsam vom Teigschaber fällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den Teig in die Form und streiche die Oberfläche glatt. Verteile gehobelte Mandeln darauf. Klopfe die Form einmal auf die Arbeitsfläche, um große Luftblasen zu lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe bei 325F 55 bis 70 Minuten (Kastenformen brauchen länger), bis der Kuchen dunkelgolden und die Oberfläche federnd ist. Ein Holzspieß aus der Mitte soll nur wenige feuchte Krümel zeigen. Falls die Oberseite nach 40 Minuten zu schnell bräunt, locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse den Kuchen 15 Minuten in der Form auf einem Gitter abkühlen. Stürze ihn, entferne das Backpapier und lasse ihn richtig herum vollständig auskühlen. Mawa Cake wird beim Ruhen fester und aromatischer. Am besten nach einigen Stunden, noch besser am nächsten Tag, dick geschnitten zu heißem Chai servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Home_made_Mawa_Cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Home_made_Mawa_Cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Sanika Dhumal, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Parsi Mawa Cake",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-karachi-biscuits",
+      "slug": "bake2-karachi-biscuits",
+      "title": "Karachi-Kekse (Hyderabadi-Tutti-Frutti-Kekse)",
+      "instructions": "Berühmte eifreie Kekse aus der Karachi Bakery in Hyderabad: buttriges, fast auf der Zunge schmelzendes Mürbgebäck mit Kardamom, goldgelb getönt mit Puddingpulver und gesprenkelt mit zähem Tutti Frutti. Knuspriger Rand, sandig-zarter Kern und unverwechselbarer Bäckereiduft. Wie das Original von Natur aus ohne Ei.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Puddingpulver gibt den typischen Geschmack, ist aber für eine Portion teuer. Maisstärke mit etwas Vanille und einer Prise Kurkuma ahmt Farbe und Krume günstiger nach.",
+        "Kaufe Tutti Frutti oder getrocknete Cranberrys lose und wiege nur die benötigte halbe Tasse ab, statt eine ganze Packung zu kaufen.",
+        "Würfle kalte Butter und lasse sie 20 Minuten draußen stehen, damit sie schnell weich wird. Teure „Backbutter“ ist nicht nötig; normale Butter funktioniert bestens."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Real custard powder (1/4 cup) wenn du have it — it is der traditional ingredient und gives der most authentic flavor und color",
+          "savings": "kostet etwas mehr, ist aber am authentischsten"
+        },
+        {
+          "forIngredientId": "dried-cranberries",
+          "swap": "klassisch tutti-frutti (candied papaya) is der authentic choice; gehackt candied citrus peel also works",
+          "savings": "ähnliche Kosten"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Ghee (3/4 cup) für ein even richer, mehr traditional Indian-bakery aroma",
+          "savings": "vergleichbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indian-hyderabadi (deutsche Fassung)",
+        "Backen",
+        "eggless (deutsche Fassung)",
+        "cookies (deutsche Fassung)",
+        "indian-sweets (deutsche Fassung)",
+        "cardamom (deutsche Fassung)",
+        "tutti-frutti (deutsche Fassung)",
+        "Snack",
+        "tea-time (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7628,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-karachi-biscuits/",
+      "components": [
+        {
+          "key": "9fbbed77-51eb-596b-8087-2dcae3eea710",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 41.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "9984a7e6-19c1-5dc6-98e5-dc4e85a441dc",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl (Maida)"
+            },
+            {
+              "key": "a3da7d8e-1967-50ae-8bfd-8a2a438531c7",
+              "ingredientName": "Speisestärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse Puddingpulver (ersatzweise Speisestärke, ein paar Tropfen Vanille und eine Prise Kurkuma)"
+            },
+            {
+              "key": "1e967ac7-e2d7-5505-bac7-f80292c97617",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse (1.5 Stangen) ungesalzene Butter, weich"
+            },
+            {
+              "key": "d6f9fcc3-30c6-540f-9b2f-efd592dbef43",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse Puderzucker"
+            },
+            {
+              "key": "32a2a370-5833-5fa2-a4ce-977ffe6986a6",
+              "ingredientName": "Milch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL Vollmilch zum Binden"
+            },
+            {
+              "key": "4cffc2bb-fe7f-5b11-a0d3-9bb911cfe165",
+              "ingredientName": "Kardamom",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 TL gemahlener grüner Kardamom (Samen aus etwa 6-7 Kapseln)"
+            },
+            {
+              "key": "614080e1-a741-5fd4-a0c3-6710e33d1ef1",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt"
+            },
+            {
+              "key": "053d9434-4884-5ec5-a0ac-402cf47e79bb",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "255431ef-cb5a-52f8-b01e-5f3c2d830603",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "c9cea88d-f713-56ef-8c2f-e7d29bdea3e3",
+              "ingredientName": "Kurkuma",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/8 TL Kurkuma für die klassische blassgoldene Farbe (oder ein Tropfen gelbe Lebensmittelfarbe)"
+            },
+            {
+              "key": "c960134e-9c39-5581-947a-5a717d4f1013",
+              "ingredientName": "getrocknete Cranberrys",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse Tutti-Frutti (kandierte Papaya); getrocknete Cranberrys sind der ähnlichste Ersatz aus dem Katalog"
+            },
+            {
+              "key": "c5a02ebf-4e6e-5c0d-bdef-92cf820ade1e",
+              "ingredientName": "Cashewkerne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "1/4 Tasse Cashewkerne, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Puddingpulver (oder Maisstärke), Backpulver, Salz, Kardamompulver und Kurkuma in einer Schüssel. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage weiche Butter und Puderzucker in einer großen Schüssel 3-4 Minuten von Hand oder 2 Minuten mit dem Mixer hell und luftig. Dadurch schmelzen die Kekse später zart auf der Zunge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vanille einrühren. Die trockene Mischung in zwei Portionen vorsichtig unterheben. Milch nach und nach dazugeben und alles zu einem weichen, nicht klebrigen Teig zusammenfügen. Nicht überarbeiten, sonst werden die Kekse hart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe Tutti Frutti oder getrocknete Cranberrys und gehackte Cashews gleichmäßig unter den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme den Teig zu einer etwa 2 Zoll dicken Rolle oder drücke ihn in eine kleine mit Backpapier ausgelegte Kastenform. In Backpapier wickeln und mindestens 30 Minuten kalt stellen, bis er fest ist. So lassen sich saubere Scheiben schneiden, und die Kekse laufen nicht auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 340°F (170°C) vor und belege zwei Bleche mit Backpapier. Schneide die kalte Rolle in etwa 1/3 Zoll (8 mm) dicke Scheiben und verteile sie mit etwas Abstand auf den Blechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe 15-18 Minuten, bis die Unterseiten fest und die Ränder gerade leicht goldgelb sind. Die Oberseiten sollen blass bleiben. Heiß fühlen sie sich noch weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Kekse 5 Minuten auf dem Blech ruhen, da sie warm zerbrechlich sind. Danach auf einem Gitter vollständig auskühlen lassen. Beim Abkühlen werden sie knusprig und bekommen ihre typische sandige Krume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Karachi_fruit_biscuits_2013-12-03_12-20.jpg/1280px-Karachi_fruit_biscuits_2013-12-03_12-20.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Karachi_fruit_biscuits_2013-12-03_12-20.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Randhirreddy, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Karachi-Kekse (Hyderabadi-Tutti-Frutti-Kekse)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-kerala-plum-cake",
+      "slug": "bake2-kerala-plum-cake",
+      "title": "Kerala Plum Cake (Weihnachtsfrüchtekuchen)",
+      "instructions": "Klassischer Weihnachtskuchen der syrischen Christen aus Kerala, mit in Rum eingeweichten Trockenfrüchten und dunklem Karamell aus verbranntem Zucker, der der Krume ihre tiefe Farbe und leicht bittere Note gibt. Mit Cashews und warmen Gewürzen: dicht, saftig und angenehm beschwipst. Für das authentische Aroma die Früchte vorher einweichen.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gemischte Trockenfrüchte lose statt in abgepackten Tüten. Du brauchst jeweils nur eine Handvoll; lose Ware kostet pro Unze deutlich weniger.",
+        "Kein dunkler Rum da? Eine kleine 50ml-Flasche reicht zum Einweichen und Bestreichen und kostet nur einen Bruchteil einer großen Flasche.",
+        "Ganze Muskatnuss und eine günstige Reibe halten lange. Eine Nuss reicht für Jahre und schmeckt viel besser als vorgemahlene Ware."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rum",
+          "swap": "Orange juice oder Apfel juice für ein alcohol-free soak (soak der fruit warm für ein Stunde zu plump)",
+          "savings": "spart etwa ~$8-12 gegenüber einer Flasche Rum"
+        },
+        {
+          "forIngredientId": "cashews",
+          "swap": "Walnüsse oder slivered Mandeln work just as well in der crumb",
+          "savings": "Walnüsse sind pro Unze oft günstiger als Cashewkerne"
+        },
+        {
+          "forIngredientId": "dried-apricots",
+          "swap": "Any getrocknet fruit du have — dates, figs, oder extra Rosinen all fit der spirit von der cake",
+          "savings": "verbrauche Vorratsreste, statt neue Zutaten zu kaufen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indian-kerala (deutsche Fassung)",
+        "Backen",
+        "christmas (deutsche Fassung)",
+        "fruit-cake (deutsche Fassung)",
+        "kerala (deutsche Fassung)",
+        "Nachtisch",
+        "boozy (deutsche Fassung)",
+        "machen-ahead",
+        "spiced (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7629,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-kerala-plum-cake/",
+      "components": [
+        {
+          "key": "5bdc88e3-9ac9-582d-b914-772547e9c835",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 132.37,
+          "position": 0,
+          "items": [
+            {
+              "key": "113cad35-c742-5c10-9551-1d2c7e585804",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/4 Tasse Rosinen zum Einweichen"
+            },
+            {
+              "key": "34c19ffe-107f-5f03-ad95-b49e3d454aa4",
+              "ingredientName": "getrocknete Cranberrys",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse getrocknete Cranberrys als Ersatz für Tutti-Frutti oder kandierte Schale"
+            },
+            {
+              "key": "b1930539-7ad7-5367-ac5a-b268bd499bd1",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse getrocknete Aprikosen, fein gehackt"
+            },
+            {
+              "key": "3da2be5f-3d59-54f6-9a7c-9508bf99aa80",
+              "ingredientName": "Rum",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse dunkler Rum zum Einweichen der Früchte"
+            },
+            {
+              "key": "448dd7ed-2910-5470-a993-91d49e19fbee",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse weißer Zucker für das Karamell aus gebranntem Zucker"
+            },
+            {
+              "key": "c8644ce1-f763-564a-8c1a-f372491303cc",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse heißes Wasser zum Ablöschen des Karamells"
+            },
+            {
+              "key": "57e09645-812d-528d-a980-b0110fb3da06",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "be6ce6c1-374d-55e1-a899-ef4e9669ca34",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stangen) ungesalzene Butter, weich"
+            },
+            {
+              "key": "bb544d13-52c5-5a6d-b694-b4fe0c1c4d01",
+              "ingredientName": "Brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse fest gepackter brauner Zucker"
+            },
+            {
+              "key": "54759d39-3021-5aaf-88e5-5baedb449543",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 große Eier, zimmerwarm"
+            },
+            {
+              "key": "a4a71849-3ded-5692-becc-7362651a1d06",
+              "ingredientName": "Cashewkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse Cashewkerne, grob gehackt"
+            },
+            {
+              "key": "d3e45b61-3355-55cd-9e29-0076ade4d90a",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 1/2 TL Backpulver"
+            },
+            {
+              "key": "a4ba1368-1efa-55bc-8424-97bb642e07db",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt"
+            },
+            {
+              "key": "78f598fe-e2a2-543b-85e9-2c9c4a586dbd",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/2 TL gemahlene Nelken"
+            },
+            {
+              "key": "3e2aa874-27f1-505f-95de-f26c24aa5da6",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/2 TL gemahlene Muskatnuss"
+            },
+            {
+              "key": "537095f3-43d8-5b91-b227-b373c22ec5cb",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Ingwer"
+            },
+            {
+              "key": "4200032a-131f-59b6-aa27-af34bcf16df2",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Kardamom"
+            },
+            {
+              "key": "d2a133b3-12ae-588f-b0ca-2825dbc041a1",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "bbacc6ee-2e3d-5c93-a5ab-9c9847cb048f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "c5adb2de-0a9c-5c48-838f-a846a022a8ab",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 19,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Orange"
+            },
+            {
+              "key": "c5e50fc5-6d4f-5c28-afc1-dbc0940e96b3",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 20,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Zitrone (plus 1 EL Saft)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Rosinen, getrocknete Cranberrys und gehackte getrocknete Aprikosen in einem Glas mit dunklem Rum ein. Verschließen und mindestens über Nacht, idealerweise 2-3 Tage oder bis zu Wochen, bei Raumtemperatur ziehen lassen. Gelegentlich schütteln. Je saftiger und rumgetränkter, desto besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für das dunkle Karamell weißen Zucker in einem kleinen schweren Topf bei mittlerer Hitze schmelzen lassen. Schwenken, nicht rühren, bis er dunkel mahagonibraun ist und leicht zu rauchen beginnt. Vom Herd nehmen, vorsichtig heißes Wasser zugießen (es spritzt stark), schwenken, bis ein glatter dunkler Sirup entsteht, und vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 325F (160C) vor. Fette eine runde Form von 8-Zoll oder Kastenform von 9x5 mit Backpapier aus. Früchte abgießen und überschüssigen Rum auffangen. Früchte und gehackte Cashews mit 1 EL Mehl vermischen, damit sie nicht absinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre übriges Mehl mit Backpulver, Zimt, Nelken, Muskatnuss, Ingwer, Kardamom und Salz in einer Schüssel. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage weiche Butter und Braunzucker mit dem Mixer 3-4 Minuten hell und luftig. Eier einzeln unterrühren, dann Vanille, Orangen- und Zitronenschale samt Saft sowie das abgekühlte Karamell einrühren. Der Teig wird kräftig braun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die trockenen Zutaten nur ein, bis sie vermengt sind. Nicht überrühren. Hebe vorsichtig die bemehlten Früchte, Cashews und nach Wunsch 1-2 EL aufgefangenen Rum unter, damit der Kuchen saftiger und aromatischer wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle den Teig in die Form und streiche die Oberfläche glatt. Backe 55-70 Minuten, bis der Kuchen fest ist und ein Holzspieß aus der Mitte sauber herauskommt; ein paar feuchte Krümel sind in Ordnung. Falls die Oberfläche zu dunkel wird, locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse den Kuchen 15 Minuten in der Form abkühlen und stürze ihn dann auf ein Gitter. Für das authentische Aroma warm mit etwas zusätzlichem Rum bestreichen, fest einwickeln und mindestens einen Tag durchziehen lassen. Hält sich mehrere Wochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Plum_cake._Goa.jpg/1280px-Plum_cake._Goa.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Plum_cake._Goa.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Joegoauk Goa, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kerala Plum Cake (Weihnachtsfrüchtekuchen)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1231 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-apple-cobbler",
+      "slug": "bake-apple-cobbler",
+      "title": "Apfel Cobbler",
+      "instructions": "Tender Zimt-spiced apples bubbling unter ein golden, buttery biscuit topping mit crisp sugared edges. ein cozy old-fashioned Dessert that's far easier than pie und best served warm mit ein scoop von ice Sahne.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "verwenden whatever apples are cheapest in season; ein mischen von tart und süß tastes best, but even bagged seconds work great once spiced und gebacken.",
+        "weglassen der cornstarch und verwenden ein extra spoon von Mehl aus der topping batch zu eindicken der Füllung wenn du don't behalten cornstarch auf hand.",
+        "machen ein double batch von der dry topping mischen und freeze it; du only need zu schneiden in Butter und hinzufügen Milch next time."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "verwenden natur white Zucker plus ein Teelöffel von molasses, oder just white Zucker",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Any Milch works, including oat oder almond Milch für ein dairy topping swap",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Swap in ein extra Esslöffel von all-purpose Mehl",
+          "savings": "~$0.15"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "Apfel",
+        "gebacken",
+        "fall (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "cobbler (deutsche Fassung)",
+        "Vegetarier",
+        "Backen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7480,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-apple-cobbler/",
+      "components": [
+        {
+          "key": "ae15651f-4a5b-5a51-b5bd-b95f8c91f2aa",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 137.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "38e1c457-bcfb-59a4-9367-4348e805a16b",
+              "ingredientName": "Apfel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 6 mittelgroße Backäpfel (Granny Smith + Honeycrisp), geschält und in Scheiben geschnitten"
+            },
+            {
+              "key": "6cc85d27-eb8c-5a7b-a794-2d94aa8e07bc",
+              "ingredientName": "brauner Zucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für die Apfelfüllung"
+            },
+            {
+              "key": "76245a56-610e-5b91-83b3-3ab5756e1664",
+              "ingredientName": "Zimt",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "auf Füllung und Belag verteilt"
+            },
+            {
+              "key": "c932aa5a-bc0e-51f8-90a5-9048b1364c5e",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "1c84b959-3d99-57d0-b40e-e42d4e3e30bb",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Saft für Frische in den Äpfeln"
+            },
+            {
+              "key": "72a401cb-4091-5800-9f62-8f02fe2b1dc1",
+              "ingredientName": "Speisestärke",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Andicken der Füllung"
+            },
+            {
+              "key": "ca3df52b-243d-5896-b90a-5a8f047b8573",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für den Biscuitbelag"
+            },
+            {
+              "key": "beac12dc-aaf2-5248-bd5c-8a54777bbd0c",
+              "ingredientName": "Zucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "für den Belag und zum Bestreuen"
+            },
+            {
+              "key": "382af2e3-d2fb-5a89-8492-e48d9cfb084e",
+              "ingredientName": "Backpulver",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "308dc194-1c86-5ae3-a247-a3921ba668e0",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a32fc73f-23ad-5657-ab15-286b5cb1b6c6",
+              "ingredientName": "Butter",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "kalt für den Belag und etwas für die Füllung"
+            },
+            {
+              "key": "cc396aeb-7d90-570f-b7cc-f88898e9a86e",
+              "ingredientName": "Milch",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "kalt, zum Binden des Teigs"
+            },
+            {
+              "key": "a8749c1f-09fb-5526-a4cb-9ac15e717fc6",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 375F (190C) und lightly Butter ein 9x13 Backen Gericht. Peel, core, und Scheibe der apples etwa 1/4-inch dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, vermengen der Apfel Scheiben mit der brown Zucker, Zitronensaft, cornstarch, half der Zimt, und der nutmeg bis evenly coated, dann spread them in der Backen Gericht und dot mit ein little Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "machen der topping: verquirlen der Mehl, half der Zucker, Backpulver, Salz, und übrig Zimt in ein Schüssel. schneiden in der kalt Butter mit dein fingers oder ein fork bis der Mischung looks like coarse crumbs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "umrühren in der Milch und vanilla just bis ein soft, shaggy Teig forms; do not overmix oder der topping will turn tough.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drop spoonfuls von der Teig über der apples, leaving gaps so der Füllung can bubble through, dann bestreuen der übrig Zucker über der top für ein crisp, sparkly crust.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen 40 zu 45 Minuten, bis der topping is golden brown und der Apfel juices bubble thickly around der edges.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "lassen der cobbler rest at least 15 Minuten so der Füllung sets, dann warm servieren, ideally mit ice Sahne oder ein splash von Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Apple_Cobbler_8.jpg/1280px-Apple_Cobbler_8.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Apple_Cobbler_8.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Photo: Mark Pellegrini — CC BY-SA 2.5 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Apfel Cobbler",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-blackberry-crumble",
+      "slug": "bake-blackberry-crumble",
+      "title": "Blackberry Crumble (deutsche Fassung)",
+      "instructions": "Juicy blackberries gebacken unter ein golden, buttery oat-und-Mehl crumble. der fruit cooks down in ein glossy, jammy Füllung brightened mit Zitrone, while der topping turns crisp und caramelized — proper British comfort pudding, best mit ein scoop von ice Sahne.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "gefroren blackberries work beautifully und cost ein fraction von frisch — no need zu thaw, just hinzufügen ein extra Teelöffel von cornstarch since they release mehr liquid.",
+        "kaufen frisch blackberries at der end von summer when they are in peak season und cheapest, dann freeze ein batch für off-season crumbles.",
+        "ein stick von Butter, Mehl, Haferflocken und Zucker machen der topping für pennies — stretch one box von berries further by mixing in ein gehackt Apfel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rolled-oats-instant",
+          "swap": "verwenden der same amount von extra Mehl (plus ein handful von gehackt nuts) für ein smoother shortbread-style crumble",
+          "savings": "Spart Haferflocken, wenn nur Mehl vorrätig ist"
+        },
+        {
+          "forIngredientId": "blackberries",
+          "swap": "Swap in gefroren mixed berries oder ein mischen von blackberries und Apfel",
+          "savings": "Tiefgekühlte Beeren sind etwa 40% günstiger als frische"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "verwenden ein gleich amount von all-purpose Mehl zu eindicken der juices",
+          "savings": "Verwendet vorhandenes Mehl statt einer zusätzlichen Packung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Nachtisch",
+        "fruit (deutsche Fassung)",
+        "gebacken",
+        "comfort-food (deutsche Fassung)",
+        "Vegetarier",
+        "summer (deutsche Fassung)",
+        "crumble (deutsche Fassung)",
+        "Backen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7481,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-blackberry-crumble/",
+      "components": [
+        {
+          "key": "b9922904-a0b0-5aea-8e8f-b51f8287d395",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 245.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "306ca668-0690-5106-ba56-ed3384213d3f",
+              "ingredientName": "Blackberries (deutsche Fassung)",
+              "grams": 680.4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 6 Tassen frische Brombeeren"
+            },
+            {
+              "key": "f9bc6d09-4195-5583-ae3e-3c31a367cadc",
+              "ingredientName": "Gefrorene Beeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": true,
+              "source_note": "optional: bei zu wenig frischen Brombeeren mit tiefgekühlten ergänzen"
+            },
+            {
+              "key": "b6f1fb80-985f-53bd-beb1-43c5aea916ee",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "aufgeteilt: ~1/3 Tasse für das Obst, den Rest für den Belag"
+            },
+            {
+              "key": "fe9f6836-334f-59ab-8833-040d8781d31e",
+              "ingredientName": "Speisestärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL zum Andicken der Flüssigkeit"
+            },
+            {
+              "key": "b2aa8da1-730f-5024-a61e-2dea9daa094d",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Saft einer halben Zitrone"
+            },
+            {
+              "key": "c67dec84-edfa-588e-9d27-13b7df768737",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "abgeriebene Schale einer halben Zitrone"
+            },
+            {
+              "key": "08f9f602-eca8-5826-9970-757eab60b1cb",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 1 Tasse Weizenmehl für den Belag"
+            },
+            {
+              "key": "f1e02b9f-3751-56ce-bb19-c4aae1ca57bf",
+              "ingredientName": "Portionsbeutel mit Instant-Haferflocken",
+              "grams": 30,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse Haferflocken für die Streusel"
+            },
+            {
+              "key": "22291300-3c78-5229-a8b0-ffbf664fc9c3",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse hellbrauner Zucker, fest angedrückt"
+            },
+            {
+              "key": "5ccf11ab-bce0-5992-861b-d560bd119174",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 EL / 1 Stück kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "7a25de31-7bdc-5a3d-8d8b-4f2deac45fd2",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "8db734a8-2fad-5bd3-b384-1f78df121320",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Prise für Belag und Obst"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 375 F (190 C) und lightly Butter ein 9-inch Backen Gericht. Pull der cubed Butter aus der fridge so it stays kalt bis der last moment.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "machen der Füllung: in ein Schüssel, gently vermengen der blackberries mit etwa 1/3 cup von der white Zucker, der cornstarch, Zitronensaft, und Zitronenschale bis der berries are evenly coated. Tip in der Backen Gericht und spread level.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "machen der crumble: in einer separaten Schüssel, umrühren together der Mehl, Haferflocken, brown Zucker, übrig white Zucker, Zimt, und ein pinch von Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der kalt cubed Butter und rub it in der dry mischen mit dein fingertips (oder schneiden mit ein fork) bis it clumps in ein coarse, pebbly rubble mit pea-sized Stücke — do not overwork it in ein Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Scatter der crumble evenly über der berries in ein dick, craggy layer, leaving ein few gaps so der fruit can bubble up through der top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "legen der Gericht auf ein rimmed Backen sheet zu catch drips und backen für 40 zu 45 Minuten, bis der topping is deep golden und der blackberry juices are bubbling thickly around der edges.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "lassen it rest at least 15 zu 20 Minuten so der Füllung sets up und thickens before serving — it will be molten straight aus der Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "warm servieren, ideally mit vanilla ice Sahne oder kalt Sahne poured über der top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Blackberry_Pear_Crumble_%284747800717%29.jpg/1280px-Blackberry_Pear_Crumble_%284747800717%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Blackberry_Pear_Crumble_(4747800717).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Neil Conway from Oakland, USA — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Blackberry Crumble",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-cherry-clafoutis",
+      "slug": "bake-cherry-clafoutis",
+      "title": "Cherry Clafoutis (deutsche Fassung)",
+      "instructions": "ein rustic French Dessert aus der Limousin: süß cherries gebacken in ein tender, flan-like custard Teig that puffs in der Ofen und settles in something between ein pancake und ein gebacken custard. Lightly dusted mit powdered Zucker und best served warm.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "gefroren cherries work beautifully und cost far weniger out von season — thaw und pat them dry first so der Teig doesn't go watery.",
+        "der whole Teig can be made in ein blender in 30 seconds, no need für ein stand mixer oder special equipment.",
+        "No almond extract? ein few drops aren't essential — der custard, Milch, und cherries carry der Gericht auf their own."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cherry-fresh",
+          "swap": "gefroren pitted cherries, thawed und drained",
+          "savings": "Spart außerhalb der Kirschsaison etwa 40% gegenüber frischen Kirschen"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Half whole Milch, half heavy Sahne für ein richer custard",
+          "savings": "Ungefähr gleiche Kosten; vorhandene Zutaten verwenden"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "ein extra 1/2 tsp Vanilleextrakt",
+          "savings": "Spart eine nur einmal benötigte Flasche vollständig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Nachtisch",
+        "gebacken",
+        "custard (deutsche Fassung)",
+        "cherry (deutsche Fassung)",
+        "summer (deutsche Fassung)",
+        "Vegetarier",
+        "limousin (deutsche Fassung)",
+        "Backen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7482,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-cherry-clafoutis/",
+      "components": [
+        {
+          "key": "9ca18330-a8d8-5839-927c-f6b279b3391e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 136.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc71b9ca-f3cd-56e1-847e-e12473bbeff4",
+              "ingredientName": "Frische Kirschen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1 Pfund Süßkirschen, entsteint (oder für das traditionelle Mandelaroma ganz belassen)"
+            },
+            {
+              "key": "94962c96-8823-5391-97d5-e8f14f8eb59f",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab36b0a2-91d5-565e-9006-b64001a615fd",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Vollmilch"
+            },
+            {
+              "key": "23060926-a987-5cc3-9671-9ccae6b0d153",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse Kristallzucker und mehr für die Form"
+            },
+            {
+              "key": "ef91b914-2872-50f9-affc-0b9e0c90069e",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse Weizenmehl"
+            },
+            {
+              "key": "4221b95d-ea45-5ed7-b984-05af2d7aa9f8",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "035290fd-ffab-55c0-82dc-dc51b61c282b",
+              "ingredientName": "Mandelextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/4 TL für eine an Kirschkerne erinnernde Note"
+            },
+            {
+              "key": "c95e5a26-2d6a-5a9e-a1ff-0087c7512260",
+              "ingredientName": "Butter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Einfetten der Backform"
+            },
+            {
+              "key": "d928f0da-e7cb-5962-8564-dfba06a2b5ff",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "5f4f2473-2855-52b6-8daa-ff056830200f",
+              "ingredientName": "Puderzucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Bestäuben vor dem Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Preheat der Ofen zu 350F (175C). Generously Butter ein 9-10 inch ceramic Backen Gericht oder pie plate, dann coat der inside mit ein light layer von granulated Zucker, tapping out der excess.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pit der cherries (oder leave them whole der traditional way) und scatter them in ein single even layer across der bottom von der vorbereitet Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in ein Schüssel, verquirlen der Eier mit der Zucker und ein pinch von Salz bis pale und smooth, dann verquirlen in der vanilla und almond extract.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der Mehl und verquirlen just bis no lumps remain, dann gradually verquirlen in der Milch zu machen ein dünn, pourable Teig der consistency von Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "lassen der Teig rest 10 Minuten, dann gießen it gently und evenly über der cherries so they stay nestled in der bottom von der Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen für 40-45 Minuten, bis der clafoutis is puffed und golden, der center is just set mit only ein slight wobble, und ein knife inserted near der edge comes out clean.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "lassen it abkühlen für at least 15 Minuten; it will deflate slightly, which is normal. Dust generously mit powdered Zucker und warm servieren oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Cherry_clafoutis_at_Vivat_Bacchus%2C_London_Bridge%2C_London.jpg/1280px-Cherry_clafoutis_at_Vivat_Bacchus%2C_London_Bridge%2C_London.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cherry_clafoutis_at_Vivat_Bacchus,_London_Bridge,_London.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ewan Munro — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Cherry Clafoutis",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-vanilla-souffle",
+      "slug": "bake-vanilla-souffle",
+      "title": "Vanilla Souffle (deutsche Fassung)",
+      "instructions": "ein klassisch French vanilla souffle: ein silky vanilla pastry-Sahne base lightened mit billowing whipped Ei whites, gebacken bis it crowns proud und golden über der rim. Airy, just-set in der center, und fragrant mit real vanilla. servieren der instant it leaves der Ofen, dusted mit powdered Zucker.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "ein whole vanilla bean is pricey; good-quality real Vanilleextrakt gives der same fragrance für ein fraction von der cost.",
+        "Save der leftover Ei yolk und freeze der whites du don't verwenden für tomorrow's scramble oder weitere backen, nothing wasted.",
+        "natur ceramic ramekins are ein one-time kaufen und outperform anything fancy; thrift stores und dollar shops have them cheap."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "verwenden cornstarch (etwa half der amount) zu eindicken der base für ein naturally gluten-free souffle",
+          "savings": "Ungefähr gleiche Kosten und spart den Mehlkauf bei seltenem Backen"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Steep ein real vanilla bean in der warm Milch anstatt extract für ein bakery-grade aroma",
+          "savings": "Kostet mehr, aber eine Schote aromatisiert das ganze Gericht"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Whole Milch gives der richest base, but 2% works in ein pinch",
+          "savings": "Spart etwas und verwendet Vorhandenes aus dem Kühlschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Französisch",
+        "Nachtisch",
+        "klassisch",
+        "gebacken",
+        "vanilla (deutsche Fassung)",
+        "Ei",
+        "showstopper (deutsche Fassung)",
+        "Vegetarier",
+        "Backen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7483,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-vanilla-souffle/",
+      "components": [
+        {
+          "key": "b063596c-66c4-5235-91e7-018b7c2f3feb",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 139.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f92dd164-c069-5a13-95ba-c07d5ca2c58d",
+              "ingredientName": "Butter",
+              "grams": 1.8,
+              "quantity": 1.8,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "und mehr, weich, zum Einfetten der Förmchen"
+            },
+            {
+              "key": "5b097b92-fcb4-565a-ad15-f89ef56b407b",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Kristallzucker; etwas zum Ausstreuen der Förmchen, den Rest auf Grundlage und Eiweiß verteilen"
+            },
+            {
+              "key": "b0a56977-353c-5e46-861b-a4cd79a79a24",
+              "ingredientName": "Weizenmehl",
+              "grams": 45.6,
+              "quantity": 45.6,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Weizenmehl, ~3 EL für die angedickte Grundlage"
+            },
+            {
+              "key": "4c27bd65-f1ce-52cb-8718-cd19260a5fdd",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Vollmilch, ~1 Tasse, erwärmt"
+            },
+            {
+              "key": "92cf7238-9bd8-521c-9779-1681e98fb61c",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Eigelbe + 5 Eiweiße (1 zusätzliches Eiweiß für mehr Volumen aufbewahren)"
+            },
+            {
+              "key": "359d4e90-3e72-5d94-963a-d98655a91432",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "echter Vanilleextrakt, ~2 TL (oder Mark von 1 Vanilleschote)"
+            },
+            {
+              "key": "cd231b35-82e9-55d4-82ea-37c83377feea",
+              "ingredientName": "Weinstein",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL zum Stabilisieren des Eischnees"
+            },
+            {
+              "key": "77245099-fc57-5b5b-af7b-6a769f279894",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise in der Grundlage"
+            },
+            {
+              "key": "0688b7d7-a605-5403-92ad-93b85dc6bcbf",
+              "ingredientName": "Puderzucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Bestäuben vor dem Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 400F (200C) mit ein rack in der lower third. Generously brush four 6-8oz ramekins mit weich Butter using upward strokes, dann coat der insides fully mit granulated Zucker, tapping out der excess. This grip lets der souffle climb. Chill der ramekins while du work.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "machen der base: melt 2 tbsp Butter in ein saucepan bei mittlerer Hitze, verquirlen in der Mehl, und garen 1 Minute zu ein pale roux. Gradually verquirlen in der warm Milch und garen, whisking constantly, bis very dick und smooth, 2-3 Minuten. Off erhitzen, verquirlen in ein pinch von Salz, half der Zucker, und der vanilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "verquirlen der 4 Ei yolks in der warm base one at ein time bis glossy und uniform. Scrape in ein groß Schüssel und lassen abkühlen zu just warm (it should fall in dick ribbons).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "in ein spotlessly clean Schüssel, beat der 5 Ei whites mit der Sahne von tartar auf mittel bis foamy, dann raise der speed und rain in der übrig Zucker. Beat zu firm, glossy peaks that hold their formen but still look moist, not dry oder clumpy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "verquirlen ein third von der whites in der yolk base zu loosen it. dann gently unterheben in der rest in two additions mit ein spatula, cutting down und lifting über, bis gerade verbunden mit no white streaks, keeping as much air as possible.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Divide der Teig among der ramekins, Füllung zu der rim. Smooth der tops level mit ein offset spatula, dann run dein thumb around der inside edge zu wipe ein clean moat, which helps ein even rise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "legen auf ein Backen sheet und backen 12-16 Minuten, bis der souffles have risen 1-2 inches above der rim, are golden auf top, und just jiggle slightly in der center. Do not open der Ofen für der first 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Dust immediately mit powdered Zucker und servieren at once, before they deflate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Vanilla_bean_souffle_at_Emerils.jpg/1280px-Vanilla_bean_souffle_at_Emerils.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vanilla_bean_souffle_at_Emerils.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Coastie Wife 2008 — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Vanilla Souffle",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-french-meringues",
+      "slug": "bake-french-meringues",
+      "title": "French Meringues (deutsche Fassung)",
+      "instructions": "Crisp, airy meringue kisses made der klassisch French way — Ei whites whipped zu glossy stiff peaks mit caster Zucker, dann slowly getrocknet in ein niedrig Ofen bis they shatter auf der outside und stay delicately marshmallowy within. Just four pantry ingredients und ein little patience.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Don't vermengen der yolks — verwenden them für Zitrone curd, custard, hollandaise, oder enriched Pasta Teig so nothing goes zu waste.",
+        "No caster Zucker? Pulse normal granulated Zucker in ein blender für 20 seconds zu get ein finer texture that dissolves faster und cheaper than buying special Zucker.",
+        "Eier separate most cleanly when kalt, but whites whip zu greater volume bei Raumtemperatur — separate straight aus der fridge, dann lassen der whites sit out 20 Minuten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "ein few drops von Zitronensaft oder white vinegar per Ei white",
+          "savings": "Ein selten verwendetes ganzes Glas sparen, etwa $4"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "1/4 tsp almond extract oder der seeds von half ein vanilla pod",
+          "savings": "Mandelextrakt ist pro Tropfen ergiebiger und spart ~$1 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Liquid Ei whites aus ein carton (etwa 1/2 cup)",
+          "savings": "Keine Eigelbreste und kein Trennen; ungefähr gleiche Kosten bei weniger Aufwand"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "Französisch",
+        "Nachtisch",
+        "meringue (deutsche Fassung)",
+        "Ei-whites",
+        "machen-ahead",
+        "niedrig-fat",
+        "Backen",
+        "patisserie (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7484,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-french-meringues/",
+      "components": [
+        {
+          "key": "86cb1ab0-f634-5bc5-bc46-15e46ede5c22",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 55.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc514367-0cd2-5596-8592-603c86411527",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "nur Eiweiß verwenden (4 große Eiweiße); Eigelbe anderweitig verwenden"
+            },
+            {
+              "key": "88298a85-7bf3-5659-a3de-797041898783",
+              "ingredientName": "weißer Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1 Tasse feiner Kristallzucker; normalen Zucker bei Bedarf kurz im Mixer zerkleinern"
+            },
+            {
+              "key": "fe05f1a8-ef06-5c85-b6fe-4c1b48501985",
+              "ingredientName": "Weinstein",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL zum Stabilisieren des Eiweißes"
+            },
+            {
+              "key": "fb704fad-523f-5cae-b079-eea72385e27d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d86d7ca7-3717-5e0c-94a8-ea04cc32de68",
+              "ingredientName": "Salz",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "eine winzige Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Position ein rack in der center von der Ofen und erhitzen zu 200F (95C). Line two Backen sheets mit parchment paper. machen sure dein mixing Schüssel und verquirlen are spotlessly clean und grease-free — any fat will stop der whites aus whipping.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Separate 4 Eier carefully, letting no yolk slip in der whites. hinzufügen der whites zu der Schüssel mit der Sahne von tartar und ein tiny pinch von Salz. verquirlen auf mittel speed bis der whites turn foamy und opaque, etwa 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Increase der speed zu mittel-hoch und whip bis soft peaks form. dann begin adding der caster Zucker one Esslöffel at ein time, waiting ein few seconds between je addition, so it dissolves in der whites.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Once all der Zucker is in, whip auf hoch bis der meringue is dick, glossy, und holds firm, stiff peaks — etwa 5 zu 7 Minuten. Rub ein little between dein fingers; it should feel smooth, not gritty. verquirlen in der vanilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Transfer der meringue zu ein piping bag fitted mit ein star oder round tip. Pipe 2-inch swirls oder kisses onto der parchment, spacing them ein inch apart. (Dab ein little meringue unter je parchment corner zu anchor it.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen für 1 Stunde 15 Minuten zu 1 Stunde 30 Minuten, bis der meringues lift cleanly off der parchment und sound hollow when tapped. They should stay pale white, not browned.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Turn off der Ofen und leave der meringues inside mit der door closed für at least 1 Stunde (oder overnight) zu finish drying und crisp up fully.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "in einem luftdichten Behälter aufbewahren bei Raumtemperatur für up zu 2 weeks. behalten them away aus humidity, which makes them go sticky.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/FrenchMeringue.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:FrenchMeringue.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tinette on it.wiki — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von French Meringues",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1287 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-cinnamon-babka",
+      "slug": "bake-cinnamon-babka",
+      "title": "Zimt-Babka",
+      "instructions": "Ein zartes, mit Butter und Eiern angereichertes Hefebrot, gefüllt mit einer buttrigen Zimt-Braunzucker-Mischung und zu einer glänzenden Spirale geflochten. Ein Vanille-Zuckersirup macht die Kruste klebrig und aromatisch. Reichhaltig, weich und wie frisch aus der Bäckerei.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse den Teig über Nacht im Kühlschrank gehen, statt ihn warm schnell aufgehen zu lassen. Kalter Teig lässt sich ohne besonderes Zubehör viel sauberer ausrollen und flechten.",
+        "Du musst kein Brotmehl kaufen; Weizenmehl funktioniert ebenfalls. Durch längeres Kneten bekommt der Teig genug Struktur.",
+        "Hebe das Backpapier auf und verwende es erneut. Bestreiche den heißen Laib mit Zuckersirup, damit er einzieht, statt sich am Boden zu sammeln."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "oat-Milch plus 1 extra tbsp Butter",
+          "savings": "Vorhandenen Pflanzendrink verwenden und einen zusätzlichen Milchkauf sparen"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "ein pinch von extra Zimt plus der Milch's natural sweetness",
+          "savings": "Spart die teuerste Flasche im Vorrat bei unverändert gutem Brot"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "granulated Zucker mit 1 tsp molasses, oder just natur granulated",
+          "savings": "Vorhandenen weißen Zucker abdunkeln und einen zweiten Beutel Zucker sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jewish-eastern-european (deutsche Fassung)",
+        "babka (deutsche Fassung)",
+        "Zimt",
+        "enriched-Brot",
+        "Hefe",
+        "braided (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "brunch (deutsche Fassung)"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7460,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-cinnamon-babka/",
+      "components": [
+        {
+          "key": "e5d692f1-c547-5bf4-bc09-085ce90b469c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 170.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "9eeb7be1-7ed1-54b0-866f-cd9c9ac4d141",
+              "ingredientName": "Weizenmehl",
+              "grams": 900,
+              "quantity": 900,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "backstarkes Mehl oder Weizenmehl, etwa 3.75 Tassen für den Teig"
+            },
+            {
+              "key": "a30c55ef-a79d-5e5b-836b-e9e0c643e9b1",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL"
+            },
+            {
+              "key": "3c024902-c2a3-534a-87ac-d0d662004fb2",
+              "ingredientName": "Milch",
+              "grams": 160.8,
+              "quantity": 160.8,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2/3 Tasse, warm, zum Aktivieren der Hefe und Verfeinern des Teigs"
+            },
+            {
+              "key": "c154bbbb-51a2-58c6-893b-c44fff04c7f4",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "4ba9b5f7-8a25-5434-88b7-44e439fb8265",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große, zimmerwarm"
+            },
+            {
+              "key": "03a5a576-23cf-5078-b68e-63bf1611a831",
+              "ingredientName": "Butter",
+              "grams": 210,
+              "quantity": 210,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "insgesamt etwa 14 EL: 6 EL weich in den Teig, 8 EL für die Füllung"
+            },
+            {
+              "key": "af221fd7-7283-525e-bf59-641f7ef26e09",
+              "ingredientName": "Salz",
+              "grams": 6.25,
+              "quantity": 6.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/4 TL feines Salz im Teig"
+            },
+            {
+              "key": "a5d5e539-a860-571a-b9d2-e84c8c79dae2",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse, fest angedrückt, für die Zimtfüllung"
+            },
+            {
+              "key": "a0d0bdc6-5a9a-57a2-afe1-46dbd33892ce",
+              "ingredientName": "Zimt",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL gemahlener Zimt für die Füllung"
+            },
+            {
+              "key": "f2725dfd-d031-5664-abb0-37dc40154aea",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL, auf Teig und Sirup verteilt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Milch auf etwa 110F, rühre 1 TL Kristallzucker und die Trockenhefe ein. Lasse die Mischung 5-8 Minuten stehen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, übrigen Kristallzucker und Salz in der Schüssel einer Küchenmaschine mit Knethaken. Gib die Hefemilch, Eier und 1 TL Vanille dazu. Verknete alles auf niedriger Stufe zu einem groben Teig und anschließend 5 Minuten, bis er zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib bei laufender Maschine 6 EL weiche Butter esslöffelweise dazu. Knete 8-10 Minuten, bis der Teig glatt und elastisch ist und sich sauber vom Schüsselrand löst. Decke ihn ab und lasse ihn 1.5-2 Stunden gehen, bis er doppelt so groß ist. Stelle ihn dann mindestens 1 Stunde kalt, damit er sich ausrollen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Braunzucker, Zimt und 8 EL weiche Butter zu einer streichfähigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den kalten Teig auf einer bemehlten Fläche zu einem etwa 12x18 Zoll großen Rechteck aus. Verteile die Zimtfüllung bis an die Ränder und rolle den Teig von der langen Seite her fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide die Rolle längs in zwei Hälften, sodass die Schichten sichtbar werden. Lege die Schnittflächen nach oben und verschlinge die beiden Stränge fest umeinander, ohne die Schichten zu verdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege den Zopf in eine mit Backpapier ausgelegte Kastenform von 9x5 Zoll und schlage die Enden unter. Decke die Form ab und lasse den Teig 45-60 Minuten gehen, bis er luftig ist und fast den Rand erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe bei 350F 40-50 Minuten, bis das Brot dunkelgolden ist und die Mitte 190F erreicht. Decke es mit Folie ab, falls es zu schnell bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Koche währenddessen 1/3 Tasse Wasser mit dem übrigen Kristallzucker und 1 TL Vanille zu Sirup. Bestreiche die heiße Babka großzügig damit und lasse sie 20 Minuten in der Form abkühlen, bevor du sie heraushebst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Cinnamon_Babka.jpg/1280px-Cinnamon_Babka.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cinnamon_Babka.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Hibachrach — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Zimt-Babka",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-chocolate-babka",
+      "slug": "bake-chocolate-babka",
+      "title": "Schokoladen-Babka",
+      "instructions": "Ein buttriger Hefeteig, gefüllt mit einer kräftigen Paste aus dunkler Schokolade und Kakao. Der Teig wird so verschlungen, dass die Schokoladenschichten sichtbar bleiben, dann goldbraun gebacken und mit Vanille-Zuckersirup getränkt. Zart, reichhaltig und jede Gehminute wert.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Babka-Teig profitiert von einer langen kalten Gare. Bereite ihn am Vorabend zu; kalter Teig lässt sich außerdem viel leichter sauber ausrollen und flechten.",
+        "Für die Füllung eignen sich gehackte Tafelschokolade oder Schokotropfen. Was gerade im Angebot ist, ist günstiger als teure Backschokolade.",
+        "Lasse den Zuckersirup nicht weg: Er ist günstig, hält das Brot tagelang saftig und sorgt für den Glanz wie vom Bäcker."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "semi-süß Schokolade chips",
+          "savings": "Schokostückchen sind pro Unze meist günstiger und schmelzen gut für die Füllung."
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "any plant Milch, warmed",
+          "savings": "Vorhandene Milch verwenden; die geringe Menge verändert die Konsistenz nicht."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "half Butter, half neutral Öl in der Füllung",
+          "savings": "Streckt teure Butter und erhält den Glanz der Füllung."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "eastern-european-jewish (deutsche Fassung)",
+        "babka (deutsche Fassung)",
+        "Schokolade",
+        "Backen",
+        "enriched-Teig",
+        "Nachtisch",
+        "yeasted (deutsche Fassung)",
+        "brunch (deutsche Fassung)",
+        "showstopper (deutsche Fassung)"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7461,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-chocolate-babka/",
+      "components": [
+        {
+          "key": "f1239b5d-2027-5c19-bf9a-432b23b73182",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 116.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "409ad825-8305-53c2-88fe-06f101ec3586",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "backstarkes Mehl oder Weizenmehl, etwa 2.5 Tassen für den Teig"
+            },
+            {
+              "key": "74c2b5c1-8cc5-5fcc-b948-ddc1f46da1f1",
+              "ingredientName": "Instant-Hefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL Instanthefe"
+            },
+            {
+              "key": "30c90391-a690-58db-920d-6a650c603f92",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "aufgeteilt: ~1/4 Tasse im Teig und mehr für Füllung und Sirup"
+            },
+            {
+              "key": "68efb3e4-dc47-53f4-afe1-07c57f18403d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "4a6c066e-673c-5b2a-8e70-68041106c71f",
+              "ingredientName": "Milch",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse lauwarme Vollmilch"
+            },
+            {
+              "key": "359d8dfb-b3f4-54eb-87ad-a0886b56a118",
+              "ingredientName": "Butter",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "aufgeteilt: ~9 EL im Teig, ~6 EL in der Füllung"
+            },
+            {
+              "key": "c549f61a-7e72-5048-82d9-8d40fcac5f75",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL feines Salz im Teig"
+            },
+            {
+              "key": "3cc2ad62-9348-5619-a1b1-b7ef7b3f8d99",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 127.58,
+              "quantity": 127.58,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 4.5 oz, gehackt, für die Füllung"
+            },
+            {
+              "key": "b1b7efd4-dbdd-5121-9736-3f77fa0ca26f",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL ungesüßtes Kakaopulver für die Füllung"
+            },
+            {
+              "key": "b53faddd-c65c-50a9-b82d-37ccf2a9f176",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL, auf Teig und Sirup verteilt"
+            },
+            {
+              "key": "ce92208c-13d3-5374-a0cd-a3ce0868b597",
+              "ingredientName": "Puderzucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "optional zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Zucker, Trockenhefe und Salz in der Schüssel einer Küchenmaschine mit Knethaken. Gib Eier und lauwarme Milch dazu und verknete alles auf niedriger Stufe zu einem groben Teig. Knete weitere 5 Minuten, bis er zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die weiche Butter esslöffelweise dazu und warte jeweils, bis sie eingearbeitet ist. Knete 8-10 Minuten, bis der Teig glatt, glänzend und elastisch ist. Decke ihn ab und stelle ihn mindestens 4 Stunden oder über Nacht kalt. Der Teig muss kalt sein, damit er sich sauber ausrollen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz Schokolade und Butter für die Füllung zusammen. Rühre Kakao und Zucker ein, bis eine dicke, streichfähige Paste entsteht. Lasse sie abkühlen, bis sie streichfähig, aber nicht fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den kalten Teig auf einer bemehlten Fläche zu einem etwa 10x18 Zoll großen und 1/4 Zoll dicken Rechteck aus. Verteile die Schokoladenfüllung bis an die Ränder und rolle den Teig von der langen Seite her fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Rolle 15-20 Minuten kalt. Schneide die Enden ab und schneide die Rolle längs auf, damit die Schichten sichtbar werden. Lege die Schnittflächen nach oben und verschlinge die beiden Stränge fest umeinander. Setze den Zopf in eine mit Backpapier ausgelegte Kastenform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Form locker ab und lasse den Teig bei Raumtemperatur 1 bis 1.5 Stunden gehen, bis er luftig ist und die Form fast ausfüllt. Heize währenddessen den Ofen auf 350F (175C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe das Brot 30-35 Minuten, bis es dunkelgolden und fest ist. Decke es mit Folie ab, falls es zu schnell bräunt. Die Mitte sollte etwa 190F erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Koche während des Backens den Sirupzucker mit einem gleich großen Schuss Wasser und Vanille 2 Minuten. Bestreiche die Babka sofort nach dem Backen oben mit dem heißen Sirup, damit er einzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse das Brot 15 Minuten in der Form abkühlen, hebe es heraus und lasse es vollständig auskühlen, bevor du es anschneidest. Nach Wunsch mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Chocolate_Babka_-_31706252800.jpg/1280px-Chocolate_Babka_-_31706252800.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_Babka_-_31706252800.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Joy — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Schokoladen-Babka",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-monkey-bread",
+      "slug": "bake-monkey-bread",
+      "title": "Monkey Bread zum Auseinanderzupfen",
+      "instructions": "Selbst gebackenes Zimt-Zucker-Zupfbrot: Weiche Hefeteigstücke werden in Zimtzucker gewälzt, in eine Gugelhupfform geschichtet und mit einer blubbernden Karamellsoße aus Butter und Braunzucker gebacken. Die klebrige Soße zieht in jede Lücke. Am besten warm mit den Händen auseinanderzupfen.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Teig aus Mehl, Milch und Hefe selbst zu, statt gekühlten Fertig-Biskuitteig zu kaufen. Das kostet viel weniger und schmeckt besser.",
+        "Lasse die Walnüsse weg, wenn du sparen möchtest. Das Zimt-Zucker-Karamell ist der eigentliche Star des Gebäcks.",
+        "Braunzucker kannst du selbst herstellen: Verrühre 1 EL Melasse mit einer Tasse weißem Zucker."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "verwenden almond oder oat Milch warmed der same way",
+          "savings": "Pro Tasse oft günstiger und geeignet bei vorhandenem Pflanzendrink"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Swap in pecans oder just leave them out",
+          "savings": "Das Weglassen der Nüsse spart am meisten; Pekannüsse kosten ähnlich viel"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "White Zucker plus ein spoon von molasses oder maple syrup",
+          "savings": "Spart den Kauf eines zusätzlichen Beutels braunen Zuckers"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "pull-apart (deutsche Fassung)",
+        "Zimt",
+        "Backen",
+        "süß",
+        "brunch (deutsche Fassung)",
+        "aus-scratch"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7462,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-monkey-bread/",
+      "components": [
+        {
+          "key": "e3618a33-7835-5b1c-b6e2-0631e1a7916f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 166.52,
+          "position": 0,
+          "items": [
+            {
+              "key": "9029eed1-1b29-5160-a34b-0d0e2823f87d",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 3.5 Tassen Weizenmehl"
+            },
+            {
+              "key": "2587238b-2231-5e8d-bedc-5f6cab46d58e",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, auf etwa 110F erwärmt"
+            },
+            {
+              "key": "8f133401-da87-5e08-97c0-4dcd9f0a4a5e",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.25 TL (ein Päckchen)"
+            },
+            {
+              "key": "85e954f9-57fe-5065-947e-b74b304c244a",
+              "ingredientName": "weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse für den Teig"
+            },
+            {
+              "key": "70710949-fcc0-57da-a10a-f7c45927a1f7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "9315fd05-1656-5503-a630-ca9321cad812",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, weich, für den Teig + 3/4 Tasse (1.5 Stücke) für das Karamell"
+            },
+            {
+              "key": "3f250c26-7a77-50f2-93e9-b733e6238ed5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2bdf421c-acec-51a5-80b6-edf735fd06d3",
+              "ingredientName": "brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse, fest angedrückt, für Karamell + Umhüllung"
+            },
+            {
+              "key": "cc281eee-4998-5163-a99b-db36db96508f",
+              "ingredientName": "weißer Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tasse für den Zimtzuckerüberzug"
+            },
+            {
+              "key": "0133dc15-8946-51ce-89ce-ee017bd8ece8",
+              "ingredientName": "Zimt",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "insgesamt 2 EL, Teigüberzug + Karamell"
+            },
+            {
+              "key": "b439a24c-dd38-5187-8ce0-7f4471c1a3e8",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL im Karamell"
+            },
+            {
+              "key": "1e06c71d-e8d5-5029-b7d3-d41fe6987a3a",
+              "ingredientName": "Walnüsse",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "1/2 Tasse, gehackt, zwischen die Schichten gestreut"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Milch auf etwa 110F, bis sie sich gerade warm anfühlt. Rühre Trockenhefe und eine Prise Teigzucker ein und lasse die Mischung 5 Minuten schäumen. Vermische Mehl, 1/4 Tasse Teigzucker und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hefemilch, Eier und 2 EL weiche Butter zum Mehl. Verknete alles zu einem groben Teig und knete von Hand 8-10 Minuten oder in der Küchenmaschine 6 Minuten, bis er glatt, elastisch und leicht klebrig ist. Falls er klebrig bleibt, gib esslöffelweise Mehl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme den Teig zu einer Kugel, lege ihn in eine gefettete Schüssel, decke ihn ab und lasse ihn an einem warmen Ort 1 bis 1.5 Stunden gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Zimt-Zucker-Hülle 1/3 Tasse weißen Zucker, 1/4 Tasse Braunzucker und 1.5 EL Zimt vermischen. Eine Gugelhupf- oder Rohrkuchenform großzügig mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke die Luft aus dem Teig und zupfe etwa 1 bis 1.5 Zoll große Stücke ab, etwa so groß wie Walnüsse. Wälze jedes Stück im Zimtzucker und schichte sie locker in die Form. Nach Wunsch gehackte Walnüsse dazwischenstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für das Karamell die übrige Butter in einem Topf bei mittlerer Hitze schmelzen. Restlichen Braunzucker, restlichen Zimt und Vanille einrühren. 1-2 Minuten kochen, bis die Masse glatt blubbert, und gleichmäßig über die Teigstücke gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Form locker ab und lasse den Teig weitere 30-45 Minuten gehen, bis die Stücke luftig sind und fast den Rand erreichen. Heize währenddessen den Ofen auf 350F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe das Brot 30-35 Minuten, bis es dunkelgolden ist und das Karamell kräftig blubbert. Decke es während der letzten 10 Minuten locker mit Folie ab, falls die Oberfläche zu schnell bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse das Brot nur 5-10 Minuten in der Form abkühlen und stürze es dann auf einen Teller, damit das Karamell an den Seiten hinunterläuft. Warm servieren und mit den Händen auseinanderzupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Monkey_Bread.jpg/1280px-Monkey_Bread.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Monkey_Bread.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Andrew Currie — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Monkey Bread zum Auseinanderzupfen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-pain-au-chocolat",
+      "slug": "bake-pain-au-chocolat",
+      "title": "Pain au Chocolat",
+      "instructions": "Klassisches französisches Plundergebäck aus blättrigem Butter-Croissantteig, um zwei Stangen dunkler Schokolade gerollt. Nach langer Gare wird es goldbraun und knusprig gebacken. Ein Tagesprojekt, das mit Gebäck in Bäckerqualität aus dem eigenen Ofen belohnt.",
+      "prepTimeMinutes": 280,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine gute Tafel dunkle Schokolade und schneide die Stangen selbst, statt fertige Backstäbchen zu bezahlen. Das ist deutlich günstiger.",
+        "Bereite die ganze Menge zu und friere die geformten, ungegangenen Teilchen ein. Lasse sie vor dem Backen direkt aus dem Gefrierfach gehen, dann gibt es jederzeit frisches Plundergebäck.",
+        "Spare nur bei der Butter nicht, denn sie gibt den typischen Geschmack. Mehl und Zucker der Hausmarke funktionieren bestens."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "verwenden dark-Schokolade-chips lined up in ein row anstatt batons",
+          "savings": "~$1.00 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Lukewarm Wasser mit ein splash von any Milch works in der Teig",
+          "savings": "~$0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "All-purpose Mehl anstatt Brot Mehl (slightly weniger chew, still great)",
+          "savings": "~$0.30 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "viennoiserie (deutsche Fassung)",
+        "laminated (deutsche Fassung)",
+        "pastry (deutsche Fassung)",
+        "Schokolade",
+        "Frühstück",
+        "bakery (deutsche Fassung)",
+        "machen-ahead",
+        "weekend-project (deutsche Fassung)",
+        "Backen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7463,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-pain-au-chocolat/",
+      "components": [
+        {
+          "key": "2689b240-3534-5d2c-b6e2-60ee11a3e7c5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 45.87,
+          "position": 0,
+          "items": [
+            {
+              "key": "594f0ca7-8365-5f40-8e4f-53005965aa28",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "vorzugsweise backstarkes Mehl mit hohem Eiweißgehalt für die Struktur"
+            },
+            {
+              "key": "63daae61-00d7-57b8-8dee-6ad040cad0a9",
+              "ingredientName": "Butter",
+              "grams": 21,
+              "quantity": 21,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Butter nach europäischer Art mit 82%+ Fett; ~140g als Butterplatte zum Tourieren, den Rest in den Teig"
+            },
+            {
+              "key": "509f3077-a2fb-5710-8950-a80cf217075f",
+              "ingredientName": "Milch",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "lauwarm, ~140ml für den Teig"
+            },
+            {
+              "key": "a1504d8e-b4bd-5b61-be39-1e4b9699d48d",
+              "ingredientName": "Zucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc3d1536-6d47-5787-a1fb-90917499d568",
+              "ingredientName": "Instant-Hefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 EL"
+            },
+            {
+              "key": "d9d3b2bc-d983-57a7-a282-6fe3c7e0e1f8",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a2e07da-1f04-5277-a8ba-f67c14f4b156",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "in 16 Stifte geschnitten (je ~10g) oder backfeste Schokoladenstäbchen verwenden"
+            },
+            {
+              "key": "6066b431-073b-578e-ab62-5c610409b9cd",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Bestreichen, mit einem Schuss Milch verquirlt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Grundteig 250g Brotmehl, 30g Zucker, 1 EL Trockenhefe, 1 TL Salz, 140ml lauwarme Milch und 20g weiche Butter zu einem groben Teig vermischen. 5-7 Minuten kneten, bis er glatt, aber nicht überknetet ist. Zu einem Rechteck formen, einwickeln und mindestens 1 Stunde oder über Nacht kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Butterplatte 140g kalte Butter zwischen Backpapier zu einem 12x16cm großen Rechteck ausrollen und kalt stellen, bis sie fest, aber noch formbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle den gekühlten Teig zu einem Rechteck, das doppelt so groß wie die Butterplatte ist. Lege die Butter auf eine Hälfte, klappe den Teig darüber und verschließe ihn rundherum, indem du die Ränder zusammendrückst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle das Päckchen zu einem langen Rechteck aus und falte es wie einen Brief in drei Teile. Wickele es ein und stelle es 30-45 Minuten kalt, damit die Butter fest und die Schichten getrennt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wiederhole das Ausrollen und Falten noch zweimal und kühle den Teig zwischen den Faltungen jeweils 30-45 Minuten. So entstehen Hunderte Butterschichten für die blättrige Krume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den tourierten Teig etwa 4mm dick aus und schneide 8 Rechtecke (~8x14cm). Lege nahe an ein Ende eine Schokoladenstange, rolle einmal auf, lege eine zweite Stange dazu und rolle den Teig fest auf. Mit dem Schluss nach unten ablegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Teilchen auf mit Backpapier belegte Bleche, decke sie locker ab und lasse sie bei warmer Raumtemperatur (24-26C) 2-3 Stunden gehen, bis sie wackelig, luftig und fast doppelt so groß sind. Nicht abkürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche die Teilchen vorsichtig mit Ei. Backe sie bei 200C (400F) 18-22 Minuten, bis sie dunkelgolden und knusprig sind. Lasse sie mindestens 15 Minuten auf einem Gitter abkühlen, damit die Schokolade fest wird und die Krume ausbackt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pain_au_chocolat_Luc_Viatour.jpg/1280px-Pain_au_chocolat_Luc_Viatour.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pain_au_chocolat_Luc_Viatour.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Luc Viatour — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pain au Chocolat",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-cream-puffs",
+      "slug": "bake-cream-puffs",
+      "title": "Windbeutel mit Vanillecreme",
+      "instructions": "Knusprige, hohle Brandteigschalen, goldbraun gebacken, mit seidiger Vanillecreme gefüllt und mit Puderzucker bestäubt. Entscheidend ist, den Teig auf dem Herd auszutrocknen und die Eier einzeln einzurühren. So gehen die Windbeutel schön auf.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Windbeutel bestehen aus Vorratszutaten wie Mehl, Eiern, Milch, Butter und Zucker. Eine ganze Menge von 12 Stück kostet kaum etwas pro Stück.",
+        "Bereite die Vanillecreme am Vortag zu und backe die Hüllen frisch. Ungefüllte Hüllen lassen sich gut einfrieren, eine doppelte Menge kostet daher kaum mehr.",
+        "Schneide die Ecke eines Gefrierbeutels ab, falls du keinen Spritzbeutel hast. Fülle die Windbeutel mit einem Löffel oder spritze die Creme ein, ohne besondere Tüllen zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "verwenden half-und-half in der pastry Sahne für ein even richer Füllung, oder 2% Milch zu lighten it",
+          "savings": "Etwa gleich; Milch mit 2% Fett ist etwas günstiger als Vollmilch"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "ersetzen ein gleich amount von Mehl zu eindicken der pastry Sahne (garen 1 extra Minute)",
+          "savings": "Spart ~$0.20, wenn keine Speisestärke gekauft wird"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "Scrape in half ein vanilla bean oder verwenden 1/2 tsp almond extract",
+          "savings": "Mandelextrakt ist ergiebiger und spart ~$0.30 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Nachtisch",
+        "pastry (deutsche Fassung)",
+        "pate-ein-choux",
+        "vanilla (deutsche Fassung)",
+        "Backen",
+        "machen-ahead",
+        "klassisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7464,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-cream-puffs/",
+      "components": [
+        {
+          "key": "230f0d29-9f1c-5a6d-ac51-969bd8e846c6",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 163.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "7681641b-cd2c-5aa0-a2d4-8503e6c48a82",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse für den Brandteig"
+            },
+            {
+              "key": "fc5a83ca-cead-52bd-b898-8a12f6a7d553",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse im Brandteig + 1 1/4 Tassen für die Konditorcreme"
+            },
+            {
+              "key": "cd101fa7-3b7d-5192-85e7-a38e1e13eda9",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 EL für den Brandteig + 2 EL zum Verfeinern der Konditorcreme"
+            },
+            {
+              "key": "8776f72e-6141-5425-82a5-cc78395325f3",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse für den Brandteig"
+            },
+            {
+              "key": "aca3d095-f01f-5108-860c-c683925d9432",
+              "ingredientName": "Eier",
+              "grams": 350,
+              "quantity": 7,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 ganze Eier für den Brandteig, 3 Eigelbe für die Konditorcreme"
+            },
+            {
+              "key": "7d7e39d6-5c1f-5ad0-a1d1-ad7df75664f5",
+              "ingredientName": "Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL im Brandteig + 1/3 Tasse in der Konditorcreme"
+            },
+            {
+              "key": "ba3ccd58-44c0-50a5-9da4-886bfebebfb3",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise für den Teig"
+            },
+            {
+              "key": "445182bc-6219-5c29-8dd3-97cc4095e317",
+              "ingredientName": "Speisestärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL zum Andicken der Konditorcreme"
+            },
+            {
+              "key": "ffe618b2-be29-5944-96a4-a9e03ce5b78d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL für die Konditorcreme"
+            },
+            {
+              "key": "9b20b15d-5f0a-559e-b527-b78c0762d39c",
+              "ingredientName": "Puderzucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Bestäuben der Oberseiten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite zuerst die Konditorcreme zu, damit sie kalt werden kann: Verquirle 3 Eigelb, 1/3 Tasse Zucker und 3 EL Maisstärke, bis die Mischung hell ist. Erhitze 1 1/4 Tassen Vollmilch, bis Dampf aufsteigt, und rühre sie langsam unter ständigem Schlagen in die Eigelbe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Mischung zurück in den Topf und erhitze sie unter ständigem Rühren bei mittlerer Hitze, bis sie blubbert und puddingartig eindickt, etwa 2 Minuten. Nimm den Topf vom Herd, rühre 2 EL Butter und Vanille ein. Drücke Frischhaltefolie auf die Oberfläche und stelle die Creme mindestens 1 Stunde kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 425F (220C) vor und belege zwei Bleche mit Backpapier. Für den Brandteig 1/2 Tasse Wasser, 1/2 Tasse Milch, 6 EL Butter, 1 TL Zucker und eine Prise Salz in einem Topf sprudelnd aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das ganze 1 Tasse Mehl auf einmal dazu und rühre kräftig mit einem Holzlöffel, bis ein glatter Ball entsteht. Koche und rühre weitere 2 Minuten, um den Teig zu trocknen, bis ein dünner Film den Topfboden überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Teig in eine Schüssel und lasse ihn 3-4 Minuten abkühlen. Schlage 4 Eier einzeln vollständig unter. Der Teig soll glänzen und in einem dicken V-förmigen Band vom Löffel fallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spritze oder löffle 12 Häufchen (etwa 1 1/2 Zoll breit) mit Abstand auf die Bleche. Befeuchte einen Finger und glätte die Spitzen, damit sie nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe bei 425F 15 Minuten. Öffne die Ofentür NICHT, sondern reduziere die Temperatur auf 375F (190C) und backe weitere 18-22 Minuten, bis die Windbeutel dunkelgolden und fest sind. Sind sie nicht durchgebacken, fallen sie zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schalte den Ofen aus, stich in jeden Windbeutel ein kleines Loch, damit Dampf entweicht, und lasse sie 10 Minuten im abkühlenden Ofen trocknen. Anschließend auf einem Gitter vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Rühre die kalte Konditorcreme glatt, gib sie in einen Spritzbeutel und fülle jeden Windbeutel durch das Loch. Alternativ aufschneiden und die Creme hineinspritzen. Mit Puderzucker bestäuben und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Cream_puffs.jpg/1280px-Cream_puffs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cream_puffs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Fumikas Sagisavas — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Windbeutel mit Vanillecreme",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1059 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-pb2-tempeh-stir-fry",
+      "slug": "mfr-pb2-tempeh-stir-fry",
+      "title": "Vegane Tempeh-Gemüse-Wokpfanne",
+      "instructions": "Tempeh in Scheiben, mariniert in Soja-Ingwer-Knoblauch-Sauce und im Wok mit Brokkoli, Zuckerschoten und Paprika gebraten – die nussige, feste Konsistenz macht Tempeh zum besten Eiweiß für hohe Wokhitze.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tempeh ist preiswert und nahrhaft und liefert 19 g Eiweiß pro 3 oz Portion.",
+        "Die Marinade sorgt für den ganzen Geschmack – lass sie ausreichend einziehen.",
+        "Tempeh nimmt Aromen besonders gut auf; auch kurze Marinaden funktionieren überraschend gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tempeh",
+          "swap": "Fester Tofu für eine weichere Konsistenz"
+        },
+        {
+          "forIngredientId": "snap-peas",
+          "swap": "Tiefgekühlte Edamame oder grüne Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-tempeh-stir-fry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Tempeh",
+        "Wok",
+        "Brokkoli",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1385,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-tempeh-stir-fry/",
+      "components": [
+        {
+          "key": "cccd0728-8316-5a9f-8f61-414ac2fe9c0c",
+          "name": "Zutaten",
+          "servingGrams": 507,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab52a965-1741-5aaf-aff8-14e78a1e3496",
+              "ingredientName": "Tempeh",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80224f48-d32e-5a36-917c-b30204a2618f",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b3049fb-2a21-56e8-afd1-c7643d7a4601",
+              "ingredientName": "Zuckerschoten",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8020a4c-0a16-583f-b3c1-dc43b16fd855",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cece2ef-b8ab-5174-9a88-321f03ca2adb",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1873bf3b-7153-5f9e-a839-4cd8206fec54",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be1c16ff-32ca-55b0-9c21-440f04324b57",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55ac0e9b-de6e-55fd-ad0c-bd21e9112eb9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b5f542d-2e3a-5197-b660-a1ad956c52be",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3484af94-c790-515c-aaf7-faafba5ee519",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56abbc47-7472-5081-b8c7-f9762be8405c",
+              "ingredientName": "Vollkornreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7f43000-3d66-5793-a634-7197a5fc630c",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Tempeh dünn und mariniere ihn 10 Minuten in Sojasauce mit Ingwer, Knoblauch und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Tempeh in einer heißen Pfanne 3 Minuten pro Seite goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das gesamte Gemüse in die Pfanne und brate es 4 Minuten im Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Marinade, Reisessig und Sriracha dazu. Schwenke alles und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht auf Vollkornreis und bestreue es mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/stir-fry-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/stir-fry-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-diner-meatloaf",
+      "slug": "mfr-diner-meatloaf",
+      "title": "Klassischer amerikanischer Hackbraten",
+      "instructions": "Rinderhackfleisch mit Zwiebel, Knoblauch, Paniermehl und Worcestershiresauce, glasiert mit einer würzig-süßen Ketchup-Braunzucker-Sauce und gebacken, bis es saftig und karamellisiert ist – ein echtes Wohlfühlessen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch mit 80/20 Fettanteil macht den Hackbraten saftiger und aromatischer als mageres Fleisch.",
+        "Das Gericht reicht für 6 Personen und kostet insgesamt etwa $8 – $1.33 pro Portion.",
+        "Übrig gebliebener Hackbraten ergibt am nächsten Tag außergewöhnlich gute Sandwiches."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Truthahnhackfleisch für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Zerdrückte Cracker oder Haferflocken"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-meatloaf",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Hackbraten",
+        "Rinderhackfleisch",
+        "Diner",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1386,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-meatloaf/",
+      "components": [
+        {
+          "key": "450337c7-ef3f-5a89-aa49-496b424bffb3",
+          "name": "Zutaten",
+          "servingGrams": 163.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "50789e31-2b46-57ea-96e9-2d6de9ed70de",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "610cda3c-764c-5f1a-9fd5-1a08ebe83ed1",
+              "ingredientName": "Italienisches Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61a6aed8-e4c1-5141-b9ba-c5b10ab0a596",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3dd3247-4a9d-5daf-a270-70f67f1345e2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a67dc9a5-c45e-59a7-a0ae-a9cabb1949a7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb3c92b9-29fb-5dc7-9be9-18f0db459bd6",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b19f7c77-d6b7-5289-9ef9-6641801b0be4",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f14a84d-dd03-5cf7-a543-f4227ee2cbc1",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52093d2e-cef9-58bb-9c94-e227fa0b2ed8",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8a20b9e-63af-5dec-bc71-5711b7df06df",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel und Knoblauch 3 Minuten an und lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Rindfleisch, Paniermehl, Eier, Milch, Worcestershiresauce, Thymian und die Zwiebelmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme die Masse in einer Auflaufform zu einem Laib.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Ketchup mit braunem Zucker und verstreiche die Hälfte davon oben auf dem Hackbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe ihn bei 350°F 55–60 Minuten. Verteile die übrige Glasur nach 45 Minuten darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/iMgxTXeDHQgAArHDvmEBUuJJ7vA=/3000x2001/filters:fill(auto,1)/MeatloafwithOatmealHERO-7119066c62f744b5856dcf24c50a0870.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/iMgxTXeDHQgAArHDvmEBUuJJ7vA=/3000x2001/filters:fill(auto,1)/MeatloafwithOatmealHERO-7119066c62f744b5856dcf24c50a0870.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-diner-chicken-fried-steak",
+      "slug": "mfr-diner-chicken-fried-steak",
+      "title": "Hähnchen-Steak mit weißer Rahmsauce",
+      "instructions": "Zart geklopftes Minutensteak, in gewürztem Mehl gewendet, knusprig goldbraun gebraten und mit cremiger Pfeffer-Rahmsauce nach Südstaatenart übergossen – ein Diner-Klassiker, der zeigt, wie gut günstige Fleischstücke schmecken können.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Minutensteak ist bereits zart geklopft und gehört mit $4–5 pro Pfund zu den günstigsten Rindfleischstücken.",
+        "Bereite genug Rahmsauce zu – sie gehört unbedingt dazu.",
+        "Dieses Gericht schmeckt wie ein $15-Diner-Teller und kostet zu Hause etwa $4."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cube-steak",
+          "swap": "Dünne, geklopfte Hähnchenbrust – daher der Name Chicken-Fried-Steak"
+        },
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "Milch und 1 EL Essig vermischen und 5 Minuten ruhen lassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-chicken-fried-steak",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Chicken-Fried-Steak",
+        "Rahmsauce",
+        "Südstaaten",
+        "Diner"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1387,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-chicken-fried-steak/",
+      "components": [
+        {
+          "key": "7d13b20c-5d31-5ec8-ab3c-1f132b38e76d",
+          "name": "Zutaten",
+          "servingGrams": 502.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc99a853-bd57-5a46-8af4-40174ff5e008",
+              "ingredientName": "Minutensteak",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfb4399a-5427-58bd-a8c0-3c6b325e3ace",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "980037f6-669d-5d08-8d83-231b51f70742",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "444f3167-fbf5-5c49-91b4-d04773d98b8d",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd1c7d28-dd65-5c0b-a5bc-46fcae5178c1",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c654f305-259e-5e54-a687-48ee488f9b20",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18de5cf1-df62-5c39-b86e-55c31ba6cc30",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67203039-aec6-5194-89f9-101dafe4f2bf",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ec619c4-09a4-528a-b8a5-01a1a638f3c0",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77b5f5e8-2332-5c15-ad3f-ecea1ec4df04",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze Mehl mit Salz, Pfeffer, Knoblauchpulver und Zwiebelpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende das Steak erst in Mehl, dann in Ei mit Buttermilch und nochmals in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate es in ½ Zoll Öl bei 350°F auf jeder Seite 4 Minuten, bis es tief goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Rahmsauce: Gare 2 EL Mehl in 2 EL Öl 1 Minute. Rühre Milch ein und würze kräftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Steak mit reichlich Rahmsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/yEaT3popHWoz7hwybZCfaNelYw8=/3600x2403/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-fried-steak-white-gravy-recipe-102046-hero-02-5c8d408846e0fb000172f02c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/yEaT3popHWoz7hwybZCfaNelYw8=/3600x2403/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-fried-steak-white-gravy-recipe-102046-hero-02-5c8d408846e0fb000172f02c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-diner-club-sandwich",
+      "slug": "mfr-diner-club-sandwich",
+      "title": "Klassisches Club-Sandwich",
+      "instructions": "Dreistöckiges Sandwich aus geröstetem Weißbrot mit Truthahn, Speck, Salat, Tomate und Mayonnaise – der Inbegriff des amerikanischen Diners, mit gezackten Zahnstochern fixiert und mit Kartoffelchips serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Truthahnaufschnitt ist an der Frischetheke günstiger als abgepackt.",
+        "Das ist das ursprüngliche Menüangebot – ein Sandwich kostet weniger als $3.",
+        "Die drei Brotschichten gehören zum authentischen Club-Sandwich dazu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "deli-turkey",
+          "swap": "Gekochte und in Scheiben geschnittene Hähnchenbrust"
+        },
+        {
+          "forIngredientId": "white-bread",
+          "swap": "Sauerteigbrot oder Vollkornbrot"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-club-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Club-Sandwich",
+        "Truthahn",
+        "Speck",
+        "Diner"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1388,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-club-sandwich/",
+      "components": [
+        {
+          "key": "52ff5243-46d4-50bb-a507-da619cf9c622",
+          "name": "Zutaten",
+          "servingGrams": 900,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ad064a7-5daf-5a09-bbd3-a7333de3deeb",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cd97214-4b4b-5ce1-91b4-28164d923089",
+              "ingredientName": "Truthahnaufschnitt",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76c89108-c197-59ea-a257-1800fac35298",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "533877ae-9516-5a9a-9c30-b07d1b2491f5",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b3fbb59-741d-5a7d-9daa-289716c5deec",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c65eaa36-670d-57bf-bbae-a4852b65bd06",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54ca00cf-b9ca-5db3-8a49-190b41626381",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste alle drei Brotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Speck knusprig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche alle Brotscheiben mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Toast, Truthahn und Salat, dann Toast, Speck und Tomate und schließlich die letzte Scheibe Toast übereinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide das Sandwich diagonal in 4 Dreiecke und fixiere sie mit Zahnstochern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2020/10/club-sandwich-1-9.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2020/10/club-sandwich-1-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-diner-patty-melt",
+      "slug": "mfr-diner-patty-melt",
+      "title": "Klassischer Patty Melt",
+      "instructions": "Ein dünnes Burger-Patty zwischen Roggenbrot mit karamellisierten Zwiebeln und Schweizer Käse, in Butter auf der Grillplatte gebraten, bis das Brot goldbraun und der Käse vollständig geschmolzen ist – eine der großen amerikanischen Diner-Erfindungen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Roggenbrot aus der Bäckerei im Supermarkt kostet $3 und macht das Gericht besonders.",
+        "Schweizer Käse ist an der Frischetheke am günstigsten – bitte um dünne Scheiben.",
+        "Ein Patty pro Sandwich sorgt für die richtige Dicke und gleichmäßiges Bräunen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rye-bread",
+          "swap": "Sauerteigbrot oder ein anderes festes Brot"
+        },
+        {
+          "forIngredientId": "swiss-cheese",
+          "swap": "Gruyère oder Provolone"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-patty-melt",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Patty-Melt",
+        "Burger",
+        "Diner",
+        "karamellisierte-Zwiebeln"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1389,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-patty-melt/",
+      "components": [
+        {
+          "key": "b9639694-b20f-52a7-be54-9a5c5cbb8144",
+          "name": "Zutaten",
+          "servingGrams": 332.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "39bc0e4e-8c58-5b9d-b8ea-40c190f887ed",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82e1e585-482d-53dd-b52a-9b3077ee88ff",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c063e92-d24e-50ac-97f2-152b3e7e9af1",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0351b0a-bed6-5399-a431-5e86d45e7c9d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "849648b1-a3dd-5788-8bcd-b823088af9a2",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26e60261-79c4-5600-b29b-13a7fbe99197",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c0d7317-1377-5374-aad1-27f4573788d1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ae05349-51b4-5a8f-8aca-72352c19f7ff",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere geschnittene Zwiebeln 25 Minuten in Butter, bis sie goldbraun und süß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme 2 dünne Patties und würze sie. Brate sie in einer gusseisernen Pfanne auf jeder Seite 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte Roggenbrot, Käse, Patty, Zwiebeln, Käse und nochmals Roggenbrot übereinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Außenseiten des Brots mit Butter und brate das Sandwich auf jeder Seite 3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/7nEYyj72SSCaQJz7eiZSmY3bVYU=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__07__Classic-Patty-Melt-LEAD-4-b6cd3b3ce3d4486cbb8d0ef5f15b2633.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/7nEYyj72SSCaQJz7eiZSmY3bVYU=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__07__Classic-Patty-Melt-LEAD-4-b6cd3b3ce3d4486cbb8d0ef5f15b2633.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

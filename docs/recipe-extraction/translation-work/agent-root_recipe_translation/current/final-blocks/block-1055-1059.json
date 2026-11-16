@@ -1,0 +1,1011 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-skinny-chicken-parmesan",
+      "slug": "mfr-skinny-chicken-parmesan",
+      "title": "Leichter Hähnchen-Parmesan",
+      "instructions": "Gebackene statt frittierte Hähnchenbrust mit dünner Parmesan-Kräuterkruste, Marinara und geschmolzener Mozzarella. Liefert 42 g Eiweiß bei 420 Kalorien.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gebackenes Hähnchen mit Parmesan hat weniger als halb so viele Kalorien wie die Restaurantvariante.",
+        "Wenn du das Hähnchen flach klopfst, gart es gleichmäßig und die Ränder trocknen nicht aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Mandelmehl für eine glutenfreie Variante verwenden."
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Zucchini-Nudeln verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skinny-chicken-parmesan",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Hähnchen",
+        "italienisch-amerikanisch",
+        "gebacken",
+        "Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1055,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skinny-chicken-parmesan/",
+      "components": [
+        {
+          "key": "8d12c92d-7869-53b6-8669-b2beca4561e8",
+          "name": "Zutaten",
+          "servingGrams": 785,
+          "position": 0,
+          "items": [
+            {
+              "key": "40069ee1-99eb-530b-a9ef-dcc1dcfb393b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6f0bd86-079c-5021-9686-85492825fcc2",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27769313-9614-5bae-bef9-5363655f7532",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8004b7c9-5aeb-51e8-9b5c-730702fb1002",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da0590df-f4f8-534d-afcb-eed2a14431ff",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a39cfe7-e12e-521f-845d-1d0fb472c7f5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b3bb956-1af4-5e3f-9e05-41870ec6f8ce",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19d85bec-1901-5b1a-a160-72cf110306c0",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43616aa7-198d-5e92-938e-a8bb1bb5f1ef",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Hähnchen auf eine gleichmäßige Dicke. Tauche es in Ei und wende es in der Parmesan-Semmelbrösel-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe es bei 400°F 20 Minuten. Gib Marinara und Mozzarella darauf und backe es weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Serviere das Hähnchen auf Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/02/Chicken-Fingers-Parmesan-Casserole-6.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/02/Chicken-Fingers-Parmesan-Casserole-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-hp-pancakes-dinner",
+      "slug": "mfr-hp-pancakes-dinner",
+      "title": "Eiweißpfannkuchen zum Abendessen",
+      "instructions": "Lockere Pfannkuchen aus Hafermehl, Hüttenkäse und Eiern. Sie liefern 28 g Eiweiß pro Portion und passen mit herzhaften Toppings auch zum Abendessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hafermehl ist einfach pürierte Haferflocke. Selbst gemacht kostet es $2 statt $6 für gekauftes Hafermehl.",
+        "Pfannkuchen mit Hüttenkäse werden lockerer als gewöhnliche Pfannkuchen und machen deutlich satter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "oat-flour",
+          "swap": "Weizenmehl verwenden. Es enthält weniger Eiweiß."
+        },
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Griechischen Joghurt verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-hp-pancakes-dinner",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Pfannkuchen",
+        "Eier",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1056,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-hp-pancakes-dinner/",
+      "components": [
+        {
+          "key": "11f01ef9-0f48-51a8-8814-bcc3f695f0d4",
+          "name": "Zutaten",
+          "servingGrams": 568,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d605891-e6c8-599d-ae23-680cb665b979",
+              "ingredientName": "Hafermehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b9ce7ba-8c7f-5b31-8c01-a3f09e24b831",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e57a79f1-cb5e-5ef6-a72a-ed0c1838cd3c",
+              "ingredientName": "Hüttenkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "952497b9-8ecf-56c2-8b0c-9fdd6f2996c2",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6435a812-5e7f-556e-a423-ad40c24bac8a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d762b737-5dd6-5a1d-8d7d-e588b311a1df",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ab2ce11-a1d4-567a-b929-d806712ab8aa",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84f5276f-298a-5b8b-a48e-0fdf2db55a87",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere alle Zutaten glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Pfannkuchen bei mittlerer bis niedriger Hitze in Kochspray 2–3 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Serviere sie mit griechischem Joghurt und Honig oder für eine herzhafte Variante mit Rührei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://joytothefood.com/wp-content/uploads/2025/03/lemon-ricotta-pancakes-4.jpg",
+          "sourcePageUrl": "https://joytothefood.com/wp-content/uploads/2025/03/lemon-ricotta-pancakes-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lightened-shepherds-pie",
+      "slug": "mfr-lightened-shepherds-pie",
+      "title": "Leichter Shepherd’s Pie",
+      "instructions": "Füllung aus Putenhack und Gemüse unter Kartoffelpüree mit Blumenkohl. Ein herzhaftes britisches Wohlfühlgericht mit halb so vielen Kalorien.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffel-Blumenkohl-Püree zu gleichen Teilen verringert den Stärkegehalt deutlich und bewahrt die Konsistenz.",
+        "Pute statt Lamm zu verwenden macht das Gericht 40% günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder traditionell Lammhack verwenden."
+        },
+        {
+          "forIngredientId": "cauliflower",
+          "swap": "Nur normale Kartoffeln für eine traditionellere Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lightened-shepherds-pie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "britisch",
+        "Auflauf",
+        "Wohlfühlessen",
+        "Putenhack",
+        "Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1057,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lightened-shepherds-pie/",
+      "components": [
+        {
+          "key": "a550d3a6-045d-5a50-83f2-65cbc498119e",
+          "name": "Zutaten",
+          "servingGrams": 653.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1d4c479-28e9-5393-a34a-2a8c324de433",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5ea5002-7181-5658-9cbf-a5039e80ee7c",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7941b9c-c441-52fc-af32-264804fabe20",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b715604-c83e-56be-bfc6-31d284a42f7a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4e87415-a3f3-5543-bb42-da43128b3223",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "371b4f2b-586c-5f8a-a3d8-6966f1dbe4de",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40d275fc-3555-52dc-a801-bbe32c543eea",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b27ad71c-610d-5f51-830f-f4a45f7dc7cb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf802731-cbe7-581e-bed6-ff664651fa60",
+              "ingredientName": "Blumenkohl",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1126cae-01b2-53f5-9ae3-48be60c96937",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e113cce-5fac-50fa-90d3-354e0668f45d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fcb60a2-3957-5475-b71c-8b55d7f8593f",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune Putenhack mit Zwiebel, Karotte und Knoblauch. Gib Tomatenmark, Worcestershiresauce, Brühe, Thymian und Erbsen dazu und lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dämpfe Blumenkohl und Kartoffel und zerdrücke sie mit Olivenöl und Salz zu Püree.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Füllung in einer Auflaufform und gib Blumenkohlpüree darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Auflauf bei 400°F 20 Minuten, bis die Oberfläche leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/2022/ShepherdsPie_15.jpg?w=2048&h=3072&auto=compress%2Cformat&fit=crop&dm=1669861887&s=1768f34ba21bbde7913886caf387f0a4",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/2022/ShepherdsPie_15.jpg?w=2048&h=3072&auto=compress%2Cformat&fit=crop&dm=1669861887&s=1768f34ba21bbde7913886caf387f0a4",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-baked-egg-cups",
+      "slug": "mfr-baked-egg-cups",
+      "title": "Gebackene Eier-Muffins",
+      "instructions": "Eier mit Pute, Spinat und Käse direkt in einer Muffinform backen. So entstehen in einem Durchgang im Ofen 12 Eier-Muffins, 6 pro Portion, für die ganze Woche zum Mitnehmen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier-Muffins halten sich 5 Tage im Kühlschrank und eignen sich bestens für die Essensvorbereitung.",
+        "6 Eier und 1 Tasse Pute kosten etwa $3 und ergeben 12 Muffins."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Schinken oder Speck verwenden oder für eine vegetarische Variante weglassen."
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Grünkohl, Pilze oder Zucchini verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-baked-egg-cups",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Eier",
+        "Essensvorbereitung",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1058,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-baked-egg-cups/",
+      "components": [
+        {
+          "key": "d03f7c54-0b9b-55d6-9816-cde22faab13c",
+          "name": "Zutaten",
+          "servingGrams": 610.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4176438d-8eec-58da-b418-e7877880a3ff",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d6df233-9cef-59b1-a13a-a032feee850c",
+              "ingredientName": "Putenhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f53cf28-bc29-5545-b354-e1f9148c6df4",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a31fc06-081c-54b5-acf0-2acf1593ef4f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99347ead-b26f-5ecb-9632-ed61ba9c26e1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68d4ecc4-3a9d-5c6f-aa70-c6741516c936",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9555969-d777-5c98-bb3e-1d46af3c72df",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0bf4996-db60-5ef2-9b4b-c475dfdd0db1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "974396f0-823d-5ff5-b632-0b59c01af8ec",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Besprühe eine Muffinform mit Kochspray. Brate Putenhack, Spinat, Paprika und Zwiebel 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Löffle die Füllung in die Mulden. Schlage pro Mulde ein Ei hinein und streue Käse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe die Muffins bei 375°F 15–18 Minuten, bis das Eiweiß gestockt und das Eigelb noch leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2020/02/Breakfast-Egg-Cups-11.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2020/02/Breakfast-Egg-Cups-11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lightened-beef-tacos",
+      "slug": "mfr-lightened-beef-tacos",
+      "title": "Leichte Tacos mit Rinderhack",
+      "instructions": "Mageres Rinderhack in einer rauchigen, hausgemachten Taco-Würzung auf Maistortillas servieren, dazu fein geschnittener Kohl, Limette, Salsa und griechischer Joghurt statt saurer Sahne.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Selbst gemachte Taco-Würzung kostet 10 Cent statt $1.50 für ein Päckchen.",
+        "Griechischer Joghurt statt saurer Sahne spart 50 kcal pro Taco und liefert zusätzlich Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Magereres Putenhack oder schwarze Bohnen verwenden."
+        },
+        {
+          "forIngredientId": "corn-tortillas",
+          "swap": "Salatblätter als glutenfreie Tacos verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lightened-beef-tacos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Tacos",
+        "schnell",
+        "Rindfleisch",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1059,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lightened-beef-tacos/",
+      "components": [
+        {
+          "key": "1ae1188d-f345-5c95-ab98-fb5f0258ffec",
+          "name": "Zutaten",
+          "servingGrams": 523.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f119f15b-c399-5ae6-8b2f-a2eaf9046b63",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89646772-fa50-53de-bb05-825029569b68",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81d235ff-d653-5b6e-bf48-44ccd809b09e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb3bd7cf-5a53-5c86-952b-25eec5f197a8",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bab27e07-3398-591b-9401-cdbeb5cfbfe8",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb78af4b-5a60-5de0-a503-8fdf6b7813fb",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a7b7275-f85a-5dfd-b8ec-ada49b442921",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9255621-1586-51da-8e79-b73775a47511",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e761c821-7ef1-51d9-beb2-06380608f202",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db916f1b-115d-54a2-8aa9-e00c3fa4e9ee",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Rinderhack und gieße überschüssiges Fett ab. Gib Kreuzkümmel, Chilipulver, Knoblauchpulver, Paprikapulver, Salz und ¼ Tasse Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles 3 Minuten köcheln. Erwärme die Tortillas in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Tacos mit gewürztem Rinderhack, fein geschnittenem Kohl, Salsa, Limette und griechischem Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/lhLRJtxM4tEQynWxHmfp8oVmhoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Tacos-LEAD-4-90ab71d9f3244efc9a26328751d8ad2f.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/lhLRJtxM4tEQynWxHmfp8oVmhoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Tacos-LEAD-4-90ab71d9f3244efc9a26328751d8ad2f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

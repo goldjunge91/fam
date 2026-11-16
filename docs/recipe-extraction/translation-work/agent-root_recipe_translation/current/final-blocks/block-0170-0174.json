@@ -1,0 +1,1381 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-chinese-eggplant-garlic-chili",
+      "slug": "af2-chinese-eggplant-garlic-chili",
+      "title": "Chinesische Aubergine mit Knoblauch-Chilisauce aus der Heißluftfritteuse",
+      "instructions": "Seidig-zarte Aubergine mit knusprig karamellisierten Rändern, überzogen mit glänzender Knoblauch-Chili-Soja-Austernsauce, die man am liebsten über Reis löffelt. Schmeckt wie vom Lieferservice, kostet fast nichts und macht kaum Abwasch. Inspiriert von Tiffy (@tiffy.cooks) und ihrem Rezept für chinesische Aubergine aus der Heißluftfritteuse: https://tiffycooks.com.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": 19,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aubergine ist eines der günstigsten Gemüse, das als Hauptgericht sättigt – drei Auberginen reichen für drei Personen und kosten nur ein paar Dollar. Kauf lange chinesische Auberginen im Angebot; sie haben weniger Kerne und garen schneller.",
+        "Frischen Knoblauch solltest du nicht sparen lassen: Ein ganzer Kopf kostet etwa so viel wie eine einzelne Portion Knoblauch aus dem Glas und schmeckt viel besser.",
+        "Reste lassen sich weiterverwenden: Schneide kalte Aubergine klein und gib sie morgen in Instant-Ramen oder mische sie mit einem Spiegelei in eine Reisschüssel für eine zweite, fast kostenlose Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Hoisinsauce oder zusätzliche Sojasauce mit einer Prise Zucker für eine vollständig vegetarische oder vegane Variante",
+          "savings": "Vorhandene Zutaten verwenden"
+        },
+        {
+          "forIngredientId": "chili-garlic-sauce",
+          "swap": "Sriracha oder Chiliöl für ähnliche Schärfe",
+          "savings": "Spart einen Weg zum Laden"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Beliebiger ungewürzter Reis, Mikrowellenreis im Beutel oder übrig gebliebener Reis vom Lieferservice",
+          "savings": "use leftovers for fast kostenlos"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 19,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "günstig",
+        "20-minütig",
+        "Reisschüssel",
+        "knoblauchwürzig",
+        "scharf",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 170,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-chinese-eggplant-garlic-chili/",
+      "components": [
+        {
+          "key": "d900aa7b-7667-5e43-a48c-e63bb0857f49",
+          "name": "Zutaten",
+          "servingGrams": 252.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea1ed9cf-f0b8-53f1-85cf-36d09f3af0dc",
+              "ingredientName": "Aubergine",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Chinese eggplant falls erhältlich; längs halbiert"
+            },
+            {
+              "key": "285f9fc7-4fcc-502b-853c-1049f809c9b3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Bestreichen und garlic oil"
+            },
+            {
+              "key": "f718234f-b56f-53d6-bdef-fc825c3fed40",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "6a2c45e1-e70d-5c26-9108-1be03db05b32",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f531ec9c-29c0-57bc-9ab1-138d8903f54c",
+              "ingredientName": "Austernsauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ad8ea43-d834-562e-8913-e3b89f2a213b",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "mehr oder weniger nach Geschmack"
+            },
+            {
+              "key": "58de95ed-d211-51b6-9875-2b291d6ae819",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc2aa0a8-8e15-578e-b2a3-3d1c014952bd",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30069549-4b31-56e4-9eb2-81eef13402a0",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd3e541d-ed65-511f-a7da-514193ec98c9",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Mikrowellenbeilage"
+            },
+            {
+              "key": "0fcbfd77-cddd-505b-a8f2-76f46799707f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "9395299a-6c5b-51fc-bb8a-c202e9359ae2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Reis in der Mikrowelle: Vermenge Jasminreis und 2.25 Tassen Wasser in einer tiefen, mikrowellengeeigneten Schüssel, decke sie locker ab und gare alles 12-15 Minuten, bis das Wasser aufgenommen und der Reis weich ist. Lass den Reis zugedeckt weiterziehen, während die Aubergine gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere jede Aubergine der Länge nach oder schneide sie in lange Spalten. Bestreiche die Schnittflächen mit etwa 1 EL Pflanzenöl und streue eine Prise Salz darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Aubergine mit der Schnittseite nach oben in die Heißluftfritteuse und gare sie bei 380F 12 Minuten, bis das Fruchtfleisch weich, glänzend und zusammengefallen ist. Eine Gabel sollte ohne Widerstand hineingleiten; gare sie weitere 2-3 Minuten, falls sie noch fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre währenddessen die Sauce: gehackten Knoblauch, Sojasauce, Austernsauce, Chili-Knoblauch-Sauce, Sesamöl, Reisessig, Zucker und die übrigen 1.5 EL Pflanzenöl, das wird das Knoblauchöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne die Heißluftfritteuse und zerdrücke oder ritze das weiche Fruchtfleisch vorsichtig mit einer Gabel, damit Rillen entstehen. Löffle die Knoblauch-Chilisauce großzügig über jedes Stück und verteile sie auch in den Einschnitten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die Heißluftfritteuse auf 400F und gare alles weitere 7 Minuten, bis die Ränder knusprig karamellisiert sind und der Knoblauch goldbraun duftet. Behalte es in der letzten Minute im Blick, damit der Knoblauch nicht verbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Aubergine und die gesamte Sauce mit dem warmen Reis auf einen Teller. Streue geschnittene Frühlingszwiebel und Sesamsamen darüber und iss das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Braised_Aubergine_in_Sweet_Soy_Sauce_-_Aberdeen_Seafood_2026-01-05.jpg/1280px-Braised_Aubergine_in_Sweet_Soy_Sauce_-_Aberdeen_Seafood_2026-01-05.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Braised_Aubergine_in_Sweet_Soy_Sauce_-_Aberdeen_Seafood_2026-01-05.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto einer chinesischen Aubergine mit Knoblauch-Chilisauce aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-gochujang-cauliflower-bites",
+      "slug": "af2-gochujang-cauliflower-bites",
+      "title": "Blumenkohl-Happen mit Gochujang aus der Heißluftfritteuse",
+      "instructions": "Goldbraune, knusprige Blumenkohlröschen in einer klebrig-süß-scharfen Gochujang-Glasur – diese veganen Häppchen nach koreanischer Art machen süchtig, sind günstig und fertig, bevor deine Folge geladen ist. Ein leichter Ölfilm macht die Ränder in der Heißluftfritteuse knusprig und angeröstet, ganz ohne Frittieren oder Herd. Inspiriert von Anh (@veggieanh) auf TikTok.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf einen ganzen Blumenkohl statt vorgeschnittener Röschen – das ist meist etwa halb so teuer. Du brauchst hier nur die Hälfte; den Rest kannst du für eine Gemüsepfanne oder zum Rösten aufheben.",
+        "Speisestärke ist der günstigste Trick für knusprige Ränder; wenig reicht weit und ist preiswerter als fertige Paniermischungen.",
+        "Ein Becher Gochujang kostet nur ein paar Dollar und reicht für viele Portionen. Je mehr koreanische Gerichte du damit zubereitest, desto günstiger wird jede Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Stattdessen Honig oder braunen Zucker verwenden (Hinweis: Honig ist nicht vegan).",
+          "savings": "Brown sugar is günstiger wenn bereits vorhanden it"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha mit etwas zusätzlichem Zucker verrühren, um eine ähnliche süß-scharfe Note zu erhalten, falls du kein Gochujang hast.",
+          "savings": "spart a trip if sriracha is already in your fridge"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Zur Not funktionieren auch heller Essig oder Apfelessig.",
+          "savings": "ca. $0.05 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegan",
+        "Snack",
+        "scharf",
+        "Blumenkohl",
+        "Gemüse",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 171,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-gochujang-cauliflower-bites/",
+      "components": [
+        {
+          "key": "ea42b620-9932-5738-b4a3-0790b29b817b",
+          "name": "Zutaten",
+          "servingGrams": 106.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "991017e8-b320-5895-b0e6-fad04ad5a188",
+              "ingredientName": "Blumenkohl",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "in mundgerechte Röschen geteilt"
+            },
+            {
+              "key": "6b6c5a5b-ce81-51f4-8954-a728fbb1ec39",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum leichten Bestäuben der Röschen"
+            },
+            {
+              "key": "3971527c-6bee-5d7f-b05f-124d4cc8cfaa",
+              "ingredientName": "Speisestärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für eine knusprige Panade"
+            },
+            {
+              "key": "7eefbfaf-a797-533b-a553-405302f85b7b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d9f42c8-22c4-5545-a71d-a6c4fb1399b6",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a1d995e-ac8c-51b0-b05c-91c24fef7892",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Hauptzutat der Glasur"
+            },
+            {
+              "key": "e966252c-f816-556a-9521-b66ddf93155d",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38630097-5b4f-5ea8-9e72-0b88dba34c86",
+              "ingredientName": "Ahornsirup",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "hält es vegan und sorgt für eine süß-klebrige Glasur"
+            },
+            {
+              "key": "09787df1-5afa-57a2-8691-9618e620f31b",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bbd1920-856b-5ff3-96d9-cb1fb494dd27",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "gerieben oder gehackt"
+            },
+            {
+              "key": "7e683e81-5b94-5996-983b-7ed08e7db199",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78f85e93-342a-5a30-9422-4bbbb3a4d7b2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "46bed6e5-fe9d-5a98-bd5a-09dba3227f52",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "dünn geschnitten, zum Garnieren"
+            },
+            {
+              "key": "bc11a250-b21f-5810-b3b2-dfae1bec248a",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zusätzliche Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide einen halben Blumenkohlkopf in mundgerechte Röschen. Vermenge sie in einer Schüssel mit 1 EL Pflanzenöl, 2 EL Speisestärke, 1/2 TL Salz und 1/2 TL Knoblauchpulver, bis jedes Röschen gleichmäßig und dünn überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize die Heißluftfritteuse auf 350F vor. Verteile die Röschen mit etwas Abstand in einer Lage im Korb; gare sie bei Bedarf in mehreren Durchgängen, damit sie knusprig werden statt zu dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 350F 12-14 Minuten in der Heißluftfritteuse und schüttle den Korb nach der Hälfte der Zeit. Die Röschen sollen innen mit einer Gabel weich und an den Rändern goldbraun und angeröstet sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre währenddessen die Glasur: 2 EL Gochujang, 1 EL Sojasauce, 1.5 EL Ahornsirup, 1 EL Reisessig, 1 geriebene Knoblauchzehe und 1 TL Sesamöl. Gib 1/2 TL Gochugaru dazu, wenn du mehr Schärfe möchtest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den heißen, knusprigen Blumenkohl in die Schüssel mit der Glasur und vermenge alles vorsichtig, bis jedes Stück überzogen ist und glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für eine besonders klebrige Glasur stelle die Heißluftfritteuse auf 350F und gare die glasierten Röschen weitere 2-3 Minuten, damit die Glasur an den Rändern karamellisiert. Behalte sie im Blick, denn der Zucker kann anbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Häufe die Röschen auf einem Teller an und streue Sesamsamen und geschnittene Frühlingszwiebel darüber. Sofort essen, solange sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/KoreanCauliflower-1201.jpg/1280px-KoreanCauliflower-1201.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:KoreanCauliflower-1201.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Blumenkohl-Happen mit Gochujang aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-bang-bang-shrimp",
+      "slug": "af2-bang-bang-shrimp",
+      "title": "Knusprige Bang-Bang-Garnelen aus der Heißluftfritteuse",
+      "instructions": "Knusprig mit Panko panierte Garnelen in einer cremigen Sauce aus süßer Chili und Sriracha, süß, säuerlich und angenehm scharf. Sie schmecken wie das Original von Bonefish Grill, kosten aber nur einen Bruchteil und kommen ganz ohne Frittieren aus. Inspiriert von Genevieve LaMonaca (@chefgenevieve) auf Instagram: https://www.instagram.com/chefgenevieve/reel/DGodUlayfF_/?hl=en.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf tiefgekühlte rohe Garnelen und taue nur so viele auf, wie du brauchst – unter kaltem Wasser dauert das etwa 10 Minuten. Pro Portion ist das viel günstiger als an der Fischtheke, und der Beutel hält sich wochenlang im Gefrierfach.",
+        "Für die ganze Sauce brauchst du nur Mayonnaise, süße Chilisauce und Sriracha. Lass abgefülltes Bang-Bang-Dressing weg, das für dieselben drei Vorratszutaten ein Vielfaches kostet.",
+        "Mach eine Mahlzeit daraus: Serviere die Garnelen mit einer Mikrowellen-Reistasse, die in 5 Minuten fertig ist, oder fülle sie mit fein geschnittenem Kohl in eine Tortilla, damit zwei Portionen Garnelen für mehr Personen reichen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Tiefgekühlte Popcorn-Garnelen oder Tofuwürfel verwenden – gleiche Panko-Panade, gleiche Sauce",
+          "savings": "Tofu senkt die Proteinkosten ungefähr um die Hälfte"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "Normales Paniermehl oder zerdrückte Cornflakes funktionieren auch, falls du kein Panko hast",
+          "savings": "spart a special trip; breadcrumbs are often already in the pantry"
+        },
+        {
+          "forIngredientId": "sweet-chili-sauce",
+          "swap": "Honig, einen Schuss Reisessig und extra Sriracha zu einer eigenen süß-scharfen Sauce verrühren",
+          "savings": "vermeidet den Kauf von a whole bottle for 2 tbsp"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 375,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Garnelen",
+        "scharf",
+        "zum Teilen",
+        "nachgemacht",
+        "Snack",
+        "knusprig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 172,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-bang-bang-shrimp/",
+      "components": [
+        {
+          "key": "f1a54761-7beb-5d21-9d19-c7d2b08a33b9",
+          "name": "Zutaten",
+          "servingGrams": 313.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd777af3-bd78-58b9-a772-6222785374b8",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "aufgetaut, geschält und sehr trocken getupft"
+            },
+            {
+              "key": "f0165265-5c71-5096-a3c4-66b6f09055ff",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71d38447-bdaa-5480-a4e5-fb464fae8c53",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61e10ab4-5f33-5370-9283-f53a75753d96",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "hilft der Panade, zu haften und knusprig zu werden"
+            },
+            {
+              "key": "fc6c16ac-af06-5b44-9ba7-dd45d4eb3411",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "verquirlt zum Wenden"
+            },
+            {
+              "key": "a6a7d9b7-e1a4-5aa0-b261-c7363ac5c072",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ab6729b-33d6-55b4-aaea-013bfbd724ec",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28f210d7-b23e-5505-9028-c9d64bc07e30",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cafa6f30-1002-5d4d-9df4-2ceca037741f",
+              "ingredientName": "Ölspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ac0b6f5-1d9b-50b3-b8be-4eb1b1de9f09",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Grundlage der Bang-Bang-Sauce"
+            },
+            {
+              "key": "ee050636-2c79-5d78-8f13-5c1248acc10c",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d678075-c616-58c6-9b6b-0cf12db54ee0",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27b4ae7f-4359-53e7-97b7-dc22a5917cc3",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "für extra sweetness if you like it milder"
+            },
+            {
+              "key": "705fcd0b-52a3-59dd-9ef1-7214fb91b2a0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "thinly in Scheiben zum Garnieren"
+            },
+            {
+              "key": "dad7fa7c-9b0e-5543-a27e-19898e83298c",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre zuerst die Bang-Bang-Sauce an, damit sie bereitsteht: Vermenge Mayonnaise, süße Chilisauce, Sriracha und nach Wunsch Honig in einer kleinen Schüssel, bis die Sauce glatt ist. Probiere sie und gib für mehr Schärfe zusätzliche Sriracha dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite eine Panierstraße mit 3 Schüsseln vor: Schüssel 1 mit Mehl, Speisestärke, Knoblauchpulver, Salz und Pfeffer; Schüssel 2 mit verquirltem Ei; Schüssel 3 mit Panko. Tupfe die aufgetauten Garnelen mit Küchenpapier vollständig trocken, damit die Panade haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Paniere jede Garnele: Wende sie in der Mehlmischung, tauche sie ins Ei und drücke sie dann ins Panko, bis sie ganz bedeckt ist. Lege die Garnelen mit Abstand in einer Lage in den Frittierkorb und besprühe die Oberseiten großzügig mit Ölspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 375F 5 Minuten in der Heißluftfritteuse. Öffne den Korb, wende jede Garnele, besprühe sie erneut mit Ölspray und gare sie weitere 4-5 Minuten, bis das Panko goldbraun und knusprig und das Innere der Garnelen undurchsichtig ist (Kerntemperatur 145F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die heißen Garnelen in eine Schüssel und beträufle sie mit etwa der Hälfte der Bang-Bang-Sauce. Vermenge alles vorsichtig, damit die Panade knusprig bleibt. Den Rest zum Dippen beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere die Garnelen mit geschnittener Frühlingszwiebel und Sesamsamen und serviere sie sofort extra knusprig mit der übrigen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Bang_Bang_Shrimp.jpg/1280px-Bang_Bang_Shrimp.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bang_Bang_Shrimp.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Garnelen aus der Heißluftfritteuse mit Bang-Bang-Sauce",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-bang-bang-salmon-bites",
+      "slug": "af2-bang-bang-salmon-bites",
+      "title": "Bang-Bang-Lachshappen aus der Heißluftfritteuse",
+      "instructions": "Zarte Lachswürfel aus der Heißluftfritteuse, deren Ränder karamellisieren, anschließend in glänzender süß-scharfer Bang-Bang-Sauce geschwenkt. Schmeckt wie vom Lieferservice und steckt voller Eiweiß. In etwa 15 Minuten fertig, ganz ohne Herd – ein angesagtes Abendessen, das wirklich gut tut. Inspiriert von Joanna Cismaru (Jo Cooks): https://www.jocooks.com/recipes/bang-bang-salmon/.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf ein größeres tiefgekühltes Lachsfilet und schneide es selbst in Würfel – pro Portion ist es viel günstiger als vorgeschnittene Lachshappen und taut unter kaltem Wasser schnell auf.",
+        "Lass abgefüllte Bang-Bang-Sauce weg: Mayonnaise, süße Chilisauce, Sriracha und etwas Honig ergeben denselben Geschmack für wenige Cent. Im Kühlschrank hält die Sauce eine Woche.",
+        "Mach das Gericht mit Mikrowellen-Jasminreis und einer Handvoll Tiefkühlgemüse sättigender – dieselbe Menge Eiweiß reicht dann für zwei Personen statt eine."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Würfel von Kabeljau oder Tilapia oder auch abgetropfter Dosenlachs für eine günstigere Variante mit weißem Fisch",
+          "savings": "spart ca. $1.50-2 pro Portion"
+        },
+        {
+          "forIngredientId": "sweet-chili-sauce",
+          "swap": "Honig mit einem Schuss Reisessig und roten Chiliflocken verrühren",
+          "savings": "verwendet Vorratszutaten, ca. $0.15 günstiger"
+        },
+        {
+          "forIngredientId": "sriracha",
+          "swap": "Beliebige scharfe Sauce oder Chili-Knoblauch-Sauce",
+          "savings": "keine Zusatzkosten"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 9,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Lachs",
+        "Fisch und Meeresfrüchte",
+        "scharf",
+        "angesagt",
+        "wie vom Lieferservice",
+        "schnell",
+        "15-minütig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 173,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-bang-bang-salmon-bites/",
+      "components": [
+        {
+          "key": "1ac2a52e-9201-54d5-94bd-943609d10fcd",
+          "name": "Zutaten",
+          "servingGrams": 171.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7949f66d-17d2-5b38-ae86-cd917777932a",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "skinless, in 1-inch große Würfel geschnitten"
+            },
+            {
+              "key": "d5c691fa-c1c6-5737-9016-48e37806bf1a",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "leichte Schicht für knusprige Ränder"
+            },
+            {
+              "key": "be8c2d01-23fd-5e53-a949-0707a569828d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dd19c0f-42a7-5511-afb4-1b1a10fdc5ee",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41ccc9b8-25c4-5282-9456-c4e08fef11ea",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa097b0c-a178-50ae-a6db-754f617c8875",
+              "ingredientName": "Ölspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3043d41-0639-5770-983a-c4f333e4d25d",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Grundlage der Bang-Bang-Sauce"
+            },
+            {
+              "key": "2487bbb1-950b-5b57-b023-62d5dd916254",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "334ed6bc-7226-5c28-8f7c-6c09fb94fdda",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack anpassen"
+            },
+            {
+              "key": "9b43ddea-3cd0-5c85-b10a-1ccf8a4c0046",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12510687-2a19-547d-89f9-1093707a2cc9",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "d798b200-179b-59d0-b4f5-58fe8bad1488",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Lachswürfel mit Küchenpapier sehr trocken und vermenge sie mit Speisestärke, Knoblauchpulver, Salz und Pfeffer, bis sie gleichmäßig dünn überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize die Heißluftfritteuse auf 400F vor und lasse sie 2-3 Minuten vorheizen. Besprühe den Korb mit Ölspray, damit die Lachshappen nicht festkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Lachs mit Abstand in einer Lage im Korb und besprühe die Oberseiten leicht mit Ölspray. Gare bei Bedarf in zwei Durchgängen, falls der Korb zu klein ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare den Lachs bei 400F 8-10 Minuten in der Heißluftfritteuse und schüttle den Korb nach 5 Minuten vorsichtig. Die Ränder sollen karamellisieren; der Lachs soll sich leicht zerteilen lassen und eine Kerntemperatur von 145F erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre währenddessen Mayonnaise, süße Chilisauce, Sriracha und Honig in einer Schüssel, bis die Sauce glatt und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den heißen Lachs in die Sauce und vermenge alles vorsichtig, bis alle Würfel überzogen sind. Oder träufle die Sauce darüber, wenn die Ränder knusprig bleiben sollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere den Lachs mit geschnittener Frühlingszwiebel und Sesamsamen und serviere ihn sofort. Als schnelle Beilage kannst du laut Packungsanweisung eine Tasse Jasminreis in der Mikrowelle zubereiten, während der Lachs gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tasteandsee.com/wp-content/uploads/2025/06/Air-Fryer-Bang-Bang-Salmon-Bites-OT-salmon-bites-with-sauce-good-7.jpg",
+          "sourcePageUrl": "https://tasteandsee.com/air-fryer-bang-bang-salmon-bites/",
+          "sourceName": "Taste and See",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Lachshappen mit Bang-Bang-Sauce aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-hot-honey-salmon-bites",
+      "slug": "af2-hot-honey-salmon-bites",
+      "title": "Lachshappen mit scharfem Honig aus der Heißluftfritteuse",
+      "instructions": "Zarte Lachswürfel mit leicht knusprigen Rändern, geschwenkt in einer klebrigen Glasur aus süßem, scharfem Honig. In etwa 15 Minuten entsteht ein günstiges, eiweißreiches Abendessen, das viel aufwendiger schmeckt. Inspiriert von Molly Thompson (What Molly Made): https://whatmollymade.com/air-fryer-salmon-bites/.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf ein tiefgekühltes Lachsfilet und lass es über Nacht im Kühlschrank auftauen – es ist meist günstiger als frischer Lachs und eignet sich bestens für Happen.",
+        "Mische scharfe Sauce oder Chiliflocken unter normalen Honig, statt eine teure Spezialflasche mit Honig und Chili zu kaufen.",
+        "Koche gleich mehr Reis und bewahre Portionen im Kühlschrank auf – mit aufgewärmtem Reis wird daraus ein Abendessen für einen Wochentag, das in 10 Minuten fertig ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hot-sauce",
+          "swap": "Sriracha oder ein Löffel Chili-Knoblauch-Sauce für die Schärfe",
+          "savings": "Oft schon im Kühlschrank vorhanden, kein zusätzlicher Einkauf"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Hähnchenbrust in Würfeln (in der Heißluftfritteuse auf eine Kerntemperatur von 165F garen)",
+          "savings": "spart etwa $2.60/Portion"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup als süße Grundlage",
+          "savings": "ungefähr gleich teuer cost, and keeps it vegan-friendly"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Lachs",
+        "scharfer Honig",
+        "süß-scharf",
+        "schnell",
+        "Abendessen",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 174,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-hot-honey-salmon-bites/",
+      "components": [
+        {
+          "key": "c306659a-2c86-5451-95a5-02d54d226899",
+          "name": "Zutaten",
+          "servingGrams": 269.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3448ea26-a028-558d-8e51-533793a65e83",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "in 1-inch große Würfel geschnitten"
+            },
+            {
+              "key": "12d23a20-5657-5f50-8a57-9fc17f381b71",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "to coat cubes"
+            },
+            {
+              "key": "985fad8a-921a-5cf8-80f4-2c09d3c526f3",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8da695c-d4ae-5fd8-acf7-6039fe6dc0a5",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "898df798-6b18-59a1-ba49-2386741ec59b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "611f35be-884f-5a3f-b4f4-9f81ac73fa46",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2299348-284c-5725-8b80-f6cd8a606c5e",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Grundlage der Honig-Chili-Glasur"
+            },
+            {
+              "key": "4a3e101a-6655-5f59-ad1a-e67bd8d04bdd",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "je nach gewünschter Schärfe anpassen"
+            },
+            {
+              "key": "3644e534-79dd-5029-8a03-fcacf2b01a46",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec1eb350-d3e1-5b1e-b65a-81b8e8b63d9d",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "ein Schuss zum Ausgleich der Süße"
+            },
+            {
+              "key": "b8194f01-08ef-5852-833e-ad8e811bf302",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "microwave oder instant, as a side"
+            },
+            {
+              "key": "db040871-cae0-50bc-aa0a-a598220d1459",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "6a4aedae-b054-51bd-86f7-50161da498f9",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe den Lachs sehr trocken und schneide ihn in 1-Zoll-Würfel. Vermenge ihn mit Olivenöl, Knoblauchpulver, Paprikapulver, Salz und Pfeffer, bis alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize die Heißluftfritteuse auf 400F vor und lasse sie 2-3 Minuten vorheizen. Fette den Korb leicht ein, damit die Lachshappen nicht festkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Lachswürfel mit etwas Abstand in einer Lage. Gare sie bei 400F 6-8 Minuten in der Heißluftfritteuse und schüttle den Korb nach der Hälfte der Zeit. Die Ränder sollen leicht knusprig sein; der dickste Würfel soll eine Kerntemperatur von 145F erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite währenddessen die Beilage zu: Erwärme laut Packungsanweisung eine Tasse Instant- oder vorgekochten Reis mit einem Schuss Wasser in der Mikrowelle, bis er heiß und locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Honig, scharfe Sauce, rote Chiliflocken und Apfelessig in einer großen Schüssel zur Honig-Chili-Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die heißen Lachshappen direkt in die Schüssel und schwenke sie vorsichtig, bis alle Würfel glänzend überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löffle den Lachs auf den Reis, träufle übrige Glasur darüber und garniere mit geschnittener Frühlingszwiebel und Sesamsamen. Sofort warm und klebrig servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://eatwithclarity.com/wp-content/uploads/2024/01/hot-honey-salmon-bites-2.jpg",
+          "sourcePageUrl": "https://eatwithclarity.com/hot-honey-salmon-bites/",
+          "sourceName": "Eat With Clarity",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Lachshappen mit scharfem Honig aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

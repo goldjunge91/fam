@@ -1,0 +1,964 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53218",
+      "slug": "tmdb-53218",
+      "title": "Hähnchen-Shawarma mit hausgemachter Knoblauch-Kräuter-Joghurtsauce",
+      "instructions": "Hähnchengericht aus Saudi-Arabien, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Saudi-Arabien",
+        "Hähnchen",
+        "Kebab"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1805,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53218/",
+      "components": [
+        {
+          "key": "f7bd82c8-f67b-5208-8327-13db55aa8351",
+          "name": "Zutaten",
+          "servingGrams": 139,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e114641-9f7b-5ff1-b727-7fc725b6dca7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe1657e2-c146-5e25-a18f-0715425a890e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca7f3dfd-acff-5a72-9f89-b33f82f5fb2a",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af807a3a-cae2-581a-b3a3-e0761eaf8ecc",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bca027f0-ba8b-56f3-a18f-73b8120cd189",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59c85233-2b1e-5233-a28c-72a617a1e15f",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6acb3bea-b199-59a9-ac1a-4258cfe25b68",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5942176e-a9c4-56bc-a1e0-a2823c9d7d7d",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0168e28a-db51-5793-bc22-097c449b4dd5",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24ccea4b-dc64-5b16-ab7d-2c7271b3a1f4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07cdd55c-73f5-5b73-902c-70150919bda9",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen zunächst in recht dünne Stücke. Gib sie in einen verschließbaren Beutel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Koriander, Kreuzkümmel, Kardamom, Cayennepfeffer, Paprikapulver, Salz, Pfeffer, Zitronensaft und Olivenöl in den Beutel. Verschließe ihn und vermische alles gründlich. Stelle das Fleisch 10–12 Stunden in den Kühlschrank. Kürzer geht auch, länger ist jedoch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze zum Garen eine Pfanne bei mittelhoher bis hoher Hitze und gib einen kleinen Schuss Olivenöl dazu. Röste eine Seite jedes Fladenbrots leicht an. Nimm es aus der Pfanne und gib genug Öl hinein, um den Pfannenboden zu bedecken. Gib die Pommes in den Airfryer und gare sie bei 180 Grad 15 Minuten. Schüttle den Korb gelegentlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Pfanne sollte jetzt sehr heiß sein. Brate das Hähnchen in 2 Portionen an, damit die Pfanne nicht zu voll wird. Das Fleisch sollte eine schöne dunkle Kruste bekommen. Gare es weitere 5–8 Minuten oder bis es durch ist. Wiederhole den Vorgang mit der nächsten Portion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib währenddessen griechischen Joghurt in eine Schüssel. Vermische Knoblauch, fein gehackte Minze und Petersilie, einen Spritzer Zitrone und Kreuzkümmel damit. Rühre alles zusammen und salze nach Geschmack. Vermische in einer kleinen Schüssel 1 TL Knoblauchpulver, Paprika, Kreuzkümmel, Zwiebelpulver, Oregano, getrocknete Petersilie und nach Wunsch Cayennepfeffer. Stelle die Mischung als Pommesgewürz beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze die Pommes direkt nach dem Garen und salze sie nach Geschmack. Sobald das Hähnchen fertig ist, serviere es sofort: Lege die Fladenbrote aus, verstreiche die Sauce darauf und gib Salat, Zwiebel, Tomate, Pommes, Hähnchen, Feta und weitere Sauce darauf. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/hcg6l91763596970.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/hcg6l91763596970.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53261",
+      "slug": "tmdb-53261",
+      "title": "Hähnchenflügel mit Kreuzkümmel, Zitrone und Knoblauch",
+      "instructions": "Türkisches Hähnchengericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "türkisch",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1806,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53261/",
+      "components": [
+        {
+          "key": "665f6836-3019-5535-946f-451c1ec242fd",
+          "name": "Zutaten",
+          "servingGrams": 335,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c3a9a59-3096-51f9-ae4a-fed9af57ee30",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe111ce8-7db4-5c12-be46-ee4493024e7c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53c20aec-bc5d-5b31-b039-71441e4263e4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b703247-8c5d-5da2-a007-dd845c22291d",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a365f170-40ac-5374-bec3-dea350be7ac4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf9edc5d-d518-5807-91cd-eef2549d47ab",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide jeden Flügel mit einer scharfen Küchenschere am Gelenk in zwei Teile. Vermische Knoblauch, Zitronenschale und -saft, Kreuzkümmel und Öl mit reichlich Würze. Gib die Mischung mit den Hähnchenflügeln in eine Form und wende sie darin. Decke sie ab und mariniere sie mindestens 1 Stunde oder, wenn du Zeit hast, über Nacht im Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 200 °C/Umluft 180 °C/Gasstufe 6 vor oder heize einen Außengrill auf. Backe die Hähnchenflügel 45–50 Minuten auf einem Ofenblech, bis sie knusprig sind, oder grille sie 20 Minuten. Beträufle sie in den letzten 10 Minuten der jeweiligen Zubereitungsart mit Honig. Serviere sie auf einer Platte mit reichlich Papierservietten. Stelle kleine Schalen mit Oliven, Pistazien oder Mandeln, Datteln und eingelegten Chilis sowie Fladenbrot dazu und reiche auch die unten genannten Gerichte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/4hzyvq1763792564.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/4hzyvq1763792564.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53186",
+      "slug": "tmdb-53186",
+      "title": "Hähnchen mit Safran, Rosinen und Pinienkernen",
+      "instructions": "Spanisches Hähnchengericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1807,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53186/",
+      "components": [
+        {
+          "key": "8c1ab0be-5e28-5f11-b958-d58f069cc8a4",
+          "name": "Zutaten",
+          "servingGrams": 71.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "56a45769-2084-5f3d-ab32-a031f0b86c75",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "667550e3-94b3-53cf-8f19-e46d427b458d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8fa7aa7-1f31-5ddb-b288-6913aced6e9b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f13a4bb1-1609-5481-8319-f5d32cbe1db8",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc0c7efc-2217-5b94-a29e-cf54e6c7426b",
+              "ingredientName": "Sherryessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db2900d5-e504-52b3-9b21-68a9a92c110c",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04bd9e38-fb17-505b-994c-d59e6b8b65ba",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ed2c1a2-b86f-566a-8b35-36986d5545d1",
+              "ingredientName": "Pinienkerne",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0594dd81-8639-56d3-9274-832cd0871bb0",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große Pfanne bei starker Hitze und würze das Hähnchen. Gib Olivenöl und dann das Hähnchen in die Pfanne. Bräune es auf jeder Seite etwa 5 Minuten. Lege es auf einen Teller und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze auf mittlere Stufe. Brate die Zwiebeln im verbliebenen Fett 3 Minuten an und gib dann Knoblauch und Safran dazu. Gare alles weitere 3–4 Minuten. Gieße den Sherry an und lass alles 3–5 Minuten köcheln, bis die Sauce sirupartig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Hähnchenkeulenstücke zurück in die Pfanne und gib Brühe, Thymian und Rosinen dazu. Decke die Pfanne ab und gare alles bei niedriger Hitze 20 Minuten. Gib das Brustfleisch und den ausgetretenen Fleischsaft dazu. Lass alles weitere 10 Minuten köcheln, bis das Fleisch durchgegart und die Sauce reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize während des Garens den Ofen auf 200 °C/Umluft 180 °C/Gasstufe 6 vor. Verteile die Pinienkerne auf einem Backblech und röste sie 10 Minuten goldbraun. Sobald das Hähnchen durchgegart ist, schmecke es ab, bestreue es mit Pinienkernen und Petersilie und serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/4mhr3u1763481087.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/4mhr3u1763481087.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52870",
+      "slug": "tmdb-52870",
+      "title": "Kichererbsen-Fajitas",
+      "instructions": "Mexikanisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1808,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52870/",
+      "components": [
+        {
+          "key": "3b06afab-8d62-5c13-9e54-8c429025d395",
+          "name": "Zutaten",
+          "servingGrams": 459.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8b787aa-1c3e-5549-b9ae-48541ea1061a",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f12f54d-9ba1-54d0-b212-ff19af83adc1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13571373-0564-5e5f-9474-3ec573c1f65c",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e76662e2-7d60-558c-8933-07eda7a6f368",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adce376d-34ab-5e3b-a8ed-3c67c35cd31c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14cab824-3f37-53c9-bfeb-eaf0f053ab04",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6869096b-9ef8-535d-a9df-9514d54506e9",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2844a430-a701-5af9-a75d-ce41a01a3c19",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "389b3435-a77b-5ca0-9d5d-66c0f7c7f7ac",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a8a4137-a09c-5b4a-8133-74def17f3ef4",
+              "ingredientName": "Harissa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "486cec81-0549-5df9-bb42-e7a00b24b47e",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54225f9f-dabb-5895-ba26-824eac1abd73",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 200 °C/Umluft 180 °C/Gasstufe 6 vor und lege ein Backblech mit Folie aus. Gieße die Kichererbsen ab, tupfe sie trocken und gib sie auf das vorbereitete Blech. Füge Öl und Paprikapulver hinzu und vermenge alles. Röste die Kichererbsen 20–25 Minuten, bis sie gebräunt und knusprig sind. Schüttle das Blech nach der Hälfte der Garzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib währenddessen Tomaten und Zwiebel mit dem Essig in eine kleine Schüssel und stelle sie zum Einlegen beiseite. Zerdrücke die Avocado in einer anderen Schüssel mit einer Gabel, lass dabei einige größere Stücke übrig. Rühre Limettensaft ein und würze alles gut. Vermische saure Sahne mit Harissa und stelle sie bis zum Servieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Grillpfanne, bis sie fast raucht. Lege die Tortillas einzeln hinein und röste jede Seite, bis die Tortilla heiß ist und Grillstreifen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle alles auf den Tisch und fülle die Fajitas: Verstreiche etwas Harissa-Creme auf der Tortilla und gib geröstete Kichererbsen, Guacamole, eingelegte Salsa und nach Wunsch Koriander darauf. Serviere die Fajitas mit Limettenspalten zum Darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/tvtxpq1511464705.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/tvtxpq1511464705.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53166",
+      "slug": "tmdb-53166",
+      "title": "Kichererbsen-Eintopf mit Chorizo und Spinat",
+      "instructions": "Spanisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1809,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53166/",
+      "components": [
+        {
+          "key": "dabc2a88-d31c-558b-98b0-fb5ee54fe7d6",
+          "name": "Zutaten",
+          "servingGrams": 271.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "7007eed0-0751-503e-95bc-ebcbb65ebe85",
+              "ingredientName": "Natives Olivenöl extra",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25f7ab86-cb7f-5f13-a13f-b28bf02b9437",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d84c5473-436e-5367-a514-92b12111815c",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e67abccf-445f-5be1-8ab9-ba0c87952566",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "496529a4-c05b-5f7d-b103-b3ba716dc3f1",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fe66c44-785a-5095-94b0-4610fdcc9171",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5c81727-7172-53a1-8628-a628836217f9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd98ea53-80e4-58d0-98d8-0222755749fb",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a08ae2d-ec76-5bc4-8022-f47041bc5477",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e09ab71b-4c38-51a4-99c7-b5c7fbef250a",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0b6eb0a-6923-5395-8f3b-e182c1e5db4a",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83c85bbb-71ba-595c-887c-96525f35f8ee",
+              "ingredientName": "Sherryessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "806a559f-3863-5915-a908-70ea7d7fdc6b",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl in einer großen Pfanne und brate die Zwiebel bei niedriger Hitze 3–4 Minuten an, bis sie weich zu werden beginnt. Rühre Karotte, Sellerie, Thymian und Lorbeerblätter ein. Würze alles und gare es unter gelegentlichem Rühren 2–3 Minuten. Gib Knoblauch, Chorizo, Zimt und geräuchertes Paprikapulver dazu. Brate alles sanft an, bis das Gemüse weich wird und die Chorizo ihr Öl abgibt und knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Kichererbsen, Essig und 150 ml Wasser ein und lass alles 1–2 Minuten köcheln, bis die Kichererbsen heiß sind. Gib den Spinat dazu und rühre ihn unter, bis er leicht zusammengefallen ist. Nimm den Topf vom Herd, schmecke das Gericht ab und serviere es warm mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/xvnx8j1763287209.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/xvnx8j1763287209.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

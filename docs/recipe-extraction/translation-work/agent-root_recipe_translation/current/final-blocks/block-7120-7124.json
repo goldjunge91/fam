@@ -1,0 +1,1034 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-holy-roller-breakfast-taco",
+      "slug": "gen-holy-roller-breakfast-taco",
+      "title": "Holy-Roller-Frühstückstaco",
+      "instructions": "Mexikanisches Frühstück  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Chorizo in großen Mengen und frieren Sie sie portionsweise ein",
+        "Verwenden Sie Tortillas von Handelsmarken, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7120,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-holy-roller-breakfast-taco/",
+      "components": [
+        {
+          "key": "616b85b6-d9e4-5bb0-80a6-0a85b30edb56",
+          "name": "Zutaten",
+          "servingGrams": 495,
+          "position": 0,
+          "items": [
+            {
+              "key": "1cde86a7-3d56-58ec-92c4-61ba34e95878",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad3f0e9c-de8f-5363-9fe1-5349eccb319e",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60c13e2d-7223-5a44-8965-d14988711646",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "cfd22f39-9fb1-5f91-86fa-58694fd35ee5",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "372f7e22-97f4-5050-900a-f6e87d1e60ef",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2a4a5d9f-ebb3-5261-a157-7539b8c2b004",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "70986ae1-e1db-5627-be21-1b36a406677a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0262058c-9f9f-561d-bea7-47f4c7c64bb1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chorizo in einer Pfanne bei mittlerer Hitze kochen und mit einem Löffel zerteilen, bis sie vollständig gebräunt ist (ca. 5 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schieben Sie die Chorizo an den Rand der Pfanne und fügen Sie Butter hinzu. Rühren Sie dann die Eier etwa 4 Minuten lang, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füllen Sie jede Tortilla mit Rührei, Chorizo, Käse und gewürfelten Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frischen Koriander darüber streuen und Tacos unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/cheesy-breakfast-tacos-recipe-3-667d9440df750.jpg?crop=1.00xw:0.564xh;0",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/cheesy-breakfast-tacos-recipe-3-667d9440df750.jpg?crop=1.00xw:0.564xh;0",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tamashii-ramen-bowl",
+      "slug": "gen-tamashii-ramen-bowl",
+      "title": "Ramen von Tamashii",
+      "instructions": "Japanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie als Basis Instant-Ramen-Päckchen anstelle von frischen Nudeln",
+        "Ersetzen Sie Pilze durch günstigeres Gemüse wie Pak Choi"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7121,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tamashii-ramen-bowl/",
+      "components": [
+        {
+          "key": "f342e72a-3643-5e48-90c7-b323707ab441",
+          "name": "Zutaten",
+          "servingGrams": 1670.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6d94e45-aa3a-56e9-ba7f-4fb516def82c",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Packungen"
+            },
+            {
+              "key": "6e710907-03d2-5999-9f5f-57650bdd1816",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "9d7556d2-acca-51a3-af94-6ab3b72d761c",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5b36d9ec-cd73-5cbf-ae0a-5b9fb40a427f",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e33d918c-1cce-51a5-bf88-6833c137eb3a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4a26c1dd-8973-57e3-9a14-bfa4cb4a1b87",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11ff9322-bbe8-5e99-805b-4ca119d68cf4",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fe5ccf2-f2be-52a3-ac06-62bf87ae607a",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bace5f0a-8356-5011-9289-ea0bf77bac15",
+              "ingredientName": "Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "9d4799ad-943f-515b-af92-1edfbd6d201b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59688c23-9d78-5629-a84c-0fc85a668c6c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hühnerbrühe in einem großen Topf zum Kochen bringen, gehackten Knoblauch und Ingwer hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sojasauce, Mirin und Sesamöl in die Brühe geben und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Champignons in Scheiben schneiden, in die Brühe geben und 8 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ramen-Nudeln nach Packungsanweisung kochen, abtropfen lassen und auf zwei Schüsseln verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die heiße Brühe und die Pilze über die Nudeln gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belegen Sie jede Schüssel mit einem weich gekochten Ei, geschnittenen Frühlingszwiebeln und zerrissenem Nori.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort kochend heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/chicken-ramen-bowl-recipe-1747881934.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/chicken-ramen-bowl-recipe-1747881934.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-suerte-s-barbacoa-taco",
+      "slug": "gen-suerte-s-barbacoa-taco",
+      "title": "Suertes Barbacoa Taco",
+      "instructions": "Mexikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderbraten im Sonderangebot und frieren Sie ihn vorher ein",
+        "Machen Sie eine größere Menge und frieren Sie die Portionen für zukünftige Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7122,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-suerte-s-barbacoa-taco/",
+      "components": [
+        {
+          "key": "3cfc1774-47a3-5b6a-b75c-deaaab745cc3",
+          "name": "Zutaten",
+          "servingGrams": 269.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6ce41b5-24d4-59b7-80a5-5f3f8769e8e3",
+              "ingredientName": "Rinderfutter",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "d51207d2-3e52-577a-9d4f-964e634aabf6",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7656d51a-aeb5-5c1f-8416-e10dc19c0692",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0883e0be-4858-5a4e-9153-ccd35c59f990",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "9b3fa205-5d7b-5096-9302-ca85ce923985",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fcfdd8a-01e3-535b-a1f4-6fc5600a9d66",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "1378749b-ee5d-5faf-afe6-e0b5830901cd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "18a6b974-95a2-5427-b296-281da6fcb0e2",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb6b04e6-02e5-5f1a-b155-0d95df5f0735",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entfernen Sie Stiele und Kerne von den Ancho- und Guajillo-Chilis und rösten Sie sie dann 1 Minute lang in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geröstete Chilischoten 10 Minuten in heißem Wasser einweichen, bis sie weich sind, dann mit Essig, Kreuzkümmel, Salz und 1 Tasse Einweichflüssigkeit glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie den Rinderhackbraten in einen Slow Cooker und gießen Sie die Chilisauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "8 Stunden lang auf niedriger Stufe garen, bis sich das Fleisch leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Fleisch herausnehmen und mit zwei Gabeln zerkleinern, dann zurück in den Slow Cooker geben und in die Soße einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tortillas in einer trockenen Pfanne erwärmen und mit geriebenem Barbacoa füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren mit Zwiebelwürfeln, Koriander und frischem Limettensaft belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://res.cloudinary.com/the-infatuation/image/upload/c_fill,w_3840,ar_4:3,g_auto,f_auto/images/Suerte_Barbacoa_RichardCasteelATX_1_bnsazi",
+          "sourcePageUrl": "https://res.cloudinary.com/the-infatuation/image/upload/c_fill,w_3840,ar_4:3,g_auto,f_auto/images/Suerte_Barbacoa_RichardCasteelATX_1_bnsazi",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-the-mighty-cone",
+      "slug": "gen-the-mighty-cone",
+      "title": "The Mighty Cone",
+      "instructions": "Mexikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie übrig gebliebenes zerkleinertes Hähnchen anstelle von Grillspießen",
+        "Kaufen Sie gekühlte Bohnen der Handelsmarke in großen Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7123,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-the-mighty-cone/",
+      "components": [
+        {
+          "key": "21f7ac86-03dc-51b1-9e73-1b5e21fdf226",
+          "name": "Zutaten",
+          "servingGrams": 567.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "36de9146-b399-54bf-a72d-0260b8d7cfea",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ced6233-236f-538b-96c0-35b4d449e933",
+              "ingredientName": "Brathähnchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "583ca15e-af44-5c55-8a22-6812f518c8c1",
+              "ingredientName": "Gekühlte Bohnen",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dd6c2a12-4568-5001-9fa1-3fa729c5aef2",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "561ec99b-4e57-56a8-a4cc-0d0596d77fc7",
+              "ingredientName": "Salsa Verde",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "c936283c-8ba8-5767-949f-d4445166b44c",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7fd5071b-afe6-59be-bedc-63fd95746919",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "31d91200-4819-59fb-a056-7397558341cc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6180aa34-92ea-5d11-9cc5-d69c7b4b652e",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gekühlte Bohnen in einem Topf erwärmen und die Hälfte der Salsa Verde untermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brathähnchen in einer Pfanne erwärmen und in mundgerechte Stücke zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Pfanne auf mittlere bis hohe Stufe erhitzen und die Tortillas erhitzen, bis sie geschmeidig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die untere Hälfte jeder Tortilla mit der Bohnenmischung bestreichen und dann mit Hühnchen, Käse und Jalapeños belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rollen Sie die Tortilla in eine Kegelform und befestigen Sie sie bei Bedarf mit einem Zahnstocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sauerrahm mit restlicher Salsa Verde zu einer Nieselsauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren die Waffel mit Sahnesauce, Koriander und frischem Limettensaft belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2024-07/Buttercrisp-Waffle-Cone-7.jpg?itok=Zs53vGLC",
+          "sourcePageUrl": "https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2024-07/Buttercrisp-Waffle-Cone-7.jpg?itok=Zs53vGLC",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-austin-biscuit-company-jalape-o-cheddar-biscuit",
+      "slug": "gen-austin-biscuit-company-jalape-o-cheddar-biscuit",
+      "title": "Jalapeño-Cheddar-Brötchen der Austin Biscuit Company",
+      "instructions": "Amerikanisches Frühstück  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Block-Cheddar und zerkleinern Sie ihn selbst, statt vorzerkleinert",
+        "Bereiten Sie den Teig vor und stellen Sie ihn über Nacht in den Kühlschrank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7124,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-austin-biscuit-company-jalape-o-cheddar-biscuit/",
+      "components": [
+        {
+          "key": "cd6d4191-65cd-50f4-b230-4308c5e19a5e",
+          "name": "Zutaten",
+          "servingGrams": 180.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a16c3b3-82ae-59c6-9db8-de628421a555",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "05385826-4d78-5f60-a9c1-cf3c1eeb448a",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c15fab30-91d8-556e-9b92-7bedc6bf960a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b56e7a03-750d-55d4-be70-033fe88d9d0a",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "05f45b26-4705-53bf-b33a-948cf4f1b5d5",
+              "ingredientName": "Scharfer Cheddar-Block",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ba342db7-2629-5cd8-b1e6-c032ca238609",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "729448ab-af7d-5354-a78e-c9ba1cddaa2c",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4ead3eb5-11bb-5bd5-95a3-15036927df19",
+              "ingredientName": "Schatz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 400 °F vor und legen Sie ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kalte Butter in kleine Würfel schneiden und in die Mehlmischung einarbeiten, bis sie wie grobe Krümel aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den geriebenen Cheddar und die gewürfelten Jalapeños unterheben, dann Buttermilch hinzufügen und vorsichtig verrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig auf eine bemehlte Fläche geben, zu einem 1 Zoll dicken Rechteck formen und in 4 Brötchen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kekse auf das vorbereitete Backblech legen und die Oberfläche mit Honig bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "12–15 Minuten goldbraun backen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/GOsttIsIS4oq0ehY6ukCm2IVuQs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__09__cheddar-jalapeno-biscuits-horiz-a-1800-e83026757ae94117a3bbd90301abf9cd.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/GOsttIsIS4oq0ehY6ukCm2IVuQs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__09__cheddar-jalapeno-biscuits-horiz-a-1800-e83026757ae94117a3bbd90301abf9cd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

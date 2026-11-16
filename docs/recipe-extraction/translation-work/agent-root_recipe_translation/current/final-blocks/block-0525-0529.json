@@ -1,0 +1,884 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-black-bean-burrito-bowl",
+      "slug": "mw-black-bean-burrito-bowl",
+      "title": "Mikrowellen-Burrito-Bowl mit schwarzen Bohnen",
+      "instructions": "Gewürzte schwarze Bohnen auf Reis mit Käse und Salsa: eine Bowl nach Chipotle-Art, die in einer einzigen Schüssel in der Mikrowelle zubereitet wird.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "In einem luftdicht verschlossenen Behälter im Kühlschrank bis zu 4 Tage aufbewahren.",
+      "reheatingInstructions": "Decke die Schüssel ab und erhitze sie 90 Sekunden in der Mikrowelle. Rühre nach der Hälfte der Zeit um und gib frische Salsa erst danach dazu.",
+      "cheapTips": [
+        "Kaufe Bohnen aus der Dose von der Hausmarke.",
+        "Verwende das günstigste Glas Salsa, das du finden kannst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Pintobohnen oder Kidneybohnen",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Lass den Käse weg und gib scharfe Sauce dazu",
+          "savings": "~$0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Dose schwarze Bohnen (~$0.50) und Reis (~$0.18) liefern 19 g Eiweiß für weniger als $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 525,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-black-bean-burrito-bowl/",
+      "components": [
+        {
+          "key": "f3c48e26-32d8-5d27-8110-2d760c4325c2",
+          "name": "Zutaten",
+          "servingGrams": 673.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4651a43c-ed60-5414-81c7-2cf24218c7aa",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3da4ee7e-e3bf-5a68-8664-49172b23b17b",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23438252-e495-5662-bbe9-2ae0d2bb77ad",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d47380a-4224-565f-b4c0-8e105c1c64c2",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a20c54dd-b3c9-5f61-b476-ce9186d187fe",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a8fa43f-157b-503e-950e-e48c67839d70",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "93d22bb9-2f32-55f5-a892-5397f445112f",
+              "ingredientName": "Avocado",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Bohnen abtropfen, spüle sie ab und gib sie mit Kreuzkümmel und einem Schuss Wasser in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel ab und erhitze die Bohnen 90 Sekunden in der Mikrowelle. Rühre nach der Hälfte der Zeit um, bis sie heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Reis und Tiefkühlmais in die Schüssel und erhitze alles weitere 60–90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Salsa, Käse und Avocado darauf. Lass das Gericht 1 Minute stehen, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Chicken_burrito_bowl%2C_Surcheros.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_burrito_bowl,_Surcheros.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Michael Rivera (Mjrmtg) — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Hähnchen-Burrito-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-chickpea-curry-rice-bowl",
+      "slug": "mw-chickpea-curry-rice-bowl",
+      "title": "Mikrowellen-Reisschüssel mit Kichererbsen-Curry",
+      "instructions": "Kichererbsen köcheln in Kokosmilch und Currypaste und werden auf Reis serviert: eine würzige Bowl, für die du den Herd gar nicht einschalten musst.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "In einem luftdicht verschlossenen Behälter im Kühlschrank bis zu 4 Tage aufbewahren.",
+      "reheatingInstructions": "Decke die Schüssel ab, gib einen Schuss Wasser dazu und erhitze sie 90 Sekunden in der Mikrowelle. Rühre nach der Hälfte der Zeit um.",
+      "cheapTips": [
+        "Eine kleine Dose Kokosmilch reicht für mehrere Currys.",
+        "Tiefgekühlter Spinat kostet nur halb so viel wie frischer."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Normale Milch und 1 TL Öl",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "curry-paste",
+          "swap": "1 TL Currypulver und eine Prise Salz",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Dose Kichererbsen (~$0.55) und Currypaste aus dem Vorrat ergeben eine würzige Mahlzeit für etwa ~$2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 526,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-chickpea-curry-rice-bowl/",
+      "components": [
+        {
+          "key": "0fb629d6-87a9-5fdd-aaaa-e738f34d13da",
+          "name": "Zutaten",
+          "servingGrams": 616.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bf530db-9d22-57d8-b07b-4f93b60b2cd3",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3071b2f-82cb-5f57-842e-1c17dd0fcd1b",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d9c51a4-d6ea-51d6-8a61-2b51cb218b2c",
+              "ingredientName": "Kokosmilch",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e7572df-1124-5d0e-897e-853ceabecc26",
+              "ingredientName": "Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3364716f-d415-579c-b8be-e8ec88581db3",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "98ffc9a4-6f4b-5ffd-a3fa-abcd7ff481f5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Kichererbsen abtropfen und gib sie mit Kokosmilch und Currypaste in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre tiefgekühlten Spinat und Knoblauchpulver ein und decke die Schüssel locker ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze alles 2 Minuten in der Mikrowelle und rühre um. Erhitze es dann weitere 1–2 Minuten, bis die Sauce blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Gericht 1 Minute stehen (Vorsicht beim Abnehmen der Abdeckung wegen des Dampfes) und gib es mit einem Löffel über warmen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/%D0%9A%D0%B0%D1%80%D0%B8_%D1%81%D0%BE_%D0%BD%D0%B0%D1%83%D1%82_%D0%B8_%D1%82%D0%B8%D0%BA%D0%B2%D0%B8%D1%87%D0%BA%D0%B8.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D1%80%D0%B8_%D1%81%D0%BE_%D0%BD%D0%B0%D1%83%D1%82_%D0%B8_%D1%82%D0%B8%D0%BA%D0%B2%D0%B8%D1%87%D0%BA%D0%B8.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Deodora333 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Mikrowellen-Reisschüssel mit Kichererbsen-Curry",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-kimchi-egg-rice-bowl",
+      "slug": "mw-kimchi-egg-rice-bowl",
+      "title": "Mikrowellen-Reisschüssel mit Kimchi und Ei",
+      "instructions": "Scharfes Kimchi, ein weich gegartes Ei aus der Mikrowelle und Sesamöl auf Reis: würzig, schnell und in weniger als 4 Minuten fertig.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 2,
+      "storageInstructions": "Am besten frisch servieren; Reis und Kimchi halten sich ohne Ei einen Tag.",
+      "reheatingInstructions": "Erhitze den Reis 45 Sekunden in der Mikrowelle und bereite jedes Mal ein frisches Ei zu.",
+      "cheapTips": [
+        "Ein Glas Kimchi reicht für ein Dutzend Mahlzeiten.",
+        "Verwende Reis vom Vortag, den du bereits im Kühlschrank hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kimchi",
+          "swap": "Sriracha und Sauerkraut",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Beliebiges neutrales Öl und eine Prise geröstete Sesamsamen",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein Ei (~$0.35), etwas Kimchi (~$0.40) und Reis (~$0.18) ergeben eine vollständige Mahlzeit für weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "5-Minuten-Gericht"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 527,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-kimchi-egg-rice-bowl/",
+      "components": [
+        {
+          "key": "74c1117f-f67c-551b-81c2-9335a85b2d19",
+          "name": "Zutaten",
+          "servingGrams": 330,
+          "position": 0,
+          "items": [
+            {
+              "key": "c10447c2-3682-576b-a7a5-f1f46e213f73",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "188aef0f-3990-5033-9a0d-72e4332abe1d",
+              "ingredientName": "Kimchi",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d52df338-941a-515a-8e98-0b4eecce1e87",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f155e2c-8b0d-5e6f-82e7-174be3ca8d63",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74690f31-0c84-55ef-9bb6-39ea7e4cffed",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dad26d4-a795-52fd-b184-ccf12c689e50",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib den Reis in eine mikrowellengeeignete Schüssel und belege ihn mit Kimchi.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage das Ei in eine kleine ofenfeste Schale, gib 1 TL Wasser dazu und stich vorsichtig mit einer Gabel in das Eigelb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Ei 45–60 Sekunden in der Mikrowelle, bis es gerade gestockt ist (Vorsicht beim Abnehmen der Abdeckung wegen des Dampfes).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Ei auf den Reis, beträufle es mit Soja- und Sesamöl und bestreue alles mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kimchi_Pork_Rice%2C_Kimchi%2C_and_Seaweed.jpg/960px-Kimchi_Pork_Rice%2C_Kimchi%2C_and_Seaweed.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kimchi_Pork_Rice,_Kimchi,_and_Seaweed.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Amaeka Lyrae Loremas Cabaccang — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Reisschüssel mit scharfem Kimchi, Sesam und Frühlingszwiebeln, serviert mit geröstetem Seetang",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-frozen-veggie-rice-bowl",
+      "slug": "mw-frozen-veggie-rice-bowl",
+      "title": "Mikrowellen-Reisschüssel mit tiefgekühltem Gemüse",
+      "instructions": "Eine Tüte tiefgekühltes Mischgemüse, Reis und ein Schuss Teriyaki-Sauce: ein Abendessen mit minimalem Aufwand, das trotzdem eine richtige Mahlzeit ergibt.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "In einem luftdicht verschlossenen Behälter im Kühlschrank bis zu 4 Tage aufbewahren.",
+      "reheatingInstructions": "Decke die Schüssel ab und erhitze sie 90 Sekunden in der Mikrowelle. Rühre nach der Hälfte der Zeit um.",
+      "cheapTips": [
+        "Kaufe die größte Packung tiefgekühltes Wokgemüse.",
+        "Teriyaki-Sauce der Hausmarke schmeckt genauso wie die eines Markenprodukts."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "teriyaki-sauce",
+          "swap": "Sojasauce und 1 TL Honig",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Nur tiefgekühlter Brokkoli",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Tasse tiefgekühltes Wokgemüse (~$0.40) und Reis (~$0.18) ergeben eine vollständige Schüssel für weniger als $1.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 528,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-frozen-veggie-rice-bowl/",
+      "components": [
+        {
+          "key": "870905b0-c2db-5114-b595-916373c82d06",
+          "name": "Zutaten",
+          "servingGrams": 562.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "10ed3149-132f-54cd-aa46-4037eba26692",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57d34115-9d5e-5bff-934b-0c2b1deca32c",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "effc34c0-9346-532a-b92b-ee11ced9c403",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6d366e4-8ac0-5693-a879-b606a4d4c5f4",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "56920fec-41e0-58d5-b60f-b9d2e08a2308",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib tiefgekühltes Gemüse und 1 EL Wasser in eine mikrowellengeeignete Schüssel und decke sie locker ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Gemüse 3 Minuten in der Mikrowelle. Rühre nach der Hälfte der Zeit um, bis es heiß und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Reis obenauf und erhitze alles weitere 60–90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle das Gericht mit Teriyaki-Sauce und Sesamöl. Lass es 1 Minute ruhen und verrühre dann alles, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1596560548464-f010549b84d7?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1596560548464-f010549b84d7",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Kalyani Akella on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Reisschüssel mit tiefgekühltem Gemüse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-peanut-tofu-bowl",
+      "slug": "mw-peanut-tofu-bowl",
+      "title": "Mikrowellen-Schüssel mit Erdnuss-Tofu",
+      "instructions": "Weicher Tofu und tiefgekühlte Edamame auf Reis mit cremiger Erdnuss-Sojasauce: eine Bowl wie vom Lieferdienst, aber für 2 $.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 3,
+      "storageInstructions": "Im Kühlschrank bis zu 3 Tage aufbewahren. Die Sauce dickt ein; verdünne sie beim Aufwärmen mit Wasser.",
+      "reheatingInstructions": "Decke die Schüssel ab und erhitze sie 90 Sekunden in der Mikrowelle. Rühre 1 TL Wasser ein.",
+      "cheapTips": [
+        "Ein Block Tofu reicht für 3–4 Portionen.",
+        "Erdnussbutter ist die günstigste Grundlage für eine cremige Sauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Tahini oder Sonnenblumenkernmus",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "edamame",
+          "swap": "Tiefgekühlte Erbsen",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein halber Block Tofu (~$1.10) und Erdnussbutter aus dem Vorrat ergeben eine Schüssel mit 24 g Eiweiß für etwa ~$2.30.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 529,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-peanut-tofu-bowl/",
+      "components": [
+        {
+          "key": "de563ccb-b3cc-5d71-9734-023326c6ae64",
+          "name": "Zutaten",
+          "servingGrams": 457.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d22c4ff-42fe-5865-bc41-fccc8af0ffde",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bef9ff75-f244-5482-af35-7d1b38b5be81",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05edd899-0c69-58f1-ad31-3ec7c338f58b",
+              "ingredientName": "Edamame",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44f68e1c-153e-5fc7-9963-0401bda0118e",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "158680e2-89da-5d49-a42a-f5db6420194a",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65a9d807-e898-5301-94ab-e2efb5bafb9b",
+              "ingredientName": "Sriracha",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5d4b9302-5855-585a-ba85-3480425ee749",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tofu in Würfel und gib ihn zusammen mit Edamame in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel locker ab und erhitze alles 2 Minuten in der Mikrowelle, bis es heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Erdnussbutter, Sojasauce, Sriracha und 1 EL warmes Wasser in einer Tasse, bis die Sauce glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Reis in die Schüssel, gieße die Sauce darüber und rühre vorsichtig um, damit alles überzogen wird, ohne den Tofu zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1601974915460-f55ea921f8ad?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1601974915460-f55ea921f8ad",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Schüssel mit Erdnuss-Tofu",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

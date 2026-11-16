@@ -1,0 +1,874 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-atholl-brose",
+      "slug": "gen-atholl-brose",
+      "title": "Atholl Brose",
+      "instructions": "Schottisches Abendessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie große Haferflocken in großen Mengen in der Naturkostabteilung",
+        "Verwenden Sie preisgünstigen Blended Whiskey oder verzichten Sie auf die alkoholfreie Version"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schottisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7060,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-atholl-brose/",
+      "components": [
+        {
+          "key": "09ac6e3c-45e6-5a6c-86ef-8ceeb95f5756",
+          "name": "Zutaten",
+          "servingGrams": 113.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d3194bed-8c60-58cf-99bf-5b93196ca8c3",
+              "ingredientName": "Schwere Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "99ff0bda-978e-5da1-96a9-746f461443ae",
+              "ingredientName": "Schatz",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8bc748ad-0fc6-5b52-b48f-978cfee5b239",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "70d4980d-8290-56d1-9106-68dcd01712a4",
+              "ingredientName": "Whisky",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8d3f6935-4711-5625-900c-276fb1805948",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8c530d40-d7bb-5692-8902-fa3f92a8b282",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haferflocken in einer trockenen Pfanne bei mittlerer Hitze 3-4 Minuten rösten, bis sie duften, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geröstete Haferflocken in eine Schüssel geben und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlagsahne schlagen, bis sich weiche Spitzen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Honig und Whisky unter die Schlagsahne heben, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geröstete Haferflocken und eine Prise Salz vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Serviergläser verteilen und bis zum Servieren kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.saymedia-content.com/.image/t_share/MTc0NDI3ODcwNTY1NzcwODg2/atholl-brose-the-honey-whisky-digestif-of-scottish-legend-and-its-recipe.jpg",
+          "sourcePageUrl": "https://images.saymedia-content.com/.image/t_share/MTc0NDI3ODcwNTY1NzcwODg2/atholl-brose-the-honey-whisky-digestif-of-scottish-legend-and-its-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-scottish-tablet",
+      "slug": "gen-scottish-tablet",
+      "title": "Schottisches Karamell (Tablet)",
+      "instructions": "Schottischer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kondensmilch im Sonderangebot und füllen Sie Ihren Vorrat auf",
+        "In großen Mengen zubereiten und bis zu 2 Monate einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schottisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7061,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scottish-tablet/",
+      "components": [
+        {
+          "key": "fb5ea832-4cd5-5dbe-b28a-dc76612546a9",
+          "name": "Zutaten",
+          "servingGrams": 40.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3503531-6c22-5db1-9d1b-f05409c10b75",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5fbedb96-78a8-5c94-a905-4c89a7de837e",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "868b4bfb-3f8d-5a07-9df1-81352a1de542",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fe636b25-e901-50af-a928-bfcdcc5d7db8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "87a3a677-c514-5773-8dff-31d279c688c7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eine 8 x 8 Zoll große Backform mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucker, Kondensmilch und Butter in einem Topf mit dickem Boden bei mittlerer Hitze vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Unter ständigem Rühren erhitzen, bis die Mischung auf dem Zuckerthermometer 236 °F erreicht (Weichballenstadium), etwa 15–20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen und Salz und Vanilleextrakt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Holzlöffel 2-3 Minuten lang kräftig schlagen, bis die Mischung eindickt und ihr glänzendes Aussehen verliert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In die vorbereitete Pfanne gießen und 20 Minuten bei Raumtemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Noch leicht warm in 16 Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In einem luftdichten Behälter zwischen Pergamentschichten aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/nvFKQwodXZ7xxYqfEAblYdDkHHo=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-home-made-scottish-tablet-435825-Final-5b9be71546e0fb005040f90d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/nvFKQwodXZ7xxYqfEAblYdDkHHo=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-home-made-scottish-tablet-435825-Final-5b9be71546e0fb005040f90d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oatcakes",
+      "slug": "gen-oatcakes",
+      "title": "Haferkekse",
+      "instructions": "Schottisches Frühstück  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Haferflocken in großen Mengen in 5-Pfund-Beuteln",
+        "Machen Sie eine große Menge und frieren Sie sie ein, um ein einfaches Frühstück zu erhalten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "schottisch",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7062,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oatcakes/",
+      "components": [
+        {
+          "key": "ad811c9a-1426-5d7b-b5da-b482f30b0401",
+          "name": "Zutaten",
+          "servingGrams": 110.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbdb663d-66d5-5065-8215-34e8b43d174b",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8caee927-0731-5625-9ea2-2626be2e57f9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "cc634c10-04f1-5009-ab93-cc5fe487ea05",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "2fd6c8b7-9c60-534c-87d3-0f8dd84122e8",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haferflocken und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in heißem Wasser schmelzen und unter Rühren über die Hafermischung gießen, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwas abkühlen lassen und dann mit den Händen kneten, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Legen Sie den Teig zwischen zwei Blätter Pergamentpapier und rollen Sie ihn auf eine Dicke von 0.25 Zoll aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Messer in Rechtecke oder Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf ein Backblech legen und bei 350 °F 15–18 Minuten backen, bis es leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten auf dem Backblech abkühlen lassen, dann zum vollständigen Abkühlen auf einen Rost legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/YikbFaaXxM6sLh3eJngEU607TDw=/2607x1738/filters:fill(auto,1)/traditional-scottish-oatcakes-recipe-435823-hero-03-5ef055bb9373429f99d3dc992124d86b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/YikbFaaXxM6sLh3eJngEU607TDw=/2607x1738/filters:fill(auto,1)/traditional-scottish-oatcakes-recipe-435823-hero-03-5ef055bb9373429f99d3dc992124d86b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-porridge",
+      "slug": "gen-porridge",
+      "title": "Brei",
+      "instructions": "Schottisches Frühstück  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Haferflocken von Handelsmarken in großen Mengen",
+        "Verzichten Sie auf Milch und Butter und entscheiden Sie sich für eine milchfreie, vegane Variante"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schottisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7063,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-porridge/",
+      "components": [
+        {
+          "key": "11cd44b0-cad2-50ab-8b49-61a6ccbab1c9",
+          "name": "Zutaten",
+          "servingGrams": 375.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "34484f62-7cd1-5459-9703-49b3e7801033",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "39124296-0afb-584a-929e-b8746ae718ed",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "329dbf88-b609-58de-b385-a54cee976b99",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "c8ed05be-3d14-5b5a-bc85-e6fe8114fc8d",
+              "ingredientName": "Schatz",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1d817bf0-1080-5dc2-81ed-c5855fdb3c85",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4ab6f137-4e65-5e93-9d5d-e0cabeeaa6b5",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser und Salz in einem Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Haferflocken langsam einrühren und dabei erneut aufkochen lassen, um Klümpchen zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe und lassen Sie es 15 Minuten lang köcheln. Dabei häufig umrühren, um ein Anhaften zu verhindern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Milch und Butter hinzufügen und rühren, bis eine glatte und cremige Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 2 Minuten kochen, bis die gewünschte Konsistenz erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In mit Honig beträufelten Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6172bc98b0562e91c3d7d3a2/1:1/w_2560%2Cc_limit/BonesInCongee_RECIPE_102121_22909.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6172bc98b0562e91c3d7d3a2/1:1/w_2560%2Cc_limit/BonesInCongee_RECIPE_102121_22909.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-neeps-and-tatties",
+      "slug": "gen-neeps-and-tatties",
+      "title": "Neeps und Tatties",
+      "instructions": "Schottisches Abendessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Steckrüben und Kartoffeln im Angebot in 5-Pfund-Beuteln",
+        "Um Geld zu sparen, verwenden Sie weniger Butter und ersetzen Sie sie durch Olivenöl"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "schottisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7064,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-neeps-and-tatties/",
+      "components": [
+        {
+          "key": "9b87a493-e71b-55e5-9191-cba09c08cf28",
+          "name": "Zutaten",
+          "servingGrams": 67.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "99b6d2b4-0802-51fc-9a03-9fb7010186c1",
+              "ingredientName": "Steckrüben",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße (etwa 1.5 Pfund)"
+            },
+            {
+              "key": "9d44d740-2dd6-5018-91cd-059b0c5054d1",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b9c53690-cc3f-57b4-8c38-d280653d50b7",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5a25d59c-1596-506c-97ca-d914e18ad6e6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "308b354f-921f-5a5d-97c0-c8a3d615b5c2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "285608ca-8b93-58cd-b770-f4729f7a7ac0",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Steckrüben und Kartoffeln schälen und in 1 Zoll große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Steckrüben in einen Topf mit kaltem Salzwasser geben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach 10 Minuten Kartoffelwürfel in denselben Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gemeinsam 15–20 Minuten kochen, bis beide Gemüsesorten sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einem Sieb gut abtropfen lassen, dabei etwas Kochwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zurück in den Topf geben und mit Butter zerstampfen. Je nach Bedarf Kochwasser hinzufügen, um die gewünschte Konsistenz zu erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Großzügig mit Salz, Pfeffer und Muskatnuss würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In eine Servierschüssel geben und mit einem Stück Butter belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mYt-JiQGZfnXOA-Eg5ElEmKcPUw=/6016x4016/filters:fill(auto,1)/traditional-haggis-tatties-and-neeps-435600-hero-01-39f97aa3379742b4a6b7d3aa10828059.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mYt-JiQGZfnXOA-Eg5ElEmKcPUw=/6016x4016/filters:fill(auto,1)/traditional-haggis-tatties-and-neeps-435600-hero-01-39f97aa3379742b4a6b7d3aa10828059.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1144 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-crispy-breakfast-home-fries",
+      "slug": "af2-crispy-breakfast-home-fries",
+      "title": "Knusprige Frühstückskartoffeln aus der Heißluftfritteuse",
+      "instructions": "Knusprig gebräunte Kartoffelwürfel wie im Diner, mit süßer Paprika und Zwiebeln vermengt und mit nur wenig Öl in der Heißluftfritteuse goldbraun gebacken. Sie schmecken wie frittiert, kosten nur ein paar Cent und müssen nicht am Herd beaufsichtigt werden. Inspiriert von einem beliebten Trend für Frühstückskartoffeln aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln gehören zu den günstigsten Grundzutaten im Laden. Kaufe einen großen Beutel und diese Bratkartoffeln bleiben die ganze Woche preiswert.",
+        "Schälen ist nicht nötig: Die Schale wird wunderbar knusprig und du sparst Zeit und die dabei abgeschnittenen stärkehaltigen Ränder.",
+        "Verwende die übrige halbe Paprika und halbe Zwiebel morgen für Eier oder einen Wrap, damit nichts übrig bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel in derselben Größe schneiden für eine süßere, vitamin-A-reiche Variante",
+          "savings": "ungefähr gleich teuer cost; bringt Abwechslung"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl funktioniert genauso gut und ist günstiger",
+          "savings": "spart etwa $0.22 pro Rezept"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Normales Paprikapulver oder eine Prise Chilipulver",
+          "savings": "spart etwa $0.08"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Frühstück",
+        "preiswert",
+        "vegan",
+        "Kartoffeln",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 225,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-breakfast-home-fries/",
+      "components": [
+        {
+          "key": "3a113165-d0b9-56f8-a6e2-6b7aa585a2c7",
+          "name": "Zutaten",
+          "servingGrams": 350,
+          "position": 0,
+          "items": [
+            {
+              "key": "17cb1742-e94b-5af6-8b42-3a6af4e18047",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "geschrubbt und in 1/2-inch große Würfel geschnitten"
+            },
+            {
+              "key": "02575df1-9c82-5d6f-8534-21c8f8c69177",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "95045a67-41dc-5dd9-9f53-969834ebe034",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "e05325f7-b66d-506a-8b04-0f057adaca51",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder ein beliebiges neutrales Öl"
+            },
+            {
+              "key": "847ece7a-3c8f-5ab3-8843-b60b40d0bdf3",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "404a2c54-45c4-5108-b090-243680883c13",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79ea622f-395a-5e7e-91c2-b7fdca4730ad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f53edf1-c2f4-544e-aba3-a55b51d11a66",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a669e6af-fa0c-527c-bbbb-f667e94252ff",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schrubbe die Kartoffeln sauber (Schälen ist nicht nötig) und schneide sie in gleich große 1/2-inch Würfel. Tupfe sie mit einem Tuch sehr trocken; trockene Kartoffeln sind das Geheimnis knuspriger Ränder.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Würfel in einer Schüssel mit 1 tbsp Öl, Knoblauchpulver, geräuchertem Paprikapulver, Salz und Pfeffer, bis alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Kartoffeln in einer Lage im Korb der Heißluftfritteuse (bei Platzmangel in zwei Portionen arbeiten, denn überlappende Kartoffeln dämpfen statt knusprig zu werden) und gare sie bei 400F 10 Minuten. Schüttle den Korb nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge währenddessen gewürfelte Paprika und Zwiebel mit der übrigen 1/2 tbsp Öl und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Paprika und Zwiebel in den Korb, schüttle alles durch und gare es bei 400F weitere 5 Minuten, bis die Kartoffeln goldbraun und knusprig und die Zwiebeln weich und an den Rändern geröstet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sind noch blasse Stücke dabei, schüttle den Korb und gare sie 1 bis 2 Minuten länger. Die gesamte Garzeit in der Heißluftfritteuse beträgt etwa 15 bis 17 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Kartoffeln auf Tellern, schmecke sie ab und gib bei Bedarf mehr Salz dazu. Streue frische Petersilie darüber und serviere sie heiß, zum Beispiel mit Eiern oder einigen Spritzern scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Diner_Home_Fries_%28140491415%29.jpeg/1280px-Diner_Home_Fries_%28140491415%29.jpeg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Diner_Home_Fries_(140491415).jpeg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 3.0",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Frühstückskartoffeln aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-breakfast-burritos",
+      "slug": "af2-crispy-breakfast-burritos",
+      "title": "Knusprige Frühstücks-Burritos aus der Heißluftfritteuse",
+      "instructions": "Locker gerührte Eier, geschmolzener Käse und würzige Wurst in eine Tortilla gerollt und in der Heißluftfritteuse goldbraun und herrlich knusprig gebacken. Bereite mehrere auf einmal zu, friere sie ein und backe einen an hektischen Morgen direkt gefroren knusprig auf. Inspiriert von einem beliebten Trend für Frühstücks-Burritos aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine große Rolle Wurstbrät und Eier im Dutzend, bereite dann 6-8 Burritos auf einmal zu und friere sie ein. Jeder gefrorene Burrito kostet weniger als einen Dollar, ein Fast-Food-Burrito dagegen $3 oder mehr.",
+        "Lass die bereits geriebenen Käsemischungen für Frühstücks-Burritos weg und reibe einen Käseblock selbst; so schmilzt der Käse besser und kostet pro Unze weniger.",
+        "Strecke die Füllung mit günstigen Resten aus dem hinteren Teil des Kühlschranks, zum Beispiel Tiefkühlgemüse, übrig gebliebenem Reis oder einem Löffel Bohnen, damit zwei Eier für mehr Personen reichen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "2 Scheiben Speck, knusprig in der Heißluftfritteuse gebacken und zerkrümelt, oder ein zerkleinerter tiefgekühlter Wurstbratling",
+          "savings": "Speck oder tiefgekühlte Bratlinge sind pro Burrito oft günstiger und länger haltbar."
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Mozzarella oder ein anderer gut schmelzender Käse, den du bereits hast",
+          "savings": "Angebrochenes aus dem Kühlschrank verwenden instead of buying a new bag."
+        },
+        {
+          "forIngredientId": "tortilla",
+          "swap": "Eine beliebige große Weizentortilla oder ein Wrap",
+          "savings": "Eigenmarken-Tortillas kosten oft nur halb so viel wie Markenware."
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 7,
+      "airFryerTemperatureF": 360,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tex-Mex",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Frühstück",
+        "zum Vorbereiten",
+        "gefriergeeignet",
+        "für unterwegs"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 226,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-breakfast-burritos/",
+      "components": [
+        {
+          "key": "cb7a41e2-f941-5d7b-bb2a-7e009bd15bc4",
+          "name": "Zutaten",
+          "servingGrams": 266,
+          "position": 0,
+          "items": [
+            {
+              "key": "6fe3f98c-e8d2-5d84-8adb-c6abe08cb845",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ea45a32-9c25-5087-8cd8-5590f11ef04b",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "428dd129-0064-5919-8a22-a082f5f986cc",
+              "ingredientName": "Schweinebratwurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5ea19b7-9abb-5641-b182-e2b9a97f421c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geraspelt und auf beide Burritos verteilt"
+            },
+            {
+              "key": "27fa732b-16e7-58d5-9350-01455cf4dbd7",
+              "ingredientName": "Ölspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "Die gerollten Burritos besprühen, damit sie knusprig werden"
+            },
+            {
+              "key": "d02808b7-ab86-51a6-828a-29c600c31ae2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f91ca053-7b82-5a8a-b281-cdb0558ab363",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "501e12ec-4f9b-5dab-91c9-93508da24c8a",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "in die Eier eingerührt"
+            },
+            {
+              "key": "2e1d78ca-5302-59eb-8499-8db3970c1b60",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Dippen"
+            },
+            {
+              "key": "79d1ea45-d319-54da-8d57-059593a4faaa",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in eine mikrowellengeeignete Tasse oder Schüssel und verquirle sie mit Salz, Pfeffer und Knoblauchpulver. Gare sie 60-90 Sekunden in der Mikrowelle und rühre nach der Hälfte der Zeit um, bis sie gerade gestockt und locker sind. Nimm sie heraus, solange sie noch leicht weich sind, denn im Burrito garen sie weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerbrösele die Wurst in den Korb der Heißluftfritteuse oder auf ein Stück Folie und gare sie bei 375F 5-6 Minuten. Schüttle den Korb einmal, bis die Wurst gebräunt ist und eine Kerntemperatur von 160F erreicht hat. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege jede Tortilla flach hin und verteile Rührei, gegarte Wurst und geriebenen Käse mittig darauf. Klappe die Seiten ein und rolle die Tortilla fest zu einem Burrito auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege beide Burritos mit der Naht nach unten in den Korb der Heißluftfritteuse, damit sie ihre Form behalten, und besprühe die Oberseiten leicht rundum mit Ölspray, damit sie gleichmäßig goldbraun und knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie bei 360F 6-8 Minuten in der Heißluftfritteuse und wende sie nach der Hälfte der Zeit, bis die Außenseite goldbraun und knusprig, der Käse geschmolzen und die Füllung dampfend heiß ist (165F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie 1-2 Minuten ruhen und schneide sie dann in der Mitte durch. Serviere sie mit Salsa zum Dippen und etwas frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Vorbereiten: Rolle die Burritos auf, wickle jeden in Folie und friere sie ein. Zum Aufwärmen im gefrorenen Zustand auswickeln und bei 350F 9-11 Minuten in der Heißluftfritteuse backen. Einmal wenden, bis sie knusprig und vollständig heiß sind (165F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Breakfast_burritos.jpg/1280px-Breakfast_burritos.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Breakfast_burritos.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Frühstücks-Burritos aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-hash-brown-patties",
+      "slug": "af2-crispy-hash-brown-patties",
+      "title": "Knusprige Rösti-Taler aus der Heißluftfritteuse",
+      "instructions": "Goldbraune Rösti-Taler wie vom Fast-Food-Imbiss mit knusprig filigraner Kruste und lockerem Kartoffelinneren. Sie bestehen aus einer geriebenen Kartoffel und brauchen kaum Öl. Durch Einweichen und Auspressen wird oberflächliche Stärke entfernt, sodass die Heißluftfritteuse die Kartoffeln knusprig backt statt zu dämpfen. Sie sind günstiger als die Variante aus dem Tiefkühlbeutel und kosten nur wenige Cent. Inspiriert vom Trend für selbst gemachte Rösti aus der Heißluftfritteuse, der in sozialen Medien bei Hobbyköchen beliebt wurde.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 16,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine mehligkochende Kartoffel ergibt etwa zwei Taler für wenige Cent und ist viel günstiger als eine Tüte fertiger Rösti aus dem Tiefkühlfach.",
+        "Die geriebenen Kartoffeln gründlich auszudrücken kostet nichts und macht sie mit Abstand am knusprigsten. Lass diesen Schritt also nicht aus.",
+        "Kein Ölspray da? Reibe mit den Fingern ein paar Tropfen neutrales Öl auf die Kartoffeln; es genügt ein ganz dünner Film."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "1 serving tiefgekühlte Rösti (aufgetaut und trocken ausgedrückt) pro Taler, wenn es schnell gehen soll",
+          "savings": "Spart das Schälen und Reiben"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Stattdessen 1 tbsp Kartoffelstärke (weiterhin glutenfrei) oder 1 tbsp Mehl (nicht mehr glutenfrei) als Bindemittel verwenden",
+          "savings": "Vorhandene Vorratszutaten verwenden"
+        },
+        {
+          "forIngredientId": "cooking-spray",
+          "swap": "Stattdessen mit 1 tbsp Pflanzenöl bestreichen",
+          "savings": "etwa gleich teuer cost, no spray can needed"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 16,
+      "airFryerTemperatureF": 360,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Frühstück",
+        "Kartoffel",
+        "vegan",
+        "preiswert",
+        "knusprig",
+        "studentenküchengeeignet",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 227,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-hash-brown-patties/",
+      "components": [
+        {
+          "key": "ea9ea1e0-4537-57a0-9c66-1335125e5556",
+          "name": "Zutaten",
+          "servingGrams": 192,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd884f48-254d-582e-bdae-07777de01ae8",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Russet-Kartoffeln eignen sich am besten; Schälen ist optional"
+            },
+            {
+              "key": "d038fb58-5474-5d74-9044-b1590a8e9ebb",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "bindet die Raspel und sorgt für mehr Knusprigkeit"
+            },
+            {
+              "key": "37a91613-5ee2-566f-a160-7ea0b2cdb61e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5da3f697-6b04-5d98-9708-216ac48c22a6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc70ec37-de95-5464-9799-fec900aee51d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "576d22c2-bb87-5767-af49-339ca052485c",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96964c44-503a-560a-aa75-fc0e1463fabe",
+              "ingredientName": "Ölspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "vor dem Garen im Airfryer beide Seiten besprühen"
+            },
+            {
+              "key": "03227726-b2e2-5713-9413-2dd7ef5dd7e7",
+              "ingredientName": "Paprikapulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "für color und a little warmth"
+            },
+            {
+              "key": "029452db-583d-5347-a3e1-d3e86793cb58",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten und zum Servieren darübergestreut"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln nach Wunsch und reibe sie grob in eine Schüssel. Bedecke sie mit kaltem Wasser und weiche sie 5-10 Minuten ein, um oberflächliche Stärke abzuspülen. So werden sie knusprig statt matschig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße sie ab und presse die Raspel sehr trocken aus: Häufe sie in ein sauberes Küchentuch oder mehrere Papiertücher und wringe sie kräftig über dem Spülbecken aus. Je trockener sie sind, desto knuspriger werden sie. Presse sie portionsweise aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge die trockenen Kartoffelraspel mit Maisstärke, Salz, Pfeffer, Knoblauchpulver, Zwiebelpulver und nach Wunsch Paprikapulver, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Masse fest zu 4 kompakten Talern von etwa 1/2-inch Dicke und presse sie gut zusammen, damit sie nicht auseinanderfallen. Besprühe beide Seiten großzügig mit Ölspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Taler mit Abstand in einer Lage in den Korb der Heißluftfritteuse und gare sie bei 360F 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende jeden Taler vorsichtig, besprühe die Oberseiten erneut und gare sie bei 360F weitere 6-10 Minuten, bis sie dunkelgolden und knusprig sind und ein kleines Küchenmesser leicht durch die Mitte gleitet (insgesamt 14-18 Minuten). Für zusätzliche Knusprigkeit ein paar Minuten länger garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie 1-2 Minuten ruhen, damit die Kruste fest wird. Streue nach Wunsch geschnittene Frühlingszwiebel darauf und serviere die Taler heiß mit Ketchup oder scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Hashbrown_potato_patty.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hashbrown_potato_patty.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Whitebox at English Wikipedia, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Rösti-Talern aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-egg-in-a-hole-toast",
+      "slug": "af2-egg-in-a-hole-toast",
+      "title": "Toast mit Ei im Loch aus der Heißluftfritteuse",
+      "instructions": "Ein gemütliches Frühstück ganz ohne Aufpassen: Der Toast wird goldbraun und knusprig, während ein Ei in der Mitte stockt. Alles wird mit knusprigem Alles-Bagel-Gewürz bestreut und mit salzigem Speck verfeinert. Sieht nach einem besonderen Brunch im Café aus, braucht aber praktisch weder Können noch Abwasch. Inspiriert von einem viralen TikTok-Trend für ein einfaches Frühstück aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen Laib Sandwichbrot und eine Packung Eier; dieses Frühstück kostet etwa $1 pro Portion und ist viel günstiger als in jedem Campus-Café.",
+        "Lass den Speck weg und verwende, was du schon im Kühlschrank hast (eine Scheibe Putenschinken oder etwas Käse), damit das Gericht weniger als einen Dollar kostet.",
+        "Bewahre die herausgerissenen Brotmitten auf und gare sie gleichzeitig in der Heißluftfritteuse. So bekommst du kostenlose Croutons für den Salat oder die Suppe von morgen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck oder eine Scheibe Putenschinken",
+          "savings": "spart etwa $0.15 pro Portion and cooks in the same time."
+        },
+        {
+          "forIngredientId": "everything-bagel",
+          "swap": "Eine Prise Salz, Knoblauchpulver und Sesamsamen",
+          "savings": "Uses pantry spices wahrscheinlich bereits vorhanden, near zero extra cost."
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Sauerteigbrot oder eine Bagelhälfte in Scheiben",
+          "savings": "Sauerteigbrot wird noch knuspriger; eine Scheibe vom Vortag kostet nichts und wird sonst vielleicht weggeworfen."
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 9,
+      "airFryerTemperatureF": 360,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Frühstück",
+        "einfacher Schritt",
+        "TikTok",
+        "schnell",
+        "studentenküchengeeignet",
+        "ohne Wenden"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 228,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-egg-in-a-hole-toast/",
+      "components": [
+        {
+          "key": "2db31dee-918b-548e-99d7-a2e4ed87f625",
+          "name": "Zutaten",
+          "servingGrams": 120,
+          "position": 0,
+          "items": [
+            {
+              "key": "68ae22df-5062-564f-b584-96eb5e2b177b",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8aebe55f-9621-597b-9f12-6cbf7170bfc5",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a411626-7d98-558e-98d3-c10db29d163f",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7f9c300-8a90-57f0-afff-1e99d6a9f769",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bbd2988-85e9-5f71-b2cc-698df0351a73",
+              "ingredientName": "Alles-Bagel-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b30e73c3-9f28-59d6-85d7-2087a8d57bef",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9f4baf3-d721-58b1-a461-edf2a6f32ea1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac2158de-27e7-535a-a153-15b921d3d711",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche beide Brotscheiben auf einer Seite leicht mit Butter. Drücke mit dem Rand einer Tasse oder einem Löffel in der Mitte jeder Scheibe eine etwa 2-inch breite Mulde in das Brot und reiße sie vorsichtig heraus. Der Boden soll intakt bleiben, damit das Ei darin liegen kann (nicht ganz durchstechen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Speckscheiben flach in den Korb der Heißluftfritteuse und gare sie bei 360F 4 Minuten, damit etwas Fett austritt und der Speck vorgart. Lege ihn dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Brot mit der gebutterten Seite nach oben in den Korb. Schlage je ein Ei in die Mulde und streue eine Prise Salz und Pfeffer sowie etwa 1/2 tsp Alles-Bagel-Gewürz darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege eine Scheibe des vorgegarten Specks auf oder neben jeden Toast, damit sie zusammen mit dem Ei knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare den Toast bei 360F 6 bis 9 Minuten in der Heißluftfritteuse. Für ein vollständig gegartes, sicheres Ei 8 bis 9 Minuten garen, bis das Eiweiß undurchsichtig und gestockt ist und das Eigelb 160F erreicht hat. Nach 6 Minuten herausnehmen, wenn du ein flüssiges Eigelb möchtest und dich damit wohlfühlst (nicht empfohlen für Schwangere, sehr junge oder ältere Menschen und Personen mit geschwächtem Immunsystem).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vergewissere dich, dass der Speck knusprig und durchgegart ist. Hebe jeden Toast vorsichtig mit einem Pfannenwender heraus, streue nach Wunsch geschnittene Frühlingszwiebel darauf und iss ihn sofort heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/EggToast.jpg/1280px-EggToast.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:EggToast.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 3.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Toast mit Ei im Loch aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-fudgy-box-mix-brownies",
+      "slug": "af2-fudgy-box-mix-brownies",
+      "title": "Saftige Brownies aus der Fertigmischung in der Heißluftfritteuse",
+      "instructions": "Eine günstige Brownie-Fertigmischung wird in einer kleinen 6-inch-Form zu saftigen Quadraten mit knusprigen Rändern und cremiger Mitte – genau die Mischung aus krossem Rand und weichem Kern, die in der Studentenküche für Begeisterung sorgt. Die Heißluftfritteuse backt die ganze Form in 15 Minuten, ohne das kleine Apartment in eine Sauna zu verwandeln. Inspiriert vom viralen TikTok-Trick für Brownies aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Packung Brownie-Mischung reicht für zwei kleine Portionen – teile sie auf und du hast zweimal Nachtisch für wenige Cent.",
+        "Keine 6-inch-Kuchenform da? Verwende eine Kastenform aus Alufolie aus dem Ein-Dollar-Laden oder lege den Korb doppelt mit Folie aus und forme daraus eine passende Backform.",
+        "Keine Eier mehr? Fertigmischungen verzeihen viel: Ersetze das Ei durch 1/4 cup Apfelmus und etwas zusätzliches Öl, dann werden die Brownies trotzdem schön saftig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Geschmolzene Butter für eine reichhaltigere Krume wie aus der Bäckerei",
+          "savings": "Nur ein paar Cent mehr für deutlich mehr Aroma"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "1/4 cup Apfelmus für Brownies ohne Ei mit etwas kuchenartigerer Konsistenz",
+          "savings": "spart etwa $0.40 and uses a pantry cup"
+        },
+        {
+          "forIngredientId": "dark-chocolate-chips",
+          "swap": "Gehackte Schokolade oder beliebige Schokostückchen, die du da hast",
+          "savings": "Reste statt einer neuen Packung verwenden"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 330,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Nachtisch",
+        "Schokolade",
+        "Fertigmischung",
+        "5 Zutaten",
+        "studentenküchengeeignet",
+        "viral"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 229,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-fudgy-box-mix-brownies/",
+      "components": [
+        {
+          "key": "98d45bc7-8ead-5959-a7f8-c241be278062",
+          "name": "Zutaten",
+          "servingGrams": 206.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3771eaa-7465-5496-9c13-08ddebd6881e",
+              "ingredientName": "Brownie-Fertigmischung",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa eine halbe Standardpackung; genug Teig für eine 6-inch Form"
+            },
+            {
+              "key": "bc46260e-390d-5968-b2f5-9f5c7d77143f",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbc9d397-f457-5231-84cd-bad36159b4e8",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder das auf der Packung angegebene Öl"
+            },
+            {
+              "key": "0522b9e5-0b3f-501c-82a8-1d50dffb7fd5",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "ein Schuss, um den Teig zu verdünnen"
+            },
+            {
+              "key": "db4e0733-de60-5b04-9e47-4a164e76476f",
+              "ingredientName": "Ölspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "zum Einfetten der Form"
+            },
+            {
+              "key": "7229560d-34c9-5d4c-afff-6d7084668e48",
+              "ingredientName": "Zartbitterschokostückchen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "obenauf drücken für besonders fudgige Schokostellen"
+            },
+            {
+              "key": "dfeec0fd-52de-54cc-b9ba-e63156ca812d",
+              "ingredientName": "Eiscreme",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "warm als Eisbeilage daraufgeben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre die Brownie-Mischung mit Ei, Öl und einem Schuss Wasser, bis alles gerade so verbunden ist – ein paar Klümpchen sind in Ordnung. Nicht zu stark rühren, sonst werden die Brownies weniger saftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fette eine 6-inch-Kuchenform oder eine andere ofenfeste Form, die in den Korb passt, mit Ölspray ein. Fülle den Teig hinein, streiche die Oberfläche glatt und streue nach Wunsch Schokostückchen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Heißluftfritteuse auf 330F und backe die Brownies 15 Minuten. Prüfe sie etwa nach 8 Minuten und drehe die Form um 180 Grad, damit sie gleichmäßig backen (nicht wenden, es ist Teig).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach 15 Minuten sollen die Ränder gestockt und rissig sein, während die Mitte noch leicht weich aussieht. Ein Zahnstocher nahe der Mitte soll mit feuchten, gebackenen Krümeln herauskommen, nicht mit nassem rohem Teig. Ist der Teig noch flüssig, weitere 2-3 Minuten backen; das Ei muss vollständig durchgaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schalte die Heißluftfritteuse AUS und lass die Form 10 Minuten darin ruhen. Die Restwärme gart die Mitte sanft fertig, ohne sie auszutrocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Form heraus und lass die Brownies weitere 5 Minuten abkühlen, damit sie fest genug zum Schneiden werden. Schneide sie dann in 4 Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm servieren und nach Wunsch mit einer Kugel Eis garnieren, die darüber schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dolly_Pardon%27s_Fabulously_Fudgy_Brownies_-_October_2023_-_Sarah_Stierch.jpg/1280px-Dolly_Pardon%27s_Fabulously_Fudgy_Brownies_-_October_2023_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dolly_Pardon%27s_Fabulously_Fudgy_Brownies_-_October_2023_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Sarah Stierch, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von saftigen Brownies aus der Fertigmischung in der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

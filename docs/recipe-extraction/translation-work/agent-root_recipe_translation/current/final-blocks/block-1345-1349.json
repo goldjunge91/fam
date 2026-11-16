@@ -1,0 +1,999 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-asian-street-nasi-goreng",
+      "slug": "mfr-asian-street-nasi-goreng",
+      "title": "Indonesisches Nasi Goreng",
+      "instructions": "Indonesiens Nationalgericht: gebratener Reis mit Kecap Manis (süßer Sojasauce), Garnelenpaste und Chili, belegt mit Spiegelei und Krupuk. Die dunklen, süß-herzhaften Aromen sind einzigartig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kalter Reis vom Vortag ist wichtig, damit gebratener Reis nicht klebrig wird.",
+        "Kecap Manis (süße Sojasauce) ist die entscheidende Zutat. Eine $3-Flasche hält monatelang.",
+        "Für eine mildere Variante die Garnelenpaste weglassen. Sojasauce und Fischsauce funktionieren ebenfalls."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp-paste",
+          "swap": "Fischsauce für eine weniger intensive, aber ähnlich kräftige Würze"
+        },
+        {
+          "forIngredientId": "kecap-manis",
+          "swap": "Sojasauce und braunen Zucker vermischen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-nasi-goreng",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "indonesisch",
+        "Nasi Goreng",
+        "gebratener Reis",
+        "Ei"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1345,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-nasi-goreng/",
+      "components": [
+        {
+          "key": "a1da3cb4-ab45-5c3a-90ef-551809c8c20c",
+          "name": "Zutaten",
+          "servingGrams": 479.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ed8eade-3880-5974-9c5c-66e06be8f552",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3236f52-7b67-53bf-97e7-a71c13613b2d",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57301912-b5d5-5225-9505-021286f92fc4",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaada14d-944c-5c42-a099-c746e6e53ae2",
+              "ingredientName": "Kecap Manis (süße Sojasauce)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b85fac35-925b-5a16-922f-3e988ea779ce",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5c1690a-8e12-5e9d-9fa6-ea4dfdbafc3d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce38fb34-f706-5845-8962-d27e622a3aaa",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "969c67a3-7f54-57ef-9497-afd84a4bd2fa",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "484f50e0-f3a1-5438-8e3a-d86d211cd053",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcc6dea2-5800-5208-a11a-f728e6072921",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schalotten, Knoblauch, Chili und Garnelenpaste zu einer groben Paste pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paste 2 Minuten in Öl anbraten, bis sie duftet. Garnelen dazugeben und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kalten Reis dazugeben, vermengen und auflockern. Kecap Manis dazugeben und 3 Minuten unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis an den Pfannenrand schieben und in derselben Pfanne 2 Spiegeleier braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reis mit Spiegelei und geschnittenen Frühlingszwiebeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Nasi-Goreng-Fried-Rice.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Nasi-Goreng-Fried-Rice.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-bkfst-burrito-classic",
+      "slug": "mfr-am-bkfst-burrito-classic",
+      "title": "Klassischer Frühstücks-Burrito",
+      "instructions": "Rührei, knusprige Frühstückswurst, Cheddar, Bratkartoffeln und Salsa, in eine warme Weizentortilla gewickelt. Der amerikanische Frühstücks-Burrito, der Energie für den ganzen Vormittag liefert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite 6 auf einmal zu und friere sie ein. In der Mikrowelle wird daraus ein Frühstück in 2 Minuten.",
+        "Tiefgekühlte Bratkartoffeln sparen 10 Minuten und kosten $2 pro Beutel.",
+        "Frühstückswurst aus dem Großgebinde ist am günstigsten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "breakfast-sausage",
+          "swap": "Putenwurst für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "flour-tortilla",
+          "swap": "Vollkorn-Tortilla für mehr Ballaststoffe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-burrito-classic",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Burrito",
+        "Frühstück",
+        "Eier",
+        "Wurst"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1346,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-burrito-classic/",
+      "components": [
+        {
+          "key": "3421a9d3-aeae-5e2e-b7ab-4b2ca44f7da0",
+          "name": "Zutaten",
+          "servingGrams": 345,
+          "position": 0,
+          "items": [
+            {
+              "key": "208f951d-066c-53a6-b387-4e240e1ba7aa",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ceccc333-85ae-50a0-87d5-95486b06e0e7",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "753821c5-8810-5d53-a148-e3721f554b19",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40a67518-aafd-5c68-932c-4ef570b389b3",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76cbee63-310d-58d5-b6a2-8ff1263b6572",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "286b9a55-caad-5a7c-97d1-37ff0a49a986",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7205fd6-3de1-56c6-bde8-ce86b3de6f4e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "989661fc-de1d-52b0-b09d-ccfa9fb65c64",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffel würfeln und 8 Minuten knusprig in Öl braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerbröselte Wurst 5 Minuten braten. Überschüssiges Fett abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier in derselben Pfanne zu Rührei verarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tortillas erwärmen und mit Eiern, Wurst, Bratkartoffeln, Käse und Salsa belegen. Fest einrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/BmnDvAZyG_N-R3jhVQxGAF_szG0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/261844-freeze-and-reheat-breakfast-burritos-ddmfs-3X4-0359-8c6dd90974a545ddab2504633cd43f00.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/BmnDvAZyG_N-R3jhVQxGAF_szG0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/261844-freeze-and-reheat-breakfast-burritos-ddmfs-3X4-0359-8c6dd90974a545ddab2504633cd43f00.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-bkfst-southwest-veggie-bowl",
+      "slug": "mfr-am-bkfst-southwest-veggie-bowl",
+      "title": "Southwest-Frühstücks-Bowl mit Gemüse",
+      "instructions": "Knusprige, geröstete Süßkartoffelwürfel, schwarze Bohnen, Rührei, Avocado und Pico de Gallo. Eine farbenfrohe, sättigende Frühstücks-Bowl, die alle Makros abdeckt und ganz ohne Fleisch auskommt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln kosten $0.50 und liefern alle Kohlenhydrate für einen ganzen Vormittag.",
+        "Schwarze Bohnen aus der Dose sind die günstigste Eiweißquelle in dieser Bowl.",
+        "Avocado ist die teuerste Zutat. Verwende eine Hälfte und bewahre den Rest mit Zitrone auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "avocado",
+          "swap": "Saure Sahne oder ganz weglassen"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Gewürfelte normale Kartoffel als günstigere Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-southwest-veggie-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Southwest",
+        "Frühstücks-Bowl",
+        "Eier",
+        "Süßkartoffel"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1347,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-southwest-veggie-bowl/",
+      "components": [
+        {
+          "key": "5e520ba1-84e6-5cd9-aafd-2ace492bf0de",
+          "name": "Zutaten",
+          "servingGrams": 641,
+          "position": 0,
+          "items": [
+            {
+              "key": "77d55736-237d-5422-9e3f-8117d0714aaf",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e6f31e0-f07f-5aa8-9a4c-b6fb0ef6bedc",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "491ce4f8-6425-50e8-9d7b-ab8daec3409a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c16ff7d-79ae-525e-8ea4-e1f7124d8953",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eddf7922-815a-5496-9cd1-817f71d2c1e8",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cef8366-1b8b-5055-a9da-5d359d0dae63",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94e713f6-e79f-55da-8644-7fe339c096c1",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4380f755-e6e2-5772-ae94-1b82f9ac92d2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e754cc2d-9b23-527e-8bd8-0374c66f6d44",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd4f802b-59b9-5197-9cfe-a8b7f8e3c990",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Süßkartoffel würfeln, mit Öl, Kreuzkümmel und Paprikapulver vermengen und bei 425°F 20 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schwarze Bohnen mit Kreuzkümmel erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier zu Rührei verarbeiten. Schnelles Pico zubereiten: Tomaten, Zwiebel und Limette vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bowl zusammenstellen: Süßkartoffel → schwarze Bohnen → Eier → Avocado → Pico de Gallo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/04/679869ae55d337c6b9546e6d6b54aa94f1f85db6.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/04/679869ae55d337c6b9546e6d6b54aa94f1f85db6.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-bkfst-smoked-salmon-bowl",
+      "slug": "mfr-am-bkfst-smoked-salmon-bowl",
+      "title": "Frühstücks-Bowl mit Räucherlachs",
+      "instructions": "Räucherlachs auf Getreide mit Frischkäse, belegt mit Everything-Bagel-Gewürz, Kapern, Gurke, roter Zwiebel und Zitrone. Alle Aromen eines Lox-Bagels, aber ohne die Kohlenhydrate.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Farro macht satt und hält länger vor als Reis, bei ähnlichen Kosten.",
+        "Eine 3-oz-Packung Räucherlachs liefert 16g Eiweiß.",
+        "Everything-Bagel-Gewürz gibt es in den meisten Lebensmittelgeschäften für $3. Es passt zu allem."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cooked-farro",
+          "swap": "Quinoa, brauner Reis oder Blumenkohlreis"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Griechischen Joghurt mit Zitrone für eine leichtere Variante verrühren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-smoked-salmon-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Räucherlachs",
+        "Lox",
+        "Bagel-Bowl",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1348,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-smoked-salmon-bowl/",
+      "components": [
+        {
+          "key": "a842c5be-eaf0-52d3-b5b9-e3a388179616",
+          "name": "Zutaten",
+          "servingGrams": 1277.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3007965-9c11-5cd6-9bb9-60d31ddd5b74",
+              "ingredientName": "Räucherlachs",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73ea5ebc-dcf3-5407-b460-37e80096d194",
+              "ingredientName": "Frischkäse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85c369d0-d281-5205-9b84-224e9105b80f",
+              "ingredientName": "Farro",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6162a60e-5c5b-544c-b86c-1e4303e86e86",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "726737f4-00f2-5ec9-be49-e25211208cef",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90922200-35cf-5f15-bfe0-c1b60984a7ff",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7c2a632-a26c-547b-8eb4-42e9a72c56f0",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf8b84d9-1b7d-5a73-b506-0973f578155d",
+              "ingredientName": "Everything-Bagel-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c05e657-0699-52d1-b8ae-f88c53fc9d9f",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gekochten Farro mit Frischkäse, Zitronensaft und Everything-Bagel-Gewürz verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit Räucherlachs, geschnittener Gurke, roter Zwiebel und Kapern belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit frischem Dill und zusätzlicher Zitrone abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/56cb2b157da24faa1f771305/1490739763431-BV6GCB3L4V5N0VN8WK0F/Smoked+Salmon+Breakfast+Bowl+with+a+6-Minute+Egg+-+A+Thought+For+Food",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/56cb2b157da24faa1f771305/1490739763431-BV6GCB3L4V5N0VN8WK0F/Smoked+Salmon+Breakfast+Bowl+with+a+6-Minute+Egg+-+A+Thought+For+Food",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-bkfst-bec-sandwich",
+      "slug": "mfr-am-bkfst-bec-sandwich",
+      "title": "Frühstückssandwich mit Speck, Ei und Käse",
+      "instructions": "Knuspriger Speck, ein perfekt gebratenes Ei und geschmolzener amerikanischer Käse auf einem getoasteten English Muffin. Das New Yorker Bodega-Frühstück, mit dem unzählige Morgen begannen, zu Hause perfekt zubereitet für $2.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "English Muffins kosten $3 für 6 Stück, also $0.50 pro Sandwich-Basis.",
+        "Zu Hause zubereitet sparst du $5+ gegenüber einer Bestellung in der Bodega.",
+        "Bereite 4 auf einmal zu, wickle sie in Alufolie und stelle sie kalt. In 45 Sekunden sind sie wieder warm."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck oder kanadischer Speck für weniger Fett"
+        },
+        {
+          "forIngredientId": "american-cheese",
+          "swap": "Beliebiger Scheibenkäse, am besten Cheddar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-bec-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "BEC",
+        "Speck",
+        "Ei",
+        "Sandwich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1349,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-bec-sandwich/",
+      "components": [
+        {
+          "key": "a77529e6-d192-545b-adac-42db0ca961f7",
+          "name": "Zutaten",
+          "servingGrams": 292,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9c26351-dc24-5d96-b9a2-df5764e96016",
+              "ingredientName": "English Muffin",
+              "grams": 57,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2551d5f7-28e7-54f2-a5f0-234d480f39c7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "739bcbb3-504d-5366-a86b-f1169cd4bdeb",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ddb6ebd-c9e1-537b-9d3b-718854f0ad95",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c57b85d-fda5-52ec-b620-96b6a505a6f6",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cb34134-ad5b-5b87-9fc2-cac05a2d94f8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62ac90ea-2ae6-5776-8eeb-c86a82d2041d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck in einer Pfanne knusprig braten und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter schmelzen und Eier bei mittlerer Hitze braten oder als Rührei zubereiten. Würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "English Muffin toasten. Speck, Ei und Käse auf die untere Hälfte legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ei passend zusammenklappen und die obere Hälfte leicht andrücken, damit der Käse durch die Wärme schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlheartfood.com/wp-content/uploads/2023/11/Bacon-and-Egg-Hash-Brown-Breakfast-Sandwich.jpg",
+          "sourcePageUrl": "https://girlheartfood.com/wp-content/uploads/2023/11/Bacon-and-Egg-Hash-Brown-Breakfast-Sandwich.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

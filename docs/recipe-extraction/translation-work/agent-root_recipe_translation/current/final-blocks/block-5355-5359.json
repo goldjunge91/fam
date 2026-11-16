@@ -1,0 +1,1149 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mazesoba",
+      "slug": "gen-mazesoba",
+      "title": "Mazesoba",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine größere Menge Tare-Sauce zu und bewahre sie für mehrere Mahlzeiten im Kühlschrank auf.",
+        "Lasse Nori weg und verwende mehr Frühlingszwiebeln, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5355,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mazesoba/",
+      "components": [
+        {
+          "key": "c494ba03-0674-55ba-970c-78a6d3f6545a",
+          "name": "Zutaten",
+          "servingGrams": 473,
+          "position": 0,
+          "items": [
+            {
+              "key": "02c267de-a50b-590f-b243-e4649cab41c1",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e893f963-17e7-55c8-827b-4c18bea6d20b",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "cddabb51-346f-51af-b9a7-a32f27e78fe1",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5f2d7de1-8b89-5246-8e94-03a093f82bc2",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e70bff2b-93eb-5a09-ac1c-b87181ac2da3",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6f5565da-104c-5769-b361-33271734aa93",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b632abb0-99ff-54c4-85cd-908105430955",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "d24d59d9-21ce-5b0e-a4bc-a6cb96a3150c",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f53b15e8-a6cf-55fb-9ff1-df1661658958",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a860134-3aeb-57cd-9565-27b4a7b6ea88",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1d1e933-24df-5d3c-b66c-a62a42a4bf0b",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a600309e-9b41-553f-9681-bee626c3a6fd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Mirin, Zucker, Sesamöl, Reisessig und gehackten Knoblauch in einer kleinen Schüssel zu einer Tare-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe einen großen Topf mit Salzwasser zum Kochen. Koche die Ramen-Nudeln bissfest und gieße sie gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die heißen Nudeln auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße jeweils die Hälfte der Tare-Sauce über die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die Nudeln mit einer Zange oder Essstäbchen kräftig mit der Sauce, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib je ein halbiertes weich gekochtes Ei, zerrissene Nori-Streifen und geschnittene Frühlingszwiebeln darauf. Bestreue alles mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Nudeln sofort, solange sie noch warm sind. Vermische sie nach Wunsch kurz vor dem Essen erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://storage.googleapis.com/edkl-production-storage/store/postimage/41351/image/[:original%2C%20:original]-810320e829f6cf269387ad8ee6ece714.jpg",
+          "sourcePageUrl": "https://storage.googleapis.com/edkl-production-storage/store/postimage/41351/image/[:original%2C%20:original]-810320e829f6cf269387ad8ee6ece714.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-kee-mao",
+      "slug": "gen-pad-kee-mao",
+      "title": "Pad Kee Mao",
+      "instructions": "Ein beliebtes thailändisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot und friere es portionsweise für spätere Mahlzeiten ein.",
+        "Verwende getrocknetes Basilikum und erhöhe die Menge leicht, falls frisches Basilikum nicht erhältlich oder zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5356,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-kee-mao/",
+      "components": [
+        {
+          "key": "3e96b87c-433b-5462-8105-d2def1af4338",
+          "name": "Zutaten",
+          "servingGrams": 416,
+          "position": 0,
+          "items": [
+            {
+              "key": "f171858b-1d1e-59f0-8d65-8756b00a64a1",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "cc99b666-0a01-5168-a74f-014417f81206",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "bb335c53-f168-5b84-b3ee-1019ff1c020e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "e8dafbab-96e3-58a7-ab9d-14fa7e1510f4",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9b903ec9-887c-58bc-8499-1087a58cac98",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "32f1a3cf-cfc6-57ac-8fe0-93d4e6028a17",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f43bed7f-adaf-585c-af02-e963188ed98e",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a20bcb6e-2923-5784-b3f9-eb5bf3dc4d4d",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0c6b287e-3114-5a57-9029-2edb5db4f00e",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "adbbeaf1-fd73-58e6-8bbc-9c2fc99ea8df",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ed842765-8ac5-5cde-8af5-5adb4ad8c425",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in dünne Scheiben, die Paprika in mundgerechte Stücke und die Chilischoten in dünne Ringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die breiten Reisnudeln nach Packungsanleitung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 2 Esslöffel Öl in einem Wok oder einer großen Pfanne bei starker Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und geschnittene Chilischoten dazu und brate sie unter Rühren etwa 30 Sekunden an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Hähnchenstücke dazu und brate sie etwa 5-7 Minuten, bis sie gebräunt und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Paprika und gekochte Nudeln dazu. Gieße Sojasauce, Fischsauce und Limettensaft hinein und streue Zucker darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge alles bei starker Hitze 2-3 Minuten miteinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zupfe die Basilikumblätter klein und hebe sie kurz vor dem Servieren unter. Behalte etwas zum Garnieren zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2016/02/Thai-Drunken-Noodles-Pad-Kee-Mao-Recipe-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2016/02/Thai-Drunken-Noodles-Pad-Kee-Mao-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yu-po-noodles",
+      "slug": "gen-yu-po-noodles",
+      "title": "Yu-Po-Nudeln",
+      "instructions": "Ein beliebtes chinesisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schweinehackfleisch statt Schweineschulter, das ist preiswerter.",
+        "Kaufe Chilipaste in größeren Mengen und bewahre sie für weitere Gerichte im Vorratsschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5357,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yu-po-noodles/",
+      "components": [
+        {
+          "key": "0664429f-1777-518e-b1d6-2f3e60dd1019",
+          "name": "Zutaten",
+          "servingGrams": 349.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "8904b83d-24b7-5831-b5f5-c9afdab450be",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d1ad05a2-3657-58e9-8c55-b49518b47237",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "8629c61b-a746-57fc-85b6-1e706572e0dd",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a160d459-98a3-5a08-9d8a-179f5791c6c3",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "27f47ece-cec7-5e39-9cfb-aa0dcfb8426d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "d08ce482-07ae-5720-9dd6-d0a24f20a38c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "4ac6d856-6f88-518d-a564-26574bd76c1a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7baaab16-5922-57e0-b809-942aa29d7f4f",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9f279cae-374c-59d5-8ea1-6000cd69c331",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7783add1-9f06-56ad-855d-7ced6604f3a3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8366994a-6758-5c90-af41-1b42d2a3c58d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eiernudeln nach Packungsanleitung bissfest, gieße sie ab und vermenge sie mit etwas Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einem Wok oder einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und brate beides unter Rühren 30 Sekunden an, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Schweinefleisch dazu und brate es unter ständigem Rühren etwa 5-7 Minuten, bis es gebräunt und durchgegart ist. Zerteile es dabei in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Chilipaste oder Chiliöl, Sojasauce und Hühnerbrühe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gekochten Nudeln in die Pfanne und vermenge alles 2-3 Minuten miteinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Nudeln auf Schüsseln und gib geschnittene Frühlingszwiebeln und Sesam darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/Ql7SZ3hEV_A3_6IpyKa89x975Wo=/3840x0/filters:quality(85)/images.kitchenstories.io/communityImages/b71d5d28c0796216e18b76492765cbaa_6a74388c-5238-4d64-8e23-f8cd25347339.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/Ql7SZ3hEV_A3_6IpyKa89x975Wo=/3840x0/filters:quality(85)/images.kitchenstories.io/communityImages/b71d5d28c0796216e18b76492765cbaa_6a74388c-5238-4d64-8e23-f8cd25347339.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yangnyeom-chicken",
+      "slug": "gen-yangnyeom-chicken",
+      "title": "Yangnyeom-Hähnchen",
+      "instructions": "Ein beliebtes koreanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen und schneide die Brust selbst heraus, um deutlich zu sparen.",
+        "Ersetze Gochugaru durch normale scharfe Sauce, falls du es nicht bekommst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5358,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yangnyeom-chicken/",
+      "components": [
+        {
+          "key": "f5a641d1-794c-58a7-82d4-4d3e36b9be50",
+          "name": "Zutaten",
+          "servingGrams": 253.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ce4126f-17cb-59e4-92ef-fc11a4c22622",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c13b3e49-654e-5134-8224-2ee267391364",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ddc41907-e941-5bc8-b72b-a7f0d68f355a",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3af4ceee-a6f3-593c-bb70-e00910fa19d4",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "caa20e66-762a-5f02-bc23-0974865baa84",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "06cd534e-db69-59f6-88ca-3378a1b307cd",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "23d2358b-6565-5fbd-a2cf-39e9c2857b64",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2c32e978-445f-5a99-b941-3b322757d148",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "26a2adeb-bf7e-5358-95ef-2363dc8c0408",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0e85d197-8ada-54c3-9055-f2bf235cd6bc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8d954f5-4815-578a-a190-3c4647981f65",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Würfel oder dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sojasauce, Honig, Reisessig, gehackten Knoblauch und Ingwer, Sesamöl und Gochugaru in einer kleinen Schüssel zu einer Yangnyeom-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne oder einem Wok bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Hähnchenstücke dazu und brate sie unter gelegentlichem Rühren etwa 10-12 Minuten goldbraun und durchgegart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Yangnyeom-Sauce über das gegarte Hähnchen und vermenge alles, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate alles bei starker Hitze weitere 2-3 Minuten unter ständigem Rühren, bis die Sauce eindickt und leicht karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte das Hähnchen auf Serviertellern an und garniere es mit Sesam und geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.maangchi.com/wp-content/uploads/2011/01/53741-scaled.jpg",
+          "sourcePageUrl": "https://www.maangchi.com/wp-content/uploads/2011/01/53741-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soy-garlic-chicken",
+      "slug": "gen-soy-garlic-chicken",
+      "title": "Soja-Knoblauch-Hähnchen",
+      "instructions": "Ein beliebtes koreanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenkeulen oder -schenkel statt Brustfleisch; sie sind preiswerter und aromatischer.",
+        "Bereite eine größere Menge zu und friere sie für schnelle Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5359,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soy-garlic-chicken/",
+      "components": [
+        {
+          "key": "9527dd2a-0312-5aec-867e-2666c6a8b0fa",
+          "name": "Zutaten",
+          "servingGrams": 247.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "82dc62c4-3333-5f73-ba9f-460143e8426d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3b1e18fb-7e34-53ff-a71f-480d7512bc50",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "15ddb6e0-80f7-5df6-945c-d67784541d91",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "94b66a7b-c8e8-5f39-818b-d7f555ba8c1a",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 fein gehackt"
+            },
+            {
+              "key": "85c73f94-be24-5fe6-a952-4235cc87fa81",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "f472f80d-08a3-5324-8c33-dd53190a1298",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "bc243d3b-7189-571a-8901-9124a56175da",
+              "ingredientName": "Reisessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Esslöffel"
+            },
+            {
+              "key": "fc1b3b67-d58d-5d41-bf70-a5531a12dae1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e3adafe-9c62-5d6d-aea1-0d258ad37e0b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c48f1cd4-e600-5ec6-a972-0bed6f23d16a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Stücke oder Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, Zucker, gehackten Knoblauch und Ingwer, Sesamöl und Reisessig in einer Schüssel zur Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen dazu und brate die Stücke unter gelegentlichem Rühren etwa 10-12 Minuten, bis sie gebräunt und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Soja-Knoblauch-Sauce über das gegarte Hähnchen und vermenge alles, bis es gut überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate alles weitere 2-3 Minuten unter häufigem Rühren, bis die Sauce eingekocht und klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht sofort und garniere es mit geschnittenen Frühlingszwiebeln und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Garlic-Ginger-Soy-Chicken-Legs.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Garlic-Ginger-Soy-Chicken-Legs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

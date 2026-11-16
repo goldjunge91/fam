@@ -1,0 +1,1062 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tripe-stew",
+      "slug": "gen-tripe-stew",
+      "title": "Kuttel-Eintopf",
+      "instructions": "Algerisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kutteln sind eine preiswerte Proteinquelle; beim Metzger nach Mengenrabatten fragen",
+        "Eine doppelte Portion kochen und Teile für spätere Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "algerisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4050,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tripe-stew/",
+      "components": [
+        {
+          "key": "0c1c31f6-62c4-5b1e-a89a-d06ab63500de",
+          "name": "Zutaten",
+          "servingGrams": 572.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "22a86ee5-c2c9-5514-a0c7-b6e433e52a82",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "c8899e70-c350-5820-9b4f-6ff1a6aebdbd",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "d2181d87-5acf-52a2-999e-95bf107fc049",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b75d8d57-114e-5982-ad42-918c504e57d0",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "970c5d89-fa58-5fdd-9bf1-d42e13c0318c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "cca14e40-664e-581f-a135-c13df0f67b47",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ea0170e1-c32c-57c5-8014-3f202d1fda86",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c15990f2-e12e-5e5f-a9d8-fa54627a469b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a362f262-9dca-5173-8e85-11e1ce8a906b",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c1436593-f206-5343-8b84-1bd1f2b81f04",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kutteln unter fließendem Wasser gründlich reinigen, Verunreinigungen abkratzen und dann in 1-inch große Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kutteln 15 Minuten in einem Topf mit kochendem Salzwasser blanchieren, dann abgießen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebel sowie gehackten Knoblauch 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark, Kreuzkümmel und Paprika hinzufügen und 1 Minute anbraten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Blanchierte Kutteln und Rinderbrühe hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze reduzieren, abdecken und 90 Minuten köcheln lassen, bis die Kutteln sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kichererbsen hinzufügen und weitere 15 Minuten ohne Deckel köcheln lassen, damit die Sauce etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/2_riO0GC2AT7qa_J4zf0pmt9kbQ=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/caribbean-beef-tripe-soup-2138171-step-08-c11e2bad48214210abf4ef207a28abde.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/2_riO0GC2AT7qa_J4zf0pmt9kbQ=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/caribbean-beef-tripe-soup-2138171-step-08-c11e2bad48214210abf4ef207a28abde.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-berkoukes",
+      "slug": "gen-berkoukes",
+      "title": "Berkoukes",
+      "instructions": "Algerisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normalen Couscous statt Perl-Couscous verwenden und etwas weniger Flüssigkeit angießen",
+        "Hähnchenschenkel statt Brust kaufen, sie schmecken kräftiger und sind günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "algerisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4051,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-berkoukes/",
+      "components": [
+        {
+          "key": "10f18966-0342-5eb5-bf71-b10b2b62d3f8",
+          "name": "Zutaten",
+          "servingGrams": 690.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bceb87ed-3f10-5a1a-bccb-e7a27d489bc4",
+              "ingredientName": "Couscous",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0c114dee-c97f-52e6-87af-85f4b3bd47fd",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "94d55a9d-ff0e-5c1d-a848-4f9654679ae9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "319edc19-a265-550a-9eca-6a7758119b13",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "fc733032-c44b-5a0d-b4a0-12e086025252",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "98ae1e3e-3057-542f-8324-7b4c3a6c1e43",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "cf67f6db-99fc-5a8f-b09d-fe9811b67f39",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "24172eb3-60e3-576d-b4fb-553211fe21f1",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4408a830-fcb9-532e-b9ab-684edae7ae90",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "24cfb382-07ff-5c35-b227-6b9c81778c96",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in mundgerechte Stücke schneiden und mit Salz sowie Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen, Hähnchenstücke 4-5 Minuten anbräunen und dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel im selben Topf etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen zurück in den Topf geben, Ingwer hinzufügen und Gemüsebrühe angießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann Perl-Couscous und Kichererbsen hinzufügen und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zucchinistücke hinzufügen, Hitze reduzieren, abdecken und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gelegentlich umrühren und mehr Brühe hinzufügen, falls die Mischung zu dick wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit frischem Koriander abschließen und servieren, sobald das Hähnchen gar und der Couscous weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.afcdn.com/recipe/20190319/89646_w3072h2304c1cx2656cy1828.jpg",
+          "sourcePageUrl": "https://assets.afcdn.com/recipe/20190319/89646_w3072h2304c1cx2656cy1828.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ghribia",
+      "slug": "gen-ghribia",
+      "title": "Ghribia",
+      "instructions": "Algerischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Butter im Angebot kaufen und für mehrere Portionen einfrieren",
+        "Eine größere Menge backen und bis zu 2 Wochen in einem luftdichten Behälter aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "algerisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4052,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ghribia/",
+      "components": [
+        {
+          "key": "eef40254-2d9a-5bd0-9995-72ae63c635fa",
+          "name": "Zutaten",
+          "servingGrams": 93.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "62c7b147-49b2-59fb-a63a-e193afe8cd12",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "31ec6d36-9d7f-5dcc-befd-1443e27b71ae",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "c869dbc6-7b5c-5592-ae97-eb2639af2ccb",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f43a9bb7-2540-5d71-991c-c67e553fb4bd",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3a9bbd2-37df-57d4-bb96-ca94b4a656e3",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8d97a693-04fa-5cbc-8876-2055c09d02b6",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "1da74f1e-b239-5e17-be3d-f5b4ecbe10e3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Butter und Puderzucker etwa 2 Minuten hell und luftig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ei und Vanilleextrakt einrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer separaten Schüssel Mehl, Backpulver und Salz verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trockene Zutaten nach und nach unter die feuchte Mischung heben, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kleine Portionen in Golfballgröße mit 2 inches Abstand auf ein ungefettetes Backblech setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeden Keks mit dem Boden eines Glases oder der Handfläche vorsichtig flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 325°F 12-15 Minuten backen, bis die Ränder leicht goldbraun sind, die Mitte aber hell bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf dem Blech 5 Minuten abkühlen lassen und dann auf ein Kuchengitter setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2021/05/03/dining/nb-ghriba/merlin_174968817_23bbdff3-0304-4259-acd1-64775af94fb5-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2021/05/03/dining/nb-ghriba/merlin_174968817_23bbdff3-0304-4259-acd1-64775af94fb5-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boflot",
+      "slug": "gen-boflot",
+      "title": "Boflot",
+      "instructions": "Ghanaischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Große Mengen zubereiten und Reste für schnelle Snacks einfrieren",
+        "Mehl und Zucker von Eigenmarken verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ghanaisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4053,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boflot/",
+      "components": [
+        {
+          "key": "833847d2-c8a3-5892-97ec-b8c4684507ea",
+          "name": "Zutaten",
+          "servingGrams": 274.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "e54d897b-9ac7-5c26-98ea-89da0bf7b269",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f82ad6db-603e-5cb6-b09d-f8fc51c14641",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ead24eee-5efb-5715-b29b-983735069a3c",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "c80822e3-4dfc-5765-aff0-b7d0c9a490b1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d0c900b8-5fa8-5517-9d88-f503a81e0f95",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "f3cc4b6d-062f-5c5b-8fea-6e4d7b889554",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "4ed66b84-86be-510d-8fbc-7d666aa6c4e0",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "3397250d-c262-59e2-aebe-918b344216e6",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "350473b0-ea3c-5a37-b982-003d84b2e555",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker, Backpulver und Salz in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier, Milch, Öl und Vanille in einer anderen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Feuchte Zutaten zu den trockenen gießen und rühren, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2 cups Öl in einer tiefen Pfanne auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffelweise Teig vorsichtig ins heiße Öl geben und je Seite etwa 2-3 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm servieren und nach Wunsch mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/6973d6b5e14c7c0a1941f31c/1769199504001-2OBR3NFSJY94EPLWBDHX/DSC_1347.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/6973d6b5e14c7c0a1941f31c/1769199504001-2OBR3NFSJY94EPLWBDHX/DSC_1347.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-akple",
+      "slug": "gen-akple",
+      "title": "Akple",
+      "instructions": "Ghanaisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maismehl in großen Mengen auf internationalen Märkten kaufen",
+        "Tomatenmark aus der Dose verwenden, das ist praktisch und günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "ghanaisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4054,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-akple/",
+      "components": [
+        {
+          "key": "2b304c0a-5d13-5087-96db-4f3fc5920b95",
+          "name": "Zutaten",
+          "servingGrams": 494.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3cdb8d0-b8d3-5c8e-900f-6dcd314dfffa",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "e226e5e6-1bb2-51d8-bae5-becab2c61f4e",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "498b905f-7443-5ec3-ad26-9a75755ab257",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "56f8bcb2-bf99-5b8b-9809-f6b29f92fd41",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gehackt"
+            },
+            {
+              "key": "64c6ea36-6317-530b-a70d-6e867cac1c95",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a33c1b42-7b4e-5156-aa20-353f3c8cd992",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d594f031-f051-5b48-8bb8-d65ad49bc326",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Unzen, in Stücke gebrochen"
+            },
+            {
+              "key": "3a229334-45aa-57c6-ad31-33e72a0c7e5d",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "4 cups Wasser mit Salz in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maismehl langsam unter ständigem Rühren ins kochende Wasser streuen, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze reduzieren und 15-20 Minuten häufig umrühren, bis die Mischung eindickt und sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer separaten Pfanne erhitzen und Zwiebeln weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenmark, getrockneten Fisch und Pfeffer zu den Zwiebeln geben und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fischmischung unter das Maismehl heben, bis alles gut vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf eine Servierplatte geben und heiß mit Suppe oder Eintopf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/07/Oven-baked-tilapia-recipe-1068x1424.jpeg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/07/Oven-baked-tilapia-recipe-1068x1424.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

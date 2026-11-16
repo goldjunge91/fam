@@ -1,0 +1,965 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hummus-and-vegetable-platter",
+      "slug": "gen-hummus-and-vegetable-platter",
+      "title": "Hummus mit Gemüseteller",
+      "instructions": "Nahöstlicher Snack mit cremigem Hummus, frischem Gemüse und warmem Fladenbrot.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Hummus aus Kichererbsen aus der Dose statt aus frischen Kichererbsen zu; das spart deutlich.",
+        "Kaufe Gemüse aus regionalem und saisonalem Anbau, um 20–30 % der Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "nahöstlich",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5215,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hummus-and-vegetable-platter/",
+      "components": [
+        {
+          "key": "86ba7f24-fdaa-5faa-9bfc-f22bf816b1c6",
+          "name": "Zutaten",
+          "servingGrams": 352.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7b8523f-18f1-5bee-9163-499447b4fe2f",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "4569f78b-e93a-5930-8da9-11c45d80b3c8",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "58c91e7e-bc39-58ad-adc1-6698fed157b2",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "050426e5-8ef5-5e10-b9f4-a2eba5b94dce",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af902904-55d7-5ca5-98bd-fb4ac27be650",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a88ae6cf-c4ab-5ee3-b5c1-800885e4b579",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "eb0df15a-cbdd-5aad-b1d8-9e1a17899fc4",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroß in Scheiben geschnitten"
+            },
+            {
+              "key": "64ac1083-55ba-5281-bfae-d945207e67e8",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroß in Scheiben geschnitten"
+            },
+            {
+              "key": "b1ad3424-30be-5a64-a0cb-cf4b88b883c1",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d1786797-933c-52df-a74b-ff1d0d09fcdd",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 mittelgroß in Scheiben geschnitten"
+            },
+            {
+              "key": "f7201ab2-75cf-5d0b-b790-9874d6e5844b",
+              "ingredientName": "Pitabrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Kichererbsen aus der Dose ab und spüle sie gründlich mit kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die abgetropften Kichererbsen, Tahini, Zitronensaft, gehackten Knoblauch, Olivenöl und Salz in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere alles glatt und cremig. Gib bei Bedarf 1–2 EL Wasser dazu, bis die gewünschte Konsistenz erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Hummus in eine Servierschüssel und richte Karotten, Gurke, Kirschtomaten und Paprika auf einer Platte darum an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme das Pitabrot im Toaster oder in einer Pfanne und schneide es in Dreiecke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das Pitabrot zum Gemüse auf die Platte und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/4e/a6/3b/4ea63b4ad2abbf93bd70a37f41f02515.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/4e/a6/3b/4ea63b4ad2abbf93bd70a37f41f02515.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-steamed-broccoli-with-garlic",
+      "slug": "gen-steamed-broccoli-with-garlic",
+      "title": "Gedämpfter Brokkoli mit Knoblauch",
+      "instructions": "Chinesisch inspiriertes Abendessen mit bissfest gedämpftem Brokkoli und aromatischem Knoblauchöl.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Brokkoliköpfe statt vorgeschnittener Röschen; so sparst du 30–40 %.",
+        "Verwende normale Sojasauce statt Tamari oder natriumarmer Varianten, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "chinesisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5216,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steamed-broccoli-with-garlic/",
+      "components": [
+        {
+          "key": "aeb4f7db-b67a-598a-9944-9ccf249b558b",
+          "name": "Zutaten",
+          "servingGrams": 568.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "94bea5ac-ed76-5f12-b920-e993863c3731",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen Röschen"
+            },
+            {
+              "key": "a1c130a3-b298-5e7e-8789-c6abe03c3fe1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "01d4c8bb-e2fc-52e4-9fd5-86ed79641d39",
+              "ingredientName": "Sesamöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "970e68df-5449-575c-8580-7db3dbb35264",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f62b02b9-f7e0-57eb-8382-f9c93591a6ce",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a4c5ee1e-f209-579f-b58d-0e1cfd798b09",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "7bb059c9-465c-550d-8fa6-050ae7bab0f3",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "b3be853b-26b9-59ff-86b5-49f8da947ef2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle einen Topf etwa 2 Inch hoch mit Wasser und bringe es zum Kochen. Setze einen Dämpfeinsatz darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Brokkoliröschen in den Dämpfeinsatz, decke ihn ab und dämpfe den Brokkoli 4–5 Minuten, bis er gar, aber noch bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen das Pflanzenöl in einer kleinen Pfanne bei mittlerer Hitze und gib den gehackten Knoblauch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate den Knoblauch unter ständigem Rühren 1–2 Minuten, bis er duftet und leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Chiliflocken dazu und brate alles weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte den gedämpften Brokkoli auf einer Servierplatte an und beträufle ihn mit Sesamöl und Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Knoblauch-Öl-Mischung darüber, vermenge alles vorsichtig und bestreue den Brokkoli mit Sesamsamen. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Steamed-Lemon-Broccoli_EXPS_FT21_12270_F_1104_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Steamed-Lemon-Broccoli_EXPS_FT21_12270_F_1104_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zucchini-noodles-with-marinara",
+      "slug": "gen-zucchini-noodles-with-marinara",
+      "title": "Zucchini-Nudeln mit Marinara-Sauce",
+      "instructions": "Italienisch inspiriertes Abendessen mit Zucchini-Nudeln in würziger Tomatensauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Marinara-Sauce aus Dosentomaten selbst zu; das spart gegenüber fertiger Sauce im Glas etwa 50 %.",
+        "Kaufe Zucchini im Sommer in größeren Mengen, wenn sie besonders günstig sind, und friere einen Teil ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5217,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zucchini-noodles-with-marinara/",
+      "components": [
+        {
+          "key": "fde6cc64-60aa-595d-94f6-a919b2432faf",
+          "name": "Zutaten",
+          "servingGrams": 279.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b4d4c35-ace4-59bd-a790-ea73435e3058",
+              "ingredientName": "Zucchini",
+              "grams": 98,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroß (etwa 1.5 Pfund)"
+            },
+            {
+              "key": "98feb770-0e6a-5396-bbff-dc4e6c7730a4",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "5a8f264c-5436-5b27-ae00-1e192713c234",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "abc97af3-20fd-5f29-b1dd-ba049d161da8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b2b7994d-3090-5da5-9cc2-b06e6de99de5",
+              "ingredientName": "frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen gehackt"
+            },
+            {
+              "key": "ede4dfd1-76c3-5622-aedb-683d0ea2b234",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tassen gerieben"
+            },
+            {
+              "key": "4da55538-6f2f-527e-b058-0fbcedbe04d4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "5a9601d6-d8ad-523c-9cec-4a9e9dd2276f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "dffb29fc-f0a6-52c3-b338-815e5e23c731",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.125 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Zucchini mit einem Spiralschneider oder Julienne-Schäler in nudelartige Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und gib den gehackten Knoblauch hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Knoblauch etwa 1 Minute, bis er duftet. Gib dann die Marinara-Sauce und Chiliflocken dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Sauce unter gelegentlichem Rühren 3–4 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Zucchini-Nudeln in die Pfanne und vermenge sie vorsichtig mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare sie unter gelegentlichem Rühren 2–3 Minuten, bis sie heiß sind, aber noch etwas Biss haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und schwarzem Pfeffer. Verteile die Zucchini-Nudeln auf zwei Teller und bestreue sie vor dem Servieren mit frischem Basilikum und geriebenem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/JO-Izhs2uqVGyQy8VDc1CokebTs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Zucchini-Spaghetti-alla-Marinara-by-bd.weld_-2000-f1f2784db0c34d1aad038373688a4d6e.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/JO-Izhs2uqVGyQy8VDc1CokebTs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Zucchini-Spaghetti-alla-Marinara-by-bd.weld_-2000-f1f2784db0c34d1aad038373688a4d6e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pan-con-tomate",
+      "slug": "gen-pan-con-tomate",
+      "title": "Pan con Tomate",
+      "instructions": "Spanisches Frühstück mit geröstetem Brot, reifen Tomaten, Knoblauch und Olivenöl.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tomaten während der Saison auf dem Wochenmarkt; dann sind sie besonders aromatisch und günstig.",
+        "Verwende einfaches rustikales oder vom Vortag übrig gebliebenes Brot aus der Bäckerei."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "spanisch",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5218,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pan-con-tomate/",
+      "components": [
+        {
+          "key": "7b227a9f-a7d5-55d1-8568-0fd3740e2c14",
+          "name": "Zutaten",
+          "servingGrams": 196.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "19c18a6e-50b3-5576-93d2-3f7863fb2708",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "c7f0c3a1-aa19-59af-a6f7-898496f61f73",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "a18434c5-921a-54ad-a367-9fd63d801882",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d2a1eb4-b92f-5f97-bce4-eb764ecb10d1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5c070bd6-7790-5c5b-8601-00ba42cc8074",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Brot etwa einen halben Inch dick und röste es im Toaster oder in einer Pfanne leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere die Tomaten und reibe die Schnittflächen direkt über das warme Brot, bis das Fruchtfleisch darin verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle die Knoblauchzehe und reibe sie über das mit Tomate bestrichene Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle das Brot großzügig mit Olivenöl und bestreue es nach Geschmack mit Meersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/02/Catalan-Tomato-Bread-Pan-Con-Tomate-Recipe.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/02/Catalan-Tomato-Bread-Pan-Con-Tomate-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-feta-toast",
+      "slug": "gen-feta-toast",
+      "title": "Feta-Toast",
+      "instructions": "Griechisch inspiriertes Frühstück mit warmem Toast, zerbröseltem Feta und würzigen Tomaten.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Feta in größeren Mengen und bewahre ihn in Salzlake im Kühlschrank auf; so hält er sich wochenlang.",
+        "Verwende gewürfelte normale Tomaten statt Kirschtomaten, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5219,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-feta-toast/",
+      "components": [
+        {
+          "key": "12808993-1731-5aac-8f95-e3b73664750b",
+          "name": "Zutaten",
+          "servingGrams": 237.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "eba5d1a3-d5b4-5683-a86a-465fd27d0a1d",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "5dded0cd-2230-5275-9e23-a6c547f4431c",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8da9dc36-2741-5d47-89ea-21b571303e00",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a6d8e094-f5ff-5a9a-aa44-55f26e274552",
+              "ingredientName": "frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8fde4bc8-3f69-54ea-9b26-99bfcfefa323",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "01b3bf14-6db0-5ce5-acf0-d760fa59db05",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "15432765-dbe6-5c22-8ff3-88ad4da05430",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Kirschtomaten mit Olivenöl, Zitronensaft, Dill und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den zerbröselten Feta gleichmäßig auf den warmen Toastscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Tomatenmischung darauf und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/wfUSGSagq2ykkVwg63kg0xT_HKk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-WhippedFetaHoneyToasts-Beauty-420-87d86903b3594de5a72643d92dd6d0b9.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/wfUSGSagq2ykkVwg63kg0xT_HKk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-WhippedFetaHoneyToasts-Beauty-420-87d86903b3594de5a72643d92dd6d0b9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1169 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-couscous-chicken-lemon-bowl",
+      "slug": "mfr-couscous-chicken-lemon-bowl",
+      "title": "Mediterrane Schüssel mit Zitronen-Kräuter-Hähnchen und Couscous",
+      "instructions": "Lockerer Couscous mit zitronig mariniertem Kräuter-Hähnchen, geröstetem Gemüse und frischem Petersiliendressing. Diese mediterrane Schüssel ist in weniger als 30 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Couscous ist die schnellste und günstigste Getreidegrundlage und kostet weniger als $0.40 pro Portion.",
+        "Zitronensaft bringt alle Zutaten dieses Gerichts für weniger als $0.70 zum Leuchten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "couscous",
+          "swap": "Quinoa oder Bulgur verwenden."
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Aubergine, Kirschtomaten oder Spargel verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-couscous-chicken-lemon-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Schüsselgericht",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 915,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-couscous-chicken-lemon-bowl/",
+      "components": [
+        {
+          "key": "2f81120c-3ccd-5b4a-9ce4-3abfd52ee7f9",
+          "name": "Zutaten",
+          "servingGrams": 504.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6711e5a7-acdf-5afe-869a-10b0cf216749",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1dafc8f4-e4aa-55de-8f7b-9f0dbfe5a13f",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76a1bbd3-28d1-5c55-bc56-58041b373692",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "047f11af-c7b5-5272-b00f-fbde26145aa8",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "431c408d-d91e-59dc-9c40-49130b873db6",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6873dee-e49c-53af-91f3-af93389d77eb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6104ccb-dd12-5d40-80e0-5a646ad7ac71",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a64b6e6-395c-529c-97c6-ecdd67890a1b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cca7544-273f-560a-8d95-20829e848263",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa6bef48-ca0a-5cdf-9051-b893b7fccdd9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9429ff3a-e403-5287-988d-e5a7627515f7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Paprika und Zucchini in Scheiben. Vermische sie mit 1 EL Olivenöl, Salz und Kreuzkümmel. Röste sie bei 425°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere das Hähnchen in Zitronensaft, Knoblauch, 1 EL Olivenöl, Kreuzkümmel und Salz. Brate es in einer heißen Pfanne pro Seite 5–6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite den Couscous zu: Koche 1 Tasse Wasser auf, gieße es über den Couscous, decke ihn 5 Minuten ab und lockere ihn mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Couscous mit Zitronensaft, Petersilie, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Schüssel mit Kräuter-Couscous, geschnittenem Hähnchen und geröstetem Gemüse an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6499e639ee399ec121b431f5/1:1/w_2560%2Cc_limit/20230504-0823-DINNER-29700_RET.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6499e639ee399ec121b431f5/1:1/w_2560%2Cc_limit/20230504-0823-DINNER-29700_RET.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-hummus-roasted-veg-grain-bowl",
+      "slug": "mfr-hummus-roasted-veg-grain-bowl",
+      "title": "Getreideschüssel mit Hummus und geröstetem Gemüse",
+      "instructions": "Eine dicke Schicht Hummus bildet die Grundlage einer Getreideschüssel mit karamellisiertem Ofengemüse und knusprigen Kichererbsen. Der Beweis, dass vegane Schüsseln richtig sättigen können.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hummus aus dem Laden eignet sich gut. Du kannst ihn aber auch aus Kichererbsen aus der Dose selbst machen und so die Hälfte sparen.",
+        "Wenn Gemüse und Kichererbsen auf demselben Blech geröstet werden, musst du nur ein Blech abwaschen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hummus",
+          "swap": "Tahini-Dressing verwenden, wenn du die Schüssel weniger dick magst."
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder normale Kartoffeln verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-hummus-roasted-veg-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Schüsselgericht",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 916,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-hummus-roasted-veg-grain-bowl/",
+      "components": [
+        {
+          "key": "2bf8cdb0-154e-54fc-bee7-19dd011c4202",
+          "name": "Zutaten",
+          "servingGrams": 921.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3aae95c0-231d-5210-93b0-84403460b25b",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bf90e02-4cb2-582d-88d5-23e14e35c105",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f86caf20-b14c-5daf-850c-b8da3e7f95c1",
+              "ingredientName": "Hummus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b347793-317c-5ea2-b012-7eae86d1aa99",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73fe7006-ab48-5d9f-9d48-eab958f418b7",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1816acb-31cd-5b3e-8224-eb48703684cf",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "038ec160-5a78-5e89-8c2c-6d2ba4d842f4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f60732f4-56c9-5884-9471-f97b4873805c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93095798-b463-567a-9062-bba6bd0deacb",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d902e9c1-1875-581c-9b70-ec3e245f9fd5",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55c1c55d-95fd-5736-a753-41f741a17210",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4135d12f-78c4-50fe-ae2e-dd66f5b2ba61",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Süßkartoffel und schneide die Paprika in Scheiben. Vermische beides mit der Hälfte des Olivenöls, Kreuzkümmel, Paprikapulver und Salz. Röste das Gemüse bei 425°F 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Kichererbsen mit dem übrigen Öl und den Gewürzen und gib sie für die letzten 10 Minuten auf das Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare die Quinoa. Lass Spinat mit Knoblauch und Zitrone zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streiche Hummus dick auf den Boden jeder Schüssel. Gib Quinoa, geröstetes Gemüse, knusprige Kichererbsen und zusammengefallenen Spinat darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/OjtZYNdxArYfI1_yARAvOPGYCos=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-258195-Chickpea-Quinoa-Bowl-Roasted-Red-Pepper-Sauce-1x1-Beauty-5d6ff80d823948c2baf64be8c9c7379e.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/OjtZYNdxArYfI1_yARAvOPGYCos=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-258195-Chickpea-Quinoa-Bowl-Roasted-Red-Pepper-Sauce-1x1-Beauty-5d6ff80d823948c2baf64be8c9c7379e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkish-spiced-beef-rice-bowl",
+      "slug": "mfr-turkish-spiced-beef-rice-bowl",
+      "title": "Türkische Reisschüssel mit gewürztem Rinderhack",
+      "instructions": "Duftendes Rinderhack mit Kreuzkümmel, Zimt und Piment auf Reis, dazu geröstete Tomate und ein kühler Klecks Joghurt. Istanbul in einer Schüssel.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zimt und Kreuzkümmel verwandeln Rinderhack mit Gewürzen für weniger als $0.10 in etwas Besonderes.",
+        "Rinderhack aus Familienpackungen kostet oft $1–1.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Traditionell Lammhack oder magereres Putenhack verwenden."
+        },
+        {
+          "forIngredientId": "cinnamon",
+          "swap": "Eine Prise Piment und Muskatnuss als Ersatz verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkish-spiced-beef-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "türkisch",
+        "Schüsselgericht",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 917,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkish-spiced-beef-rice-bowl/",
+      "components": [
+        {
+          "key": "52b51642-ca41-5b77-a5b5-d8f5a04bafab",
+          "name": "Zutaten",
+          "servingGrams": 659.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "226df441-b91f-59cc-a7d9-e8076d034f5b",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "259ef7cd-58fb-5475-bf2e-f6df314224a1",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "487823b1-2210-548d-902d-1735db0cf3ac",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaa5c367-b7cd-517e-bc4f-dcf72f8cb5e2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00d859de-4dd6-5e41-9b67-400e37501917",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "617df811-50c0-5160-820b-95dff8e7ee13",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6416edd-9b32-5bfb-bc10-a13c9fd34ff3",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fc1df65-4d1d-573c-aea6-d19adb72372e",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5a0c0bb-d085-577e-abf0-29351b7ba022",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c282431f-cd63-5921-9727-c98136de1dce",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4df42a3e-5a49-54bf-a4eb-65e868ead411",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5f47a2c-a87d-5240-925b-e63f0bbf18db",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Brate die Zwiebel 5 Minuten in Olivenöl an. Gib Knoblauch und Gewürze dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Rinderhack dazu und gare es 8 Minuten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die Tomaten, rühre sie ein und gare alles weitere 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Joghurt mit Zitronensaft und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Schüssel mit Reis, gewürztem Rinderhack, Zitronenjoghurt und frischer Petersilie an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlheartfood.com/wp-content/uploads/2021/05/Ground-Turkey-Rice-Bowl-Recipe.jpg",
+          "sourcePageUrl": "https://girlheartfood.com/wp-content/uploads/2021/05/Ground-Turkey-Rice-Bowl-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-persian-herb-chicken-rice-bowl",
+      "slug": "mfr-persian-herb-chicken-rice-bowl",
+      "title": "Persische Reisschüssel mit Kräuter-Hähnchen",
+      "instructions": "Goldgelbes Kurkuma-Hähnchen auf duftendem Kräuterreis mit karamellisierten Zwiebeln und einem Safran-Joghurt-Guss. Eine vereinfachte persische Reisschüssel, aromatisch und nahrhaft.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Karamellisierte Zwiebeln brauchen Zeit, kosten aber nur $0.55 und verwandeln eine einfache Reisschüssel.",
+        "Frische Petersilie und Minze für $1–1.50 pro Bund bringen viel Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mint-fresh",
+          "swap": "Eine Prise getrocknete Minze unter den Reis rühren."
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel für mehr Geschmack verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-persian-herb-chicken-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "persisch",
+        "Schüsselgericht",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 918,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-persian-herb-chicken-rice-bowl/",
+      "components": [
+        {
+          "key": "6e83eaf5-f6eb-5bb1-bc46-3c89211fc00f",
+          "name": "Zutaten",
+          "servingGrams": 595.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "93c9546b-c2cf-5e17-9197-df5ea76be943",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4280ac3-9664-526e-a6e1-2a350660ce12",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddfbedc6-43f3-561e-b44d-a0d7c1dd9023",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cd038e3-babf-5710-a988-732def83bbda",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c00a4ad9-8bfc-596f-97db-8dd9305a74d8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fe2295d-e6e4-5c1f-9cd1-39db17d4cf6c",
+              "ingredientName": "Frische Minze",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7124ac80-72b5-50e9-8769-bbc2061f5859",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0534f348-abe9-533b-ac12-b6e7bc5c4def",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90df6fdd-30e0-5428-8fe8-48c2036dfcf4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "730672a3-6bb0-5d3f-b627-a020fd5b84b7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc603fac-c286-5f9b-b2a6-f8b917a2aa25",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "199bf236-2810-5f9e-a0a3-d833701039f9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Schneide die Zwiebel in Scheiben und karamellisiere sie bei mittlerer bis niedriger Hitze in 1 EL Olivenöl 15 Minuten, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit Kreuzkümmel, Paprikapulver, Salz und Knoblauch. Brate es in 1 EL Olivenöl pro Seite 5–6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den größten Teil der Petersilie und Minze unter den warmen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite Joghurtsauce zu: Verrühre Joghurt, Zitrone, Salz und die übrigen Kräuter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Schüssel mit Kräuterreis, geschnittenem Hähnchen, karamellisierten Zwiebeln und Joghurtsauce an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/04/how-to-make-a-chicken-rice-bowl.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/04/how-to-make-a-chicken-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-north-african-chickpea-grain-bowl",
+      "slug": "mfr-north-african-chickpea-grain-bowl",
+      "title": "Nordafrikanische Schüssel mit gewürzten Kichererbsen",
+      "instructions": "Mit Harissa gewürzte, geröstete Kichererbsen auf Couscous mit gerösteten Karotten, Rosinen und kühlem Joghurt. Nordafrikanische Aromen in 30 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Harissa-Paste hält sich monatelang im Kühlschrank und bringt für $0.38 pro Esslöffel Abwechslung in jedes Gericht.",
+        "Karotten gehören das ganze Jahr über zu den günstigsten Gemüsesorten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "harissa",
+          "swap": "Sriracha mit einer Prise Kreuzkümmel als Ersatz verrühren."
+        },
+        {
+          "forIngredientId": "couscous",
+          "swap": "Quinoa als eiweißreichere Grundlage verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-north-african-chickpea-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "nordafrikanisch",
+        "Schüsselgericht",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 919,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-north-african-chickpea-grain-bowl/",
+      "components": [
+        {
+          "key": "bf4fed43-6b9f-5380-ace3-6badb88a9a98",
+          "name": "Zutaten",
+          "servingGrams": 767.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ebbe84ce-14c9-5570-bfeb-bc43de5a9248",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "642d20b7-0f94-504f-bd68-0b623913e74b",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a54e1ac8-b6f8-55f9-889a-95c65b2edeb7",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3aca8c44-a15a-5d3c-bed3-b67ef42e679c",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9853d489-37eb-5709-a2e6-25de4088a265",
+              "ingredientName": "Harissa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c474d4c6-e4a6-514a-b7cf-fdafd021c0fa",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67414b86-c10c-5be7-95c8-0755f06b4e5a",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79cfce13-e98d-5ee3-ad1e-e9d0f1f6a87b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "219efede-d635-554a-8441-83d5c3e3d90a",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "261e87d4-94cb-55c2-8a0d-dbdd12b6eadb",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17b07e6b-5780-5ae0-884e-a79b33f5ed87",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "481ac811-0cf6-5203-8e02-53b1d6316fc8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kichererbsen und geschnittene Karotten mit Harissa, Olivenöl, Kreuzkümmel, Honig und Salz. Röste sie bei 425°F 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Couscous zu und lass den Spinat zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite Joghurtsauce zu: Verrühre Joghurt, Zitrone, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Couscous, zusammengefallenem Spinat, Harissa-Kichererbsen und Karotten sowie Joghurt an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/eyM3uZIXNqgDVKdcGUzFoYDiBfY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chickpea-FarroGrainBowl-beauty-27930_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-e40b45a8518741118e8fc560da21cf8e.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/eyM3uZIXNqgDVKdcGUzFoYDiBfY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chickpea-FarroGrainBowl-beauty-27930_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-e40b45a8518741118e8fc560da21cf8e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

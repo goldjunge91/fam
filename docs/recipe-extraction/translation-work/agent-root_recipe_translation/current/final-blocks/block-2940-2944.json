@@ -1,0 +1,1104 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-crawfish-boil",
+      "slug": "gen-crawfish-boil",
+      "title": "Crawfish Boil",
+      "instructions": "Abendessen aus der Soul-Food-Küche der Südstaaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Flusskrebse in der Hochsaison (Frühling/Frühsommer), wenn die Preise am niedrigsten sind",
+        "Vergleiche die Preise auf lokalen Fischmärkten mit denen großer Supermärkte"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soul-food-aus-den-südstaaten",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2940,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crawfish-boil/",
+      "components": [
+        {
+          "key": "c7b61c8d-a1a1-5bfa-b13f-64a817f5b403",
+          "name": "Zutaten",
+          "servingGrams": 749.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "636b44a1-626d-5ca5-aa24-6030e7339c09",
+              "ingredientName": "Flusskrebse",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "5d44916a-a356-5f9e-8331-0fe3e51fe70f",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Gallonen"
+            },
+            {
+              "key": "94e4d37d-d35b-5e0a-81be-0e4f1ce0dd03",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "411eab4d-e73a-57cc-ae94-cb9dba557ad4",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "31dc8283-a2b3-5faa-8934-e009bbf88570",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2, halbiert"
+            },
+            {
+              "key": "67ed6f5c-3610-5d8a-99c8-227bafd24b45",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück, geviertelt"
+            },
+            {
+              "key": "c8c89444-07da-549b-ad25-4577d8b0a478",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Maiskolben, in Drittel geschnitten"
+            },
+            {
+              "key": "e95875dd-1a0f-53d4-bc12-3a9e92629557",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "24f4b428-2f84-56d9-8f04-d35d489e82de",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "4479d64f-7d3f-5d6f-82d0-0ec046879829",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2, halbiert"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle einen großen Topf mit 6 Gallonen Wasser und bringe es bei hoher Hitze sprudelnd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Salz und Crawfish-Boil-Gewürz ins kochende Wasser und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geviertelte Zwiebel, halbierte Knoblauchknollen und halbierte Zitronen ins Wasser und lasse alles 5 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Babykartoffeln und Wurststücke hinzu und koche alles 10 Minuten, bis die Kartoffeln fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Maisstücke hinzu und koche alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die lebenden Flusskrebse vorsichtig portionsweise hinzu und bringe alles wieder zum Kochen. Gare sie 5-7 Minuten, bis sie leuchtend rot sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte die Hitze aus und lasse die Flusskrebse 5-10 Minuten im gewürzten Wasser ziehen, damit sie Geschmack aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe Flusskrebse und Gemüse mit einer Schaumkelle auf einen großen Tisch oder in ein Sieb und lasse sie vor dem Servieren abtropfen und leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/bToMMunb8n47YyFTQKkemAEVDoA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-crawfish-boil-8582922-step-06-855ce1fb24774979a13d7d41fd837686.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/bToMMunb8n47YyFTQKkemAEVDoA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-crawfish-boil-8582922-step-06-855ce1fb24774979a13d7d41fd837686.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-biscuits-and-gravy",
+      "slug": "gen-biscuits-and-gravy",
+      "title": "Buttermilchbrötchen mit Sauce",
+      "instructions": "Frühstück aus der Soul-Food-Küche der Südstaaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Buttermilch von der Handelsmarke oder ersetze normale Milch durch 1 Esslöffel Essig",
+        "Kaufe Wurst in größeren Mengen an der Fleischtheke, sie ist günstiger als abgepackte"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soul-food-aus-den-südstaaten",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2941,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-biscuits-and-gravy/",
+      "components": [
+        {
+          "key": "c260445f-5598-514a-b86e-4a8eebd026bc",
+          "name": "Zutaten",
+          "servingGrams": 323.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "34268dd0-596e-5fda-afb4-b11d84b266b5",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4f87d21b-eeb2-52c3-b4ae-9e9d315a3c0a",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "9e7292d4-3b2c-5161-836e-38d982be7bc8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "613e9ae9-c4f0-5efb-8ba9-650de73c6a72",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Esslöffel, gewürfelt"
+            },
+            {
+              "key": "76b48ae0-8629-535e-a3d6-3ea925d93f7f",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "3bca8666-8088-57ae-846f-36b9199f5c23",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund, gemahlen"
+            },
+            {
+              "key": "ff64d998-2f44-59d1-ad5f-36887fe8852e",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 450°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische 2 Tassen Mehl, Backpulver und 1/2 Teelöffel Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Arbeite kalte Butterwürfel mit einem Teigmischer oder einer Gabel ein, bis die Mischung groben Krümeln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Buttermilch ein, bis gerade ein grober Teig entsteht. Rühre nicht zu lange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Teig auf eine bemehlte Arbeitsfläche, drücke ihn vorsichtig 1 Zoll dick und schneide mit einem Ausstecher oder Glas 8 Brötchen aus. Lege sie auf das Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Brötchen 12-15 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bräune währenddessen die gemahlene Wurst in einer großen Pfanne bei mittlerer bis hoher Hitze und zerteile sie dabei. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue 3 Esslöffel Mehl über die Wurst und rühre 1 Minute. Gieße dann langsam unter Rühren Milch hinzu und lasse die Sauce 5 Minuten köcheln, bis sie eindickt. Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Halbiere die warmen Brötchen und serviere sie mit der Wurstsauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/EXPS_BMZ17_8030_D10_25_3b.jpg",
+          "sourcePageUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/EXPS_BMZ17_8030_D10_25_3b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-catfish-po-boy",
+      "slug": "gen-catfish-po-boy",
+      "title": "Catfish-Po'Boy",
+      "instructions": "Mittagessen aus der Soul-Food-Küche der Südstaaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganzen Wels und bitte den Fischhändler, ihn zu filetieren; das ist günstiger",
+        "Verwende normale Sandwichbrötchen statt authentischer Po'Boy-Brötchen, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soul-food-aus-den-südstaaten",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2942,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-catfish-po-boy/",
+      "components": [
+        {
+          "key": "4c742a65-0197-5a88-addb-37b421f33d29",
+          "name": "Zutaten",
+          "servingGrams": 635.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "10c33653-2ebc-5838-ab8d-887bdae927d0",
+              "ingredientName": "Welsfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Filets (1 Pfund)"
+            },
+            {
+              "key": "9b31f345-a47b-5ae4-8f0c-763583f59324",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d6b7d419-e580-5f81-95c1-4b4b314d1a8c",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "e02e2d14-3543-5e36-bea1-486b35d6dbf6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8ea82371-c8cb-5eca-8b3f-3b810b179cf2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, verquirlt"
+            },
+            {
+              "key": "d88b71f4-cdec-5bc2-8e36-e15116870009",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "4a7bf327-07d5-5c1f-82ef-d8cc17bf9bbc",
+              "ingredientName": "Tiefgekühltes Frühstückssandwich",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Rollen"
+            },
+            {
+              "key": "9735a02d-88d2-5d9e-ae68-966d22d78446",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "553150fd-9e22-527f-a4a6-c58debf29a91",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "8a272e56-bb2d-518d-b3ca-94a934d26dce",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "9178df45-cdbe-518a-8210-4dac2f5a34dd",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "d0f0d86c-0065-59d0-8464-8e8e9c629e43",
+              "ingredientName": "Chilisauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Maismehl, Mehl, Salz und Pfeffer in einer flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Welsfilets mit Küchenpapier trocken, tauche sie in verquirltes Ei und wende sie dann gründlich in der Maismehlmischung. Schüttle Überschuss ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer tiefen Pfanne oder einem Schmortopf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die panierten Welsfilets vorsichtig ins heiße Öl und frittiere sie 3-4 Minuten pro Seite goldbraun, bis sich der Fisch leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Wels mit einer Schaumkelle heraus und lasse ihn auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide Po'Boy-Brötchen längs in zwei Hälften und bestreiche beide Seiten mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schichte Salat, Tomatenscheiben und frittierten Wels auf jedes Brötchen und gib Gewürzgurkenscheiben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermische Chilisauce mit übrig gebliebener Mayonnaise und träufle sie vor dem Servieren über die Sandwiches.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/08/Catfish-Po-Boy_EXPS_TOHD24_50809_SheriSilver_1-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/08/Catfish-Po-Boy_EXPS_TOHD24_50809_SheriSilver_1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-and-dumplings",
+      "slug": "gen-chicken-and-dumplings",
+      "title": "Hähnchen mit Klößen",
+      "instructions": "Abendessen aus der Soul-Food-Küche der Südstaaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel oder -unterkeulen statt Brustfleisch für mehr Geschmack und geringere Kosten",
+        "Bereite die Kloßnocken selbst aus Mehl und Buttermilch zu, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soul-food-aus-den-südstaaten",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2943,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-and-dumplings/",
+      "components": [
+        {
+          "key": "cbcb6189-e417-5183-96be-2b52fce6e8f9",
+          "name": "Zutaten",
+          "servingGrams": 551.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d22cfd00-beb6-5109-822b-44245ca041db",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "60dda2ac-8581-5381-892b-c4d4928f0f48",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a13f0c8a-b0f9-58d8-9dfe-3903cf819b13",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "d58cc1e3-75d9-5974-bb1f-7aa13a4148ae",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "5f0ae4a3-e246-5365-951e-84077fad6356",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "8c373725-d8dc-53fd-8ae1-de8e687bc40b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "3279e055-77d8-5c6f-8a30-d9e4021a8e01",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "9878982f-fac5-56df-8e47-b494010f8478",
+              "ingredientName": "Saucenmischung",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7f3ffb34-32a6-57ee-8029-9ac5f717bba4",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "09eb074f-39d1-5188-99ef-ef6738d2fbe5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "babf752e-3699-515c-a051-4042cde5dbc5",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einem großen Topf bei mittlerer Hitze und dünste gewürfelte Zwiebel, Sellerie und Karotte 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestäube das Gemüse mit Mehl, rühre um und gare es 1 Minute, damit der rohe Mehlgeschmack verschwindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße unter Rühren langsam Hühnerbrühe hinzu, damit sich keine Klumpen bilden, und gib dann Thymian, Salz und Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Hähnchenstücke hinzu und bringe alles zum Kochen. Reduziere dann die Hitze auf mittel und lasse alles 15 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite währenddessen die Klöße zu: Vermische Backmischung und Milch zu einem dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhöhe die Hitze bis zum sanften Kochen und gib vorsichtig löffelweise Teig in die Brühe, sodass 12-16 Klöße entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles 10-15 Minuten köcheln, bis die Klöße gar und innen nicht mehr teigig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Gericht, passe die Würzung an und serviere es in Schalen mit Brühe und Klößen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/58a35448476e2c92337165d3/1:1/w_2560%2Cc_limit/bas-best-chicken-and-dumplings.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/58a35448476e2c92337165d3/1:1/w_2560%2Cc_limit/bas-best-chicken-and-dumplings.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-collard-greens",
+      "slug": "gen-collard-greens",
+      "title": "Blattkohl",
+      "instructions": "Abendessen aus der Soul-Food-Küche der Südstaaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Blattkohl in der Saison (Herbst/Winter), wenn er am günstigsten und zartesten ist",
+        "Verwende Speckabschnitte, sie sind deutlich günstiger als normale Speckscheiben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "soul-food-aus-den-südstaaten",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2944,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-collard-greens/",
+      "components": [
+        {
+          "key": "42f7cc0f-c23f-5d92-99ee-237f59831585",
+          "name": "Zutaten",
+          "servingGrams": 356.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "17099ba9-0905-55d2-80e5-60c53d8f288e",
+              "ingredientName": "Blattkohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewaschen und gehackt"
+            },
+            {
+              "key": "3160ea91-4b67-5ea7-810c-8d61ab7fb393",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Scheiben, gehackt"
+            },
+            {
+              "key": "f192c0de-25f4-5379-bf17-8545adc892be",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "c32c5e3b-327e-5ad7-aa27-c5e1fd5e3c45",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "66bb724f-0219-53b6-a3af-dcbf3a5c681b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "85ecc52c-07ef-541f-a582-deccee7ee667",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "44c73678-ea97-5a9e-986f-f9c1052cb7f2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cd1ea99c-217d-5085-b498-be79d6ded9d0",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gehackten Speck in einem großen Topf bei mittlerer Hitze etwa 5 Minuten knusprig. Nimm ihn heraus und stelle ihn beiseite. Lass das ausgelassene Fett im Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel zum Speckfett und dünste sie 3 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Knoblauch ein und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gehackten Blattkohl portionsweise hinzu und rühre ihn unter, während er zusammenfällt, bis alles im Topf ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Hühnerbrühe hinzu und gib Apfelessig, Salz, Pfeffer und Chiliflocken dazu. Rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze, decke den Topf ab und lasse den Kohl 40-45 Minuten köcheln, bis er sehr zart und durchgehend aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht, passe die Würzung bei Bedarf an und rühre vor dem Servieren den knusprigen Speck ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/11/Collard-greens-side-dish-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/11/Collard-greens-side-dish-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

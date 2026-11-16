@@ -1,0 +1,1132 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-pb-mushroom-farro-bowl",
+      "slug": "mfr-pb-mushroom-farro-bowl",
+      "title": "Umami-Bowl mit Pilzen und Farro",
+      "instructions": "Geröstete gemischte Pilze auf bissfestem Farro mit sautiertem Grünkohl, knusprigen Kichererbsen und Miso-Zitronen-Dressing. Eine besonders herzhafte pflanzliche Bowl, die rundum satt macht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cremini-Pilze kosten $3-4/lb und werden beim Rösten fleischig und voller Umami.",
+        "Kichererbsen zu rösten dauert 25 Minuten, aber es lohnt sich: Sie werden knusprig und unwiderstehlich.",
+        "Miso-Dressing hält sich 2 Wochen im Kühlschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "farro",
+          "swap": "Quinoa oder brauner Reis"
+        },
+        {
+          "forIngredientId": "miso-paste",
+          "swap": "Tahini und zusätzliche Sojasauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-mushroom-farro-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Pilze",
+        "Farro",
+        "Umami",
+        "vegan",
+        "Bowl"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1230,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-mushroom-farro-bowl/",
+      "components": [
+        {
+          "key": "74128e9b-a9b1-5514-8da8-a45d8cb7a3c1",
+          "name": "Zutaten",
+          "servingGrams": 1052.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a5939fd5-dd73-5091-a214-02b1d67805ee",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5115fc6f-c13d-50d6-98dd-a11ac89d68bb",
+              "ingredientName": "Farro",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a17a37a7-0f43-5d40-8e64-c0ecc8a31e9b",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd9bf0a2-c9be-5d1c-8b85-b0f6760400e0",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d36cc2c-03dd-5544-8fa4-b777d7e15ebd",
+              "ingredientName": "Misopaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bffb9067-5e80-5c54-9e54-2e0908d02039",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2e856d7-b48b-5c33-927f-b95773fc3037",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6881575-ad4c-560f-819d-ac140d686959",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43e90ac7-e0ab-5727-a969-617627361a93",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "096789e4-51cf-55ac-824e-454439324401",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb11252f-d581-57d2-a5bc-09421dd06f1c",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pilze mit Olivenöl, Thymian und Sojasauce vermengen. Bei 425°F 20 Minuten rösten. Kichererbsen auf demselben Blech 25 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Farro kochen. Grünkohl mit Knoblauch in Olivenöl 3 Minuten anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Miso, Zitrone, Sesamöl und Wasser zu einem Dressing verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl schichten: Farro → Grünkohl → geröstete Pilze → knusprige Kichererbsen → Miso-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/zVPa4CAdujZ3cCotbUUwkChYbpg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Farro-Mushroom-Bowl-LEAD-09-d99366e443f142daa235fe247f2ba7a1.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/zVPa4CAdujZ3cCotbUUwkChYbpg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Farro-Mushroom-Bowl-LEAD-09-d99366e443f142daa235fe247f2ba7a1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb-green-goddess-bowl",
+      "slug": "mfr-pb-green-goddess-bowl",
+      "title": "Green-Goddess-Getreide-Bowl",
+      "instructions": "Quinoa und massierter Grünkohl mit geröstetem Brokkoli, Avocado, Edamame und cremigem Green-Goddess-Dressing. So viel Grün, Nährstoffe und Genuss wie möglich.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Massierter Grünkohl wird zart und süß. Lass diesen Schritt nicht aus.",
+        "Tahini-Basilikum-Dressing ist eine Offenbarung. Bereite genug für die ganze Woche zu.",
+        "Diese Bowl eignet sich bestens zum Vorbereiten. Bewahre die Avocado bis zum Servieren separat auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "basil-fresh",
+          "swap": "Petersilie und Minze gemischt"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Brauner Reis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-green-goddess-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Getreide-Bowl",
+        "grün",
+        "vegan",
+        "Green Goddess",
+        "Avocado"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1231,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-green-goddess-bowl/",
+      "components": [
+        {
+          "key": "84c27a4a-aeab-57d4-90bc-896dfffb09ff",
+          "name": "Zutaten",
+          "servingGrams": 1071,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2412351-4a7c-5d36-bd46-bb5cf8dcfb67",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21af772d-1eb4-56b3-b73a-8233ea1a6679",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b77e8947-e161-5129-b707-cfb464729a60",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "852ebd05-8d20-5718-a194-28cf2c7e345d",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "533162a8-76f8-5dd7-938d-dd6e0252bf63",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5b12c9b-cfc1-5567-a1f0-f9fd5ba60905",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fdd47f6-4901-5d0e-9bd3-fe2ee0328682",
+              "ingredientName": "Tahini",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3af01c3-2917-5b19-875b-e21a567936e1",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f50879db-c0a5-5709-b7ca-5841626b87d3",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b49c4d25-deb0-53f8-8c69-2714e388aabe",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a898341-5ef6-52f2-ba53-2c7b41d8ba06",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Quinoa kochen. Brokkoli bei 425°F 20 Minuten rösten. Grünkohl mit Olivenöl massieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Edamame garen. Gurke und Avocado in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tahini, Basilikum, Zitrone, Knoblauch und Wasser zu einem Green-Goddess-Dressing pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl schichten: Quinoa → Grünkohl → Brokkoli → Edamame → Gurke → Avocado. Mit Green-Goddess-Dressing beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/lHjlbpSZfLXlhJ4xBYJaB6BFHsQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Green-Goddess-Farro-Bowl-121-c9709704fda1418d8798b2ef51842fe8.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/lHjlbpSZfLXlhJ4xBYJaB6BFHsQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Green-Goddess-Farro-Bowl-121-c9709704fda1418d8798b2ef51842fe8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb-caprese-quinoa",
+      "slug": "mfr-pb-caprese-quinoa",
+      "title": "Caprese-Quinoa-Bowl",
+      "instructions": "Caprese-Aromen mit frischer Tomate, Basilikum und frischem Mozzarella auf warmem Quinoa mit weißen Bohnen und Balsamico-Glasur. Italienischer Sommer in einer Bowl.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frischer Mozzarella kostet $3-4 pro Kugel. Zerrissen reicht schon eine kleine Menge.",
+        "Kirschtomaten sind süß und passen hier besser als normale Tomaten.",
+        "Balsamico-Reduktion lässt sich kostenlos selbst herstellen und macht aus dem Salat etwas Besonderes."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Burrata für einen besonders üppigen Genuss"
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-caprese-quinoa",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Caprese",
+        "Quinoa",
+        "Bowl",
+        "Sommer"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1232,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-caprese-quinoa/",
+      "components": [
+        {
+          "key": "aee3fc40-f50a-58c7-bbd3-cc18ca399866",
+          "name": "Zutaten",
+          "servingGrams": 559,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfd4d43f-11d3-5d4d-92c0-1da4894769e2",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59c42dc5-9763-5b7f-9b76-706414f4788c",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92b22a46-fef2-5023-a029-6dc034f8d43a",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11a77be1-0369-501a-8b4b-0566a755395a",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1776d7d-fcb7-5f2a-a1be-365aebde624c",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d219d730-95d3-5aa6-80f8-92781538566e",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c572e856-80a2-5f57-8fe6-d73389633409",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e861432-a06e-5bb8-83e0-c46dafbe2ac7",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bed66271-10da-5b5b-b8e9-308757a25055",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd0bc2b5-af6d-55cc-a106-6788c5ae357e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Quinoa kochen. Kirschtomaten halbieren und frischen Mozzarella zerreißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bohnen mit Knoblauch und Olivenöl erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Balsamico in einem kleinen Topf etwa 3 Minuten einkochen, bis er sirupartig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl warmen Quinoa und Bohnen schichten, darauf Tomaten, Mozzarella und Basilikum geben und mit Balsamico-Glasur beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.shelikesfood.com/wp-content/uploads/2024/08/Caprese-Quinoa-Salad-Lunch-Bowls-2-scaled.jpg",
+          "sourcePageUrl": "https://www.shelikesfood.com/wp-content/uploads/2024/08/Caprese-Quinoa-Salad-Lunch-Bowls-2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb-roasted-carrot-lentil",
+      "slug": "mfr-pb-roasted-carrot-lentil",
+      "title": "Warme Bowl mit gerösteten Karotten und Linsen",
+      "instructions": "Mit Honig geröstete Karotten und gewürzte Linsen auf Rucola mit Kreuzkümmel-Joghurt-Dressing. Eine besonders wärmende Bowl, in der die einfache Karotte glänzt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Beutel Karotten kostet $1-2. Mit Honig geröstet werden sie außergewöhnlich lecker.",
+        "Der Rucola fällt durch die warmen Linsen leicht zusammen. Das ist beabsichtigt und schmeckt köstlich.",
+        "Kürbiskerne sorgen für Knusprigkeit und liefern 8g Eiweiß pro 1/4 Tasse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "arugula",
+          "swap": "Spinat oder gemischte Blattsalate"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup für eine vegane Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-roasted-carrot-lentil",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "mediterran",
+        "Karotte",
+        "Linsen",
+        "warm",
+        "Bowl",
+        "geröstet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1233,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-roasted-carrot-lentil/",
+      "components": [
+        {
+          "key": "03aa9b46-bcb1-5a47-995e-0307829ed6e1",
+          "name": "Zutaten",
+          "servingGrams": 888.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "18e4a15c-27a4-53c0-97f3-e5d85ce66a20",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bd015b7-9d59-56ac-aba3-292d2e221c9e",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0df8f2a4-fd59-59d9-aa41-bdadb5c22603",
+              "ingredientName": "Rucola",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aee4e49a-1e0c-5197-b681-ae9926a35c42",
+              "ingredientName": "Tahini",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "823ef9c2-5867-5ef6-8d60-a05825a11245",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a921259-8cf3-55f2-8e6d-f6536d81152e",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "229d43d3-a726-5429-bd5e-6b90f57603c1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff3162ff-1908-5394-8284-fe6d33bedb1b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "501c4924-57e0-564a-a1a7-fcd96b472764",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59189d37-147a-500d-b3c9-4b45e12594ff",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70e9421a-9dcb-5184-85ac-bb5e536e7b55",
+              "ingredientName": "Kürbiskerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karotten längs halbieren und mit Olivenöl, Honig, Kreuzkümmel und geräuchertem Paprikapulver vermengen. Bei 400°F 25 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Linsen mit Knoblauch 20 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tahini, Zitrone, Knoblauch, Kreuzkümmel und Wasser zu einem Dressing verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl Linsen, Rucola und geröstete Karotten schichten. Mit Tahini-Dressing beträufeln und mit Kürbiskernen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.budgetbytes.com/wp-content/uploads/2021/12/Spiced-Lentils-V1.jpg",
+          "sourcePageUrl": "https://www.budgetbytes.com/wp-content/uploads/2021/12/Spiced-Lentils-V1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb-edamame-soba-salad",
+      "slug": "mfr-pb-edamame-soba-salad",
+      "title": "Soba-Salat mit Edamame",
+      "instructions": "Kalte Buchweizen-Soba mit Edamame, geraspelter Karotte, Gurke und Sesam-Ingwer-Dressing. Dieser Nudelsalat nach japanischer Art schmeckt am nächsten Tag noch besser, wenn die Nudeln das Dressing aufgenommen haben.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Soba-Nudeln kosten $2-3 und sind in 5 Minuten gar. Eines der schnellsten gesunden Gerichte.",
+        "Soba direkt nach dem Kochen mit kaltem Wasser abspülen. So garen die Nudeln nicht weiter und kleben nicht zusammen.",
+        "Dieser Salat schmeckt vorbereitet 10× besser und eignet sich hervorragend fürs Meal-Prep."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "soba-noodles",
+          "swap": "Normale Nudeln oder Reisnudeln"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup für eine vegane Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-edamame-soba-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Soba",
+        "Nudeln",
+        "Edamame",
+        "Salat",
+        "kalt"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1234,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-edamame-soba-salad/",
+      "components": [
+        {
+          "key": "8f964e61-2c15-5bb6-90ad-df1bd60f57cb",
+          "name": "Zutaten",
+          "servingGrams": 567,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a0d70d8-c575-5de3-9662-acf3399569e5",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfd1010f-8b1c-5d7a-afbf-f81cf5ea9fb4",
+              "ingredientName": "Edamame",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1373c3e-f149-5eb7-96d1-80ebc80717a1",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "546b1f14-7bb9-57f2-9531-46b2e143de8b",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "035914f1-d71f-5131-8fd0-c315755eb9ae",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c47bbdd1-5106-5b5c-b96f-5307f3970593",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bffd808-1e0a-55bc-bb15-ea2579315bc7",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a289c6a-a355-564a-bf06-4d90c855eda8",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7be1d349-aa31-560c-91fc-6be8c489e0e8",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65fddacf-a4d8-57ce-94fd-cb5bf8823ac1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e2299de-38b3-5a40-b18d-508f1f52a99b",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "153b97a4-ec84-5dcf-b166-23ff8a864fb1",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Soba-Nudeln 4-5 Minuten kochen, abgießen und sofort unter kaltem Wasser abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Edamame garen. Karotten raspeln und Gurke in Halbmonde schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sojasauce, Sesamöl, Reisessig, Ingwer, Honig und Knoblauch zu einem Dressing verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nudeln mit dem Dressing vermengen. Mit Edamame, Karotte, Gurke, Frühlingszwiebel und Sesam belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/opengraph/2019/05/soba-noodles-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/opengraph/2019/05/soba-noodles-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

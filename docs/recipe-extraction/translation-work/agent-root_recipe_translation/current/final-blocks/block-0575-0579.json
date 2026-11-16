@@ -1,0 +1,921 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-lentil-taco-filling",
+      "slug": "mw-lentil-taco-filling",
+      "title": "Linsen-Taco-Füllung aus der Mikrowelle",
+      "instructions": "Gekochte Linsen mit Tacogewürzen – ein veganer Ersatz für Hackfleisch mit 18g Eiweiß.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder bis zu 2 Monate im Tiefkühler aufbewahren.",
+      "reheatingInstructions": "Abgedeckt mit einem Schuss Wasser 60s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Trockene Linsen kosten $0.30 pro gekochtem cup.",
+        "Tomatensoße in 8oz Dosen ist am günstigsten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Zerkrümelter Tempeh",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "taco-seasoning",
+          "swap": "Kreuzkümmel, Chilipulver und Paprikapulver",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Linsen kosten etwa ~$0.30 pro cup und sind das günstigste pflanzliche Eiweiß zum Zerkrümeln wie Hackfleisch.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan",
+        "Meal Prep"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 575,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-lentil-taco-filling/",
+      "components": [
+        {
+          "key": "5681fbf4-509f-5126-8d8f-eb1aa602ed75",
+          "name": "Zutaten",
+          "servingGrams": 312.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a03083f-3744-541e-8bdc-614b03f33c41",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gekocht oder aus der Dose"
+            },
+            {
+              "key": "c73bb353-c4c7-5031-bfad-0612e55c3e58",
+              "ingredientName": "Tacogewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5130227d-03c8-5952-8652-1f4e78195237",
+              "ingredientName": "Tomatensoße",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "163368fa-fe80-5ea0-86a4-f792dba41108",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc71cd76-f1ba-5650-85e2-bdd4ba03f33c",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23a11a2c-346c-5784-a7a9-2a184aa9606f",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Linsen, Gewürz, Tomatensoße und 2 tbsp Wasser in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel locker ab und erhitze alles 90 Sekunden in der Mikrowelle. Rühre um und erhitze es dann noch 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke die Linsen leicht mit einer Gabel, sodass sie wie Hackfleisch zerkrümeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Tortillas 20 Sekunden und fülle sie mit der Linsenmischung, Salsa und Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Lentil_meatballs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lentil_meatballs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: İmmortalance — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Linsenbällchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-cabbage-rice-bowl",
+      "slug": "mw-cabbage-rice-bowl",
+      "title": "Reis-Bowl mit Kohl",
+      "instructions": "Geraspelter Kohl, gedämpft und mit Reis, Sojasauce und Sesamöl vermischt – ein sättigendes, günstiges Abendessen.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "In einem luftdichten Behälter bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Abgedeckt mit einem Schuss Wasser 90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein halber Kohlkopf kostet etwa ~$0.80 und reicht für eine Woche.",
+        "Kohl ist das günstigste Blattgemüse pro Pfund."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Tiefgekühlte Wokgemüsemischung",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Olivenöl und Sesamsamen",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "1.5 cups Kohl (~$0.20) plus Reis (~$0.18) ergeben eine große Schüssel für unter $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 576,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-cabbage-rice-bowl/",
+      "components": [
+        {
+          "key": "ef11e2ea-3dd7-53ba-b228-08aa24a7dd92",
+          "name": "Zutaten",
+          "servingGrams": 668.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9eed640f-05dc-51e0-9be9-46b8d0361414",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15523fee-1364-5246-9ac5-eb150fc1f075",
+              "ingredientName": "Kohl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ada46aaf-95bf-5a4e-b41a-0b1f803356fb",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb23f7ae-8fde-5372-bf20-7d60d1714ef0",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b101c3f-84d3-572f-b19b-61a441550f35",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fa1e1dd-7b06-51fc-8d0d-1ee49dce3f70",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rasple den Kohl und gib ihn mit 1 tbsp Wasser in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel locker ab und erhitze den Kohl 3 Minuten in der Mikrowelle, bis er weich ist. Vorsicht, heißer Dampf!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Reis dazu, rühre um und erhitze alles weitere 60 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn du ein Ei verwendest, schlage es in eine kleine ofenfeste Schale mit 1 tsp Wasser und gare es 45–60s.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge alles mit Sojasauce, Sesamöl und Knoblauchpulver und gib das Ei obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1503392968123-ceabe9e5e630",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Reis-Bowl mit Kohl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-frozen-dumpling-soup",
+      "slug": "mw-frozen-dumpling-soup",
+      "title": "Suppe mit tiefgekühlten Teigtaschen",
+      "instructions": "Tiefgekühlte Teigtaschen in einer schnellen Miso-Sojasoße mit Pak Choi und Frühlingszwiebeln – eine Ramen-Abendmahlzeit im Wohnheimstil.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Am besten frisch servieren; die Teigtaschen werden matschig.",
+      "reheatingInstructions": "Abgedeckt 90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Teigtaschen aus dem Tiefkühlregal von H Mart kosten etwa ~$0.30 pro Stück.",
+        "Verwende Kohlreste aus anderen Rezepten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "miso",
+          "swap": "Zusätzliche Sojasauce und Ingwer",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und Brühwürfel",
+          "savings": "~$0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein halbes Dutzend Teigtaschen (~$1.80) mit Brühe und Miso aus dem Vorrat ergeben eine Mahlzeit für unter $2.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 577,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-frozen-dumpling-soup/",
+      "components": [
+        {
+          "key": "92b797d9-afca-55cb-aaae-96b8c4f9b493",
+          "name": "Zutaten",
+          "servingGrams": 642.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "52ab520c-ef33-5b2b-aa59-a28efb98c805",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ec48ae8-b34f-533f-a094-b50f6aa08bcb",
+              "ingredientName": "Misopaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb61452d-0bd6-5daa-948c-afbee1e06c0c",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "262907af-e1ce-5a8e-9088-d45b148a2efc",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1feddda2-7168-5a4d-8e50-46cb039702d8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21e5b08f-0024-5827-9968-a30b3ee07224",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "68891aa4-8a88-5d56-87c5-995144e22369",
+              "ingredientName": "Chiliöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Brühe und Miso in einer tiefen, mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den geraspelten Kohl dazu und erhitze alles 3 Minuten in der Mikrowelle. Die Brühe wird dabei dampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 4–6 tiefgekühlte Teigtaschen dazu. Du kannst beliebige Teigtaschen verwenden, die du gerade da hast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze alles weitere 3 Minuten in der Mikrowelle, bis die Teigtaschen an der Oberfläche schwimmen und heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Schluss Sojasauce, Sesamöl, Chiliöl und Frühlingszwiebel darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1534422298391-e4f8c172dddb",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Suppe mit tiefgekühlten Teigtaschen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-rice-af-tofu",
+      "slug": "combo-mw-rice-af-tofu",
+      "title": "Reis-Bowl mit knusprigem Tofu aus der Heißluftfritteuse",
+      "instructions": "Während die Heißluftfritteuse sojaglasierte Tofuwürfel knusprig brät, werden Reis und tiefgekühltes Gemüse in der Mikrowelle erwärmt – Restaurant-Textur in 15 Minuten.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren; der Tofu verliert seine Knusprigkeit.",
+      "reheatingInstructions": "Tofu in der Heißluftfritteuse 3 min bei 350F wieder knusprig machen; Reis separat in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein Tofublock reicht für 4 Bowls.",
+        "Lass das Essen zum Mitnehmen weg – dieses Gericht ist für $2.50 besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Kichererbsen (10 min in der Heißluftfritteuse)",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Tiefgekühlter Brokkoli",
+          "savings": "~$0.00"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein halber Tofublock (~$1.10), Reis (~$0.18) und tiefgekühltes Gemüse (~$0.40) ergeben für $2 ein knuspriges Abendessen wie vom Lieferservice.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 578,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-rice-af-tofu/",
+      "components": [
+        {
+          "key": "f2dce376-705a-5394-89b6-3f572185f449",
+          "name": "Zutaten",
+          "servingGrams": 445,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d7e9a06-d051-5f52-a693-fb209f9689c4",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b65448d1-abb1-5643-ae78-864ad418f6f5",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce9133fe-6c9f-5f50-ab25-dd234bab2bb1",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b27786af-65e5-5d15-8cb6-dccdff71e0cf",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "082101c8-fbaa-5379-8626-f4a885a34a85",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a154787-fc16-530e-99f6-51cc0a785a85",
+              "ingredientName": "Sriracha",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "98370e66-e1f7-5b40-97e5-e895709d1bb7",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe den Tofu trocken, schneide ihn in Würfel und vermenge ihn mit Sojasauce und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare den Tofu bei 390F 12 Minuten in der Heißluftfritteuse. Schüttle den Korb nach der Hälfte der Zeit, bis die Würfel goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme währenddessen Reis und tiefgekühltes Gemüse 3 Minuten in einer abgedeckten Schüssel in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Tofu über Reis und Gemüse, träufle Sriracha darüber und garniere mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Salt_%26_Pepper_Tofu_Rice_Bowl_-_Tiger_Bites_Pig_2025-11-20.jpg/960px-Salt_%26_Pepper_Tofu_Rice_Bowl_-_Tiger_Bites_Pig_2025-11-20.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Salt_%26_Pepper_Tofu_Rice_Bowl_-_Tiger_Bites_Pig_2025-11-20.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Reis-Bowl mit knusprigem Tofu aus der Heißluftfritteuse und goldbraunen Tofuwürfeln mit rotem Sichuan-Salz und Frühlingszwiebeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-potato-af-chickpea",
+      "slug": "combo-mw-potato-af-chickpea",
+      "title": "Mikrowellenkartoffel mit knusprigen Kichererbsen",
+      "instructions": "Eine Kartoffel aus der Mikrowelle mit knusprigen Kichererbsen aus der Heißluftfritteuse, Salsa und Avocado – eine üppig belegte vegane Kartoffel.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Kichererbsen separat im Kühlschrank aufbewahren, damit sie knusprig bleiben; bis zu 3 Tage haltbar.",
+      "reheatingInstructions": "Kartoffel 90s in der Mikrowelle erwärmen; Kichererbsen 2 min bei 350F in der Heißluftfritteuse aufknuspern.",
+      "cheapTips": [
+        "Knusprige Kichererbsen eignen sich auch als Snack.",
+        "Russet-Kartoffeln im 5lb-Sack sind die günstigste Beilage mit Kohlenhydraten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Schwarze Bohnen",
+          "savings": "~$0.10"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Tahini darüberträufeln",
+          "savings": "Variiert"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Russet-Kartoffel (~$0.40) und eine halbe Dose Kichererbsen (~$0.55) ergeben für $1.50 ein Abendessen mit knusprigem Biss.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 579,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-potato-af-chickpea/",
+      "components": [
+        {
+          "key": "23605501-67f9-5f41-a846-ebc2532d0d7c",
+          "name": "Zutaten",
+          "servingGrams": 546.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b5a78db-0bc1-55b7-9623-d91c4cede5a2",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d5a181d-168a-527d-85fd-4e212cea25ec",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36bb41a8-7f3e-57fd-bf66-a5ec74c2a3d2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "293d6c10-6c4b-5126-ace4-054523848234",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89842b5b-0fa4-5af0-bcaa-9b0a859645eb",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b58e1e95-641a-53b1-b07b-99ec35eb8bf1",
+              "ingredientName": "Avocado",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "b3379e1c-a0eb-56df-a755-085fa7b81dbf",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Kichererbsen ab, tupfe sie trocken und vermenge sie mit Olivenöl, Paprikapulver und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Kichererbsen bei 390F 12 Minuten in der Heißluftfritteuse und schüttle sie zweimal, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stich währenddessen 6-mal mit einer Gabel in die Kartoffel und erhitze sie 7 Minuten in der Mikrowelle. Wende sie nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Kartoffel auf, lockere das Innere mit einer Gabel auf und belege sie mit Kichererbsen, Salsa und Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Sweet_potatoes_and_za%27atar_chickpeas_with_herby_yogurt_%2849803694683%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sweet_potatoes_and_za%27atar_chickpeas_with_herby_yogurt_(49803694683).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: spurekar — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von gerösteten Süßkartoffeln mit knusprigen Za'atar-Kichererbsen, Kräuterjoghurt und frischem Koriander",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1044 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-caldo-blanco",
+      "slug": "gen-caldo-blanco",
+      "title": "Caldo Blanco",
+      "instructions": "Paraguayisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hähnchenschenkel anstelle von Hähnchenbrüsten, um den Geschmack zu verbessern und die Kosten zu senken",
+        "Kaufen Sie Maniok auf lateinamerikanischen Märkten, wo es günstiger ist als in Fachgeschäften"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "paraguayisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6735,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-blanco/",
+      "components": [
+        {
+          "key": "9ff104ee-bba7-5ea3-8310-c509628d25d6",
+          "name": "Zutaten",
+          "servingGrams": 546.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "239468b0-9aa5-585c-8cfd-7adce126bc6a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "5bb15233-9c60-5bb4-b0ea-74f2891ec7af",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "7f98caf9-9186-5332-93db-2a54b3f22c3b",
+              "ingredientName": "Maniokwurzel (Yuca)",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8d1c936e-2fed-5977-9add-af20f47bc03f",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Kolben"
+            },
+            {
+              "key": "d4078bf7-105e-5825-8a1c-b998f8ced41f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "66b90ebe-caf7-5afc-bf0b-77295de6adb7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d6b84b73-ba49-520a-8a4c-bfd6b70f6530",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hühnerbrühe in einem großen Topf mit halbierten Zwiebeln zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenbrust hinzufügen und 15 Minuten köcheln lassen, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nehmen Sie das Hähnchen heraus, zerteilen Sie es in mundgerechte Stücke und geben Sie es zurück in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Maniok schälen, in 2 cm große Stücke schneiden und zur Brühe geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Mais in 2 cm große Stücke schneiden und mit Salz und Pfeffer in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "15 Minuten köcheln lassen, bis der Maniok weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren, garniert mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/caldo-de-pollo-recipe-1730888752.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/caldo-de-pollo-recipe-1730888752.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cornish-pastie",
+      "slug": "gen-cornish-pastie",
+      "title": "Cornish Pastie",
+      "instructions": "Britisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie billigere Rindfleischstücke und lassen Sie sie langsam braten; Sie eignen sich gut für Pasteten",
+        "Stellen Sie Pastetenteig von Grund auf her, um Geld zu sparen, anstatt vorgefertigten Tortenboden zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6736,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cornish-pastie/",
+      "components": [
+        {
+          "key": "7e88c81e-d2dd-586a-bcd4-8f97104f4fd3",
+          "name": "Zutaten",
+          "servingGrams": 345.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "96d65c19-9844-5d5a-b6c6-8b6f1237ccda",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f8fa6832-c8e0-5e8d-9e76-e1673a0529ec",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "80a27567-7dc8-5b5e-b9f4-5b6f4838cc39",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4-6 Esslöffel"
+            },
+            {
+              "key": "9ed2083c-98ad-5ddc-9ef8-b2f74fdf58c6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "3e0688d5-8bc3-5d41-9880-9f06ed9514d5",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "25afe048-d014-598c-8eef-6eef6e6229fd",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "9a0f1176-ec78-5e5e-a6bf-26bbb8e326b2",
+              "ingredientName": "Steckrüben",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "5bfa7c28-fb2a-52bf-b776-db6b909b7e15",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "ecb8b65f-4752-5916-9cb6-d99b9d6801ef",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "cbd5e87a-429a-5487-9918-2448204ada77",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz mischen, dann kalte Butter dazugeben, bis die Mischung groben Semmelbröseln ähnelt, Eiswasser hinzufügen, um einen Teig zu formen, und 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln, Steckrüben und Zwiebeln schälen und in 0.5 cm große Würfel schneiden, Rindfleisch in gleichgroße Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Ofen auf 400 °F vorheizen und den Teig in 4 Portionen teilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rollen Sie jede Portion auf einer bemehlten Oberfläche zu einem 6-Zoll-Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Füllungszutaten gleichmäßig auf die Pastetenhälften verteilen, mit Salz und Pfeffer würzen, den Teig umklappen und die Ränder mit einer Gabel zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf ein Backblech legen, mit verquirltem Ei bestreichen und oben kleine Schlitze schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "45 Minuten backen, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/L2HyCRJNijLhcsRKJWYnyZkFhI0=/6016x4000/filters:fill(auto,1)/traditional-cornish-pasty-recipe-435042-Hero-5b6997cbc9e77c0050b1b6e1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/L2HyCRJNijLhcsRKJWYnyZkFhI0=/6016x4000/filters:fill(auto,1)/traditional-cornish-pasty-recipe-435042-Hero-5b6997cbc9e77c0050b1b6e1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-goug-res",
+      "slug": "gen-goug-res",
+      "title": "Gougères",
+      "instructions": "Französischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie scharfen Cheddar-Käse anstelle von teurem Gruyere, um ähnliche Ergebnisse zu erzielen",
+        "Machen Sie den Teig im Voraus und stellen Sie ihn in den Kühlschrank, damit Sie ihn später bequem backen können"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6737,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-goug-res/",
+      "components": [
+        {
+          "key": "43141408-ba40-5f8a-9896-e55e6e03e7ca",
+          "name": "Zutaten",
+          "servingGrams": 130.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "7cb90079-5125-5b64-844e-918b0fdd8d59",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3729e440-2f04-512a-a938-86661b82eedd",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6c2582b3-5e30-5837-ba66-ede2a45d6c44",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "56c3175c-c4d2-5ba5-9fa4-6a2224b67dfb",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "ee758b2c-57ed-50bb-a304-57c4c856b0e2",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "846ab083-b012-5d67-b9f9-5eccb4846200",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7545045-cd5e-5ee7-be21-318181674799",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "960ac63b-8bf9-5a7c-aea7-c1b446324711",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400 °C vorheizen und zwei Backbleche mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wasser, Butter, Salz, Pfeffer und Muskatnuss in einem Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vom Herd nehmen und Mehl einrühren, bis sich eine Kugel bildet, 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier einzeln unterrühren, nach jeder Zugabe kräftig umrühren, dann geriebenen Käse unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Golfballgroße Portionen auf die vorbereiteten Backbleche verteilen und jeweils einen Abstand von 2 cm lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "25 Minuten backen, bis es aufgebläht und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten auf dem Backblech abkühlen lassen, bevor es warm oder bei Zimmertemperatur serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/641e1daf93a1326e45d65a9d/1:1/w_2560%2Cc_limit/Gougere_RECIPE_032323_49723.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/641e1daf93a1326e45d65a9d/1:1/w_2560%2Cc_limit/Gougere_RECIPE_032323_49723.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanada-gallega",
+      "slug": "gen-empanada-gallega",
+      "title": "Empanada Gallega",
+      "instructions": "Galizisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Schweinehackfleisch anstelle von Rindfleisch, um den Geschmack zu verbessern und die Kosten zu senken",
+        "Bereiten Sie das Füllen vor und stellen Sie es in den Kühlschrank, um den Zusammenbau zu beschleunigen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Galizisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6738,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanada-gallega/",
+      "components": [
+        {
+          "key": "41f0790f-e368-5649-a901-66f062049048",
+          "name": "Zutaten",
+          "servingGrams": 379.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "e02bf04b-7b8f-5e6a-a50f-e94b09d0fab6",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c9b2f99b-f1c7-501c-9854-47951d9c3439",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "47ba55dc-f912-500d-b64f-bdbca25c5226",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "42718973-3414-5964-86ff-adbfb19a7c11",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "40eef289-7a54-509e-a8b4-cbecfab5ab1c",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "24540aae-2f95-52d0-8dd9-dc58218d3538",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "929a2913-cb6b-532b-bc6f-bdbfb07ab664",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "f2896207-4709-55f2-ab6c-a7babfdd7f93",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "08bc1dd3-32a5-52d1-92d5-9ff2b35bc326",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f1936714-43c1-562f-9bc1-0785a2178d69",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Machen Sie einen Teig, indem Sie Mehl, Salz, Olivenöl und Wasser glatt rühren, 5 Minuten lang kneten und 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer Pfanne erhitzen und gewürfelte Zwiebeln und gehackten Knoblauch darin anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hackfleisch hinzufügen und anbraten, bis es braun ist, dann Tomatensauce und Paprika hinzufügen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heizen Sie den Ofen auf 375 °F vor, teilen Sie den Teig in zwei Hälften und rollen Sie ihn jeweils zu einem 12-Zoll-Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen Teigkreis auf ein Backblech legen, die Hälfte mit der Füllung bestreichen, umklappen und die Ränder verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit verquirltem Ei bestreichen und 40 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Etwas abkühlen lassen und vor dem Servieren in Spalten schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/0RcilNrcWS0arxQaiqMkBdlT_Z4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-562483487-5875d84d3df78c17b6941d4a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/0RcilNrcWS0arxQaiqMkBdlT_Z4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-562483487-5875d84d3df78c17b6941d4a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastel-de-nata",
+      "slug": "gen-pastel-de-nata",
+      "title": "Pastel de Nata",
+      "instructions": "Portugiesisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie im Laden gekauften Blätterteig, um Zeit und Mühe zu sparen",
+        "Machen Sie die Vanillepuddingfüllung einen Tag im Voraus, um die Zubereitung zu erleichtern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "portugiesisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6739,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastel-de-nata/",
+      "components": [
+        {
+          "key": "86781571-19ca-5cd1-a351-93d4986cefaf",
+          "name": "Zutaten",
+          "servingGrams": 174.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "8bf8fd24-5133-5517-837d-8130cd7df210",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "2518fa26-8121-54ec-9bcc-28a6c56e5177",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b16a81ab-98e3-5981-b900-8d631b5603fa",
+              "ingredientName": "Schwere Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d9ab711c-d53e-5243-83ba-9ffa3919e179",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40fa8f9f-0576-5b04-88de-35239ba98b80",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a890fadb-4a6d-53b7-96b9-293e88814cb7",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "41fcf002-3a50-52e2-bcd4-e23d2629bb18",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "17a0b76c-3123-5435-a84d-b0010efdbc5d",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "4622eca2-a7f4-5ecd-b263-6f4107d28a51",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch und Sahne zusammen in einem Topf erhitzen, bis sie dampfen, nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eigelb mit Zucker schaumig schlagen, dann Maisstärke und Salz unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gießen Sie die heiße Milchmischung langsam unter ständigem Rühren in die Eimischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zurück in den Topf geben und bei mittlerer Hitze 3-4 Minuten unter ständigem Rühren kochen, bis die Masse eingedickt ist, Vanille und Zimt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücken Sie die Plastikfolie direkt auf die Vanillepuddingoberfläche, lassen Sie sie auf Raumtemperatur abkühlen und stellen Sie sie dann in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heizen Sie den Ofen auf 475 °F vor und fetten Sie eine Muffinform leicht ein, schneiden Sie den Blätterteig in 3 cm große Quadrate und drücken Sie ihn in Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Vanillepudding in Teigförmchen füllen und 15–18 Minuten backen, bis der Vanillepudding fest ist und der Teig aufgebläht und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten in der Pfanne abkühlen lassen, mit Zimt bestäuben und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.mob.co.uk/cdn-cgi/image/width=3840,quality=75,format=auto/https://files.mob-cdn.co.uk/articles/Pastel-De-Nata.jpg",
+          "sourcePageUrl": "https://www.mob.co.uk/cdn-cgi/image/width=3840,quality=75,format=auto/https://files.mob-cdn.co.uk/articles/Pastel-De-Nata.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1134 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-shabu-shabu",
+      "slug": "gen-shabu-shabu",
+      "title": "Shabu-shabu (japanischer Eintopf zum Dippen)",
+      "instructions": "Japanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Kombu weg und verwende Gemüsebrühe, um Kosten und Vorbereitungszeit zu senken",
+        "Kaufe günstigere Rindfleischstücke und friere sie vor dem dünnen Aufschneiden teilweise an"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2395,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shabu-shabu/",
+      "components": [
+        {
+          "key": "172ab841-78e1-568b-b473-2757851aeb98",
+          "name": "Zutaten",
+          "servingGrams": 1344.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8240a28a-21ff-517b-bb00-5fa2f79b59fc",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "648e73d7-1672-595a-b9ab-01715fdce6c4",
+              "ingredientName": "Chinakohl",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "26935ed9-f635-51d9-9dbd-0350800d06ba",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "ecdde0d0-4903-5b1e-9570-e537c063ef9e",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "e15d37e9-5eb5-5eac-92fa-af25257d7c12",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "8730fea8-8f2a-521d-96a6-281d9e1ac32b",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70e98a2e-4f19-59dc-a89b-7278ca82d10a",
+              "ingredientName": "Kombu-Algen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "c3fc5733-5757-5ee4-8a67-5240900cac03",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "fd6bea6e-a034-5684-a4f0-20af5a610a29",
+              "ingredientName": "Ponzu",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bb098389-f8a2-5e70-ae67-e94f255c6163",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Karotte in feine Stifte, den Chinakohl in mundgerechte Stücke und die Frühlingszwiebeln schräg in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Tofu in 1-inch große Würfel und halbiere die Pilze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen und gib Kombu-Algen hinein, damit sie ihr Aroma abgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Rindfleischscheiben, Gemüse und Tofu auf einer Platte um den köchelnden Topf auf dem Tisch an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Person nimmt Zutaten und taucht sie einige Sekunden in die heiße Brühe, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Ponzu-Soße mit Sesamsamen als Dip für die gegarten Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche und genieße weiter, bis alle Zutaten aufgebraucht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße zum Schluss die restliche Brühe in Schüsseln und genieße sie als Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/64f9ed13c4c0cf090d8d3192/1:1/w_2560%2Cc_limit/20230712-1023-DINNER-IS%2520-SERVED-28649.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/64f9ed13c4c0cf090d8d3192/1:1/w_2560%2Cc_limit/20230712-1023-DINNER-IS%2520-SERVED-28649.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-unagi",
+      "slug": "gen-unagi",
+      "title": "Unagi (gegrillter Aal)",
+      "instructions": "Japanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Aalfilets, sie sind deutlich günstiger als frische",
+        "Bereite eine große Menge Glasur zu und friere sie in Eiswürfelformen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2396,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-unagi/",
+      "components": [
+        {
+          "key": "5720fd6b-effb-5d18-83d8-0d13e74798ce",
+          "name": "Zutaten",
+          "servingGrams": 771.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "16268ee0-e6c9-52d4-86fa-026582717ccc",
+              "ingredientName": "Aalfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "209d4bef-d2b9-5dd0-b14b-90d32f9ccc2c",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "632bf718-e9a3-5235-9439-194509daf6a9",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a5a63708-aa04-563d-ba73-3eb3b9328367",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1ae1e985-d83c-5d87-ba66-83effc92c04b",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d7d2d08d-4ee2-53a5-ac16-5dde787a7ac4",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "93dcb2d3-9e6c-5af8-bafd-bd0d296cff54",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "9cf0e52c-7f16-54a4-8aec-62fd4e342d92",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "e9437a57-8330-5e10-a4ed-bfc9cc27aa68",
+              "ingredientName": "Reis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "23505117-78ea-5d8d-a9e8-f75b0e312a28",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "bf5eba56-441c-5428-a7fa-b77f3a01dd7f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fba8950e-ddeb-5fa5-8037-792eb07f6c4c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Aalfilets mit Küchenpapier vollständig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze. Gare den Aal 2-3 Minuten mit der Hautseite nach unten, bis sie knusprig ist. Wende ihn und gare die Fleischseite 1 Minute, bis er gerade durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasoße, Mirin, Zucker, Sake, Wasser sowie gehackten Ingwer und Knoblauch in einem kleinen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Soße 2-3 Minuten köcheln, bis sie leicht eindickt. Probiere sie und passe die Süße bei Bedarf mit mehr Zucker an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche den gegarten Aal auf beiden Seiten großzügig mit der Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den glasierten Aal mit der Hautseite nach oben zurück in die Pfanne und gare ihn 1 weitere Minute, damit die Glasur fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den Reis auf zwei Schüsseln und lege den glasierten Aal vorsichtig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Träufle die restliche Glasur über den Aal und garniere ihn mit Sesamsamen und geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_6UdZCr1K481uBDd1gWRQTELy5g=/4368x2912/filters:fill(auto,1)/unagi-562572477-5ab0659c3037130037478816.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_6UdZCr1K481uBDd1gWRQTELy5g=/4368x2912/filters:fill(auto,1)/unagi-562572477-5ab0659c3037130037478816.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chow-fun",
+      "slug": "gen-chow-fun",
+      "title": "Chow Fun (kantonesische Reisnudeln)",
+      "instructions": "Kantonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen in größeren Mengen und taue sie nach Bedarf auf",
+        "Verwende statt Garnelen Hähnchenschenkel als günstigere Eiweißquelle"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2397,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chow-fun/",
+      "components": [
+        {
+          "key": "0290ee12-193e-54d4-93a8-8bd4e5e190bd",
+          "name": "Zutaten",
+          "servingGrams": 443,
+          "position": 0,
+          "items": [
+            {
+              "key": "c985a267-1510-5eaf-bc0d-886c33d61b70",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b34538de-3d18-5a28-a71e-8a6b45953feb",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bf22380c-0b77-5ea6-8389-fbbd8fc075c7",
+              "ingredientName": "Austernsoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "772d3546-86c7-5eb6-835e-f294f2fa7ff7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d511a36a-d927-59b9-971b-eb3685e52299",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "51d10e95-5799-5008-bae4-16540000f339",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Stangen"
+            },
+            {
+              "key": "3c44449c-0a6f-506c-9151-1c43e8f8bef5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "e92b4280-aa9e-536e-aa8d-8d28c89efba4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "2e62151b-1d58-52a8-8d4d-6e48109e2bf3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b6435e68-d22f-55e2-87f7-7d6eea9970a0",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze einen Wok oder eine große Pfanne bei hoher Hitze und gib 2 tbsp Öl hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Garnelen oder Hähnchen etwa 4 Minuten unter Rühren, bis sie gar sind. Nimm sie heraus und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl und Knoblauch in den Wok und rühre etwa 30 seconds, bis der Knoblauch duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Reisnudeln hinzu und löse sie vorsichtig unter Rühren 2-3 Minuten voneinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Sojasoße, Austernsoße und Zucker dazu und vermische alles gut, sodass die Nudeln überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gegarte Eiweißzutat zurück in den Wok, füge Sojasprossen und Frühlingszwiebeln hinzu und wende alles 1 Minute miteinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle das Gericht mit Sesamöl, wende es noch einmal und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Beef-Chow-Fun-1.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Beef-Chow-Fun-1.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wonton-noodles",
+      "slug": "gen-wonton-noodles",
+      "title": "Wonton-Nudelsuppe",
+      "instructions": "Kantonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite zusätzliche Wontons zu und friere sie für schnelle spätere Mahlzeiten ein",
+        "Verwende fertige Brühe statt selbst gemachter, um Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2398,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wonton-noodles/",
+      "components": [
+        {
+          "key": "6b65daba-f354-5ac3-bdee-51fa92721024",
+          "name": "Zutaten",
+          "servingGrams": 1820.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "abef7bad-0444-5376-a458-3d508f1e8def",
+              "ingredientName": "Wonton-Teigblätter",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "20 Stücke"
+            },
+            {
+              "key": "7dca8965-a9b0-50cd-8be0-23aea21e0f3a",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.3 Pfund"
+            },
+            {
+              "key": "7b37967c-498c-53cb-a80a-e8e32980cc68",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "43d97c2d-eb32-53d8-a1e1-88d43e63d761",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "af945288-c42f-56a5-add5-87aa3d4627ac",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0556aaa7-b370-578e-9768-21acf48f1605",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "d0a32980-36c9-5303-8956-ad5b84a8acf3",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "83f38bbf-daaf-5091-a011-d8b4902779e5",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9a625533-4b5c-54e4-b542-3ea90c214dcb",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "50c8432d-3d55-55ed-b119-36644fef1b47",
+              "ingredientName": "Brokkoli",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Schweinehackfleisch mit der Hälfte der Frühlingszwiebeln, 1 tbsp Sojasoße und Sesamöl in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 tsp Füllung in die Mitte jedes Wonton-Teigblatts und falte es zu einem Dreieck. Führe dann die Ecken zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe Wasser in einem Topf zum Kochen und gare die Wontons, bis sie an die Oberfläche steigen, dann noch 2 Minuten weiter. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe die Brühe in einem anderen Topf mit Ingwer, Knoblauch und der restlichen Sojasoße zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Nudeln separat nach Packungsanweisung und gieße sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Pak Choi in die Brühe und lasse ihn 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile Nudeln auf Schüsseln, gib Wontons und Gemüse dazu, schöpfe heiße Brühe darüber und garniere mit den restlichen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2018/07/Wonton-Noodle-SoupIMG_5858.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2018/07/Wonton-Noodle-SoupIMG_5858.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ants-climbing-a-tree",
+      "slug": "gen-ants-climbing-a-tree",
+      "title": "Ameisen klettern auf einen Baum",
+      "instructions": "Sichuan-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinehackfleisch im Angebot und friere es portionsweise ein",
+        "Chilipaste ist lange haltbar, eine Dose reicht für viele Mahlzeiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sichuan",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2399,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ants-climbing-a-tree/",
+      "components": [
+        {
+          "key": "c8c55337-e0ff-53e1-8a43-0460bbe9f595",
+          "name": "Zutaten",
+          "servingGrams": 252.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "550d3d0e-95bd-5d15-aef9-07842dfdb7df",
+              "ingredientName": "Glasnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "ef3d10fa-8407-52ed-8951-10a0533fec95",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "759689a0-3e9b-5688-aced-e729339cbece",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9ec5dfc2-bd88-5c5b-a614-d4c90e8ca090",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1784bec8-3012-5a79-85cf-d1fb8d3956a3",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2cbb23de-af4b-57eb-b6c1-029f98aaa80d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ec0db166-b3d2-5b15-a7c6-3e1533396421",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "96dd9b8e-5bd7-5d75-8f26-051b7dfb8604",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ab26d2d0-85c7-5338-8d3c-678f1975c142",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "6d058f94-f0f6-5c4e-9972-745fb9534135",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "aaa575e3-8ac5-5d44-a640-415b8729b3d1",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Glasnudeln 8 Minuten in heißem Wasser ein, bis sie weich sind, und gieße sie dann gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne oder einem Wok bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Schweinehackfleisch hinzu und zerteile es beim Braten. Gare es etwa 4-5 Minuten, bis kein Rosa mehr zu sehen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Knoblauch und Ingwer ein und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Chilipaste, Sojasoße, Sesamöl, Zucker und Wasser hinzu und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die weichen Nudeln in die Pfanne und vermenge alles 2-3 Minuten, bis es durchgewärmt und gut überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Frühlingszwiebeln garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6745f8ef402bf706c5f05eaf/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6745f8ef402bf706c5f05eaf/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

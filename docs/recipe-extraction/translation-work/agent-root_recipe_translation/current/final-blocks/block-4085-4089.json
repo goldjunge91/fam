@@ -1,0 +1,1049 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-accras",
+      "slug": "gen-accras",
+      "title": "Accras",
+      "instructions": "Senegalesischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Spalterbsen lose kaufen; sie sind viel günstiger als Erbsen aus der Dose",
+        "Normale Jalapeños verwenden, falls Scotch Bonnet nicht verfügbar oder teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "senegalesisch",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4085,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-accras/",
+      "components": [
+        {
+          "key": "41a4c0f0-4f44-57a6-b1b3-2852d0a9fdb8",
+          "name": "Zutaten",
+          "servingGrams": 342.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "69748f10-1553-5f72-bb67-0eda377e1c61",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "797539ca-5527-54fe-904e-f405c93ca6f4",
+              "ingredientName": "Spalterbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e41fd689-f4c3-5b06-839d-5a026c940600",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "443b614d-1066-554d-95cb-385547b04f51",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "2ba35795-4be9-5e3f-b60b-d23ca741d49d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "81416493-dd9c-5a39-8d81-c5fd410c9e5f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "30d1a10b-b671-5114-bc6d-c1703a01f6cd",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "b1c7cc82-d022-5518-bf75-cecbacefc6eb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spalterbsen 20 Minuten in heißem Wasser einweichen, dann abgießen und gut abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eingeweichte Erbsen mit Zwiebel, Knoblauch und Scotch-Bonnet-Chili glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung in eine Schüssel geben und Mehl, Salz sowie schwarzen Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach und nach Wasser hinzufügen, bis ein dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pflanzenöl in einem tiefen Topf auf 350°F (175°C) erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffelweise Teig ins heiße Öl geben und insgesamt etwa 4-5 Minuten von allen Seiten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Schaumkelle herausnehmen und vor dem Servieren auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://dominicagourmet.com/wp-content/uploads/2020/08/Dominica-titiwi-accra-recipe-1-scaled.jpg",
+          "sourcePageUrl": "https://dominicagourmet.com/wp-content/uploads/2020/08/Dominica-titiwi-accra-recipe-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastels",
+      "slug": "gen-pastels",
+      "title": "Pastels",
+      "instructions": "Senegalesischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderabschnitte oder günstigere Fleischstücke verwenden, um die Fleischkosten zu senken",
+        "Pastels in größeren Mengen zubereiten und ungebacken für schnelle spätere Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "senegalesisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4086,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastels/",
+      "components": [
+        {
+          "key": "11a4268a-cee3-5bc2-93c1-3b781aa4c99a",
+          "name": "Zutaten",
+          "servingGrams": 365.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "39327c77-f057-544c-a39f-e93b31c4d5bd",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "78a0140b-876e-57f8-a69e-9881411bdfd9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "c361522f-348b-50d9-b95d-2a0046fef719",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "ebf8176d-ccbf-53a0-9ea5-827a51f19620",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "32c24902-79d9-513a-8e7f-500e1ec24aed",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "6f1dc31e-4477-58cb-acb9-2ef469d088c4",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "79e86136-cc7d-5a27-9ec7-cc6430bf01d5",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "73e95bad-550d-5216-850b-81f96d917908",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ecd1b036-02da-51b9-8d23-593785c51efc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL sowie 2 Tassen zum Frittieren"
+            },
+            {
+              "key": "76b34c89-fa21-5c5c-bf37-0b23c1e8b878",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d53b5730-624a-5b8e-a916-5fc348099c11",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer Schüssel vermengen, nach und nach Wasser hinzufügen und zu einem festen Teig verarbeiten; 5 Minuten kneten, abdecken und 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "3 Esslöffel Öl in einer Pfanne bei mittlerer Hitze erhitzen und Rinderhack krümelig anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel und Knoblauch hinzufügen und weich dünsten, dann Kartoffeln, Tomatenmark, Habanero und schwarzen Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füllung 15 Minuten köcheln lassen, bis die Kartoffeln weich sind, dann zum leichten Abkühlen beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig auf einer bemehlten Fläche 1/8-inch dick ausrollen und in 4-inch große Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeweils einen Löffel Füllung in die Mitte geben, zu einem Dreieck falten und die Ränder mit einer Gabel zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2 cups Öl auf 350°F (175°C) erhitzen und Pastels portionsweise etwa 3-4 Minuten pro Seite goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/OitjmdsECMa4L8ZbbaZ_1upsceE=/4600x3067/filters:fill(auto,1)/brazilian-pasteis-with-chicken-3029689-hero-01-d17cded4f77e486b80bd1c005de61737.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/OitjmdsECMa4L8ZbbaZ_1upsceE=/4600x3067/filters:fill(auto,1)/brazilian-pasteis-with-chicken-3029689-hero-01-d17cded4f77e486b80bd1c005de61737.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-atti-k",
+      "slug": "gen-atti-k",
+      "title": "Attiéké",
+      "instructions": "Senegalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maniokgrieß auf afrikanischen oder lateinamerikanischen Märkten günstiger kaufen",
+        "Gemüse verwenden, das gerade im Angebot ist; Attiéké lässt sich gut anpassen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "senegalesisch",
+        "mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4087,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-atti-k/",
+      "components": [
+        {
+          "key": "a5a2eb76-3315-5004-9f17-a2f4b6aab9e7",
+          "name": "Zutaten",
+          "servingGrams": 399.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c07767b-ad21-5946-980c-237a8feb518f",
+              "ingredientName": "Maniokgrieß (Gari)",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "375b967f-90ec-585d-9a5c-143da52fb7f3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, fein gewürfelt"
+            },
+            {
+              "key": "dac7a24d-68ff-59c0-ba2a-e50bfcfcefb2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 rotes Stück, gewürfelt"
+            },
+            {
+              "key": "56f6fb69-3b72-5c8e-8b5f-fdf58a470fac",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "3ddcc632-221a-5cc6-ae1e-575fe8b3c229",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6e0287dd-f9c4-57ab-8d34-b69a46c11125",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c491ba50-565f-53e3-adfe-071b2149beda",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "cffe1c85-c955-52bf-8639-a713073de780",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "eded084c-890a-56a0-b110-f04df189dacc",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer Hitze erhitzen und Zwiebel etwa 3 Minuten glasig dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paprika, Tomate und Habanero hinzufügen und 5 Minuten garen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maniokgrieß, Salz, schwarzen Pfeffer und Limettensaft einrühren und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach und nach heißes Wasser unter ständigem Rühren angießen, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Topf abdecken und bei niedriger Hitze 15 Minuten garen, gelegentlich umrühren, bis der Grieß zart und locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nach Geschmack nachwürzen und heiß oder bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/hLN4U1q_G-sUGMy40SDNlkdggGo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9096801-10378fc73f694f69afb3e269fa4e794c.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/hLN4U1q_G-sUGMy40SDNlkdggGo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9096801-10378fc73f694f69afb3e269fa4e794c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bissap",
+      "slug": "gen-bissap",
+      "title": "Bissap",
+      "instructions": "Senegalesischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hibiskusblüten in großen Mengen auf internationalen Märkten oder online kaufen",
+        "Minze weglassen, wenn das Budget knapp ist; sie sorgt vor allem für eine Geschmacksvariante"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "senegalesisch",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4088,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bissap/",
+      "components": [
+        {
+          "key": "49ff9677-be47-509c-ad42-d7f69e823697",
+          "name": "Zutaten",
+          "servingGrams": 404.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "dcb31c42-0236-5e75-850a-f98316557214",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9d86de86-b80d-5ddf-8361-0471b877fc7d",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "4c4aeddc-41e4-5747-9a74-3ef8d3042c56",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b88af887-cdc0-51bf-87e0-03b6352723f0",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8-10 Blätter"
+            },
+            {
+              "key": "7f373b8e-9670-5225-a1f8-6be51f1ffdd0",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d80b7e6b-4530-57b5-b218-364bdabc499f",
+              "ingredientName": "Eiscreme",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Bedarf"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hibiskusblüten gründlich unter kaltem Wasser abspülen und in einen großen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "6 cups Wasser zum Kochen bringen und über die Hibiskusblüten gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "10 Minuten ziehen lassen, dann durch ein feines Sieb abseihen und die Blüten entsorgen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zucker und Limettensaft einrühren, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Minzblätter hinzufügen und die Mischung auf Raumtemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekühlt auf Eis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/45/72/70/picZRajQg.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/45/72/70/picZRajQg.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-suukuma-wiki-la-s-n-galaise",
+      "slug": "gen-suukuma-wiki-la-s-n-galaise",
+      "title": "Suukuma Wiki nach senegalesischer Art",
+      "instructions": "Senegalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Grünkohl in der Saison oder im Angebot kaufen und portionsweise einfrieren",
+        "Tomaten aus der Dose statt frischer verwenden; sie sind günstiger und lange haltbar"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "senegalesisch",
+        "mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4089,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-suukuma-wiki-la-s-n-galaise/",
+      "components": [
+        {
+          "key": "1d725dc0-48e1-55ba-8215-acbb0ba4e892",
+          "name": "Zutaten",
+          "servingGrams": 208.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "60661819-4a2d-5026-89e0-35e7b94fbdfe",
+              "ingredientName": "Grünkohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gehackt"
+            },
+            {
+              "key": "512fd9e3-877e-5610-b548-4f8e265dbebc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "008fa782-4215-54c7-a6a9-e53a07d9c25b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "e870a13a-66d7-5cd8-86b8-203ddd1a3553",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "a6a7fa74-5643-5ddd-a910-b5e6ded0d9ee",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9889b8f7-9058-5e28-91e7-7d62e49ba87c",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "a338cab1-2c29-5fa9-a6d4-138cf1b50c9e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a611fc81-a73b-506e-8b85-a5f0c7dc807a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6d8aaf50-26dd-5ac6-8cba-addb97eb77a4",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "6e324c40-c938-5000-999f-54e1f597334e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer Hitze erhitzen und Zwiebel goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch hinzufügen und 1 Minute anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomaten aus der Dose, Salz, schwarzen Pfeffer und Habanero hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gemüsebrühe angießen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehackten Grünkohl portionsweise hinzufügen und nach jeder Zugabe umrühren, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15-18 Minuten köcheln lassen, bis das Blattgemüse sehr weich ist, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und vor dem heißen Servieren nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kelianfood.com/wp-content/uploads/2022/11/pastel-768x719.png",
+          "sourcePageUrl": "https://kelianfood.com/wp-content/uploads/2022/11/pastel-768x719.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

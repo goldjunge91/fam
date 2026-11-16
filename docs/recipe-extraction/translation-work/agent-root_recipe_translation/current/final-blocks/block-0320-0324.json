@@ -1,0 +1,1242 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:ba-one-skillet-chicken-with-buttery-orzo",
+      "slug": "ba-one-skillet-chicken-with-buttery-orzo",
+      "title": "Hähnchen mit buttrigem Orzo aus einer Pfanne",
+      "instructions": "Knusprige Hähnchenschenkel auf nussigem, geröstetem Orzo, mit süßem Fenchel und Lauch geschmort und zum Schluss mit Zitrone und Butter verfeinert. Ein Abendessen aus einer Pfanne, das nach viel mehr Aufwand schmeckt, als es macht. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/one-skillet-chicken-with-buttery-orzo",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel mit Knochen und Haut in einer Familienpackung und friere den Rest ein; sie sind pro Pfund viel günstiger als ausgelöste Schenkel, und die Knochen geben dem Orzo Geschmack.",
+        "Lass den Wein weg und lösche die Pfanne mit einem zusätzlichen Schuss Hühnerbrühe und einem Teelöffel Essig ab; den Unterschied merkst du kaum.",
+        "Verwende die ganze Fenchelknolle samt Grün und Stielen, damit nichts verschwendet wird. Ersetze Lauch durch gelbe Zwiebel, falls Lauch teuer ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Zusätzliche Hühnerbrühe mit einem Schuss Weißweinessig oder Zitronensaft",
+          "savings": "vermeidet den Kauf von a bottle of wine"
+        },
+        {
+          "forIngredientId": "fennel-bulb",
+          "swap": "1 Stange Sellerie plus eine Prise Fenchelsamen für die Anisnote",
+          "savings": "ca. $2.50 vs a frisch fennel bulb"
+        },
+        {
+          "forIngredientId": "leek",
+          "swap": "1 gelbe oder weiße Zwiebel, gehackt",
+          "savings": "ca. $1.50 vs a leek"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "aus einer Pfanne",
+        "Hähnchen",
+        "Orzo",
+        "unter der Woche",
+        "Gusseisen",
+        "Fenchel",
+        "Zitrone",
+        "Seelenfutter"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 320,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-one-skillet-chicken-with-buttery-orzo/",
+      "components": [
+        {
+          "key": "91d39808-f1eb-5c5d-8e99-3028f7f2341a",
+          "name": "Zutaten",
+          "servingGrams": 506,
+          "position": 0,
+          "items": [
+            {
+              "key": "0823d95f-c96d-55bf-a4c6-6eb3f2466471",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8d956acc-a119-5e57-8de2-26531a6a5065",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "8c52a4c4-b1e7-57ab-a7e5-ac6fc9e9bd77",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 mit Haut, mit Knochen chicken thighs (about 2 pounds total), patted dry"
+            },
+            {
+              "key": "48b4c4d7-2880-55a1-89ee-05034c21caba",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL, aufgeteilt"
+            },
+            {
+              "key": "d812ef29-50fe-548a-92a8-6115b81aba2d",
+              "ingredientName": "Fenchelknolle",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 bulb, gehackt, plus fronds, gehackt"
+            },
+            {
+              "key": "12365b1f-eac0-522d-9617-c63203a3a195",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 leek, white und pale green parts only, gehackt"
+            },
+            {
+              "key": "8492e038-01a3-5e50-9c11-723f7bc59158",
+              "ingredientName": "Orzo",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "48627a04-56c6-5aa5-81fb-8a2db288d64b",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tasse dry white wine"
+            },
+            {
+              "key": "b078e775-06a5-53da-865e-55096e65c4c6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 1/2 Tassen low-sodium, aufgeteilt"
+            },
+            {
+              "key": "4fd540e4-b5fd-5856-b26c-3a7464173fbd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL frisch juice + 1 TL zest (uses 1 lemon)"
+            },
+            {
+              "key": "38f9a5b4-6971-5b24-aec7-9d41787b6376",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL fein gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400F vor. Würze die Hähnchenschenkel rundherum mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Tbsp Butter in einer mittelgroßen gusseisernen Pfanne bei mittelhoher Hitze. Lege die Hähnchenschenkel mit der Hautseite nach unten in einer Lage hinein (Stücke, die zunächst nicht hineinpassen, später dazugeben, wenn das Hähnchen geschrumpft ist). Brate sie 6-8 Minuten, bis das Fleisch an den Rändern undurchsichtig und die Haut tief goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drehe das Hähnchen mit der Hautseite nach oben und stelle die Pfanne in den Ofen. Backe es ohne Deckel 10-15 Minuten, bis es durchgegart ist. Lege das Hähnchen auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle dieselbe Pfanne auf mittlere Hitze. Gib gehackte Fenchelknolle und Lauch hinein, würze mit Salz und Pfeffer und gare alles unter gelegentlichem Wenden etwa 5 Minuten, bis der Lauch an den Rändern goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Orzo dazu und gare ihn etwa 3 Minuten, bis die Nudeln geröstet sind und stellenweise nussig braun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den Weißwein dazu und gare alles unter Rühren etwa 1 Minute, bis die Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Hühnerbrühe nach und nach in Portionen von 1/2 cup dazu. Rühre dabei ständig und lass jede Zugabe aufnehmen, bevor du mehr hineingießt. Gare den Orzo 10-15 Minuten, bis er weich und die Brühe größtenteils aufgenommen ist, die Pfanne aber noch nicht trocken ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Pfanne vom Herd. Probiere und passe Salz und Pfeffer an. Rühre Zitronensaft, die übrige 1 Tbsp Butter und gehacktes Fenchelgrün ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lege das Hähnchen auf den Orzo und reibe zum Schluss Zitronenschale darüber. Servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/58c97bc548ee007350aee2d6/16:9/w_4991,h_2807,c_limit/one-skillet-chicken-with-buttery-orzo.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/one-skillet-chicken-with-buttery-orzo",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen mit buttrigem Orzo aus einer Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-parker-house-rolls-recipe",
+      "slug": "ba-parker-house-rolls-recipe",
+      "title": "Parker-House-Brötchen (Bon Appétit)",
+      "instructions": "Weiche, buttrige Abendbrötchen zum Zusammenklappen, mit zarter Krume und goldbraunen, flockig mit Salz bestreuten Oberseiten. Sie lassen sich in weichen Reihen auseinanderziehen. Ein zeitloser Klassiker für Thanksgiving, für den sich das Aufgehen des Teigs lohnt. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/parker-house-rolls-recipe",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aktive Trockenhefe ist im Glas viel günstiger als in einzelnen Tütchen; ein Glas reicht für Dutzende Portionen.",
+        "Pflanzenfett oder Schmalz gehört zu den günstigsten Backfetten und gibt den Brötchen ihre klassische weiche, zarte Krume.",
+        "Bereite den Teig einen Tag vorher zu und stelle die geformten Brötchen über Nacht kalt. Wenn du sie frisch aus dem Kühlschrank backst, gibt es keine Reste und keinen Zeitdruck kurz vorher."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lard",
+          "swap": "¼ cup weiche ungesalzene Butter für reichhaltigere Brötchen nur mit Butter verwenden",
+          "savings": "oft vorrätig; vermeidet den Kauf von shortening"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "2% Milch oder leicht verdünnte Buttermilch verwenden",
+          "savings": "verwendet what's im Kühlschrank"
+        },
+        {
+          "forIngredientId": "active-dry-yeast",
+          "swap": "2¼ tsp Instanthefe verwenden und den Vorteigschritt überspringen; die Hefe direkt zum Mehl geben",
+          "savings": "spart 5 Minuten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendbrötchen",
+        "Brot",
+        "Thanksgiving",
+        "Backen",
+        "Hefebrot",
+        "Feiertag",
+        "Beilage"
+      ],
+      "defaultServings": 36,
+      "status": "published",
+      "sortOrder": 321,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-parker-house-rolls-recipe/",
+      "components": [
+        {
+          "key": "c389a58d-bb39-520c-a55a-a0eb618ee451",
+          "name": "Zutaten",
+          "servingGrams": 37.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b129fb8b-6ed0-5ad3-9ede-e52c61adbb7c",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 (¼-oz.) envelope, about 2¼ TL."
+            },
+            {
+              "key": "87a4133e-d393-5cd4-91f7-8fa685cf7cdd",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5251bb7c-0030-5af1-bf7a-048fcda3ef6b",
+              "ingredientName": "Schmalz",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¼ Tasse vegetable shortening"
+            },
+            {
+              "key": "8cbefa44-ef3d-5688-9120-1e5a84b4d60f",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL."
+            },
+            {
+              "key": "897fc4c3-006d-563f-992d-3a9d9bd18abf",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1½ TL Diamond Crystal oder 1 TL Morton"
+            },
+            {
+              "key": "03b20df8-6b05-5c06-91ff-99af2ef43ab0",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 groß egg, zimmerwarm"
+            },
+            {
+              "key": "b191d93c-57e4-5df8-a90c-3747d920838a",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3½ Tassen (438 g) Weizen- flour, plus weitere"
+            },
+            {
+              "key": "acb9a5c2-862a-5022-937a-022410937846",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "für greasing bowl"
+            },
+            {
+              "key": "768339c7-7196-5cee-b260-2f574749fb11",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Tasse, geschmolzen"
+            },
+            {
+              "key": "1bf68970-94c8-5c37-afac-dd0446dc7a5f",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "für sprinkling"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle die Hefe mit ¼ cup warmem Wasser (110°–115°F) in einer kleinen Schüssel. Lass sie etwa 5 Minuten stehen, bis sie schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme Vollmilch in einem kleinen Topf bei mittlerer Hitze, bis sie gerade warm ist. Vermenge in einer großen Schüssel Pflanzenfett, Zucker und koscheres Salz. Gieße die warme Milch unter ständigem Rühren dazu und zerteile das Pflanzenfett in kleine Klümpchen (es schmilzt möglicherweise nicht ganz).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Hefemischung und Ei ein, bis alles verbunden ist. Gib das Mehl dazu und rühre kräftig mit einem Holzlöffel, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stürze den Teig auf eine leicht bemehlte Fläche und knete ihn mit bemehlten Händen etwa 5 Minuten, bis er glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fette eine große Schüssel leicht mit Pflanzenöl ein. Lege den Teig hinein und wende ihn, damit er rundherum mit Öl bedeckt ist. Decke die Schüssel locker mit Frischhaltefolie ab und lass den Teig an einem warmen Ort etwa 1½ Stunden gehen, bis er doppelt so groß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche eine 13x9\"-Backform leicht mit etwas geschmolzener Butter. Drücke die Luft aus dem Teig und teile ihn in 4 gleich große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rolle jedes Stück einzeln zu einem Rechteck von 12x6\" aus. Schneide es der Länge nach in drei 2\" breite Streifen und schneide dann jeden Streifen quer durch, sodass drei Rechtecke von 4x2\" entstehen (9 pro Stück, insgesamt 36).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche eine Hälfte jedes Rechtecks (etwa 2x2\") mit geschmolzener Butter und klappe die ungebutterte Hälfte darüber. Lass am Ende ¼\" unbedeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lege die Brötchen mit der flachen Seite nach unten und der Faltkante an eine kurze Seite der Form. Ordne sie nebeneinander in langen Reihen an, bis du 4 Reihen hast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Bestreiche die Oberseiten mit geschmolzener Butter, decke die Form locker mit Folie ab und stelle sie mindestens 30 Minuten und bis zu 6 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Heize den Ofen auf 350°F vor. Backe die Brötchen 25–35 Minuten, bis sie goldbraun und aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Bestreiche sie mit mehr geschmolzener Butter und streue flockiges Meersalz darüber. Vor dem Servieren leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6917520bae24eb7b4b2d7b90/16:9/w_1909,h_1074,c_limit/parker-house-rolls-ba-111425.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/parker-house-rolls-recipe",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Parker-House-Brötchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-peanut-meringue-cookies",
+      "slug": "ba-peanut-meringue-cookies",
+      "title": "Erdnuss-Baisergebäck",
+      "instructions": "Leichtes, rissiges Baisergebäck mit gehackten gerösteten Erdnüssen für einen salzig-süßen Knusper und eine luftige, marshmallowartige Mitte. Es besteht aus nur fünf Vorratszutaten und wird mit einer Küchenmaschine zubereitet. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/peanut-meringue-cookies",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Erdnüsse lose und zerstoße sie selbst, statt für bereits gehackte Nüsse mehr zu zahlen.",
+        "Bewahre übriges Eigelb für Pudding, Rührei oder Pasta Carbonara auf, damit nichts verschwendet wird.",
+        "Puderzucker ist in großen Packungen günstig. Du kannst ihn selbst herstellen, indem du normalen Zucker im Mixer fein mahlst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "roasted-peanuts",
+          "swap": "Trocken geröstete Erdnüsse oder gehackte Mandeln für ein anderes Nussaroma verwenden",
+          "savings": "Ähnlicher Preis"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "Stattdessen Mandelextrakt verwenden (nur halb so viel) für ein Marzipanaroma",
+          "savings": "Vergleichbar"
+        },
+        {
+          "forIngredientId": "kosher-salt",
+          "swap": "Feines Meersalz oder Tafelsalz; wegen der feineren Körnung etwas weniger verwenden",
+          "savings": "günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Baiser",
+        "Kekse",
+        "Erdnuss",
+        "Nachtisch",
+        "Eiweiß",
+        "Backen",
+        "von Natur aus milchfrei"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 322,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-peanut-meringue-cookies/",
+      "components": [
+        {
+          "key": "bbdd332f-e339-5a47-b6b2-a2e7af0183f5",
+          "name": "Zutaten",
+          "servingGrams": 39.49,
+          "position": 0,
+          "items": [
+            {
+              "key": "faa6c557-e23e-56b8-9e63-940a72cfda6d",
+              "ingredientName": "Geröstete Erdnüsse",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse plus 2 EL ohne Haut ungesalzen roasted peanuts, zerstoßen into groß bits"
+            },
+            {
+              "key": "6f789264-0634-5665-95de-a3489dfc9e5f",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 groß egg whites, zimmerwarm"
+            },
+            {
+              "key": "91120514-ae8a-5b82-ac11-814d03b62c48",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "29bacbb0-f5d9-5bab-ab7b-472fdd69ba42",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "6824a9fc-db4c-55ee-afac-c97d3f015d2d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F vor. Verteile die Erdnüsse auf einem Backblech mit Rand und zerstoße sie mit einem Becher oder Nudelholz in grobe Stücke. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße etwa 1 inch Wasser in einen mittelgroßen Topf und bringe es bei mittlerer Hitze zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Eiweiß, Puderzucker und Salz in der Schüssel einer Küchenmaschine. Stelle die Schüssel auf den Topf, sodass sie am Rand aufliegt, ohne das Wasser zu berühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle die Mischung ständig, bis sie sich heiß anfühlt (etwa 120F laut sofort ablesbarem Thermometer), ungefähr 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze die Schüssel auf die Küchenmaschine mit Schneebesenaufsatz und schlage die Masse auf hoher Stufe, bis weiche Spitzen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Vanille dazu und schlage weiter, bis das Baiser sehr dick und glänzend ist und feste Spitzen hält, insgesamt etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe mit einem Teigschaber die Hälfte der beiseitegestellten Erdnüsse unter, gib dann den Rest dazu und falte nur so weit, dass Streifen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Setze sofort gehäufte Esslöffel der Masse als Häufchen mit 1 1/2 inch Durchmesser auf ein mit Backpapier ausgelegtes Blech. Lass etwa 1 inch Abstand zwischen ihnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Schiebe die Baisers in den Ofen und halte die Tür mit dem Griff eines Holzlöffels einen Spalt offen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Backe sie 15 bis 20 Minuten, bis sie leicht aufgehen, an den Seiten aufreißen und sich außen trocken, innen aber noch weich anfühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Lege sie auf ein Kuchengitter und lass sie abkühlen. In einem luftdichten Behälter bei Zimmertemperatur bis zu 2 Tage aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/589e39a809ffa8f71863477e/16:9/w_4991,h_2807,c_limit/peanut-meringue-cookies.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/peanut-meringue-cookies",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Erdnuss-Baisergebäck",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-quinoa-fennel-and-pomegranate-salad",
+      "slug": "ba-quinoa-fennel-and-pomegranate-salad",
+      "title": "Quinoa-Salat mit Fenchel und Granatapfel",
+      "instructions": "Goldbrauner, mit Kreuzkümmel gewürzter Fenchel und lockere Quinoa mit frischen Zitrusfrüchten und vielen Kräutern vermengt, zum Schluss mit granatapfelroten Kernen verziert. Ein farbenfroher, erfrischender Getreidesalat, der sich wie ein Festessen anfühlt. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/quinoa-fennel-and-pomegranate-salad",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Fenchelknollen in der Saison (Herbst/Winter), wenn sie am günstigsten sind, und verwende das Fenchelgrün statt eines Teils des Dills.",
+        "Quinoa ist in Großgebinden viel günstiger als in kleinen Schachteln. Koche mehr und verwende den Rest die ganze Woche.",
+        "Lass Granatapfelkerne außerhalb der Saison weg; eine Handvoll getrocknete Cranberrys oder ein frischer gewürfelter Apfel bringt ähnlich farbige, süße Akzente und kostet weniger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "serrano",
+          "swap": "Jalapeño für mildere Schärfe oder eine Prise Chiliflocken",
+          "savings": "oft ein paar Cent günstiger pro Paprika"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Couscous oder Bulgur (Hinweis: nicht glutenfrei)",
+          "savings": "Roughly half the Preis pro Tasse"
+        },
+        {
+          "forIngredientId": "fennel-bulb",
+          "swap": "Dünn geschnittener Sellerie plus eine Prise Fenchelsamen für die Anisnote",
+          "savings": "etwa $2 pro Knolle"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "mediterran",
+        "Salat",
+        "Quinoa",
+        "Fenchel",
+        "Granatapfel",
+        "vegan",
+        "vegetarisch",
+        "gesund",
+        "Kräuter",
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 323,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-quinoa-fennel-and-pomegranate-salad/",
+      "components": [
+        {
+          "key": "84f659d7-cd6c-5328-bb52-a3faaf021795",
+          "name": "Zutaten",
+          "servingGrams": 257.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "de43604c-b84e-52a2-973c-45c557f2becc",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/4 Tasse plus 1 EL"
+            },
+            {
+              "key": "8f506225-137f-5d41-b824-b2b3945728c7",
+              "ingredientName": "Fenchelknolle",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroß bulbs (2 1/2 lb), in Scheiben geschnitten 1/4'-thick"
+            },
+            {
+              "key": "8c3669af-fabd-577a-9698-7527a72bbb74",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Salz, nach Geschmack"
+            },
+            {
+              "key": "2d3504e0-8d5b-5de5-b4bf-5e046730a349",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "frisch gemahlen schwarzer Pfeffer, nach Geschmack"
+            },
+            {
+              "key": "4932fb6c-8250-5b4e-a644-7adce276a100",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL frisch Zitronensaft"
+            },
+            {
+              "key": "f19725b0-f0ab-581d-8377-88324b61e66b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 TL gemahlen cumin"
+            },
+            {
+              "key": "6b00fe5f-8cdc-530d-a048-d413ac44ed24",
+              "ingredientName": "Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL sugar"
+            },
+            {
+              "key": "600dab75-4874-5ba1-84b3-677f121b3837",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse, rinsed"
+            },
+            {
+              "key": "0004aa11-69f4-5771-bb16-0d248401b0cf",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 lemon, in Stücke geteilt"
+            },
+            {
+              "key": "4ef7536e-a868-50f0-9b7f-e7690a5aaaeb",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 serrano chile, entkernt, gehackt"
+            },
+            {
+              "key": "4d1a5f0f-4561-5820-9914-ff1dbaa4aa57",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse gehackt frisch cilantro"
+            },
+            {
+              "key": "477b9024-eee3-5d2c-ab27-d98a27e61aa8",
+              "ingredientName": "Frische Minze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse gehackt frisch mint"
+            },
+            {
+              "key": "a9a108aa-6573-529c-a08c-bc38739af836",
+              "ingredientName": "Frischer Dill",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL gehackt frisch dill"
+            },
+            {
+              "key": "3ac369cd-555b-5479-84cd-5891f3187005",
+              "ingredientName": "Granatapfelkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "1/4 Tasse (from 1/2 klein pomegranate)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1/4 cup Olivenöl in einer großen Pfanne bei mittlerer Hitze. Gib geschnittenen Fenchel hinein und würze ihn mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare den Fenchel unter gelegentlichem Rühren 10 bis 12 Minuten, bis er gerade weich und leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Zitronensaft, Kreuzkümmel und Zucker ein und gare alles 1 Minute. Würze erneut mit Salz und Pfeffer und stelle die Pfanne beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe währenddessen Quinoa und 3 cups Wasser in einem mittelgroßen Topf zum Kochen. Decke den Topf ab, reduziere die Hitze und lass alles etwa 10 Minuten köcheln, bis die Quinoa gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Quinoa ab und gib sie zurück in den Topf. Decke ihn ab und lass sie 15 Minuten stehen. Lockere die Körner mit einer Gabel auf und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide mit einem kleinen scharfen Messer die gesamte Schale und das weiße Mark von der ganzen Zitrone ab. Schneide zwischen den Häuten entlang, um die Filets herauszulösen, entferne die Häute und hacke die Filets grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Zitronenfilets samt Saft und das übrige 1 Esslöffel Olivenöl zur Quinoa und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Fenchelmischung, gehackte Serrano-Chili, Koriander, Minze und Dill dazu. Vermenge alles vorsichtig und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib den Salat auf eine Servierplatte und streue vor dem Servieren Granatapfelkerne darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57afb81453e63daf11a4e622/master/w_940,h_791,c_limit/quinoa-fennel-and-pomegranate-salad-recipe.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/quinoa-fennel-and-pomegranate-salad",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Quinoa-Salat mit Fenchel und Granatapfel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-red-sauce-for-pizza",
+      "slug": "ba-red-sauce-for-pizza",
+      "title": "Rote Pizzasauce",
+      "instructions": "Eine frische Pizzasauce ohne Kochen, bei der süße zerdrückte Tomaten im Mittelpunkt stehen, verfeinert mit rohem geriebenem Knoblauch und gutem Olivenöl. Durch kurzes Kühlen verbinden sich die Aromen und die Sauce wird unter hoher Ofenhitze schön konzentriert. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/red-sauce-for-pizza",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine 28-oz-Dose zerdrückte Tomaten von der Hausmarke – sie ist Markenprodukten fast identisch und kostet nur halb so viel.",
+        "Bereite die doppelte Menge zu und friere Portionen in einer Muffinform ein. Die Sauce hält sich monatelang und spart dir einen künftigen Einkauf.",
+        "Verwende hier das günstigste ordentliche Olivenöl, denn es wird nicht gekocht und muss kein feines Finish liefern."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Ganze geschälte Tomaten von Hand zerdrücken oder für eine glattere Sauce Tomatenpassata verwenden",
+          "savings": "vergleichbar Kosten; whole peeled oft taste frischer"
+        },
+        {
+          "forIngredientId": "garlic",
+          "swap": "1/2 tsp Knoblauchpulver verwenden, falls du keine frischen Zehen hast",
+          "savings": "wenige Cent günstiger pro Rezept"
+        },
+        {
+          "forIngredientId": "fine-sea-salt",
+          "swap": "Koscheres Salz verwenden (nach Volumen etwas mehr)",
+          "savings": "günstiger pro TL"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Pizza",
+        "Sauce",
+        "ohne Kochen",
+        "vorbereiten",
+        "vegan",
+        "Tomate"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 324,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-red-sauce-for-pizza/",
+      "components": [
+        {
+          "key": "7184a1f5-c195-5a29-9313-3aa06d9aba3a",
+          "name": "Zutaten",
+          "servingGrams": 147.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "3bc42d61-dfa9-5c6e-b703-ea6e5abfb141",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Zehen, fein gerieben"
+            },
+            {
+              "key": "8e9be609-d325-52ee-bb38-51206877dd68",
+              "ingredientName": "Zerdrückte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 28-Unze Dose"
+            },
+            {
+              "key": "f6a27bc7-f945-54a9-894a-1764d7d52042",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "21c6e6d2-d7da-5285-8a45-da95c7db8dd4",
+              "ingredientName": "Feines Meersalz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1½ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe die Knoblauchzehen fein, damit sie in der Sauce schmelzen und keine rohen Stücke zurückbleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle geriebenen Knoblauch, zerdrückte Tomaten, Olivenöl und feines Meersalz in einer mittelgroßen Schüssel, bis alles gleichmäßig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Widerstehe dem Drang, mehr Salz hinzuzufügen; der Geschmack konzentriert sich, wenn die Sauce mit der Pizza bäckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Schüssel ab und kühle die Sauce mindestens 3 Stunden, damit sich die Aromen verbinden, bevor du sie verwendest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Sauce auf Pizzateig und backe die Pizza. Die Sauce lässt sich bis zu 1 Woche im Voraus zubereiten und gekühlt aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/58cacaddb8fa6f12a11e616c/16:9/w_4991,h_2807,c_limit/red-sauce-for-pizza.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/red-sauce-for-pizza",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von roter Pizzasauce",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

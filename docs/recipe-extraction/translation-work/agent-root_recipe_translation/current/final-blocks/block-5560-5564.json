@@ -1,0 +1,883 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-french-fries",
+      "slug": "gen-french-fries",
+      "title": "Gericht: französisch Fries",
+      "instructions": "Zubereitung: amerikanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Use an oven-backend method instead: vermengen fries mit minimal oil and backen at 425°F for 25 Minuten",
+        "Hinweis: Buy potatoes in bulk during sales and store in a cool place"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "american",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5560,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-french-fries/",
+      "components": [
+        {
+          "key": "c4d1fa11-c133-5d53-b909-363a3d2beac7",
+          "name": "Zutaten",
+          "servingGrams": 101.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "fed40ffe-5264-5b34-87f9-80ce477f8bff",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "dce8196b-1667-5837-b79d-c0bcd66970fc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5c9fef4d-7d95-555d-9d5a-870eb2046401",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6a130b51-6532-5c09-99f0-24d03d6f3304",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "60c5dce6-817a-58f4-8696-82f14d8348d9",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Schneide potatoes into 1/4-inch thick sticks and soak in cold water for 20 Minuten to remove starch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Drain potatoes and pat completely dry mit paper towels.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Hitze oil in a heavy pot or deep fryer to 325°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Fry potatoes in batches for 5 Minuten bis soft but not brown, then remove and drain.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Increase oil temperature to 375°F and fry potatoes again for 2-3 Minuten bis golden and crispy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Würze mit salt and pepper immediately after removing from oil.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Servieren hot mit ketchup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/WcLT4dH4hNEB9Uyo2kpu-CdS408=/3507x2338/filters:fill(auto,1)/homemade-french-fries-h1-5b44c9e446e0fb003702ba3a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/WcLT4dH4hNEB9Uyo2kpu-CdS408=/3507x2338/filters:fill(auto,1)/homemade-french-fries-h1-5b44c9e446e0fb003702ba3a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-waffles",
+      "slug": "gen-waffles",
+      "title": "Gericht: Waffles",
+      "instructions": "Zubereitung: amerikanisch Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Make a double batch and freeze extras for quick breakfasts throughout the week",
+        "Hinweis: Use store-brand syrup instead of pure maple syrup"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "american",
+        "breakfast",
+        "vegetarian"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5561,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-waffles/",
+      "components": [
+        {
+          "key": "ae24db6d-bcbb-5143-bea6-9a970e4be485",
+          "name": "Zutaten",
+          "servingGrams": 371.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "81e72368-1c68-5ac1-acd1-9c21cba7f0fd",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7a4e109d-76d5-5364-9e74-044c20a2a912",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "9f11de50-6b1f-5203-b214-a18ca065af65",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "19f13ef9-7089-56fd-bf52-d5ed24434b6b",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a60bc19a-40c6-567d-9569-865fac374849",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96d48080-1470-54e9-a901-94ed51619f66",
+              "ingredientName": "Milch",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 3/4 Tassen"
+            },
+            {
+              "key": "50a7757c-d4d0-57a7-8f7a-c2ae8ce43a20",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel geschmolzen"
+            },
+            {
+              "key": "a311723d-f1b0-5d78-b8af-c13220b13639",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b7b12bed-167f-54c2-aa10-56bed0d76d0f",
+              "ingredientName": "Ahornsirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: PreHitze waffle iron.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Whisk together flour, baking powder, salt, and sugar in a large bowl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: In another bowl, beat eggs and mix mit milk, melted butter, and vanilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Gieße wet ingredients into dry ingredients and rühren bis just combined; batter will be lumpy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Lightly grease waffle iron and pour batter into each section.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Kochen according to waffle iron instructions bis golden brown, about 3-4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Servieren warm topped mit maple syrup and butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Jrjr8zHrDVCR1flePsHkeF8b8FM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Yeasted-Belgian-Waffles-LEAD-03-c23a1bb2341145d3b9cfd0028acc4219.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Jrjr8zHrDVCR1flePsHkeF8b8FM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Yeasted-Belgian-Waffles-LEAD-03-c23a1bb2341145d3b9cfd0028acc4219.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cereal-with-milk",
+      "slug": "gen-cereal-with-milk",
+      "title": "Gericht: Cereal mit Milch",
+      "instructions": "Zubereitung: amerikanisch Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy generic brand cereal instead of name brands for half the cost",
+        "Hinweis: Use gefroren berries instead of frisch to save money and prevent waste"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "american",
+        "breakfast",
+        "vegetarian"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5562,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cereal-with-milk/",
+      "components": [
+        {
+          "key": "26327631-1a69-5d2c-83e3-d13bd47de575",
+          "name": "Zutaten",
+          "servingGrams": 509,
+          "position": 0,
+          "items": [
+            {
+              "key": "81e70f23-c27a-5b6e-8c6b-7797f99a3157",
+              "ingredientName": "tiefgekühltes Frühstückssandwich",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "86323a09-fb77-54e8-b07f-9ad5fecba3b1",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "b54db205-8a26-5d85-baf2-ae9087d65497",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 in Scheiben geschnitten"
+            },
+            {
+              "key": "6a6ace74-6f5a-58ae-a7c0-4f459a7f16ff",
+              "ingredientName": "Erdbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Gieße cereal into a bowl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Hinzufügen geschnitten banana and strawberries.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Gieße milk over cereal and fruit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Eat immediately while cereal is still crispy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/4ayqrFyn1axndFRP9N7b_NDIjUo=/3000x2001/filters:fill(auto,1)/milk-and-cereal-breakfast-bars-recipe-4146454-hero-01-05028a8d7ccf47b086b476e781d8d00f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/4ayqrFyn1axndFRP9N7b_NDIjUo=/3000x2001/filters:fill(auto,1)/milk-and-cereal-breakfast-bars-recipe-4146454-hero-01-05028a8d7ccf47b086b476e781d8d00f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jello-with-whipped-cream",
+      "slug": "gen-jello-with-whipped-cream",
+      "title": "Gericht: Jello mit Whipped Cream",
+      "instructions": "Zubereitung: amerikanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy gelatin powder in bulk at discount stores for next to nothing",
+        "Hinweis: Use store-brand whipped cream or make your own from heavy cream"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "american",
+        "snack",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5563,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jello-with-whipped-cream/",
+      "components": [
+        {
+          "key": "aec6432d-df2d-50b3-9c3a-c0d3a664684d",
+          "name": "Zutaten",
+          "servingGrams": 68.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6717ac1f-0629-5629-b8ba-2c75d1e717c6",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "8ca553b4-e020-5569-b501-a82204541ff5",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "984b4633-cd2c-5ab6-a832-acd746aa4164",
+              "ingredientName": "Frischkäse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0957157f-4715-5446-a5e3-7a83e3044455",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Gieße boiling water into a bowl and dissolve gelatin powder completely.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Rühren in cold water bis fully combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Gieße mixture into a 4-cup dish and refrigerate for at least 4 hours bis fully set.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Top mit whipped cream and a sprinkle of sugar just before serving.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Servieren chilled.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://itseverythingdelicious.com/wp-content/uploads/2018/12/Lime-Jello-Fluff-Salad-17.jpg",
+          "sourcePageUrl": "http://itseverythingdelicious.com/wp-content/uploads/2018/12/Lime-Jello-Fluff-Salad-17.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mini-meatballs",
+      "slug": "gen-mini-meatballs",
+      "title": "Gericht: Mini Meatballs",
+      "instructions": "Zubereitung: Swedish Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy gemahlen beef on sale and freeze bis ready to use",
+        "Hinweis: Use Greek yogurt instead of sour cream for a cheaper, healthier swap"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "swedish",
+        "dinner"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5564,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mini-meatballs/",
+      "components": [
+        {
+          "key": "555e43b0-9776-5139-9d04-dd640f0d6b1f",
+          "name": "Zutaten",
+          "servingGrams": 175.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "42644c03-692b-532f-88df-d6e65005fb60",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b39f3473-b1e8-56ae-b024-bb1cb66e21d8",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "243d520e-39c7-5d60-96ac-33fb47d18ff6",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "394e5356-aea1-5847-9234-de0dd38ec9d5",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse fein gehackt"
+            },
+            {
+              "key": "b38eeb14-51a5-5b1b-91ed-37275f02d4b9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "a30bf803-e147-5ab7-80c1-4f7921e201e7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "638d979b-30e8-5c82-8df4-7ffb07848a06",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "316da8dd-f340-5ed2-b3fb-c6d5d7c56b5b",
+              "ingredientName": "saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5c38fbc1-cae8-5b40-a0dc-7f27dfaba719",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "02dbf5f8-c723-528d-8722-e6347a195b07",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Mische gemahlen beef, breadcrumbs, egg, minced onion, salt, and pepper in a bowl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Rolle mixture into 1-inch balls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Melt butter in a large skillet over mittel-hoch Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Brown meatballs in batches for 5-7 Minuten, turning occasionally, then set aside.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: In the same skillet, rühren together sour cream, beef broth, and paprika.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib zurück meatballs to skillet and köcheln for 10 Minuten bis sauce eindickens slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Servieren hot over egg noodles or mit rice.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/16/64/85/picclyM96.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/16/64/85/picclyM96.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1393 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-cha-trung-hap-vietnamese-steamed-egg-meatloaf",
+      "slug": "egg-cha-trung-hap-vietnamese-steamed-egg-meatloaf",
+      "title": "Cha Trung Hap (Vietnamesischer gedämpfter Eier-Hackbraten mit Schweinefleisch)",
+      "instructions": "Seidiger gedämpfter Pudding aus Schweinefleisch und Ei, durchzogen von Glasnudeln, erdigen Pilzen und Frühlingszwiebel, mit einer glänzenden Schicht Eigelb bestrichen. Diese herzhafte, wohltuende Beilage macht Com-Tam-Teller mit gebrochenem Reis so beliebt und reicht für mehrere Tage.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Dampfgarer da? Stelle eine hitzebeständige Schüssel auf ein umgedrehtes Förmchen oder einen Ring aus zusammengedrehter Folie in einen beliebigen Topf mit Deckel und einem inch köchelndem Wasser.",
+        "Kaufe einmal eine Packung Glasnudeln und getrocknete Pilze; sie halten sich monatelang im Vorratsschrank und senken mit jeder Zubereitung die Kosten pro Mahlzeit.",
+        "Strecke die Masse weiter, indem du ein zusätzliches verquirltes Ei und eine weitere Handvoll Nudeln untermischst. So werden aus einem halben Pfund Schweinefleisch vier vollständige Abendessen mit Reis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shiitake",
+          "swap": "Gewöhnliche Champignons oder braune Champignons, fein gehackt",
+          "savings": "spart etwa $4 vs shiitake while keeping the earthy chew"
+        },
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchenhackfleisch oder Putenhackfleisch",
+          "savings": "Often a bit günstiger and just as silky"
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce plus eine Prise Salz",
+          "savings": "Eine Vorratszutat verwenden, falls keine Fischsauce vorrätig ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "vietnamesisch",
+        "Ei",
+        "gedämpft",
+        "Schweinefleisch",
+        "zum Vorbereiten",
+        "Abendessen",
+        "ein Gericht",
+        "Com Tam"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 285,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-cha-trung-hap-vietnamese-steamed-egg-meatloaf/",
+      "components": [
+        {
+          "key": "9ff9da32-7e58-5d66-ae70-47ef4c70cb6b",
+          "name": "Zutaten",
+          "servingGrams": 321.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ca03a59-41ed-5b2b-b918-8de919e006e7",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa ein halbes Pfund"
+            },
+            {
+              "key": "41876e54-8dee-588e-8173-f7afb53f4363",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 go into mix; reserve 1 yolk für glossy top"
+            },
+            {
+              "key": "b62d0699-f703-5a86-b9d2-908e91353ee1",
+              "ingredientName": "Glasnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "bean-thread / cellophane noodles, soaked und snipped short"
+            },
+            {
+              "key": "9f27cc21-2b73-505c-a34e-2e6bdabd0155",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "stand-in für wood-ear; finely gehackt für chew"
+            },
+            {
+              "key": "c54a7ac2-36f2-541b-ae4c-fc5285004a32",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "white und green parts, thinly in Scheiben geschnitten"
+            },
+            {
+              "key": "c5383a7c-0b20-58ab-a090-a23848c317d0",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "1ff36316-8674-5769-ae24-e5920d012133",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "809a1f22-6345-569c-81a4-127c9460d599",
+              "ingredientName": "Fischsauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aadb8389-fb5d-5863-b1b6-15e44d7caf5f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82f632a5-0d59-54a7-8039-a5a9468a9f3d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8ce66af-68c1-5297-88a6-bfb1295de2fe",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d663801a-80d7-5ac1-9db2-b9c74ea4cd64",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum lightly grease dish"
+            },
+            {
+              "key": "bf4e704c-67d1-52f7-9013-58c3a6f5d883",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "broken oder jasmine rice, zum Servieren"
+            },
+            {
+              "key": "63f21f3b-9ee6-53d8-808e-375b3caf2e1c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Glasnudeln 8-10 Minuten in warmem Wasser ein, bis sie weich und durchscheinend sind. Gieße sie ab und schneide sie mit einer Schere in etwa 1-inch lange Stücke. Hacke den eingeweichten Pilz fein (getrocknete Pilze zuerst ausdrücken).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage alle 4 Eier in eine Schüssel, nimm ein Eigelb heraus und stelle es in einer kleinen Tasse für die Oberfläche beiseite. Verquirle die übrigen 3 Eier und das restliche Eiweiß glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Schweinehackfleisch, geschnittene Nudeln, gehackten Pilz, Frühlingszwiebel, gehackte Schalotte und Knoblauch, Fischsauce, Zucker, Pfeffer und Salz zum Ei. Vermenge alles mit der Hand oder einer Gabel etwa 1 Minute, bis die Masse vollständig verbunden und leicht klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fette eine flache hitzebeständige Schale oder Schüssel leicht ein, gib die Mischung hinein und streiche die Oberfläche glatt, damit sie gleichmäßig dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite den Dampfgarer vor: Stelle einen Rost in einen breiten Topf, gib einen inch Wasser hinein und bringe es zum sanften Köcheln. Stelle die Schale auf den Rost, decke den Topf ab und dämpfe die Masse bei mittlerer Hitze 22-25 Minuten, bis der Pudding gestockt ist und ein in die Mitte gestecktes Messer sauber ohne rosa Schweinefleisch herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage in den letzten Minuten das beiseitegestellte Eigelb leicht auf und bestreiche die Oberfläche dünn und gleichmäßig damit. Decke den Topf wieder ab und dämpfe weitere 2-3 Minuten, bis das Eigelb glänzend goldgelb gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Schale vorsichtig heraus (sie ist heiß und am Deckel kann Wasser sein; neige ihn von dir weg). Gieße angesammelte Flüssigkeit ab und lass den Hackbraten 5 Minuten ruhen. Mit Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide ihn in Spalten oder Quadrate und serviere ihn heiß auf Reis mit etwas zusätzlicher Fischsauce. Reste innerhalb von 2 Stunden kühlen, innerhalb von 3 Tagen essen und bis zum dampfend heißen Zustand erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/C%C6%A1m_t%E1%BA%A5m_s%C6%B0%E1%BB%9Dn_ch%E1%BA%A3_%28ch%E1%BA%A3_tr%E1%BB%A9ng%29_t%E1%BA%A1i_qu%C3%A1n_c%C6%A1m_b%C3%ACnh_d%C3%A2n_%C4%91%C6%B0%E1%BB%9Dng_NS_ng25th9n2022_%28mi%E1%BA%BFng_ch%E1%BA%A3_tr%E1%BB%A9ng%29_%281%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:C%C6%A1m_t%E1%BA%A5m_s%C6%B0%E1%BB%9Dn_ch%E1%BA%A3_(ch%E1%BA%A3_tr%E1%BB%A9ng)_t%E1%BA%A1i_qu%C3%A1n_c%C6%A1m_b%C3%ACnh_d%C3%A2n_%C4%91%C6%B0%E1%BB%9Dng_NS_ng25th9n2022_(mi%E1%BA%BFng_ch%E1%BA%A3_tr%E1%BB%A9ng)_(1).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Phương Huy, CC0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Cha Trung Hap (vietnamesischem gedämpftem Eier-Hackbraten mit Schweinefleisch)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-tortang-talong",
+      "slug": "egg-tortang-talong",
+      "title": "Tortang Talong (Philippinisches Auberginen-Omelett)",
+      "instructions": "Rauchig angekohlte, aufgefächerte Aubergine in gewürztes, verquirltes Ei getaucht und in der Pfanne zu einem zarten Omelett mit feinen Spitzen gebraten. Aus einer Aubergine und ein paar Eiern wird ein wohltuendes philippinisches Frühstück mit Reis und süßem Bananenketchup.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Auberginen werden stark reduziert, wenn sie weich oder schrumpelig sind. Solche überreifen Exemplare werden für dieses Gericht perfekt weich und fallen zusammen – greif also zum Gemüse aus der Rabattkiste.",
+        "Kein Gasbrenner da? Der Grill im Ofen funktioniert genauso gut und kostet nichts. Schiebe den Rost weit nach oben und beobachte die Aubergine, damit die Schale schwarz wird, ohne das Fruchtfleisch auszutrocknen.",
+        "Mach das Gericht für wenige Cent sättigender, indem du Reis vom Vortag im übrig gebliebenen Ei-Öl in der Pfanne brätst, statt etwas Zusätzliches zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "eggplant",
+          "swap": "2 japanische Auberginen verwenden; sie sind schlanker, garen schneller und lassen sich schön auffächern",
+          "savings": "Oft günstiger pro Stück und in der halben Zeit gar"
+        },
+        {
+          "forIngredientId": "banana-ketchup",
+          "swap": "Normales Ketchup mit einer winzigen Prise Zucker imitiert den süß-säuerlichen Dip",
+          "savings": "spart a specialty-aisle trip"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "1/2 cup flüssiges Vollei auf dieselbe Weise verquirlen",
+          "savings": "Praktisch, wenn für Protein ein Karton vorrätig ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "philippinisch",
+        "Ei",
+        "Frühstück",
+        "vegetarisch",
+        "Aubergine",
+        "preiswert"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 286,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-tortang-talong/",
+      "components": [
+        {
+          "key": "7ca34757-9ebb-5a90-9eb4-1ead9fd26084",
+          "name": "Zutaten",
+          "servingGrams": 506.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "650fe8a2-5fa3-53d4-bc10-06dba9dbf90f",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bc7c7b3-83ff-5aae-acbc-4b96cd8f591a",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c220804-30c7-57fc-a01c-f9fd700297e2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8083d6b-7bdb-59f1-9285-45b4fa249a29",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "105ce2f9-aa28-5cb8-9f61-b2e5ecef4184",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d874133e-0642-54dc-86c4-abe59336f53d",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": "gehackt into egg für extra savor"
+            },
+            {
+              "key": "82239f64-ae88-5932-ab51-7d607fa59f1e",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "steamed, zum Servieren"
+            },
+            {
+              "key": "bfe5bb1b-a6d3-5303-8c4f-427e31c237a2",
+              "ingredientName": "Bananenketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Dippen"
+            },
+            {
+              "key": "370ad2e4-b413-5a0c-9530-9525258d54f6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in Scheiben zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Aubergine anrösten: Lege sie direkt über eine mittelhohe Gasflamme oder unter einen hoch eingestellten Ofengrill, 4 inches vom Heizelement entfernt. Wende sie alle 2-3 Minuten mit einer Zange, bis die Schale vollständig schwarz und blasig und das Fruchtfleisch ganz weich und zusammengefallen ist, etwa 10-15 Minuten. Lass keine hellen Stellen übrig; das Anrösten sorgt für das Raucharoma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Aubergine abkühlen, bis du sie gefahrlos anfassen kannst. Ziehe dann die gesamte verkohlte Schale ab und lass den Stiel als Griff dran. Lege die geschälte Aubergine auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke das Fruchtfleisch mit einer Gabel vorsichtig vom Stiel aus flach und fächerförmig zu einem gleichmäßigen Oval auseinander, damit es Ei aufnimmt und schnell durchgart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle die Eier in einer breiten, flachen Schüssel mit Salz, Pfeffer und nach Wunsch gehacktem Knoblauch, bis die Mischung gleichmäßig und ohne Streifen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Pflanzenöl in einer beschichteten Pfanne bei mittlerer Hitze, bis es schimmert. Halte die Aubergine am Stiel, tauche sie zum Überziehen beider Seiten in das Ei, lege sie flach in die Pfanne und gieße übriges Ei darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate sie ungestört 2-3 Minuten, bis die Unterseite gestockt und goldbraun ist. Wende sie dann vorsichtig mit einem breiten Pfannenwender und gare die zweite Seite weitere 2-3 Minuten, bis sie gebräunt und das Ei ohne Flüssigkeit vollständig gestockt ist (für ein sicheres Frühstück Ei vollständig auf 160F garen, nicht flüssig lassen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Omelett auf einen Teller gleiten, garniere es mit geschnittener Frühlingszwiebel und serviere es heiß mit gedämpftem Reis und Bananenketchup zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tortang_talong.jpg/1280px-Tortang_talong.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tortang_talong.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Aerous, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Tortang Talong (philippinischem Auberginen-Omelett)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-telur-balado-sambal",
+      "slug": "egg-telur-balado-sambal",
+      "title": "Telur Balado (Indonesische Eier in Chili-Sambal)",
+      "instructions": "Gebratene hart gekochte Eier mit goldbraun gebräunter Haut in einem leuchtend roten, süß-scharfen Chili-Tomaten-Sambal mit Zitronengras und Kaffirlimette gewendet. Ein Klassiker aus der Minangkabau-Küche, der einfachen Reis für kleines Geld in ein Festessen verwandelt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Chilis sind das Herzstück von Balado und kosten nur wenige Cent. Kaufe einmal einen Beutel; er reicht für monatelanges Kochen.",
+        "Kein Mixer da? Hacke Schalotten, Knoblauch und eingeweichte Chilis fein und zerdrücke sie mit der Rückseite eines Löffels. Das dauert nur ein paar Minuten länger.",
+        "Lass frische Kaffirlimettenblätter weg, falls dein Laden sie nicht führt. Ein Streifen Schale einer normalen Limette sorgt für eine ähnliche Zitrusnote – von der Limette, die du ohnehin gekauft hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dried-chili",
+          "swap": "1 tbsp Sambal Oelek oder 2 frische rote Jalapeños für Schärfe und Farbe einmixen",
+          "savings": "Verwendet ein Glas aus dem Vorrat, das vielleicht schon da ist"
+        },
+        {
+          "forIngredientId": "palm-sugar",
+          "swap": "1 tbsp brauner Zucker – sorgt für fast dieselbe karamellige Süße",
+          "savings": "spart ca. $0.36 and it's already in most kitchens"
+        },
+        {
+          "forIngredientId": "shallot",
+          "swap": "1 kleine rote Zwiebel, die in Indonesien häufig Schalotten ersetzt",
+          "savings": "spart etwa $3 over 5 shallots"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indonesisch",
+        "Ei",
+        "scharf",
+        "Sambal",
+        "Abendessen",
+        "Reisschüssel",
+        "vegetarisch",
+        "Minangkabau",
+        "Nasi Padang"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 287,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-telur-balado-sambal/",
+      "components": [
+        {
+          "key": "5579b084-f9fa-5c64-88dc-86e3f95b7aff",
+          "name": "Zutaten",
+          "servingGrams": 231.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "96bbc6ea-9657-55c1-b9c6-3106b59e53e2",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31fbc00e-8472-5941-acd7-d9af171b2bf2",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 60,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 min in heißem Wasser eingeweicht, damit es weich wird; für weniger Schärfe entkernen"
+            },
+            {
+              "key": "c4610f5f-75bb-5958-9717-787ecfa4adc4",
+              "ingredientName": "Schalotte",
+              "grams": 125,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f97e1e43-8f36-509a-af78-f0c3b585b886",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "011a0d08-44ab-50c3-928c-bb5d550e124c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "ripe, roughly gehackt"
+            },
+            {
+              "key": "4c75fb4f-870e-5f58-8c12-4116897e7795",
+              "ingredientName": "Pflanzenöl",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 tbsp zum fry eggs, 2 tbsp für sambal"
+            },
+            {
+              "key": "731b1086-0b74-5e77-9bd4-1d3f9f947913",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "angedrückt, nur der helle untere Teil des Stängels"
+            },
+            {
+              "key": "8b7f451d-c7fd-52ef-81cd-66b26639a2ff",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e2b6873-e557-5ac4-b637-db7a15e1ec26",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "oder brown sugar"
+            },
+            {
+              "key": "5a64c3e2-17e8-517e-8668-684a6e0e3335",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "112dfcca-3edf-553a-85ff-28a9f68e1e9f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "half juiced into sambal, half zum Servieren"
+            },
+            {
+              "key": "47ed407f-9134-5cf5-8e54-bc3d099e5fb2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die 6 Eier in einen Topf, bedecke sie mit kaltem Wasser, das etwa einen inch über den Eiern steht und bringe es zum Kochen. Lass sie dann 9-10 Minuten köcheln, bis das Eigelb vollständig gestockt ist (Balado-Eier sollen durchgegart und nicht flüssig sein). Gieße sie ab, schrecke sie mit kaltem Wasser ab und schäle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche währenddessen die 6 getrockneten Chilis 10 Minuten in heißem Wasser ein, bis sie weich sind, und gieße sie ab. Mixe Chilis, Schalotten, Knoblauch und gehackte Tomate zu einer groben, glatten roten Paste. Gib bei Bedarf einen Schuss Wasser dazu, damit sich der Mixer dreht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe die geschälten Eier vollständig trocken. Erhitze 4 tbsp Pflanzenöl in einer beschichteten oder gut eingebrannten Pfanne bei mittelhoher Hitze, bis es schimmert. Brate die Eier unter Wenden 3-4 Minuten, bis die Haut Blasen wirft, goldbraun wird und leicht knusprig ist. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittel und gib die übrigen 2 tbsp Öl dazu. Füge angedrücktes Zitronengras und Kaffirlimettenblätter hinzu und brate sie 30 Sekunden, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die gemixte Chilipaste hinein. Brate sie unter häufigem Rühren 8-12 Minuten, bis sie dunkel ziegelrot wird, der rohe Knoblauchgeruch verschwunden ist und sich am Rand Öl absetzt. Diese vollständig gegarte Stufe heißt Matang und ist entscheidend für den richtigen Balado-Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Palmzucker und Salz und presse den Saft einer halben Limette hinein. Verrühre und probiere: Die Mischung soll ausgewogen süß, scharf, säuerlich und herzhaft schmecken. Salz und Zucker nach Bedarf anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die gebratenen Eier zurück in die Pfanne und wende sie vorsichtig 1-2 Minuten im glänzenden Sambal, bis jedes Ei überzogen ist. Nach Wunsch halbieren oder ganz lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Entferne Zitronengras und Limettenblätter. Heiß auf gedämpftem Reis servieren, mit Koriander garnieren und die übrigen Limettenspalten dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Telur_Balado_101417.jpg/1280px-Telur_Balado_101417.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Telur_Balado_101417.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Abdul Hanif Arromy, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Telur Balado (indonesischen Eiern in Chili-Sambal)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-burmese-golden-egg-curry",
+      "slug": "egg-burmese-golden-egg-curry",
+      "title": "Burmesisches goldenes Eier-Curry",
+      "instructions": "Hart gekochte Eier in Kurkuma gewendet und gebraten, bis ihre Schalen goldgelb und leicht eingedellt sind. Anschließend in einer glänzenden, herzhaften und duftenden Sauce aus Zwiebel, Tomate und Kurkuma geschmort. Einfache Vorratszutaten, großer Wohlfühlgeschmack auf einer Schüssel Reis.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche die Eier selbst, statt vorgekochte zu kaufen, und halbiere so fast die Kosten. Schäle und trockne sie vor dem Wenden in Kurkuma gut ab.",
+        "Brate die Eier in derselben Pfanne, in der du anschließend die Sauce zubereitest. Das mit Kurkuma gefärbte Öl würzt die Zwiebeln kostenlos.",
+        "Ein Löffel Tomatenmark und eine frische Tomate ergeben dieselbe tief-aromatische, glänzende Sauce wie eine ganze Dose Tomaten, aber für einen Bruchteil des Preises."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hard-boiled-eggs",
+          "swap": "4 frische Eier 10 Minuten kochen, abkühlen, schälen und genauso verwenden",
+          "savings": "spart etwa $1.10 over pre-cooked hard-boiled eggs"
+        },
+        {
+          "forIngredientId": "ginger-paste",
+          "swap": "1 tsp frisch geriebenen Ingwer oder eine Prise gemahlenen Ingwer verwenden",
+          "savings": "Ein paar Cent günstiger, falls frischer Ingwer vorhanden ist"
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "1 tsp Sojasauce verwenden, damit das Gericht vegetarisch bleibt und trotzdem herzhafte Würze erhält",
+          "savings": "etwa gleich teuer cost"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "burmesisch",
+        "Ei",
+        "Curry",
+        "Abendessen",
+        "Herdgericht",
+        "studentenküchengeeignet",
+        "Kurkuma"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 288,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-burmese-golden-egg-curry/",
+      "components": [
+        {
+          "key": "39706e84-ea19-5ec1-ae62-48f751c9bd9c",
+          "name": "Zutaten",
+          "servingGrams": 501.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c81de9b7-86c7-51cc-ab68-76698f3223c4",
+              "ingredientName": "Hart gekochte Eier (geschält)",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "geschält"
+            },
+            {
+              "key": "e893ef5c-b7f1-500e-9bea-c2697e984378",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Braten eggs und gravy base"
+            },
+            {
+              "key": "9d9f2c37-0a5d-5be5-a922-8ac6f80c20b2",
+              "ingredientName": "Kurkuma",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "half für coating eggs, half für gravy"
+            },
+            {
+              "key": "51620d06-3464-5547-bbdd-2e8dd24939f0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "3f145491-4d9c-55a9-957e-ae9ca4d2aa59",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "279b7d4e-9411-55e2-846f-96bdf2484e0a",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3afd5b9-d944-5463-91c3-87495bab7198",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "2dc87e23-7058-519c-ae2b-03868ba5b7ec",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83d86593-b29f-50ca-acfe-439bc2036b7a",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "für color und mild warmth"
+            },
+            {
+              "key": "6c569d8a-fb6d-5b68-b0a1-37385cefd60d",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "optionale Schärfe"
+            },
+            {
+              "key": "8835c107-dce4-553b-9b39-2d9369b4c9bd",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "für savory depth"
+            },
+            {
+              "key": "d7fb6a6c-003a-58fb-8f93-09d560dc08e8",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2602d15-950d-5342-9f20-871e801b8b8b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be808f84-d375-5f65-a6c3-6dfae4cee4f8",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "zum form gravy"
+            },
+            {
+              "key": "9391c774-cda9-5eea-8053-40e9a01049c1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "9d5218a8-52ab-5d3f-9c11-b8bfcd31d68e",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "steamed, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die 4 hart gekochten Eier und tupfe sie vollständig trocken. Wende sie in einer kleinen Schüssel vorsichtig mit 0.75 tsp Kurkuma und einer Prise Salz, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 tbsp Pflanzenöl in einer beschichteten oder schweren Pfanne bei mittlerer Hitze, bis es schimmert. Gib die Eier hinein und rolle sie alle 30 Sekunden, während sie 3-5 Minuten braten, bis die Schalen goldgelb sind und leicht Blasen werfen und Dellen bekommen. Hebe die Eier heraus und stelle sie beiseite; sie sind bereits vollständig gegart, es geht nur darum, die Oberfläche zu färben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das übrige 1 tbsp Öl in dieselbe Pfanne. Füge gehackte Zwiebel und eine Prise Salz hinzu und gare sie bei mittlerer Hitze 6-8 Minuten unter häufigem Rühren, bis sie weich und an den Rändern goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gehackten Knoblauch, Ingwerpaste, die übrigen 0.75 tsp Kurkuma, Paprikapulver und nach Wunsch Cayennepfeffer ein. Gare alles unter ständigem Rühren etwa 1 Minute, bis es duftet und die Gewürze nicht anbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackte Tomate und Tomatenmark dazu. Gare alles 4-5 Minuten und zerdrücke dabei die Tomate, bis sie zu einer dicken, marmeladigen, glänzenden Grundlage zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Wasser und Fischsauce dazu und füge restliches Salz und Pfeffer hinzu. Bring die Sauce sanft zum Köcheln und lass sie 3-4 Minuten zusammenziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die gebratenen Eier in die Sauce und löffle Sauce darüber. Lass alles 5-7 Minuten sanft köcheln und wende die Eier einmal, bis die Sauce reichhaltig, glänzend und leicht eingedickt und die Eier durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere die Sauce und passe Salz oder Fischsauce an. Nach Wunsch mit gehacktem Koriander garnieren und heiß auf gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Spicy_Anda_Curry.jpg/1280px-Spicy_Anda_Curry.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Spicy_Anda_Curry.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Spicy Anda Curry, CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von burmesischem goldenem Eier-Curry",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-huevos-divorciados",
+      "slug": "egg-huevos-divorciados",
+      "title": "Huevos Divorciados (Getrennte Eier)",
+      "instructions": "Zwei Spiegeleier auf leicht knusprigen Maistortillas, getrennt durch einen Streifen warmes Bohnenmus: Das eine Ei ist mit leuchtend roter Salsa roja bedeckt, das andere mit säuerlicher Salsa verde. Ein beliebtes mexikanisches Frühstück aus der Cantina, das zwei grundlegende Salsas auf einem auffälligen, fotogenen Teller vereint.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Röste Tomaten, Tomatillos und Chilis in einer einzigen trockenen Pfanne an. So brauchst du keine besondere Ausrüstung und bekommst mit günstigen Zutaten viel Geschmack.",
+        "Eine Dose Bohnenmus erfüllt zwei Aufgaben: Sie ist die typische Trennlinie und zugleich sättigendes Eiweiß, das den Teller für wenige Cent streckt.",
+        "Cotija ist optional – etwas beliebiger zerkrümelter salziger Käse oder sogar Salz und Limette halten die Kosten niedrig, ohne den Charakter des Gerichts zu verlieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tomatillos",
+          "swap": "Salsa Verde aus dem Glas verwenden und das Mixen der grünen Salsa überspringen",
+          "savings": "Spart Vorbereitungszeit und vermeidet den Kauf frischer Tomatillos"
+        },
+        {
+          "forIngredientId": "cotija",
+          "swap": "Stattdessen Feta oder Queso Fresco zerkrümeln",
+          "savings": "Oft bereits im Kühlschrank vorhanden"
+        },
+        {
+          "forIngredientId": "serrano",
+          "swap": "Eine zweite Jalapeño oder eine Prise Chiliflocken für die rote Salsa verwenden",
+          "savings": "Eine Chilisorte reicht für beide Salsas"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Ei",
+        "Frühstück",
+        "vegetarisch",
+        "Salsa",
+        "scharf",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 289,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-huevos-divorciados/",
+      "components": [
+        {
+          "key": "2130ab8b-fe66-5bba-8d80-fb51cbee19c2",
+          "name": "Zutaten",
+          "servingGrams": 692.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "357f033b-4baa-5f6a-9b5e-2e584dcb5016",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55a6e3fa-edce-5927-a861-5043045e4c63",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Maistortillas (keeps it gluten-free)"
+            },
+            {
+              "key": "997b7d1c-f2df-5106-aa0c-15c212e5402b",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "warmed; piped in a line down center"
+            },
+            {
+              "key": "357a5368-cf28-56c4-83ec-9cb7429526e5",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "für salsa roja"
+            },
+            {
+              "key": "fc021344-7e53-5328-b12d-d31997701c89",
+              "ingredientName": "Tomatillos",
+              "grams": 140,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "husked und rinsed, für salsa verde"
+            },
+            {
+              "key": "c9dcbe2d-0680-5603-a8ab-00f3fb03b057",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "für Salsa Roja; für weniger Schärfe entkernen"
+            },
+            {
+              "key": "2f3e054a-1fcd-53f1-bb88-f19971a04458",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "für Salsa Verde; für weniger Schärfe entkernen"
+            },
+            {
+              "key": "fa59abed-0903-51f4-8408-a3611968cd04",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "split between two salsas"
+            },
+            {
+              "key": "b3d77379-c9e7-5f90-80f9-770f0bdb5881",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf97abeb-730f-5d8e-a1fa-ecff58d97d57",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "most goes in salsa verde, save a little zum Garnieren"
+            },
+            {
+              "key": "125cee8c-6b5b-5dfc-84b7-6f6f76dd8fd2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "für lightly frying tortillas und eggs"
+            },
+            {
+              "key": "23425c89-2141-5d63-ba90-a70963d46408",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "816a92f4-040e-514a-b2bf-0dde49ba999f",
+              "ingredientName": "Cotija",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "crumbled zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Salsa roja zu: Röste 2 Tomaten, Serrano-Chili, eine halbe Zwiebel und 1 Knoblauchzehe in einer trockenen Pfanne bei mittelhoher Hitze etwa 6-8 Minuten rundherum an, bis sie Blasen werfen. Mixe alles mit einer Prise Salz und einem Schuss Wasser, bis die Salsa größtenteils glatt ist. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Salsa verde zu: Gib geschälte Tomatillos, Jalapeño, die andere Zwiebelhälfte und 1 Knoblauchzehe in dieselbe Pfanne. Röste sie etwa 6-8 Minuten an, bis die Tomatillos weich werden und zusammenfallen. Mixe sie mit etwa 2 tbsp Koriander und einer Prise Salz glatt. Bewahre die beiden Salsas in getrennten Schüsseln auf, damit sie unterschiedlich bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße jede Salsa in einen kleinen Topf (spüle die Pfanne zwischendurch aus, falls du sie wiederverwendest) und lass sie bei mittlerer Hitze 3-4 Minuten köcheln, bis sie leicht eingedickt ist und nicht mehr roh schmeckt. Mit Salz abschmecken. Erwärme das Bohnenmus in einem kleinen Topf oder in der Mikrowelle, bis es weich und streichfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze etwa 1 tbsp Pflanzenöl in einer Pfanne bei mittlerer Hitze und brate jede Maistortilla 20-30 Sekunden pro Seite leicht an, bis sie weich und an den Rändern gerade knusprig, aber noch faltbar ist. Lege jeweils zwei Tortillas auf einen Teller und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische die Pfanne aus, gib das übrige Öl bei mittlerer Hitze hinein und schlage die Eier auf. Brate sie mit der Eigelbseite nach oben 3-4 Minuten und löffle etwas heißes Öl über das Eiweiß, bis es vollständig gestockt und undurchsichtig ist. Verwende frische, richtig gekühlte Eier. Traditionell bleibt das Eigelb flüssig; für Schwangere, sehr junge oder ältere Menschen und Personen mit geschwächtem Immunsystem das Eigelb fest garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege je ein Spiegelei auf die Tortillas jedes Tellers. Ziehe eine saubere Linie warmes Bohnenmus mittig zwischen den beiden Eiern, damit sich die Salsas nicht vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bedecke ein Ei großzügig mit Salsa roja und das andere mit Salsa verde. Lass die Bohnenlinie als Trennung für den typischen zweifarbigen Teller sichtbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere alles mit zerkrümeltem Cotija und dem beiseitegestellten gehackten Koriander. Sofort servieren, solange die Eier heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Huevos_divorciados_1.jpg/1280px-Huevos_divorciados_1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Huevos_divorciados_1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Lunita28mx, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Huevos Divorciados (getrennten Eiern)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

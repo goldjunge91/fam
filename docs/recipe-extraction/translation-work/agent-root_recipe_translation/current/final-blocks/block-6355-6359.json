@@ -1,0 +1,1026 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tripes-la-mode-de-caen",
+      "slug": "gen-tripes-la-mode-de-caen",
+      "title": "Kutteln à la Mode de Caen",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kutteln sind ein preisgünstiges Stück; Kaufen Sie in der Metzgerei oder auf ethnischen Märkten",
+        "Bereiten Sie eine größere Menge zu und frieren Sie die Portionen ein, um spätere Mahlzeiten problemlos zuzubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "normannisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6355,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tripes-la-mode-de-caen/",
+      "components": [
+        {
+          "key": "c4e26c6f-4ddc-5741-9cff-56f4895d314f",
+          "name": "Zutaten",
+          "servingGrams": 386,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc1a2eda-4f28-5b98-8a29-df1795a439fb",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "229697a5-81a9-5d45-a5c6-0a35bb2992bc",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "a86d4e74-3e93-53a6-866e-d81c161980c4",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "8b8d9a91-b889-559d-9779-51284c0855e7",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "b687c29c-ad7f-5eae-9a33-4da4a0eecd5a",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "a81750df-926b-5d63-99de-d685fece6ab4",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "87c9f5a9-3b76-5ce9-936e-28855b949d3f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "43635971-3067-530e-b347-915625e0c4bc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "9470bb3b-7d02-5e71-b0f4-57e9843b91ae",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b85a7ef6-a9a4-53d1-b3ee-aea0e3c72d5c",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5b67a356-105b-56b4-92e8-3503e8c47902",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8bf3b363-f334-5c88-bd26-c8a0cc831ba3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kutteln unter fließendem Wasser gründlich reinigen und in 2 Zoll breite Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kutteln und Rinderfüße in kochendem Salzwasser 10 Minuten blanchieren, dann abtropfen lassen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem schweren Topf erhitzen und die blanchierten Kutteln und Rinderfüße von allen Seiten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebeln, Karotten, Sellerie und Knoblauch hinzufügen und kochen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenmark einrühren und 2 Minuten kochen lassen, dann mit Weißwein ablöschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rinderbrühe, Lorbeerblätter und Thymian hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und bei 300 °F im Ofen 3–4 Stunden garen, bis die Kutteln sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen, Lorbeerblätter entfernen und in flachen Schüsseln mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://bonappetitfrancais.com/wp-content/uploads/2023/09/Recette-de-tripes-a-la-mode-de-Caen-en-cocotte-minute.jpg",
+          "sourcePageUrl": "https://bonappetitfrancais.com/wp-content/uploads/2023/09/Recette-de-tripes-a-la-mode-de-Caen-en-cocotte-minute.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-andouille-de-vire",
+      "slug": "gen-andouille-de-vire",
+      "title": "Andouille de Vire",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie geräuchertes Kielbasa als preisgünstigen Ersatz für Andouille",
+        "Kaufen Sie Kartoffeln in großen Mengen und schälen Sie sie vorher"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "normannisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6356,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-andouille-de-vire/",
+      "components": [
+        {
+          "key": "647a63fd-30c9-54e6-93ee-453e9e482193",
+          "name": "Zutaten",
+          "servingGrams": 185.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "39b7273b-5b74-5fc3-b1d9-e9a869e7bcf0",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f65e8141-4edf-578e-9633-629ef5bf12c8",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6740cead-3c9f-5a5f-9be6-d76514dbd17c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "857e389d-f0d9-5806-a510-69ad13ca952b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "26503d5e-04b1-5fcc-845f-c7ac387c0db4",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "31e25d5b-e389-5c26-85a4-118324e98315",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c4562d4a-2658-517b-9144-1fd8a8954ec1",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "89d73f7c-74db-5019-ad11-cbd31d7269a0",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "718f2253-a686-5840-9704-a5cddce21a4a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f92c59f-1d67-5b25-b889-76040ec42976",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Andouille in 1/2 Zoll dicke Scheiben schneiden. Kartoffeln schälen und vierteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln würfeln und in einem großen Topf in Butter anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wurstscheiben hinzufügen und von beiden Seiten leicht anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Apfelwein und Brühe angießen, dann Kartoffeln, Thymian und Lorbeerblatt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 20–25 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Senf einrühren und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Noch weitere 5 Minuten ohne Deckel köcheln lassen, damit sich die Aromen vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lorbeerblatt entfernen und in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.ankorstore.com/products/images/2985612-47d6bca9ab7a54.jpg?auto=compress&fm=pjpg&w=1600&dpr=2&fit=min",
+          "sourcePageUrl": "https://img.ankorstore.com/products/images/2985612-47d6bca9ab7a54.jpg?auto=compress&fm=pjpg&w=1600&dpr=2&fit=min",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-camembert-de-normandie",
+      "slug": "gen-camembert-de-normandie",
+      "title": "Camembert aus der Normandie",
+      "instructions": "Normannischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Standard-Brie anstelle von echtem Camembert und sparen Sie 50 %",
+        "Machen Sie Ihre eigenen kandierten Walnüsse mit braunem Zucker und Butter"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "normannisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6357,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-camembert-de-normandie/",
+      "components": [
+        {
+          "key": "9f0807e7-015a-5d1b-9bf0-9a6eb63f59f3",
+          "name": "Zutaten",
+          "servingGrams": 72.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfca4bf7-f5ac-5f6e-8527-51d7691b9dbd",
+              "ingredientName": "Kräuter der Provence",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "ec1c4d90-a87f-51e9-9924-da5fe8368559",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "a550440b-ed27-5812-95fb-ade87fb44f93",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Äpfel"
+            },
+            {
+              "key": "8859d176-cdb8-5c38-b844-747f4bc42197",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0aac2447-275e-51d2-87cb-6a0500be647c",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "366372b5-fb8b-599e-bff1-cfe00ed388d5",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Camembert 30 Minuten vor dem Servieren aus dem Kühlschrank nehmen, damit er Zimmertemperatur erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brot in Scheiben schneiden und nach Belieben leicht toasten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Äpfel in dünne Scheiben schneiden und mit einem Spritzer Zitronensaft vermischen, damit sie nicht braun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Käselaib auf ein Servierbrett legen und mit Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit frischen Thymianzweigen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brot, Apfelscheiben und Walnüsse rund um den Käse anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren und nach Belieben Weichkäse auf das Brot streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.lacuisinedannie.com/images/blog/52364499.jpg",
+          "sourcePageUrl": "https://cdn.lacuisinedannie.com/images/blog/52364499.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-livarot",
+      "slug": "gen-livarot",
+      "title": "Livarot",
+      "instructions": "Normannischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie ihn durch gealterten Cheddar, um eine ähnliche Textur zu geringeren Kosten zu erhalten",
+        "Kaufen Sie Feigenmarmelade von Handelsmarken anstelle von Premiummarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "normannisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6358,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-livarot/",
+      "components": [
+        {
+          "key": "8b1b3d7c-a46b-52fa-a912-0d0a9b493ffc",
+          "name": "Zutaten",
+          "servingGrams": 150.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1982576-aa19-5dc3-8612-08da824650c7",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d138c55d-a1d0-52b1-b148-810f80a068dd",
+              "ingredientName": "Knuspriges Baguette",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Laib"
+            },
+            {
+              "key": "9a7fd8e3-ed4c-5cfb-965c-7f2bdb4629f2",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "b0e36237-6f64-5ca2-baf4-f3a03ebe4400",
+              "ingredientName": "Birne",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "e1431ed4-2a75-5a47-92ef-097e4ad5678c",
+              "ingredientName": "Marmelade",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "98c70f02-b0d4-5be4-873d-6abd53f93163",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Livarot 20 Minuten vor dem Servieren aus dem Kühlschrank nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Baguette in 1/4 Zoll dicke Scheiben schneiden und auf einer Servierplatte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Birne entkernen und in dünne Spalten schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Legen Sie den Käse mit der Verpackung noch in die Mitte des Bretts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brot, Birnenscheiben und Haselnüsse rund um den Käse anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fügen Sie eine kleine Schüssel Feigenmarmelade hinzu und streuen Sie Schnittlauch über den Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei Zimmertemperatur servieren und die Gäste beim Essen mit Käse aufs Brot streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://frenchmarket.co.za/wp-content/uploads/2025/03/livarot-.jpg",
+          "sourcePageUrl": "https://frenchmarket.co.za/wp-content/uploads/2025/03/livarot-.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pont-l-v-que",
+      "slug": "gen-pont-l-v-que",
+      "title": "Pont-l'Évêque",
+      "instructions": "Normannischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie den Käse an der Käsetheke und fragen Sie nach einem kleinen Rabatt auf Ware vom Vortag.",
+        "Verwenden Sie Cracker und Wurstwaren von Handelsmarken aus der Feinkosttheke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "normannisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6359,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pont-l-v-que/",
+      "components": [
+        {
+          "key": "4a443461-d7e3-57de-a8cf-baaeec9ae94f",
+          "name": "Zutaten",
+          "servingGrams": 80.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "3333be28-9a3d-5811-9091-2e0808a6aeee",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "0cf43420-bdb0-556e-b6f3-e14f404d63b4",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "ff4911f6-fe80-5944-834d-199253a55940",
+              "ingredientName": "Cornichons",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "dd9673d9-f302-5d12-8053-230c1bfefcdb",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "7efc5c13-4d07-5d07-9f46-e51295f1c93b",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d748f80f-d40c-5f0d-8257-5e9f36de1ffb",
+              "ingredientName": "Walnusshälften",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6c1b46b2-aa24-5be2-a132-6386e046254e",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Käse 15 Minuten vor dem Servieren aus dem Kühlschrank nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ordnen Sie den Käselaib auf einem Holzbrett an und bewahren Sie ihn in der Schachtel auf, um ihn zu stützen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Cracker, Cornichons und Salami auf dem Brett verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Walnusshälften und Selleriestücke zum Arrangement hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Käse mit frischen Rosmarinzweigen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei Zimmertemperatur servieren, während sich die Leute Cracker und kleine Portionen Käse gönnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://canesentpasunpeulebrulela.fr/wp-content/uploads/2023/01/TARTBRICK-AUX-KNACKI-ET-AU-PONT-LEVEQUE.jpg",
+          "sourcePageUrl": "https://canesentpasunpeulebrulela.fr/wp-content/uploads/2023/01/TARTBRICK-AUX-KNACKI-ET-AU-PONT-LEVEQUE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

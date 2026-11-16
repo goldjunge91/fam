@@ -1,0 +1,1110 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sosaties-skewers",
+      "slug": "gen-sosaties-skewers",
+      "title": "Sosaties-Spieße",
+      "instructions": "Kap-malaiisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rind statt Lamm, um deutlich zu sparen.",
+        "Bereiten Sie die Marinade selbst zu, statt teure Gewürzmischungen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kapmalaiisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4020,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sosaties-skewers/",
+      "components": [
+        {
+          "key": "4443d804-b1d5-5e68-8ebe-c724088a7d55",
+          "name": "Zutaten",
+          "servingGrams": 404.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e147bbb3-3d2f-53fb-b4ee-93bde4cfa863",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7cb9f0cc-79ac-5d2d-82bd-8238de31d19d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "f76f4eab-fe03-5c72-8123-5190775f9ad2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "648affbc-6439-52c5-a82a-be5d3f726951",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddad7d15-2b14-5f40-8ffa-ca380f35ed2b",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "004ae20a-cf83-52f5-b687-ab893e9dee9d",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "9e503f49-98bc-561e-b939-2ce46da19fb8",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "8a40b9a9-de6b-575d-902a-652377991526",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2e5d5de8-0a9e-53c6-9d47-adc7a8d09cdb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¾ TL"
+            },
+            {
+              "key": "357afe63-e23f-5c08-8471-9581b2392beb",
+              "ingredientName": "Holzspieße",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Holzspieße vor dem Grillen 30 Minuten in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fleisch in 1½ Zoll große Würfel und Zwiebeln in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Marinade Knoblauch und Ingwer fein hacken und mit Currypulver, Kurkuma, Kokosmilch, Öl und Salz verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fleisch mit der Marinade vermengen und mindestens 20 Minuten im Kühlschrank ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mariniertes Fleisch und Zwiebelstücke abwechselnd auf die Spieße stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Grill oder Barbecue auf mittlere bis hohe Hitze vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Spieße 12–15 Minuten grillen, gelegentlich wenden, bis das Fleisch durchgegart und gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Reis und Chutney servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Sosaties-857x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Sosaties-857x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-koesisters",
+      "slug": "gen-koesisters",
+      "title": "Koesisters",
+      "instructions": "Südafrikanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Honig oder Maissirup in großen Flaschen für mehrere Portionen.",
+        "Filtern und verwenden Sie Öl mehrfach, bis es dunkler wird."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südafrikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4021,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-koesisters/",
+      "components": [
+        {
+          "key": "b831591e-4e7c-5c3a-96e5-3c465e0ce486",
+          "name": "Zutaten",
+          "servingGrams": 145.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "feaa1422-62ab-5c0b-86af-998d06f34fe3",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9ea4e634-5dca-587a-a66d-135760f130c3",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b3c982e5-97c2-53f5-82f5-dc12eeed4030",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4944733d-5e30-5703-97d5-9fb18e5a4319",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "e57547e5-f412-5f35-a195-1de1678de55b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e52387f8-29cd-5a45-a252-7bcb518d8c25",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "590fdb91-106b-517c-9433-b7b1f001d996",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b1750a1f-c81f-5604-a4ca-9c183192f63c",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "e4092b11-45e7-54de-96c9-c055a2a3f039",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "je ¼ Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker, Backpulver und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ei und Milch in einer zweiten Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nasse und trockene Zutaten vermengen, bis ein dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem tiefen Topf auf 350 °F (175 °C) erhitzen und die Temperatur mit einem Thermometer kontrollieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig mit einem Spritzbeutel mit kleiner runder Tülle in 2–3 Zoll lange Stücke ins Öl spritzen und jeweils 3–4 Stücke gleichzeitig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Koesister pro Seite 1–2 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Schaumkelle herausnehmen und sofort in warmen Honigsirup tauchen oder in Zimtzucker wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Kuchengitter etwas abkühlen lassen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/85/38/f9/8538f9aee4b232557dd23bf7c4abd4b0.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/85/38/f9/8538f9aee4b232557dd23bf7c4abd4b0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gatsby",
+      "slug": "gen-gatsby",
+      "title": "Gatsby",
+      "instructions": "Südafrikanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie preiswerte Hotdogs statt Würstchen, um Kosten zu senken.",
+        "Kaufen Sie Brot vom Vortag in der Bäckereiabteilung mit 50 % Rabatt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "südafrikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4022,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gatsby/",
+      "components": [
+        {
+          "key": "5da308f1-1d35-5b04-a4d9-4e7e43ca59f4",
+          "name": "Zutaten",
+          "servingGrams": 668.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d4e8abe-0231-5c69-b072-2888667b1999",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "1c2fbe3c-4015-5212-92a6-7df21aa78b10",
+              "ingredientName": "Hotdog",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08f5e987-23d3-5c1f-ab3b-4a22218fa6b8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37205823-0ee7-5aab-82e7-b8df5f10ac30",
+              "ingredientName": "Sardinen aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "3eb91060-6bbd-533d-871a-4762f7369f19",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "23c297a5-f0b5-5031-a20b-16da834efcd6",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "f09e2153-9f48-5677-aab2-7503b3908b60",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "a5421007-4f3f-53ee-8917-a8fdaa4cfd02",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "77e41319-f991-5e18-95b1-96f74a54b1f5",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "04b1911a-6ca8-5f0b-8750-5d77746b2f4b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c5f455f5-dc3c-509e-92d8-b1a4defbd4a6",
+              "ingredientName": "Chilisauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würstchen grillen oder braten und Eier nach Wunsch als Spiegelei oder Rührei garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den länglichen Brotlaib längs aufschneiden und die Innenseiten beider Hälften mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten und Zwiebeln in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mayonnaise auf die untere Brothälfte streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Salat, Tomatenscheiben und Zwiebel auf der Mayonnaise schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die gegarten Würstchen und Eier auf das Gemüse legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fisch aus der Dose abtropfen lassen und darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Chilisauce beträufeln und die obere Brothälfte auflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "In 4 Portionen schneiden und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/y46GwsQAX6vIIjB08cexieWQxFo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__06__20150622-3-ingredient-cocktail-great-gatsby-vicky-wasik-8e462ad9389447cf8ce43bf0b4a50f6d.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/y46GwsQAX6vIIjB08cexieWQxFo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__06__20150622-3-ingredient-cocktail-great-gatsby-vicky-wasik-8e462ad9389447cf8ce43bf0b4a50f6d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baghrire",
+      "slug": "gen-baghrire",
+      "title": "Baghrire",
+      "instructions": "Algerisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie einfachen Joghurt aus der Großpackung statt teurer Marken.",
+        "Lassen Sie den Honig optional weg und servieren Sie stattdessen Marmelade."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "algerisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4023,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baghrire/",
+      "components": [
+        {
+          "key": "c912a635-7c76-54a9-97ff-466851f9ccb5",
+          "name": "Zutaten",
+          "servingGrams": 492.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8253456f-f477-5a6b-bf90-97b57eb342ec",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d89411b9-5b43-5d4e-bad9-8882fd66d541",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d39d0a5c-a0e0-5417-920b-f30f6cd160ec",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "15365f10-29a1-528a-ab0e-d239e0001ce4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "695b1362-f315-5fb1-a230-73c6c30812ee",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "088ababc-d4bd-5db0-83c0-33e39a036f1b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "467c11ed-5f1d-574e-b676-633dffb47e9e",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9c489ac8-b84d-5afb-b032-5546d7d7825a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ba0cb94c-49f3-53e2-852a-a611f11d7914",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver, Salz und Ei in einer großen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Joghurt und Wasser nach und nach einrühren, bis ein glatter, dünnflüssiger Teig entsteht, der langsam vom Löffel läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine beschichtete Pfanne oder Crêpepfanne auf mittlerer Hitze erwärmen und leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig mit einer Kelle kreisförmig hineingießen, sodass ein Pfannkuchen mit Wabenstruktur entsteht. Garen, bis der Boden fest ist und die Oberfläche voller Löcher ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vorsichtig wenden und die andere Seite 30 Sekunden hellgolden backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen Teller geben und mit dem restlichen Teig wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Honig und Butter zusammen erwärmen und vor dem Servieren über die warmen Baghrire träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/54d4153ce4b00c0e483c13a6/1606130308595-I4VGY5NGMF07GFYVWRV7/apple%2Bbaghrir_-7.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/54d4153ce4b00c0e483c13a6/1606130308595-I4VGY5NGMF07GFYVWRV7/apple%2Bbaghrir_-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kefta-mechoui",
+      "slug": "gen-kefta-mechoui",
+      "title": "Kefta Mechoui",
+      "instructions": "Algerisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderhackfleisch im Angebot und frieren Sie es bis zur Verwendung ein.",
+        "Lassen Sie frische Petersilie weg und verwenden Sie stattdessen 1 TL getrocknete Petersilie."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "algerisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4024,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kefta-mechoui/",
+      "components": [
+        {
+          "key": "e05c1304-fc98-5fa0-babe-23f0d0166c69",
+          "name": "Zutaten",
+          "servingGrams": 166.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "14cbb226-b7f6-5f1a-b24a-17f0b0280f36",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f1404081-fdd6-5867-86f6-051d7fbe6b4f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse, gehackt"
+            },
+            {
+              "key": "06fe42d0-b23a-5a5c-8ec9-22e3b58c12eb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "66326570-7b8c-5825-84bd-57b9ae86866f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "2606d837-9117-5463-b89c-c0c3242a9e96",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e1cfefc-2565-580b-938b-c743b83361b3",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "ce662a37-9198-5fdb-a4c2-c0cc78d1d9e3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a2540a93-2960-543e-8dc3-588699f222d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c105a13c-ed6e-5d73-b024-c659133b5414",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "341df3df-f8a8-53a6-a53c-bf508a140658",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hackfleisch, Petersilie, gehackte Zwiebel, Knoblauch, Ei, Semmelbrösel, Kreuzkümmel, Salz und Pfeffer in einer Schüssel vermengen, bis alles gerade verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Mischung zu ovalen oder wurstförmigen Frikadellen von etwa 3 Zoll Länge formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kefta in die Pfanne geben und pro Seite 3–4 Minuten anbraten, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatensauce über die Kefta gießen, die Hitze auf mittlere bis niedrige Stufe reduzieren und 8–10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß mit Brot zum Auftunken oder auf Couscous servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/jXhxajqfvKutNT-Lpk-kiX-aUI4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kefta-kebab-recipe-moroccan-ground-beef-2394668-Final-a48969750aa44675a44cf0eef2983bba.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/jXhxajqfvKutNT-Lpk-kiX-aUI4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kefta-kebab-recipe-moroccan-ground-beef-2394668-Final-a48969750aa44675a44cf0eef2983bba.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

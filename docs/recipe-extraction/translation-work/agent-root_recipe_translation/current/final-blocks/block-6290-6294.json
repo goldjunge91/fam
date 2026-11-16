@@ -1,0 +1,1115 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-puso-ng-saging",
+      "slug": "gen-puso-ng-saging",
+      "title": "Puso ng Saging",
+      "instructions": "Visayisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bananenblüten während der Saison auf asiatischen Märkten, wenn sie am günstigsten sind",
+        "Kaufe Kokosmilch in großen Dosen, um den Stückpreis zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "Visayan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6290,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puso-ng-saging/",
+      "components": [
+        {
+          "key": "0e4d664d-f7b1-52c2-b4eb-77bc89971dfa",
+          "name": "Zutaten",
+          "servingGrams": 230.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ce54e2a-26a7-56ef-87d6-02aec42d3fc9",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "fa079b44-36ff-5d49-91b3-793085956c5d",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "acbeac13-6d15-5d3a-9b0a-4b57f909c4ac",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "3417c18c-a30b-5685-8513-3b819bbe2214",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ Pfund"
+            },
+            {
+              "key": "a9c5c918-8e37-5b7a-88c1-a1d7e9b33efb",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 fein gehackt"
+            },
+            {
+              "key": "3a11ff76-2a1d-5262-a069-2bdc91492ce3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "afbf55d7-cab8-5361-926d-6b3ce06390c0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "b94b85f8-d803-5f74-bbef-b6f7b7b94f2d",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e00f80f4-1224-5d0a-9d14-6ff774eea50e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¾ TL"
+            },
+            {
+              "key": "3d6c1d7b-56f4-5799-ab3b-af3c7c50b4e7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "¼ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne die zähen violetten äußeren Schichten der Bananenblüten und löse die kleinen Blüten aus dem zarten hellen Inneren. Weiche sie anschließend 10 Minuten in Salzwasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Blüten abtropfen und schneide sie in mundgerechte Stücke. Entferne die zähen Stielteile.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Topf und brate Knoblauch, Ingwer und geschnittene Zwiebel 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Schweinehackfleisch dazu und gare es 5 Minuten unter Zerteilen mit einem Löffel, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge die vorbereiteten Bananenblüten hinzu und brate sie 3 Minuten unter Rühren. Gib dann Garnelen dazu und gare sie, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Kokosmilch dazu und bringe alles sanft zum Köcheln. Würze mit Fischsauce, Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass alles 15 Minuten köcheln und rühre gelegentlich um, bis die Bananenblüten weich sind und sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://4.bp.blogspot.com/-uMEHYgPMvik/W3fau7oF7nI/AAAAAAAAAGo/YMzeuerhETknZ5TUOKfeuQnWgM5PkMtwwCEwYBhgL/s1600/20180815_102956-1.jpg",
+          "sourcePageUrl": "https://4.bp.blogspot.com/-uMEHYgPMvik/W3fau7oF7nI/AAAAAAAAAGo/YMzeuerhETknZ5TUOKfeuQnWgM5PkMtwwCEwYBhgL/s1600/20180815_102956-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ginut",
+      "slug": "gen-ginut",
+      "title": "Ginutò",
+      "instructions": "Visayisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinerippchen im Angebot und friere sie für später ein",
+        "Bereite größere Mengen zu und friere Portionen für schnelles Aufwärmen an hektischen Wochentagen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "Visayan",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6291,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ginut/",
+      "components": [
+        {
+          "key": "22fdcba7-40cf-5dae-a248-0115e10a3002",
+          "name": "Zutaten",
+          "servingGrams": 280,
+          "position": 0,
+          "items": [
+            {
+              "key": "233368d2-6caa-58a3-ba87-674e96d48c9e",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "cd698f98-02e1-55c4-9d6d-c20519183e05",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL in Scheiben geschnitten"
+            },
+            {
+              "key": "5a2b6e2b-dd4c-57f8-ba09-632d6767b1e8",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "10 fein gehackt"
+            },
+            {
+              "key": "0a1a31c5-f8b0-5787-a4bd-2578f6a4a32e",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1fbda168-84fb-5ce8-bbd1-42c1ca79503b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a3f7e404-f21c-5e0d-8861-4417fff148a9",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e7a25169-bc40-563d-b778-e291e48b45ef",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e6cc589b-366c-5a58-9cc1-0fe434efff58",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "27e622ae-3147-5969-a812-3e5b9a46fe09",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Schweinerippchen in einzelne Stücke und blanchiere sie 3 Minuten in kochendem Wasser, um Verunreinigungen zu entfernen. Gieße sie ab und spüle sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und brate geschnittenen Ingwer und gehackten Knoblauch 2 Minuten an, bis sie duften und leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kurkuma dazu und rühre 30 Sekunden. Füge dann die blanchierten Rippchen hinzu und brate sie 3 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße 4 cups frisches Wasser dazu und bringe alles zum Kochen. Schöpfe restlichen Schaum ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kandiszucker, Fischsauce und Pfefferkörner dazu. Reduziere die Hitze auf mittlere bis niedrige Stufe und lass alles ohne Deckel 45 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Gericht weiter köcheln, bis das Schweinefleisch zart und die Brühe auf eine kräftige bernsteinfarbene Farbe reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und serviere das Gericht heiß mit Reis. Schöpfe die aromatische Brühe über jede Portion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/shrimp-scampi-index-644c0ade03d01.jpg?crop=0.8886420438767009xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/shrimp-scampi-index-644c0ade03d01.jpg?crop=0.8886420438767009xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panada",
+      "slug": "gen-panada",
+      "title": "Panada",
+      "instructions": "Sardisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Brot vom Vortag aus dem Angebotskorb einer Bäckerei",
+        "Kaufe Schweinehackfleisch im Angebot und friere es für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sardisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6292,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panada/",
+      "components": [
+        {
+          "key": "56c312c0-4a2c-5433-917b-ad734b9f26ec",
+          "name": "Zutaten",
+          "servingGrams": 324.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac9cdecc-6460-519e-880d-4bc8006632ce",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d0966b6e-685b-5c53-aed2-949fc7922fe5",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9a7f165f-8db8-571c-898e-5592d9e8ec53",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "7bd12bcc-7294-52b6-844c-be73bcddc3ed",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "28a2abca-d233-554c-a27d-7a998354913c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "c01fe640-10b5-5059-9f1f-f8c011540e15",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d92e951-bb0a-566a-a928-e87ec4f53326",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1e088b2e-a9ec-5a28-96c2-befff4638472",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3c1dfd01-c034-5e99-82c0-529fa3dd7cd8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Brot vom Vortag in 1-inch-Würfel und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate die fein gewürfelte Zwiebel weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Schweinehackfleisch dazu und brate es unter Zerteilen krümelig und braun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rinderbrühe dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Brotwürfel dazu und lass die Suppe 30 Minuten unter gelegentlichem Rühren köcheln, bis das Brot zerfällt und die Suppe eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schlage das Ei in einer kleinen Schüssel auf und rühre es während des Köchelns langsam in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre geriebenen Pecorino Romano ein und würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://comfortablefood.com/wp-content/uploads/2022/06/empanadas-3.jpg",
+          "sourcePageUrl": "https://comfortablefood.com/wp-content/uploads/2022/06/empanadas-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cassola",
+      "slug": "gen-cassola",
+      "title": "Cassola",
+      "instructions": "Sardisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tintenfisch und Garnelen günstiger auf asiatischen Märkten",
+        "Verwende den weißen Fisch, der an diesem Tag im Angebot ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "sardisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6293,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cassola/",
+      "components": [
+        {
+          "key": "94b6e0da-7010-58cb-8043-fa878b01e2a8",
+          "name": "Zutaten",
+          "servingGrams": 160.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "f21a1289-f93b-5a50-a0e2-0798644c4e2f",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "40bf155a-9bca-589e-b374-2701b64586ac",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "836e6dc9-f31f-51ff-af05-538b61e9102f",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "aa235372-feba-515d-ba49-d752f28e1f5a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "3b6cea74-148f-5f9c-a427-3930bf2e8edf",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "dff4c7a3-64ed-5711-8696-27aba8d0d98c",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (28 oz)"
+            },
+            {
+              "key": "c015613d-bc89-53bb-993b-40285afa2c75",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a4b6acaa-247e-5a4f-b288-f4ff89af8a0e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bc8e1541-7373-5afc-bd8b-cbda1be3e2b3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "26bcdc40-7e44-54a2-acdf-3a53059886aa",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "0ab5734a-ccba-5298-8530-f79ce00306f0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e6d69272-3856-53bb-9e3a-828a7db04f29",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tintenfisch in Ringe und tupfe alle Meeresfrüchte mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate gewürfelte Zwiebel und gehackten Knoblauch an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Tintenfisch dazu und gare ihn 5 Minuten, bis er weich zu werden beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Weißwein dazu und lass alles 3 Minuten köcheln, damit die Flüssigkeit etwas reduziert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tomaten aus der Dose samt Saft und Safran dazu und lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Füge Fischfilets und Garnelen hinzu, bette sie in die Sauce und lass alles 8-10 Minuten köcheln, bis die Meeresfrüchte gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Meersalz und schmecke das Gericht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere es mit frischer Petersilie und serviere es in Schalen mit knusprigem Brot, um die Sauce aufzutunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://preview.redd.it/my-sister-and-i-made-cassola-ricotta-cheesecake-for-our-v0-6t4bzfytt88a1.jpg?width=3024&format=pjpg&auto=webp&s=5d9782e048cfe238678ba235e8afc74d0c1c7ccb",
+          "sourcePageUrl": "https://preview.redd.it/my-sister-and-i-made-cassola-ricotta-cheesecake-for-our-v0-6t4bzfytt88a1.jpg?width=3024&format=pjpg&auto=webp&s=5d9782e048cfe238678ba235e8afc74d0c1c7ccb",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-anguilla-alla-vernaccia",
+      "slug": "gen-anguilla-alla-vernaccia",
+      "title": "Aal im Vernaccia",
+      "instructions": "Sardisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte den Fischhändler, den Aal für dich zu säubern (das spart Zeit)",
+        "Ersetze den Aal durch Wels, falls er nicht erhältlich oder zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "sardisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6294,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-anguilla-alla-vernaccia/",
+      "components": [
+        {
+          "key": "f039079c-f121-5a5f-89a8-ff1a04f6bf82",
+          "name": "Zutaten",
+          "servingGrams": 102.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "860ffebf-f061-563e-bc08-9d961ddcabce",
+              "ingredientName": "Aal oder Wels",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "bc89b157-729b-5151-93e3-454151adeca0",
+              "ingredientName": "Weißweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e9bc7f23-48c9-583f-9b8f-e7047124d378",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "7025e149-d98e-571c-9256-04ef5d1f6174",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "b0de66d1-def2-528e-b0fc-15ae173c90a7",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "86ec5a30-9726-54b2-a199-08e83e1656bf",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e1fa8a36-e3ba-5d65-8d6c-68e108c07ba9",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3179c261-739c-52e4-be60-283490b66415",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "c347e18e-a17c-56b7-9821-30c73a219452",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere und häute den Aal vorsichtig und schneide ihn dann in 2-inch-Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen schweren Pfanne und brate geschnittene Zwiebel und zerdrückten Knoblauch goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Aalstücke dazu und gare sie unter gelegentlichem Wenden 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Vernaccia-Wein dazu und lass alles 5 Minuten köcheln, damit die Flüssigkeit etwas reduziert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tomaten aus der Dose samt Saft, Lorbeerblatt und Rosmarinzweig dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und lass alles 40-45 Minuten sanft köcheln, bis der Aal sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne Lorbeerblatt und Rosmarinzweig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer und serviere den Aal heiß mit Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/02/fe/7f/02fe7fb1bad26ee3cc2629f1393c830a.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/02/fe/7f/02fe7fb1bad26ee3cc2629f1393c830a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

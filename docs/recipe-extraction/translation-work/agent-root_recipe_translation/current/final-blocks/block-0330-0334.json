@@ -1,0 +1,1133 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:ba-whole-corn-on-the-grill",
+      "slug": "ba-whole-corn-on-the-grill",
+      "title": "Gegrillte Maiskolben",
+      "instructions": "Süßer Sommermais wird direkt in der Schale gegrillt, bis er rauchig duftet und zart ist. Anschließend wird er großzügig mit verkohlter Frühlingszwiebel-Sesam-Chili-Butter bestrichen, die in jede Maisreihe schmilzt. Einfach, rauchig und unwiderstehlich. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/whole-corn-on-the-grill",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mais während der Saison im Sommer, wenn die Kolben am günstigsten und süßesten sind; oft kosten sie weniger als $0.50 pro Stück.",
+        "Lass die besondere Würzbutter weg und verwende einfach Butter mit etwas Chiliflocken und Salz, um Geld zu sparen.",
+        "Grille weitere Kolben mit, solange der Grill heiß ist, und bewahre Reste für Salate oder Suppen im Laufe der Woche auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "scallion",
+          "swap": "Rote oder weiße Zwiebel, in dünne Scheiben geschnitten und angeröstet",
+          "savings": "ungefähr gleich teuer Kosten; verwendet eine Vorratszutat"
+        },
+        {
+          "forIngredientId": "toasted-sesame-oil",
+          "swap": "Normales Sesamöl oder Olivenöl",
+          "savings": "spart ein paar Cent und funktioniert mit Vorhundenes"
+        },
+        {
+          "forIngredientId": "chili-flakes",
+          "swap": "Chilipulver oder eine frische Fresno-Chili, fein gehackt",
+          "savings": "vergleichbar Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "gegrillt",
+        "Mais",
+        "Sommer",
+        "Beilage",
+        "vegetarisch",
+        "Grill",
+        "Würzbutter"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 330,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-whole-corn-on-the-grill/",
+      "components": [
+        {
+          "key": "f2e3c665-a57b-55f6-a700-10808bfc70d7",
+          "name": "Zutaten",
+          "servingGrams": 135,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e498c4b-c8b9-558c-bff0-2a712384218b",
+              "ingredientName": "Maiskolben",
+              "grams": 360,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 ears von corn, in husk"
+            },
+            {
+              "key": "9009d316-a4c3-53b6-a21b-9acf56e667c5",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für charred spring onion und sesame-chile butter"
+            },
+            {
+              "key": "dd86ddd5-0af6-564e-844a-713d04be8340",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "spring onions, charred (für butter)"
+            },
+            {
+              "key": "70ff826c-bc8c-58f2-986a-e2ede0a58c94",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für butter"
+            },
+            {
+              "key": "e7554ab5-b782-54c7-9b1f-770082a3cee0",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "geröstet, für butter"
+            },
+            {
+              "key": "ab9c9015-0028-5f83-a468-995f52138c28",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "chile, für butter"
+            },
+            {
+              "key": "6d52ab74-ddcd-5052-8f0f-ef6fdf2d9496",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Grill auf mittlere Hitze vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grille den Mais in der Schale und wende ihn gelegentlich, bis die Schalen schwarz sind (einige Blätter lösen sich dabei), die Körner zart sind und gebräunte, geröstete Stellen haben; das dauert 25 bis 35 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite in der Zwischenzeit die Butter mit verkohlter Frühlingszwiebel und Sesam-Chili zu: Röste die Frühlingszwiebeln auf dem Grill, bis sie weich und stellenweise schwarz sind, und hacke sie anschließend fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke die weiche Butter mit den gerösteten Zwiebeln, dem gerösteten Sesamöl, den Sesamsamen, den Chiliflocken und einer Prise Salz, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass den gegrillten Mais kurz abkühlen und entferne dann die verkohlten Blätter und Fäden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere den Mais heiß und großzügig mit der Butter aus verkohlter Frühlingszwiebel, Sesam und Chili bestrichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57acbaf31b33404414975138/master/w_5000,h_3806,c_limit/whole-corn-on-the-grill.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/whole-corn-on-the-grill",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von gegrillten Maiskolben",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-10-min-one-pot-creamy-tomato-tortellini",
+      "slug": "she-10-min-one-pot-creamy-tomato-tortellini",
+      "title": "Tortellini mit Spinat und Ricotta in cremiger Tomatensoße",
+      "instructions": "Gefüllte Tortellini mit Spinat und Ricotta garen direkt in einer samtigen Tomaten-Parmesan-Sahnesoße. Alles kommt in eine Pfanne und steht in etwa 13 Minuten auf dem Tisch. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/10-min-one-pot-creamy-tomato-tortellini/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Gemüsebrühe oder einen zerbröselten Brühwürfel statt Hühnerbrühe. So bleibt das Gericht fleischfrei und wird günstiger.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Das ist pro Gramm günstiger als fertig geriebener Parmesan und er schmilzt besser.",
+        "Ersetze frische Datteltomaten durch eine halbe Dose gehackte oder geröstete Tomaten, wenn frische Tomaten teuer sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kaffeesahne oder Kondensmilch für eine leichtere Soße",
+          "savings": "ca. $0.25/Portion"
+        },
+        {
+          "forIngredientId": "grape-tomatoes",
+          "swap": "Eine halbe Dose gehackte Tomaten",
+          "savings": "ca. $0.20/Portion"
+        },
+        {
+          "forIngredientId": "tortellini",
+          "swap": "Frische Ravioli oder Tortellini mit einer Käsefüllung nach Wahl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "aus-einem-Topf",
+        "Pasta",
+        "schnell",
+        "cremig",
+        "Tomate",
+        "vegetarisch",
+        "Abendessen",
+        "30-Minuten-oder-weniger"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 331,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-10-min-one-pot-creamy-tomato-tortellini/",
+      "components": [
+        {
+          "key": "6e30092e-6f9f-5275-ba9c-2853c36a522f",
+          "name": "Zutaten",
+          "servingGrams": 541.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "86f7aa8d-8f33-58c2-afd2-9a6f181aacf0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8de58afa-4af2-545c-b5f7-a1e55cbb78cb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1, fein gewürfelt"
+            },
+            {
+              "key": "45fc8e27-054b-54d6-8170-21c226ea304e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt"
+            },
+            {
+              "key": "7fbb1253-9d52-57db-a0ce-22cb38637ddd",
+              "ingredientName": "Datteltomaten",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "150 g cherry oder grape tomatoes"
+            },
+            {
+              "key": "60d6a26f-c1d8-5622-91bd-b1e7ce7ee557",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "125 ml chicken oder Gemüsebrühe"
+            },
+            {
+              "key": "913b3888-428d-5fc0-a7d1-18325a737d07",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f724e905-5dab-5410-ab48-9fb7c77bbd0e",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "250 ml thickened/Schlagsahne"
+            },
+            {
+              "key": "882dae08-3e76-5618-b7b7-8bb4bf918944",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "100 g frisch gerieben, plus extra zum Servieren"
+            },
+            {
+              "key": "c60090ff-ddc5-5d9a-a98b-bacd08d65d13",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "a1dae003-cfdf-5a55-b3a1-7bb979353c40",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 groß handfuls baby spinach Blätter"
+            },
+            {
+              "key": "54cab2c3-7081-5757-9024-bef19e931e5d",
+              "ingredientName": "Tortellini",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "600 g spinach und ricotta tortellini"
+            },
+            {
+              "key": "7c0e07f0-9b4c-5cf9-a0b9-ab4044131a1b",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "Italian chilli oil, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Olivenöl in einer schweren Pfanne mit Deckel bei mittlerer bis hoher Hitze. Gib die gewürfelte rote Zwiebel und den Knoblauch dazu und brate alles unter Rühren 2-3 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Tomaten dazu und gare sie unter Rühren 2 Minuten. Drücke sie mit der Rückseite des Löffels leicht an, damit ihr Saft austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Brühe und Tomatenmark ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sahne, geriebenen Parmesan und schwarzen Pfeffer dazu. Lass die Soße leicht köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Spinat dazu und rühre, bis er gerade zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Tortellini direkt aus der Packung in die Pfanne; sie müssen nicht vorgekocht werden. Rühre sie unter die Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze, decke die Pfanne ab und gare alles bei niedriger Hitze 3-4 Minuten, bis die Pasta gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue das Gericht mit zusätzlichem Parmesan und träufle nach Wunsch etwas italienisches Chiliöl darüber. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/03/Creamy-Tomato-Tortellini-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/10-min-one-pot-creamy-tomato-tortellini/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Tortellini mit Spinat und Ricotta in cremiger Tomatensoße",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-10-minute-creamy-pesto-chicken-pasta",
+      "slug": "she-10-minute-creamy-pesto-chicken-pasta",
+      "title": "Cremige Pesto-Hähnchen-Pasta in 10 Minuten",
+      "instructions": "Eine samtige Pesto-Sahnesoße umhüllt zartes Hähnchen, Gemüse und Pasta. Dieses Abendessen für unter der Woche ist in etwa 13 Minuten fertig. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/10-minute-creamy-pesto-chicken-pasta/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Pesto im Glas im Angebot oder püriere selbst einen Bund Basilikum mit Nüssen und Parmesan. So sinken die Kosten pro Portion.",
+        "Tiefgekühltes Mischgemüse ist günstiger als frisches, hält sich monatelang und kann ohne Vorbereitung direkt in die Soße.",
+        "Ersetze einen Teil der Sahne durch etwas Nudelwasser und Frischkäse, damit die Soße für mehrere Portionen reicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen ohne Knochen und Haut, in Streifen geschnitten, für saftigeres Fleisch",
+          "savings": "oft günstiger pro kg than breast"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Leichte Sahne oder Kondensmilch für eine leichtere Soße",
+          "savings": "~30% günstiger pro Tasse"
+        },
+        {
+          "forIngredientId": "penne",
+          "swap": "Beliebige kurze Pasta aus dem Vorrat, zum Beispiel Fusilli oder Muschelnudeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-inspiriert",
+        "Pasta",
+        "Hähnchen",
+        "Pesto",
+        "cremig",
+        "schnell",
+        "Abendessen",
+        "30-Minuten-oder-weniger"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 332,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-10-minute-creamy-pesto-chicken-pasta/",
+      "components": [
+        {
+          "key": "4a72e5b7-61c8-5425-9a65-4599b5e9e29b",
+          "name": "Zutaten",
+          "servingGrams": 475.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "510b8fcd-84c4-5635-93d2-91864583f36a",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "500 g spiral oder penne pasta"
+            },
+            {
+              "key": "ffcd8e22-62fb-5db4-8967-1d95d7a22887",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6a7cffe4-2665-5210-880c-26012670bda4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 220,
+              "quantity": 2.2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "300 g ohne Knochen, ohne Haut, fein in Scheiben geschnitten"
+            },
+            {
+              "key": "ceb11b29-3f2e-5b6e-982c-ffbd44db7b62",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt"
+            },
+            {
+              "key": "1b236271-2987-5139-a811-3c0e2cc3d1c9",
+              "ingredientName": "Pesto",
+              "grams": 165,
+              "quantity": 165,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "160 g Pesto"
+            },
+            {
+              "key": "26ae8433-b799-5911-be8c-6f20c5097e66",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "250 ml thickened/Schlagsahne"
+            },
+            {
+              "key": "32cfaa89-6667-5147-8844-9dea26ecace2",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "375 g frisch oder tiefgekühlt vegetables"
+            },
+            {
+              "key": "52bf0795-3e07-51de-9d66-3b77cd7da1ed",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "50 g frisch gerieben, plus extra zum Servieren"
+            },
+            {
+              "key": "afb3056c-a982-54db-98ac-41e7fcae3163",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            },
+            {
+              "key": "d029bf1d-cacc-57af-a509-31bf4a311857",
+              "ingredientName": "Fresno-Chili",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 frisch chilli, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta nach Packungsanleitung, aber 1 Minute kürzer, da sie in der Soße fertig gart. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Olivenöl in einer großen, schweren Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das in Streifen geschnittene Hähnchen dazu und brate es 1-2 Minuten, bis es außen gerade eben angegart ist; innen ist es noch roh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Knoblauch dazu und rühre etwa 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Pesto, Sahne und Gemüse ein. Decke die Pfanne ab und gare alles 2-4 Minuten bei frischem Gemüse oder 4-6 Minuten bei tiefgekühltem Gemüse, bis das Hähnchen vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und rühre die gekochte Pasta und den Parmesan unter. Schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht nach Wunsch mit zusätzlichem Parmesan und frischer Chili bestreut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/06/10-Minute-Creamy-Pesto-Chicken-Pasta-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/10-minute-creamy-pesto-chicken-pasta/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremiger Pesto-Hähnchen-Pasta in 10 Minuten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-5-minute-garlic-bread",
+      "slug": "she-5-minute-garlic-bread",
+      "title": "Käse-Knoblauchbrot in 5 Minuten",
+      "instructions": "Knuspriges Brot wird mit schneller Knoblauch-Petersilien-Butter bestrichen, mit zart schmelzendem Käse bedeckt und in wenigen Minuten unter dem Backofengrill goldbraun und blubbernd gebacken. Die perfekte schnelle Beilage zum Pasta-Abend. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/5-minute-garlic-bread/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass fertig gehackten Knoblauch weg und hacke frische Zehen selbst. Das kostet nur wenige Cent und schmeckt viel besser.",
+        "Kaufe ein Stück Mozzarella und reibe ihn selbst. Er schmilzt besser und kostet weniger als fertig geriebener Käse.",
+        "Brot vom Vortag oder aus dem Angebot eignet sich bestens, da es unter dem Grill geröstet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "unsalted-butter",
+          "swap": "Gesalzene Butter; halbiere dann die zusätzlich zugegebene Salzmenge",
+          "savings": "oft günstiger und mehr common im Kühlschrank"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Geriebener Cheddar oder eine Pizzakäsemischung",
+          "savings": "beliebige vorhundene melting cheese bereits vorhunden vorrätig"
+        },
+        {
+          "forIngredientId": "parsley-fresh",
+          "swap": "1 TL getrocknete Petersilie",
+          "savings": "Keeps länger und vermeidet den Kauf von a frischer Bund"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Knoblauchbrot",
+        "käsig",
+        "schnell",
+        "Beilage",
+        "Backofengrill",
+        "vegetarisch",
+        "5-Minuten",
+        "Feier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 333,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-5-minute-garlic-bread/",
+      "components": [
+        {
+          "key": "457e2a24-838c-5609-a3d0-5d6418b17d8a",
+          "name": "Zutaten",
+          "servingGrams": 159.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "a53ed0da-6ee2-5a43-8fa8-b32f4a820f2f",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "80 g, geschmolzen"
+            },
+            {
+              "key": "ee8b106b-895e-5313-836f-7f15a7f25a7a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt (~3 Zehen)"
+            },
+            {
+              "key": "07ed690e-366e-5252-b2e1-8b4ddd267c80",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL fein gehackt flat-leaf parsley"
+            },
+            {
+              "key": "9295419d-d8b5-51ee-8323-728446047a50",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "4753b8c4-2118-5549-8e1a-45b5b94e8fe6",
+              "ingredientName": "Brot",
+              "grams": 300,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 baguette, geschnitten in thick 1.5 cm slices"
+            },
+            {
+              "key": "f2a589fb-199b-5be1-87b4-75076f66d478",
+              "ingredientName": "Mozzarella",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "225 g gerieben melting cheese"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofengrill auf hoher Stufe vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in der Mikrowelle in Intervallen von 10 Sekunden, bis sie gerade weich ist; insgesamt etwa 20 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den gehackten Knoblauch, die Petersilie und die Meersalzflocken in die geschmolzene Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche jede Brotscheibe auf einer Seite mit der Knoblauchbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege jede Scheibe nach Wunsch mit geriebenem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Scheiben mit etwas Abstand in einer Lage auf ein Backblech. Verwende bei Bedarf zwei Bleche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Grille das Brot 2 bis 5 Minuten, bis es goldbraun ist und der Käse Blasen wirft. Behalte es im Blick, da es schnell fertig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/10/Easy-Garlic-Bread.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/5-minute-garlic-bread/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Käse-Knoblauchbrot in 5 Minuten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-authentic-fettuccine-alfredo",
+      "slug": "she-authentic-fettuccine-alfredo",
+      "title": "Authentische Fettuccine Alfredo",
+      "instructions": "Seidige Fettuccine-Bänder verbinden sich allein mit echter Butter und frisch geriebenem Parmesan zu einer glänzenden Soße wie im Restaurant – ganz ohne Sahne. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/authentic-fettuccine-alfredo/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den Spargel als Beilage weg und erhalte ein günstiges Vorratsgericht: Für dieses Gericht genügen Pasta, Butter und Parmesan.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Er schmilzt besser und ist pro Gramm deutlich günstiger als fertig geriebener Parmesan.",
+        "Gesalzene Butter funktioniert ebenfalls. Verwende am Ende einfach etwas weniger zusätzliches Salz."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tagliatelle",
+          "swap": "Beliebige lange, flache Pasta wie Linguine oder Spaghetti",
+          "savings": "Spaghetti is oft günstiger pro Portion"
+        },
+        {
+          "forIngredientId": "unsalted-butter",
+          "swap": "Gesalzene Butter; reduziere die zusätzlich zugegebene Salzmenge"
+        },
+        {
+          "forIngredientId": "grated-parmesan",
+          "swap": "Grana Padano oder Pecorino Romano, kräftiger und salziger im Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Pasta",
+        "Alfredo",
+        "Fettuccine",
+        "vegetarisch",
+        "Wohlfühlessen",
+        "schnell",
+        "20-Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 334,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-authentic-fettuccine-alfredo/",
+      "components": [
+        {
+          "key": "134dfd14-7774-50dd-bcd2-9be10fa27b96",
+          "name": "Zutaten",
+          "servingGrams": 407.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e57ad51c-ce06-55d2-bc9a-58e7d2ad2dd5",
+              "ingredientName": "Tagliatelle",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "400 g Fettuccine"
+            },
+            {
+              "key": "d7c44ae4-3a1f-5890-abdf-3fabc694dceb",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "250 g ungesalzen butter, geschnitten in 1.5 cm cubes"
+            },
+            {
+              "key": "309a6481-ccaa-546d-b582-4ce8af36313b",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 450,
+              "quantity": 450,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "150 g frisch gerieben parmesan"
+            },
+            {
+              "key": "f83f2f8d-f0b4-58cc-a036-e42337b846af",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Meersalzflocken, nach Geschmack"
+            },
+            {
+              "key": "bb5a048a-f897-5d42-9d07-1592810503e6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "frisch gemahlen schwarzer Pfeffer, nach Geschmack"
+            },
+            {
+              "key": "422cc73c-4823-50d7-9366-b9bae2a139da",
+              "ingredientName": "Spargel",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": true,
+              "source_note": "Roasted oder chargrilled asparagus"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Optional: Wärme die Servierschüsseln vor. Im Backofen: Heize ihn auf 80C (175F) und stelle die Schüsseln für 10-15 Minuten hinein. In der Mikrowelle: Erwärme jede mikrowellengeeignete Schüssel 1-2 Minuten auf hoher Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe einen großen Topf mit Salzwasser zum Kochen. Gib die Fettuccine hinein und koche sie 1 Minute kürzer als auf der Packung angegeben; in der Soße gart sie fertig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schöpfe etwa 250 ml (1 Tasse) des stärkehaltigen Nudelwassers ab und gieße anschließend die Pasta ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmilz währenddessen die Butter in einer großen, tiefen, schweren Pfanne bei mittlerer bis niedriger Hitze. Schalte den Herd aus, sobald die Butter geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die abgetropfte Pasta zur geschmolzenen Butter und wende sie mit einer Zange, bis sie gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib nach und nach den geriebenen Parmesan dazu und wende die Pasta dabei ständig, bis der Käse schmilzt und mit der Butter eine cremige Soße bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das aufgefangene Nudelwasser esslöffelweise in Portionen von 1-2 EL dazu und wende die Pasta ständig, bis die Soße glänzend und cremig ist; gewöhnlich wird die ganze Tasse benötigt. Schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Pasta sofort in den warmen Schüsseln, mit zusätzlichem Parmesan und frisch gemahlenem schwarzem Pfeffer. Reiche nach Wunsch gerösteten oder über Holzkohle gegrillten Spargel dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/07/Authentic-Fettuccine-Alfredo-2-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/authentic-fettuccine-alfredo/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von authentischer Fettuccine Alfredo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

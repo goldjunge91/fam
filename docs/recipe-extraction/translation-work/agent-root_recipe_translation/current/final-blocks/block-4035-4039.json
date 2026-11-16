@@ -1,0 +1,1109 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-samoosa",
+      "slug": "gen-samoosa",
+      "title": "Samoosa",
+      "instructions": "Durban-indischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Füllung im Voraus zubereiten und im Kühlschrank aufbewahren",
+        "Frittieröl mehrfach wiederverwenden, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "durban-indisch",
+        "snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4035,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-samoosa/",
+      "components": [
+        {
+          "key": "f5e118b5-5f04-5673-8ffb-a28ab16a0082",
+          "name": "Zutaten",
+          "servingGrams": 147.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "577d9bf5-e801-5460-a101-9d407e65405b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c8aa607f-8a45-5359-9aad-3ef7eb93b1b6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "568f6366-677e-588b-a1c2-9092cf4ee45e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e7ae14cc-579f-57f7-9039-2d77f183ad9b",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "12cbb1e2-211c-5c97-bd4d-9f6658219214",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück, fein gewürfelt"
+            },
+            {
+              "key": "c7a503ca-a40b-514f-9073-3fffd4440c7c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ea1c8395-fa46-5a4f-af9d-b762219ab411",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "064aa1ad-3acd-5c2b-a22a-a6ba209f498c",
+              "ingredientName": "Currypulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "c22a17a0-f632-5f77-8a88-b658fc2d3308",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "2cd1b87a-07f9-540d-837c-0165a04118a9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "ab84c89f-85a5-57e9-adb9-3161fe183b0e",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer Schüssel vermengen, nach und nach Wasser einrühren und zu einem festen Teig verarbeiten; 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 tbsp Öl in einer Pfanne erhitzen und Zwiebeln goldbraun braten, dann Ingwer-Knoblauch-Paste und grüne Chili hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhack und Currypulver hinzufügen und garen, bis das Fleisch durch ist; Koriander und Zitronensaft einrühren und vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 12 Kugeln teilen und jede mit den Händen oder einem Nudelholz zu einem dünnen Quadrat flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jedes Quadrat diagonal halbieren, sodass zwei Dreiecke entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1 tbsp Füllung auf jedes Dreieck geben, zu einem kleineren Dreieck falten und die Ränder fest zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "3 cups Öl in einer tiefen Pfanne auf 350°F erhitzen und Samosas portionsweise etwa 2-3 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit Chutney servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Chicken-Samosas_EXPS_TOHD24_245621_KristinaVanni_7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Chicken-Samosas_EXPS_TOHD24_245621_KristinaVanni_7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kenkey",
+      "slug": "gen-kenkey",
+      "title": "Kenkey",
+      "instructions": "Ghanaisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maismehl in großen Mengen auf afrikanischen oder internationalen Märkten kaufen",
+        "Tomatensauce selbst zubereiten statt Sauce aus der Dose zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "ghanaisch",
+        "frühstück",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4036,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kenkey/",
+      "components": [
+        {
+          "key": "83dc2fa5-5520-5a2b-a320-1b67c2be83b6",
+          "name": "Zutaten",
+          "servingGrams": 566,
+          "position": 0,
+          "items": [
+            {
+              "key": "0bfca833-faea-5bf4-84d3-aa68e82dead4",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ebd5244a-0c3e-5585-ba47-e1a04fcbf06d",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "f269a956-534c-5361-85a0-940b576d9f4a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fde8aa2e-37c8-5e39-9a02-983639d6d28d",
+              "ingredientName": "Banane",
+              "grams": 944,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Stück"
+            },
+            {
+              "key": "fa34b8af-eec0-5d28-b199-c19326147339",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 großes Stück, gewürfelt"
+            },
+            {
+              "key": "79acd0bb-77c5-5d1c-ab25-c650f1eca0f2",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "ed4fbc14-48d7-5a19-828c-f5f4a59c23ae",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, gerieben"
+            },
+            {
+              "key": "eb755868-0043-5b3b-946e-e10dd9da38a3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d8cab6ac-2953-5420-92cd-d70960661c92",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maisblätter oder Bananenblätter 10 Minuten in warmem Wasser einweichen, damit sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "3 cups Wasser mit Salz zum Kochen bringen und Maismehl unter ständigem Rühren langsam hineingießen, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze reduzieren und 15 Minuten rühren, bis die Mischung eindickt und sich nur schwer rühren lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Maismischung in 4 Portionen teilen und jede fest in ein eingeweichtes Mais- oder Bananenblatt wickeln, sodass ein rechteckiges Päckchen entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kenkey in einen Topf mit etwa 2 inches Wasser legen und 30 Minuten dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Währenddessen Öl in einer Pfanne erhitzen und Zwiebel, Tomate, Ingwer sowie Chili für eine einfache Sauce anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kenkey aus den Blättern wickeln und heiß mit der Tomatensauce dazu oder darüber servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/07/F7A6AB1E-7D9F-4490-97C2-043DC4DC644C.jpeg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/07/F7A6AB1E-7D9F-4490-97C2-043DC4DC644C.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ampesi",
+      "slug": "gen-ampesi",
+      "title": "Ampesi",
+      "instructions": "Ghanaisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kochbananen und Yams im Angebot kaufen und kühl lagern",
+        "Palmöl zu günstigeren Preisen auf afrikanischen Märkten kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "ghanaisch",
+        "mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4037,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ampesi/",
+      "components": [
+        {
+          "key": "54dbe0b7-2c84-5acc-8c95-92a67efd2f20",
+          "name": "Zutaten",
+          "servingGrams": 704.22,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ac76836-deb6-5841-b854-73110211ca8b",
+              "ingredientName": "Kochbanane",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "ebd561fa-9a98-5b40-8ac4-ebf78c27d177",
+              "ingredientName": "Yamswurzeln",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5a1e35ed-531e-5085-8364-b16d3232567d",
+              "ingredientName": "Cocoyam",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "22627890-46e8-59f9-a5c5-5979a643f5d2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, halbiert"
+            },
+            {
+              "key": "3b474680-f203-50c5-ab93-5a001d78e20f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aa115d17-fcdd-51ff-a7c1-521f1a45d4f3",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "308fdbe0-aa89-581d-8730-56d0a169110a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "61ce51d9-43c9-5c0c-97b7-eaeaf71a4b04",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "5b168188-d3a2-5f29-b8d3-2798087529fd",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "7e0375a6-b43a-5b9b-a3b7-e2f5568549c9",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grüne Kochbananen, Yams und Cocoyam schälen, die Schale mit einem Messer abschneiden und gründlich abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Alles in 2-3 inch große Stücke schneiden und mit Wasser, Zwiebel, Salz und Pfeffer in einen großen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Kochen bringen und 25-30 Minuten köcheln lassen, bis das Gemüse beim Einstechen mit einer Gabel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer separaten Pfanne Palmöl erhitzen und Tomate sowie Knoblauch 3-4 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gegartes Gemüse abgießen und auf einer Servierplatte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tomaten-Palmöl-Sauce über das Gemüse gießen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.accentuate.io/557722665137/1644001826968/IMG_9802.JPG?v=0",
+          "sourcePageUrl": "https://cdn.accentuate.io/557722665137/1644001826968/IMG_9802.JPG?v=0",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-palm-soup",
+      "slug": "gen-palm-soup",
+      "title": "Palmnusssuppe",
+      "instructions": "Ghanaisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rindfleischstücke im Angebot kaufen und bis zur Verwendung einfrieren",
+        "Hähnchen statt Rindfleisch verwenden, um günstiger zu kochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "ghanaisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4038,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-palm-soup/",
+      "components": [
+        {
+          "key": "4a55c184-a079-5754-9a50-e3bc0fc3c593",
+          "name": "Zutaten",
+          "servingGrams": 508.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "7573a408-3746-5eb2-8c96-ab52e5645bc3",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "5545abb9-322c-5097-aea9-718c3fd5b26d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "df2ad32a-c8fa-58ed-9e18-93a780dae5c5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "a4a5a20e-8786-59a5-8d27-3ab8e08066f7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "34d41541-d9de-53c6-bdb0-fa6cf08b0911",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, gerieben"
+            },
+            {
+              "key": "62d9576b-2940-599f-b04c-ef6c9653f0df",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "051c2804-dabf-5fcf-9115-edc563d5ecc5",
+              "ingredientName": "Brühwürfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bdfe3e9-2144-57d4-afdd-0261bfe692cd",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "252f4f23-9fb8-5afd-8fef-607e9f8b607e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 ganzes Stück"
+            },
+            {
+              "key": "b81c82ca-f3f4-559e-a044-0d9fb20cf08d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Palmöl in einem großen Topf bei mittlerer Hitze erhitzen und Zwiebel, Knoblauch sowie Ingwer 3 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fleisch hinzufügen und etwa 5 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brühwürfel, Wasser und eine ganze Scotch-Bonnet-Chili hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und 30-35 Minuten köcheln lassen, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in Schüsseln mit einem Löffel und Fufu oder Reis dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1645561906/k/Photo/Recipes/2022-02-she-crab-soup/220217_AptTherapyKitchn_SheCrabSoup_0189.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1645561906/k/Photo/Recipes/2022-02-she-crab-soup/220217_AptTherapyKitchn_SheCrabSoup_0189.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-light-soup",
+      "slug": "gen-light-soup",
+      "title": "Leichte Suppe",
+      "instructions": "Ghanaisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Saisonales Gemüse verwenden, um Kosten zu senken",
+        "Hähnchenteile im Angebot kaufen und einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "ghanaisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4039,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-light-soup/",
+      "components": [
+        {
+          "key": "63589c29-af81-5363-a425-48d4bfd811c4",
+          "name": "Zutaten",
+          "servingGrams": 600.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3dacc651-e5cd-5dee-9c3a-78a115846064",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "a224474b-5637-5e09-8669-612e4db2c092",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "9e6856a7-7cf1-5370-bb4e-9f609a46f4dc",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "55890027-a104-59e9-9cde-047c0da81bf4",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "077627bd-3edd-5509-b36d-ddd0286a16bc",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "1cb4239f-3ac2-516c-9176-2fa9bf1908a3",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, gewürfelt"
+            },
+            {
+              "key": "0a67c3f1-aa0a-5d95-b925-495f3f5e68c3",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse, in 1-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "6e77da58-4b80-54e5-bd4c-88b636318cb8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3d5e7a83-f379-50e5-bd44-bec7982ef77c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "eb6fac5a-fb99-5cc0-91a8-65562baff3cb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und das Fleisch bei mittelhoher bis hoher Hitze etwa 4 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Knoblauch hinzufügen und 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Tomate hinzufügen und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gemüsebrühe angießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Karotten und grüne Bohnen hinzufügen, Hitze reduzieren und 20-25 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß als leichte und nahrhafte Mahlzeit servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2017/09/5e888e28e0c1db86304cd667351d8c877d136337.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2017/09/5e888e28e0c1db86304cd667351d8c877d136337.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

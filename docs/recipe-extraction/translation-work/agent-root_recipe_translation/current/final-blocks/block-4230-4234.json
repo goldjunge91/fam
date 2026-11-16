@@ -1,0 +1,1042 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fricas",
+      "slug": "gen-fricas",
+      "title": "Fricasé",
+      "instructions": "Bolivianisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter in großen Mengen kaufen und Portionen einfrieren, um 35% zu sparen",
+        "Maisstärke statt Mehl zum Binden verwenden und 10% sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "bolivianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4230,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fricas/",
+      "components": [
+        {
+          "key": "f6e0fd96-5a0a-5d62-994b-7a1d04e55cca",
+          "name": "Zutaten",
+          "servingGrams": 399.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "315982b3-aab4-5a79-839e-72726ef195a8",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "0d25c5aa-4d66-59f7-b0ec-fa955b9a658e",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "9acf27a3-2acb-5bf1-a4c2-678893f5ce72",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "92cf190e-7707-5dd8-8059-a95c87670221",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "fb6be3f7-022b-59fe-9e08-1de75167bfe8",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2a0a71c3-c0a6-5dc1-936f-d8ad0c5f6365",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c2107407-d9d2-5e57-b8cb-6467a5e80a24",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "21c1a44a-44e8-59d7-bcec-08ee9295fd1e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cbfca898-285e-5f9c-b93a-d1e075e1f777",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c9ed13bb-8d6e-57ab-a4d7-43c41fe33443",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittelhoher bis hoher Hitze erhitzen und Schweinefleischwürfel portionsweise etwa 3 Minuten pro Portion von allen Seiten anbräunen; herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf geschnittene Zwiebel und gehackten Knoblauch etwa 4 Minuten weich und glasig dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl über die Zwiebelmischung streuen und 1 Minute ständig rühren, um eine Mehlschwitze herzustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schweinefleisch zurück in den Topf geben, Rinderbrühe angießen und Essig sowie Kreuzkümmel hinzufügen; gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann Hitze reduzieren, abdecken und 30 Minuten köcheln lassen, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gewürfelte Kartoffeln hinzufügen und abgedeckt weitere 20 Minuten köcheln lassen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren; die Sauce sollte cremig sein und die Zutaten überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://eatsimplefood.com/wp-content/uploads/2020/04/Fricase-de-Pollo-EatSimpleFood.com_-1536x1024.jpg",
+          "sourcePageUrl": "https://eatsimplefood.com/wp-content/uploads/2020/04/Fricase-de-Pollo-EatSimpleFood.com_-1536x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ranga-ranga",
+      "slug": "gen-ranga-ranga",
+      "title": "Ranga Ranga",
+      "instructions": "Bolivianisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kutteln oder Leber an der Fleischtheke kaufen, dort sind sie 60% günstiger als abgepackt",
+        "Tiefgekühlten Mais statt frischen verwenden und ganzjährig 40% sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "bolivianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4231,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ranga-ranga/",
+      "components": [
+        {
+          "key": "1b3faaa2-fc12-56d1-b4f1-0fd92b48bb24",
+          "name": "Zutaten",
+          "servingGrams": 337.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce78b2ef-27ab-5801-802e-026d36b07a1d",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "adc53d15-fa18-5e10-b33c-49a25e8db794",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "67411299-5bba-5b77-8942-0ed4a1444045",
+              "ingredientName": "Popcornmais",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse (frisch oder tiefgekühlt)"
+            },
+            {
+              "key": "c8e9f278-9a5d-5ce4-8d64-ae09bb83f4ab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "addc66df-0753-57bf-9e35-cbde4571157c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "c1a1d5ff-17a3-5975-85ef-0a6d654e19e0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "2484df2d-cb31-5ee8-a75f-15ccfd751380",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e3e6edd7-7c6b-5724-a727-bfa92475b675",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "2a014c61-b3b7-5883-9ecb-5040942f4329",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "732e9697-4f4e-5e21-a787-34d676959c9c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kutteln oder Leber in einem separaten Topf 20 Minuten in Salzwasser kochen, um Verunreinigungen zu entfernen; abgießen und klein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen und gewürfelte Zwiebel sowie gehackten Knoblauch etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Rinderkutteln oder Leber hinzufügen und unter gelegentlichem Rühren 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe angießen und zum Kochen bringen, dann gewürfelte Kartoffeln, Maiskörner, Kreuzkümmel und Chilipulver hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und 20 Minuten köcheln lassen, bis die Kartoffeln weich und die Brühe aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.freepik.com/premium-photo/traditional-ranga-ranga-meal-preparation-marble-counter_916119-2403.jpg?w=2000",
+          "sourcePageUrl": "https://img.freepik.com/premium-photo/traditional-ranga-ranga-meal-preparation-marble-counter_916119-2403.jpg?w=2000",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-silpancho",
+      "slug": "gen-silpancho",
+      "title": "Silpancho",
+      "instructions": "Bolivianisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reis in großen Mengen kochen und im Kühlschrank lagern, um Zeit und Kochkosten zu sparen",
+        "Putenhack statt Rinderhack verwenden und 40% Kosten senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "bolivianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4232,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-silpancho/",
+      "components": [
+        {
+          "key": "bf7ccd0e-06de-519a-bdaf-1f4f521d3535",
+          "name": "Zutaten",
+          "servingGrams": 193.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "af2242e4-6146-530c-8d14-fade0e74d431",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "35853fdf-6aab-504c-b6fe-21a0926c559a",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4d89757d-bfde-5d88-be59-5cae98eb6ab9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gewürfelt"
+            },
+            {
+              "key": "0b508869-3528-592d-854c-3dc9c13be35e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "f908d894-391b-52b4-b6d1-07e2515a3814",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dd7bc54-3c42-5124-9275-75683351553a",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "dedc4b08-5f8d-5a7f-9e88-21122cf66683",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "ef7883ae-b886-5673-a87a-bf1748838f7d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "360c4b3c-77d8-5d82-9adc-235cd5bde616",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0f7aa959-c570-5660-abf0-1297b624be3c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Geschälte und geschnittene Kartoffeln etwa 12 Minuten in Salzwasser weich kochen, gut abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Öl in einer Pfanne bei mittlerer Hitze erhitzen und gewürfelte Zwiebel sowie gehackten Knoblauch etwa 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhack hinzufügen und mit einem Löffel zerteilen; etwa 6 Minuten vollständig bräunen, dann mit Kreuzkümmel, Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gekochte Kartoffelscheiben in derselben Pfanne in einer Lage anrichten und mit der gegarten Rinderhackmischung belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Übriges Öl in einer anderen Pfanne erhitzen und 4 Spiegeleier braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochten Reis auf 4 Teller verteilen und jede Portion mit einem Kartoffel-Rindfleisch-Bratling belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf jeden Bratling ein Spiegelei setzen und vor dem Servieren mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/lBUpl69CHPtdZH0nedA47yYrf9M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4243657-9b6d996ab87741ba81c418412759a42d.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/lBUpl69CHPtdZH0nedA47yYrf9M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4243657-9b6d996ab87741ba81c418412759a42d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-red-rice",
+      "slug": "gen-red-rice",
+      "title": "Roter Reis",
+      "instructions": "Soul-Food-Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reis in großen Mengen im Großhandel kaufen, um die Portionskosten zu senken",
+        "Tomatensauce und Brühe von Eigenmarken für deutliche Einsparungen verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "soul-food",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4233,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-red-rice/",
+      "components": [
+        {
+          "key": "a1a5a45e-aaa5-51b4-8f2a-14f50b49a870",
+          "name": "Zutaten",
+          "servingGrams": 421.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd144e2a-8d5a-556e-ad19-e2a6dde583e0",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9d31228c-92b9-5ede-9fab-b80860e86bd7",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "4bb454db-4432-5e60-be79-36e95366a6a4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "b9c9e537-1bb9-5667-a89b-303d1f7c9723",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "43805478-b6a4-513d-83f1-eb72b73c19a7",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "449528f6-b240-5dc5-a020-0314e90dc864",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5313c5bd-f268-50ae-a377-3acaa2fa0e86",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "435811bb-96a4-5488-aa43-691921ecd962",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen und gewürfelte Zwiebel 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis in den Topf geben und 2 Minuten unter ständigem Rühren leicht anrösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatensauce und Hühnerbrühe angießen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salz, Pfeffer und Knoblauchpulver hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren, fest abdecken und 18-20 Minuten köcheln lassen, bis der Reis weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen, abgedeckt 5 Minuten ruhen lassen und dann mit einer Gabel auflockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1746115105/k/Photo/Recipes/2021-08-jollof-rice/Jollof-Rice-reshoot/KITCHN_BHM_z23930_1_fc2986_landscape.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1746115105/k/Photo/Recipes/2021-08-jollof-rice/Jollof-Rice-reshoot/KITCHN_BHM_z23930_1_fc2986_landscape.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-collard-green-soup",
+      "slug": "gen-collard-green-soup",
+      "title": "Collard-Greens-Suppe",
+      "instructions": "Soul-Food-Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schinkenhaxen im Angebot kaufen und für später einfrieren",
+        "Grünkohl in der Saison oder tiefgekühlt zum günstigsten Preis kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soul-food",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4234,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-collard-green-soup/",
+      "components": [
+        {
+          "key": "7ba91009-9b8c-5eb8-9928-5ed25c02aa57",
+          "name": "Zutaten",
+          "servingGrams": 447.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "441fadc0-688b-5c91-87f5-c42b915e33fe",
+              "ingredientName": "Grünkohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gehackt"
+            },
+            {
+              "key": "4e6327a2-4853-5057-956a-d2b732804f34",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "e0b5037f-9dc5-5e1d-8a99-ee82e848d880",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Stück (etwa 1 Pfund)"
+            },
+            {
+              "key": "669623cf-a22b-5793-9367-53d7b1cafbdb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "67f54367-1b7e-51ef-b4a0-e8c5f63e779a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "97be353d-6d7b-50b9-9cab-a07624be3d48",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "2e82d3a9-7afd-5efe-b3c6-11cb48c3c842",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "86f2c6f9-e3bf-5008-9e24-ba3fd22fef79",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schinkenhaxe mit 6 cups Hühnerbrühe in einen großen Topf geben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hitze reduzieren und 15 Minuten köcheln lassen, damit die Brühe Aroma annimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel und gehackten Knoblauch hinzufügen und 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Grünkohl, Salz, Pfeffer und rote Chiliflocken einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ohne Deckel 20-25 Minuten köcheln lassen, bis das Blattgemüse sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schinkenhaxe herausnehmen, Fleisch vom Knochen zerpflücken, zurück in die Suppe geben und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/01/Collard-Greens-Cabbage-Soup-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/01/Collard-Greens-Cabbage-Soup-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

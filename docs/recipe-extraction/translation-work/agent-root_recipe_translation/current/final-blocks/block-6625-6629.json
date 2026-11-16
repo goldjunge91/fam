@@ -1,0 +1,1097 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-atchar",
+      "slug": "gen-atchar",
+      "title": "Atchar",
+      "instructions": "Kapmalaiischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie grüne Mangos während der Saison auf ethnischen Märkten",
+        "Machen Sie große Mengen zum Konservieren und Teilen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "kap-malaiisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6625,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-atchar/",
+      "components": [
+        {
+          "key": "a6666480-95f4-554b-b69a-529b2a99ed59",
+          "name": "Zutaten",
+          "servingGrams": 160.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f6b6f3a-74ab-5663-960d-583cd7706265",
+              "ingredientName": "Mango",
+              "grams": 400,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "62adafe9-00fc-5f56-a6d5-14678b3480bf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "c3a2d713-e36b-5b23-8334-2142e062db32",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3796a8b-436c-59c0-91c9-21d4f5580ee8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3359f591-f874-5b07-b7e2-77658f9769cb",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "41927504-1fe4-5faf-8dca-08f163decc78",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ee6a3ab1-d685-5a62-8def-e98e90f6b63e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d08f6b2d-4600-5749-b047-bb098962527f",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d37d0a63-5faa-59c0-a443-eab02626cc5a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ebb68a5f-e9af-591f-98a7-a5c634e7d84b",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die grünen Mangos, schneide sie in feine Streifen und lege sie 30 Minuten in Salzwasser ein. Anschließend gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einem Topf und gib die Senfkörner hinein. Lasse sie 30 Sekunden aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib fein gehackte Zwiebeln, Knoblauch, Ingwer und die in Scheiben geschnittenen Chilischoten dazu und dünste alles weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Kurkuma ein, gib die Mangostreifen dazu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Essig dazu, salze und lasse die Mangos 10 Minuten köcheln, bis sie weich, aber noch bissfest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Atchar abkühlen und fülle es zur Aufbewahrung in Gläser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/fd/89/9f/fd899f89532a502bab07ef865da8fdfc.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/fd/89/9f/fd899f89532a502bab07ef865da8fdfc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kofta",
+      "slug": "gen-kofta",
+      "title": "Kofta",
+      "instructions": "Kapmalaiisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hackfleisch im Sonderangebot kaufen und portionsweise einfrieren",
+        "Verwenden Sie Semmelbrösel von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kap-malaiisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6626,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kofta/",
+      "components": [
+        {
+          "key": "18f27ff7-0cd8-54ca-b185-592d8acce446",
+          "name": "Zutaten",
+          "servingGrams": 110.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b4bdbd1-099d-5566-bda7-b51a455db543",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "0b7af70f-e40d-570d-9f89-4db496225a95",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "80c25b7e-31a8-5c19-af54-2acaed43ff0d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4a55956-f69a-50c7-94e1-8c92b8706d14",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "50aeb612-2af6-5ff2-8a78-507f92e32bf5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0bc07696-7959-51ff-965b-724fbe9ab5f0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f7518fc7-78fc-56a3-86e8-d542f3cb5455",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "40d69065-57d4-50eb-9095-842ef896a22c",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0ac6cf28-9591-5ad7-b3a8-6a04f60a8fdf",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7d68319-1e95-5404-87f8-40e1313bc333",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "34cb7bc5-cf4b-5d88-a4cb-5c2304dc9e67",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerkleinere Zwiebel, Knoblauch und Ingwer in einer Küchenmaschine fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Rinderhack mit den Aromaten, Koriander, Kreuzkümmel, Chilipulver, Panko, Ei, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme 12-16 ovale Kofta und stelle sie 15 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das Öl in einer Pfanne bei mittlerer bis hoher Hitze und brate die Kofta rundherum etwa 3-4 Minuten pro Seite an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe und gare die Kofta weitere 8-10 Minuten durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie mit Reis und Joghurtdip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/bjDZkBmzAOhEcPSw-kL595GSYjc=/4494x3000/filters:fill(auto,1)/malai-kofta-vege-balls-in-a-thick-sauce-1957964_hero-01-474bc099313944668d3b2c68b88549d5.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/bjDZkBmzAOhEcPSw-kL595GSYjc=/4494x3000/filters:fill(auto,1)/malai-kofta-vege-balls-in-a-thick-sauce-1957964_hero-01-474bc099313944668d3b2c68b88549d5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dhaltji",
+      "slug": "gen-dhaltji",
+      "title": "Dhaltji",
+      "instructions": "Kapmalaiisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Spalterbsen in großen Mengen in Volks- oder Lagerhäusern",
+        "Zum Einfrieren doppelte Portionen zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kap-malaiisch",
+        "Abendessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6627,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dhaltji/",
+      "components": [
+        {
+          "key": "43442adb-47a3-51ac-93c7-4f814e3e94ca",
+          "name": "Zutaten",
+          "servingGrams": 545.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "13fc27c8-868f-540e-821a-eb8e3a5e7022",
+              "ingredientName": "Gespaltene Erbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9c0eae05-57c5-572e-a4bf-fa2b88260229",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "e30beab5-b876-5af7-8500-af020b89256b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa55566d-32b9-58f1-b944-ea35b17277ec",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b0fe88f2-35c6-56dd-a2d5-fcfe6a1c8617",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "384d6dd6-c89d-53c3-b661-4e03ed2cd49b",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "09649236-7e9f-566c-a9da-f719797502a5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f2b6d0c8-0966-58c3-be81-cd378f019be6",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "3addb98e-e7e0-5687-b6c8-59576baae45a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7d886ddb-af7b-53fa-990b-c1d2c89359af",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Schälerbsen 1 Stunde in Wasser ein und gieße sie anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einem großen Topf und gib die Kreuzkümmelsamen hinein. Lasse sie 30 Sekunden aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste gewürfelte Zwiebeln, gehackten Knoblauch, Ingwer und geschnittene Chili weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kurkuma dazu und brate es 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die abgetropften Erbsen und 6 cups frisches Wasser ein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze und köchele 45-50 Minuten unter gelegentlichem Rühren, bis die Erbsen zerfallen und ein dickes Dal entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere das Dal mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/03/Tomato-Zucchini-Pasta-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/03/Tomato-Zucchini-Pasta-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kingklip-curry",
+      "slug": "gen-kingklip-curry",
+      "title": "Kingklip Curry",
+      "instructions": "Kapmalaiisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Kabeljau oder Schellfisch, wenn Kingklip nicht verfügbar ist",
+        "Kaufen Sie gefrorene Fischfilets im Sonderangebot"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kap-malaiisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6628,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kingklip-curry/",
+      "components": [
+        {
+          "key": "5495bc44-9f7e-5434-aac0-3c160f0e19e1",
+          "name": "Zutaten",
+          "servingGrams": 202.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a0bef82-c66b-5fda-a6cb-f4ce82413eaf",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6d8cacf9-7488-5cd1-8571-ea26427afa77",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "9082755e-25d6-5b09-ae56-5f31a6e1450e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d7d269e-9e3d-5b59-9d90-e852e02c3b73",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "37ac39ec-8bae-56e7-9b44-42d23e52740c",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7014a218-4320-5ec5-961b-adf84427153f",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "c04ed6b2-137c-5506-b840-ea95575d2bc7",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f0a983fd-8358-51f3-8a9b-c798f63750f5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "552e19e1-937f-5198-b228-c1f4e8e65eb0",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "36a8b569-adc1-5dc1-ac00-97137bcd60fa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl in einer großen Pfanne und dünste gewürfelte Zwiebeln, gehackten Knoblauch und Ingwer an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Currypulver und Kurkuma dazu und rühre 1 Minute ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Kokosmilch an und bringe die Sauce zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Fischfilets in die Currysauce und pochier sie 10-12 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle den Fisch mit Zitronensaft und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Gericht heiß mit Reis und Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https%3A%2F%2Fstorage.googleapis.com%2Fgen-atmedia%2F3%2F2016%2F08%2F7cce16683af37aacdbf045410787e611b025386f.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https%3A%2F%2Fstorage.googleapis.com%2Fgen-atmedia%2F3%2F2016%2F08%2F7cce16683af37aacdbf045410787e611b025386f.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-snoek-curry",
+      "slug": "gen-snoek-curry",
+      "title": "Snoek Curry",
+      "instructions": "Kapmalaiisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn kein frischer Snoek verfügbar ist, ersetzen Sie ihn durch Makrele oder Fischkonserven",
+        "Kaufen Sie frischen Fisch der Saison zu günstigeren Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kap-malaiisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6629,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-snoek-curry/",
+      "components": [
+        {
+          "key": "90c48ef0-d901-5c91-8e18-112aea4e9eb7",
+          "name": "Zutaten",
+          "servingGrams": 179.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a607802f-8613-59c2-ac9b-89e14c059fac",
+              "ingredientName": "Makrele (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4c8bef80-4ca4-59e4-abf0-fd68902eb2e8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "acc0bb6f-ba9b-5f7f-8b54-ccf029926029",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d33b4f18-ab48-5195-b46d-cf2445a55608",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d2482b60-e03d-5f90-bcff-5b2c678e5537",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "45145c7c-a67c-55dd-9173-52c21f85f15a",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "edca59b4-403d-5ea7-846a-487e9c5e4a62",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "0e647cdf-3fb5-5209-ab11-ec25b1ee0769",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9caef5da-563c-56cd-9b02-bae25b742dc9",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1a8b20ea-0db6-5786-a275-43f47b0b2f15",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl in einem großen Topf und gib die Senfkörner hinein. Lasse sie 30 Sekunden aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste gewürfelte Zwiebeln, gehackten Knoblauch und Ingwer weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Currypulver dazu und brate es 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Dosentomaten samt Saft und Essig dazu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Fischfilets dazu und pochier sie 12-15 Minuten sanft, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere das Curry mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/dQwvjsy6roVoo2W9NOrL-puLPXE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11825849-Slow-Cooker-Curried-Thanksgiving-Soup-with-Stuffing-Croutons-DDMFS-Beauty-4x3-d0795a3ada9d4131b5323a47b375e0bb.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/dQwvjsy6roVoo2W9NOrL-puLPXE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11825849-Slow-Cooker-Curried-Thanksgiving-Soup-with-Stuffing-Croutons-DDMFS-Beauty-4x3-d0795a3ada9d4131b5323a47b375e0bb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

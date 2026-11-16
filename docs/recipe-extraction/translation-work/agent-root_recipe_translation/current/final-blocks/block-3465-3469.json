@@ -1,0 +1,1115 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-seeni-sambol",
+      "slug": "gen-seeni-sambol",
+      "title": "Seeni Sambol",
+      "instructions": "Sri-lankisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normalen Thunfisch aus der Dose statt teurer Marken verwenden",
+        "Große Mengen zubereiten und portionsweise einfrieren, um sie über mehrere Wochen zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "sri-lankisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3465,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seeni-sambol/",
+      "components": [
+        {
+          "key": "b0c04a3e-d300-5c25-a29e-e775b2e6c4c4",
+          "name": "Zutaten",
+          "servingGrams": 484.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f775d3c-ab3e-52fa-8446-6e3f4c957165",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "571c43d3-d989-5216-9874-0dd63077ced0",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "281ca948-082a-54fa-996c-2dbe326c0932",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db8b421c-59e3-5717-b9b9-3b2217aa64ea",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Zoll langes Stück"
+            },
+            {
+              "key": "d3f22371-98fe-50cb-9cb9-4e66483cf19b",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (5 Unzen), abgetropft"
+            },
+            {
+              "key": "4deb0a18-4ec7-5fb4-bcd3-a607e28419b8",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "80985a08-f196-50fe-a95e-7d2acc81d575",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c9ecaa5c-7158-5ce8-912c-0416debf593b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f76fe472-ef1c-5f9c-aca5-3c32f776f80f",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "9da3b2b0-5670-557f-a83b-42d555639b8a",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zweig"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebeln dünn schneiden und Knoblauch, Ingwer sowie rote Chilis fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei mittlerer Hitze erhitzen und Zwiebeln etwa 15 Minuten goldbraun und karamellisiert braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch, Ingwer und rote Chilis hinzufügen und 2 Minuten unter ständigem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgetropften Thunfisch hinzufügen, mit einem Löffel zerteilen und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tamarindenpaste, Jaggery, Salz und Curryblätter hinzufügen und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei mittelniedriger Hitze 5-8 Minuten garen, bis sich die Aromen verbinden und die Mischung klebrig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren oder Aufbewahren in einem luftdichten Behälter vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lonumedhu.com/sites/default/files/Seeni%20Sambol%201.jpg",
+          "sourcePageUrl": "https://lonumedhu.com/sites/default/files/Seeni%20Sambol%201.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-black-pork-curry",
+      "slug": "gen-black-pork-curry",
+      "title": "Schwarzes Schweinefleisch-Curry",
+      "instructions": "Sri-lankisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter im Angebot kaufen und bis zur Zubereitung einfrieren",
+        "Gewöhnliches Currypulver statt teurer Gewürzmischungen verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "sri-lankisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3466,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-black-pork-curry/",
+      "components": [
+        {
+          "key": "64f00a9d-3be1-5744-88bb-a571df0236e7",
+          "name": "Zutaten",
+          "servingGrams": 224.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "b0dfd186-fd47-5e92-8e8b-b5759904d66c",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "d7487f06-22b1-52aa-9005-ddac9ba8f917",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "2a7a5559-0163-5dd8-977d-3ffbea6e4845",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc140727-33c3-5bf6-a143-aab59f99a27f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zoll langes Stück"
+            },
+            {
+              "key": "d292ea96-fcb5-592f-87cd-9dc63816b617",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9e3b88e5-4036-5810-9360-bf924a39d5d9",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9cda5d58-a8e5-5a34-aefc-25281de43bfb",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "2bbfd8b0-436a-5456-90e7-c898887384d8",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f89b3b7d-cb91-5def-b6a9-c7b1954b7d22",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "9801e2d4-a234-5f25-a57c-d5a97e7d2c19",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "58419a02-f66e-5e17-807c-f307bfe5ae48",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schwarze Pfefferkörner grob zerstoßen und Knoblauch sowie Ingwer fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Topf mit schwerem Boden erhitzen und gehackte Zwiebeln goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch und Ingwer hinzufügen und 1 Minute anbraten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schweinefleischwürfel hinzufügen und 5-7 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Currypulver und zerstoßene Pfefferkörner über das Fleisch streuen und 2 Minuten gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Essig hinzufügen und den Topf ablöschen, dabei die Bratrückstände lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kokosmilch und Wasser angießen, Salz hinzufügen und aufkochen; dann die Hitze reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abdecken und 1 Stunde köcheln lassen, bis das Schweinefleisch sehr zart ist; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/66312e7d768e98647bcb9e1a/1:1/w_2560%2Cc_limit/Srilankan-Black-Pork-Curry.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/66312e7d768e98647bcb9e1a/1:1/w_2560%2Cc_limit/Srilankan-Black-Pork-Curry.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-muddy",
+      "slug": "gen-muddy",
+      "title": "Muddy",
+      "instructions": "Sri-lankisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reismehl und tiefgekühlte Kokosnuss in großen Mengen auf asiatischen Märkten kaufen",
+        "Zusätzlichen Teig zubereiten und im Kühlschrank aufbewahren, um schnell Frühstück machen zu können"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "sri-lankisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3467,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-muddy/",
+      "components": [
+        {
+          "key": "dd90f006-f67c-5595-9a5c-38589e70f875",
+          "name": "Zutaten",
+          "servingGrams": 440,
+          "position": 0,
+          "items": [
+            {
+              "key": "3343a4c9-f2aa-5941-85d6-e187b1fffe3e",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "38fd79d0-8a3b-5d1a-88e4-2a51261d36e1",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "5f072288-5a52-56c1-8a41-6aeb91a0a298",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4b31475a-321f-5514-8872-97d0ff2f7893",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "af0f76e0-e8f2-517d-89b1-47bc37fd07a1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL zum Braten"
+            },
+            {
+              "key": "0e19b9dc-90f6-5f6b-b0ed-4b29670ca7bd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reismehl, geriebene Kokosnuss, Salz und gehackte Frühlingszwiebeln in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach und nach Wasser einrühren, bis ein dicker, pfannkuchenartiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffelweise Teig ins heiße Öl geben und mit dem Löffelrücken leicht flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Je Seite 2-3 Minuten braten, bis die Ränder goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die fertigen Muddy auf einen mit Küchenpapier ausgelegten Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit Curry oder Sambols servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/NknvP24Xw8Gu9PPK-HA79aV23QE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/229544-chex-muddy-buddies-ddmfs-4X3-1883-a90b7aa5c9354aa69ef52c5496046080.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/NknvP24Xw8Gu9PPK-HA79aV23QE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/229544-chex-muddy-buddies-ddmfs-4X3-1883-a90b7aa5c9354aa69ef52c5496046080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-momo",
+      "slug": "gen-momo",
+      "title": "Momo",
+      "instructions": "Nepalesischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hackfleisch im Angebot kaufen und portionsweise einfrieren",
+        "Die doppelte Menge zubereiten und ungegarte Momos für schnelle Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "nepalesisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3468,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-momo/",
+      "components": [
+        {
+          "key": "d8c327c7-3620-5ad6-a681-3229f8904f6b",
+          "name": "Zutaten",
+          "servingGrams": 294.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb686675-b9e5-5412-a55c-9ff4b7477987",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fa38ee68-d037-59c3-9930-d6da522dba32",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "0c8d1fed-efeb-51e8-9462-35d647e8787b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "745f35c1-37b1-5803-b806-a711244c4c80",
+              "ingredientName": "Schweinehack",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "5e969ecf-9e53-52ce-b50c-14b9ab810ea3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "bd4bee25-bedb-5710-ac79-456b019cb853",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "9c8eff7c-39b3-5bd0-b8f5-5e92c6c66095",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Zoll langes Stück, fein gehackt"
+            },
+            {
+              "key": "0a2451b5-0104-5c13-90e2-f65f1f9593f3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "9c4b24a2-ccae-5f11-9d57-b6fd891fc1e3",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7338cde6-59f4-519d-8bce-819e5dece536",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz vermengen, dann nach und nach Wasser hinzufügen und kneten, bis ein glatter, fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig abdecken und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hackfleisch, gehackte Zwiebel, Knoblauch, Ingwer, Koriander, Sojasauce und Öl in einer Schüssel für die Füllung vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig dünn ausrollen und mit einem Glas oder Ausstecher Kreise von 2-inch ausschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jeweils einen Esslöffel Füllung in die Mitte jedes Kreises geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Kreis halbieren, dann die beiden Ecken zusammenführen und festdrücken, sodass eine Taschenform entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Einen großen Topf Wasser zum Kochen bringen und die Momos portionsweise hineingeben; vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Momos herausnehmen, sobald sie an die Oberfläche steigen, weitere 2-3 Minuten garen und dann auf einen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß mit Sesamöl und Chilisauce zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DXZoAJoKTPS7BKEyk4H-Gw3puhc=/6016x4016/filters:fill(auto,1)/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DXZoAJoKTPS7BKEyk4H-Gw3puhc=/6016x4016/filters:fill(auto,1)/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dal-bhat",
+      "slug": "gen-dal-bhat",
+      "title": "Dal Bhat",
+      "instructions": "Nepalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen und Reis in großen Mengen in indischen oder asiatischen Geschäften kaufen",
+        "Große Mengen zubereiten und portionsweise für schnelles Aufwärmen einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "nepalesisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3469,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dal-bhat/",
+      "components": [
+        {
+          "key": "842aa155-e32f-56a1-8a91-3d0f02016123",
+          "name": "Zutaten",
+          "servingGrams": 491.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "357389bb-3f06-5296-9955-02b06ba1501f",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7afd2842-8077-5f66-ab65-08c5e4eaeabd",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a14cbdd2-7c9d-543d-a0ab-e599a87cbb01",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "c4bbb66c-4dea-54e2-8e8c-ff95066633d2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "444b8441-dfad-5fd5-aab8-b57927db61f4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Zoll langes Stück"
+            },
+            {
+              "key": "e247fbc2-8357-5e29-bf6c-26b3c14d519e",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "00df11a5-115f-57c5-916a-7390b1a69d8f",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "555f6c32-6bdf-50d2-954b-2c316c1c0cbc",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "93c8b436-5f5a-54ca-92cc-38d4e75947c7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "247bb6d0-b8da-58d2-bc56-58addf41dc80",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Linsen und Reis getrennt unter kaltem Wasser abspülen, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Topf erhitzen und Kreuzkümmelsamen hinzufügen; 10 Sekunden brutzeln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch und Ingwer hinzufügen und 1 Minute anbraten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackte Zwiebel hinzufügen und etwa 3 Minuten garen, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgespülte Linsen, Kurkuma und Salz hinzufügen und 1 Minute gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "3 cups Wasser angießen, aufkochen und dann abgedeckt 20 Minuten köcheln lassen, bis die Linsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In einem separaten Topf 2 cups Wasser zum Kochen bringen, Reis und Salz hinzufügen und dann abgedeckt 15-18 Minuten köcheln lassen, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reis und Dal zusammen auf einem Teller servieren und leicht vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/05/Nepalese-Dal-Bhat-Lentil-and-Rice-Platter.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/05/Nepalese-Dal-Bhat-Lentil-and-Rice-Platter.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

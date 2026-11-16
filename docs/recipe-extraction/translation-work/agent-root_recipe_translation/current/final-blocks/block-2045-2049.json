@@ -1,0 +1,1017 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52864",
+      "slug": "tmdb-52864",
+      "title": "Rotolo mit Pilzen und Kastanien",
+      "instructions": "Britisches vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "vegetarisch",
+        "nussig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2045,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52864/",
+      "components": [
+        {
+          "key": "9d6a2645-312e-5933-941f-148998cbe2dc",
+          "name": "Zutaten",
+          "servingGrams": 472.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce500d6d-f4f0-5846-bfd3-ae326cccab63",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7836b8dd-4373-5a95-a960-7540fc3ee3cb",
+              "ingredientName": "Wasserkastanien (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37e2e6be-669c-5c24-82ed-f94a507fd57d",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d83b02cd-fe22-5917-b271-74ecfc056387",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bffd93e-13b0-5393-8cc7-f5c524e6e9e8",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07480149-319e-5b69-8c65-703e8b0c40f9",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62d82387-fe22-57a2-8704-529f0792a9b3",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89f9aac2-1f69-5de0-b229-e6265b404d39",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b812e36-20ab-5d65-abe5-592819ba7486",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09dcc3d0-c844-50a9-859a-3e5db46470d6",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5e5cefd-b584-5797-8813-f343095179d3",
+              "ingredientName": "Trüffelöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Pilze in 350 ml kochendem Wasser einweichen und bis zur Verwendung beiseitestellen. ¾ der Kastanien mit 150 ml Wasser cremig pürieren. Übrige Kastanien grob hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 EL Olivenöl in einer großen beschichteten Pfanne erhitzen. Schalotten mit einer Prise Salz weich braten, dann Knoblauch, gehackte Kastanien und Rosmarin dazugeben und weitere 2 Minuten braten. Waldpilze, 2 EL Öl und etwas Würzung dazugeben. 3 Minuten garen, bis sie weich werden. Getrocknete Pilze abgießen und grob hacken (Einweichflüssigkeit aufbewahren), dann ebenfalls zusammen mit der Sojasauce dazugeben und weitere 2 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wein, beiseitegestellte Pilzeinweichflüssigkeit und Kastaniencreme verquirlen, bis eine Sauce entsteht. Würzen, dann die Hälfte davon zur Pilzmischung in der Pfanne geben und 1 Minute garen, bis die Sauce glänzt. Rosmarinzweige entfernen und wegwerfen, Mischung beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backofen auf 180C/160C Umluft/Gasstufe 4 erhitzen. Einen großen Topf mit Salzwasser zum Kochen bringen und eine große Schüssel mit Eiswasser bereitstellen. Lasagneblätter 2 Minuten oder bis sie biegsam und leicht gegart sind in das kochende Wasser geben, dann sofort ins kalte Wasser tauchen. Blätter vorsichtig mit den Fingern voneinander lösen und auf ein sauberes Geschirrtuch legen. Das untere Zweidrittel jedes Blatts mit einem guten Löffel Sauce bestreichen und die kurzen Enden von dir weg aufrollen. Jede Rolle halbieren und die Rollen mit der Schnittseite nach oben in eine Auflaufform setzen, aus der du gern direkt am Tisch servierst. Falls nach dem Aufrollen Sauce übrig bleibt, einfach in einige der offenen Nudelrollen geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Übrige Sauce über die Nudeln gießen und 10 Minuten backen oder bis die Nudeln beim Prüfen mit einem Spieß keinen Widerstand mehr haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Währenddessen Semmelbrösel, die letzten 2 EL Olivenöl, Salbeiblätter und etwas Würzung in eine Schüssel geben und alles vermengen. Brösel und Salbei über dem Rotolo verteilen und weitere 10 Minuten backen, bis die Oberfläche goldbraun und die Salbeiblätter knusprig sind. 10 Minuten abkühlen lassen, damit die Nudeln die Sauce aufnehmen. Nach Wunsch vor dem Servieren mit etwas Trüffelöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ssyqwr1511451678.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ssyqwr1511451678.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53059",
+      "slug": "tmdb-53059",
+      "title": "Pilzsuppe mit Buchweizen",
+      "instructions": "Kroatische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kroatisch",
+        "beilage",
+        "wärmend",
+        "suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2046,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53059/",
+      "components": [
+        {
+          "key": "8bc1bbcc-b061-501a-81db-1bed8b8aca82",
+          "name": "Zutaten",
+          "servingGrams": 136.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9134d40-caaf-5ca4-bf42-8e2b350b8a24",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "303d2381-7699-5b24-9669-7b5a8027ba88",
+              "ingredientName": "Buchweizen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98f6e809-5cec-5d0b-9f2a-73993446bc55",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bccfb919-696f-5c26-b844-ee330f06d8bf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8846383-4bee-57b1-8e9a-49fd4ab610be",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28cb87a6-6118-544d-9ec3-fccb7ade327b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46656f96-9e8f-55b5-8426-7340c7d8f2da",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3600acec-daae-5238-8f68-075feea7c493",
+              "ingredientName": "Saure Sahne",
+              "grams": 26.79,
+              "quantity": 26.79,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32e8ff54-8e3e-5d55-88db-4afa4f204eb0",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d40ef240-c64b-574a-92b4-39d9eb101c4c",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Knoblauch hacken, Pilze in Scheiben schneiden und Buchweizen waschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl erhitzen und Zwiebel leicht anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pilze und Knoblauch dazugeben und weiter anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salz, Gemüsewürze, Buchweizen und Lorbeerblatt dazugeben und mit Wasser bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sanft köcheln lassen. Kurz bevor alles vollständig gar ist, Pfeffer, mit Mehl verrührte saure Sahne, gehackte Petersilie und Essig nach Geschmack dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1ngcbf1628770793.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1ngcbf1628770793.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53038",
+      "slug": "tmdb-53038",
+      "title": "Senf-Champ",
+      "instructions": "Irische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "irisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2047,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53038/",
+      "components": [
+        {
+          "key": "606fd677-5ad8-5f0b-99c2-e55c47d7fd0d",
+          "name": "Zutaten",
+          "servingGrams": 146.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "608f890b-750a-5cfe-9f0c-ff4e4181a801",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c49d3b75-b02a-52af-8e56-5cb07962cb9a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4c9d9c9-b50e-5427-a76e-4719d1bf54cc",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1f43125-99d3-5315-9e75-9c0ff3a3c9e6",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "116e2e64-8a9e-5688-a7cb-f236344f167f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln 15 Minuten oder bis sie weich sind kochen. Abgießen und zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Milch und die Hälfte der Butter in einer Ecke der Pfanne erhitzen, dann zusammen mit dem grobkörnigen Senf unter das Kartoffelpüree rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frühlingszwiebeln in der übrigen Butter 2 Minuten sanft braten, bis sie gerade weich, aber noch leuchtend grün sind. Unter das Püree heben und servieren. Passt gut zu Schinken oder als Belag für einen Fischauflauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/o7p9581608589317.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/o7p9581608589317.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53223",
+      "slug": "tmdb-53223",
+      "title": "Mutabbaq",
+      "instructions": "Verschiedenes Gericht aus Saudi-Arabien, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "saudi-arabisch",
+        "verschiedenes"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2048,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53223/",
+      "components": [
+        {
+          "key": "a9fdd0ef-9c03-55b1-b67b-9754b83dedae",
+          "name": "Zutaten",
+          "servingGrams": 357.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b86dd7c-0b78-5d61-b72a-fae0fed86b77",
+              "ingredientName": "Hackfleisch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf6bbb9-83b8-5d93-ad4f-717ed9616f55",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d975163-a33b-58fa-b7fb-865a7e95f9d3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "604dc8ec-c25c-561e-90ac-b5f191b07291",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd0425e9-fe03-5597-968c-8aabd820d425",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0630e34a-7828-59ba-a497-4fe88cf1556f",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "276b3786-e9cf-5add-873a-d8edcede3d64",
+              "ingredientName": "Filoteig",
+              "grams": 340.2,
+              "quantity": 340.2,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d927d02c-218b-5edc-9fbf-d1a6640f4bf7",
+              "ingredientName": "Butter",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7a9d35d-1e88-54ea-9280-7fc2b2985b22",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5ffe3f2-d229-54ed-87a7-6128585f4b22",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e649ed23-821e-50cd-bf8e-7fb44620e914",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "042fe3bd-3505-5ea8-a772-782635231c98",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "542f9e9f-85d7-5bee-a2f9-37a796243923",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51804ab1-25fe-5f6b-b1fe-3ae83645980b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ed8f802-0183-5ded-bb4d-959ae7edc068",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pfanne erhitzen und etwas Öl hineingeben. Zuerst zerdrückten Knoblauch und Ingwer anbraten, dann Hackfleisch und alle Gewürze dazugeben. Wenn das Fleisch gar ist, zum Abkühlen beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine weitere große Schüssel nehmen. Ei, gehackte Tomate, gehackte Frühlingszwiebel und Hackfleisch hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein 2-lagiges Filoteigblatt oder 1 Blatt Frühlingsrollenpapier nehmen. Mit Butter bestreichen und etwas Füllung in die Mitte geben. Teig zusammenfalten und die Verschlussstelle mit weiterer Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pfanne erhitzen und etwas Öl hineingeben. Päckchen darin braten, bis beide Seiten und alle 4 Kanten goldbraun sind. (Oder das Päckchen rundherum mit geschmolzener Butter bestreichen und bei 180°C 10–15 Minuten im Ofen backen.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Genießen!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/i5o2b61763739053.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/i5o2b61763739053.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52924",
+      "slug": "tmdb-52924",
+      "title": "Nanaimo-Schnitten",
+      "instructions": "Kanadisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kanadisch",
+        "dessert",
+        "nascherei",
+        "snack",
+        "milchprodukte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2049,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52924/",
+      "components": [
+        {
+          "key": "eeac030e-116d-53de-9d5e-13de0a2eebcd",
+          "name": "Zutaten",
+          "servingGrams": 440.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8004b41-d86b-5d4d-92e1-d592b88f4aa9",
+              "ingredientName": "Vanillepuddingpulver",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd3d0aa8-5828-5d84-8789-87d50175b102",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7147b25a-c47e-5198-9392-8914479d7026",
+              "ingredientName": "Kakaopulver",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b1484cf-fdb6-5a1d-a43a-46ca991978a1",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ba78a50-91f1-5a30-8e5e-ff384af14aa1",
+              "ingredientName": "Digestive-Kekse",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d325a1c1-9f33-5eb0-bb1d-a6d7dda7169d",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd385bc9-2830-5ed3-b9ba-d204ba79c523",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51a7e6c2-f01c-5049-99f3-c3034b144792",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89782e70-5f54-537e-9a75-9a48ab44bd74",
+              "ingredientName": "Sahne",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "436df2a0-06d0-5f40-b9b1-1ad8c61acc01",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ff2644d-7acf-5d28-acfd-a9246fa353ce",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6208935b-4dd2-5cee-92fe-aa29c27f9bd0",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst den Keksboden zubereiten. Butter mit Zucker und Kakaopulver in einer Schüssel über einem Topf mit leicht siedendem Wasser schmelzen und gelegentlich umrühren, bis die Masse glatt ist. Ei einrühren und 2 bis 3 Minuten schlagen, bis die Mischung eingedickt ist. Vom Herd nehmen und Kekskrümel, Kokosraspeln und, falls verwendet, Mandeln einrühren. In den Boden einer mit Backpapier ausgelegten quadratischen Form von 20 cm drücken. 10 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die mittlere Schicht die Puddingcreme zubereiten: Butter, Sahne und Puddingpulver hell und luftig aufschlagen, dann nach und nach Puderzucker einrühren, bis alles vollständig vermengt ist. Auf der unteren Schicht verstreichen und mindestens 10 Minuten im Kühlschrank kühlen, bis die Creme nicht mehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schokolade und Butter zusammen in der Mikrowelle schmelzen, dann über den gekühlten Schnitten verstreichen und zurück in den Kühlschrank stellen. Etwa 2 Stunden kühlen, bis die Schokolade vollständig fest ist. Masse aus der Form nehmen und zum Servieren in Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/vwuprt1511813703.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/vwuprt1511813703.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

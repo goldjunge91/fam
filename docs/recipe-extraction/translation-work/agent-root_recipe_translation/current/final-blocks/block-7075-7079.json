@@ -1,0 +1,1068 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-smoked-meat-sandwich",
+      "slug": "gen-smoked-meat-sandwich",
+      "title": "Geräuchertes Fleischsandwich",
+      "instructions": "Jüdisches Mittagessen in Montreal  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie geräuchertes Fleisch an der Feinkosttheke statt abgepackter Stücke.",
+        "Machen Sie Ihre eigenen Gurken oder kaufen Sie eine Eigenmarke, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Montreal-jüdisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7075,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-meat-sandwich/",
+      "components": [
+        {
+          "key": "ee62638e-6502-5470-abb4-0cb57290f0c5",
+          "name": "Zutaten",
+          "servingGrams": 162.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fed70149-8733-5c79-974a-ccb468979547",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "4b2ddc34-c087-540d-8f6e-d148db57a69e",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "b50d34c9-d7d6-5b7c-a1f9-f119cf39ac49",
+              "ingredientName": "Gelber Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f9776530-cdb2-599e-a24f-c65e82ec170a",
+              "ingredientName": "Gurken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7434934-dfcc-504a-93f8-0e8494ff73d3",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "526170f0-c745-5ae9-9a50-6261c85350f7",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb0dc039-e501-5a11-98ca-bb9cb342ba45",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wenn Sie vorgeschnittenes Räucherfleisch in einem Feinkostladen kaufen, bitten Sie darum, es hoch auf den Allesschneider zu stapeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Roggenbrotscheiben außen leicht mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Pfanne bei mittlerer Hitze erhitzen und das Butterbrot leicht goldbraun rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das geräucherte Fleisch in derselben Pfanne unter leichtem Rühren 1-2 Minuten lang schnell erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das geröstete Brot mit gelbem Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warmes Räucherfleisch großzügig auf eine Brotscheibe legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit der zweiten Scheibe belegen und sofort mit eingelegten Gurken als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/McHmyUvgreZZGNx3ZYptbIQAYqw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240301-SEA-MontrealSmokedMeat-VyTran21-230091943ed5474f9424094ee157a989.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/McHmyUvgreZZGNx3ZYptbIQAYqw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240301-SEA-MontrealSmokedMeat-VyTran21-230091943ed5474f9424094ee157a989.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tourti-re",
+      "slug": "gen-tourti-re",
+      "title": "Tourtière (Québecer Fleischpastete)",
+      "instructions": "Québécois-Abendessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie im Laden gekaufte Tortenböden, um Zeit und Geld zu sparen.",
+        "Kaufen Sie Hackfleisch im Sonderangebot und frieren Sie es zur späteren Verwendung ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebecois",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7076,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tourti-re/",
+      "components": [
+        {
+          "key": "f7d98c4d-0a21-51db-b6f1-e09c400a92da",
+          "name": "Zutaten",
+          "servingGrams": 238.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea32e454-1fcb-5d25-9227-30e2b4f02a25",
+              "ingredientName": "Hackfleisch",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d31a59e7-75bd-53e4-8510-25e68b7c769c",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "f4b99d70-c9a2-5f83-9d8c-6039d4fbbf25",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc94330c-d375-50c0-b59b-e41cf772fc01",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbf3f8fb-038b-5286-8c50-b9ea781c9247",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "20e1c746-111e-56a2-9ec0-33830c944fce",
+              "ingredientName": "Rinderbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a924d027-b266-5722-b8f0-77378aa7bd76",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "0f94b724-0498-5a51-b0b1-a4a31ad0c0f6",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "4e828fd0-feba-539a-ada1-b3e197131a7d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "57552109-bbaf-54e1-8c26-e5492145d63c",
+              "ingredientName": "Tortenboden (im Laden gekauft)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "57b7e36a-3f03-5241-bdf9-92d87575b77d",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 375°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweine- und Rindfleisch in einer großen Pfanne bei mittlerer bis hoher Hitze anbraten und dabei das Fleisch zerkleinern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel und Knoblauch hinzufügen; 3 Minuten kochen, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln, Rinderbrühe, Zimt, Nelken, Salz und Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ohne Deckel 20 Minuten köcheln lassen, bis die Kartoffeln weich sind und sich die Flüssigkeit auf die Hälfte reduziert hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Füllung etwa 10 Minuten lang auf Raumtemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Legen Sie einen Tortenboden in eine 9-Zoll-Kuchenform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die abgekühlte Fleischfüllung in die Kruste gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Den zweiten Tortenboden darauflegen, die Ränder verschließen und mit geschlagenem Ei bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "30–35 Minuten backen, bis die Kruste goldbraun und die Füllung heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/vP9rImTUWNKG-A6oYRel60EZkTk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4675434-tourtiere-french-canadian-meat-pie-Chef-John-1x1-1-c21cb4e48cdb4e919474f253c8137a2d.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/vP9rImTUWNKG-A6oYRel60EZkTk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4675434-tourtiere-french-canadian-meat-pie-Chef-John-1x1-1-c21cb4e48cdb4e919474f253c8137a2d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cip-te",
+      "slug": "gen-cip-te",
+      "title": "Cipâte (geschichtete Fleischpastete)",
+      "instructions": "Québécois-Abendessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Schweineschulter oder -hinterteil; Es ist günstiger als Premium-Stücke und wird beim Kochen zart.",
+        "Machen Sie das Doppelte und frieren Sie es ein, um ein einfaches Abendessen unter der Woche zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebecois",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7077,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cip-te/",
+      "components": [
+        {
+          "key": "a1e7f90e-1028-5199-b71d-a6b0185cb80b",
+          "name": "Zutaten",
+          "servingGrams": 452.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "a71119dc-c053-5984-9d86-1e5f588c619e",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "7f129009-5806-5375-8809-c863cd25c3ae",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "fd0d25d3-780a-57d5-ac0f-d22b7687c3df",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6ce0cb1f-6e7e-5e47-b4f8-ffeb6e82c557",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c95808a6-afbe-5268-a20a-9f9acb739a59",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "7c36e97a-1766-56a4-bcf4-7d7b6e5947b3",
+              "ingredientName": "Schweineschulter",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "e35a2134-3015-5d4b-9415-6b184d945370",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ada7f7d3-c54e-5c7a-8623-3b85e0c6dbe9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a8d88b1-bd2e-54eb-9f70-c9912b7557a7",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und Backpulver vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kalte Butter in die Mehlmischung schneiden, bis Semmelbrösel entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach und nach Wasser hinzufügen und verrühren, bis ein zottiger Teig entsteht; beiseite legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schweinefleischwürfel in einem großen Topf bei mittlerer bis hoher Hitze 5 Minuten pro Seite anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zwiebel hinzufügen und 2 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Rinderbrühe aufgießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kartoffeln hinzufügen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Teig auf einer bemehlten Arbeitsfläche 0.25 Zoll dick ausrollen und in 2 Zoll große Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Teigstücke in den köchelnden Eintopf geben und vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Abdecken und 20 Minuten köcheln lassen, bis der Teig durchgegart und das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Mit Salz und Pfeffer würzen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gourmandeboutique.com/cdn/shop/products/Cipate_Lac_St-Jean.jpg?v=1583704512",
+          "sourcePageUrl": "https://gourmandeboutique.com/cdn/shop/products/Cipate_Lac_St-Jean.jpg?v=1583704512",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-creton",
+      "slug": "gen-creton",
+      "title": "Cretons (würziger Schweinefleischaufstrich)",
+      "instructions": "Québécois-Frühstück  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter oder -hinterteil und mahlen Sie es selbst oder bitten Sie den Metzger, es kostenlos zu machen.",
+        "Für eine klumpigere Konsistenz verwenden Sie zerkleinerte Salzcracker anstelle von Semmelbröseln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebecois",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7078,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-creton/",
+      "components": [
+        {
+          "key": "be93e22f-51f1-5a8e-91be-3cc3a62bd084",
+          "name": "Zutaten",
+          "servingGrams": 144.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "fcf806de-e0ea-5fc8-b579-512e79eb2a8e",
+              "ingredientName": "Hackfleisch",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7a200362-90f0-5838-9162-b23c452b9fa3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b778c0f7-210b-5b69-b99d-09a22acc00a1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1db74e17-c62d-5363-bc3f-e52cdbe632ed",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5e71ed86-eafb-503a-945b-f0227906de23",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d691cffc-d058-524e-900f-dc48f7c41134",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "add5e0c4-a6de-5935-988b-20853b2210b9",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "b63866a7-f439-51e1-a0a3-55da5d52d049",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ced9a47d-6aaf-5732-a6ac-d9af6550c742",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitzen Sie eine große Pfanne bei mittlerer bis hoher Hitze und bräunen Sie das Schweinehackfleisch darin an. Brechen Sie es beim Kochen auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und Knoblauch hinzufügen; 3 Minuten kochen, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Semmelbrösel, Salz, Pfeffer und Salbei unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser hinzufügen und die Hitze auf einen niedrigen Wert reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ohne Deckel 25–30 Minuten unter gelegentlichem Rühren köcheln lassen, bis die Mischung sehr dickflüssig ist und die Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einem Teller vollständig abkühlen lassen; es wird beim Abkühlen fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei Zimmertemperatur servieren oder aufgewärmt auf Toast oder Brot verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Vll5Er5A_mYENCcryGXk52mh8ds=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5933071-717b669efda84ec5b18578d59a9c56cb.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Vll5Er5A_mYENCcryGXk52mh8ds=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5933071-717b669efda84ec5b18578d59a9c56cb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-two-scoop-rice",
+      "slug": "gen-two-scoop-rice",
+      "title": "Zwei Kugeln Reis",
+      "instructions": "Hawaiianisches Mittagessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Reis vom Vortag für eine bessere Konsistenz und geringere Kosten",
+        "Kaufen Sie Eier in großen Mengen zum günstigsten Stückpreis"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hawaiianisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7079,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-two-scoop-rice/",
+      "components": [
+        {
+          "key": "408bc93c-1bbe-530d-9a67-055d895e63f2",
+          "name": "Zutaten",
+          "servingGrams": 360,
+          "position": 0,
+          "items": [
+            {
+              "key": "66f98bff-5e5d-5be8-835a-64100013be0a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "14f54dbb-c35f-5562-9a54-c1c97d256855",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "680267f2-5250-5d50-b698-d7fb1bf28cb8",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 mittelgroße"
+            },
+            {
+              "key": "e0f5a4b5-2d32-5f4d-9b34-02c6e7c9c133",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "72a05f51-31bd-506a-9456-d2d883423921",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "eeb3291f-4d78-5666-aa7c-6af9ae64b59a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis vorher kochen und vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Zwiebel in kleine Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer großen Pfanne oder im Wok bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Eier in der Pfanne verrühren und auf einen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Zwiebeln in dieselbe Pfanne geben und ca. 2 Minuten braten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den abgekühlten Reis dazugeben und etwaige Klumpen unter ständigem Rühren 3-4 Minuten lang zerkleinern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sojasauce über den Reis gießen und gut vermischen, dann die Eier wieder in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Alles vermischen und mit Salz und Pfeffer würzen, dann mit gehackten Frühlingszwiebeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/tuMCogfAOy2zNdVqE7ydUwuru9Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-vegetable-fried-rice-recipe-hero-2-fed2a62b8bce4c51b945d9c24c2edb68.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/tuMCogfAOy2zNdVqE7ydUwuru9Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-vegetable-fried-rice-recipe-hero-2-fed2a62b8bce4c51b945d9c24c2edb68.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

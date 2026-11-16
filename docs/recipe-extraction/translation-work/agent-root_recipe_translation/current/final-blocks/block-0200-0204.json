@@ -1,0 +1,1214 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-crispy-gnocchi-popcorn",
+      "slug": "af2-crispy-gnocchi-popcorn",
+      "title": "Knusprige Gnocchi-Happen aus der Heißluftfritteuse",
+      "instructions": "Gnocchi aus dem Vorratsschrank direkt aus der Packung mit Öl und Gewürzen vermengt und anschließend in der Heißluftfritteuse zu goldbraunen Häppchen gebacken, die außen wie Chips knuspern und innen weich bleiben. Kein Vorkochen, kaum Abwasch und so lecker, dass man sie pur oder über Salat gestreut wie edle Croutons snackt. Inspiriert von Balle Hurns (@ballehurns) auf TikTok: https://www.tiktok.com/@ballehurns/video/7424591190768635182.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Packung haltbare Gnocchi ist eine der günstigsten Grundlagen für einen knusprigen Snack – pro Portion viel günstiger als Chips und zugleich eine knusprige Salatbeilage.",
+        "Teure Gewürzmischungen brauchst du nicht: Knoblauchpulver, Salz und Pfeffer aus dem Vorratsschrank liefern den Geschmack; kauf nur, was dir noch fehlt.",
+        "Bereite die doppelte Menge zu und bewahre abgekühlte Reste luftdicht auf. Zum Aufknuspern 2-3 Minuten bei 350F in die Heißluftfritteuse geben, statt neue Snacks zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl",
+          "savings": "spart etwa $0.22 pro Rezept"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Nährhefe für einen käsigen Geschmack ohne Milchprodukte, vegan",
+          "savings": "ungefähr gleich teuer cost, macht es vegan"
+        },
+        {
+          "forIngredientId": "italian-seasoning",
+          "swap": "Knoblauchpulver und getrockneten Oregano aus dem Vorratsschrank mischen",
+          "savings": "spart etwa $0.40"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 20,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch inspiriert",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "ohne Vorkochen",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "knusprig",
+        "Crouton"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 200,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-gnocchi-popcorn/",
+      "components": [
+        {
+          "key": "a6d021e3-0e86-5890-9657-8fd204f2e26a",
+          "name": "Zutaten",
+          "servingGrams": 145,
+          "position": 0,
+          "items": [
+            {
+              "key": "9743dd27-bf7f-59e6-98d8-6abcc2f2c0ae",
+              "ingredientName": "Kartoffelgnocchi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0707dda8-62e3-5230-ab03-f9b46952f524",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e41037a-9df2-5aac-9aa3-a931a4ea8d4f",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "838eb87e-f834-5e5a-882b-3cc6e2691b49",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4126d7e7-241c-58e0-ae2f-cf732d7ee8ba",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f366b6f5-d8c7-58af-ad92-0ddddae2ee3e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ba2e40f-d433-5a08-b7a1-925d4296ac64",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Sofort nach dem Frittieren darin wenden, damit es schmilzt und haftet"
+            },
+            {
+              "key": "46d083ee-31d1-5883-a56a-de5b68e9c628",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "18d41d6e-40cc-5bbc-a867-8ab194866747",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "für etwas Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die trockenen Gnocchi direkt aus der Packung in eine Schüssel; Vorkochen ist nicht nötig. Trenne Stücke, die aneinanderkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Olivenöl, Knoblauchpulver, italienische Kräutermischung, Salz und Pfeffer dazu. Vermenge alles mit den Händen, bis jedes Stück glänzt und gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize die Heißluftfritteuse auf 350F vor und lass sie 2-3 Minuten vorheizen. Verteile die Gnocchi in einer einzelnen Lage im Korb, damit sie knusprig werden statt zu dämpfen; gare sie bei Bedarf in zwei Durchgängen, wenn der Korb klein ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 350F 16-20 Minuten in der Heißluftfritteuse und pausiere alle 5-6 Minuten, um den Korb zu schütteln, damit sie von allen Seiten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sie sind fertig, wenn sie außen goldbraun und knusprig, innen aber noch weich sind. Probiere ein Stück; für durchgehend knusprige Stücke weitere 2-3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die heißen Gnocchi in eine Schüssel und vermenge sie sofort mit Parmesan, damit er schmilzt und haften bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue frische Petersilie und nach Wunsch rote Chiliflocken darüber. Warm essen – pur, in Marinara getunkt oder als knusprige Croutons über Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/www.everylastbite.com/wp-content/uploads/2025/04/Airfryergnocchi14-1-scaled.jpg?w=1280&ssl=1",
+          "sourcePageUrl": "https://www.everylastbite.com/air-fryer-gnocchi/",
+          "sourceName": "Every Last Bite",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Gnocchi-Happen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-pasta-chips",
+      "slug": "af2-crispy-pasta-chips",
+      "title": "Knusprige Pastachips aus der Heißluftfritteuse",
+      "instructions": "Schmetterlingsnudeln mit Olivenöl, Parmesan und italienischen Kräutern vermengt und in der Heißluftfritteuse goldbraun und knusprig gebacken – alles aus einer günstigen Packung Pasta. Heiß mit warmer Marinara servieren für den angesagten Snack, der viel edler wirkt, als er kostet. Inspiriert von Yumna Jawad (Feel Good Foodie) auf TikTok: https://feelgoodfoodie.net/recipe/pasta-chips/.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Packung trockene Pasta kostet meist weniger als $1.50 und reicht für mehrere Durchgänge – ein besonders günstiger knuspriger Snack.",
+        "Lass teure Streukäse-Dosen weg und nimm den günstigeren geriebenen Parmesan aus der Tüte; eine kleine Menge reicht für alle Chips.",
+        "Bereite die doppelte Menge zu und bewahre abgekühlte Chips 2-3 Tage luftdicht auf. Vor dem Servieren 2 Minuten bei 350F erneut knusprig backen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl",
+          "savings": "spart etwa $0.20 pro Rezept and crisps just as well"
+        },
+        {
+          "forIngredientId": "italian-seasoning",
+          "swap": "Oregano und Knoblauchpulver mischen, die du bereits hast",
+          "savings": "vermeidet den Kauf von a blend möglicherweise sonst nicht verwendet"
+        },
+        {
+          "forIngredientId": "marinara",
+          "swap": "Tomatensauce mit einer Prise italienischer Kräutermischung",
+          "savings": "senkt die Kosten für den Dip ungefähr um die Hälfte"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "angesagt",
+        "Vorratsküche",
+        "vegetarisch",
+        "günstig",
+        "zum Dippen",
+        "knusprig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 201,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-pasta-chips/",
+      "components": [
+        {
+          "key": "51588d44-16df-5762-9740-8a87fd35c05d",
+          "name": "Zutaten",
+          "servingGrams": 222.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "31cb90de-19b5-50ba-813e-078076b9d515",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Schmetterlingsnudeln (Farfalle) halten die Würzung gut und werden durch ihre Rillen besonders knusprig"
+            },
+            {
+              "key": "bf273625-d191-59f6-982f-ce8b75292559",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bcc1553-259a-5801-af96-f3794c79c16f",
+              "ingredientName": "Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf892fbd-f881-5e8e-b84c-f2d2cfd3c7aa",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c717259-94c5-5600-b5ed-9a78f4c39464",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad363e6e-149e-5426-8356-afdfd44de9af",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad665abf-0603-5d57-918d-785c6465a89a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b6225d4-0b6d-5ebd-b95e-cb1c6c63c787",
+              "ingredientName": "Marinarasauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "warme Dipsauce"
+            },
+            {
+              "key": "0ba2ce76-7069-51a4-82d7-87145b4fd8ce",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "Garnitur für etwas Schärfe"
+            },
+            {
+              "key": "31ab6a89-6a89-52f6-b3cd-7690db3bfd22",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Schmetterlingsnudeln in gut gesalzenem Wasser bissfest, etwa 1 Minute kürzer als auf der Packung angegeben. Lass sie gründlich abtropfen und schüttle jeden Tropfen ab, denn nasse Pasta dämpft statt knusprig zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die noch warme, abgetropfte Pasta in einer Schüssel mit Olivenöl, Parmesan, italienischer Kräutermischung, Knoblauchpulver, Salz und Pfeffer, bis jedes Stück gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize die Heißluftfritteuse auf 400F vor. Verteile die Pasta in einer einzelnen Lage ohne Überlappung im Korb; gare sie bei Bedarf in 2 Durchgängen, falls der Korb klein ist, damit die heiße Luft jeden Chip erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Pasta bei 400F 12-15 Minuten in der Heißluftfritteuse und schüttle den Korb alle 4-5 Minuten, damit die Chips gleichmäßig bräunen und nicht zusammenkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sie sind fertig, wenn sie kräftig goldbraun und knusprig sind. Lass einen Chip einige Sekunden abkühlen und probiere ihn: Er soll knackig brechen, nicht nachgeben. Falls er noch zäh ist, weitere 2-3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Chips in eine Schüssel und bestäube sie mit etwas extra Parmesan. Nach Wunsch rote Chiliflocken und frische Petersilie darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme die Marinara 30-45 Sekunden in der Mikrowelle und serviere sie zum Dippen dazu. Am besten frisch und knusprig essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://stressbaking.com/wp-content/uploads/2023/01/air-fryer-pasta-chips-4.jpg",
+          "sourcePageUrl": "https://stressbaking.com/tiktok-air-fryer-pasta-chips/",
+          "sourceName": "Stress Baking",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Pastachips aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-baked-feta-tomato-pasta",
+      "slug": "af2-baked-feta-tomato-pasta",
+      "title": "Feta-Tomaten-Pasta aus der Heißluftfritteuse",
+      "instructions": "Ein ganzer Feta reift mit saftigen Tomaten, Knoblauch und Olivenöl, bis die Tomaten aufplatzen und der Käse zu einer cremigen, marmeladigen Sauce wird. Zerdrücke und vermenge alles mit heißer Pasta – ein Gefäß, kaum Aufwand, großer Genuss. Ein gemütliches, beliebtes Abendessen, für das zeitweise im ganzen Internet der Feta ausverkauft war. Inspiriert von Nathan Anthony (Bored of Lunch); das ursprüngliche Feta-Pasta-Rezept stammt von Jenni Häyrinen: https://boredoflunch.com/recipes/air-fryer-sundried-tomato-feta-pasta/.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf einen Feta-Block in Salzlake statt vorgekrümelten Feta – pro Unze ist er günstiger, schmilzt zu einer viel cremigeren Sauce und die übrige Lake hält nicht verwendeten Feta wochenlang frisch.",
+        "Kirschtomaten sind im Sommer am süßesten und günstigsten. Außerhalb der Saison kannst du ein paar geviertelte normale Tomaten oder eine Handvoll gehackte Dosentomaten verwenden, die du bereits hast.",
+        "Koche die Pasta in der Mikrowelle in derselben Schüssel, aus der du isst. So sparst du dir einen Topf, Abwasch und den Herd – ideal für die Studentenküche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Ein 4-oz-Ziegenkäserolle für eine noch cremigere, säuerlichere Sauce",
+          "savings": "Ähnlicher Preis, besonders feine Textur"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Ein paar Löffel getrocknete Tomaten aus dem Glas für einen kräftigeren Geschmack",
+          "savings": "Ein Glas aus dem Vorrat statt frischer Ware verwenden"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Gnocchi oder beliebige kurze Pasta, die du vorrätig hast",
+          "savings": "Die günstigste vorhandene Zutat aus dem Vorrat verwenden"
+        }
+      ],
+      "crispinessLevel": "soft",
+      "airFryerTimeMinutes": 20,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegetarisch",
+        "aus einem Gefäß",
+        "angesagt",
+        "Pasta",
+        "Abendessen",
+        "5 Zutaten",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 202,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-baked-feta-tomato-pasta/",
+      "components": [
+        {
+          "key": "fe52f037-7407-5025-8a87-758345739c68",
+          "name": "Zutaten",
+          "servingGrams": 558.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1839dbf-bb3c-5d00-87b6-a8693a5b70ef",
+              "ingredientName": "Feta",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "ein ganzer Block mit ~6-7 oz; mittig platzieren (ergibt zerbröselt ~1.5 cups)"
+            },
+            {
+              "key": "469c0832-2d93-566a-8bde-1c0b50d814b9",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Kirschtomaten oder Datteltomaten eignen sich gut; etwa ~1 pint verwenden und große Tomaten halbieren, damit sie aufplatzen"
+            },
+            {
+              "key": "87aecd61-a434-5f45-8421-6d17d1c174db",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Großzügig über Feta und Tomaten träufeln"
+            },
+            {
+              "key": "ef159176-53df-5f2f-89ff-f7bd819e7c17",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "angedrückt oder dünn geschnitten"
+            },
+            {
+              "key": "b25e1b4f-4563-5442-94ab-d4390774514e",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "Penne oder Fusilli; kochen, während der Feta röstet"
+            },
+            {
+              "key": "65d009f5-8f96-5841-8118-e653978e7bc9",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "882d1265-ac7c-5b41-8be7-067e26693ea3",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "1829d33e-7517-55b5-b245-bb06484dd18f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d631c052-bc9c-5fd5-9b50-6f60a78f234a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd73be14-e44a-50ca-8c36-77ca99baa946",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Schluss darübergezupft"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Häufe in einer Silikonform oder kleinen ofenfesten Form, die in den Korb der Heißluftfritteuse passt, die Tomaten und den zerdrückten Knoblauch am Rand auf und lege den ganzen Feta-Block in die Mitte. Beträufle alles mit Olivenöl und streue Oregano, rote Chiliflocken, Salz und Pfeffer darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare alles bei 350°F 18-20 Minuten in der Heißluftfritteuse, bis die Tomaten Blasen werfen und aufplatzen und der Feta weich, glänzend und an den Rändern leicht goldbraun ist. Wenden ist nicht nötig; schüttle die Form etwa nach 12 Minuten einmal vorsichtig, damit sich die Tomaten bewegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche währenddessen die Pasta: Gib sie in eine mikrowellengeeignete Schüssel, fülle Wasser ein, bis die Pasta etwa fingerbreit bedeckt ist, gib eine Prise Salz dazu und gare sie 8-12 Minuten in der Mikrowelle, bis sie weich ist; rühre nach der Hälfte der Zeit um. Hebe etwa 1/4 Tasse des stärkehaltigen Nudelwassers auf und gieße den Rest ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die heiße Form vorsichtig aus der Heißluftfritteuse – sie blubbert. Zerdrücke den weichen Feta mit einer Gabel in den aufgeplatzten Tomaten und dem Knoblauch und verrühre alles zu einer cremigen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die abgetropfte Pasta direkt in die Form und vermenge sie mit der Sauce. Füge nach und nach etwas Nudelwasser hinzu, bis die Sauce geschmeidig wird und an jedem Stück haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke mit Salz und Pfeffer ab, verteile die Pasta auf zwei Schüsseln und garniere sie mit gezupftem frischem Basilikum. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Baked_feta_pasta.jpg/1280px-Baked_feta_pasta.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Baked_feta_pasta.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 3.0",
+          "verifiedMatch": true,
+          "altText": "Foto von gebackener Feta-Tomaten-Pasta aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-halloumi-fries-hot-honey",
+      "slug": "af2-halloumi-fries-hot-honey",
+      "title": "Halloumi-Pommes aus der Heißluftfritteuse mit scharfem Honig",
+      "instructions": "Quietschsalziger Halloumi in dicken Stiften, mit goldbraunem Panko ummantelt und mit süß-scharfem Honig beträufelt – ein verlockender fleischloser Snack zum Bruchteil des Kneipenpreises. Der Käse schmilzt herrlich innen, während die Panade in der trockenen Hitze knusprig wird, ganz ohne Frittieren. Inspiriert von Ayeh Manfre (@cookingwithayeh) auf Instagram: https://cookingwithayeh.com/halloumi-fries/.",
+      "prepTimeMinutes": 13,
+      "cookTimeMinutes": 9,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Halloumi ist hier die teure Zutat – teile den Block und das Rezept mit einer Mitbewohnerin oder einem Mitbewohner, dann kostet der Snack pro Person etwa so viel wie ein Kaffee.",
+        "Du brauchst keinen fertigen Chili-Honig: Normaler Honig und ein paar Tropfen scharfe Sauce ergeben dieselbe Glasur für wenige Cent.",
+        "Hebe übriges Panko und gewürztes Mehl in einem verschlossenen Beutel auf – damit kannst du die nächste Portion Gemüse-Pommes oder Nuggets panieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "panko",
+          "swap": "Normales Paniermehl",
+          "savings": "spart etwa $0.05 and wahrscheinlich bereits vorhanden them"
+        },
+        {
+          "forIngredientId": "hot-sauce",
+          "swap": "Eine Prise Cayennepfeffer oder Chilipulver unter den Honig rühren",
+          "savings": "Vorratsgewürze statt gekaufter Chilisauce verwenden"
+        },
+        {
+          "forIngredientId": "halloumi",
+          "swap": "Festeren Paneer in Stifte schneiden (quietsch nicht so, wird aber genauso knusprig)",
+          "savings": "spart etwa $1 per block"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 9,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "zyprisch-mediterran",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegetarisch",
+        "Snack",
+        "Halloumi",
+        "scharfer Honig",
+        "mediterran",
+        "zum Teilen",
+        "proteinreich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 203,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-halloumi-fries-hot-honey/",
+      "components": [
+        {
+          "key": "20aa3dde-7884-59af-8302-6410efc28fc3",
+          "name": "Zutaten",
+          "servingGrams": 324.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb605098-a001-5867-851e-b9632d4d3a16",
+              "ingredientName": "Halloumi",
+              "grams": 226.8,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 oz Block, sehr trocken getupft und in dicke, pommesgroße Sticks geschnitten (etwa ein Dutzend)"
+            },
+            {
+              "key": "bd9a8964-1489-50d0-9ec6-ec70de28a312",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für die erste Panade"
+            },
+            {
+              "key": "398c8004-08ca-5699-8e0b-ab78f6cacf19",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "verquirlt, für die Eistreiche"
+            },
+            {
+              "key": "99ff47fd-f032-5e0f-8304-f3ea9f31d322",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für die knusprige Panade"
+            },
+            {
+              "key": "fb9af4ad-d944-5661-96b8-7e569de67dee",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "ins Mehl gemischt"
+            },
+            {
+              "key": "4920b71d-ab91-597b-bcbf-7228dded0026",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "ins Mehl gemischt"
+            },
+            {
+              "key": "12e0cc86-7a58-5aba-9032-eca198d0a100",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "getrocknet und ins Mehl gemischt"
+            },
+            {
+              "key": "202e14ea-f8f4-5cd4-bd31-a461f169b63c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "ins Mehl; sparsam verwenden, da Halloumi bereits salzig ist"
+            },
+            {
+              "key": "97d178ec-f37c-582d-9283-d9ddadfb3bb3",
+              "ingredientName": "Ölspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Bestreichen der panierten Sticks und des Korbs"
+            },
+            {
+              "key": "4c6bc9a7-a702-573c-a6df-b58986f4402d",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Grundlage für den scharfen Honig"
+            },
+            {
+              "key": "64627984-9103-58f9-ba41-2deb85b2d0c4",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack in warmen Honig rühren"
+            },
+            {
+              "key": "f1b12b87-d516-5636-a27e-8951a69f1931",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "für zusätzliche Schärfe im scharfen Honig"
+            },
+            {
+              "key": "1e4ac9e8-dbc6-528e-aeaa-d09009853ede",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "bd191345-4bf8-5df6-b674-e42c2123d010",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in Spalten zum Auspressen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe den Halloumi-Block mit Küchenpapier vollständig trocken und schneide ihn in dicke, stabile Pommesstifte, etwa einen halben Zoll breit (ungefähr ein Dutzend). Lass sie dick, denn zu dünne Stifte können auslaufen und ihre Form verlieren. Trockener Käse bekommt eine knusprigere Kruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite drei flache Schüsseln vor: Mehl mit Paprikapulver, Knoblauchpulver, Oregano und Pfeffer vermischt; verquirltes Ei; und Panko. Wende jeden Stift im gewürzten Mehl, tauche ihn ins Ei und drücke ihn dann fest ins Panko, bis alle Seiten bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Besprühe den Korb der Heißluftfritteuse leicht mit Ölspray. Lege die panierten Stifte mit Abstand in einer Lage hinein und besprühe die Oberseiten großzügig, damit sie gleichmäßig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 400F 6 Minuten in der Heißluftfritteuse. Wende jeden Stift, besprühe ihn erneut und gare ihn weitere 2 bis 3 Minuten, bis die Kruste kräftig goldbraun und knusprig und der Käse innen heiß und weich ist (etwa 130 bis 140F in der Mitte). Nicht zu lange garen – Halloumi kann auslaufen und flach werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite währenddessen den Chili-Honig zu: Erwärme den Honig 15 bis 20 Sekunden in der Mikrowelle, bis er flüssig ist, und rühre dann scharfe Sauce und rote Chiliflocken ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Häufe die Halloumi-Pommes auf einem Teller an, beträufle sie großzügig mit warmem Chili-Honig und streue gehackte Petersilie darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit Zitronenspalten servieren und den Saft darüberpressen. Direkt heiß aus dem Korb schmecken sie am besten, denn beim Abkühlen wird Halloumi zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/HALLOUMI_FRIES_%28small%29_1_-_Jonny%27s_2025-05-27.jpg/1280px-HALLOUMI_FRIES_%28small%29_1_-_Jonny%27s_2025-05-27.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:HALLOUMI_FRIES_(small)_1_-_Jonny%27s_2025-05-27.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Halloumi-Pommes mit scharfem Honig aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-bacon-wrapped-jalapeno-poppers",
+      "slug": "af2-bacon-wrapped-jalapeno-poppers",
+      "title": "Mit Speck umwickelte Jalapeño-Poppers aus der Heißluftfritteuse",
+      "instructions": "Halbierte Jalapeños, gefüllt mit zartschmelzendem Frischkäse und Cheddar und umwickelt mit knusprigem Speck – scharf, rauchig und unglaublich lecker für einen Snack, der viel aufwendiger aussieht, als er ist. Eine moderate Temperatur in der Heißluftfritteuse macht den Speck knusprig, während die Paprika weich wird und die Füllung schmilzt. Nach dem klassischen Rezept für mit Speck umwickelte Jalapeño-Poppers, für die Heißluftfritteuse angepasst von der Waivy-Küche.",
+      "prepTimeMinutes": 13,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf Jalapeños einzeln statt in einer Packung – sie kosten oft nur ein paar Cent pro Stück und du brauchst nur wenige.",
+        "Ein Frischkäseblock ist pro Unze viel günstiger als Becher oder Aufstriche und lässt sich sauberer in die Paprika füllen.",
+        "Schneide jede Speckscheibe in zwei Hälften, dann reicht eine Packung für doppelt so viele Poppers – ein halber Streifen reicht für eine vollständige Umwicklung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheese",
+          "swap": "Geriebenen Mozzarella oder Pepper Jack für eine besonders schmelzende, würzige Füllung verwenden.",
+          "savings": "etwa gleich teuer cost"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenbacon für eine magere, günstigere Umwicklung verwenden (er wird etwas schneller knusprig, also nach 10 Minuten nachsehen).",
+          "savings": "spart ca. $0.13 pro Scheibe"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Naturbelassenen griechischen Joghurt mit zusätzlichem Cheddar für eine eiweißreichere, säuerlichere Füllung mischen.",
+          "savings": "ähnliche Kosten"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 13,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Tex-Mex",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "scharf",
+        "Party",
+        "Speck",
+        "käsig",
+        "kohlenhydratarm",
+        "6 Zutaten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 204,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-bacon-wrapped-jalapeno-poppers/",
+      "components": [
+        {
+          "key": "e6385b69-6d4b-5509-b3be-3990ee226fcd",
+          "name": "Zutaten",
+          "servingGrams": 361.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "83733357-d193-5dfe-9c7a-b10fffc0ad5d",
+              "ingredientName": "Jalapeño",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "längs halbiert, Kerne und Häute entfernt"
+            },
+            {
+              "key": "3b083e1f-899c-5205-8da5-b1a0b93254a4",
+              "ingredientName": "Frischkäse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "weich"
+            },
+            {
+              "key": "68cba352-9197-5a1d-825d-25920f01807c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "geraspelter Cheddar, unter die Füllung gerührt"
+            },
+            {
+              "key": "5f454591-660e-50b3-b4e0-f2a4f2887a96",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "jede Scheibe halbiert, sodass 8 Streifen entstehen"
+            },
+            {
+              "key": "fe05bc03-36c6-53bb-b450-9f7d5764fe90",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3eaf0020-7568-5554-83cf-abb46d4ff6d9",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "9b1e55f2-a649-54a8-bed2-43659966f9ec",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide 4 Jalapeños der Länge nach auf und kratze Kerne und weiße Rippen mit einem Löffel heraus. Lass ein paar Rippen drin, wenn du es schärfer magst. Trag Handschuhe oder wasche dir danach gründlich die Hände.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre in einer kleinen Schüssel weichen Frischkäse, geriebenen Cheddar, Knoblauchpulver und geräuchertes Paprikapulver, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle jede Jalapeño-Hälfte großzügig mit der Käsemischung, ohne sie zu überfüllen. Schneide jede Speckscheibe in zwei Hälften und wickle einen halben Streifen fest um jede gefüllte Paprika; stecke die Naht darunter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize die Heißluftfritteuse auf 350F vor. Verteile die Poppers mit der Käseseite nach oben und etwas Abstand in einer Lage im Korb, damit der Speck gleichmäßig knusprig wird; gare sie bei Bedarf in mehreren Durchgängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie bei 350F 12-14 Minuten in der Heißluftfritteuse, bis der Speck kräftig gebräunt, knusprig und durchgegart und die Füllung blubbernd heiß ist. Wenden ist nicht nötig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Speck noch knuspriger werden soll, gib 1-2 Minuten dazu und achte darauf, dass die Füllung nicht herausläuft. Lass die Poppers 3-4 Minuten ruhen – die Füllung ist sehr heiß und kann verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue geschnittene Frühlingszwiebel darüber und serviere sie warm mit Ranch-Dressing oder Salsa zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://live.staticflickr.com/2449/3874525476_37f43aeb1f_b.jpg",
+          "sourcePageUrl": "https://www.flickr.com/photos/samantha30/3874525476",
+          "sourceName": "Flickr",
+          "license": "CC BY-NC-ND 2.0",
+          "attributionRequired": true,
+          "attributionText": "Flickr (CC BY-NC-ND 2.0)",
+          "verifiedMatch": true,
+          "altText": "Foto von mit Speck umwickelten Jalapeño-Poppers aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

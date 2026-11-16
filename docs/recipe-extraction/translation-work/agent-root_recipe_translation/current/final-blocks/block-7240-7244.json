@@ -1,0 +1,1266 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:honey-garlic-salmon",
+      "slug": "honey-garlic-salmon",
+      "title": "Lachs mit Honig-Knoblauch-Glasur",
+      "instructions": "In der Pfanne gebratener Lachs mit klebrig-süßer Glasur aus Honig, Knoblauch und Sojasauce, die in wenigen Minuten karamellisiert.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Lachsfilets und taue sie über Nacht auf. Sie kosten oft nur halb so viel wie frischer Lachs und eignen sich genauso gut für die Glasur.",
+        "Lass teure Teriyaki-Sauce aus der Flasche weg; eine Glasur aus Honig, Soja und Knoblauch kostet nur wenige Cent und schmeckt frischer.",
+        "Serviere den Lachs mit Reis oder Tiefkühlgemüse, damit zwei Filets bequem für zwei Personen reichen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "brown Zucker oder maple syrup",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "cod oder tilapia fillets",
+          "savings": "~$3.00"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "ein splash von Reis vinegar",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "viral",
+        "TikTok",
+        "schnell",
+        "Abendessen zu zweit",
+        "Ein-Pfannen-Gericht"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7240,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/honey-garlic-salmon/",
+      "components": [
+        {
+          "key": "bae35c66-f53c-5f8d-9105-4af9017aee11",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 192,
+          "position": 0,
+          "items": [
+            {
+              "key": "802ed16b-e647-55e2-92af-493b37e71eac",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 oz Filets mit Haut"
+            },
+            {
+              "key": "6e6f514d-6299-5ac2-8b98-ce5c45cfa9cf",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "448b56db-c5e3-552b-9760-21d2dfc1d487",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "be3b4bf5-48bd-5085-bd84-19cdb2697c16",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Esslöffel, möglichst salzarm"
+            },
+            {
+              "key": "3e63c37a-1265-5e2a-a870-6535b162d990",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "60f1d115-dc83-5d31-8490-7640ee60b1a8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Esslöffel zum scharfen Anbraten"
+            },
+            {
+              "key": "3e0598e8-b783-585d-8689-dad261781859",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "Saft einer Hälfte"
+            },
+            {
+              "key": "b1f9f2fa-4b33-5989-a15c-fe08a1c26491",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "Teelöffel, optional"
+            },
+            {
+              "key": "65fb940d-611b-560d-b669-c4992fb10ce0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "e9744d10-e9a5-5f22-b2a4-3fde982cb699",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "Teelöffel zum Garnieren"
+            },
+            {
+              "key": "686bb0be-333f-51b5-8daf-7bf8e9b2c860",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "f1293888-e97c-5f76-87a9-e5db28aca414",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Lachsfilets trocken und würze beide Seiten mit Salz und Pfeffer. Verrühre Honig, Sojasauce, Zitronensaft und Chiliflocken in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittlerer bis hoher Hitze. Brate den Lachs mit der Fleischseite nach unten 3-4 Minuten ungestört goldbraun. Wende ihn und gare ihn weitere 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe den Lachs zur Seite, reduziere die Hitze auf mittlere Stufe und gib Butter und gehackten Knoblauch dazu. Rühre 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Honig-Soja-Mischung ein und lasse sie 1-2 Minuten blubbern. Löffle die eindickende Glasur über den Lachs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald die Glasur glänzt und am Fisch haftet, nimm die Pfanne vom Herd. Garniere mit Frühlingszwiebel und Sesam und serviere den Lachs mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Salmon%2C_pan-seared_and_glazed%2C_with_Brussels_sprouts_and_root_vegetables_-_Massachusetts.jpg/1280px-Salmon%2C_pan-seared_and_glazed%2C_with_Brussels_sprouts_and_root_vegetables_-_Massachusetts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Salmon,_pan-seared_and_glazed,_with_Brussels_sprouts_and_root_vegetables_-_Massachusetts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Daderot — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:whipped-cottage-cheese-toast",
+      "slug": "whipped-cottage-cheese-toast",
+      "title": "Proteinreicher Hüttenkäse-Toast",
+      "instructions": "Cremiger, aufgeschlagener Hüttenkäse auf knusprigem Toast: ein proteinreicher Snack, der sich in wenigen Minuten herzhaft oder süß belegen lässt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Becher Hüttenkäse kostet nur einen Bruchteil teurer Aufstriche und reicht für mehrere Frühstücke.",
+        "Kein Mixer? Zerdrücke den Hüttenkäse 30 Sekunden kräftig mit einer Gabel. Er wird nicht ganz glatt, schmeckt aber trotzdem gut.",
+        "Kaufe Brot vom Vortag und friere es ein; durch Toasten wird es wieder frisch und knusprig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Greek Joghurt whipped der same way",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "ein toasted English muffin oder bagel half",
+          "savings": "~$0.15"
+        },
+        {
+          "forIngredientId": "everything-bagel",
+          "swap": "ein bestreuen von sesame seeds plus Salz und Knoblauch powder",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "viral",
+        "TikTok",
+        "5-Minuten-Gericht",
+        "für kleine Küchen",
+        "ohne Kochen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7241,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/whipped-cottage-cheese-toast/",
+      "components": [
+        {
+          "key": "76c53981-64d2-51b9-b3e4-3cd993d9c54e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 270,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa0513cc-6c73-5a41-b1d4-caac94fd0b37",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "dicke Scheiben Sauerteig- oder Vollkornbrot"
+            },
+            {
+              "key": "da3d3cd2-7907-5d2a-8062-0809ff253295",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, vollfett oder mit 4% Fettanteil für besonders cremige Konsistenz"
+            },
+            {
+              "key": "f4268cca-e28a-5221-80a9-82af1bbb08f8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Beträufeln"
+            },
+            {
+              "key": "5add6271-e162-5df2-8e00-c0c72735573e",
+              "ingredientName": "Everything-Bagel-Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Everything-Bagel-Gewürzmischung nach Geschmack"
+            },
+            {
+              "key": "af22ee0b-3cb3-5c86-b9be-5ba46b1d0609",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "für die süße Variante"
+            },
+            {
+              "key": "526642d0-7773-505b-9ec2-4b1484f8402f",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, für die süße Variante"
+            },
+            {
+              "key": "85924f17-3cf5-5200-8f2e-34fe2b72d5b9",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, für die herzhafte Variante"
+            },
+            {
+              "key": "2f72a83d-4ba4-56f5-bdf2-5eecd5a5b5d8",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "Prise für die herzhafte Variante"
+            },
+            {
+              "key": "6e0b5132-044a-560c-af18-988382e24ec1",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "Prise, hebt den Geschmack beider Varianten hervor"
+            },
+            {
+              "key": "95c9443b-2d26-5346-b72a-436807cb6c7e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2419dd9-6075-56c2-a18b-3d817c63d66e",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste das Brot kräftig goldbraun und knusprig, damit es den Belag gut trägt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Hüttenkäse 30-60 Sekunden im Mixer, in einer kleinen Küchenmaschine oder mit dem Stabmixer glatt und luftig wie dicken Ricotta. Rühre eine Prise Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den aufgeschlagenen Hüttenkäse großzügig auf jeder warmen Toastscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die herzhafte Variante mit Olivenöl beträufeln, Avocado fächerförmig darauflegen und mit Everything-Bagel-Gewürz, frisch gemahlenem Pfeffer und Chiliflocken bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die süße Variante mit Honig beträufeln, Erdbeerscheiben darauflegen und etwas Zitronenschale darüberreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort essen, solange der Toast knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wholegrain_toast_with_cottage_cheese_and_avocado.jpeg/1280px-Wholegrain_toast_with_cottage_cheese_and_avocado.jpeg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wholegrain_toast_with_cottage_cheese_and_avocado.jpeg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Maryjeanne.li — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:elote-pasta-salad",
+      "slug": "elote-pasta-salad",
+      "title": "Nudelsalat mit mexikanischem Straßenmais (Elote)",
+      "instructions": "Cremiger, leicht angekohlter und säuerlich-frischer mexikanischer Straßenmais trifft auf Pasta in einem Salat, der bei vielen gut ankommt.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 13,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefkühlmais ist viel günstiger als frische Maiskolben und lässt sich direkt aus der Packung rösten.",
+        "Ersetze teuren Cotija durch zerbröselten Feta. Er bringt die gleiche salzige Säure mit.",
+        "Bereite den Salat am Vortag zu. Gekühlt schmeckt er noch besser und reicht für mehrere Mittagessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cotija",
+          "swap": "crumbled feta (deutsche Fassung)",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "natur Greek Joghurt",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "tajin",
+          "swap": "chili powder + ein pinch von Salz und Limette zest",
+          "savings": "~$0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "viral",
+        "TikTok",
+        "Mitbringbuffet",
+        "Sommer",
+        "vegetarisch",
+        "beliebt bei Gästen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7242,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/elote-pasta-salad/",
+      "components": [
+        {
+          "key": "38673282-b9e6-5a20-bdcf-5f4b1b16b994",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 283.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "a53fe945-9994-5803-aec9-3a94a40e7a20",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Hörnchen- oder Rotini-Nudeln, oz Trockengewicht"
+            },
+            {
+              "key": "3242ef78-524f-5527-b149-194fb3a45556",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Maiskörner, angeröstet (oder frisch von 4 Kolben)"
+            },
+            {
+              "key": "fbabe532-5e87-5d3a-860b-0417c22979ff",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Tasse"
+            },
+            {
+              "key": "ecfb3f36-c025-5347-8254-b999a130d4d9",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Tasse als Ersatz für mexikanische Crema"
+            },
+            {
+              "key": "8c9ca2f9-66d2-5a7f-a952-d4352e6ed260",
+              "ingredientName": "Cotija",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Tasse, zerbröselt, und mehr zum Garnieren"
+            },
+            {
+              "key": "a464ea17-88c7-5094-bbad-a4dc1804d822",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "ausgepresst"
+            },
+            {
+              "key": "10de6cff-6842-592d-9aa0-9831633f2d4e",
+              "ingredientName": "Tajín-Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "TL Chili-Limetten-Gewürz"
+            },
+            {
+              "key": "e6426fb8-f8bc-5702-8aab-b08bd2c4d4bb",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "4628e48e-a80b-5927-9ca7-5547a35f3feb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Tasse gehackt"
+            },
+            {
+              "key": "2b8c5a3c-47a0-595a-a51e-c0a2d09533f2",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "132d7bb6-796f-5402-888f-f7a40bcb718d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "Zehen, gerieben"
+            },
+            {
+              "key": "4aa9152e-1464-5c77-bfda-96e7e3547d71",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "TL nach Geschmack"
+            },
+            {
+              "key": "9ada25e3-b5a4-5c5b-8c69-9f361c9ebc36",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "EL zum Anrösten des Maises"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta in gut gesalzenem Wasser knapp über al dente. Gieße sie ab, spüle sie kalt ab, um den Garprozess zu stoppen, und lasse sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einer großen Pfanne bei hoher Hitze und gib den Mais in einer Lage hinein. Lasse ihn einige Minuten ungestört braten, bis er stellenweise schwarz wird. Rühre gelegentlich um und stelle ihn zum Abkühlen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Mayonnaise, Sauerrahm, Limettensaft, geriebenen Knoblauch, Chilipulver, 1 tsp Tajín und Salz in einer großen Schüssel glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abgekühlte Pasta, angekohlten Mais, zerbröselten Cotija, gewürfelte Jalapeño und den Großteil des Korianders dazu. Vermenge alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Probiere den Salat und schmecke ihn mit mehr Limettensaft oder Salz ab. Stelle ihn mindestens 30 Minuten kalt, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue ihn kurz vor dem Servieren mit dem übrigen Cotija, Koriander und dem letzten Teelöffel Tajín.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:crispy-rice-salmon-bowl",
+      "slug": "crispy-rice-salmon-bowl",
+      "title": "Lachs-Bowl mit knusprigem Reis",
+      "instructions": "Lachs mit scharfer Mayonnaise auf goldbraun-knusprigem Sushi-Reis: der virale Kontrast aus Crunch und Cremigkeit für zu Hause.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein tiefgekühltes Lachsfilet und taue es über Nacht auf; es ist deutlich günstiger als frischer Lachs und lässt sich gut würfeln.",
+        "Brate den Lachs statt ihn roh in Sushi-Qualität zu verwenden leicht an. So bleibt der virale Look günstiger.",
+        "Koche den Reis am Vortag. Kalter Reis aus dem Kühlschrank wird knuspriger und vermeidet Reste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "normal short-grain oder even day-old jasmine Reis pressed firm",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "kewpie-mayo",
+          "swap": "normal mayo mit ein pinch von Zucker und ein splash von Reis vinegar",
+          "savings": "~$0.80"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "ein drained can von salmon oder imitation crab, mixed mit der scharf mayo",
+          "savings": "~$4.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch inspiriert",
+        "viral",
+        "TikTok",
+        "scharfer Lachs",
+        "knuspriger Reis",
+        "Sushi-Bowl"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7243,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/crispy-rice-salmon-bowl/",
+      "components": [
+        {
+          "key": "b846eb8c-70aa-5ea7-93a4-5e06b855a978",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 406.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8cd71e3-a1e3-5bf7-8551-b7e9f7bc1664",
+              "ingredientName": "Sushi-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "trocken, anschließend gekocht und abgekühlt"
+            },
+            {
+              "key": "17dcc1ec-9748-5c47-aac7-a8b7cac6f758",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "Filet ohne Haut, ~8 oz"
+            },
+            {
+              "key": "99619a28-60ec-54bf-840e-e8a499d455b2",
+              "ingredientName": "Kewpie-Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "048a1077-ef2c-5f23-a57a-9e4a58ff7f9d",
+              "ingredientName": "Sriracha",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Esslöffel nach Geschmack"
+            },
+            {
+              "key": "4dc2cf66-0553-5ddc-9009-9bb94dcb270e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel, salzarme Variante möglich"
+            },
+            {
+              "key": "ce580c16-3a23-51fd-981c-b3f0499b90ad",
+              "ingredientName": "Reisessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Esslöffel zum Würzen des Reises"
+            },
+            {
+              "key": "8d8d685d-c0b0-5642-9614-9f246b443648",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teelöffel zum Würzen des Reises"
+            },
+            {
+              "key": "a5222136-0ca0-5080-bc0f-a8ef1af190ec",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "a177f9f8-056f-522e-a347-180c05129c97",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "a58218bf-0545-5f91-aa6b-904ea359cbb0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Esslöffel zum Braten des Reises"
+            },
+            {
+              "key": "f324c424-3287-53e7-ac24-98e505c2f0b3",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "5e223680-df91-5fb9-a884-b03462128881",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "82a21d12-56a5-5d62-abfd-6447ac9711aa",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "d4a9b834-6f59-595f-93c9-11ff93ea10f3",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "Esslöffel, zum Garnieren"
+            },
+            {
+              "key": "82fb3a2b-e6bb-5ec8-aea0-c38bb70c4117",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "Teelöffel, geröstet"
+            },
+            {
+              "key": "94287881-cc3c-5f78-be65-220284bac70c",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "in Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Sushi-Reis und rühre Reisessig, Zucker und Salz unter, solange er warm ist. Drücke ihn etwa 3/4-inch dick in eine mit Backpapier ausgelegte Form und stelle ihn 20-30 Minuten kalt, bis er fest ist. Kalter Reis wird besonders knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den festen Reis in Quadrate oder Rechtecke. Erhitze Pflanzenöl in einer beschichteten oder gusseisernen Pfanne bei mittlerer bis hoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Reisküchlein je Seite 3-4 Minuten, ohne sie zu bewegen, bis sie dunkelgolden und knusprig sind. Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle den Lachs fein und vermenge ihn mit Kewpie-Mayonnaise, Sriracha, Sojasauce und Sesamöl, bis er gleichmäßig cremig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die angegarte Variante den scharfen Lachs 1-2 Minuten kurz grillen oder anbraten. Für die Tatar-Variante roh lassen und nur Sushi-Qualität verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jedes knusprige Reisküchlein mit Avocado und Gurke und gib den scharfen Lachs darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere mit Frühlingszwiebeln, Furikake, Sesam und Nori-Streifen. Sofort servieren, solange der Reis heiß und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Salmon_Poke_Bowl_%28S%29_with_Spicy_mayo_sauce_-_Kitokito.jpg/1280px-Salmon_Poke_Bowl_%28S%29_with_Spicy_mayo_sauce_-_Kitokito.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Salmon_Poke_Bowl_(S)_with_Spicy_mayo_sauce_-_Kitokito.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:viral-baked-oats",
+      "slug": "viral-baked-oats",
+      "title": "Virale gebackene Haferflocken",
+      "instructions": "Pürierte Haferflocken, die im Ofen wie ein warmer Frühstückskuchen für eine Portion aufgehen, mit einem weich geschmolzenen Schokoladenkern.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende eine sehr reife, fleckige Banane, die sonst wegkäme. Sie ist süßer und spart Ahornsirup.",
+        "Mahle Haferflocken selbst zu Mehl, statt fertiges Hafermehl zu kaufen.",
+        "Kein Mixer? Zerdrücke die Banane und verrühre sie mit zarten Haferflocken. Die rustikale Variante schmeckt ebenfalls gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig oder ein extra mashed Banane",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "chocolate-chips",
+          "swap": "ein spoonful von peanut Butter swirled in",
+          "savings": "~$0.25"
+        },
+        {
+          "forIngredientId": "oat-milk",
+          "swap": "normal Milch oder Wasser",
+          "savings": "~$0.15"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "viral",
+        "TikTok",
+        "Einzelportion",
+        "Frühstück",
+        "gut vorzubereiten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7244,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/viral-baked-oats/",
+      "components": [
+        {
+          "key": "e6fb3481-bfad-5699-884f-1c7bb0bc698b",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 434.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "81aaf6ac-f0c0-54f7-92a5-0931151a8a40",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Haferflocken, zu Mehl gemahlen"
+            },
+            {
+              "key": "eb219b9b-e568-5e02-a4c6-fbf3e0b89a6d",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "sehr reif, für natürliche Süße"
+            },
+            {
+              "key": "38eb2e1f-7b17-52e3-a274-58f9e447abee",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0657a2de-3120-50e1-842c-f0b42c6676eb",
+              "ingredientName": "Hafermilch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder beliebige Milch"
+            },
+            {
+              "key": "0b480df7-1058-5219-a1eb-e597c19c002e",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel, nach Geschmack anpassen"
+            },
+            {
+              "key": "abdd887b-bead-5429-b8a8-4dae1fd7958e",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "f8966077-4906-535b-a03d-838024612604",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "a87fcdc5-070e-5291-96c3-47adc995a3b7",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "d50dc51f-2bc4-5063-9d4a-c18b53638260",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "931eea34-84a0-514c-9dfb-e5ac7a04d142",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Esslöffel, in die Mitte gedrückt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (180C) vor und fette ein kleines ofenfestes Förmchen oder eine Tasse leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Haferflocken, reife Banane, Ei, Hafermilch, Ahornsirup, Backpulver, Vanille, Zimt und eine Prise Salz in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere alles 30-60 Sekunden vollständig glatt und gießbar. Schabe bei Bedarf die Seiten des Mixers ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Teig in das gefettete Förmchen. Streue die meisten Schokostückchen darüber und drücke einige vorsichtig in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Haferflocken 20-25 Minuten, bis die Oberfläche fest und federnd ist und ein Zahnstocher fast sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie 2-3 Minuten abkühlen, damit die Mitte weich bleibt, und iss sie direkt aus dem Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    }
+  ]
+}

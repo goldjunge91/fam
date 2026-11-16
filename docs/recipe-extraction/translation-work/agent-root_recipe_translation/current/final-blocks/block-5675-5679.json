@@ -1,0 +1,1054 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-risotto",
+      "slug": "gen-risotto",
+      "title": "Risotto",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Arborio-Reis lose beim Großhandel oder in italienischen Lebensmittelgeschäften kaufen",
+        "Gemüsereste sammeln und selbst Brühe daraus kochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italian",
+        "Abendessen",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5675,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto/",
+      "components": [
+        {
+          "key": "78cc0a02-ffdb-5dfc-9b27-d1bc74bc47c3",
+          "name": "Zutaten",
+          "servingGrams": 367.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "86154f1b-8b6e-5b90-8167-baef80c0e527",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3f18976e-46c1-546c-97db-86aa1a1b5746",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "573eca06-d5bd-530f-afc6-844d6ede110a",
+              "ingredientName": "Weißwein",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "45fdf2ef-f389-5e36-8e17-16256edf87e3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "f1379853-6af7-58d8-a2a6-1589c9ccf64c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "c376c320-0a4f-5b54-9115-ea7f4708a8df",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8cc0666e-0e27-53f5-b618-d41dd5a5625a",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "0b6817a3-438e-5eb4-9f0b-036cdb411f7d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5cf1d72f-ec50-520d-9c14-9932212f410c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gemüsebrühe in einem separaten Topf erhitzen und während der gesamten Zubereitung leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl und 1 Esslöffel Butter in einem großen Topf mit schwerem Boden bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel und gehackten Knoblauch etwa 2–3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Arborio-Reis hinzufügen und 1–2 Minuten ständig rühren, bis die Ränder der Körner glasig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weißwein zugießen und rühren, bis der Reis ihn aufgenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiße Brühe schöpflöffelweise hinzufügen und häufig rühren. Erst mehr Brühe zugeben, wenn die vorherige aufgenommen wurde; insgesamt etwa 18–20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Reis cremig und weich ist, vom Herd nehmen und übrige Butter sowie Parmesan einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer abschmecken und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/zMrFhoiV_RQM9kJvAAq2itQ1VFc=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/risotto-recipe-for-beginners-996008-step-09-d7d9e48abf414970bd174ca22d7be5b5.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/zMrFhoiV_RQM9kJvAAq2itQ1VFc=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/risotto-recipe-for-beginners-996008-step-09-d7d9e48abf414970bd174ca22d7be5b5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-skewered-meat-kebabs",
+      "slug": "gen-skewered-meat-kebabs",
+      "title": "Fleischspieße",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rindfleisch im Angebot kaufen und für später einfrieren",
+        "Paprika in der Saison kaufen, wenn sie günstiger ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "middle-eastern",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5676,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-skewered-meat-kebabs/",
+      "components": [
+        {
+          "key": "c7a05197-812b-5505-bb78-6f04751cc72f",
+          "name": "Zutaten",
+          "servingGrams": 178,
+          "position": 0,
+          "items": [
+            {
+              "key": "27467cf8-c0cb-5a23-83aa-ebd1fc2624d0",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "9777dc75-00dc-5970-a531-2e8d7d5542dc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "94740674-89cf-5271-b1b9-5ff89a673e1f",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "805ef6f9-4849-55e5-a65c-741e7a293d7e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f1d3ae19-314a-5d75-b552-4fa54a5bb639",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6f685d61-8a03-5312-8885-d5a0360f88e2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c55c601-4fe7-59ec-86eb-76ca7877eead",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "6b463efe-e22d-505f-9c4e-90b7b083c839",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f69e8012-dd9a-52b9-b542-941cebc4c785",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Holzspieße 20 Minuten in Wasser einweichen, damit sie nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleisch in 1.5-Zoll-Würfel schneiden und in einer Schüssel mit Olivenöl, Zitronensaft, gehacktem Knoblauch, Kreuzkümmel, Paprika, Salz und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Fleisch mindestens 15 Minuten marinieren lassen, währenddessen Zwiebel und Paprika in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fleisch abwechselnd mit Zwiebel- und Paprikastücken auf die Spieße stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grill oder Grillpfanne auf hohe Hitze vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Spieße 10–12 Minuten grillen und alle 2–3 Minuten wenden, bis das Fleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Grill nehmen und vor dem Servieren 2 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/06/Grilled-Chicken-Skewers-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/06/Grilled-Chicken-Skewers-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paella-campera",
+      "slug": "gen-paella-campera",
+      "title": "Paella Campera",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Safran weglassen und Kurkuma für ähnliche Farbe verwenden, um 3 $ zu sparen",
+        "Hähnchen in größeren Mengen kaufen und portionsweise einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "spanish",
+        "lunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5677,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paella-campera/",
+      "components": [
+        {
+          "key": "6c42cd79-ca1d-5d29-94f2-e944c89ab584",
+          "name": "Zutaten",
+          "servingGrams": 467.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b835dc1-9651-562b-b66a-a2f5d6e0789e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f0cb0d8a-711e-5e69-b80c-f5f3457de1ab",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "53550a1f-88dc-52eb-9111-d665cc006dc3",
+              "ingredientName": "Chorizo",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "70ced21c-308b-5c64-a7c2-086910993176",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "caeac36f-712a-53a7-934d-ab0d7213dec7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 rote"
+            },
+            {
+              "key": "1ab6616c-9722-5263-a3c5-eade97c14632",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "2b8e1cea-0b61-538c-8808-2978924cbd27",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4abe380d-89ce-562e-bfa6-656d61adb794",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "9cb75225-5bcf-5b7a-8223-d2943af4e28b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9ef48de4-3609-5443-9153-cfed7e3b0fee",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Paellapfanne oder breiten Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen in mundgerechte Stücke und Chorizo in Scheiben schneiden. Beides 5–7 Minuten anbraten und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne gewürfelte Zwiebel, Knoblauch und Paprika 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis hinzufügen und 2 Minuten ständig rühren, bis er leicht geröstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Safran 2 Minuten in warmer Brühe ziehen lassen. Die gesamte Brühe zusammen mit Hähnchen und Chorizo in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aufkochen lassen, Hitze auf mittlere bis niedrige Stufe reduzieren und 20 Minuten ohne Deckel und ohne Rühren köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Prüfen, ob der Reis weich und die Flüssigkeit aufgenommen ist. Bei Bedarf weitere 2–3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vom Herd nehmen, mit Folie abdecken und vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://casadepaellas.com/wp-content/uploads/2015/11/Fiduea-Campera.jpg",
+          "sourcePageUrl": "https://casadepaellas.com/wp-content/uploads/2015/11/Fiduea-Campera.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-trout",
+      "slug": "gen-grilled-trout",
+      "title": "Gegrillte Forelle",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Forellenfilets statt frischer kaufen und 2–3 $ pro Portion sparen",
+        "Getrockneten Dill verwenden, falls frischer nicht erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "glutenfrei",
+        "dairy-free",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5678,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-trout/",
+      "components": [
+        {
+          "key": "30dd48b0-4423-5a8b-9fe0-54cdc9f1a587",
+          "name": "Zutaten",
+          "servingGrams": 173.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2697fb58-5010-5cde-9a2e-9dc14b443d70",
+              "ingredientName": "Forelle",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Filets (je 6 oz)"
+            },
+            {
+              "key": "e5e8537c-598b-5d4d-8f58-e52864ac83a7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "806c509d-89df-5fd6-a4b0-1f29397af5b6",
+              "ingredientName": "frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f7212c00-d68d-57c5-81ae-8b3a5f11b2c9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3755eeb7-ebff-5c75-9fe4-4a82270f247b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfc4ef01-fd2a-5a85-b5e2-a0b39c12fba9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "fd51cafd-f0ac-5b67-9d25-7d823a888db2",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "2232981b-34b4-59e6-aa37-48fcb58ce966",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Grill auf mittlere bis hohe Hitze vorheizen und den Rost leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forellenfilets trocken tupfen und auf beiden Seiten mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zitrone in Scheiben schneiden und Knoblauch hacken. Beides zusammen mit frischem Dill auf den Filets verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jedes Filet mit kleinen Butterstücken belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Filets mit der Hautseite nach oben 8–10 Minuten grillen, bis das Fleisch undurchsichtig ist und sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vorsichtig auf Teller geben und sofort mit den übrigen Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/kDaF_XmUFTV1KjC25TipoJJ15SY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2015__07__grilled-trout-vertical-a-1600-c50c6c6ba9eb4a02a2eb548e74318d06.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/kDaF_XmUFTV1KjC25TipoJJ15SY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2015__07__grilled-trout-vertical-a-1600-c50c6c6ba9eb4a02a2eb548e74318d06.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sausage-and-peppers",
+      "slug": "gen-sausage-and-peppers",
+      "title": "Würstchen mit Paprika und Zwiebeln",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Würstchen einer Handelsmarke kaufen und 1–2 $ pro Pfund sparen",
+        "Tomatensauce aus der Dose statt frischer Tomaten verwenden, damit es das ganze Jahr günstig bleibt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "italian",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5679,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sausage-and-peppers/",
+      "components": [
+        {
+          "key": "bc665e61-05c0-548d-a393-c0ab51e99f81",
+          "name": "Zutaten",
+          "servingGrams": 237.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8391e2f1-301c-5a7d-84a2-7cea7751bda7",
+              "ingredientName": "italienische Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2c354c0f-f916-5345-9f13-48ef11f3f513",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 in verschiedenen Farben"
+            },
+            {
+              "key": "db0806c3-2e0d-570e-a678-905b10ebba6f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "2541998e-f1be-59a6-a692-12af1b90a944",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef72de63-cd78-5749-9983-880945024240",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "c6364f29-c57f-5b11-94dd-f5154c6282cb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0b48c355-ab7b-531a-bef1-063c9b5ea327",
+              "ingredientName": "getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "93d00d8b-091c-5344-9a54-9cfacbb52361",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e4761a11-0db3-5432-bc33-2e5403e2eb17",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würstchen rundherum 8 Minuten anbraten, herausnehmen und in 2-Zoll-Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne geschnittene Paprika, Zwiebel und Knoblauch 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würstchen zurück in die Pfanne geben und Tomatensauce sowie Oregano hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf mittlere Stufe reduzieren und 15 Minuten köcheln lassen; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf knusprigem Brot oder mit Pasta servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2018/02/sausage-and-peppers-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2018/02/sausage-and-peppers-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

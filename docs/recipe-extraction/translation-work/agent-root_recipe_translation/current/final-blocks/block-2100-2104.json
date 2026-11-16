@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53042",
+      "slug": "tmdb-53042",
+      "title": "Portugiesisches Prego mit grüner Piri-Piri-Soße",
+      "instructions": "Portugiesisches Rindfleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "portugiesisch",
+        "rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2100,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53042/",
+      "components": [
+        {
+          "key": "7154f6ba-176d-5826-81cb-28755d03b51d",
+          "name": "Zutaten",
+          "servingGrams": 527.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "614a7d76-09a3-5b50-b42b-b9dabd526b43",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b119a0e4-868c-5850-948b-8c0bfaa369c5",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31fe33c5-be55-5e7b-b1c2-447471bff1e8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57d89d28-6d54-57e8-bdca-d9b2d3a5d3d5",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6efb03f-9c02-5805-8bfb-49e5a7fa5024",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18c798af-29c4-5f9b-8ba4-3b7b0f887a75",
+              "ingredientName": "Ciabatta",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "582ce2d7-ad57-5686-8b16-954194a45e56",
+              "ingredientName": "Rucola",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbf018ca-b065-5160-8ee5-be8ca986acde",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf575bb-5722-50fd-afec-50d9b8e650ba",
+              "ingredientName": "eingelegte Jalapeños",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f3111f0-78bf-59ef-a704-5976253f975c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ccb9b49-97f1-5d54-a06b-b1d8daf67dc2",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe den Knoblauch über die Steaks und gib sie dann in einen Gefrierbeutel. Gieße Olivenöl, Sherryessig und Petersilienstiele dazu. Vermische alles, klopfe die Steaks anschließend einige Male mit einem Nudelholz. Lasse sie 1-2 hours marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Soße gib alle Zutaten mit 1 tbsp Wasser in einen Mixer und püriere sie möglichst glatt. Es wird mehr Soße entstehen, als du für dieses Rezept brauchst. In einem luftdichten Glas hält sie sich jedoch eine Woche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Grillplatte oder Pfanne auf hoher Stufe. Streife Knoblauch und Petersilienstiele von den Steaks ab und würze sie großzügig. Brate die Steaks 2 Minuten pro Seite scharf an und lasse sie dann auf einem Teller ruhen. Lege die Ciabatta-Hälften mit der gerösteten Seite nach unten auf den Teller, damit sie den Fleischsaft aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Steaks in Scheiben und fülle sie mit der grünen Soße und dem Rucola in die Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ewcikl1614348364.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ewcikl1614348364.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53323",
+      "slug": "tmdb-53323",
+      "title": "Postre Chajá",
+      "instructions": "Uruguayisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "uruguayisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2101,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53323/",
+      "components": [
+        {
+          "key": "e1b3e196-06f0-5756-accc-b8c6b0008310",
+          "name": "Zutaten",
+          "servingGrams": 315.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "33d34d6c-4fc8-5223-8ae1-6b886a8d9af2",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27330399-6b45-564b-9c36-62aec5e3712f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8af65f3a-04c8-5050-8cc5-1dddfff75dea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d54c151-0375-5035-8422-6b8d6b7bdc5a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ad34c3f-6ab3-5b46-bbea-0951f4794f60",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "addb5139-6846-5ee3-9b47-e535429d9b1f",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acd59650-6522-5334-8f60-ea04b87de8d0",
+              "ingredientName": "Dulce de leche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03b15b31-c5f6-53c7-b177-dedb66cbbbc0",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2884163e-100b-5c7e-8ecd-9b29e92d3c29",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e0b2296-49f6-5466-8815-99a09cd61b42",
+              "ingredientName": "tiefgekühlte Pfirsiche",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f75e187-4c50-5cbe-98b3-b14cfcb04b27",
+              "ingredientName": "Pfirsich",
+              "grams": 178.57,
+              "quantity": 1.79,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Biskuitboden heize den Ofen auf 180 Grad Celsius vor und bereite eine oder zwei Kuchenformen mit 20cm/8 inch Durchmesser vor. Lege den Boden mit Backpapier aus. Trenne die Eier in Eiweiß und Eigelb. Verwende für das Eigelb eine größere Schüssel. Für das Eiweiß nimm eine Glas- oder Metallschüssel, die fettfrei ist. Achte darauf, dass auch der Mixer sauber ist. Schlage zuerst das Eiweiß mit einer Prise Salz bei mittlerer Geschwindigkeit, bis weiche Spitzen entstehen. Beiseitestellen. Schlage ohne den Mixer zu reinigen das Eigelb mit Zucker, bis die Masse deutlich heller und cremig ist. Das dauert üblicherweise mehrere Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße vorsichtig one third des Eiweißes über die Eigelbmasse und siebe Mehl und Maisstärke darüber. Diesen Schritt nicht überspringen: Das Mehl muss gesiebt werden. Vermische alles vorsichtig mit einem Teigschaber. Hebe Mehlmischung und Eiweiß unter, ohne das Volumen zu verlieren. Gib die letzten two thirds des geschlagenen Eiweißes hinzu und hebe es vorsichtig unter. Nicht zu stark rühren. Fülle den Teig in die vorbereiteten Formen und backe ihn sofort. Lasse ihn nicht zu lange stehen, da er schnell an Volumen verliert. Backe ihn 35 Minuten in einer Springform oder 25 Minuten, wenn du zwei verwendest. Lasse die Böden etwas abkühlen und nimm sie vorsichtig aus der Form. Tipp: Wenn du den Kuchen am Vortag zubereitest, wickle ihn in Frischhaltefolie. Kalt lässt er sich viel leichter halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für das Baiser schlage das Eiweiß, bis weiche Spitzen entstehen. Gib eine Prise Salz hinzu und schlage bei hoher Geschwindigkeit weiter, während du den Zucker einrieseln lässt. Schlage mindestens drei weitere Minuten, bis die Masse glänzend ist. Spritze kleine Sterne oder andere Formen auf ein mit Backpapier ausgelegtes Blech. Trockne sie etwa 45min bei 100 Grad Celsius im Ofen. Bis zur Verwendung in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Füllung Schlagsahne, Vanilleextrakt und Zucker steif schlagen. Schneide die Pfirsiche in dünne Scheiben. Schneide den Kuchen in vier Böden; das geht leichter, wenn sie kalt sind. Bestreiche den ersten Boden mit etwas Pfirsichsaft und spritze einen dünnen Ring Schlagsahne an den Rand. Lege die Pfirsichscheiben in die Mitte. Verteile auf dem zweiten Boden nur Dulce de leche. Wiederhole für den dritten und letzten Boden die Schichten mit Pfirsichsaft, Schlagsahne und Pfirsichen. Bewahre genügend Pfirsichscheiben für die Oberseite auf. Verstreiche eine dünne Schicht Schlagsahne an den Seiten und spritze nach Wunsch Rosen an den Rand. Erhitze den Pfirsichsaft und verrühre Maisstärke mit etwas Wasser, bis keine Klümpchen mehr zu sehen sind. Sobald der Saft heiß ist, gib die Maisstärke dazu und rühre, bis die Glasur eindickt. Gieße sie über die Pfirsiche auf der obersten Schicht. Zerbrösele das Baiser und drücke es an die Seiten. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wii0591764375062.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wii0591764375062.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52780",
+      "slug": "tmdb-52780",
+      "title": "Kartoffelgratin mit Hähnchen",
+      "instructions": "Italienisches Hähnchengericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2102,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52780/",
+      "components": [
+        {
+          "key": "8703f975-8469-528a-844b-12e41d1cb579",
+          "name": "Zutaten",
+          "servingGrams": 380,
+          "position": 0,
+          "items": [
+            {
+              "key": "57ddabbb-64d4-5b69-bec0-35047bcc7c47",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "832892d9-d090-5dd5-a863-b7e509b0cabf",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ecf5747-1ba4-5e40-82ee-ab8edf44600b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e2e6833-f586-5ead-927c-e0a33317cd3b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2db6cd1a-e595-5814-b536-f68c348c4779",
+              "ingredientName": "saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "986e983a-9e4a-564f-b87f-88f6e10c77c9",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebfda06f-f0dc-58af-b820-2485d28a54f5",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03c6ab4d-c1d5-5ae8-9414-8812a7ced270",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5273e1a-27e0-54d6-b610-e7bc141d9ef2",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffelgratin mit Hähnchen und Speckgemüse in 15 minute: Ein Gratin wirkt oft aufwendiger und üppiger als gewöhnliche gekochte oder gebratene Kartoffeln, muss aber nicht 45mins dauern. Es ist eine schöne Abwechslung und du kannst den Kaloriengehalt durch die Wahl von Crème fraîche mit hohem oder niedrigem Fettgehalt beeinflussen. Mit vollem Fettgehalt schmeckt es natürlich immer besser! Für 4 Personen: Verwende 800g Kartoffeln, schneide sie fein und koche sie etwa 5-8 mins, bis sie noch bissfest und nicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide 3 Zwiebeln fein und gib sie mit 2 tblsp Olivenöl und 100ml Hühnerbrühe in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare die Zwiebeln weich, gieße dann die Kartoffeln ab und gib sie zu den Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze alles und gib Sahne oder Crème fraîche darüber, bis alles bedeckt, aber nicht darin ertränkt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reibe Parmesan darüber und überbacke das Gratin unter dem Grill, bis es schön goldbraun ist. Mit Hähnchen, Speck, Erbsen und Spinat servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qwrtut1468418027.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qwrtut1468418027.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53081",
+      "slug": "tmdb-53081",
+      "title": "Kartoffelsalat (Olivier-Salat)",
+      "instructions": "Russisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "vegetarisch",
+        "salat"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2103,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53081/",
+      "components": [
+        {
+          "key": "508cf0ec-0e42-5476-9ed4-e6b1be26e8a8",
+          "name": "Zutaten",
+          "servingGrams": 577.24,
+          "position": 0,
+          "items": [
+            {
+              "key": "f9f30560-a47e-51ec-aafe-4efe592cfe93",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96db8570-01ab-5aec-b886-1673bee0a235",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa26fce3-81fa-59f7-afc8-b7f97198079e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48c0eb02-7dc1-55e7-87b1-9aeeb7861c6e",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c31a5e3f-bdf0-5e15-88b1-361f24084751",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e380a490-97ef-524b-928d-5044b24db48b",
+              "ingredientName": "Würstchen",
+              "grams": 198.45,
+              "quantity": 198.45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bd8bbd9-2017-5919-ba87-e5ae25785947",
+              "ingredientName": "getrockneter Dill",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72e9459a-5531-53c2-b190-09506a8cdc01",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f94b909-7e4f-56cf-a155-c5d09f34677a",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5303d455-df83-50d0-a97c-064c7415a1bf",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Kartoffeln und Karotten in kleine, gleichmäßige Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib sie in einen großen Topf und fülle ihn mit Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Salz und Essig hinzu. Bringe alles bei mittlerer bis hoher Hitze zum Kochen, reduziere dann auf mittlere Hitze und koche etwa 15 Minuten weiter, bis die Kartoffeln gar sind. Gieße sie ab und lasse sie auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide währenddessen Würstchen und Gewürzgurken in kleine Würfel und hacke die Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide auch die hart gekochten Eier in kleine Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Falls du frischen Dill verwendest, hacke auch ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische Kartoffeln, Karotten, Würstchen, Gewürzgurken, Erbsen und Frühlingszwiebeln in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Mayonnaise und Dill hinzu und vermische alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit Salz und Pfeffer abschmecken. Decke die Schüssel mit Frischhaltefolie ab und stelle den Salat vor dem Servieren mindestens 1 hour in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ebvuir1699013665.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ebvuir1699013665.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52932",
+      "slug": "tmdb-52932",
+      "title": "Pouding chômeur",
+      "instructions": "Kanadisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kanadisch",
+        "dessert",
+        "pudding"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2104,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52932/",
+      "components": [
+        {
+          "key": "6bac1b6d-240e-58f5-85e1-cba8c18ef8fd",
+          "name": "Zutaten",
+          "servingGrams": 246.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "2607ad3e-920b-5179-ac9c-fab99a06e322",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7436f082-49d5-52e1-b588-eaa8509721a9",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "413bab9f-6b3e-5b54-91ea-e42d1ebdbf8c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4c81b72-7293-5a96-bd14-9c541872e1e9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e96c18a8-ef4d-5c43-84c3-ab6a38768682",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd63cf45-11ee-588b-be46-90258f86ad84",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58b43d93-1536-5077-8f11-b29b5fedffc8",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8263295-d17c-5456-ba38-7e9af9d2a902",
+              "ingredientName": "Ahornsirup",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0daca38d-a57a-56da-8340-ec167f130f5c",
+              "ingredientName": "brauner Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99c873cf-52db-50a3-bbca-a20c0ca56473",
+              "ingredientName": "Frischkäse",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Butter und Zucker in einer großen Schüssel mit einem elektrischen Mixer, bis die Masse hell ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Eier und Vanille hinzu und vermische alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl und Backpulver in einer anderen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre abwechselnd Mehlmischung und Milch unter die Buttermasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in eine gefettete Form von 13 inch by 9 inch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "AHORNSOẞE.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bringe Sirup, braunen Zucker, Sahne und Butter in einem großen Topf unter ständigem Rühren zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reduziere die Hitze und koche die Soße sanft 2 Minuten, bis sie etwas eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gieße die Soße vorsichtig über den Kuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Backe den Kuchen bei 325°f (160°c) etwa 35 Minuten oder bis er hellbraun ist und ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yqqqwu1511816912.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yqqqwu1511816912.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

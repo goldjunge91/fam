@@ -1,0 +1,1357 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-pumpkin-roll",
+      "slug": "bake-pumpkin-roll",
+      "title": "Kürbisrolle mit Frischkäsecreme",
+      "instructions": "Ein klassischer Herbstkuchen: Dünner, warm gewürzter Kürbisbiskuit wird um eine säuerliche Frischkäsefüllung gerollt. Der Trick ist, den Kuchen noch heiß aufzurollen, damit er sich die Form merkt und später nicht reißt. Auskühlen lassen, wieder entrollen, füllen und erneut aufrollen. Mit Puderzucker bestäubt und in hübsche Schnecken geschnitten.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine große Dose Kürbispüree kaufen und den Rest in einer Portion von 2/3 cup für die nächste Kuchenrolle oder Pfannkuchen einfrieren.",
+        "Walnüsse weglassen, um Kosten zu sparen. Die Rolle schmeckt pur genauso gut und bleibt etwas zarter.",
+        "Kürbisgewürz selbst aus vorhandenem Zimt, Ingwer, Muskat und Nelken mischen, statt eine fertige Gewürzmischung zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Pekannüsse verwenden oder Nüsse ganz weglassen.",
+          "savings": "Weglassen spart etwa $1.50"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Hellbrauner Zucker für eine kräftigere Karamellnote.",
+          "savings": "Ungefähr gleiche Kosten"
+        },
+        {
+          "forIngredientId": "cloves-ground",
+          "swap": "Eine Prise Piment oder zusätzlicher Zimt.",
+          "savings": "Spart den Kauf eines selten aufgebrauchten Glases"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "dessert",
+        "herbst",
+        "thanksgiving",
+        "kuchen",
+        "frischkäse",
+        "gebacken",
+        "feiertage",
+        "backen"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7490,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-pumpkin-roll/",
+      "components": [
+        {
+          "key": "2dce9df6-842e-5850-b742-3ea1a53ce803",
+          "name": "Zutaten",
+          "servingGrams": 146.07,
+          "position": 0,
+          "items": [
+            {
+              "key": "4cd309f6-42fe-56e3-8cbb-25dc2e17baa7",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "große, zimmerwarm"
+            },
+            {
+              "key": "8c10c0a6-f7ca-5531-8ec5-ddb67f2af755",
+              "ingredientName": "weißer Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker für den Biskuit"
+            },
+            {
+              "key": "90e327c8-d1a6-5fad-96bf-eae6b4078ec9",
+              "ingredientName": "Kürbispüree (aus der Dose)",
+              "grams": 280,
+              "quantity": 0.7,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2/3 Tasse reines Kürbispüree (keine fertige Piefüllung)"
+            },
+            {
+              "key": "ff5218f4-ab6f-55c0-add6-fb5e0ee26319",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse Weizenmehl"
+            },
+            {
+              "key": "25865722-5053-59c8-8139-0e08ed8260c7",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "20231ae4-fe18-571a-bdd1-f0f281be1461",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5a60edea-eaf9-5a21-9135-70ce39fc7752",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL, gemahlen"
+            },
+            {
+              "key": "1ad0f51c-97fd-590c-8782-44b3938d398e",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "582af410-d058-5ec1-a5d2-6bd3d28fa34f",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL, gemahlen"
+            },
+            {
+              "key": "71bf25c8-39bc-5573-acdb-ebf90d9ae443",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "df82054f-35bf-55ce-9ba6-33402919ca10",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "7497203d-4d89-5155-97ee-e3101f230f44",
+              "ingredientName": "Frischkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "8 oz am Stück, weich, für die Füllung"
+            },
+            {
+              "key": "b59221a6-3ea5-5b92-98c1-590a8dcd8651",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "6 EL, ungesalzen und weich"
+            },
+            {
+              "key": "44f4a9e8-182c-530d-b34b-bed3ea6c4855",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Tasse für die Füllung und mehr zum Bestäuben und Wälzen"
+            },
+            {
+              "key": "614238e2-e0f1-5f02-bf34-b44fdf5db8c3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 TL Extrakt"
+            },
+            {
+              "key": "04fed13e-81e9-5e23-a50c-51a91a6ec858",
+              "ingredientName": "Walnüsse",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "1 Tasse, gehackt, optional vor dem Backen auf den Teig gestreut"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 375F vorheizen. Ein Backblech mit Rand von 15x10 Zoll mit Backpapier auslegen und das Papier einfetten. Ein sauberes, dünnes Küchentuch ausbreiten und großzügig mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver, Natron, Zimt, Ingwer, Muskat, Nelken und Salz in einer Schüssel verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier und Kristallzucker in einer großen Schüssel auf hoher Stufe etwa 2-3 Minuten dick und hell aufschlagen. Kürbispüree einrühren. Trockene Zutaten vorsichtig unterheben, bis keine Mehlspuren mehr sichtbar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig gleichmäßig auf dem vorbereiteten Blech verstreichen. Nach Wunsch gehackte Walnüsse darüberstreuen. 13-15 Minuten backen, bis der Kuchen bei leichtem Druck in der Mitte zurückfedert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den heißen Kuchen sofort auf das mit Puderzucker bestäubte Tuch stürzen und das Backpapier abziehen. Von einer kurzen Seite her noch heiß mit dem Tuch aufrollen. Mit der Naht nach unten auf einem Gitter vollständig abkühlen lassen (etwa 1 Stunde).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Füllung Frischkäse, weiche Butter, 1 cup Puderzucker und Vanille glatt und luftig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den abgekühlten Kuchen vorsichtig entrollen, bis er flach liegt. Die Füllung gleichmäßig auf dem Kuchen verstreichen und am gegenüberliegenden Ende einen Rand von 1/2 Zoll frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Kuchen diesmal ohne Tuch fest aufrollen, in Folie wickeln und mindestens 1 Stunde kalt stellen, damit er fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit Puderzucker bestäuben, die Enden abschneiden und zum Servieren in 1 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://live.staticflickr.com/65535/52468408465_d6961077d3_b.jpg",
+          "sourcePageUrl": "https://flickr.com/80502454@N00/52468408465",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public Domain / No known copyright restrictions",
+          "attributionRequired": false,
+          "attributionText": "Photo by 'the bridge' via Flickr - Public Domain",
+          "verifiedMatch": true,
+          "altText": "Foto: Kürbisrolle mit Frischkäsecreme",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-swiss-roll",
+      "slug": "bake-swiss-roll",
+      "title": "Biskuitrolle mit Marmelade",
+      "instructions": "Ein federleichter, aufgeschlagener Biskuit wird dünn gebacken und noch warm aufgerollt, damit er seine Form behält. Anschließend wird er wieder entrollt, mit Himbeerkonfitüre bestrichen und zu einer zarten Rolle geformt. Mit Puderzucker bestäubt. Der klassische Kuchen zur Teestunde, mit echter Genueser-Biskuittechnik.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 9,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hier braucht es nur ganze Eier und Vorratszutaten. Der Kuchen ist günstig, sieht aber viel aufwendiger aus.",
+        "Kein Rührgerät? Mit einem Schneebesen und etwas Muskelkraft über dem warmen Wasserbad lassen sich die Eier ebenfalls cremig aufschlagen.",
+        "Verwende vorhandene Fruchtkonfitüre. Aprikose, Erdbeere oder sogar Lemon Curd passen statt Himbeere."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jam",
+          "swap": "Schnelle Konfitüre selbst kochen: Tiefgekühlte Beeren mit einem Löffel Zucker einkochen, bis die Masse dick wird.",
+          "savings": "Spart ~$2 pro Glas und erlaubt die gewünschte Süße"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "2 tbsp Mehl durch Kakao ersetzen, um eine Schokoladenrolle zu backen.",
+          "savings": "Kostet nichts zusätzlich und ergibt eine Schokoladen-Biskuitrolle"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Feiner Zucker löst sich schneller auf und macht den Biskuit noch luftiger.",
+          "savings": "Etwa gleicher Preis, mehr Volumen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "schweizerisch",
+        "dessert",
+        "kuchen",
+        "backen",
+        "teestunde",
+        "kuchenrolle",
+        "biskuit",
+        "konfitüre"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7491,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-swiss-roll/",
+      "components": [
+        {
+          "key": "9c4940f2-4be9-5476-b78f-9c6e25f35425",
+          "name": "Zutaten",
+          "servingGrams": 64.77,
+          "position": 0,
+          "items": [
+            {
+              "key": "a17ba2b0-2e2a-588e-87fd-eedee97619ea",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "große, zimmerwarm"
+            },
+            {
+              "key": "bfee3855-376b-50e1-86ab-38bc23fabad8",
+              "ingredientName": "weißer Zucker",
+              "grams": 6.75,
+              "quantity": 6.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 100g für den Biskuit"
+            },
+            {
+              "key": "b6ae4125-2e57-5b55-8c51-fbe6be92161d",
+              "ingredientName": "Weizenmehl",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 90g Weizenmehl, gesiebt"
+            },
+            {
+              "key": "306c07d0-0087-5f10-95df-b1eb1a9ea981",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "98dede28-e282-550e-b433-57a4c3f872e7",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "cee0bb79-75fd-5829-84e2-8fa8ddac7ac7",
+              "ingredientName": "Konfitüre",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "kernlose Himbeermarmelade, etwa 2/3 Tasse"
+            },
+            {
+              "key": "ace3b8ce-4db3-5e51-ac48-a1e4515dfb9d",
+              "ingredientName": "Puderzucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Ausrollen und Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 425F (220C) vorheizen. Ein Backblech mit Rand von 10x15 Zoll mit Backpapier auslegen, das etwas übersteht, und leicht einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier und weißen Zucker in einer großen Schüssel über einem Topf mit leicht siedendem Wasser verquirlen, bis die Masse handwarm ist. Vom Herd nehmen und mit dem Rührgerät auf hoher Stufe 5-7 Minuten schlagen, bis sie hell, auf das Dreifache aufgegangen und so dick ist, dass der Schneebesen eine Spur hinterlässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vanille einrühren. Mehl und Salz in zwei Portionen über die Eier sieben und jeweils vorsichtig mit einem Teigschaber unterheben, bis alles gerade vermengt ist. Dabei möglichst viel Luft im Teig bewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In das vorbereitete Blech gießen und gleichmäßig bis in die Ecken verstreichen. 7-9 Minuten backen, bis der Biskuit goldgelb ist und bei leichtem Druck zurückfedert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Währenddessen ein sauberes Küchentuch ausbreiten und großzügig mit Puderzucker bestäuben. Den heißen Biskuit auf das Tuch stürzen, das Backpapier abziehen und knusprige Ränder abschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den warmen Biskuit von einer kurzen Seite her mitsamt dem Tuch fest aufrollen und zusammengerollt etwa 30 Minuten vollständig abkühlen lassen. So behält er seine Form und reißt später nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den abgekühlten Biskuit vorsichtig entrollen, gleichmäßig fast bis an die Ränder mit Himbeerkonfitüre bestreichen und ohne Tuch wieder fest aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Rolle mit der Naht nach unten legen, mit weiterem Puderzucker bestäuben und zum Servieren mit einem Sägemesser in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Swiss_roll_004.jpg/1280px-Swiss_roll_004.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Swiss_roll_004.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ocdp — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Biskuitrolle mit Marmelade",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-yule-log",
+      "slug": "bake-yule-log",
+      "title": "Weihnachtsstollen als Biskuitrolle (Bûche de Noël)",
+      "instructions": "Ein klassisches französisches Weihnachtsdessert: Ein federleichter Kakaobiskuit wird um leicht gesüßte Vanille-Schlagsahne gerollt und mit glänzender dunkler Schokoladenganache überzogen. Mit einer Gabel wird die Oberfläche wie Baumrinde gerillt und mit Puderzucker-Schnee bestäubt. Eindrucksvoll und gut zu Hause machbar.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Holländischer Kakao sorgt für das intensive Aroma, teure Schokolade ist dafür nicht nötig. Eine gute dunkle Tafel aus dem Supermarkt ergibt eine hervorragende Ganache.",
+        "Den warmen Kuchen sofort in ein mit Kakao bestäubtes Tuch rollen. Dadurch prägt sich die Rolle ein und reißt später nicht; es kostet nichts extra.",
+        "Am Vortag zubereiten. Gekühlt lässt er sich sauberer schneiden und schafft Platz im Ofen und Kühlschrank für die übrigen Feiertagsgerichte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Zartbitter-Schokoladenstückchen in der Sahne schmelzen.",
+          "savings": "Pro Unze oft günstiger als Tafelschokolade"
+        },
+        {
+          "forIngredientId": "dutch-cocoa",
+          "swap": "Natürliches Kakaopulver verwenden und eine Prise zusätzliches Backpulver dazugeben.",
+          "savings": "Spart ~$2 gegenüber alkalisiertem Kakao"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Mascarpone mit einem Schuss Milch für die Füllung glatt rühren.",
+          "savings": "Verbraucht einen geöffneten Becher und spart den Sahnekauf"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "dessert",
+        "weihnachten",
+        "feiertage",
+        "schokolade",
+        "kuchen",
+        "kuchenrolle",
+        "blickfang",
+        "zum-vorbereiten",
+        "backen"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7492,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-yule-log/",
+      "components": [
+        {
+          "key": "5804e6b5-8df6-5dd2-991d-5143e789024d",
+          "name": "Zutaten",
+          "servingGrams": 123.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb9da63a-05bc-5bf5-891b-bbdf18555f4b",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "getrennt; für den Kakao-Génoise werden die ganzen Eier aufgeschlagen"
+            },
+            {
+              "key": "e3b4021e-633b-5219-b3b4-78c0649a0a6c",
+              "ingredientName": "weißer Zucker",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse, auf Biskuit und Schlagsahne verteilt"
+            },
+            {
+              "key": "cfa8d08a-f714-54a9-be13-811dea82bdb7",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse Weizenmehl; mit dem Kakao sieben"
+            },
+            {
+              "key": "968938c0-319f-56e8-aab0-6f69cd2b7803",
+              "ingredientName": "Kakao nach holländischer Art",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse alkalisiertes Kakaopulver für den Biskuit und zum Bestäuben des Tuchs"
+            },
+            {
+              "key": "e1fa6fb9-b136-5954-9474-44b0adbadd91",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3716e8f8-c78b-524b-8479-7996207ff66a",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "5175a04f-4f24-5029-aeba-b03709cd0e55",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "insgesamt 2 TL, auf Biskuit und Creme verteilt"
+            },
+            {
+              "key": "e90d5f02-b30c-5b62-849d-b74f1cb74b84",
+              "ingredientName": "Sahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 1/2 Tassen: ~1 Tasse geschlagen für die Füllung, 1/2 Tasse erhitzt für die Ganache"
+            },
+            {
+              "key": "a78391c8-9fa6-528f-be13-dcdc5c0fe1da",
+              "ingredientName": "Puderzucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Süßen der Schlagsahne und schneeartigen Bestäuben"
+            },
+            {
+              "key": "c729ae21-6d81-5360-aca6-56673eca5d73",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 8 oz, fein gehackt, für den Ganache-Überzug"
+            },
+            {
+              "key": "7bd24410-ce26-5ee4-adf2-b2856b7a5fcf",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL für Glanz in die Ganache eingerührt"
+            },
+            {
+              "key": "0d7fe001-ab9e-5822-99c4-76478787dc88",
+              "ingredientName": "Löslicher Kaffee",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "1/2 TL in der warmen Sahne aufgelöst für kräftigeres Schokoladenaroma"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 375F (190C) vorheizen. Ein Backblech mit Rand mit Backpapier auslegen und leicht einfetten. Mehl, holländisches Kakaopulver, Backpulver und Salz zusammen sieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Eier trennen. Eiweiße zu weichen Spitzen schlagen, die Hälfte des weißen Zuckers einrieseln lassen und zu glänzendem, festem Eischnee schlagen. In einer zweiten Schüssel Eigelb mit dem restlichen Zucker und 1 tsp Vanille etwa 3 Minuten hell, dick und cremig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die gesiebte Kakao-Mehl-Mischung unter die Eigelbe heben, bis alles gerade vermengt ist. Den Eischnee in drei Portionen vorsichtig unterheben, damit der Teig luftig bleibt. Gleichmäßig auf dem Blech verstreichen und 10-12 Minuten backen, bis die Oberfläche bei leichtem Druck zurückfedert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Währenddessen ein sauberes Küchentuch großzügig mit Kakao bestäuben. Den heißen Kuchen auf das Tuch stürzen und das Backpapier abziehen. Von einer kurzen Seite her mit dem Tuch aufrollen und zusammengerollt vollständig auskühlen lassen, damit er seine Form behält und nicht reißt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sahne mit Puderzucker und der übrigen Vanille zu festen Spitzen schlagen. Den ausgekühlten Kuchen vorsichtig entrollen, die Sahne bis an die Ränder verstreichen und ohne Tuch wieder fest zu einer Rolle formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Ganache 1/2 cup Schlagsahne (und nach Wunsch den löslichen Kaffee) erhitzen, bis Dampf aufsteigt. Über die gehackte dunkle Schokolade gießen, 2 Minuten stehen lassen, glatt rühren und die Butter einrühren. Abkühlen lassen, bis die Ganache streichfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Enden schräg abschneiden und ein abgeschnittenes Stück als Ast auf die Rolle setzen. Den Kuchen auf eine Platte legen und vollständig mit Ganache überziehen, auch das Aststück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit den Zinken einer Gabel längs durch die Ganache fahren, damit eine Rindenstruktur entsteht. Die spiralförmigen Schnittflächen frei lassen. Mindestens 1 Stunde kühlen, bis die Ganache fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Unmittelbar vor dem Servieren mit Puderzucker-Schnee bestäuben. Mit einem warmen Messer anschneiden, damit die Spirale sichtbar wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/B%C3%BBche_de_No%C3%ABl_chocolat_framboise_maison.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BBche_de_No%C3%ABl_chocolat_framboise_maison.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Jebulon — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Weihnachtsstollen als Biskuitrolle (Bûche de Noël)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-hot-cross-buns",
+      "slug": "bake-hot-cross-buns",
+      "title": "Hot Cross Buns (englische Osterbrötchen)",
+      "instructions": "Klassische englische Osterbrötchen mit Rosinen und warmen Gewürzen, oben mit dem typischen Teigkreuz und Aprikosenglasur.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normale Rosinen sind viel günstiger als kandierte Früchtemischung und sorgen für denselben fruchtigen Biss. Etwas Orangenschale bringt für wenige Cent Zitrusaroma dazu.",
+        "Die Kreuze aus einer einfachen Mehl-Wasser-Paste herstellen, statt etwas Spezielles zu kaufen. Zum Glasieren vorhandene Konfitüre verwenden.",
+        "Die Brötchen lassen sich sehr gut einfrieren. Eine Menge von 12 Stück reicht für Wochen; ein gefrorenes Brötchen 20 Sekunden in der Mikrowelle erwärmen, damit es wieder weich wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Mit Sirup aus Zucker und heißem Wasser bestreichen oder Konfitüre beziehungsweise Honig verwenden.",
+          "savings": "Spart ein zusätzliches Glas und verwendet Zucker aus dem Vorrat"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Getrocknete Cranberrys, Johannisbeeren oder gehackte getrocknete Aprikosen.",
+          "savings": "Trockenobst aus dem Angebot eignet sich"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Hafer- oder Mandelmilch und zusätzlich etwas Öl.",
+          "savings": "Günstiger und milchfrei, wenn keine Milch mehr vorhanden ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "ostern",
+        "backen",
+        "hefekuchen",
+        "gewürzt",
+        "hefeteig",
+        "fruchtbrötchen",
+        "feiertage"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7493,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-hot-cross-buns/",
+      "components": [
+        {
+          "key": "062a4dbe-ce7e-5796-88e0-788e9de4c912",
+          "name": "Zutaten",
+          "servingGrams": 137.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ab8fc3a-88b0-5c7b-b92e-a827ee71315e",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "backstarkes Mehl, etwa 4 Tassen und mehr für die Kreuzpaste"
+            },
+            {
+              "key": "0af5e60c-210f-5806-9c09-f69e1838d455",
+              "ingredientName": "Trockenhefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL (ein Päckchen)"
+            },
+            {
+              "key": "41eb5c87-868b-5251-86a1-e786f1f456e4",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, lauwarm erwärmt"
+            },
+            {
+              "key": "84345450-32dc-51bf-ab88-af8e13fcdaa0",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 6 EL, weich"
+            },
+            {
+              "key": "08a907e9-ced6-5338-a745-4c70a033ccf6",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse"
+            },
+            {
+              "key": "71698785-f031-55ae-a1d0-d06d5f55ddd7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb9fd765-953f-5323-840c-7203390914b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL feines Salz"
+            },
+            {
+              "key": "32727f42-cd36-5f8d-8978-55a26e88e554",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL, gemahlen"
+            },
+            {
+              "key": "5b9fca33-4a40-5ca5-8d10-6cbd8faa7955",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL, frisch gerieben"
+            },
+            {
+              "key": "3462ac28-73ab-567c-85ef-a2a854611bc4",
+              "ingredientName": "Piment",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL, gemahlen, Gewürzmischung"
+            },
+            {
+              "key": "99408d3d-d233-5280-a3c7-6e1ce792d6b3",
+              "ingredientName": "Rosinen",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa 1 Tasse oder Korinthen beziehungsweise Sultaninen"
+            },
+            {
+              "key": "708c7572-beb4-5fec-9d4a-e7829c040ddf",
+              "ingredientName": "Orange",
+              "grams": 65.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "nur abgeriebene Schale, als Ersatz für gemischte kandierte Zitrusschalen"
+            },
+            {
+              "key": "325632c0-de9b-5426-9fef-97dafc0ab2f8",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "etwa 3 EL für die Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch erwärmen, bis sie lauwarm ist (etwa 100F/38C), Hefe und eine Prise Zucker einrühren und 5 Minuten schaumig werden lassen. Mehl, restlichen Zucker, Salz, Zimt, Muskat und Piment in einer großen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In die trockenen Zutaten eine Mulde drücken und Hefemilch, weiche Butter, Eier und Orangenschale hineingeben. Zu einem groben Teig verrühren und auf leicht bemehlter Fläche oder mit Knethaken 8-10 Minuten kneten, bis der Teig glatt, elastisch und leicht klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rosinen einkneten, bis sie gleichmäßig verteilt sind. Zu einer Kugel formen, in eine gefettete Schüssel legen, abdecken und an einem warmen Ort 1 to 1.5 Stunden gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig zusammendrücken und in 12 gleich große Stücke von etwa 80g teilen. Jedes Stück zu einer glatten, festen Kugel formen und mit leichter Berührung zueinander in eine gefettete Backform von 9x13 legen, damit sie beim Backen zusammenbacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Locker abdecken und weitere 45-60 Minuten gehen lassen, bis die Brötchen aufgegangen sind und sich berühren. Währenddessen den Ofen auf 400F/200C erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Kreuze etwa 1/2 cup Mehl mit 4-5 tbsp Wasser zu einer dicken spritzfähigen Paste verrühren. In einen Spritzbeutel oder einen Gefrierbeutel mit abgeschnittener Ecke füllen und durchgehende Kreuze über die Brötchenreihen spritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "18-22 Minuten backen, bis die Brötchen goldbraun sind und beim Klopfen hohl klingen (Kerntemperatur etwa 190F/88C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Während die Brötchen noch heiß sind, Aprikosenkonfitüre mit etwas Wasser erwärmen, bis sie flüssig wird. Bei Bedarf durchsieben und großzügig auf die Oberseite pinseln, damit sie glänzt. Leicht abkühlen lassen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Hot_cross_buns_-_fig_and_pecan.jpg/1280px-Hot_cross_buns_-_fig_and_pecan.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hot_cross_buns_-_fig_and_pecan.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jules — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Hot Cross Buns (englische Osterbrötchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-bath-buns",
+      "slug": "bake-bath-buns",
+      "title": "Bath Buns (süße Brötchen aus Bath)",
+      "instructions": "Ein traditionelles süßes Brötchen aus dem Südwesten Englands: Reichhaltiger, briocheähnlicher Hefeteig mit Korinthen und Zitronenschale, bestreut mit knusprigen Zuckerstückchen und mit klebrig-süßer Milch-Zucker-Glasur bestrichen. Leicht mit Kümmel nach alter Bath-Art gewürzt.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brotmehl, Hefe, Zucker und Trockenfrüchte sind preiswerte Vorratszutaten, wenn man sie in größeren Mengen kauft. Eine ganze Menge von 10 Brötchen kostet kaum mehr als zwei aus der Bäckerei.",
+        "Teure kandierte Früchte weglassen und einfache Korinthen oder Rosinen sowie zusätzliche Zitronenschale verwenden. Das duftet fast genauso und kostet deutlich weniger.",
+        "Ein paar normale Zuckerwürfel in einem Beutel mit dem Nudelholz zerdrücken, statt spezielle Hagelzuckerwürfel für den Belag zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "raisins",
+          "swap": "Beliebige Trockenfrüchte wie Sultaninen, gehackte Datteln oder getrocknete Cranberrys.",
+          "savings": "Vorhandene Vorräte statt gekaufter Korinthen verwenden, spart etwa $2"
+        },
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "Zerdrückte normale weiße Zuckerwürfel oder grober Kristallzucker.",
+          "savings": "Spart besonderen Perlzucker und damit etwa $3"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Beliebige Milch oder Wasser mit einem zusätzlichen Esslöffel Butter.",
+          "savings": "Kein zusätzlicher Vollmilchkauf nötig, spart etwa $1"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "süßes-brötchen",
+        "hefeteig",
+        "backen",
+        "nachmittagstee",
+        "mit-hefe",
+        "traditionell",
+        "westengland"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7494,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-bath-buns/",
+      "components": [
+        {
+          "key": "c6c238b3-2469-5bea-a4cc-84683a9a31ae",
+          "name": "Zutaten",
+          "servingGrams": 43.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "84ee34d6-e4dc-500e-8f51-2fe9c97dd887",
+              "ingredientName": "Weizenmehl",
+              "grams": 216,
+              "quantity": 216,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "backstarkes helles Mehl, ~450g"
+            },
+            {
+              "key": "bffd59e5-d51a-5667-ab32-e873c265ecfe",
+              "ingredientName": "Trockenhefe",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "7g schnell wirkende Trockenhefe"
+            },
+            {
+              "key": "f110abfb-faec-5282-8197-20281d9c3a5b",
+              "ingredientName": "Milch",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "~150ml warme Vollmilch"
+            },
+            {
+              "key": "171ea896-6024-5a4e-acc0-283842d781fa",
+              "ingredientName": "Butter",
+              "grams": 5.25,
+              "quantity": 5.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "85g weiche ungesalzene Butter"
+            },
+            {
+              "key": "4913b782-3e2b-5bbf-bc41-2eb23ae4761d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42d7d919-48ec-5deb-b210-3e1da6ebdc89",
+              "ingredientName": "weißer Zucker",
+              "grams": 2.7,
+              "quantity": 2.7,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "55g feiner Kristallzucker im Teig"
+            },
+            {
+              "key": "60e3bac7-08d2-5f5e-a010-fcdc13fc627b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL feines Salz"
+            },
+            {
+              "key": "9fd1f9c2-28af-573a-8def-c6cba82448bf",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "100g Korinthen (oder die Hälfte durch gemischte kandierte Zitrusschalen ersetzen)"
+            },
+            {
+              "key": "37f47bac-3e39-5e34-a0c4-061c6b327442",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Zitrone"
+            },
+            {
+              "key": "ca0a21df-c315-5f7a-8b75-e60dcc005d3c",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 TL, traditionelles Aroma für Bath Buns (optional)"
+            },
+            {
+              "key": "f5740023-edb5-5c92-a247-b04f748bcb56",
+              "ingredientName": "Rohrohrzucker",
+              "grams": 1.8,
+              "quantity": 1.8,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zerstoßener Perlzucker zum Bestreuen, ~40g"
+            },
+            {
+              "key": "2ac4258d-7624-504f-9b11-142a954c0cb1",
+              "ingredientName": "Milch",
+              "grams": 14.4,
+              "quantity": 14.4,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL für Eistreiche und Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vollmilch erwärmen, bis sie lauwarm ist. Hefe und eine Prise feinen Zucker einrühren und 5-10 Minuten schaumig werden lassen. In der Zwischenzeit 1 ganzes Ei und 1 Eigelb verquirlen; das übrige Eiweiß aufheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brotmehl, restlichen feinen Zucker und Salz in einer großen Schüssel verquirlen. Eine Mulde formen, Hefemilch und verquirltes Ei hineingießen und zu einem groben Teig vermengen. 8-10 Minuten kneten, bis er glatt und elastisch ist. Er bleibt weich und leicht klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiche Butter nach und nach einkneten. Jede Portion vollständig einarbeiten, bevor die nächste dazukommt. Noch etwa 5 Minuten kneten, bis der Teig glänzend und geschmeidig ist. Abdecken und an einem warmen Ort 1 to 1.5 Stunden gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig zusammendrücken und Korinthen, Zitronenschale und Kümmelsamen einkneten. In 10 Stücke von etwa 80g teilen und zu festen runden Brötchen formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit genügend Abstand auf mit Backpapier ausgelegte Bleche legen, locker abdecken und weitere 30-45 Minuten gehen lassen, bis sie aufgegangen sind und sich fast verdoppelt haben. Den Ofen auf 200C / 400F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das übrige Eiweiß mit 1 tbsp Milch verquirlen und auf die aufgegangenen Brötchen streichen. Großzügig mit zerdrückten Zuckerwürfeln bestreuen. 15-18 Minuten backen, bis sie kräftig goldbraun sind und beim Klopfen auf die Unterseite hohl klingen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Während die Brötchen backen, 2 tbsp feinen Zucker in 1 tbsp Milch auflösen und kurz erwärmen, um eine Glasur herzustellen. Die heißen Brötchen direkt nach dem Backen damit bestreichen, damit sie den traditionellen klebrigen Glanz erhalten. Auf einem Kuchengitter abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Culture..._a_bath_bun_and_a_pot_of_tea%2C_Bath%2C_United_Kingdom_%289605677635%29.jpg/1280px-Culture..._a_bath_bun_and_a_pot_of_tea%2C_Bath%2C_United_Kingdom_%289605677635%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Culture..._a_bath_bun_and_a_pot_of_tea,_Bath,_United_Kingdom_(9605677635).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Richard Allaway from France — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Bath Buns (süße Brötchen aus Bath)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

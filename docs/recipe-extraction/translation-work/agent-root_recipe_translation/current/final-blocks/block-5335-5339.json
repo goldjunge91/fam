@@ -1,0 +1,1138 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-drunken-noodles",
+      "slug": "gen-drunken-noodles",
+      "title": "Betrunkene Nudeln",
+      "instructions": "Thailändisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenhackfleisch ist günstiger als ganze Hähnchenbrust.",
+        "Kaufe frisches Basilikum auf dem Wochenmarkt oder ziehe es selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5335,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-drunken-noodles/",
+      "components": [
+        {
+          "key": "89a2350c-5421-59c0-92c8-427b10e8e853",
+          "name": "Zutaten",
+          "servingGrams": 148.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "32079bf2-a2e7-594e-857d-0bbe6ee3c4a3",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "862caec5-e9ab-54ef-9268-2247aabef798",
+              "ingredientName": "Hähnchenhackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "545f4185-3c74-58e8-94e6-24abeba87ea9",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a06dc34c-b19e-52b5-813c-d9add7df859a",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cea66576-6577-59a1-b4bc-1c9540ced6a4",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b76a864f-97b4-5ebc-b953-5fc1d0dafb7b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "5317d730-e908-5ffb-b618-0ba1ccc846aa",
+              "ingredientName": "Thailändische Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91d09771-6ce5-5ca5-ba25-9d91e63f166a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "69c658e1-634d-55bf-850e-9b5cddeee33f",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4efe9e61-b042-5cfb-947e-e6476b855310",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Reisnudeln nach Packungsanleitung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einem Wok oder einer großen Pfanne bei starker Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Knoblauch und die geschnittenen Chilischoten hinein und brate sie 30 Sekunden unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchenhackfleisch dazu und brate es unter Rühren etwa 5–6 Minuten gar. Zerteile es dabei in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gewürfelte Paprika dazu und gare sie weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle Sojasauce, Fischsauce und Limettensaft in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die gekochten Nudeln und die Sauce in den Wok und vermenge alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Wok vom Herd und hebe kurz vor dem Servieren die frischen Basilikumblätter unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2025/01/drunken-noodles-1-16-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2025/01/drunken-noodles-1-16-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-macaroni-and-cheese",
+      "slug": "gen-macaroni-and-cheese",
+      "title": "Makkaroni mit Käse",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Cheddar am Stück und reibe ihn selbst, das spart 30–40 %.",
+        "Bereite eine größere Menge zu und friere einzelne Portionen für schnelle Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5336,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-macaroni-and-cheese/",
+      "components": [
+        {
+          "key": "f859c090-bf6b-51a0-bc51-ed1a4035cb98",
+          "name": "Zutaten",
+          "servingGrams": 248.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "0066e263-6af1-50af-8ea6-98d78acb755b",
+              "ingredientName": "Hörnchennudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f9c4fd60-b3f0-5998-9f82-b1fa0eee2fc1",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "c73077ea-d433-58cd-9082-ff9d40931d8d",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "0cbffcbe-8761-50b4-b76c-0c6fa9ae47fe",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "05c43ad2-f3b0-55a9-9afa-60f347006cd0",
+              "ingredientName": "Geriebener Käse",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "b22a6fbc-346f-56e3-9dbb-1a8f85fc1d31",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "aa9796bb-ec0f-50e0-982a-f489e37dbeaf",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ec2f9db2-28f8-505d-964d-fca52b354c58",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Makkaroni in kochendem Salzwasser 2 Minuten kürzer als auf der Packung angegeben und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz die Butter in einem großen Topf bei mittlerer Hitze, rühre das Mehl ein und gare die Mehlschwitze 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Milch nach und nach ein und rühre ständig, bis die Sauce eindickt, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Topf vom Herd, rühre den geriebenen Cheddar ein, bis er geschmolzen und die Sauce glatt ist, und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die gekochten Makkaroni unter die Käsesauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Mischung in eine gefettete Auflaufform mit den Maßen 9 × 13 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermenge Panko-Paniermehl mit Parmesan, streue es darüber und backe den Auflauf 15–18 Minuten, bis er goldbraun ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HP8-i7Gqx39wGB1fANmIirH6_og=/6048x4032/filters:fill(auto,1)/baked-macaroni-and-cheese-183780212-5892ac5b3df78caebcfa3bc9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HP8-i7Gqx39wGB1fANmIirH6_og=/6048x4032/filters:fill(auto,1)/baked-macaroni-and-cheese-183780212-5892ac5b3df78caebcfa3bc9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sesame-noodles",
+      "slug": "gen-sesame-noodles",
+      "title": "Sesamnudeln",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sesampaste im Asialaden, dort ist sie oft 50 % günstiger als im Spezialitätengeschäft.",
+        "Ersetze Sesampaste bei Bedarf durch Erdnussbutter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5337,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sesame-noodles/",
+      "components": [
+        {
+          "key": "ab380496-ba23-52be-b868-b84aa7e887a3",
+          "name": "Zutaten",
+          "servingGrams": 303.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "5c875077-6645-5e51-80ce-6f25593adda1",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "84af1a20-0bc4-5227-b0a2-b00afc630e56",
+              "ingredientName": "Sesampaste",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "965e2d77-c20b-5dc6-b07b-bad264c05f02",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c32de6d0-c8db-518d-aed2-019d1a60ccab",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ea2ea791-22eb-50b4-b41a-638d554fa6bc",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6760a609-c9a0-56a9-8ca1-d0aa10b842d4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "86e1b0c1-8061-54ac-ae2f-f5b9bafa8626",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ed720cc-0452-54ef-8e8b-b13027dedfb6",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "38ce484e-cb61-5cde-a566-05d93bb92dcf",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln nach Packungsanleitung in kochendem Salzwasser, gieße sie ab und spüle sie mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sesampaste, Sojasauce, Reisessig, Sesamöl und gehackten Knoblauch in einer kleinen Schüssel zu einer glatten Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gekochten Nudeln in eine große Schüssel und vermenge sie gleichmäßig mit der Sesamsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Nudeln etwa 5 Minuten auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Nudeln auf Servierschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jede Portion mit geschnittenen Frühlingszwiebeln, in feine Streifen geschnittener Gurke und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Nudeln kalt oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Cold-Sesame-Noodles_10.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Cold-Sesame-Noodles_10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ahi-tuna-poke-bowl",
+      "slug": "gen-ahi-tuna-poke-bowl",
+      "title": "Ahi-Thunfisch-Poke-Bowl",
+      "instructions": "Hawaiianisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frage an der Fischtheke nach Sushi-Thunfischabschnitten; sie sind oft 20–30 % günstiger.",
+        "Kaufe Edamame tiefgekühlt, so ist sie das ganze Jahr über günstiger erhältlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "hawaiianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5338,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ahi-tuna-poke-bowl/",
+      "components": [
+        {
+          "key": "6bf0b27c-f8a6-543d-b91b-f33ab67be3b7",
+          "name": "Zutaten",
+          "servingGrams": 576.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d7d00c5-4934-5921-acd3-4811524ebf6e",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3adac962-7b6e-5dff-91b3-75431c26504b",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "13f3d6d9-8f88-5da2-b620-8cad97e76dd6",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "725a88a8-59c2-54b8-94a3-e7c67e38f13f",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6ecfcfe3-8941-5852-9814-41b120b3e68a",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e7229455-69c8-5c7d-85de-49307976f60a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4fcda694-652d-5560-9ba9-1a24c4d14b8a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "9b97db38-326e-5a4d-be5a-5708aa941643",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "864689dd-a123-5680-aa61-57126a4bf5fd",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ba9decc4-563f-5fd9-96ac-f0e9968006df",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "957a5ad4-ba39-50d6-85a8-ee0b73b41c48",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "867758a1-e4e8-5e87-9ce0-5fc7dfb482ca",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Sojasauce, Sesamöl, Reisessig, Sriracha, gehackten Ingwer und gehackten Knoblauch in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den gewürfelten Ahi-Thunfisch zur Marinade und wende ihn vorsichtig darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel ab und stelle sie zum Marinieren 15–20 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den gekochten Sushi-Reis auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den marinierten Ahi-Thunfisch auf den Reis und richte Edamame, Gurkenscheiben und Avocadoscheiben darum an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle die Bowls mit zusätzlicher Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere sie mit Sesam und Nori-Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2018/08/AHI-TUNA-POKE-BOWLS-5.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2018/08/AHI-TUNA-POKE-BOWLS-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-california-poke-bowl",
+      "slug": "gen-california-poke-bowl",
+      "title": "California-Poke-Bowl",
+      "instructions": "Hawaiianisch-japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Surimi ist deutlich günstiger als echtes Krebsfleisch und überall erhältlich.",
+        "Kaufe Lachs im Angebot und friere ihn für später sofort ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "hawaiianisch-japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5339,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-california-poke-bowl/",
+      "components": [
+        {
+          "key": "ccc2cf91-7f4c-5599-b755-5039fc7ecce2",
+          "name": "Zutaten",
+          "servingGrams": 475.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "021b88f3-a9da-5508-a97d-27d1f336d8df",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "a774ecc0-187d-5245-a580-6babd5bdddaa",
+              "ingredientName": "Surimi",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "5f95b117-7202-5f6e-8b4e-c18c898a999f",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fedcfa1c-1d69-58ae-8517-74f97bba09e6",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a373215a-352d-55f1-b43d-a449013fdc62",
+              "ingredientName": "Sesamöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "c2e428c5-cba4-593b-a256-b21243afcf8f",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f48a53fe-8763-597f-bd0a-bfa67d312dd4",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6297041-3ff2-5856-a951-9869355c8102",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c34f835-fe05-5b0b-bb1c-c995f1531dba",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b2a32f5a-395f-5632-88c1-8ccb4e10b0a6",
+              "ingredientName": "Seetangsalat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "3fbf41e4-ba03-55f7-9cf0-e904deb0caeb",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Mirin und Sesamöl in einer Schüssel zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den gewürfelten Lachs dazu, wende ihn vorsichtig in der Marinade und stelle ihn 10–15 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den gekochten Sushi-Reis auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte den marinierten Lachs und das gehackte Surimi auf dem Reis an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Avocadoscheiben, Gurkenscheiben und Seetangsalat rundherum dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle die Bowls mit Mayonnaise und zusätzlicher Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere großzügig mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/01/05/multimedia/ND-Poke-bowl-bfwm/ND-Poke-bowl-bfwm-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/01/05/multimedia/ND-Poke-bowl-bfwm/ND-Poke-bowl-bfwm-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

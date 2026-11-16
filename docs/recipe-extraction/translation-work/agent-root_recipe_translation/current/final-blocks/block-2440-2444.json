@@ -1,0 +1,1190 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-boat-noodles",
+      "slug": "gen-boat-noodles",
+      "title": "Boat Noodles",
+      "instructions": "Thailändisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hühnerbrühe statt Schweinebrühe verwenden und 1.50 $ pro Portion sparen",
+        "Fertige Brühe kaufen und die Zubereitung von Grund auf überspringen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2440,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boat-noodles/",
+      "components": [
+        {
+          "key": "d9554bff-1085-540d-aa00-65e01e05cc3e",
+          "name": "Zutaten",
+          "servingGrams": 226.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "51985774-8bb8-51a0-8ea7-bd16986565d2",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "071c2f4b-c9d0-510c-88ad-d1b709ab85c4",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "ed49bf4e-4b93-5b2a-aa21-e27587b0a65a",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "fdcd4e0b-2012-50f0-88ad-23d61714e90b",
+              "ingredientName": "Schweinswurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ec831e40-563a-56d0-88ae-1907e8a2f9d5",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3b23cef0-cb21-5595-b362-8b176130af57",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "63df97b4-fb64-5074-8b2d-134d8c260899",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "962a03d8-1026-5efd-a744-8487a40c324f",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb6aeae7-e167-52a9-aa24-b17a324db85d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "d548c617-31ea-5fd9-b7c2-6f973fc6f0a2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "969814b3-1647-5ce5-af5d-ab69dcc531b8",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinefleisch und Hähnchen in dünne mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Topf bei mittlerer Hitze erhitzen und gehackten Knoblauch sowie ganze getrocknete Chilis 2 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweine- und Hähnchenstücke dazugeben und 5 Minuten braten, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schweinebrühe angießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Fischsauce und dunkler Sojasauce würzen, dann Hitze reduzieren und 8 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reisnudeln separat nach Packungsanleitung kochen und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gekochte Nudeln in Schalen geben und heiße Brühe mit Fleisch darüber schöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Koriander und einem Spritzer Limette garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/gXakH5v4aQL73inRUy27o6Zh87g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-GuaydtiaaoReuuaNeuuaDtoon-AmandaSuarez-hero-2911da0056e04925adf0899435840a29.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/gXakH5v4aQL73inRUy27o6Zh87g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-GuaydtiaaoReuuaNeuuaDtoon-AmandaSuarez-hero-2911da0056e04925adf0899435840a29.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-lad-na",
+      "slug": "gen-pad-lad-na",
+      "title": "Pad Lad Na",
+      "instructions": "Thailändisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vorgeschnittenen tiefgekühlten statt frischen Brokkoli kaufen und 40% sparen",
+        "Hähnchenoberkeulen statt Brust verwenden; sie sind günstiger und bleiben saftiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2441,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-lad-na/",
+      "components": [
+        {
+          "key": "1d1e1b43-cfa2-5912-a36f-b9909d131c83",
+          "name": "Zutaten",
+          "servingGrams": 471,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a8f1de0-16d6-5435-b81c-cf0ccddb5a21",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "9b6caccf-96f5-55f3-9904-baaa74c16748",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "369544a3-40c9-5bb4-a14c-a21e557f85a3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "1ed37fa8-480d-5899-b715-c9d5d55d3cf1",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1c0ba291-8f57-53a7-9f1f-11cbbbce5020",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b8794948-a625-56d8-a051-345d6b64dba3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fad03e00-f446-591f-b84f-57a47cef9b16",
+              "ingredientName": "Brokkoli",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "dabe9d48-be22-549b-871e-46d1029d0d43",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c03e2d5f-729b-5d39-97c9-1a7e4fdc77b8",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "ac90f54a-9cdb-59ef-9932-c8e47ec21cb0",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reisnudeln nach Packungsanleitung kochen, abgießen und auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenbrust in dünne Scheiben schneiden und Knoblauch hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 EL Öl in einem Wok bei starker Hitze erhitzen und Hähnchen 5 Minuten pfannenrühren, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übriges Öl in den Wok geben und Knoblauch 30 Sekunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brokkoli dazugeben und 3 Minuten pfannenrühren, bis er leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hähnchen zurück in den Wok geben und Hühnerbrühe sowie Sojasauce angießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Maisstärke mit 2 EL Wasser verrühren und unter die Sauce rühren, bis sie eindickt, etwa 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Eingedickte Sauce über die Nudeln gießen, mit Sesamöl beträufeln und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://importfood.com/images/recipe/thai_style_wide_noodles_in_thick_sauce_kuaytiao_lad_na/13Pour_over_the_face_lad_na.jpg",
+          "sourcePageUrl": "https://importfood.com/images/recipe/thai_style_wide_noodles_in_thick_sauce_kuaytiao_lad_na/13Pour_over_the_face_lad_na.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-isaan-sausage",
+      "slug": "gen-isaan-sausage",
+      "title": "Isaan-Wurst",
+      "instructions": "Thailändischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinedärme an der Fleischtheke kaufen; oft sind sie kostenlos oder sehr günstig",
+        "Schweinehack auf asiatischen Märkten kaufen, dort kostet es 30% weniger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2442,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-isaan-sausage/",
+      "components": [
+        {
+          "key": "4c70104c-ecb4-5cc6-bee5-b1f912641100",
+          "name": "Zutaten",
+          "servingGrams": 169.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "42a1d239-0445-5121-a18e-0f55202415ed",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d8ec53fe-f661-5527-994f-8ee81f6a6b9b",
+              "ingredientName": "Fischsauce",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Esslöffel"
+            },
+            {
+              "key": "61f5f209-1f0b-50b0-86b3-f1c8df6fd463",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "03fde3b0-9a59-537a-b1ee-66db75aa365b",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3b3b397-27da-5161-9c97-d193e30daefd",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse gekocht"
+            },
+            {
+              "key": "5a58456a-10df-5b0c-9e38-838061941ea0",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88c9b6f2-0ac7-523e-b27d-406a80e6020c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "539d800c-de9c-5fe2-969e-037a32319ca0",
+              "ingredientName": "Schweinedärme",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Fuß"
+            },
+            {
+              "key": "bcd3f479-4776-5e46-86cd-2b7dccb4cf97",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinedärme 30 Minuten in warmem Wasser einweichen, damit sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und getrocknete Chilis fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinehackfleisch, Fischsauce, gehackten Knoblauch, Chilis, weißen Pfeffer, gekochten Klebreis und Salz in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit den Händen gründlich mischen, bis die Masse klebrig ist und zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mischung mit einem Wurstfüller oder Spritzbeutel in die vorbereiteten Därme füllen und an den Enden jeweils 0.5 inch frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Därme mit Küchengarn zu Würsten von 3 inch Länge abbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "24 Stunden im Kühlschrank aufbewahren, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Über Holzkohle grillen oder in Öl 8–10 Minuten braten, dabei häufig wenden, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit Klebreis, rohem Gemüse und scharfer Dip-Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Thai-Sai-Krok-Isaan-Isaan-Sausage.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Thai-Sai-Krok-Isaan-Isaan-Sausage.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-tikka-masala",
+      "slug": "gen-chicken-tikka-masala",
+      "title": "Chicken Tikka Masala",
+      "instructions": "Nordindisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischen Joghurt aus dem Ein-Dollar-Laden statt teurer Marken verwenden",
+        "Knoblauch- und Ingwerpaste in größeren Mengen auf asiatischen Märkten kaufen und 60% sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "nordindisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2443,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-tikka-masala/",
+      "components": [
+        {
+          "key": "4ddbb47f-bf20-5368-8b33-92acaf47c607",
+          "name": "Zutaten",
+          "servingGrams": 233.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd4de9a7-92eb-5b01-a402-005b46eb710f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "a144f346-6d3c-5730-881d-811df45c5d17",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "9f422f84-bd21-5123-921f-a72a769313de",
+              "ingredientName": "Garam Masala",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "570499d5-b6ec-5d86-87f1-f2d9c1c8014c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "24a9b843-2e68-5173-819d-93a14606c395",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9fa7c908-3958-5226-afb2-6bbc99f173f6",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Dose mit 8 Unzen"
+            },
+            {
+              "key": "681c725d-08c4-5494-8971-334a6d85961f",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d32aae52-31ac-5d83-9358-999528426252",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "3650fd73-6c41-5885-aae7-1192d50d2028",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fada9288-5050-5ad7-848e-3d14c7c12aa3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f6e92767-8def-5be4-9187-05cb06b513a1",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c7ff8f45-e0a9-5a3a-af75-a6c53886a6e8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in 1.5-inch-Würfel schneiden und in Joghurt, 0.5 EL Garam Masala, der Hälfte der Knoblauchpaste, Salz und rotem Chilipulver 30 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel würfeln und 2 EL Öl in einer großen Pfanne bei starker Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenwürfel portionsweise etwa 6 Minuten insgesamt braten, bis sie gebräunt und gar sind. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übriges Öl in derselben Pfanne erhitzen und gewürfelte Zwiebel etwa 3 Minuten weich garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Übrige Knoblauchpaste und Ingwerpaste dazugeben und 1 Minute braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tomatensauce und übriges Garam Masala einrühren und 8 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hähnchen zurück in die Pfanne geben und Sahne einrühren. Weitere 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Koriander garnieren und mit Basmatireis oder Naan servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5b69f163d3d14670539a2174/1:1/w_2560%2Cc_limit/ba-tikka-masala-2.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5b69f163d3d14670539a2174/1:1/w_2560%2Cc_limit/ba-tikka-masala-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-butter-chicken",
+      "slug": "gen-butter-chicken",
+      "title": "Butter Chicken",
+      "instructions": "Nordindisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen aus Großpackungen bei Costco oder auf Märkten kaufen; sie sind 40% günstiger",
+        "Tomatenpüree aus Tomatenmark und Wasser herstellen und 1 $ pro Dose sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "nordindisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2444,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-butter-chicken/",
+      "components": [
+        {
+          "key": "36d3e327-cb87-5370-81d2-a33e8048be9f",
+          "name": "Zutaten",
+          "servingGrams": 209.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "910e29e2-b6ee-50ef-bfc4-b9b1dfa649d3",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "7cf4aeba-0473-5afb-bf5f-c31f8072976a",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1253cea5-2ed1-5f73-a7b2-b0091a1708f9",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4a6c78d3-6cb2-53e7-9859-6c9d183522e3",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7758548a-cd7a-5ad0-a83c-4c332d5d9416",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "f42e3396-59e9-5be6-a9ef-2f4d25dd613a",
+              "ingredientName": "Tomate",
+              "grams": 64.29,
+              "quantity": 0.54,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Dose mit 15 Unzen"
+            },
+            {
+              "key": "da2edf32-4f3d-59db-ba96-6172172bc990",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "fea1d7aa-6de3-517c-9d61-db69e4981709",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1b244592-45bd-5e87-92f7-655c9b305b81",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "138d0baf-06b2-5065-873b-e949d86c77c7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "218de1bb-a900-592f-b690-d10fb45bb8ec",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c6be83d2-57e3-523a-9642-323f06d45734",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenoberkeulen würfeln und in Joghurt, 1 TL Chilipulver, gehacktem Knoblauch, 0.5 EL Ingwer und Salz 20 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei starker Hitze erhitzen und mariniertes Hähnchen etwa 6 Minuten bräunen. Herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel würfeln und in derselben Pfanne mit übriger Butter und Knoblauch weich garen, etwa 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übrigen Ingwer dazugeben und 30 Sekunden braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garam Masala und übriges Chilipulver einrühren und 30 Sekunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tomatenpüree dazugeben und 8 Minuten köcheln lassen, dabei Stückchen zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hähnchen zurück in die Pfanne geben und Sahne einrühren. 8 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und nachwürzen, dann mit Basmatireis oder Naan servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/1SXZ_F1GC6ww_ppWnrdbKgHi9fQ=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__01__Butter-Chicken-LEAD-2-6ca76f24bbe74114a09958073cb9c76f.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/1SXZ_F1GC6ww_ppWnrdbKgHi9fQ=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__01__Butter-Chicken-LEAD-2-6ca76f24bbe74114a09958073cb9c76f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

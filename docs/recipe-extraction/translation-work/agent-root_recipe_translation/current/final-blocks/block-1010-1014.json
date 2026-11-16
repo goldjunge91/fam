@@ -1,0 +1,1041 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-korean-galbi-beef-bowl",
+      "slug": "mfr-korean-galbi-beef-bowl",
+      "title": "Koreanische Galbi-Rindfleisch-Schüssel",
+      "instructions": "Rinderhack nach Galbi-Art mit Sojasauce, Sesam, Birnensaft und Knoblauch marinieren. Eine preiswerte Variante des unverwechselbaren Geschmacks koreanischer Rippchen, auf gedämpftem Reis serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Apfelsaft imitiert den Birnensaft in traditionellem Galbi und kostet nur einen Bruchteil.",
+        "Rinderhack bringt den Galbi-Geschmack für $4 statt $20+ für echte Rippchen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Puten- oder Schweinehack verwenden."
+        },
+        {
+          "forIngredientId": "apple-juice",
+          "swap": "1 EL braunen Zucker und 1 EL Reisessig verrühren."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-korean-galbi-beef-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "Rindfleisch",
+        "schnell",
+        "Schüsselgericht",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1010,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-korean-galbi-beef-bowl/",
+      "components": [
+        {
+          "key": "e95f2875-c80e-5da6-844c-e43a30791479",
+          "name": "Zutaten",
+          "servingGrams": 675,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f668922-6441-5d56-b0e2-a1c22d1aaf04",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7175b84-6b98-56c3-b17b-133bcebf6b8f",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffd3129e-476e-506d-94cb-33fe5149ab1a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b9a3fcc-f08e-501f-bb5a-465436c5671a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29345dc1-33b2-57b0-8274-ffa24bfeafcb",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03620960-7e8c-5d44-98ff-99bc947b24b5",
+              "ingredientName": "Apfelsaft",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87610929-5b82-561f-b81e-b03aba5938a5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e74c197-05de-53b0-bb22-d38d82b281c7",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a84a5d21-7743-5383-ae36-7bddca8aff75",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f6db425-f3d0-5948-bd55-3f25b8aa661b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dff014a-1f5d-5cb0-b989-a7e4b9ab3e29",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Sesamöl, Knoblauch, braunen Zucker, Apfelsaft und Ingwer zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rinderhack und Marinade in eine Pfanne. Gare alles bei mittlerer bis hoher Hitze 8 Minuten und zerteile das Fleisch dabei, bis es karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Karotte dazu und brate alles weitere 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Gericht auf Reis und garniere es mit Sesamsamen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1696616231/k/Photo/Recipes/2023-10-galbi/galbi-216_1.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1696616231/k/Photo/Recipes/2023-10-galbi/galbi-216_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vietnamese-lemongrass-chicken",
+      "slug": "mfr-vietnamese-lemongrass-chicken",
+      "title": "Vietnamesisches Hähnchen mit Zitronengras",
+      "instructions": "Hähnchenschenkel mit Zitronengras, Fischsauce, Knoblauch und Kurkuma marinieren und in der Pfanne goldbraun anbraten. Mit Jasminreis und eingelegtem Rettich servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zitronengrasstängel sind günstig und lassen sich gut einfrieren. Kaufe einen Bund und friere die übrigen Stängel ein.",
+        "Fischsauce ist die Grundlage der vietnamesischen Küche. Eine Flasche hält monatelang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemongrass",
+          "swap": "Pro Zitronengrasstängel 1 TL Zitronenschale und 1 TL Zitronensaft verwenden."
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce verwenden. Der Geschmack ist nicht identisch, funktioniert aber."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vietnamese-lemongrass-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Hähnchen",
+        "Zitronengras",
+        "aromatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1011,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vietnamese-lemongrass-chicken/",
+      "components": [
+        {
+          "key": "6aa12c12-85ff-5e06-b47a-ca5345ec13e3",
+          "name": "Zutaten",
+          "servingGrams": 562.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c4db35b1-44d1-5bf1-b5f0-310e1b40c44c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26c3750f-7e12-586f-816a-79ad0aafa8dc",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "623f8321-b2df-5f14-9800-2eb801afb015",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3257bfee-50c1-52c7-9aa3-1e7b7d3bd87d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ac08697-bad6-5670-bab4-085b0d3f8884",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cf899d5-8da6-5961-ab62-a13ab79e98d0",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3961bc24-b6b3-5397-940e-a6538cdf1351",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb427cbc-edf1-567d-86e8-5fbf960db103",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a025d9ed-b469-5c5a-87f4-ad9f33dd5b4f",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a84b8e83-48fb-5507-8888-a68d56c97cf1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Zitronengras an, damit es aufbricht. Vermische es mit Fischsauce, Knoblauch, Kurkuma und Zucker zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere das Hähnchen mindestens 5 Minuten. Brate es pro Seite 6 Minuten in der Pfanne goldbraun und vollständig gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite schnell eingelegte Karotte zu: Vermische sie mit Reisessig und einer Prise Salz und lass sie 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Hähnchen auf Reis mit eingelegter Karotte und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/CKMxiWmyx5PKthj2vchbN3j0UPw=/2250x1500/filters:fill(auto,1)/lemongrass-chicken-57bb84615f9b58cdfd68d821.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/CKMxiWmyx5PKthj2vchbN3j0UPw=/2250x1500/filters:fill(auto,1)/lemongrass-chicken-57bb84615f9b58cdfd68d821.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vietnamese-caramelized-shrimp",
+      "slug": "mfr-vietnamese-caramelized-shrimp",
+      "title": "Vietnamesische karamellisierte Garnelen (Tôm Kho)",
+      "instructions": "Garnelen in einer klebrigen Karamell-Fischsaucenglasur mit Chili und Knoblauch köcheln lassen. Ein vietnamesisches Wohlfühlgericht in 15 Minuten, auf gedämpftem Reis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen tauen in 10 Minuten auf und eignen sich perfekt fürs Abendessen unter der Woche.",
+        "Für dieses Gericht brauchst du nur wenige Vorratszutaten, es schmeckt aber wie im vietnamesischen Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Traditionell Würfel von Schweinebauch oder Tofu verwenden."
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce mit ein paar Tropfen Worcestershiresauce verrühren."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vietnamese-caramelized-shrimp",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Garnelen",
+        "karamellisiert",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1012,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vietnamese-caramelized-shrimp/",
+      "components": [
+        {
+          "key": "c238aae6-4902-5adf-b422-d27460524392",
+          "name": "Zutaten",
+          "servingGrams": 442,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b80c2f1-60bb-5276-b2c1-373a21bf0389",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5808956-9d7c-5172-ad57-8a6e453b7b99",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1958b8e9-8d66-5bba-a859-aa9cffe08a83",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7600e486-ec37-59c4-9a45-0d750615fd19",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94030cb9-589b-50ef-9a45-e0909fca1d4b",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8694472-efd0-5c84-b680-38a22f81b299",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9741f839-cc53-572c-9577-f261bbf48e94",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab03e779-4a77-5e78-99f3-7664dd629611",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere Zucker 2 Minuten in einer Pfanne, bis er bernsteinfarben ist. Gib Knoblauch und Chili dazu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge Garnelen, Fischsauce und 2 EL Wasser hinzu. Wende alles, bis die Garnelen bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Garnelen 5–6 Minuten köcheln, bis sie gar und die Sauce klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und schwarzem Pfeffer. Serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/52d3fafee4b03c7eaedee15f/1588396073828-UZSU6CBW1RGPDH4PM2E8/shrimp2-wm.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/52d3fafee4b03c7eaedee15f/1588396073828-UZSU6CBW1RGPDH4PM2E8/shrimp2-wm.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vietnamese-chicken-congee",
+      "slug": "mfr-vietnamese-chicken-congee",
+      "title": "Vietnamesischer Hähnchen-Congee",
+      "instructions": "Seidiger Reisbrei mit Hähnchen, Ingwer und Fischsauce. Mit knusprigen Schalotten und frischen Kräutern garnieren. Wärmend, günstig und in 30 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Congee streckt eine Hähnchenbrust auf zwei sättigende Portionen.",
+        "Durch langes Köcheln konzentriert sich der Geschmack. Teure Brühe brauchst du nicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce verwenden."
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen mit Knochen für mehr Geschmack verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vietnamese-chicken-congee",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Congee",
+        "Reisbrei",
+        "Wohlfühlessen",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1013,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vietnamese-chicken-congee/",
+      "components": [
+        {
+          "key": "6992f01c-69b0-574d-a91b-6b8f5c1caca5",
+          "name": "Zutaten",
+          "servingGrams": 705.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "116b2656-e45b-5289-8bf3-98355331e5c8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3837960d-5732-55bf-b338-78df70916cba",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ee18448-9ea7-568d-bfaa-fce834745dc6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7ae8fe6-e38f-506c-a069-2c7f11ed10ce",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "085d0f83-46fa-54d0-9a9b-cc0e6aac5eeb",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "459ab0d1-a526-5305-b8d0-29ace8f47d9e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85bf44ec-8a69-51cd-828e-9b85f2c71e5b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f944d853-befa-518b-a3d7-48b4f493b516",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3c15dd3-11a9-507d-88d5-9100216510ea",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc948168-0e73-5b09-a911-c3cd7028dbf0",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Reis, eine ganze Hähnchenbrust, Ingwer und Knoblauch 25 Minuten in Brühe köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen heraus und zerpflücke es. Gib es zurück in den Topf und würze mit Fischsauce und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Serviere den Brei mit Frühlingszwiebeln, Koriander und etwas Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/laghAGFdyYFyrXRBGalryXZbodo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/instant-pot-chicken-congee-2000-85624798ebe34149bb504e3ef67149c6.jpeg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/laghAGFdyYFyrXRBGalryXZbodo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/instant-pot-chicken-congee-2000-85624798ebe34149bb504e3ef67149c6.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-filipino-chicken-adobo",
+      "slug": "mfr-filipino-chicken-adobo",
+      "title": "Filipinisches Hähnchen-Adobo",
+      "instructions": "Das bekannteste Gericht der Philippinen: Hähnchen in Sojasauce, Essig, Knoblauch und Lorbeer schmoren, bis es besonders herzhaft und zart ist. Eignet sich hervorragend zur Essensvorbereitung.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen-Adobo schmeckt am nächsten Tag sogar besser. Bereite gleich mehr zu.",
+        "Die Sauce aus 4 Zutaten ist eine der günstigsten Arten, Hähnchen kräftig zu würzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-vinegar",
+          "swap": "Apfelessig oder Reisessig verwenden."
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Schweineschulter oder Tofu verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-filipino-chicken-adobo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "philippinisch",
+        "geschmort",
+        "aus-einem-Topf",
+        "Essensvorbereitung",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1014,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-filipino-chicken-adobo/",
+      "components": [
+        {
+          "key": "ab93c523-85a8-5895-b77c-155db065ad57",
+          "name": "Zutaten",
+          "servingGrams": 476,
+          "position": 0,
+          "items": [
+            {
+              "key": "33e5631e-2b55-5bd0-ae64-8416eb0656fd",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b267ef8a-9b21-52ba-ae36-cfdb152e848e",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1738f556-5b5d-523f-8c8b-b94a46312f04",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4c0a7d7-cb99-58c4-ae46-535e79418e91",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1a12d75-02ab-5dc9-9b35-02f906449ac3",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1efc39e3-b64d-5343-babb-9a9c052c8343",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "381e0cf6-2722-595c-a29c-f63d7829d974",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "974dc9c1-1b06-52fe-aa80-740c41277818",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cc9d8a8-cfc1-5a2d-bd89-0a9682a11658",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Sojasauce, Essig, Knoblauch, Lorbeerblätter, Zucker und Pfeffer in einem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Hähnchen dazu. Bringe die Flüssigkeit zum Kochen und lass das Fleisch dann zugedeckt 25 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Deckel ab, erhöhe die Hitze und lass die Sauce etwa 10 Minuten einkochen, bis sie glänzt. Wende das Hähnchen, damit es rundum mit Sauce bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Hähnchen auf Reis mit der Sauce aus der Pfanne. Garniere es mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1712007073/k/Photo/Recipes/2024-04-filipino-adobo/filipino-adobo-426.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1712007073/k/Photo/Recipes/2024-04-filipino-adobo/filipino-adobo-426.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

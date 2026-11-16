@@ -1,0 +1,1099 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-breakfast-banana-bread-protein",
+      "slug": "mfr-breakfast-banana-bread-protein",
+      "title": "Eiweißreiches Bananenbrot",
+      "instructions": "Saftiges, lockeres Bananenbrot mit griechischem Joghurt und Proteinpulver. Lässt sich in Scheiben schneiden und einfrieren und liefert 18 g Eiweiß pro Scheibe, ohne beim Geschmack Abstriche zu machen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einzelne Scheiben in Frischhaltefolie wickeln und einfrieren. 30 Sekunden in der Mikrowelle ergeben eine perfekte Scheibe.",
+        "Überreife braune Bananen sind süßer und eignen sich besser für Bananenbrot. Kaufe reduzierte Bananen.",
+        "Dieses Rezept kommt ohne Weißmehl und weißen Zucker aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-flour",
+          "swap": "Weizenmehl als günstigere Alternative"
+        },
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Zusätzliches Mandelmehl (weniger Eiweiß, aber trotzdem gut)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-breakfast-banana-bread-protein",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Bananenbrot",
+        "Snack",
+        "Backen",
+        "Eiweiß",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 1190,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-breakfast-banana-bread-protein/",
+      "components": [
+        {
+          "key": "23c4c509-64d4-5e0b-91f1-070bc7684f7a",
+          "name": "Zutaten",
+          "servingGrams": 179.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9d02eb7-2ca8-5023-a35b-98a431b86cd7",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50e821c6-9b57-5513-b8e0-e9d73d0797d9",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1c45b6e-83d9-5c21-a729-69a4cf8e0325",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f7eccbe-4ee0-5510-84f5-c09f97453757",
+              "ingredientName": "Proteinpulver",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "973902a5-7092-5235-8de0-4ba5caa118a6",
+              "ingredientName": "Mandelmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23476553-57c8-51ae-9560-206eb670e1ee",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8a347c3-c21f-5fa9-90ec-b3416d9543d7",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b02dc0e4-5f99-55c2-8668-fa686bf0fc2b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3800d5af-eda6-5d5f-8983-bd1e7e3b4e2f",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "558cd433-055a-56c7-8dae-d9e8c2573db6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68676347-b363-5059-85c6-7a4c6b44d6a9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sehr reife Bananen zerdrücken. Eier, griechischen Joghurt, Honig und Vanille unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Proteinpulver, Mandelmehl, Haferflocken, Natron, Zimt und Salz einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In eine gefettete Kastenform gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei 350°F 50-55 Minuten backen. Vor dem Anschneiden vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cheffrecipes.com/wp-content/uploads/2025/02/High-Protein-Chocolate-Banana-Bread-Recipe.jpg",
+          "sourcePageUrl": "https://cheffrecipes.com/wp-content/uploads/2025/02/High-Protein-Chocolate-Banana-Bread-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-breakfast-blueberry-muffins",
+      "slug": "mfr-breakfast-blueberry-muffins",
+      "title": "Protein-Blaubeermuffins",
+      "instructions": "Lockere Blaubeermuffins mit griechischem Joghurt, Hafermehl und Proteinpulver. Jeder Muffin enthält 16 g Eiweiß, in 30 Minuten fertig und wirklich saftig, ohne den trockenen Geschmack eines Proteinriegels.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normale Haferflocken zu Mehl mahlen und so $3 im Vergleich zu gekauftem Hafermehl sparen.",
+        "Tiefgekühlte Blaubeeren eignen sich hervorragend. Wende sie in etwas Mehl, damit sie nicht absinken.",
+        "Die Muffins lassen sich gut einfrieren. In der Mikrowelle 45 Sekunden auftauen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Schokostückchen oder Himbeeren"
+        },
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Zusätzliches 1/4 Tasse Hafermehl (enthält weniger Eiweiß)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-breakfast-blueberry-muffins",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Muffin",
+        "Blaubeere",
+        "Eiweiß",
+        "Snack",
+        "Backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 1191,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-breakfast-blueberry-muffins/",
+      "components": [
+        {
+          "key": "22f51d04-c464-5893-bbc2-6a60cf30cd3b",
+          "name": "Zutaten",
+          "servingGrams": 160.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "95c40ae7-ffa1-570d-8946-bd344c71d30d",
+              "ingredientName": "Blaubeeren",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5aa6bbb-261c-5f5a-bf73-345f875bfeec",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "795d527d-7c4d-5df8-bcb4-bd415720801b",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe8f38b2-e9fa-5b85-987f-5f116903856e",
+              "ingredientName": "Proteinpulver",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "093bcd26-8a68-54c0-9730-84b7fbee41d3",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "312e0f10-d3f9-55df-9787-928faf1b191a",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5107f5ad-1453-510e-bf64-5ea1c18ddf63",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd12cfc0-004e-5ce2-8762-40597f753309",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45dee57a-71a2-5edf-bcd4-bc06a5891df5",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "957ea1b6-36d1-520a-a469-7dcaf53989e9",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ac130ff-3df0-5fd3-add1-2381abe1ce22",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haferflocken zu Mehl mahlen oder Hafermehl verwenden. Feuchte Zutaten vermengen: Eier, griechischer Joghurt, Honig und Vanille.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Trockene Zutaten vermengen: Hafermehl, Proteinpulver, Backpulver, Natron, Zimt und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Feuchte und trockene Zutaten nur kurz verrühren. Blaubeeren vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Muffinförmchen zu 3/4 füllen. Bei 375°F 20-22 Minuten backen, bis an einem hineingesteckten Zahnstocher kein Teig mehr haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/mzvzdLXCmi3IvCu4vLAen_8sEFw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/banana-blueberry-protein-muffins-beauty-8078346-4000x4000-552f2cec0d0041bab74ae5ce7a012bc1.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/mzvzdLXCmi3IvCu4vLAen_8sEFw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/banana-blueberry-protein-muffins-beauty-8078346-4000x4000-552f2cec0d0041bab74ae5ce7a012bc1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-breakfast-egg-cups",
+      "slug": "mfr-breakfast-egg-cups",
+      "title": "Gebackene Eier-Käse-Muffinförmchen",
+      "instructions": "Einzelne Eier, mit Pute, Spinat und Käse in Muffinförmchen gebacken. 12 eiweißreiche Förmchen zum Mitnehmen für die ganze Woche. Zwei Förmchen enthalten 22 g Eiweiß.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "12 Förmchen ergeben 6 Frühstücke für 1 Person und kosten etwa $0.60 pro Förmchen.",
+        "Im Kühlschrank 5 Tage aufbewahren und zum Aufwärmen 30 Sekunden in die Mikrowelle stellen.",
+        "Verwende beliebige Eiweißquellen und Gemüse, die du gerade da hast. Die Grundformel: Ei + Eiweißquelle + Gemüse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-breast-deli",
+          "swap": "Schinkenscheiben oder für eine vegetarische Variante weglassen"
+        },
+        {
+          "forIngredientId": "cheddar",
+          "swap": "Beliebiger geriebener Käse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-breakfast-egg-cups",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück",
+        "Ei",
+        "Muffinförmchen",
+        "zum Mitnehmen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1192,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-breakfast-egg-cups/",
+      "components": [
+        {
+          "key": "a5fd0b2e-11e5-50ca-bcd5-2e0d8b2eeb82",
+          "name": "Zutaten",
+          "servingGrams": 208.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "078ebc96-e278-57b2-ae94-d14e1aa3e172",
+              "ingredientName": "Eier",
+              "grams": 600,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee9b0756-5e39-5447-a893-af81c12dcc09",
+              "ingredientName": "Putenaufschnitt",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a60c32c9-fd63-5546-888e-3b21f0236ad5",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d04af8f5-d8d0-55ef-a9d1-2755a749a316",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c81d3933-f98c-581e-84ca-449984e8be50",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b277129-a136-54c4-b5e2-928adf18660d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5da052e4-bb75-5c15-acee-0e0718a3e9dd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c038b12-ff8b-5c76-a156-34ba100a3fab",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca36c300-18cb-54e3-b6e6-b88b8783b295",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eine Muffinform mit 12 Mulden einfetten. Jede Mulde mit einer Scheibe Putenaufschnitt auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jede Mulde mit Spinat und gewürfelter Paprika füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In jede Mulde ein Ei schlagen und mit Knoblauchpulver, Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei 375°F 15-18 Minuten backen, bis das Eiweiß gestockt und das Eigelb noch weich ist. In den letzten 2 Minuten mit Käse belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.lowcarbnomad.com/wp-content/uploads/2022/09/Ham-and-Cheese-Egg-Muffin-23.jpg",
+          "sourcePageUrl": "https://www.lowcarbnomad.com/wp-content/uploads/2022/09/Ham-and-Cheese-Egg-Muffin-23.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-breakfast-sheet-pan-pancakes",
+      "slug": "mfr-breakfast-sheet-pan-pancakes",
+      "title": "Protein-Pfannkuchen vom Blech",
+      "instructions": "Der Teig für Protein-Pfannkuchen wird auf einmal auf einem Blech gebacken. Kein Warten am Herd, kein Wenden: Einfach in Quadrate schneiden und stapeln. Eine Wochenration Pfannkuchen in 20 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pfannkuchen vom Blech sind der größte zeitsparende Frühstückstrick. Ein Backgang versorgt dich die ganze Woche.",
+        "In Quadrate schneiden, mit Backpapier dazwischen stapeln und einfrieren. 60 Sekunden in der Mikrowelle erwärmen.",
+        "Das ist die geniale faulenzertaugliche Version von Meal-Prep-Pfannkuchen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "banana",
+          "swap": "Apfelmus für weniger Süße"
+        },
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Schokostückchen oder gewürfelte Erdbeeren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-breakfast-sheet-pan-pancakes",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "amerikanisch",
+        "Pfannkuchen",
+        "Frühstück",
+        "Backen",
+        "Backblech"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 1193,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-breakfast-sheet-pan-pancakes/",
+      "components": [
+        {
+          "key": "e5ed637a-33d4-5b6a-b814-6ee7eb202f25",
+          "name": "Zutaten",
+          "servingGrams": 245.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "26a3e89c-aaea-5a75-8f75-044e303b744c",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e63938ad-47a5-554d-a5e2-abfb65aecf3b",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6d9bf25-c4b9-52e6-bdb5-d83bbd395123",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ddc9e8c-e72d-5e1c-9abc-a8b24d403bf5",
+              "ingredientName": "Proteinpulver",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "125e5b90-766c-5ea2-aa96-35be95ff68f4",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b4bde81-6a4f-51e0-8b15-b447f931ce4d",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "956d04c4-4e06-540f-9649-df51f6e50ecf",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "876be6e2-6171-5403-b1c2-c8ff63955b00",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f46dff6-aa8c-5f25-9651-7d478c90d825",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6bfb8fc-49c6-5720-8fff-b4f724d3e28b",
+              "ingredientName": "Blaubeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "145df7cd-689d-5744-8eea-95d74049bca5",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haferflocken, Eier, griechischen Joghurt, Proteinpulver, Banane, Mandelmilch, Backpulver, Vanille und Zimt glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf ein gefettetes, mit Backpapier ausgelegtes Backblech (18x13) gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blaubeeren darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei 375°F 15-18 Minuten backen, bis die Masse gestockt ist und sich der Rand löst. In 8 Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://joytothefood.com/wp-content/uploads/2025/10/sheet-pan-protein-pancakes-recipe.jpg",
+          "sourcePageUrl": "https://joytothefood.com/wp-content/uploads/2025/10/sheet-pan-protein-pancakes-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-breakfast-sweet-potato-egg-bake",
+      "slug": "mfr-breakfast-sweet-potato-egg-bake",
+      "title": "Frühstücksauflauf mit Süßkartoffel und Ei",
+      "instructions": "Geröstete Süßkartoffelwürfel, sautierter Grünkohl und Eier zusammen in einer Pfanne gebacken. Ein besonders sättigendes, farbenfrohes Frühstück: glutenfrei, milchfrei und mit 26 g Eiweiß.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln und Eier ergeben eines der nährstoffreichsten günstigen Frühstücke.",
+        "Eine Pfanne, ein Backgang, 4 Portionen und kaum Abwasch.",
+        "Die natürliche Süße der Süßkartoffel passt perfekt zu den herzhaften Eiern."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat oder Mangold"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffel oder Butternusskürbis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-breakfast-sweet-potato-egg-bake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Frühstück",
+        "Süßkartoffel",
+        "Ei",
+        "Auflauf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1194,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-breakfast-sweet-potato-egg-bake/",
+      "components": [
+        {
+          "key": "4ec2740a-256b-5944-8688-b108d31ace8e",
+          "name": "Zutaten",
+          "servingGrams": 354,
+          "position": 0,
+          "items": [
+            {
+              "key": "c626a0a8-eb92-57bb-801e-fcf528c82911",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6ca9ce3-fea4-5e5f-9ff4-13047c5f736e",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2af8834a-4301-575b-8369-3baa0509490d",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2e4a962-7ca4-56da-8825-28d1904e668f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e2a7a5d-5668-5022-93ef-15cfb10d44c6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4401c238-6790-5a02-ac9d-b1a38928e298",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b73876d3-67a8-5fa9-b28e-295603290a35",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8f7a5eb-8a78-54c0-9faa-3e651c8309c8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9858850c-7005-56c4-afd0-2fcddc3f32a7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d835667-6f91-5331-bd9e-6031628f7788",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0502b7a2-4883-5c3a-b787-44ec64ffa632",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Süßkartoffelwürfel mit Olivenöl, Paprikapulver, Kreuzkümmel und Salz vermengen. Bei 400°F 20 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel, Knoblauch und Grünkohl 3 Minuten in der ofenfesten Pfanne anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geröstete Süßkartoffel in die Pfanne geben. 8 Mulden in die Mischung drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeweils ein Ei in eine Mulde schlagen. Bei 375°F 12-15 Minuten backen, bis das Eiweiß gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Sweet-Potato-and-Egg-Skillet-_EXPS_SDFM18_206672_D10_10_2b-4.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Sweet-Potato-and-Egg-Skillet-_EXPS_SDFM18_206672_D10_10_2b-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

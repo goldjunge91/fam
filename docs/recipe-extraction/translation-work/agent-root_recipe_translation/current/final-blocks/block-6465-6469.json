@@ -1,0 +1,1031 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-moules-la-marini-re",
+      "slug": "gen-moules-la-marini-re",
+      "title": "Moules à la Marinière",
+      "instructions": "Bretonisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Muscheln, wenn sie an den Fischtheken von Lebensmittelgeschäften im Angebot sind",
+        "Verwenden Sie gefrorene Muscheln, wenn keine frischen verfügbar sind, um ähnliche Ergebnisse zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "bretonisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6465,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-moules-la-marini-re/",
+      "components": [
+        {
+          "key": "7f08da7d-2216-55e8-a52d-48c8a8fc2e09",
+          "name": "Zutaten",
+          "servingGrams": 132,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c5d80ad-687d-5744-b7fa-f0feb84046a1",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "52c648b2-65f2-54f6-85c7-e44ab976d9ae",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0c1370b1-8d2b-5448-9be1-d54b4d872492",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "2a010ebc-4066-5103-b8a6-9622e8e815dc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "0f077ba7-e598-551d-a2ff-848ffcba99f4",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "455f0dba-42a9-5840-8c54-6302ae311731",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse gehackt"
+            },
+            {
+              "key": "cd7a66cf-96f0-5f2f-a7d9-476e75843475",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "58bb91a1-e656-580f-a52c-aeaec584cf52",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "85aa0403-99ff-5c70-88a3-18b11ae6c22e",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Laib zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinigen Sie die Muscheln, indem Sie sie unter kaltem Wasser schrubben und alle Bärte mit einem Messer entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schalotten und Knoblauch fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze erhitzen und Schalotten und Knoblauch 2 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Weißwein hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie die gereinigten Muscheln hinzu und decken Sie den Topf mit einem dicht schließenden Deckel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Muscheln 7–10 Minuten dämpfen. Dabei den Topf gelegentlich schütteln, bis sich alle geöffnet haben. Geschlossene Muscheln entsorgen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Großteil der frischen Petersilie unterrühren, mit Salz und Pfeffer würzen und sofort in Schüsseln mit der Brühe und dem knusprigen Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2012/04/30/health/nutrition/30recipehealth/30recipehealth-jumbo-v2.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2012/04/30/health/nutrition/30recipehealth/30recipehealth-jumbo-v2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rillettes-de-bretagne",
+      "slug": "gen-rillettes-de-bretagne",
+      "title": "Rillettes de Bretagne",
+      "instructions": "Bretonisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter und Schweinebauch, wenn der Preis herabgesetzt ist, und frieren Sie sie für die spätere Verwendung ein",
+        "Machen Sie größere Mengen, um die Garzeit pro Portion aufzuteilen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bretonisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6466,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rillettes-de-bretagne/",
+      "components": [
+        {
+          "key": "64c69b76-87fb-55c6-9fa5-9faffe9464c8",
+          "name": "Zutaten",
+          "servingGrams": 52.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "eacd7545-664f-5415-881b-7c6a66931ca4",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "99018ec2-9fd6-590e-87ab-f06590d2face",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "1222c294-e906-5187-bbfa-75746974d229",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "670c4c7c-3531-5b4b-99cb-adc02ba411b7",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "62d92932-8c7a-502c-8a34-32bd2b382e02",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "37b95139-faad-5792-a447-9f49ece6156f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "616ddd7d-5fd1-59b5-aadb-55263b465524",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "2547572b-536f-5d2d-a743-9a7d20a5beb0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf45186b-1c32-5dd5-9258-36fd4bb0c84e",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter und Schweinebauch in 2 Zoll große Stücke schneiden und mit gehacktem Knoblauch und Schalotten in einen schweren Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit Salz, Pfeffer, Thymian und Lorbeerblatt würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und bei schwacher Hitze 2 Stunden kochen, dabei gelegentlich umrühren, bis das Schweinefleisch sehr zart ist und auseinanderfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen und Thymianzweige und Lorbeerblatt wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit zwei Gabeln das Schweinefleisch zerkleinern und mit dem Bratensaft vermischen, bis alles gut vermischt und streichfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Rillettes in eine Terrine oder einen kleinen Topf füllen und die Oberseite glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Verschließen mit einer dünnen Schicht geschmolzenem Schmalz oder Butterschmalz bedecken und mindestens 24 Stunden im Kühlschrank lagern, bevor es auf knusprigem Brot serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8DUciJoFLnwGBr7GemhpCrU63jo=/4494x3000/filters:fill(auto,1)/classic-french-pork-rillettes-recipe-1375251-hero-02-a170b3d60389415ba3354e5e55651087.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8DUciJoFLnwGBr7GemhpCrU63jo=/4494x3000/filters:fill(auto,1)/classic-french-pork-rillettes-recipe-1375251-hero-02-a170b3d60389415ba3354e5e55651087.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-pe-jambon-fromage",
+      "slug": "gen-cr-pe-jambon-fromage",
+      "title": "Crêpe Jambon Fromage",
+      "instructions": "Bretonisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie übrig gebliebenen Schinken vom Braten und zerkleinern Sie ihn, anstatt Schinkenscheiben zu kaufen",
+        "Ersetzen Sie Emmentaler durch scharfen Cheddar, um 30–40 % zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bretonisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6467,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-pe-jambon-fromage/",
+      "components": [
+        {
+          "key": "19c025fa-0b06-593b-859a-a6dd75e28fd3",
+          "name": "Zutaten",
+          "servingGrams": 405.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "54c6f7a6-a73f-5e06-addf-24d64f8dd9c1",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "42145210-4a08-52a8-b410-40085bb3a960",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "144e1b8a-9276-5d41-b287-7d41a1c20f33",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "a9c5e505-af99-568d-9d68-f8b4cbfc53fb",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e5228453-aca6-5407-955d-422542a68902",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "be938b85-6ebb-5948-9827-6c750f690219",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "33c009b7-2ac5-5e59-9e85-2c6b7d7930f0",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse in feine Streifen geschnitten"
+            },
+            {
+              "key": "88d73731-11e3-59c5-a293-1db82f58d531",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer Rührschüssel vermischen und in der Mitte eine Mulde formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier und Milch verquirlen und unter Rühren in die Mulde gießen, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 Esslöffel Butter im Teig schmelzen und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine beschichtete Crêpe-Pfanne oder Bratpfanne bei mittlerer bis hoher Hitze erhitzen und leicht mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "0.25 Tasse Teig in die Pfanne gießen und durch Schwenken gleichmäßig verteilen. Die Crêpe auf der ersten Seite etwa 1 Minute hellgolden backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Crêpe wenden, die gegarte Seite dünn mit Senf bestreichen und auf eine Hälfte eine Scheibe Schinken sowie 0.25 Tasse Käse legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Crêpe in zwei Hälften falten und weitere 30 Sekunden kochen lassen, bis der Käse zu schmelzen beginnt. Dann auf einen Teller gleiten lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/_L7p5wf87Z7u0T0jhtSJmE7NDUU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6729900-4ee6fac0058a4dad9b963a3d8082ebaa.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/_L7p5wf87Z7u0T0jhtSJmE7NDUU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6729900-4ee6fac0058a4dad9b963a3d8082ebaa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sabl-s-bretons",
+      "slug": "gen-sabl-s-bretons",
+      "title": "Bretonische Butterkekse (Sablés Bretons)",
+      "instructions": "Bretonischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Butter im Sonderangebot und frieren Sie sie zum späteren Backen ein",
+        "Machen Sie große Mengen und frieren Sie den Teig bis zu 3 Monate lang ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bretonisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6468,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sabl-s-bretons/",
+      "components": [
+        {
+          "key": "95035c6f-1c11-50c9-bc18-1a6b93b3af8f",
+          "name": "Zutaten",
+          "servingGrams": 227.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3cf062b-01ac-5633-a8a7-65279e49409c",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "07c48dff-e2db-5db6-8b16-b78849b64039",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse weich"
+            },
+            {
+              "key": "1906333a-365c-5c95-9932-2a357a64b144",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "015965e8-1a02-526a-b7a4-8e72c698a789",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "165a72b5-bba6-5e32-892e-8f8051f2a17f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "2efa0578-7c97-5bde-8bb2-5d926cf27a74",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "996a220a-1d20-50fc-8a7c-d3f29e69cafe",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 zum Bestreichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und legen Sie ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter und Zucker schaumig rühren, bis die Masse leicht und locker ist (ca. 3 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eigelb und Vanilleextrakt unterrühren, bis alles vollständig eingearbeitet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl und Salz untermischen, bis ein Teig entsteht, ohne zu viel zu verarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zwischen zwei Lagen Backpapier 0.25 Zoll dick ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einem Cutter oder Messer in Kreise oder Rechtecke schneiden und dann auf das vorbereitete Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Leicht mit verquirltem Ei bestreichen und 12-15 Minuten backen, bis die Ränder goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf dem Backblech 5 Minuten abkühlen lassen, bevor es auf ein Kuchengitter gelegt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mesdelicieusescreations.com/wp-content/uploads/2019/11/423a6bfb-97a1-4c72-a246-02c2224b0ec3-scaled.jpg",
+          "sourcePageUrl": "https://mesdelicieusescreations.com/wp-content/uploads/2019/11/423a6bfb-97a1-4c72-a246-02c2224b0ec3-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eierschecke",
+      "slug": "gen-eierschecke",
+      "title": "Eierschecke",
+      "instructions": "Sächsisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Eier, wenn sie im Angebot sind, und lagern Sie sie mehrere Wochen im Kühlschrank",
+        "Machen Sie Vanillepudding mit Milch und Maisstärke von Grund auf, um Puddingpulver zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sächsisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6469,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eierschecke/",
+      "components": [
+        {
+          "key": "ee8e3ab7-8d0b-5d09-94e9-d1b09e9a0fa4",
+          "name": "Zutaten",
+          "servingGrams": 274.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "3cc0df28-2a9f-5d59-a35a-8295c568d0aa",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "a997982e-c16e-5983-90d3-a31bc7a2ac40",
+              "ingredientName": "Trockenhefe",
+              "grams": 45,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "e86fadee-7ea9-5710-9c30-ca1d8a8078da",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "695471b7-c1f6-54fd-b6bc-c19ae3cbb317",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse weich"
+            },
+            {
+              "key": "a51d83ae-3308-59c5-91ef-45380a788e0a",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 große"
+            },
+            {
+              "key": "c4d3009c-208c-59f3-a66c-8db373497ed1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "15154e81-efb7-521f-bcaf-30706ea5bf23",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse warm"
+            },
+            {
+              "key": "0e116c03-c027-54ea-bb91-31d47457843e",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "84062c04-9466-5e05-9b25-991a08c158b4",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warme Milch, Hefe und 1 Teelöffel Zucker verrühren und 10 Minuten schaumig rühren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, restlichen Zucker und Salz in einer großen Schüssel vermischen, dann eine Mulde formen und die Hefemischung, 3 Eier und weiche Butter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "10 Minuten lang kneten, bis ein glatter, elastischer Teig entsteht, dann abdecken und 45 Minuten gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig halbieren und eine Hälfte in eine gefettete Backform von 9 × 13 Zoll drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2 Eier mit Puddingpulver verquirlen und gleichmäßig über die Teigschicht gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücken Sie den restlichen Teig in ein flaches Blech, legen Sie es über die Vanillesoße und verschließen Sie die Ränder.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und 30 Minuten gehen lassen, dann 1 Ei verquirlen und die Oberfläche bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 350 °F 35–40 Minuten goldbraun backen. Vollständig abkühlen lassen, mit Puderzucker bestäuben und in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://de.academic.ru/pictures/dewiki/68/Dresdner_eierschecke.JPG",
+          "sourcePageUrl": "https://de.academic.ru/pictures/dewiki/68/Dresdner_eierschecke.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

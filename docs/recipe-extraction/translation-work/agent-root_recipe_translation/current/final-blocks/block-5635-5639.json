@@ -1,0 +1,967 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mushroom-pie",
+      "slug": "gen-mushroom-pie",
+      "title": "Pilzpastete",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nur Champignons statt gemischter Pilze verwenden, um die Zutatenkosten zu senken",
+        "Den Teigboden aus Mehl, Butter und Wasser selbst zubereiten, statt Tiefkühlteig zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "russian",
+        "lunch",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5635,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-pie/",
+      "components": [
+        {
+          "key": "0925ff16-5bbf-59bd-b0b5-972a88a56550",
+          "name": "Zutaten",
+          "servingGrams": 274.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b6f05c3-f637-555d-afac-bcdcecd3ee11",
+              "ingredientName": "Tiefkühl-Pastetenteig",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Teigböden"
+            },
+            {
+              "key": "798f118a-d735-5461-a452-bfb6515f797d",
+              "ingredientName": "Champignons",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "b767bf01-41f6-5c49-b980-f3f7c343652e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "fed5ca06-d1df-579b-a1a6-b8a4218c7a4d",
+              "ingredientName": "getrockneter Dill",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel, frisch"
+            },
+            {
+              "key": "da36a5cf-d2e6-59d2-bb99-44d5b535f391",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e688b13b-69b1-5c09-8a0d-eba999a87204",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "e962d18d-8428-5e9e-97fb-dacbae182d32",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4b580f4e-8643-5d9a-a55d-a8cd591639da",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 375°F vorheizen und einen Teigboden in eine 9-Zoll-Pastetenform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Champignons und Zwiebel fein hacken und in Butter bei mittlerer bis hoher Hitze etwa 12 Minuten braten, bis die ganze Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Pilzmischung vom Herd nehmen und frischen Dill, Salz und Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Saure Sahne und 1 ganzes Ei in einer kleinen Schüssel glatt verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Sahnemischung unter die Pilze heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Füllung in den Teigboden geben. Den zweiten Teigboden darauflegen, die Ränder zum Verschließen andrücken und oben Dampfschlitze einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das übrige Ei verquirlen und den Teigdeckel damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "25–30 Minuten backen, bis der Teig goldbraun und die Füllung fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/6tYn_u8-YmfQmfnOZtYApp8u3uY=/1800x1200/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2007__12__mushroom-pie-horiz-b-1800-e2223f35bb8c445784ef297e56c47dd3.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/6tYn_u8-YmfQmfnOZtYApp8u3uY=/1800x1200/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2007__12__mushroom-pie-horiz-b-1800-e2223f35bb8c445784ef297e56c47dd3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beans-and-franks",
+      "slug": "gen-beans-and-franks",
+      "title": "Bohnen mit Würstchen",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hotdogs und gebackene Bohnen von einer Handelsmarke kaufen, um die Kosten zu halbieren",
+        "Vorratszutaten wie braunen Zucker und Worcestershiresauce verwenden, die für mehrere Mahlzeiten reichen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5636,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beans-and-franks/",
+      "components": [
+        {
+          "key": "b597169e-2616-5d2d-ae3d-d5ded4ac6fad",
+          "name": "Zutaten",
+          "servingGrams": 93.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f0b265e-0efa-58c7-993d-585a78243bb2",
+              "ingredientName": "Hotdog",
+              "grams": 25,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 oz (etwa 8)"
+            },
+            {
+              "key": "04f446b3-4a8b-5325-9739-a7340e1803cd",
+              "ingredientName": "vegetarische gebackene Bohnen",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (insgesamt 28 oz)"
+            },
+            {
+              "key": "92147634-c2fc-5a6d-afdd-1ad89f9214c9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "33dca35d-55a5-5579-8086-e96ab2942db8",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroße"
+            },
+            {
+              "key": "e38de8c4-03c8-5bd1-84f2-af4835c0e1e4",
+              "ingredientName": "brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "806b32c5-a37d-5330-b110-7dde69ebada8",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "10b0b5ea-ba51-558a-9cf6-9f793efa30d0",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2fc93ff7-6185-5eaf-abde-471b9c807b62",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einer großen Pfanne oder einem Topf bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würstchen in 1/2-Zoll-Scheiben schneiden, in die Pfanne geben und etwa 3 Minuten leicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel hinzufügen und etwa 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beide Dosen gebackene Bohnen samt Sauce hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Braunen Zucker, Senf und Worcestershiresauce einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ohne Deckel 10 Minuten köcheln lassen und gelegentlich umrühren, bis alles heiß und leicht eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/2617397.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/2617397.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-campfire-chili",
+      "slug": "gen-campfire-chili",
+      "title": "Lagerfeuer-Chili",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bohnen und Tomaten aus der Dose im Angebot oder in größeren Mengen kaufen",
+        "Rinderhack ist günstiger als Fleischstücke oder Spezialfleisch"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5637,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-campfire-chili/",
+      "components": [
+        {
+          "key": "50acc043-3bc5-5d61-aeeb-8ba01b601ff5",
+          "name": "Zutaten",
+          "servingGrams": 176.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "541ff0da-e199-57af-abb4-b12106fb4cf4",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2f597010-7062-55a1-ad0e-38ab729e3da9",
+              "ingredientName": "Kidneybohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 oz)"
+            },
+            {
+              "key": "ab867835-106c-5732-9a03-330ef776632c",
+              "ingredientName": "gehackte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (28 oz)"
+            },
+            {
+              "key": "8312223b-d087-59d1-8dec-9542f930b300",
+              "ingredientName": "Tomaten aus der Dose",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (14.5 oz)"
+            },
+            {
+              "key": "41e4b3e6-9766-5b34-8e9e-bd2ad154d879",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "671353a8-511a-50c0-bb43-1880b5aa0634",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "327f161b-3d60-5212-adc4-57c2f711ae0c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "dce2ff79-0b30-50b2-acac-e7ae3380c766",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ac3425b3-5232-5f81-a3ca-8d38bbf614ae",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5a859bc8-2125-5be2-88db-c61c2477fe3e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf oder Schmortopf bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhack dazugeben und etwa 5 Minuten unter Zerteilen anbraten, bis es gebräunt ist. Überschüssiges Fett abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chilipulver, Kreuzkümmel und Knoblauchpulver einrühren und 1 Minute anbraten, bis die Gewürze duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beide Dosen Tomaten samt Flüssigkeit hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kidneybohnen abgießen, abspülen und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Aufkochen lassen und ohne Deckel 20 Minuten köcheln lassen; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/01/Campfire-Chili-with-Cornbread.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/01/Campfire-Chili-with-Cornbread.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hobo-packets",
+      "slug": "gen-hobo-packets",
+      "title": "Folienpäckchen vom Lagerfeuer",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Russet-Kartoffeln und Rinderhack einer Handelsmarke verwenden, um Kosten zu senken",
+        "Paprika weglassen und für eine günstigere Würzung die Zwiebelmenge verdoppeln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5638,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hobo-packets/",
+      "components": [
+        {
+          "key": "36942d0c-ba69-588c-93fe-5d6f5382d3c0",
+          "name": "Zutaten",
+          "servingGrams": 174.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "d364b7ba-e889-580b-8beb-e628bf6c58df",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c0063eb4-c5af-5036-95ce-35dbe8bc70a9",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "4b49409c-64be-5f9b-bb97-2e52faf876d7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4fff7c91-dc73-53ea-b2c3-73e40e90d019",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "9955c687-8b72-57fb-bc4c-eed04f9a19e2",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d9c2c953-20ec-5b4d-b286-e086fe9babe2",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "3bbff4e1-92b0-53c0-a516-4acb8f9a89e8",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vier Stücke robuste Alufolie von jeweils 12 × 12 Zoll abreißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhack in 4 Portionen teilen und jeweils in die Mitte eines Folienstücks legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln, Zwiebel und Paprika gleichmäßig auf die Päckchen verteilen und auf das Fleisch legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jedes Päckchen mit Salz, Pfeffer und Knoblauchpulver würzen und mit 1/2 Esslöffel Butter belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Folie um die Zutaten falten und die Ränder fest verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Päckchen auf einen Rost 4–6 Zoll über die Kohlen oder auf einen Gasgrill bei mittlerer bis hoher Hitze legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "20–25 Minuten garen und die Päckchen nach der Hälfte der Zeit vorsichtig schütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Päckchen vorsichtig öffnen (heißer Dampf entweicht) und direkt aus der Folie servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2017/08/Hobo-Dinner-Foil-Packs-30.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2017/08/Hobo-Dinner-Foil-Packs-30.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-s-mores",
+      "slug": "gen-s-mores",
+      "title": "S’mores",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Marshmallows und Graham-Cracker einer Handelsmarke kaufen, um 30 % zu sparen",
+        "Schokoladenstückchen oder -tafeln im Angebot sind pro Unze günstiger als Spezialschokolade"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5639,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-s-mores/",
+      "components": [
+        {
+          "key": "a6d8439d-9816-5029-b868-ae1325d1d719",
+          "name": "Zutaten",
+          "servingGrams": 258.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "af6504dd-2a18-557d-84d0-6eab19aa7117",
+              "ingredientName": "Graham-Cracker",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Quadrate (2 ganze Cracker)"
+            },
+            {
+              "key": "8f611717-48d2-56a6-b62a-6aece5018a23",
+              "ingredientName": "Milchschokolade",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Quadrate (1.5 oz)"
+            },
+            {
+              "key": "5b61e48e-58e1-5f87-a220-1aad62cb484a",
+              "ingredientName": "Marshmallows",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 große"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Stück Schokolade auf einen Graham-Cracker legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein Marshmallow auf einen Stock oder Spieß stecken und 4–6 Zoll über die Lagerfeuerkohlen halten. Langsam drehen, damit er gleichmäßig röstet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2–3 Minuten rösten, bis der Marshmallow goldbraun und außen leicht angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den gerösteten Marshmallow auf das Schokoladenstück schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem weiteren Graham-Cracker belegen und leicht andrücken, damit der warme Marshmallow die Schokolade schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Etwa 10 Sekunden halten, dann den Stock vorsichtig herausziehen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/16/24/1465845015-smorescakevertical.jpg?crop=1xw:0.99975xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/16/24/1465845015-smorescakevertical.jpg?crop=1xw:0.99975xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

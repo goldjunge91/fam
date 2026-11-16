@@ -1,0 +1,1234 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-kimchi-fried-rice-sunny-egg",
+      "slug": "egg-kimchi-fried-rice-sunny-egg",
+      "title": "Gebratener Kimchi-Reis mit Spiegelei und flüssigem Eigelb",
+      "instructions": "Koreas ultimatives Gericht zur Resteverwertung: säuerlich-scharfer Kimchi mit Gochujang und Butter angebraten, unter Reis vom Vortag gehoben und knusprig gebraten, bis der Boden kross ist. Obenauf kommt ein glänzendes Spiegelei, dessen flüssiges Eigelb du direkt über dem Reis aufbrichst. Günstig, schnell und unkompliziert.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Gericht ist dafür da, älteren, säuerlichen Kimchi aufzubrauchen. Je älter und kräftiger er schmeckt, desto besser wird das Aroma. Wirf das halb vergessene Glas also nicht weg.",
+        "Übrig gebliebener Reis vom Vortag kostet nichts extra: Koche früher in der Woche eine große Menge oder hebe kalten Reis vom Lieferessen auf, damit das Anbraten fast kostenlos ist.",
+        "Lass Nori und Sesamsamen weg, wenn du sie nicht hast. Ein Spiegelei und ein Schuss Sojasauce machen daraus schon eine vollständige Mahlzeit für weniger als einen Dollar pro Schüssel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gochujang",
+          "swap": "1 TL Sriracha oder scharfe Sauce und eine Prise Zucker",
+          "savings": "uses a bottle wahrscheinlich bereits vorhanden instead of buying a tub of gochujang"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Dieselbe Menge Pflanzenöl",
+          "savings": "günstiger and makes the dish dairy-free"
+        },
+        {
+          "forIngredientId": "kimchi",
+          "swap": "Abgetropftes Sauerkraut mit 1/2 TL zusätzlichem Gochugaru für Farbe und Schärfe",
+          "savings": "a jar of sauerkraut is often günstiger and lasts longer in the fridge"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "koreanisch",
+        "Ei",
+        "Kimchi",
+        "gebratener Reis",
+        "scharf",
+        "vegetarisch",
+        "preiswert",
+        "Reste",
+        "schnell",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 245,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-kimchi-fried-rice-sunny-egg/",
+      "components": [
+        {
+          "key": "a6cbceca-e338-577f-a8d2-e660fe85e7df",
+          "name": "Zutaten",
+          "servingGrams": 611.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5daedf01-8b5f-50e0-a8d9-032eae63269d",
+              "ingredientName": "Kimchi",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gut fermentiertes, säuerliches Kimchi, grob gehackt; etwas Saft zurückbehalten"
+            },
+            {
+              "key": "86471094-c6a7-5acb-a4dc-be0d783773b4",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "kalter Reis vom Vortag, Klumpen aufgelockert"
+            },
+            {
+              "key": "722ed520-431f-5437-ac7f-538a129b0610",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "eins pro Portion, als Spiegelei gebraten"
+            },
+            {
+              "key": "a3cf6aae-8f5f-5aa9-8006-6b890e05eee7",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49325271-316e-50ff-a49e-b68aa94f7cf5",
+              "ingredientName": "Butter",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb7786c0-3f71-56a1-bc08-8617b1c550c7",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Braten eggs"
+            },
+            {
+              "key": "1c6c47dc-26a8-585c-a4be-2397c14db4cf",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Schluss vom Herd genommen dazugeben"
+            },
+            {
+              "key": "9e26ae2f-c04f-5b22-a557-747bc03ded6f",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0ac4e6e-009d-56e8-a607-2ab6f455082a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "a353b065-7ba1-54bd-b3bd-e6ebe1f34199",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df2be5dd-cb21-5d4f-9a59-dfc6ef48127d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "weiße und grüne Teile getrennt"
+            },
+            {
+              "key": "fdfdaff9-03e0-57f6-b463-29ff71baea48",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "d0c6225c-8737-52b0-9bbe-119e44f9f4ff",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zusätzliche Schärfe und Garnitur"
+            },
+            {
+              "key": "166761f7-6cec-5cd1-9f7b-75d895a4335f",
+              "ingredientName": "Noriblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in dünne Streifen geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke etwa 3/4 Tasse Kimchi in mundgerechte Stücke und stelle einen Esslöffel Kimchi-Saft beiseite. Wenn der Reis frisch und klebrig ist, verteile ihn auf einem Teller und stelle ihn 10-15 Minuten kalt, damit er trocknet und beim Braten knusprig wird, statt zu dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Butter in einer großen beschichteten oder gusseisernen Pfanne bei mittlerer Hitze schmelzen. Gib Kimchi und die weißen Teile der Frühlingszwiebel dazu und brate sie 3-4 Minuten, bis der Kimchi weich und dunkler wird und geröstet duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Knoblauch, Gochujang, Zucker und den beiseitegestellten Kimchi-Saft ein. Gare alles 1 Minute unter ständigem Rühren, bis die Paste glänzt und etwas dunkler wird. Lass den Knoblauch nicht anbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib kalten Reis und Sojasauce dazu und vermenge alles. Drücke den Reis zu einer gleichmäßigen Schicht und lass ihn 2-3 Minuten ungestört braten, damit der Boden knusprig wird. Rühre um und wiederhole den Vorgang noch einmal, bis es brutzelt und goldbraune, knusprige Stellen entstehen. Nimm die Pfanne vom Herd, träufle Sesamöl darüber, hebe es unter und decke die Pfanne zum Warmhalten ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische eine separate kleine beschichtete Pfanne aus, gib das Pflanzenöl hinein und erhitze es bei mittlerer Hitze, bis es glänzt. Schlage die Eier hinein und brate sie 2-3 Minuten. Gib dabei etwas heißes Öl über das Eiweiß, bis es vollständig gestockt und undurchsichtig ist und die Ränder dünn und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das flüssige Eigelb ist hier Absicht. Wenn du es lieber ganz durchgegart magst, brate das Ei weitere 1-2 Minuten oder wende es, bis das Eigelb fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den gebratenen Reis auf zwei Schüsseln und lege je ein Spiegelei darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue Frühlingszwiebelgrün, Sesamsamen, Gochugaru und Noristreifen darüber. Sofort servieren und das Eigelb vor dem Essen aufbrechen, damit es in den Reis läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kimchi_Fried_Rice%2C_Farm_Egg.jpg/1280px-Kimchi_Fried_Rice%2C_Farm_Egg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kimchi_Fried_Rice,_Farm_Egg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "T.Tseng, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von gebratenem Kimchi-Reis mit Spiegelei und flüssigem Eigelb",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-french-rolled-omelette-roulee",
+      "slug": "egg-french-rolled-omelette-roulee",
+      "title": "Klassisches französisches gerolltes Omelett (Omelette Roulée)",
+      "instructions": "Ein blassgelbes, nach Julia Child gerolltes Omelett: außen seidig und zart, innen weich und gerade eben gestockt, in weniger als einer Minute zubereitet. Mit dieser Technik aus drei Eiern und einem Stück Butter gelingt ein Gericht wie im Restaurant.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 2,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Rezept besteht nur aus Eiern und Butter und ist deshalb eines der günstigsten Gerichte in Restaurantqualität. Kaufe die größte Eierpackung, die in deinen Kühlschrank passt, um den Preis pro Ei zu senken.",
+        "Kein frischer Schnittlauch oder keine Petersilie da? Lass beides weg oder nimm eine Prise getrocknete Kräuter aus dem Vorratsschrank. Das Omelett schmeckt auch ohne Garnitur.",
+        "Eine günstige beschichtete 8-Zoll-Pfanne reicht völlig aus. Kohlenstoffstahl ist nicht nötig, und mit einer guten Antihaftbeschichtung lässt sich das Omelett für Anfänger sogar leichter rollen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "1 EL Olivenöl oder Pflanzenbutter für eine milchfreie Variante",
+          "savings": "olive oil runs a few cents more; plant butter is ungefähr gleich teuer"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "1 EL gehacktes Frühlingszwiebelgrün",
+          "savings": "Spart etwa $2.30 gegenüber einem Bund frischem Schnittlauch"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "3/4 Tasse Flüssigei",
+          "savings": "kostet etwas mehr but skips cracking and reduces waste"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch",
+        "Ei",
+        "Frühstück",
+        "schnell",
+        "5 Zutaten",
+        "Technik",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 246,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-french-rolled-omelette-roulee/",
+      "components": [
+        {
+          "key": "4a44e2f9-79f4-57d6-b027-9519525b5100",
+          "name": "Zutaten",
+          "servingGrams": 196.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "77eeae1b-32ba-5a44-966f-43ccde6edcf6",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91d87684-4baa-5251-acfa-deeb8dac6542",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba540eaf-79ad-5491-9a4a-fe1ab496929b",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "669191ac-54c9-55dd-ad49-3b5dcfa03d63",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71fdc6ba-fe5c-5c10-9461-9c79e1361421",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "fein geschnitten zum Garnieren"
+            },
+            {
+              "key": "0c0e2352-5e77-51e5-a5d0-2aa084dc0643",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "fein gehackt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage 3 Eier in eine Schüssel, gib Salz und Pfeffer dazu und verquirle alles mit einer Gabel etwa 20 bis 30 Züge lang, bis Eigelb und Eiweiß gleichmäßig vermischt und leicht schaumig sind. Nicht zu lange schlagen: Die Masse soll eine einheitliche Farbe haben, keinen Schaum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle eine beschichtete 8-Zoll-Pfanne auf mittelhohe Hitze. Gib 1 EL Butter hinein und schwenke die Pfanne, während die Butter schmilzt. Sobald sich Schaum bildet und gerade zurückzugehen beginnt (die Butter duftet nussig, ist aber noch nicht gebräunt), ist die Pfanne bereit. Gieße die Eier auf einmal hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Eier 2 bis 3 Sekunden ungestört stocken und schüttle dann sofort die Pfanne über der Hitze vor und zurück, während du mit der flachen Seite der Gabel schnell kleine Kreise rührst. So entstehen feine, weiche Eierstückchen und die Eier bräunen nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach etwa 20 bis 30 Sekunden sind die Eierstückchen gestockt, die Oberfläche ist aber noch glänzend und cremig (dieser weiche, gerade gestockte Kern ist gewollt und nicht roh oder flüssig). Hör auf zu rühren und lass den Boden weitere 3 bis 4 Sekunden stocken, damit das Omelett zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Neige die Pfanne etwa 45 Grad von dir weg. Klappe mit der Gabel oder einem Pfannenwender das obere Drittel des Omeletts über die Mitte und schiebe es dann zum hinteren Pfannenrand, damit es sich zu einer dicken, zigarrenförmigen Rolle zusammenrollt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halte mit der freien Hand einen warmen Teller bereit und kippe die Pfanne darüber, damit das Omelett mit der Naht nach unten als glattes Oval herausrollt. Falls nötig, forme die Ränder mit der Rückseite einer Gabel nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reibe die Oberfläche mit der übrigen Butter aus der Pfanne ein, damit sie glänzt. Streue nach Wunsch Schnittlauch und Petersilie darüber und serviere das Omelett sofort, solange der Kern noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Blond_unbrowned_omelet_with_mushrooms_and_herbs.jpg/1280px-Blond_unbrowned_omelet_with_mushrooms_and_herbs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Blond_unbrowned_omelet_with_mushrooms_and_herbs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA",
+          "attributionRequired": true,
+          "attributionText": "Blond unbrowned omelet with mushrooms and herbs, Wikimedia Commons (CC BY-SA)",
+          "verifiedMatch": true,
+          "altText": "Foto eines klassischen französischen gerollten Omeletts (Omelette Roulée)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-foolproof-poached-eggs-whirlpool",
+      "slug": "egg-foolproof-poached-eggs-whirlpool",
+      "title": "Sicher gelingende pochierte Eier (Strudel-Methode)",
+      "instructions": "Sauber pochierte Eier mit leuchtend goldenem, flüssigem Eigelb, die jedes Toastbrot und jede Getreideschüssel wie ein Gericht vom Chefkoch wirken lassen. Der Trick mit Strudel und Essig wickelt das Eiweiß um das Eigelb, statt es fransig auseinanderlaufen zu lassen – so gelingt es jedes Mal.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 9,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten Eiweißquellen im Laden: Zwei pochierte Eier kosten deutlich weniger als einen Dollar und machen aus einfachem Toast oder übrig gebliebenem Reis eine richtige Mahlzeit.",
+        "Klarer Branntweinessig kostet pro Esslöffel nur wenige Cent und hält sehr lange. Du brauchst zum Pochieren keine teure Flasche.",
+        "Kaufe möglichst frische Eier: Frisches Eiweiß hält besser zusammen, sodass weniger Fäden entstehen und kein Ei verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vinegar",
+          "swap": "Apfelessig oder Zitronensaft verwenden; jede milde Säure hilft dem Eiweiß zu stocken",
+          "savings": "ungefähr gleich teuer cost; use what's already in the pantry"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Auf Reis, einem English Muffin oder einer Getreideschüssel statt auf Toast servieren",
+          "savings": "Rice beträgt etwa a dime a cup, günstiger than bread"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "Geschnittenes Frühlingszwiebelgrün oder frische Petersilie für dieselbe frische Kräuternote",
+          "savings": "A single scallion stalk beträgt etwa 20 cents vs. a chive bunch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Ei",
+        "Frühstück",
+        "pochiertes Ei",
+        "vegetarisch",
+        "schnell",
+        "preiswert",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 247,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-foolproof-poached-eggs-whirlpool/",
+      "components": [
+        {
+          "key": "f9160cce-054f-525b-9bcc-3a239f804ac9",
+          "name": "Zutaten",
+          "servingGrams": 571.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "b281b7c0-51ff-5c14-a809-d8628b3677af",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "möglichst frische Eier verwenden; bei älteren verläuft das Eiweiß"
+            },
+            {
+              "key": "28564fe6-125c-5f5d-8c3c-22b1254a80c7",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "genug, um einen kleinen Topf etwa 3 inches hoch zu füllen"
+            },
+            {
+              "key": "702f03ad-a8cf-5527-9b80-4ce6c11b6baa",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "einfacher weißer oder destillierter Essig; lässt das Eiweiß schnell stocken"
+            },
+            {
+              "key": "eb949727-64a2-5f28-aaf2-ffe3a41e2646",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "eine kleine Prise im Wasser"
+            },
+            {
+              "key": "27098cd2-f6f6-5909-a0c2-eb24b302a6ef",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "geröstet zum Servieren"
+            },
+            {
+              "key": "076e3132-4e9c-5c87-af66-82bc2d4a08c1",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "snipped, zum Garnieren"
+            },
+            {
+              "key": "14c40388-f397-57b0-b7ed-af5a078ddc19",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "zum Schluss"
+            },
+            {
+              "key": "4e73986e-a6ed-5cdd-aec8-3a2abbbb240e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "frisch gemahlen zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage jedes Ei zuerst in eine eigene kleine Tasse oder ein Förmchen. So kannst du es sauber ins Wasser gleiten lassen und Blutpunkte oder Schalenstücke auffangen, bevor sie ins Wasser gelangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle einen kleinen Topf etwa 3 Zoll hoch mit Wasser und erhitze es bei mittlerer Hitze, bis es nur leicht siedet: Es sollen sich feine Dampffäden und kleine Bläschen am Boden bilden, aber kein starkes Kochen, das das Eiweiß zerreißen würde. Wenn es zu kochen beginnt, reduziere die Hitze, bis die Oberfläche still ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Essig und eine Prise Salz ein. Der Essig lässt das Eiweiß schnell stocken und sich um das Eigelb legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre das Wasser mit einem Löffel in eine Richtung, bis in der Mitte des Topfes ein sanfter Strudel entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Halte eine Tasse direkt an die Wasseroberfläche und lass ein Ei in die Mitte des Strudels gleiten. Das wirbelnde Wasser formt das Eiweiß zu einer sauberen Tropfenform. Für die beste Form jeweils nur ein Ei pochieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pochiere das Ei 3 bis 4 Minuten bei leichtem Sieden, damit das Eiweiß vollständig stockt und das Eigelb flüssig bleibt. Hebe es mit einem Schaumlöffel heraus und drücke vorsichtig auf das Eiweiß: Es sollte fest sein und nicht mehr wackeln oder glitschig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Schaumlöffel einige Sekunden auf einem gefalteten Papiertuch abtropfen, damit das Toastbrot nicht matschig wird. Wiederhole dann den Strudel und lass das zweite Ei hineingleiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort auf geröstetem Brot oder einer Getreideschüssel servieren. Mit Flockensalz, frisch gemahlenem Pfeffer und geschnittenem Schnittlauch abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Hinweis zur Lebensmittelsicherheit: Flüssiges pochiertes Eigelb ist nicht vollständig gegart und eignet sich am besten für gesunde Erwachsene. Wenn du schwanger, sehr jung oder älter bist oder ein geschwächtes Immunsystem hast, gare das Ei weitere 1 bis 2 Minuten, bis das Eigelb vollständig gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Poached_egg_on_toast.jpg/1280px-Poached_egg_on_toast.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Poached_egg_on_toast.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Kai Hendry, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto sicher gelingender pochierter Eier (Strudel-Methode)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-classic-eggs-benedict-blender-hollandaise",
+      "slug": "egg-classic-eggs-benedict-blender-hollandaise",
+      "title": "Klassische Eggs Benedict mit Hollandaise aus dem Mixer",
+      "instructions": "Der Star jedes Brunchs: ein getoasteter English Muffin mit warmem kanadischem Speck, einem zart pochierten Ei und reichlich zitroniger Hollandaise. Mit der schnellen Hollandaise aus dem Mixer gelingt dieser besondere Klassiker auch in einer Wohnheimküche in weniger als 30 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hebe die 3 übrigen Eiweiße von der Hollandaise in einem abgedeckten Behälter im Kühlschrank für ein Omelett oder Rührei am nächsten Tag auf, damit nichts verschwendet wird.",
+        "Lass das teure Glas Schnittlauch weg und schneide stattdessen Frühlingszwiebelgrün als farbige Garnitur darüber oder verwende einfach etwas Paprikapulver.",
+        "Ersetze kanadischen Speck durch normalen Kochschinken oder knusprig gebratenen Speck – je nachdem, was im Laden günstiger ist. Bei der Fleischschicht ist das Gericht unkompliziert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canadian-bacon",
+          "swap": "Pro Portion 2 Scheiben Kochschinken oder 2 Streifen knusprig gebratenen Speck verwenden",
+          "savings": "spart etwa $0.30 pro Portion"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "1 EL Zitronensaft aus der Flasche statt einer frischen Zitrone verwenden",
+          "savings": "spart etwa $0.55"
+        },
+        {
+          "forIngredientId": "english-muffin",
+          "swap": "Einen aufgeschnittenen Bagel oder zwei Scheiben kräftiges Brot als Grundlage toasten",
+          "savings": "Spart ein paar Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Ei",
+        "Frühstück",
+        "Brunch",
+        "pochiertes Ei",
+        "Hollandaise",
+        "Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 248,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-classic-eggs-benedict-blender-hollandaise/",
+      "components": [
+        {
+          "key": "39bcdc32-6d73-5119-be6e-90717e9aac1c",
+          "name": "Zutaten",
+          "servingGrams": 386.82,
+          "position": 0,
+          "items": [
+            {
+              "key": "415f4cbf-2127-572b-b1f9-13fddc22e827",
+              "ingredientName": "English Muffin",
+              "grams": 114,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "halbiert"
+            },
+            {
+              "key": "2bbf5f7c-486a-54ed-b3a3-1e0ce8d4f386",
+              "ingredientName": "Kanadischer Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Scheiben pro Portion"
+            },
+            {
+              "key": "8c0db652-3d09-58e1-9b04-cbe2e503b9c3",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Pochieren (2 per serving)"
+            },
+            {
+              "key": "7f10e866-53a3-5423-89ac-e9c3982e836e",
+              "ingredientName": "Eigelb",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "für die Hollandaise"
+            },
+            {
+              "key": "beb16caa-f44f-5a1c-b06f-328bb0a73b1d",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "sehr heiß geschmolzen für die Hollandaise"
+            },
+            {
+              "key": "21a2cd6e-d39e-5b03-97f3-2bdc81b6f82d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1 tbsp Saft für die Sauce"
+            },
+            {
+              "key": "aeeb0478-aadb-54ab-bd5c-5d36c0e1f49b",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "eine Prise für die Hollandaise"
+            },
+            {
+              "key": "16364d1e-ef38-5c24-935b-e9fd2bf761a6",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "weißer Essig für das Pochierwasser"
+            },
+            {
+              "key": "d0440ba2-1735-5888-b3a0-7504da201eb0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72750d81-8264-537e-aef8-42853d8e5418",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f03bcc4f-fad5-5bc3-8225-f83c510b7c1c",
+              "ingredientName": "Paprikapulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Bestäuben der Oberseite"
+            },
+            {
+              "key": "4caaa228-7cd4-5091-b072-405992b12908",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz 6 EL Butter in der Mikrowelle oder in einem kleinen Topf, bis sie vollständig flüssig und sehr heiß ist und gerade blubbert (etwa 45-60 Sekunden in der Mikrowelle). Sie muss heiß bleiben, denn die Hitze gart das Eigelb sanft und lässt die Sauce emulgieren. Verwende nach Möglichkeit pasteurisierte Eier, da das Eigelb nur leicht gegart wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle einen breiten Topf oder eine tiefe Pfanne etwa 3 Zoll hoch mit Wasser, gib 1 EL Essig dazu und erhitze alles bei mittlerer Hitze, bis es leicht siedet (kleine Bläschen, kein starkes Kochen, damit die Eier zart bleiben).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Hollandaise zu: Gib 3 Eigelb, etwa 1 EL Zitronensaft, eine Prise Cayennepfeffer und eine Prise Salz in einen Mixer. Mixe 10 Sekunden. Gieße dann bei laufendem Motor die heiße Butter langsam und gleichmäßig hinein, bis die Sauce dick, hell und gießfähig ist. Lass sie zugedeckt im warmen Mixer und serviere sie innerhalb von 30 Minuten; nicht länger bei Raumtemperatur stehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme den kanadischen Speck: Erhitze eine trockene Pfanne bei mittlerer Hitze und brate die 4 Scheiben etwa 1-2 Minuten pro Seite, bis sie leicht gebräunt und durchgehend heiß sind. Toaste die English-Muffin-Hälften goldbraun (im Toaster oder unter dem Grill).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pochiere die Eier: Schlage jedes Ei in eine kleine Tasse, rühre das siedende Wasser zu einem Strudel und lass die Eier einzeln vorsichtig hineingleiten. Pochiere sie 3-4 Minuten, damit das Eiweiß fest und das Eigelb flüssig bleibt (für festeres Eigelb 4 Minuten garen). Hebe sie mit einem Schaumlöffel heraus und lass sie auf einem Papiertuch abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte das Gericht an: Lege 2 getoastete English-Muffin-Hälften auf jeden Teller und belege jede mit einer Scheibe warmem kanadischem Speck und anschließend einem abgetropften pochierten Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib reichlich warme Hollandaise über jedes Ei und würze mit etwas Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestäube alles mit Paprikapulver, streue geschnittenen Schnittlauch darüber und serviere sofort, solange alles heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Traditional_Eggs_Benedict.jpg/1280px-Traditional_Eggs_Benedict.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Traditional_Eggs_Benedict.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto klassischer Eggs Benedict mit Hollandaise aus dem Mixer",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-jammy-soft-boiled-6-minute",
+      "slug": "egg-jammy-soft-boiled-6-minute",
+      "title": "Weich gekochte Eier mit marmeladigem Eigelb (6-Minuten-Eier)",
+      "instructions": "Glänzendes, gestocktes Eiweiß um ein köstlich weich-cremiges Eigelb wie Marmelade – das Trend-Ei für jede Ramen- oder Getreideschüssel. Mit dem richtigen Timing gelingt es zuverlässig und eignet sich hervorragend zum Vorbereiten.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten Eiweißquellen im Laden. Kaufe die größte Packung, die in deinen Kühlschrank passt, und koche gleich Eier für eine ganze Woche auf Vorrat.",
+        "Lass die Garnituren weg, wenn du sie nicht hast. Eine Prise Salz und Pfeffer aus dem Vorratsschrank macht daraus einen Snack für wenige Cent.",
+        "Verwende dasselbe kochende Wasser für mehrere Durchgänge, statt jedes Mal frisches Wasser zu erhitzen, und spare Energie."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "eggs",
+          "swap": "Enteneier für ein reichhaltigeres, größeres Eigelb verwenden – die Garzeit um etwa 1 Minute verlängern.",
+          "savings": "kostet mehr"
+        },
+        {
+          "forIngredientId": "chili-crisp",
+          "swap": "Für dieselbe Schärfe mit Sriracha oder scharfer Sauce beträufeln.",
+          "savings": "Etwa gleich teuer"
+        },
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "Zum Würzen eignet sich jedes normale Speisesalz oder koscheres Salz.",
+          "savings": "Spart ein paar Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Ei",
+        "zum Vorbereiten",
+        "Snack",
+        "weich gekocht",
+        "schnell",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 249,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-jammy-soft-boiled-6-minute/",
+      "components": [
+        {
+          "key": "920eedfd-fb1d-57ec-8797-7c9d7bdecd9e",
+          "name": "Zutaten",
+          "servingGrams": 1079.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "9429204b-ea4d-5f08-b88e-9f10063e4452",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25ea3349-6543-5750-a0e8-562436efab1d",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "genug, um die Eier etwa einen inch hoch zu bedecken"
+            },
+            {
+              "key": "82727688-5ac3-5c18-92d2-d5dabbed4e16",
+              "ingredientName": "Eis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für das Eisbad"
+            },
+            {
+              "key": "a6981a93-a7e1-5d07-aac3-639cd6617158",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Schluss"
+            },
+            {
+              "key": "c74b768b-ce78-5b11-9fad-6acdcf637738",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "frisch gemahlen zum Schluss"
+            },
+            {
+              "key": "3bafc908-cb15-562d-a5b4-e515eb761235",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            },
+            {
+              "key": "b9037b08-e113-54bf-9deb-6b6389aa95e1",
+              "ingredientName": "Chili-Crisp",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "zum Beträufeln"
+            },
+            {
+              "key": "65b603d9-4044-56ee-87d9-ab57b76dbfaa",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Dippen oder Beträufeln (weglassen, wenn es glutenfrei bleiben soll)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe etwa 6 Tassen Wasser in einem kleinen Topf bei hoher Hitze sprudelnd zum Kochen – genug, um die Eier vollständig mit einem Zoll Wasser zu bedecken. Ein gleichmäßiges, kräftiges Kochen ist für ein zuverlässiges Timing wichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle währenddessen eine Schüssel mit Eis und kaltem Wasser für ein Eisbad und stelle sie neben den Herd. So wird der Garprozess sofort gestoppt und die Eier lassen sich viel leichter schälen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Eier direkt aus dem Kühlschrank. Lass jedes kalte Ei mit einem Schaumlöffel vorsichtig einzeln ins kochende Wasser gleiten, damit es nicht aufplatzt. Starte den Timer, sobald das letzte Ei im Wasser ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Eier genau 6 Minuten für ein weiches, marmeladiges Eigelb oder 7 Minuten für ein festeres, marmeladenartig gestocktes Eigelb. Halte das Wasser bei einem sanften, gleichmäßigen Kochen und reduziere die Hitze, falls es überzukochen droht. Für ein vollständig gestocktes, durchgegartes Eigelb koche sie stattdessen 10-12 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Eier sofort mit dem Schaumlöffel ins Eisbad und kühle sie mindestens 2 Minuten. Durch das vollständige Abkühlen zieht sich das Ei von der Schale zurück und der Nachgarprozess wird gestoppt, damit das Eigelb weich bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schäle die Eier unter einem dünnen Strahl kalten Wassers: Klopfe jedes Ei rundum an, bis die Schale Risse bekommt, und beginne am breiteren Ende mit der Luftkammer. Arbeite langsam, damit das zarte Eiweiß ganz bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tupfe die Eier trocken und halbiere sie längs mit einem scharfen Messer. Wische die Klinge zwischen den Schnitten sauber und richte die Hälften mit der Schnittseite nach oben an, damit das flüssige Eigelb sichtbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Schluss mit Flockensalz und frisch gemahlenem Pfeffer würzen. Nach Wunsch geschnittene Frühlingszwiebel darüberstreuen und mit Chili-Crisp oder etwas Sojasauce beträufeln. Sofort warm und weich essen oder geschälte Eier in einem abgedeckten Behälter bis zu 3 Tage im Kühlschrank aufbewahren und kalt oder vorsichtig erwärmt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Soft_boiled_egg_cut_in_half_in_Japan_-_2024_July_9.jpeg/1280px-Soft_boiled_egg_cut_in_half_in_Japan_-_2024_July_9.jpeg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Soft_boiled_egg_cut_in_half_in_Japan_-_2024_July_9.jpeg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Nesnad, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto weich gekochter Eier mit marmeladigem Eigelb (6-Minuten-Eier)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

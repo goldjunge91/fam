@@ -1,0 +1,1216 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-eu2-bangers-mash",
+      "slug": "mfr-eu2-bangers-mash",
+      "title": "Bangers and Mash mit Zwiebelsauce",
+      "instructions": "Der große britische Pub-Klassiker: Dicke Schweinswürste werden kräftig gebräunt und auf cremigstem Kartoffelpüree serviert. Dazu gibt es eine reichhaltige, herzhafte Zwiebelsauce, die dick und glänzend eingekocht ist.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinswürste sind günstig. Vorratspackungen kaufen und einfrieren.",
+        "Die Zwiebelsauce braucht 3 Zwiebeln und Vorratszutaten. Das ist sehr günstig.",
+        "Extra Kartoffelpüree zubereiten. Mit einem Schuss Milch lässt es sich perfekt aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-sausage",
+          "swap": "Hähnchen- oder Putenwurst als leichtere Variante"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Mischung aus Blumenkohl und Kartoffeln für weniger Kohlenhydrate"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-bangers-mash",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "bangers-mash",
+        "wurst",
+        "kartoffelpüree",
+        "zwiebelsauce",
+        "pub"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1665,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-bangers-mash/",
+      "components": [
+        {
+          "key": "84487df0-2440-5b6a-b242-fce3009a3544",
+          "name": "Zutaten",
+          "servingGrams": 723.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "044b86db-5c00-5f24-8100-566c941cc547",
+              "ingredientName": "Schweinswurst",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8e36f46-1242-55f0-96c0-104080c40f51",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df39a04a-bc4e-58e5-9793-ef78e0b9b58f",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b789c0d-c339-5d05-84c0-d7cc32decb2b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2895020-2249-5c08-b960-074aff4dcd73",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "807fd8c5-6c13-5e4b-8407-1cde10600184",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c03caa9-1599-52d3-b5d9-62a06c133d0c",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fba5e34-604c-5cc5-9524-e98f766f45c9",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9df9870-bcdc-5484-88d5-5f24c2a2d134",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b381082-8937-547d-b1d3-fb391727e02a",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ae2292d-ae29-513f-907f-fc9571dbf8dd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e046593a-f64c-52be-bd4b-63b258f3f934",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln kochen und mit Butter, Milch und Salz sehr glatt stampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würste bei 400°F 20 Minuten rösten, nach der Hälfte einmal wenden, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebelsauce: 3 Zwiebeln 15 Minuten in Butter karamellisieren. Mehl dazugeben und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brühe, Worcestershire und Dijon dazugeben und 5 Minuten köcheln lassen, bis die Sauce andickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffelpüree auf Teller geben, Würste darauflegen und alles mit Sauce übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/FxiUgTdnslNsKi9Pi0gb7kLWxbE=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/sausage-and-mash-with-onion-gravy-434904_Final-5b9bfb2fc9e77c0057a7db10.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/FxiUgTdnslNsKi9Pi0gb7kLWxbE=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/sausage-and-mash-with-onion-gravy-434904_Final-5b9bfb2fc9e77c0057a7db10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu2-chicken-marsala",
+      "slug": "mfr-eu2-chicken-marsala",
+      "title": "Hähnchen Marsala",
+      "instructions": "Ein italienisch-amerikanischer Restaurantklassiker für zu Hause: geklopfte Hähnchenschnitzel werden goldbraun gebraten und mit einer seidigen Sauce aus Marsalawein und Pilzen sowie etwas Sahne vollendet. Elegant genug für Gäste und in 25 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Marsalawein ist günstig und hält nach dem Öffnen monatelang.",
+        "Das Wenden in Mehl sorgt für die goldene Kruste und dickt zugleich die Sauce an.",
+        "Mit Eiernudeln servieren, die die Sauce perfekt aufnehmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "marsala-wine",
+          "swap": "Trockener Sherry oder Madeira mit sehr ähnlichem Geschmack"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Griechischen Joghurt abseits der Hitze einrühren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-chicken-marsala",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "hähnchen-marsala",
+        "marsalawein",
+        "pilz",
+        "italienisch-amerikanisch",
+        "pfannensauce"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1666,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-chicken-marsala/",
+      "components": [
+        {
+          "key": "5586a779-ca6c-5fd6-bd8a-83e10522de2d",
+          "name": "Zutaten",
+          "servingGrams": 326.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e824868-d8d6-511a-a832-413041ed6781",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91c63b43-b349-577f-83fd-49bf0256e78f",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb45d85e-482b-509d-9b0a-c2120dba25b5",
+              "ingredientName": "Marsalawein",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b366f7e-6ff7-5602-8086-d076fb2e0c8d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "402d6ea6-43c5-589c-ad01-80a627d7db08",
+              "ingredientName": "Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d7937cc-7335-5d7d-ab49-095299cbb486",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81715168-6dbe-5fa2-af35-9e6450d48544",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcc23746-6444-50a9-89ae-c839d67f7d3a",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c63ed37-b84a-55b9-8692-1fc053d98352",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f5f85e7-9ec9-5fdd-86ff-836a47ed8c34",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f67050e1-1bdc-58a5-bc02-d8c76852ba93",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37497129-eda6-577a-92c4-687a49ceae1e",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97d11d69-6afd-5b64-9a9c-b2f9b841f0ab",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen auf ½ Zoll Dicke klopfen, würzen und in Mehl wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In Öl und Butter je Seite 3–4 Minuten goldbraun braten. Herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schalotten 2 Minuten anbraten. Pilze dazugeben und 4 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knoblauch dazugeben und 30 Sekunden garen. Marsala angießen, Bratensatz lösen und 2 Minuten einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brühe und Sahne dazugeben und 3 Minuten köcheln lassen. Hähnchen zurückgeben und 2 Minuten garen. Mit Petersilie abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Creamy-Chicken-Marsala-IMAGE-48.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Creamy-Chicken-Marsala-IMAGE-48.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu2-lohikeitto",
+      "slug": "mfr-eu2-lohikeitto",
+      "title": "Lohikeitto – finnische cremige Lachssuppe",
+      "instructions": "Finnlands beliebte Lachssuppe: Stücke von frischem Lachs, Kartoffeln, Karotte und Lauch köcheln in einer leichten Rahmbrühe mit Dill. Seidig, fein und wärmend. Eine der besten einfachen Suppen der Welt und in weniger als 30 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Lachsportionen eignen sich hervorragend. Auftauen und direkt dazugeben.",
+        "Für kostenlosen Fischfond Garnelenschalen oder Lachshaut 15 Minuten in Wasser köcheln lassen.",
+        "In 30 Minuten fertig und sehr günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-broth",
+          "swap": "Hühnerbrühe mit einem Schuss Fischsauce"
+        },
+        {
+          "forIngredientId": "leek",
+          "swap": "Zwiebel. Weniger süß, funktioniert aber sehr gut."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-lohikeitto",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "finnisch",
+        "lohikeitto",
+        "lachssuppe",
+        "skandinavisch",
+        "cremig",
+        "dill"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1667,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-lohikeitto/",
+      "components": [
+        {
+          "key": "795c4667-43cd-55dd-ad33-ce7752494584",
+          "name": "Zutaten",
+          "servingGrams": 450.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4a64ec3-bbea-5d60-8e3c-04eb0ac3f49c",
+              "ingredientName": "Lachsfilet",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19e82264-113a-542f-ad2f-ed439b24f39c",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fcd9414-039f-54da-8995-b98b887ce097",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "652c633b-32e8-5d7b-a399-15c0a8e87af5",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cf373f2-7913-54c0-b7eb-64cb322b847c",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8b88684-9a3f-5022-8aef-96284f0bb91a",
+              "ingredientName": "Fischfond",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e32d095-64fe-59d7-b3ad-6c872008e7ff",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56c810c8-4ae8-53f2-8d5c-f6226159b6a3",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3790b3a2-8f5d-59d8-b0ca-3b883be20dd5",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e945767e-33a5-5321-91cc-a048f39c37a2",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a4ba555-c07d-5c68-8ab9-4f6fd436c387",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9028671b-0f37-55b8-af64-fbd449382b26",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter schmelzen und Lauch 3 Minuten anbraten. Karotte und Kartoffel dazugeben und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fischfond und Lorbeerblatt dazugeben und aufkochen. 10 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sahne einrühren und erneut zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lachs in Stücken dazugeben und 5 Minuten garen, bis er gerade durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Dill, weißem Pfeffer, Zitrone und Salz abschmecken. Mit Roggenbrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gradfood.com/wp-content/uploads/2021/01/Lohikeitto-Finnish-Salmon-Soup-scaled.jpg",
+          "sourcePageUrl": "https://gradfood.com/wp-content/uploads/2021/01/Lohikeitto-Finnish-Salmon-Soup-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu2-ratatouille",
+      "slug": "mfr-eu2-ratatouille",
+      "title": "Ratatouille mit Ei",
+      "instructions": "Provenzalischer Sommergemüseeintopf: Zucchini, Aubergine, Paprika und Tomaten schmoren langsam mit Kräutern der Provence zu einem seidigen, aromatischen Ragout. Mit gebackenen Eiern wird daraus ein vollwertiges vegetarisches Abendessen, das am nächsten Tag kalt genauso gut schmeckt.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sommergemüse ist in der Saison günstig. Große Mengen kochen und einfrieren.",
+        "Ratatouille ist das ursprüngliche Kühlschrank-Resteessen. Verwende vorhandenes Gemüse.",
+        "Ohne Ei ist es eine hervorragende Pastasauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "eggplant",
+          "swap": "Pilze. Andere Konsistenz, ähnliche Funktion."
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Weiße Bohnen zum Schluss für veganes Protein unterrühren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-ratatouille",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "ratatouille",
+        "vegetarisch",
+        "zucchini",
+        "aubergine",
+        "ei",
+        "provenzalisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1668,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-ratatouille/",
+      "components": [
+        {
+          "key": "e64cebdf-fa46-54e1-970d-4392a444ad15",
+          "name": "Zutaten",
+          "servingGrams": 409.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "72159003-d7f1-53e3-b742-13ee8c34331a",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "004fa45e-5e36-5961-8802-5dd0a4cb9f03",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1c55e9a-865a-5b89-9a2e-6c5bcc41399a",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c32809c-c0ca-5e23-897a-3adc3fe32fa3",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ab33e9a-c2ab-5aca-acbe-ed3765e6897d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52cf00ed-e92d-5a13-bbcf-defc03c33072",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3d55e8b-9bd8-56e0-bf7d-2c3fa64db1f5",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55d3b2a0-ff51-50bf-86de-14d1a7feeea9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a2646f6-f2c0-5cac-93d2-3f53bcb769d9",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8ae8092-9666-5b19-83be-983799660937",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e90410e1-f9f2-5db6-a933-b194bee55595",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c315653-2657-5ef4-a8f9-be63b110248b",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86281784-d1d5-5f05-b48a-8aa5256aabff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel 5 Minuten in Öl anbraten. Knoblauch dazugeben und 1 Minute garen. Paprika hinzufügen und 3 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aubergine und Zucchini dazugeben und 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten, Thymian, Lorbeer und Chiliflocken hinzufügen. 25 Minuten köcheln lassen und gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Großzügig mit Salz und frischem Basilikum abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "4 Mulden formen und Eier hineinschlagen. Zugedeckt 6 Minuten garen oder bei 375°F 10 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/ratatouille-casserole3-1661360977.jpg",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/ratatouille-casserole3-1661360977.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu2-irish-stew",
+      "slug": "mfr-eu2-irish-stew",
+      "title": "Traditioneller irischer Lammeintopf",
+      "instructions": "Einer der einfachsten und befriedigendsten Eintöpfe überhaupt: Stücke von Lammschulter, Kartoffel, Karotte und Zwiebel köcheln in einer leichten Brühe, bis alles zerfällt und die Brühe seidig und herzhaft ist. Mit frischer Petersilie garnieren und mit Sodabrot servieren.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammschulter ist günstiger als Lammkarree oder Keule und besser zum Schmoren.",
+        "Dieses Gericht braucht kaum Technik. Entscheidend sind Zeit und eine gute Brühe.",
+        "Je länger es kocht, desto besser schmeckt es. Am Vortag zubereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lamb-shoulder",
+          "swap": "Rinderschulter oder Schweineschulter, wenn Lamm zu teuer ist"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Speiserübe für eine kohlenhydratärmere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-irish-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "irisch",
+        "irischer-eintopf",
+        "lamm",
+        "kartoffel",
+        "karotte",
+        "traditionell",
+        "britisch",
+        "comfort-food"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1669,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-irish-stew/",
+      "components": [
+        {
+          "key": "c873df08-04e0-5456-8413-da069659c78d",
+          "name": "Zutaten",
+          "servingGrams": 471.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3fc3731a-10ab-5987-9089-268ad2fb5ad6",
+              "ingredientName": "Lammschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd7e5bef-2e2b-5702-9366-0602f3b84e52",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "267115d0-b33c-514e-af19-6d8d466cba8e",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "144e25ee-5559-5f10-8f8f-4fb24ad5c87d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7595526-8c57-517f-8063-f09864a2a21c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01393461-2708-56c3-a492-38f510b18fe1",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcbe67d1-9e13-5d37-adf5-f2729d2ba08c",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34acc998-951b-56cf-8101-03fef1b40f0d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56b5f63e-87e1-54d6-b722-7b2aa77c3173",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27dcd890-11d3-5031-ab27-481f3d5ff0fc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d325514-2c97-58a9-ba1c-dc0453f24f26",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lamm portionsweise in Öl anbräunen und herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Knoblauch 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lamm zurückgeben. Brühe, Thymian und Lorbeer dazugeben. Zugedeckt 45 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Karotte und Kartoffel dazugeben und weitere 30 Minuten köcheln lassen, bis alles sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abschmecken und gut würzen. Mit Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Hyt5qUIFith7EWYccbpaFKyJysw=/6016x4016/filters:fill(auto,1)/traditional-irish-stew-recipe-435757-hero-01-7ec7d4b8688a424d93b080f000ab53ff.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Hyt5qUIFith7EWYccbpaFKyJysw=/6016x4016/filters:fill(auto,1)/traditional-irish-stew-recipe-435757-hero-01-7ec7d4b8688a424d93b080f000ab53ff.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

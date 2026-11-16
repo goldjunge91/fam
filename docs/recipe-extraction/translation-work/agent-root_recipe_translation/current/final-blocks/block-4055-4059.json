@@ -1,0 +1,1091 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-wote",
+      "slug": "gen-wote",
+      "title": "Wote",
+      "instructions": "Ghanaisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter oder Schmorfleisch im Angebot kaufen und einfrieren",
+        "Karotten und Kartoffeln als preiswerte sättigende Gemüse verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ghanaisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4055,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wote/",
+      "components": [
+        {
+          "key": "52efecd3-530f-52ce-8275-46dfce5cae2d",
+          "name": "Zutaten",
+          "servingGrams": 498.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "e0b93019-ee5a-5d6b-8563-5819bf768b7a",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "a9a71752-3e52-51ad-97d7-fd5614b97e05",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "5700e2f5-b5c2-5445-bf78-d76d330b1ff2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gehackt"
+            },
+            {
+              "key": "b27e6db4-2d35-57ff-93a8-bac670bb4bc8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "f67efdc0-7388-52e0-9806-8b248f394814",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "52b2b422-2d0c-5f17-b598-a9cf1fe1095a",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a9476666-5873-5614-b5d8-1930faa7faec",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "90098570-7a43-5862-8eeb-aa52951da2c3",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "a28b3b72-1c04-5b84-afaf-00208382a5d2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a156b77f-cadc-5bc4-b4bd-cd9d5ed60423",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittelhoher bis hoher Hitze erhitzen und Rindfleisch etwa 5 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln, Knoblauch und Ingwer hinzufügen und 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser oder Brühe angießen und zum Kochen bringen, dann Hitze reduzieren und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffeln und Karotten hinzufügen und weitere 15-20 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Reis oder Fufu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/oTASStjDlPOTQWErI_4jO8SCWY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Zuppa-Rustica-0095-93cf12bcedb6426f84f674c2a77aeb31.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/oTASStjDlPOTQWErI_4jO8SCWY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Zuppa-Rustica-0095-93cf12bcedb6426f84f674c2a77aeb31.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nkate-cake",
+      "slug": "gen-nkate-cake",
+      "title": "Nkate-Kuchen",
+      "instructions": "Ghanaischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbutter und Puderzucker von Eigenmarken verwenden",
+        "Im Voraus zubereiten und bis zu 1 Monat einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ghanaisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4056,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nkate-cake/",
+      "components": [
+        {
+          "key": "af75bc6a-5145-5e1e-abf3-17600d70563d",
+          "name": "Zutaten",
+          "servingGrams": 43.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "8083a567-4073-5fd5-b2cf-0a45ef0c7107",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fe4a616c-e552-505f-a25f-28fb8be90821",
+              "ingredientName": "Puderzucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "7ad805b0-0b98-5272-b42a-f718704d5029",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL, weich"
+            },
+            {
+              "key": "1b67e9ea-7cc7-5f25-9b46-949f2b29f30c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b63ee9fe-9a83-5296-afa2-a9a890e88f41",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Unzen, geschmolzen"
+            },
+            {
+              "key": "d2a1700b-6c9d-5ace-a37b-ff3f4a68ce89",
+              "ingredientName": "Kokosöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erdnussbutter, Puderzucker, weiche Butter und Vanille in einer Schüssel glatt verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischung fest in eine mit Backpapier ausgelegte Form von 8x8 inches drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschmolzene Schokolade mit Kokosöl vermengen und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schokoladenschicht gleichmäßig über die Erdnussmischung gießen und verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mindestens 2 Stunden kühlen, bis die Schokolade fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Quadrate schneiden und in einem luftdichten Behälter im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kelianfood.com/wp-content/uploads/2022/06/nkate-cake.png",
+          "sourcePageUrl": "https://kelianfood.com/wp-content/uploads/2022/06/nkate-cake.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-abenkwan",
+      "slug": "gen-abenkwan",
+      "title": "Abenkwan",
+      "instructions": "Ghanaisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel im Angebot kaufen und für später einfrieren",
+        "Tiefgekühlte Okra verwenden, um Geld und Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "ghanaisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4057,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-abenkwan/",
+      "components": [
+        {
+          "key": "4ac387b1-5c64-577e-be8a-1e80cc186c66",
+          "name": "Zutaten",
+          "servingGrams": 433.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "80ba2a61-720b-578b-bd86-107ead2c43b3",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "45b43833-1f6c-5309-be82-3c0fbd4101ea",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "93e00431-a0bc-5f4c-b0d9-74a634b6ff37",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4f103074-63fc-57bb-845d-b0accb852419",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gehackt"
+            },
+            {
+              "key": "50488475-f4b5-5719-bb1d-f4cd03e09a4f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "47715dd8-01c1-57af-bd42-a84858dd1f7d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "a8293e86-79a7-51d1-918f-a1f60fe7792a",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "110f8f0a-1d60-5bbe-81aa-c78525877b19",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "903ee8ce-53db-5951-996e-5b7f6f9e8eb4",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund, gehackt"
+            },
+            {
+              "key": "bdff3416-af36-5d6e-bd95-77f15081b3fa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Palmöl in einem großen Topf bei mittlerer Hitze erhitzen und Zwiebeln, Knoblauch sowie Ingwer 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomatenmark und roten Pfeffer hinzufügen und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenstücke hinzufügen und unter gelegentlichem Rühren 5 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser oder Brühe angießen und zum Kochen bringen, dann Hitze reduzieren und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackte Okra hinzufügen und weitere 15 Minuten köcheln lassen, bis die Okra weich und das Hähnchen durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Reis, Fufu oder Maniok servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2016/11/Abenkwan.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2016/11/Abenkwan.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-azinku",
+      "slug": "gen-azinku",
+      "title": "Azinku",
+      "instructions": "Ghanaisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bohnen aus der Dose im Angebot kaufen und Vorräte anlegen",
+        "Getrocknete Bohnen über Nacht einweichen, um besonders viel zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "ghanaisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4058,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-azinku/",
+      "components": [
+        {
+          "key": "db6f3768-8391-5e44-9b14-11924573182d",
+          "name": "Zutaten",
+          "servingGrams": 398.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "18336604-2e54-5ff6-b7f3-c6ab6e55fa5a",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 Unzen), abgetropft"
+            },
+            {
+              "key": "b0333bb5-c8d4-5a4e-b5ed-3f03f9abd39b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "eebbb54e-a00b-5864-9bec-7d122595b17a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c2975c04-52c8-5c4d-94d1-173b2b1146a9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gehackt"
+            },
+            {
+              "key": "41c24891-3bc8-5d85-9fc9-afcb5095507a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "0f61ec3d-95ba-5f6a-b22e-5965688556b0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "9ce076bf-daa3-5299-bccb-ea47cff8f867",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großes Stück, gehackt"
+            },
+            {
+              "key": "9a6313ff-c8e0-5a24-9232-53c290f4fbb8",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bef51502-f74c-5e89-89d8-d1f6fe1f8886",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "87087fe4-7837-5e92-a27e-d8150afd620a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Palmöl in einem großen Topf bei mittlerer Hitze erhitzen und Zwiebeln, Knoblauch sowie Ingwer 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paprika hinzufügen und 3 Minuten garen, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark und Chilipulver einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bohnen und Brühe hinzufügen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und 20-25 Minuten köcheln lassen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Reis, Maniok oder Maismehl servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Bsv8Y3c8-v9vUf_Ee_9fq5ZmBCo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4BeanSaladwithHerbedTahiniDressing-RM-7346-3769178a98654fff9c62ec2d5e74f693.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Bsv8Y3c8-v9vUf_Ee_9fq5ZmBCo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4BeanSaladwithHerbedTahiniDressing-RM-7346-3769178a98654fff9c62ec2d5e74f693.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thieboudienne",
+      "slug": "gen-thieboudienne",
+      "title": "Thieboudienne",
+      "instructions": "Senegalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fischfilets im Angebot kaufen und bis zur Verwendung einfrieren",
+        "Preiswerte Gemüsebrühe statt Fischfond verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "senegalesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4059,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thieboudienne/",
+      "components": [
+        {
+          "key": "5e08b651-52e0-57ef-9418-5a1fc480e376",
+          "name": "Zutaten",
+          "servingGrams": 771.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec038ec4-0e8e-5094-a416-e62e0e4e7e4a",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9f989859-30ef-5551-ad66-2fe4790ba6f5",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b303b0df-2ef5-58eb-aed0-c1502caaa25f",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "71907a5b-5fa5-507d-9eed-1d737255d517",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gehackt"
+            },
+            {
+              "key": "93bccfc1-bfa8-586e-b921-6e9bcf27e52c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "b2f930bd-3542-5033-9b8f-4d7eda9f60a5",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1e278e04-49c2-508e-8763-4229c29ea0cc",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "1f07d1a1-e2b7-5eac-a827-812dff9acf27",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "5391ef02-bf14-5299-a24d-d70cb9b3db47",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Kopf, gehackt"
+            },
+            {
+              "key": "f9e03f93-0b4c-5a6a-be32-af0ef3537da1",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "409763f0-4e87-577c-badc-f7d8f5a5ba36",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Scotch-Bonnet- oder Habanero-Chilis"
+            },
+            {
+              "key": "c4a0b216-288e-5c4a-8b7d-386615cb217a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und Fischfilets auf beiden Seiten je 2 Minuten anbräunen, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf Zwiebeln und Knoblauch etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 2 Minuten unter ständigem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brühe angießen und zum Kochen bringen, dann Karotten, Kartoffeln und ganze scharfe Chilis hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "15 Minuten köcheln lassen, bis das Gemüse langsam weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reis hinzufügen und gut umrühren, dann den Fisch wieder in den Topf legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze reduzieren, abdecken und 20 Minuten köcheln lassen, bis der Reis weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Kohl einrühren und ohne Deckel weitere 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Scharfe Chilis herausnehmen, mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/09/20/multimedia/18Komolafe2-wfhj/18Komolafe2-wfhj-videoSixteenByNine3000.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/09/20/multimedia/18Komolafe2-wfhj/18Komolafe2-wfhj-videoSixteenByNine3000.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

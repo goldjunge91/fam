@@ -1,0 +1,1160 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pecel",
+      "slug": "gen-pecel",
+      "title": "Pecel",
+      "instructions": "Javanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Gemüse im Angebot und verwende, was gerade verfügbar ist",
+        "Bereite Erdnusssauce in großen Mengen zu und bewahre sie bis zu 1 Woche im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "javanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6230,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pecel/",
+      "components": [
+        {
+          "key": "d833b8c7-026a-5da6-8e57-cab570c4c3bf",
+          "name": "Zutaten",
+          "servingGrams": 796.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "53492d8f-8332-577f-b973-9cd0863a655e",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9d1ea5e0-2ad1-54c8-8042-60f01fa075df",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "2058f55c-c309-58ce-8594-d58f445c1c81",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "aad86fb8-ade1-5c8a-b7ca-1556933043a3",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "13753120-fbdf-5f97-add8-e7f4a890fe8f",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "59ce4b51-5cd1-5df3-a2c7-94a123120162",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "929239e7-8d22-59a7-91bc-3ced585911ae",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd7d88e3-9481-5aa2-b313-8249a5f908b6",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1ec04a24-6108-566b-a7e0-b021ee2cd293",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d6cafd65-4bf0-5ed8-bc71-9b86572bdab7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ac903174-4e6f-5b99-8cc1-91c295893bf8",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf Salzwasser zum Kochen und blanchiere den Kohl 2 Minuten. Gieße ihn anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere die Karotten 2-3 Minuten bissfest und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blanchiere den Spinat 1 Minute, drücke ihn trocken und hacke ihn grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Blanchiere die Sojasprossen 1 Minute und lass sie gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerstoße geröstete Erdnüsse, Knoblauch und Chilis zusammen zu einer groben Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Palmzucker, Limettensaft, Salz und Kokosmilch zu einer Sauce ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte das blanchierte Gemüse auf einem Teller an und beträufle es mit Erdnusssauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht bei Zimmertemperatur mit gedämpftem Reis und hartgekochten Eiern als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/de/fd/97/defd975db2d70fd3dc57cbba0bcddeed.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/de/fd/97/defd975db2d70fd3dc57cbba0bcddeed.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nasi-goreng-jawa",
+      "slug": "gen-nasi-goreng-jawa",
+      "title": "Nasi Goreng Jawa",
+      "instructions": "Javanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Reis für dieses Gericht, damit nichts verschwendet wird",
+        "Ersetze Garnelen durch zusätzliches Hähnchen, wenn das Budget knapp ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "javanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6231,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nasi-goreng-jawa/",
+      "components": [
+        {
+          "key": "aa6d4e7e-2ead-5d2d-8aeb-54d0f6bd70af",
+          "name": "Zutaten",
+          "servingGrams": 481.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f235b151-17a7-5aa5-a3a8-8554f2b4593b",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "2ff5693e-d0f6-585d-8eea-c5fe811b6c1f",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fc86b83-6427-57bc-81ea-d70d1491e2d7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4a59c28-84df-512c-9353-c00a31b6484b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b2dbbbc3-720a-50ca-b86f-7c1f3cc5a826",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "b99bb684-29f3-5ee1-a97f-65209cf04d4e",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "5388c853-9b69-56c9-bd1d-5b5c38b37d1e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "416df4ca-c0ab-55ea-b515-918f2324cf99",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1532a464-cb55-56de-bcd7-1141fc199a33",
+              "ingredientName": "Süße Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "004ae3cd-0dd3-5206-9792-e31720e86029",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b1f8b9e2-9ddc-5981-8c90-7bf5954d8f5d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0704e56e-4abd-5233-8b4d-9fd4eb99493a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Schalotten, Knoblauch und Ingwer zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Hähnchenbrust in kleine Stücke und schäle die Garnelen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei starker Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die gehackten aromatischen Zutaten hinein und brate sie 1-2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge Hähnchen und Garnelen hinzu und brate alles unter ständigem Rühren 4-5 Minuten, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib kalten Reis dazu, löse Klümpchen auf und brate ihn 3-4 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße Sojasauce und süße Sojasauce dazu und schwenke alles, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schiebe den Reis an den Pfannenrand, rühre die Eier in der freien Fläche und vermenge sie dann mit dem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Rühre zum Schluss Limettensaft und geschnittene Frühlingszwiebeln ein und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/DSC068461-1024x768.jpg",
+          "sourcePageUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/DSC068461-1024x768.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lodeh",
+      "slug": "gen-lodeh",
+      "title": "Lodeh",
+      "instructions": "Javanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kokosmilch auf asiatischen Märkten in großen Mengen und spare 40 %",
+        "Verwende saisonales Gemüse wie Kürbis oder lange Bohnen als Ersatz"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "javanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6232,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lodeh/",
+      "components": [
+        {
+          "key": "40a74b7f-60d4-501c-9854-ea63aa9a4140",
+          "name": "Zutaten",
+          "servingGrams": 643.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3b255c2-afdd-5743-80b0-092833f6af4d",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c118e3c0-731d-58ae-ba85-1f38621f570d",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "af05d01d-6473-5a8f-ae05-af1c9d1c3404",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen gehackt"
+            },
+            {
+              "key": "83f1300f-e4fd-5462-84cb-6644bb8b4d3d",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7092c1b1-c86d-5eea-897c-117b8399da6e",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "102a5743-393f-55b8-928d-8d12a6e30811",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Block, gewürfelt"
+            },
+            {
+              "key": "8f04ade2-6293-5fa1-a5a3-170652409756",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "88761028-4142-5c8c-990e-93b94801cb8d",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3, in Scheiben geschnitten"
+            },
+            {
+              "key": "14492ad2-5d50-560b-8746-95ab7e0313e1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "3be9f003-46c5-53bc-a541-814f838b0fe4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "be6e42c5-864e-598c-85c6-59fecc3a4ce4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "544a44e4-bd1d-520f-a995-63f9bdaa8ee1",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und brate Knoblauch, Schalotten und Ingwer etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zucchini, Kohl, grüne Bohnen und Karotten dazu und brate alles 5 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Kokosmilch dazu und füge Kurkuma, Salz und Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lass das Gemüse 15 Minuten köcheln, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelten Tofu dazu und lass alles weitere 10 Minuten köcheln, bis der Tofu heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke das Gericht ab und serviere es heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/61ce5bbb1c843b4059c56799/1:1/w_2560%2Cc_limit/WhiteCurryVegetableSoup_RECIPE_121621_25675.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/61ce5bbb1c843b4059c56799/1:1/w_2560%2Cc_limit/WhiteCurryVegetableSoup_RECIPE_121621_25675.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rawon",
+      "slug": "gen-rawon",
+      "title": "Rawon",
+      "instructions": "Javanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter statt teurer Fleischstücke",
+        "Koche die Brühe am Vortag aus Rinderknochen, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "javanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6233,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rawon/",
+      "components": [
+        {
+          "key": "63f006d8-188d-50fe-aef1-d995a8ed56e9",
+          "name": "Zutaten",
+          "servingGrams": 407,
+          "position": 0,
+          "items": [
+            {
+              "key": "f50e304b-07cc-5246-8251-289d6a7be4bd",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "07e4eaee-1e30-5e34-89bf-5b96076e2d0d",
+              "ingredientName": "Schwarze Sesamkörner",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel gemahlen"
+            },
+            {
+              "key": "cee81faf-2d3a-5890-8349-bcbab25a3b6a",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "65c6b8a4-f6bf-5491-adb7-18cc00ac23f3",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4, in Scheiben geschnitten"
+            },
+            {
+              "key": "169316e6-5867-5b68-bffd-b164d45735bf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Esslöffel fein gehackt"
+            },
+            {
+              "key": "15ae081a-407f-54f5-817a-dcf07cabe8f2",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0b4ef005-4f55-5edc-b4eb-839721c3f0bd",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bc3ddefb-bdde-5c62-a987-d145049d73b8",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "884d84bd-13d8-5187-ad9d-d37c242b9f6e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ffac9814-00f2-52c2-b0e8-5442b6fced59",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "50c9148a-052f-5935-b318-f7a5168c8b0d",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und brate die Rindfleischwürfel insgesamt etwa 8 Minuten von allen Seiten braun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Schalotten, Ingwer und Galgant dazu und rühre etwa 2 Minuten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Kurkuma und gemahlene schwarze Nüsse hinzu und rühre 1 Minute ständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Rinderbrühe dazu, bringe sie zum Kochen, reduziere dann die Hitze und lass alles zugedeckt 60 Minuten köcheln, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Salz, Pfeffer und Limettensaft dazu und schmecke das Gericht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass alles weitere 5 Minuten köcheln und serviere es heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/DSC08395.jpg",
+          "sourcePageUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/DSC08395.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-onde-onde",
+      "slug": "gen-onde-onde",
+      "title": "Onde-Onde",
+      "instructions": "Javanischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Klebreismehl auf asiatischen Märkten statt in Spezialgeschäften",
+        "Verwende gewöhnliche Kokosraspeln von einer Handelsmarke statt frischer Kokosnuss"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "javanisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6234,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-onde-onde/",
+      "components": [
+        {
+          "key": "a6a0876a-4668-56b4-97e0-378aca54fb80",
+          "name": "Zutaten",
+          "servingGrams": 371.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb40db21-b675-57b2-b8b9-75a7037672b8",
+              "ingredientName": "Klebreismehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b11cde4d-4b45-502a-8297-83b1cd931bf9",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "3b8af3ce-de94-515a-8d22-978edc73f790",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse, fest angedrückt"
+            },
+            {
+              "key": "22dc4d3e-630d-527c-a212-4ba199425ace",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "23233f29-c430-54ed-910c-ccc08944e5b8",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "558d96bf-b047-535e-8ae7-2e598754e7ab",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen zum Frittieren"
+            },
+            {
+              "key": "8f7458be-36dc-5d86-bfea-17ca04e281c8",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "31b888ae-0a22-5913-8bf8-d2692a17ce00",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2-3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Klebreismehl mit 0.75 cup Kokosmilch und Salz zu einem weichen Teig. Gib bei Bedarf Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in 12 kleine Kugeln, drücke jede flach und gib eine Prise braunen Zucker in die Mitte. Verschließe den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem tiefen Topf oder Wok auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frittiere die Kugeln portionsweise etwa 4-5 Minuten, bis sie aufsteigen und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe sie mit einer Schaumkelle heraus und lass sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wälze die warmen Kugeln in einer Mischung aus Kokosraspeln und Sesam, bis sie vollständig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/r89Rg390PNdR8SwqBoIDIH1mLog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-SEA-OndeOnde-MichelleYip-25-1b550350806e47ddacd800d6e2fb931d.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/r89Rg390PNdR8SwqBoIDIH1mLog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-SEA-OndeOnde-MichelleYip-25-1b550350806e47ddacd800d6e2fb931d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

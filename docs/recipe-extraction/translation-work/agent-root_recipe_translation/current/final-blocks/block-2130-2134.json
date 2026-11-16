@@ -1,0 +1,1072 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52942",
+      "slug": "tmdb-52942",
+      "title": "Paella mit geröstetem Fenchel und Aubergine",
+      "instructions": "Spanisches veganes Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "vegan",
+        "paella"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2130,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52942/",
+      "components": [
+        {
+          "key": "86ca36c3-f3f5-5e23-bd0c-e6c7fc0abe54",
+          "name": "Zutaten",
+          "servingGrams": 492.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b494b2ac-def9-5ac1-aea5-95e1647a7bcc",
+              "ingredientName": "kleine Aubergine",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb7a6f8e-09ee-574d-b8e1-32b8370eb879",
+              "ingredientName": "Fenchelknolle",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01aecb93-be42-55ed-ac51-9d86afc05095",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba646c5a-f036-56d3-b73b-ccccc68e0a89",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be5422cd-e444-5ce4-af49-049e012203a8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9c8ed2b-0188-54ed-b13a-a5dca24755f8",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e840e782-250d-5146-8acb-893dac2ebed1",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00001592-0369-5f95-bae9-dba44544bdd5",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b84a4ee-52c0-5427-8625-d191e086f993",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2e9b910-2a14-5b68-9983-de5dd655bcb8",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e046114e-e0cb-522f-bb7c-601ee013551b",
+              "ingredientName": "tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "773da7eb-13a4-55e0-97a6-2aee013b91f0",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08ef512c-66b8-510c-9810-76e894c0152c",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1c895ae-1b58-5cad-994f-43c395c4f6f9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74437108-880c-58df-9c7b-f664337a4619",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 Gib Fenchel, Aubergine, Paprika und Zucchini in einen Bräter. Beträufle das Gemüse mit etwas Olivenöl, würze mit Salz und Pfeffer und vermenge alles, damit das Gemüse mit Öl überzogen ist. Röste es 20 Minuten im Ofen und wende es ein paar Mal, bis es fast gar und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Erhitze währenddessen eine Paellapfanne oder große Pfanne bei niedriger bis mittlerer Hitze und gib etwas Olivenöl hinein. Dünste die Zwiebel 8–10 Minuten weich. Erhöhe die Hitze auf mittlere Stufe und rühre Reis, Paprika und Safran ein. Röste den Reis etwa 1 Minute an und gieße dann den Weißwein dazu. Lasse ihn etwa auf die Hälfte einkochen, bevor du zwei Drittel der Brühe einrührst. Reduziere die Hitze und koche alles ohne Deckel 10 Minuten, dabei ein paar Mal umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3 Rühre die Erbsen ein, würze alles und mische dann vorsichtig das geröstete Gemüse unter. Gieße die restliche Brühe darüber, lege Zitronenspalten darauf und decke die Pfanne mit einem Deckel oder Alufolie ab. Koche alles weitere 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "4 Damit sich die klassische Schicht gerösteten Reises am Pfannenboden bildet, erhöhe die Hitze, bis ein leichtes Knistern zu hören ist. Nimm die Pfanne vom Herd und lasse sie 5 Minuten ruhen. Vor dem Servieren mit Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1520081754.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1520081754.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53268",
+      "slug": "tmdb-53268",
+      "title": "Gebratenes Hähnchen mit cremiger Walnusssoße",
+      "instructions": "Türkisches Hähnchengericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2131,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53268/",
+      "components": [
+        {
+          "key": "d3a64fdd-b4d3-5d9e-8080-298f9777e256",
+          "name": "Zutaten",
+          "servingGrams": 409.82,
+          "position": 0,
+          "items": [
+            {
+              "key": "059e505c-9604-530f-8a65-e6a470f7a596",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5db47ebf-0fc3-59e7-9bd9-73d59f2df30e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44c7d67b-10d7-540c-8cb0-a62e3d3fef33",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b98b100b-dde7-5a4a-b57a-73a0a9c8d30f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59d3a811-7de5-5ee9-88d7-ec90b588c56e",
+              "ingredientName": "Pitatasche",
+              "grams": 360,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5af3d1b0-1e3b-52ed-8e6b-264e1272bd3b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dac09974-0ef5-536d-8617-df89fd6b6ff2",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efa22f6b-8185-54ff-b8bb-89206b8178a9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b085f4cd-11c1-5a49-9eb4-1bf017f47b79",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bbd6d1b-c53a-57e7-aba1-8d03c3094bf8",
+              "ingredientName": "Frischkäse",
+              "grams": 26.79,
+              "quantity": 26.79,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "537653f9-5f20-5e02-8bcf-b12f33295f67",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19a41e5a-67c9-55f9-98ae-6d69c0ea6112",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 200C/180C Umluft/Gasstufe 6 vor. Vermenge das Hähnchen in einem Bräter mit Kreuzkümmel, Paprika, 1 tbsp Olivenöl und Gewürzen. Gare es 40 mins, bis es knusprig und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerreiße währenddessen 1 Pitatasche und gib sie in eine kleine Schüssel. Gieße ein paar Esslöffel Hühnerbrühe darüber und lasse sie einweichen. Röste die Walnüsse etwa 3 mins ohne Öl in einer Pfanne goldbraun. Beiseitestellen. Erhitze das restliche Öl in der Pfanne und gare Zwiebel und Knoblauch weich. Gib das eingeweichte Pitabrot, die Zwiebelmischung und die meisten Nüsse in einen Mixer. Gieße die restliche Hühnerbrühe darüber und püriere alles zu einer groben Paste. Gib die Mischung zurück in die Pfanne. Füge Sahne und Zitronensaft hinzu, würze und halte die Soße warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn das Hähnchen gar ist, richte es auf einer Platte an. Rühre den Koriander unter die Soße und fülle sie in eine Schüssel. Hacke die restlichen Walnüsse grob und streue sie über das Hähnchen. Röste die Pitataschen, schneide sie in Spalten und serviere sie dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ro8mzj1763800655.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ro8mzj1763800655.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52816",
+      "slug": "tmdb-52816",
+      "title": "Geröstete Aubergine mit Tahini, Pinienkernen und Linsen",
+      "instructions": "Vegetarisches Gericht aus den Vereinigten Staaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "vereinigte-staaten",
+        "vegetarisch",
+        "hülsenfrüchte",
+        "nussig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2132,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52816/",
+      "components": [
+        {
+          "key": "e2451d96-c3c0-53a7-8969-8f31814806b4",
+          "name": "Zutaten",
+          "servingGrams": 944.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "13fe73a2-687c-54d6-9ffa-86817325125c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc669f0f-3f73-5c48-b581-ef388d2ece63",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae8f57d1-6e53-57ac-b9ff-cc7ab3bbe256",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e92ec1c-2c9c-5fe8-ab1f-1adcbc73e92f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b96fab0-23d9-54c1-8dc9-197630ff7855",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a89cf3dc-73e8-5811-95c0-6353800ed261",
+              "ingredientName": "braune Linsen",
+              "grams": 2160,
+              "quantity": 2160,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "838320ab-ea18-5193-9b45-9a2f8294dacf",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56832935-c3c1-51b3-b12c-115a41252542",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1f8d6a9-b22b-5a3a-9544-36544117012c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41b32a31-cbb3-55cf-9f2d-f45a558afa7c",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b04504f-bcb9-5918-bda7-9fb984b1456c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3fb724e-28c6-538d-9982-51706b25b7cc",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c923bdc-b3d2-5df0-97c5-f1144b0a9ee4",
+              "ingredientName": "frischer Rosmarin",
+              "grams": 8,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59b86f34-d6e1-516d-8789-c664827dbd5a",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00d641c9-2c6b-5879-ae96-190b06428e28",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Linsen: Stelle den Ofenrost in die mittlere Position und heize den Ofen auf 450°F vor, um die Auberginen zu rösten. Erhitze währenddessen 2 Esslöffel Olivenöl in einem mittelgroßen Topf bei mittlerer Hitze, bis es schimmert. Gib Karotten, Sellerie und Zwiebel hinzu und gare sie unter Rühren etwa 4 Minuten weich, ohne sie zu bräunen. Füge Knoblauch hinzu und gare ihn unter Rühren etwa 30 Sekunden, bis er duftet. Gib Linsen, Lorbeerblätter, Brühe oder Wasser und eine Prise Salz dazu. Bringe alles zum Köcheln, lege den Deckel schräg auf und koche etwa 30 Minuten, bis die Linsen zart sind. (Fülle Wasser nach, falls die Linsen nicht vollständig bedeckt sind.) Nimm den Deckel ab, rühre Essig ein und lasse die Flüssigkeit einkochen, bis die Linsen feucht, aber nicht suppig sind. Schmecke mit Salz und Pfeffer ab, decke den Topf ab und halte die Linsen bis zum Servieren warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Aubergine: Schneide jede Aubergine während die Linsen kochen längs in zwei Hälften. Ritze das Fruchtfleisch mit einem kleinen Messer kreuzweise in Abständen von 1-inch ein. Lege die Hälften mit der Schnittseite nach oben auf ein mit Folie ausgelegtes Backblech mit Rand und bestreiche jede Hälfte mit 1 Esslöffel Öl. Lasse jeden Pinselstrich vollständig einziehen, bevor du erneut Öl aufträgst. Würze mit Salz und Pfeffer. Lege je einen Rosmarinzweig darauf. Röste die Auberginen 25 bis 35 Minuten im Ofen, bis sie ganz weich und kräftig gebräunt sind. Nimm sie aus dem Ofen und entferne den Rosmarin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Servieren: Erhitze 2 Esslöffel Olivenöl und Pinienkerne in einer mittelgroßen Pfanne bei mittlerer Hitze. Gare die Nüsse unter häufigem Schwenken etwa 4 Minuten, bis sie goldbraun sind und duften. Gib sie zum Abkühlen in eine Schüssel. Rühre die Hälfte von Petersilie und Rosmarin unter die Linsen und richte sie auf einer Servierplatte an. Lege die Auberginenhälften darauf. Verstreiche einige Esslöffel Tahinisoße auf jeder Hälfte und streue Pinienkerne darüber. Mit der restlichen Petersilie und dem Rosmarin bestreuen, mit etwas Olivenöl beträufeln und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ysqrus1487425681.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ysqrus1487425681.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52901",
+      "slug": "tmdb-52901",
+      "title": "Rock Cakes",
+      "instructions": "Britisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "dessert",
+        "backen",
+        "kuchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2133,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52901/",
+      "components": [
+        {
+          "key": "b9311f8d-ef3b-5770-bb06-81a974b53a42",
+          "name": "Zutaten",
+          "servingGrams": 145,
+          "position": 0,
+          "items": [
+            {
+              "key": "14361a1a-270f-53e9-ac30-ea4b4878fd6a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "feddc835-f49f-5067-b2fa-651db6913384",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68088592-82b0-5d4d-83c5-4fdaa9af0056",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79ffe5cf-4da5-575f-856a-5207d4a741e0",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfae8ada-d3b5-573b-bc8a-901784c6ee75",
+              "ingredientName": "getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27d6f963-2655-5955-b2bb-bad9370269e3",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3530164c-3fc0-524e-8bf9-787659df867d",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be46bd59-0e96-5322-81ca-1b46c8cfc335",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 180C/350F/Gasstufe 4 vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Zucker und Backpulver in einer Schüssel. Reibe die gewürfelte Butter ein, bis die Mischung wie Semmelbrösel aussieht, und rühre dann die Trockenfrüchte unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage das Ei in einer sauberen Schüssel mit Milch und Vanilleextrakt auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Eiermischung zu den trockenen Zutaten und rühre mit einem Löffel, bis gerade ein dicker, klumpiger Teig entsteht. Falls nötig, füge einen Teelöffel Milch hinzu, damit der Teig zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze golfballgroße Löffelportionen der Mischung auf das vorbereitete Backblech. Lasse Abstand, da die Küchlein beim Backen flacher werden und sich auf das Doppelte ausbreiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe sie 15-20 Minuten goldbraun. Nimm sie aus dem Ofen, lasse sie ein paar Minuten abkühlen und setze sie dann zum vollständigen Abkühlen auf ein Kuchengitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/tqrrsq1511723764.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/tqrrsq1511723764.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52786",
+      "slug": "tmdb-52786",
+      "title": "Rocky-Road-Fudge",
+      "instructions": "Dessert aus den Vereinigten Staaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vereinigte-staaten",
+        "dessert",
+        "schokolade",
+        "snack",
+        "süß",
+        "backen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2134,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52786/",
+      "components": [
+        {
+          "key": "ae6a9267-67a9-52e5-9d2a-237b97e3b73d",
+          "name": "Zutaten",
+          "servingGrams": 71.26,
+          "position": 0,
+          "items": [
+            {
+              "key": "46438091-92ff-5d37-861f-113b32c0044a",
+              "ingredientName": "Mini-Marshmallows",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1100a58d-e2d7-5b99-8abc-76efd5f1e71a",
+              "ingredientName": "Schokotropfen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7e4362d-b9d4-58a9-8fb3-cefd0a227c23",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd86e100-1e93-5772-8580-f5983ad607bf",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b5900b2-402f-5b04-8417-f17b9c931087",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege eine quadratische Backform von 8-inch mit Wachspapier oder Folie aus und besprühe sie mit Antihaftspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ½ cup der Mini-Marshmallows auf den Boden der ausgelegten Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Schokotropfen und Erdnussbutter in einer mikrowellengeeigneten Schüssel. Erhitze die Schokoladenmischung in Intervallen von 20 seconds und rühre dazwischen um, bis die Schokolade geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Vanilleextrakt hinzu und rühre alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle 2 tablespoons der gehackten Mandeln oder Erdnüsse beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe 1 ½ cups Mini-Marshmallows und die übrigen gehackten Nüsse unter die Schokoladenmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Schokoladenmischung in die vorbereitete Form und verstreiche sie gleichmäßig. Bestreue sie sofort mit den beiseitegestellten gehackten Nüssen und den Mallow-Stückchen oder, falls verwendet, weiteren Mini-Marshmallows.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle die Masse 4 hours in den Kühlschrank oder bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm den Fudge samt Wachspapier aus der Form. Ziehe das Wachspapier vorsichtig vollständig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schneide den Fudge in mundgerechte Stücke und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/vtxyxv1483567157.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/vtxyxv1483567157.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

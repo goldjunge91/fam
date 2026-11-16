@@ -1,0 +1,1129 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-turkey-biscuit-stew",
+      "slug": "toh-turkey-biscuit-stew",
+      "title": "Putenragout mit Buttermilchbrötchen",
+      "instructions": "Ein herzhaftes Wohlfühlgericht aus einer Pfanne: zartes Putenfleisch, süße Erbsen und Karotten köcheln in cremiger Brühe. Goldbraune, blättrige Buttermilchbrötchen werden direkt obenauf gebacken. So wird aus übrig gebliebenem Truthahn ganz einfach ein neues, sättigendes Abendessen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/turkey-biscuit-stew/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Braten-Truthahn oder fertiges Grillhähnchen statt frisches Fleisch zu kaufen. So sparst du viel Geld.",
+        "Ersetze Karotten aus der Dose und den Teig aus der Rolle durch ganze Karotten und einen schnell angerührten Teig für Löffelbrötchen, um noch mehr zu sparen.",
+        "Tiefgekühlte Erbsen sind günstiger als frische oder solche aus der Dose und schmecken nach dem Köcheln genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-breast",
+          "swap": "Gezupftes Grillhähnchen oder übrig gebliebenes Hähnchen",
+          "savings": "Oft günstiger pro Pfund und ohne Vorbereitung"
+        },
+        {
+          "forIngredientId": "two-percent-milk",
+          "swap": "Vollmilch oder ein Schuss Sahne, mit Wasser verdünnt",
+          "savings": "Verwende, was bereits im Kühlschrank ist"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Brühwürfel, in Wasser aufgelöst",
+          "savings": "Ein paar Cent pro Tasse gegenüber Brühe aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Wohlfühlessen",
+        "übrig gebliebener Truthahn",
+        "aus einer Pfanne",
+        "Auflauf",
+        "Abendessen unter der Woche",
+        "Buttermilchbrötchen",
+        "Herbst",
+        "Winter"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 520,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-turkey-biscuit-stew/",
+      "components": [
+        {
+          "key": "e0412359-7e17-5b5e-a0ed-90ad35c3b4db",
+          "name": "Zutaten",
+          "servingGrams": 290.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "e4eb3171-d72c-5195-a98b-8ee59a66b69b",
+              "ingredientName": "Zwiebel",
+              "grams": 49.5,
+              "quantity": 0.33,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "0de9f079-82fb-5f02-976b-fafaa34c5597",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "45b55f2a-6ba2-5422-b1b0-69eede8d9160",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Weizen-"
+            },
+            {
+              "key": "68ca73d9-726d-5860-94c4-f989378d0e2c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97c3ae97-b041-54d9-a782-79fdefab5c76",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49d88b98-45c7-5e49-85d1-60752bb79ecd",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 312,
+              "quantity": 312,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "konzentriert, unverdünnt"
+            },
+            {
+              "key": "a919d939-2f6d-5d85-81ad-159b801e46bc",
+              "ingredientName": "Milch mit 2 % Fett",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1017591c-6d48-5f99-bace-e67047e708ff",
+              "ingredientName": "Putenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "gewürfelt, gekocht"
+            },
+            {
+              "key": "efcbf24d-3796-56b5-ab36-41855a7e5db7",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gekocht"
+            },
+            {
+              "key": "cb57d80d-3e89-587e-b810-85b051df2f97",
+              "ingredientName": "Karotten (in Scheiben, aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "gekocht ganz Babykarotten"
+            },
+            {
+              "key": "672f5454-9d0c-55be-81a2-bcb5a8139fd3",
+              "ingredientName": "Gekühlter Brötchenteig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "groß gekühlt buttermilk Brötchen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375 Grad F vor. Schmelze die Butter in einer ofenfesten oder gusseisernen 10-Zoll-Pfanne und gare die gehackte Zwiebel, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streue Mehl, Salz und Pfeffer darüber und rühre, bis die Mischung glatt ist und eine Paste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe und Milch langsam unter Rühren dazu. Bringe alles zum Kochen und gare es etwa 2 Minuten, bis die Sauce dick und blubbernd ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gegarten Truthahn, Erbsen und Karotten ein, bis alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile die Brötchen und lege sie auf den Eintopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe das Gericht 20 bis 25 Minuten, bis die Brötchen aufgegangen und goldbraun sind. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps753_MRR143297D08_12_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/turkey-biscuit-stew/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Putenragout mit Buttermilchbrötchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-turkey-gyros",
+      "slug": "toh-turkey-gyros",
+      "title": "Puten-Gyros",
+      "instructions": "Mageres Putenfleisch wird mit griechischer Gewürzmischung kurz angebraten und dann mit knackigem Salat, saftiger Tomate und kühler, cremiger Gurken-Dill-Sauce in warmes Pitabrot gefüllt. Eine schnelle, frische Variante eines mediterranen Klassikers für den Abend unter der Woche. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/turkey-gyros/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine ganze Putenbrust, schneide selbst Filetstreifen daraus und friere Portionen für spätere Mahlzeiten ein. So sinken die Kosten pro Portion.",
+        "Ersetze frischen Dill durch den günstigeren getrockneten Dill aus dem Vorratsschrank oder saure Sahne durch griechischen Joghurt für eine preiswerte Sauce mit mehr Eiweiß.",
+        "Verwende eine Gurke für Sauce und Belag, damit nichts übrig bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Naturjoghurt nach griechischer Art, esslöffelweise anstelle saurer Sahne, für eine säuerlichere Tzatziki-Sauce mit mehr Eiweiß",
+          "savings": "ungefähr gleiche Kosten, mehr Eiweiß"
+        },
+        {
+          "forIngredientId": "turkey-breast",
+          "swap": "Streifen aus Hähnchenbrust ohne Knochen und Haut",
+          "savings": "oft günstiger pro Pfund"
+        },
+        {
+          "forIngredientId": "pita",
+          "swap": "Weizentortillas oder Naanbrot als Wrap",
+          "savings": "Verwende, was vorrätig ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Gyros",
+        "Pute",
+        "mediterran",
+        "schnell",
+        "Abendessen unter der Woche",
+        "Pitabrot",
+        "Tzatziki"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 521,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-turkey-gyros/",
+      "components": [
+        {
+          "key": "c854626c-a5a7-5894-811c-4c6412747b9c",
+          "name": "Zutaten",
+          "servingGrams": 321.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f754af1-2b92-505e-baeb-bdb90826cc25",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "geschält; ein Drittel fein gehackt für die Sauce, der Rest in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "1f6ced31-930d-594a-9fbf-b3810b3067d2",
+              "ingredientName": "Saure Sahne",
+              "grams": 165,
+              "quantity": 165,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "fettreduziert, etwa 2/3 Tasse"
+            },
+            {
+              "key": "fdd852a9-7dc1-5985-ba5b-c96f2160e520",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gehackt, etwa 1/4 Tasse"
+            },
+            {
+              "key": "bc3b0254-38db-5ddd-9808-68e05f12e3cd",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Dill"
+            },
+            {
+              "key": "bcc7e07a-6800-5e40-bed9-6a1ef4e3ea76",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 10.5,
+              "quantity": 10.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2 Teelöffel"
+            },
+            {
+              "key": "63742a86-b77a-5f7d-bd41-90c7072d8f9a",
+              "ingredientName": "Olivenöl",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1 Teelöffel zum Anbraten"
+            },
+            {
+              "key": "79bca61f-9f5a-535d-9c13-a2b17cc1b6ff",
+              "ingredientName": "Putenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "Filet in 1/4-Zoll-Streifen geschnitten"
+            },
+            {
+              "key": "312c727e-ed47-5e90-8c94-132f61dd60ad",
+              "ingredientName": "Griechische Gewürzmischung",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Salz-free"
+            },
+            {
+              "key": "0aa7e135-9cdf-522c-9db9-168318e09a82",
+              "ingredientName": "Salat",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "gerieben, etwa 1 1/2 Tassen"
+            },
+            {
+              "key": "ac3fdd93-b3e8-573c-b32a-bcab60a01a10",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten, etwa 8 slices"
+            },
+            {
+              "key": "7d7c8591-f291-5afe-b73c-4ec6e99c1f75",
+              "ingredientName": "Pitabrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "erwärmt"
+            },
+            {
+              "key": "480d6468-0c0a-588b-8c56-b2586554764c",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zerbröselt, etwa 2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Gurke. Hacke etwa ein Drittel fein und schneide den Rest in dünne Scheiben. Stelle die Scheiben zum Servieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Sauce saure Sahne, gehackte Zwiebel, Dill, Zitronensaft und die fein gehackte Gurke verrühren. Bis zum Servieren kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer beschichteten Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Putenstreifen dazu und brate sie 4 bis 6 Minuten, bis sie gar und nicht mehr rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue die griechische Gewürzmischung darüber und wende die Putenstreifen, bis sie gleichmäßig gewürzt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme die Pitabrote und belege jedes mit Pute, fein geschnittenem Salat, Tomatenscheiben und den beiseitegestellten Gurkenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löffle die Gurken-Dill-Sauce darüber und gib zum Schluss zerbröselten Feta dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Turkey-Gyros_exps20640_SD2847494D02_13_2bC_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/turkey-gyros/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Puten-Gyros",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-turkey-taco-salad",
+      "slug": "toh-turkey-taco-salad",
+      "title": "Taco-Salat mit Putenhack",
+      "instructions": "Eine leichtere Variante für den Taco-Abend: Mageres Putenhack köchelt mit Paprika, Zwiebel, Knoblauch, Salsa und Kidneybohnen. Serviert wird es auf knackigem Römersalat mit frischem Koriander. Schnell, eiweißreich und ganz einfach mit deinen Lieblingszutaten abzuwandeln. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/turkey-taco-salad/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine größere Packung Putenhack und friere die Hälfte ein. So sinken die Kosten pro Portion deutlich gegenüber kleinen Packungen.",
+        "Verwende die günstigste Paprika im Angebot. Die Farbe verändert den Geschmack hier kaum.",
+        "Lass die teureren optionalen Toppings weg und verwende mehr Salsa und Bohnen, die dem Gericht bereits viel Geschmack geben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Mageres Rinderhack oder Hähnchenhack",
+          "savings": "Hähnchenhackfleisch ist oft günstiger als Putenhackfleisch"
+        },
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Schwarze Bohnen oder Pintobohnen",
+          "savings": "Ungefähr gleicher Preis; verwende, was im Vorratsschrank ist"
+        },
+        {
+          "forIngredientId": "romaine",
+          "swap": "Ein ganzer Kopf grüner Blattsalat oder Eisbergsalat",
+          "savings": "Ein ganzer Kohlkopf kann $1-2 günstiger sein als abgepackter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch-amerikanisch",
+        "Taco-Salat",
+        "Putenhack",
+        "Abendessen unter der Woche",
+        "Tex-Mex",
+        "30-Minuten-Gericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 522,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-turkey-taco-salad/",
+      "components": [
+        {
+          "key": "7118ff73-b763-5372-b5be-e971b62d1108",
+          "name": "Zutaten",
+          "servingGrams": 461.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae288255-37b1-5f91-bc31-04da8c870b63",
+              "ingredientName": "Putenhack",
+              "grams": 250,
+              "quantity": 2.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52b88529-c5c3-5d0e-9cde-4f1058c4d4a5",
+              "ingredientName": "Rote Paprika",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "4f7c8530-ea25-51be-a9a0-6095cee05660",
+              "ingredientName": "Gelbe Paprika",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "klein, gehackt"
+            },
+            {
+              "key": "06edc6c5-494f-55b9-8c33-3de06b8bac8a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gehackt, etwa 1/3 Tasse"
+            },
+            {
+              "key": "de3e40bc-4af0-52d7-b257-ba716353b63c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "22ef8893-0702-56c8-83ad-c37de1a0091e",
+              "ingredientName": "Salsa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c5d9b63-8779-5dbd-ab08-204075a4bb82",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 132,
+              "quantity": 0.33,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "abgespült und abgetropft, etwa 1/2 Tasse"
+            },
+            {
+              "key": "206d7ff0-d5e6-5d02-a8f3-1be98efff98b",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d0abbf7-81dd-5da1-838f-bb7c6a322e60",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bad5dea0-1f00-5b52-9aa3-369e9f4b45ad",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "zerrissen, etwa 8 Tassen"
+            },
+            {
+              "key": "6743f380-ee72-59c0-853d-2c6a39d3cbe5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "frische Blätter, zum Garnieren"
+            },
+            {
+              "key": "7f3d7aad-d880-510a-be64-5c1619d5a81d",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "gehackt, optionale Garnitur"
+            },
+            {
+              "key": "07e22a27-1bf1-5061-8f34-bde8a7b86592",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "optionale Garnitur"
+            },
+            {
+              "key": "b6a843f9-788b-51ff-ac39-efd22ca1d1e4",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 13,
+              "optional": true,
+              "source_note": "zerstoßen, optionale Garnitur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große Pfanne bei mittlerer Hitze. Gib Putenhack, rote und gelbe Paprika, Zwiebel und Knoblauch hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare alles 6-8 Minuten und zerteile dabei das Putenhack, bis es nicht mehr rosa und das Gemüse weich ist. Gieße überschüssige Flüssigkeit ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Salsa, Kidneybohnen, Chilipulver und Kreuzkümmel ein. Erhitze alles, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den zerrissenen Römersalat auf vier Tellern und gib die warme Putenmischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue den Salat mit frischem Koriander und gib nach Wunsch gehackte Tomate, geriebenen Cheddar oder zerstoßene Tortillachips darüber. Warm sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Turkey-Taco-Salad_exps167536_SD2847494D02_15_5bC_RMS-2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/turkey-taco-salad/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Taco-Salat mit Putenhack",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-zippy-breaded-pork-chops",
+      "slug": "toh-zippy-breaded-pork-chops",
+      "title": "Knusprig panierte Schweinekoteletts",
+      "instructions": "Saftige Schweinekoteletts mit Knochen werden in würziges Ranch-Dressing getaucht und mit einer knusprigen Käsebröselkruste überzogen. Im Ofen backen sie ganz ohne Aufwand goldbraun und zart. Ein Abendessen unter der Woche mit ordentlich Knusper und kaum Abwasch. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/zippy-breaded-pork-chops/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Familienpackung Schweinekoteletts mit Knochen und friere sie paarweise ein. So sinken die Kosten pro Kotelett.",
+        "Bereite gewürzte Brösel selbst aus altbackenem Brot und getrockneten Kräutern zu, statt eine Packung zu kaufen.",
+        "Verdünne das Ranch-Dressing mit einem Schuss Milch, damit eine kleine Menge für alle sechs Koteletts reicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ranch",
+          "swap": "Verquirltes Ei mit einem Teelöffel Ranch-Gewürzmischung für denselben würzigen Geschmack zu geringeren Kosten",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Panko für eine noch knusprigere Kruste",
+          "savings": "etwa gleich"
+        },
+        {
+          "forIngredientId": "pork-chop",
+          "swap": "Schweineschnitzel ohne Knochen; verkürze die Backzeit um einige Minuten",
+          "savings": "~$0.50 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Schweinefleisch",
+        "paniert",
+        "gebacken",
+        "Abendessen unter der Woche",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 523,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-zippy-breaded-pork-chops/",
+      "components": [
+        {
+          "key": "37307d86-2b8c-50d3-a0f0-c2145602f587",
+          "name": "Zutaten",
+          "servingGrams": 158.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "538642c9-ff7d-5f39-b134-fb7d114b63f8",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 79.5,
+              "quantity": 79.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/3 Tasse zum Dippen"
+            },
+            {
+              "key": "d9ce5857-7644-53f6-a4b4-d0a4ddd86589",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gewürzt"
+            },
+            {
+              "key": "72a0eb00-a976-5f9c-a921-09c90c963491",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d695f04-e3cb-5989-a5ec-f9d5df8f68a1",
+              "ingredientName": "Schweinekotelett",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "mit Knochen, etwa 8 Unzen je Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425 F vor und setze einen Rost in ein ungefettetes, tiefes Backblech mit Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße das Ranch-Dressing in eine flache Schüssel. Vermenge in einer zweiten flachen Schüssel die gewürzten Semmelbrösel mit dem geriebenen Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauche jedes Schweinekotelett in das Ranch-Dressing und drücke es dann auf beiden Seiten fest in die Bröselmischung, damit die Panade haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die panierten Koteletts nebeneinander auf den Rost.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie 15 bis 20 Minuten, bis die Kruste goldbraun ist und die Kerntemperatur 145 F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Koteletts vor dem Servieren 5 Minuten ruhen, damit sich der Fleischsaft verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Zippy-Breaded-Pork-Chops_exps2247_5ING133188C04_18_1bC_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/zippy-breaded-pork-chops/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprig panierten Schweinekoteletts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-tuna-rice-bowl",
+      "slug": "mw-tuna-rice-bowl",
+      "title": "Mikrowellen-Reisschüssel mit Thunfisch",
+      "instructions": "Warmer Reis, mit Mayonnaise vermischter Thunfisch und ein Schuss Soja-Sriracha-Sauce: eine Poke-Bowl fürs Wohnheim, für die du nur eine Schüssel und eine Gabel brauchst.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 2,
+      "storageInstructions": "Am besten frisch servieren; die Thunfischmischung hält sich 1 Tag im Kühlschrank.",
+      "reheatingInstructions": "Erhitze den Reis mit einem Schuss Wasser 45 Sekunden in der Mikrowelle. Gib den Thunfisch erst danach dazu.",
+      "cheapTips": [
+        "Kaufe Thunfisch im 4er-Pack, wenn er im Angebot ist.",
+        "Verwende Reisbecher für die Mikrowelle, wenn keine Reisreste da sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs oder Hähnchen aus der Dose",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Dose Thunfisch für $1.20 und Reis für $0.18 ergeben zusammen eine Mahlzeit mit 28 g Eiweiß für weniger als $1.80.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "5-Minuten-Gericht"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 524,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-tuna-rice-bowl/",
+      "components": [
+        {
+          "key": "35104b9c-5294-5b1b-a992-25637db964f3",
+          "name": "Zutaten",
+          "servingGrams": 747.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1f1a4d65-c0e9-52d1-b9ac-ab31ee217ece",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d0153d1-4999-512d-b171-ed53376c043c",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35d92f4c-f1bf-5065-872b-1128c8d1c718",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "018090b6-457c-5dd0-8803-a6ab3e3ade8d",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8820a06-bc35-58bb-a00a-e5563df1f9ad",
+              "ingredientName": "Sriracha",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5b22c566-2cf3-5fdc-aaf2-d20f98436bd2",
+              "ingredientName": "Gurke",
+              "grams": 75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib den Reis in eine mikrowellengeeignete Schüssel, streue 1 TL Wasser darüber und decke die Schüssel locker ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze ihn 90 Sekunden in der Mikrowelle, bis er dampfend heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den Thunfisch abtropfen und zerdrücke ihn in einem separaten Becher mit Mayonnaise und Sriracha.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Thunfisch auf den Reis und beträufle ihn mit Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib nach Wunsch gewürfelte Gurke darauf und iss das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1622756144420-6877b1b7476e?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1622756144420-6877b1b7476e",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Reisschüssel mit Thunfisch",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

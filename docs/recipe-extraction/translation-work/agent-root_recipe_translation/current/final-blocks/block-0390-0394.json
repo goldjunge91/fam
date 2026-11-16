@@ -1,0 +1,1421 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-mango-salad-with-sweet-chilli-lime-dressing",
+      "slug": "she-mango-salad-with-sweet-chilli-lime-dressing",
+      "title": "Mangosalat mit süßem Chili-Limetten-Dressing",
+      "instructions": "Saftige, reife Mango, cremige Avocado und knackige Erdnüsse werden mit einem spritzigen süßen Chili-Limetten-Dressing vermischt. Ein frischer, bunter Salat, der in 15 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/mango-salad-with-sweet-chilli-lime-dressing/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende leicht feste Mangos aus der Saison vom Markt. Sie sind am günstigsten und lassen sich am einfachsten würfeln.",
+        "Ersetze frische Limette durch einen Schuss Limettensaft aus der Flasche, wenn Limetten teuer sind.",
+        "Ahornsirup hält das Rezept vollständig vegan und ist löffelweise oft günstiger als Honig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup für eine vegane Variante",
+          "savings": "vergleichbar"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari für eine glutenfreie Variante",
+          "savings": "vergleichbar"
+        },
+        {
+          "forIngredientId": "peanuts",
+          "swap": "Geröstete Cashews oder Sonnenblumenkerne",
+          "savings": "similar or günstiger mit seeds"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch inspiriert",
+        "Salat",
+        "Mango",
+        "vegan",
+        "ohne Kochen",
+        "Sommer",
+        "schnell",
+        "frisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 390,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-mango-salad-with-sweet-chilli-lime-dressing/",
+      "components": [
+        {
+          "key": "4b78cd87-8806-5136-a00e-7c8c9308424e",
+          "name": "Zutaten",
+          "servingGrams": 326.86,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0d039cf-4be2-5d67-b528-6163e8585267",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "947476fe-771b-5708-978e-c41493910a8f",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL Weizen- Sojasauce oder tamari"
+            },
+            {
+              "key": "3997b5f6-d665-5447-b25e-07044d918165",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 limes, ausgepresst"
+            },
+            {
+              "key": "67974407-d2c0-54e0-9ec4-eedfffbe2653",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8389e125-2df7-5abe-90f7-f119c7c3505e",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL honey oder maple syrup"
+            },
+            {
+              "key": "1067b547-5b0b-5b14-9a87-885f5f90e64f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL frisch gerieben ginger"
+            },
+            {
+              "key": "9587144a-3e05-52fd-9013-705ada47f947",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "Meersalzflocken, nach Geschmack"
+            },
+            {
+              "key": "0a383350-f4e3-5e1f-b231-12eb375f6c4d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "frisch gemahlen schwarzer Pfeffer, nach Geschmack"
+            },
+            {
+              "key": "489f9d51-0bf4-5af8-ba09-ac337c3886e5",
+              "ingredientName": "Mango",
+              "grams": 400,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 ripe mangoes, geschält und gewürfelt"
+            },
+            {
+              "key": "e5ee9278-c725-5d7c-bc41-28a64b518d5f",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 avocado, geschält, pitted und gewürfelt"
+            },
+            {
+              "key": "da6a9b79-6145-5718-a4f4-25657bc78c86",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 klein red onion, fein geschnitten"
+            },
+            {
+              "key": "b1cc5019-e0c8-59a6-83d6-e03087b95112",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 klein cucumber, halbiert und in Scheiben geschnitten"
+            },
+            {
+              "key": "d8f34ce5-887b-5717-9a89-bc921a42e11a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "30g coriander (cilantro) Blätter, roughly gehackt"
+            },
+            {
+              "key": "495cacab-d252-51c1-93dd-926a75de8cb0",
+              "ingredientName": "Erdnüsse",
+              "grams": 39.69,
+              "quantity": 39.69,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "40g zerstoßen peanuts"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dressing zubereiten: Verrühre süße Chilisauce, Sojasauce oder Tamari, Limettensaft, Olivenöl, Honig und geriebenen Ingwer in einer kleinen Schüssel gründlich miteinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmecke das Dressing mit Meersalzflocken und frisch gemahlenem schwarzem Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle und würfle Mango und Avocado, schneide die rote Zwiebel in feine Scheiben und halbiere die Gurke, bevor du sie in Scheiben schneidest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Mango, Gurke, Avocado, rote Zwiebel und gehackten Koriander in dieser Reihenfolge in eine flache Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Träufle das süße Chili-Limetten-Dressing über den Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue den Salat mit den zerstoßenen Erdnüssen und vermische alles kurz vor dem Servieren vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/12/Mango-Salad-with-Sweet-Chilli-Lime-Dressing-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/mango-salad-with-sweet-chilli-lime-dressing/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Mangosalat mit süßem Chili-Limetten-Dressing",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-maple-kale-salad-with-cranberries-and-blue-cheese",
+      "slug": "she-maple-kale-salad-with-cranberries-and-blue-cheese",
+      "title": "Grünkohlsalat mit Ahornsirup, Cranberrys und Blauschimmelkäse",
+      "instructions": "Einmassierter Grünkohl mit süß-säuerlichem Ahornsirup-Dijon-Dressing, dazu knackiger Apfel, zähe Cranberrys, geröstete Pekannüsse und würziger Blauschimmelkäse. Ein frischer, sättigender Salat, der schön knackig bleibt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/maple-kale-salad-with-cranberries-and-blue-cheese/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen ganzen Bund krausen Grünkohl und entferne die Stiele selbst, statt fertig gehackten Grünkohl im Beutel zu kaufen. Das ist viel günstiger.",
+        "Röste rohe Pekannüsse ein paar Minuten in einer trockenen Pfanne, statt bereits geröstete Nüsse zu kaufen.",
+        "Feta passt genauso gut wie Blauschimmelkäse und ist pro Unze meist günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blue-cheese",
+          "swap": "Feta oder Ziegenkäse",
+          "savings": "feta is oft günstiger und milder"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Geröstete Walnüsse oder Sonnenblumenkerne",
+          "savings": "walnuts/seeds Kosten weniger than pecans"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig",
+          "savings": "verwenden Vorhundenes vorrätig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Salat",
+        "Grünkohl",
+        "vegetarisch",
+        "ohne Kochen",
+        "Herbst",
+        "Ahornsirup",
+        "Cranberry",
+        "Blauschimmelkäse",
+        "Beilage",
+        "gesund"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 391,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-maple-kale-salad-with-cranberries-and-blue-cheese/",
+      "components": [
+        {
+          "key": "195b9503-f27e-5982-b067-3516f476e46e",
+          "name": "Zutaten",
+          "servingGrams": 524.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "647883f2-8afc-5b3e-a116-f7eea4127d98",
+              "ingredientName": "Grünkohl",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 groß bunch, about 6 Tassen, stems removed, fein gehackt"
+            },
+            {
+              "key": "4e4ea4ec-85f9-583b-8876-674e081dfed8",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroß pink lady apple, unpeeled, fein geschnitten"
+            },
+            {
+              "key": "c9fd823c-57dc-5661-9cd2-24786cb93820",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 klein red onion, fein geschnitten"
+            },
+            {
+              "key": "0a9a8b8e-1cd7-50a9-a39f-a05b58a6269c",
+              "ingredientName": "Getrocknete Cranberrys",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "85g getrocknete Cranberrys (Craisins)"
+            },
+            {
+              "key": "1ff81fdc-0260-58e3-9959-5eb4cfab3a67",
+              "ingredientName": "Pekannüsse",
+              "grams": 49.61,
+              "quantity": 49.61,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "50g geröstet pecans, roughly gehackt"
+            },
+            {
+              "key": "bf0d2c13-e2fe-54fa-a606-1c46fdb914cb",
+              "ingredientName": "Blauschimmelkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "75g Blauschimmelkäse, zerbröselt"
+            },
+            {
+              "key": "4c4f1996-bc14-59d0-994c-91d88517462c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0da59e92-4cdc-55fc-be64-3e292bb848d9",
+              "ingredientName": "Ahornsirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3b9296ce-7513-5b2a-a362-151b127367be",
+              "ingredientName": "Dijon-Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL dijon mustard"
+            },
+            {
+              "key": "2e59cf7f-6773-577e-a2ee-061aadde8c26",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "65907fdb-f4e5-5487-bc76-e41644188f04",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "20880f91-5df0-50e2-a77f-f3733aef17b0",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "Meersalzflocken, nach Geschmack"
+            },
+            {
+              "key": "c71bf717-d6f4-586e-937d-7c43260e67ed",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dressing zubereiten: Verrühre Olivenöl, Ahornsirup, Dijon-Senf, Apfelessig und Knoblauchpulver in einer kleinen Schüssel oder einem Glas. Schmecke es mit Salz und schwarzem Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den gehackten Grünkohl in eine große Schüssel und gieße die Hälfte des Dressings darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Massiere das Dressing 1-2 Minuten mit den Händen in den Grünkohl ein, bis die Blätter weicher werden und an Volumen verlieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Apfelscheiben, rote Zwiebel, getrocknete Cranberrys, geröstete Pekannüsse und zerbröselten Blauschimmelkäse zum Grünkohl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Träufle das restliche Dressing darüber und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren oder bis zu 4 Stunden im Kühlschrank aufbewahren. Für die beste Konsistenz die Pekannüsse erst kurz vor dem Servieren dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/12/Maple-Kale-Salad-with-Dried-Cranberries-and-Blue-Cheese-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/maple-kale-salad-with-cranberries-and-blue-cheese/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Grünkohlsalat mit Ahornsirup, Cranberrys und Blauschimmelkäse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-mediterranean-pizza",
+      "slug": "she-mediterranean-pizza",
+      "title": "Pizza nach mediterraner Art",
+      "instructions": "Knusprige, goldbraune Pizza mit zart schmelzendem Mozzarella, würziger Salami, pikanten Kalamata-Oliven und gerösteter Paprika, verfeinert mit Knoblauchöl und frischem Basilikum. Dazu gibt es einen frischen Rucolasalat mit Balsamico. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/mediterranean-pizza/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine fertige Teigkugel und ziehe deine Pizzaböden selbst aus, statt fertige Böden zu kaufen.",
+        "Ersetze Kalamata-Oliven durch günstigere schwarze Oliven und lass das Chiliöl als Garnitur weg, um Kosten zu sparen.",
+        "Kaufe einen Mozzarellablock und reibe ihn selbst, statt für fertig geriebenen Käse mehr zu bezahlen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salami",
+          "swap": "Peperoni oder dünn geschnittener Prosciutto",
+          "savings": "Pepperoni is oft günstiger pro Unze than deli salami"
+        },
+        {
+          "forIngredientId": "kalamata-olives",
+          "swap": "Schwarze Oliven",
+          "savings": "Canned black olives Kosten about a third of a jar of kalamatas"
+        },
+        {
+          "forIngredientId": "low-moisture-mozzarella",
+          "swap": "Pizzakäsemischung",
+          "savings": "A pre-shredded blend can stretch further for weniger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "mediterran",
+        "Pizza",
+        "Salami",
+        "Oliven",
+        "schnell",
+        "unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 392,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-mediterranean-pizza/",
+      "components": [
+        {
+          "key": "b82d56d6-c717-574a-9e43-9419417069d4",
+          "name": "Zutaten",
+          "servingGrams": 602.82,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb21985f-0664-54f2-b40d-c333c07c4864",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5c241cd6-32df-5e6e-81e7-c9309db9f4cc",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pizzaböden"
+            },
+            {
+              "key": "5888cf57-be43-565e-8b05-cb2a8449bcd8",
+              "ingredientName": "Mozzarella mit geringem Wassergehalt",
+              "grams": 150.26,
+              "quantity": 150.26,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "150g frisch geraspelt mozzarella"
+            },
+            {
+              "key": "60082bc1-5515-5482-983a-dd33216d024d",
+              "ingredientName": "Salami",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "100g scharfe Salami"
+            },
+            {
+              "key": "c731a95d-f5b3-5b9b-9a89-f2ce87e42c95",
+              "ingredientName": "Champignons",
+              "grams": 168,
+              "quantity": 168,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "45g fein geschnitten mushrooms"
+            },
+            {
+              "key": "158bbf3b-54d1-5fba-813e-ee53f54aa515",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 200,
+              "quantity": 0.4,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "80g entsteinte Kalamata-Oliven"
+            },
+            {
+              "key": "6cf89ba6-4359-5edf-b295-92ce33c9c72c",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "75g geröstete Paprikastreifen"
+            },
+            {
+              "key": "66a243e7-7a80-5612-ac1f-7c2716221352",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 clove, frisch gehackt"
+            },
+            {
+              "key": "a8378465-83a8-5bef-84c3-8018c4fbe619",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL für pizza + 2 EL für salad"
+            },
+            {
+              "key": "72b665b7-9b20-5578-961b-c6f52885d475",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL für pizza + 1/2 TL für salad"
+            },
+            {
+              "key": "8a9d8346-5534-5821-83c6-7a9095fb6699",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "25g frisch basil Blätter, zum Servieren"
+            },
+            {
+              "key": "1bf9334f-a9c5-5d0a-aa42-23f6b54f55d8",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "e515ab66-4789-5ffb-8b0c-6243360a5d2c",
+              "ingredientName": "Rucola",
+              "grams": 425,
+              "quantity": 0.85,
+              "unit": "package",
+              "position": 12,
+              "optional": false,
+              "source_note": "120g rocket (arugula) Blätter"
+            },
+            {
+              "key": "46c50009-f2ad-5b6a-b3f6-c3e0c82ceb0c",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 EL balsamic vinegar"
+            },
+            {
+              "key": "0abdd869-a2db-507e-a22d-159ffc6966bd",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen schwarzer Pfeffer"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 220C (425F) vor und lege zwei Backbleche mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile das Tomatenmark gleichmäßig auf beiden Pizzaböden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue zwei Drittel des Mozzarellas darüber, belege die Pizzen dann mit Salami, Champignons, Kalamata-Oliven und Streifen gerösteter Paprika. Verteile den restlichen Käse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre gehackten Knoblauch, 3 EL Olivenöl und 1 TL Meersalzflocken in einer kleinen Schüssel. Träufle die Mischung über die Pizzen und bestreiche die Ränder mit dem restlichen Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Pizzen etwa 12 Minuten, bis die Böden knusprig und goldbraun sind. Stelle ein Blech auf die obere und eines auf die untere Schiene und tausche sie nach der Hälfte der Backzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bereite währenddessen den Salat zu: Vermenge den Rucola mit den restlichen 2 EL Olivenöl, Balsamico-Essig, 1/2 TL Meersalzflocken und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Pizzen mit frischen Basilikumblättern und nach Wunsch etwas Chiliöl, dazu den Rucolasalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/12/Mediterranean-Pizza.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/mediterranean-pizza/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Pizza nach mediterraner Art",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-nasi-goreng",
+      "slug": "she-nasi-goreng",
+      "title": "Nasi Goreng (indonesischer Bratreis)",
+      "instructions": "Rauchig-süßer indonesischer Bratreis mit zartem, in Sojasauce glasiertem Hähnchen, Knoblauch und Zwiebel, gekrönt von einem Spiegelei mit flüssigem Eigelb und knusprigen Schalotten. Ein schnelles, herzhaftes Pfannengericht für den Abend unter der Woche. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/nasi-goreng/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Reis vom Vortag. Er brät trockener und günstiger als frisch gekochter Reis und die Körner bleiben voneinander getrennt.",
+        "Hähnchenoberkeulen können die Brust ersetzen und sind günstiger und saftiger.",
+        "Lass die optionalen Garnituren wie Schalotten, Sambal, Gurke und Tomate weg. So sparst du, ohne das Grundgericht zu verändern."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen",
+          "savings": "ca. $0.20/Portion und stays juicier"
+        },
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Süße Sojasauce (Kecap manis) für eine authentischere süß-herzhafte Glasur",
+          "savings": "vergleichbar Kosten"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Reiskleieöl als neutrales Öl zum Braten bei hoher Hitze",
+          "savings": "ca. $0.11/EL günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "indonesisch",
+        "Bratreis",
+        "aus einer Pfanne",
+        "Hähnchen",
+        "unter der Woche",
+        "schnell",
+        "Reis",
+        "Ei"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 393,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-nasi-goreng/",
+      "components": [
+        {
+          "key": "5dc5bafb-e4f5-5f19-a051-e36eebafeaa6",
+          "name": "Zutaten",
+          "servingGrams": 567.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee404798-425f-5c33-9a1e-405faae38c0d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "500g, fein geschnitten"
+            },
+            {
+              "key": "df4ee412-924a-593b-832c-8b5cea19592f",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL für marinade + 1 EL zum Schluss"
+            },
+            {
+              "key": "409d89ef-8a79-5e3d-8ca7-2ad94205f11e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d2b648ff-0687-593e-8e32-eac47b4a6480",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "c1ebd518-e25d-559c-9e9f-77310f61c113",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "49364e8a-da04-5759-8295-b8f1857b9a05",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9be4d66e-7181-569d-b86d-ddb027ae4842",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL Weizen- Sojasauce"
+            },
+            {
+              "key": "eeb7ccb7-991a-5204-8317-642ab7fa3faf",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "740g gegart rice, ~4 Tassen"
+            },
+            {
+              "key": "f1410543-6d4b-562e-86d6-d29334c34dff",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "fried, zum Servieren"
+            },
+            {
+              "key": "3d1339bb-4e42-505b-8f47-9a16230aa123",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "crispy fried, zum Servieren"
+            },
+            {
+              "key": "b9de5a71-bfae-51a2-aaa1-ee14013e45e2",
+              "ingredientName": "Sambal Oelek",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "49b8021a-fe03-5b59-bc37-c4e0f7b3dbea",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Servieren"
+            },
+            {
+              "key": "8ea4a577-264b-53bb-9766-44aaadbd2f74",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wende das geschnittene Hähnchen in einer mittelgroßen Schüssel mit 1 EL dunkler Sojasauce und stelle es zum Marinieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine große, schwere Pfanne bei mittlerer bis hoher Hitze. Gib Olivenöl, Zwiebel und Knoblauch dazu und brate alles 1-2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das marinierte Hähnchen dazu und brate es unter Rühren 3-4 Minuten, bis es gerade gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre braunen Zucker und normale Sojasauce ein. Koche alles etwa 30 Sekunden, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den gekochten Reis dazu und rühre, bis alles gleichmäßig vermischt und erhitzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die restlichen 1 EL dunkle Sojasauce unter, sodass der Reis gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den Reis auf Schüsseln und gib auf jede Portion ein Spiegelei, knusprige Röstschalotten und nach Wunsch Sambal Oelek.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere dazu Gurken- und Tomatenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/03/Nasi-Goreng-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/nasi-goreng/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Nasi Goreng (indonesischem Bratreis)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-not-spicy-not-vodka-pasta",
+      "slug": "she-not-spicy-not-vodka-pasta",
+      "title": "Pasta ohne Schärfe und Wodka",
+      "instructions": "Eine samtige, cremige Tomatenpasta mit dem reichhaltigen Wohlfühlgeschmack einer Wodka-Pasta, aber ohne Wodka und Schärfe. Frische Burrata und Basilikum runden sie ab. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/not-spicy-not-vodka-pasta/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Burrata durch einen Löffel frischen Ricotta oder gezupften frischen Mozzarella. So bleibt das Gericht cremig und kostet weniger.",
+        "Verwende beliebige kurze Pasta, die du schon zu Hause hast, zum Beispiel Penne oder Rigatoni, statt Trottole zu kaufen.",
+        "Kaufe Tomatenmark in der Tube oder Dose mit doppelter Konzentration. Es ist günstiger als Tomatensoße im Glas und reicht für viele Mahlzeiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "burrata",
+          "swap": "Frischer Mozzarella oder ein Löffel Ricotta",
+          "savings": "ca. $5 vs burrata"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Doppelrahm oder Kaffeesahne für eine leichtere Soße"
+        },
+        {
+          "forIngredientId": "grated-parmesan",
+          "swap": "Geriebener Parmesan oder Grana Padano"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Pasta",
+        "cremig",
+        "Tomate",
+        "vegetarisch",
+        "unter der Woche",
+        "Burrata",
+        "Wohlfühlessen",
+        "ohne Wodka"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 394,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-not-spicy-not-vodka-pasta/",
+      "components": [
+        {
+          "key": "0f9cc859-dbc7-50ea-acc3-1dc8cb007c1e",
+          "name": "Zutaten",
+          "servingGrams": 402.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bd44d77-72ca-529d-8385-3231bdd43c91",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "400 g dried trottole (oder rigatoni/penne/short pasta)"
+            },
+            {
+              "key": "0f3aa589-64f3-5d14-82f0-1d24446be8f7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c4022dc6-8533-586c-86bd-acf0c6aa2f37",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "60 g"
+            },
+            {
+              "key": "094169f1-38c8-562a-95da-4e6ae27c3e7d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, fein gewürfelt"
+            },
+            {
+              "key": "37beee87-105e-5113-94a7-b4a37a1b62e5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt"
+            },
+            {
+              "key": "88727bdf-2c3c-51b6-bb45-4944ff47638b",
+              "ingredientName": "Tomatenmark",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "140 g doppelt konzentriertes Tomatenmark"
+            },
+            {
+              "key": "3756c96e-455f-52c9-92cc-1b5a95bc495f",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "28006168-e7ff-5092-81b1-91d6c6e593b9",
+              "ingredientName": "Schlagsahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "375 ml Schlagsahne"
+            },
+            {
+              "key": "ae6e83b4-2d0c-5d31-a25a-9fc1a8910607",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "75 g fein gerieben, plus extra zum Servieren"
+            },
+            {
+              "key": "73f9783b-1569-5bb8-8026-2305adabee1b",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "29185652-6019-5a70-838d-72ef4fb0f988",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "7c93952b-1ca4-5266-8d71-300bc7e3cd0f",
+              "ingredientName": "Burrata",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 burrata, halbiert"
+            },
+            {
+              "key": "d6777269-8ec2-54c5-939b-82d9b22c16e7",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "basil Blätter, zum Servieren"
+            },
+            {
+              "key": "01d2505a-d2b3-5b6b-9cd3-6f3cf7e5c89a",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf mit reichlich gesalzenem Wasser zum Kochen. Koche die Pasta 1 Minute kürzer als auf der Packung angegeben, da sie in der Soße fertig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schöpfe vor dem Abgießen etwa 125 ml (1/2 Tasse) Nudelkochwasser ab und gieße die Pasta dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen Olivenöl und Butter in einer großen, tiefen, schweren Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die rote Zwiebel dazu und brate sie 3-4 Minuten, bis sie sehr weich und leicht karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Knoblauch dazu und brate ihn unter Rühren etwa 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Tomatenmark dazu und brate es unter Rühren 1-2 Minuten, bis das Öl aufgenommen ist und das Tomatenmark dunkler wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den Rotweinessig dazu und koche alles unter Rühren 1-2 Minuten, bis der Essig verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle die Hitze niedrig. Rühre die Sahne ein und lasse die Soße 3-4 Minuten köcheln, bis sie eindickt. Rühre dann Parmesan, Salz und Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib die abgetropfte Pasta dazu und wende sie vorsichtig in der Soße. Rühre die Hälfte des aufgehobenen Nudelwassers ein und gib nach Bedarf mehr dazu, bis die Soße cremig, seidig und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Verteile die Pasta auf vier Schüsseln und garniere sie mit halbierter Burrata, Basilikumblättern, nach Wunsch Chiliflocken und zusätzlichem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/11/Not-Spicy-Not-Vodka-Pasta-4.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/not-spicy-not-vodka-pasta/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Pasta ohne Schärfe und Wodka",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

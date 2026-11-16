@@ -1,0 +1,1081 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-indian-moong-dal-salad",
+      "slug": "mfr-indian-moong-dal-salad",
+      "title": "Indischer Salat mit gekeimten Mungbohnen",
+      "instructions": "Gekeimte Mungbohnen mit gewürfelter Tomate, Gurke und Zwiebel vermischen und mit einem säuerlichen Limetten-Chili-Dressing anmachen. Ein knackiger, eiweißreicher indischer Salat als leichte Mahlzeit.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weiche sie 8 Stunden ein, spüle sie zweimal täglich und lass sie 2 Tage keimen.",
+        "Mungbohnen aus der Dose funktionieren genauso gut. Suche in Asia-Läden danach."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mung-beans",
+          "swap": "Grüne Linsen aus der Dose oder Kichererbsen verwenden."
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "Zitronensaft verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-moong-dal-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Salat",
+        "Sprossen",
+        "ohne-Kochen",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1095,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-moong-dal-salad/",
+      "components": [
+        {
+          "key": "4138be3a-80af-5ffa-9f0f-0a8a588b36f5",
+          "name": "Zutaten",
+          "servingGrams": 513.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a2b2ddf-eee3-5834-9727-791760878db0",
+              "ingredientName": "Mungbohnen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e836a301-0de9-551d-aa1b-daaee493fa7b",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2dc3a6f-fd91-525f-a87d-01fb15b5d025",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05e874e5-4ce7-5278-a6b5-11a66de06045",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00a4b7bc-2e4f-5f83-b8b1-0d8a72144b9d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "832481ae-9516-5abd-8b33-152538f5c59c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2b87f04-08ab-5b28-8aca-6dc02a794cfd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a653afc-a263-5bca-b662-cecbfacee7bb",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b2c1cb0-3776-59e4-be65-bd9ed9b19a25",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle gekeimte oder gekochte Mungbohnen ab und lass sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische sie mit gewürfelter Tomate, Gurke, Zwiebel und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze den Salat mit Limette, Kreuzkümmel, Chilipulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5a45133832601e14c4a7d06e/1515120335260-0O95FFK8JF8MVMEA2IOR/IMG_9837-2-2.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5a45133832601e14c4a7d06e/1515120335260-0O95FFK8JF8MVMEA2IOR/IMG_9837-2-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-keema-pav",
+      "slug": "mfr-indian-keema-pav",
+      "title": "Indisches Keema Pav",
+      "instructions": "Gewürztes Hackfleisch-Curry (Keema) mit gebutterten Brötchen (Pav) servieren. Mumbais beliebtestes Streetfood, zu Hause in 20 Minuten zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack-Keema ist das Arbeitspferd der Dhabas in Mumbai: voller Geschmack und sehr günstig.",
+        "Erbsen im Keema sind traditionell. Ihre Süße gleicht die Schärfe aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Traditionell Lammhack oder Putenhack verwenden."
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Pitabrot, Naan oder Reis dazu servieren."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-keema-pav",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Curry",
+        "Brot",
+        "Streetfood",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1096,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-keema-pav/",
+      "components": [
+        {
+          "key": "9116e454-b35e-5977-b8dd-1cf07cc74400",
+          "name": "Zutaten",
+          "servingGrams": 454,
+          "position": 0,
+          "items": [
+            {
+              "key": "64eeba11-7084-598e-8681-06e284fe267e",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c17dc0bc-5da6-57dd-a145-ffe75812fe40",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ec8183c-7932-5296-a8d8-4d2a2c2363f3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cd407a8-8edb-533d-972e-6f32fa041b0c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d60c4ade-97c3-5ad0-94b7-aa8c772c405f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6be9b7e-059e-5abc-b399-7963edaf051e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1609afa-c203-5201-9830-b7a1eb618878",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2581cbeb-6ac4-5ef9-9716-20b5da7c86f7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1277d700-417c-58b3-b17e-ba9a05163514",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc3e8f51-425a-53a5-8a0e-b0259f302d37",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c291cdc4-e6ac-5672-9fdf-a73a1a4bdec4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb3b108e-9356-5c21-9395-1d5c5b60505f",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fb163ae-12de-566a-8756-b4121479821d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2139d929-2822-5615-846f-0b9c7df51cc9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel, Knoblauch und Ingwer 5 Minuten an. Gib Gewürze dazu und röste sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge Rinderhack hinzu und gare es 5 Minuten unter Zerteilen. Gib Tomate dazu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Erbsen ein und gare sie 3 Minuten. Verfeinere das Gericht mit Zitrone und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Keema mit weichen Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.vegandietfood.com/wp-content/uploads/2023/10/Lentil-Keema-Pav-Casserole-Recipe.jpg",
+          "sourcePageUrl": "https://www.vegandietfood.com/wp-content/uploads/2023/10/Lentil-Keema-Pav-Casserole-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chinese-tomato-egg",
+      "slug": "mfr-chinese-tomato-egg",
+      "title": "Chinesische Tomaten-Ei-Pfanne",
+      "instructions": "Das chinesische Hausmannskostgericht schlechthin: reife Tomaten und weiches Rührei in einer süß-herzhaften Sauce, in 10 Minuten fertig. Oft als Einstieg in die chinesische Hausmannskost bezeichnet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tomaten und Eier kosten $1.50 an Zutaten. Das Gericht schmeckt besser, als es für diesen Preis sein dürfte.",
+        "Der Zucker macht das Rezept aus. Er gleicht die Säure der Tomaten aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tomato",
+          "swap": "Gewürfelte Tomaten aus der Dose verwenden, wenn frische Tomaten nicht reif sind."
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Honig verwenden oder für eine ausschließlich herzhafte Variante weglassen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chinese-tomato-egg",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Wokgericht",
+        "Eier",
+        "Tomate",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1097,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chinese-tomato-egg/",
+      "components": [
+        {
+          "key": "8eed5ab8-200c-5729-a544-33a840c5f96d",
+          "name": "Zutaten",
+          "servingGrams": 636.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd4b4f18-76b9-5ee6-8f2d-d122afd499f5",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8989c18b-8335-53d3-9d5d-759070e40121",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c49e4e0e-da77-54b6-b2e2-7eabd74d8bd6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df945866-a550-5f42-809d-5dbfe64d091a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "211d5de2-28f9-5ec3-879b-94884b782b34",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80af2a94-fff0-509a-ab24-f1624ee14df4",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49621819-7708-505e-b9dc-c10724031bdf",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf954ef2-7b88-5d1d-bb53-64b6f4711b98",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b068278-a129-5de9-8ebe-9b0a99e995e8",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0437232-906f-5395-bab4-cc7dda99d811",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier mit einer Prise Salz. Rühre sie in heißem Öl, bis sie gerade eben gestockt sind. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel und Tomaten 3 Minuten in derselben Pfanne an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sojasauce, Zucker und Knoblauch dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Eier zurück in die Pfanne und rühre vorsichtig um. Verfeinere das Gericht mit Sesamöl und Frühlingszwiebeln und serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/f16KxKYtlQELkf8fP4cYBoYVBTw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chinese-Tomato-Egg-LEAD-06-2-b0446e9c728445fc88059767ec1bfc25.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/f16KxKYtlQELkf8fP4cYBoYVBTw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chinese-Tomato-Egg-LEAD-06-2-b0446e9c728445fc88059767ec1bfc25.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chinese-mapo-tofu",
+      "slug": "mfr-chinese-mapo-tofu",
+      "title": "Chinesischer Mapo-Tofu",
+      "instructions": "Seidiger weicher Tofu in einer scharfen, betäubenden Sauce aus Doubanjiang, Schweinehack, Sichuanpfeffer und Knoblauch. Eines der berühmtesten Wohlfühlgerichte Chinas.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Doubanjiang-Paste ist das Herzstück des Gerichts. Kaufe ein Glas, das sich 6 Monate hält.",
+        "Seidentofu ist sehr günstig: $1.50 für 400 g, genug für 2 großzügige Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Rinderhack oder Putenhack verwenden oder für eine vegane Variante ganz weglassen."
+        },
+        {
+          "forIngredientId": "doubanjiang",
+          "swap": "Gochujang und 1 TL Miso als geschmacklich ähnliche Alternative verrühren."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chinese-mapo-tofu",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Tofu",
+        "scharf",
+        "Sichuan",
+        "Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1098,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chinese-mapo-tofu/",
+      "components": [
+        {
+          "key": "4d34b67b-5172-57cc-9321-6a34c86aebec",
+          "name": "Zutaten",
+          "servingGrams": 418.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "7aa69d7f-4903-5247-ad88-15e1dce254c1",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d641545f-eb99-50d9-9666-8fd318ccafeb",
+              "ingredientName": "Schweinehack",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "870f15b0-86b2-5359-8ec6-cd96a7f780af",
+              "ingredientName": "Doubanjiang (Chili-Bohnenpaste)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec1d14d4-011a-556c-a609-d261ce9d2f1d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "283adb0e-36bf-52a0-a1d7-a3353d035397",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff4d9fcc-3dbb-5b4c-9354-608ff3889cd6",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3776d683-99e0-5004-8648-f978d720c826",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c413b188-37b4-5a9b-9843-d85605e6d4bf",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b35cb6d3-4ac4-5413-9665-2bc8ea40a0eb",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed388e48-607e-56b5-9602-faf14314dd9b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44ec256d-4e42-5a53-a2f1-3dc950f3c4f1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Schweinehack in Öl, bis es gebräunt ist. Gib Doubanjiang, Knoblauch und Ingwer dazu und brate alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge ¾ Tasse Wasser und Sojasauce hinzu und lege die Tofuwürfel vorsichtig hinein. Lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verfeinere das Gericht mit Sesamöl, Sichuanpfeffer und Frühlingszwiebeln. Serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/UFSC67cEFpOJNQgm56g3SCmgpFA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mapo-Tofu-LEAD-07-a82396343dcf463ca69cbf03cc39b4f9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/UFSC67cEFpOJNQgm56g3SCmgpFA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mapo-Tofu-LEAD-07-a82396343dcf463ca69cbf03cc39b4f9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chinese-steamed-fish",
+      "slug": "mfr-chinese-steamed-fish",
+      "title": "Chinesischer gedämpfter Fisch mit Ingwer und Frühlingszwiebeln",
+      "instructions": "Tilapia oder Wolfsbarsch im Ganzen dämpfen, bis das Fleisch zart auseinanderfällt, und mit heißer Sojasauce sowie Ingwer-Frühlingszwiebel-Öl übergießen. Eine der reinsten Techniken der chinesischen Fischküche.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tilapia gehört zu den günstigsten Weißfischen und eignet sich perfekt zum chinesischen Dämpfen.",
+        "Das heiße Öl, das über den Frühlingszwiebeln zischt, ist die klassische Technik. So entfalten die Aromaten ihren Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tilapia",
+          "swap": "Wolfsbarsch, Kabeljau oder einen beliebigen Weißfisch verwenden."
+        },
+        {
+          "forIngredientId": "cooking-oil",
+          "swap": "Ein neutrales Öl wie Rapsöl verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chinese-steamed-fish",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Meeresfrüchte",
+        "gedämpft",
+        "schnell",
+        "gesund"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1099,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chinese-steamed-fish/",
+      "components": [
+        {
+          "key": "55fbbdea-0ed2-583e-aec2-f0a2372a5165",
+          "name": "Zutaten",
+          "servingGrams": 335.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "46f0feeb-45d5-5083-a0f5-2ba678f996db",
+              "ingredientName": "Tilapiafilet",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04ff937f-5f08-57ad-b3b9-fb1b9f4afb10",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afb87b1d-c97b-5af4-8bc1-c870e6a15973",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26362228-0719-5edb-b620-c0027d014892",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a59329e-af34-5e37-9cee-afbc8beea45c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a6d3de9-98d8-50d0-b4a7-d675cf0398d0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2804b7c5-8b6c-51fb-af02-a5a815c523ed",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ceb8eb7d-fd4e-5f54-92f9-b1ff8658e0d8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Fischfilets ein. Lege sie mit geschnittenem Ingwer obenauf auf einen Teller in einen Dämpfeinsatz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dämpfe den Fisch 10–12 Minuten, bis er sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entferne den Ingwer. Garniere den Fisch mit in feine Streifen geschnittenen Frühlingszwiebeln und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Sojasauce mit Sesamöl und 2 EL Wasser. Erhitze Pflanzenöl, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das heiße Öl über die Frühlingszwiebeln, sodass sie kräftig zischen. Träufle Sojasauce darüber und serviere den Fisch mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/LGZOhVRM-pv6HYk-iKSgG3AbtAY=/6192x4128/filters:fill(auto,1)/ginger-soy-steamed-fish-recipe-695140-hero-02-bf0441b107da4f818cf5bb42f1522b56.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/LGZOhVRM-pv6HYk-iKSgG3AbtAY=/6192x4128/filters:fill(auto,1)/ginger-soy-steamed-fish-recipe-695140-hero-02-bf0441b107da4f818cf5bb42f1522b56.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1121 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-oxtail-stew",
+      "slug": "gen-oxtail-stew",
+      "title": "Ochsenschwanzeintopf",
+      "instructions": "Jamaikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ochsenschwanz beim Metzger oder auf karibischen Märkten, wo er günstiger ist",
+        "Bereite eine große Menge zu und friere Portionen für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2765,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oxtail-stew/",
+      "components": [
+        {
+          "key": "869caf33-0ebf-5327-be44-36cdb96c2b95",
+          "name": "Zutaten",
+          "servingGrams": 518.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "384dddf7-b723-537c-a04a-a4d98a025cf2",
+              "ingredientName": "Ochsenschwanz",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund gehackt"
+            },
+            {
+              "key": "9703f9ef-9916-5070-8f31-3d6bd8a1d586",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "843c87f6-757b-54d1-8ac4-2fd79a49c25f",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke, in Stücke geschnitten"
+            },
+            {
+              "key": "8e21aa76-9fbb-5470-b7a2-805364755e46",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "474e7270-3619-5c47-9289-da0eb746040c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "34a63a9f-4fb0-5c11-b173-f946eba591a3",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige frisch"
+            },
+            {
+              "key": "0b98d67c-d3c4-5789-95f3-1113aa051715",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "b2b8e15e-3a7b-5d55-a023-5b36bb75a586",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "544ccc59-b489-5fde-be41-4d5dade7c735",
+              "ingredientName": "Piment",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3490aedc-be1f-5a24-8088-af800899199e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und bräune die Ochsenschwanzstücke von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Ochsenschwanz heraus und dünste Zwiebel und Knoblauch, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Ochsenschwanz mit Rinderbrühe, Thymian und Piment zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze, decke den Topf ab und lasse alles 60 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kartoffeln und Karotten hinzu und lasse alles weitere 40 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Eintopf heiß in tiefen Schalen mit der kräftigen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/rhmtHtTxUzJAoCpp1_sCFgs6h9c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Oxtail-Stew-LEAD-5-3-ffcaa6e4972e4c5292ca9f0bf1ba5e63.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/rhmtHtTxUzJAoCpp1_sCFgs6h9c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Oxtail-Stew-LEAD-5-3-ffcaa6e4972e4c5292ca9f0bf1ba5e63.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-curry-goat",
+      "slug": "gen-curry-goat",
+      "title": "Ziegencurry",
+      "instructions": "Jamaikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ziegenfleisch zu guten Preisen bei karibischen oder halal Metzgern",
+        "Kaufe Kokosmilch aus der Dose im Angebot und in größeren Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2766,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-curry-goat/",
+      "components": [
+        {
+          "key": "7784b75d-9dac-59d4-a676-291422f799fe",
+          "name": "Zutaten",
+          "servingGrams": 202.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "17d902f4-f987-53b9-a403-f9272dfc31e5",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund gewürfelt"
+            },
+            {
+              "key": "65c9eb00-7fc3-5092-a837-78ed31dd283b",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6164a125-cb55-52aa-b84c-7cee07157c9c",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "78ed6078-29fa-5c8b-939e-8aa231fcf348",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "ed16ad20-207c-5839-a84d-5a87d33dad70",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 fein gehackt"
+            },
+            {
+              "key": "8a795b27-4efd-567f-bc3a-5a4846c0527e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "4b06aaf1-b9fc-5ece-b4e4-46120c39c641",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dosen 14 Unzen"
+            },
+            {
+              "key": "1384de2e-258b-5a1c-a718-297f55002d53",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "99919e12-660c-53af-b03d-c186e090fae7",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "2bd69253-74bc-5332-8799-2f320a49a3cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und bräune das Ziegenfleisch von allen Seiten. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch, bis sie duften, und rühre dann Currypulver ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Ziegenfleisch zurück in den Topf und gare es 3 Minuten, damit es mit Gewürzen überzogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kokosmilch, Thymian und eine ganze Scotch-Bonnet-Chili hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Köcheln, decke den Topf ab und gare das Fleisch 50 Minuten, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kartoffeln hinzu und gare alles ohne Deckel 25 Minuten, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne die Scotch-Bonnet-Chili, würze mit Salz und Pfeffer und serviere das Curry mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2024/03/curry-goat-1370x1536.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2024/03/curry-goat-1370x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pepper-shrimp",
+      "slug": "gen-pepper-shrimp",
+      "title": "Pfeffergarnelen",
+      "instructions": "Jamaikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen, wenn frische teuer sind, und taue sie vor dem Kochen auf",
+        "Ersetze Limettensaft durch Zitronensaft oder Essig, um zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2767,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pepper-shrimp/",
+      "components": [
+        {
+          "key": "250223d8-3760-5fe3-9c9a-df332042a9b3",
+          "name": "Zutaten",
+          "servingGrams": 180.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f4770f4-8b24-59ff-82b4-0f8e05e24ce9",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d44debea-e26f-5cb4-8548-a6d2cd23f38b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de7d3437-4091-5478-ac7a-1842788ded47",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10d5347b-b5a8-5d69-b37e-27497a0c7e9e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7fd1bef5-5cdf-5aec-bad6-05c0e5b6346b",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cc253be2-c5fb-5a29-b204-2be69255edc3",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "3d2a48af-d391-5d69-ae14-3041e9329a97",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "45b662c1-ac23-5d4b-8a9f-34a3685198fa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ba9f746b-b5bc-5883-8893-10c196c90cee",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch, Ingwer und eine ganze Scotch-Bonnet-Chili hinzu und rühre etwa 1 Minute, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Garnelen hinzu und gare sie 2 Minuten pro Seite, bis sie sich rosa zu färben beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Salz, schwarzem Pfeffer und frischen Thymianblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Limettensaft hinzu und gare die Garnelen weitere 2 Minuten, bis sie vollständig rosa und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne die Scotch-Bonnet-Chili und rühre kurz vor dem Servieren Frühlingszwiebeln ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Garnelen heiß mit Reis oder festem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/l8gRnUhIwKOS01Qbm9hXR5UqqT8=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/salt-and-pepper-shrimp-recipe-695176-step-08-76b96e463cb642d995bb38bcda4aaf1a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/l8gRnUhIwKOS01Qbm9hXR5UqqT8=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/salt-and-pepper-shrimp-recipe-695176-step-08-76b96e463cb642d995bb38bcda4aaf1a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jerk-chicken",
+      "slug": "gen-jerk-chicken",
+      "title": "Jerk Chicken",
+      "instructions": "Jamaikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel statt Hähnchenbrust; sie sind günstiger und aromatischer",
+        "Bereite Jerk-Paste in größeren Mengen zu und friere sie portionsweise ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2768,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jerk-chicken/",
+      "components": [
+        {
+          "key": "dfb77be8-436a-5bb1-bec7-3e5704c1549f",
+          "name": "Zutaten",
+          "servingGrams": 458.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "775931f4-b706-5bc2-aab7-db7ef23f151e",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "c91f07b6-658b-58bd-b639-0385097e2536",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e6d8141-68dc-5d4b-be4b-e73f23f7215d",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "385ff608-a6e6-5a35-b400-06a2e38c7f1a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "812ded09-4c64-554b-8b07-21e3751f3f74",
+              "ingredientName": "Frischer Thymian",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "338c9b2e-5b31-5397-b3b5-d345e406da9d",
+              "ingredientName": "Piment",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3b8baecc-8e1b-58d2-afae-ff06480d7f20",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "708b3b38-31ac-5adc-bd3d-1a7e508e99ee",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b996a807-4181-5219-8319-5993a32bde14",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c317948c-1d69-54c1-b240-abc28381f77b",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e162f7d0-75b8-5304-95ea-5d2a3a8841d1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Scotch-Bonnet-Chilis, Knoblauch, Ingwer, Thymian, Frühlingszwiebeln, Piment, Sojasauce, Limettensaft und Olivenöl in einer Küchenmaschine glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Jerk-Marinade gründlich rundherum auf die Hähnchenstücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Hähnchen in einen großen Behälter oder Gefrierbeutel und stelle es 4-8 Stunden oder über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Grill oder Ofen auf 400°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beim Grillen: Lege das Hähnchen auf den Grill bei mittlerer bis hoher Hitze und gare es 25-30 Minuten. Wende es alle 5-7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beim Backen: Lege das Hähnchen auf ein mit Backpapier belegtes Blech und backe es 40-45 Minuten, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse es vor dem Servieren 5 Minuten ruhen und serviere es mit Reis und Erbsen oder Festival-Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/Easy-Grilled-Jerk-Chicken_EXPS_FT24_278228_JR_1113_4.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/Easy-Grilled-Jerk-Chicken_EXPS_FT24_278228_JR_1113_4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jerk-pork",
+      "slug": "gen-jerk-pork",
+      "title": "Jerk Pork",
+      "instructions": "Jamaikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und mariniere sie länger für ein intensiveres Aroma",
+        "Verwende getrockneten Thymian, wenn frischer nicht verfügbar ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2769,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jerk-pork/",
+      "components": [
+        {
+          "key": "dd2e29f3-d654-5952-8f7a-218c4c002a94",
+          "name": "Zutaten",
+          "servingGrams": 402.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "1eda2c08-aff9-5629-a3b1-380f0ca0a299",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "b50f1de4-e943-5df2-b80c-026facf5d063",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4bdc379-3a24-595a-ac2f-5d276587cd1d",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad1a5b2e-a570-5c98-a3d7-72f9074673da",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "50a31a51-f773-5b14-80aa-9833bfdf0599",
+              "ingredientName": "Frischer Thymian",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "3faada83-9429-5b68-aaa8-24a88000620d",
+              "ingredientName": "Piment",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "5d73cdba-fa2e-5919-87f7-2aa222eaddc0",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e33f6ae6-c9ab-5c24-b629-e1719b5b57f9",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b4991cc2-119e-5f37-93d6-6ceaf319691c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d4be4c1e-4d10-5e9a-a7da-12cf915cfb7d",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6be583cf-a89e-5f68-9d8e-0b26845e3e06",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Scotch-Bonnet-Chilis, Knoblauch, Ingwer, Thymian, Frühlingszwiebeln, Piment, Sojasauce, Limettensaft und Öl in einem Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Schweinefleischwürfel in der Jerk-Marinade und stelle sie 3-6 Stunden in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine große gusseiserne Pfanne oder einen Grill auf mittlere bis hohe Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das marinierte Schweinefleisch 2-3 Minuten pro Seite goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege es in einen abgedeckten Bräter und backe es bei 350°F 2 Stunden. Rühre gelegentlich um, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Deckel ab und backe das Fleisch weitere 15 Minuten, damit die Außenseite karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es mit Reis und Erbsen sowie gebratenen Kochbananen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DSzXF6pIWP0qOH8ebVHz25jA2OY=/3973x2644/filters:fill(auto,1)/jerk-in-the-oven-recipe-1808456-hero-01-485904e87ac04c8bb5ed710bd15915cb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DSzXF6pIWP0qOH8ebVHz25jA2OY=/3973x2644/filters:fill(auto,1)/jerk-in-the-oven-recipe-1808456-hero-01-485904e87ac04c8bb5ed710bd15915cb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

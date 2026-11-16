@@ -1,0 +1,1144 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52802",
+      "slug": "tmdb-52802",
+      "title": "Fisch-Pie",
+      "instructions": "Britisches Fischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "meeresfrüchte",
+        "fisch",
+        "pie",
+        "frühstück",
+        "backen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1900,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52802/",
+      "components": [
+        {
+          "key": "05edb974-c012-5d42-a149-bd360c1f7425",
+          "name": "Zutaten",
+          "servingGrams": 538.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dff04a2-a61b-5671-8908-c645c1da2596",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a42dec78-773b-5f0d-9e90-b9e2a3727657",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3871cf3e-106a-5174-b8da-d02b3527b688",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd7b8eec-365f-5024-ae8d-6941892f9594",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7583c33-efe0-538f-a273-1ed70d60fae9",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f664779-f3b2-5d46-821a-d14c23b98bb3",
+              "ingredientName": "Muskat",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a590d775-d6d0-5d39-9ea8-5d4e8b5c747a",
+              "ingredientName": "Sahne",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ab3952f-c896-565a-a18c-d1f86be44f9e",
+              "ingredientName": "Topinambur",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "455f2ce0-dbaf-5de1-b0fb-c24091a200aa",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d63183b-131f-5b7f-9314-c0a4c5035a6a",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "853e37f3-2589-5ed6-9cd8-04e5ecdf9adf",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb3fd148-7a59-5672-be95-2a1e05d4b55f",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b09456c8-d2ab-5f82-865c-9667a5541be1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f83d7c33-6078-5902-927e-40ab7ec00b92",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "01. Kartoffeln in einen großen Topf mit kaltem Salzwasser geben und aufkochen. Hitze reduzieren, abdecken und 15 Minuten sanft köcheln lassen, bis sie weich sind. Abgießen und 30 Sekunden bei niedriger Hitze zurück in den Topf geben, damit überschüssiges Wasser verdampft. Mit 1 EL Olivenöl zerstampfen und würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "02. Inzwischen Milch in eine große Pfanne geben, Fisch hinzufügen und aufkochen. Vom Herd nehmen, abdecken und 3 Minuten ziehen lassen. Fisch herausnehmen, Milch aufbewahren, mit Küchenpapier trocken tupfen und vorsichtig in eine ofenfeste Form zerpflücken. Haut und Gräten entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "03. Restliches Öl in einer Pfanne erhitzen, Mehl einrühren und 30 Sekunden garen. Nach und nach 200-250ml der aufgehobenen Milch einrühren und den Rest wegschütten. Muskat hineinreiben, würzen und köcheln lassen, bis die Sauce eindickt. Sahne einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "04. Backofen auf 190°C/Umluft 170°C/Gasstufe 5 vorheizen. Topinambur reiben und zusammen mit Lauch, Garnelen und Kräutern in die Form geben. Zitronenabrieb und -saft in die Sauce einrühren und darübergeben. Vorsichtig mit einem Holzlöffel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "05. Kartoffelpüree auf der Fischmischung verteilen und mit einer Gabel Spitzen formen, die beim Backen knusprig und braun werden. Käse darüberstreuen und 35-40 Minuten goldbraun und blubbernd backen. Mit zusammengefallenem Blattgemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53079",
+      "slug": "tmdb-53079",
+      "title": "Fischsuppe (Ukha)",
+      "instructions": "Russische Fischsuppe, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "russisch",
+        "meeresfrüchte",
+        "suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1901,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53079/",
+      "components": [
+        {
+          "key": "adef4f59-2b6b-5acc-a795-7884ef88d7da",
+          "name": "Zutaten",
+          "servingGrams": 462.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "6103b21a-f447-5dc0-8c3f-5708ecc80c7c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5198a275-cd66-5f01-ad4d-daac32638a93",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66ca6269-f09a-5c1a-ad16-d3cf2333eb98",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c98f3469-507a-5195-8e9b-1a89676efae9",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "301fa18e-8095-5422-b26c-4e0421db807f",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3602c91-40b0-5d37-b136-11743df9e726",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bf82526-7022-5265-90f6-c6c04edbb8a7",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16126541-f57e-52b2-a4a3-a7ff8d4e9181",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6b2fa81-37bf-5d4f-b942-4c581116661f",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem mittelgroßen Topf bei mittelhoher Hitze erhitzen. Zwiebeln dazugeben und unter gelegentlichem Rühren garen, bis sie zu karamellisieren beginnen. Karotten dazugeben und etwa 4 Minuten weitergaren, bis sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brühe, Wasser, Kartoffeln, Lorbeerblätter und schwarze Pfefferkörner dazugeben. Salzen und aufkochen. Hitze reduzieren, abdecken und 10 Minuten kochen. Hirse dazugeben und weitere 15 Minuten garen, bis Hirse und Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischwürfel vorsichtig dazugeben. Umrühren und Suppe zum Köcheln bringen. Der Fisch gart sehr schnell, also nicht übergaren. Er ist fertig, wenn das Fleisch undurchsichtig ist und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vor dem Servieren mit gehacktem frischem Dill oder Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/7n8su21699013057.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/7n8su21699013057.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52918",
+      "slug": "tmdb-52918",
+      "title": "Fischeintopf mit Rouille",
+      "instructions": "Französisches Fischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "frankreich",
+        "meeresfrüchte",
+        "fisch",
+        "schalentiere"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1902,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52918/",
+      "components": [
+        {
+          "key": "7f527d86-ca44-59b6-a2dc-7c1d600566e9",
+          "name": "Zutaten",
+          "servingGrams": 530.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5144ea1-e134-502a-b07d-b5cf276ec6fe",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cb4c5b3-f601-54b2-8f27-96567c403be5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bea5bb1-61f2-5d5a-9514-f87bd08e32d9",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9321fec7-6a7a-591c-a25c-34a1a852dbb2",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "654983a3-81d0-5725-a165-432556897c2d",
+              "ingredientName": "Fenchelknolle",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1dc2e3fa-2e1a-5aa2-beea-4fb11d3efc58",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97530865-3ac8-553c-9521-30ccddae017b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1af944f9-3301-521d-b7bf-f39d918ea87b",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9236e907-6e6a-5f4a-8716-46810d91ff7c",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de9c7917-ee76-575b-ada8-15d00b9ee7bb",
+              "ingredientName": "Sternanis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb385306-c1df-5783-ab58-dfe02dcc943a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f48ab4d6-d245-5233-b65f-e3d02639b551",
+              "ingredientName": "Harissa",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca38b18d-e4e1-5198-8873-55175c2cbd2c",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75240b21-c848-5ae3-a630-bed22872b9bf",
+              "ingredientName": "Miesmuscheln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a03b0fc-524a-5115-9ded-d833a367be51",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a086ee65-32bf-53b4-bb2d-bf30abb45dd2",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2f27c83-d81a-59dc-b244-b7419bfb9c3b",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Köpfe der Garnelen abdrehen und Beine sowie Schalen abziehen, Schwänze aber dranlassen. Garnelen entdarmen. Schalen in 1 EL Öl 5 Minuten braten, bis sie dunkelrosa sind und stellenweise goldbraun werden. Wein dazugeben und um zwei Drittel einkochen lassen, dann Brühe angießen. In einen Messbecher abseihen und Schalen wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Restliches Öl in einer tiefen Pfanne oder einem Schmortopf erhitzen. Fenchel, Zwiebel und Knoblauch dazugeben, würzen, abdecken und 10 Minuten sanft garen, bis sie weich sind. Inzwischen Kartoffel schälen und in etwa 2cm große Stücke schneiden. In einen Topf mit kaltem Wasser geben, aufkochen und 5 Minuten kochen, bis sie fast gar sind. In einem Sieb abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen Streifen Orangenschale abschneiden. Schale, Sternanis, Lorbeer und ½ TL Harissa in den Topf geben. Ohne Deckel 5-10 Minuten sanft braten, bis das Gemüse weich, süßlich und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenpüree einrühren und 2 Minuten garen, dann Tomaten und Brühe hinzufügen. 10 Minuten köcheln lassen, bis die Sauce etwas eindickt. Abschmecken. Die Sauce kann vorbereitet und später am Tag aufgewärmt werden. Inzwischen Muscheln oder Herzmuscheln abbürsten und faserige Bärte entfernen. Offene Muscheln kräftig auf der Arbeitsfläche anklopfen. Schließen sie sich nach einigen Sekunden nicht, wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sauce bei Bedarf wieder erhitzen, dann Kartoffeln, Fischstücke und Garnelen vorsichtig unter den Eintopf heben. Aufkochen, abdecken und 3 Minuten sanft köcheln lassen. Muscheln darüber verteilen, abdecken und weitere 2 Minuten garen, bis sich die Schalen weit geöffnet haben. Geschlossene Muscheln wegwerfen. Fisch sollte sich leicht zerteilen lassen, Garnelen sollten innen rosa sein. Mit Thymianblättern bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die schnelle Rouille restliche Harissa in die Mayonnaise einrühren. Eintopf in Schalen servieren und jeweils einen Löffel Rouille daraufgeben. Sie schmilzt in die Sauce und macht sie reichhaltiger. Gutes Brot zum Auftunken der Brühe dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/vptqpw1511798500.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/vptqpw1511798500.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53122",
+      "slug": "tmdb-53122",
+      "title": "Fiskesuppe (cremige norwegische Fischsuppe)",
+      "instructions": "Norwegische Fischsuppe, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "norwegen",
+        "meeresfrüchte",
+        "suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1903,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53122/",
+      "components": [
+        {
+          "key": "679f403b-cd25-5561-b7e9-33c854f016c5",
+          "name": "Zutaten",
+          "servingGrams": 575.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "920a84b3-fa02-58c0-bc40-b7630f1b8a7d",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9f450c3-579e-5458-8b78-6c50de6c7225",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6780920d-36cf-515a-bc84-7e7c306add06",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bb5f3ae-3b8e-5431-af5e-b9e3babcec2b",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1b19e35-d96f-5799-8325-89a5a953f1ef",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce022cac-023b-5df2-9d28-19791cfce567",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad03828a-91a8-5e50-af87-9b92f074989b",
+              "ingredientName": "Weizenmehl",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8908f89b-6052-5082-a5b8-980183cf60c6",
+              "ingredientName": "Fischsauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9abd3b9-e529-593b-8a84-66afbb36c753",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47ccb858-6aac-5e1c-b191-faf313fc5ebf",
+              "ingredientName": "Saure Sahne",
+              "grams": 18.75,
+              "quantity": 18.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f8a4c2b-865c-5788-92c6-10b073deb2c7",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff13dfff-dacd-59a5-a549-c7d860169993",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fischfilets in Würfel oder Streifen schneiden. Knoblauch zerdrücken oder hacken. Gemüse waschen und in dünne Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem Topf erhitzen und Knoblauch dazugeben. Sobald er goldbraun wird, Mehl hinzufügen und gut verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischfond angießen und weiterrühren, bis keine Klümpchen mehr vorhanden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gemüse und Milch dazugeben und aufkochen. Etwa 10 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Crème fraîche oder saure Sahne dazugeben. Suppe wieder zum Köcheln bringen. Sobald sie erneut zu blubbern beginnt, Hitze ausschalten. Topf auf der warmen Herdplatte lassen und Fisch hineingeben. 5 Minuten in der heißen Suppe garziehen lassen. Garnelen erst kurz vor dem Servieren dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren mit Schnittlauch, Dill oder Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/raqjbj1762773035.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/raqjbj1762773035.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52906",
+      "slug": "tmdb-52906",
+      "title": "Flamiche",
+      "instructions": "Französisches vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "frankreich",
+        "vegetarisch",
+        "tarte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1904,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52906/",
+      "components": [
+        {
+          "key": "2ee63fc6-b5bd-50ee-a27a-6f4cf9f95935",
+          "name": "Zutaten",
+          "servingGrams": 347.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "94af27bb-b6a2-5d00-abdf-522fe9449aa4",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63ff3a39-c630-5215-9d2a-51cc1923b7b1",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bcfb300-2fc1-5ce5-9b75-424aa343e7c9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15fdc900-4bcb-515c-9d45-676d97475239",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea7dadbd-043f-557f-9bfd-2b9f4e4f8345",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efdb6166-e740-588a-9f3c-040b82d2db8e",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48c1831b-32c5-5e31-b7b6-faab90dc108d",
+              "ingredientName": "Muskat",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec6cea1d-1957-522b-a36a-ca3bcc660e32",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d4b6548-9650-5cd8-a788-c1c83a82498e",
+              "ingredientName": "Blattkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a49b7b2-60a6-5f90-8da6-9b70f2a629fd",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7d356a4-2303-5c57-a8db-24ec828033d0",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Mehl und Salz in die Schüssel einer Küchenmaschine sieben. Butter und Schmalz dazugeben und kurz mixen, bis die Mischung feinen Semmelbröseln ähnelt. In eine Schüssel geben, Käse und so viel Wasser einrühren, dass ein Teig entsteht. Auf eine leicht bemehlte Fläche geben und kurz glatt kneten. Dünn ausrollen und eine geriffelte Tarteform mit herausnehmbarem Boden von 23cm x 4cm damit auslegen. Boden mit einer Gabel einstechen und 20 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "02. 75g Butter bei niedriger Hitze in einem Topf schmelzen, Lauch und Salz dazugeben. Abdecken und ?10 Minuten weich garen. Deckel abnehmen, Hitze erhöhen und unter gelegentlichem Rühren ?2 Minuten garen, bis die Flüssigkeit verdampft ist. Auf einen Teller geben und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "03. Backofen auf 200°C/Umluft 180°C/Gasstufe 6 vorheizen. Teigboden mit Backpapier und Backbohnen oder Reis auslegen und 15-20 Minuten blindbacken, bis die Ränder keksfarben sind. Papier und Bohnen/Reis entfernen und weitere 7-10 Minuten backen, bis der Boden knusprig und leicht goldbraun ist. Herausnehmen und beiseitestellen. Ofentemperatur auf 190°C/Umluft 170°C/Gasstufe 5 reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "04. Crème fraîche, ganzes Ei, Eigelb und Muskat in einer Schüssel verrühren. Leicht verquirlen und würzen. Lauch unterrühren. ?Mischung in den Tarteboden geben und 35-40 Minuten backen, bis sie gestockt und ?leicht goldbraun ist. ?Aus dem Ofen nehmen und 10 Minuten ruhen lassen. Aus der Form nehmen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wssvvs1511785879.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wssvvs1511785879.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

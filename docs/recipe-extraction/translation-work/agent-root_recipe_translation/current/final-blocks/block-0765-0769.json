@@ -1,0 +1,1082 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-pulled-chicken-sweet-potato",
+      "slug": "mfr-pulled-chicken-sweet-potato",
+      "title": "Bowl mit rauchigem Pulled Chicken und Süßkartoffel",
+      "instructions": "Langsam in einer rauchigen Chipotle-Tomatensauce geschmortes und gezupftes Hähnchen auf gebackener Süßkartoffel. Eine herzhafte Bowl mit kräftigem Geschmack.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gezupftes Hähnchen reicht für 3 gefüllte Süßkartoffeln. Sättigend und preiswert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tomato-sauce",
+          "swap": "Zerkleinerte Tomaten mit denselben Gewürzen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pulled-chicken-sweet-potato",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 765,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pulled-chicken-sweet-potato/",
+      "components": [
+        {
+          "key": "e64fcac7-34b7-5cc7-a765-19553b6ad1f0",
+          "name": "Zutaten",
+          "servingGrams": 406.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "876f2232-c888-5099-b3d1-18627a365054",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edff8963-dfc3-5219-9dc3-351028c27eaa",
+              "ingredientName": "Süßkartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08e3c04f-69ab-5c03-a649-0b7b915f7039",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9e652b8-b35b-5c1d-912b-ff3d49998174",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3befeebb-b854-538b-8adc-14f46504f5c8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e76fd7f1-f242-500c-b790-483b4c19e4af",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14e13ee5-7273-509e-9e02-d45349872893",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d60d4804-0bdd-51bd-aa3c-a8e0b365a821",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f3b9c4c-ce77-51c9-8850-96d86a33de2a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8639129b-e24d-5d3d-9d71-29bb8f5ded53",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Süßkartoffeln 40–45 Minuten bei 400 °F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass das Hähnchen 20 Minuten mit Tomatensauce, geräuchertem Paprikapulver, Kreuzkümmel, Knoblauch und Zwiebel köcheln. Zupfe das Fleisch anschließend auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere die Kartoffeln und fülle sie mit Pulled Chicken, Limettensaft und nach Wunsch weiteren Toppings.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cheffrecipes.com/wp-content/uploads/2025/02/Chicken-and-Sweet-Potato-Rice-Bowl-Recipe.jpg",
+          "sourcePageUrl": "https://cheffrecipes.com/wp-content/uploads/2025/02/Chicken-and-Sweet-Potato-Rice-Bowl-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chickpea-spinach-curry",
+      "slug": "mfr-chickpea-spinach-curry",
+      "title": "Curry mit Kichererbsen und Spinat",
+      "instructions": "Kichererbsen und zusammengefallener Spinat köcheln in einer aromatischen Tomaten-Kokos-Currysauce. Ein sättigendes veganes Abendessen mit indischen Aromen, fertig in 25 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen reichen für 4 großzügige Portionen. Die Bohnen kosten zusammen etwa $2.20."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Gemüsebrühe für eine leichtere, ölfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chickpea-spinach-curry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "schnell",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 766,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chickpea-spinach-curry/",
+      "components": [
+        {
+          "key": "d6a84d9f-0421-5578-a6ac-2a41eeb26d53",
+          "name": "Zutaten",
+          "servingGrams": 819.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a1de07b-cdaa-50dd-81be-3d273912c7c6",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4834bd62-c5dc-5737-b25d-b003ff0df462",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68a2c3e7-53f5-59db-b421-c17dd0dcb135",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80dcedc2-b37b-548c-bd87-44d4a3921f2f",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbf7cb9b-8742-5757-b4e3-a8dd892f7a85",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "046a3557-7729-5df9-b87d-de0c3c62f932",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "746a856d-1fb1-50e1-8542-afd85867a2c7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb79c39c-9086-5577-93cc-b3b248ad53e9",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2bbd6b2-13de-5b0b-ab52-2bb454cd0ef7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca9ba496-ebf7-5d00-843e-7b5965a03672",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dde0847-b6d3-5a18-8e5a-ce3b0de804c8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "174f3dab-4581-5cf9-a2fd-9c85866f9b2f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4cb4f26-d84c-5381-9c2a-cd11d8ae7a93",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Brate Zwiebel in Olivenöl etwa 5 Minuten an, bis sie goldbraun ist. Gib Knoblauch, Ingwer, Currypulver, Kreuzkümmel und Kurkuma dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib beide Dosen Kichererbsen und die zerkleinerten Tomaten dazu. Lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Kokosmilch (eine halbe Dose) und Spinat ein. Gare alles, bis der Spinat zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze das Curry und serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2015/02/EASY-CHICK-PEA-AND-SPINACH.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2015/02/EASY-CHICK-PEA-AND-SPINACH.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pesto-chicken-caprese",
+      "slug": "mfr-pesto-chicken-caprese",
+      "title": "Caprese-Hähnchen mit Pesto",
+      "instructions": "Goldbraun in der Pfanne angebratenes Hähnchen mit Pesto, frischem Mozzarella und Tomaten. Ein italienisch inspiriertes Abendessen in 25 Minuten, das aussieht wie im Restaurant.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pesto aus dem Glas eignet sich hervorragend. Du musst dafür keinen frischen Basilikum in großen Mengen kaufen.",
+        "Mozzarella mit geringem Feuchtigkeitsgehalt schmilzt besser und ist günstiger als frischer Mozzarella."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Provolone oder beliebiger schmelzender Käse, den du zur Hand hast"
+        },
+        {
+          "forIngredientId": "pesto",
+          "swap": "Getrocknete Tomatenpaste für einen anderen Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pesto-chicken-caprese",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "italienisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 767,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pesto-chicken-caprese/",
+      "components": [
+        {
+          "key": "0a472ca4-d02c-514c-91e3-0daba07f2160",
+          "name": "Zutaten",
+          "servingGrams": 288.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8497a28-0fd1-5e48-9c73-b695c4363e61",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "037aeca9-847a-5fa9-b03b-855decd3b793",
+              "ingredientName": "Pesto",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbabd7de-0f9c-5061-bb43-92d7a00cab2a",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc56dd50-541e-5391-a34b-3f0914dd179f",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce8e1c7a-0f56-5a36-8cb8-f5a02e3e997d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48a7bbcf-f704-52cd-a60a-e32eb883224d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a93b5e5e-3150-509b-a8a8-d358d2441ab6",
+              "ingredientName": "Frischer Basilikum",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d50fb40d-1048-5af2-bf55-e4682a242e38",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe die Hähnchenbrüste auf eine gleichmäßige Dicke. Würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer ofenfesten Pfanne bei mittelhoher Hitze. Brate das Hähnchen 5 Minuten pro Seite an, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche jede Hähnchenbrust mit Pesto. Belege sie mit einer Scheibe Mozzarella und Tomate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille das Hähnchen 3–4 Minuten im Ofen, bis der Mozzarella schmilzt und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere das Hähnchen mit frischem Basilikum und etwas Balsamico-Glasur. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2021/08/Pesto-Caprese-Chicken-in-White-Wine-Pan-Sauce-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2021/08/Pesto-Caprese-Chicken-in-White-Wine-Pan-Sauce-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shrimp-tacos-cabbage-slaw",
+      "slug": "mfr-shrimp-tacos-cabbage-slaw",
+      "title": "Limetten-Garnelen-Tacos mit Krautsalat",
+      "instructions": "Mit Chili und Limette angebratene Garnelen in Maistortillas mit knackigem Krautsalat und einer Chipotle-Creme aus griechischem Joghurt. So gelingt der Taco-Abend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Über Nacht aufgetaute Tiefkühlgarnelen sind genauso gut und kosten etwa $6–8 pro lb.",
+        "Kohl gehört zu den günstigsten Gemüsesorten pro Pfund."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Tilapiafilet für preiswerte Fischtacos"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Lass die Avocado weg oder verwende Guacamole aus einem Päckchen, damit die Kosten planbar bleiben"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-tacos-cabbage-slaw",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 768,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-tacos-cabbage-slaw/",
+      "components": [
+        {
+          "key": "fe78c334-3afc-5e4c-9c9a-bc1277377893",
+          "name": "Zutaten",
+          "servingGrams": 418.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "35cc06f6-c141-57c7-94f4-342a77041fa2",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f8e7fea-bac4-5463-a66b-9eb7d10e0534",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fab1393-478c-544b-80c1-ac527b3cbc08",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d1d7f99-a7a4-557d-b104-c7cfeaa774e1",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af2c5f2a-f4bf-5b80-bf51-42dbb22be094",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bef49138-5658-5f72-816b-5aafe7c86c95",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6583363f-1997-5425-baec-42854c2a05ec",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fc72b2b-b592-5335-aa29-b9553940646d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3627b133-8a85-589c-9a5a-dfefbb4f620d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a3903dd-e6cc-59d8-8956-c42178f0fdbc",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17d6ebde-6d65-535f-9a64-7a4fd3df935c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge die Garnelen mit Chilipulver, Kreuzkümmel, Knoblauchpulver, Salz und einem Spritzer Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Krautsalat den Kohl fein schneiden und mit Limettensaft, Salz und gehacktem Koriander vermengen. Lass ihn 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Creme griechischen Joghurt mit Limettensaft, einer Prise Chilipulver und Salz verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Garnelen in Olivenöl bei hoher Hitze 1–2 Minuten pro Seite an, bis sie rosa und leicht angekohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Tortillas. Fülle sie mit Krautsalat, Garnelen und Avocadoscheiben und gib etwas Creme darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/05/shrimp-tacos-1-800x1200.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/05/shrimp-tacos-1-800x1200.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ground-beef-sweet-potato-bowl",
+      "slug": "mfr-ground-beef-sweet-potato-bowl",
+      "title": "Bowl mit rauchigem Rinderhack und Süßkartoffel",
+      "instructions": "Rauchig gewürztes Rinderhack auf gerösteten Süßkartoffelstücken mit schwarzen Bohnen und Limettensaft. Herzhaft und wärmend, mit nur einer Pfanne zum Abwaschen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack gehört zu den günstigsten tierischen Eiweißquellen.",
+        "Schwarze Bohnen aus der Dose liefern Eiweiß und Ballaststoffe für weniger als $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere und etwas günstigere Variante"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Gewöhnliche Kartoffeln sind noch günstiger und machen genauso satt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ground-beef-sweet-potato-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 769,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ground-beef-sweet-potato-bowl/",
+      "components": [
+        {
+          "key": "5a082a46-4c5f-5e9d-9fd9-46c164f7ef8b",
+          "name": "Zutaten",
+          "servingGrams": 242.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "dbf85b65-fe6f-539d-8c32-bc5220e984a0",
+              "ingredientName": "Rinderhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85f9ee71-e3ff-5d8f-b87e-7c6e93276a49",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dca5040-af0f-5c16-93fb-1e6c3eb17b28",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c7f9b01-f030-5309-a585-d41c271e9b22",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "862cf105-2f59-5291-acb6-5375ba54be1c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e1d4f43-089c-597f-a9dd-bc12b1d03436",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e922cfd5-4f5f-53dd-93e0-55710bbcb39b",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef43d9db-07b2-5b83-a16b-f3e9a8cbcb91",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1fd0c48-1dac-5248-a8c9-89250681df01",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "000a43b4-ef14-52f3-9194-d7871b02c530",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor. Würfle die Süßkartoffeln und vermenge sie mit Olivenöl, geräuchertem Paprikapulver, Salz und Pfeffer. Röste sie 22 Minuten, bis sie karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Rinderhack mit Kreuzkümmel, Knoblauchpulver, Chilipulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Rinderhack in einer Pfanne 6–8 Minuten an. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme schwarze Bohnen mit einer Prise Kreuzkümmel in derselben Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Schüsseln mit gerösteter Süßkartoffel, Rinderhack und schwarzen Bohnen. Beträufle alles mit Limettensaft und gib Frühlingszwiebeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.foodiesstayfit.com/_next/image?url=https:%2F%2Fres.cloudinary.com%2Fdd27yihoo%2Fimage%2Fupload%2Fv1730398670%2Fmbua3gcleefyvncrpbvc.webp&w=3840&q=75",
+          "sourcePageUrl": "https://www.foodiesstayfit.com/_next/image?url=https:%2F%2Fres.cloudinary.com%2Fdd27yihoo%2Fimage%2Fupload%2Fv1730398670%2Fmbua3gcleefyvncrpbvc.webp&w=3840&q=75",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

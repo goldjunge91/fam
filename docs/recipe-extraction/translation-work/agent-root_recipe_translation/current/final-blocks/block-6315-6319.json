@@ -1,0 +1,1107 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pansotti",
+      "slug": "gen-pansotti",
+      "title": "Pansotti",
+      "instructions": "Ligurisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorenen Spinat statt frischen, um Geld zu sparen",
+        "Machen Sie die Füllung und den Teig einen Tag im Voraus, um am Kochtag Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "ligurisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6315,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pansotti/",
+      "components": [
+        {
+          "key": "c16b2eea-66a4-58ee-ab90-2a2284b28799",
+          "name": "Zutaten",
+          "servingGrams": 373.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "afc3d337-e665-5778-926f-dc209ba8a12e",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e8ac8cbd-4f1d-58d8-814e-f3157631184d",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a9148bf-a551-5222-ab79-70ce77cb3b53",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e0c6d712-fff8-5db4-999e-0185c214e77f",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c5dc8f2d-41af-53ed-97fd-134a5fdb1717",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "257a070d-a048-5523-96a6-2e169e030875",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "dd833214-9d87-5863-a494-817ca798ce96",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1c0d52d8-2859-5ac2-8769-01ff64ecf6a9",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "a4af5cd6-f1f1-5714-aeee-e0026b965f09",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "68d60ded-c1d7-569a-b2a6-2f97f2d24777",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f25fea5-6a19-5705-a7a3-f58867d221a1",
+              "ingredientName": "Schlagsahne",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6b125943-dbc7-5e15-8a61-fcfb5ffcc0e1",
+              "ingredientName": "Schwere Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nudelteig zubereiten: Mehl auf einer sauberen Oberfläche aufhäufen, in der Mitte eine Mulde formen, Eier hineinschlagen, eine Prise Salz hinzufügen und nach und nach Mehl unter die Eier mischen, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 10 Minuten kneten, bis er glatt und elastisch ist. In Frischhaltefolie wickeln und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spinat 2 Minuten in kochendem Salzwasser blanchieren, ausdrücken und fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat, Ricotta, Parmigiano, Pinienkerne, Muskatnuss und gehackten Knoblauch in einer Schüssel zu einer Füllung vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig sehr dünn ausrollen und in 2 Zoll große Quadrate schneiden. Je 1 Teelöffel Füllung auf ein Quadrat geben, zu einem Dreieck falten und die Ecken zusammenführen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Walnüsse mit Butter und Sahne in einem Topf zu einer Soße vermischen und leicht erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Pansotti in Salzwasser 3-4 Minuten kochen, bis sie schwimmen, vorsichtig abtropfen lassen und mit Walnusssauce vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57ace0e353e63daf11a4db0b/16:9/w_1280,c_limit/Michael-White-Pea.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57ace0e353e63daf11a4db0b/16:9/w_1280,c_limit/Michael-White-Pea.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-trenette-al-pesto",
+      "slug": "gen-trenette-al-pesto",
+      "title": "Trenette al Pesto",
+      "instructions": "Ligurisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie größere Mengen Pesto und frieren Sie es für zukünftige Mahlzeiten ein",
+        "Wenn keine Trenette verfügbar ist, ersetzen Sie sie durch Spaghetti"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "ligurisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6316,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-trenette-al-pesto/",
+      "components": [
+        {
+          "key": "242e9ed2-9d80-5e29-bdf7-8fc0dff3e958",
+          "name": "Zutaten",
+          "servingGrams": 195.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea7caea2-4ed9-5057-a643-8aa549c2c66d",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "074fbc2b-02e0-5d01-9d67-4d59935f2737",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, fest angedrückt"
+            },
+            {
+              "key": "bd60468e-400d-53b8-9f64-d34260e3d76c",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "22172682-7d2e-5da3-84a2-f99200efe4ef",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4672731d-9556-567a-bc26-fcadb234318b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "22a10293-f0ec-5845-9e02-ce92215c0d8f",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse gerieben"
+            },
+            {
+              "key": "2c0335d6-5ed8-5b9a-9b01-483d61c2dfe8",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "4e32e585-9eb3-5288-a5da-515332392353",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "2a6e0db9-c261-56e9-8e95-3f283ec45168",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "92eea8f4-5725-5941-ae14-398fec7d044a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in dünne Stifte und grüne Bohnen in kurze Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen großen Topf mit Salzwasser zum Kochen bringen, Kartoffeln hinzufügen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Grüne Bohnen in den Topf geben und weitere 2 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trenette-Nudeln in das kochende Wasser geben und nach Packungsanweisung al dente kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während die Nudeln kochen, bereiten Sie Pesto zu, indem Sie Basilikum, Knoblauch und Pinienkerne in einer Küchenmaschine zerkleinern, dann langsam Olivenöl hinzufügen und beide Käsesorten unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reservieren Sie 1 Tasse Nudelkochwasser, bevor Sie Nudeln und Gemüse abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiße Nudeln mit Pesto und Gemüse vermischen und nach und nach Nudelwasser hinzufügen, um die gewünschte Saucenkonsistenz zu erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_913/k/Photo/Recipe%20Ramp%20Up/2022-04-Trenette-Al-Pesto/trenette_al_pesto_5069-1_R3",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_913/k/Photo/Recipe%20Ramp%20Up/2022-04-Trenette-Al-Pesto/trenette_al_pesto_5069-1_R3",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lasagne-alla-genovese",
+      "slug": "gen-lasagne-alla-genovese",
+      "title": "Lasagne alla Genovese",
+      "instructions": "Ligurisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Béchamelsauce selbst zu, anstatt fertige Sauce zu kaufen",
+        "Kaufen Sie im Sommer frisches Basilikum auf dem Bauernmarkt und frieren Sie Pesto-Chargen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ligurisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6317,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lasagne-alla-genovese/",
+      "components": [
+        {
+          "key": "d19f2cba-b384-5b2e-a94b-f14878f8145b",
+          "name": "Zutaten",
+          "servingGrams": 422.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "57a35464-1fd1-51ea-ad48-576e43fc8c75",
+              "ingredientName": "Lasagneplatten",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "73e4163f-3614-5174-83c1-ed6041189ab6",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "26e65e54-9bd5-5d1c-b59e-06ff1ef36e20",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen, fest angedrückt"
+            },
+            {
+              "key": "731e64a5-e876-583f-8416-6b7b9b5bc7cc",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "43d7794b-d7cf-564a-8b45-f2fd81ed1ff4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7ee30da-1f93-515c-9166-868aa866551d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "11faa631-08fb-5969-afdf-f08a3d598199",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "19dbe18f-5f00-527a-bdb9-102647056275",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "f0c38a3a-c739-5a74-975d-70447cd5f9a9",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cab49478-b281-52df-b6a0-5c7060f68ee6",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "66d3f3e5-bfc5-516e-8902-9a818ecee7d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "adeba4c7-b25b-59f6-8817-5b9f84cf8a9a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lasagne-Nudeln in kochendem Salzwasser gerade al dente kochen, abgießen und flach auf Backpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch in einer großen Pfanne bei mittlerer bis hoher Hitze anbraten und beim Kochen etwa 8 Minuten lang zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereiten Sie Pesto zu, indem Sie Basilikum, Pinienkerne und Knoblauch in einer Küchenmaschine zerkleinern, langsam Olivenöl hinzufügen und dann die Hälfte des Parmigiano untermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereiten Sie Béchamelsauce zu, indem Sie Butter schmelzen, Mehl einrühren, um eine Mehlschwitze zu erhalten, und dann langsam Milch unter Rühren hinzufügen, bis sie eingedickt ist (ca. 10 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einer Schüssel Ricotta mit Pesto und restlichem Parmigiano vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine dünne Schicht Béchamelsauce auf dem Boden einer 9 × 13 Zoll großen Auflaufform verstreichen. Lasagneplatten, Rindfleisch und anschließend die Ricotta-Pesto-Mischung daraufschichten; die Schichten wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die oberste Schicht mit Béchamelsauce bedecken und die Lasagne bei 375 °F 30–35 Minuten offen backen, bis sie goldbraun ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2025/10/Pasta-alla-Genovese-27-1024x1536.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2025/10/Pasta-alla-Genovese-27-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-focaccia-di-recco",
+      "slug": "gen-focaccia-di-recco",
+      "title": "Focaccia di Recco",
+      "instructions": "Ligurischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn kein Stracchino verfügbar ist, ersetzen Sie ihn durch Frischkäse oder Mozzarella",
+        "Kaufen Sie Käse in großen Mengen, um günstigere Preise zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ligurisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6318,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-focaccia-di-recco/",
+      "components": [
+        {
+          "key": "7947d9df-8a07-5a81-b7b7-266eabe5b74f",
+          "name": "Zutaten",
+          "servingGrams": 257.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "52445c66-f2e2-5bfe-842b-901a207be140",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "eb3a0998-0e4d-5cf4-999a-cbfed80b6eaa",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "215c5eae-a547-5473-a858-00f2fe5278fb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "443d5fdd-668a-51a4-88a8-bff912b68c52",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "6bc10e7d-e459-592c-a194-07314dc9de1a",
+              "ingredientName": "Stracchino-Käse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "6db71a7a-ddce-5798-96d3-947016a25331",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse gerieben"
+            },
+            {
+              "key": "c2b56e2f-3016-565c-8655-c33f69c121f3",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0fd1604-c94b-51e8-8417-58e4d7c11a67",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer Schüssel vermischen, eine Mulde formen, warmes Wasser und 2 EL Olivenöl dazugeben und verrühren, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 8 Minuten kneten, bis er glatt ist. In 2 gleich große Stücke teilen und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das erste Teigstück auf Backpapier sehr dünn ausrollen und anschließend in eine geölte Backform von 9 × 13 Zoll legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stracchino-Käse auf dem Teig verteilen, Parmigiano darüber streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zweites Teigstück gleich dünn ausrollen und auf die Käseschicht legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit restlichem Olivenöl bestreichen, grobes Meersalz und Rosmarin darüber streuen und mit einer Gabel überall kleine Löcher hineinstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 425 °F 15–20 Minuten backen, bis die Focaccia goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/7tDYrOrPzceBlsXXaYcVYfIydI0=/1500x1125/filters:fill(auto,1)/20210930-focaccia-di-recco-vicky-wasik-95-4ad909cce23a415281931a9d666e5e60.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/7tDYrOrPzceBlsXXaYcVYfIydI0=/1500x1125/filters:fill(auto,1)/20210930-focaccia-di-recco-vicky-wasik-95-4ad909cce23a415281931a9d666e5e60.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-frisceu",
+      "slug": "gen-frisceu",
+      "title": "Frisceu",
+      "instructions": "Ligurischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Sardellen in Dosen in großen Mengen oder suchen Sie nach italienischen Importgeschäften, um zu sparen",
+        "Verwenden Sie zum Braten Pflanzenöl anstelle von Olivenöl, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "ligurisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6319,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-frisceu/",
+      "components": [
+        {
+          "key": "f3bca879-1348-5028-99fc-558fced9076a",
+          "name": "Zutaten",
+          "servingGrams": 1065.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "00e55288-6c0b-5570-81ed-035d87e044c3",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4d596d98-3534-59c6-b89e-124eb82a60d0",
+              "ingredientName": "Wasser",
+              "grams": 160,
+              "quantity": 160,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2/3 Tasse"
+            },
+            {
+              "key": "b3976e55-4dea-5b16-9e47-07b3cb62d8a0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "1cf79c90-05bb-5053-ad94-15eef499f58e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "47fcf15a-5089-5129-905b-40f31f9adf80",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "cfae157f-67ed-5686-8601-8c9958286ba9",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 2400,
+              "quantity": 6,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Filets"
+            },
+            {
+              "key": "67a99db1-f98e-5410-82d7-135b28662791",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "82cd57e5-ae93-5ea7-9cb7-a36113454da3",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "98ff6da3-4265-5aa3-84f5-11fc059fc202",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser und Salz in einer Schüssel verrühren, bis ein dünner, pfannkuchenartiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel, Sardellen, Knoblauch und Petersilie fein hacken und zusammen mit schwarzem Pfeffer unter den Teig heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen und die Temperatur mit einem Thermometer oder einem Brotwürfeltest prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeweils etwa 2 Esslöffel Teig vorsichtig ins heiße Öl geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Küchlein 2–3 Minuten pro Seite frittieren, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Übertragen Sie die Krapfen auf Papiertücher, um überschüssiges Öl abzutropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm als Snack servieren, leicht mit grobem Salz bestreut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/grilled-cheese-horizontal-jpg-1522182678.jpg?crop=0.889xw:0.750xh;0.107xw,0.161xh",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/grilled-cheese-horizontal-jpg-1522182678.jpg?crop=0.889xw:0.750xh;0.107xw,0.161xh",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1169 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-manchurian",
+      "slug": "gen-manchurian",
+      "title": "Hähnchen-Manchurian",
+      "instructions": "Indisch-chinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gemahlene Hähnchenschenkel statt Brustfleisch: Sie schmecken kräftiger und sind günstiger.",
+        "Bereite Tomatensauce aus Dosentomaten zu, wenn fertige Sauce zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch-chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5040,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-manchurian/",
+      "components": [
+        {
+          "key": "c8244962-46af-5ab5-b28e-a66ed3c9c920",
+          "name": "Zutaten",
+          "servingGrams": 327.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "c19f29a5-a79d-57a5-b9e3-e46573e04246",
+              "ingredientName": "Hähnchenhackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d60fc667-2a13-5ffd-952a-f689e2eab565",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "3f8de711-8ca8-5bbc-bb0a-b152462fef6e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "7a397d8f-8179-59fb-b307-3a3b529f76e2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL, fein gehackt"
+            },
+            {
+              "key": "9951898f-369d-5793-b3a4-a061698bc837",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "b9b2c5e3-3773-5a9b-ab73-11bc11c3d5bd",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9e254e9c-5816-56da-9207-d861c3014796",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "53cea3c7-5500-5539-b6bc-29a19e744667",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "693f5c9b-b630-59f0-a557-ececeaea98dc",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ea18cfde-08e6-5e62-9ba7-88d0a9d52462",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "d7385a10-95a2-596f-bd40-f7248c740fcc",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenhackfleisch mit der Hälfte von Knoblauch, Ingwer, gewürfelter Zwiebel, Maisstärke, 1 EL Sojasauce und Salz zu einer Masse vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hähnchenmischung zu kleinen Kugeln von etwa 1 Zoll Durchmesser formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3 EL Öl in einer tiefen Pfanne erhitzen und die Hähnchenkugeln portionsweise insgesamt etwa 8–10 Minuten rundherum goldbraun braten. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das restliche 1 EL Öl in derselben Pfanne erhitzen. Restlichen Knoblauch, Ingwer und grüne Chili hinzufügen und 30 Sekunden unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatensauce, restliche Sojasauce, Essig und Wasser hinzufügen und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hähnchenkugeln zurück in die Pfanne geben und 5 Minuten köcheln lassen, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und bei Bedarf nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit geschnittenen Frühlingszwiebeln garnieren und mit Reis oder Nudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/vidthumb/images/gobi-manchurian-jpg-1661439833.jpg?crop=1xw:0.75xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/vidthumb/images/gobi-manchurian-jpg-1661439833.jpg?crop=1xw:0.75xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-schezwan-fried-rice",
+      "slug": "gen-schezwan-fried-rice",
+      "title": "Schezwan-Reis",
+      "instructions": "Indisch-chinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche am Vortag zusätzlichen Reis und stelle ihn kalt, um die Kochzeit zu verkürzen.",
+        "Verwende tiefgekühltes Mischgemüse statt frischem, damit du das ganze Jahr über sparst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch-chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5041,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schezwan-fried-rice/",
+      "components": [
+        {
+          "key": "ca4dc95c-d8f7-5b68-a611-5d816bc03ebf",
+          "name": "Zutaten",
+          "servingGrams": 581.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "03cc87ce-3fea-5a96-8908-4c1746c6a45b",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen, gekühlt"
+            },
+            {
+              "key": "6c49d878-c858-55c6-a657-2a25795123a1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3797f842-2178-57fe-b822-e0a4ddc20ced",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Stück, fein gehackt"
+            },
+            {
+              "key": "ad4aef17-05cb-5803-b5c7-212e3905b5c8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "bc4aa268-ad3e-56d2-8ee9-d92170da2725",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Stück, gewürfelt"
+            },
+            {
+              "key": "1a909fa7-0408-5fec-b901-9e5bcec368cc",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, gewürfelt"
+            },
+            {
+              "key": "51b032ea-9beb-5931-85b9-56ea75bb5c38",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "223c90bc-863e-503f-8fa5-d657516ff40a",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "7e72598f-2fdf-539b-b085-fea36885c4e6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2ce6c38-db7b-57ee-a8b7-71b8bd88018a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Eier mit einer Prise Salz in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 EL Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen. Die Eier zu Rührei braten, bis sie gar sind. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die restlichen 2 EL Öl in den Wok geben und den Knoblauch 20 Sekunden unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel, Paprika und Karotte hinzufügen und 2 Minuten unter Rühren braten, bis das Gemüse weich zu werden beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gekühlten Reis hinzufügen, Klumpen mit einem Pfannenwender aufbrechen und unter ständigem Rühren 2 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce und Schezwan-Sauce vermengen und über den Reis träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Alles 1–2 Minuten vermengen, bis der Reis gleichmäßig überzogen und heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Das Rührei zurück in den Wok geben, Sesamöl und geschnittene Frühlingszwiebeln hinzufügen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/14380_1_1761281143.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/14380_1_1761281143.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gobi-manchurian",
+      "slug": "gen-gobi-manchurian",
+      "title": "Gobi Manchurian (Blumenkohl-Manchurian)",
+      "instructions": "Indisch-chinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Blumenkohl während der Saison oder tiefgekühlt, wenn er günstiger ist.",
+        "Bereite Tomatensauce aus Dosentomaten selbst zu, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch-chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5042,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gobi-manchurian/",
+      "components": [
+        {
+          "key": "63e0c14f-b7cf-5273-bb78-f0562adcf55b",
+          "name": "Zutaten",
+          "servingGrams": 839,
+          "position": 0,
+          "items": [
+            {
+              "key": "df98c571-932f-52ff-b8fe-d377c10016a2",
+              "ingredientName": "Blumenkohl",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "b517fd1a-4812-5c98-b539-4945c5e4592d",
+              "ingredientName": "Maisstärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "7493c8a6-7917-556e-aab2-8347a6f9b773",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8ddadc58-8e3b-52fb-b6c1-fc0e63dc44a1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8c050d5a-e698-5187-b3c9-d6390b447aee",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "012904e6-e64b-5a51-8ede-2e2667e72b5a",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "0aed174a-a2c1-5985-856b-81fa886d4577",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Stück, fein gehackt"
+            },
+            {
+              "key": "8773f891-92ed-529f-8e99-742611fd1401",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "7b965e1b-58bc-538d-b6f4-3e02684f13e9",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9ddd51cb-4554-50ba-8560-174732ed22b7",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "51f0406c-ea38-5f37-b726-a5980319952e",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maisstärke, Mehl, Salz und Wasser zu einem Teig für die Panade verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Blumenkohlröschen in den Teig tauchen, bis sie vollständig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3 EL Öl in einer tiefen Pfanne erhitzen und den panierten Blumenkohl portionsweise etwa 10–12 Minuten goldbraun und knusprig frittieren. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das restliche 1 EL Öl in einer Pfanne erhitzen und den gehackten Knoblauch 30 Sekunden unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Zwiebel hinzufügen und 1 Minute unter Rühren braten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce, Tomatensauce und Essig vermengen, in die Pfanne gießen und 1 Minute köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den frittierten Blumenkohl zur Sauce geben und 2 Minuten vorsichtig vermengen, bis er überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit geschnittenen Frühlingszwiebeln garnieren und heiß mit Reis oder Nudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/Gobi-Manchurian.jpg",
+          "sourcePageUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/Gobi-Manchurian.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-lollipop",
+      "slug": "gen-chicken-lollipop",
+      "title": "Hähnchen-Lollipops",
+      "instructions": "Indisch-chinesischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenflügel im Angebot und friere sie für später ein.",
+        "Bereite eine Dip-Sauce selbst zu, statt eine abgefüllte Sauce zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch-chinesisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5043,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-lollipop/",
+      "components": [
+        {
+          "key": "388d739d-ec97-56af-b4e6-44f0fa898a14",
+          "name": "Zutaten",
+          "servingGrams": 515.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fbe8faf-c501-5558-b5a6-dfeaf6c58056",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3c72af12-8b20-58ea-aea3-77fb080286e2",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6e13f727-6d42-5bcd-96c8-bbfbf0b707d5",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cb4df8b5-fda4-5709-bf75-f3422187205e",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "bb5f1f56-ef89-5ee9-8edd-c8c15d9f1c50",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ee942bc7-b5e2-5720-a0c9-c689c8b8689a",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "56dd5b12-74e9-53f8-8825-a7737f5ea758",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b5328f2c-4f1a-55b9-a898-eb643ee29f0f",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d22c8f3-55da-5ad5-9472-604c14b195f8",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "9971e5d1-8d7b-5717-9ec2-991c8c0fb5ad",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b83005a8-d09a-53f1-b32a-f4e931ae8cac",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hähnchenstücke mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ingwer-Knoblauch-Paste, Sojasauce, Essig und rotes Chilipulver vermengen. Das Hähnchen darin 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maisstärke, Mehl und Salz in einer Schüssel vermischen. Das Ei in einer zweiten Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jedes Hähnchenstück zuerst in Ei tauchen und dann gründlich in der Maisstärke-Mehl-Mischung wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen. Alternativ prüfen, ob ein kleines Stück Hähnchen beim Hineingeben sofort brutzelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hähnchenstücke portionsweise 6–8 Minuten frittieren, bis sie tief goldbraun und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Küchenpapier abtropfen lassen und noch heiß mit geschnittenen Frühlingszwiebeln und Sesamsamen vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit einer würzigen Dip-Sauce, zum Beispiel Sriracha-Mayonnaise oder süßer Chilisauce, servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/05/Chicken-Lollipops_EXPS_TOHVP25_278724_MF_04_29_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/05/Chicken-Lollipops_EXPS_TOHVP25_278724_MF_04_29_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-momos",
+      "slug": "gen-momos",
+      "title": "Momos (tibetische Teigtaschen)",
+      "instructions": "Indisch-chinesischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Momos in großen Mengen zu und friere ungekochte Teigtaschen für schnelle Mahlzeiten später ein.",
+        "Verwende gemahlene Hähnchenschenkel statt Schweinefleisch: Sie bleiben saftiger und sind günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch-chinesisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5044,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-momos/",
+      "components": [
+        {
+          "key": "c7465474-fde8-5ca7-b82c-1a9d1337636c",
+          "name": "Zutaten",
+          "servingGrams": 281.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "654847a5-482b-5f32-a10d-b29b684ee233",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5cad9f39-407b-5eef-b6e2-15fb2406f6e2",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "2883eaa8-92f2-5079-9d03-6f30d681221c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "879684a7-dab8-5452-bf33-4b0fb75276e7",
+              "ingredientName": "Hähnchenhackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "01f328b5-052a-5b0d-9c8f-a91144f29c58",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "15b810a4-636e-594f-b658-80ca6e7666ce",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "24c0c810-9d2d-59e4-bdba-a060d3e68bd7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "f97ad658-a76b-542d-8f9c-8db06426f164",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "8c7d3016-0dce-5bd5-98c6-f2745205f9ef",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "09107335-b21a-5d48-a066-dca54979fde0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "9a8b40ce-dee9-5f14-9cc7-2d9c75685eb8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz vermengen. Nach und nach Wasser hinzufügen und zu einem weichen Teig verarbeiten. 5 Minuten kneten, bis er glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig abdecken und 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Hackfleisch mit gehackter Zwiebel, Knoblauch, Ingwer, Sojasauce, grüner Chili, Koriander und Salz zu einer Füllung vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in 12–16 gleich große Stücke teilen und jedes zu einem dünnen, etwa 3 Zoll breiten Kreis ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1 EL Füllung in die Mitte jedes Teigkreises geben. Die Ränder zu einem Säckchen zusammenführen und oben fest zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Einen Topf mit Wasser zum Kochen bringen und die Momos portionsweise hineingeben. Kochen, bis sie an die Oberfläche steigen, dann weitere 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Schaumkelle herausnehmen und auf einem Teller anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit einer Dip-Sauce aus Sojasauce, Essig, gehacktem Knoblauch und gehackter grüner Chili servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DXZoAJoKTPS7BKEyk4H-Gw3puhc=/6016x4016/filters:fill(auto,1)/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DXZoAJoKTPS7BKEyk4H-Gw3puhc=/6016x4016/filters:fill(auto,1)/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

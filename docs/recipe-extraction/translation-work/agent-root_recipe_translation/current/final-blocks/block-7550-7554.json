@@ -1,0 +1,1263 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-butter-tarts",
+      "slug": "bake2-butter-tarts",
+      "title": "Klassische kanadische Buttertörtchen",
+      "instructions": "Das Original: ein blättriger Butterteigboden mit klebriger Füllung aus Braunzucker und Maissirup, am Rand fest und in der Mitte noch leicht flüssig. Nach dem Klassiker aus Ontario, mit Rosinen für Traditionalisten oder ohne. Der Trick ist langsames Backen bei niedriger Temperatur, damit die Füllung weich bleibt und nicht hart wie Bonbon wird.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Spare dir das Ausstechen eleganter Kreise: Fertiger gekühlter Tortenboden oder aufgetauter Blätterteig, in die Muffinform gedrückt, spart Zeit und Geld, während du die Füllung übst.",
+        "Maissirup ist die günstige klassische Variante. Falls du nur wenig hast, ersetze bis zur Hälfte durch zusätzlichen Braunzucker, aufgelöst in einem TL Wasser.",
+        "Kaufe Rosinen lose und bewahre sie luftdicht auf. 1/2 Tasse kostet nur wenige Cent und reicht monatelang für Haferbrei, Müsli und diese Törtchen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "corn-syrup",
+          "swap": "Replace der 1/2 cup corn syrup mit maple syrup für ein darker, mehr caramel-forward tart (very traditional in maple country); der Füllung will be ein touch runnier.",
+          "savings": "etwa gleich teuer."
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Swap Rosinen für ein gleich amount von gehackt pecans oder Walnüsse für ein nutty, weniger-süß version — both are klassisch regional variations.",
+          "savings": "Pekannüsse kosten etwas mehr; Walnüsse sind meist günstiger."
+        },
+        {
+          "forIngredientId": "vinegar",
+          "swap": "verwenden Zitronensaft in legen von der white vinegar; it plays der same role von cutting der sweetness und tenderizing der Füllung.",
+          "savings": "Kaum Unterschied."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "canadian (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "pastry (deutsche Fassung)",
+        "tart (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7550,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-butter-tarts/",
+      "components": [
+        {
+          "key": "d2011c4e-4d02-5856-9a90-d6d022ebf06c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 85.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "6dd2bf32-e5f2-5b0c-9bb0-cf0aa5d96e86",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl (für den Teig)"
+            },
+            {
+              "key": "37b08abf-95a5-560b-9926-c5cd969adfa6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "949fec4a-f2e6-563a-a1d8-2555ebd72021",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "10 EL (1 1/4 Stück) kalte ungesalzene Butter, gewürfelt (für den Teig)"
+            },
+            {
+              "key": "e607304d-4d88-5335-aa1f-c7c850062bd4",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse Eiswasser, nach und nach zugeben"
+            },
+            {
+              "key": "f15f26ef-b840-5af9-947d-9d0be45ba2c8",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse fest eingedrückter hellbrauner Zucker (Füllung)"
+            },
+            {
+              "key": "14e54899-bc71-52fd-9322-dad3533467c8",
+              "ingredientName": "Maissirup",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse heller Maissirup (Füllung)"
+            },
+            {
+              "key": "58ae36f9-30e5-567b-b830-b8d14592d734",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesalzene Butter, geschmolzen (für die Füllung)"
+            },
+            {
+              "key": "994fed46-d592-5c65-83e0-81c1296ef6be",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 großes Ei, leicht verquirlt"
+            },
+            {
+              "key": "0beb9b7c-c6c7-5b2b-8b4c-4036bb6904a2",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "a34acbcc-ff29-5f91-a91a-103b7fc59022",
+              "ingredientName": "Essig",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL Weißweinessig (gleicht die Süße aus und hält die Füllung zart)"
+            },
+            {
+              "key": "416ab85d-f1f8-5de2-84ab-76cf901cac21",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL Salz (Füllung)"
+            },
+            {
+              "key": "aa3d5266-320e-578d-aa09-2fcadf2f1e44",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "1/2 Tasse Rosinen (optional, aber traditionell)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig 1 1/2 Tassen Mehl und 1/2 TL Salz verquirlen. Kalte Butterwürfel mit den Fingerspitzen oder einem Teigmischer einarbeiten, bis grobe Streusel mit noch sichtbaren erbsengroßen Butterstücken entstehen. Eiswasser esslöffelweise mit einer Gabel unterheben, bis der Teig beim Zusammendrücken gerade zusammenhält. Zu einer Scheibe formen, einwickeln und mindestens 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den kalten Teig auf einer leicht bemehlten Fläche etwa 1/8 Zoll dick aus. Stich zwölf Kreise von 4-Zoll aus und rolle die Reste einmal erneut aus. Drücke die Kreise in eine normale Muffinform mit 12 Mulden und ziehe den Teig an den Seiten hoch, sodass der Rand knapp unter dem Formenrand endet. Stelle die ausgelegte Form kalt, während du die Füllung zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Setze ein Gitter ins untere Drittel des Ofens und heize auf 375 F (190 C) vor. Falls du Rosinen verwendest, verteile sie auf die kalten Teigschalen (etwa 2 TL je Törtchen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Füllung 3/4 Tasse Braunzucker, 1/2 Tasse Maissirup, 1/4 Tasse geschmolzene Butter, verquirltes Ei, 1 TL Vanille, 1 TL Essig und 1/4 TL Salz glatt verrühren. Nicht zu stark schlagen, sonst wird die Füllung schaumig, geht auf und reißt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Teigschalen mit einem Löffel oder gieße die Füllung hinein, jeweils nur etwa zu zwei Dritteln. Beim Backen blubbert sie hoch; der freie Platz verhindert, dass sie überläuft und die Törtchen in der Form festkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Törtchen auf der unteren Schiene 18 bis 22 Minuten, bis der Teig goldbraun und die Füllung aufgegangen ist und am Rand blubbert, aber in der Mitte noch wackelt. Hole sie heraus, solange die Mitte leicht unterbacken wirkt: Beim Abkühlen wird sie fest. So bleibt sie flüssig statt hart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Törtchen 10 Minuten in der Form auf einem Gitter abkühlen. Fahre mit einem dünnen Messer oder einer kleinen Winkelpalette am Rand entlang und löse sie vorsichtig heraus. Auf dem Gitter vollständig abkühlen lassen. Warm oder bei Raumtemperatur servieren; beim Abkühlen wird die Füllung zu glänzendem, klebrigem Karamell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Butter_tarts_on_cutting_board%288293490785%29.jpg/1280px-Butter_tarts_on_cutting_board%288293490785%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Butter_tarts_on_cutting_board(8293490785).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Rob Campbell, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassische kanadische Buttertörtchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-raspberry-crumble-bars",
+      "slug": "bake2-raspberry-crumble-bars",
+      "title": "Himbeer-Streuschnitten",
+      "instructions": "Buttriger Mürbeteig, der zugleich den festgedrückten Boden und die groben Streusel obenauf bildet, mit einer Schicht fruchtiger Himbeerkonfitüre dazwischen. Eine Schüssel, ein Teig, keine Küchenmaschine: Dieses Gebäck vom Kuchenbasar ist verschwunden, bevor es ganz abgekühlt ist. Ein Hauch Mandel und Zitronenschale lässt die Himbeeren fruchtig statt nur süß schmecken.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse frische Himbeeren ganz weg: Eine volle Tasse Konfitüre allein ergibt hervorragende Schnitten und ist viel günstiger als Beeren außerhalb der Saison.",
+        "Konfitüre der Hausmarke eignet sich bestens. Da sie mitgebacken wird, kannst du das teure handgemachte Glas fürs Brot aufheben.",
+        "Gesalzene Butter ist in Ordnung. Lasse dann zusätzliches Salz bis auf eine Prise weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jam",
+          "swap": "Any seedless berry preserve — strawberry, blackberry, oder mixed-berry — works one-für-one.",
+          "savings": "Nimm das günstigste oder bereits geöffnete Glas."
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "Omit it, oder verwenden ein extra 1/4 tsp vanilla; der bars are still excellent ohne it.",
+          "savings": "Spart den Kauf einer Flasche, die du selten brauchst."
+        },
+        {
+          "forIngredientId": "raspberries",
+          "swap": "gefroren raspberries (no need zu thaw) scattered über der Marmelade.",
+          "savings": "Tiefgekühlte Beeren kosten nur einen Bruchteil frischer."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "bars (deutsche Fassung)",
+        "raspberry (deutsche Fassung)",
+        "shortbread (deutsche Fassung)",
+        "fruit (deutsche Fassung)",
+        "machen-ahead",
+        "Vegetarier"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7551,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-raspberry-crumble-bars/",
+      "components": [
+        {
+          "key": "a556686d-9fea-517a-a33f-1048f20231a2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 89.77,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f3138b1-1451-5325-b0ea-f1256f598165",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "07f93efb-1a82-5fd9-a464-b23cedb14333",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "4942c481-ee51-589d-8163-26048e235a98",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "f01871f8-bea3-5f15-869d-58c5703f70e2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Ei"
+            },
+            {
+              "key": "09519ba9-600a-55ea-9c81-4f2ee7c17f54",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "12e0b9db-eb28-5dad-b065-146fe9f5fd6b",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "02f004c2-8ac2-5b8b-98a8-6f0c75d1279c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "fa657c32-9c4c-5486-b98d-30bd7e00be6e",
+              "ingredientName": "Mandelextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL Mandelextrakt"
+            },
+            {
+              "key": "d3f0dac7-bce3-5b97-ac96-65e6149e8a93",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL fein abgeriebene Zitronenschale (etwa 1/2 Zitrone)"
+            },
+            {
+              "key": "ff576930-d25c-5d2d-a7b2-d67153166e0c",
+              "ingredientName": "Marmelade",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse gute Himbeerkonfitüre"
+            },
+            {
+              "key": "dbe97b57-6628-5e34-ab55-3dc398cbbfe9",
+              "ingredientName": "Himbeeren",
+              "grams": 170.1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": true,
+              "source_note": "1 Tasse frische Himbeeren (eine 6-oz-Schale), optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375 F (190 C) vor. Lege eine Backform von 8x8 oder 9x9-Zoll mit Backpapier aus und lasse es an zwei Seiten überstehen, damit du die Schnitten später herausheben kannst. Backpapier leicht buttern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Zucker, Salz, Backpulver und Zitronenschale in einer großen Schüssel. Gib kalte Butterwürfel dazu und arbeite sie mit einem Teigmischer oder den Fingerspitzen ein, bis grobe, sandige Streusel mit einigen erbsengroßen Butterstückchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Ei, Vanille und Mandelextrakt und träufle alles über die Mehlmischung. Vermenge die Masse mit den Händen, bis der Teig gerade zu Klumpen zusammenkommt. Beim Zusammendrücken soll er halten, aber krümelig bleiben und keine glatte Kugel bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke etwas weniger als zwei Drittel des Teigs fest und gleichmäßig auf den Boden der Form. Mit dem flachen Boden eines Messbechers fest andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Konfitüre glatt und verteile sie gleichmäßig auf dem Boden. Lasse etwa 1/4 Zoll Rand frei. Nach Wunsch frische Himbeeren darauf verteilen und leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücke den übrigen Teig zu Klumpen und zerbrösele ihn darüber. Lasse Lücken, durch die die Konfitüre sichtbar bleibt. Nicht vollständig bedecken; die offenen Stellen geben den Schnitten ihr typisches Aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe 35 bis 40 Minuten, bis die Streusel goldbraun und die Konfitüre am Rand blubbert. Decke die Oberfläche für die letzten 10 Minuten locker mit Folie ab, falls sie zu schnell bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse alles mindestens 2 Stunden vollständig in der Form auf einem Gitter abkühlen, damit die Konfitüre fest wird. Hebe den Kuchen am Backpapier heraus und schneide ihn mit einem scharfen Messer in 16 Quadrate. Wische die Klinge zwischen den Schnitten ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Raspberry_Shortbread_Bars.jpg/1280px-Raspberry_Shortbread_Bars.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Raspberry_Shortbread_Bars.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Justina Elumeze, CC BY 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Himbeer-Streuschnitten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-pecan-pie-bars",
+      "slug": "bake2-pecan-pie-bars",
+      "title": "Klassische Pekannuss-Streuschnitten",
+      "instructions": "Der kräftige, buttrige Karamellgeschmack einer Thanksgiving-Pekannusstorte, als handliche Schnitten gebacken. Ein knuspriger Mürbeteigboden hält eine klebrige Creme aus Maissirup und Braunzucker mit reichlich Pekannüssen. Viel einfacher als Tortenboden auszurollen und sauber in reisefeste Quadrate zu schneiden.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pekannüsse sind der teuerste Teil. Kaufe sie lose oder im Großmarkt und strecke die Menge mit halb Pekannüssen und halb gerösteten Walnüssen. Der Geschmack bleibt ähnlich.",
+        "Zahle keinen Aufpreis für Maissirup einer bestimmten Marke. Günstiger heller Maissirup funktioniert genauso. Du kannst ihn auch durch dieselbe Menge Honig oder Ahornsirup ersetzen, falls vorhanden.",
+        "Das Rezept ergibt 24 Schnitten, also ist es eine günstige Möglichkeit, viele Gäste oder ein Wohnheim zu versorgen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "corn-syrup",
+          "swap": "gleich amount (1 cup) maple syrup oder Honig für ein weniger neutral, mehr caramel-forward Füllung",
+          "savings": "Oft günstiger, wenn bereits im Vorrat."
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Walnüsse, oder ein 50/50 mischen von pecans und Walnüsse",
+          "savings": "Walnüsse sind pro Unze meist günstiger."
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "White Zucker plus 1 tsp molasses per 1/4 cup zu mimic brown Zucker's depth",
+          "savings": "Verwendet nur eine Zuckerart, die du wahrscheinlich schon hast."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "bars (deutsche Fassung)",
+        "pecan (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "machen-ahead",
+        "potluck (deutsche Fassung)"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7552,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-pecan-pie-bars/",
+      "components": [
+        {
+          "key": "c0e97510-a1fc-5aaa-a2cc-62e9af95f086",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 80.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3e1d9491-04b3-56af-b4c3-3d35857dee38",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl (für den Mürbeteigboden)"
+            },
+            {
+              "key": "8711756f-fdef-5d9e-af65-b6062f57ee5b",
+              "ingredientName": "brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse fest eingedrückter hellbrauner Zucker (für den Boden)"
+            },
+            {
+              "key": "846fe918-1028-597f-a83c-440b69fa4659",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Salz (für den Boden)"
+            },
+            {
+              "key": "b8e3930d-669b-5b44-b57b-b0a9933ccc98",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse (1.5 Stück) kalte ungesalzene Butter, gewürfelt (für den Boden)"
+            },
+            {
+              "key": "a477d2a5-5cc8-5ca7-b696-db463f6d3129",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 große Eier (für die Füllung)"
+            },
+            {
+              "key": "30da7715-3580-590b-89da-cc8e1fc93aa5",
+              "ingredientName": "Maissirup",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse heller Maissirup (für die Füllung)"
+            },
+            {
+              "key": "2e56bcc7-5eda-5f87-8fec-147f6002e660",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse fest eingedrückter hellbrauner Zucker (für die Füllung)"
+            },
+            {
+              "key": "4502dd7b-b3b1-59db-86f1-03ea79a5f9e0",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesalzene Butter, geschmolzen (für die Füllung)"
+            },
+            {
+              "key": "00b20e6b-0e48-5635-83a2-d532c357f4c8",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "634172eb-4a3a-58f7-bd82-de1e07fef868",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL Salz (für die Füllung)"
+            },
+            {
+              "key": "1f40c7d4-8218-53e8-a6c0-790ec337ddb9",
+              "ingredientName": "Pekannüsse",
+              "grams": 567,
+              "quantity": 567,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2.5 Tassen (etwa 12 oz) Pekannusshälften, grob gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Lege eine Form von 9x13-Zoll mit Backpapier aus und lasse das Papier an den langen Seiten überstehen, damit du die Schnitten später herausheben kannst. Backpapier leicht buttern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Boden 2 Tassen Mehl, 1/4 Tasse Braunzucker und 1/2 TL Salz verquirlen. Kalte Butterwürfel mit einem Teigmischer oder den Fingerspitzen einarbeiten, bis grobe, sandige Streusel entstehen, die beim Zusammendrücken gerade halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Streusel in die Form und drücke sie fest zu einer gleichmäßigen Schicht auf dem Boden. Ein Messbecher mit flachem Boden hilft beim Festdrücken. Backe 18 bis 20 Minuten, bis die Ränder blassgolden und die Oberfläche fest ist. Ofen anlassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während der Boden backt, die Füllung zubereiten: Verquirle Eier glatt und rühre Maissirup, 3/4 Tasse Braunzucker, geschmolzene Butter, Vanille und 1/2 TL Salz ein, bis sich der Zucker vollständig aufgelöst hat. Gehackte Pekannüsse unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Pekannussfüllung gleichmäßig über den heißen, vorgebackenen Boden und verteile die Nüsse bis in die Ecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die Form zurück in den Ofen und backe 25 bis 30 Minuten, bis die Füllung am Rand fest ist und die Mitte bei leichtem Rütteln nur noch wenig wackelt. Nicht überbacken, sonst wird die Füllung hart statt zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Form mindestens 2 Stunden auf einem Gitter vollständig abkühlen, bis die Füllung fest ist. Für besonders saubere Schnitte vor dem Schneiden eine Stunde kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe den Kuchen am überstehenden Backpapier heraus und lege ihn auf ein Brett. Schneide ihn mit einem scharfen Messer in 24 Stücke und wische die Klinge zwischendurch ab. Luftdicht bei Raumtemperatur bis zu 4 Tage lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Pecan_squares.jpg/1280px-Pecan_squares.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pecan_squares.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "jenny, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassische Pekannuss-Streuschnitten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-key-lime-bars",
+      "slug": "bake2-key-lime-bars",
+      "title": "Klassische Key-Lime-Schnitten",
+      "instructions": "Buttriger Boden aus Graham-Crackern unter einer säuerlichen, cremigen Key-Lime-Füllung aus gezuckerter Kondensmilch und Eigelb. Frisch, glatt und genau süß genug. Ein klassisches Gebäck vom Bäcker, mit Puderzucker bestäubt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 27,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Flasche Key-Lime-Saft, statt Dutzende kleine Limetten auszupressen. Das ist viel günstiger und die Schnitten schmecken genauso frisch.",
+        "Friere die 4 übrigen Eiweiße für ein Omelett oder Baiser ein, damit nichts weggeworfen wird.",
+        "Verwende Graham-Cracker und Kondensmilch der Hausmarke. Bei der gebackenen, zitronigen Creme schmeckt man keinen Unterschied."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lime-juice-bottled",
+          "swap": "normal frisch Limette juice plus ein splash von Zitronensaft für ein slightly weniger floral but still bright Füllung",
+          "savings": "Spart ein paar Dollar, wenn du bereits Limetten da hast."
+        },
+        {
+          "forIngredientId": "graham-crackers",
+          "swap": "zerdrückt digestive biscuits oder vanilla wafer cookies für der crust",
+          "savings": "Oft pro Unze günstiger und genauso geeignet."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Coconut Öl, geschmolzen, für ein dairy-free crust",
+          "savings": "Ähnlicher Preis, mit einer dezenten tropischen Note."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "citrus (deutsche Fassung)",
+        "no-mixer (deutsche Fassung)",
+        "machen-ahead",
+        "summer (deutsche Fassung)"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7553,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-key-lime-bars/",
+      "components": [
+        {
+          "key": "40ee5b03-7efd-53a5-b67c-c8bf69f56636",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 117.27,
+          "position": 0,
+          "items": [
+            {
+              "key": "c7e702cc-f8dc-5530-bc39-7705070b83e8",
+              "ingredientName": "Graham-Cracker",
+              "grams": 900,
+              "quantity": 9,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "9 ganze Graham-Cracker-Blätter, zerkrümelt (ergibt etwa 1 1/2 Tassen Brösel)"
+            },
+            {
+              "key": "36939511-d7c5-5b1b-b7b0-bef569f0e223",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL Kristallzucker (für den Boden)"
+            },
+            {
+              "key": "adc61569-7354-5654-b20d-4c278cdef487",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "05236dac-7d45-530e-ab14-fdd95bb5c1d8",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, geschmolzen"
+            },
+            {
+              "key": "3aba203c-96fe-507d-af45-970f809c850f",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 oz) gezuckerte Kondensmilch"
+            },
+            {
+              "key": "86f569b0-5292-5002-997b-e7b9ac32190b",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 große Eigelbe"
+            },
+            {
+              "key": "3e5bbc9b-426b-5d9e-8a8e-ad09aa31423a",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse Key-Limettensaft (12 EL)"
+            },
+            {
+              "key": "2317c6f4-c235-5331-8b6c-4045ad147b5b",
+              "ingredientName": "Limette zest",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL Limettenschale (3 TL)"
+            },
+            {
+              "key": "6736858f-bd14-5775-9699-02c1b3936650",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL Puderzucker zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter mittig in den Ofen und heize auf 350F (175C) vor. Lege eine Backform von 8x8-Zoll mit Backpapier aus und lasse es an zwei Seiten überstehen, damit du den Kuchen leicht herausheben kannst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Graham-Cracker-Brösel, Kristallzucker und Salz in einer Schüssel. Gieße geschmolzene Butter dazu und rühre, bis die Brösel gleichmäßig feucht sind und nassem Sand ähneln. Drücke sie fest und gleichmäßig auf den Boden der Form, am besten mit dem flachen Boden eines Messbechers.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Boden 10 Minuten, bis er fest und leicht goldbraun ist. Herausnehmen und beiseitestellen. Ofen auf 350F lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eigelbe und Limettenschale etwa 1 Minute, bis die Masse etwas heller ist. Rühre gezuckerte Kondensmilch glatt ein und anschließend Key-Lime-Saft. Durch die Säure dickt die Mischung leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Füllung über den warmen Boden und streiche die Oberfläche vorsichtig glatt. Backe 15 bis 17 Minuten, bis die Füllung am Rand fest ist und in der Mitte noch leicht wackelt. Sie soll nicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Schnitten etwa 1 Stunde auf einem Gitter auf Raumtemperatur abkühlen. Stelle sie dann mindestens 3 Stunden oder über Nacht kalt, bis sie vollständig gekühlt und fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe die Platte am überstehenden Backpapier auf ein Brett. Wische das Messer zwischen den Schnitten ab und schneide 16 Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestäube die Schnitten kurz vor dem Servieren mit Puderzucker. Im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:bake2-smores-bars",
+      "slug": "bake2-smores-bars",
+      "title": "Klassische S’mores-Schnitten",
+      "instructions": "Alles, was am Lagerfeuer-S’more schmeckt, als Blechgebäck: buttriger Graham-Cracker-Keksboden, eine dicke Schicht Milchschokolade und klebrige geröstete Marshmallows obendrauf. Alles in einer Form gebacken, ganz ohne Feuer. Im Teig stecken echte Graham-Cracker-Brösel, damit jeder Bissen wie das Original schmeckt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Großpackung Marshmallows und Graham-Cracker der Hausmarke statt teurer Markenware. Der Geschmack ist gleich und du sparst fast die Hälfte.",
+        "Zerdrücke Graham-Cracker in einem Gefrierbeutel mit dem Nudelholz selbst, statt fertige Brösel zu kaufen. Das ist günstiger und du bestimmst die Körnung.",
+        "Achte nach Feiertagen auf reduzierte Milchschokoladentafeln und bewahre sie im Vorratsschrank auf. Sie halten sich monatelang und eignen sich perfekt zum Backen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chocolate",
+          "swap": "verwenden semi-süß Schokolade chips für ein weniger-süß, mehr grown-up bar",
+          "savings": "Oft pro Unze günstiger als Schokoladentafeln."
+        },
+        {
+          "forIngredientId": "marshmallows",
+          "swap": "Swap marshmallow fluff für ein gleich volume von mini marshmallows",
+          "savings": "Eine Tüte Mini-Marshmallows kostet meist weniger als ein Glas Creme."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "verwenden der same amount von weich margarine oder plant Butter",
+          "savings": "Margarine der Handelsmarke ist eine preiswerte Alternative."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "bars (deutsche Fassung)",
+        "Schokolade",
+        "marshmallow (deutsche Fassung)",
+        "graham (deutsche Fassung)",
+        "campfire (deutsche Fassung)",
+        "kid-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7554,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-smores-bars/",
+      "components": [
+        {
+          "key": "062be8eb-a323-55c3-b08f-d6f2ece6f489",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 78.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "688a0519-3a12-5ba2-9969-5c64743cd164",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "070049ff-577f-593a-9ba6-6d31d446c762",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse fest eingedrückter hellbrauner Zucker"
+            },
+            {
+              "key": "bca06b1d-fb20-524e-907f-200db433a474",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "e518539b-70b5-5bb5-9ac4-5c61e07c4023",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Ei"
+            },
+            {
+              "key": "a014133e-b807-5631-b389-a714b75ce667",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "9a38493d-1a22-549a-9cf9-7b073cdd3ef1",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse Weizenmehl"
+            },
+            {
+              "key": "be0811d3-b5f5-5032-a2fb-a179e8f118d1",
+              "ingredientName": "Graham-Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Graham-Cracker-Brösel (etwa 9 ganze Blätter, fein zerkrümelt)"
+            },
+            {
+              "key": "8dbea438-e74c-53ad-bba9-a13110f51a97",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "8a8e0d70-c9a5-5ff1-8b37-b99e4e7f2c19",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "a1eb17d4-5ec1-5113-bb25-60ee736e740e",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 198.45,
+              "quantity": 198.45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "7 oz Vollmilchschokolade (etwa zwei Tafeln), in Stücke gebrochen"
+            },
+            {
+              "key": "befed964-363a-5bbb-9209-4fbbdc884f8d",
+              "ingredientName": "Marshmallows (mini oder fluff)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Marshmallow-Creme oder Mini-Marshmallows"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Lege eine Backform von 8x8-Zoll mit Backpapier aus und lasse es an zwei Seiten überstehen. Backpapier leicht einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Graham-Teig weiche Butter, Braunzucker und Kristallzucker in einer großen Schüssel etwa 2 Minuten hell und luftig schlagen. Ei und Vanille glatt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl, Graham-Cracker-Brösel, Backpulver und Salz in einer zweiten Schüssel. Gib die trockenen Zutaten zu den feuchten und verrühre nur, bis ein weicher, leicht klebriger Teig entsteht. Nicht überrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in zwei Hälften. Drücke eine Hälfte mit leicht bemehlten Fingern gleichmäßig auf den Boden der Form und forme einen flachen, kompakten Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Milchschokoladenstücke in einer gleichmäßigen Schicht darauf, bis zum Rand. So ist in jedem Bissen Schokolade. Verteile Marshmallowcreme darüber oder streue Mini-Marshmallows gleichmäßig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücke den übrigen Teig zwischen den Handflächen zu groben Stücken flach und lege sie über die Marshmallow-Schicht. Leicht andrücken, sodass sie eine weitgehend geschlossene obere Kruste bilden. Etwas Marshmallow darf sichtbar bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe 30 bis 35 Minuten, bis die Oberfläche goldbraun und fest ist. Für stärker geröstete Marshmallows kannst du für die letzten 1 bis 2 Minuten den Grill einschalten. Dabei genau aufpassen, damit nichts verbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Schnitten mindestens 1 Stunde vollständig in der Form auf einem Gitter abkühlen, damit Schokolade und Marshmallow fest werden. Hebe sie am Backpapier heraus und schneide sie mit einem sauberen scharfen Messer in 16 Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/S%27mores_bars%2C_The_Sweet_Escape_Patisserie%2C_Toronto_%284050433758%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:S%27mores_bars,_The_Sweet_Escape_Patisserie,_Toronto_(4050433758).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Rachel Kramer Bussel, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassische S’mores-Schnitten",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1139 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-salmon-yogurt-cream-pasta",
+      "slug": "mfr-salmon-yogurt-cream-pasta",
+      "title": "Pasta mit Lachs und Zitronencreme",
+      "instructions": "Zerzupfter Lachs in einer leichten Creme aus griechischem Joghurt mit Zitrone und Dill: der ganze Genuss einer cremigen Pasta ohne Sahne und obendrein 36 g Eiweiß.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischer Joghurt ergibt eine überzeugende cremige Soße mit einem Bruchteil des Fetts und der Kosten von Schlagsahne.",
+        "Lachs aus der Dose eignet sich genauso gut. Zerzupfe ihn und gib ihn während der Zubereitung der Soße dazu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Lachs oder Thunfisch aus der Dose"
+        },
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "1 TL getrockneter Dill oder Kapern für eine andere frische Note"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-yogurt-cream-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 960,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-yogurt-cream-pasta/",
+      "components": [
+        {
+          "key": "d85a894b-5b9a-5964-9491-c4e72f6bb1c6",
+          "name": "Zutaten",
+          "servingGrams": 585.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "648bf660-01e8-53dd-a898-9b14405f29d8",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c6b9917-550e-50e3-896f-53c90e322e12",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1b39fb9-fe0a-5b31-b1de-b866c180852f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b661fd7-88e5-59a2-9f77-01a96d2e9aef",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d76d77d5-0e42-5fa7-802c-626b199a8ce8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c194bf4-5f62-502a-afbf-170e1bffbae6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84945080-16da-5b98-b3fd-264dc928a9ad",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5efb0f7d-25af-5085-9ef9-9d78966b2051",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48bfaf2b-294a-53b0-b894-f459b5d3bdfa",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c80afadf-4b02-5f14-9f2d-d0bb396f53e7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta und hebe etwas Nudelwasser auf. Brate den Lachs 4 Minuten pro Seite in Olivenöl an. Zerzupfe ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Knoblauch 30 Sekunden an. Nimm die Pfanne vom Herd und rühre griechischen Joghurt, Zitrone, Dill und einen Schuss Nudelwasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Pfanne zurück auf niedrige Hitze (nicht kochen lassen, sonst gerinnt der Joghurt). Gib Spinat und zerzupften Lachs dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge die Pasta mit der Soße. Garniere sie mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/fSas63TqUiaJIRAGW4Z8vUSaOO8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8107343-6aabb78761e340c69d8c899c1a91ed7e.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/fSas63TqUiaJIRAGW4Z8vUSaOO8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8107343-6aabb78761e340c69d8c899c1a91ed7e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-classic-chicken-veggie-soup",
+      "slug": "mfr-classic-chicken-veggie-soup",
+      "title": "Klassische Hühner-Gemüsesuppe",
+      "instructions": "Eine stärkende Hühnersuppe von Grund auf gekocht: zartes Hähnchen, herzhaftes Gemüse und eine klare Brühe, die schmeckt wie eine Sonntagstradition an einem Mittwochabend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Selbst gekochte Suppe mit Brühwürfel statt Brühe zuzubereiten spart etwa ~$2 pro Topf.",
+        "Tiefgekühltes Mischgemüse kostet etwa ~$0.60 pro Tasse, bringt mehr Abwechslung als frisches Gemüse und ist günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Braunen Reis in den letzten 20 Minuten der Kochzeit dazugeben"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen für eine kräftigere Brühe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-classic-chicken-veggie-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Suppe",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 961,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-classic-chicken-veggie-soup/",
+      "components": [
+        {
+          "key": "e81c1578-1c6c-505a-aa75-767ca1d7180d",
+          "name": "Zutaten",
+          "servingGrams": 403.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "105afdb7-af4c-5461-81e5-acca0f23ebe7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "812e89d8-936c-5647-a1b6-956b366346a6",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00359103-e74a-5fb0-b5ef-19c8964318bd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b5bbc4d-dd02-5a63-adae-ce6c8d6722fe",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8aa45cfb-5f25-5488-8051-626014575a68",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "364f52c9-1bfa-547d-a0f1-11d40acfd860",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04f11785-ccbe-5319-8f1d-c92011fd1b61",
+              "ingredientName": "Hühnerbouillon",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88f85c67-3bee-5bc7-9940-2849615cb0f9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec78b57a-9c3d-5ab0-b5b7-79596a2e6914",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c84eabdb-6db3-55fa-9f22-3169e9489236",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4544cc2e-0092-5759-9bbf-4a729b387640",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "831031c2-5ac2-56d4-8a3c-c70eb2a4e435",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 5 Minuten in Olivenöl an. Gib Knoblauch dazu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ganze Hähnchenbrüste, geschnittene Karotten, gewürfelte Kartoffeln, 6 Tassen Wasser und Bouillon dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe alles zum Kochen und lass die Suppe 20 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Hähnchen heraus, zerteile es mit zwei Gabeln und gib es zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib tiefgekühltes Gemüse und italienische Gewürzmischung dazu und gare alles 5 Minuten. Würze die Suppe und rühre zum Schluss Petersilie ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/zJWkLqSzp3SHlath2l494yNzgaU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chicken-and-Root-Vegetable-soup-86-0081f1b455a84ccab01e6dd7d69eff69.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/zJWkLqSzp3SHlath2l494yNzgaU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chicken-and-Root-Vegetable-soup-86-0081f1b455a84ccab01e6dd7d69eff69.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-beef-tomato-soup",
+      "slug": "mfr-beef-tomato-soup",
+      "title": "Tomatensuppe mit Rinderhack",
+      "instructions": "Herzhafte Tomatensuppe mit Rinderhack, Gemüse und Kräutern: sämiger als eine Brühe, gehaltvoller als eine Soße und in 25 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack macht Tomatensuppe zu einem dickflüssigen, fast eintopfartigen Wohlfühlessen.",
+        "Eine Dose gehackte Tomaten und Tomatenmark sorgen für Tiefe und Fülle und kosten $2.10."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhackfleisch oder italienische Wurst"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Wasser + Brühwürfel als günstigere Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-tomato-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Suppe",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 962,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-tomato-soup/",
+      "components": [
+        {
+          "key": "f4323a90-0578-51eb-86f8-2118282f9d93",
+          "name": "Zutaten",
+          "servingGrams": 512.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "c9139813-427a-5b2d-a412-90295d7a3668",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e222a4a-f4f4-5779-a088-4fba3426cff0",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dcabb12-18c1-5ea2-9924-a2e6581e852a",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3db647d0-767b-5508-93f2-af671650077d",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d7f04f9-a585-5fe4-b7e0-0d2f3c9cabc6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e18fc07c-1e8d-50ba-ba29-8888ee9c1086",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4743f315-dc75-5c67-b353-9e20643d683c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1824cfb6-c1de-5951-961b-af2cb515ec5d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5bb22f9-f2d6-57db-ae56-ad64847f11cd",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09db757c-7304-58c6-8d9f-aeaacb4170c2",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00d7008c-0601-5bb6-9424-39f589043d3b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05f19884-000f-539f-87b5-a7ed5764bd75",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Rinderhack an und gieße das Fett ab. Stelle das Fleisch beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel, Karotte und Paprika 6 Minuten in Olivenöl an. Gib Knoblauch dazu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomatenmark dazu und gare es 2 Minuten. Gib gehackte Tomaten, Rinderbrühe, Rindfleisch und Gewürze dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 15 Minuten köcheln. Schmecke die Suppe ab und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/cheesytomatogroundbeefandrice-5-min.jpg",
+          "sourcePageUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/cheesytomatogroundbeefandrice-5-min.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tomato-lentil-soup",
+      "slug": "mfr-tomato-lentil-soup",
+      "title": "Tomaten-Linsen-Suppe",
+      "instructions": "Rote Linsen zerfallen in einer samtigen Tomatenbasis mit wärmenden Gewürzen zu einer seidigen Suppe, die $1.50 für zwei Portionen kostet und 30 Minuten braucht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen zerfallen ganz von selbst zu einer cremigen Suppe. Ein Mixer ist nicht nötig.",
+        "Diese Suppe reicht für 3 Personen und kostet insgesamt etwa $3."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-bouillon",
+          "swap": "Gemüsebrühe für eine vollständig vegane Variante"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Frische Tomaten oder Tomatensoße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tomato-lentil-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Suppe",
+        "vegan",
+        "günstig",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 963,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tomato-lentil-soup/",
+      "components": [
+        {
+          "key": "499e82fb-02fe-545b-85b2-cc74e1ff90b0",
+          "name": "Zutaten",
+          "servingGrams": 491.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "06261d01-dccd-5dc1-a2f2-fa2ae035d78c",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7ea9f5e-e96b-54b0-96b4-c4f64d829cbb",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eede2522-fb60-51ee-82aa-8729ddbac0ff",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "057f704a-ea19-54a5-82f1-7bd87d213224",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d674ced8-4c4b-56e1-ae5a-dfdabda5f1f7",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c22a6e94-6881-54d9-b2ca-435958a7ec4c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "248ada43-1bde-5ff2-8f63-10782424c058",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48e169c3-82cb-51bd-8ba0-cfa80b5c3c3e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e94bdff9-7953-5593-b6a5-11be19b0df3c",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7984635-4c32-5cc1-abdc-10e30b7206fa",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09a815d8-a5d9-523f-b49d-fc81fb43fe75",
+              "ingredientName": "Hühnerbouillon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff84cd9c-a875-5970-bdd8-c24ba21946f8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Karotte 6 Minuten in Olivenöl an. Gib Knoblauch, Kreuzkümmel und Paprikapulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Linsen, gehackte Tomaten, Bouillon und 4 Tassen Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe alles zum Kochen und lass die Suppe 20–25 Minuten köcheln, bis die Linsen zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Spinat und Zitronensaft ein. Würze die Suppe. Püriere sie nach Belieben teilweise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/-fV9z_jAc-fr79HSQ6sQMUifXH0=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/_easy-red-lentil-and-tomato-soup-435639-06-02-5bd0812046e0fb0051bbc30c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/-fV9z_jAc-fr79HSQ6sQMUifXH0=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/_easy-red-lentil-and-tomato-soup-435639-06-02-5bd0812046e0fb0051bbc30c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-black-bean-chicken-soup",
+      "slug": "mfr-black-bean-chicken-soup",
+      "title": "Suppe mit schwarzen Bohnen und Hähnchen",
+      "instructions": "Rauchige, mit Kreuzkümmel gewürzte Suppe aus schwarzen Bohnen mit gezupftem Hähnchen: eine dicke, herzhafte Tex-Mex-Suppe, die schmeckt, als hätte sie den ganzen Tag geköchelt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen schwarze Bohnen kosten $2.20 und machen diese Suppe besonders dick und herzhaft.",
+        "Wenn das Hähnchen direkt in der Suppe köchelt, nehmen sowohl das Fleisch als auch die Flüssigkeit Aroma auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen aus der Dose als schnelle Alternative in 10 Minuten"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Salsa für zusätzliches mexikanisches Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-black-bean-chicken-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Suppe",
+        "Tex-Mex",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 964,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-black-bean-chicken-soup/",
+      "components": [
+        {
+          "key": "5e18a21f-104c-52a2-8de9-5910d17abacc",
+          "name": "Zutaten",
+          "servingGrams": 572,
+          "position": 0,
+          "items": [
+            {
+              "key": "19998b09-e79a-5255-a6d9-18605a1253b6",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ff65735-0cf3-5131-b83a-ae18509b6c05",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44bb8ea6-e346-5cad-b98e-02521f25e5fe",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4c3fed1-5ed5-593f-a01b-0db5091fbc4a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0655627f-4231-5ad8-bd8b-91a9e32f2e19",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e7bbd0b-07e8-52f0-a859-e7225bb96708",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "704274c0-3577-56d1-a53b-6d3dc867086e",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95aa72e9-7560-51d5-a075-4d199e96e56d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ccf41cc-3664-55ee-959c-aa2e48768fa4",
+              "ingredientName": "Hühnerbouillon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1095a4b-a545-57d8-92b9-c00f7b0c5428",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9417371-8279-5291-bfd2-e2e6705e8c2e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 5 Minuten in Olivenöl an. Gib Knoblauch, Kreuzkümmel und Chilipulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ganze Hähnchenbrüste, schwarze Bohnen, gehackte Tomaten und Bouillon + 3 Tassen Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe alles zum Kochen und lass die Suppe 18 Minuten köcheln. Nimm das Hähnchen heraus, zerteile es und gib es zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles weitere 5 Minuten köcheln. Presse Limettensaft darüber und garniere die Suppe mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Chicken-Chili-with-Black-Beans_EXPS_MTCBBZ17_153_B02_23_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Chicken-Chili-with-Black-Beans_EXPS_MTCBBZ17_153_B02_23_5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

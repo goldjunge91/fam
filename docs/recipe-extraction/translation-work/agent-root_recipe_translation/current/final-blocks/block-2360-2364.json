@@ -1,0 +1,1036 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tamagoyaki",
+      "slug": "gen-tamagoyaki",
+      "title": "Tamagoyaki",
+      "instructions": "Japanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier in Großpackungen im Großhandel kaufen",
+        "Normalen Zucker statt besonderer Süßungsmittel verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "japanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2360,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tamagoyaki/",
+      "components": [
+        {
+          "key": "4edb63f9-2546-52f2-b2f1-a320a96fee3e",
+          "name": "Zutaten",
+          "servingGrams": 452.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "18c9fd33-49f6-5aa2-8da9-8d65f0421e57",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "1c110dbc-de18-5131-9d98-657f784a428a",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "92776205-14a2-5cfd-8b52-79b0fbc0514f",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4e5d8de8-465b-5d36-a3bf-675d39a296d2",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7b483e48-e86f-5dd5-92f5-c4f2fcfc1165",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e539d417-6162-5a71-8227-2b2850f407e9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a8f8994a-b385-5858-a8df-52fcaebb4b48",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier in einer Schüssel mit Sojasauce, Mirin, Dashi und Zucker gründlich verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischung durch ein feines Sieb abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer rechteckigen Tamagoyaki-Pfanne oder kleinen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine dünne Schicht Eiermischung in die Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn die Ränder gestockt, die Mitte aber noch flüssig ist, Omelett mit Essstäbchen oder Pfannenwender zu dir hin aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle an den hinteren Pfannenrand schieben und mehr Eiermischung hineingießen, dann wieder aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "3–4 Mal wiederholen, bis die gesamte Mischung aufgebraucht ist. In Stücke schneiden und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/VghMuE0L-IBYSIegGN9_sjc1KMc=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/japanese-tamagoyaki-recipe-2031022-step-13-9ef5007906744b56a327fee349080aa4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/VghMuE0L-IBYSIegGN9_sjc1KMc=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/japanese-tamagoyaki-recipe-2031022-step-13-9ef5007906744b56a327fee349080aa4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-edamame",
+      "slug": "gen-edamame",
+      "title": "Edamame",
+      "instructions": "Japanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Große Beutel tiefgekühlter Edamame statt kleiner Packungen kaufen",
+        "Für die günstigste Variante Garnitur weglassen oder nur einfaches Salz verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2361,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-edamame/",
+      "components": [
+        {
+          "key": "debd108c-c7f6-5790-9b5f-1b0b1458a8e4",
+          "name": "Zutaten",
+          "servingGrams": 788.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8e7d580-b7b3-5d6c-8306-324a6b96d41e",
+              "ingredientName": "Edamame",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c46ed03a-654a-56ee-8f40-235f9d056149",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "54aa7949-7d38-5b89-a674-c4b5c42ec3ac",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8a59e227-bad0-5a0d-bca3-a49cdc4fcea7",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6e7ec8fd-16e9-527f-a430-f09e1d97ceeb",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser und Salz in einem Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gefrorene Edamame dazugeben und erneut zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5–6 Minuten kochen, bis die Bohnen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einem Sieb gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Noch warm mit Sesamsamen und Knoblauchpulver vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In eine Servierschüssel geben und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/02/Spicy-Edamame_EXPS_LSBZ18_135007_B01_19_3b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/02/Spicy-Edamame_EXPS_LSBZ18_135007_B01_19_3b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-takoyaki",
+      "slug": "gen-takoyaki",
+      "title": "Takoyaki",
+      "instructions": "Japanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten statt frischen Oktopus verwenden",
+        "Takoyaki-Pfanne und Zubehör einmalig kaufen und wiederverwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2362,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-takoyaki/",
+      "components": [
+        {
+          "key": "4992510b-d45a-5d32-bbab-51cddc11d572",
+          "name": "Zutaten",
+          "servingGrams": 617.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c5e4633-f4e2-50bd-ac4b-7d6956d14c07",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d28b57c9-86ec-55fc-b662-d4cb30286b63",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0e2b3eaa-62f2-529d-954a-d5839d1c0cde",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52a34a5f-29e7-5786-a7e5-69f61edfcfae",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "28998509-dbbf-5dba-beb5-7c2e717f4bae",
+              "ingredientName": "Oktopus",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Unzen, gewürfelt"
+            },
+            {
+              "key": "17e8407b-8d41-5616-80f9-203aeedd50a3",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel, gehackt"
+            },
+            {
+              "key": "06bafbb0-5cc4-5886-bdaf-93c165b356bf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "c9054af3-9158-5dc5-8551-182260259357",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "314dd5a6-0efe-538e-b081-baddd5140735",
+              "ingredientName": "Tomatensauce",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1f49d8be-a51b-5258-b3ec-9f2899f34c65",
+              "ingredientName": "Bonitoflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver, Eier und Dashi-Brühe zu einem glatten Teig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Takoyaki-Pfanne bei mittelhoher Hitze erhitzen und jede Mulde mit Öl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in die Mulden gießen, etwa bis zur Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Je ein Stück Oktopus, Frühlingszwiebel und eingelegten Ingwer in jede Mulde geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mehr Teig darübergeben, sodass jede Mulde vollständig gefüllt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Takoyaki-Spießen oder Holzspießen jede Kugel ständig drehen, damit sie rund wird. Das dauert etwa 8–10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sobald sie goldbraun sind, herausnehmen und auf eine Servierplatte legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Takoyaki-Sauce beträufeln, Bonitoflocken darüberstreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/01/10/multimedia/ND-Takoyaki-wfhg/ND-Takoyaki-wfhg-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/01/10/multimedia/ND-Takoyaki-wfhg/ND-Takoyaki-wfhg-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yakisoba",
+      "slug": "gen-yakisoba",
+      "title": "Yakisoba",
+      "instructions": "Japanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ramen-Nudeln verwenden, falls keine Soba-Nudeln verfügbar sind",
+        "Vorgeschnittenen Kohl kaufen, um Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2363,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yakisoba/",
+      "components": [
+        {
+          "key": "70f558c6-5877-5e6f-933d-9ada6c8d93e3",
+          "name": "Zutaten",
+          "servingGrams": 451,
+          "position": 0,
+          "items": [
+            {
+              "key": "e04f9417-166f-5ba4-b091-6d6fecab366f",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d0f5011f-0864-519b-a8dc-33650891bf54",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, geraspelt"
+            },
+            {
+              "key": "37d636c9-c8a0-5bb6-924c-efe5cbe60889",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1, in feine Streifen geschnitten"
+            },
+            {
+              "key": "9abd8841-88e5-516e-9011-c0054cade3f2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "7709e117-3317-5c5e-b9a8-1757a2a17842",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d17d6d8f-b133-5624-b046-e6d469f30c38",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5f27152a-dedd-5591-9ce5-efc59e39ae03",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "21d39d3f-70f4-52ea-a614-5baacf4fe02c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "ba4b1019-f6ea-5c1d-94fd-8edd873d2ede",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2, gehackt"
+            },
+            {
+              "key": "6f82e489-cdf3-5eee-8384-b518355d1aa0",
+              "ingredientName": "Bonitoflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Soba-Nudeln nach Packungsanleitung kochen, abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pflanzenöl in einer großen Pfanne oder einem Wok bei starker Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen etwa 4–5 Minuten garen, bis es in der Mitte nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kohl und Karotten dazugeben und 3–4 Minuten pfannenrühren, bis sie leicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gekochte Nudeln und Knoblauch in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce und Mirin über alles gießen und 2 Minuten gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Servierteller verteilen, mit Frühlingszwiebeln und Bonitoflocken garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1631123189/k/Photo/Recipe%20Ramp%20Up/2021-09-Chicken-Yakisoba/chicken_yakisoba_01.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1631123189/k/Photo/Recipe%20Ramp%20Up/2021-09-Chicken-Yakisoba/chicken_yakisoba_01.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tonkotsu-ramen",
+      "slug": "gen-tonkotsu-ramen",
+      "title": "Tonkotsu-Ramen",
+      "instructions": "Japanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Instant-Ramen statt frischer Nudeln verwenden",
+        "Brühe über Nacht im Slow Cooker köcheln lassen, um die aktive Kochzeit zu verkürzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2364,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tonkotsu-ramen/",
+      "components": [
+        {
+          "key": "d0f534ca-d409-5b88-becf-2960eeffa5a2",
+          "name": "Zutaten",
+          "servingGrams": 397.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2faa4f9-6359-5509-a699-afb98cabd222",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "3f191c70-c0a9-5dc6-9835-c072ccef9369",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d14e3f42-3d07-5782-a57a-59cf2958c3c7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "0e73b18a-9c76-5c31-af0b-6922c0f69ae1",
+              "ingredientName": "Kombu-Alge",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stück"
+            },
+            {
+              "key": "3a2d08b9-04e2-5950-b2ae-79b4580668ea",
+              "ingredientName": "Glasnudeln / Zellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "12673e6a-db48-5847-b5bb-4fdae9379049",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8f97c65-6fc3-5760-9863-dd40a7878691",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fd09dc78-5b24-56aa-828a-69bbcc84dc0b",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "77b74a80-96c9-529c-95f6-51e6bb92be40",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "03e5ffb8-106c-54bd-84a3-ca0d4904c6db",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineknochen und Hähnchen 3 Minuten in kochendem Wasser blanchieren, dann abgießen und gründlich abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gereinigte Knochen und Hähnchen mit 3 Quarts frischem Wasser und Kombu in einen großen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Kochen bringen, dann Hitze reduzieren und 2–3 Stunden köcheln lassen. Trübstoffe abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knochen und Hähnchen herausnehmen, Schweinebauch dazugeben und weitere 30 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brühe abseihen und mit Sojasauce und Mirin würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eier 6–7 Minuten kochen, dann schälen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ramen-Nudeln nach Packungsanleitung kochen und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nudeln auf Schalen verteilen, heiße Brühe darübergießen und mit Schweinebauch, Eihälften, Nori und Frühlingszwiebel belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Tonkotsu-Ramen.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Tonkotsu-Ramen.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

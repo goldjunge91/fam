@@ -1,0 +1,955 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-huevos-mexicana",
+      "slug": "mfr-huevos-mexicana",
+      "title": "Mexikanische Rühreier (Huevos a la Mexicana)",
+      "instructions": "Rühreier mit Tomate, Zwiebel und Jalapeño in den Farben der mexikanischen Flagge: ein Frühstück in 10 Minuten für weniger als $2.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Frühstück ist ein Klassiker der mexikanischen Alltagsküche und kostet für 2 Personen weniger als $2.",
+        "Ohne Jalapeño-Kerne wird es mild, mit Kernen scharf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jalapeno",
+          "swap": "Serrano-Chili für mehr Schärfe oder grüne Paprika für eine milde Variante"
+        },
+        {
+          "forIngredientId": "corn-tortillas",
+          "swap": "Beliebige Tortilla oder Toast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-huevos-mexicana",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Eier",
+        "schnell",
+        "preiswert",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1060,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-huevos-mexicana/",
+      "components": [
+        {
+          "key": "d4a3022a-fe19-57dd-9305-c928ed021fbc",
+          "name": "Zutaten",
+          "servingGrams": 352.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f267f07e-8366-53c6-9ec3-4d27fa9a14b0",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4871ed8-2243-59ca-85da-10d563b90708",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a29f6af5-6d30-53c7-bf56-9f893ab3aff5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d15244f3-ef9a-5765-af99-eb193b3e0528",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c4b1bce-6a21-5d08-9db8-80a3b7c397cb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f1298f1-52fb-5bdf-8af9-16e8e5c1596a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e03b21b8-6747-50c8-b25c-f4b43040a551",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ba4ab88-cd25-574e-a692-b37a49ce8b4f",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Tomate, Zwiebel und Jalapeño, die Farben der mexikanischen Flagge: Rot, Weiß und Grün.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste das Gemüse 3 Minuten in Olivenöl an, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die Eier und gieße sie dazu. Rühre sie bei mittelniedriger Hitze 3–4 Minuten sanft, bis sie gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue die Eier mit Koriander und serviere sie mit warmen Tortillas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/5LTpiKREtgCNcCFxjOPBVsgEWb8=/5754x3841/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Huevos-a-la-Mexicana-LEAD-20-3e1ee5e55e3d49c6ab06f7964bae9c0b.JPG",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/5LTpiKREtgCNcCFxjOPBVsgEWb8=/5754x3841/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Huevos-a-la-Mexicana-LEAD-20-3e1ee5e55e3d49c6ab06f7964bae9c0b.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-colombian-changua",
+      "slug": "mfr-colombian-changua",
+      "title": "Kolumbianische Changua (Milch-Ei-Suppe)",
+      "instructions": "Pochierte Eier in einer einfachen Milch-Wasser-Brühe mit Koriander und Frühlingszwiebeln: Kolumbiens beliebte, wärmende und überraschend sättigende Frühstückssuppe in 10 Minuten.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Changua braucht 1 cup Milch pro Portion und gehört zu den günstigsten proteinreichen Frühstücken.",
+        "Das Brot wird in die Brühe getunkt. Lass es nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Pflanzenmilch, zum Beispiel Hafermilch"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Arepas nach traditioneller Art oder Toast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-colombian-changua",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kolumbianisch",
+        "Suppe",
+        "Eier",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1061,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-colombian-changua/",
+      "components": [
+        {
+          "key": "fc30c735-1e56-55be-b236-764f8b2fbf24",
+          "name": "Zutaten",
+          "servingGrams": 645,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3f43075-d797-5383-8b4a-c671fe4cc468",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d388af76-9f0c-5885-8bf3-d3b82dc4d7f7",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33fbbdbe-2880-5f2a-a8d3-0c6644de4704",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efaae22e-556b-5fe5-aa24-1d3b87afb6a0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f28a139d-a418-5ce1-8e4b-ad0ac2bd47f4",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1959a835-cd66-54ca-90e2-10a10082496e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89e3e353-1042-5cfc-879a-fbeb7c5beac5",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Milch und Wasser mit Salz und der Hälfte der Frühlingszwiebeln, bis die Mischung leicht köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die Eier direkt in die leicht köchelnde Brühe. Pochiere sie 3–4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schöpfe die Suppe in Schüsseln. Bestreue sie mit Koriander und den restlichen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Suppe mit Brot zum Tunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2026/03/04/multimedia/02FD-BREAKFAST-SOUPrex-MT-Changua-kgql/02FD-BREAKFAST-SOUPrex-MT-Changua-kgql-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2026/03/04/multimedia/02FD-BREAKFAST-SOUPrex-MT-Changua-kgql/02FD-BREAKFAST-SOUPrex-MT-Changua-kgql-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-venezuelan-pabellon-breakfast",
+      "slug": "mfr-venezuelan-pabellon-breakfast",
+      "title": "Venezolanische Pabellón-Frühstücksschale",
+      "instructions": "Venezuelas Nationalgericht als Frühstücksschale: zerpflücktes Hähnchen oder Rindfleisch, schwarze Bohnen, weißer Reis und süß gebratene Kochbanane.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pabellón setzt auf sehr günstige Grundzutaten: Reis, Bohnen und eine kleine Menge Protein.",
+        "Reife, gelbe Kochbananen sind süßer. Je dunkler sie sind, desto besser passen sie zu diesem Gericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "plantain",
+          "swap": "Kurz gebratene Banane mit ähnlichem Geschmack"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Thunfisch aus der Dose für eine schnelle Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-venezuelan-pabellon-breakfast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "venezolanisch",
+        "Frühstück",
+        "Reis",
+        "Bohnen",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1062,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-venezuelan-pabellon-breakfast/",
+      "components": [
+        {
+          "key": "7871a228-1cdc-5d8c-bdfb-273209f76ecc",
+          "name": "Zutaten",
+          "servingGrams": 508,
+          "position": 0,
+          "items": [
+            {
+              "key": "5bc8e012-333b-5737-b1d0-75393a726fa7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "323b5065-b14a-59bd-9708-f80bb7f7e53b",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dae5d77-526b-5da6-9459-99c4631f874f",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2cf3734-4216-5a9c-9d4a-6b4984934daf",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad5224c9-807f-5214-9d17-b4864057b0a5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8166e64-80e3-5066-a5c8-7bf985ec1c02",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "305d7729-c776-5663-a5b4-8d7ef25d45d1",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f0afe76-8d50-5deb-8d7b-301e515e4bec",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche das Hähnchen 15 Minuten und zerpflücke es. Würze es mit Kreuzkümmel, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die schwarzen Bohnen in einer Pfanne mit Zwiebel und Knoblauch und würze sie kräftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die reife Kochbanane in Scheiben und brate sie 2 Minuten pro Seite in Öl, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Reis, Bohnen, Hähnchen und Kochbanane getrennt auf dem Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hispanicfoodnetwork.com/wp-content/uploads/2023/10/Pabellon-Criollo-Recipe-Card.jpg",
+          "sourcePageUrl": "https://hispanicfoodnetwork.com/wp-content/uploads/2023/10/Pabellon-Criollo-Recipe-Card.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-brazilian-acai-bowl",
+      "slug": "mfr-brazilian-acai-bowl",
+      "title": "Brasilianische Açaí-Frühstücksschale",
+      "instructions": "Püriertes tiefgekühltes Açaí mit Banane, dazu Granola, frisches Obst und ein wenig Honig: Brasiliens berühmte Frühstücksschale.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Açaí-Portionen sind teuer. Verwende eine halbe Portion pro Schale und ergänze sie mit tiefgekühlten Blaubeeren.",
+        "Erdnussbutter auf der Açaí-Schale ist in Brasilien beliebt, liefert Protein und kostet wenig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-acai",
+          "swap": "Blaubeeren und ein paar Tropfen Rote-Bete-Saft"
+        },
+        {
+          "forIngredientId": "almond-milk",
+          "swap": "Beliebige Pflanzenmilch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-brazilian-acai-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "brasilianisch",
+        "Smoothie-Schale",
+        "Obst",
+        "ohne Kochen",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1063,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-brazilian-acai-bowl/",
+      "components": [
+        {
+          "key": "c4d53ad3-2d52-522d-81ab-2efad3a64bf8",
+          "name": "Zutaten",
+          "servingGrams": 553,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d0badd9-90f4-5178-b962-dc8185c8411f",
+              "ingredientName": "Tiefgekühltes Açaí-Päckchen",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "404996e7-b347-5655-8c28-2bf4c9d22771",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5350ffbc-2030-595e-83b5-59aedf604012",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97fcac6e-ae74-5357-b754-776288b6f72b",
+              "ingredientName": "Granola",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "163eda46-0a92-52b5-ad51-a3038f0051d7",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67c83478-9490-5203-b579-718efcc1068d",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb8fd4df-d4c4-525d-a194-5efae5a502a8",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68fd9a87-7ad8-5216-a742-f3e88d4eb8df",
+              "ingredientName": "Kokosraspeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere tiefgekühltes Açaí, Banane und Mandelmilch, bis die Masse dick und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Mischung in Schüsseln. Belege sie mit Granola, geschnittenen Erdbeeren, Kokosraspeln, Erdnussbutter und Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Acai-na-Tigela.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Acai-na-Tigela.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mexican-chilaquiles",
+      "slug": "mfr-mexican-chilaquiles",
+      "title": "Mexikanische Chilaquiles mit Eiern",
+      "instructions": "Mais-Tortillachips köcheln in Salsa Verde oder Roja, bis sie weich werden. Dazu kommen Spiegeleier, Cotija-Käse und Crema: Mexikos ultimatives Frühstück zum Wohlfühlen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chilaquiles sind die mexikanische Lösung, um übrig gebliebene Tortillas aufzubrauchen.",
+        "Altbackene Tortillas oder Chips eignen sich perfekt. Leicht abgestandene Chips behalten in der Sauce sogar besser ihre Form."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cotija-cheese",
+          "swap": "Feta mit sehr ähnlichem Geschmack"
+        },
+        {
+          "forIngredientId": "salsa-verde",
+          "swap": "Rote Salsa. Beide Varianten sind traditionell"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mexican-chilaquiles",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Eier",
+        "Wohlfühlessen",
+        "Frühstück",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1064,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mexican-chilaquiles/",
+      "components": [
+        {
+          "key": "992873a1-545a-5083-9755-0f7472d2b503",
+          "name": "Zutaten",
+          "servingGrams": 373.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "85f639d9-4938-5947-950e-005e0bb1ec95",
+              "ingredientName": "Mais-Tortillachips",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a55f75e3-746c-53f7-a8ab-7622a0a7a1fa",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fcbfde7-f19b-5e78-a2c5-516271f79d48",
+              "ingredientName": "Salsa Verde",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cba8cf8-8fcb-54a9-839f-3d5d46dcb722",
+              "ingredientName": "Cotija",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7d81296-fa47-5a80-81fe-66d290d3c49b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da437a0a-e8a7-5523-942f-f8f3571639d3",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d55641ac-4d71-5f0e-a4f9-efa27d7411a2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc7f2d65-f8fd-5f1f-b267-412505982d49",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f15e2802-cb30-5a58-b25b-945d9e3546ed",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel und Knoblauch 2 Minuten an. Gib Salsa Verde dazu und bringe sie zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Tortillachips dazu. Rühre vorsichtig um, damit sie von Sauce bedeckt sind, und gare sie 3 Minuten, bis sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe die Chips auseinander und schlage die Eier direkt in die Lücken. Decke die Pfanne ab und gare alles 3–4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue das Gericht mit Cotija, Crema und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/11/08d7c1e49c0e574da24ba784253203897eb94c68.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/11/08d7c1e49c0e574da24ba784253203897eb94c68.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

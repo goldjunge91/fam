@@ -1,0 +1,1188 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-thai-green-curry",
+      "slug": "rice-cooker-thai-green-curry",
+      "title": "Thailändisches grünes Hähnchen-Curry aus dem Reiskocher",
+      "instructions": "Cremiges, duftendes grünes Kokos-Curry mit zartem Hähnchen und knackigem Gemüse. Alles köchelt gemeinsam in einem Topf, während der Reiskocher die Arbeit erledigt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger als Hähnchenbrust und bleiben auch nach zwei Garzyklen saftiger.",
+        "Eine kleine Dose vollfetter Kokosmilch reicht für 4 Portionen. Kaufe die Hausmarke.",
+        "Verwende Gemüse im Angebot oder eine tiefgekühlte Wokgemüsemischung statt frischer Paprika und Zucchini."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Fester Tofu oder Kichererbsen für eine vegetarische Variante",
+          "savings": "Spart etwa $2.00 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce oder Tamari (1:1)",
+          "savings": "Verwendet eine Vorratszutat und spart ~$0.50"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Tiefgekühlte Wokgemüsemischung",
+          "savings": "Spart etwa $1.00 und erfordert keine Vorbereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "Curry"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 625,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-thai-green-curry/",
+      "components": [
+        {
+          "key": "4d77c0d7-3d5b-5c15-b819-127939018eca",
+          "name": "Zutaten",
+          "servingGrams": 426.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "4e200058-c627-52f4-a0a8-2e1d65357c1f",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "550aad88-2b3a-5352-8e22-f30df1d6e639",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 3 Esslöffel thailändische grüne Currypaste"
+            },
+            {
+              "key": "b9765ca3-3609-507c-a968-eae8f3b75f6c",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "eine 13.5 Unzen can, vollfett"
+            },
+            {
+              "key": "5d2a5ef0-9f62-5720-a738-7f4ab7d95336",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "trocken, zum Servieren alongside"
+            },
+            {
+              "key": "47efd10f-685a-5df9-93dc-16f353a72bd3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten into strips"
+            },
+            {
+              "key": "9a16ee1d-54ea-55df-a40a-d74667d7dc03",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Hälfte-mooned"
+            },
+            {
+              "key": "850a06fa-14e7-54fe-af8a-1d0d3205c017",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "ead74315-a217-5367-b38f-5c74c399bc53",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "410b79a5-6010-57ea-b2c9-59d11ad322d3",
+              "ingredientName": "Fischsauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1 Esslöffel; swap Sojasauce damit es vegetarisch bleibt-leaning"
+            },
+            {
+              "key": "a0c647e2-d6bb-5237-bd36-3deb80940eab",
+              "ingredientName": "Brauner Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel, balances the curry"
+            },
+            {
+              "key": "801ddfbf-e754-5525-a51c-7a47b4efbf48",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "juiced, added bei the end"
+            },
+            {
+              "key": "a5a8bb66-f062-549c-824c-bc3e96630bcd",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 75,
+              "quantity": 0.15,
+              "unit": "package",
+              "position": 11,
+              "optional": true,
+              "source_note": "Handvoll, torn, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis: Gib Jasminreis und Wasser in den Reiskocher (orientiere dich an der Tassenmarkierung) und starte einen vollständigen Garzyklus. Fülle den Reis in Schüsseln und stelle ihn beiseite. Spüle dann den Topf kurz aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle den ausgespülten Topf zurück und gib einen Schuss Kokosmilch, grüne Currypaste, Knoblauch und Zwiebel hinein. Starte einen Garzyklus und rühre 2-3 Minuten, bis die Paste duftet und brutzelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die rohen Hähnchenstücke dazu und wende sie in der Mischung. Gieße die restliche Kokosmilch sowie Fischsauce und braunen Zucker hinein. Schließe den Deckel und starte einen vollständigen Garzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre nach Ende des Zyklus gut um und starte einen ZWEITEN Garzyklus, damit das Hähnchen vollständig gar wird (kein Rosa mehr, der Fleischsaft läuft klar heraus) und die Sauce sanft blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Paprika und Zucchini ein, schließe den Deckel und lass das Gemüse durch die Restwärme 8-10 Minuten weich werden. Alternativ kannst du einen kurzen Garzyklus starten, falls dein Reiskocher schnell abkühlt. Das Gemüse sollte noch leicht knackig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schalte den Reiskocher aus, presse Limettensaft hinein und rühre um. Probiere das Curry und gib bei Bedarf etwas mehr Fischsauce oder Zucker zum Ausgleichen dazu. Löffle das Curry über den Reis und gib zerrupften Thai-Basilikum darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Thai_green_chicken_curry_and_roti.jpg/1280px-Thai_green_chicken_curry_and_roti.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thai_green_chicken_curry_and_roti.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Takeaway — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von thailändischem grünem Hähnchen-Curry aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-sausage-peppers-rice",
+      "slug": "rice-cooker-sausage-peppers-rice",
+      "title": "Reis mit italienischer Wurst und Paprika aus dem Reiskocher",
+      "instructions": "Saftige italienische Wurst, süße Paprika und Zwiebeln köcheln direkt in würzigem Tomatenreis. Ein herzhaftes Gericht aus einem Topf.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Vorteilspackung Wurst und friere den Rest ein. Taue pro Portion ein paar Würste auf.",
+        "Verwende die Paprika, die diese Woche am günstigsten ist. Grüne Paprika ist meist die preiswerte Wahl.",
+        "Ersetze Hühnerbrühe durch Wasser und einen Brühwürfel, um etwas zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Räucherwurst oder Kielbasa in Scheiben",
+          "savings": "Oft $1-2 günstiger pro Pfund und kein Rätselraten beim Anbraten"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und einen Brühwürfel",
+          "savings": "Spart etwa $0.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Tomatensauce oder gewürfelte Tomaten",
+          "savings": "Verwende die Dose, die im Regal am günstigsten ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 626,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-sausage-peppers-rice/",
+      "components": [
+        {
+          "key": "ce08e3b6-4afb-555f-9258-82422901a9b4",
+          "name": "Zutaten",
+          "servingGrams": 511.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "c892bb61-dc12-516b-a623-77cff34cf1cc",
+              "ingredientName": "Italienische Wurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "italienische Wurst links, in Scheiben geschnitten into coins"
+            },
+            {
+              "key": "1b3c5409-8031-565e-ad02-89431f5b68e3",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 red + 1 green, in Scheiben geschnitten"
+            },
+            {
+              "key": "947255fa-5c78-5944-8f0a-1a89f81abbad",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "halbiert und in Scheiben geschnitten"
+            },
+            {
+              "key": "7a184894-d936-52a2-ba36-7fe5e9b1d525",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "ff9f2a7c-d99b-5b06-8f5c-fcbd91c8a7aa",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen trocken weißer Langkornreis"
+            },
+            {
+              "key": "c2ad87f3-f766-574e-aeb5-d863e899ae59",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "eine 14-15 Unzen can"
+            },
+            {
+              "key": "3a9740ce-1d9b-54fa-b303-817302648b0c",
+              "ingredientName": "Tomatenmark",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 2 Esslöffel"
+            },
+            {
+              "key": "a1f4404a-aa96-5e15-ab9d-b60cdd0a4f54",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Tassen zum Kochen des Reises"
+            },
+            {
+              "key": "9c82117f-3f4d-5223-bcbd-d2d53f41c22f",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 2 Teelöffel"
+            },
+            {
+              "key": "5efb699c-e82f-5523-a828-82042f2e68d3",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "aa9583d7-4dbe-58f6-a7d7-b36159b000db",
+              "ingredientName": "Chiliflocken",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "eine Prise für mehr Schärfe"
+            },
+            {
+              "key": "e6fa9c99-21e4-58c0-8b96-835c13ccbcb3",
+              "ingredientName": "Parmesan",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "gerieben, zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Wurst in Scheiben und Paprika sowie Zwiebel in Streifen. Gib Olivenöl, Wurst, Zwiebel und Knoblauch in den Topf des Reiskochers und starte einen vollständigen Garzyklus. Rühre ein- oder zweimal um, bis die Wurst gebräunt ist (etwa 10-12 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die geschnittene Paprika dazu und rühre um. Lass sie durch die Restwärme eine Minute weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spüle den Reis ab und gib ihn mit zerkleinerten Tomaten, Tomatenmark, Hühnerbrühe, italienischer Gewürzmischung und Chiliflocken in den Topf. Rühre alles um, sodass der Reis in der Flüssigkeit liegt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus (oder das Programm für weißen Reis).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide nach Ende des Garzyklus eine Wurstscheibe auf und prüfe, ob sie gar und innen nicht mehr rosa ist. Falls nötig, starte einen zweiten kurzen Garzyklus, bis die Wurst gar und der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Gericht 5 Minuten auf Warmhalten ruhen. Lockere den Reis auf, schmecke ihn ab und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle das Gericht in Schüsseln und gib geriebenen Parmesan darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:rice-cooker-apple-cinnamon-oats",
+      "slug": "rice-cooker-apple-cinnamon-oats",
+      "title": "Haferbrei mit Apfel und Zimt aus dem Reiskocher",
+      "instructions": "Wache mit einem warmen Topf cremigem Zimthaferbrei auf, in dem süße, zarte Apfelstücke stecken – und du musstest kaum etwas dafür tun.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Tasse trockene Hafergrütze reicht für vier Portionen und ist eines der günstigsten Frühstücke pro Portion.",
+        "Verwende einen leicht angedrückten oder weichen Apfel. Er wird beim Kochen süß und weich, ohne dass man es merkt.",
+        "Bereite die ganze Menge zu und bewahre einzelne Portionen im Kühlschrank auf. So kannst du den Brei die ganze Woche mit einem Schuss Wasser oder Milch aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig oder brauner Zucker",
+          "savings": "Spart etwa $0.30 pro Zubereitung gegenüber echtem Ahornsirup"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Mandelmilch oder Hafermilch",
+          "savings": "Ungefähr kostenneutral und hält das Gericht milchfrei"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Lass die Walnüsse weg oder verwende nur Rosinen",
+          "savings": "Spart etwa $0.40 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "Frühstück",
+        "zum Vorbereiten",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 627,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-apple-cinnamon-oats/",
+      "components": [
+        {
+          "key": "476ec35e-a3dd-57e2-a5ea-28d8e35260a9",
+          "name": "Zutaten",
+          "servingGrams": 134.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "38a03f25-a797-573a-bba1-1d01df6f5d61",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "steel-cut oats, 1 Tasse trocken"
+            },
+            {
+              "key": "af739f4f-d1fe-5be7-b86e-eb6cb5ea6b42",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "geschält und gewürfelt"
+            },
+            {
+              "key": "661fa422-b456-537b-ac13-bc8e43749f21",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "gemahlen, etwa 1.5 Teelöffel"
+            },
+            {
+              "key": "1b78fcfa-cf09-5aeb-8a15-7535e6672b41",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "eingerührt bei the end für creaminess"
+            },
+            {
+              "key": "c6dcd12c-4645-5d64-bc3b-65109ba1519b",
+              "ingredientName": "Ahornsirup",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 3 Esslöffel, nach Geschmack"
+            },
+            {
+              "key": "a6d7cab1-c914-58d2-9afc-66d65965b481",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "a Prise"
+            },
+            {
+              "key": "f55e0823-5517-5987-a25d-e859e4616f2c",
+              "ingredientName": "Butter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel, zu grease pot und füge hinzu richness"
+            },
+            {
+              "key": "a1696922-8627-5140-b058-26468cd02d8b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b3df892f-b735-5bea-add8-49f9f3670be8",
+              "ingredientName": "Rosinen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "klein Handvoll"
+            },
+            {
+              "key": "3de2879f-e16d-5d45-911c-85930f089152",
+              "ingredientName": "Walnüsse",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gehackt, als Belag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette den Topf des Reiskochers leicht mit Butter ein, damit der Haferbrei nicht festklebt. Gib 1 Tasse Stahlhafer, gewürfelten Apfel, Zimt, eine Prise Salz und 3 Tassen Wasser dazu (die Milch noch NICHT hineingeben – sie kann anbrennen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre einmal um, schließe den Deckel und starte einen vollständigen Garzyklus. Falls dein Reiskocher eine Einstellung für Porridge oder Congee hat, verwende sie. Sonst starte den normalen Garzyklus für weißen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öffne nach Ende des Zyklus den Deckel und rühre gründlich um. Kratze dabei den Topfboden ab. Der Hafer sollte größtenteils weich sein. Falls er noch Biss hat oder zu viel Wasser vorhanden ist, schließe den Deckel und starte einen zweiten Garzyklus. Prüfe nach 10 Minuten erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Milch, Ahornsirup und Vanille ein, sobald der Brei cremig ist. Lass ihn 5 Minuten auf Warmhalten stehen, damit er eindickt und die Flüssigkeit aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre erneut um, fülle den Brei in Schüsseln und gib Rosinen und gehackte Walnüsse darauf. Gib nach Wunsch noch einen Schuss Milch dazu, wenn du ihn flüssiger magst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Apple_cinnamon_oatmeal_5.jpg/1280px-Apple_cinnamon_oatmeal_5.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Apple_cinnamon_oatmeal_5.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shisma — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Haferbrei mit Apfel und Zimt aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-castella-cake",
+      "slug": "rice-cooker-castella-cake",
+      "title": "Japanischer Castella-Biskuit aus dem Reiskocher",
+      "instructions": "Ein wolkenweicher japanischer Biskuitkuchen mit Honig, der im Reiskocher ganz ohne Ofen goldbraun und herrlich wackelig gelingt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier, Mehl und Zucker sind preiswerte Vorratszutaten. Der ganze Kuchen kostet weniger als ein Stück vom Bäcker.",
+        "Du brauchst keinen Mixer. Ein Schneebesen und etwas Muskelkraft reichen völlig, um das Eiweiß steif zu schlagen.",
+        "Falls dein Reiskocher zu früh auf Warmhalten schaltet, drücke einfach alle 10 Minuten erneut auf Garen, bis der Kuchen fest ist. Du brauchst dafür kein neues Gerät."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Stattdessen Zucker oder Ahornsirup verwenden",
+          "savings": "Spart den Honigkauf und etwa $0.40"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Geschmolzene Butter für einen reichhaltigeren Geschmack",
+          "savings": "Verwende, was bereits im Kühlschrank ist, ohne zusätzliche Kosten (0 $)."
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Wasser oder eine beliebige Pflanzenmilch",
+          "savings": "Spart etwa $0.10, wenn Milchprodukte weggelassen werden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "Dessert",
+        "Backen",
+        "ohne Ofen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 628,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-castella-cake/",
+      "components": [
+        {
+          "key": "eca2eb61-f7be-526d-8555-5a7af9c6643b",
+          "name": "Zutaten",
+          "servingGrams": 88.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "91d4cb20-3119-5c3f-b561-c27066c9b73f",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "separate yolks und whites für max fluff"
+            },
+            {
+              "key": "6d743e60-bcfe-551f-911c-5f3c7b7ebde3",
+              "ingredientName": "Zucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse, split between yolks und whites"
+            },
+            {
+              "key": "7df32ccb-e9c0-596b-a016-174fa0c9221c",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse cake-soft Weizen-, sifted"
+            },
+            {
+              "key": "094c1c49-9e9d-53af-aca9-285b5c508587",
+              "ingredientName": "Honig",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel, the signature castella sweetness"
+            },
+            {
+              "key": "70b523c8-1e34-53d5-b4b1-f8a75a42f5f8",
+              "ingredientName": "Milch",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel, warmed slightly"
+            },
+            {
+              "key": "52e2e2b1-b1db-50c9-8bbc-97c4ad3e3ab6",
+              "ingredientName": "Pflanzenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel, keeps the crumb moist"
+            },
+            {
+              "key": "65e9ca37-7b24-53d0-a0cc-c7f6d6802231",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/2 Teelöffel für aroma"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette den Innentopf des Reiskochers leicht mit Öl ein und wische den Überschuss ab, damit sich der Kuchen später gut löst. Trenne die 4 Eier und gib das Eiweiß in eine große, saubere Schüssel und das Eigelb in eine zweite Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eigelb mit der Hälfte des Zuckers, Honig, warmer Milch, Öl und Vanille, bis die Mischung glatt ist. Siebe dann das Mehl hinein und hebe es nur so lange unter, bis keine trockenen Streifen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage das Eiweiß und gib den restlichen Zucker nach und nach dazu, bis glänzende, steife Spitzen entstehen. Hebe den Eischnee in drei Portionen vorsichtig unter den Eigelbteig, damit die Masse luftig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Teig aus etwa einem Fuß Höhe in den gefetteten Topf, damit große Luftblasen platzen, und klopfe den Topf anschließend einige Male auf die Arbeitsfläche. Wische Teigtropfen vom Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Starte einen vollständigen Garzyklus. Wenn der Reiskocher auf Warmhalten umschaltet, lass den Deckel geschlossen und den Kuchen 10 Minuten ruhen. Starte dann einen zweiten Garzyklus, damit auch die Mitte fertig bäckt. Der Kuchen ist fertig, wenn ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stürze den Topf vorsichtig auf einen Teller, damit sich der warme, wackelige Castella-Kuchen löst. Lass ihn einige Minuten abkühlen, schneide ihn in Quadrate und bestäube ihn nach Wunsch mit zusätzlichem Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Taiwanese_Castella_3.png",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Taiwanese_Castella_3.png",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: 御輿大命 — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von japanischem Castella-Biskuit aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-french-onion-rice",
+      "slug": "rice-cooker-french-onion-rice",
+      "title": "Französischer Zwiebelsuppen-Reis aus dem Reiskocher",
+      "instructions": "Tief karamellisierte Zwiebeln, herzhafte Brühe und schmelzender Käse verwandeln einfachen Reis in eine herzhafte Schüssel nach Art der französischen Zwiebelsuppe. Alles aus einem Topf.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine einzelne gelbe Zwiebel kostet nur wenige Cent und ist hier der Star. Lass sie langsam karamellisieren und verzichte auf teure Extras.",
+        "Verwende einen in Wasser aufgelösten Brühwürfel statt Rinderbrühe aus der Packung. So sparst du, ohne den herzhaften Geschmack zu verlieren.",
+        "Kaufe ein Stück Käse und reibe es selbst. Fertig geriebener Käse kostet pro Unze mehr und schmilzt weniger gleichmäßig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere",
+          "swap": "Schweizer Käse oder Provolone verwenden. Beide schmelzen genauso gut und kosten nur einen Bruchteil.",
+          "savings": "~$2.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Rinder- oder Hühnerbrühwürfel in Wasser auflösen",
+          "savings": "~$1.00 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Den günstigsten Langkorn- oder Jasminreis aus dem Großgebinde verwenden",
+          "savings": "~$0.50 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "vegetarisch",
+        "Wohlfühlessen",
+        "käsig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 629,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-french-onion-rice/",
+      "components": [
+        {
+          "key": "c88b11d6-76f9-5b7b-af4d-77bcc094687d",
+          "name": "Zutaten",
+          "servingGrams": 261.37,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac799737-e3ac-5dab-b807-65351c45388b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "weißer Langkornreis, trocken Tassen"
+            },
+            {
+              "key": "809a2092-b633-5cbe-927b-dc92b012ac8a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "713db9d5-40ba-5fc5-878d-889b15c67930",
+              "ingredientName": "Butter",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3 Esslöffel"
+            },
+            {
+              "key": "aba72e4d-2eb3-57ed-abed-19400bb7e4cd",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "als Kochflüssigkeit anstelle von Wasser verwendet"
+            },
+            {
+              "key": "dbf0a837-bd29-53b1-b54c-245eb4571a5f",
+              "ingredientName": "Knoblauch",
+              "grams": 0.3,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, gehackt"
+            },
+            {
+              "key": "a2e6b140-e28d-5fbc-9ce7-2cf60bffcf44",
+              "ingredientName": "Thymian",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel dried"
+            },
+            {
+              "key": "fdfcfbea-82c7-54b6-9379-82ca6efea52f",
+              "ingredientName": "Worcestersauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel für savory depth"
+            },
+            {
+              "key": "b7c248e4-b6d2-5c32-849d-d81df578722e",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "gerieben; classic French onion melt"
+            },
+            {
+              "key": "d337db44-50b6-532e-b719-121c533f0809",
+              "ingredientName": "Parmesan",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "gerieben, eingerührt für mehr Cremigkeit"
+            },
+            {
+              "key": "0b4141cc-818e-541d-9b63-69dcbe26fd1a",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abc07c82-5439-54c5-985a-2f89e96a0d83",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e1eb475-aa31-52a0-8d91-c5274dd2cb32",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 3.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Reiskocher auf Garen/Anbraten (oder lass den leeren Topf einfach 5 Minuten vorheizen). Gib Butter und geschnittene Zwiebeln dazu, schließe den Deckel und lass sie etwa 10 Minuten weich und goldbraun dünsten. Rühre ein- oder zweimal um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre gehackten Knoblauch, getrockneten Thymian und Worcestersauce ein und gare alles 1 weitere Minute, damit die Zwiebeln stark karamellisieren und duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spüle den Reis ab, bis das Wasser klar bleibt, und gib ihn mit den Zwiebeln in den Topf. Gieße Rinderbrühe und so viel Wasser dazu, dass die 2-Tassen-Reis-Markierung erreicht wird (insgesamt etwa 2.5 Tassen Flüssigkeit). Würze mit Salz und Pfeffer und rühre um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus für weißen Reis. Öffne den Deckel nicht vorzeitig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass den Reis nach Ende des Garzyklus 10 Minuten auf Warmhalten ruhen und lockere ihn dann mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue geriebenen Gruyère und nach Wunsch Parmesan über den heißen Reis. Schließe den Deckel und lass die Restwärme den Käse 3-4 Minuten schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre den geschmolzenen Käse unter, gib geschnittene Frühlingszwiebeln darüber und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    }
+  ]
+}

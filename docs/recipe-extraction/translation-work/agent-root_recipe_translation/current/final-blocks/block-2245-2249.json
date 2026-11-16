@@ -1,0 +1,1090 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53404",
+      "slug": "tmdb-53404",
+      "title": "Tavë Kosi (gebackenes Lamm mit Joghurt)",
+      "instructions": "Lammgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Lamm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2245,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53404/",
+      "components": [
+        {
+          "key": "27d8ac15-da5a-579d-9c0b-c6d4abeaf527",
+          "name": "Zutaten",
+          "servingGrams": 446.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1dc561fd-4ece-543a-a159-e02916fa43c5",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1f4547f-6dfb-54c0-a312-f841cc1712fb",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35a4a325-8032-5c06-b134-88574423364a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ebedd25-0a56-5587-84c5-69417c69876a",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8041b299-996c-5707-a5df-dac68f4ada50",
+              "ingredientName": "Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33a07a0a-495a-53b6-9731-f028c94d5dd9",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a76a87ac-fda9-5f23-9642-7ca245c455a0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d960477-75f7-566e-8dd8-66c5cf899018",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23dc8d77-dff1-5582-b1fe-bbeb76f7f381",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a20d860d-f1e1-5c44-b2d3-27a041cda6e7",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "984e519d-1ac4-56a2-a142-094062e57589",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59cbc376-fb01-5ee0-893f-672dff5948b1",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lamm backen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter und Olivenöl zusammen in einem großen Topf mit Deckel und gib das gewürfelte Lamm dazu. Bräune das Fleisch bei mittlerer Hitze, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, Oregano und 300ml Wasser dazu und würze mit Salz und Pfeffer. Vermische alles, decke den Topf ab und lass es 50 Minuten köcheln. Rühre dabei einige Male um, damit das Lamm nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Flüssigkeit sollte fast vollständig verkocht sein. Gib weitere 150ml Wasser und den Reis dazu. Vermische alles, bringe es zum Kochen, setze den Deckel auf und gare es genau 10 Minuten. Prüfe nach etwa 8 Minuten: Die Flüssigkeit sollte verdampft sein und Fleisch und Reis nur noch von einer feuchten Schicht Ölwasser überzogen sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Lamm und Reis in eine Auflaufform. Die Mischung sollte den Boden bedecken und mindestens 2 inches Platz für den Joghurt lassen. Alternativ kannst du sie auf vier Keramikschalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mehlschwitze zubereiten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmilz Butter in einem kleinen Topf bei mittlerer Hitze. Gib unter ständigem Rühren zwei Esslöffel Mehl dazu und rühre zwei Minuten weiter (bei Bedarf zusätzliches Mehl verwenden). Die Mehlschwitze sollte weder zu dick noch zu flüssig sein und etwas dunkler werden. Gieße sie in eine Schüssel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Joghurtmischung zubereiten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib Joghurt und Eier in eine Schüssel und würze mit Salz und Pfeffer. Vermische alles, gib die Mehlschwitze dazu und rühre eine Minute kräftig, damit sich alles verbindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Gieße die Joghurtmischung über Lamm und Reis und bestreue sie mit etwas Oregano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Garen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Stelle die Form auf die untere Schiene des Ofens bei 180 Grad und backe sie 35 Minuten. Schiebe sie dann für weitere 10 Minuten auf die mittlere Schiene. Tavë Kosi ist fertig, wenn der Joghurt stark aufgegangen ist und sich eine goldene Kruste gebildet hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Lass das Gericht vor dem Servieren 5 – 10 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/a1mi7t1779643816.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/a1mi7t1779643816.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53405",
+      "slug": "tmdb-53405",
+      "title": "Tavë me Presh ska Mish (Lauchauflauf ohne Fleisch)",
+      "instructions": "Vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2246,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53405/",
+      "components": [
+        {
+          "key": "6285214f-1303-5d56-9754-6636ab8333af",
+          "name": "Zutaten",
+          "servingGrams": 133.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab4b58f8-1237-532f-81d6-0c58eade90cb",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78afcfb4-4734-5786-9ad3-89730ebc9b57",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3ecf3a6-f6e9-5160-b22b-699373af9b0e",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cb5d99c-81a7-5b5e-8297-9e3de83355cd",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e44f38f8-0b6f-5df0-9f98-31b81cfb9c47",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f2d55c7-150e-5528-b355-95568c034416",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20476480-fc19-51ad-8414-ed6951fa2144",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9e2dc73-2d24-599f-b79c-2d62f39d154b",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4823dff-e96d-5613-85d7-6dde4cb3c3a2",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fb16b84-63a9-5df5-a43f-d903a4b861c7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d823b686-7c77-5880-9137-7f9df36d3f5d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f975aca8-e207-5ac7-a3f3-41f3f68d09f6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gericht vorbereiten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Lauch mit einem kleinen Schuss Olivenöl einige Minuten, bis er leicht bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gericht vorbereiten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geröstete rote Paprika, Knoblauch, Brühe, Kräuter, Salz, Pfeffer und Paprikapulver dazu. Rühre gut um, füge den Reis hinzu und rühre erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Mischung aufkochen und anschließend 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Mischung in ein mindestens 2 inches tiefes Backblech. Vermische alles gründlich und verteile es gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle das Blech auf die untere Schiene des vorgeheizten Ofens bei 180 Grad. Backe den Auflauf 1 Stunde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Servieren",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schalte nach dem Garen den Ofen aus und lass den Lauchauflauf bei geöffneter Ofentür 10 Minuten abkühlen, bevor du ihn servierst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/p5m3w21779644533.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/p5m3w21779644533.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53448",
+      "slug": "tmdb-53448",
+      "title": "Tendir Choreyi (Tandoori-Brot)",
+      "instructions": "Beilage, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2247,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53448/",
+      "components": [
+        {
+          "key": "7427ec65-48c8-5a75-ac18-acd5909297ed",
+          "name": "Zutaten",
+          "servingGrams": 296.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0437b1c6-7647-56f1-9884-0b55c0b34764",
+              "ingredientName": "Nährhefe",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77170fd8-f9bb-5f13-aaf5-fdfaf9eb5445",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b662eceb-2d77-597f-8f48-1b6171260438",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f4819d9-127d-56b8-8db6-9317151153c5",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fc82e06-3e9e-5256-8fd0-8416899c765c",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70acc7fc-2389-56eb-8918-0079797f2ee7",
+              "ingredientName": "Mohnsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein kurzer Hinweis zu Tandoori-Brot (oder Tandoori-Gerichten allgemein): Der Name stammt vom Lehmofen, dem Tandoor, in dem es traditionell gegart wird. Ohne einen solchen Ofen lässt sich das Aroma nicht nachahmen, egal wie sehr man sich bemüht. Ein Tandoor ist Teil meiner Traumküche (ich liebe Naan und Tandoori-Hähnchen), aber ich habe in meiner jetzigen Küche keinen. Dieses Brot kommt daher in einen normalen Ofen und ist nicht sehr authentisch. So würde es jedoch ein Aserbaidschaner in den USA zubereiten, also fühle ich mich nicht allzu schlecht, es in mein Essen aufzunehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Zutaten für dieses Brot ähneln ungefähr denen eines einfachen französischen Brotes, aber die Form ist anders. Mohnsamen als Belag machen es besonders hübsch. Dieses Brot ist vielleicht das schönste, das ich je gebacken habe (meine Kuchen gehören sicher nicht dazu).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wie immer habe ich meine Brotmaschine verwendet, diesmal aber die Hefe nicht vorher aktiviert. Ich gab sie einfach in den kleinen Hefespender oben an der Maschine und fügte dann Wasser, Mehl und Salz in den Behälter. Ich stellte den Teigzyklus ein und holte währenddessen meine Kinder von der Schule ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für dieses Brot braucht man sehr einfache Zutaten, darunter Brotmehl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn du es auf die traditionelle Art zubereiten möchtest:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Hefe und Wasser und lass sie einige Minuten stehen. Siebe dann Mehl und Salz in eine große Schüssel. Gib Wasser und Hefe nach und nach dazu und vermische alles mit der Hand, bis ein Teigball entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den Teig auf eine leicht bemehlte Fläche. Knete ihn 8 to 10 Minuten, bis er glatt ist. Lege ihn in eine große Schüssel, decke sie ab und lass den Teig an einem warmen Ort gehen, bis er sich verdoppelt hat (das dauert meist 1 to 1 1/2 Stunden).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Der Teig nach dem Aufgehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Drücke die Luft aus dem Teig und gib ihn auf eine leicht bemehlte Fläche. Ziehe den Teig zu einer länglichen Form und rolle ihn mit einem Nudelholz etwa 1/2 inch dick aus. Lege ihn auf ein gefettetes oder beschichtetes Backblech und lass ihn weitere 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Nach dem Formen und Ausrollen sollte der Teig ungefähr diese Form haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Schneide etwa vier sich kreuzende Linien in jede Richtung in die Oberfläche. Bestreiche den Teig mit verquirltem Eigelb (ich habe etwas Wasser dazugegeben, damit es sich leichter verstreichen lässt) und streue Mohn darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Die Einschnitte, Eiglasur und Mohnsamen verleihen dem Brot sein unverwechselbares Aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Backe das Brot im vorgeheizten Ofen bei etwa 400 Grad 20 to 25 Minuten, bis die Oberfläche goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/5mfmh01780158856.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/5mfmh01780158856.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52772",
+      "slug": "tmdb-52772",
+      "title": "Teriyaki-Hähnchenauflauf",
+      "instructions": "Japanisches Hähnchengericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Hähnchen",
+        "Fleisch",
+        "Auflauf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2248,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52772/",
+      "components": [
+        {
+          "key": "d522dff5-f29b-5462-a7ec-05ab341b3e34",
+          "name": "Zutaten",
+          "servingGrams": 340.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "94ac668c-2b70-51fc-aad5-452eaf80f8be",
+              "ingredientName": "Sojasauce",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d93cc352-cde1-5058-b1be-c827875ddaf1",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e26cd816-7f5b-57ef-b067-348eaabab056",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5cb2fda-56f7-5058-a3bc-dd0a0567fa8e",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d8703c3-12ed-53fd-bcd6-5535b8ec90b8",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78443d0a-dff2-537d-bd40-374cbdfc2e46",
+              "ingredientName": "Maisstärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa27fa8c-d66d-5a75-944f-acc30c57f524",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f55341ba-7f83-50f5-970f-44536ab5d14e",
+              "ingredientName": "Gefrorenes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af7dc204-dd21-56cc-a324-951608d3b314",
+              "ingredientName": "Naturreis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350° F vor. Besprühe eine Backform von 9x13-inch mit Antihaftspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, ½ cup Wasser, braunen Zucker, Ingwer und Knoblauch in einem kleinen Topf und decke ihn ab. Bringe alles bei mittlerer Hitze zum Kochen. Nimm den Deckel ab und koche die Sauce nach dem Aufkochen eine Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre währenddessen Maisstärke und 2 Esslöffel Wasser in einer separaten Schüssel glatt. Sobald die Sauce kocht, gib die Mischung in den Topf und rühre um. Koche die Sauce, bis sie eindickt, und nimm sie dann vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Hähnchenbrüste in die vorbereitete Form. Gieße eine Tasse Sauce darüber. Backe das Hähnchen 35 Minuten oder bis es gar ist. Nimm die Form aus dem Ofen und zerzupfe das Hähnchen mit zwei Gabeln direkt darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dämpfe oder gare währenddessen das Gemüse nach Packungsanweisung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gegartes Gemüse und Reis zum Hähnchen in die Auflaufform. Füge den Großteil der restlichen Sauce hinzu und bewahre etwas zum Beträufeln beim Servieren auf. Vermische alles vorsichtig in der Form. Stelle sie zurück in den Ofen und gare alles 15 Minuten. Nimm den Auflauf heraus und lass ihn vor dem Servieren 5 Minuten stehen. Beträufle jede Portion mit der übrigen Sauce. Guten Appetit!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53199",
+      "slug": "tmdb-53199",
+      "title": "Thailändisches Rindfleisch-Wokgericht",
+      "instructions": "Thailändisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "thailändisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2249,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53199/",
+      "components": [
+        {
+          "key": "f5d9e8d2-aeed-55b4-9d13-dac92129e8e1",
+          "name": "Zutaten",
+          "servingGrams": 41.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "43115053-3aca-508a-b8a6-031e043f770c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6ddf8f8-c83e-5bce-8166-828c2e791e56",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6844bd8b-7a54-561c-a7f9-939d7040253f",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b65db584-931e-54ed-a38a-cfcb137bdb30",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5b03844-deaf-5e01-9198-fddb335a59e4",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schritt 1\nErhitze einen Wok oder eine große Pfanne, bis sie rauchend heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße das Öl hinein und schwenke es in der Pfanne. Gib dann Rindfleischstreifen und Chili dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare alles unter ständigem Rühren, bis das Fleisch leicht gebräunt ist, etwa 3 mins. Gieße dann Austernsauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles, bis es durchgewärmt ist und die Sauce das Fleisch überzieht. Rühre Basilikumblätter ein und serviere das Gericht mit schlichtem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/kyuxew1763479470.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/kyuxew1763479470.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

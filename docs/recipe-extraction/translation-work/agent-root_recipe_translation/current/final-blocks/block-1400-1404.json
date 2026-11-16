@@ -1,0 +1,1115 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-sea-curry-ca-ri-ga",
+      "slug": "mfr-sea-curry-ca-ri-ga",
+      "title": "Vietnamesisches Hähnchencurry (Cà Ri Gà)",
+      "instructions": "Ein mildes, duftendes Curry aus Hähnchen, Süßkartoffeln und Kokosmilch, gewürzt mit vietnamesischem Currypulver und Zitronengras. Anders als thailändisches oder indisches Curry schmeckt es besonders fein und wird traditionell mit knusprigem Baguette serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vietnamesisches Curry ist milder als thailändisches. Ein Esslöffel Currypulver genügt.",
+        "Süßkartoffeln sind günstiger als normale Kartoffeln und bringen natürliche Süße mit.",
+        "Dazu wird oft Baguette gereicht, ein Erbe der französischen Kolonialzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce für einen milderen Geschmack"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-ca-ri-ga",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "vietnamesisch",
+        "Cà Ri Gà",
+        "Hähnchencurry",
+        "Zitronengras"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1400,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-ca-ri-ga/",
+      "components": [
+        {
+          "key": "ac8037c2-b4a9-556f-8763-17b443e40e41",
+          "name": "Zutaten",
+          "servingGrams": 421,
+          "position": 0,
+          "items": [
+            {
+              "key": "a75a56a0-f1db-59e6-8f02-d445c7322fdc",
+              "ingredientName": "Hähnchenoberschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49864c60-fffe-578e-8255-b7184390857b",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e03c1937-35cb-5f14-9d91-077c8b4fa0ac",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8f9ee9c-5a92-5d3a-b6bf-dec5112c1877",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bb27041-c395-5961-9ad2-e990b9a30b2b",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dac0fc1a-8124-5893-a586-6c01ab3b495a",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48b06f24-e107-5866-a84b-84b7b305be68",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e2b2daa-2f21-5e7b-99ca-6ca33ea7472d",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e3d3b9c-9caa-5f0c-9e2e-c41f7d0813db",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "530e2c21-259e-50e2-bc75-fcce5970fc20",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schalotten, Knoblauch und angedrücktes Zitronengras 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen und Currypulver dazugeben und 3 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kokosmilch, Süßkartoffel, Fischsauce und Zucker einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "25 Minuten köcheln lassen, bis das Hähnchen gar und die Süßkartoffel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Reis servieren oder wie traditionell mit Baguette in die Sauce tunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/674e073f8e4746f65a3e0461/1:1/w_2560%2Cc_limit/150%2520chicken%2520curry%2520-%2520ca%2520ri%2520ga%2520copy.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/674e073f8e4746f65a3e0461/1:1/w_2560%2Cc_limit/150%2520chicken%2520curry%2520-%2520ca%2520ri%2520ga%2520copy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-curry-massaman",
+      "slug": "mfr-sea-curry-massaman",
+      "title": "Thailändisches Massaman-Curry mit Rindfleisch",
+      "instructions": "Ein besonders mildes, aromatisches Thai-Curry: Rindfleisch und Kartoffeln schmoren in Kokosmilch mit Kardamom, Zimt und Sternanis. Geröstete Erdnüsse kommen zum Schluss darüber. Ein thailändischer Klassiker mit muslimischen Einflüssen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Massaman-Paste gibt es im Asialaden für etwa 2 Dollar. Sie liefert die gesamte Würzbasis.",
+        "Rinderschulter eignet sich bestens für die 50-minütige Schmorzeit.",
+        "Tamarindenpaste aus dem Glas hält sich im Kühlschrank monatelang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Hähnchenoberschenkel für eine schnellere Variante (25 Minuten)"
+        },
+        {
+          "forIngredientId": "tamarind",
+          "swap": "Ein Spritzer Limettensaft und eine Prise brauner Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-massaman",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch",
+        "Massaman",
+        "Rindfleisch",
+        "Erdnüsse"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1401,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-massaman/",
+      "components": [
+        {
+          "key": "a41e668a-c7f1-54b4-a14c-e563bac22bab",
+          "name": "Zutaten",
+          "servingGrams": 382.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b9067f6-efc2-543f-8565-0caa310b2850",
+              "ingredientName": "Rinderschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc85702a-434e-50bd-9e41-6346d7161f2a",
+              "ingredientName": "Massaman-Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acd349a2-a706-5c4d-bb38-d84e5a2ea2f0",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae794297-b2cb-5619-a390-e20c25833cf1",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5dfec8b-429e-5440-9d84-bfe2c217f8ce",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5fd18d5-b0ec-5d57-97c2-d6b1ae0e474e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae2cc5f7-f050-52d7-8e6e-573e352db4bc",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "999aca99-c067-5488-8d50-ef1117b7c8f4",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afe76a6b-c449-5d71-bdec-919e4b21b71b",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbada3af-77bf-5e8c-aa52-92186e440b6b",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleischwürfel in wenig Öl rundum anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Massaman-Paste 2 Minuten anbraten. Kokosmilch und Rindfleisch dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "35 Minuten köcheln lassen. Kartoffel und Zwiebel dazugeben und weitere 15 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Fischsauce, Palmzucker und Tamarinde süß-säuerlich-salzig abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit gerösteten Erdnüssen bestreut servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/bzjdvnzzlpb51.jpg",
+          "sourcePageUrl": "https://i.redd.it/bzjdvnzzlpb51.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-curry-amok",
+      "slug": "mfr-sea-curry-amok",
+      "title": "Kambodschanischer Fisch-Amok",
+      "instructions": "Kambodschas Nationalgericht: Weißfisch wird in einer aromatischen Kokos-Currypaste (Kroeung) mit Zitronengras, Galgant und Kurkuma gedämpft. Traditionell kommt das zarte, duftende Gericht in kleinen Bananenblattschälchen auf den Tisch.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jeder feste Weißfisch eignet sich; Tilapia oder Kabeljau sind besonders preiswert.",
+        "Das Ei bindet die Currymasse und sorgt für eine souffléartige Konsistenz. Nicht weglassen.",
+        "Für die Bananenblattschälchen eignen sich kleine Auflaufförmchen als Ersatz."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "galangal",
+          "swap": "Frischer Ingwer"
+        },
+        {
+          "forIngredientId": "white-fish-fillet",
+          "swap": "Garnelen oder fester Tofu für eine vegetarische Amok-Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-amok",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "kambodschanisch",
+        "Amok",
+        "Fisch",
+        "Zitronengras"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1402,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-amok/",
+      "components": [
+        {
+          "key": "4d4dd38d-b764-5f47-8cb0-e249f2221b42",
+          "name": "Zutaten",
+          "servingGrams": 385.57,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad424b0d-cc10-53be-b390-2562e5aecb70",
+              "ingredientName": "Tilapiafilet",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f143af7d-047f-548b-9f21-1ac264e3ba76",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "189b9108-b56f-5020-9379-18727461c7cc",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc3f4040-465f-5109-8eb1-cafdfa2587ad",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3e3a391-b533-5bbf-85c5-94773c13faeb",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f8f3f20-7fdc-5626-9c56-0c60b62662d8",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0802431b-a7f6-5136-8db4-342764e6f770",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20735354-26fd-5427-9588-bc6141d0e0cf",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df507e76-a898-5115-9508-fcc884e6e39c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b550573f-59d2-5167-b5d8-a38a13108c1a",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c72e915a-6865-5dc3-b72a-b116c3cb7b4a",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ef55778-50f8-5b4e-923c-7a4720dd785d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zitronengras, Galgant, Kurkuma, Schalotten und Knoblauch zu einer Kroeung-Paste pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paste mit Kokosmilch, Fischsauce, Zucker und verquirltem Ei verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fisch in Scheiben schneiden und vorsichtig unter die Kokosmischung heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In kleinen Förmchen 15–18 Minuten dämpfen, bis die Masse gerade gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Kaffirlimettenblatt und Kokoscreme garniert servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://angkorchef.com/wp-content/uploads/2019/12/shutterstock_766320682-fb-scaled.jpg",
+          "sourcePageUrl": "http://angkorchef.com/wp-content/uploads/2019/12/shutterstock_766320682-fb-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-curry-laksa",
+      "slug": "mfr-sea-curry-laksa",
+      "title": "Singapurische Laksa",
+      "instructions": "Singapurs berühmteste Nudelsuppe: Reisnudeln in einer kräftigen Kokos-Currybrühe mit Garnelen, Tofupuffs und Fischbällchen, garniert mit frischen Sojasprossen und Limette. Ein herausragendes Gericht Südostasiens.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Laksa-Paste gibt es im Asialaden für etwa 3 Dollar im Glas.",
+        "Sojasprossen sind eine der günstigsten möglichen Garnituren.",
+        "Tofupuffs (Tau Kwa) saugen die Brühe wunderbar auf. Du findest sie meist beim Tofu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "laksa-paste",
+          "swap": "Rote Currypaste mit etwas zusätzlicher Kokosmilch als Annäherung"
+        },
+        {
+          "forIngredientId": "tofu-puffs",
+          "swap": "Normaler fester Tofu, goldbraun ausgebraten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-laksa",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "singapurisch",
+        "Laksa",
+        "Nudeln",
+        "Kokosbrühe"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1403,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-laksa/",
+      "components": [
+        {
+          "key": "a2b54a5b-c9bd-5fc9-b9f0-2229f3a549bc",
+          "name": "Zutaten",
+          "servingGrams": 464,
+          "position": 0,
+          "items": [
+            {
+              "key": "43df1719-82ee-5a1d-a6f5-70e8ae9b0101",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "150e4e59-83ab-5bae-ae31-35852d9be0a3",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4802aced-ca98-55de-8885-45ed47dca6df",
+              "ingredientName": "Laksa-Paste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fac3b83-2dab-5f9e-bf86-a5e78d823278",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7797bcd3-66c3-5a02-89e9-e9fe407aecf6",
+              "ingredientName": "Fischbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9363a2c-49a0-5e57-bf90-55478de93f8d",
+              "ingredientName": "Tofupuffs",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3a24bbc-2b11-568a-880b-d6e8569ba080",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "410fecb2-2ea9-5394-9f1c-45d08dc5b425",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "609bd4ae-e9ad-5a07-896c-54c40eda657e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74cb3449-2187-58f1-9986-5c60ec8f277e",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Laksa-Paste 2 Minuten in wenig Öl anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fischbrühe und Kokosmilch angießen und auf ein Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen und Tofupuffs hineingeben und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reisnudeln separat kochen und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nudeln in Schalen verteilen, Laksa-Brühe mit Garnelen darübergießen und mit Sojasprossen, Limette und Kräutern garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5646cc17e4b0a2863f2ce1a2/1631499240847-XGX8C9LLS0LMRWS5U4F4/20210906-091A5101.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5646cc17e4b0a2863f2ce1a2/1631499240847-XGX8C9LLS0LMRWS5U4F4/20210906-091A5101.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-curry-panang",
+      "slug": "mfr-sea-curry-panang",
+      "title": "Thailändisches Panang-Curry mit Schweinefleisch",
+      "instructions": "Sämiges, cremiges Panang-Curry: milder und reichhaltiger als rotes Curry. Panang-Paste, Kokosmilch und Kaffirlimette umhüllen dünne Schweinefleischscheiben mit einer samtigen, erdnusswürzigen Sauce.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinefilet ist mager und in dünnen Scheiben in 5 Minuten gar.",
+        "Panang-Paste kostet etwa 2 Dollar und reicht für 3–4 Currys.",
+        "Erdnüsse sind die traditionelle Garnitur. Nicht darauf verzichten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-tenderloin",
+          "swap": "Hähnchenbrust oder Rinderhüfte"
+        },
+        {
+          "forIngredientId": "panang-curry-paste",
+          "swap": "Rote Currypaste und 1 Esslöffel Erdnussbutter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-panang",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch",
+        "Panang",
+        "Schweinefleisch",
+        "cremiges Curry"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1404,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-panang/",
+      "components": [
+        {
+          "key": "941407da-3bf7-531c-abbe-0b554cf7d332",
+          "name": "Zutaten",
+          "servingGrams": 324.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "ede9a6e9-30c3-5f7d-9fbf-7473e52756f8",
+              "ingredientName": "Schweinefilet",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6299c5d-bb0d-5037-b448-bf3627275071",
+              "ingredientName": "Panang-Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "365b21dc-873c-529c-bf78-437fc0808878",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4202aba-c927-596d-8bfa-81ba739632a1",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "798d17b8-e9d2-5fb0-83b9-430422d5c12b",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bd46421-5790-5a29-97f4-bcde5756b2c4",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a01649f-c835-5403-9726-e72b19d33241",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdfcaa62-8167-52c2-a054-462a8b6326ad",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30fde703-d089-5641-8698-bfad2dfa079f",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Panang-Paste 3 EL Kokoscreme (vom oberen Teil der Dose) 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Übrige Kokosmilch dazugeben und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünn geschnittenes Schweinefleisch hineingeben und 5–6 Minuten vollständig garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Fischsauce und Palmzucker abschmecken. Kaffirlimettenblätter dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Reis servieren und mit zerstoßenen Erdnüssen und roten Chilischeiben garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Dp6MWna3r315c4yQjrhq375oET4=/4600x3067/filters:fill(auto,1)/thai-panang-curry-recipe-3217463-hero-01-5c585a036e694994be8a3f84efe7b737.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Dp6MWna3r315c4yQjrhq375oET4=/4600x3067/filters:fill(auto,1)/thai-panang-curry-recipe-3217463-hero-01-5c585a036e694994be8a3f84efe7b737.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

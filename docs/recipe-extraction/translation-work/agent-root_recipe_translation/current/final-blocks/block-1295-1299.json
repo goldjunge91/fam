@@ -1,0 +1,1007 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-med-seafood-sardine-toast",
+      "slug": "mfr-med-seafood-sardine-toast",
+      "title": "Mediterranes Sardinen-Avocado-Toast",
+      "instructions": "Zerdrückte Avocado und Sardinen in Olivenöl auf getoastetem Sauerteigbrot, garniert mit Kirschtomaten, Kapern und Zitrone: ein eiweißreiches mediterranes Mittagessen für weniger als $3 und in 5 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 2,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sardinen aus der Dose gehören zu den günstigsten eiweißreichen Lebensmitteln und kosten $1.50 pro Dose.",
+        "Achte für den besten Geschmack auf Sardinen in Olivenöl.",
+        "Dieses ganze Gericht kostet etwa $2.50 und liefert 28g Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-sardines",
+          "swap": "Makrele oder Thunfisch aus der Dose"
+        },
+        {
+          "forIngredientId": "sourdough-bread",
+          "swap": "Beliebiges kräftiges Brot oder Cracker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-sardine-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "Sardinen",
+        "Avocado",
+        "Toast",
+        "günstig"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1295,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-sardine-toast/",
+      "components": [
+        {
+          "key": "7c58c56b-1c4e-52a0-b27c-dd28cc264dfc",
+          "name": "Zutaten",
+          "servingGrams": 1324,
+          "position": 0,
+          "items": [
+            {
+              "key": "164fd6e2-5028-52fc-91c3-dd489ee4bc0d",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45738e6b-9944-565d-ba28-66c7f4110946",
+              "ingredientName": "Sardinen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5465315f-51ef-5668-a708-560376ea92a9",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "719ee8aa-6c73-593a-a284-5d3661e7ae71",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33407481-f1dc-556b-81bc-1b7752694f7e",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51f73fe3-55c2-5ff1-9a99-32c9c3e4366c",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b164e88-d8b7-5eed-9a45-820649f2d413",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d77da99-c217-5fc8-b0fc-36a30dc26c29",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste das Brot. Zerdrücke die Avocado mit Zitronensaft, Salz und roten Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verstreiche die Avocado auf dem Toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege das Toast mit Sardinenfilets, halbierten Kirschtomaten und Kapern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle es mit Olivenöl und etwas Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/01/sardine-toast-1-1025x1536.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/01/sardine-toast-1-1025x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-onepot-slow-pulled-chicken",
+      "slug": "mfr-onepot-slow-pulled-chicken",
+      "title": "Pulled Chicken aus dem Schongarer",
+      "instructions": "Hähnchenoberkeulen, in einer säuerlich-rauchigen BBQ-Soße geschmort, bis sich das Fleisch mühelos zerteilen lässt: morgens vorbereiten und abends ohne Aufwand ein eiweißreiches Essen genießen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 360,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen kosten halb so viel wie Hähnchenbrust und bleiben den ganzen Tag saftig.",
+        "Das Gericht reicht für 6 Personen und eignet sich hervorragend zum wöchentlichen Vorbereiten.",
+        "Verwende BBQ-Soße einer Handelsmarke, damit die Kosten unter $1 pro Portion bleiben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust (nach 5 Stunden prüfen, da sie schneller austrocknet)"
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Weißweinessig oder Zitronensaft"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-slow-pulled-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Pulled Chicken",
+        "BBQ",
+        "Ofen",
+        "Meal Prep"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1296,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-slow-pulled-chicken/",
+      "components": [
+        {
+          "key": "2330c2f6-5438-5806-9207-1a285891c856",
+          "name": "Zutaten",
+          "servingGrams": 60.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "6525f0d4-4d64-5638-b48c-dabeb82af7e7",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f8f6595-507b-5a08-a20a-b4d5732cf32e",
+              "ingredientName": "BBQ-Soße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98747206-3b59-5d2f-9014-547f2e08504e",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50fea0db-3150-5b16-8f03-e3ace8edad63",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b955ddf9-579d-5ca8-940d-1114b581ba17",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32584f28-1c08-5051-b852-93129390597f",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a66c1183-9ff8-5dda-8bed-b7e4dae0a5d6",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1aad52a-d789-5bcb-ab07-1b545bccc1ce",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre BBQ-Soße, Essig, Gewürze und braunen Zucker im Schongarer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchenoberkeulen dazu und wende sie in der Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie 6–7 Stunden auf niedriger oder 3–4 Stunden auf hoher Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerteile das Fleisch mit zwei Gabeln. Serviere es auf Brötchen, auf Reis oder in Tacos.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Pulled-Chicken-Sandwiches_EXPS_SCMBZ17_132312_B01_12_5b-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Pulled-Chicken-Sandwiches_EXPS_SCMBZ17_132312_B01_12_5b-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-onepot-turkey-rice-skillet",
+      "slug": "mfr-onepot-turkey-rice-skillet",
+      "title": "Pfanne mit Pute und Reis aus einem Topf",
+      "instructions": "Putenhack und Reis, zusammen in einer gewürzten Tomatenbrühe mit Paprika und Spinat gekocht: alles in einer Pfanne, Abendessen in 30 Minuten und einfaches Aufräumen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das ganze Abendessen kostet etwa $6 für 4 Portionen.",
+        "Putenhack ist oft im Angebot. Kaufe größere Mengen und friere sie ein.",
+        "Mit nur einer Pfanne sparst du 10 Minuten beim Abwasch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Hähnchen für mehr Abwechslung"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefgekühlte Erbsen oder Grünkohl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-turkey-rice-skillet",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Pute",
+        "Reis",
+        "aus einem Topf",
+        "unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1297,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-turkey-rice-skillet/",
+      "components": [
+        {
+          "key": "b8a24af7-a319-525c-b3e5-c647fa70e60c",
+          "name": "Zutaten",
+          "servingGrams": 377.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d472332-cfee-5d14-958f-7d7bea85cbb4",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73de6d4c-96a5-591f-8efa-682512e09d6d",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5947da52-3f47-5841-ae1d-e6fa39c5346c",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "963790c9-4138-5fe4-8a2a-8619655eccc9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b51966a-4389-5028-9800-f32ede35d9a4",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0df911a5-2fc4-525a-9171-e0c535adffe1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91df2002-a467-50f2-842d-4cafc552cec2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33159f72-8be8-58cc-9103-12a3111e062d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "760dc842-b34a-5190-af47-b94d6a4267e1",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "510da591-4992-5221-a1c2-fd55b802a89d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Putenhack, Zwiebel und Knoblauch 5 Minuten in einer großen Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Paprika, Gewürze und Reis dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße gehackte Tomaten und Brühe hinein. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und lass alles 18 Minuten köcheln, bis der Reis gar ist. Rühre Spinat ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2022/11/turkey-rice-casserole-1-4.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2022/11/turkey-rice-casserole-1-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-onepot-slow-lentil-chili",
+      "slug": "mfr-onepot-slow-lentil-chili",
+      "title": "Linsen-Chili aus dem Schongarer",
+      "instructions": "Rote Linsen und schwarze Bohnen, den ganzen Tag mit Tomaten, Kreuzkümmel, Chilipulver und geräuchertem Paprikapulver geköchelt: ein pflanzliches Chili mit fleischiger Konsistenz, 18 g Eiweiß pro Schüssel und etwa $0.80 pro Portion.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 360,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete rote Linsen kosten etwa $1.50/lb und reichen für 40+ Portionen.",
+        "Dieses Chili lässt sich hervorragend einfrieren. Bereite die doppelte Menge zu.",
+        "Anbraten ist nicht nötig. Alle Zutaten kommen roh in den Topf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-lentils",
+          "swap": "Braune Linsen für eine stückigere Konsistenz"
+        },
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Kidneybohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-slow-lentil-chili",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Linsen",
+        "Chili",
+        "Ofen",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1298,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-slow-lentil-chili/",
+      "components": [
+        {
+          "key": "121cca5e-5fdb-57bf-8b61-9375f18a6d41",
+          "name": "Zutaten",
+          "servingGrams": 329.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a21e8c3e-a518-5c91-8636-91aaad0e9baa",
+              "ingredientName": "Rote Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "045b393b-9d07-5eda-9caf-ab82254b20ff",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aee0d6f6-e385-5da3-86a0-8c930af14036",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a5bb813-917d-529e-9306-e17e8fe4dcfc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e11d9fc0-1e53-5483-b1be-eaf76b0fbf85",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e28563d-b3fa-5340-a3bf-0d5321e69090",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91f50ff2-598d-5f67-85d2-9ae8cdf42e8c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc00d855-68a5-5be9-9da8-2b18f602c8aa",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5e304b4-f6c4-555b-a777-adfbe7447392",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib alle Zutaten in den Schongarer und verrühre sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare das Chili 6–8 Stunden auf niedriger oder 3–4 Stunden auf hoher Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Passe die Würzung an. Serviere das Chili mit Maisbrot, saurer Sahne oder Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2021/01/Vegan-Slow-Cooker-Red-Lentil-Chili-Recipe-5.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2021/01/Vegan-Slow-Cooker-Red-Lentil-Chili-Recipe-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-onepot-pasta-primavera",
+      "slug": "mfr-onepot-pasta-primavera",
+      "title": "Pasta Primavera aus einem Topf",
+      "instructions": "Pasta, direkt in Gemüsebrühe mit Zucchini, Kirschtomaten und Spinat gekocht. Die Stärke dickt die Brühe zu einer samtigen Soße ein und es wird nur ein Topf benötigt. In 20 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die gesamte Brühe wird aufgenommen. Es muss nichts abgegossen werden und Nährstoffe werden nicht verschwendet.",
+        "Verwende Gemüse, das aufgebraucht werden muss.",
+        "Eine Parmesankruste im Topf sorgt kostenlos für zusätzliches Aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Nährhefe für eine vegane Variante"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Beliebiges Gemüse – tiefgekühlte Erbsen eignen sich hervorragend"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-pasta-primavera",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Pasta",
+        "aus einem Topf",
+        "Gemüse",
+        "schnell"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1299,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-pasta-primavera/",
+      "components": [
+        {
+          "key": "a41a658a-a6ec-59cb-b8a6-8d0ae9f21076",
+          "name": "Zutaten",
+          "servingGrams": 430,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c44183c-4498-5bd4-810c-0e4f7203a1ae",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "259bb882-beb6-5486-8e58-90ea055715e4",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7ddb95c-55ff-5227-aa3e-3cfd06b9dcca",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00c13989-a197-59a4-bac5-1cb01acc6117",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7e04106-c22e-5109-b3f8-58310d3164a5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13a56613-0b5e-5034-be72-06acfc26233f",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b70c189-91e6-5cdc-ac97-15ed8bc30f0d",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96e5d038-dba1-52a9-ad68-24a90ffd4d33",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "816b645d-9833-5e1d-8fd6-163cc836f657",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Pasta, Gemüse, Knoblauch, Brühe und Olivenöl in einen großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe alles zum Kochen und gare die Pasta ohne Deckel 12–14 Minuten. Rühre häufig um, bis sie gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Spinat und Parmesan ein. Schmecke das Gericht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere es mit frischem Basilikum und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5900de8e02cc6e7da4b28933/1:1/w_2560%2Cc_limit/One-Pot-Pasta-Primavera-with-Shrimp-recipe-26042017.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5900de8e02cc6e7da4b28933/1:1/w_2560%2Cc_limit/One-Pot-Pasta-Primavera-with-Shrimp-recipe-26042017.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

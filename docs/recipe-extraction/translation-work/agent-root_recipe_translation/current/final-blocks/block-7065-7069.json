@@ -1,0 +1,1023 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-scots-broth",
+      "slug": "gen-scots-broth",
+      "title": "Schottische Brühe",
+      "instructions": "Schottisches Mittagessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie preisgünstige Rindfleischstücke wie Chuck oder Round Steak",
+        "Kaufen Sie Gemüse im Sonderangebot und frieren Sie Reste für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "schottisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7065,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scots-broth/",
+      "components": [
+        {
+          "key": "cbad8df1-57f8-5b62-a745-f774f3145a3b",
+          "name": "Zutaten",
+          "servingGrams": 630.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9921aca3-f39a-5681-a202-1f72b870a18b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "88ff807e-48a5-5cd1-a689-2e29222df657",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "5c5ebefa-ca13-5cc5-97a3-9f1f315d8bea",
+              "ingredientName": "Graupen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "f16689ad-090f-5f4d-bee7-c4d1782185b0",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "46325c87-cc1f-5740-80b1-1a15bf9fb4c8",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "46f26584-cf20-5d10-ad1c-54f8e1924b1e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "56bbfafe-c62f-5ccb-9502-a4425b13fd84",
+              "ingredientName": "Kohl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen gehackt"
+            },
+            {
+              "key": "4037cc53-7c10-5d0b-83b6-ef3f9cc17095",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "7f824076-cc28-5337-9e13-607b1dc48afe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4852d13a-dd75-56ca-af9d-4259fec34a7c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch in mundgerechte Stücke schneiden und in einem großen Topf bei mittlerer Hitze 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderbrühe hinzufügen und zum Kochen bringen, dann Gerste hinzufügen und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Karotten, Sellerie, Zwiebeln und Kartoffeln in kleine Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfeltes Gemüse und Kohl in den Topf geben und 25–30 Minuten köcheln lassen, bis Gemüse und Fleisch zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Schüsseln füllen und heiß mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/51955b0fe4b088893b86be92/3d160eab-a345-42a6-b227-6d5d2059bf57/Scotch-Broth-Turkey.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/51955b0fe4b088893b86be92/3d160eab-a345-42a6-b227-6d5d2059bf57/Scotch-Broth-Turkey.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-portuguese-bean-soup",
+      "slug": "gen-portuguese-bean-soup",
+      "title": "Portugiesische Bohnensuppe",
+      "instructions": "Hawaiianisches Mittagessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Bohnenkonserven in großen Mengen, wenn sie im Angebot sind",
+        "Verwenden Sie Bohnen von Handelsmarken, um die Kosten zu halbieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "vegan"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "hawaiianisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7066,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-portuguese-bean-soup/",
+      "components": [
+        {
+          "key": "fe417c57-9222-555a-a348-0fcf3d9c0bdc",
+          "name": "Zutaten",
+          "servingGrams": 441.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f82c58b8-ca03-5ee7-856d-f19e55a0de12",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 oz)"
+            },
+            {
+              "key": "c697b172-b6d9-5934-af6e-0065f369e95d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "21c53ddf-626e-5620-bef2-3b2ab61d22ba",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4383cb09-932e-57d7-bffc-f639d28e1f79",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "4f5d138d-e74f-5807-84cb-bf41822b19d2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "8e8b8b59-56b9-5aa7-bf0a-87b69a94aefa",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "6af2a20e-f560-5b16-8068-0a58c56810d2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b5189d53-d479-515f-9ac0-c31ce8678329",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "309ff095-88f3-5687-98bd-a9c98cafa7fa",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen und Zwiebelwürfel und gehackten Knoblauch 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Karotten und gewürfelte Süßkartoffeln hinzufügen und 5 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe angießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kidneybohnen mit der Flüssigkeit dazugeben und die Hitze auf mittlere bis niedrige Stufe reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ohne Deckel 25–30 Minuten köcheln lassen, bis das Gemüse sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in Schüsseln servieren, optional mit einem Schuss Olivenöl und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/b4KQerAR1DoGkIiNY5p03iGPfxQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6080141-7ade55dff6b64c778bcfadb96fa4cbfb.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/b4KQerAR1DoGkIiNY5p03iGPfxQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6080141-7ade55dff6b64c778bcfadb96fa4cbfb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-katsu",
+      "slug": "gen-chicken-katsu",
+      "title": "Hühnchen-Katsu",
+      "instructions": "Hawaiianisches Mittagessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hähnchenbrust im Sonderangebot und frieren Sie sie für später ein",
+        "Machen Sie Ihre eigene Tonkatsu-Sauce mit Ketchup, Worcestershire und Sojasauce"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hawaiianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7067,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-katsu/",
+      "components": [
+        {
+          "key": "55ef8ceb-300b-501c-a996-87e54fa31c8f",
+          "name": "Zutaten",
+          "servingGrams": 237.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ce83dc1-4e03-58f5-a4c9-1864686f34a6",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 (insgesamt etwa 1 Pfund)"
+            },
+            {
+              "key": "d4c5cb07-5b3b-5779-a8d9-f498d08afa9a",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "af3333e6-90c1-5e71-99c9-632c2e3f5ae2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1fdd9b4-411f-5872-9799-138cdf7afd13",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7780833e-9eae-5091-89bd-50a911ff9526",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d9f66a7f-2a0f-5eaa-b890-7d849822757d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7cbd8560-5421-56ba-a179-f8190fac404f",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d19b14c6-1809-5b2f-a9be-09c741623d45",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Legen Sie die Hähnchenbrüste zwischen Plastikfolie und klopfen Sie sie mit einem Fleischhammer auf eine Dicke von 0.5 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stellen Sie drei flache Schüsseln mit Mehl, geschlagenem Ei und Panko bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen mit Salz und Pfeffer würzen, dann in Mehl wenden und überschüssiges Mehl abschütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauchen Sie es in das Ei, bestreichen Sie es dann gründlich mit Panko und drücken Sie es leicht an, damit es festklebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einer großen Pfanne auf 350 °F erhitzen und das Hähnchen 5–6 Minuten pro Seite braten, bis es goldbraun ist und die Innentemperatur 165 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen mit Küchenpapier ausgelegten Teller geben und kurz abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hähnchen in Streifen schneiden und über mit Tonkatsu-Sauce beträufeltem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1642787425/k/Photo/Recipe%20Ramp%20Up/2022-01-Tonkatsu/tonkatsu_1_of_2.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1642787425/k/Photo/Recipe%20Ramp%20Up/2022-01-Tonkatsu/tonkatsu_1_of_2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-macaroni-salad",
+      "slug": "gen-macaroni-salad",
+      "title": "Makkaronisalat",
+      "instructions": "Hawaiianisches Mittagessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Mayonnaise der Handelsmarke und sparen Sie 50 % bei diesem Gericht",
+        "Bereiten Sie es vor und bewahren Sie es bis zu 3 Tage im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hawaiianisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7068,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-macaroni-salad/",
+      "components": [
+        {
+          "key": "e4e32ae2-5a04-5ee8-800d-bb05379e891c",
+          "name": "Zutaten",
+          "servingGrams": 76.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "fee9cac2-802f-5f00-b542-ed9691ae9018",
+              "ingredientName": "Ellenbogen-Makkaroni",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "66cd5065-bdf8-5b28-8a07-6e78d0af113d",
+              "ingredientName": "Mayonnaise",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "43f30555-dda7-59b8-b1b9-718409db0270",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2ed9b737-8820-5bf0-a1f1-3485b02a558c",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "05f884db-f31a-50de-aaa8-1ed1308c1c0c",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "da64a303-d182-5a0d-9b25-1629029cde62",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "2edc7173-3eb6-5b6d-ab3b-9a4ac8025f9e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1ecc7533-e2bd-549c-adb0-c7c40d4930a8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Garen Sie die Makkaroni nach Packungsanweisung, lassen Sie sie dann abtropfen und spülen Sie sie mit kaltem Wasser ab, bis sie abgekühlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Karotte und Sellerie fein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer großen Schüssel Mayonnaise, Zucker und Reisessig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgekühlte Makkaroni, gewürfelte Karotten und gewürfelten Sellerie zum Dressing geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vorsichtig umrühren, bis alle Zutaten gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren mindestens 30 Minuten in den Kühlschrank stellen, damit sich die Aromen vermischen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2021/10/Hawaiian-Macaroni-Salad_EXPS_FT21_256066_F_0827_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2021/10/Hawaiian-Macaroni-Salad_EXPS_FT21_256066_F_0827_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boxty-pancakes",
+      "slug": "gen-boxty-pancakes",
+      "title": "Boxty-Kartoffelpfannkuchen",
+      "instructions": "Irisches Frühstück  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln in großen Mengen und reiben Sie sie frisch, anstatt sie gefroren zu kaufen.",
+        "Verwenden Sie einfaches Allzweckmehl anstelle von Spezialmehlen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "irisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7069,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boxty-pancakes/",
+      "components": [
+        {
+          "key": "3533c908-5da3-5ed0-9c20-797b0d7deeba",
+          "name": "Zutaten",
+          "servingGrams": 239.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ea31a46-e922-5211-8176-f4380d139271",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e7d42c8e-deeb-5111-af04-5e4860338e57",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b0a96a49-8dd2-55dc-ae2a-58df1a7ad5c2",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "02c42009-e9b2-5b57-839f-3cd910558bfc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "89ff1517-b0b4-5bdc-9a76-62317d92501d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "074f64b5-03d7-5b28-8515-5f1cf289629a",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b1cf8519-bc0a-5c32-a7b0-6b951c5d0d57",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Drücken Sie überschüssige Feuchtigkeit mit Papiertüchern aus den geriebenen Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ei und Milch verquirlen, dann mit Kartoffelpüree und geriebenen Kartoffeln vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die feuchte Mischung unter die trockenen Zutaten heben, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geben Sie einen Löffel Teig auf die Pfanne und drücken Sie ihn leicht flach, sodass Pfannkuchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf jeder Seite 3-4 Minuten braten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm mit Butter und Marmelade oder Sauerrahm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/-Jf1ePDMYaSrIU5wUglcVXfgb1I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250304-SEA-BoxtyIrishPancakes-TwoBites-Step4COLLAGE-45-4d7a9e21b5bb424b9ce6c2a4fdb6a215.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/-Jf1ePDMYaSrIU5wUglcVXfgb1I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250304-SEA-BoxtyIrishPancakes-TwoBites-Step4COLLAGE-45-4d7a9e21b5bb424b9ce6c2a4fdb6a215.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

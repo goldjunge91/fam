@@ -1,0 +1,1035 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sopes",
+      "slug": "gen-sopes",
+      "title": "Sopes",
+      "instructions": "Mexikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Masa Harina in größeren Mengen kaufen, das spart bei wiederholten Rezepten deutlich",
+        "Brathähnchen verwenden, um Zeit und Vorbereitungsaufwand zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2415,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopes/",
+      "components": [
+        {
+          "key": "fb5647bd-4589-56a5-93a7-1fd88b372d3a",
+          "name": "Zutaten",
+          "servingGrams": 525.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb605b9d-9d27-589c-a6c1-a30a1051dd50",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d265207d-6004-516c-aff4-b3694fbccb58",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "786b8075-47a0-54f7-8dd7-d995dc3175ad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "46f1b772-e582-579c-97ee-7262da825aa2",
+              "ingredientName": "Bohnenmus",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9b591932-c566-5393-bab9-fdf84f3c4820",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3c641e3f-9d4f-5e57-846d-2dac813c1714",
+              "ingredientName": "Salat",
+              "grams": 750,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "aa30a346-a022-5916-b612-c4107a980852",
+              "ingredientName": "Queso Fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fa1dce6d-ac87-5f15-ad36-bab499b3da43",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6b42901e-710b-5fb3-bffb-0bcb3aab450b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Braten"
+            },
+            {
+              "key": "7a78b2eb-bb6c-506c-b6ad-ad3a4a60f335",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Masa Harina, warmes Wasser und Salz in einer Schüssel vermischen, bis ein weicher Teig entsteht. 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig in 8 gleich große Portionen teilen, zu Kugeln formen und jede auf Frischhaltefolie zu einer Scheibe von 3 inch Durchmesser und etwa 1/4 inch Dicke flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pflanzenöl in einer Pfanne bei mittelhoher Hitze erhitzen. Jede Masa-Scheibe vorsichtig in das heiße Öl gleiten lassen und 1–2 Minuten leicht goldbraun braten, dann wenden und die andere Seite 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sopes herausnehmen und sofort, solange sie noch warm und biegsam sind, die Ränder zu einer niedrigen Wand hochdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen Löffel warmes Bohnenmus auf jede Sope streichen und mit zerteiltem Hähnchen belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Sope mit zerkleinertem Salat, zerbröckeltem Queso Fresco und einem Klecks saurer Sahne belegen, dann mit Salsa beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-318-rv-secondary-6418e40c5bc15.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-318-rv-secondary-6418e40c5bc15.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chacales",
+      "slug": "gen-chacales",
+      "title": "Chacales",
+      "instructions": "Mexikanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehltortillas der Eigenmarke für den günstigsten Preis verwenden",
+        "Eine große Menge zubereiten und bis zu 3 Tage luftdicht aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mexikanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2416,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chacales/",
+      "components": [
+        {
+          "key": "fcabd74f-8e65-58a0-94c6-046cd687603c",
+          "name": "Zutaten",
+          "servingGrams": 103.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a6c1ccd-632e-566e-8378-2ab498c5f66f",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db12369e-1c2e-5b5a-96dc-bbdba9e3d511",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Braten"
+            },
+            {
+              "key": "71781f04-fa07-5353-a823-2f614b3da2e6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7465cdcf-8325-5f18-b90a-83e4310fc298",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1d7de906-8a86-53ab-9481-93d2d9cfbbf8",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehltortillas stapeln und in je 6 Spalten schneiden (wie Pizzastücke), sodass insgesamt 36 Stücke entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pflanzenöl in einer tiefen Pfanne auf 350°F erhitzen (ein kleines Stück Tortilla sollte sofort brutzeln, wenn es hineingegeben wird).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tortillastücke vorsichtig in kleinen Portionen von etwa 10–12 Stück in das heiße Öl geben und 1–2 Minuten hellgolden und knusprig frittieren; dabei vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chacales mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Noch warm die frittierten Tortillastücke in einer flachen Schüssel mit Puderzucker und gemahlenem Zimt vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf eine Servierplatte geben und warm als süßen Snack genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://cdn.shopify.com/s/files/1/0618/0005/4952/products/chacales_1.jpg?v=1658777901",
+          "sourcePageUrl": "http://cdn.shopify.com/s/files/1/0618/0005/4952/products/chacales_1.jpg?v=1658777901",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pozole-rojo",
+      "slug": "gen-pozole-rojo",
+      "title": "Pozole Rojo",
+      "instructions": "Mexikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter im Angebot kaufen und einfrieren; Mais aus der Dose statt getrocknetem Mais verwenden",
+        "Paste aus getrockneten Chilis in größeren Mengen zubereiten und für zukünftige Pozole-Portionen einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2417,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pozole-rojo/",
+      "components": [
+        {
+          "key": "cf7a2b5f-d433-5320-b784-c15da71ff27e",
+          "name": "Zutaten",
+          "servingGrams": 482.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "f42c6842-3be2-5924-a898-d67627534006",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "973331a3-d7e5-550a-8c0f-a44951c5b2cc",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1994d85-3361-5a9d-8737-ec8b613cd798",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "983f00ad-ac65-5bbe-adf7-a855d25093c1",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen je)"
+            },
+            {
+              "key": "86fda6a9-389d-5e6e-83d4-a2f7bc0a3c04",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "3ff53cea-32a0-5b2c-8619-7b8673572711",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "ee300018-d2c6-5d81-8783-26c30e6e0317",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "43abbbbe-d1ba-5b59-81bd-8df56f0702e1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "58d7cf48-eab6-5a7f-8ab3-9f94c670ca33",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter mit der Hälfte der Zwiebel und Salz in 8 Tassen Wasser 1.5 Stunden sehr zart kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stiele und Kerne der getrockneten Chilis entfernen und 15 Minuten in heißem Wasser einweichen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eingeweichte Chilis mit Knoblauch, Kreuzkümmel und 1 Tasse Einweichflüssigkeit glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chilimischung durch ein feines Sieb in die Schweinebrühe abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgetropften Mais dazugeben und 20 Minuten köcheln lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schweinefleisch mit zwei Gabeln zerteilen und zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Limettensaft würzen und in Schalen mit gewürfelter Zwiebel und Limettenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nach Wunsch mit gehobeltem Kohl, Radieschen und Tostadas garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/C0Ez5WFZNPo1gq78YdZVmGZwYIs=/1600x1143/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2011__10__posole-rojo-horizontal-b2-1600-9acf490064fb47ee9180a6a5d207a006.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/C0Ez5WFZNPo1gq78YdZVmGZwYIs=/1600x1143/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2011__10__posole-rojo-horizontal-b2-1600-9acf490064fb47ee9180a6a5d207a006.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cochinita-pibil",
+      "slug": "gen-cochinita-pibil",
+      "title": "Cochinita Pibil",
+      "instructions": "Mexikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achiote-Paste ist teuer; auf lateinamerikanischen Märkten gibt es sie günstiger",
+        "Doppelte Menge zubereiten und Portionen für schnelle zukünftige Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2418,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cochinita-pibil/",
+      "components": [
+        {
+          "key": "850595cf-e459-5fe3-b746-74aab0b92999",
+          "name": "Zutaten",
+          "servingGrams": 262.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "fabcaa7b-bdd7-58ba-abde-8054f37ae16b",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "8b686304-5ca6-5d1d-a629-76955d84b2cf",
+              "ingredientName": "Ingwerpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6bd69ea2-93b4-53b8-9ffe-6cace757b815",
+              "ingredientName": "Orangensaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "262fcc30-0fef-5e72-a1f1-3f077043ee6c",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7a9abea4-7055-54a3-88fe-77d931a7d586",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "130d0b6e-d401-5df4-b02a-271dfaaf51af",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "33428d86-b98f-504f-8359-cc45edcaa9c2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ed60ca45-9bf0-5d39-8d71-5f369a6eacca",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6aa83a95-48d7-5570-93b5-34ecf078a336",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "d4b3b4fc-b3f6-5390-87f3-92c691cccd24",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Achiote-Paste mit Orangensaft, Limettensaft, Knoblauch, Kreuzkümmel, Nelken und Salz zu einer Paste verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweineschulter rundherum mit der Paste einreiben, abdecken und mindestens 2 Stunden im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backofen auf 325°F vorheizen und eine Auflaufform mit Bananenblättern auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mariniertes Schweinefleisch mittig hineinlegen, Bananenblätter darüberfalten und fest mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "4.5 bis 5 Stunden backen, bis sich das Schweinefleisch leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Ofen nehmen, leicht abkühlen lassen und Schweinefleisch in mundgerechte Stücke zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garflüssigkeit abseihen und über das zerteilte Schweinefleisch träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf warmen Tortillas mit gewürfelter roter Zwiebel und Koriander servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2019/08/Instant-Pot-Cochinita-Pibil-Recipe-1-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2019/08/Instant-Pot-Cochinita-Pibil-Recipe-1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carne-asada",
+      "slug": "gen-carne-asada",
+      "title": "Carne Asada",
+      "instructions": "Mexikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Skirt Steak im Angebot kaufen und einfrieren; Flanksteak ist eine günstigere Alternative",
+        "Zitrusmarinade mit Saft aus reduziertem Obst aus dem Supermarkt zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2419,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carne-asada/",
+      "components": [
+        {
+          "key": "0498e693-3c8d-56ae-b9c2-6612558f896f",
+          "name": "Zutaten",
+          "servingGrams": 189.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "31387901-9469-5c7d-a276-93832694465d",
+              "ingredientName": "Skirt Steak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5d5140a2-b890-53ab-839c-8c79b0dfa61e",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "5e8c9d7f-b7bb-58c1-b121-f5daf12eb5d6",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4d100f24-6f9a-56e3-b224-ed92aba1b546",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0b001b3-4010-5bcc-92c0-b6496dfb9261",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "88c3ec75-d95e-55a6-8cc3-5ef191a40f42",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "6ccd826e-ec9e-55f8-9089-1e9d8dee503a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1f02eec7-140c-5afb-989a-725903bf9154",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9490f012-0023-5ab4-92f0-d275dc7ffcc2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ad4a5ddd-afb1-5ace-b260-9414c7e605a3",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Limettensaft, Orangensaft, Knoblauch, Kreuzkümmel, Oregano, Olivenöl und geschnittene Jalapeños in einem Mixer pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Skirt Steak in einen Beutel mit Zipverschluss geben, Marinade darüber gießen, verschließen und 4–8 Stunden im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Steak 30 Minuten vor dem Garen aus dem Kühlschrank nehmen und Grill auf hohe Hitze vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Steak für medium-rare 5–7 Minuten pro Seite grillen und gelegentlich mit übriger Marinade bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fleisch 10 Minuten ruhen lassen und dann quer zur Faser in Streifen von quarter-inch Dicke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tortillas kurz auf dem Grill erwärmen und dann mit Carne Asada füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit gewürfelter Zwiebel, Koriander, Limettenspalten und Salsa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/05/Carne-Asada-IMAGE-303.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/05/Carne-Asada-IMAGE-303.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

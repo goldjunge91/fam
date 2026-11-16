@@ -1,0 +1,1088 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53328",
+      "slug": "tmdb-53328",
+      "title": "Venezolanisches Rindfleisch zum Zupfen",
+      "instructions": "Venezolanisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Venezuela",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2305,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53328/",
+      "components": [
+        {
+          "key": "c921caaf-b64d-5bfe-882b-55bcea058ba2",
+          "name": "Zutaten",
+          "servingGrams": 278.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "164313d4-cabb-5445-ba39-783694c23eca",
+              "ingredientName": "Steaksauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3781849f-fb30-565b-8fe6-41a6791882da",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a8a7062-2dba-5688-888c-2d084104c90d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b989fe6-2500-5c7a-9b90-dca90c3d0887",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b866818-8e2b-5603-a67b-c0afcd1fe459",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c058c44c-720c-5dfc-b77f-b74380891386",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8666f22f-f389-55d3-bcf7-3dd184b32f6f",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c41d548-1884-5841-8e55-bba0589ba28c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ea5f82e-b348-5a5f-80ff-c950146b948f",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6a86b50-78cb-5527-b499-5152b415171f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efc9f565-91b6-5ca3-92e4-99a16e00cbf0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e524862e-41bd-521e-b682-7bc868bf3f63",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Rindfleisch mit Salz, Pfeffer und gehacktem Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide 1 Zwiebel in 4 große Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Fleisch mit den 4 Zwiebelspalten und der Brühe in den Schnellkochtopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche es im Schnellkochtopf 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass den Druck ab und öffne den Deckel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Rindfleisch heraus und BEWAHRE 2 cups Brühe in einem anderen Behälter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zerfasere das Fleisch mit 2 Gabeln. Es sollte so zart sein, dass es leicht auseinanderfällt. Falls nicht, gare es weitere 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Drücke die Sauté-Taste am Instant Pot. Gib Olivenöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Wenn das Gerät piept, gib geschnittene Zwiebel, Paprika und Tomaten hinein. Gare alles weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Gib das zerkleinerte Rindfleisch zurück in den Topf und vermische es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Gieße 1 1/2 cups der aufgehobenen Brühe, Worcestershire-Sauce, Tomatenmark, Ketchup und Kreuzkümmel hinein. Vermische alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Wenn die Sauce zu trocken wirkt, gib noch einen Schuss Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "Servieren!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/mq27gf1764436795.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/mq27gf1764436795.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53332",
+      "slug": "tmdb-53332",
+      "title": "Venezolanische Teigtaschen",
+      "instructions": "Venezolanische Beilage, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Venezuela",
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2306,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53332/",
+      "components": [
+        {
+          "key": "7e623c16-e2d4-5ec4-968a-1c5fc75a0a69",
+          "name": "Zutaten",
+          "servingGrams": 230.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "38fcb34a-21ab-53d6-9c1b-a27010643dcf",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39b25a3c-a9c5-5e16-8753-52eb83483ca8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b45ccf4-37b7-591f-91f0-a0d2d7805748",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73c6f346-8502-5444-b8a2-aa11664f39d7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ae6e70b-fb7d-57ec-a62d-c39bdbaa02bb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59d8fd17-a992-538a-9bd4-85a65d6ad546",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e33677a-a6ed-5a6b-a7a0-725212fce2c2",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f61bf4f-1962-551f-a461-f32526e48d91",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fa9f314-e828-57b5-9a7c-d178e524c7bc",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e40b109-ddf7-50e9-9ee9-a95084f81a5b",
+              "ingredientName": "Sazón-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9e6cba6-e070-51fb-888d-11418753bfd8",
+              "ingredientName": "Gelbe Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Fleisch mit Adobo. Erhitze Öl in einer Pfanne bei mittelhoher Hitze. Gare das Fleisch, bis kein Rosa mehr zu sehen ist. Rühre Zwiebel, Paprika, Knoblauch, Kapern, Tomatensauce und Sazón ein. Gare alles unter häufigem Rühren etwa 20 Minuten, bis der Großteil der Flüssigkeit verdampft ist. Lass die Füllung abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Der vorbereitete Teig sollte feucht sein und zusammenhalten, aber nicht an den Fingern kleben. Nimm etwa ½ cup Teig und rolle ihn zwischen den Handflächen zu einer Kugel. Forme die Kugel auf einem Stück beschichtetem Backpapier zu einem 5-inch großen Kreis von etwa ⅛ inch Dicke. Gib einen großzügigen tbsp Füllung auf eine Hälfte des Kreises und klappe den Teig mithilfe des Backpapiers zu einem Halbkreis darüber. Drücke zum Verschließen und Zuschneiden den Rand einer umgedrehten Schüssel auf den halbkreisförmigen Teigfladen. Wiederhole dies für alle Empanadas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze ½ inch Öl in einer großen Pfanne bei mittelhoher Hitze, bis es heiß ist, aber nicht raucht. Brate die Empanadas portionsweise und wende sie ein- oder zweimal, bis sie leicht gebräunt sind. Lass sie auf Küchenpapier abtropfen. Überfülle die Pfanne nicht und lass das Öl nicht zu heiß werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/zjtfp31764440795.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/zjtfp31764440795.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53228",
+      "slug": "tmdb-53228",
+      "title": "Vietnamesische Karamell-Forelle",
+      "instructions": "Vietnamesisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2307,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53228/",
+      "components": [
+        {
+          "key": "31ef3e9b-04e5-581f-95ae-5f88785c36d6",
+          "name": "Zutaten",
+          "servingGrams": 145.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6dab567-920c-5309-ade1-b489800db982",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f811fa2-199a-5137-9e39-d8c9a2659f56",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7934cabd-8e94-51cc-b325-5a8dc6e7b793",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "559dd526-a9f1-559a-a261-707b47747550",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b834f067-1810-581c-a544-812bd1cee4ce",
+              "ingredientName": "Regenbogenforelle",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c67fca79-5a83-59b0-aa0d-4d6170524743",
+              "ingredientName": "Pak Choi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5518571-4ebc-5b64-9a7b-0ee3889c172c",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e87216c8-6364-550e-96c7-e6235c059194",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "986fc4a3-fb07-5364-9d64-efa08b078395",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Zucker und einen kleinen Schuss Wasser in eine große flache Pfanne. Erhitze die Mischung vorsichtig und schwenke die Pfanne, bis sich der Zucker aufgelöst hat. Erhöhe die Hitze und lass den Sirup sprudelnd kochen, bis er dunkel bernsteinfarben ist. Gib Fischsauce sowie den Großteil von Chili und Ingwer dazu und gieße 1 tbsp Wasser hinein, um den Sirup zu verdünnen. Koche ihn erneut, bis er sirupartig ist. Lege dann die Fischfilets mit der Hautseite nach unten und den Pak Choi mit der Schnittseite nach unten hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Pfanne ab und lass alles 4-5 mins köcheln, bis der Fisch gar und der Pak Choi zusammengefallen ist. Schalte die Hitze aus, presse Zitrone darüber und streue restliche Chili, Ingwer und Korianderzweige darauf. Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/p02vq41763754350.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/p02vq41763754350.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53232",
+      "slug": "tmdb-53232",
+      "title": "Vietnamesischer Hähnchensalat",
+      "instructions": "Vietnamesisches Hähnchengericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2308,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53232/",
+      "components": [
+        {
+          "key": "6b81ebdb-bd33-5725-bda6-da208c02f174",
+          "name": "Zutaten",
+          "servingGrams": 306.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "376efaa4-662d-542d-9b09-c22753d0ae37",
+              "ingredientName": "Reisnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70a05ae9-7f51-5047-976d-a179f56e0194",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "135a330e-6da3-5a04-ac11-01f0fc29677d",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b8e5378-96a0-5025-813e-4e3518ad6c0b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33947079-53fb-5087-8bd7-785221c31a77",
+              "ingredientName": "Radieschen",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe857260-a592-5c05-8746-8c37e2644a05",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f92b1924-effc-567c-9d47-822d15b2b227",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24d69bce-0e22-5538-aed8-071cb7e1056d",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "779d3f13-4e5e-5a95-9d68-24906c06191f",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a14ab788-7858-5a07-a4fb-2b4f554c0bd5",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "338de151-f869-5608-8496-25dca6c6005c",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "872f2a46-05cb-5350-b42e-8254af2217ea",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f26f957f-8e16-5aa2-8caf-243cc2d69f95",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle alle Zutaten für das Dressing in einer großen Servierschüssel. Koche die Nudeln nach Packungsanweisung, gieße sie ab und gib sie mit dem Dressing in die Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die Karotte mit einem Sparschäler längs in Streifen. Verfahre genauso mit der Gurke, bis du die Kerne erreichst, und wirf diese weg. Gib Karotte und Gurke mit zerkleinertem Hähnchen, Radieschen, roter Zwiebel und Minze zu den Nudeln. Vermenge alles gut mit dem Dressing, streue Erdnüsse darüber und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/pk8wtn1763758591.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/pk8wtn1763758591.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52828",
+      "slug": "tmdb-52828",
+      "title": "Vietnamesisches gegrilltes Schweinefleisch (bún thịt nướng)",
+      "instructions": "Vietnamesisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2309,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52828/",
+      "components": [
+        {
+          "key": "13dcc575-c30e-56cb-9984-d67aa88a48b2",
+          "name": "Zutaten",
+          "servingGrams": 233.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "d99ed663-24a0-5a2b-8515-a4d30d5c16b0",
+              "ingredientName": "Schweinewurst",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "259b953f-92be-5386-bc94-6020226e46fb",
+              "ingredientName": "Reisfadennudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a7fd311-5848-5246-a320-b9c2614b8aae",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f8badcb-f465-5eb8-bae6-4f218fe3f492",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "759a59bc-a765-5a79-bc65-24d4155405b9",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "928164d8-5101-5b42-a3a1-80a0c9f049d5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1df2665-f4ef-500a-90d6-5623d87aa58a",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "258e1e03-4404-5943-8786-c5dca252ef8b",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de5cbc01-da20-56b0-a3e2-158f2d88a365",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "750d497f-e7a5-5140-84d0-8b7666db7e79",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36cf7c92-a57f-583c-9177-947526df0935",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd2015fb-b2a9-51a2-8399-c016a88757a7",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "132ad5c0-a771-5250-9299-f49ca7863755",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das rohe Schweinefleisch dünn, etwa ⅛ inch. Es lässt sich leichter schneiden, wenn du es leicht anfrieren lässt (optional).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch und Schalotten. Vermische sie in einer Schüssel mit Zucker, Fischsauce, dunkler Sojasauce, Pfeffer und Öl, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mariniere das Fleisch 1 Stunde oder für ein besseres Ergebnis über Nacht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe das Schweinefleisch bei 375F 10-15 Minuten oder bis es zu etwa 80% gar ist. Grille es anschließend im Ofen, bis es schön goldbraun ist, und wende die Stücke nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte dein Schüsselgericht mit Gemüse, Nudeln und Garnitur an. Viele vermischen alles und gießen Fischsauce darüber; ich mache lieber einzelne Bissen und träufle die Sauce nach und nach darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qqwypw1504642429.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qqwypw1504642429.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

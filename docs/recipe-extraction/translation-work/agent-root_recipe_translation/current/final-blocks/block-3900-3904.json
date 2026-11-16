@@ -1,0 +1,1008 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sirniki",
+      "slug": "gen-sirniki",
+      "title": "Sirniki",
+      "instructions": "Ukrainisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hüttenkäse im Sonderangebot und frieren Sie ihn zur späteren Verwendung ein",
+        "Verwenden Sie Konfitüre von Handelsmarken anstelle von Premium-Marken, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3900,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sirniki/",
+      "components": [
+        {
+          "key": "6a1baa8d-f7a4-5911-94f5-b1bc691f1c96",
+          "name": "Zutaten",
+          "servingGrams": 172.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b1932cd-f4e2-5059-81bd-51317677a2e2",
+              "ingredientName": "Hüttenkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3789867e-8b9b-5edb-93bf-0099684dac3c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "04f0ebd8-83b0-5998-8a44-1e8ac5ff1089",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "130b2751-6cae-5efc-99ba-d6d2ba88e110",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c5c4bd8b-4975-55dd-b2fc-50b9e5a959e2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "ec2d9d03-ddb4-5c03-962d-e143d168d5b0",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "00c0926a-e6f8-5809-a0b5-903d2dd82ca9",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/3 Tasse zum Braten"
+            },
+            {
+              "key": "be3c1dc9-d2a7-552c-bc67-47b0768445db",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            },
+            {
+              "key": "7761e06f-da50-51a0-9e93-899ee37b41a1",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tasse zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "In einer großen Schüssel Bauernkäse, Eier, Mehl, Zucker, Salz und Vanilleextrakt vermischen; mischen, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie einen Löffel Käsemischung auf die heiße Pfanne und drücken Sie jeden Löffel mit der Rückseite eines Löffels leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2-3 Minuten pro Seite braten, bis die Ränder goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gekochtes Sirniki auf einen mit Papiertüchern ausgelegten Teller geben, um überschüssiges Öl abtropfen zu lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warm mit Saure Sahne und Konfitüre oder Honig darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2022/08/Easy-Lemon-Sirniki-Cheese-Pancakes-recipe-1.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2022/08/Easy-Lemon-Sirniki-Cheese-Pancakes-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zharkoe",
+      "slug": "gen-zharkoe",
+      "title": "Zharkoe",
+      "instructions": "Ukrainisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter, wenn sie im Angebot ist, und frieren Sie sie für später ein",
+        "Verwenden Sie zur Abwechslung Wurzelgemüse wie Rüben oder Pastinaken anstelle von Karotten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ukrainisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3901,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zharkoe/",
+      "components": [
+        {
+          "key": "f38343db-e828-5020-a67a-cee4e4c86c2f",
+          "name": "Zutaten",
+          "servingGrams": 587.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "59efb3cc-441a-5750-8927-6e0b63a31fbb",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "ce7f1d28-ad92-59bc-962c-d2aa6b42c3dc",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "7abd67b6-9faa-5b46-98bc-35b4ba9a96cf",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "09d4f571-4b59-5e6d-895d-0d29c87058f7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "5d29fbee-4724-5dca-94c4-8becb5518510",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "4246cd27-e0fc-5782-af2e-a033c8be8052",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0f85d76d-05ff-5af4-8e2e-5e19d570129f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "775fa120-8dfb-5093-a02a-27210ee204da",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "31af0548-0d84-53ac-970c-73e201720c3b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "1d09c3b8-4bae-5481-8e73-9049d58fbfc6",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf oder Schmortopf bei mittlerer bis hoher Hitze erhitzen und die Fleischwürfel portionsweise anbraten, etwa 3 Minuten pro Seite; beiseite legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im gleichen Topf die gewürfelten Zwiebeln ca. 3 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fügen Sie gehackten Knoblauch hinzu und kochen Sie ihn 1 Minuten lang, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie das Fleisch wieder in den Topf und rühren Sie das Tomatenmark ein, sodass das Fleisch gut bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wasser und Lorbeerblätter hinzufügen, zum Kochen bringen, dann die Hitze reduzieren und teilweise abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "30 Minuten köcheln lassen, bis das Fleisch fast zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kartoffeln und Karotten hinzufügen, die Hitze auf mittlere Stufe erhöhen und ohne Deckel 25-30 Minuten köcheln lassen, bis das gesamte Gemüse weich und das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Großzügig mit Salz und schwarzem Pfeffer würzen und dann heiß in Schüsseln mit reichlich Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thatswhatshehad.com/wp-content/uploads/2020/02/zharkoe.jpg",
+          "sourcePageUrl": "https://thatswhatshehad.com/wp-content/uploads/2020/02/zharkoe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kutup",
+      "slug": "gen-kutup",
+      "title": "Kutup",
+      "instructions": "Ukrainisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie große Mengen und frieren Sie ungebackene Brötchen für spätere schnelle Mahlzeiten ein",
+        "Verwenden Sie Cheddar von Handelsmarken anstelle von Markensorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3902,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kutup/",
+      "components": [
+        {
+          "key": "3627e063-7328-58e0-a6dd-159d6440f536",
+          "name": "Zutaten",
+          "servingGrams": 441.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "84443f65-f7aa-5c43-a57f-25e16b2c5985",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "652860e8-3227-572e-8bb1-df422786a451",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "6846786c-42c8-5fb7-9ede-b8f82659caf5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL für den Teig"
+            },
+            {
+              "key": "4fc47376-0d30-5f47-8df6-7a6e48453be9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL für den Teig sowie 2 zum Braten"
+            },
+            {
+              "key": "36b6db00-0eb1-58a4-b272-aa997995873b",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke, gegart und zerdrückt"
+            },
+            {
+              "key": "285706ba-46cd-5086-a1fd-ea968cce2ec1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "2f03a758-0e89-5046-92d7-3d0d6b45ef7b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen, geraspelt"
+            },
+            {
+              "key": "8443ab71-430e-5b2f-a86f-1a3be1fdcb15",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack für die Füllung"
+            },
+            {
+              "key": "9e0b253e-399d-5da3-817b-d77cc91e754e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz, Wasser und 2 Esslöffel Öl in einer Schüssel vermischen, bis ein weicher Teig entsteht; glatt kneten, dann abdecken und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während der Teig ruht, braten Sie die gewürfelten Zwiebeln in 1 Esslöffel Öl an, bis sie goldbraun sind, und vermischen Sie sie dann mit Kartoffelpüree, Käse, Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in 4 gleiche Stücke teilen und jedes zu einem dünnen Oval von etwa 8 Zoll Länge ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteilen Sie die Kartoffel-Käse-Füllung in der Mitte jedes Ovals und lassen Sie die Ränder frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rollen Sie es fest auf wie eine Biskuitrolle, drücken Sie die Nähte zusammen, um es abzudichten, und wickeln Sie dann jede Rolle auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Restliches Öl und Butter in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Aufgerollte Kutup-Rollen 4-5 Minuten pro Seite braten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit saurer Sahne oder geschmolzener Butter darüber träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/stir-fry-chicken-recipe-720x1080.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/stir-fry-chicken-recipe-720x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rassolnik",
+      "slug": "gen-rassolnik",
+      "title": "Rassolnik",
+      "instructions": "Russisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rinderknochen mit etwas Fleisch anstelle von Futter, um die Kosten zu senken",
+        "Machen Sie Ihre eigene Rinderbrühe aus Knochen und Resten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3903,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rassolnik/",
+      "components": [
+        {
+          "key": "66d8e2bf-b07d-55ce-80f3-3b0ec6713c64",
+          "name": "Zutaten",
+          "servingGrams": 941.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fee88538-c0f0-5621-b32d-6f0ab06cffc9",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "bb612dd1-9234-5a0d-9499-9248a59c1acb",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9babad4d-60af-5faa-866b-25914c48cfc6",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "372acd98-18c2-5631-8b37-b757530647b2",
+              "ingredientName": "Graupen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6ff57b2e-ce6a-5b28-ad4f-b8da3c142173",
+              "ingredientName": "Dillgurken (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "c3b14862-f1c1-5655-aa8e-5af19aefa7eb",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "83f1406a-5d3d-5440-8698-7f52529bc25b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "91a03b6c-0c28-5f0d-beef-567be9e0a4cd",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "3ff6bbe4-18d6-5414-81f8-c46be0f26f6c",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7b3bbcc6-61c4-5509-9f94-bbc0a8b3aeb8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringen Sie die Rinderbrühe zum Kochen, fügen Sie das Rinderhackfleisch hinzu und lassen Sie es 20 Minuten lang köcheln, bis es zart wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Kartoffeln, Graupen, gehackte Zwiebeln und Karotten hinzufügen und 15 Minuten kochen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Gurken würfeln und zusammen mit dem Gurkensaft in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weitere 5 Minuten köcheln lassen, dann vor dem Servieren mit Salz, Pfeffer und frischem Dill würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/07/Rassolnik-Pickle-Soup-.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/07/Rassolnik-Pickle-Soup-.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kvass",
+      "slug": "gen-kvass",
+      "title": "Kwas",
+      "instructions": "Russischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie eintägiges Roggenbrot mit Rabatt in Bäckereien",
+        "Die Rosinen können weggelassen oder durch getrocknete Aprikosen ersetzt werden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "russisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3904,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kvass/",
+      "components": [
+        {
+          "key": "bb31e6e2-15da-51d7-8e90-4cbef0fdc57a",
+          "name": "Zutaten",
+          "servingGrams": 673.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "e303deb6-0a98-52f5-bfe5-7cef62cc9eb3",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "dda5d7ec-664b-59eb-9c83-0db5b0be77c9",
+              "ingredientName": "Wasser",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "ba6a4a7f-ea6d-5ee1-b70e-73350329d1e5",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "02af72ba-0c9c-51db-8ff0-99005da8953f",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "0e328209-36c2-51a5-bbe6-99e75d7a67fc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f9b3f86a-0d58-567e-bad6-c2eb8375a5ad",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Roggenbrotscheiben in einem 350°F Ofen 15 Minuten lang rösten, bis sie dunkelbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kochen Sie 10 Tassen Wasser und gießen Sie es über geröstetes Brot in einen großen Topf, decken Sie es ab und lassen Sie es 12 Stunden bei Raumtemperatur stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Brotflüssigkeit durch ein Käsetuch in einen sauberen Behälter abseihen und die Brotfeststoffe wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zucker, Salz und Hefe einrühren und dann mit einem Tuch abgedeckt 24-36 Stunden bei Raumtemperatur gären lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füllen Sie den Kwas in Flaschen ab, stellen Sie ihn bis zu 2 Wochen in den Kühlschrank und servieren Sie ihn gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.valyastasteofhome.com/wp-content/uploads/2014/07/0032-846x1024-1.jpg",
+          "sourcePageUrl": "https://www.valyastasteofhome.com/wp-content/uploads/2014/07/0032-846x1024-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

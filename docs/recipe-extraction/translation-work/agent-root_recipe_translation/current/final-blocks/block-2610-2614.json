@@ -1,0 +1,1026 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-imam-baildi",
+      "slug": "gen-imam-baildi",
+      "title": "Imam Baildi",
+      "instructions": "Türkisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen in der Saison und spare 50%",
+        "Verwende Rosinen statt Korinthen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "türkisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2610,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-imam-baildi/",
+      "components": [
+        {
+          "key": "834d34e0-4db2-5467-b788-a2049d7fe87f",
+          "name": "Zutaten",
+          "servingGrams": 472.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac0737f2-597e-5e67-9cf8-6ca2e23c8b98",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "91ba7891-c5b2-5a86-9388-bfb7436b11d1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "0b49fbcf-9448-5f82-b555-85235d76899c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "65baa7fb-fdc5-580f-8086-839f27e502f8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "4918f458-4ede-5e34-a33f-27a8e1863946",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "933fa56d-4422-50c1-bd43-425c553f9c69",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "abf237a2-3efd-5047-ac1e-bdd26ccd529a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "¼ Tassen"
+            },
+            {
+              "key": "d2688ef6-e1fb-53a7-baa7-1cf4a473b194",
+              "ingredientName": "Pinienkerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¼ Tassen"
+            },
+            {
+              "key": "198c230e-729f-511f-836b-9f67a490e1b3",
+              "ingredientName": "Korinthen",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "60685ea4-4988-556e-9736-0592799f98a7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Auberginen längs, höhle sie aus, sodass eine ½ Zoll dicke Schale bleibt, und hebe das gehackte Fruchtfleisch auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze ¼ Tasse Olivenöl in einer Pfanne und brate die Auberginenschalen kurz auf beiden Seiten, bis sie leicht gebräunt sind. Lege sie mit der Hautseite nach unten in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste in derselben Pfanne Zwiebeln und Knoblauch im restlichen Öl etwa 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das gehackte Aubergineninnere, Tomatenmark und Tomaten hinzu und gare alles 10 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Petersilie, Pinienkerne und Korinthen ein und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Auberginenschalen mit der Mischung und beträufle sie mit dem restlichen Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Form mit Folie ab und backe die Auberginen bei 375°F 25-30 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie warm oder bei Zimmertemperatur mit Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thegreekfood.com/wp-content/uploads/2016/03/imam-baildi1.jpg",
+          "sourcePageUrl": "https://thegreekfood.com/wp-content/uploads/2016/03/imam-baildi1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-menemen",
+      "slug": "gen-menemen",
+      "title": "Menemen",
+      "instructions": "Türkisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in größeren Mengen, um den besten Stückpreis zu erhalten",
+        "Verwende Gemüse, das du gerade zur Hand hast"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "türkisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2611,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-menemen/",
+      "components": [
+        {
+          "key": "4e8f88cc-930a-5d93-a0ce-7efe157372cc",
+          "name": "Zutaten",
+          "servingGrams": 678,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbce97e0-98b4-5424-8a36-b2a05a1543a7",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "360538ae-9af7-5602-9d0c-39d4174765ee",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "f657d1c1-f1c8-5721-b67a-d9692160a0cd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "d149a14c-0cae-5b2c-98ea-bc9987971ecf",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "461202c9-eb10-5d51-8ab1-9c745b282afc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "07427abf-7104-500d-9779-798adf1913cb",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "2b05f25f-0cc6-51a4-8c73-9b063ca7c357",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "9ebdc76d-9ffa-5571-88c6-7f3dc7a8f11d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Zwiebel hinzu und dünste sie 2 Minuten, bis sie glasig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprika und Knoblauch hinzu und gare alles 3 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Tomaten hinzu und lasse alles 5 Minuten köcheln, bis sie zu zerfallen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Eier direkt in die Pfanne und rühre vorsichtig, sodass eine Rührei-Konsistenz entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare alles 3-4 Minuten unter gelegentlichem Rühren, bis die Eier gerade gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer, garniere mit frischer Petersilie und serviere sofort mit Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/fzEXGSDPby1R7K9H65WiEuBNbEU=/4176x2784/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Menemen-LEAD-09-a6cfe058d5af47519b62c34dce2b637c.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/fzEXGSDPby1R7K9H65WiEuBNbEU=/4176x2784/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Menemen-LEAD-09-a6cfe058d5af47519b62c34dce2b637c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sucuk-and-eggs",
+      "slug": "gen-sucuk-and-eggs",
+      "title": "Sucuk mit Ei",
+      "instructions": "Türkisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sucuk auf Märkten mit internationalen Lebensmitteln und zahle 20% weniger als im Supermarkt",
+        "Lass teures Spezialbrot weg und verwende normales Fladenbrot"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "türkisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2612,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sucuk-and-eggs/",
+      "components": [
+        {
+          "key": "645b031d-4890-5e85-8f01-efc0eb1de65d",
+          "name": "Zutaten",
+          "servingGrams": 202.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "22f60576-44d8-54b5-8b72-db8c381f43df",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Pfund (etwa 4 Würste)"
+            },
+            {
+              "key": "fc8e291f-e334-5907-a080-bce7c1c27367",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "371a4414-0a3b-57b3-bd92-bb47e57f9c3e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "63736931-8ac3-593d-8f62-29f5d1735860",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ Teelöffel"
+            },
+            {
+              "key": "6dc87eb1-6564-5cd5-b8c1-e8797c25373b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ Teelöffel"
+            },
+            {
+              "key": "e31ebef1-20bb-5ef4-a456-7cdeb5be81e0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Sucuk-Wurst in ¼ Zoll dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Sucuk-Scheiben 2-3 Minuten pro Seite, bis sie gebräunt sind und Fett austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die Sucuk an den Pfannenrand und schlage die Eier in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Eier 3-4 Minuten unter vorsichtigem Rühren, bis das Eiweiß gestockt, das Eigelb aber noch leicht flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile alles auf Tellern, garniere mit frischer Petersilie und serviere es mit warmem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/9whln7pcw7n61.jpg",
+          "sourcePageUrl": "https://i.redd.it/9whln7pcw7n61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastrami-sandwich",
+      "slug": "gen-pastrami-sandwich",
+      "title": "Pastrami-Sandwich",
+      "instructions": "Türkisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Pastrami im Angebot und friere sie für später ein",
+        "Verwende Fladenbrot von der Handelsmarke statt einer Spezialmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "türkisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2613,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastrami-sandwich/",
+      "components": [
+        {
+          "key": "0a6b5154-5431-59e0-996f-88da46d02c34",
+          "name": "Zutaten",
+          "servingGrams": 602.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d3d66c9-b0dd-54a5-8bc7-1f020f82d380",
+              "ingredientName": "Aufschnitt-Truthahn",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "bc1ff64c-a38e-5395-b907-208d48838d80",
+              "ingredientName": "Fladenbrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "18122a41-e104-5036-a252-e88ee229fa54",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "93918179-8e02-5112-9fc1-7cbc965b8db3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼, dünn geschnitten"
+            },
+            {
+              "key": "738703d4-567e-592b-b5c5-9a74eb9e6d29",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "7d85edc9-fe1d-556a-906f-becb76e6a0dd",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ Tassen, zerbröselt"
+            },
+            {
+              "key": "4d49d526-1633-5dea-83ba-8ddb129e4675",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a18724c5-31b3-585b-837b-d281cebb015b",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme das Fladenbrot in einer trockenen Pfanne 30 Sekunden pro Seite, bis es biegsam ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Innenseite jeder Fladentasche mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte Pastrami, Tomaten, Zwiebel und Gurken in jede Tasche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege alles mit zerbröseltem Feta und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Sandwich sofort, solange das Fladenbrot noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/pastrami-sandwich-secondary-667c32a10954c.jpg?crop=0.999553770638108xw:1xh;center,top&resize=980:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/pastrami-sandwich-secondary-667c32a10954c.jpg?crop=0.999553770638108xw:1xh;center,top&resize=980:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-turkish-pizza",
+      "slug": "gen-turkish-pizza",
+      "title": "Türkische Pizza",
+      "instructions": "Türkisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch statt Lamm und spare 40%",
+        "Kaufe Naan aus der Bäckereiabteilung statt abgepacktes"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2614,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turkish-pizza/",
+      "components": [
+        {
+          "key": "12203897-ab0c-5175-90a3-bf2789e5690d",
+          "name": "Zutaten",
+          "servingGrams": 177.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c65b50e-7e2c-5df9-a745-73cbc5aafc23",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "54e4e704-bcf6-5948-baac-df6acd4b1964",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "4fc3e9c3-3cc6-5f63-9e75-2a8a4fb143aa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ mittelgroße Stücke, fein gehackt"
+            },
+            {
+              "key": "04a8f34b-4720-572a-952f-0f180eb68879",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "52f10cac-64cb-599a-ac49-2358534ef5ab",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "438c0762-5ab5-5d93-ab35-ee93037d340f",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0d1cc986-9576-5783-ab27-99b7f5e33eaa",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d6e7061c-1834-53b0-9b98-752e16813df2",
+              "ingredientName": "Pinienkerne",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b757bac2-2210-580d-b5ad-668dfdbe3d9b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8b8bd2fd-237f-53f1-bf9c-43799ae43c46",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune Lammhackfleisch in einer Pfanne bei mittlerer bis hoher Hitze und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebel und Knoblauch zum Lamm und gare alles 3 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark, Zitronensaft, Salz und Pfeffer ein und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und hebe frische Petersilie und Pinienkerne unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 425°F vor und lege das Naan auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Lammfleischmischung gleichmäßig auf den beiden Naan-Stücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle sie mit Olivenöl und backe sie 8-10 Minuten, bis die Ränder knusprig und der Belag heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide die Pizza in Stücke und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/6OZyBpvVMnLWgb8el8MexwRUxts=/3252x2168/filters:fill(auto,1)/turkish-lahmacun-recipe-3274265-hero-01-9b3fc58a62994b7ca9b838dd07b31792.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/6OZyBpvVMnLWgb8el8MexwRUxts=/3252x2168/filters:fill(auto,1)/turkish-lahmacun-recipe-3274265-hero-01-9b3fc58a62994b7ca9b838dd07b31792.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

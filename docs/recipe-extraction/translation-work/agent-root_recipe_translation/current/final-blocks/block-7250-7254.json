@@ -1,0 +1,915 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:drink-cosmopolitan",
+      "slug": "drink-cosmopolitan",
+      "title": "Cosmopolitan",
+      "instructions": "Der berühmte rosafarbene Cocktail: Zitrus-Wodka, Triple Sec, herbe Cranberry und frische Limette, eiskalt geschüttelt und ohne Eis serviert. Klar, trocken und elegant, mit flambierter Orangen- oder Limettenzeste.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 4,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einfachen Wodka mit einem zusätzlichen Spritzer Limette verwenden; so erhältst du günstiger einen ähnlichen Zitrusgeschmack.",
+        "Kaufe 100% Cranberrysaft und verdünne ihn mit etwas Wasser und Sirup, statt gesüßten Cranberry-Cocktail zu nehmen.",
+        "Nimm statt eines Marken-Orangenlikörs einen guten Triple Sec. Er bringt dieselbe frische Orangennote."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "triple-sec",
+          "swap": "gleich parts Orange juice mit ein Teelöffel von Zucker",
+          "savings": "~$0.40/Getränk"
+        },
+        {
+          "forIngredientId": "simple-syrup",
+          "swap": "Agave syrup oder Honig, thinned mit ein little warm Wasser",
+          "savings": "~$0.10/Getränk"
+        },
+        {
+          "forIngredientId": "cranberry-juice",
+          "swap": "Pomegranate oder cranberry-raspberry juice",
+          "savings": "etwa gleich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Wodka",
+        "klassisch",
+        "Zitrus"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7250,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-cosmopolitan/",
+      "components": [
+        {
+          "key": "36363e9a-49f8-54ee-a113-d5e1bf0c5c0e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 372.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "281c47ff-f5a4-5f81-b1be-dc9b42e33b72",
+              "ingredientName": "Wodka",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Zitruswodka, falls vorhanden"
+            },
+            {
+              "key": "b75044f5-1fd2-5b43-a607-1c0b5e84fc53",
+              "ingredientName": "Triple Sec",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Cointreau eignet sich ideal"
+            },
+            {
+              "key": "24382517-7506-5bc6-9df0-5b5751a8f29d",
+              "ingredientName": "Cranberrysaft",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "reinen Cranberrysaft verwenden, kein Saftmischgetränk"
+            },
+            {
+              "key": "c5bc6ec4-ea9c-5da5-aafa-dbc73a5a2288",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "frisch gepresst, etwa 0.5 oz Saft"
+            },
+            {
+              "key": "6f08e9cd-1e25-51d9-98fc-e5db7c52f135",
+              "ingredientName": "Einfacher Sirup",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "nur für einen weniger säuerlichen Geschmack"
+            },
+            {
+              "key": "6ab2a8c7-2f82-5e77-a700-dba7d073aeb8",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Shaken"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kühle ein Coupé- oder Martiniglas, indem du es mit Eis und Wasser füllst, während du den Drink zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Wodka, Triple Sec, Cranberrysaft, frischen Limettensaft und nach Wunsch einfachen Sirup in einen Cocktailshaker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Shaker mit Eis und schüttle ihn 12-15 Sekunden kräftig, bis die Außenseite beschlägt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Leere das gekühlte Glas und seihe den Cocktail doppelt hinein, damit er klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit einer Limettenscheibe oder einer flambierten Orangenzeste und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Cosmopolitan_-_CrystalMixer.jpg/1280px-Cosmopolitan_-_CrystalMixer.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cosmopolitan_-_CrystalMixer.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: CrystalMixer - CrystalMixer.com — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-whiskey-sour",
+      "slug": "drink-whiskey-sour",
+      "title": "Whiskey Sour",
+      "instructions": "Der klassische Sour: Bourbon, ausbalanciert mit frischer Zitrone und etwas einfachem Sirup, kalt geschüttelt und auf Eis serviert. Spritzig, säuerlich und weich, mit einem Hauch aromatischen Bitters.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite einfachen Sirup aus gleichen Teilen Zucker und heißem Wasser selbst zu. Das ist deutlich günstiger als gekaufter Sirup.",
+        "Verwende frische Zitronen statt Saft aus der Flasche. Eine Zitrone reicht für zwei Drinks und schmeckt frischer.",
+        "Bourbon aus dem mittleren Preissegment genügt; Zitrone und Sirup mildern kräftige Noten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whiskey",
+          "swap": "verwenden bourbon oder rye - rye gives ein spicier, drier sour",
+          "savings": "Eine Flasche der mittleren Preisklasse eignet sich gut und kostet ~$0.50/oz weniger als Premiumware"
+        },
+        {
+          "forIngredientId": "simple-syrup",
+          "swap": "Swap in Honig syrup (Honig thinned mit warm Wasser) für ein Gold Rush variation",
+          "savings": "Ungefähr gleiche Kosten, volleres Aroma"
+        },
+        {
+          "forIngredientId": "bitters",
+          "swap": "weglassen der bitters entirely - der Getränk is still balanced ohne them",
+          "savings": "Spart den Kauf einer Flasche Bitter."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Whisky",
+        "Bourbon",
+        "Sour",
+        "klassisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7251,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-whiskey-sour/",
+      "components": [
+        {
+          "key": "77a6689d-3b53-54c1-93c1-f8bb658c8b1d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 404.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a73e9cb-81cb-5022-a807-1325f9e9b05b",
+              "ingredientName": "Whiskey",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "vorzugsweise Bourbon, 2 oz"
+            },
+            {
+              "key": "591b8a77-a1f1-5c1d-93b8-e112802f6cf2",
+              "ingredientName": "Zitrone",
+              "grams": 63,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "frischer Zitronensaft, 0.75 oz (etwa eine halbe Zitrone)"
+            },
+            {
+              "key": "44829fc1-20df-56d7-9018-ad8bd6851b04",
+              "ingredientName": "Einfacher Sirup",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 oz"
+            },
+            {
+              "key": "a2de0cb4-0e39-56ee-9187-37a7811d2cf8",
+              "ingredientName": "Aromatischer Bitter",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "2 Spritzer Angostura darüber"
+            },
+            {
+              "key": "68d635cc-e711-59eb-a362-6dfb01898c2c",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse zum Shaken und Servieren"
+            },
+            {
+              "key": "a10145ff-1635-5808-9a30-92b7102ce745",
+              "ingredientName": "Orange",
+              "grams": 13.1,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": "Orangenscheibe zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle einen Shaker mit Eis. Gib 2 oz Bourbon, 0.75 oz frischen Zitronensaft und 0.75 oz einfachen Sirup dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verschließe den Shaker und schüttle ihn 12-15 Sekunden kräftig, bis er außen beschlägt und der Drink gut gekühlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Seihe den Drink in ein Tumblerglas über einen großen Eiswürfel oder frisches Eis ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 2 Spritzer Angostura-Bitter darüber und garniere mit einer Orangenscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Whiskey_Sour_Served_Up.jpg/1280px-Whiskey_Sour_Served_Up.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Whiskey_Sour_Served_Up.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Will Shenton — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-daiquiri",
+      "slug": "drink-daiquiri",
+      "title": "Daiquiri",
+      "instructions": "Der klassische kubanische Cocktail aus drei Zutaten: weißer Rum, frischer Limettensaft und etwas einfacher Sirup. Kräftig auf Eis geschüttelt und eiskalt in ein gekühltes Coupéglas abgeseiht. Klar und säuerlich, perfekt zwischen süß und sauer ausbalanciert.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 4,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine 750ml-Flasche weißen Rums reicht für etwa 12 Daiquiris und ist viel günstiger als Drinks an der Bar.",
+        "Bereite einfachen Sirup aus gleichen Teilen Zucker und heißem Wasser selbst zu.",
+        "Kaufe Limetten während der Saison im Beutel und presse sie auf einmal aus; der Saft hält sich ein paar Tage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "simple-syrup",
+          "swap": "umrühren 1.5 tsp Zucker directly in der Limette juice bis dissolved",
+          "savings": "Keinen Sirup kaufen; kostet nur wenige Cent pro Getränk."
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "Bottled Limette juice (Limette-juice-bottled) in ein pinch",
+          "savings": "Pro oz etwa 30% günstiger und länger haltbar"
+        },
+        {
+          "forIngredientId": "white-rum",
+          "swap": "Any light rum oder even ein clean blanco tequila für ein daiquiri-margarita hybrid",
+          "savings": "Eine bereits vorhandene klare Spirituose verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "kubanisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Rum",
+        "geschüttelt",
+        "klassisch",
+        "Zitrus",
+        "Happy Hour"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7252,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-daiquiri/",
+      "components": [
+        {
+          "key": "6d8e609b-ed8f-55ee-bbff-9ee3baf3a8cd",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 384.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "2e20eace-1b77-5163-98ea-d4ccad1eb7a1",
+              "ingredientName": "weißer Rum",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 oz heller/weißer Rum"
+            },
+            {
+              "key": "2b2b312c-0ecf-588b-8370-733247a85e68",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 oz frisch gepresster Limettensaft (etwa 1 Limette)"
+            },
+            {
+              "key": "7f557171-cb11-5a91-9603-45eee1d3007d",
+              "ingredientName": "Einfacher Sirup",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 oz Zuckersirup, nach Geschmack anpassen"
+            },
+            {
+              "key": "98c6a629-29d2-5c5e-b9a7-9997e745c5a7",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse Eiswürfel zum Shaken"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kühle ein Coupé- oder Martiniglas im Gefrierfach, während du den Drink zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib weißen Rum, frischen Limettensaft und einfachen Sirup in einen Cocktailshaker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Shaker mit Eis und verschließe ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schüttle 12-15 Sekunden kräftig, bis der Shaker beschlägt und sehr kalt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Seihe den Drink doppelt ins gekühlte Coupéglas ab, sodass das Eis zurückbleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere ohne Eis und garniere nach Wunsch mit einer Limettenscheibe oder -zeste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Classic_Daiquiri_in_Cocktail_Glass.jpg/1280px-Classic_Daiquiri_in_Cocktail_Glass.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Classic_Daiquiri_in_Cocktail_Glass.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Will Shenton — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-moscow-mule",
+      "slug": "drink-moscow-mule",
+      "title": "Moscow Mule",
+      "instructions": "Der klassische Cocktail im Kupferbecher: spritzig, würzig und erfrischend. Wodka trifft auf kräftiges Ginger Beer und reichlich frische Limette auf Eis.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine große Flasche Ginger Beer statt eines Dosen-Multipacks; pro Drink ist das günstiger.",
+        "Limetten sind im Beutel günstiger; eine Limette reicht für zwei Mules.",
+        "Ein Kupferbecher ist nicht nötig. Jedes Glas eignet sich und verändert den Geschmack nicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ginger-beer",
+          "swap": "Ingwer-ale plus ein dash von frisch Limette",
+          "savings": "Ginger Ale ist meist günstiger und leichter erhältlich; das spart ~30%."
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "bottled Limette juice (Limette-juice-bottled)",
+          "savings": "Etwa $0.30 weniger pro Getränk und keine Reste."
+        },
+        {
+          "forIngredientId": "vodka",
+          "swap": "any well vodka (deutsche Fassung)",
+          "savings": "Wodka einer Eigenmarke halbiert ungefähr die Spirituosenkosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Wodka",
+        "Ingwerbier",
+        "klassisch",
+        "erfrischend"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7253,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-moscow-mule/",
+      "components": [
+        {
+          "key": "0075d02b-77e2-5b43-ae7c-5f82148ff5d3",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 458.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "934a817a-223c-541c-8c6e-519fb33eda18",
+              "ingredientName": "Wodka",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "7e0ce063-3182-562d-946a-39f94acab767",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "eine halbe Limette, ausgepresst (etwa 0.5 oz)"
+            },
+            {
+              "key": "335ff4b6-21ef-5b55-86e1-347a49d2eed1",
+              "ingredientName": "Ingwerbier",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 oz zum Auffüllen"
+            },
+            {
+              "key": "8ee45c08-a288-5c83-b48f-485083f53328",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse zum Füllen des Bechers"
+            },
+            {
+              "key": "62ecfe5b-cdda-58d3-b332-c8616fa4b5d5",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "Zweig, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle einen Kupferbecher oder ein Highballglas bis oben mit Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße 2 oz Wodka und den Saft einer halben Limette (etwa 0.5 oz) hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle mit 4 oz kaltem Ginger Beer auf und rühre einmal vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere mit einer Limettenscheibe und einem Zweig frischer Minze. Serviere sofort mit einem Strohhalm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Moscow_Mule.jpg/1280px-Moscow_Mule.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Moscow_Mule.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: edseloh — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-gin-tonic",
+      "slug": "drink-gin-tonic",
+      "title": "Gin Tonic",
+      "instructions": "Der spritzige Klassiker: kalter Gin auf reichlich Eis, aufgefüllt mit Tonic und frischer Limette. Klar, aromatisch und erfrischend, in weniger als zwei Minuten ganz ohne Kochen zubereitet.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein London Dry Gin aus dem mittleren Preissegment genügt; Tonic und Limette prägen den Geschmack.",
+        "Kaufe keine Einzelportionen: Eine 1L-Flasche Tonic ist pro Glas günstiger. Verschließe sie gut und verbrauche sie innerhalb weniger Tage.",
+        "Eine Limette reicht für mehrere Drinks. Schneide Scheiben und Spalten aus derselben Frucht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tonic-water",
+          "swap": "Club soda plus ein klein splash von einfach syrup für ein lighter, weniger süß, lower-calorie gießen",
+          "savings": "Spart etwa $0.40 pro Getränk und reduziert den Zucker."
+        },
+        {
+          "forIngredientId": "gin",
+          "swap": "Vodka für ein softer, mehr neutral cooler (technically ein vodka tonic)",
+          "savings": "Pro Flasche oft $3-6 günstiger"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "Zitrone wedge oder ein splash von bottled Limette juice",
+          "savings": "Spart etwa $0.30 bei bereits vorhandenen Zitronen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "britisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Gin",
+        "Highball",
+        "klassisch",
+        "erfrischend"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7254,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-gin-tonic/",
+      "components": [
+        {
+          "key": "924c8e9f-1540-5514-8dd5-c6613a12ec2e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 777.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d460a92-790c-50a5-9267-0d51509f86eb",
+              "ingredientName": "Gin",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "London Dry, gut gekühlt"
+            },
+            {
+              "key": "908c3123-618e-5236-9f16-d4b75ea378c6",
+              "ingredientName": "Tonic Water",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "kalt, frisch geöffnet für möglichst viel Kohlensäure"
+            },
+            {
+              "key": "df408549-c782-5f50-9e22-5b061dc951b3",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Spalte zum Auspressen und eine Scheibe zum Garnieren"
+            },
+            {
+              "key": "f2c4ba9b-b3c7-5bee-82ab-ced696db216c",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Glas füllen; große Eiswürfel schmelzen langsamer"
+            },
+            {
+              "key": "ca20ebff-8e10-5095-a867-1a17d855e91f",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "ein Streifen oder 2-3 Scheiben, optional zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle ein Highball- oder großes Weinglas bis oben mit Eis. Viel Eis hält den Drink kälter und verhindert, dass er zu stark verwässert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße 2 oz Gin über das Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle langsam mit 4 oz kaltem Tonic auf, indem du am Glasrand entlanggießt, damit die Kohlensäure erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse eine frische Limettenspalte darüber aus und gib sie ins Glas. Einmal vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit einer Limettenscheibe und nach Wunsch mit einer Gurkenbanderole. Sofort spritzig servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Gin_and_tonic_cocktail_with_wedge_of_lime.jpg/1280px-Gin_and_tonic_cocktail_with_wedge_of_lime.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gin_and_tonic_cocktail_with_wedge_of_lime.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Davidnuescheler — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1408 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-medovn-k",
+      "slug": "bake2-medovn-k",
+      "title": "Medovník (tschechischer Honig-Schichtkuchen)",
+      "instructions": "Authentischer mitteleuropäischer Honigkuchen: dünne, karamellig-warme Honigböden, über dem Wasserbad zubereitet und in wenigen Minuten gebacken, mit säuerlicher Creme aus saurer Sahne und Butter dazwischen. Nach einem Tag Ruhe saugen die Schichten die Füllung auf und werden zart und weich. Ein eindrucksvoller Kuchen mit kräftigem Honiggeschmack und sanften Karamellnoten.",
+      "prepTimeMinutes": 50,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Walnüsse lose in großen Packungen statt kleinen Backtütchen und röste sie selbst. So erhältst du kräftigeres Aroma zu einem Bruchteil des Preises.",
+        "Gezuckerte Kondensmilch und saure Sahne der Hausmarke funktionieren in der Creme genauso wie Markenware.",
+        "Backe die Böden und bereite die Creme einen Tag vorher zu. Der Kuchen muss ohnehin über Nacht ruhen und passt so gut in einen engen Stundenplan."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Full-fat Greek Joghurt, strained, gives ein similar tang und body in der Sahne",
+          "savings": "pro Unze oft günstiger und wahrscheinlich schon im Kühlschrank"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "gehackt pecans oder even zerdrückt leftover cake-scrap crumbs alone für der coating",
+          "savings": "Pekannüsse oder eine Füllung nur aus Bröseln können die Nusskosten um ein paar Dollar senken"
+        },
+        {
+          "forIngredientId": "sweetened-condensed-milk",
+          "swap": "Dulce de leche für ein deeper caramel Sahne (verwenden slightly weniger added Zucker elsewhere)",
+          "savings": "ähnliche Kosten, aber mehr Geschmack ohne Aufpreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "czech (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "layer-cake (deutsche Fassung)",
+        "Honig",
+        "machen-ahead",
+        "slovak (deutsche Fassung)",
+        "holiday (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7615,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-medovn-k/",
+      "components": [
+        {
+          "key": "5dc0a4b7-fe26-5420-b5be-4fad8c000305",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 185.41,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c2f8124-92c1-5b9f-983a-3ce64e2082b2",
+              "ingredientName": "Honig",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/3 Tasse Honig für den Teig"
+            },
+            {
+              "key": "02c4b38c-4c49-55ac-852c-f2034ada2deb",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "46cb0a6d-7069-57b5-b5ee-31f26e001b43",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stange) ungesalzene Butter für den Teig"
+            },
+            {
+              "key": "c24813c0-5a7e-59fb-8751-8715ce3d77cc",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "65da8cd6-96dd-50f5-97ca-ca295bc294ff",
+              "ingredientName": "Natron",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL Natron"
+            },
+            {
+              "key": "418718ac-c6c0-5745-a12d-ce943e338d9c",
+              "ingredientName": "Weizenmehl",
+              "grams": 780,
+              "quantity": 780,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 3 1/4 Tassen Weizenmehl, nach und nach zugeben, bis ein weicher Teig entsteht"
+            },
+            {
+              "key": "cc2c9589-8374-5c98-85e1-557d4d670106",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 TL gemahlener Zimt (optional, in vielen Regionen traditionell)"
+            },
+            {
+              "key": "d3a2e9d1-d287-5f54-aa37-3161da141ff6",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stangen) ungesalzene Butter, weich, für die Creme"
+            },
+            {
+              "key": "7c7db77f-8c47-5e2e-b83a-8176992be254",
+              "ingredientName": "Saure Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse saure Sahne mit vollem Fettgehalt für die Creme"
+            },
+            {
+              "key": "6351a94a-4599-5861-bfa1-ee7747ecf96b",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Dose (14 oz) gezuckerte Kondensmilch für die Creme"
+            },
+            {
+              "key": "22494518-2558-5a08-b0dd-ebd95c75100d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 TL Vanille"
+            },
+            {
+              "key": "49317e79-247f-5ff8-a830-9aa01c49edad",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tasse Walnüsse, fein gehackt, für Füllung und Belag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Honigteig eine hitzefeste Schüssel über einen Topf mit leicht siedendem Wasser stellen. Honig, Zucker und 1/2 Tasse (1 stick) Butter darin glatt schmelzen. 2-3 Minuten weiter erwärmen, bis die Mischung glänzt und leicht karamellfarben wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm die Schüssel kurz vom Herd, rühre Natron in die warme Honigmischung und beobachte, wie sie schäumt und heller wird. Stelle sie 30 Sekunden zurück auf niedrige Hitze und rühre, bis der Schaum leicht zurückgeht. Vom Herd nehmen und rasch verquirlte Eier einrühren, damit sie nicht stocken; nach Wunsch Zimt dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Mehl etwa 1/2 Tasse auf einmal dazu und rühre, bis ein weicher, leicht klebriger Teig entsteht, der zusammenhält. Es muss eventuell nicht das ganze Mehl hinein. Auf eine bemehlte Fläche geben, kurz glatt kneten und in 6 gleich große Stücke teilen. 30 Minuten kalt stellen, damit sie sich leichter ausrollen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 350F vor. Rolle jedes Stück auf Backpapier zu einem dünnen Kreis von etwa 9 Zoll aus. Schneide mithilfe eines Tellers saubere Kreise von 8-Zoll aus und hebe die Reste auf. Backe jeden Boden auf dem Backpapier 5-7 Minuten goldbraun und trocken; beim Abkühlen wird er fester. Reste mitbacken und für die Dekoration zerkrümeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Creme 1 Tasse weiche Butter 3-4 Minuten hell und luftig schlagen. Gezuckerte Kondensmilch nach und nach einrühren, dann saure Sahne und Vanille glatt einarbeiten. Falls die Creme zu weich ist, 15 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege einen abgekühlten Boden auf eine Servierplatte, bestreiche ihn großzügig mit Creme und streue etwas gehackte Walnüsse darüber. Mit den übrigen Böden wiederholen und mit Creme abschließen. Die Seiten mit der restlichen Creme bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Drücke die zurückbehaltenen Kuchenkrümel und restliche gehackte Walnüsse rundherum auf Oberseite und Seiten, bis der Kuchen vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle den Kuchen vor dem Anschneiden mindestens 12 Stunden, besser 24, kalt. Die trockenen Schichten müssen die Creme aufsaugen, damit sie zart und weich werden. Kalt in dünnen Scheiben servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Dom%C3%A1c%C3%AD_medovn%C3%ADk.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dom%C3%A1c%C3%AD_medovn%C3%ADk.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Dezidor, CC BY 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Medovník (tschechischer Honig-Schichtkuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-v-no-ka",
+      "slug": "bake2-v-no-ka",
+      "title": "Vánočka (tschechisches Weihnachtszopfgebäck)",
+      "instructions": "Klassisches tschechisches Weihnachtsbrot: ein reichhaltiger, leicht süßer Hefeteig als hoher dreistöckiger Zopf, gefüllt mit rumgetränkten Rosinen und gehobelten Mandeln, aromatisiert mit Zitronenschale und vor dem Backen mit Ei goldglänzend bestrichen. Weich und buttrig wie eine Mischung aus Challah und Brioche. Traditionell am Weihnachtsmorgen mit Butter serviert.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse den Rum weg und weiche Rosinen in heißem Wasser, übrig gebliebenem Tee oder Apfelsaft ein. Das kostet nichts und macht sie saftig.",
+        "Gehobelte Mandeln sind teuer. Kaufe eine kleine Packung und verwende sie nur als sichtbaren Belag; die Rosinen sorgen für das Aroma.",
+        "Ein sauberer 3-strängiger Zopf ist einfacher und verzeihender als die 3-stöckige Variante. Er backt genauso und sieht festlich aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rum",
+          "swap": "heiß Wasser, strong black tea, oder Apfel juice zu plump der Rosinen",
+          "savings": "spart den Preis einer Flasche Rum"
+        },
+        {
+          "forIngredientId": "slivered-almonds",
+          "swap": "in Scheiben geschnitten Mandeln oder coarsely gehackt whole Mandeln",
+          "savings": "in der Backabteilung oft pro Unze günstiger"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "getrocknet cranberries oder gehackt getrocknet apricots für ein tarter loaf",
+          "savings": "verwende Trockenfrüchte, die bereits vorrätig sind"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "czech (deutsche Fassung)",
+        "Backen",
+        "christmas (deutsche Fassung)",
+        "süß-Brot",
+        "braided (deutsche Fassung)",
+        "Hefe-Brot",
+        "holiday (deutsche Fassung)",
+        "enriched-Teig"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7616,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-v-no-ka/",
+      "components": [
+        {
+          "key": "59474bff-9100-58ea-bb8f-26847cf2fffa",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 139.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "db1d9cfc-5610-5de5-adf3-772c197f1099",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen Weizenmehl (plus etwas zum Bestäuben)"
+            },
+            {
+              "key": "3c6a1253-8f02-5811-8321-024508fc4c58",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Vollmilch, lauwarm erwärmt"
+            },
+            {
+              "key": "f22b1b78-e4ce-5987-9cf4-787cdf3f757e",
+              "ingredientName": "Instanthefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 1/4 TL Trockenhefe (ein 7g-Päckchen)"
+            },
+            {
+              "key": "28b15cec-f73c-598e-9fc4-956fb0f0036d",
+              "ingredientName": "Zucker",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 EL Kristallzucker"
+            },
+            {
+              "key": "ce7d5c46-f73f-533b-91a9-8c1c68d39750",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "10 EL ungesalzene Butter, weich"
+            },
+            {
+              "key": "0eb7eef1-bade-5cb1-8d84-98ea2fb90223",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 ganze Eier plus 2 Eigelb (Eiweiß und 1 Eigelb zum Bestreichen zurückbehalten)"
+            },
+            {
+              "key": "c99b487a-650a-53a1-a549-0853aa49f316",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "d68d938c-994f-58ab-a60f-b38f03008a70",
+              "ingredientName": "Zitronenschale",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Zitrone (etwa 1 1/2 TL)"
+            },
+            {
+              "key": "061c276d-f840-5a8d-b23d-f7c84300e7d5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "6f7c8425-3e41-5600-bd84-06d975e02251",
+              "ingredientName": "Rosinen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 Tasse Rosinen"
+            },
+            {
+              "key": "4a888b5b-47ef-5707-a60c-0500c9a5f0cf",
+              "ingredientName": "Rum",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "2 oz dunkler Rum zum Einweichen der Rosinen (optional)"
+            },
+            {
+              "key": "1b85b9df-d0e8-580c-80db-5aa7bcf16e96",
+              "ingredientName": "Mandelstifte",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse Mandelblättchen für die Füllung und den Belag"
+            },
+            {
+              "key": "a67055c9-c3ed-557b-aa14-f37b7949177d",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "2 EL Puderzucker zum Bestäuben (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Rum oder 2 EL Wasser und gieße es über die Rosinen. Lasse sie während der Teigzubereitung quellen. Erwärme Milch auf lauwarm (etwa 100F/38C), rühre Hefe und eine Prise Zucker ein und lasse sie 5-10 Minuten schäumen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, restlichen Zucker, Salz und Zitronenschale in einer großen Schüssel. Gib Hefemilch, 2 ganze Eier, 2 Eigelb, Vanille und weiche Butter dazu. Zu einem groben Teig verrühren und von Hand 10-12 Minuten oder mit Küchenmaschine 8 Minuten glatt, elastisch und nur leicht klebrig kneten. Er soll weich und geschmeidig, nicht trocken sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse die Rosinen gut abtropfen und knete sie mit der Hälfte der gehobelten Mandeln in den Teig. Zu einer Kugel formen, abdecken und an einem warmen Ort 1 bis 1.5 Stunden gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Luft vorsichtig heraus und teile den Teig in 6 Stücke: 3 große, 2 mittlere und 1 kleines. Rolle jedes zu einem glatten Strang, die großen etwa 14 Zoll lang. Halte die Stränge beim Arbeiten abgedeckt, damit sie nicht austrocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Flechte die 3 großen Stränge auf einem mit Backpapier belegten Blech zu einem flachen Zopf und schlage die Enden unter. Flechte oder verdrehe die 2 mittleren Stränge und lege sie mittig darauf. Drücke mit einem Stäbchen längs eine Furche, damit sie sitzen. Verdrehe den kleinen Strang und lege ihn oben mittig auf. Nach Wunsch die Ebenen mit Zahnstochern sichern und nach dem Backen entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Zopf locker ab und lasse ihn 45-60 Minuten gehen, bis er luftig und fast doppelt so groß ist. Heize währenddessen den Ofen auf 350F (175C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle das zurückbehaltene Eigelb mit einem Schuss Milch und bestreiche den Zopf gründlich, auch in den Zwischenräumen. Streue die übrigen gehobelten Mandeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe 35-45 Minuten, bis der Zopf dunkelgolden ist und die Kerntemperatur etwa 190F (88C) beträgt. Falls die Oberfläche zu schnell bräunt, nach 20 Minuten locker mit Folie abdecken. Vor dem Anschneiden vollständig auf einem Gitter abkühlen lassen und nach Wunsch mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Vanocka.jpg/1280px-Vanocka.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vanocka.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Ludek, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Vánočka (tschechisches Weihnachtszopfgebäck)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-k-rt-skal-cs",
+      "slug": "bake2-k-rt-skal-cs",
+      "title": "Kürtőskalács (ungarischer Baumstriezel)",
+      "instructions": "Klassischer siebenbürgisch-ungarischer Baumstriezel: leicht süßer, reichhaltiger Hefeteig, spiralförmig gewickelt, in Kristallzucker gerollt und gebacken, bis der Zucker zu einer bernsteinfarbenen, knackigen Karamellhülle wird. Innen bleibt die Krume weich und lässt sich zupfen. Noch warm in Zimtzucker und gerösteten Walnüssen wenden. Traditionell auf einem Holz- oder Folienzylinder gebacken; hier passend für den normalen Backofen.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mit Folie umwickelte Suppen- oder Bohnenkonservendosen ergeben kostenlose Zylinder. Der Baumstriezel-Spieß aus Holz ist nicht nötig. Folie gut buttern, damit sich das Gebäck löst.",
+        "Lasse Walnüsse weg, wenn du sparen möchtest. Zimtzucker allein ist ebenfalls eine traditionelle und warm köstliche Variante.",
+        "Kaufe Hefe lose oder im Glas statt in einzelnen Päckchen. Das kostet nur einen Bruchteil und ein Glas hält monatelang im Kühlschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "toasted gemahlen Mandeln oder gehackt pecans, oder weglassen für natur Zimt Zucker",
+          "savings": "spart etwa ~$2, wenn es weggelassen wird"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "any Milch du have, including 2% oder oat Milch warmed zu 110F",
+          "savings": "Benutzen Sie, was offen ist, ~$1"
+        },
+        {
+          "forIngredientId": "active-dry-yeast",
+          "swap": "instant Hefe (same amount, mischen straight in der Mehl, no blooming step needed)",
+          "savings": "$0, praktischer Ersatz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hungarian (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "Hefe-Teig",
+        "siebenbürgisch",
+        "caramelized (deutsche Fassung)",
+        "chimney-cake (deutsche Fassung)"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7617,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-k-rt-skal-cs/",
+      "components": [
+        {
+          "key": "f1098c07-a6a0-53ac-8a80-833497978fef",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 265.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "3d679209-6f9e-5748-bcc1-5536bdb3f18c",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 1/2 Tassen Weizenmehl (plus etwas zum Bestäuben)"
+            },
+            {
+              "key": "4dc3d116-cb76-5c6b-a446-6a61385be5f2",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Vollmilch, auf etwa 110F erwärmt"
+            },
+            {
+              "key": "45d4bac3-b863-53cd-b91d-95c6ccf48fd4",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen (2 1/4 TL) Trockenhefe"
+            },
+            {
+              "key": "e141e0dc-d5b4-5fa5-9853-3f1dd2e60e6f",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "d7851aca-338a-5b24-a597-d47b0807fb21",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 EL ungesalzene Butter, geschmolzen (plus etwas mehr zum Bestreichen)"
+            },
+            {
+              "key": "80ec7519-b2e1-5101-9e02-d4330af52947",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große Eier (1 ganzes Ei und 1 Eigelb für den Teig; das übrige Eiweiß nach Wunsch zurückbehalten)"
+            },
+            {
+              "key": "b0058043-b57b-5bf8-be4e-e6969f6b59db",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "8a91343f-ca9a-5f8d-977b-9fc07815490b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "195ce067-47bc-5ad9-8c03-9b1c53b9fe87",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 TL fein abgeriebene Zitronenschale"
+            },
+            {
+              "key": "16d2ff98-b079-56a7-aa29-a10c12c370a0",
+              "ingredientName": "Weißer Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker zum Wälzen des Teigs; er karamellisiert zur Kruste"
+            },
+            {
+              "key": "b95fc4e3-3d64-543d-b963-56cdd0acd7a9",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 TL gemahlener Zimt für den abschließenden Zimtzucker"
+            },
+            {
+              "key": "ebbdd14e-79de-5523-9786-43ad5e08621d",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "1/2 Tasse Walnüsse, fein gehackt und leicht geröstet (klassischer Belag)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre Trockenhefe und eine Prise Teigzucker in warme Milch (etwa 110F) und lasse sie 8-10 Minuten schäumen. Schäumt sie nicht, war die Milch zu heiß oder die Hefe abgestorben; beginne neu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, übrige 1/4 Tasse Zucker und Salz in einer großen Schüssel. Gib Hefemilch, ganzes Ei und das zusätzliche Eigelb, 6 EL geschmolzene Butter, Vanille und Zitronenschale dazu. Zu einem groben Teig verrühren und von Hand oder mit Knethaken 8-10 Minuten glatt, geschmeidig und elastisch kneten. Er soll sich von der Schüssel lösen, aber weich bleiben. Abdecken und an einem warmen Ort 1 bis 1.5 Stunden gehen lassen, bis er doppelt so groß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wickle 6 Konservendosen oder Pappröhren fest in zwei Lagen stabiler Folie, sodass glatte Zylinder von etwa 2-2.5 Zoll Durchmesser entstehen. So wird der traditionelle Holzroller nachgebildet. Großzügig mit geschmolzener Butter bestreichen und auf ein mit Folie belegtes Blech legen. Heize den Ofen auf 375F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Luft aus dem Teig und teile ihn in 6 Stücke. Rolle jedes auf einer leicht bemehlten Fläche zu einem Strang von etwa 1/2 Zoll Dicke und 30-35 Zoll Länge. Wickle die Stränge spiralförmig um die gebutterten Zylinder. Die Windungen sollen sich leicht berühren. Enden andrücken, damit sie sich nicht lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jeden Teigstrang rundum mit geschmolzener Butter und rolle ihn dann fest in 3/4 Tasse Kristallzucker. Drücke den Zucker an, damit er gleichmäßig haftet und beim Backen die typische Karamellkruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle oder lege die gezuckerten Rollen auf das Blech und drehe sie nach der Hälfte der Backzeit, falls sie liegen. Backe bei 375F 20-25 Minuten dunkelgolden, bis der Zucker zu einer glänzenden Karamellkruste geschmolzen ist. Das Blech einmal drehen. Die Kuchen sollen hohl klingen und die Kruste glasig, nicht blass aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische während des Backens Zimt mit etwa 1/4 Tasse übrigem oder zusätzlichem Kristallzucker und gerösteten gehackten Walnüssen. Bestreiche die heißen Striezel nach dem Backen leicht mit geschmolzener Butter und rolle sie sofort in der Zimt-Zucker-Walnuss-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie nur 3-5 Minuten abkühlen. Drehe jede Spirale vorsichtig und ziehe sie vom Zylinder; die Karamellhülle löst sich beim Festwerden. Warm und frisch servieren, am besten innerhalb von ein oder zwei Stunden, Stücke auseinanderzupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/K%C3%BCrt%C5%91skal%C3%A1cs%2C_2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:K%C3%BCrt%C5%91skal%C3%A1cs,_2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Christo, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kürtőskalács (ungarischer Baumstriezel)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-beigli",
+      "slug": "bake2-beigli",
+      "title": "Ungarischer Walnuss-Beigli (Diós Bejgli)",
+      "instructions": "Klassischer ungarischer Weihnachtsstrudel: zarter, leicht süßer Hefeteig umschließt eine dichte, aromatische Walnussfüllung und wird zu einem marmorierten, oben aufgerissenen Strang gebacken. Erst mit Eigelb bestreichen, trocknen lassen und danach Eiweiß auftragen – dieser traditionelle Trick sorgt für die glänzend marmorierte Kruste. Dünn geschnitten zeigt sich die feste dunkle Walnussspirale im hellen Teig.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Walnüsse sind die teuerste Zutat. Kaufe sie lose in großen Packungen und mahle sie selbst in der Küchenmaschine statt gemahlene zu kaufen.",
+        "Bereite beide Stränge gleichzeitig zu und friere einen nach der zweiten Glasur ungebacken ein. So bekommst du zwei Backrunden aus einer Zubereitung.",
+        "Lasse goldene Rosinen weg und verwende normale dunkle Rosinen oder gehackte getrocknete Aprikosen, die du bereits hast. Die Füllung gelingt trotzdem."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Swap der walnut Füllung für der other klassisch Hungarian version: gemahlen poppy seeds (mákos bejgli) in der same quantity, sweetened der same way.",
+          "savings": "Mohnsamen sind im Preis ähnlich, aber es ist die zweite traditionelle Geschmacksrichtung und es lohnt sich, sie abzuwechseln."
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "verwenden natur Greek Joghurt one-für-one in der Teig.",
+          "savings": "verbrauche vorhandenen Joghurt, statt einen Becher Sauerrahm zu kaufen."
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Apricot Marmelade works in der Füllung für ein fruitier note und helps it bind.",
+          "savings": "pro Esslöffel oft günstiger als guter Honig und sorgt für mehr Saftigkeit."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hungarian (deutsche Fassung)",
+        "Backen",
+        "christmas (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "Hefe-Teig",
+        "walnut (deutsche Fassung)",
+        "rolled-pastry (deutsche Fassung)",
+        "traditional (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7618,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-beigli/",
+      "components": [
+        {
+          "key": "1a7e0c13-5e72-50bc-a6fb-28d23c508e4b",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 171.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "ddb0b5b2-2721-54f3-9075-c21228bb6e3c",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen Weizenmehl für den Teig"
+            },
+            {
+              "key": "f7a11745-d370-5e33-af6c-b3ad668dfa2d",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse (1.5 Stangen) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "33b955d3-7a9d-5f45-991c-e2dee9184f24",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "602a2567-8048-5a4f-b8c1-428e535c58e3",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Päckchen (2 1/4 TL) Trockenhefe"
+            },
+            {
+              "key": "7d06aac3-2b05-524e-bb5a-c6537c95c509",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse lauwarme Vollmilch, um die Hefe zu aktivieren"
+            },
+            {
+              "key": "94ec8987-a8db-5c52-80db-6598dabb637e",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 große Eier: 2 Eigelb für den Teig, dazu 1 ganzes Ei, getrennt für den Guss"
+            },
+            {
+              "key": "4251a999-e14e-5d9e-a8e2-0098ecf5fd2d",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL Sauerrahm für den Teig"
+            },
+            {
+              "key": "b51d7b54-1738-5d8b-bd63-2bcbded45183",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "fea2f197-0c94-516c-835e-9f5d8039f839",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL abgeriebene Zitronenschale für den Teig"
+            },
+            {
+              "key": "9c4de892-a05f-5066-87d8-91669dc3768d",
+              "ingredientName": "Walnüsse",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 1/2 Tassen (etwa 14 oz) Walnüsse, fein gemahlen, für die Füllung"
+            },
+            {
+              "key": "8a27d965-8ae0-5de8-b649-674a704c84d6",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 Tasse Puderzucker für die Füllung"
+            },
+            {
+              "key": "85f2adde-f898-57f2-8d9a-c805a9d7ab4b",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL Honig für die Füllung"
+            },
+            {
+              "key": "2e297c57-a198-5271-9902-b767bf372e4a",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/2 Tasse goldene Rosinen für die Füllung"
+            },
+            {
+              "key": "39a8ef2a-09a0-5204-be18-176a4d9b91f6",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch, zum Erhitzen und Befeuchten der Füllung"
+            },
+            {
+              "key": "4bc882bb-7ff7-594a-8e09-b35b9e71a11f",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "1/2 TL gemahlener Zimt für die Füllung"
+            },
+            {
+              "key": "21b63078-fa41-5713-a737-b1c03cecd308",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt für die Füllung"
+            },
+            {
+              "key": "c51f2f7f-967a-5402-a686-6dc0ecdac369",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1 TL abgeriebene Zitronenschale für die Füllung"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre Hefe in 1/2 Tasse lauwarme Milch mit einer Prise Zucker und lasse sie 8-10 Minuten schäumen. Reibe währenddessen kalte Butterwürfel mit Mehl, restlichem Zucker und Salz zwischen den Fingern zu groben Streuseln. Hefemischung, 2 Eigelb, saure Sahne und Zitronenschale dazugeben und zu einem glatten Teig zusammenfügen. Nur 2-3 Minuten kneten; es ist ein kurzer, reichhaltiger Teig, kein Brotteig. In 2 Stücke teilen, einwickeln und 1 Stunde oder über Nacht kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Walnussfüllung 1/2 Tasse Milch erhitzen und über gemahlene Walnüsse, Puderzucker, Honig, Rosinen, Vanille, Zimt und Zitronenschale gießen. Zu einer dicken, streichfähigen Paste verrühren und vollständig abkühlen lassen. Sie soll feucht sein und ihre Form halten. Falls sie fest ist, etwas warme Milch ergänzen; falls weich, mehr gemahlene Walnüsse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle jede Teighälfte auf einer leicht bemehlten Fläche zu einem Rechteck von etwa 10 by 14 Zoll und 1/8 Zoll Dicke aus. Teig kühl und die Dicke gleichmäßig halten; so entsteht das gute Verhältnis von Füllung zu Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile je die Hälfte der Walnussfüllung auf den Rechtecken und lasse einen 1/2-Zoll-Rand frei. Rolle den Teig von der langen Seite fest auf, drücke die Naht zu und schlage die Enden unter. Mit der Naht nach unten und Abstand zwischen den Strängen auf ein mit Backpapier belegtes Blech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle das zurückbehaltene Eigelb leicht und bestreiche beide Stränge rundherum. Lasse sie unbedeckt an einem kühlen Ort 30-40 Minuten stehen, bis die Glasur klebrig angetrocknet ist. Dieser Trocknungsschritt erzeugt die marmorierte, rissige Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle das zurückbehaltene Eiweiß und bestreiche die trockene Eigelbschicht damit. Weitere 10 Minuten trocknen lassen. Stich dann jeden Strang etwa alle Zoll mit einem Zahnstocher oder Holzspieß bis zur Füllung ein, damit Dampf entweichen kann und sie nicht an der Naht aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe im auf 350°F (180°C) vorgeheizten Ofen 30-35 Minuten, bis der Strudel dunkelgolden ist und die typische marmorierte Kruste zeigt. Falls die Oberfläche zu schnell bräunt, die letzten 10 Minuten locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Stränge vollständig auf einem Gitter abkühlen, bevor du sie anschneidest. Beigli wird kalt in dünnen 1/2-Zoll-Scheiben geschnitten, damit die enge Walnussspirale sichtbar ist. Eingewickelt hält es sich über eine Woche; am zweiten Tag wird das Aroma intensiver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Bejgli1.jpg/1280px-Bejgli1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bejgli1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Hu Totya, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ungarischer Walnuss-Beigli (Diós Bejgli)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-kr-mes",
+      "slug": "bake2-kr-mes",
+      "title": "Krémes (ungarische Vanilleschnitten)",
+      "instructions": "Klassisches ungarisches Cafégebäck: zwei knusprige, goldbraun gebackene Blätterteigplatten umschließen eine hohe, zitternde Schicht Vanillecreme. Die Konditorcreme wird auf dem Herd dick gekocht, dann mit Schlagsahne vermischt und mit etwas Gelatine stabilisiert, damit sie hoch steht und beim Schneiden dennoch zittert. Schlicht mit Puderzucker bestäubt: Butter, Vanille, Eier und Milch, ohne Schnickschnack.",
+      "prepTimeMinutes": 60,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Butter der Hausmarke reicht völlig; die Touriermethode macht den Unterschied. Wichtig ist, sie kalt zu halten.",
+        "Lasse die teure Vanilleschote weg und verwende guten Extrakt. Rühre ihn in die heiße Milch, damit sich das Aroma entfaltet.",
+        "Backe die Teigplatten einen Tag vorher und bewahre sie luftdicht auf. Zwei Tage Arbeit sparen auch Ofenenergie."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gelatin",
+          "swap": "Increase cornstarch by 2 tbsp und chill overnight für ein firmer set (vegetarisch-friendly, no gelatin)",
+          "savings": "spart den Kauf eines Päckchens Gelatine"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "verwenden der same amount von well-chilled whole Milch whipped mit der extra Ei whites — lighter but still klassisch",
+          "savings": "günstiger als ein Karton Sahne"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Vanilla bean Paste oder der scraped seeds von one pod für ein mehr fragrant, speckled custard",
+          "savings": "entfällt (Geschmacksverbesserung, keine Ersparnis)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hungarian (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "custard (deutsche Fassung)",
+        "pastry (deutsche Fassung)",
+        "vanilla (deutsche Fassung)",
+        "machen-ahead",
+        "klassisch"
+      ],
+      "defaultServings": 9,
+      "status": "published",
+      "sortOrder": 7619,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-kr-mes/",
+      "components": [
+        {
+          "key": "cdd12ee8-d41d-5d90-a7a7-628c3e10558f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 288.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "97194993-581a-5226-a526-72108e3355c5",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl für den groben Blätterteig"
+            },
+            {
+              "key": "d3405754-3452-5bbb-843c-a121b63718b9",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse + 2 EL kalte ungesalzene Butter (16 EL zum Tourieren, 2 EL für die Creme)"
+            },
+            {
+              "key": "e882a2d4-1990-5cfc-ba7f-6d3e4586053d",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 TL Salz für den Teig"
+            },
+            {
+              "key": "942d08f0-f2f4-518e-8e00-88ec7ee6d857",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse eiskaltes Wasser, um den Teig zusammenzufügen"
+            },
+            {
+              "key": "44234b82-466d-5918-8074-a3cedc2e5dfc",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen Vollmilch für die Creme"
+            },
+            {
+              "key": "7d724fe3-28f4-5040-9476-d2c336785fcb",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 große Eier, getrennt (Eigelb für die Creme, Eiweiß aufschlagen und unterheben)"
+            },
+            {
+              "key": "e5b885ba-715b-5b29-b064-b26fa5f0d074",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker für die Creme"
+            },
+            {
+              "key": "737d2270-0e32-5436-9731-ec50f34b04d1",
+              "ingredientName": "Speisestärke",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 EL Speisestärke zum Andicken der Konditorcreme"
+            },
+            {
+              "key": "4b49c220-a173-5056-bf10-13df73fb8cfc",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse Weizenmehl mit der Speisestärke für eine schnittfeste Creme"
+            },
+            {
+              "key": "db8d79be-c607-58d6-9e3e-38a98128b6c3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL reiner Vanilleextrakt (oder das Mark von 1 Vanilleschote)"
+            },
+            {
+              "key": "0845b8f2-312d-5269-b996-3acae82716e4",
+              "ingredientName": "Gelatine (neutral)",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Päckchen (etwa 2 1/2 TL) geschmacksneutrale Gelatine, eingeweicht"
+            },
+            {
+              "key": "d87038dd-a196-5899-bb1b-6e5130e1bf6f",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tasse kalte Schlagsahne, aufgeschlagen und unter die Creme gehoben"
+            },
+            {
+              "key": "60e540f2-455f-5cd8-bcd0-2a548749e7a3",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/4 Tasse Puderzucker zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den schnellen Blätterteig Mehl und Salz verquirlen. 16 EL kalte Butter in das Mehl schneiden und einige walnussgroße Stücke belassen. Eiswasser dazugeben und zu einem groben Teig zusammenfügen. Zu einem Rechteck drücken, ausrollen, wie einen Brief in drei Teile falten und um 90 Grad drehen. Das Ausrollen und Falten 4 bis 5 Mal wiederholen; wenn die Butter weich wird, jeweils 20 Minuten kühlen. Einwickeln und mindestens 1 Stunde im Kühlschrank ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die zwei Teigplatten den Ofen auf 400 F (200 C) vorheizen. Teig halbieren und jede Hälfte zu einem Quadrat von 9x9-Zoll und etwa 1/8 Zoll Dicke ausrollen. Auf ein mit Backpapier belegtes Blech legen, mit einer Gabel einstechen und ein zweites Backpapier sowie ein leichtes zweites Blech darauflegen, damit eine Platte flacher bleibt. 20 bis 25 Minuten dunkelgolden und knusprig backen. Vollständig abkühlen lassen. Beide Platten passend zu einer Form von 8x8 oder 9x9 schneiden; die schönere für die Oberseite aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Creme Gelatine in 3 EL kaltem Wasser quellen lassen. Milch mit Vanille erwärmen, bis Dampf aufsteigt. Die 6 Eigelbe mit Kristallzucker, Maisstärke und 1/4 Tasse Mehl glatt und hell verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße zum Temperaturausgleich unter Rühren langsam etwa ein Drittel der heißen Milch zu den Eigelben und gib dann alles zurück in den Topf. Bei mittlerer Hitze unter ständigem Rühren 3 bis 5 Minuten zu einem festen Pudding kochen, bis Blasen aufsteigen. Vom Herd nehmen und gequollene Gelatine sowie die übrigen 2 EL Butter glänzend einrühren. Frischhaltefolie direkt auf die Oberfläche drücken und auf lauwarm abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die 6 Eiweiße zu festen, glänzenden Spitzen. Schlage die kalte Sahne separat zu weichen Spitzen. Hebe zuerst die Sahne vorsichtig unter die warme Creme und anschließend das Eiweiß in zwei Portionen, damit die Masse luftig bleibt. Dadurch erhält Krémes seine hohe, zitternde Struktur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die untere Teigplatte in eine ausgelegte quadratische Form. Gieße die Creme darauf und verstreiche sie glatt; sie soll mindestens 1 1/2 Zoll hoch sein. Lege die obere Teigplatte vorsichtig darauf und drücke sie ganz leicht an, ohne die Creme zu zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Schnitten mindestens 4 Stunden, idealerweise über Nacht, kalt, bis die Creme vollständig fest und schneidbar ist. Bestäube die obere Teigplatte großzügig mit Puderzucker. Mit einem in heißes Wasser getauchten und zwischen den Schnitten abgewischten Sägemesser in 9 Quadrate schneiden und kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Kremes.jpg/1280px-Kremes.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kremes.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Illustratedjc, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Krémes (ungarische Vanilleschnitten)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

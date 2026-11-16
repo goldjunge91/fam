@@ -1,0 +1,1124 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chow-bhel",
+      "slug": "gen-chow-bhel",
+      "title": "Chow Bhel (knuspriger Reis-Snack)",
+      "instructions": "Indisch-chinesischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Puffreis in Großpackungen; er ist sehr günstig.",
+        "Verwende Gemüse, das du gerade zu Hause hast, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch-chinesisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5015,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chow-bhel/",
+      "components": [
+        {
+          "key": "2f190192-e7ef-519a-99fd-a92c19109a42",
+          "name": "Zutaten",
+          "servingGrams": 345,
+          "position": 0,
+          "items": [
+            {
+              "key": "315f7620-caed-585d-9a7c-5f18e4fe79cb",
+              "ingredientName": "Puffreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6fcc619c-56e6-54a3-9b3f-46a4e5e35d49",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "68f61035-4478-577e-b9a2-c5206298b171",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6875b4d4-6746-5514-bbab-d86c40beeb76",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "5ee38152-e5eb-54b8-8536-93c75e56431c",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "788e3751-1bce-5700-b505-4d9f3ec783fd",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gehackt"
+            },
+            {
+              "key": "5390e22a-77ff-5374-9166-6f1d587d2894",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "766bb10d-f89d-5858-8dab-a1c4c541141a",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7e184f18-5781-5e04-b9ca-9a535e21e500",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab56019d-27bc-5723-865d-5005315ac678",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem Wok bei starker Hitze erhitzen. Gehackten Knoblauch hinzufügen und 20 Sekunden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel, Karotte und Kohl hinzufügen und 2–3 Minuten unter Rühren braten, bis das Gemüse bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte grüne Chilischote hinzufügen und 30 Sekunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Puffreis in den Wok geben und vorsichtig vermengen, damit er nicht zu sehr zerbricht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sojasauce und Essig über die Mischung gießen und 1–2 Minuten gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren, solange der Puffreis noch knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/oSxOMu2wcRaMbFj2wZQBgjjmVLg=/6240x4160/filters:fill(auto,1)/bhel-puri-puffed-rice-snack-1958033.Hero-5b61c5f046e0fb0050474bd0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/oSxOMu2wcRaMbFj2wZQBgjjmVLg=/6240x4160/filters:fill(auto,1)/bhel-puri-puffed-rice-snack-1958033.Hero-5b61c5f046e0fb0050474bd0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crispy-noodles",
+      "slug": "gen-crispy-noodles",
+      "title": "Knusprige Nudeln",
+      "instructions": "Indisch-chinesischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ramen-Nudeln in Großpackungen; sie sind sehr günstig.",
+        "Lass die Würzpäckchen weg und bereite deine eigene Sauce zu, damit du Geschmack und Kosten selbst bestimmen kannst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch-chinesisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5016,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crispy-noodles/",
+      "components": [
+        {
+          "key": "a1aa23e2-fd23-5499-a057-5fff5f1ba6c1",
+          "name": "Zutaten",
+          "servingGrams": 148,
+          "position": 0,
+          "items": [
+            {
+              "key": "22682c04-0c7c-5c16-ba96-b46233ecaa9a",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Packungen"
+            },
+            {
+              "key": "831fb637-4c42-5ad4-9ce6-0a95576180fd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "376de0d4-62c6-56b1-937c-64a9fc4fa9bf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a5a1328-ce5a-5b7b-8671-169b489d016f",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d95a80a-5930-54c0-bce6-e6a9f209fd46",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "63b304d0-1777-569e-827a-7292f84721c7",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7cbb6ff9-fcde-59aa-b279-4ba967da9393",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "db0b259d-264a-593a-98ae-f0bfa37a2abe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Ramen-Nudeln nach Packungsanweisung kochen, abgießen und auf einem sauberen Küchentuch etwa 5 Minuten vollständig trocknen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Wok bei starker Hitze erhitzen. Gehackten Knoblauch und gehackte rote Chili hinzufügen und 20 Sekunden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel hinzufügen und 1 Minute garen, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die getrockneten Nudeln in den Wok geben und vorsichtig 2–3 Minuten vermengen, bis sie heiß und leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sojasauce und Essig über die Nudeln träufeln und 1 Minute gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit gehackten Frühlingszwiebeln garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/occrEHFIr7RSny_WJMxAx8kmzlc=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-noodles-lettuce-wraps-stir-fry-3217104-step-09-5c3c1f52c9e77c0001aff84f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/occrEHFIr7RSny_WJMxAx8kmzlc=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-noodles-lettuce-wraps-stir-fry-3217104-step-09-5c3c1f52c9e77c0001aff84f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dragon-chicken",
+      "slug": "gen-dragon-chicken",
+      "title": "Drachenhähnchen (Dragon Chicken)",
+      "instructions": "Indisch-chinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende getrocknete rote Chiliflocken statt frischer Chilis, um Geld zu sparen.",
+        "Kaufe Hähnchen im Angebot in größeren Mengen und friere es portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch-chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5017,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dragon-chicken/",
+      "components": [
+        {
+          "key": "f8eb0f60-ef10-52cc-8996-37066e299a6b",
+          "name": "Zutaten",
+          "servingGrams": 294.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "5139adcc-2f1b-551e-9c6e-772db2777e62",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d72cda03-6009-5a04-be51-fc8957841d80",
+              "ingredientName": "Maisstärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "fcf9fd95-9874-5908-b72b-92c5309dd1c5",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f3073a15-b4df-52ab-a8ea-962f142c1020",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef0fc4ec-ae15-5623-b0e8-1c0f0b28a49e",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "205ae024-d2ef-5798-8647-7a5886f7c1f3",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d89ec862-fc87-512d-957c-890f53c5bb77",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "ae16c5af-b8e3-556f-94ae-c604964baff6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "05b444ea-7807-521e-bc79-9a44df826550",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "930c3476-474d-541c-a621-8cc56dfe1a37",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e4acbcec-9917-56a6-88e0-9407f36d54fd",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Hähnchen in mundgerechte Würfel schneiden und mit Maisstärke, Mehl, Salz und Pfeffer überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Wok bei starker Hitze erhitzen, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Hähnchen hinzufügen und etwa 8–10 Minuten goldbraun und durchgegart braten. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Im selben Wok gehackten Knoblauch und Ingwer 30 Sekunden unter Rühren braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rote Chiliflocken hinzufügen und 20 Sekunden unter Rühren anrösten, damit sie ihr Aroma entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Hähnchen zurück in den Wok geben und Sojasauce, Essig und Hühnerbrühe hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2–3 Minuten vermengen, bis die Sauce eindickt und das Hähnchen gleichmäßig überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Sesamöl beträufeln und sofort mit gedämpftem Reis oder Nudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.saymedia-content.com/.image/t_share/MTg2MjczNjQ4MDY2MjQyMjQz/restaurant-style-dragon-chicken-recipe-with-photos.jpg",
+          "sourcePageUrl": "https://images.saymedia-content.com/.image/t_share/MTg2MjczNjQ4MDY2MjQyMjQz/restaurant-style-dragon-chicken-recipe-with-photos.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-feta-pasta",
+      "slug": "gen-feta-pasta",
+      "title": "Feta-Pasta aus dem Ofen",
+      "instructions": "Mediterranes Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gewürfelte Tomaten aus der Dose statt frischer Kirschtomaten, um das ganze Jahr über zu sparen.",
+        "Kaufe Feta in Großpackungen, zum Beispiel im Großhandel, für bessere Preise."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5018,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-feta-pasta/",
+      "components": [
+        {
+          "key": "fcfffcb6-7734-5951-9325-9c6bacdcf17f",
+          "name": "Zutaten",
+          "servingGrams": 147.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "9357decf-2fad-532e-9363-37a31ef1e3f5",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "bd2fc116-b706-5b66-9a5b-c6054fb8ccce",
+              "ingredientName": "Feta-Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "ba85b19e-7207-5967-9c9f-74354f0f963d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f21eeec0-4388-558a-bd0e-3b7cfb9138de",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eaf8a73-fd9f-5acd-9c41-53258300e319",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "ce2a9418-35e8-5b2a-915a-89c13db84a36",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "75bcdb53-b705-5fac-b5f8-21f06f99f641",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "5215c459-3fe5-55dc-8892-fe8b24452ba1",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "cb9ac1c3-dcc7-592b-9aea-df68700768b6",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f694f243-2107-5be9-92ed-c7be26c3147d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf mit Salzwasser zum Kochen bringen und die Pasta nach Packungsanweisung bissfest kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während die Pasta kocht, Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen. Gehackten Knoblauch hinzufügen und 1 Minute braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbierte Kirschtomaten, Oregano und Chiliflocken in die Pfanne geben und 5–7 Minuten garen, bis die Tomaten aufplatzen und zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Pasta abgießen, dabei 1 Tasse Nudelwasser auffangen. Dann die Pasta zur Tomatenmischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Feta über die Pasta bröseln und vorsichtig vermengen. Nach und nach etwas Nudelwasser hinzufügen, bis eine leichte Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zitronensaft und frisches Basilikum hinzufügen und vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren und nach Wunsch mit etwas Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6308dd0746f20d407e26f870/1:1/w_2560%2Cc_limit/IMG_7349.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6308dd0746f20d407e26f870/1:1/w_2560%2Cc_limit/IMG_7349.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-margherita-pizza",
+      "slug": "gen-margherita-pizza",
+      "title": "Margherita-Pizza",
+      "instructions": "Italienisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mozzarella in Großpackungen oder verwende Käse am Stück statt frischem Mozzarella, um Kosten zu sparen.",
+        "Bereite den Pizzateig selbst zu, statt fertigen Teig zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5019,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-margherita-pizza/",
+      "components": [
+        {
+          "key": "c911418c-f1ca-5b03-8d01-25c9776e9e63",
+          "name": "Zutaten",
+          "servingGrams": 885.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e1922b6-9d6f-5bd4-a93c-2581ea8f1e08",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "80772ed9-b861-544a-897f-4d6df015c8fb",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a994fcfe-f67b-5b2a-895d-b3e12638e22f",
+              "ingredientName": "Instant-Hefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "495c59bb-2ea9-5582-9600-433b884f9008",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ffa644d6-c82b-5967-9784-f45819eb0bb8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bb8a1df0-2f72-5d41-8af2-f82603c8080f",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f1712768-9c04-56c3-99cc-28854cc1259a",
+              "ingredientName": "Mozzarella",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e4a9b4b7-177f-5bbc-b62a-bc1bcaccab79",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cd248c93-32a8-5ead-b0d6-907f433d94ac",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "8c502e01-f910-5584-bea6-de5828b1e73f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lauwarmes Wasser, Hefe und eine Prise Zucker in einer Schüssel verrühren und 5 Minuten stehen lassen, bis die Mischung schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz in einer großen Schüssel vermengen. Hefemischung und 1 EL Olivenöl hinzufügen und rühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig auf einer bemehlten Fläche 8 Minuten kneten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in eine geölte Schüssel legen, mit Frischhaltefolie abdecken und 20 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Backofen auf 475 °F vorheizen und den Teig auf einer Pizzapfanne oder einem Backblech zu einem dünnen Kreis ausziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die stückigen Tomaten mit gehacktem Knoblauch auf dem Teig verteilen und dabei am Rand 1 Zoll frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mozzarella in Stücke zupfen und auf der Sauce verteilen. Mit dem restlichen Olivenöl beträufeln und schwarzen Pfeffer darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "12–15 Minuten backen, bis der Rand goldbraun und der Käse blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort nach dem Herausnehmen aus dem Ofen mit frischen Basilikumblättern belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2021/07/classic-margherita-pizza.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2021/07/classic-margherita-pizza.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

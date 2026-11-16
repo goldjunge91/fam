@@ -1,0 +1,1108 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-tofu-teriyaki-prep",
+      "slug": "mfr-tofu-teriyaki-prep",
+      "title": "Meal-Prep-Boxen mit Teriyaki-Tofu und Brokkoli",
+      "instructions": "Knuspriger Tofu aus dem Ofen mit Brokkoli und Naturreis in Teriyaki-Glasur: ein veganes Meal Prep, das in der Box tatsächlich knusprig bleibt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gebackener Tofu bleibt gekühlt knuspriger als in der Pfanne gebratener und eignet sich besser für Meal Prep.",
+        "Zwei Blöcke Tofu und zwei Beutel tiefgekühlter Brokkoli kosten etwa $6–8."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Tempeh für eine nussigere Variante mit mehr Protein"
+        },
+        {
+          "forIngredientId": "teriyaki-sauce",
+          "swap": "Selbst gemacht aus Sojasauce, Honig, Ingwer und Knoblauch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tofu-teriyaki-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 845,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tofu-teriyaki-prep/",
+      "components": [
+        {
+          "key": "1ca66d4f-4cf5-5e06-8c2f-05d6cdb49538",
+          "name": "Zutaten",
+          "servingGrams": 439.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "48d8dd28-04dc-5e64-b9f7-bf9345964342",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b28e652-8b79-5afb-9ca3-73fd0ed795b9",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9683a1f2-d8e9-57c6-a31c-d053d0892a43",
+              "ingredientName": "Naturreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b6bdbef-edea-5a01-913a-0f1e37b7f754",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2453704-f36a-5df1-ad2a-55d1ab4c2ff3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2654ee8-89f0-5835-8473-bfdaef84fd94",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a3fd69e-f3a4-536e-bb83-7fe258e95664",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cce47e38-58d7-58f6-ac84-aa5462a65c22",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse zwei Blöcke Tofu 10 Minuten zwischen Tüchern aus. Schneide ihn in ½-inch-Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den Tofu mit Sesamöl, Knoblauchpulver und etwas Teriyaki-Sauce. Verteile ihn auf einem Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib auf einen anderen Teil des Blechs Brokkoliröschen, die du mit Sesamöl und Salz vermengt hast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe alles bei 400°F 25–28 Minuten. Wende den Tofu nach der Hälfte der Zeit, bis er goldbraun und der Brokkoli karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche den Reis. Verteile ihn auf 4 Boxen. Träufle zusätzliche Teriyaki-Sauce über den Tofu und bestreue ihn mit Sesamsamen und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/01/09/multimedia/hm-crispy-tofu-and-broccoli-ghkp/hm-crispy-tofu-and-broccoli-ghkp-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/01/09/multimedia/hm-crispy-tofu-and-broccoli-ghkp/hm-crispy-tofu-and-broccoli-ghkp-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lentil-soup-meal-prep",
+      "slug": "mfr-lentil-soup-meal-prep",
+      "title": "Großer Topf Linsen-Gemüsesuppe",
+      "instructions": "Ein großer Topf herzhafte rote Linsensuppe mit Karotten, Sellerie, Kreuzkümmel und Kurkuma: ergibt 6–8 Portionen, die sich bis zu 3 Monate lang gut einfrieren lassen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "3 cups rote Linsen reichen für 7 Personen und kosten etwa $3. Eine der günstigsten Mahlzeiten pro Portion.",
+        "Die Suppe lässt sich portionsweise wunderbar bis zu 3 Monate einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Gemüsebrühe oder Wasser. Linsen bringen genug Geschmack mit"
+        },
+        {
+          "forIngredientId": "lentils",
+          "swap": "Gelbe Schälerbsen, die ähnlich garen und etwa gleich viel kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lentil-soup-meal-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mediterran",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 7,
+      "status": "published",
+      "sortOrder": 846,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lentil-soup-meal-prep/",
+      "components": [
+        {
+          "key": "f938df89-ef53-55b3-8c47-4928bb5a4f08",
+          "name": "Zutaten",
+          "servingGrams": 456.07,
+          "position": 0,
+          "items": [
+            {
+              "key": "b339302f-7951-5b86-a94a-b48f483d1fd5",
+              "ingredientName": "Linsen",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84f560ab-6594-50bd-96a4-8cc421dfe4ba",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fffb443-01aa-5754-8d09-62b070e35d10",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ea982ac-e269-5e1b-903d-6ebc8c3013f8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6b8112b-6d4b-53fb-9668-614d09561cbc",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33c8d195-36a0-5c36-910c-6c92368ef363",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9104a9b3-a870-53eb-9304-07f36ee62712",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c41c551d-796d-5686-9be1-1a0b8f3c03f1",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a3a3baf-16d7-5b22-b53f-6ac9eec958cc",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "576fd606-c7d7-552e-b725-485079a9384a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc6444c0-0006-58b9-95e1-422234c9555a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83e38c2c-aede-52cc-9c53-6011f7830506",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dcac0af-4fbc-5269-8423-13b19a62700b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf. Dünste gewürfelte Zwiebel 5 Minuten an. Gib Knoblauch, Kreuzkümmel, Kurkuma und Paprikapulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Karotten und Sellerie dazu und rühre 3 Minuten um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgespülte Linsen, gehackte Tomaten und Brühe dazu. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Suppe 25 Minuten köcheln, bis die Linsen weich sind und zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Zitronensaft ein und schmecke die Suppe kräftig ab. Lass sie vor dem Abfüllen in Behälter vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Small-Batch-Lentil-Soup_3.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Small-Batch-Lentil-Soup_3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-quinoa-prep-bowls",
+      "slug": "mfr-salmon-quinoa-prep-bowls",
+      "title": "Meal-Prep-Schalen mit Lachs und Quinoa",
+      "instructions": "Im Ofen gebackener Lachs mit Zitrone und Kräutern auf Quinoa mit Gurke und Kirschtomaten: eine hochwertige Meal-Prep-Schale, die sich bis zu 4 Tage hält.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Lachsfilets über Nacht auftauen lassen. Das funktioniert hervorragend.",
+        "Quinoa liefert alle 9 essenziellen Aminosäuren und ist damit ein vollständiges pflanzliches Protein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tilapia oder Kabeljau als preisgünstigerer weißer Fisch für Meal Prep"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Naturreis als günstigere Basis aus vollwertigen Kohlenhydraten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-quinoa-prep-bowls",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 847,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-quinoa-prep-bowls/",
+      "components": [
+        {
+          "key": "d528671e-1162-587c-9f79-9cafa86e5fb4",
+          "name": "Zutaten",
+          "servingGrams": 460.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "b69aa67f-e02f-5ee2-bc3c-82a2a1b0afac",
+              "ingredientName": "Lachsfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "269b2a55-9ba3-58b9-8256-7622e6df49da",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "201f5768-7412-5f81-9228-77c0d69f1e08",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1aac4fcd-e6a3-56a8-9437-a8f507dd251a",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8d944b8-c3a8-5ffd-9a64-5e365b5506f1",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9d8cb7e-a922-58aa-bee0-5c9fe1764c83",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a545d746-f5fe-5dbb-a83b-1d1246864d08",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dbee693-7967-5135-ba3c-0bf52fce2686",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67a0a896-2a94-59e3-9a6f-4fef6c2d1f47",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6d2cebb-e6a4-5f29-8b57-a97591483e04",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor. Koche Quinoa (2 cups trocken ergeben etwa ~4 Portionen gekocht).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Lachsfilets mit Olivenöl, Zitronensaft, Knoblauch, italienischen Kräutern, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Lachs 12–15 Minuten, bis er sich leicht zerteilen lässt. Lass ihn vor dem Verpacken vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle die Gurke und halbiere die Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Quinoa auf 4 Behälter. Belege jeden mit einem Lachsfilet, Gurke und Tomaten. Gib eine Zitronenspalte dazu. Bis zu 4 Tage im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/f8nLtKqcDmCcg0_UNhT2Z5mVhO8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8110444-fe18d867dddf4b7ca90ac3c05dff42a0.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/f8nLtKqcDmCcg0_UNhT2Z5mVhO8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8110444-fe18d867dddf4b7ca90ac3c05dff42a0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-black-bean-rice-prep",
+      "slug": "mfr-black-bean-rice-prep",
+      "title": "Meal-Prep-Gläser mit schwarzen Bohnen und Naturreis",
+      "instructions": "Geschichtete Mahlzeiten im Einmachglas: würzige schwarze Bohnen auf Naturreis mit Mais, Pico de Gallo und Limette. Ein farbenfrohes vegetarisches Meal Prep für 5 Tage für weniger als $1.50 pro Glas.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen schwarze Bohnen und ein Beutel Naturreis ergeben 5 Gläser für insgesamt etwa $6.",
+        "Avocados separat verpacken und erst am jeweiligen Tag dazugeben, damit sie nicht braun werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pico",
+          "swap": "Salsa aus dem Glas, um Zeit und Geld zu sparen"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Für weniger Fett weglassen; Guacamole erst am jeweiligen Tag dazugeben"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-black-bean-rice-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 848,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-black-bean-rice-prep/",
+      "components": [
+        {
+          "key": "27fe98be-2d03-5f7c-8690-47feb3f1b48a",
+          "name": "Zutaten",
+          "servingGrams": 426.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "c01178ed-8c14-5410-af09-c72342520dbc",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38c60288-3743-5893-b418-43c388420f7a",
+              "ingredientName": "Naturreis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fba5544d-b88a-5e70-bba3-7cd073d5da96",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46e28712-4e85-5ebe-a609-dbabb023c22b",
+              "ingredientName": "Pico de Gallo",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab43dfa2-db40-5b35-bb20-7aa513324149",
+              "ingredientName": "Limette",
+              "grams": 201,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e3533d8-5da4-584d-8467-33318398642c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25ec2692-9b7f-5e69-98e8-e8b84d609dfc",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12985900-0b4a-56f7-9097-4dc46c895b55",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77890eb9-d705-5526-90d0-610e21009fff",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0837321-d5da-5a98-87a2-93841d1223f1",
+              "ingredientName": "Avocado",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Naturreis. Erwärme die schwarzen Bohnen in einer Pfanne mit Kreuzkümmel, Chilipulver, Salz und etwas Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme den Mais oder verwende Mais aus der Dose direkt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte die Zutaten in Gläser oder Behälter: Reis unten, dann Bohnen, Mais und Pico de Gallo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse Limettensaft über alles. Gib die Avocado erst kurz vor dem Essen dazu. Schneide sie nicht schon für die ganze Woche auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bis zu 5 Tage im Kühlschrank aufbewahren. Bohnen und Reis halten sich gut; gib jeden Tag frische Avocado dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3Vep26VSbEv14EVFUGKez_CykOg=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/caribbean-rice-and-black-beans-3060144-step-09-ea4c334d61a044c29eff01af4bce2a41.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3Vep26VSbEv14EVFUGKez_CykOg=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/caribbean-rice-and-black-beans-3060144-step-09-ea4c334d61a044c29eff01af4bce2a41.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-egg-muffin-meal-prep",
+      "slug": "mfr-egg-muffin-meal-prep",
+      "title": "Meal-Prep-Muffins mit Ei und Gemüse (12-pack)",
+      "instructions": "Zwölf handliche Eiermuffins aus der Muffinform mit Paprika, Spinat und Käse: das klassische proteinreiche Frühstück zum Mitnehmen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "10 Eier ergeben 12 Muffins für weniger als $2 insgesamt, also etwa $0.16 pro Muffin.",
+        "Die Muffins lassen sich hervorragend einfrieren. Bereite 24 auf einmal zu und friere die Hälfte für die nächste Woche ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Beliebiges Gemüse, das beim Backen seine Form behält, etwa Pilze, Brokkoli oder Tomaten"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Feta für einen würzigeren Muffin nach mediterraner Art"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-muffin-meal-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 849,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-muffin-meal-prep/",
+      "components": [
+        {
+          "key": "7d2389ff-bda0-51f4-9b13-6a2cf1946b63",
+          "name": "Zutaten",
+          "servingGrams": 172.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "167c90e3-26ca-5b73-a010-9e7c3cd1a6df",
+              "ingredientName": "Eier",
+              "grams": 500,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0627dce9-7a81-5bdf-9e9e-ae048d7610ae",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "067eb622-0619-5fae-b07c-8078afbe94cf",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cea98df-f01f-513c-8b60-af070edd6e38",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ed3281a-a05c-5796-a162-da361fc20603",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a17873bb-deaa-5ba7-a0ec-a909827af503",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7b13b3f-c45e-5c8a-a9b2-27aecabb9ef8",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fe691ad-402a-586b-8eff-543803599971",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df5003de-ec3e-5548-9036-aebc4796fe35",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8665f031-2aa1-5619-8f8c-6eaa7358593e",
+              "ingredientName": "Backtrennspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor. Besprühe eine Muffinform mit 12 Mulden großzügig mit Backtrennspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Paprika und Zwiebel fein. Zupfe oder hacke den Spinat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, Milch, Knoblauchpulver, italienische Kräuter, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das gewürfelte Gemüse und den Spinat auf die 12 Mulden. Gieße die Eiermischung darüber, sodass jede Mulde etwa zu ¾ gefüllt ist. Streue Käse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Muffins 18–22 Minuten, bis die Eier gestockt und die Oberseiten leicht goldbraun sind. Lass sie vor dem Aufbewahren abkühlen. Bis zu 5 Tage im Kühlschrank lagern; in der Mikrowelle 30 Sekunden aufwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2023/01/egg-muffins-1.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2023/01/egg-muffins-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

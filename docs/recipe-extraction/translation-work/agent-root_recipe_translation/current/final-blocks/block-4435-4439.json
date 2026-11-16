@@ -1,0 +1,1098 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pain-d-pices-belge",
+      "slug": "gen-pain-d-pices-belge",
+      "title": "Pain d'Épices Belge",
+      "instructions": "Belgisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Honig von Handelsmarken statt besonderer Sorten.",
+        "Kaufen Sie Gewürze auf internationalen Märkten zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belgisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4435,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pain-d-pices-belge/",
+      "components": [
+        {
+          "key": "01083d0d-7481-5952-acee-f2cc98f7783e",
+          "name": "Zutaten",
+          "servingGrams": 155.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "75af63d1-5d7f-52a8-8eb3-ada1c4196f90",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f260a2f4-cc3c-510b-ba8f-9dc4d90d0269",
+              "ingredientName": "Honig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "e7d15d94-7488-59e4-8c5d-38e4ad080887",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "7150b2ec-0bef-565c-a1a1-cd61f3c8afe1",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "28f9c7f1-f577-572c-80a7-42a8147c7c8b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a6ee6e4-55c5-5569-9294-666eae228d67",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "54da5f0b-6bb2-5118-be3a-5c3835596f36",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "b8ab8c2f-8e3e-5aaa-82af-7e97dfbb5605",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d317c5ce-c185-5d6e-bf22-f051774f0cee",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "d2fdb215-2d60-5fb0-b305-fb6a4d3354eb",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Honig, Butter und braunen Zucker in einem Topf bei niedriger Hitze verrühren, bis alles geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vom Herd nehmen und 5 Minuten abkühlen lassen, dann das Ei einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Zimt, Anis, Natron, Salz und Muskatnuss in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trockene Zutaten zur Honigmischung geben und rühren, bis ein dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In eine gefettete Kastenform von 8x4 Zoll füllen und die Oberfläche glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 325 °F 35–40 Minuten backen, bis ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter stürzen und vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aufschneiden und mit Butter oder Marmelade servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.afcdn.com/recipe/20201217/116549_w3072h2304c1cx1060cy707.jpg",
+          "sourcePageUrl": "https://assets.afcdn.com/recipe/20201217/116549_w3072h2304c1cx1060cy707.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-andouillette-flamande",
+      "slug": "gen-andouillette-flamande",
+      "title": "Andouillette Flamande",
+      "instructions": "Belgisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie normale Räucherwurst, falls Andouillette nicht erhältlich ist.",
+        "Kaufen Sie Zwiebeln in größeren Mengen und lagern Sie sie kühl und dunkel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4436,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-andouillette-flamande/",
+      "components": [
+        {
+          "key": "f5c25541-1d61-5e1e-bbd3-2bd4de05b6a3",
+          "name": "Zutaten",
+          "servingGrams": 305.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "34550f27-14ef-51f7-88f0-5fa697878d77",
+              "ingredientName": "Andouillette-Würste",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Würste"
+            },
+            {
+              "key": "03e37bed-d6ae-5bea-b135-90be8e8683f1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "fd5fad07-f759-524f-8ea0-5fef026e61ed",
+              "ingredientName": "Dijon-Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "24af52b9-4c21-50f1-a1c4-5f7deebbdda2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0d4915e1-0cea-5bf3-ad0f-2b883bc7ebf2",
+              "ingredientName": "Bier zum Kochen",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0d5451e8-7a3c-5cf3-9ed7-1cf6293636fd",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "32f45cf2-fe1c-5b94-bd79-979bbb4b7548",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "157bf453-b451-59bc-bc59-aabf6a254a54",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4da9bc6-9e34-558e-b0e6-9f0e69bf95ca",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebeln in dicke Ringe schneiden und beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jede Wurst an 3–4 Stellen mit einer Gabel einstechen, damit sie nicht platzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und Würste insgesamt etwa 8 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würste herausnehmen und beiseitestellen. Zwiebeln in derselben Pfanne etwa 5 Minuten goldbraun dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Senf einrühren und 1 Minute kochen, dann Bier und Rinderbrühe zugießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würste zurück in die Pfanne geben und Thymian sowie Lorbeerblatt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze reduzieren, abdecken und 20 Minuten köcheln lassen, bis die Würste durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen und mit knusprigem Brot oder Kartoffeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.lovefrenchfood.com/wp-content/uploads/2021/09/sausage-recipe-1.jpg",
+          "sourcePageUrl": "https://www.lovefrenchfood.com/wp-content/uploads/2021/09/sausage-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-choucroute-la-flamande",
+      "slug": "gen-choucroute-la-flamande",
+      "title": "Choucroute à la Flamande",
+      "instructions": "Belgisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Sauerkraut lose statt in Dosen.",
+        "Verwenden Sie zum Kochen preiswertes Bier statt teurer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4437,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-choucroute-la-flamande/",
+      "components": [
+        {
+          "key": "e2174fd7-29ba-532a-8f41-e1d6efeb9a68",
+          "name": "Zutaten",
+          "servingGrams": 333.41,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9787871-738a-5236-bb66-6593584c04eb",
+              "ingredientName": "Sauerkraut",
+              "grams": 274.29,
+              "quantity": 274.29,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "32 Unzen"
+            },
+            {
+              "key": "79d4f76f-dbb7-5726-8203-b127e566f017",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c510cb7c-0493-50d0-a21f-2f7f2c3b29c6",
+              "ingredientName": "Kielbasa",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "dcf556a5-a936-5fde-badb-04665ec8cba9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "f1cee8b0-3ca0-566f-ae26-30420705f597",
+              "ingredientName": "Bier zum Kochen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0a220760-865e-5afc-a83a-358893923de1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fdb1a8b9-721e-500c-b038-d4bbdab2dc24",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2fe6d36a-d5b3-5457-b6eb-9fc537ae612c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4ae792c-5b31-57e5-8d13-def205ab6585",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b4dc42db-81f8-5738-b131-7b54441d7b05",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebeln dünn schneiden und Kielbasa in 1/2 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Schmortopf oder schweren Topf bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln etwa 4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sauerkraut abgießen und zusammen mit Kümmelsamen und Lorbeerblatt in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinekoteletts und Kielbasa-Stücke in das Sauerkraut betten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bier und Hühnerbrühe über die Mischung gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und bei niedriger Hitze 40 Minuten köcheln lassen, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/ed/d4/7a/edd47a819b7cbce36822e5219539cea5.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/ed/d4/7a/edd47a819b7cbce36822e5219539cea5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poffertjes",
+      "slug": "gen-poffertjes",
+      "title": "Poffertjes",
+      "instructions": "Niederländischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie den Teig am Vorabend zu und kühlen Sie ihn.",
+        "Verwenden Sie eine normale Muffinform, falls keine Poffertjespfanne verfügbar ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4438,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poffertjes/",
+      "components": [
+        {
+          "key": "2817d531-0192-54b4-92ad-f00dc3c0689b",
+          "name": "Zutaten",
+          "servingGrams": 210.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "4e3bfaac-7622-5efa-be4d-d0548d8264ab",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9c5b0be2-ea76-59d5-86ed-d5cd19de4245",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "8dd1cbc6-42e9-5999-b0bf-e8b9b491bbd4",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9f799801-7dd9-54a5-98ad-1ad3b1ff7d9b",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "02be787e-a357-5cfc-8ab5-b5ff933c5798",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "c6caf326-60f2-5825-b55c-4f063a080078",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen"
+            },
+            {
+              "key": "52a19004-2117-57fa-8957-b7aa9cecddb6",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99371a23-8717-5585-9310-dabc73b3c783",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Bestäuben"
+            },
+            {
+              "key": "70dcb8a6-c5b5-50d6-b5a1-e5ddbe742609",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Garen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weizenmehl, Vollkornmehl, Backpulver und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Milch, Ei und geschmolzene Butter in einer anderen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nasse Zutaten zu den trockenen geben und nur kurz verrühren, sodass noch einige Klümpchen bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer Poffertjespfanne oder kleinen runden Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede kleine Mulde etwa zu 3/4 mit Teig füllen und pro Seite 1–2 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen Teller geben und mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit zusätzlichem Puderzucker oder Marmelade dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/da/56/97/da569743bb205b67faba54302cd00954.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/da/56/97/da569743bb205b67faba54302cd00954.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bitterballen",
+      "slug": "gen-bitterballen",
+      "title": "Bitterballen",
+      "instructions": "Niederländischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Reste von Aufschnittschinken statt Schinkenscheiben.",
+        "Filtern Sie Frittieröl und bewahren Sie es in einem Glasbehälter zur Wiederverwendung auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "niederländisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4439,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bitterballen/",
+      "components": [
+        {
+          "key": "c11cf66b-2f1d-5f2f-88dc-bd78957828c4",
+          "name": "Zutaten",
+          "servingGrams": 460.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "59f9c2bd-d3a0-5f12-949c-5dbbd8dc5a50",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b8bb8f0f-5a19-5b16-8ec1-0d10a8580278",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b85ec910-1613-5eab-b82c-0f99d3639789",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d2fdc0ed-1dc7-57a1-afb6-58f56ff47d79",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen, fein gehackt"
+            },
+            {
+              "key": "62bb255f-8d29-5a9c-8b99-0bffe7f5b5d6",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6f26cf97-d715-5f48-9daf-56b70094ab26",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "104a928b-d59d-59c2-a7f8-197f0801e972",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5b34818d-1e63-5a70-b7f1-99abe5b9204a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ae9b1a3-265e-5d8f-80bd-2ba444aa777b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem Topf schmelzen und Mehl einrühren, um eine Mehlschwitze herzustellen. 1 Minute kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderbrühe langsam unter ständigem Rühren zugießen, bis die Sauce eindickt, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schinken und Senf einrühren, dann mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mischung auf einem Teller verteilen, 15 Minuten abkühlen und anschließend 20 Minuten im Kühlschrank kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zu 12 Kugeln von etwa 1.5 Zoll Durchmesser formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eier in einer flachen Schüssel verquirlen und Semmelbrösel in eine zweite flache Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede Kugel zuerst in Ei und dann gründlich in Semmelbröseln wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Öl in einem tiefen Topf auf 350 °F erhitzen und Bitterballen portionsweise 2–3 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit Senf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/kNKLekYxZIa3ddLpEnibUg4zK2g=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/beef-bitterballen-recipe-1129015-shape-and-fry-step-06-ed563d1b374b42a59ba7a1622a083dc2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/kNKLekYxZIa3ddLpEnibUg4zK2g=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/beef-bitterballen-recipe-1129015-shape-and-fry-step-06-ed563d1b374b42a59ba7a1622a083dc2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

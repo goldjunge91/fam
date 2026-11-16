@@ -1,0 +1,1101 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-teriyaki-mushroom-rice",
+      "slug": "mfr-teriyaki-mushroom-rice",
+      "title": "Reisschüssel mit Teriyaki-Pilzen und Edamame",
+      "instructions": "Fleischige Pilze in Teriyaki-Sauce auf weißem Reis mit Edamame und geraspelter Karotte. Eine vollständig pflanzliche Lunch-Bowl mit 23 g Eiweiß und viel Umami.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pilze nehmen Teriyaki-Sauce wunderbar auf und sorgen für wenig Geld für einen herzhaften, fleischähnlichen Genuss aus Gemüse.",
+        "Edamame aus dem Tiefkühlfach hält sich in einer 1-lb-Tüte wochenlang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Kräuterseitlinge oder Portobello-Pilze für eine besonders fleischige Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-teriyaki-mushroom-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "vegan",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 715,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-teriyaki-mushroom-rice/",
+      "components": [
+        {
+          "key": "ac8b2d69-817e-50dd-9517-feb28e36fcd7",
+          "name": "Zutaten",
+          "servingGrams": 834,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f9926da-5b33-5035-9134-df9947ab690b",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc926a64-3a67-5e1f-bab3-21f56b1e73e9",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26f7872e-f27e-5535-a1e3-3a8c7ebde4e5",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c199aba6-bbb6-59ff-8f6f-e35873ee0448",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcef3c78-a647-5b44-9730-760d3727d24a",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0e61b98-e82a-54bb-be4d-f1e7005100d3",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6dc03bc-6167-5f3c-ab65-32026b6462f6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97fe3b83-6eb4-5be9-a861-25f1e262b5ca",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3aa382f3-ee74-5f1f-a670-e45bce45eccb",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c78e8c35-fb7b-5295-884a-e037755c13b1",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Sesamöl in einer Pfanne bei hoher Hitze. Gib die Pilze dazu und gare sie 2–3 Minuten, ohne umzurühren, bis sie gebräunt und leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer dazu und rühre 30 Sekunden. Gieße Teriyaki-Sauce hinein und wende die Pilze darin. Gare alles 1 weitere Minute, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die tiefgekühlte Edamame. Raspel die Karotten oder schneide sie in feine Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Pilze auf Reis mit Edamame und geraspelter Karotte. Gib Frühlingszwiebeln und Sesamsamen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2020/11/Vegan-Tofu-Edamame-Buddha-Bowl-1-2.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2020/11/Vegan-Tofu-Edamame-Buddha-Bowl-1-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-hoisin-chicken-noodles",
+      "slug": "mfr-hoisin-chicken-noodles",
+      "title": "Soba-Nudeln mit Hähnchen und Hoisinsauce",
+      "instructions": "Zarte Hähnchenbruststreifen mit bissfesten Soba-Nudeln, Pak Choi und süß-herzhafter Hoisinsauce. Ein vollständiges chinesisch-amerikanisches Gericht aus einer Schüssel, fertig in 20 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust aus der Familienpackung kostet ungefähr $1.20 pro Portion.",
+        "Soba-Nudeln sind preiswert und garen schneller als Pasta."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hoisin",
+          "swap": "Austernsauce mit etwas Honig"
+        },
+        {
+          "forIngredientId": "soba-noodles",
+          "swap": "Normale Pasta als günstigere Alternative mit etwas anderer Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-hoisin-chicken-noodles",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 716,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-hoisin-chicken-noodles/",
+      "components": [
+        {
+          "key": "77317731-feb4-52ee-8096-f7459c8d7e42",
+          "name": "Zutaten",
+          "servingGrams": 564.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "be446a72-cb51-5e62-ba8d-95c987309f09",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa222b2b-30d8-5bc1-9d96-b9ba41777f64",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afbfad10-9fbb-54b0-9449-263349038e31",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3509b10-501d-5eb9-8cdc-3e489e591f2c",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f3d9a25-1546-58a5-a86e-008f0fd64174",
+              "ingredientName": "Hoisinsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49c5d6eb-42b8-57dc-8385-acb8d66feed6",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a19c4d25-9012-5c09-b9b6-f4fd2f2a94bc",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "842fc02f-14f7-5979-9966-eee5018519a6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70c6a86e-d894-5a63-92fc-c0a6d90c9cbf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "617f2a16-bf7d-5923-919a-aea66c829b1f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7b11a68-c107-53ba-98f7-188cb2ba446f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Soba-Nudeln nach Packungsangabe. Gieße sie ab und spüle sie mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Hähnchenbrust in dünne Streifen und würze sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen in Pflanzenöl bei hoher Hitze 4–5 Minuten im Wok oder in der Pfanne, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch, Ingwer, Brokkoliröschen und geraspelte Karotte dazu. Brate alles unter Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Nudeln, Hoisinsauce, Sojasauce und Sesamöl dazu. Schwenke alles über der Hitze 1–2 Minuten miteinander. Mit Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/07/Sweet-Spicy-Chicken-with-Soba-Noodles_EXPS_RC24_276130_DR_07_03_2b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/07/Sweet-Spicy-Chicken-with-Soba-Noodles_EXPS_RC24_276130_DR_07_03_2b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-greek-baked-chicken",
+      "slug": "mfr-greek-baked-chicken",
+      "title": "Gebackene Hähnchenschenkel mit griechischen Gewürzen",
+      "instructions": "Hähnchenschenkel mit Knochen werden in Zitrone, Knoblauch und Oregano mariniert und anschließend goldbraun gebacken. Ein mediterranes Familienessen für ein ganzes Backblech, das sich die ganze Woche über wunderbar aufwärmen lässt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen kosten pro Pfund deutlich weniger als Hähnchenbrust ohne Knochen und bleiben saftiger.",
+        "Kartoffeln, die im Bratensaft garen, bringen praktisch kostenlos zusätzlichen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenkeulen mit Knochen für eine noch günstigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-baked-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "griechisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 717,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-baked-chicken/",
+      "components": [
+        {
+          "key": "d32a1a7d-71e0-5bca-9203-bdbad7a2e8d9",
+          "name": "Zutaten",
+          "servingGrams": 245.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e1055f8-4eb7-5d48-a52c-7f0b2e761a2e",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "228f71b8-8057-58b6-9e29-a9f7b10577ad",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9267ab53-d188-5dce-adc2-4a24fac03970",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7956833-12de-5109-9fba-9a2e991441dc",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0a91d13-0d11-5803-b3ba-46f4e13b9f5c",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a042c71-1bd3-5105-b9b8-44d4c181ad82",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf789d49-127c-53c4-9424-cdf2143290c5",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04fd4f82-a72b-517e-ae18-1f7b9cfd1cdd",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d62234b4-6658-56df-85d1-d7ca680e883e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Zitronensaft und -schale, Olivenöl, gehackten Knoblauch, Oregano, Salz und Pfeffer. Wende die Hähnchenschenkel darin und lass sie mindestens 15 Minuten oder über Nacht marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 425 °F (220 °C) vor. Lege das Hähnchen mit geviertelten Kartoffeln auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe es 35–40 Minuten, bis die Haut des Hähnchens tief goldbraun ist und klarer Fleischsaft austritt (Kerntemperatur 165 °F/74 °C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Gericht vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/easy-Cilantro-Lime-Chicken-Thighs.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/easy-Cilantro-Lime-Chicken-Thighs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-white-bean-shakshuka",
+      "slug": "mfr-white-bean-shakshuka",
+      "title": "Shakshuka mit weißen Bohnen",
+      "instructions": "Eier pochieren direkt in einer kräftigen Tomaten-Paprika-Sauce mit reichlich weißen Bohnen. Ein protein- und ballaststoffreiches Abendessen aus einer Pfanne aus dem Nahen Osten, fertig in 25 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Gericht reicht für zwei Personen und kostet insgesamt etwa $3. Eines der preiswertesten Abendessen überhaupt.",
+        "Eine 28-oz-Dose zerkleinerte Tomaten bildet die Grundlage. Kaufe mehrere Dosen auf einmal, um noch mehr zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder schwarze Bohnen für eine andere Geschmacksrichtung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-white-bean-shakshuka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "nahöstlich",
+        "aus einem Topf",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 718,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-white-bean-shakshuka/",
+      "components": [
+        {
+          "key": "f6f0b1a5-4835-5555-80b3-8bcbd2587002",
+          "name": "Zutaten",
+          "servingGrams": 685.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f607647-196d-5646-907d-44964ac5273d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f8cbbd6-86cb-5de5-a5e0-dfce8cf6f1e4",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff3b6a52-74dc-5910-85dc-aca8353309bd",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e037e308-2254-5025-b3e6-5058cbc4fc03",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ce90da5-609f-5606-bc83-8edaf7209841",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e992f2e-590b-53b8-9188-a0b2c98b4ce4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32bd00f2-0312-5837-92b5-747db006bf73",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90ba145c-aea0-5912-b105-88e52378b1e9",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae9cf507-dfbd-5099-bc0b-29ea26dc3644",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eed9fcfd-38b3-586c-b9ea-094c7c16f2d5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ccbda6d-f041-577c-9459-82e21dc44d8b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba559f75-3e7d-572e-a23e-261d036712bd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl bei mittlerer Hitze. Brate gewürfelte Zwiebel und Paprika etwa 5 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Kreuzkümmel, Paprikapulver und Cayennepfeffer dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße zerkleinerte Tomaten und abgetropfte weiße Bohnen hinein. Lass alles 10 Minuten köcheln und würze es mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme 4 Mulden in der Sauce und schlage in jede Mulde ein Ei. Decke die Pfanne ab und gare alles bei mittelniedriger Hitze etwa 5–7 Minuten, bis das Eiweiß gestockt und das Eigelb noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib frischen Koriander darüber und serviere das Gericht mit knusprigem Brot oder Pitabrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/11/white-beans-recipe-2.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/11/white-beans-recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lemon-salmon-couscous",
+      "slug": "mfr-lemon-salmon-couscous",
+      "title": "Lachs mit Zitronenkräutern auf Couscous",
+      "instructions": "Im Ofen gebackene Lachsfilets auf lockerem Couscous mit Gurke und Kräutern. Ein mediterranes Abendessen in 25 Minuten, das aufwendig schmeckt, aber fast keine Arbeit macht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Couscous gehört zu den schnellsten und günstigsten Getreidesorten. Außer kochendem Wasser ist keine weitere Zubereitung nötig.",
+        "Wildlachs aus der Dose kann frischen Lachs für einen Bruchteil des Preises ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "couscous",
+          "swap": "Quinoa oder Bulgur als eiweißreichere Getreidegrundlage"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Milderer und günstigerer Weißfisch wie Tilapia oder Kabeljau"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lemon-salmon-couscous",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 719,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lemon-salmon-couscous/",
+      "components": [
+        {
+          "key": "d4770e66-9de9-5679-884c-de720429e46d",
+          "name": "Zutaten",
+          "servingGrams": 480,
+          "position": 0,
+          "items": [
+            {
+              "key": "00f181ae-f5c6-52a4-8da9-6f1737a0eddf",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd61776d-932c-577b-a8db-9d1c8da5913f",
+              "ingredientName": "Couscous",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eac49770-453b-5007-9e06-ce01c86626fc",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa2f4a16-f3b8-5c88-83a5-489fc2c5be52",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23d8f9ce-bbe3-5bff-a840-5d5c4cf2284e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "617bac3d-471d-514b-9a69-27c44ce32860",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce96fc1a-ea7e-568c-ab6e-d3fc523d33e5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcd439f0-92fa-5764-8906-14e05aa68624",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e81abb37-bd1e-56d1-a284-fa308fc983dc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6330b90c-d2aa-544e-b273-861de9211033",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46066571-f65c-5838-9030-3283d8698daa",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400 °F vor. Lege den Lachs auf ein mit Backpapier ausgelegtes Backblech. Beträufle ihn mit 1 EL Olivenöl und würze ihn mit Salz, Pfeffer, Knoblauch und Dill. Presse eine halbe Zitrone darüber aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe den Lachs 12–15 Minuten, bis er sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße kochende Hühnerbrühe über den Couscous in einer Schüssel. Decke die Schüssel 5 Minuten ab und lockere den Couscous anschließend mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge den Couscous mit dem übrigen Olivenöl, Zitronensaft, gehackter Petersilie und gewürfelter Gurke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Lachs auf dem Couscous mit Kräutern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/-w8s3vPzfHJoUxzYwgiRs1E6jVU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Salmon-with-Lemon-Couscous-58a4abe53df78c4758cc274b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/-w8s3vPzfHJoUxzYwgiRs1E6jVU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Salmon-with-Lemon-Couscous-58a4abe53df78c4758cc274b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

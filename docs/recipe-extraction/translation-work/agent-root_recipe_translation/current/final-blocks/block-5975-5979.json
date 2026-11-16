@@ -1,0 +1,1083 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-oklahoma-smoked-brisket",
+      "slug": "gen-oklahoma-smoked-brisket",
+      "title": "Oklahoma-Brisket aus dem Smoker",
+      "instructions": "Amerikanisches BBQ-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Brisket im Angebot und friere es ein – durch die Lagerung gewinnt es an Geschmack.",
+        "Verwende Holzkohle statt Holzpellets, um günstiger zu räuchern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisches-bbq",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5975,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oklahoma-smoked-brisket/",
+      "components": [
+        {
+          "key": "c5da508c-bc8d-582b-b4a3-f2a3c3862dd6",
+          "name": "Zutaten",
+          "servingGrams": 213.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bd26697-ef65-5896-aa30-57291a6a8877",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 Pfund (flaches Bruststück)"
+            },
+            {
+              "key": "1d6122c7-d769-5b0d-a2ef-e6a521a2f658",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ba8bf62d-670e-5750-ba85-8df81f5546ea",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a2ae94fe-7834-509d-bbcd-10321e0e471b",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "c48d916c-c335-5c12-88be-e814a2271d90",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "5f83ff3a-6a67-5659-b05a-8b840016a83d",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "133622d6-c9f3-5e86-94c6-2d7836dcdeab",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8323c51e-5dac-540e-a344-bd1a392a71cb",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e1dfb914-f621-5e10-9846-86455ecdb49a",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "caecfc05-52c0-59da-b6ec-7e816bdefd09",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische schwarzen Pfeffer, koscheres Salz, Knoblauchpulver, Paprikapulver und Zwiebelpulver in einer Schüssel zu einem Trockenrub.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Fett am Brisket auf eine Dicke von 1/4 Zoll zurück. Reibe das Fleisch großzügig mit der Gewürzmischung ein und drücke sie fest an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Brisket mit der Fettseite nach oben in den auf 225 °F vorgeheizten Smoker und räuchere es 10–12 Stunden, bis die Kerntemperatur 203 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wickle das Brisket fest in Folie, gib Rinderbrühe, Apfelessig und Butter dazu und gare es weitere 1–2 Stunden, bis es mit der Gabel zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Brisket aus der Folie und lasse es vor dem Aufschneiden gegen die Faser 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Brotscheiben auf dem Grill oder im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das aufgeschnittene Brisket auf geröstetem Brot und gib den Bratensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.simplecomfortfood.com/wp-content/uploads/2016/04/brisket-high.jpg",
+          "sourcePageUrl": "http://www.simplecomfortfood.com/wp-content/uploads/2016/04/brisket-high.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jamaican-jerk-pork",
+      "slug": "gen-jamaican-jerk-pork",
+      "title": "Jamaikanisches Jerk-Schweinefleisch",
+      "instructions": "Karibisches BBQ-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Habanero statt Scotch Bonnet, falls diese nicht erhältlich ist.",
+        "Bereite eine große Menge zu und friere Portionen für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "karibisches-bbq",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5976,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jamaican-jerk-pork/",
+      "components": [
+        {
+          "key": "4a7ba208-cbd3-5980-bfee-6d1fca4a335c",
+          "name": "Zutaten",
+          "servingGrams": 113.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "9adef01a-6afa-53c4-bdae-97d4a6130e7f",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "d0048070-df4a-5c0a-b6eb-96382420f909",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba709f49-0495-5e04-b60d-a626491168c8",
+              "ingredientName": "Piment",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "78e3a792-780a-546f-bec4-bf060c64b63a",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel, frisch"
+            },
+            {
+              "key": "37b531ff-673f-52c7-ab15-b0c5ea174073",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "7b5e9820-cf8d-5a47-bd0f-9d6d37b83f62",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "654b9d4c-ef2e-5f12-a141-e9ba01006439",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "45140729-385a-5cfc-86af-f6d7833d089d",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9d001ed7-e03a-5299-832e-c0c52c7b4052",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "992622f8-022c-5c3d-9d3b-d943fdd78cb2",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Scotch-Bonnet-Chili, Piment, Thymian, Knoblauch, Ingwer, Limettensaft, Sojasauce, braunen Zucker und Kokosmilch in einer Küchenmaschine glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Schweineschulter tief ein und reibe die Jerk-Marinade großzügig rundherum und in die Einschnitte ein. Stelle das Fleisch mindestens 4 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Grill auf mittelhohe Hitze vor und öle den Rost gut ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die marinierte Schweineschulter auf den Grill, decke ihn ab und gare das Fleisch 4–5 Stunden. Wende es alle 30 Minuten, bis die Kerntemperatur 190 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Fleisch auf ein Schneidebrett und zupfe es mit zwei Gabeln vollständig auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische übrige Marinade mit dem Bratensaft zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge das gezupfte Fleisch mit der Jerk-Sauce und serviere es heiß mit Reis und Bohnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/vX_hXOFZMGAZ_kPu4EBKhySk8Jg=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/jerk-in-the-oven-recipe-1808456-hero-02-116be47ce5b9447f8b52d05a28d4d467.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/vX_hXOFZMGAZ_kPu4EBKhySk8Jg=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/jerk-in-the-oven-recipe-1808456-hero-02-116be47ce5b9447f8b52d05a28d4d467.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-argentine-asado",
+      "slug": "gen-argentine-asado",
+      "title": "Argentinisches Asado",
+      "instructions": "Südamerikanisches BBQ-Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rindfleisch im Angebot und friere es ein; gute Stücke sind die Investition wert.",
+        "Bereite Chimichurri nach Möglichkeit mit frischen Kräutern aus dem Garten zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "südamerikanisches-bbq",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5977,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-argentine-asado/",
+      "components": [
+        {
+          "key": "102d28a7-8d26-5848-87d3-658f9eb42563",
+          "name": "Zutaten",
+          "servingGrams": 280.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fd02762-3dc1-5948-8095-9956b61705ec",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (1.5 Zoll dick)"
+            },
+            {
+              "key": "b22c3b9a-1dd0-5afa-a710-985bdf2f336d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "610d2660-002b-579c-8d9b-29f271bbebcc",
+              "ingredientName": "Schweinswurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Würste"
+            },
+            {
+              "key": "3a1b78cf-90d5-5abd-9f76-3a9cb9ef1c5b",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "d3419f0e-7936-514b-b87e-89730f339a94",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "77f56544-45de-5460-b500-ce3e7f903450",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "91ea20dd-3f35-580c-a300-1f31c371862e",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse frisch, gehackt"
+            },
+            {
+              "key": "84330a17-c000-5230-9fcc-09f71e6e77b9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f58f3427-6ab6-5763-a8e2-52ee802b758f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2, halbiert"
+            },
+            {
+              "key": "d2955229-3808-5ee2-a0eb-84ad43866eab",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zünde den Holzkohlegrill an und lasse die Kohlen auf mittlere Hitze herunterbrennen, etwa 350 °F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe alle Fleischstücke mit Küchenpapier trocken und würze beide Seiten großzügig mit Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Short Ribs zuerst mit der Schwarte nach unten auf den Grill und grille sie 30 Minuten kräftig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Ribeye-Steaks und Würste auf den Grill. Grille die Steaks für medium-rare 4–5 Minuten pro Seite und die Würste insgesamt 10–12 Minuten; wende sie dabei häufig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische gehackten Knoblauch, Petersilie und Olivenöl in einer kleinen Schüssel zu Chimichurri.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das gegarte Fleisch auf ein Holzbrett und bestreiche es großzügig mit Chimichurri.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frischen Zitronensaft über das Fleisch und serviere es sofort mit Rotwein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://pickupthefork.com/wp-content/uploads/2016/10/Gaucho-asado2.jpg",
+          "sourcePageUrl": "https://pickupthefork.com/wp-content/uploads/2016/10/Gaucho-asado2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-uruguayan-parrillada",
+      "slug": "gen-uruguayan-parrillada",
+      "title": "Uruguayische Parrillada",
+      "instructions": "Südamerikanisches BBQ-Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische teures Lammfleisch mit günstigeren Rindfleischstücken, um Kosten zu sparen.",
+        "Verwende Chorizo von der Hausmarke statt spezieller Importware."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "südamerikanisches-bbq",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5978,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-uruguayan-parrillada/",
+      "components": [
+        {
+          "key": "cdf9df29-f5f3-5a1b-9fe4-4218be31b749",
+          "name": "Zutaten",
+          "servingGrams": 410,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbbfefc8-8f95-5746-9cc7-08422f648702",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "fcf9a549-e102-5ee1-abe9-ec081aaeb439",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "42d39b8a-22b2-5607-bd93-50f61d60ac2f",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11345d83-4e8a-5a05-9fec-2ff268f93071",
+              "ingredientName": "Chorizo",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Würste"
+            },
+            {
+              "key": "630f02a7-01cb-5bbe-ba36-1242cf68d5ca",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 oz, in dicke Scheiben geschnitten"
+            },
+            {
+              "key": "055675b5-d037-51ab-8e8d-193309bf650d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "99df79a5-113f-5a39-8cf3-ec27a4745aee",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3cf1f117-8e64-5872-af6c-4d4b9b5db635",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel getrocknet"
+            },
+            {
+              "key": "5f6b06a0-8b6a-5a3f-820b-828bf6ad81cd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6911c650-05db-56ff-976b-bea5a5d95d3a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, in dicke Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Grill auf mittelhohe Hitze vor und lege die Fleischsorten getrennt bereit: Rippchen, Hähnchen, Lamm und Chorizo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze alle Fleischstücke auf beiden Seiten mit Salz, schwarzem Pfeffer und Oregano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Rinderrippchen zuerst auf die heißeste Stelle des Grills und gare sie 20 Minuten. Wende sie alle 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Rippchen auf die kühlere Seite und gib Hähnchenbrust und Lammkoteletts dazu. Grille das Hähnchen 12–15 Minuten und das Lamm 8–10 Minuten; wende beides häufig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege Chorizo und rote Zwiebelscheiben auf den Grill und gare sie 8–10 Minuten, bis die Wurst durch und die Zwiebel angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche Mozzarellascheiben mit Olivenöl und grille sie auf jeder Seite 1 Minute, bis sie leicht gebräunt sind und zu schmelzen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte das gegrillte Fleisch und den Käse auf einer großen Platte an und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a1/b4/e8/a1b4e819c67773b8356a5afe780e98d0.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a1/b4/e8/a1b4e819c67773b8356a5afe780e98d0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-korean-galbi",
+      "slug": "gen-korean-galbi",
+      "title": "Koreanisches Galbi",
+      "instructions": "Koreanisches BBQ-Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte den Metzger, Short Ribs dünn aufzuschneiden, oder kaufe bereits geschnittenes koreanisches Galbi.",
+        "Verwende Apfelsaft statt geriebener Birne, wenn frische Birnen teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisches-bbq",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5979,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korean-galbi/",
+      "components": [
+        {
+          "key": "71157f5b-5505-5a0c-8409-3aff611a7574",
+          "name": "Zutaten",
+          "servingGrams": 99.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d50df7d-dea6-518e-b2a4-fe4df4476b6d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund (dünn geschnitten)"
+            },
+            {
+              "key": "cb47f406-4497-54af-8c74-8f03a5e97fe0",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "a2bc45b9-7464-5ea4-b30d-65e2dac07e8c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a2f47443-86a5-5f19-a5d7-d91eb933d41c",
+              "ingredientName": "Birne",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, gerieben"
+            },
+            {
+              "key": "fcaa7e81-1fd7-5a9a-9ac8-49c9bc7a043f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "d4df8005-91bf-5f87-b84e-cc4b8c402e63",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "469ca1ae-85d8-5a3e-8583-6e64d3c9f4f2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "17851eac-3c00-5832-80c4-22ec7a0ba543",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "809da3da-4b1c-548c-8a7f-e35e4e3b2400",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2, gehackt"
+            },
+            {
+              "key": "f05c3ec9-6a04-58d2-ac27-bb84ff261408",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, braunen Zucker, geriebene Birne, Knoblauch, Sesamöl, Ingwer und Reisessig in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Rinderrippchen in eine große Form und gieße die Marinade darüber. Wende das Fleisch, damit es gleichmäßig bedeckt ist, und stelle es mindestens 4 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Fleisch 30 Minuten vor dem Grillen aus dem Kühlschrank und heize den Grill auf hohe Hitze vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die marinierten Rippchen auf den geölten Rost und grille sie für medium-rare auf jeder Seite 2–3 Minuten. Achte darauf, dass keine Flammen hochschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das gegarte Galbi auf eine Servierplatte und bestreue es mit gehackten Frühlingszwiebeln und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere es sofort mit gedämpftem Reis und eingelegtem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1696616231/k/Photo/Recipes/2023-10-galbi/galbi-216_1.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1696616231/k/Photo/Recipes/2023-10-galbi/galbi-216_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1015 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-raclette",
+      "slug": "gen-raclette",
+      "title": "Raclette",
+      "instructions": "Schweizer Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Raclettekäse in größeren Mengen im Großhandel kaufen.",
+        "Normalen kräftigen Cheddar oder Fontina als preisgünstige Alternative verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4470,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-raclette/",
+      "components": [
+        {
+          "key": "a3ba276a-ac1b-526d-94d0-098247e39a9f",
+          "name": "Zutaten",
+          "servingGrams": 177.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e53e6cf-e00d-5362-bb0e-4718a5c82a70",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ca162769-637b-59e4-9ce5-f02fce235177",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4f08ffe8-a74b-5ffa-b481-3d0e5baefcd4",
+              "ingredientName": "Schalotte",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2fdae57a-7984-5d36-8f17-e8543c60902d",
+              "ingredientName": "Eingelegte Jalapenos",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Glas"
+            },
+            {
+              "key": "bac55dfc-6008-576e-8691-445a0e95e19e",
+              "ingredientName": "Schinken",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "15381da7-cfa5-52a7-8a4d-4e187023892a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3e2f25e7-22b2-56f9-8d6c-6883cab105fd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7293de3e-deb8-5429-80d1-072ebd16b16f",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln und Perlzwiebeln in gesalzenem Wasser 15-18 Minuten kochen, bis sie sich mit einer Gabel leicht einstechen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittenen Raclettekäse, Schinken und vorbereitetes Gemüse auf einer Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Raclette- oder gusseisernes Pfännchen bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Käsescheiben oder kleine Stücke vom Käselaib auf die heiße Fläche legen und etwa 2-3 Minuten schmelzen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald der Käse geschmolzen ist und Blasen wirft, den geschmolzenen Käse auf einen warmen Teller schaben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dazu gekochte Kartoffeln, Zwiebeln, Cornichons, Schinken und frischen Pfeffer reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für jeden Gast wiederholen und das Pfännchen während der gesamten Mahlzeit laufend nachfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipeimages.migros.ch/crop/v-w-4000-h-4000-a-center_center/d920e5c2e1fd0355e5e2a5d6c7ef587f31a1b36b/raclette-mit-speck-sellerie-topping-0-1-1.jpg",
+          "sourcePageUrl": "https://recipeimages.migros.ch/crop/v-w-4000-h-4000-a-center_center/d920e5c2e1fd0355e5e2a5d6c7ef587f31a1b36b/raclette-mit-speck-sellerie-topping-0-1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-r-sti",
+      "slug": "gen-r-sti",
+      "title": "Rösti",
+      "instructions": "Schweizer Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln auf dem Bauernmarkt in größeren Mengen kaufen.",
+        "Nur Pflanzenöl verwenden, um die Butterkosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "schweizerisch",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4471,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-r-sti/",
+      "components": [
+        {
+          "key": "bbd92306-4b35-57bf-8015-836337715b86",
+          "name": "Zutaten",
+          "servingGrams": 78.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "84351f35-b5c3-5bbe-be13-d9c7a97abfab",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "90a6c661-ae5b-5fa5-8ea0-b02a2bf017f2",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 kleines Stück"
+            },
+            {
+              "key": "8ba2bcce-d141-5a01-a861-4a99d919060f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "02e24b12-e8b1-5313-992f-475170343a70",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "9ce930f0-0c3d-5f0d-9d99-3fea6218f924",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "be08cc38-0aac-5595-ab5f-0a8a1fba887c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6eb445fb-3012-5a9c-a4b5-83deefd1a148",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und fein in ein Sieb reiben; überschüssige Flüssigkeit mit Küchenpapier ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die halbe Zwiebel fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geriebene Kartoffeln mit gehackter Zwiebel, Salz und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1.5 EL Butter und 1 EL Öl in einer großen beschichteten Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hälfte der Kartoffelmischung fest in die Pfanne drücken und dabei einen flachen, gleichmäßigen Puffer formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "6-8 Minuten ohne Rühren braten, bis die Unterseite goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller gleiten lassen, die restliche Butter und das restliche Öl in die Pfanne geben, die Rösti zurück in die Pfanne wenden und die andere Seite 6-8 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf eine Servierplatte gleiten lassen, in Spalten schneiden und mit Schnittlauch bestreuen; heiß mit Apfelmus oder saurer Sahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/y0W8T21gTtn7TvVYJlothnU1W54=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/roesti-step-by-step-1447190-step-07-5bd8c80ac9e77c0026656bb4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/y0W8T21gTtn7TvVYJlothnU1W54=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/roesti-step-by-step-1447190-step-07-5bd8c80ac9e77c0026656bb4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lplermagronen",
+      "slug": "gen-lplermagronen",
+      "title": "Älplermagronen",
+      "instructions": "Schweizer Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Statt Gruyère reifen Cheddar verwenden, um die Käsekosten um 40 % zu senken.",
+        "Nudeln in größeren Mengen kaufen, da sie pro Pfund deutlich günstiger sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4472,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lplermagronen/",
+      "components": [
+        {
+          "key": "4024cf5f-d93a-51f4-9b1d-663bbf488b1b",
+          "name": "Zutaten",
+          "servingGrams": 240.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "6634d623-1825-5c02-99ca-8f2a71209b33",
+              "ingredientName": "Ellenbogen-Makkaroni",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "e2549caa-ce01-5e23-af3e-84054fd659c8",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6296b94a-840d-5382-8297-a130531c43e2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "8551bdbe-9971-5099-93c7-e861446ea9d7",
+              "ingredientName": "Gruyère",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bad5e314-512d-5b59-ba40-9cec27829b69",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "c734e038-abf4-531b-acf4-4fca0161f566",
+              "ingredientName": "Schwere Sahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "19fbafe1-3c56-54c4-a295-f46bbc73decc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4560857f-9b4f-5323-93d5-68eed04d57ba",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "80a7e049-aa54-5121-bbb1-b716a3370d9c",
+              "ingredientName": "Schnittlauch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fb786aa9-cb6e-58db-b37a-9a2ad166a9cc",
+              "ingredientName": "Apfelmus",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und in kleine Würfel schneiden; in gesalzenem kochendem Wasser 8 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Makkaroni in denselben Topf geben und alles zusammen garen, bis beides weich ist, etwa 8 weitere Minuten; abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln in feine Scheiben schneiden und in 2 EL Butter in einer Pfanne bei mittlerer Hitze etwa 8 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Im selben Topf gekochte Nudeln und Kartoffeln, die restliche Butter, Sahne und den geriebenen Käse vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei niedriger Hitze vorsichtig erhitzen und häufig umrühren, bis der Käse geschmolzen und alles cremig und heiß ist, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die karamellisierten Zwiebeln unterheben und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Schalen verteilen, mit frischem Schnittlauch bestreuen und mit Apfelmus servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2020/09/Alpine-Macaroni-Alplermagronen-4.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2020/09/Alpine-Macaroni-Alplermagronen-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-papet-vaudois",
+      "slug": "gen-papet-vaudois",
+      "title": "Papet Vaudois",
+      "instructions": "Schweizer Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln und Lauch im Herbst in größeren Mengen kaufen, um Geld zu sparen.",
+        "Butter der Hausmarke verwenden, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schweizerisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4473,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-papet-vaudois/",
+      "components": [
+        {
+          "key": "cbfd58e5-6c94-5527-9aa2-bbbc29287ae3",
+          "name": "Zutaten",
+          "servingGrams": 136.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "94df1a46-9754-5d9a-9200-5a5c3f8a60b9",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "1a0aa1b4-a4c0-53af-b2ca-5b35b49af442",
+              "ingredientName": "Lauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d1052193-5f93-5731-955c-dea871e48ab5",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "db649b14-511e-5ba8-b0e7-d3e997610a88",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "26d6abf2-c501-56df-81ba-9380e32444d2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c56f1187-c497-56e8-90a7-4cdcaa468457",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6f154e92-4499-5384-b519-d5909a90182e",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und in 1-Zoll große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lauch putzen, die dunkelgrünen Teile entfernen und in 1-Zoll dicke Ringe schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen großen Topf mit gesalzenem Wasser zum Kochen bringen und Kartoffeln und Lauch hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "20 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Gemüse abgießen und zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter und Milch dazugeben und stampfen, bis die Masse cremig, aber noch leicht stückig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz, Pfeffer und Muskatnuss würzen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,w_744,ar_5:4/v1/img/recipes/45/71/69/3AGHblmHR42QCDRHBZLu-DSC06933.JPG",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,w_744,ar_5:4/v1/img/recipes/45/71/69/3AGHblmHR42QCDRHBZLu-DSC06933.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-malakoff",
+      "slug": "gen-malakoff",
+      "title": "Malakoff",
+      "instructions": "Schweizer Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Käse und Brot der Hausmarke verwenden, um Kosten zu sparen.",
+        "Brot kurz vor Ladenschluss kaufen, um Rabatte zu bekommen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schweizerisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4474,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-malakoff/",
+      "components": [
+        {
+          "key": "f52057ba-a3bf-53c3-92a2-700f49162e12",
+          "name": "Zutaten",
+          "servingGrams": 155,
+          "position": 0,
+          "items": [
+            {
+              "key": "10f66688-c9d4-5fcc-b116-cf231b128cf9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f7bdde69-2248-55c3-bb99-5a9c503fdb5d",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "701b835e-c9cb-5abf-a434-743ed488cedd",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6781428-69a9-5465-9957-25d887f3ddec",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b7fac4d1-d46c-54e6-bc8a-845173fcf546",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a5fc4008-2268-59f2-9a67-1260ae752e78",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6583c9fd-46ed-5171-83ed-9e94d997b77a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1713c2c7-af70-56b4-adce-e37f753a3afb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gruyère reiben und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Rinde von den Brotscheiben abschneiden und das Brot in Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier und Milch in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brotwürfel und Käse abwechselnd in einer Kastenform schichten, mit einer Käseschicht abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Eiermischung über das Brot gießen und 10 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öl in einer Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Laib auf ein Schneidebrett stürzen und in 4 dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Scheiben von beiden Seiten goldbraun braten, etwa 3-4 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://fondue.bg/wp-content/uploads/2018/05/swiss-malakoff.jpg",
+          "sourcePageUrl": "https://fondue.bg/wp-content/uploads/2018/05/swiss-malakoff.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1268 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-molasses-spice-cookies",
+      "slug": "bake2-molasses-spice-cookies",
+      "title": "Klassische Melasse-Gewürzkekse",
+      "instructions": "Weiche, saftige Melasse-Gewürzkekse nach traditioneller Art mit einer aufgerissenen Zuckerkruste. Zimt, Ingwer und Nelken runden das kräftige Melassearoma ab. Innen sind die Kekse zart, am Rand leicht knusprig. Typisch ist die Hülle aus Kristallzucker, die beim Auseinanderlaufen und Festwerden aufreißt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Glas ungeschwefelte Melasse für den Vorrat. Sie hält monatelang, und schon eine Vierteltasse reicht weit, sodass eine Portion Kekse kaum etwas kostet.",
+        "Portioniere den Teig mit zwei gewöhnlichen Löffeln und den Händen statt mit einem Keksportionierer. Das Wälzen in Zucker kaschiert Unebenheiten.",
+        "Dunkelbrauner Zucker schmeckt am besten. Hast du nur hellbraunen Zucker, gib einen zusätzlichen Teelöffel Melasse für ein kräftigeres Aroma in den Teig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cloves-ground",
+          "swap": "Falls du keine Nelken hast, verwende 3/4 TL Piment oder gemahlene Muskatnuss",
+          "savings": "So musst du kein ganzes Glas Nelken für ein einziges Rezept kaufen"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Verwende 3/4 Tasse pflanzliche Butter für eine milchfreie Variante mit fast identischer saftiger Konsistenz",
+          "savings": "Kostet ähnlich viel und eignet sich bei Verzicht auf Milchprodukte"
+        },
+        {
+          "forIngredientId": "molasses",
+          "swap": "Wenn keine Melasse erhältlich ist, sorgen dunkler Maissirup und zusätzlich 1/2 TL Zimt und Ingwer für eine ähnliche Konsistenz",
+          "savings": "Verwendet eine gängigere Vorratszutat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "kekse",
+        "melasse",
+        "gewürze",
+        "festtage",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7530,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-molasses-spice-cookies/",
+      "components": [
+        {
+          "key": "98e4016d-b5da-5735-baad-8dc74c59bf8c",
+          "name": "Zutaten",
+          "servingGrams": 48.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "463b2d9e-1020-5ee8-bd0d-7cae31dc5699",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "767c7d2c-f924-57d0-8add-556ad50db969",
+              "ingredientName": "Natron",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL Natron"
+            },
+            {
+              "key": "a5e1be9e-9383-5e6c-8d17-73ac886f05c6",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/2 TL gemahlener Zimt"
+            },
+            {
+              "key": "1585289c-9c70-5827-a280-374a57f6550a",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 TL gemahlener Ingwer"
+            },
+            {
+              "key": "b6f293dc-bdac-5d84-a69d-966c42d0d934",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 TL gemahlene Nelken"
+            },
+            {
+              "key": "f7bd1cdc-efd3-55f0-b03c-20334113fe56",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "8fd4e691-8003-50de-ba7c-420e80ed43b1",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Buttersticks) ungesalzene Butter, weich"
+            },
+            {
+              "key": "3874c346-cd6a-5bd4-83d8-ebd7a913997b",
+              "ingredientName": "brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse dunkelbrauner Zucker, fest eingedrückt"
+            },
+            {
+              "key": "4c0dcbc8-d6fd-5780-be2c-52531b9496e2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 großes Ei"
+            },
+            {
+              "key": "ca7493b4-27c7-527a-9d41-a8fc00bc3cc9",
+              "ingredientName": "Melasse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse ungeschwefelte (dunkle) Melasse"
+            },
+            {
+              "key": "20df5639-4368-571c-a59b-a89abc658673",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "15bfbf00-9d1a-5cbf-bc9f-8f27dca20eb9",
+              "ingredientName": "weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker zum Wälzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Natron, Zimt, Ingwer, Nelken und Salz in einer mittelgroßen Schüssel mit dem Schneebesen vermischen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter und braunen Zucker in einer großen Schüssel mit dem elektrischen Handrührgerät auf mittlerer bis hoher Stufe etwa 2 bis 3 Minuten hell und luftig aufschlagen. Ei, Melasse und Vanille zugeben und vollständig unterrühren. Dabei einmal die Schüsselwände abschaben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die trockenen Zutaten zu den feuchten geben und auf niedriger Stufe nur so lange verrühren, bis keine trockenen Stellen mehr sichtbar sind. Der Teig ist weich und klebrig. Abdecken und mindestens 1 Stunde oder bis zu 2 Tage kalt stellen, damit er fester wird und sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Roste im oberen und unteren Ofendrittel einschieben und den Ofen auf 350°F (175°C) vorheizen. Zwei Backbleche mit Backpapier auslegen. Den Kristallzucker zum Wälzen in eine kleine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom gekühlten Teig Portionen von 1 1/2 EL abnehmen, zwischen den Handflächen zu Kugeln rollen und großzügig in Kristallzucker wälzen. Mit etwa 2 1/2 Zoll Abstand auf die vorbereiteten Bleche setzen, jeweils 12 pro Blech, damit sie auseinanderlaufen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "10 bis 12 Minuten backen. Nach der Hälfte der Zeit die Bleche oben und unten tauschen und jeweils umdrehen. Die Kekse sollen aufgegangen und auseinandergelaufen sein und eine rissige Oberfläche haben; die Mitte darf noch etwas weich und nicht ganz durchgebacken aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Kekse 5 Minuten auf dem Blech fest werden lassen, dann auf ein Kuchengitter legen. Beim Abkühlen werden sie fester, bleiben innen aber saftig und weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einer Scheibe Brot in einem luftdichten Behälter bei Raumtemperatur lagern, damit sie weich bleiben. Sie halten bis zu 5 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Molasses-Cookies-2006March09.JPG/1280px-Molasses-Cookies-2006March09.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Molasses-Cookies-2006March09.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Mark Fickett (Naib), CC BY-SA 2.5, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Melasse-Gewürzkekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-white-chocolate-macadamia-cookies",
+      "slug": "bake2-white-chocolate-macadamia-cookies",
+      "title": "Kekse mit weißer Schokolade und Macadamianüssen",
+      "instructions": "Der Klassiker wie aus der Bäckerei: goldbraun, innen saftig und am Rand knusprig, mit süßer weißer Schokolade und buttrigen Macadamianüssen. Sorgfältiges Aufschlagen von Butter und Zucker sowie eine Nacht im Kühlschrank sorgen für das typische volle Aroma und die richtige Struktur.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 13,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Nüsse und weiße Schokolade lose statt in kleinen Backzutatenpackungen. Du brauchst jeweils nur 1 Tasse; lose Ware ist pro Unze deutlich günstiger.",
+        "Macadamianüsse sind teuer. Ersetze die Hälfte durch Cashewkerne. Das Aroma bleibt buttrig, und die Kosten sinken deutlich.",
+        "Falls du nur weißen Zucker hast, mische pro Tasse 1 EL Melasse darunter. So erhältst du braunen Zucker und sparst dir eine zweite Packung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cashews",
+          "swap": "Wenn Macadamianüsse fehlen, sorgen Pekannüsse oder Pinienkerne für eine ähnlich buttrige Fülle.",
+          "savings": "Pekannüsse kosten ungefähr halb so viel wie Macadamianüsse."
+        },
+        {
+          "forIngredientId": "white-chocolate-chips",
+          "swap": "Hacke eine Tafel weiße Schokolade statt Schokotropfen zu verwenden. Das ergibt größere geschmolzene Schokoladenstücke und mehr Geschmack.",
+          "savings": "Eigenmarken sind pro Unze oft günstiger als Schokotropfen bekannter Marken."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Bräune die Butter zuerst: schmelzen und erhitzen, bis sie nussig duftet und bernsteinfarben ist, dann wieder fest werden lassen. Das sorgt für ein kräftigeres Karamellaroma.",
+          "savings": "Gleiche Kosten, noch aromatischere Kekse."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "kekse",
+        "dessert",
+        "klassisch",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7531,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-white-chocolate-macadamia-cookies/",
+      "components": [
+        {
+          "key": "163d6416-e098-5cb6-8048-e79f436fff1f",
+          "name": "Zutaten",
+          "servingGrams": 69.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "75bd0ebd-76ce-59ae-963a-072bea0cbd26",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "414bf641-32fe-564e-8a77-89ef8c41f0a0",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "e3f86df5-ee1d-55dd-afba-e849dbfd0ad8",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "c3e7d952-f617-55d4-9617-faf1f9d5d457",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse (2 Buttersticks) ungesalzene Butter, weich"
+            },
+            {
+              "key": "ef5871f4-d693-5aa7-9bcd-fa6ce6558b62",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse hellbrauner Zucker, fest eingedrückt"
+            },
+            {
+              "key": "8cf4e740-d353-5ead-a78e-7b2e9e413737",
+              "ingredientName": "weißer Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker"
+            },
+            {
+              "key": "db12b9ba-04bb-5230-b66a-b42bb7bc061e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "442fc8e6-79c2-5169-9f50-0abcb37c3af9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "8c3adea9-ff3d-5201-90d4-c3e0cd58bfca",
+              "ingredientName": "weiße Schokotropfen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse weiße Schokotropfen (oder gehackte weiße Schokolade)"
+            },
+            {
+              "key": "cb5e3cea-5a62-5af8-9ee8-769424161c14",
+              "ingredientName": "Cashewkerne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse geröstete Macadamianüsse, grob gehackt (Cashewkerne als ähnlichster Eintrag im Zutatenkatalog)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Natron und Salz in einer mittelgroßen Schüssel mit dem Schneebesen vermischen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die weiche Butter mit braunem Zucker und Kristallzucker in einer großen Schüssel auf mittlerer bis hoher Stufe 2 bis 3 Minuten hell und luftig aufschlagen. Die eingeschlagene Luft macht die Kekse locker und zart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Eier einzeln unterrühren, dann die Vanille zugeben. Dabei die Schüsselwände abschaben, bis die Masse glatt und gleichmäßig verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die trockenen Zutaten zugeben und auf niedriger Stufe nur so lange rühren, bis keine trockenen Stellen mehr sichtbar sind. Nicht zu lange rühren. Weiße Schokotropfen und gehackte Macadamianüsse von Hand unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig abdecken und mindestens 1 Stunde, am besten über Nacht, kalt stellen. So wird die Butter fest, die Kekse laufen weniger auseinander und das Aroma wird kräftiger. Zum Backen den Ofen auf 350F (175C) vorheizen und zwei Bleche mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeweils 2 EL Teig abnehmen, etwa 1.5 oz pro Portion, und mit 2 Zoll Abstand auf die vorbereiteten Bleche setzen. Für die typische Bäckereioptik einige zusätzliche Nüsse und Schokotropfen daraufdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Bleche einzeln 11 bis 13 Minuten backen, bis die Ränder fest und leicht goldbraun sind, die Mitte aber noch weich und nicht ganz durchgebacken aussieht. Beim Abkühlen werden die Kekse fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Kekse 5 Minuten auf dem heißen Blech ruhen lassen, dann auf einem Kuchengitter vollständig abkühlen lassen. Luftdicht verpackt halten sie bis zu 4 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/White_chocolate_and_macadamia_cookies.jpg/1280px-White_chocolate_and_macadamia_cookies.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:White_chocolate_and_macadamia_cookies.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Andie712b, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Kekse mit weißer Schokolade und Macadamianüssen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-double-chocolate-cookies",
+      "slug": "bake2-double-chocolate-cookies",
+      "title": "Doppelte Schokoladenkekse",
+      "instructions": "Üppige, saftige Schokoladenkekse aus geschmolzener dunkler Schokolade und alkalisiertem Kakao, mit reichlich geschmolzenen Zartbitter-Schokotropfen. Eine rissige Oberfläche, ein weicher Kern wie bei Brownies und intensiver Schokoladengeschmack in jedem Bissen.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Tafel dunkle Backschokolade und hacke sie selbst, statt teure Schokoladentaler zu verwenden. Sie schmilzt genauso gut und kostet deutlich weniger.",
+        "Alkalisierter Kakao und Schokotropfen der Eigenmarke funktionieren hier ebenso gut. Die geschmolzene dunkle Schokolade trägt das Aroma, deshalb kannst du bei den weiteren Zutaten sparen.",
+        "Verzichte auf Backpapier und fette das Blech leicht mit vorhandener Butter ein. Lass die Kekse eine Minute länger abkühlen, damit sie sich gut lösen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dutch-cocoa",
+          "swap": "Gewöhnliches ungesüßtes Kakaopulver funktioniert ebenfalls. Die Kekse werden etwas heller und leicht säuerlicher, schmecken aber weiterhin hervorragend.",
+          "savings": "Spart etwa $2 gegenüber speziellem alkalisiertem Kakao"
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "Gehackte dunkle Schokolade, weiße Schokotropfen oder eine Mischung ergeben unterschiedlich schmeckende geschmolzene Schokoladenstücke.",
+          "savings": "Verwende die Schokolade, die gerade im Angebot ist"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Kokosöl zusammen mit der Schokolade schmelzen. Das ergibt eine Variante mit weniger Milchprodukten und einer dezenten aromatischen Fülle.",
+          "savings": "Pro Portion oft günstiger als Butter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "dessert",
+        "schokolade",
+        "kekse",
+        "saftig"
+      ],
+      "defaultServings": 18,
+      "status": "published",
+      "sortOrder": 7532,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-double-chocolate-cookies/",
+      "components": [
+        {
+          "key": "085a52c4-b170-5a56-93d5-f731a4b41a9e",
+          "name": "Zutaten",
+          "servingGrams": 70.91,
+          "position": 0,
+          "items": [
+            {
+              "key": "72778882-fd89-5940-8f1f-faec6738155a",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 oz dunkle Schokolade (60-70%), gehackt"
+            },
+            {
+              "key": "f7efd3ef-bf06-5329-8b2b-3363b33064e5",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Butterstick) ungesalzene Butter"
+            },
+            {
+              "key": "52739a48-846c-5ed8-bf6c-c52d81512a32",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "ac08a1b7-7d0f-5b4f-aacd-b65846aee51e",
+              "ingredientName": "Alkalisierter Kakao",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 EL alkalisiertes Kakaopulver"
+            },
+            {
+              "key": "7491cd19-9c56-57f7-8eff-c6cd986b6512",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Natron"
+            },
+            {
+              "key": "436bd932-b95b-58fd-849d-e40330e606ad",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 TL feines Salz"
+            },
+            {
+              "key": "93d78198-cc65-54b2-9141-4efb797a1832",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "006690f7-ff72-51eb-a4aa-26e3b51ee46c",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "8f8f9803-1e75-5541-826e-bb4d7f506ed3",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse hellbrauner Zucker, fest eingedrückt"
+            },
+            {
+              "key": "48737eec-8923-55c0-a23d-7b8732d61655",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "82b81fee-ebe4-5c79-a005-1c80262c8d23",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 Tasse (etwa 4.5 oz) Zartbitter-Schokotropfen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Wasserbad vorbereiten: Gehackte dunkle Schokolade und Butter in eine hitzebeständige Schüssel über einen Topf mit kaum siedendem Wasser geben. Rühren, bis alles geschmolzen und glänzend ist. Vom Herd nehmen und 10 Minuten abkühlen lassen, bis die Mischung nur noch handwarm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, alkalisierten Kakao, Natron und Salz in einer separaten Schüssel mit dem Schneebesen vermischen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier, Kristallzucker und braunen Zucker in einer großen Schüssel mit Handrührgerät oder Küchenmaschine auf hoher Stufe 3 bis 4 Minuten schlagen, bis die Masse hell und dick ist und bandförmig vom Rührbesen läuft. Dieser Schritt sorgt für die typische rissige Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf niedriger Stufe die abgekühlte Schokoladenmischung und Vanille einrühren, bis die Masse glatt und gleichmäßig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die trockenen Zutaten mit einem Teigschaber von Hand nur so lange unterheben, bis keine Mehlspuren mehr sichtbar sind. Die Zartbitter-Schokotropfen unterheben. Den dickflüssigen, saftigen Teig 20 bis 30 Minuten kalt stellen, bis er sich portionieren lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Inzwischen den Ofen auf 350F (175C) vorheizen und zwei Backbleche mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gehäufte Esslöffel Teig abnehmen, jeweils etwa 1.5 EL, und mit 2 Zoll Abstand auf die Bleche setzen, je 9 pro Blech. Die Bleche einzeln 10 bis 12 Minuten backen, bis die Oberfläche rissig und die Ränder fest sind, die Mitte aber noch etwas weich aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Kekse 5 Minuten auf dem Blech fest werden lassen und dann auf ein Kuchengitter legen. Für besonders glänzende Oberflächen direkt nach dem Backen einige zurückbehaltene Schokotropfen auf die Kekse drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Reverse_Chocolate_Chunk_Cookie_-_GAIL%27s_2025-07-14.jpg/1280px-Reverse_Chocolate_Chunk_Cookie_-_GAIL%27s_2025-07-14.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Reverse_Chocolate_Chunk_Cookie_-_GAIL%27s_2025-07-14.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto: Doppelte Schokoladenkekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-spritz-cookies",
+      "slug": "bake2-spritz-cookies",
+      "title": "Klassisches Spritzgebäck",
+      "instructions": "Zartes, buttriges skandinavisches Spritzgebäck mit knusprigen Rändern, das auf der Zunge zergeht. Viel echte Butter, etwas Ei, Mandel- und Vanillearoma geben ihm seinen klassischen Geschmack. Der weiche Teig lässt sich mit einer Gebäckpresse zu Kränzen, Sternen und Rosetten formen. Ohne Triebmittel behält er seine Form und wird beim Backen zart goldgelb.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Butter rund um die Feiertage im Angebot und friere sie ein. Dieses Rezept besteht zu einem großen Teil aus Butter; je günstiger sie ist, desto günstiger wird das Gebäck.",
+        "Du brauchst keine eigene Gebäckpresse: Fülle den Teig in einen stabilen Gefrierbeutel mit abgeschnittener Ecke und einer robusten Sterntülle und spritze Sterne oder Rosetten.",
+        "Mandelextrakt ist teuer, wird aber nur tropfenweise benötigt. Ein kleines Fläschchen hält Jahre und ist pro Portion günstiger als gedacht. Zur Not reicht Vanille allein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "Zusätzlich 1/2 TL Vanille oder 1/2 TL Zitronenabrieb für eine Zitrusvariante verwenden",
+          "savings": "Spart den Kauf eines weiteren Fläschchens"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Puderzucker in derselben Menge von 3/4 Tasse ergibt eine noch feinere, zartere Krume",
+          "savings": "Kaum ein Kostenunterschied"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Feste pflanzliche Butter im Block für eine milchfreie Variante verwenden",
+          "savings": "Vergleichbare Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "skandinavisch",
+        "backen",
+        "kekse",
+        "festtage",
+        "weihnachten",
+        "butterkekse",
+        "gebäckpresse",
+        "zum-vorbereiten",
+        "dessert"
+      ],
+      "defaultServings": 48,
+      "status": "published",
+      "sortOrder": 7533,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-spritz-cookies/",
+      "components": [
+        {
+          "key": "89c6f1fc-783f-5796-ab33-7464b27fa806",
+          "name": "Zutaten",
+          "servingGrams": 21.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4e39dca-165d-55d1-b3df-0831550eb5f6",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (2 Buttersticks) ungesalzene Butter, auf kühle Raumtemperatur gebracht"
+            },
+            {
+              "key": "f54dcf8a-bb31-59c4-b57c-369a96d360cc",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "69e046f3-b0a4-52a0-a974-e61338411d6e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Ei, zimmerwarm"
+            },
+            {
+              "key": "ffa6ded1-ee6a-5645-80a7-c459b5af4293",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "f6e2b55d-8a82-5afc-9290-542cc80488e5",
+              "ingredientName": "Mandelextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Mandelextrakt"
+            },
+            {
+              "key": "a4098be1-460a-5f6c-b8c4-d14b14895e5a",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "cac17d6b-3e14-56a1-a268-2ac1e4eca0c6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen Rost in der Ofenmitte einschieben und auf 375 F (190 C) vorheizen. Kühle, ungefettete Backbleche bereitstellen. Der Teig muss am ungefetteten Blech mit Raumtemperatur haften, damit er sich aus der Presse löst. Daher weder Backpapier verwenden noch einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter und Zucker in einer großen Schüssel auf mittlerer bis hoher Stufe etwa 3 bis 4 Minuten hell und luftig aufschlagen. Die Schüsselwände abschaben. Ei, Vanille und Mandelextrakt vollständig unterrühren, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl und Salz vermischen und in zwei Portionen auf niedriger Stufe in die Buttermasse einarbeiten, bis ein weicher, glatter Teig entsteht. Nicht zu lange rühren und nicht kalt stellen. Der Teig muss weich und geschmeidig bleiben, damit er sich sauber auspressen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in die Gebäckpresse mit der gewünschten Motivscheibe füllen und Luftblasen herausdrücken. Die Presse flach auf das kühle, ungefettete Blech stellen, einmal drücken und gerade anheben. Zwischen den Keksen etwa 1 Zoll Abstand lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Haftet ein Keks nicht am Blech, sind Teig oder Blech möglicherweise zu warm oder fettig. Den Teig zurücknehmen, das Blech abwischen und erneut versuchen. Misslungene Formen lassen sich problemlos neu pressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Bleche einzeln 8 bis 10 Minuten backen, bis das Gebäck fest und an den Rändern gerade eben goldgelb ist, oben aber noch hell bleibt. Nicht bräunen lassen, sonst trocknet es aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Kekse 2 bis 3 Minuten auf dem Blech fest werden lassen und dann auf einem Kuchengitter vollständig abkühlen lassen. Das Blech vor jeder weiteren Portion vollständig abkühlen lassen, damit der nächste Teig gut haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Das abgekühlte Gebäck luftdicht bei Raumtemperatur bis zu 2 Wochen lagern. Es lässt sich auch sehr gut bis zu 2 Monate einfrieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Spritz_with_no_coloring.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Spritz_with_no_coloring.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "MarkTraceur, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassisches Spritzgebäck",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-speculaas",
+      "slug": "bake2-speculaas",
+      "title": "Klassischer niederländischer Spekulatius",
+      "instructions": "Traditionelles Sinterklaas-Gebäck mit kräftiger Karamellnote und knusprigem Biss. Eine großzügige Mischung aus Zimt, Nelken, Muskatnuss, Ingwer, Kardamom und weißem Pfeffer sorgt für das typische Spekulatiusaroma. Brauner Zucker und eine kurze Ruhezeit geben den Keksen ihre charakteristische Knusprigkeit und ihren warmen, würzigen Duft.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Gewürze lose und mahle nur die benötigte Menge. Selbst gemischtes Spekulatiusgewürz kostet nur einen Bruchteil einer fertigen Mischung und hält monatelang.",
+        "Lass die Mandelstifte weg, um zu sparen. Sie sind traditionell, aber optional. Oder verwende vorhandene gehackte Erdnüsse als Belag.",
+        "Eine Portion ergibt etwa 30 Kekse, die in einer Dose zwei Wochen knusprig bleiben. Damit sind sie ein günstiger Snack oder ein ergiebiges Geschenk zum Vorbereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cardamom",
+          "swap": "Ohne Kardamom zusätzlich 1/4 TL Zimt und eine Prise Piment verwenden",
+          "savings": "Vermeidet den Kauf eines teuren Gewürzes für nur ein Rezept"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Für eine milchfreie, vegane Variante kalte pflanzliche Butter verwenden und die Milch durch Soja- oder Haferdrink ersetzen",
+          "savings": "Vergleichbare Kosten und eine vegane Variante"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Weißer Zucker mit 1 EL Melasse ahmt die kräftige Karamellnote von dunkelbraunem Zucker nach",
+          "savings": "Verwendet vorhandene Vorräte"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "backen",
+        "kekse",
+        "festtage",
+        "gewürzt"
+      ],
+      "defaultServings": 30,
+      "status": "published",
+      "sortOrder": 7534,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-speculaas/",
+      "components": [
+        {
+          "key": "770fa308-e186-5e1e-a63e-f6097e8e9f23",
+          "name": "Zutaten",
+          "servingGrams": 37.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "a24f760d-b4e5-5140-8db4-597825ff7354",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "38c25298-b9a1-59ee-938a-8ad882c6c3f0",
+              "ingredientName": "brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse dunkelbrauner Zucker, fest eingedrückt"
+            },
+            {
+              "key": "68635553-6348-54ca-9950-70b60b09a991",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Buttersticks) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "304c27e5-2904-57aa-8244-879f5628183e",
+              "ingredientName": "Zimt",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 TL gemahlener Zimt"
+            },
+            {
+              "key": "58d70c25-40bb-588e-ba8c-22561ce632f2",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL gemahlene Nelken"
+            },
+            {
+              "key": "a0e85454-645e-5410-b83b-39b13cbfa14c",
+              "ingredientName": "Muskatnuss",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 TL gemahlene Muskatnuss"
+            },
+            {
+              "key": "acbfbdcf-5cbc-5a3a-a4b2-fe4c02f12cdf",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL gemahlener Ingwer"
+            },
+            {
+              "key": "cdb9ae07-6f30-5058-851b-e46146571c39",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Kardamom"
+            },
+            {
+              "key": "e96f6594-5d3a-5fed-ba43-656847b927bc",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL gemahlener weißer Pfeffer"
+            },
+            {
+              "key": "28823c85-688d-5139-a431-59b808c409ea",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "cbeda242-5d27-552d-b46d-ecd6a8f4262f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL feines Salz"
+            },
+            {
+              "key": "e04231dd-19e6-55c4-a9a4-6e2b8a51cf83",
+              "ingredientName": "Milch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 EL Vollmilch, bei Bedarf mehr"
+            },
+            {
+              "key": "e6f52c2c-0f9e-589c-9d44-e44e2a69937e",
+              "ingredientName": "Mandelstifte",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1/2 Tasse Mandelstifte zum Aufdrücken"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, dunkelbraunen Zucker, Zimt, Nelken, Muskatnuss, Ingwer, Kardamom, weißen Pfeffer, Backpulver und Salz in einer großen Schüssel vermischen. Zuckerklümpchen mit den Fingern zerdrücken, damit sich die Gewürze gleichmäßig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die kalten Butterwürfel zugeben und mit den Fingerspitzen einreiben oder kurz in der Küchenmaschine zerkleinern, bis grobe, sandige Streusel entstehen. Kein Butterstück sollte größer als eine Erbse sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Milch esslöffelweise zugeben und nur so lange vermischen, bis ein fester, etwas steifer Teig entsteht. Nur wenn er krümelig bleibt, einen weiteren Teelöffel Milch ergänzen. Nicht zu lange bearbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig flach drücken, fest einwickeln und mindestens 1 Stunde oder über Nacht kalt stellen. So entfalten sich die Gewürze und der Teig wird fest genug zum sauberen Ausstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 350F (175C) vorheizen und zwei Bleche mit Backpapier auslegen. Den Teig auf einer leicht bemehlten Fläche knapp 1/4 Zoll dick ausrollen und Windmühlen, Spekulatiusformen oder einfache Rechtecke ausstechen. Teigreste erneut ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Kekse mit etwa 1 Zoll Abstand auf die Bleche legen. Nach Wunsch jeweils einige Mandelstifte leicht auf die Oberfläche drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "12 bis 15 Minuten backen, bis die Ränder fest und die Kekse kräftig goldbraun sind und duften. Die Mitte darf sich noch etwas weich anfühlen; beim Abkühlen werden sie knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech ruhen lassen und dann auf einem Gitter vollständig abkühlen lassen, bis sie knackig sind. Für das beste Aroma und den besten Biss vor dem Servieren mindestens einen Tag luftdicht lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Speculaas%2C_Spekulatius_or_Dutch_Windmill_cookie_%285588364895%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Speculaas,_Spekulatius_or_Dutch_Windmill_cookie_(5588364895).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Turku Gingerbread from Finland, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassischer niederländischer Spekulatius",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1149 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tiramisu",
+      "slug": "gen-tiramisu",
+      "title": "Tiramisu",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Kaffeelikör weg und gib stattdessen Instantkaffee zum Espresso",
+        "Kaufe Mascarpone im Angebot und friere sie bis zu 3 Monate ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3250,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiramisu/",
+      "components": [
+        {
+          "key": "fc88d046-d2f3-56f8-a074-f49d654c05ff",
+          "name": "Zutaten",
+          "servingGrams": 290.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfe69514-4317-5f3c-b97b-6c81261103cf",
+              "ingredientName": "Mascarpone",
+              "grams": 113.4,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "da1edf8b-7905-5cbb-bb55-3b664d3c4bf7",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "865f0144-deba-5f89-8155-e9f2a3c8ac56",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "85bc5ea0-29aa-50e9-a5eb-994cd03d9666",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ba54c1c-4c7e-5802-801e-8ba80f1e719a",
+              "ingredientName": "Starker Espresso",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse, abgekühlt"
+            },
+            {
+              "key": "e2783d6f-5525-5a84-8c70-9d6320f06802",
+              "ingredientName": "Cold-Brew-Kaffee",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "80bab36c-3d68-5510-bc1a-bed1cc6276bf",
+              "ingredientName": "Oreo-Kekse",
+              "grams": 142.86,
+              "quantity": 1.43,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "046e0f14-ead5-5776-9e1a-e3cead051b91",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f991c229-caf0-542f-9035-8d0cf6fd9f6d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eigelb und Zucker über einem Wasserbad, bis die Masse hell und warm ist (160°F), und nimm sie dann vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hebe Mascarpone und Vanilleextrakt unter, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Sahne steif und hebe sie vorsichtig unter die Mascarpone-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische abgekühlten Espresso mit Kaffeelikör in einer flachen Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tauche jeden Löffelbiskuit pro Seite 1 Sekunde rasch in die Espressomischung und lege sie in einer Lage in eine 9x13 Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Hälfte der Mascarponecreme auf der Löffelbiskuitschicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schichte eine weitere Lage eingetauchter Löffelbiskuits darauf und verteile die restliche Creme darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke die Form ab und stelle sie mindestens 4 Stunden oder über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bestäube das Tiramisu kurz vor dem Servieren großzügig mit Kakaopulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/07/Tiramisu-Recipe-3.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/07/Tiramisu-Recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-me-br-l-e",
+      "slug": "gen-cr-me-br-l-e",
+      "title": "Crème Brûlée",
+      "instructions": "Französisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende einen Küchenbrenner aus dem Baumarkt statt eines speziellen Küchenbrenners",
+        "Bereite ein Wasserbad selbst zu, statt eines zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3251,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-me-br-l-e/",
+      "components": [
+        {
+          "key": "1c9b53b2-da61-58ea-86f9-4bdfc9e6a35e",
+          "name": "Zutaten",
+          "servingGrams": 198.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b213b7c3-18fc-5036-a7fc-a69997ea4c77",
+              "ingredientName": "Sahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a634650e-d737-58c8-9b2f-38308ea5d364",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2b8663c-dc22-5c34-b415-7281e43e2143",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d8c257f6-50a9-5155-822b-90700571ad0f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d4a96d2d-3110-52dc-91fa-73ebcfe000a8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Sahne in einem Topf, bis sie dampft, aber nicht kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eigelb und Zucker, bis die Masse hell ist. Gieße dann unter ständigem Rühren langsam heiße Sahne hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Mischung durch ein feines Sieb in eine Schüssel, gib Vanille und Salz hinzu und lasse sie leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Creme in vier Förmchen und stelle sie in ein Wasserbad mit heißem Wasser, das bis zur halben Höhe der Förmchen reicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Förmchen 12-15 Minuten, bis die Ränder fest sind und die Mitte beim Rütteln leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kühle die Förmchen mindestens 2 Stunden, am besten über Nacht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue 1/2 Esslöffel Zucker auf jede Creme und karamellisiere ihn mit einem Brenner goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort nach dem Karamellisieren servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/9rv9w7mBR50Cjq47NHL0HEcl2_c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__02__Creme-Brulee-LEAD-VERTICAL-c99fa6c67f20441c9430df056b6e9d6a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/9rv9w7mBR50Cjq47NHL0HEcl2_c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__02__Creme-Brulee-LEAD-VERTICAL-c99fa6c67f20441c9430df056b6e9d6a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baklava",
+      "slug": "gen-baklava",
+      "title": "Baklava",
+      "instructions": "Türkisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Filoteig in größeren Mengen und friere übrige Blätter für später ein",
+        "Verwende Honig, der kristallisiert oder kurz vor dem Ablaufdatum ist, wenn er stark reduziert ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3252,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baklava/",
+      "components": [
+        {
+          "key": "cb92eec2-9ddd-5800-8110-213e7c4d840a",
+          "name": "Zutaten",
+          "servingGrams": 57.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "f38c873a-0a3f-5976-a8e1-653e61efd99e",
+              "ingredientName": "Filoteig",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4b2e5d1b-8936-55af-b2c8-ac1f49a55192",
+              "ingredientName": "Walnüsse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, gehackt"
+            },
+            {
+              "key": "98438781-e322-5300-a018-79f27fd29453",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, geschmolzen"
+            },
+            {
+              "key": "473e444b-36cb-588e-b59e-7fbc14946616",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3f360215-b17b-509b-b0f1-39a02c40a41d",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "14e42e3c-da25-5d67-9d65-cb0310a8c48d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4b485e5f-4f3b-571e-b2f1-c13f9eb37258",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6f52352f-7a19-577c-96b7-6f13e81c7a93",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine 9x13 Backform mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische gehackte Walnüsse mit Zimt in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege ein Filoteigblatt in die Form und bestreiche es leicht mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wiederhole dies mit 5 weiteren Filoteigblättern und bestreiche jedes mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue 1/3 der Walnussmischung gleichmäßig über den Filoteig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte 3 weitere gebutterte Filoteigblätter und weitere 1/3 der Walnüsse darauf. Wiederhole dies mit den letzten 3 Filoteigblättern und den restlichen Walnüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege alles mit 5-6 abschließenden gebutterten Filoteigblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide Baklava mit einem scharfen Messer rauten- oder dreieckförmig bis ganz zum Boden ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Backe das Baklava 35-40 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Erhitze währenddessen Honig, Wasser, Zucker und Zitronensaft 5 Minuten sanft köchelnd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Gieße den heißen Sirup sofort nach dem Herausnehmen aus dem Ofen über das heiße Baklava und lasse es vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://comfortablefood.com/wp-content/uploads/2023/03/baklava-Featured-3.jpg",
+          "sourcePageUrl": "https://comfortablefood.com/wp-content/uploads/2023/03/baklava-Featured-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-macarons",
+      "slug": "gen-macarons",
+      "title": "Macarons",
+      "instructions": "Französischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mandelmehl online in größeren Mengen zum halben Supermarktpreis",
+        "Verwende Eiweiß aus dem Karton, statt Eier selbst zu trennen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3253,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-macarons/",
+      "components": [
+        {
+          "key": "3dccd3d0-6001-51b3-8464-299cb0f4b826",
+          "name": "Zutaten",
+          "servingGrams": 82.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "58cfa063-45f5-5bae-bc81-c77db47c6e93",
+              "ingredientName": "Mandelmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "64c7dd5a-5855-5954-96d9-8bcf40a89bda",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4847d486-c1ef-5482-8b3b-4a68670adb6b",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Stück, zimmerwarm"
+            },
+            {
+              "key": "0259058d-14be-5fec-8e50-419325f8b7b6",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "cce9b7ab-9da3-5899-93bb-11ea18312459",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "376e026b-615e-5056-b06d-6105e28ccc2f",
+              "ingredientName": "Lebensmittelfarbe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1-2 Tropfen"
+            },
+            {
+              "key": "008ed0b2-aaca-54f5-b33f-abde2dbed060",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL, weich"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 300°F vor und lege Backbleche mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pulsere Mandelmehl und 1 Tasse Puderzucker, bis die Mischung sehr fein ist, und siebe sie dann, um Klumpen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eiweiß zu weichen Spitzen und gib nach und nach Kristallzucker hinzu, während du weiterschlägst, bis steife Spitzen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Vanille und Lebensmittelfarbe zum Eiweiß und hebe beides vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe die Mandelmehlmischung in drei Portionen unter das Eiweiß und rühre, bis der Teig wie Lava fließt und Spitzen verschwinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den Teig in einen Spritzbeutel mit runder Tülle und spritze 1-Zoll-Kreise mit 1 Zoll Abstand auf das Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klopfe das Backblech fest auf die Arbeitsfläche, um Luftblasen zu lösen, und lasse die Macarons 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe sie 15-18 Minuten, bis die Schalen fest sind und Füßchen gebildet haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse sie 5 Minuten auf dem Blech abkühlen und setze sie dann auf ein Kuchengitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schlage Butter mit 1/2 Tasse Puderzucker zur Füllung auf und spritze sie zwischen die abgekühlten Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/f8HduoCHH2tykRcy2Dwtt7V8Ljo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Strawberry-Macarons-Lead-1-f4388d051a8b475a90f15d75ee892e4c.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/f8HduoCHH2tykRcy2Dwtt7V8Ljo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Strawberry-Macarons-Lead-1-f4388d051a8b475a90f15d75ee892e4c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-black-forest-cake",
+      "slug": "gen-black-forest-cake",
+      "title": "Schwarzwälder Kirschtorte",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kirschen aus der Dose statt frischer, um deutlich Kosten zu sparen",
+        "Verwende Schokoraspeln von einer Tafel statt teurer Schokotropfen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3254,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-black-forest-cake/",
+      "components": [
+        {
+          "key": "c841222c-79f2-57d5-bb9f-07471e7e6be3",
+          "name": "Zutaten",
+          "servingGrams": 265.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "476d4ee1-0cbd-5fc0-b22a-6613a3676457",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 3/4 Tassen"
+            },
+            {
+              "key": "310aa8f9-bfbf-56d4-a345-3a572b0884a0",
+              "ingredientName": "Kakaopulver",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "a66c5c3d-e47d-52a4-898a-10767e3e19d6",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "3d2acc2e-5a2c-555e-96f4-6f34ca9cdaaf",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac702243-5c06-5cdd-92a7-85f46c5bb170",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "8ecc074a-46e9-5a41-b44c-7c966133a6a1",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "16a70be5-3e33-536d-8b8b-110378404823",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "05eb0b9f-c1ad-5b4d-a2b1-c828a851da49",
+              "ingredientName": "Natron",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 1/2 TL"
+            },
+            {
+              "key": "b63d04a3-0453-598f-bd60-54eb035c878f",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ca6885c3-8f21-524d-8e85-cf77f696a38e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "8ba27a56-8e77-51e8-b0e8-4ef7c91a9a01",
+              "ingredientName": "Hotdog",
+              "grams": 25,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cda8b76a-5e28-552a-bc35-11f3b0959ec6",
+              "ingredientName": "Sahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a88cdfe3-15cc-58bc-ad02-f3b590c9d0b1",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f53d9b38-e7be-5e75-bfdb-608b62061b41",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen), abgetropft"
+            },
+            {
+              "key": "95ea1b5b-a71f-5a8b-9f57-477a4e25ce9a",
+              "ingredientName": "Schokotropfen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette zwei runde 9-Zoll-Kuchenformen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Mehl, Kakaopulver, Zucker, Natron, Backpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle in einer anderen Schüssel Eier, Buttermilch, Öl und Vanille glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die feuchten Zutaten zu den trockenen und rühre alles zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre heißen Kaffee ein, bis der Teig dünnflüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Teig auf die vorbereiteten Formen und backe die Kuchen 30-35 Minuten, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Kuchen 15 Minuten in den Formen abkühlen, stürze sie dann auf Kuchengitter und lasse sie vollständig auskühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schlage Sahne mit Puderzucker steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lege eine Kuchenschicht auf eine Tortenplatte, verteile Schlagsahne darauf und schichte abgetropfte Kirschen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Lege die zweite Kuchenschicht darauf und bestreiche die ganze Torte mit der restlichen Schlagsahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Garniere Oberseite und Seiten mit Schokotropfen und ganzen Kirschen und stelle die Torte bis zum Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/6NodQJ3OlfU05RmBulSc_ZJiLUI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__10__Black-Forest-Cake-LEAD-5-bf834a9bd93247dba20e9d0b5e9e0ca0.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/6NodQJ3OlfU05RmBulSc_ZJiLUI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__10__Black-Forest-Cake-LEAD-5-bf834a9bd93247dba20e9d0b5e9e0ca0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

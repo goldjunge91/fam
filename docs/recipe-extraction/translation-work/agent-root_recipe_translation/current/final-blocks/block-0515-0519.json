@@ -1,0 +1,1085 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-sweet-n-spicy-chicken",
+      "slug": "toh-sweet-n-spicy-chicken",
+      "title": "Süß-scharfes Hähnchen",
+      "instructions": "Zarte Hähnchenwürfel mit Taco-Gewürz und glänzender Glasur aus stückiger Salsa und Fruchtkonfitüre, über lockerem Reis serviert: ein schnelles Abendessen für unter der Woche, in 20 Minuten fertig. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/sweet-n-spicy-chicken/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Hähnchenbrust. Sie sind pro Pfund günstiger und bleiben beim Anbraten saftiger.",
+        "Nimm eine beliebige Fruchtkonfitüre, die du schon zu Hause hast, statt nur für dieses Gericht Pfirsichkonfitüre zu kaufen.",
+        "Koche eine große Menge einfachen Reis und friere Portionen ein. So brauchst du an hektischen Abenden kein Essen zu bestellen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel für ein saftigeres, günstigeres Stück",
+          "savings": "~$0.20 pro Portion"
+        },
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Beliebige Pfirsich- oder Aprikosenkonfitüre oder sogar Orangenmarmelade",
+          "savings": "Verwende, was du hast"
+        },
+        {
+          "forIngredientId": "canola-oil",
+          "swap": "Beliebiges neutrales Öl wie Pflanzen- oder Reiskleieöl",
+          "savings": "Vorratszutat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "Tex-Mex",
+        "Hähnchen",
+        "unter der Woche",
+        "schnell",
+        "süß-scharf",
+        "30 Minuten",
+        "aus einer Pfanne",
+        "Salsa",
+        "Reisschale"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 515,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-sweet-n-spicy-chicken/",
+      "components": [
+        {
+          "key": "a367ec8d-9c87-57ae-a403-3d7b8bdc1d46",
+          "name": "Zutaten",
+          "servingGrams": 368.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "e7a0c69e-faec-5219-8625-fcdf5132578b",
+              "ingredientName": "Taco-Gewürz (hausgemachte Art)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel zum Überziehen des Hähnchens"
+            },
+            {
+              "key": "bce1cf5a-8289-5294-9bb0-b5d1e2227bcf",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, in 1/2-Zoll-Würfel geschnitten"
+            },
+            {
+              "key": "b5cd8451-8639-5bff-80ba-18f53bde9c6b",
+              "ingredientName": "Rapsöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Anbraten"
+            },
+            {
+              "key": "aa5d822d-c2e7-5583-b841-d0410bfe0a42",
+              "ingredientName": "Salsa",
+              "grams": 400.2,
+              "quantity": 400.2,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1-2/3 Tassen chunky Salsa"
+            },
+            {
+              "key": "256ea8a5-b19f-501d-ae56-8ae53cc8130e",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Ersatz für 1/2 Tasse Pfirsichkonfitüre"
+            },
+            {
+              "key": "5a197dab-7d06-565f-8501-ab1b8b8f4e3e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "hot gekocht, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in 1/2-inch-Würfel und wende sie in einer flachen Schüssel im Taco-Gewürz, bis jedes Stück bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Rapsöl in einer großen Pfanne bei mittelhoher Hitze und brate das Hähnchen unter Rühren, bis es gar und in der Mitte nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Salsa und Aprikosen- (oder Pfirsich-)konfitüre und gieße die Mischung mit dem Hähnchen in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bring alles zum Kochen, reduziere dann die Hitze, decke die Pfanne ab und lass es 2 bis 3 Minuten köcheln, bis es heiß ist und glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle das süß-scharfe Hähnchen über heißen gekochten Reis und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Sweet-n-Spicy-Chicken_exps9165_MRR133247D07_30_4bC_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/sweet-n-spicy-chicken/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von süß-scharfem Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-tasty-burritos",
+      "slug": "toh-tasty-burritos",
+      "title": "Herzhafte Burritos",
+      "instructions": "Deftige Burritos mit Rindfleisch und Bohnen, knusprig in der Pfanne gebräunt und innen mit geschmolzenem Colby-Jack-Käse gefüllt. Schnell genug für unter der Woche und einfach zu rollen. Dazu passen saure Sahne und ein Löffel Salsa. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/tasty-burritos/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische Taco-Gewürz selbst aus Chilipulver, Kreuzkümmel, Knoblauchpulver und Paprika aus dem Vorrat und spare dir die Gewürzpackung.",
+        "Kaufe Rinderhack in einer größeren Familienpackung und friere es in Portionen zu 1 pound ein. So sinken die Kosten pro Mahlzeit.",
+        "Ersetze die Hälfte des Rindfleischs durch eine zusätzliche Dose Bohnen. Das streckt die Füllung und senkt den Preis weiter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack oder gewürzte schwarze Bohnen",
+          "savings": "Pute ist magerer; Bohnen senken die Kosten um ~$1 pro Portion"
+        },
+        {
+          "forIngredientId": "colby-jack",
+          "swap": "Geriebener Cheddar",
+          "savings": "Ähnlicher Preis, oft ein paar Cent günstiger"
+        },
+        {
+          "forIngredientId": "canola-oil",
+          "swap": "Pflanzen- oder Avocadoöl",
+          "savings": "Verwende ein neutrales Öl, das du bereits hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch-amerikanisch",
+        "Burritos",
+        "Rindfleisch",
+        "Bohnen",
+        "Tex-Mex",
+        "unter der Woche",
+        "für die Hand",
+        "30 Minuten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 516,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-tasty-burritos/",
+      "components": [
+        {
+          "key": "4d099d54-9e7c-572b-ac7e-5a27aa522fae",
+          "name": "Zutaten",
+          "servingGrams": 258.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "8eee5790-37ca-5db0-a51a-773e191bb535",
+              "ingredientName": "Rinderhack",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, angebraten und abgetropft"
+            },
+            {
+              "key": "8d27eddf-923b-5265-a159-60f3ff7f1b0c",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "6585f92f-f949-5bb5-95f2-63c1825c896c",
+              "ingredientName": "Bohnenmus",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "16 Unzen Dose"
+            },
+            {
+              "key": "8e0f1b90-a2ba-5abd-860e-81170c0bfa37",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "12-inch Weizentortillas, erwärmt"
+            },
+            {
+              "key": "ecd2f5e1-bf8a-5ec8-991c-429728023e15",
+              "ingredientName": "Colby-Jack-Käse",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "a38f756c-1175-5128-9390-f3277e483a07",
+              "ingredientName": "Rapsöl",
+              "grams": 19.95,
+              "quantity": 19.95,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Anbraten der Burritos"
+            },
+            {
+              "key": "f0d2d956-30a3-510d-9485-cf0ebd536131",
+              "ingredientName": "Saure Sahne",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "efbaa185-f464-5662-9e9d-ec9a64dc100b",
+              "ingredientName": "Salsa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Rinderhack in einer großen schweren oder gusseisernen Pfanne bei mittlerer Hitze, bis es gar ist. Gieße dann das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Taco-Gewürz ins Rindfleisch. Nimm die Mischung aus der Pfanne und stelle sie beiseite. Wische die Pfanne sauber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Bohnenmus in einem kleinen Topf bei mittelniedriger Hitze 2 bis 3 Minuten, bis es heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verstreiche etwa 1/3 cup Bohnen leicht seitlich mittig auf jeder warmen Tortilla, gib etwa 1/4 cup gewürztes Rindfleisch darauf und bestreue es mit geriebenem Colby-Jack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe Seiten und Enden jeder Tortilla ein und rolle sie dann fest auf, sodass die Füllung eingeschlossen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Rapsöl in derselben Pfanne bei mittelhoher Hitze und bräune die Burritos rundherum, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie warm mit saurer Sahne und Salsa oder deinen Lieblingsbeilagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Tasty-Burritos_EXPS_FT24_24004_ST_0222_2-e1723544726130.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/tasty-burritos/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von herzhaften Burritos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-tomato-garlic-butter-bean-dinner",
+      "slug": "toh-tomato-garlic-butter-bean-dinner",
+      "title": "Abendessen mit Tomaten, Knoblauch und Butterbohnen",
+      "instructions": "Ein gemütliches Pfannengericht in 15 Minuten: Cremige Butterbohnen und süße gewürfelte Tomaten köcheln mit Knoblauch und italienischen Kräutern. Zum Schluss fällt reichlich frischer Spinat zusammen und macht daraus ein sättigendes, proteinreiches vegetarisches Abendessen. Mit Pasta servieren oder pur genießen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/tomato-garlic-butter-bean-dinner/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Dosentomaten und Bohnen im Angebot gleich kartonweise. Sie sind lange haltbar und bilden die Grundlage dieses Gerichts.",
+        "Tiefgekühlter Spinat (ein oder zwei Tassen, aufgetaut und ausgedrückt) ersetzt frischen Spinat und ist meist pro Portion günstiger.",
+        "Lass Parmesan weg, damit das Gericht vegan und preiswert bleibt, oder nimm stattdessen eine kleine Prise Hefeflocken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter-beans",
+          "swap": "Cannellini-Bohnen oder Great-Northern-Bohnen",
+          "savings": "Oft ein paar Cent günstiger pro Dose"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefgekühlter Spinat (etwa 2 cups, aufgetaut)",
+          "savings": "Etwa halb so teuer wie frisch"
+        },
+        {
+          "forIngredientId": "italian-seasoning",
+          "swap": "Eine Mischung aus getrocknetem Oregano und Basilikum"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "italienisch",
+        "vegetarisch",
+        "vegan",
+        "Bohnen",
+        "Pfannengericht",
+        "aus einer Pfanne",
+        "schnell",
+        "unter der Woche",
+        "ballaststoffreich",
+        "Tomate",
+        "Spinat"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 517,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-tomato-garlic-butter-bean-dinner/",
+      "components": [
+        {
+          "key": "da3538a1-98c0-5534-a0c9-a275c0d1a766",
+          "name": "Zutaten",
+          "servingGrams": 781.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "626cf86b-1bb0-549c-acbb-0fe130965707",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd1f8574-757a-50b2-8800-96b178f4e371",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "059924bb-e251-5a59-9078-ff696bec15b0",
+              "ingredientName": "Ganze geschälte Tomaten (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "gewürfelt, nicht abgetropft"
+            },
+            {
+              "key": "8f128c95-8352-56cb-9a9d-0fb22ddd3419",
+              "ingredientName": "Butterbohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "abgespült und abgetropft"
+            },
+            {
+              "key": "624c3fe4-6793-53db-b11d-09ef01c09abc",
+              "ingredientName": "Spinat",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "frischer Babyspinat"
+            },
+            {
+              "key": "a16f3a00-cda5-5be3-b8f5-437c9f92d424",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24b119a2-3dec-5b58-82e1-ceb908c26f93",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6d6f371-72ef-5952-b316-6e79dd3123af",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 7,
+              "optional": true,
+              "source_note": "hot gekocht, zum Servieren"
+            },
+            {
+              "key": "27ca1c10-3628-5730-8207-e5edad5ff80d",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Olivenöl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch dazu und rühre etwa 30 bis 45 Sekunden, bis er duftet und weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Tomaten samt Saft, abgetropfte Butterbohnen, Spinat, italienische Gewürzmischung und Pfeffer dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles unter gelegentlichem Rühren, bis der Spinat in der Sauce zusammengefallen und verwelkt ist und alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht pur oder löffle es über heiße gekochte Pasta und streue zum Schluss reichlich geriebenen Parmesan darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps104696_SD153319C10_14_4b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/tomato-garlic-butter-bean-dinner/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Abendessen mit Tomaten, Knoblauch und Butterbohnen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-tomato-poached-halibut",
+      "slug": "toh-tomato-poached-halibut",
+      "title": "In Tomaten pochierter Heilbutt",
+      "instructions": "Zarte Heilbuttfilets sanft in einer rauchigen, knoblauchwürzigen Tomatenbrühe pochiert, mit grünen Oliven und milden Chilis. Zum Schluss kommen frischer Koriander und ein Spritzer Zitrone dazu. Ein leichtes Pfannengericht, das viel reichhaltiger schmeckt, als die 30 Minuten Zubereitungszeit vermuten lassen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/tomato-poached-halibut/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Heilbutt ist teuer. Ersetze ihn durch Kabeljau oder Tilapia und spare mehr als die Hälfte, ohne das Gericht zu verändern.",
+        "Verwende zwei Dosen gewürfelte Tomaten und gib eine Prise geräuchertes Paprikapulver dazu, statt extra feuergeröstete Tomaten zu kaufen.",
+        "Lass grüne Oliven weg oder verwende beliebige eingelegte Oliven, die du schon zu Hause hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "halibut-fillet",
+          "swap": "Tiefgekühlte Kabeljau- oder Tilapiafilets",
+          "savings": "Spart etwa $6-7 pro Portion"
+        },
+        {
+          "forIngredientId": "anaheim-pepper",
+          "swap": "1 gewürfelte Paprika und eine Prise Chiliflocken",
+          "savings": "Etwa gleicher Preis, leichter zu finden"
+        },
+        {
+          "forIngredientId": "fire-roasted-tomatoes",
+          "swap": "Einfache gewürfelte Tomaten mit etwas geräuchertem Paprikapulver",
+          "savings": "Spart ein paar Cent pro Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch inspiriert",
+        "Heilbutt",
+        "Fisch",
+        "pochiert",
+        "Tomate",
+        "aus einer Pfanne",
+        "gesund",
+        "unter der Woche",
+        "30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 518,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-tomato-poached-halibut/",
+      "components": [
+        {
+          "key": "8b218fe0-cc90-5d87-a510-90c540d52716",
+          "name": "Zutaten",
+          "servingGrams": 473.72,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2401800-f60b-51a7-a8b7-cbc5734c40be",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b7f53a4-a117-550a-9421-126fb7a26577",
+              "ingredientName": "Anaheim-Chili",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Ersatz für Poblano-Chili; fein gehackt"
+            },
+            {
+              "key": "91da9f15-1a66-5afc-b2d3-e1f6e560dfa9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "klein, fein gehackt"
+            },
+            {
+              "key": "3af119fd-d172-5a21-983c-94a42d4fc9d0",
+              "ingredientName": "Feuergeröstete gewürfelte Tomaten (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "nicht abgetropft"
+            },
+            {
+              "key": "3c94a279-ba83-5209-9643-653c3a176ff4",
+              "ingredientName": "Ganze geschälte Tomaten (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "ohne Salzzusatz gewürfelt, nicht abgetropft"
+            },
+            {
+              "key": "687de46b-e957-5ab9-b4ac-538f3c53b134",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "entsteinte grüne Oliven, gehackt"
+            },
+            {
+              "key": "d44d94d4-642a-5a86-bef3-d392928b8209",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "29e50392-3f1a-572d-a6b7-065d77fac709",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da736107-5853-58da-9333-01834f7b1aee",
+              "ingredientName": "Salz",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c507445c-2d86-58b2-a30d-02063b006ce2",
+              "ingredientName": "Heilbuttfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 4 Unzen je Stück"
+            },
+            {
+              "key": "d9ab0509-b717-54a2-b487-6d2c7fdd3763",
+              "ingredientName": "Frischer Koriander",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "gehackt, etwa 1/3 Tasse"
+            },
+            {
+              "key": "04b1d141-ce04-559f-95ea-d0a0236c281e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "in Spalten geschnitten zum Servieren"
+            },
+            {
+              "key": "8ce9bb69-c07e-5670-9a18-db52416d463f",
+              "ingredientName": "Mehrkornbrot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "crusty Vollkorn-, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Olivenöl in einer großen beschichteten Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Chilis und Zwiebel dazu und gare sie unter Rühren 4 bis 6 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre beide Dosen Tomaten samt Saft, grüne Oliven, Knoblauch, Pfeffer und Salz ein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf ein sanftes Köcheln und lege die Heilbuttfilets in die Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Pfanne ab und poche den Fisch 8 bis 10 Minuten, bis er sich mit einer Gabel leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue frischen Koriander darüber und serviere das Gericht nach Wunsch mit Zitronenspalten und knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps149139_TH153345B07_21_11b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/tomato-poached-halibut/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von in Tomaten pochiertem Heilbutt",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-tortellini-carbonara",
+      "slug": "toh-tortellini-carbonara",
+      "title": "Tortellini alla Carbonara",
+      "instructions": "Käsetortellini in einer seidigen Sahnesauce mit knusprigem Speck, kräftigem Parmesan und frischer Petersilie: ein schnelles, wohltuendes Abendessen für unter der Woche. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/tortellini-carbonara/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze frische Tortellini aus dem Kühlregal durch getrocknete, lange haltbare Tortellini. So kannst du die Kosten fast halbieren.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst, statt fertig geriebenen zu kaufen. Das spart Geld und schmeckt besser.",
+        "Verlängere die Sauce mit einem Schuss stärkehaltigem Nudelwasser, damit du weniger Schlagsahne brauchst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck als magerere und günstigere Alternative",
+          "savings": "~$0.13 pro Scheibe"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Leichte Sahne oder Kaffeesahne für weniger Kalorien",
+          "savings": "vergleichbar"
+        },
+        {
+          "forIngredientId": "parsley-fresh",
+          "swap": "1 tsp getrocknete Petersilie, falls du keine frische hast",
+          "savings": "minimal"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Pasta",
+        "Carbonara",
+        "Speck",
+        "schnell",
+        "unter der Woche",
+        "Wohlfühlessen",
+        "cremig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 519,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-tortellini-carbonara/",
+      "components": [
+        {
+          "key": "49979dd6-8177-575f-a4b7-0ce79340e591",
+          "name": "Zutaten",
+          "servingGrams": 270,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fb5f772-3284-5ae3-93d8-d8bbf82c237c",
+              "ingredientName": "Tortellini",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "gekühlt Käse tortellini, 9 Unzen Packung"
+            },
+            {
+              "key": "3226aaea-dec9-5431-9344-ecccd0c78a34",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "755c450b-62de-5cde-bbb0-67e2178dbf0b",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3564d5f2-66a1-554c-9427-628f7ca92274",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "3f50b651-db42-5ca7-a152-741965f11c14",
+              "ingredientName": "Frische Petersilie",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse gehackt frisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Käsetortellini nach der auf der Packung angegebenen Zeit. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate gehackten Speck in einer großen Pfanne bei mittlerer Hitze unter gelegentlichem Rühren knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Speck mit einer Schaumkelle heraus und lasse ihn auf Küchenpapier abtropfen. Gieße das Fett aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Pfanne zurück auf mittlere Hitze und verrühre Schlagsahne, Parmesan, Petersilie und gegarten Speck darin, bis alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe die abgetropften Tortellini unter, wende sie in der Sauce und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/08/Tortellini-Carbonara_EXPS_TOHD24_20418_SheriSilver_1-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/tortellini-carbonara/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Tortellini alla Carbonara",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

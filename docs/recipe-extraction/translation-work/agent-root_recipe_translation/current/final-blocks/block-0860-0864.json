@@ -1,0 +1,952 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-turkey-roll-ups",
+      "slug": "mfr-turkey-roll-ups",
+      "title": "Putenbrust-Röllchen mit Hummus und Salat",
+      "instructions": "Putenbrustscheiben, eingerollt in Römersalat mit Hummus, Gurke und gerösteter Paprika: ein sättigender, kohlenhydratfreier Snack zum Mitnehmen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aufschnitt aus Putenbrust gehört zu den magersten verzehrfertigen Proteinquellen.",
+        "Selbst gemacht kostet dieser Snack 4× weniger als eine gekaufte Proteinbox."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "deli-turkey",
+          "swap": "Hähnchen aus der Dose oder zerteiltes Brathähnchen"
+        },
+        {
+          "forIngredientId": "hummus",
+          "swap": "Avocadostampf oder Frischkäse als anderer Aufstrich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-roll-ups",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Snack",
+        "ohne Kochen",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 860,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-roll-ups/",
+      "components": [
+        {
+          "key": "db3c5cd4-5776-5ef1-8880-0bd7d492cfdc",
+          "name": "Zutaten",
+          "servingGrams": 776.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "16d9e9e4-3d94-5a1f-9d92-10a38ab72a81",
+              "ingredientName": "Putenbrustaufschnitt",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c466ef3-9788-58e9-895d-32161160712e",
+              "ingredientName": "Hummus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "166d729f-6d14-5bba-aaec-6e3f365c944f",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce2983e5-8450-5137-8215-3050ad614a04",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9da38002-6843-518c-9e1c-70a9011f3fa7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaf31eff-fed2-5785-bda1-9b8a7c44c0e5",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege 6 große Römersalatblätter als Wraps aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jedes Blatt mit Hummus. Lege jeweils 1 Scheibe Putenbrustaufschnitt darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib dünne Gurkenscheiben und Paprikastreifen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile nach Wunsch einen ganz dünnen Klecks Dijon-Senf darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle die Blätter fest auf und serviere sie sofort oder wickle sie für bis zu 2 Stunden in Folie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://forkinggoodfood.com/wp-content/uploads/2023/04/Turkey-and-cheese-rollup-complete-1536x1024.jpg",
+          "sourcePageUrl": "https://forkinggoodfood.com/wp-content/uploads/2023/04/Turkey-and-cheese-rollup-complete-1536x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cottage-cheese-veggie-dip",
+      "slug": "mfr-cottage-cheese-veggie-dip",
+      "title": "Kräuter-Gemüsedip aus Hüttenkäse",
+      "instructions": "Hüttenkäse wird mit Kräutern und Knoblauch zu einem seidigen, proteinreichen Dip püriert und mit Gemüse serviert, das gerade zur Hand ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine ganze Packung Hüttenkäse ergibt 3 große Snackportionen für weniger als $2.",
+        "Dieser Dip gehört zu den proteinreichsten Dips im Verhältnis zu seinen Kalorien."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dill-dried",
+          "swap": "Everything-Bagel-Gewürzmischung für einen unkomplizierten Dip mit nur einer Gewürzmischung"
+        },
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Griechischer Joghurt für eine säuerlichere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cottage-cheese-veggie-dip",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Snack",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 861,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cottage-cheese-veggie-dip/",
+      "components": [
+        {
+          "key": "8335bcb6-826e-50f2-9b80-921f5cae6743",
+          "name": "Zutaten",
+          "servingGrams": 258.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "575cd552-5656-5fa0-82d4-c38da0ae954c",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6e20c07-60f5-56b3-acee-ad6e540c1729",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "227e2cd0-a9f0-5301-b4e0-031d8bdc566e",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "410fc883-f17e-571e-a8b3-d8bcbb98437c",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f44b712-0832-5255-b423-dfab6acb5e09",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc9615a6-432b-5dd2-a74f-2da3fa7c97f9",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bead8d4f-52f4-59d4-a3e0-e0d054eda604",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fcfa808-402c-500e-851c-d21fe511bc27",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fc81490-d5af-5c35-ad8e-fd52a420a99e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Hüttenkäse, Knoblauch, Zitronensaft, Dill, Petersilie und Salz, bis alles ganz glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Probiere den Dip und passe die Würzung an. Er sollte kräftig und kräuterig schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Dip in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Karotten in Stifte, die Gurke in Scheiben und die Paprika in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Dip mit dem Gemüse. Im Kühlschrank ist er 5 Tage haltbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Veggie-Dill-Dip_EXPS_THSO18_1788_D01_25_4b-14.jpg?w=1200",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Veggie-Dill-Dip_EXPS_THSO18_1788_D01_25_4b-14.jpg?w=1200",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-deviled-eggs-protein",
+      "slug": "mfr-deviled-eggs-protein",
+      "title": "Proteinreiche gefüllte Eier",
+      "instructions": "Klassische gefüllte Eier, verfeinert mit griechischem Joghurt und einem Spritzer Sriracha: jedes Ei liefert 6g Protein bei 50 Kalorien.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus acht Eiern werden 16 gefüllte Eierhälften für insgesamt etwa $1.50.",
+        "Griechischer Joghurt ersetzt Mayo, liefert mehr Protein und senkt den Fettgehalt um 70%."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Leichte Mayonnaise für einen traditionelleren Geschmack"
+        },
+        {
+          "forIngredientId": "sriracha",
+          "swap": "Scharfe Sauce oder Senf für eine andere Schärfe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-deviled-eggs-protein",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Snack",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 862,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-deviled-eggs-protein/",
+      "components": [
+        {
+          "key": "ce48358d-df14-557e-9d3c-0b8da833a005",
+          "name": "Zutaten",
+          "servingGrams": 225.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "fdcbb532-023e-584d-84ca-821fc5355002",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b880991d-4f03-556c-ade3-756e57348ae2",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38d7f6bc-d4e3-5ce4-bb17-dc0b10c7bf6c",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9298533-3f08-5dd0-8788-3f7cfcb3f17e",
+              "ingredientName": "Sriracha",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4c3bad2-c30c-5326-950e-5524bf607c9b",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14be5097-a5d8-59fc-b7d7-b5040c69eb65",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c435feb-d292-5f30-985f-af40f6d0eb5a",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche 8 Eier hart (9 Minuten ab kaltem Wasser). Schrecke sie im Eisbad ab, schäle sie und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Löse das Eigelb heraus und gib es in eine Schüssel. Zerdrücke es mit griechischem Joghurt, Dijon-Senf, Sriracha und Salz, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Löffle die Füllung zurück in die Eiweißhälften oder spritze sie hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue die Eier mit geräuchertem Paprikapulver. Bis zu 3 Tage im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/air-fryer-deviled-eggs-lead-6732858ac2d17.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/air-fryer-deviled-eggs-lead-6732858ac2d17.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-almond-banana-bites",
+      "slug": "mfr-almond-banana-bites",
+      "title": "Protein-Happen mit Erdnussbutter und Banane",
+      "instructions": "Ungebackene Energiekugeln aus Haferflocken, Erdnussbutter, Banane und Proteinpulver: Rolle sie am Sonntag für eine Woche voller Snacks zum Mitnehmen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Banane, 1 cup Haferflocken und ein halbes Glas Erdnussbutter ergeben 18 Happen für etwa $3.",
+        "Das ist der günstigste proteinreiche Snack zum Mitnehmen, den du zubereiten kannst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus als nussfreie Variante"
+        },
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Mehr Haferflocken. Auch ohne Proteinpulver schmecken die Happen gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-almond-banana-bites",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Snack",
+        "ohne Kochen",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 863,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-almond-banana-bites/",
+      "components": [
+        {
+          "key": "d9f2bc3c-93ac-5ca6-9e62-0805d96f5a30",
+          "name": "Zutaten",
+          "servingGrams": 66.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1317fc7-6368-51d7-adac-aae28be4b8ba",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57df2b27-a878-563d-ac9b-2428e0dbae1b",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44f2801d-a210-544c-9865-7e02c1b046ed",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c54cc0a-168c-58aa-a257-f01be787f11c",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58d73b40-3270-5d07-96b8-81148ed2f37c",
+              "ingredientName": "Proteinpulver",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abb36df8-476f-5740-84bd-24ff3ed2ac92",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12bc8d3f-4f55-5440-869f-75e230d4d4be",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke die Banane in einer Schüssel, bis sie glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Erdnussbutter, Honig, Vanille, Zimt und Proteinpulver dazu. Gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Haferflocken unter, bis die Masse beim Zusammendrücken zusammenhält. Ist sie zu feucht, gib mehr Haferflocken dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle die Masse zu 18 Kugeln (je etwa 1 Esslöffel).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Kugeln 30 Minuten kalt, damit sie fest werden. In einem luftdichten Behälter im Kühlschrank bis zu 1 Woche aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/CepFxf-PQ04dyzYjMoM26WTuMIY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-peanut-butter-banana-oatmeal-bars-beauty-185_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-6b029972e9ae4c05b73c49b408d1532d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/CepFxf-PQ04dyzYjMoM26WTuMIY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-peanut-butter-banana-oatmeal-bars-beauty-185_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-6b029972e9ae4c05b73c49b408d1532d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuna-cucumber-rounds",
+      "slug": "mfr-tuna-cucumber-rounds",
+      "title": "Thunfischsalat auf Gurkenscheiben",
+      "instructions": "Thunfischsalat auf Gurkenscheiben: ein knackiger, proteinreicher Snack ohne Kohlenhydrate, in 5 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Thunfisch kosten etwa $2–3 und ergeben einen Snack für zwei mit insgesamt mehr als 40g Protein.",
+        "Thunfischsalat mit griechischem Joghurt enthält mehr Protein und weniger Kalorien als die Variante mit Mayonnaise."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Leichte Mayonnaise für die klassische Variante"
+        },
+        {
+          "forIngredientId": "cucumber",
+          "swap": "Selleriestangen oder Reiswaffeln als andere knackige Grundlage"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-cucumber-rounds",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Snack",
+        "ohne Kochen",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 864,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-cucumber-rounds/",
+      "components": [
+        {
+          "key": "2be74f8e-1057-50f9-8ef7-9d7b577df5fd",
+          "name": "Zutaten",
+          "servingGrams": 959.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "37a68db7-becf-57c3-a431-58d2d8526943",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20ffca0a-24f0-5694-896e-34aba8e9c66c",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0cbf074-ad01-5e12-badf-d4bda57e5607",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbb23a14-88c2-5616-8e45-3d6a4d603c15",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cad2703b-d0d9-586b-8ca3-f4fee3686463",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3f478c7-a022-5bbb-9daa-1014b2120b24",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7520e099-ded0-5196-b275-4bede48cbe9b",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße den Dosen-Thunfisch ab und zerpflücke ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge ihn mit griechischem Joghurt, Dijon-Senf, fein gewürfeltem Sellerie, Zitronensaft und Salz. Probiere den Salat und passe die Würzung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Gurke in ½-inch-Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den Thunfischsalat auf den Gurkenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren oder den Thunfischsalat getrennt von der Gurke bis zu 3 Tage im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2025/05/Cucumber-Tuna-Salad-10-1024x1536.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2025/05/Cucumber-Tuna-Salad-10-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

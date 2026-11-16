@@ -1,0 +1,851 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-chili-rice-bowl",
+      "slug": "mw-chili-rice-bowl",
+      "title": "Chili-Reisschale aus der Mikrowelle",
+      "instructions": "Eine Dose Chili über Reis mit Käse und Frühlingszwiebeln: das faulste warme Abendessen, das trotzdem schmeckt.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Im Kühlschrank bis zu 4 Tage aufbewahren; das Chili schmeckt am nächsten Tag noch besser.",
+      "reheatingInstructions": "Abgedeckt 90s in der Mikrowelle erwärmen, nach der Hälfte der Zeit umrühren und frischen Käse dazugeben.",
+      "cheapTips": [
+        "Eine Dose Chili für $1.50 reicht mit Reis für 2 Portionen.",
+        "Käsereste eignen sich perfekt zum Schmelzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-chili",
+          "swap": "Zerdrückte schwarze Bohnen mit Chilipulver und Ketchup",
+          "savings": "~$0.80"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Naturjoghurt nach griechischer Art",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Chili (~$1.50) über Reis für $0.18 liefert 22g Protein für weniger als $2.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 530,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-chili-rice-bowl/",
+      "components": [
+        {
+          "key": "03d44efc-fc04-5df0-895c-0f12547a9a7b",
+          "name": "Zutaten",
+          "servingGrams": 685,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ca4215d-bfc9-5b61-9556-52fdfa4576a6",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb7440a1-ddd2-56ea-a3e3-7d7d340a8e6f",
+              "ingredientName": "Chili aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6506cc44-fb69-5f83-9958-f02dad5a7ac7",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71f6a163-5282-5b96-b4fa-cdc4fc1be8d1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "b030a356-9da0-593c-b2ca-b016689c4daf",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Löffle das Chili in eine mikrowellengeeignete Schüssel und decke sie mit einem Deckel mit Dampfauslass ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze es 2 Minuten in der Mikrowelle, rühre um und erhitze es dann weitere 1 Minute, bis es blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Reis darunter oder daneben in dieselbe Schüssel und belege ihn mit Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze alles weitere 30 Sekunden, bis der Käse schmilzt. Gib dann Frühlingszwiebel und saure Sahne darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1666819632298-fe15dc7d4c34?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1666819632298-fe15dc7d4c34",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Chili-Reisschale",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-canned-salmon-rice-bowl",
+      "slug": "mw-canned-salmon-rice-bowl",
+      "title": "Reisschale mit Lachs aus der Mikrowelle",
+      "instructions": "Zerflockter Lachs aus der Dose auf warmem Reis mit Zitrone und einem Schuss Sojasauce: Omega-3-Fettsäuren zum Preis eines Kaffees.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 2,
+      "storageInstructions": "Am besten frisch servieren; die Lachsmischung hält sich 1 Tag im Kühlschrank.",
+      "reheatingInstructions": "Kalt essen oder den Reis separat 45s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Lachs aus der Dose kostet nur halb so viel wie frischer Lachs.",
+        "Kaufe Zitronen im Angebot im Beutel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-salmon",
+          "swap": "Thunfisch aus der Dose",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "Ein Schuss Reisessig",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Dose rosa Lachs (~$2.00) plus Reis (~$0.18) liefert 28g Protein für weniger als $2.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "5 Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 531,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-canned-salmon-rice-bowl/",
+      "components": [
+        {
+          "key": "1bd79b29-3d05-5b9f-a509-75d5ac5f0df9",
+          "name": "Zutaten",
+          "servingGrams": 706,
+          "position": 0,
+          "items": [
+            {
+              "key": "8dd3852b-a5cd-5599-85be-fd39b9cb8d65",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57028292-7393-5b5a-90c4-395de5a35953",
+              "ingredientName": "Lachs aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b9733ed-f9a9-579c-93cd-fb8ce9b0acd5",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d32fcc65-eb87-5a05-8eb7-258223c5c600",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1df3e90-3456-51f3-935e-44b2cbdc68af",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "e767868f-6879-5d92-ab53-296a00dabf87",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Reis in einer abgedeckten Schüssel mit einem Schuss Wasser 60–90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße den Lachs aus der Dose ab und zerteile ihn mit einer Gabel. Entferne größere Gräten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge den Lachs mit Mayo, falls du sie verwendest, und einem Spritzer Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Lachs auf den Reis, beträufle ihn mit Sojasauce, belege ihn mit Frühlingszwiebel und iss ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/HK_food_Salmon_fish_rice_streamed_rice_Soy_sauce_Feb-2014.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:HK_food_Salmon_fish_rice_streamed_rice_Soy_sauce_Feb-2014.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Woakamkurhram — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Reisschale mit Lachs aus der Mikrowelle",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-teriyaki-tofu-rice-cup",
+      "slug": "mw-teriyaki-tofu-rice-cup",
+      "title": "Teriyaki-Tofu-Reisbecher aus der Mikrowelle",
+      "instructions": "Tofuwürfel mit Teriyaki-Sauce glasiert auf Reis, alles in einer Schüssel in Bechergröße zubereitet.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Im Kühlschrank bis zu 4 Tage in einem luftdichten Behälter aufbewahren.",
+      "reheatingInstructions": "Abgedeckt 90s mit einem Schuss Wasser in der Mikrowelle erwärmen und nach der Hälfte der Zeit umrühren.",
+      "cheapTips": [
+        "Verwende den günstigsten festen Tofu, den du finden kannst.",
+        "Tiefgekühlter Brokkoli kostet nur halb so viel wie frischer."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "teriyaki-sauce",
+          "swap": "Sojasauce und Honig",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "tofu",
+          "swap": "Edamame oder Kichererbsen aus der Dose",
+          "savings": "Variiert"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein halber Tofublock (~$1.10) mit tiefgekühltem Brokkoli und Reis kostet weniger als $2.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 532,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-teriyaki-tofu-rice-cup/",
+      "components": [
+        {
+          "key": "b8a52919-5d94-5168-b3aa-e370b2d597c7",
+          "name": "Zutaten",
+          "servingGrams": 442.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e10add13-c01d-5f82-bd6f-90a0b312a200",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7853bf5-74ba-5daa-b2fa-01c2da1e28ad",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c223a455-81e6-5b8f-90b9-eb405e0f9525",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6110683-cb30-5798-814b-a39d07d21210",
+              "ingredientName": "Tiefgekühlter Brokkoli",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30b3ce96-7f0d-5127-9c95-4390c902a7c0",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle den Tofu und vermenge ihn mit Teriyaki-Sauce in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib tiefgekühlten Brokkoli darauf und decke die Schüssel mit einem Deckel mit Dampfauslass ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze alles 2 Minuten in der Mikrowelle, rühre vorsichtig um und erhitze es dann weitere 90 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffle die Mischung über warmen Reis (bei Bedarf Reis in einer separaten Schüssel 60s in der Mikrowelle erhitzen) und beträufle sie zum Schluss mit Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1763000215238-38350d3e41ac?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1763000215238-38350d3e41ac",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Teriyaki-Tofu-Reisbecher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-cooker-style-congee",
+      "slug": "mw-cooker-style-congee",
+      "title": "Congee aus der Mikrowelle",
+      "instructions": "Ein wohltuender Reisbrei aus übrig gebliebenem Reis und Brühe: Essen für Krankheitstage, in 6 Minuten fertig.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Im Kühlschrank bis zu 3 Tage aufbewahren; der Brei dickt nach, bei Bedarf mit Wasser verdünnen.",
+      "reheatingInstructions": "90s in der Mikrowelle mit einem zusätzlichen Schuss Brühe oder Wasser erwärmen.",
+      "cheapTips": [
+        "Verwandle übrig gebliebenen Reis in eine vollständige Mahlzeit.",
+        "Verwende Brühwürfel statt Brühe aus dem Karton."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und 1 Brühwürfel",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "ginger-paste",
+          "swap": "Eine Prise Ingwerpulver",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Tasse Reis (~$0.09) mit Brühe und einem optionalen Ei ergibt eine wohltuende Schüssel für weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 533,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-cooker-style-congee/",
+      "components": [
+        {
+          "key": "5314ff98-4d7e-5bfb-a896-d1eaeff8a762",
+          "name": "Zutaten",
+          "servingGrams": 675,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a5e1eae-1d15-5cf7-afb2-75863e1df227",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1f45485-59af-5a4a-8512-ce877107ab2e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "100f6f5d-1c96-5248-afdb-78e884e58a8f",
+              "ingredientName": "Ingwerpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ae0dc91-7009-5765-b1f7-152ef3dd7b2b",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "6f402d0d-311b-599e-983d-d734b20d9497",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5d2264a3-6254-5ea3-a06f-eb0d17149333",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Reis, Brühe und Ingwer in einer tiefen, mikrowellengeeigneten Schüssel. Nimm eine Schüssel, die doppelt so hoch ist wie der Flüssigkeitsstand, denn Congee blubbert beim Erhitzen hoch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Mischung ohne Abdeckung 2 Minuten in der Mikrowelle, rühre um und erhitze sie dann weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn du Ei verwendest, schlage es hinein, rühre um und erhitze die Mischung weitere 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre alles cremig, würze mit Sojasauce und gib Frühlingszwiebel darauf. Vorsicht mit dem Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Chinese_rice_congee.jpg/960px-Chinese_rice_congee.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chinese_rice_congee.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Photo: Daiju Azuma — CC BY-SA 2.5 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Congee aus der Mikrowelle",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-tomato-egg-rice-bowl",
+      "slug": "mw-tomato-egg-rice-bowl",
+      "title": "Tomaten-Ei-Reisschale aus der Mikrowelle",
+      "instructions": "Saftiges Rührei mit Tomaten auf Reis: ein Klassiker der chinesischen Hausmannskost, angepasst für die Mikrowelle im Wohnheim.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Am besten frisch servieren; das Ei wird beim Aufwärmen gummiartig.",
+      "reheatingInstructions": "Abgedeckt mit einem Schuss Wasser 45s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kaufe günstige Strauchtomaten kurz vor Ladenschluss.",
+        "Eier sind eine günstige Grundzutat mit besonders viel Protein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tomato",
+          "swap": "Eine halbe Dose zerdrückte Tomaten",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "scallion",
+          "swap": "Eine Prise Zwiebelpulver",
+          "savings": "~$0.15"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Zwei Eier (~$0.70) und eine Tomate (~$0.50) auf Reis liefern 18g Protein für weniger als $1.80.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 534,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-tomato-egg-rice-bowl/",
+      "components": [
+        {
+          "key": "a4351b02-3c6e-5b04-a81d-eb2b30b7371b",
+          "name": "Zutaten",
+          "servingGrams": 493.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7341a790-061b-582b-b38f-296a0f047d52",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "774157db-1aeb-5f12-8747-4a6a73a0491b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "530b55a5-a6cb-58fb-902d-05e9647538a1",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92ac09cb-98e8-5823-8bb3-afba0bdb2316",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bad17518-3de3-560d-b94c-8fd224d26b4f",
+              "ingredientName": "Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "e9c61316-b50a-5677-8a48-bdf9997bced8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier mit Sojasauce in einer mikrowellengeeigneten Schüssel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Tomate und gib sie zusammen mit Zucker zu den Eiern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel locker ab und erhitze alles 90 Sekunden in der Mikrowelle. Rühre dann um, um den gestockten Eianteil zu zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze alles weitere 60–90 Sekunden, bis die Eier gerade gestockt sind und die Tomate Saft abgegeben hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle die Mischung über warmen Reis und gib Frühlingszwiebel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Stir_Fried_Tomatoes_with_Scrambled_Eggs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Stir_Fried_Tomatoes_with_Scrambled_Eggs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: NNU-10-24100123 — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Tomaten mit Rührei, einem Klassiker der chinesischen Hausmannskost",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

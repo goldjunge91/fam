@@ -1,0 +1,822 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-protein-shake",
+      "slug": "gen-protein-shake",
+      "title": "Proteinshake",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Proteinpulver online in größeren Mengen für einen besseren Preis pro Messlöffel.",
+        "Verwenden Sie generische Handelsmarken statt Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 4515,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-protein-shake/",
+      "components": [
+        {
+          "key": "16d1a177-a706-5c6b-a8a2-424ce08ccbf1",
+          "name": "Zutaten",
+          "servingGrams": 434,
+          "position": 0,
+          "items": [
+            {
+              "key": "4c35f746-89d6-548c-9be5-43019842d3d3",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Messlöffel"
+            },
+            {
+              "key": "178d68ae-af6c-5d9e-a709-722a75a6e048",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d05525eb-0b5f-5ee7-bd3a-b708f428cec9",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "2926b4b8-f2bb-5170-bf82-ae53515cc888",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b3ffa6f2-0101-5a06-b1cf-0980ecd14d23",
+              "ingredientName": "Eis",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen Messlöffel Proteinpulver abmessen und hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Banane in Scheiben schneiden und in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erdnussbutter und Eiswürfel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Glatt mixen und sofort trinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/JZ00DKa4QI8_hRstipASavKa9Pk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-261428-chocolate-peanut-butter-protein-shake-Hero-02-e49db6f2f2db4c04b6f4807e54ca3ee0.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/JZ00DKa4QI8_hRstipASavKa9Pk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-261428-chocolate-peanut-butter-protein-shake-Hero-02-e49db6f2f2db4c04b6f4807e54ca3ee0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pitaya-bowl",
+      "slug": "gen-pitaya-bowl",
+      "title": "Pitaya-Bowl",
+      "instructions": "Hawaiianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühlte Pitaya-Portionen bei Costco oder auf asiatischen Märkten zu besseren Preisen.",
+        "Lassen Sie frische Toppings weg und mixen Sie stattdessen gefrorenes Obst in die Basis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hawaiianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 4516,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pitaya-bowl/",
+      "components": [
+        {
+          "key": "ec62b890-8dea-5e49-a8d6-e4f687a261e7",
+          "name": "Zutaten",
+          "servingGrams": 854,
+          "position": 0,
+          "items": [
+            {
+              "key": "12ec86dc-aea2-5c00-8ed0-706d1eab3079",
+              "ingredientName": "Tiefgekühltes gemischtes Gemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Päckchen oder 100 g"
+            },
+            {
+              "key": "a1488d24-b11b-5ce9-ac26-3b9d0b025f2f",
+              "ingredientName": "Mandelmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a9d1f75b-a7f3-5174-97cd-a87f7f9460d3",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4f35f9b3-79f4-5d2d-86ea-e737d05513c8",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "eb9e96e3-0213-5d28-ace3-fbcbe2dd88c5",
+              "ingredientName": "Granola",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "db398cdc-d563-5d2a-9501-fa751d4eaa76",
+              "ingredientName": "Kokosraspeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "652fa3f0-d31f-564c-bbc5-a1985dd77d53",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Banane"
+            },
+            {
+              "key": "4bd5cdfe-9456-57cc-b67e-90fba0bef36c",
+              "ingredientName": "Heidelbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pitaya-Portion 2 Minuten in warmem Wasser antauen lassen oder direkt tiefgekühlt verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pitaya mit Mandelmilch und griechischem Joghurt glatt mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung in eine Schüssel gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Honig darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Granola, Kokosraspeln, Bananenscheiben und Heidelbeeren belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit einem Löffel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://capital-brands-llc.imgix.net/recipe-r2460-pitaya-pineapple-smoothie-bowl-fullsize-001926.jpg",
+          "sourcePageUrl": "https://capital-brands-llc.imgix.net/recipe-r2460-pitaya-pineapple-smoothie-bowl-fullsize-001926.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-orange-julius",
+      "slug": "gen-orange-julius",
+      "title": "Orange Julius",
+      "instructions": "Amerikanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie frisch gekauften Orangensaft statt die Orangen selbst auszupressen.",
+        "Kaufen Sie Orangen im Angebot und frieren Sie Saft für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4517,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-orange-julius/",
+      "components": [
+        {
+          "key": "79b1c17d-3f49-5c5e-a234-eb7d13576585",
+          "name": "Zutaten",
+          "servingGrams": 371.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2dafca84-a6cd-5a07-b265-143657efd323",
+              "ingredientName": "Orangensaft",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "90b18c4d-7380-565e-8abd-9b3fe8cd4746",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "1604371f-f0f1-547b-b36c-670a0d741e60",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "1cc9f8db-34c2-58c9-93ef-261d16337fe6",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "d09672f0-d1f4-54af-868c-1f745e5758b7",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8acd2c7e-414b-5434-9fda-fe8fa434afe0",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Frische Orangen auspressen, um 1.5 Tassen Saft zu erhalten, oder frisch gekauften Saft verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Orangensaft, Milch, Ei, Vanille und Zucker in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eiswürfel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa 30 Sekunden schaumig und glatt mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Gläser füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.budgetbytes.com/wp-content/uploads/2024/03/Orange-Julius-V2-1152x1536.jpg",
+          "sourcePageUrl": "https://www.budgetbytes.com/wp-content/uploads/2024/03/Orange-Julius-V2-1152x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-frappuccino",
+      "slug": "gen-frappuccino",
+      "title": "Frappuccino",
+      "instructions": "Amerikanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lassen Sie Schlagsahne weg und sparen Sie 50 Cent pro Getränk.",
+        "Bereiten Sie Kaffee zu Hause zu, statt ihn im Café zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 4518,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-frappuccino/",
+      "components": [
+        {
+          "key": "8b23e843-030a-5059-bca8-d77a4e115768",
+          "name": "Zutaten",
+          "servingGrams": 602.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "328a722f-4110-56c1-bf64-1dbe6ec06acf",
+              "ingredientName": "Cold-Brew-Kaffee",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d65d3c1f-8f37-54d7-9099-f00c9ee823b4",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "90b9b9c8-10d5-5e7e-ad01-2eb1bac4ebe4",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7a938065-8f85-57b6-824b-c918802c85c5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "d6bca694-f384-5cb6-978e-384a85a522ad",
+              "ingredientName": "Eis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "29e52a56-a100-59c4-aadd-919cfcb8bab0",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Starken Kaffee brühen und auf Raumtemperatur abkühlen lassen oder kalten Kaffee vom Vortag verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Abgekühlten Kaffee, Milch, Zucker und Vanille in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mixer mit Eiswürfeln füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa 1 Minute slushieartig und glatt mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In ein hohes Glas füllen und nach Wunsch mit Schlagsahne garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/cb1Zf7kTp5QkiMA0GBj8ppsrZx8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/235850-starbucks-caramel-frappuccino-copycat-recipe-DDMFS-4x3-227a1e47f46643dcb4708e775a250bca.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/cb1Zf7kTp5QkiMA0GBj8ppsrZx8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/235850-starbucks-caramel-frappuccino-copycat-recipe-DDMFS-4x3-227a1e47f46643dcb4708e775a250bca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wheatgrass-shot",
+      "slug": "gen-wheatgrass-shot",
+      "title": "Weizengrassaft-Shot",
+      "instructions": "Amerikanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ziehen Sie Weizengras zu Hause in einer Schale; das kostet nur wenige Cent pro Unze.",
+        "Kaufen Sie Shots in größeren Mengen in Reformhäusern statt einzeln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 4519,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wheatgrass-shot/",
+      "components": [
+        {
+          "key": "be63f655-0414-508f-b7f8-79bf01d3f599",
+          "name": "Zutaten",
+          "servingGrams": 250,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c03dd0f-3989-546d-8498-86796ee050c7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 bis 2 Unzen"
+            },
+            {
+              "key": "522284db-feb8-5db7-a8b1-6bb39c52db3f",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Unzen"
+            },
+            {
+              "key": "ef3c7a56-f546-5cf4-abbb-1f801ba6c63e",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Frisches Weizengras durch einen Entsafter oder Hochleistungsmixer geben, um den Saft zu gewinnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weizengrassaft durch ein Seihtuch in ein Shotglas abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frischen Zitronensaft auspressen und in das Glas geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach Wunsch Ingwersaft hinzufügen und mit einem Esslöffel Wasser auffüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort als Shot trinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f8/c9/ca/f8c9cac7a8418c61c3213354ad446368.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f8/c9/ca/f8c9cac7a8418c61c3213354ad446368.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

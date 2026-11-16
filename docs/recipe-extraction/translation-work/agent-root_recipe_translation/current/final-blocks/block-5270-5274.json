@@ -1,0 +1,1077 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-dunkin-boston-cream-donut",
+      "slug": "gen-dunkin-boston-cream-donut",
+      "title": "Boston-Cream-Donut von Dunkin",
+      "instructions": "Amerikanisches Frühstück: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Instant-Vanillepudding statt frischer Puddingcreme.",
+        "Kaufe Schokoladenstückchen im Angebot und lagere sie lange."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5270,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dunkin-boston-cream-donut/",
+      "components": [
+        {
+          "key": "182689fd-04ee-5fa9-93c4-388bdca64d76",
+          "name": "Zutaten",
+          "servingGrams": 183.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "6761e293-5caf-5e4c-a464-4d9993184d04",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "cab63b63-555d-56d3-919e-0cacdeff0130",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "12d05d8c-3c7e-5efd-8334-d316fd75a923",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "babe621a-7385-5a51-91dc-352f1ea649dc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "ffd57100-9557-5871-95a5-6fac3478f5e6",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b096524b-cc1b-57dc-b545-a70a09a1306f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e69c95cc-164b-5086-a291-ef2e0174645c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Quart"
+            },
+            {
+              "key": "4da7ef13-0c2d-5d56-9e3a-56f51b424aac",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "1d31ede3-aa35-54b5-95ad-161e364bf0c8",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "82ef4895-5e3c-5b50-add9-c335ead393b4",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem schweren Topf zum Frittieren auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Zucker, Backpulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Ei und Milch, gib sie zu den trockenen Zutaten und verrühre alles zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Teig in einen Spritzbeutel und spritze vorsichtig Ringe mit 3-inch Durchmesser direkt ins heiße Öl. Frittiere sie 1-2 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Donuts mit einem Schaumlöffel heraus und lass sie auf Küchenpapier abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze die Schokoladenstückchen mit der Sahne bei niedriger Hitze, bis die Glasur glatt ist. Lass sie leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die abgekühlten Donuts mithilfe eines Spritzbeutels seitlich mit Vanillepudding.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Tauche die Oberseite jedes Donuts in die Schokoladenglasur und lass sie auf einem Kuchengitter fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://richanddelish.com/wp-content/uploads/2023/12/Boston-Cream-Donuts.jpg",
+          "sourcePageUrl": "https://richanddelish.com/wp-content/uploads/2023/12/Boston-Cream-Donuts.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-taco-bell-breakfast-crunchwrap",
+      "slug": "gen-taco-bell-breakfast-crunchwrap",
+      "title": "Frühstücks-Crunchwrap von Taco Bell",
+      "instructions": "Mexikanisch-amerikanisches Frühstück: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Rösti und Wurstbratlinge der Hausmarke.",
+        "Bereite mehrere Wraps auf einmal zu und wickle sie für die Essensvorbereitung in Folie."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch-amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5271,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-taco-bell-breakfast-crunchwrap/",
+      "components": [
+        {
+          "key": "422d7563-0439-5473-8689-bd1fd630efa5",
+          "name": "Zutaten",
+          "servingGrams": 265,
+          "position": 0,
+          "items": [
+            {
+              "key": "a01ecf4f-8dd5-5556-80fb-2b265fd1b4b2",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a09811be-6da9-531f-8b30-2d30c8c2a615",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e475da18-119b-5f8c-ac5d-c5aa7cdad0e6",
+              "ingredientName": "tiefgekühlte Wurstbratlinge",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "538538cb-3351-5e61-a901-89fb0d8045db",
+              "ingredientName": "geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e4e79f82-20e5-56c0-aef9-2897163a7ca2",
+              "ingredientName": "tiefgekühlte Rösti",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f2b31fb5-d0ba-5fd4-b714-99578849c8fa",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "bf78779f-1e94-5de7-b250-62cae1d9fc48",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die tiefgekühlten Rösti in einer Pfanne bei mittlerer Hitze knusprig und stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Wurstbratlinge in derselben Pfanne an und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Eier mit Butter, Salz und Pfeffer, bis sie vollständig gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege eine Mehltortilla aus und verstreiche Nacho-Käsesauce in der Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte Eier, Wurst, Rösti und Käse in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe die vier Ecken der Tortilla zur Mitte, sodass ein Quadrat entsteht, und drehe es mit der Nahtseite nach unten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze eine Pfanne oder Grillplatte und brate den eingewickelten Burrito 2-3 Minuten pro Seite, bis die Tortilla knusprig und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide ihn diagonal auf und serviere ihn sofort mit Salsa oder zusätzlicher Käsesauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i1.wp.com/basicswithbails.com/wp-content/uploads/2023/06/taco-bell-breakfast-crunchwrap.jpg",
+          "sourcePageUrl": "https://i1.wp.com/basicswithbails.com/wp-content/uploads/2023/06/taco-bell-breakfast-crunchwrap.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chipotle-barbacoa-burrito",
+      "slug": "gen-chipotle-barbacoa-burrito",
+      "title": "Barbacoa-Burrito nach Chipotle-Art",
+      "instructions": "Mexikanisch-amerikanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie ein, bis du sie brauchst.",
+        "Verwende Bohnen aus der Dose statt getrockneter Bohnen, die gekocht werden müssen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5272,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chipotle-barbacoa-burrito/",
+      "components": [
+        {
+          "key": "1865693e-8b3f-546d-909c-9bb6a25e118d",
+          "name": "Zutaten",
+          "servingGrams": 600.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "e0fd8ca4-1063-578e-8674-e8551d662713",
+              "ingredientName": "Rinderschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "bd31d612-6e07-597d-939c-1ea987c00f72",
+              "ingredientName": "Jalapeño",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f3e55e0-5d4b-5976-9559-d61912bd66b4",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "ee498da2-9783-554f-96f4-354579be0ac4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "99a1e963-1f1a-5db8-8b0b-5206ceabbb6e",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4a44b609-8cc0-565a-a0fe-34879be51e22",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d4855eb8-f1a2-52fd-a19e-d475780c612d",
+              "ingredientName": "Tortilla",
+              "grams": 120,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b191030-ac99-5609-bd8b-ed471b277fa1",
+              "ingredientName": "Naturreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9a6753c1-8c24-5adf-ab52-bae6920bc996",
+              "ingredientName": "schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "77f042e8-47f1-50d3-8540-58783b7fb7d4",
+              "ingredientName": "geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e38c600f-14d4-595b-8998-08492b21c92a",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "38067b47-4115-57a8-8f8f-55b412ca9249",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Rinderschulter in heißem Öl in einem schweren Topf von allen Seiten an, bis sie gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Chipotle-Chilis, Adobo-Sauce, Essig, Kreuzkümmel, Salz und Pfeffer zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche den angebratenen Braten mit der Chipotle-Paste und gib dann Rinderbrühe in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Topf ab und lasse das Fleisch bei niedriger Hitze 1.5 Stunden köcheln, bis es sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerpflücke das gegarte Fleisch mit zwei Gabeln und vermenge es wieder mit der Schmorflüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme den gekochten Reis und die abgetropften schwarzen Bohnen getrennt voneinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme jede Tortilla über einer Flamme oder in einer Pfanne, damit sie biegsam wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schichte Reis, Bohnen, Barbacoa-Fleisch, Käse und Salsa auf jede Tortilla und rolle sie fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kate-cooks.com/wp-content/uploads/2023/05/Instant-Pot-Chipotle-Style-Barbacoa-Tacos-3-1920x2880.jpg",
+          "sourcePageUrl": "https://kate-cooks.com/wp-content/uploads/2023/05/Instant-Pot-Chipotle-Style-Barbacoa-Tacos-3-1920x2880.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-loaded-nachos",
+      "slug": "gen-loaded-nachos",
+      "title": "Überbackene Nachos",
+      "instructions": "Amerikanischer Snack: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tortillachips der Hausmarke und Rinderhackfleisch im Angebot.",
+        "Verwende fertig geriebenen Käse, um Zeit bei der Zubereitung zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5273,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loaded-nachos/",
+      "components": [
+        {
+          "key": "741de306-d2cf-5cef-8d1e-865598bb3429",
+          "name": "Zutaten",
+          "servingGrams": 370,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ac39d9d-32ee-5ea6-a35e-b16988e10647",
+              "ingredientName": "Tortillachips",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "e513f6e1-e94a-5894-b02f-69256ac90b81",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "8a270f2e-30eb-5d9e-91d3-f02b00a41d3b",
+              "ingredientName": "geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b6dfc0ea-d324-56fe-8d50-902b5bfcf213",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "af7ef269-05e6-5453-8b42-dfbcc295086c",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "55b56e13-3cf2-5dc0-ac10-28296a5028b1",
+              "ingredientName": "frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "c45b5c81-7a8d-54ab-bdbf-d4febc2fca3d",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "7b24b7e3-7645-570a-afcd-d56864c2d7a7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Rinderhackfleisch in einer Pfanne bei mittelhoher Hitze an und zerkleinere es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße überschüssiges Fett ab und würze das Fleisch mit Salz, Pfeffer und Taco-Gewürz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Tortillachips auf einer großen ofenfesten Platte oder in einer flachen Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das gegarte Fleisch auf den Chips und bestreue alles gleichmäßig mit Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Überbacke die Nachos 3-4 Minuten auf hoher Stufe, bis der Käse vollständig geschmolzen ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm sie aus dem Ofen und gib Jalapeños, Oliven, Frühlingszwiebeln und etwas Salsa darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Nachos sofort mit saurer Sahne zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/W1EDjHTb938fIoxoaTsN1JU7X1k=/3799x2533/filters:fill(auto,1)/baked-ground-beef-nachos-3050670-hero-18703b12e39c4344bb4389bd81fd8d74.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/W1EDjHTb938fIoxoaTsN1JU7X1k=/3799x2533/filters:fill(auto,1)/baked-ground-beef-nachos-3050670-hero-18703b12e39c4344bb4389bd81fd8d74.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kimchi-fries",
+      "slug": "gen-kimchi-fries",
+      "title": "Kimchi-Pommes",
+      "instructions": "Koreanischer Snack: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kimchi auf einem asiatischen Markt; dort ist es günstiger als in vielen großen Geschäften.",
+        "Verwende fertige Gochujang-Mayonnaise, um Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5274,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kimchi-fries/",
+      "components": [
+        {
+          "key": "9b54c081-559e-5b4e-901a-8975a34c1925",
+          "name": "Zutaten",
+          "servingGrams": 331.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bccafe6-8ddc-5f40-997d-2800f3c7019b",
+              "ingredientName": "Kartoffeln",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ae15095a-c1c2-53d9-8e99-758a0e105e23",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Quart"
+            },
+            {
+              "key": "dfbf7ca7-285f-540c-87b4-179e03f2e22f",
+              "ingredientName": "Kimchi",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "23faaad1-fbae-50be-8d98-5441a07b901d",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6fcdbcda-2ab8-5cba-8ebe-5446ed6fcc50",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "052f2a21-f44c-5dbf-9ec6-57ab088b9b60",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "125ad323-20a0-5f77-9637-13a740f5f456",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "32e8d3e0-5685-5154-a88a-6a07808ea4fb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in dünne Stifte und weiche sie 30 Minuten in kaltem Wasser ein, um die Stärke zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem schweren Topf auf 325°F und frittiere die eingeweichten Pommes 5 Minuten, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhöhe die Hitze auf 375°F und frittiere sie erneut 2-3 Minuten, bis sie knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Pommes auf Küchenpapier abtropfen und würze sie leicht mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Mayonnaise mit Gochujang und Kimchi-Saft zu einer scharfen Mayonnaise-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge die heißen Pommes in einer Schüssel mit gehacktem Kimchi.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib sie auf einen Servierteller und beträufle sie mit Gochujang-Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue sie vor dem Servieren mit Frühlingszwiebeln und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlheartfood.com/wp-content/uploads/2021/04/Close-up-Spicy-Kimchi-Fries-with-Cheese-Sauce.jpg",
+          "sourcePageUrl": "https://girlheartfood.com/wp-content/uploads/2021/04/Close-up-Spicy-Kimchi-Fries-with-Cheese-Sauce.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

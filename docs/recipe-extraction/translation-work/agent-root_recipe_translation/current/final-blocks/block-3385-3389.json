@@ -1,0 +1,1061 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-okinawa-soba",
+      "slug": "gen-okinawa-soba",
+      "title": "Okinawa-Soba",
+      "instructions": "Okinawanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Ramen-Nudeln statt Soba, um Kosten zu senken.",
+        "Bereite Brühe aus Hühnerknochen zu oder verwende gekaufte Brühe, um Zeit und Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "okinawanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3385,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-okinawa-soba/",
+      "components": [
+        {
+          "key": "5a62fcaa-c200-5f5d-a8ba-9e1fb0ada39d",
+          "name": "Zutaten",
+          "servingGrams": 1178.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "de8988c7-9697-5da7-bb89-9cdf96d69f01",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "8bb9f201-b853-50cd-a1e2-3f288b2438e3",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "b9939c19-48aa-5af5-b719-d0375930a589",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "4e8539c3-277a-5c4d-b4b5-a36564cc50b2",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b86171e9-6194-527d-bf27-32ab63019fb6",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0a6b21da-7171-57ae-8988-af27df8119e1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "7d6b1f31-964e-5216-b98e-7232d166fab8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "0616fd53-9f5c-5c3a-83d2-c5f6cd5428c1",
+              "ingredientName": "Fischkuchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "5fab7c7c-adee-507a-aa60-42dc146df723",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "273e0f71-24c8-5946-831f-e4d39e7928f1",
+              "ingredientName": "Bonitoflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lasse das Schweinefleisch 25-30 Minuten in Wasser köcheln, bis es zart ist, und schneide es dann in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Dashi- oder Hühnerbrühe mit Sojasauce, Mirin und Salz in einem Topf und schmecke sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche Soba-Nudeln nach Packungsanweisung in kochendem Salzwasser, gieße sie ab und spüle sie mit kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die gekochten Nudeln auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schöpfe die heiße Brühe gleichmäßig über die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jede Schale mit Schweinefleischscheiben, Fischkuchen, Frühlingszwiebeln und eingelegtem Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue jede Schale mit Bonitoflocken und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2019/07/SokiSoba_3660.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2019/07/SokiSoba_3660.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rafute",
+      "slug": "gen-rafute",
+      "title": "Rafute",
+      "instructions": "Okinawanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch auf asiatischen Märkten, wo er deutlich günstiger ist als bei westlichen Metzgern.",
+        "Bereite zusätzliche Portionen zu und friere sie für künftige Mahlzeiten ein, um die Kochzeit besser zu nutzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "okinawanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3386,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rafute/",
+      "components": [
+        {
+          "key": "eff0100e-f800-56b4-8f9e-0c2621f79d21",
+          "name": "Zutaten",
+          "servingGrams": 520.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "3be92344-c8d3-5e9e-ba98-87b7d356d4f0",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7fe95e47-e919-55fd-a661-15a6b9b72383",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f83c99bb-474d-54c7-86f0-966dc0fe254c",
+              "ingredientName": "Mirin",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f823fa5f-41e3-5e28-bdef-8e51bd8c10bd",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f8597720-e432-57af-83ab-c3b0112b2850",
+              "ingredientName": "Sherryessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "7a5cfd50-c309-5f2f-b039-de0934bfe587",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zoll"
+            },
+            {
+              "key": "e5f3c182-8633-507c-a59e-79bf79a44ac8",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "b50e43db-43c8-5e9e-b99f-f43f219af6c7",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3a2739c1-0053-5769-9359-ee0f8a7b7a0d",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Schweinebauch in 2-inch große Würfel und lasse die Schwarte daran.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere die Schweinefleischwürfel 5 Minuten in kochendem Wasser, gieße sie ab und spüle sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Wasser, Sojasauce, Mirin, Sake, Zucker und zerdrückten Ingwer in einem großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den blanchierten Schweinebauch in den Topf und bringe alles zum Kochen. Reduziere dann die Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles zugedeckt 60-70 Minuten köcheln, bis das Schweinefleisch sehr zart und die Schwarte weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib in den letzten 5 Minuten der Garzeit geschnittene Frühlingszwiebeln und Senfblätter dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das Schweinefleisch und Gemüse heraus, seihe den Kochsud ab und gieße ihn als Glasur darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/77/98/7/picDR9aKV.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/77/98/7/picDR9aKV.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-taco-rice",
+      "slug": "gen-taco-rice",
+      "title": "Taco-Reis",
+      "instructions": "Okinawanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Taco-Gewürz und preiswerte Salsa der Hausmarke, um Geld zu sparen.",
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "okinawanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3387,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-taco-rice/",
+      "components": [
+        {
+          "key": "0eb6df9e-cdde-56b4-ac0d-0ce2048b0bbd",
+          "name": "Zutaten",
+          "servingGrams": 888.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba1e1b26-31a9-56f9-86b5-d91d2b014416",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "a78f79dd-5b21-52a0-a334-5cffe74d6bec",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen, gegart"
+            },
+            {
+              "key": "44656c56-4133-5def-866e-a43e00fc18a0",
+              "ingredientName": "Taco-Gewürzmischung",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "de14f678-8749-5a56-be5a-67e4864156f7",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bbe21acf-972f-55d8-bb82-5a68017abae3",
+              "ingredientName": "Geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse, geraspelt"
+            },
+            {
+              "key": "13813e76-e696-5845-abfa-2571e45581fb",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen, gehackt"
+            },
+            {
+              "key": "5c3a81bb-3c07-51d8-b82e-f594848f8dd5",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "b0edf86d-7065-5330-967e-a193dce776f1",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f288057c-2120-5999-88c1-09366d95c7d4",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "48bd7498-2954-5799-9a67-751f8553d11a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer Pfanne bei mittelhoher bis hoher Hitze und brate das Rinderhackfleisch krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Taco-Gewürz und Wasser zum Rindfleisch, rühre gut um und lasse alles 5 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den gekochten Reis auf zwei Schalen oder Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege den Reis mit dem gewürzten Rinderhackfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte geriebenen Käse, gehackten Salat und gewürfelte Tomate darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle alles mit saurer Sahne und Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht sofort warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Taco-Rice_EXPS_FT22_13591_F_0330_2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Taco-Rice_EXPS_FT22_13591_F_0330_2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mimiga",
+      "slug": "gen-mimiga",
+      "title": "Mimiga",
+      "instructions": "Okinawanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineohren sind in asiatischen Metzgereien viel günstiger als bei westlichen Metzgern.",
+        "Kaufe sie für zusätzliche Ersparnisse in größeren Mengen auf asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "okinawanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3388,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mimiga/",
+      "components": [
+        {
+          "key": "bf0c63f9-436a-5361-a8cf-89081b29ee92",
+          "name": "Zutaten",
+          "servingGrams": 1185,
+          "position": 0,
+          "items": [
+            {
+              "key": "c556f025-8bf8-5554-9447-d1b41e50fbab",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "961a52b8-9270-5909-a96d-1d706e6517aa",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "432ee1b7-1024-58cd-b452-1b4fff87d3a3",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "c9cb5c2e-96e5-5562-9f06-4f050eef8c13",
+              "ingredientName": "Reisessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "89281f2f-a702-52a7-91a8-e184e2792613",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9a6a958a-d114-5437-8df8-0995babc440a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3f1838ae-3849-5c86-a9d5-f4d6ea397692",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "895a252b-2c7a-59c2-a6e3-e52dae1e5e92",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "820a2a73-3810-5518-a444-bb7414492c9a",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Wasser zum Kochen und blanchiere Schweineohren 2-3 Minuten. Nimm sie heraus und entferne unter fließendem Wasser Haare und Rückstände.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gereinigten Ohren zurück in frisches kochendes Salzwasser und lasse sie 30-35 Minuten köcheln, bis sie sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Ohren ab, lasse sie abkühlen und schneide sie in etwa 1/4-inch dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Reisessig, Sojasauce, Sesamöl und Chiliöl in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die geschnittenen Ohren zum Dressing und vermische alles vorsichtig, aber gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue das Gericht mit gehackten Frühlingszwiebeln und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Salat bei Raumtemperatur oder gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-umi-budo",
+      "slug": "gen-umi-budo",
+      "title": "Umi Budo",
+      "instructions": "Okinawanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Meerestrauben sind deutlich günstiger als frische und länger haltbar.",
+        "Vergleiche die Preise für besondere Algenprodukte auf asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "okinawanisch",
+        "Mittagessen",
+        "vegan",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3389,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-umi-budo/",
+      "components": [
+        {
+          "key": "08840216-3267-5efb-bd86-4430dba6b93d",
+          "name": "Zutaten",
+          "servingGrams": 297.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8bfad9b-74ee-5c78-9969-ef19f29be244",
+              "ingredientName": "Trauben",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen frisch oder 2 Unzen getrocknet"
+            },
+            {
+              "key": "f4fd5efe-cbba-52d6-8fc3-eb45de3f625d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (bei Verwendung der getrockneten Zutat)"
+            },
+            {
+              "key": "e2bab1c9-3500-5bb3-979d-5006b9667335",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1a5312f2-13dc-5b2a-a8a2-fa38a58f3825",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cc235d87-3d2d-5fa0-8bf8-cea7d72a4255",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d4136d2c-b498-5f61-92e7-4c508a3e07c3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9e266003-4adf-58ef-86c7-16ef7dcd0850",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3dce0e88-cedb-5c8e-a342-f712927303b6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stange, gehackt"
+            },
+            {
+              "key": "e5b7404e-8ea3-5d2b-b177-f161586ef6c4",
+              "ingredientName": "Bonitoflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Meerestrauben bei Verwendung 5-10 Minuten in Wasser ein, gieße sie ab und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Sojasauce, Reisessig, Mirin und Sesamöl in einer kleinen Schüssel zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Meerestrauben vorsichtig mit dem Dressing in einer Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue alles mit Sesam, Frühlingszwiebeln und Bonitoflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht sofort gekühlt oder bei Raumtemperatur als Salat oder Vorspeise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://flyingwithfood.com/wp-content/uploads/2016/03/Ichibancho-Teruya-5-810x810.jpg",
+          "sourcePageUrl": "https://flyingwithfood.com/wp-content/uploads/2016/03/Ichibancho-Teruya-5-810x810.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

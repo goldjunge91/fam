@@ -1,0 +1,1162 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-nom-banh-chok",
+      "slug": "gen-nom-banh-chok",
+      "title": "Nom Banh Chok",
+      "instructions": "Kambodschanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Makrele oder Sardinen aus der Dose statt frischem Fisch, um Geld zu sparen.",
+        "Kaufe Reisnudeln und Fischsauce in größeren Mengen auf asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "kambodschanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3565,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nom-banh-chok/",
+      "components": [
+        {
+          "key": "343de04d-5dc1-5316-a934-993b1a6c6fb6",
+          "name": "Zutaten",
+          "servingGrams": 802.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c96fb00-8951-5aee-9151-6cc3cdc72a42",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "f5f64ade-a427-50d0-848a-1e67d9b30013",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "ed048779-b8f3-58d8-b327-f6678f193a7f",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1a314db5-57e7-54dc-8479-0d8ee5edce7d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "892a00ef-bd03-5c31-b9fa-da5c071c02a9",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60869829-0f21-534c-a8d6-22427d249de2",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e32dadb3-ccdf-5d02-8dcb-740181d37459",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b618448c-e834-5006-9990-995a8561ea7b",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7d74d841-fea8-55d8-ab6d-2255ff86d2ed",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40f3982f-f4bd-50e4-b515-16aa2a09917e",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Reisnudeln nach Packungsanweisung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerstoße Knoblauch und Schalotten gemeinsam zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze einen Topf bei mittlerer Hitze und dünste die Knoblauch-Schalotten-Paste mit Kurkuma 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Fisch aus der Dose samt Flüssigkeit dazu, zerdrücke ihn leicht und brate alles 2 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch und Wasser dazu und lasse alles 10 Minuten sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke mit Fischsauce ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Nudeln auf zwei Schalen und gieße die Fisch-Currysuppe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit Gurkenscheiben, frischer Minze und Koriander und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tripsavvy.com/thmb/xN-YCLJFxHiThH37jn1owyBfdt4=/5152x3864/filters:no_upscale():max_bytes(150000):strip_icc()/Num_Banh_Chok_Somlar_Kari-26b11140edda4467a60575363b0ae66b.jpg",
+          "sourcePageUrl": "https://www.tripsavvy.com/thmb/xN-YCLJFxHiThH37jn1owyBfdt4=/5152x3864/filters:no_upscale():max_bytes(150000):strip_icc()/Num_Banh_Chok_Somlar_Kari-26b11140edda4467a60575363b0ae66b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-samlor-machu-teuk",
+      "slug": "gen-samlor-machu-teuk",
+      "title": "Samlor Machu Teuk",
+      "instructions": "Kambodschanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tamarindenpaste in größeren Mengen in asiatischen Geschäften, um die Kosten pro Portion zu senken.",
+        "Verwende tiefgekühlte Okra, falls frische nicht erhältlich oder teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "kambodschanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3566,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-samlor-machu-teuk/",
+      "components": [
+        {
+          "key": "9fdcf172-b4b4-5b99-871b-36a2ba196b42",
+          "name": "Zutaten",
+          "servingGrams": 720.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d9cf601-384b-56e9-8e23-fc16d233e3eb",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "4816973f-73a0-516a-be71-40f22a24c60f",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b4cdbd4e-3530-510f-a0d2-c9b25adbe459",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5bdce958-05b0-5879-82d5-de61edc5ed96",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "30daba24-4fce-5e5b-abed-aec2b1067408",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b23edcc4-b878-5c35-b37b-f61cae26ba96",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ac260f3-1a7f-5a4d-bbe1-8236fa4c8924",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "64c7da3c-d4fd-5cf7-b373-dfca1c68f9f8",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "82750a29-e984-5c77-b2cc-799cc804e1be",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b71984a-1542-51eb-b9fc-d4682afb8750",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerstoße Knoblauch und Schalotten gemeinsam zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Knoblauch-Schalotten-Paste dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Fischsauce, Tamarindenpaste und Palmzucker dazu und rühre, bis sich alles aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Okra und Ananasstücke dazu und lasse alles 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib geviertelte Tomaten dazu und lasse alles weitere 3 Minuten köcheln, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und würze es nach Bedarf mit Fischsauce oder Tamarinde nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere es mit frischem Koriander und serviere es heiß in Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.freepik.com/premium-vector/cambodian-samlor-machu-kreung-sour-soup_1253557-78790.jpg?w=2000",
+          "sourcePageUrl": "https://img.freepik.com/premium-vector/cambodian-samlor-machu-kreung-sour-soup_1253557-78790.jpg?w=2000",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-samlor-korkor",
+      "slug": "gen-samlor-korkor",
+      "title": "Samlor Korkor",
+      "instructions": "Kambodschanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Gemüse für saisonale Ersparnisse auf Bauernmärkten oder bei Discountern.",
+        "Verwende Kürbispüree aus der Dose, falls kein frischer Kürbis erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "kambodschanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3567,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-samlor-korkor/",
+      "components": [
+        {
+          "key": "887724b4-102d-51e1-af88-10e27203788b",
+          "name": "Zutaten",
+          "servingGrams": 589,
+          "position": 0,
+          "items": [
+            {
+              "key": "7afc0a4b-b371-5b70-81ec-39f42325d9a8",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "59ce40cb-f101-5c7b-91ed-43b1dadc56fc",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "3510e82b-c355-5092-8870-63d497e274ac",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "d56f7652-b3fc-5a78-a18c-27d91ce0a49c",
+              "ingredientName": "Butternusskürbis",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "de08ca8e-2f2e-5614-94bf-2a05b4e183f5",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "a409c468-52ca-545a-9c59-4a87801ed652",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f9593b7-3684-5503-806e-df120c7d8544",
+              "ingredientName": "Getrocknete Chilischote",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23084109-8509-5173-9b3f-eeb443f71661",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfbdfa23-d013-5162-b4b1-da9de0088ebf",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "3d037f1a-418e-5d20-bfaa-9c283b830f30",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Chilischoten 5 Minuten in warmem Wasser ein und zerstoße sie dann mit Knoblauch und Schalotten zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide lange Bohnen in 2-inch lange Stücke und würfle Aubergine und Kürbis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Chili-Knoblauch-Paste dazu und rühre, bis sie sich aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kürbiswürfel dazu und lasse sie 8 Minuten köcheln, bis sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Aubergine und lange Bohnen dazu und lasse alles weitere 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Kokosmilch und Fischsauce ein und lasse alles weitere 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Gericht, würze es nach Bedarf nach, garniere es mit frischem Basilikum und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/84/34/7e/84347ea0cd4b5151b3d89c97cb4bc5dd.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/84/34/7e/84347ea0cd4b5151b3d89c97cb4bc5dd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-amok",
+      "slug": "gen-amok",
+      "title": "Amok",
+      "instructions": "Kambodschanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tilapia oder anderen preiswerten Weißfisch statt teurer Sorten.",
+        "Bereite rote Currypaste selbst zu, falls du sie häufiger kaufst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "kambodschanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3568,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-amok/",
+      "components": [
+        {
+          "key": "4697c3a4-9924-58f9-bf4f-2097727e9e84",
+          "name": "Zutaten",
+          "servingGrams": 573.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f19d96a4-0839-588e-9ead-0c37ce879e4e",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "6427a995-260f-5659-b3b5-9662ac9e49c1",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "75c03c73-12e6-558d-8766-48026aac5f91",
+              "ingredientName": "Rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "21f22a5e-00ef-58e6-a784-d32a16948d8b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aeeb6a13-6e98-57db-b16b-e490779cad24",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "ef579948-c1bd-544d-bac9-359fe7bde7d8",
+              "ingredientName": "Kaffir-Limettenblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "4cc96d87-43f0-5e8d-bd3b-356bc8e5accc",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b237a0ac-c748-5437-945e-ab3aecaac379",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "69f79bfa-3731-536a-bdaa-d1808a493675",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b5f6aa1-cc50-505d-96a8-9d1609789e08",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Fischfilets in mundgerechte Stücke und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Zitronengras und Knoblauch fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische rote Currypaste, Knoblauch, Zitronengras und Kokosmilch in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Fischsauce, Palmzucker und Limettenblätter zur Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle das Ei gründlich mit der Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die Fischstücke vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Mischung in Päckchen aus Bananenblatt oder Folie und falte sie fest zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Dämpfe die Päckchen in einem Topf mit 2 inches Wasser 20 Minuten. Öffne sie dann vorsichtig und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://angkorchef.com/wp-content/uploads/2019/12/shutterstock_766320682-fb-scaled.jpg",
+          "sourcePageUrl": "https://angkorchef.com/wp-content/uploads/2019/12/shutterstock_766320682-fb-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lok-lak",
+      "slug": "gen-lok-lak",
+      "title": "Lok Lak",
+      "instructions": "Kambodschanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschultersteak oder Rindersteak aus der Keule statt Roastbeef und spare Geld.",
+        "Achte auf Angebote für Rindfleisch im Großgebinde und friere Portionen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "kambodschanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3569,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lok-lak/",
+      "components": [
+        {
+          "key": "465072ab-d54c-5505-9e04-8f0aa2c86809",
+          "name": "Zutaten",
+          "servingGrams": 341,
+          "position": 0,
+          "items": [
+            {
+              "key": "23b15985-8818-56c4-bb30-5420136e712c",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "73964964-4f7b-5aaa-b61d-f79da2fdaae2",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "87ee1432-47da-54f0-ab96-484c20ae1b6f",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2cc1e4e4-5246-5520-a7c7-f4e7d2cf17c4",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "efe3d44e-e998-5ba4-a15f-727d778e1237",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fae8107e-7cd9-5db9-bb1d-03465db47f63",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d741aea7-aefa-5557-a764-db3ebc5d8694",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "00a97066-1c11-5f87-9dc8-a6e928127268",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "80461577-bc2a-51f6-8ad9-7ceeab5c7a9a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "0cf9849f-9297-5324-97b0-8d5e4f64d572",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79a3c5fc-82c5-5307-9dd3-afd7a3ef72c5",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch in dünne, mundgerechte Stücke und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke den Knoblauch fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasauce, Austernsauce, Limettensaft, Fischsauce und schwarzen Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne oder einem Wok bei starker Hitze, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackten Knoblauch dazu und rühre 10 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Rindfleischstücke dazu und brate sie 3-4 Minuten unter Rühren, bis sie gebräunt, aber noch zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Sauce über das Rindfleisch und schwenke alles 1 Minute rasch durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege geschnittene Zwiebel, Tomate und Gurke auf einen Teller, gib Rindfleisch und Sauce darauf und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/zb1rbkgxDQT3SfEPZiKncciphp8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Lok-Lak-Mustard-LEAD-05-a0d8c2c5cd064e9c8c31af93a81b51f0.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/zb1rbkgxDQT3SfEPZiKncciphp8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Lok-Lak-Mustard-LEAD-05-a0d8c2c5cd064e9c8c31af93a81b51f0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

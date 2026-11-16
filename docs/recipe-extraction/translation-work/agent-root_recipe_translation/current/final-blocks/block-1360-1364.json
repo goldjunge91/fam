@@ -1,0 +1,1097 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-me-grain-maqluba",
+      "slug": "mfr-me-grain-maqluba",
+      "title": "Palästinensisches Maqluba (gestürzter Reisauflauf)",
+      "instructions": "Palästinas besonders eindrucksvolles Gericht: Schichten aus gebratener Aubergine, Blumenkohl und gewürztem Hähnchen, mit Reis bedeckt und gemeinsam gegart. Anschließend wird alles wie ein herzhafter Schichtkuchen auf eine Platte gestürzt – ein beeindruckendes Ergebnis für den Aufwand.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brate die Zutaten in wenig Öl statt sie zu frittieren, so sparst du Öl.",
+        "Die Präsentation gehört dazu – Maqluba wird zu Feierlichkeiten serviert.",
+        "Verwende einen beschichteten Topf, damit sich das Gericht sauber stürzen lässt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Lammkoteletts für eine traditionellere Variante"
+        },
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "Geröstete Mandeln für den gleichen Biss zu geringeren Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-maqluba",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "palästinensisch",
+        "Maqluba",
+        "Reis",
+        "gestürzt"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1360,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-maqluba/",
+      "components": [
+        {
+          "key": "96eda7e2-98d6-5445-a48f-ea8cccbc857b",
+          "name": "Zutaten",
+          "servingGrams": 267.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "3be0998d-d51c-5155-842d-2f92b37e87d5",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bad6b8f-b327-5568-937d-e6c993ccc0ff",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f8267be-37b9-5104-a9da-c62557aaa86a",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a19b3c1-d496-5065-a366-5aac2cd2aa3a",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6245834d-a7b3-55c6-a16e-7eb85216f23f",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a1d1f0e-edad-503f-995b-018baa5f6f33",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e625cc3-459f-5ee7-8b3f-654436742e75",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20c18ebf-ee93-5c03-acce-65d9328fc79b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35bfa46d-0973-5542-aa98-eb165772ee00",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "344bb500-aca7-5081-a4e5-3127158dba7d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ad3ff9d-2f69-54ae-aa37-4ae6664522b3",
+              "ingredientName": "Pinienkerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03665d88-d36a-54fc-bf6e-40b850d146dc",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Auberginenscheiben goldbraun an und stelle sie beiseite. Brate den Blumenkohl leicht goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die Hähnchenschenkel. Schichte Tomaten, Aubergine, Blumenkohl, Hähnchen und Reis in einen tiefen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße gewürzte Brühe darüber und koche alles bei mittlerer bis niedriger Hitze zugedeckt 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Gericht 10 Minuten ruhen. Stürze es auf eine große Platte und garniere es mit Pinienkernen und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2022/01/Vegetarian-Maqluba-recipe-linsfood.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2022/01/Vegetarian-Maqluba-recipe-linsfood.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-me-grain-turkish-pilav",
+      "slug": "mfr-me-grain-turkish-pilav",
+      "title": "Türkischer Kichererbsen-Pilaw",
+      "instructions": "Buttriger türkischer Reispilaw mit Kichererbsen und Orzo-Pasta, gewürzt mit einer Technik, bei der Fadennudeln gebräunt werden. So bekommt der Reis eine goldene Farbe und ein nussiges Aroma – einfach, fein und wohltuend.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Orzo in Butter goldbraun anzurösten ist der entscheidende Trick – lass diesen Schritt nicht aus.",
+        "Pilaw passt zu allem und ist in der Türkei so alltäglich wie weißer Reis.",
+        "Kichererbsen aus der Dose lassen sich ohne zusätzliche Arbeit dazugeben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "orzo-pasta",
+          "swap": "Fadennudeln, in kleine Stücke gebrochen"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-turkish-pilav",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "türkisch",
+        "Pilaw",
+        "Kichererbsen",
+        "Reis"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1361,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-turkish-pilav/",
+      "components": [
+        {
+          "key": "4f3d9e75-0d7a-50e3-85d7-c228cbe9d59b",
+          "name": "Zutaten",
+          "servingGrams": 288.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bac1e027-121b-59f3-bf13-59bfc14b991b",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef19e8cd-786a-5fa8-a918-905ffb7322a5",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0fa65ff-dc0d-569b-9fc1-6e7779a44411",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e63e080-0c37-527c-8953-062b485c2b26",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23781975-cada-5b34-bd4e-4628e79e310e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41a1777c-fba0-5cbb-b355-6431c620a032",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8673d299-c8e4-50f1-a310-f940c71f0724",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ebc7126-7b75-5f3c-bd17-17a62278af48",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Orzo 3 Minuten in Butter goldbraun an, damit es ein nussiges Aroma bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib abgespülten Reis dazu und rühre 1 Minute, damit er mit Butter überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brühe und Kichererbsen dazu und bringe alles zum Kochen. Decke den Topf ab und gare den Reis bei niedriger Hitze 18 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass den Reis 5 Minuten ruhen und lockere ihn mit einer Gabel auf. Gib Petersilie darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.taste.com.au/KWhWBxxp/taste/2016/11/easy-lamb-pilaf-8221-1.jpeg",
+          "sourcePageUrl": "https://img.taste.com.au/KWhWBxxp/taste/2016/11/easy-lamb-pilaf-8221-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-me-grain-mansaf-bowl",
+      "slug": "mfr-me-grain-mansaf-bowl",
+      "title": "Jordanische Mansaf-Bowl",
+      "instructions": "Jordaniens Festgericht: Lamm in einer Sauce aus fermentiertem, getrocknetem Joghurt (Jameed) geschmort, bis es zart ist. Serviert auf Reis und Fladenbrot mit gerösteten Nüssen und frischer Petersilie. Als Bowl-Variante für den Alltag zubereitet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammschulter ist günstiger als Keule und schmeckt beim langsamen Garen besonders kräftig.",
+        "Die Joghurtsauce macht Mansaf aus – lass sie nicht weg.",
+        "Falls du kein Jameed bekommst, kannst du normalen Joghurt mit Brühe verdünnen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lamb-shoulder",
+          "swap": "Hähnchenschenkel für eine schnellere und günstigere Variante"
+        },
+        {
+          "forIngredientId": "plain-yogurt",
+          "swap": "Labneh mit Wasser verdünnt für einen authentischeren Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-mansaf-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "jordanisch",
+        "Mansaf",
+        "Lamm",
+        "Joghurtsauce"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1362,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-mansaf-bowl/",
+      "components": [
+        {
+          "key": "2378fff9-4f91-58b7-9890-bbdf50ed172d",
+          "name": "Zutaten",
+          "servingGrams": 329.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4d31e5e-ae16-5f8d-87d4-b8dd543a047f",
+              "ingredientName": "Lammschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9c6e609-469c-5438-b6eb-3f6d58f96fee",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50f89f7f-c8af-5c28-bb7b-21f48fbf6ca3",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a2e9b15-eff1-59c3-85e5-c4bee516c06e",
+              "ingredientName": "Pinienkerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d474003-6d9d-55e9-8362-e204937ad9fb",
+              "ingredientName": "Mandelstifte",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be4e0f1b-0e85-59f0-b299-888f536706a9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8804e12-659f-56ad-a549-e685604b8755",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d3fabb3-627f-59ce-bf6b-d4d932d3655e",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ecc2246-b180-5c22-ae9b-fb52ee604d8b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d034099-a165-581b-ac85-1b610555fc97",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Lamm an. Gib Zwiebel, Kurkuma und Piment mit 3 Tassen Wasser dazu und lass alles 50 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Joghurt mit etwas Brühe zu einer Sauce und erwärme sie vorsichtig, ohne sie aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche den Reis in der Lammbrühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste Pinienkerne und Mandeln in Butter goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Reis und Lamm auf einem Teller an und gib Joghurtsauce, geröstete Nüsse und Petersilie darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/EgBZ3JxNFUZAd4rMLcZWzGZqaaE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20221208-Mansaf-Mai-Kakish-hero-ec9c515c00d24b5c9ef567854036f044.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/EgBZ3JxNFUZAd4rMLcZWzGZqaaE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20221208-Mansaf-Mai-Kakish-hero-ec9c515c00d24b5c9ef567854036f044.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-me-grain-kibbeh-bowl",
+      "slug": "mfr-me-grain-kibbeh-bowl",
+      "title": "Syrische Kibbeh-Bowl aus dem Ofen",
+      "instructions": "Bulgur und gewürztes Lammfleisch, mit karamellisierten Zwiebeln und Pinienkernen in Schichten gebacken – eines der berühmtesten Gerichte Syriens, als Bowl mit frischem Tomatensalat und Joghurt statt in Rauten geschnitten serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammhackfleisch ist günstiger als jedes ganze Stück Lamm.",
+        "Bulgur ist eine der günstigsten Vollkornsorten – $1 pro Tasse reicht für 4 Portionen.",
+        "Pinienkerne lassen sich für das gleiche Ergebnis durch geröstete Mandeln ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-lamb",
+          "swap": "Rinderhackfleisch für eine günstigere Variante"
+        },
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "Geröstete Mandelstifte"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-kibbeh-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "syrisch",
+        "Kibbeh",
+        "Bulgur",
+        "Lamm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1363,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-kibbeh-bowl/",
+      "components": [
+        {
+          "key": "ed6ba0c4-f272-5e74-acd8-1c2007d7735f",
+          "name": "Zutaten",
+          "servingGrams": 223.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "bbc07a5f-7ad7-5b9b-a861-f4d26f1a774d",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d037dfd-c879-517d-ad15-956b046dc271",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abedf5e1-73bf-536e-a61a-40a166f450ff",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3a99ea4-336d-545c-8770-820471dd5f84",
+              "ingredientName": "Pinienkerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5800e854-59fd-5c99-b775-23ef1024a116",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fabbf198-9d9a-52a8-93ba-1d66b1dcdae2",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa30552a-2c60-5d6b-8fa5-3283bcf80185",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4fdc073-e712-5006-9522-a6ddbffd4518",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fdd9547-9b6f-5a53-b231-9f1210f66bc1",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c10c2e9b-335f-551d-8c57-ae1e1741a40b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische die Hälfte des Lamms mit eingeweichtem Bulgur, der Hälfte der Zwiebel und den Gewürzen. Das ergibt die äußere Schicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste das übrige Lammfleisch mit den restlichen Zwiebeln und Pinienkernen für die Füllung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte Bulgur-Lamm-Mischung, Füllung und erneut Bulgur-Lamm-Mischung in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ritze die Oberfläche rautenförmig ein, beträufle sie mit Öl und backe alles bei 375°F 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere dazu einen Salat aus frischen Tomaten und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2020/10/Baked-Kibbeh-Steps1.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2020/10/Baked-Kibbeh-Steps1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-me-grain-koshari",
+      "slug": "mfr-me-grain-koshari",
+      "title": "Ägyptische Koshari-Bowl",
+      "instructions": "Ägyptens beliebtes Streetfood: Linsen, Reis und Pasta übereinandergeschichtet, mit würziger Tomatensauce, knusprigen Röstzwiebeln und einem Dressing aus Essig und Knoblauch. Vegan, sättigend und für weniger als $1.50 pro Portion.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koshari ist das preiswerte Gericht schlechthin – es reicht für 4 Personen und kostet insgesamt etwa $4.",
+        "Die knusprigen Zwiebeln machen das Gericht aus – brate sie dunkelbraun, nicht nur goldgelb.",
+        "Bereite eine große Menge Tomatensauce zu und friere die Hälfte ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "elbow-macaroni",
+          "swap": "Beliebige kurze Pasta – Ditalini ist die traditionelle Sorte"
+        },
+        {
+          "forIngredientId": "white-vinegar",
+          "swap": "Apfelessig für eine etwas mildere Säure"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-koshari",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "ägyptisch",
+        "Koshari",
+        "Linsen",
+        "Reis",
+        "Streetfood"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1364,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-koshari/",
+      "components": [
+        {
+          "key": "bd69cf86-b0fb-53cc-961c-e44b05c6ceb6",
+          "name": "Zutaten",
+          "servingGrams": 323,
+          "position": 0,
+          "items": [
+            {
+              "key": "e97e26c0-fa4f-530f-b195-de571d824bc4",
+              "ingredientName": "Braune Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01fc9794-cf3d-5d95-a0c7-ad86e7223c62",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ba7fcae-1812-5350-9844-034281c64051",
+              "ingredientName": "Hörnchennudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "210a2174-142d-57d2-a432-b67cc1307d81",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcf9265b-0253-5ab0-80e1-4049c5ff93f1",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0623cdf8-b093-5a90-bd78-0d9032d550c6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "271f4a57-f3de-57c4-ac18-ee264c9fdbfc",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b6800a2-1feb-5a04-937f-74b195584454",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1fc09b2-d80c-58ff-8183-e2dd114ce81b",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94072c43-8cac-5b43-8fde-9afa05512382",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a004f94-4a51-53b1-872b-85939bee3617",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Linsen 20 Minuten und gieße sie ab. Koche Reis und Pasta separat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebeln 20 Minuten in Öl knusprig und dunkelbraun an. Lass sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Tomatensauce: Brate Knoblauch an und gib Tomaten, Kreuzkümmel, Koriander und Chili dazu. Lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für den Knoblauchessig: Vermische Essig, Knoblauch und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte Linsen, Reis und Pasta in eine Schale. Gib Tomatensauce, knusprige Zwiebeln und Knoblauchessig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2017/03/Koshari-Recipe-The-Mediterranean-Dish-4.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2017/03/Koshari-Recipe-The-Mediterranean-Dish-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

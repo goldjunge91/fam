@@ -1,0 +1,950 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-b-chamel",
+      "slug": "gen-b-chamel",
+      "title": "Béchamelsauce",
+      "instructions": "Klassische französische helle Sauce als Grundlage für Aufläufe und Pasta.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Milch im Angebot kaufen und für später einfrieren.",
+        "Eine größere Menge zubereiten und portionsweise in Eiswürfelformen einfrieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5775,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-chamel/",
+      "components": [
+        {
+          "key": "822fe28e-6ece-58f0-9b4e-11a0d1360432",
+          "name": "Zutaten",
+          "servingGrams": 313.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "e7085e0f-b451-5aec-a63f-da1f3361b3cb",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "21a068ab-b124-575c-9544-8b7a8b1a9b8e",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "cbca2c9f-c5b5-598d-a40e-a12cbed9fb0d",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "df5ace48-0323-57ca-b325-a6187e984fc0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "a6c62c95-89a7-54b0-a421-c3084ea64c5e",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "207bf5cf-9ba0-5521-9165-aded748cad83",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "f2043cf3-c117-5f96-bc61-a14b2cea70a1",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem Topf bei mittlerer Hitze schmelzen lassen, ohne sie zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Mehl einrühren, bis eine glatte Mehlschwitze entsteht. Unter ständigem Rühren 1-2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Milch nach und nach unter ständigem Rühren zugießen, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lorbeerblatt hinzufügen und die Sauce bei mittlerer Hitze 5-7 Minuten weiterkochen, bis sie eindickt und einen Löffel überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen und mit Salz, weißem Pfeffer und Muskatnuss abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Lorbeerblatt entfernen. Die Sauce sofort als Grundlage für Gratins, Pastagerichte oder Lasagne verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/SXkF-PF2l_ONpXdtzivx-yt6LLQ=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/cheesy-bechamel-sauce-recipe-335001-step-01-5c18708d46e0fb0001f51967.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/SXkF-PF2l_ONpXdtzivx-yt6LLQ=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/cheesy-bechamel-sauce-recipe-335001-step-01-5c18708d46e0fb0001f51967.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pickled-herring",
+      "slug": "gen-pickled-herring",
+      "title": "Eingelegter Hering",
+      "instructions": "Hering in süß-saurer Würzlake, gekühlt serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hering in größeren Mengen auf Märkten mit internationalen Lebensmitteln kaufen; Gläser aus dem Laden kosten oft 2-3x so viel.",
+        "Eine größere Menge zubereiten und bis zu 3 Wochen gekühlt aufbewahren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "eiweißreich",
+        "skandinavisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5776,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pickled-herring/",
+      "components": [
+        {
+          "key": "793adf40-c908-56a9-8999-ff712e6add36",
+          "name": "Zutaten",
+          "servingGrams": 120.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "7eb4ebbd-49eb-59ea-9f27-da4aa1c7b87d",
+              "ingredientName": "Heringsfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8becd326-bb32-5299-ac03-7d61839deb8b",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c2e4dd93-7c08-5b0f-8772-bdc49b373110",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dc7277af-b7fe-5053-bcc7-bd35987a5b5b",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "eee001cc-3bef-552a-8138-8366933f80f9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3a9961e7-73a4-5d7f-8229-d517dba50d0c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "6515545a-8931-592d-aa81-af2a6c08381c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf09f81f-b713-5044-b647-d5bda637d026",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "eb81d32c-1a05-547d-b353-55bd89904aa3",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heringsfilets in 2-inch große Stücke schneiden und mit den Zwiebelringen in ein sauberes Glas legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Essig, Wasser, Zucker und Salz in einem Topf vermengen und aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lorbeerblätter, Pfefferkörner und Senfkörner in die kochende Flüssigkeit geben und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die heiße Lake über den Hering und die Zwiebeln im Glas gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf Zimmertemperatur abkühlen lassen, dann abdecken und vor dem Servieren mindestens 24 Stunden kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekühlt mit Roggenbrot und saurer Sahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Matjes-Pickled-Herring.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Matjes-Pickled-Herring.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tempeh",
+      "slug": "gen-tempeh",
+      "title": "Tempeh",
+      "instructions": "Fermentierte Sojabohnen als vielseitige pflanzliche Proteinquelle.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sojabohnen in größeren Mengen auf asiatischen Märkten kaufen; sie kosten dort 50% weniger als in Spezialgeschäften.",
+        "Tempeh-Starterkultur kann online bestellt werden; eine Packung reicht für 5+ Ansätze."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "glutenfrei",
+        "indonesisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5777,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tempeh/",
+      "components": [
+        {
+          "key": "25d1957e-1e95-5df2-8c38-f59395c7f4d3",
+          "name": "Zutaten",
+          "servingGrams": 505.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "a60829b6-0753-578a-a413-7ee1716cd68f",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d2dac760-590c-574d-94c4-3f5a75af3057",
+              "ingredientName": "Tempeh",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "7146bb43-418d-5a49-80e4-06e20cc1e448",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "ec492f28-00ca-5f71-a751-65808f163c17",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "2dd0f04b-f3b0-56af-acf8-62d9eda77883",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Sojabohnen über Nacht in Wasser einweichen, abgießen und 30 Minuten in frischem Wasser kochen, bis sie weich, aber noch nicht vollständig gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bohnen abgießen und auf sauberen Tüchern vollständig abkühlen und trocknen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgekühlte Bohnen mit Tempeh-Starterkultur und Salz in einem sauberen Gefäß vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Mischung in gelochte Folie oder ein Käsetuch wickeln und bei 86-88°F an einem warmen Ort 24 Stunden fermentieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Tempeh aus der Hülle nehmen und prüfen, ob die Bohnen durch die Fermentation zusammenhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vollständig abkühlen lassen, dann schneiden und vor dem Verzehr dämpfen oder braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/12/7-Ingredient-Marinated-Baked-PEANUT-TEMPEH-Salty-sweet-spicy-and-perfect-for-topping-salads-and-more-vegan-glutenfree-tempeh-recipe-minimalistbaker-dinner.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/12/7-Ingredient-Marinated-Baked-PEANUT-TEMPEH-Salty-sweet-spicy-and-perfect-for-topping-salads-and-more-vegan-glutenfree-tempeh-recipe-minimalistbaker-dinner.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nukazuke",
+      "slug": "gen-nukazuke",
+      "title": "Nukazuke",
+      "instructions": "Japanisches eingelegtes Gemüse aus einem fermentierten Reiskleiebett.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reiskleie ist ein Nebenprodukt; auf japanischen Märkten kostet ein großer Sack oft weniger als 5 $.",
+        "Das Nukabett hält bei täglichem Umrühren monatelang. Das Gemüse kann wiederholt ergänzt werden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "japanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5778,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nukazuke/",
+      "components": [
+        {
+          "key": "0059c54b-1893-5858-8a02-3f830743e816",
+          "name": "Zutaten",
+          "servingGrams": 473.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "d94bc904-abaa-5069-872f-e6787b8ff50f",
+              "ingredientName": "Reiskleie",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7022eab9-54b3-54ca-8dce-713d85fd8250",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d0554689-4c50-571c-8958-cb6381a42367",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "95b67b56-c30d-52b1-86e0-48249fcbea34",
+              "ingredientName": "Kombu-Alge",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stück, 4 Zoll"
+            },
+            {
+              "key": "19ab9443-f52f-5451-a484-92d6416ea712",
+              "ingredientName": "Getrocknete Chilischote",
+              "grams": 10,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcfb6141-2ae7-53dc-8e0a-c41bef5c57ee",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3d21ce2-e1d3-5129-838e-c95fa22478a3",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleine"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reiskleie, Salz und Wasser in einem sauberen Gefäß zu einer pastenartigen Masse verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kombu und getrocknete Chilischote hinzufügen und gleichmäßig unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gurken- und Daikonstücke in die Reiskleiemischung drücken und vollständig bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Gefäß locker abdecken und bei Zimmertemperatur ohne direkte Sonneneinstrahlung lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nach 12-24 Stunden das Gemüse herausnehmen, unter kaltem Wasser abspülen und zum Servieren schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Reiskleiemischung täglich umrühren, damit die Fermentation erhalten bleibt und sich kein Schimmel bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://preservedgoods.com/cdn/shop/files/54811ee2-a26644_5fd84b21ccfb401d8267244dacb9dd7b_mv2.jpg?v=1771785581&width=2100",
+          "sourcePageUrl": "https://preservedgoods.com/cdn/shop/files/54811ee2-a26644_5fd84b21ccfb401d8267244dacb9dd7b_mv2.jpg?v=1771785581&width=2100",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-torshi",
+      "slug": "gen-torshi",
+      "title": "Torshi",
+      "instructions": "Persische Essiggurken mit Knoblauch, Dill und Gewürzen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gurken während der Saison in größeren Mengen kaufen und die Lake separat einfrieren, um sie aufzubewahren.",
+        "Eine größere Menge in großen Gläsern zubereiten; gekühlt hält sie sich über 2 Monate."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "persisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5779,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-torshi/",
+      "components": [
+        {
+          "key": "88a983f1-fb00-5e0f-ac17-9c084c1d216b",
+          "name": "Zutaten",
+          "servingGrams": 220.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6b3fd82-14c2-5cf5-b00f-ecb8bb2e4647",
+              "ingredientName": "Gurke",
+              "grams": 900,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "21e637f0-a9c6-5b6d-a69b-e6f5c450a366",
+              "ingredientName": "Essig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "ae528b0d-c718-5506-a8f1-9d3de8ba137a",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "334d2792-4097-5bc2-a6ba-7c0cd915bfa1",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ad7f38ac-5ddf-575a-a8dd-478538b8d5a8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "6, halbiert"
+            },
+            {
+              "key": "a2294a1c-0b8e-5be0-9788-0abef8cd3e10",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "a708bb74-6c3b-5692-a929-0a0d70846263",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "73211134-38da-580e-b96d-a347a04c1981",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "67c3c29c-6cb1-5590-91a3-bc589ca8f2d1",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gurken waschen und aufrecht mit Knoblauch und Dillzweigen in ein sauberes Einmachglas schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Essig, Wasser, Salz, Kurkuma und alle Samen in einem Topf aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die heiße Lake vorsichtig über die Gurken gießen, bis sie vollständig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Glas vollständig abkühlen lassen, abdecken und vor dem Verzehr mindestens 3 Tage kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kalt als Beilage zu persischen Gerichten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://preview.redd.it/46yp0j6g8xn91.jpg?auto=webp&s=064e431fb6329a33f6de91d29b636b633767910e",
+          "sourcePageUrl": "https://preview.redd.it/46yp0j6g8xn91.jpg?auto=webp&s=064e431fb6329a33f6de91d29b636b633767910e",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

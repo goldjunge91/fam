@@ -1,0 +1,1181 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53421",
+      "slug": "tmdb-53421",
+      "title": "Rindfleisch-Lok Lak (Lok Lak Sach Ko)",
+      "instructions": "Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1730,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53421/",
+      "components": [
+        {
+          "key": "074931f2-022f-551e-9a67-92a03a333136",
+          "name": "Zutaten",
+          "servingGrams": 818.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8b99f77-52fc-5600-9121-aeff5979efa4",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb9c3c5d-e9e4-5b2a-a9e8-343396db32bd",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fed1686-de2b-5efe-b4be-42efe1b17725",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a99e143e-7946-5e1e-89bd-d6e24b58acf4",
+              "ingredientName": "Brauner Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1c012ba-c657-571c-80ed-2acc5e010602",
+              "ingredientName": "Flockiges Meersalz nach Maldon-Art",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55da8631-b7c4-585a-ba9e-e7e4468cba34",
+              "ingredientName": "Weißweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2067a14f-bc18-5ead-b1ec-ba2b87f42287",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b622658-8dd7-56cc-8c2d-f9b83f982495",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58a81e80-3b27-524a-95da-bc1174cf560d",
+              "ingredientName": "Sesamöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26c132e9-485e-5092-8366-4caf00883ec3",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88d79f6c-c85d-5780-a479-3cc14174736e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d110973-7d06-5df8-ae29-522dc778f6d7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8eb05d64-1d9c-58ba-8df8-2fac57cc8f00",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30c99713-6e55-5d49-b871-67c16b8f913a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad4beaba-8f03-5090-9f3d-af54793587bd",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Eier als Spiegeleier und stelle sie beiseite. Hacke den Knoblauch fein. Wasche die Salatblätter und lass sie gut abtropfen. Schneide Zwiebel und Tomaten in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Rinderfilet in 2–3 cm große Würfel. Mariniere es mit Meersalz, Palmzucker, chinesischem Kochwein, Austernsauce, Sojasauce und Sesamöl. Vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Pfanne bei starker Hitze mit Speiseöl. Gib gehackten Knoblauch hinein und rühre, bis er leicht gebräunt ist. Gib das marinierte Rindfleisch mitsamt der Marinade dazu und gare es je nach gewünschtem Gargrad 5–7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die schwarzen Kampot-Pfefferkörner 2–3 Minuten in einer Pfanne bei mittlerer bis niedriger Hitze trocken, bis sie duften. Mahle sie, gib sie in eine Schüssel und füge Meersalz und Limettensaft hinzu. Gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege auf einer Servierplatte ein Bett aus Salatblättern an, darauf Tomaten und dann Zwiebeln. Gib das gegarte Rindfleisch über das Gemüse und lege die Spiegeleier darauf. Serviere dazu die Kampot-Pfeffersauce und duftenden gedämpften Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate das Fleisch bei starker Hitze kurz an. Lok Lak schmeckt am besten, wenn das Rindfleisch zart und saftig bleibt und eine kräftige, frische Dipsauce die Reichhaltigkeit ausgleicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/t2b8bn1779737789.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/t2b8bn1779737789.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53359",
+      "slug": "tmdb-53359",
+      "title": "Beef Mandi",
+      "instructions": "Rindfleischgericht aus Indien, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Indien",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1731,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53359/",
+      "components": [
+        {
+          "key": "4ccc0986-7aff-5035-8d39-ab5e5da01a3b",
+          "name": "Zutaten",
+          "servingGrams": 1158.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "297d1138-d241-545a-b21e-6c21e8af44b2",
+              "ingredientName": "Basmatireis",
+              "grams": 3600,
+              "quantity": 3600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e8b1dfd-3bff-53f7-8feb-0faaf981ed89",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09df2cb6-87b5-53fe-9971-12a92ec99d13",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82c075f8-a311-599f-a89d-5027c391c4e5",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a13abec-6361-5d25-b6f6-3439f39162a0",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48d03bda-9ac1-5335-bb84-b875e660355b",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf5b6bc5-5d1b-5f4a-85f4-85f0cab92521",
+              "ingredientName": "Salz",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "029e702e-3f7a-5e6d-939e-8ef1e23f38f4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1da1007-21a9-5b53-808e-62c3a0a4cca7",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad5b6ff0-64d2-5009-beae-3af93e472061",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13dc0753-aacf-522f-9f07-25237e98a600",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81d5b23a-4f63-5fd2-bec9-8caab3f5d390",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1. Wasche das Rindfleisch und schneide es in große Stücke. Würze es leicht mit Salz und Kurkuma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2. Erhitze Ghee oder Öl in einem großen Topf. Gib geschnittene Zwiebeln dazu und brate sie hellgolden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3. Gib Knoblauch, grüne Chilis und Tomate dazu und gare alles, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "4. Gib die Mandi-Gewürzmischung hinzu: Koriander, Kreuzkümmel, schwarzen Pfeffer, Zimt, Kardamom, Nelken und Lorbeerblätter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5. Gib die Rindfleischstücke dazu und rühre sie bei mittlerer Hitze um, bis sie gut mit Gewürzen bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "6. Gieße Wasser oder Rinderbrühe hinein. Decke den Topf ab und lass alles köcheln, bis das Rindfleisch zart ist (je nach Stück etwa 1.5–2 Stunden).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "7. Nimm das Rindfleisch vorsichtig heraus und stelle es beiseite. Seihe die Brühe ab und miss sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "8. Gib gewaschenen, eingeweichten Basmatireis in die Brühe (normalerweise 1 Tasse Reis auf 1.5–2 Tassen Flüssigkeit). Schmecke ab und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "9. Reduziere die Hitze, decke den Topf ab und gare den Reis, bis er locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "10. Lege die Rindfleischstücke auf den Reis und dämpfe alles bei niedriger Hitze 10 Minuten, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "11. Optional: Für ein Raucharoma lege ein kleines Stück heiße Holzkohle auf Folie in den Topf, gib 1 TL Butter oder Öl dazu und decke den Topf sofort 5 Minuten ab. Entferne die Kohle vor dem Servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "12. Lockere den Reis mit einer Gabel auf und serviere Beef Mandi mit Salat oder Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1nalo51765188375.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1nalo51765188375.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53068",
+      "slug": "tmdb-53068",
+      "title": "Beef Mechado",
+      "instructions": "Philippinisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "philippinisch",
+        "Rindfleisch",
+        "Eintopf",
+        "wärmend"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1732,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53068/",
+      "components": [
+        {
+          "key": "5c477f54-5b9c-56c3-97b8-068de7b06b49",
+          "name": "Zutaten",
+          "servingGrams": 468.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc36bd12-765a-5d74-96c5-f5fac2509f2d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c3c674b-2be0-5b4d-85b6-1557ac63a9e2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55382058-4862-5ca4-aaba-ff3248025deb",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52608e6f-ed71-5627-877e-9d793735ddab",
+              "ingredientName": "Tomate",
+              "grams": 960,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7560281-c6f0-5ffd-98b9-6165dd8307a2",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13aed757-0ca3-5b06-9ca1-bcacaa67b821",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bf346b4-b9b7-5c92-94da-30fb22518c35",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d7481c1-758a-5e7d-9532-0f551f4d0e83",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc7bb567-ac44-5279-9ab5-1771a88f8ab1",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d174e89-3a66-59c8-b4aa-59fadd85858a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f288897c-cc2d-5051-932c-e0440ee1eb0c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7fd2740-7e90-512e-b656-d9618ec43787",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "0. Bereite die Marinade für das Rinderfilet zu, indem du Sojasauce, Essig, Ingwer, Knoblauch, Sesamöl, Olivenöl, Zucker, Salz und gemahlenen schwarzen Pfeffer in einer großen Schüssel verrührst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1. Gib die gewürfelten Rinderfiletstücke in die Schüssel mit der Marinade. Wende sie vorsichtig darin. Lass das Fleisch 1 Stunde ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2. Stecke das Gemüse und das marinierte Rinderfilet abwechselnd auf Metall- oder Bambusspieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3. Heize den Grill auf und grille die Rindfleischspieße 3 Minuten pro Seite. So wird das Fleisch halb durchgegart und bleibt innen saftig und zart. Grille es länger, wenn du es durchgegart möchtest; es wird dann jedoch weniger zart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "4. Lege die Spieße auf eine Servierplatte. Serviere sie mit Safranreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5. Teile das Gericht und lass es dir schmecken!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/cgl60b1683206581.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/cgl60b1683206581.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53238",
+      "slug": "tmdb-53238",
+      "title": "Rindfleisch-Pho",
+      "instructions": "Vietnamesisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1733,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53238/",
+      "components": [
+        {
+          "key": "068410e0-a195-5370-8868-2d5fca47fb1f",
+          "name": "Zutaten",
+          "servingGrams": 170.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "71f750c5-1140-5dbf-9143-f0a01ed77c2c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ede71fd-0601-5dc7-b573-de067df04584",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61b5c125-8325-51b8-b1a3-1a6d6e60cadf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db17efd9-c8be-56a9-b620-4ced374f295e",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "736f3453-f73f-5c89-9797-eebb626f33f6",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f04a751-2af3-52ea-aeb0-0dddb358752e",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "170ce9d2-ea7e-513d-92a6-1c50017232cf",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56a58b4b-ef82-5879-b503-c7a355adb899",
+              "ingredientName": "Rinderlende",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d357e916-7e9d-57d0-b370-e34fdf458b8b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e207cabf-c7ba-5f19-9a80-c812020c0f1f",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e262a74-824c-56da-8c40-5643f01d620f",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "836db39a-89ee-55ca-8c86-85cc3cb404c0",
+              "ingredientName": "Reisnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8aa4f3e-3382-528a-a554-2f03d261921f",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "544b55fa-d011-5f5b-ab3b-f18904de6bbf",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e610958c-738f-516a-9f30-e340c92f6ab3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6b68735-f26d-5d2c-bd10-1c4280a5b6cf",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße Rinderbrühe und 500 ml Wasser in einen großen Topf. Lege Zwiebel und Ingwer in eine Pfanne bei starker Hitze und röste sie etwa 3–5 Minuten von allen Seiten an. Du kannst sie auch unter dem Grill rösten. Gib sie anschließend zur Rinderbrühe. Röste die Gewürze in derselben Pfanne 2–3 Minuten und gib sie dazu, sobald sie duften. Bringe die Brühe zum Kochen, reduziere dann die Hitze und lass sie 30 Minuten köcheln, bevor du sie abseihst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide währenddessen das Fett vom Steak ab und wickle es in Frischhaltefolie. Lege es 15 Minuten in den Tiefkühler, damit es sich sehr leicht in Scheiben schneiden lässt. Schneide es dünn, decke es wieder mit Folie ab und stelle es in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Probiere die Rinderbrühe und würze sie mit Palmzucker, Fischsauce und Sojasauce. Koche die Nudeln nach Packungsanweisung und verteile sie auf zwei Schalen. Lege jeweils geschnittenes Rindfleisch darauf. Bringe die Brühe zum Kochen und gieße sie in die Schalen; die Hitze gart das Fleisch. Gib Frühlingszwiebeln, Chilischeiben und Kräuter darauf. Serviere die Pho mit Limettenspalten zum Darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/pbzcrx1763765096.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/pbzcrx1763765096.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52834",
+      "slug": "tmdb-52834",
+      "title": "Beef Stroganoff",
+      "instructions": "Russisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "russisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1734,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52834/",
+      "components": [
+        {
+          "key": "fcf9898b-be5a-53c6-835b-e6e4136715f3",
+          "name": "Zutaten",
+          "servingGrams": 197,
+          "position": 0,
+          "items": [
+            {
+              "key": "d69e5834-3628-599d-af9e-47d5df95a7b0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "371369be-832b-5719-b11b-7ab3b36b8922",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f37613d-fab4-5abb-af98-d7b29391aada",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11527c92-6e94-5959-b258-a3d1a8979214",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0a62abd-c8fe-50f4-a5ac-1b760fbe1c0e",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12ed3672-672e-5e58-8e9e-a4a3329c670a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77c60331-6a58-5db1-bd59-8d614081206d",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d17c145-9475-517c-a4bc-b0cad91f9475",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60e271d2-f319-547f-886d-2cdcff7ff4e8",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "479cabb8-495d-5809-890d-3ddee016db14",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer beschichteten Pfanne, gib die geschnittene Zwiebel dazu und gare sie bei mittlerer Hitze etwa 15 Minuten, bis sie ganz weich ist. Falls sie anzusetzen beginnt, gib einen kleinen Schuss Wasser hinzu. Presse den Knoblauch hinein und gare ihn weitere 2–3 Minuten, dann gib die Butter dazu. Sobald die Butter leicht schäumt, füge die Pilze hinzu und gare sie etwa 5 Minuten, bis sie vollständig weich sind. Würze alles gut und gib es auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Mehl mit einer großzügigen Prise Salz und Pfeffer in eine Schüssel und wende das Steak in der gewürzten Mehlmischung. Gib die Steakstücke in die Pfanne und füge etwas Öl hinzu, falls sie sehr trocken wirkt. Brate sie 3–4 Minuten, bis sie schön gebräunt sind. Gib Zwiebeln und Pilze zurück in die Pfanne. Verrühre Crème fraîche, Senf und Rinderbrühe und gieße die Mischung in die Pfanne. Gare alles bei mittlerer Hitze etwa 5 Minuten. Bestreue das Gericht mit Petersilie und serviere es mit Pappardelle oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/svprys1511176755.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/svprys1511176755.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

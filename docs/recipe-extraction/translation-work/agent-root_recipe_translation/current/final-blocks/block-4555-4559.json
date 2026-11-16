@@ -1,0 +1,989 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-acai-bowl",
+      "slug": "gen-acai-bowl",
+      "title": "Açaí-Bowl",
+      "instructions": "Brasilianisches Frühstück, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Açaí-Püree in Großpackungen bei Costco oder im Großhandel",
+        "Stelle dein eigenes Granola her, statt fertiges zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Brasilianer",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4555,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-acai-bowl/",
+      "components": [
+        {
+          "key": "76a6eba7-52e5-5098-a17e-7c58feeb445e",
+          "name": "Zutaten",
+          "servingGrams": 473.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "df872d28-c367-5d2d-b21b-17f4584ad6ee",
+              "ingredientName": "Gefrorenes Acai-Paket",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6c187e21-1bc4-58ef-9118-1dd51d28d9ee",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "de696d03-d7b6-5e7c-b99e-07b7bae3fc94",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "00fc2d24-08c4-5106-adc8-6d7cab079442",
+              "ingredientName": "Müsli",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f3620dfb-89af-568c-97c4-93f83c7eb583",
+              "ingredientName": "Erdbeeren",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "b129756a-06cd-58f2-a463-de055962d680",
+              "ingredientName": "Blaubeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "dd4f8d41-90fd-50d9-8fc0-313f7a9679aa",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5d83e682-c1a9-5770-b1da-bb9fe9923056",
+              "ingredientName": "Kokosflocken",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4685d553-476a-59bf-aca1-e796a76a1e6a",
+              "ingredientName": "Chiasamen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühltes Açaí-Püree, geschnittene Banane und Kokosmilch in einem Mixer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mixen, bis die Masse glatt und dick ist, etwa wie Softeis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Granola, Erdbeeren und Heidelbeeren auf der Açaí-Basis anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Honig beträufeln und Kokosraspeln sowie Chiasamen darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit einem Löffel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/07/AMAZING-PBJ-Acai-Bowls-Low-sugar-super-healthy-tastes-like-a-MILKSHAKE-vegan-glutenfree-acai-healthy-recipe-6.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/07/AMAZING-PBJ-Acai-Bowls-Low-sugar-super-healthy-tastes-like-a-MILKSHAKE-vegan-glutenfree-acai-healthy-recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chia-pudding",
+      "slug": "gen-chia-pudding",
+      "title": "Chia-Pudding",
+      "instructions": "Modernes amerikanisches Frühstück, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Chiasamen in Großpackungen im Reformhaus oder online",
+        "Verwende tiefgekühlte Himbeeren, wenn frische zu teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "modern-amerikanisch",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4556,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chia-pudding/",
+      "components": [
+        {
+          "key": "22910581-ecae-532b-a694-db594f00a3cf",
+          "name": "Zutaten",
+          "servingGrams": 358.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0281a083-bebe-5fe7-b89a-5ed1e3602b46",
+              "ingredientName": "Chiasamen",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "29d7ef9d-c7cf-5108-8fb8-8fe6d02c6344",
+              "ingredientName": "Mandelmilch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d52a489d-4421-56ae-bbb9-921132be4ea5",
+              "ingredientName": "Ahornsirup",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "54a11236-1e56-58bd-943a-e1c487d9f6fc",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e26cba2e-f3bf-599d-b0ed-8500e5735247",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7d85a8f0-dc73-51f0-b0ec-743892300ce2",
+              "ingredientName": "Himbeeren",
+              "grams": 127.58,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "616e4719-fd63-53c2-97cf-eea06e7da93d",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mandelmilch, Chiasamen, Ahornsirup, Vanilleextrakt und Kakaopulver in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gut verrühren, damit die Chiasamen nicht verklumpen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und mindestens 4 Stunden oder über Nacht kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vor dem Servieren erneut umrühren und bei zu fester Konsistenz mehr Milch hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf Schalen verteilen und mit frischen Himbeeren und Mandelblättchen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekühlt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/04/How-to-make-chia-pudding-Just-4-ingredients-required-SO-thick-and-creamy-and-delicious-every-time-vegan-glutenfree-chiapudding-recipe-minimalistbaker.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/04/How-to-make-chia-pudding-Just-4-ingredients-required-SO-thick-and-creamy-and-delicious-every-time-vegan-glutenfree-chiapudding-recipe-minimalistbaker.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-granola-bowl",
+      "slug": "gen-granola-bowl",
+      "title": "Granola-Bowl",
+      "instructions": "Amerikanisches Frühstück, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stelle dein eigenes Granola aus Haferflocken, Honig und Öl her",
+        "Kaufe Joghurt der Hausmarke in großen Bechern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4557,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-granola-bowl/",
+      "components": [
+        {
+          "key": "349e149e-eb6d-5a47-8d9d-856a9104ba88",
+          "name": "Zutaten",
+          "servingGrams": 450.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb5602c0-392a-565a-9da4-a543d1c978a8",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0cead717-1053-5484-ac68-1525f9c4c77b",
+              "ingredientName": "Müsli",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6d03fe2c-55c1-526c-8733-6150275af25c",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "9802723f-5abe-5c3d-88b8-2f7800c919e8",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d8e36279-f232-5f78-9411-886d4422e933",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "677f3df1-ba45-5063-808d-5fe6951fd9ed",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "4bd1306b-a3a8-56f2-af8b-d76d4f6dc1ed",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Joghurt auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jede Schale mit Granola bedecken und eine gleichmäßige Schicht bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bananenscheiben und gemischte Beeren darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Honig über die Schalen träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackte Walnüsse und Zimt darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, damit das Granola knusprig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/07/best-yogurt-and-granola-bowl-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/07/best-yogurt-and-granola-bowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoothie-bowl",
+      "slug": "gen-smoothie-bowl",
+      "title": "Smoothie-Bowl",
+      "instructions": "Australisches Frühstück, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Friere eigene Bananen ein, wenn sie im Angebot sind",
+        "Verwende Joghurt der Hausmarke, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "australisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4558,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoothie-bowl/",
+      "components": [
+        {
+          "key": "9625e439-44e8-5b8e-8c63-ed48fdfba726",
+          "name": "Zutaten",
+          "servingGrams": 606.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3ed506a-536e-5061-aa48-741cc7fff095",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3494d8ef-70ff-5483-b70a-ac0066d7af52",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "a090fb96-4bd3-5c08-8c17-7228ed76516f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "fff02d54-e53e-5b2d-a69d-47e7ccdeeda3",
+              "ingredientName": "Mandelmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3c11dd67-afaa-570d-8ba2-e278a81f6dd5",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9f7b7efe-bb40-549c-85dc-4ae1b8fe77f1",
+              "ingredientName": "Müsli",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a38ce4de-f86a-5987-ac9e-d1c2c460aab9",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "eb28c9f5-7548-59c3-bcc3-5ac5c37c41c6",
+              "ingredientName": "Kiwi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "e6f992f0-546b-5225-91ab-193f845db566",
+              "ingredientName": "Essbare Blüten (optional)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühlte Beeren, tiefgekühlte Banane, Joghurt, Mandelmilch und Honig in einen Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mixen, bis die Masse glatt und dick ist, dicker als ein gewöhnlicher Smoothie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Granola, Kokosraspeln und Kiwischeiben in einem ansprechenden Muster darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere Zutaten wie Samen oder essbare Blüten hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit einem Löffel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/07/The-PERFECT-5-minute-Smoothie-Bowl-Simple-ingredients-naturally-sweet-SO-healthy-vegan-glutenfree-smoothiebowl-recipe.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/07/The-PERFECT-5-minute-Smoothie-Bowl-Simple-ingredients-naturally-sweet-SO-healthy-vegan-glutenfree-smoothiebowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oatmeal-with-maple-syrup-and-walnuts",
+      "slug": "gen-oatmeal-with-maple-syrup-and-walnuts",
+      "title": "Haferbrei mit Ahornsirup und Walnüssen",
+      "instructions": "Amerikanisches Frühstück, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Haferflocken und Walnüsse in Großpackungen im Großhandel",
+        "Verwende bei knappem Budget Ahornsirup-Alternativen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4559,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oatmeal-with-maple-syrup-and-walnuts/",
+      "components": [
+        {
+          "key": "a6cac12c-7115-5a30-b5d4-d7151a47a4fe",
+          "name": "Zutaten",
+          "servingGrams": 476.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5bb6d52-3410-5d36-bdb7-c3e8e9c24a32",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "232b7139-2bf8-587f-920d-4bcda382d4bc",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "dd90d66a-4593-5cf0-96fc-a25b5b5878f3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "f18692f0-0214-502a-87a3-68b7a6dfc4ab",
+              "ingredientName": "Ahornsirup",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c5feb76d-cb4a-5451-97a3-d2b064a509ff",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "72a2c230-571f-567e-a3f9-23a6be552405",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "559ce14e-a225-5084-9583-075ff78d7173",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b77c3e01-16ea-5194-8ec6-4a84752564b7",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser und Salz in einem Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Haferflocken einrühren und die Hitze auf mittlere Stufe reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5-7 Minuten kochen und gelegentlich umrühren, bis die Haferflocken weich sind und das Wasser aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter und Zimt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Walnüsse in einer trockenen Pfanne bei mittlerer Hitze 2-3 Minuten rösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Haferbrei auf zwei Schalen verteilen und mit Ahornsirup beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit gerösteten Walnüssen und einem Schuss Milch oder Sahne garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/04/Maple-Brown-Sugar-Oatmeal_EXPS_FT25_278715_EC_0410_5.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/04/Maple-Brown-Sugar-Oatmeal_EXPS_FT25_278715_EC_0410_5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

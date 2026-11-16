@@ -1,0 +1,933 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-african-bkfst-mandazi",
+      "slug": "mfr-african-bkfst-mandazi",
+      "title": "Kenianische Mandazi mit Joghurt-Dip",
+      "instructions": "Leicht süßes ostafrikanisches frittiertes Gebäck mit Kardamom und Kokosmilch, dazu griechischer Joghurt zum Dippen, der die Süße mit Protein ausgleicht.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mandazi hält sich 2 Tage und lässt sich im Toaster aufwärmen.",
+        "Kokosmilch aus der Dose lässt sich portionsweise einfrieren. Für eine Portion brauchst du eine halbe Dose.",
+        "Der Joghurt-Dip liefert Protein und gleicht die Süße aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Kuhmilch und ¼ tsp Kokosnussextrakt"
+        },
+        {
+          "forIngredientId": "cardamom",
+          "swap": "Zimt für einen vertrauteren Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-mandazi",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kenianisch",
+        "Mandazi",
+        "frittiert",
+        "Kardamom"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1310,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-mandazi/",
+      "components": [
+        {
+          "key": "2a61339c-334d-54c5-82e3-b28b3a34be22",
+          "name": "Zutaten",
+          "servingGrams": 306.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2734230d-6d4c-5dc1-aa7a-545ef5f6f69f",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cebf8f28-a214-5c70-a69f-6763a8adae09",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d27c09f2-56f2-57b8-a88c-406eb96f9291",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "329fb4e7-38bf-57a3-bfab-b2436a3972b5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50251dbd-bedf-5921-a442-93665ada3d9f",
+              "ingredientName": "Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2006bce-c473-5ae1-9fcf-5699578afc53",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "723ace62-77cc-5f2b-956e-5c09043fe63d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "012629f8-dc53-5f88-8e04-c3ef69167b5b",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Mehl, Zucker, Kardamom und Backpulver. Rühre Ei und Kokosmilch ein, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Teig 10 Minuten ruhen. Rolle ihn ½-inch dick aus und schneide Dreiecke aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frittiere die Dreiecke in heißem Öl 2–3 Minuten pro Seite, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Mandazi warm mit Naturjoghurt zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/608f0c83e84aa5ebc05ff63f/1:1/w_2560%2Cc_limit/Go-Live-Mandazi-.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/608f0c83e84aa5ebc05ff63f/1:1/w_2560%2Cc_limit/Go-Live-Mandazi-.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-african-bkfst-thiakry",
+      "slug": "mfr-african-bkfst-thiakry",
+      "title": "Senegalesisches Thiakry (Hirsepudding)",
+      "instructions": "Gedämpfte Hirse mit gesüßtem Joghurt, Vanille und Muskat zu einem kalten, cremigen westafrikanischen Pudding vermengt: ein beliebtes senegalesisches Frühstück oder Dessert, von Natur aus glutenfrei und überraschend sättigend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hirse ist günstig und hält sich monatelang in einem verschlossenen Behälter.",
+        "Gezuckerte Kondensmilch gehört in Westafrika zu den Grundzutaten im Vorratsschrank. Eine kleine Dose reicht weit.",
+        "Sobald die Hirse fertig ist, braucht dieses Gericht keine weiteren Kochgeräte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "condensed-milk",
+          "swap": "Honig und ein Schuss Sahne"
+        },
+        {
+          "forIngredientId": "millet",
+          "swap": "Couscous für eine ähnlich feine Körnung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-thiakry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "senegalesisch",
+        "Hirse",
+        "Pudding",
+        "Thiakry"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1311,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-thiakry/",
+      "components": [
+        {
+          "key": "46bc1599-98f3-5734-83d2-76dd150e9f4b",
+          "name": "Zutaten",
+          "servingGrams": 283.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e27b5be-bdd6-5a07-8841-27e48a4c8fae",
+              "ingredientName": "Hirse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9da037ea-428b-5bcc-b426-2e14dfbf868d",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c28e6686-1f4a-50c2-8f6a-7929673bb3c8",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40900158-4842-5dc4-b49b-aeb8f7f0c935",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37bba10f-669f-5609-abd9-2d9c6ed4d36d",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b996377-54f1-507f-871f-c4315daa919e",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebeba9d8-9d33-5cda-afa4-4b1c408c10a7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Hirse ab und dämpfe sie 15–18 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Hirse vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge die abgekühlte Hirse mit Joghurt, Kondensmilch, Vanille und Muskatnuss.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die Rosinen unter. Kalt oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5442db1ae4b0d3d41075c660/a28784f7-6d75-4e29-87c4-53c39b40876f/Millet_pudding.png",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5442db1ae4b0d3d41075c660/a28784f7-6d75-4e29-87c4-53c39b40876f/Millet_pudding.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-african-bkfst-msemen",
+      "slug": "mfr-african-bkfst-msemen",
+      "title": "Marokkanische Msemen (blättrige quadratische Pfannkuchen)",
+      "instructions": "Marokkanische Fladenbrot-Pfannkuchen aus geschichtetem, mit Butter bestrichenem und gefaltetem Teig: außen blättrig, innen weich und elastisch. Traditionell mit Arganöl und Honig als luxuriöses nordafrikanisches Frühstück serviert.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für Msemen brauchst du keine besonderen Geräte, nur eine Pfanne.",
+        "Grieß ist günstig und sorgt für die typische Konsistenz.",
+        "Übrig gebliebenes Msemen schmeckt aufgewärmt oder in Harira-Suppe getunkt köstlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "semolina",
+          "swap": "Nur Weizenmehl, für eine weniger traditionelle Konsistenz"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Ausschließlich Olivenöl für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-msemen",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "Msemen",
+        "Fladenbrot",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1312,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-msemen/",
+      "components": [
+        {
+          "key": "e0384e3c-6655-528c-a82f-8bee98c7905a",
+          "name": "Zutaten",
+          "servingGrams": 256.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "edb81085-1ddd-534a-8a34-90351e7d53aa",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24cabe52-22e0-5750-967f-ef744adee50a",
+              "ingredientName": "Grieß",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "968e5316-428b-5e01-a633-3ddb765afa84",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c01700c5-9b0a-5f91-bb93-8b1aa82262b3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80f973a0-f500-5076-b20b-1b8393e58f0e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1e62901-1d0c-5b86-9f88-d98d51d06e15",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e489393-c4b8-5aac-8a73-f6a28b757c12",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Mehl, Grieß und Salz. Gib nach und nach Wasser dazu, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in 8 Kugeln. Drücke jede flach, bestreiche sie mit Butter und falte sie zu einem Quadrat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Falte jedes Quadrat erneut, damit Schichten entstehen. Lass den Teig 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe jedes Msemen auf einer heißen, ungefetteten Platte 3–4 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/9uWbYWV8qqhlNaG_0oSKpO0yuAc=/3000x2000/filters:fill(auto,1)/msemen-moroccan-pancakes-rghaif-2394812-hero-01-10d0532bcb8e43cab48c1159980be7cb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/9uWbYWV8qqhlNaG_0oSKpO0yuAc=/3000x2000/filters:fill(auto,1)/msemen-moroccan-pancakes-rghaif-2394812-hero-01-10d0532bcb8e43cab48c1159980be7cb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-african-bkfst-vitumbua",
+      "slug": "mfr-african-bkfst-vitumbua",
+      "title": "Tansanische Vitumbua (Kokos-Reis-Pfannkuchen)",
+      "instructions": "Fermentierte Reismehl-Kokosmilch-Pfannkuchen, in einer speziellen runden Pfanne gebacken: außen knusprige ostafrikanische Streetfood-Küchlein, innen weich und kokosnussig.",
+      "prepTimeMinutes": 480,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reismehl ist in asiatischen Lebensmittelgeschäften günstig.",
+        "Ohne Æbleskiver-Pfanne kannst du eine Muffinform im Ofen bei 375°F 15 Minuten verwenden.",
+        "Die Fermentation über Nacht läuft von selbst und macht kaum Arbeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-flour",
+          "swap": "Normales Mehl, dann ist das Gericht nicht mehr glutenfrei"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Vollmilch für eine Variante ohne Kokos"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-vitumbua",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "tansanisch",
+        "Vitumbua",
+        "Reis",
+        "Kokos",
+        "ostafrikanisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1313,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-vitumbua/",
+      "components": [
+        {
+          "key": "729f8c92-569c-537d-99d0-0339322961f4",
+          "name": "Zutaten",
+          "servingGrams": 293.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "51da42dd-f4c0-57f0-86c4-96df078db8b4",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ff3c1be-709f-55a0-803a-82d39e452522",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f090e09-05d4-520c-a510-29736eb0568e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05f9e096-96c1-518c-9790-6ae0e8f823e5",
+              "ingredientName": "Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dcbd024-024c-5f41-96d9-a8ede5fd9109",
+              "ingredientName": "Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "634341b9-c706-575b-94e0-2f77f95b21f1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebd0a990-45ea-52c1-b4e5-5da58da5824d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Reismehl, Hefe und warmes Wasser und lass den Teig über Nacht fermentieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Kokosmilch, Zucker, Kardamom und Salz unter den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Æbleskiver-Pfanne oder Muffinform und fülle den Teig in die Mulden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Küchlein 3 Minuten, wende sie mit einem Holzspieß und gare sie weitere 2 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nadiasmeza.com/wp-content/uploads/2024/05/vitumbua.jpeg",
+          "sourcePageUrl": "https://nadiasmeza.com/wp-content/uploads/2024/05/vitumbua.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-african-bkfst-foul-eggs",
+      "slug": "mfr-african-bkfst-foul-eggs",
+      "title": "Ägyptische Foul Medames mit Spiegelei",
+      "instructions": "Ackerbohnen köcheln mit Knoblauch, Kreuzkümmel und Zitrone und werden mit Spiegelei belegt: Ägyptens Nationalgericht und das Frühstück, das Kairo von Sonnenaufgang an stärkt. Kräftig, erdig und überraschend köstlich.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ackerbohnen aus der Dose kosten $1.50 pro Dose und ergeben 2 großzügige Portionen.",
+        "Dieses Gericht gibt es in jedem ägyptischen Haushalt. Es gehört zu den günstigsten und leckersten Frühstücken.",
+        "Serviere es mit günstigem Fladenbrot für eine vollständige Mahlzeit für weniger als $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fava-beans",
+          "swap": "Kichererbsen oder weiße Bohnen aus der Dose als ähnlicher Ersatz"
+        },
+        {
+          "forIngredientId": "cumin",
+          "swap": "Za'atar für eine kräuterbetontere Note"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-foul-eggs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "ägyptisch",
+        "Ackerbohnen",
+        "Eier",
+        "Foul",
+        "Ägypten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1314,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-foul-eggs/",
+      "components": [
+        {
+          "key": "a0f964af-dfe6-5037-aa18-b1fa3055d20e",
+          "name": "Zutaten",
+          "servingGrams": 374,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4e2c9ad-adea-5ee0-99d8-eea74ed196ba",
+              "ingredientName": "Ackerbohnen",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "266e745c-3680-5de5-bcf0-0cc1097f0f41",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3eef8df9-55ce-5bf4-bf21-fea3f9ac93bc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6a6c9b1-6d49-57d7-a5be-651d3e84ab6f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8be7a27f-78a5-5177-a24c-13a011f31ad9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "649b7d47-08c2-5c67-b892-e62012edc594",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d614d12-1602-5d84-b6d4-cd89babc08b4",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c98b75c-2bce-5050-affb-ac11fb094b56",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Ackerbohnen aus der Dose 8 Minuten mit Knoblauch, Kreuzkümmel und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke einen Teil der Bohnen grob. Einige dürfen ganz bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zitronensaft dazu und würze kräftig. Belege die Bohnen mit gewürfelter Tomate und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Eier separat in etwas Öl und serviere sie auf den Bohnen mit warmem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/z-B1woNQz1d9eN36T18mbgKtja4=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/ful-medames-egyptian-fava-beans-recipe-2355699-step-05-b9f2fd1ea95a407d88dff1e66c7a27c2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/z-B1woNQz1d9eN36T18mbgKtja4=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/ful-medames-egyptian-fava-beans-recipe-2355699-step-05-b9f2fd1ea95a407d88dff1e66c7a27c2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

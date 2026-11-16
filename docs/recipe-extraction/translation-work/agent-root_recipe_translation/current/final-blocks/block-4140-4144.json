@@ -1,0 +1,1112 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pescado-a-la-sal",
+      "slug": "gen-pescado-a-la-sal",
+      "title": "Pescado a la Sal",
+      "instructions": "Dominikanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganzen Fisch im Angebot statt Filets.",
+        "Verwenden Sie preiswerteres Meersalz aus dem Großhandel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "dominikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4140,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pescado-a-la-sal/",
+      "components": [
+        {
+          "key": "5a826812-3f63-569f-a978-861a494f2e4e",
+          "name": "Zutaten",
+          "servingGrams": 191.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "d90d261e-651f-599e-a7d0-98472dd19023",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "fe701435-157e-5656-aaa1-05577f04f44b",
+              "ingredientName": "Salz",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9437d8b3-d8e3-5766-887c-f8b6469e4608",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "933cea38-a710-5cd9-931f-687a49d9aec1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d74d439-7771-5d90-b335-cb5d0c3c3a05",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Bund (Petersilie oder Koriandergrün)"
+            },
+            {
+              "key": "1040764f-7ab3-5ff1-b253-0276586b5b77",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "41bc4ed3-9c41-5d09-99da-98570238bd14",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400 °F vorheizen und ein Backblech mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Fisch entschuppen und ausnehmen, dann innen und außen mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eiweiß mit Meersalz zu einer Paste verrühren und Zitronensaft sowie gehackte Kräuter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ein Drittel der Salzmischung auf dem Backpapier verteilen, den Fisch darauflegen und vollständig mit der restlichen Salzmischung bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "20–25 Minuten backen, bis die Salzkruste goldbraun und der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Salzkruste am Tisch aufbrechen, den Fisch vorsichtig filetieren und die Haut entfernen. Mit Olivenöl und Zitrone servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdetomate.com/wp-content/uploads/2014/09/peix-sal-1.jpg",
+          "sourcePageUrl": "https://cdetomate.com/wp-content/uploads/2014/09/peix-sal-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-de-res",
+      "slug": "gen-caldo-de-res",
+      "title": "Caldo de Res",
+      "instructions": "Dominikanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderschulter in größeren Mengen und frieren Sie Portionen ein.",
+        "Kaufen Sie Wurzelgemüse während der Saison zu den günstigsten Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "dominikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4141,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-de-res/",
+      "components": [
+        {
+          "key": "4dc7f18b-a3b5-5b4a-9de1-2139f84802ef",
+          "name": "Zutaten",
+          "servingGrams": 645.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "42cc1f7f-0cba-5fe1-a502-10d3c90af3be",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2a06fcde-9efc-56c0-8ef8-27419fdc31b5",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "0e65a7e8-83fd-5bfc-a1b9-9657287a8707",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "a64176a6-0089-5f1d-96c4-0980b0e9bf18",
+              "ingredientName": "Yuca",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "c2c32070-49b2-5a54-a4a4-2827cf02059c",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 grünes Stück"
+            },
+            {
+              "key": "28ad7cff-e88e-58ae-b01a-7aceea7c1e54",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "c6a42cee-2fb1-5fff-9e6a-8209840596c8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "58977a15-3128-5720-aedd-dc404700b40b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "703bd8c0-02a3-5bac-a52a-7d605d933570",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fb643385-b575-588c-802e-ec7145c68abd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "64323422-92b5-55bc-989e-3d1aa16351d8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d9b9dfd6-4b17-5a2f-868c-5cc2c4b9f5d6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und die Rindfleischstücke insgesamt 8–10 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und gehackten Knoblauch hinzufügen und 2–3 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe und Salz sowie Pfeffer zugießen, zum Köcheln bringen, abdecken und 20 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln, Karotten, Yuca und Kochbanane in Stücke schneiden und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zugedeckt 25–30 Minuten köcheln lassen, bis alles Gemüse mit einer Gabel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken, mit frischem Koriander garnieren und heiß in tiefen Schalen mit Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6695353987262fa45339cbad/1:1/w_2560%2Cc_limit/Caldo-de-Res_Web.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6695353987262fa45339cbad/1:1/w_2560%2Cc_limit/Caldo-de-Res_Web.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-asopao-de-pollo",
+      "slug": "gen-asopao-de-pollo",
+      "title": "Asopao de Pollo",
+      "instructions": "Dominikanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hähnchenschenkel im Angebot; sie sind günstiger als Brustfleisch und aromatischer.",
+        "Verwenden Sie tiefgekühltes Gemüse statt frischem, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "dominikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4142,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-asopao-de-pollo/",
+      "components": [
+        {
+          "key": "3f3a99a4-c000-5bad-a142-380e1868f372",
+          "name": "Zutaten",
+          "servingGrams": 583.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "faf1b09d-b344-521d-840c-e0134e2114dc",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "5b834db6-043d-5a33-82e4-4bdc01387a9c",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen, ungegart"
+            },
+            {
+              "key": "41be5a6b-f2c4-53ac-9829-ce917d65a7e5",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "254b45f1-3443-5b46-9a14-7424f45505e3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "2e2cd3de-f1d9-5152-977d-2ed3903e747a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "dbd299b2-2ac6-5c30-9bba-f2792155f94f",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "473fcb8d-a5ee-59c0-9f13-c3052e1255d3",
+              "ingredientName": "Sofrito",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c8cfe4c2-fd7a-591e-b4b1-fb4d67d55ed4",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "59cec034-a9f5-5cfe-af13-2a476f9b5d4e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8eba84be-7013-5829-b67a-49ee1e953ebe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "73987ac2-316e-5f68-8f41-68a2af56b85a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7b5650f5-9ec1-5f9d-9c7d-28322b8a4ffa",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen, Hähnchenschenkel mit Salz und Pfeffer würzen und auf beiden Seiten 6–8 Minuten anbräunen. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf gewürfelte Zwiebel und gehackten Knoblauch goldbraun anbraten, dann Sofrito und Tomatensauce hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Minuten garen, dann das Hähnchen zurück in den Topf geben und Hühnerbrühe zugießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lorbeerblatt hinzufügen, aufkochen, Hitze auf mittlere Stufe reduzieren, abdecken und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reis hinzufügen und gut umrühren. Ohne Deckel 15–18 Minuten köcheln lassen, bis der Reis weich und der Großteil der Brühe aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tiefgekühlte Erbsen und Karotten einrühren, weitere 2 Minuten garen, vom Herd nehmen und vor dem Servieren 3 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ntObyJNiidXpuClmc2nrAmnadx4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/228356-asopao-de-pollo-DDMFS-36c71145b11446ba81a48674e2b6a9f1.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ntObyJNiidXpuClmc2nrAmnadx4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/228356-asopao-de-pollo-DDMFS-36c71145b11446ba81a48674e2b6a9f1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-masitas-de-cerdo",
+      "slug": "gen-masitas-de-cerdo",
+      "title": "Masitas de Cerdo",
+      "instructions": "Kubanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter im Angebot und frieren Sie sie bis zur Verwendung ein.",
+        "Verwenden Sie abgefüllten Limettensaft, falls Bitterorangen schwer zu finden sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kubanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4143,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-masitas-de-cerdo/",
+      "components": [
+        {
+          "key": "6bdc390a-0fd0-5fc0-9b49-4edc8b664cba",
+          "name": "Zutaten",
+          "servingGrams": 164.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "589ddfc4-5dc3-5c23-9421-f535fbce112f",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "2fe9ba1a-9bfb-5279-a379-ccca30ba18b7",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b16cce75-4fe6-57d4-928e-05af5e7abf6d",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "0ba31ef3-b956-5161-9e89-342a43a489ca",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1ee94530-0983-52bb-90cb-0f1d2c90f7cc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b53026d9-b736-505f-8c4f-4cd5d49fe6d7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "23551d06-ac59-5b49-b493-97ca8ff6d4df",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "107080f2-f4c1-5f05-8ab4-d3636f07001c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0854e7e6-aeb0-5e78-b050-3a6453b8cd01",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f4d39b97-10f9-5308-994e-97e8e566a5fd",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bitterorangensaft, gehackten Knoblauch, Kreuzkümmel, Salz und Pfeffer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinefleischwürfel in die Marinade geben und mindestens 2 Stunden oder über Nacht im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schweinefleisch aus der Marinade nehmen, diese aufbewahren, und das Fleisch 8 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zwiebelstreifen und Lorbeerblätter in die Pfanne geben und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aufbewahrte Marinade und Wasser zugießen, dann die Hitze auf mittlere bis niedrige Stufe reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und 25–30 Minuten köcheln lassen, bis das Schweinefleisch zart ist und die Sauce reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Ohne Deckel weitere 5 Minuten kochen, damit die Sauce stärker einkocht, dann servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/1c/be/6d/1cbe6d9678c781b4482ce3204d7b114d.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/1c/be/6d/1cbe6d9678c781b4482ce3204d7b114d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-camarones-enchilados",
+      "slug": "gen-camarones-enchilados",
+      "title": "Camarones Enchilados",
+      "instructions": "Kubanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühlte Garnelen im Angebot und tauen Sie sie vor dem Kochen auf.",
+        "Lassen Sie Koriander weg, wenn er teuer ist, und verwenden Sie stattdessen preiswertere frische Petersilie."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kubanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4144,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-camarones-enchilados/",
+      "components": [
+        {
+          "key": "90fce79a-28e6-5367-8d38-4598263ace77",
+          "name": "Zutaten",
+          "servingGrams": 180.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "15ec254a-111f-5b5c-9ba9-96c79c5b88bb",
+              "ingredientName": "Tiefgekühlte Garnelen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d4199bea-da69-5e1a-a2a3-596237362d5c",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (8 Unzen)"
+            },
+            {
+              "key": "7d27b755-c5f1-5812-9ee0-cb5795271ced",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "8e22034a-8873-53e8-a9ff-d2645ed95c3e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "359e61e7-89fe-58e4-851a-ac2a97d659e7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "add7473d-acb9-5257-acf7-1d71296e27d6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3b859e28-54dc-5a96-87db-cac20af7b935",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "62d4afdb-6377-5416-acd4-c78bb586e58f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "3b5d3539-e887-5331-96e7-61d017859743",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d3033871-aa7b-5a6f-968b-fcfa81ddce6e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen und gewürfelte Zwiebel sowie rote Paprika etwa 4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch und Kreuzkümmel hinzufügen und unter ständigem Rühren 1 Minute anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatensauce und Weißwein zugießen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen zur Sauce geben und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3–4 Minuten garen, bis die Garnelen rosa werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 2–3 Minuten garen, bis die Garnelen vollständig durch und gekrümmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frischen Koriander einrühren und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort über Reis oder mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishdlites.com/wp-content/uploads/2020/01/DSC_0327.png",
+          "sourcePageUrl": "https://www.delishdlites.com/wp-content/uploads/2020/01/DSC_0327.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

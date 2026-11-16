@@ -1,0 +1,1182 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chickpea-sweet-potato-soup",
+      "slug": "mfr-chickpea-sweet-potato-soup",
+      "title": "Suppe mit gewürzten Kichererbsen und Süßkartoffel",
+      "instructions": "Wärmende Suppe mit marokkanischen Gewürzen, zarter Süßkartoffel und sättigenden Kichererbsen: eine dicke, vegane Schale, ideal für kalte Abende.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln und Kichererbsen kosten zusammen etwa $2 pro Portion.",
+        "Zimt ist das Geheimnis marokkanischer Suppen. Lass ihn nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder normale Kartoffel"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Grünkohl, den du 5 Minuten früher dazugibst, da er länger zum Weichwerden braucht"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chickpea-sweet-potato-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "Suppe",
+        "vegan",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 970,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chickpea-sweet-potato-soup/",
+      "components": [
+        {
+          "key": "1ef31b9e-ec87-5f49-b1c5-a6531cff3a6c",
+          "name": "Zutaten",
+          "servingGrams": 622.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "e924ea73-2b47-5c72-9f24-5efc3f49ebaf",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82c59d45-31cd-55a2-bd67-58fdc9d6575b",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f63c683-18c2-58aa-998c-967a133405e9",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5ad11e6-a61e-5ad0-90b8-af9d5fec48bf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "caf085e3-173b-51b9-aad1-613f0494de00",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e685694-daac-565d-ad31-f7b713b73b2e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "574dbbca-44d0-52bb-bfc2-2d2c3f8bd09d",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "064d6fa9-0ecf-5237-81fc-dc4136adf6a8",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9d8d883-c9c6-51ef-bf38-a89183fc6dec",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70abd6de-8fba-55a0-a282-2cb92a30e87f",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3de6e9f-d565-5023-a162-fa88d9ef3c6a",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5fd90a9-071a-5934-8ffb-fcf79abf104c",
+              "ingredientName": "Hühnerbrühwürfel",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste die Zwiebel 5 Minuten in Olivenöl an. Gib Knoblauch, Kreuzkümmel, Zimt und Paprikapulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Süßkartoffel, Kichererbsen, gehackte Tomaten, Brühwürfel und 3 cups Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 18–20 Minuten köcheln, bis die Süßkartoffel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Spinat und Zitrone ein. Püriere die Suppe nach Wunsch teilweise, damit sie cremiger wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/AJQJ4_-S1gEAEIi__fEkcDUQzhk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4927886-7784793efd6d426092262b29a8016248.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/AJQJ4_-S1gEAEIi__fEkcDUQzhk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4927886-7784793efd6d426092262b29a8016248.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kung-pao-chicken",
+      "slug": "mfr-kung-pao-chicken",
+      "title": "Hähnchen nach Kung-Pao-Art",
+      "instructions": "Zartes Hähnchen in klebriger, süß-scharfer Kung-Pao-Sauce mit Erdnüssen und Frühlingszwiebeln auf Reis: besser als Essen zum Mitnehmen und in 20 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbutter in der Kung-Pao-Sauce ist eine praktische Abkürzung zu einem Ergebnis wie im Restaurant.",
+        "Frühlingszwiebeln als Topping lassen das Gericht professioneller aussehen und schmecken, als es jede weitere Zutat könnte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Tahini für eine andere Nuss- und Samenvariante"
+        },
+        {
+          "forIngredientId": "chili-garlic-sauce",
+          "swap": "Sriracha und Chiliflocken"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kung-pao-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Pfannengericht",
+        "asiatisch",
+        "scharf",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 971,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kung-pao-chicken/",
+      "components": [
+        {
+          "key": "b2cf86cd-3bb0-5614-8e1c-826ac380920f",
+          "name": "Zutaten",
+          "servingGrams": 622,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c1fc642-09dd-59fc-b5bd-7fad0b941103",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db07fb3a-4ff0-544f-bdea-eac1874c6e5c",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4306c6bc-69eb-5e49-b2f5-366087d26115",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a928e39-6fef-5634-bc3d-89f7f9a25205",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cabb89f4-c2d5-5578-b5c8-14ec5976356f",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb5c9b33-dae6-5945-9155-2307116b2448",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39d29ff3-8863-54f2-8a8a-3db97c7749c2",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b1511b9-a4f9-574a-82a5-2a58b82ceb09",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bdb3e48-87d4-5c38-a2c7-fe1eb95c8cc7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a16ea27-2b8a-5f1d-a51d-525d106f0c37",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "307de494-bf89-50dc-a611-a2fbe9a07f5f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "750aab3a-fff7-53ab-bba8-f1bf3c45b1be",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "879d584c-2fe0-50e1-978c-ab06ce3cd683",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aface4ef-4754-51eb-b689-8b98a5138d33",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle das Hähnchen. Rühre die Kung-Pao-Sauce aus Erdnussbutter, Sojasauce, Chili-Knoblauch-Sauce, Honig, Sesamöl und 2 tbsp Wasser an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Hähnchen in Pflanzenöl bei hoher Hitze 6 Minuten an, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, Ingwer und Paprika dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Sauce darüber und brate alles unter Rühren 2 Minuten, bis die Sauce klebrig und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Hähnchen auf Reis und bestreue es mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2014/04/15/dining/Kung-Pao-Chicken/Kung-Pao-Chicken-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2014/04/15/dining/Kung-Pao-Chicken/Kung-Pao-Chicken-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-honey-garlic-tofu-stir-fry",
+      "slug": "mfr-honey-garlic-tofu-stir-fry",
+      "title": "Tofu-Pfanne mit Honig-Knoblauch-Glasur",
+      "instructions": "Knuspriger, in der Pfanne gebratener Tofu in einer klebrigen Glasur aus Honig, Knoblauch und Sojasauce, vermengt mit Brokkoli und auf Reis serviert: ein veganes Abendessen mit der köstlichen karamellisierten Kruste eines beliebten Gerichts zum Mitnehmen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu 15 Minuten auszupressen verbessert seine Konsistenz und lässt ihn die Sauce deutlich besser aufnehmen.",
+        "Ein Block Tofu für $2.75 ist die einzige Proteinquelle und sehr preiswert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup für eine konsequent vegane Variante"
+        },
+        {
+          "forIngredientId": "tofu",
+          "swap": "Tempeh für eine nussigere, festere Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-honey-garlic-tofu-stir-fry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Pfannengericht",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 972,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-honey-garlic-tofu-stir-fry/",
+      "components": [
+        {
+          "key": "bb097f12-6c89-5b0c-a4ec-a3a67c4d126a",
+          "name": "Zutaten",
+          "servingGrams": 663.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a477cb8a-64d6-5edd-89f0-ff4c5c1864ab",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94a34c57-8804-5215-94e6-8f137f8063fe",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43a1fd13-c930-5d43-be80-92adf45f1410",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63d44659-2ed5-5466-a8e9-81ffbc3ac88c",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b74c84a-f013-5c07-aed5-d096bd7b2023",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d43d9eda-6d31-56de-8508-630c8e594f00",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69ee1be5-e8b5-5bd0-aad4-133afcd9c18e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1be44c76-bd1b-5172-968f-aa508a4fbb4e",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ac5117d-4ff8-5579-a442-d9a3e900adc4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e44aae0-e10a-5624-b16a-799c1e7da759",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2963ba87-5241-51e6-92fc-1b81b25f9357",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus und würfle ihn. Brate ihn in Pflanzenöl bei mittelhoher Hitze 4 Minuten pro Seite, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre die Glasur aus Sojasauce, Honig, Knoblauch, Ingwer, Sesamöl und 1 tbsp Wasser an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Brokkoli 4 Minuten in derselben Pfanne an. Gib Tofu und Glasur dazu und gare alles 2 Minuten, bis es klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere alles auf Reis und bestreue es mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Honey-Garlic-Baked-Tofu3.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Honey-Garlic-Baked-Tofu3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ground-beef-broccoli-stir-fry",
+      "slug": "mfr-ground-beef-broccoli-stir-fry",
+      "title": "Pfannengericht mit Rinderhack und Brokkoli",
+      "instructions": "Rinderhack und knuspriger Brokkoli in einer klassischen Austern-Soja-Ingwer-Sauce auf Reis: ein chinesisch-amerikanisches Abendessen unter der Woche, das besser schmeckt als ein Liefergericht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Austernsauce kostet etwa ~$0.13/tbsp und ist die Grundlage chinesisch-amerikanischer Pfannengerichte.",
+        "Rinderhack und Brokkoli sind günstiger und schneller als Steakstreifen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Hoisin-Sauce oder 2 tbsp Sojasauce und 1 tsp Honig"
+        },
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere Pfanne"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ground-beef-broccoli-stir-fry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Pfannengericht",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 973,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ground-beef-broccoli-stir-fry/",
+      "components": [
+        {
+          "key": "a8ffe177-69a8-50e8-9490-ac5c77a4f30e",
+          "name": "Zutaten",
+          "servingGrams": 782,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8613f52-5140-5bf7-ba9b-023b0d44039a",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "357afcac-7498-5657-a01b-4c010425872f",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "191145a7-da30-51b2-9594-393b3f12e936",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a509bb7f-6cf7-5fd8-a876-636978d85f70",
+              "ingredientName": "Austernsauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4db8020-182c-5cd8-a050-8d872be87665",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fe2faa4-8783-5399-9d17-26f894f15bb0",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28239a72-5664-5806-8923-0501e49fabdb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94b1a207-cd66-5009-bff1-8abc5c1bf6be",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1988e29d-82a4-57b1-819d-8a713ea6aed6",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3b5f3e1-b92b-525e-bcf8-a020def1d72d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a475a869-62ab-50d7-b039-a57d8022cdf1",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Brate den Brokkoli 4–5 Minuten bei hoher Hitze in Pflanzenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Rinderhack dazu, zerteile es und gare es 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 1 Minute. Füge Austernsauce, Sojasauce und Sesamöl hinzu und brate alles unter Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Gericht auf Reis und bestreue es mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-japanese-curry-chicken",
+      "slug": "mfr-japanese-curry-chicken",
+      "title": "Japanische Curry-Reisschale mit Hähnchen",
+      "instructions": "Mildes, leicht süßliches Curry nach japanischer Art mit Hähnchen, Kartoffel und Karotte auf Reis: die wohltuendste Schale der Sammlung und eine der einfachsten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel geben dem Curry einen kräftigeren Geschmack als Brustfleisch und kosten 20% weniger.",
+        "Currypulver enthält die ganze Gewürzmischung in einem Glas und eignet sich perfekt für einfache Abendessen unter der Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust, Tofu oder Kichererbsen"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel für zusätzliche Süße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-japanese-curry-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Schüssel",
+        "asiatisch",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 974,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-japanese-curry-chicken/",
+      "components": [
+        {
+          "key": "05349f49-d22d-5d16-90b8-a253e236411c",
+          "name": "Zutaten",
+          "servingGrams": 574.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9e0786a-22ba-5529-a56b-3605a4e65ade",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d74c7983-6af7-57b9-b915-8ff79dd327ee",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3592c4f3-fa27-522b-aaba-3994bc4bb99a",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a60cb19-3829-5514-8130-6ccf5be27fe7",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae6e5634-6ce2-5681-8c79-d972427de027",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a244884c-57cc-530d-9441-3c354df6c359",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3abe4ce-f55b-59be-ac82-cdd7a9b9af62",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "547aa15b-aad8-5ee6-abc6-69f27999852f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15151db9-9c15-53f0-8b56-1b90794cb202",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f6dfedd-d91a-570e-ac6f-c5a89f8fb607",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06901db7-8ec0-5bf3-ba39-8e7282dd1600",
+              "ingredientName": "Hühnerbrühwürfel",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea28f6cb-a09e-5167-a93e-b792f3f2e773",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste die Zwiebel 5 Minuten in Öl an. Gib Knoblauch, Ingwer und Currypulver dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Hähnchenschenkel mit oder ohne Knochen, gewürfelte Kartoffel, Karotte, Sojasauce, Honig, Brühwürfel und 3 cups Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 20–25 Minuten köcheln, bis das Hähnchen gar und die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Hähnchen heraus und schneide oder zerpflücke es. Gib es zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Curry auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2017/03/Katsu-Curry3.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2017/03/Katsu-Curry3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

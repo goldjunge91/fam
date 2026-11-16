@@ -1,0 +1,1058 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-colombian-red-beans-chicken",
+      "slug": "mfr-colombian-red-beans-chicken",
+      "title": "Kolumbianische rote Bohnen mit Hähnchen",
+      "instructions": "Herzhafte Kidneybohnen, mit Hähnchen, Kreuzkümmel und Tomate geköchelt, in einer Bowl nach Art der kolumbianischen Bandeja Paisa: eine vollständige Mahlzeit für weniger als $3.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kidneybohnen und Hähnchen für 3 Personen kosten weniger als $4.",
+        "Kolumbiens Nationalgericht wird mit den Bohnen und Eiweißzutaten zubereitet, die gerade günstig erhältlich sind. Diese Variante bleibt authentisch preiswert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Schwarze Bohnen oder Pintobohnen"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Putenhackfleisch, zuerst angebraten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-colombian-red-beans-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "kolumbianisch",
+        "Bowl",
+        "lateinamerikanisch",
+        "günstig",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1000,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-colombian-red-beans-chicken/",
+      "components": [
+        {
+          "key": "07d45058-a128-57f2-b7f4-6a63bf75283c",
+          "name": "Zutaten",
+          "servingGrams": 733,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab0b2262-61a7-5fa1-85fc-af5731341769",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c1b7989-5be0-5c19-9fec-015ad43b0b1e",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c86c4ab8-dd1b-5c17-9d4c-bfbf8fdc6d63",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8bea094-04f6-5122-8fde-6162323b667e",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "227e7c9b-a871-5d37-8cc3-fb42105f9f23",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b41acf83-172a-54b4-9693-7d1846751f0b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4b539d1-ac0d-5814-891f-afb803dae00d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c88a7176-01f3-5c0f-8d07-ce8758c72d83",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "146f0499-3228-59bb-91fa-140c202c322b",
+              "ingredientName": "Hühnerbouillon",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "735c47dd-e46e-5728-84ac-dd50e57ef761",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Brate die Zwiebel 5 Minuten in Öl an. Gib Knoblauch, Kreuzkümmel und gewürfelte Tomate dazu und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchenstücke, Kidneybohnen und Bouillon + 2 Tassen Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 15 Minuten köcheln, bis das Hähnchen gar ist. Zerteile oder schneide das Fleisch in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere das Gericht mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Instant-Pot-Red-Beans-and-Rice_EXPS_TOHD25_278829_JonathanMelendez_03.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Instant-Pot-Red-Beans-and-Rice_EXPS_TOHD25_278829_JonathanMelendez_03.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-korean-chicken-stew",
+      "slug": "mfr-korean-chicken-stew",
+      "title": "Koreanischer scharfer Hähncheneintopf",
+      "instructions": "Zarte Hähnchenoberkeulen, in einer Gochujang-Sojasoße mit Kartoffeln und Karotten geschmort: ein koreanisches Wohlfühlgericht aus einem Topf, in 35 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen sind 40% günstiger als Hähnchenbrust und bleiben in Eintöpfen saftig.",
+        "Gochujang hält sich 6 Monate und ist die aromatische Grundlage vieler koreanischer Gerichte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust oder Tofu"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Chili-Knoblauch-Soße + 1 TL Miso"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-korean-chicken-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Eintopf",
+        "scharf",
+        "aus einem Topf",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1001,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-korean-chicken-stew/",
+      "components": [
+        {
+          "key": "c874dc96-ae60-553b-971a-9596ee46db40",
+          "name": "Zutaten",
+          "servingGrams": 652.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fe87624-958f-56cf-9f16-1048adc7ad86",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a622ccd-352a-5573-a694-98bbca6ac751",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55879441-b77d-51c2-94b2-cb52facdd2c4",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36b58182-7a44-512a-9e36-99584d141f17",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a758069a-ba67-5aa9-8fcf-cf2b2139dc36",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfe75263-cdfa-5a4b-92aa-6fd8b78370ec",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98f8fa7d-924c-5685-80f8-b58479ff7330",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1924a46-49bd-5072-9961-7fc80009467d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7be4f58d-5d00-552d-9fbd-63593f3fae28",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08cec6dc-92a8-50e8-a8ef-e24c798d6d1b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in Stücke. Brate Knoblauch und Ingwer 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Gochujang, Sojasoße und ½ Tasse Wasser dazu. Gib Hähnchen, Kartoffeln und Karotten hinein. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Topf ab und lass alles 25 Minuten köcheln, bis das Hähnchen zart und die Kartoffeln gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Sesamöl und Frühlingszwiebeln ein. Serviere den Eintopf auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Pd73gE8VPtXvbKXojyjjRRJMURM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2855532-71c1c1201d694cc99dae361d6ae85f4b.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Pd73gE8VPtXvbKXojyjjRRJMURM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2855532-71c1c1201d694cc99dae361d6ae85f4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-korean-beef-bulgogi",
+      "slug": "mfr-korean-beef-bulgogi",
+      "title": "Koreanisches Rindfleisch-Bulgogi",
+      "instructions": "Dünn geschnittenes Rindfleisch, in Sojasoße, Birne und Sesam mariniert, in 10 Minuten karamellisiert und auf Reis mit Kimchi serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bulgogi aus Rinderhack gart schneller und kostet 60% weniger als geschnittenes Roastbeef.",
+        "Die Marinade wird zugleich zur Soße. Verwende sie vollständig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhackfleisch oder gehackte Pilze"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Sojasprossen oder Kohl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-korean-beef-bulgogi",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "schnell",
+        "Rindfleisch",
+        "gegrillt",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1002,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-korean-beef-bulgogi/",
+      "components": [
+        {
+          "key": "e6301af8-33bb-5712-9127-fbb17d6fd9e5",
+          "name": "Zutaten",
+          "servingGrams": 644.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd882d02-46f8-5c37-ad9a-ce1cb570e641",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22fecdad-8c62-5d42-8edb-703613ec9409",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78347608-2f9f-5c49-b492-b505bcc83b45",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58a5d734-7d61-5224-b663-ef2e5c1106b6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f3dd0f4-f493-5920-8f0e-504b5b97a828",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10eba2d1-4af7-5152-954b-38c181fc73aa",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e601db2-5d42-5042-885f-a73f9273c031",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8587be9a-b08d-5125-8877-c76fb26a706a",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35e8ba06-780e-5e55-81e9-b5d3e1c8e189",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e4ef14e-d6a2-56e6-a855-abbae80a77a3",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasoße, Sesamöl, Knoblauch, Ingwer und braunen Zucker zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare das Rinderhack bei hoher Hitze in der Marinade, bis es karamellisiert, etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den Spinat in der Pfanne zusammenfallen. Serviere das Gericht auf Reis mit Sesamsamen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2019/04/Korean-Beef-BulgogiIMG_9253.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2019/04/Korean-Beef-BulgogiIMG_9253.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-korean-spicy-pork-bowl",
+      "slug": "mfr-korean-spicy-pork-bowl",
+      "title": "Koreanische scharfe Schweinefleisch-Bowl",
+      "instructions": "Schweineschulter, in Gochujang, Knoblauch und Sesam mariniert, unter Rühren karamellisiert und mit Reis und eingelegter Gurke serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter gehört zu den günstigsten Fleischsorten und kostet weniger als $3 pro lb.",
+        "Die schnelle Gurkenpickle ist in 5 Minuten fertig und bildet einen frischen Kontrast zum scharfen Schweinefleisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Hähnchenoberkeulen oder Tofu"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sambal Oelek + 1 TL Miso"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-korean-spicy-pork-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "Schweinefleisch",
+        "scharf",
+        "Pfannengericht",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1003,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-korean-spicy-pork-bowl/",
+      "components": [
+        {
+          "key": "1d673a32-68c1-5814-940e-b2eda03dfdbe",
+          "name": "Zutaten",
+          "servingGrams": 480.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9521af9-d68c-534f-afbd-08e0072a2975",
+              "ingredientName": "Schweineschulter",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb3b9c17-2036-5196-b4e9-76aa15c4d2ca",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1075459-8a37-5f9a-8bc6-1f586be1244b",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "179dc360-9ea3-5a70-9de9-1506c4431532",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbd7b4a6-1fd0-5b68-ab85-6abd53f33f27",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e05911e-0644-5eda-8c6b-c3ef148d0210",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b6d7af4-0234-54b9-ab4f-7615ee0a40d0",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a33dba88-7894-527f-8ada-66306d1f180d",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01269523-3137-50ac-b45b-b123e294a75f",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29065280-2a00-53b8-a035-42cf398b6eab",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Schweinefleisch in dünne Scheiben. Mariniere es 5 Minuten in Gochujang, Sojasoße, Knoblauch, Ingwer und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Fleisch bei hoher Hitze 10–12 Minuten unter Rühren an, bis es karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die schnelle Gurkenpickle zu: Vermenge die Gurke mit Reisessig und einer Prise Salz und lass sie 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Fleisch auf Reis mit eingelegter Gurke und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5af458c94f78d863d390f4e4/1:1/w_2560%2Cc_limit/spicy-pork-tenderloin-bowls-with-greens-and-carrots.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5af458c94f78d863d390f4e4/1:1/w_2560%2Cc_limit/spicy-pork-tenderloin-bowls-with-greens-and-carrots.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-korean-tofu-stew",
+      "slug": "mfr-korean-tofu-stew",
+      "title": "Koreanischer Eintopf mit Seidentofu",
+      "instructions": "Zarter Seidentofu, in einer scharfen Brühe aus Sardellen und Gochugaru mit Pilzen und Ei geköchelt: ein wärmendes koreanisches Gericht in 20 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Seidentofu gehört zu den günstigsten Eiweißquellen und kostet $1.50 für 450 g.",
+        "Das rohe Ei pochiert direkt im Eintopf. Ein zweiter Topf ist nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shiitake-mushrooms",
+          "swap": "Champignons oder Enoki-Pilze"
+        },
+        {
+          "forIngredientId": "gochugaru",
+          "swap": "½ TL Chiliflocken + ½ TL Paprikapulver"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-korean-tofu-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Eintopf",
+        "Tofu",
+        "scharf",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1004,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-korean-tofu-stew/",
+      "components": [
+        {
+          "key": "737c89d3-0fd3-54db-86f3-0355ed8517c1",
+          "name": "Zutaten",
+          "servingGrams": 919.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b46f636-5fa1-5ec9-b73c-9508ae1c80d3",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fcc8f5a-9499-58e3-89d7-6c6864b3434a",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6002d0c0-50f6-59f7-b37c-05697b320698",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00c22029-8c66-5c66-bbe2-3cde41109504",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9f014a9-0fe9-5564-84da-85f352d4eeaa",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acdcf604-dd99-53e3-adff-e5ec11637ad6",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3672a165-b55f-5669-936d-70b3c99f3135",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01f4bf74-8efe-545b-8870-25417bbc47a8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95777180-1be5-58dc-81a9-2be0f5067264",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3fb1db0-7fbd-5315-9f7a-622d7ebec88e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Knoblauch 1 Minute in Sesamöl an. Gib Gochugaru dazu und röste es 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Brühe, Sojasoße und Pilze dazu. Koche alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Tofu vorsichtig löffelweise dazu. Lass alles 5 Minuten köcheln, ohne umzurühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage ein Ei direkt in den Eintopf. Decke den Topf ab und gare alles 1 Minute. Garniere das Gericht mit Frühlingszwiebeln und serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lovekoreanfood.com/wp-content/uploads/2022/03/IMG_7852.jpg",
+          "sourcePageUrl": "https://lovekoreanfood.com/wp-content/uploads/2022/03/IMG_7852.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

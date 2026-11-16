@@ -1,0 +1,1022 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tejate",
+      "slug": "gen-tejate",
+      "title": "Tejate",
+      "instructions": "Oaxacanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normales Schokoladenpulver statt Oaxacanischer Schokolade und spare 40%.",
+        "Kaufe Masa Harina regelmäßig in größeren Mengen, um zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "oaxacanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3630,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tejate/",
+      "components": [
+        {
+          "key": "241b8a2f-7ef9-5a94-9f5e-881cde5673da",
+          "name": "Zutaten",
+          "servingGrams": 424.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa43f477-895e-5d34-b316-e81c6a562266",
+              "ingredientName": "Masa Harina",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9af39068-5bc6-5445-8982-5b5d15640783",
+              "ingredientName": "Milch",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "f69372fe-3ad6-569b-b436-13bec9bc7973",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6d30b93d-bf4f-513a-a4fc-f9836eef576b",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0636041c-0bfb-5cdf-9b38-ca2a0a7f212e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "966d99f5-f097-55a8-a1e7-2b0c7bc8004b",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "2b4f93d8-576e-55ce-8fb0-8eb0071c0089",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Masa Harina mit 1 cup kalter Milch in einer Schüssel und rühre glatt und klümpchenfrei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die übrigen 3 cups Milch mit Zimtstangen, Zucker und Salz in einem Topf, bis sie dampft, aber nicht kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Masa-Mischung langsam unter ständigem Rühren in die heiße Milch, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche und rühre weitere 5 Minuten, bis die Mischung leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reibe oder hacke die Schokoladentafel und gib sie mit Vanilleextrakt in den Topf. Rühre, bis sie geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das Getränk in Tassen und serviere es heiß, jeweils mit einer Zimtstange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static.wixstatic.com/media/8206ed_a82fca25d32948289042102218ed5e01~mv2.jpg/v1/fill/w_960,h_1280,al_c,q_85,enc_avif,quality_auto/8206ed_a82fca25d32948289042102218ed5e01~mv2.jpg",
+          "sourcePageUrl": "https://static.wixstatic.com/media/8206ed_a82fca25d32948289042102218ed5e01~mv2.jpg/v1/fill/w_960,h_1280,al_c,q_85,enc_avif,quality_auto/8206ed_a82fca25d32948289042102218ed5e01~mv2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicatanas",
+      "slug": "gen-chicatanas",
+      "title": "Chicatanas",
+      "instructions": "Oaxacanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Heuschrecken auf lokalen mexikanischen Märkten oder bei Fachhändlern zu guten Preisen.",
+        "Bereite während der Hauptsaison eine große Menge zu und bewahre sie in einem luftdichten Behälter auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "oaxacanisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3631,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicatanas/",
+      "components": [
+        {
+          "key": "bf768250-7dff-57ed-ab44-c8bb65bcc2e2",
+          "name": "Zutaten",
+          "servingGrams": 121.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "894e6793-0565-550d-8324-8af9951ad0d6",
+              "ingredientName": "Große Heuschrecken oder Grillen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3fabfb18-0dc7-5e81-9369-30dd13b9e8b9",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "342cb1fb-503b-526b-87e6-08f6aa9e4efb",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a95cbce3-e769-5661-82f7-e7a9ef2cc3dc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "165371cf-52b6-59fd-8286-72facf8db1c3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "03978b60-0733-5155-8617-14c470649f6e",
+              "ingredientName": "Getrocknetes Pilzpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6cc60673-90d4-5840-bcb6-360f0bb1d81d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 kleines Stück, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne nach Wunsch Flügel und Beine der Heuschrecken, spüle sie ab und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne bei mittelhoher bis hoher Hitze, bis es schimmert. Gib Heuschrecken dazu und gare sie 3-4 Minuten goldbraun und knusprig. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch, Zwiebel und Chilipulver in die Pfanne und brate alles 1 Minute unter Rühren, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd, gib Limettensaft und Salz dazu, vermische alles gut und serviere den knusprigen Snack sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/84/87/a0/8487a0145ed0c52efa6be66926d9026b.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/84/87/a0/8487a0145ed0c52efa6be66926d9026b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanadas-oaxaque-as",
+      "slug": "gen-empanadas-oaxaque-as",
+      "title": "Oaxacanische Empanadas",
+      "instructions": "Oaxacanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es vor der Zubereitung portionsweise ein.",
+        "Filtere Frittieröl zwischen den Durchgängen und verwende es erneut, damit es länger hält."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "oaxacanisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3632,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanadas-oaxaque-as/",
+      "components": [
+        {
+          "key": "1a1a32f1-5f87-588d-9bde-939b7f7086da",
+          "name": "Zutaten",
+          "servingGrams": 243.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ea9804b-51e4-563d-9cfa-416f02cfac2f",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "c42d4a38-3925-589f-b711-5d068e2580ad",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c49240fa-66a3-5c92-b292-654faad4f65f",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2fbeecb6-bb9b-52dc-9755-2782124c4d6c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cced24e3-39bd-5e40-80c3-0c5b7d61ee2d",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4ac1377b-4553-5923-bd82-d04a38443973",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "20c07ea3-6ec0-5a06-9b16-46890271999f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "bd4e83b4-774e-5a08-a9bd-e362b6cb540a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück, gehackt"
+            },
+            {
+              "key": "97c878f2-285b-520b-826d-1b3d1d6e8307",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "1d48c19b-d3a9-58e9-9a1b-a3414d9f958c",
+              "ingredientName": "Oregano (getrocknet)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz und Backpulver in einer Schüssel. Arbeite Backfett mit den Fingern ein, bis die Mischung grobem Sand ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ei und nach und nach Wasser unter Rühren dazu, bis ein weicher Teig entsteht. Lasse ihn zugedeckt 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Rinderhackfleisch mit Zwiebel, Knoblauch und Oregano in einer Pfanne bei mittlerer Hitze 8 Minuten an und lasse es dann abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 8 gleich große Stücke und rolle jedes zwischen zwei Lagen Frischhaltefolie zu einem dünnen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege 2 tablespoons Füllung auf eine Hälfte jedes Kreises, klappe ihn zusammen und drücke die Ränder zu. Verziere sie mit einer Gabel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F (175°C) und frittiere jeweils 2-3 Empanadas gleichzeitig 2-3 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm, nach Wunsch mit Salsa oder scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ooohdelish.com/wp-content/uploads/2025/11/ridamine_01407_empanada_dough_recipe__Amateur_photo_from_redd_b2286c43-f469-4e94-8302-45711f121e63_0.png",
+          "sourcePageUrl": "https://ooohdelish.com/wp-content/uploads/2025/11/ridamine_01407_empanada_dough_recipe__Amateur_photo_from_redd_b2286c43-f469-4e94-8302-45711f121e63_0.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mole-amarillo",
+      "slug": "gen-mole-amarillo",
+      "title": "Mole Amarillo",
+      "instructions": "Oaxacanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Röste Gewürze in größeren Mengen und bewahre sie für mehrere Mole-Portionen auf.",
+        "Kaufe Hähnchenschenkel im Angebot und verwende sie direkt oder friere sie ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "oaxacanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3633,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mole-amarillo/",
+      "components": [
+        {
+          "key": "011aa49c-646e-58b3-b88d-2be1d3d85e43",
+          "name": "Zutaten",
+          "servingGrams": 332.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c1e0984f-ad68-535d-9ab9-f5dfc231353c",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f75e8ab7-94b2-521c-a698-3b020c64039f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0b3bc64-ee7c-55f1-b45e-d37c4197a001",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "af126625-f0f9-5791-a559-4f6d99b8aa92",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "63d8de7f-658c-59ba-b700-c02c9dd1ae38",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stück"
+            },
+            {
+              "key": "281c4689-05ab-5e55-98a0-909cd7f38e2b",
+              "ingredientName": "Ganze Nelken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "272f9015-fca1-5ac1-a96b-032662e53277",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7525205b-4f24-5154-b2cc-1f5882d0df6d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "fab2a9bf-8cda-5a2b-8eee-67b65f2f8ab5",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f5612b13-aaa1-539e-9ccc-975a793c0b63",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e46879bb-b59d-5fd0-945e-2bfed72668f1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7331ea34-c6e5-5829-ad2a-be9c5152b4a2",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste getrocknete Chilischoten in einer trockenen Pfanne 1 Minute pro Seite. Entferne Stiele und Kerne und weiche sie dann in 2 cups heißem Wasser 15 Minuten ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Kreuzkümmelsamen, Zimtstange, Nelken und Pfefferkörner 1 Minute in einer trockenen Pfanne, bis sie duften. Mahle sie dann in einer Gewürzmühle oder einem Molcajete.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere weiche Chilischoten samt Einweichwasser mit Knoblauch, Zwiebel und gemahlenen Gewürzen vollständig glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einem großen Topf, seihe die Chilimischung ins heiße Öl und rühre 3 Minuten ständig, damit rohe Aromen verschwinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Hühnerbrühe dazu und bringe alles zum Köcheln. Gib Hähnchenschenkel dazu und gare sie 35 Minuten, bis sie zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz, Pfeffer und Limettensaft und lasse alles vor dem Servieren weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57ad287bf1c801a1038bc9ec/1:1/w_2560%2Cc_limit/MOLE-ROJO.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57ad287bf1c801a1038bc9ec/1:1/w_2560%2Cc_limit/MOLE-ROJO.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastel-goreng",
+      "slug": "gen-pastel-goreng",
+      "title": "Pastel Goreng",
+      "instructions": "Sumatranischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenteile im Angebot und mahle sie selbst.",
+        "Verwende normale Kartoffeln statt festkochender Sorten, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "sumatranisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3634,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastel-goreng/",
+      "components": [
+        {
+          "key": "58162b8e-faab-5e28-989d-12777a8322a8",
+          "name": "Zutaten",
+          "servingGrams": 318.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "69e3a928-9031-5002-b777-388d36902053",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e6b25060-4cf7-5f22-9316-8c4627f7ecf5",
+              "ingredientName": "Hähnchenhackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "106bc6e6-b707-52dc-abd5-032c197e9a08",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "c5790fe1-86ea-56bb-ae0f-e87967048141",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "cefadd7d-302a-5a5f-a3b5-42668a16ca3b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "978820c4-0140-5437-b500-aadd6f744f86",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6c33457-6db1-54ca-80e8-ed3a61204c44",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "aeda1c73-437a-52d4-a933-23762296b049",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "28645bc0-1961-587d-9d7f-c50fccb911b3",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln und zerdrücke sie glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Hähnchenhackfleisch mit gehacktem Knoblauch und Zwiebel in einer Pfanne bei mittlerer Hitze an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische zerdrückte Kartoffeln mit gegartem Hähnchen, würze mit Salz und Pfeffer und lasse die Füllung abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Mehl, Wasser, Ei und Salz zu einem Teig und knete ihn glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig dünn aus und schneide ihn in 3-inch große Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege einen Löffel Füllung auf jedes Quadrat, falte es zu einem Dreieck und verschließe die Ränder.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Öl auf 350°F und frittiere Pastel, bis sie auf beiden Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/2gYm3BNrY4agY3b0aE6sjaoX_d4=/1920x0/filters:quality(80)/images.kitchenstories.io/communityImages/b139aa193faf6186d49cc3872550cbc3_ea837f63-203b-4485-8aed-45228f24ed2a.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/2gYm3BNrY4agY3b0aE6sjaoX_d4=/1920x0/filters:quality(80)/images.kitchenstories.io/communityImages/b139aa193faf6186d49cc3872550cbc3_ea837f63-203b-4485-8aed-45228f24ed2a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

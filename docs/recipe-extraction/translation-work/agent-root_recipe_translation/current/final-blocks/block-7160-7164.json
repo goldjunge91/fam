@@ -1,0 +1,1200 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicken-jalfrezi",
+      "slug": "gen-chicken-jalfrezi",
+      "title": "Hähnchen Jalfrezi",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen Hähnchen when it's auf sale und freeze für later verwenden.",
+        "verwenden canned tomatoes anstatt frisch zu Geld sparen year-round."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7160,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-jalfrezi/",
+      "components": [
+        {
+          "key": "3e3d6bfe-80cb-5537-bcc3-0e630104be19",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 148.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "28877ba2-b4d8-5328-9ca7-724790617ed2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "0fdc035c-44b1-5522-a1e9-7d2ff061f2d1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "d14ae484-74cf-56ea-8763-01f6ff635451",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 rote, 1 grüne"
+            },
+            {
+              "key": "d4ef8d0e-590b-5ec4-9e65-5c1c30b3c6b4",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "bfeb524c-d834-50d1-a1ff-8e150620ffe1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "be1612c8-95b9-5bc4-9789-a359b55ce638",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "f0749a3e-e62d-5af2-9653-671bf0ce6200",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e625ecf4-7c5c-5c71-8424-5d327396eb4b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0b71fd8e-15dd-569f-a168-166f54c58efc",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b32d8e6a-8185-5b93-8426-ed87b284b809",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "739da2ea-05ea-508a-9bf2-81d0fb18b7d0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "schneiden Hähnchen in bite-sized Stücke und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "erhitzen Öl in ein groß Pfanne und hinzufügen fein gehackt Knoblauch und Ingwer, stirring für 30 seconds bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen Hähnchen Stücke und garen bis browned auf all sides, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen gewürfelt Zwiebeln und bell peppers, cooking für 3 Minuten bis weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "umrühren in Kreuzkümmel, garam masala, und Kurkuma, cooking für 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "hinzufügen canned tomatoes mit their juice und bring zu ein köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze reduzieren und garen für 15-20 Minuten bis Hähnchen is gegart through und Sauce thickens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Season mit Salz und Pfeffer nach Geschmack und servieren mit Reis oder naan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2021/08/chicken-jalfrezi-1-13.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2021/08/chicken-jalfrezi-1-13.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lamb-vindaloo",
+      "slug": "gen-lamb-vindaloo",
+      "title": "Lammfleisch Vindaloo",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen Lammfleisch shoulder oder stew meat auf sale, as it's mehr affordable than premium cuts.",
+        "machen ein larger batch und freeze portions für spätere Mahlzeiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7161,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lamb-vindaloo/",
+      "components": [
+        {
+          "key": "767bb128-c046-59f6-b0cb-c8289588f41a",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 556.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb2add7e-9852-5579-ab84-9ad1d8b078b9",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2f264a2e-1003-54b9-be27-1232de3cd309",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "aa2f2e5e-93e2-51f8-a5d2-67ac38e7489f",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "645f9d6b-eaa3-555e-9351-e5217da1d782",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c74056d3-8e82-581b-aaa4-72097463a46d",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "010b59f5-2d55-51f8-b25d-531dde794ac9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "dbbc2b09-af97-515e-87a8-fcad14f88241",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5b95aa95-9f2f-5f38-b4b8-c1a90be56b00",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "a0fcc732-e19f-568c-a3c8-d850a5eaf68a",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0a574d23-2fc6-5dee-9225-5cc4728cb3d1",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "03a84995-d0ab-5df4-9ee9-d011387e7e17",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b5025c7f-be41-52c7-8289-c55697cb3276",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1fd61e0d-4ac6-5221-a561-601b952bb444",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "schneiden Lammfleisch in 1-inch cubes und pat dry mit paper towels.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "mixen Knoblauch, Ingwer, chili peppers, und 2 tbsp Wasser in ein Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "erhitzen Öl in ein heavy Topf und brown Lammfleisch in batches, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "im selben Topf, sauté gewürfelt Zwiebeln bis goldbraun, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib the spice paste und Koche für 2 Minuten, stirring constantly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "umrühren in Kreuzkümmel, Koriander, Kurkuma, und Tomate Paste, cooking für 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "zurückgeben Lammfleisch zu Topf mit vinegar und Hähnchen Brühe, zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hitze reduzieren, cover, und köcheln für 45 Minuten bis Lammfleisch is very tender, gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Season mit Salz nach Geschmack und servieren mit Reis oder flatbread.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/12/12/multimedia/ND-Chicken-Vindaloo-fkvc/ND-Chicken-Vindaloo-fkvc-threeByTwoMediumAt2X.jpg?quality=75&auto=webp",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/12/12/multimedia/ND-Chicken-Vindaloo-fkvc/ND-Chicken-Vindaloo-fkvc-threeByTwoMediumAt2X.jpg?quality=75&auto=webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lamb-korma",
+      "slug": "gen-lamb-korma",
+      "title": "Lammfleisch Korma",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "verwenden natur Greek Joghurt aus der sale section oder kaufen larger containers.",
+        "kaufen gemahlen Mandeln in bulk aus discount stores oder machen dein own by grinding whole Mandeln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7162,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lamb-korma/",
+      "components": [
+        {
+          "key": "6227ea15-48ad-5073-987c-6c47008ba781",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 197.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "5c283f2f-a722-5aa0-af58-f13b145407ac",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2b568100-0b3a-5ca5-b7ea-403156523be9",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "292782eb-f9db-5364-a5e2-5ed1387560ae",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "a2e3d237-a7eb-5883-909d-88bc21ba03a6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9555651-d3bd-5d47-9f2d-91e718278c91",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "df7e9b85-0abd-5b92-bf73-5042a6cab434",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c0df522c-8623-5d66-9e73-29bb7ee6b1b7",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5b6b6cc2-6ef5-571a-a1a6-137459433c84",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "76d56d1f-ae9c-53ba-a1dd-b42a36e8fdb9",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "74f455fa-872d-548c-bb6f-601d21b034ee",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "db1f57e4-2d58-5066-b6dc-5e447d48b4b8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a5638a51-d29b-580f-9da0-bac2f70f2a28",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pat Lammfleisch dry und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "mixen Joghurt, Knoblauch, Ingwer, und 2 tbsp Wasser bis glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "erhitzen Öl in ein groß Topf und brown der Lammfleisch in batches, dann entfernen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "im selben Topf, garen gewürfelt Zwiebeln bis weich und golden, etwa 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen Kreuzkümmel, Koriander, und garam masala, stirring für 1 Minute bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "hinzufügen der Joghurt-Knoblauch Mischung und gemahlen Mandeln, stirring zu vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "zurückgeben Lammfleisch zu Topf mit Hähnchen Brühe und bring zu ein köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abdecken und garen auf niedrig erhitzen für 40 Minuten, gelegentlich umrühren, bis Lammfleisch is tender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Season mit Salz nach Geschmack und servieren mit basmati Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/-gFnNNSaFuC2ns204_90NzxEiLA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2013__05__lamb-korma-vertical-a-1600-367b13bf12064ae7a93cbe2d3b0ba527.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/-gFnNNSaFuC2ns204_90NzxEiLA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2013__05__lamb-korma-vertical-a-1600-367b13bf12064ae7a93cbe2d3b0ba527.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-prawn-madras",
+      "slug": "gen-prawn-madras",
+      "title": "Prawn Madras (deutsche Fassung)",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen gefroren Garnelen wenn im Angebot as they're cheaper than frisch und freeze well.",
+        "verwenden canned coconut Milch aus discount retailers für better prices."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7163,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-prawn-madras/",
+      "components": [
+        {
+          "key": "87c05dcf-2c7e-5543-8d1c-f8da61db9520",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 179.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d263f94-5dd9-5d04-9248-f7d19201ab67",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ab580c44-c6d2-5b83-afc2-ca15e822efbf",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "7a031faf-79f2-53f0-9e5f-434dddae4671",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f184406-0295-50ce-a993-bdd9cdfbeadb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "7f10c70a-d8b6-53a1-adb6-8bb68303fab2",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "7c32db15-3db0-5506-a2bc-25244c176946",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "fde7b450-5c49-5738-b696-e770eaceecc1",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "514abb2e-70b3-5623-bc51-4f68d724fee6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5fe941b7-2415-5816-ba2d-49bff63cede8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9c86c364-014b-52f8-8746-fae8d7d15acd",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fa9f0eef-2845-5b66-ba95-a599bb5a5c32",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f7182512-d55f-5500-b201-c97bcacabf8b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Peel und devein Garnelen, dann pat dry und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "mixen Knoblauch, Ingwer, und 3 tbsp Wasser in ein Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "erhitzen Öl in ein groß Pfanne und sauté gewürfelt Zwiebeln bis goldbraun, etwa 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der Knoblauch-Ingwer Paste und garen für 1 Minute, ständig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "umrühren in red chili powder, Kreuzkümmel, und Koriander, cooking für 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "hinzufügen canned tomatoes und their juice, simmering für 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "hinzufügen Garnelen und coconut Milch, stirring gently, und garen für 6-8 Minuten bis Garnelen are pink und gegart through.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Season mit Salz nach Geschmack, garnieren mit frisch Koriandergrün, und servieren mit Reis oder naan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/736x/ed/6d/b9/ed6db9cba73122b574a4827d681a2704.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/736x/ed/6d/b9/ed6db9cba73122b574a4827d681a2704.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yorkshire-pudding",
+      "slug": "gen-yorkshire-pudding",
+      "title": "Yorkshire Pudding (deutsche Fassung)",
+      "instructions": "Yorkshire-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "verwenden Pflanzenöl anstatt Rindfleisch drippings für ein lower cost.",
+        "machen extra Teig und freeze gegart puddings zum schnellen Aufwärmen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Yorkshire",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7164,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yorkshire-pudding/",
+      "components": [
+        {
+          "key": "cac69470-ed9d-589e-b7be-782fb118a52c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 175.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "0595dd05-e92f-5749-8a1e-23e7b6cae4cc",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f6a1b4d8-c30e-51d1-8ad5-fcaacd838f93",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "2e6c4e08-283c-5f40-9816-bcfa7c96dc5f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5ae55d1a-9d0d-567b-a396-dcaa9d39d972",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ec513bd7-4d1c-511e-b6ad-e6f0b672186d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "c9993025-0742-5c0b-9184-86ecff7d08e2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Preheat Ofen zu 425°F und legen ein 12-cup muffin tin in der Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mische Mehl und Salz in a large Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "verquirlen Eier und Milch together in weitere Schüssel bis well combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "machen ein well in der Mehl und gradually gießen in der Ei Mischung, whisking bis du have ein smooth Teig mit der consistency von heavy Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen schwarzer Pfeffer zu der Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Carefully entfernen der heiß muffin tin aus der Ofen und hinzufügen 1 tsp von Öl oder Rindfleisch drippings zu je cup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "gießen Teig evenly in je cup bis half-full und immediately zurückgeben zu der Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "backen für 15-20 Minuten bis es aufgegangen ist und golden brown, ohne opening der Ofen door during cooking.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "heiß servieren mit roast Rindfleisch und gravy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/s5yVFdqMd0YCiQMsnzJIGrQpDv0=/5406x3604/filters:fill(auto,1)/foolproof-yorkshire-pudding-recipe-435801-hero-01-18b90e50dbf74e3c99cacff595f0024f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/s5yVFdqMd0YCiQMsnzJIGrQpDv0=/5406x3604/filters:fill(auto,1)/foolproof-yorkshire-pudding-recipe-435801-hero-01-18b90e50dbf74e3c99cacff595f0024f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

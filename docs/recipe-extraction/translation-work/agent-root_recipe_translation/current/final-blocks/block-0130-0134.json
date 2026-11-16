@@ -1,0 +1,949 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-loaded-baked-potato",
+      "slug": "af-loaded-baked-potato",
+      "title": "Gefüllte Ofenkartoffel aus der Heißluftfritteuse",
+      "instructions": "Ofenkartoffel mit knuspriger Schale, Butter, Käse und Speck – günstiger und schneller als im Backofen.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 40,
+      "storageInstructions": "Kartoffel ohne Belag im Kühlschrank 3 Tage haltbar; Belag erst frisch dazugeben.",
+      "reheatingInstructions": "Für eine erneut knusprige Schale 5 Minuten bei 380°F in die Heißluftfritteuse geben.",
+      "cheapTips": [
+        "Aus einer Russet-Kartoffel (~$0.40) wird mit beliebigen Resten aus dem Kühlschrank eine ganze Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Schwarze Bohnen (vegan)"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 38,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Russet-Kartoffeln (~$0.40) gehören zu den günstigsten sättigenden Grundzutaten; Beläge im Wert von etwa $1.50 reichen für 1 Mahlzeit.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Brokkoliröschen",
+        "Chili",
+        "Ranch-Dressing"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "günstig"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 130,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-loaded-baked-potato/",
+      "components": [
+        {
+          "key": "1162fd58-b9e8-5e90-9a4f-f0fc276c04d7",
+          "name": "Zutaten",
+          "servingGrams": 288.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "38651c89-7532-55ba-9f5c-f36af9eed056",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2aa3e32a-a96a-5dcf-b7a9-7c318fc8dd15",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "164d82e3-9b2d-5cba-8f05-8928b3267a81",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62d33b97-7afb-5cca-b67f-7fa5121a46ac",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37006783-18ef-5e3e-8a2c-df737c1cdf6d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a392ba2c-4c75-5d02-b233-d6cb5f4e01df",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "9e4fda56-e919-5dfd-92a2-d01d5746acf1",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "95137185-1774-5912-823e-b8e7ec93a94b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich die Kartoffel mehrmals mit einer Gabel ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe sie mit Öl und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400°F 35-40 Minuten in der Heißluftfritteuse. Stich mit einem Messer hinein, um zu prüfen, ob sie ganz weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide sie auf und lockere das Innere mit einer Gabel auf; gib Butter, Käse, Speck, saure Sahne und Frühlingszwiebel dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1642522685167-cf414ea225be?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1642522685167-cf414ea225be",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer üppig belegten Ofenkartoffel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-potato-wedges-yogurt-dip",
+      "slug": "af-potato-wedges-yogurt-dip",
+      "title": "Knusprige Kartoffelspalten mit Joghurtdip",
+      "instructions": "Dick geschnittene, gewürzte Kartoffelspalten aus der Heißluftfritteuse mit einem Knoblauch-Joghurtdip aus 2 Zutaten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 16,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "Für eine erneut knusprige Konsistenz 4 Minuten bei 380°F in der Heißluftfritteuse garen.",
+      "cheapTips": [
+        "2 Kartoffeln reichen als Snack oder Beilage für 2 Personen; die Gesamtkosten liegen unter $1.50."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 16,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "2 Kartoffeln (~$0.80), Gewürze aus dem Vorratsschrank und ein Klecks Joghurt kosten weniger als $1.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Parmesan",
+        "Frische Kräuter",
+        "Scharfe Sauce"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 131,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-potato-wedges-yogurt-dip/",
+      "components": [
+        {
+          "key": "06fda3c7-74af-5209-8623-7af76e0d2ee4",
+          "name": "Zutaten",
+          "servingGrams": 254.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c45e65f3-ad86-5b8a-b627-360523add18f",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62666495-35e0-5007-8d9c-6d93b3e2a7da",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e727b48e-5c53-5872-a8a0-b18a8bd81d6d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef369ce7-b54d-56f7-a591-1a0d1155dead",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "168a9145-a2c8-5212-a9a1-72535ed4f5af",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4fadc76-56e6-55cb-b250-d160c353ec0a",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2df7377-e20f-5b4d-b105-0db24563a18b",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide jede Kartoffel in 8 Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Öl, Paprikapulver, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400°F 16 Minuten in der Heißluftfritteuse und schüttle den Korb nach 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Joghurt, Zitronensaft und eine Prise Salz zu einem Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Kartoffelspalten heiß mit dem Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1623238913973-21e45cced554?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1623238913973-21e45cced554",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Kartoffelspalten mit Joghurtdip",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-sweet-potato-fries-black-beans",
+      "slug": "af-sweet-potato-fries-black-beans",
+      "title": "Süßkartoffel-Pommes mit schwarzen Bohnen",
+      "instructions": "Karamellisierte Süßkartoffel-Pommes mit gewürzten schwarzen Bohnen als schnelles, ballaststoffreiches Essen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 16,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "Die Pommes 4 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "1 Süßkartoffel (~$0.80) und 1 Dose Bohnen (~$1) ergeben eine ganze Mahlzeit für weniger als $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Kartoffel (Russet)"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Süßkartoffel und Bohnen aus der Dose liefern Eiweiß und Ballaststoffe für weniger als $2 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Avocado",
+        "Salsa",
+        "Scharfe Sauce"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch inspiriert",
+        "Heißluftfritteuse",
+        "vegan",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 132,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-sweet-potato-fries-black-beans/",
+      "components": [
+        {
+          "key": "3404dab9-300b-55a3-b160-f0d30488cb06",
+          "name": "Zutaten",
+          "servingGrams": 318.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "90af976a-8c61-5791-add9-fba9f8ae021b",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cce36d89-cd5e-5494-82c0-fba349ee2b33",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "784cb3c9-81e8-5397-bdde-d6df26bee8c9",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9213abf5-32e8-517d-baa7-72765821dfe3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d26a7db1-b4d9-54f8-8dbb-2cd69e7d3199",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5c7f2bf-1bd0-5c9e-b9da-e96c7674fed7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8b1afa8-a4fe-5f11-b6ed-c6e058145b39",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Süßkartoffel in Pommes, die 1/2 Zoll dick sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Öl, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400°F 14 Minuten in der Heißluftfritteuse und schüttle den Korb nach 7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die abgetropften schwarzen Bohnen 90 Sekunden mit Kreuzkümmel und Zitronensaft in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Pommes mit den Bohnen darauf und presse den restlichen Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1633959639799-6d3f66e05710?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1633959639799-6d3f66e05710",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Süßkartoffel-Pommes mit schwarzen Bohnen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-broccoli-parmesan-bowl",
+      "slug": "af-broccoli-parmesan-bowl",
+      "title": "Brokkoli-Parmesan-Schüssel",
+      "instructions": "Tiefkühlbrokkoli mit Parmesan und Knoblauch in der Heißluftfritteuse geröstet, bis er außen knusprig und innen zart ist.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 11,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "2 Tassen Tiefkühlbrokkoli kosten etwa $0.80 – eine Beilage für weniger als $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger geriebener Käse"
+        },
+        {
+          "forIngredientId": "frozen-broccoli",
+          "swap": "Gemischtes Tiefkühlgemüse"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Tiefkühlbrokkoli (~$0.80 für 2 Tassen) und ein Esslöffel Parmesan kosten weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Rote Chiliflocken",
+        "Zitronenschale",
+        "Pinienkerne"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch inspiriert",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Beilage",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 133,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-broccoli-parmesan-bowl/",
+      "components": [
+        {
+          "key": "7eb024e0-3282-58d8-9ae5-93b47ff6fd38",
+          "name": "Zutaten",
+          "servingGrams": 552.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "161081c4-7acf-55b0-a1be-032ba361ff8d",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fabbca97-70a2-57ac-bd0e-bf9db89c3f68",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61583b79-29be-5c85-8b1d-3dba8b14c5da",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1985e04c-253a-54e1-a05f-6511fd247052",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe8dc630-97d9-5b74-a662-7c6e6370c087",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d93aee59-f5f2-5d5c-a032-182b38810bfa",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge den Tiefkühlbrokkoli ohne ihn aufzutauen mit Öl, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare ihn bei 400°F 10 Minuten in der Heißluftfritteuse und schüttle den Korb alle 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue in der letzten Minute Parmesan darüber und lass ihn auf den Röschen schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte alles an und presse bei Bedarf Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1614336215203-05a588f74627?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1614336215203-05a588f74627",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Brokkoli-Parmesan-Schüssel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-carrot-fries-spicy-mayo",
+      "slug": "af-carrot-fries-spicy-mayo",
+      "title": "Karotten-Pommes mit scharfer Mayo",
+      "instructions": "Karotten in Pommesform schneiden, in der Heißluftfritteuse knusprig garen und mit Sriracha-Mayo dippen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Im Kühlschrank 2 Tage haltbar; sie werden weich.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Karotten kosten etwa $0.50 pro Pfund – 3 Karotten ergeben einen Snack für 2 Personen für weniger als $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt"
+        },
+        {
+          "forIngredientId": "sriracha",
+          "swap": "Scharfe Sauce"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "3 Karotten (~$0.50), 2 EL Mayonnaise und Sriracha ergeben einen Snack für weniger als $1 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frischer Dill",
+        "Zitrone",
+        "Frühlingszwiebel"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 134,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-carrot-fries-spicy-mayo/",
+      "components": [
+        {
+          "key": "4f55e979-4c61-5297-85cb-d0513e724330",
+          "name": "Zutaten",
+          "servingGrams": 119,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fe0db61-0780-5804-aa7c-8f4c3424bd94",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d15df4f0-f5b8-5421-9a66-19b6dd9423e2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "620bd2df-0a00-5015-9ec6-fc7d3f9a7e47",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebe82d97-35e1-575f-bd77-268620ff2756",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6af817be-9201-5a21-83cf-6801cdc2b85b",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54027a97-fa93-5152-aa52-498f598ec422",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Karotten in Stifte, die 1/4 Zoll dick sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Öl, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400°F 12 Minuten in der Heißluftfritteuse und schüttle den Korb nach 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Mayonnaise und Sriracha zu einem Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Pommes heiß mit der scharfen Mayo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1589311671025-647c03293eaa?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1589311671025-647c03293eaa",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Karotten-Pommes mit scharfer Mayo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

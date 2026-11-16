@@ -1,0 +1,1496 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-crispy-sticky-tofu-bowls",
+      "slug": "she-crispy-sticky-tofu-bowls",
+      "title": "Knusprige, klebrige Tofu-Schüsseln",
+      "instructions": "Goldbrauner Tofu mit knuspriger Speisestärke-Kruste, in glänzender Knoblauch-Tamari-Glasur gewendet und auf lockerem Jasminreis mit einem frischen, säuerlichen Gurkensalat angerichtet. Eine schnelle, verlockende Schüssel fürs Abendessen unter der Woche mit süßem, herzhaftem und knusprigem Geschmack in jedem Bissen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/crispy-sticky-tofu-bowls/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu ist eine der günstigsten Eiweißquellen. Kaufe den größeren Block und presse ihn gut aus, damit die Kruste knuspriger wird.",
+        "Speisestärke und eine heiße Pfanne sorgen für knusprige Frittier-Textur zu einem Bruchteil der Kosten und des Öls beim Frittieren in viel Öl.",
+        "Zu Hause gekochter Jasminreis kostet pro Schüssel nur wenige Cent, verglichen mit Reis vom Lieferdienst. Koche eine große Menge und wärme Reste wieder auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale oder salzreduzierte Sojasauce im Verhältnis 1:1 verwenden, falls es nicht glutenfrei sein muss.",
+          "savings": "ca. $0.10/EL"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Beliebiges neutrales Öl für hohe Hitze, etwa Pflanzen-, Raps- oder Reiskleieöl, zum Braten.",
+          "savings": "ca. $0.10/EL"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Vollkornreis oder beliebigen gedämpften Reis verwenden, den du bereits hast.",
+          "savings": "je nach Zutaten unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Tofu",
+        "vegan",
+        "vegetarisch",
+        "Reisschüssel",
+        "Abendessen unter der Woche",
+        "schnell",
+        "klebrig",
+        "knusprig",
+        "zum Vorbereiten",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 370,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-crispy-sticky-tofu-bowls/",
+      "components": [
+        {
+          "key": "4118269c-b74a-5aae-a6a8-487223d58c6c",
+          "name": "Zutaten",
+          "servingGrams": 527,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b35c5e7-b0b6-54c0-a288-99f7d0f3084c",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 cucumbers, roughly gehackt"
+            },
+            {
+              "key": "342ab472-0351-55eb-a625-dac64cb449a4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt ginger"
+            },
+            {
+              "key": "ce3880c1-954d-5615-bd97-17c78b458f4d",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL rice vinegar"
+            },
+            {
+              "key": "a75ccced-d918-5c4f-b15f-c27a6c82fd9e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL Weizen- Sojasauce (cucumber salad)"
+            },
+            {
+              "key": "f1f2dc16-7496-55ba-acd4-3246d4186a88",
+              "ingredientName": "Sesamöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL total (1 EL salad + 1 EL sauce), as 6 TL"
+            },
+            {
+              "key": "209ca030-de59-5b8f-9b12-4811219d201e",
+              "ingredientName": "Tofu",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "500 g fester Tofu, abgetropft und in 2 cm große Würfel geschnitten"
+            },
+            {
+              "key": "5773d270-5181-57d5-a9fa-34e65133782f",
+              "ingredientName": "Maisstärke",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "30 g to coat (~4 EL) + 1 EL für slurry"
+            },
+            {
+              "key": "dd6d6af5-ac99-5d83-9288-9a1a58192ef6",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL Olivenöl, zum Braten"
+            },
+            {
+              "key": "dd9670dd-ba12-5b8c-88aa-8d0393cb63bd",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt garlic (~1 clove)"
+            },
+            {
+              "key": "931fca69-6b3c-57e1-b5af-83a0845fb9b2",
+              "ingredientName": "Tamari",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "60 ml tamari oder Weizen- Sojasauce"
+            },
+            {
+              "key": "98418a25-77d5-55a0-aaad-202ec02ae0f6",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL brauner Zucker"
+            },
+            {
+              "key": "43cf6a37-73a6-5817-a280-2442472c98b7",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "60 ml water für slurry"
+            },
+            {
+              "key": "406e18d6-0e76-54ac-9bf7-ea72a2336b49",
+              "ingredientName": "Jasminreis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "steamed jasmine rice, ~1 Tasse dry per serving"
+            },
+            {
+              "key": "7dfe82fe-4257-5789-8a48-0b79d11853b9",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "1 TL sesame seeds, zum Garnieren"
+            },
+            {
+              "key": "3b3b4915-6954-51f3-a143-1731fbae1283",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "1 spring onion, fein geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Gurkensalat zu: Vermenge gehackte Gurke, gehackten Ingwer, Reisessig, 1 EL Sojasauce und 1 EL (3 TL) Sesamöl in einer mittelgroßen Schüssel. Stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den Jasminreis nach Packungsangabe und halte ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Tofu in kleine Quadrate von etwa 2 cm und bestäube jedes Stück rundum mit Maisstärke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer großen, schweren Pfanne bei mittelhoher Hitze. Brate den Tofu 6-8 Minuten und wende ihn alle 1-2 Minuten, bis alle Seiten goldbraun sind. Lege ihn auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf niedrig. Gib Knoblauch, Tamari, braunen Zucker und das übrige 1 EL (3 TL) Sesamöl dazu. Gare alles unter Rühren etwa 1 Minute, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge das übrige 1 EL Maisstärke mit dem Wasser in einer kleinen Schüssel. Gib jeweils 1 EL davon unter Rühren in die Pfanne, bis die Sauce die gewünschte Dicke hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den Tofu zurück in die Pfanne und wende ihn, bis er mit der klebrigen Sauce überzogen ist. Wird die Sauce zu dick, rühre jeweils 1 EL Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile Reis und Gurkensalat auf vier Schüsseln. Gib den Tofu darauf und bestreue alles mit Sesamsamen und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/05/Crispy-Sticky-Tofu-Bowls-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/crispy-sticky-tofu-bowls/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger, klebriger Tofu-Schüsseln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-crispy-sweet-chilli-chicken",
+      "slug": "she-crispy-sweet-chilli-chicken",
+      "title": "Knuspriges Hähnchen mit süßer Chilisauce",
+      "instructions": "Goldbraune, knusprige Hähnchenstücke in glänzender, klebrig-süßer Chilisauce mit einem Hauch Knoblauch und Ingwer, serviert auf lockerem gedämpftem Reis. Schneller und leckerer als Essen vom Lieferdienst und in nur 20 Minuten fertig. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/crispy-sweet-chilli-chicken/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brust: Sie sind günstiger, bleiben saftiger und werden genauso knusprig.",
+        "Lass das Öl zum Frittieren weg und gare das Hähnchen mit etwas Ölspray in der Heißluftfritteuse. Das spart Kosten und Abwasch.",
+        "Kaufe eine große Flasche süße Chilisauce und Tamari. Beides hält monatelang und reicht für viele Wokgerichte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale oder salzreduzierte Sojasauce im gleichen Verhältnis verwenden.",
+          "savings": "ca. $0.10/EL"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Apfelessig oder frischer Limettensaft.",
+          "savings": "ungefähr gleich teuer"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Kartoffelstärke oder Tapiokastärke für eine ebenso knusprige Hülle.",
+          "savings": "ungefähr gleich teuer"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Hähnchen",
+        "süße Chilisauce",
+        "knusprig",
+        "Wokgericht",
+        "Abendessen unter der Woche",
+        "Reisschüssel",
+        "Heißluftfritteuse",
+        "wie vom Lieferdienst"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 371,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-crispy-sweet-chilli-chicken/",
+      "components": [
+        {
+          "key": "4c4e946b-2a80-5cf8-a560-7cf952bec5d3",
+          "name": "Zutaten",
+          "servingGrams": 477,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea2342e3-04df-5059-9564-81d970a99762",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 450,
+              "quantity": 4.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "600g ohne Knochen ohne Haut chicken breast oder thigh, cut into bite-sized pieces"
+            },
+            {
+              "key": "80c35c6a-0528-50e5-a324-1595bb26ccaf",
+              "ingredientName": "Süßes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f23e38b5-aafd-5cee-b765-fd35781c66de",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cc2191d6-8d73-5d09-8bf0-981637732bc3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            },
+            {
+              "key": "a3035aa2-b7e9-5c3a-bb76-49598a6c022c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "c5870032-db95-524b-89a6-98453d308dc0",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Ei"
+            },
+            {
+              "key": "deb4fa9c-398b-593a-be5d-cf1261fbcaa6",
+              "ingredientName": "Maisstärke",
+              "grams": 105,
+              "quantity": 105,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "60g Maisstärke"
+            },
+            {
+              "key": "9c09e869-8aa6-5d85-8bd6-4182075b12d4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "oil, zum Braten"
+            },
+            {
+              "key": "f3bd343f-f524-5add-a36e-e109653cd0e6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt garlic"
+            },
+            {
+              "key": "85b45dd5-11ae-565f-b7fe-17f0fe42e942",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt ginger"
+            },
+            {
+              "key": "ccb6da15-52d5-5ba7-b4ca-1f4156b0614c",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "125ml süße Chilisauce"
+            },
+            {
+              "key": "6a2780c6-2d9f-5b73-98cf-2f2f7f51b85d",
+              "ingredientName": "Tamari",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "60ml tamari oder Weizen- Sojasauce"
+            },
+            {
+              "key": "5b620d2b-b229-544f-abc4-347660b06e08",
+              "ingredientName": "Reisessig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "60ml Reisessig, apple cider vinegar oder Limettensaft"
+            },
+            {
+              "key": "7255b2a7-6560-58dc-a6f0-d1d64444a7d4",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "steamed rice, zum Servieren"
+            },
+            {
+              "key": "16e44d96-5025-53d7-b9d3-14874e731e49",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "1 spring onion, fein geschnitten"
+            },
+            {
+              "key": "0282233b-b865-57d8-a973-0d319b5a875f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in mundgerechte Stücke und gib sie mit süßem Paprikapulver, Knoblauchpulver, Salz, Pfeffer, Ei und Maisstärke in eine große Schüssel. Vermenge alles gut, bis sich eine Paste um das Hähnchen bildet. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Sauce zu: Vermenge gehackten Knoblauch, gehackten Ingwer, süße Chilisauce, Tamari oder Sojasauce und Reisweinessig in einer mittelgroßen Schüssel. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Öl bei mittelhoher Hitze in einer großen, tiefen, schweren Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare das Hähnchen 5-6 Minuten, bis es vollständig durch und rundum goldbraun ist. Wende es nach der Hälfte der Zeit einmal. Lege es zum Abtropfen auf ein Papiertuch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Öl aus der Pfanne und wische sie sauber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die Pfanne zurück auf mittelniedrige Hitze und gib die Sauce hinein. Rühre 2-3 Minuten, bis sie sanft zu blubbern und einzudicken beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte die Hitze aus und gib das Hähnchen zurück in die Pfanne. Rühre um, bis jedes Stück gleichmäßig mit der glänzenden Sauce überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort auf gedämpftem Reis servieren und mit geschnittener Frühlingszwiebel und Sesamsamen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Variante für die Heißluftfritteuse: Wende das Hähnchen zuerst in Ei, Gewürzen und Würzmischung (noch ohne Maisstärke), tauche dann jedes Stück einzeln in Maisstärke. Besprühe Korb und Hähnchen großzügig mit Öl und gare es bei 200C/400F 6-8 Minuten in der Heißluftfritteuse. Schüttle den Korb nach der Hälfte der Zeit und wende die Stücke dann in der warmen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/11/Crispy-Sweet-Chilli-Chicken-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/crispy-sweet-chilli-chicken/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto knusprigen Hähnchens mit süßer Chilisauce",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-curried-egg-sandwiches",
+      "slug": "she-curried-egg-sandwiches",
+      "title": "Sandwiches mit Curry-Ei",
+      "instructions": "Geriebene Eier mit marmeladig-cremigem Eigelb, cremiger Mayonnaise, wärmendem Currypulver und frischer Frühlingszwiebel, auf geröstetem Sauerteigbrot mit pfeffrigem Rucola angerichtet. Ein schnelles, wohltuendes Mittagessen, das viel aufwendiger schmeckt als die 13 Minuten Zubereitungszeit. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/curried-egg-sandwiches/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Dutzend und koche ein paar extra. Geschält im Kühlschrank aufbewahrt, sind sie die ganze Woche für schnelle Sandwiches bereit.",
+        "Normale Mayonnaise funktioniert genauso gut wie Mayonnaise aus ganzen Eiern und ist meist günstiger.",
+        "Lass Rucola aus der Tüte weg und verwende übrige Salatblätter oder lass ihn ganz weg, um Geld zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sourdough",
+          "swap": "Beliebiges Brot, Hoagie-Brötchen oder Kaiserbrötchen, das du vorrätig hast",
+          "savings": "verwenden sundwich bread at ca. $0.18/Scheibe statt a roll"
+        },
+        {
+          "forIngredientId": "arugula",
+          "swap": "Babyspinat oder beliebige Blattsalate",
+          "savings": "verwenden loose spinach statt a bagged green"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Kewpie-Mayonnaise oder Naturjoghurt nach griechischer Art für eine säuerlichere, leichtere Mischung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Ei",
+        "Sandwich",
+        "Curry",
+        "schnell",
+        "Mittagessen",
+        "vegetarisch",
+        "ohne Ofen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 372,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-curried-egg-sandwiches/",
+      "components": [
+        {
+          "key": "9d72ee9e-00d0-54c9-aa36-ccb7413f25a7",
+          "name": "Zutaten",
+          "servingGrams": 236.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "080b1dcd-1bec-5da9-9647-6b82c5c3cd23",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Eier"
+            },
+            {
+              "key": "21a917da-ed86-5783-9772-1106132b0cca",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "d80c559e-ab04-5a04-aa93-f1b0d85a1061",
+              "ingredientName": "Currypulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "37777cc0-0544-5d54-8bef-52a9714b538c",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Meersalzflocken, nach Geschmack"
+            },
+            {
+              "key": "3af68469-7013-5301-a94b-a79f34de5028",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "6a14f403-d48f-5a5a-a31f-347987173690",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 spring onion, fein geschnitten"
+            },
+            {
+              "key": "4b3bff9d-4d5d-5974-865c-b86dea1d0798",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL Vollei- mayonnaise"
+            },
+            {
+              "key": "13b823b6-7831-558e-9db0-dd61ca5cad50",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 sourdough roll (2 slices), geröstet"
+            },
+            {
+              "key": "ed5577c7-10da-5e02-be2e-ed77920de9fb",
+              "ingredientName": "Rucola",
+              "grams": 50,
+              "quantity": 0.1,
+              "unit": "package",
+              "position": 8,
+              "optional": true,
+              "source_note": "rocket oder baby spinach, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 8 Minuten und lege sie dann in kaltes Wasser, um den Garprozess zu stoppen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die abgekühlten Eier und reibe sie grob in eine kleine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebelpulver, Currypulver, geschnittene Frühlingszwiebel, Mayonnaise sowie eine Prise Salz und frisch gemahlenen schwarzen Pfeffer dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge alles cremig und gleichmäßig. Probiere und passe die Würzung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Toaste das Sauerteigbrötchen goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Häufe das Curry-Ei auf das geröstete Sauerteigbrot, belege es mit Rucola oder Babyspinat und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/11/Curried-Egg-Sandwiches-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/curried-egg-sandwiches/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Sandwiches mit Curry-Ei",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-drunken-noodles",
+      "slug": "she-drunken-noodles",
+      "title": "Thailändische Drunken Noodles (Simple Home Edit)",
+      "instructions": "Breite Reisnudeln mit angebratenem Hähnchen und knackigem Gemüse in würzig-süßer Soja- und Austernsauce geschwenkt, mit duftendem Thai-Basilikum und einem Hauch Chiliöl verfeinert. Schnell, kräftig im Geschmack und viel besser als Essen vom Lieferdienst. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/drunken-noodles/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Vorteilspackung Hähnchenbrust und friere sie portionsweise ein – das ist günstiger pro Portion als vorgeschnittenes Hähnchen.",
+        "Dunkle und helle Sojasauce mit einer Prise Zucker können teurere Spezial-Saucen ersetzen, falls dir eine fehlt.",
+        "Lass Erdnüsse und Chiliöl als Garnitur weg, wenn das Budget knapp ist – das Gericht ist auch ohne vollständig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Tamari oder normale Sojasauce",
+          "savings": "verwendet bereits Vorhundenes"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Weißweinessig oder Apfelessig",
+          "savings": "ca. $0.05/EL"
+        },
+        {
+          "forIngredientId": "thai-basil",
+          "swap": "Normaler frischer Basilikum",
+          "savings": "oft günstiger und easier to find"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "Wokgericht",
+        "Nudeln",
+        "Hähnchen",
+        "schnell",
+        "Abendessen unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 373,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-drunken-noodles/",
+      "components": [
+        {
+          "key": "faf7960f-8ace-5e99-8fb5-595c3e0fe1ae",
+          "name": "Zutaten",
+          "servingGrams": 468.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "b805f2a7-6403-5395-9165-d50468b03a6d",
+              "ingredientName": "Austernsauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2a702207-ff23-5c8d-9103-32d14a3bdebc",
+              "ingredientName": "Helle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL light Sojasauce"
+            },
+            {
+              "key": "483c56c0-7eee-5804-9be9-1f4221543c10",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL dark Sojasauce"
+            },
+            {
+              "key": "1586ddee-c1ee-5d74-9aaf-4c6a68fb1942",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL Reisessig"
+            },
+            {
+              "key": "4f042937-4987-5bce-989d-f220e424818b",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 EL fish sauce"
+            },
+            {
+              "key": "3be9fe75-5e68-544a-8169-b16ee78c4253",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL brauner Zucker"
+            },
+            {
+              "key": "89fed139-3e64-5e6f-99f3-fff86d99229a",
+              "ingredientName": "Breite Reisnudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "200g breite, getrocknete Reisnudeln"
+            },
+            {
+              "key": "5e59e890-8b00-5298-80e3-7b9cda3ca6ff",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL Sesamöl"
+            },
+            {
+              "key": "aa70ade5-9da0-5d9e-931f-c304308e1288",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "500g ohne Knochen ohne Haut chicken breast, fein geschnitten"
+            },
+            {
+              "key": "0dbac19c-8d89-5562-8e3c-a91b4dad9002",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 brown onion, in Scheiben geschnitten"
+            },
+            {
+              "key": "b0197720-4b19-573f-89f1-db2f0cfa3c09",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL frisch gerieben garlic"
+            },
+            {
+              "key": "6de168b7-c22a-5169-ae6d-a656c338f407",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 carrot, in feine Streifen geschnitten"
+            },
+            {
+              "key": "0f602610-62a1-5ea9-b5ea-830acd6ea800",
+              "ingredientName": "Pak Choi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 bunch bok choy, geraspelt"
+            },
+            {
+              "key": "359ba57e-f1a0-527b-b543-d27031b691c6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "4 Frühlingszwiebelstangen, in Stifte geschnitten"
+            },
+            {
+              "key": "c0b4c913-b7a9-577e-bacc-015921a117eb",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 14,
+              "optional": false,
+              "source_note": "50g Thai basil Blätter, picked"
+            },
+            {
+              "key": "9f7de3d5-942b-53e9-852f-b160bf00e4ba",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "chilli oil vinegar, zum Servieren"
+            },
+            {
+              "key": "ef796c9f-7d87-52d7-bf2d-d6d5319481fb",
+              "ingredientName": "Geröstete Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "zerstoßen roasted peanuts, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Sauce zu: Verquirle Austernsauce, helle Sojasauce, dunkle Sojasauce, Reisessig, Fischsauce, braunen Zucker und 2 EL Wasser in einer kleinen Schüssel, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Nudeln: Gare die breiten Reisnudeln nach Packungsangabe nur so lange, bis sie biegsam sind (etwa 3 Minuten, nicht die vollen 6-8 Minuten). Spüle sie dann kalt ab und lasse sie abtropfen. In der Pfanne garen sie fertig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen an: Erhitze Sesamöl in einer großen, tiefen Pfanne oder einem Wok bei hoher Hitze. Gib das geschnittene Hähnchen dazu und brate es unter Rühren, bis es gerade beginnt, seine Farbe zu verändern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Aromaten dazu: Füge Zwiebel und Knoblauch hinzu und gare alles unter Rühren etwa 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge alles: Gib Karotte, Pak Choi, Frühlingszwiebel, die teilweise gegarten Nudeln und die Sauce dazu. Vermenge alles mit einer Zange und lass es 2-3 Minuten köcheln, bis das Gemüse leicht weich wird und die Nudeln Sauce aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schließe das Gericht ab: Nimm die Pfanne vom Herd und rühre die Thai-Basilikumblätter unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht: Verteile es auf Schüsseln und gib nach Wunsch Chiliöl, Essig und zerdrückte geröstete Erdnüsse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/11/Drunken-Noodles-2.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/drunken-noodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto thailändischer Drunken Noodles",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-easy-butter-chicken",
+      "slug": "she-easy-butter-chicken",
+      "title": "Einfaches Butter Chicken",
+      "instructions": "Zarte Hähnchenschenkel in einer samtigen, gewürzten Tomaten-Sahnesauce, die in nur 20 Minuten fertig ist. Mit lockerem Basmatireis servieren – ein Lieblingsgericht vom indischen Lieferdienst für den Abend unter der Woche, selbst gemacht. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/easy-butter-chicken/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind viel günstiger als Brust und bleiben in dieser schnell gekochten Sauce saftiger.",
+        "Mische Garam Masala, Kreuzkümmel und Kurkuma selbst, statt eine teure fertige Butter-Chicken-Paste zu kaufen.",
+        "Strecke das Gericht, indem du es mit Reis servierst und optionale Garnituren weglässt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kokosmilch für eine milchfreie Sauce verwenden",
+          "savings": "about $0.30/Portion"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust verwenden, wenn du magereres Fleisch bevorzugst"
+        },
+        {
+          "forIngredientId": "unsalted-butter",
+          "swap": "Ghee für einen authentischeren, reichhaltigeren Geschmack verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Butter Chicken",
+        "Curry",
+        "Abendessen unter der Woche",
+        "schnell",
+        "aus einer Pfanne",
+        "Hähnchen",
+        "Seelenfutter"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 374,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-easy-butter-chicken/",
+      "components": [
+        {
+          "key": "186fb6f4-c348-5f83-bca0-4637091ad028",
+          "name": "Zutaten",
+          "servingGrams": 409.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "75a9649b-e01b-5ceb-affe-e031152799c9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fd6eb82b-8822-59de-8e12-771412dc2c96",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ac8e0eba-428a-507b-815d-5edb7a939ef4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 onion, fein gewürfelt"
+            },
+            {
+              "key": "45ca39ce-bc90-589c-b2cf-c2484d202a6d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "67fe5019-4e0d-595a-958a-154f4db0b3cf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt ginger"
+            },
+            {
+              "key": "5f4839d5-bd96-5cbc-8b2b-744dd700201c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "500g ohne Knochen ohne Haut, bite-sized pieces"
+            },
+            {
+              "key": "36ea8e26-7b6f-5419-82a2-335f481235b8",
+              "ingredientName": "Garam Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "fab19c09-a57f-5b15-a33a-a58dffaf2aea",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL gemahlen cumin"
+            },
+            {
+              "key": "2566823d-b81f-5dd9-8d52-ca5f7684873f",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL yellow mustard seeds"
+            },
+            {
+              "key": "4565fc63-5009-5532-81f3-61ffbc631f64",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL gemahlen turmeric"
+            },
+            {
+              "key": "53d45535-fe36-5e56-b1b3-8b9aaa815d64",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "19d939b9-0e99-55c3-a9ab-3c1d60a744ca",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 TL frisch gemahlen"
+            },
+            {
+              "key": "32e3c9f9-edaf-5c54-9f16-5c5b426f9dc6",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4ba4a699-998b-59be-bd66-7c6ca6645b3b",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "250ml Schlagsahne"
+            },
+            {
+              "key": "908dfc51-7772-504c-a4f0-f21d24a78b8c",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 31.2,
+              "quantity": 31.2,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "2 EL, zum Servieren"
+            },
+            {
+              "key": "b4c48783-796c-5089-99f1-83e45521e9f4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "coriander Zweige, zum Servieren"
+            },
+            {
+              "key": "a068d4fc-cde0-540f-be21-fbb8f8e947a1",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": true,
+              "source_note": "1 cucumber, fein geschnitten"
+            },
+            {
+              "key": "71194e97-f7fd-5d45-8f74-9547f9f76b59",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "1/2 red onion, fein geschnitten"
+            },
+            {
+              "key": "f4fd9104-3528-53ac-aad5-22f01905a7f1",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 18,
+              "optional": true,
+              "source_note": "1 frisch chilli"
+            },
+            {
+              "key": "f05958d9-0c36-5298-9bd7-750c609ed5fd",
+              "ingredientName": "Basmatireis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 19,
+              "optional": true,
+              "source_note": "steamed basmati rice, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl und Butter in einer großen, schweren Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel, Knoblauch und Ingwer dazu und gare alles unter Rühren 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hähnchen, Garam Masala, Kreuzkümmel, gelbe Senfkörner, Kurkuma, Salz und Pfeffer dazu. Gare alles unter Rühren 3-4 Minuten, bis das Hähnchen leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark und Sahne ein, bis alles vermischt ist. Gare das Gericht weitere 8 Minuten, bis die Sauce eindickt und das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Klecks Naturjoghurt servieren und mit Koriander, Gurke, roter Zwiebel und nach Wunsch Chili bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einem Löffel über gedämpftem Basmatireis anrichten und nach Wunsch mit knusprig gebratenen Schalotten garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/07/Easy-Butter-Chicken-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/easy-butter-chicken/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von einfachem Butter Chicken",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,975 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hash-browns",
+      "slug": "gen-hash-browns",
+      "title": "Hash Browns",
+      "instructions": "Amerikanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in großen Säcken zum niedrigsten Preis pro Pfund.",
+        "Verwende Gemüse aus der Rabattkiste, das optisch nicht mehr perfekt, aber noch sicher essbar ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2905,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hash-browns/",
+      "components": [
+        {
+          "key": "7d3daaf3-8c62-58e6-bf6e-9fc9f777a463",
+          "name": "Zutaten",
+          "servingGrams": 135,
+          "position": 0,
+          "items": [
+            {
+              "key": "1111e5d9-6912-5c6a-bc3e-02512a505636",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Pfund"
+            },
+            {
+              "key": "ebaeaf9a-257f-5d6b-aad3-d51451fb3069",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 großes Stück"
+            },
+            {
+              "key": "88753f01-57e1-5038-9ce8-ba3520ada638",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "559abaae-1143-59b7-8743-4b420ead8e62",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2e51cf45-e944-500a-889c-b8343161987c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "659cff84-3008-5bdd-97ec-54d13c1bb3f9",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln und reibe sie grob. Drücke dann mit einem sauberen Küchentuch überschüssige Flüssigkeit heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebel fein und vermische sie mit den geriebenen Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze mit Salz, Pfeffer und Knoblauchpulver und vermische alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Kartoffelmischung gleichmäßig in der Pfanne und drücke sie mit einem Pfannenwender leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate sie 5-7 Minuten ungestört, bis die Unterseite goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zerteile die Masse, rühre vorsichtig um und gare sie weitere 3-5 Minuten, bis alle Kartoffeln weich und goldbraun sind. Serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/QZx1GBBl8YA2Go8WtmFvvqx9IOA=/2122x1412/filters:fill(auto,1)/Hashbrowns-GettyImages-184835045-aebfdf9a5c974d75a92094a1398618b5.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/QZx1GBBl8YA2Go8WtmFvvqx9IOA=/2122x1412/filters:fill(auto,1)/Hashbrowns-GettyImages-184835045-aebfdf9a5c974d75a92094a1398618b5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bacon-and-eggs",
+      "slug": "gen-bacon-and-eggs",
+      "title": "Speck mit Eiern",
+      "instructions": "Amerikanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Angebot in größeren Mengen und bewahre sie 3+ Wochen im Kühlschrank auf.",
+        "Kaufe Speck in Großpackungen statt vorgeschnitten, das ist preiswerter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2906,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bacon-and-eggs/",
+      "components": [
+        {
+          "key": "aade6a9b-1cd1-5c3d-9974-22bd85cba5bb",
+          "name": "Zutaten",
+          "servingGrams": 245,
+          "position": 0,
+          "items": [
+            {
+              "key": "786048f5-9332-5354-b58b-29aee112f93f",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "4a5a5338-40a7-5092-bf12-63795bcd343a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 großes Stück"
+            },
+            {
+              "key": "e3216e9a-68f1-5520-a68a-758f62e1918f",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4c762f07-e7a7-5e3e-8a6c-216fc117e6dd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "689b3206-a50b-568b-8efb-93f7e9befad7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege Speckscheiben flach in eine große Pfanne und brate sie bei mittlerer Hitze 5-7 Minuten. Wende sie gelegentlich, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege den gegarten Speck auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den größten Teil des Speckfetts ab und lasse etwa 1 EL in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Butter in die Pfanne und schlage die Eier direkt hinein. Lasse zwischen ihnen etwas Platz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die Eier bei mittlerer Hitze 3-4 Minuten für Spiegeleier mit flüssigem Eigelb oder länger, wenn du das Eigelb fester möchtest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze die Eier mit Salz und Pfeffer und serviere sie heiß neben dem Speck.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1696613520/k/Photo/Recipes/2023-10-bacon-egg-and-cheese/bacon-egg-and-cheese-353_1.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1696613520/k/Photo/Recipes/2023-10-bacon-egg-and-cheese/bacon-egg-and-cheese-353_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-chops",
+      "slug": "gen-pork-chops",
+      "title": "Schweinekoteletts",
+      "instructions": "Amerikanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinekoteletts im Angebot und friere sie ein; Koteletts mit Knochen sind günstiger als ausgelöste.",
+        "Lasse Apfelsaft weg und verwende stattdessen Wasser oder Hühnerbrühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2907,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-chops/",
+      "components": [
+        {
+          "key": "4d2086d6-7a03-5a70-81d0-0655c3e7edcc",
+          "name": "Zutaten",
+          "servingGrams": 180.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "70c0afd9-4f5b-568f-84b6-55c6c2699b19",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Koteletts, 1-Zoll dick"
+            },
+            {
+              "key": "f3bfeef2-37e5-5653-ba2c-15e271c00fd2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1ad01d8c-6a39-5a58-a91b-5da422a33e96",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "012e1453-ced9-5f61-93df-e0fcf07034bc",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "f53c1915-0aad-58bc-b48d-d645fe24c43f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7b71d967-e5ed-5074-ae97-994f6c09dd6c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9826969e-2adb-5510-921e-a19bbb2d9611",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "ff6f7a79-2e5d-54b6-8554-14b49c61de5b",
+              "ingredientName": "Apfelsaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Schweinekoteletts mit Küchenpapier trocken und würze beide Seiten großzügig mit Salz, Pfeffer und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittelhoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Koteletts in die heiße Pfanne und brate sie 4-5 Minuten pro Seite goldbraun. Lege sie dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere Stufe und gib Butter sowie geschnittene Zwiebeln in dieselbe Pfanne. Gare sie etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Apfelsaft oder Brühe in die Pfanne und löse die gebräunten Reste vom Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Koteletts zurück in die Pfanne und lasse sie 5-8 Minuten sanft köcheln, bis sie gar sind und die Kerntemperatur 145°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Schweinekoteletts auf eine Servierplatte und gib Pfannensauce und Zwiebeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/03/Pork-Chops-with-Scalloped-Potatoes_exps1152_OMRR2777383B07_26_6bC_RMS-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/03/Pork-Chops-with-Scalloped-Potatoes_exps1152_OMRR2777383B07_26_6bC_RMS-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mashed-potatoes-and-gravy",
+      "slug": "gen-mashed-potatoes-and-gravy",
+      "title": "Kartoffelpüree mit Bratensauce",
+      "instructions": "Amerikanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln im Angebot in großen Säcken.",
+        "Bereite Bratensauce aus Bratensatz zu, falls vorhanden, statt Brühe zu verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2908,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mashed-potatoes-and-gravy/",
+      "components": [
+        {
+          "key": "bd369cf2-1a33-58fc-9c14-1a9fcbe67736",
+          "name": "Zutaten",
+          "servingGrams": 357.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2cbec3b0-f607-54ba-8d74-222480a453cd",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "238bbda8-c4b1-5756-86d8-e51a1cdde896",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "d49aa334-b3d0-5e07-99b3-4c53787a1cef",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "41c56b0e-81eb-50d2-8873-f59f26ce8786",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "135c34b9-3920-5492-9b3c-718ae2a5893b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "9d054e76-3dc0-514c-a688-1dcca05c7dcc",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7685dcca-8e3a-5df8-a37b-347e156a0bc0",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "8adfb735-dee1-584e-8645-019f8ba8a545",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln, schneide sie in 2-inch große Stücke und gib sie in einen großen Topf mit kaltem Salzwasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe alles zum Kochen und gare die Kartoffeln 12-15 Minuten, bis sie sehr weich sind und sich leicht mit einer Gabel einstechen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Kartoffeln gründlich ab und gib sie zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 3 tablespoons Butter und Milch dazu und zerstampfe alles glatt oder bis zur gewünschten Konsistenz. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Sauce schmilz die übrige 1 EL Butter in einem Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Mehl ein und gare es unter ständigem Rühren 1 Minute zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre nach und nach Brühe ein, bis die Mischung eindickt und aufkocht, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze die Sauce mit Salz, Pfeffer und Zwiebelpulver und lasse sie weitere 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Fülle das Kartoffelpüree in eine Servierschüssel und gieße die Sauce darüber oder serviere sie separat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Mashed-Potatoes-and-Gravy_TOHcom24_277572_MD_P2_10_11_9b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Mashed-Potatoes-and-Gravy_TOHcom24_277572_MD_P2_10_11_9b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-salad-sandwich",
+      "slug": "gen-chicken-salad-sandwich",
+      "title": "Hähnchensalat-Sandwich",
+      "instructions": "Amerikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende selbst gegartes übrig gebliebenes Hähnchen statt Brathähnchen.",
+        "Kaufe Mayonnaise und Relish von der Hausmarke und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2909,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-salad-sandwich/",
+      "components": [
+        {
+          "key": "f3655d1e-2157-5585-bbc4-6b48c74561ea",
+          "name": "Zutaten",
+          "servingGrams": 962.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5391f583-c879-5432-84c1-9a3a672c61b3",
+              "ingredientName": "Brathähnchen",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen, geraspelt"
+            },
+            {
+              "key": "d15d49ec-620c-59a0-828d-d41772ac1c64",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.33 Tassen"
+            },
+            {
+              "key": "0896b04a-6db8-5a01-9117-808178a947b8",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen, gewürfelt"
+            },
+            {
+              "key": "1782ae15-a5ee-5de6-9e78-dc7b7056e558",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "2f025627-13f3-5070-a6fb-45872c0408d6",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1ef610ff-cbc6-58d6-8d24-32b7a26f70f0",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "30c763be-ecca-5f57-b57a-3abacd44371e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bb88ebe5-37cd-58ab-bc59-11f8d2622bb9",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "2535eb2d-aef4-534f-8fdc-7c5db175354c",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische zerpflücktes Hähnchen, Mayonnaise, Sellerie, rote Zwiebel, Relish und Zitronensaft in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre alles gründlich um und würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste die Brotscheiben nach Wunsch leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Salatblätter auf zwei Brotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Hähnchensalat gleichmäßig und großzügig auf den beiden Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jede Scheibe mit der übrigen Brotscheibe und schneide die Sandwiches diagonal durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie sofort oder wickle sie für eine spätere Mahlzeit in Frischhaltefolie ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/r0XcfGkQxSQJBqY0X9x1ZwBNhGM=/3600x2403/filters:fill(auto,1)/chicken-salad-sandwiches-3053167-hero-01-5c829cbb46e0fb0001a0be24.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/r0XcfGkQxSQJBqY0X9x1ZwBNhGM=/3600x2403/filters:fill(auto,1)/chicken-salad-sandwiches-3053167-hero-01-5c829cbb46e0fb0001a0be24.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

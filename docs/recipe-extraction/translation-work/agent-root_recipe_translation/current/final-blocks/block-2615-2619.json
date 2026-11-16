@@ -1,0 +1,1072 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tagine",
+      "slug": "gen-tagine",
+      "title": "Tajine",
+      "instructions": "Marokkanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel statt Hähnchenbrust für mehr Geschmack und einen besseren Preis",
+        "Kaufe getrocknete Aprikosen lose statt abgepackt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2615,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tagine/",
+      "components": [
+        {
+          "key": "a5f7f1df-a3cf-58c6-a40a-2c1c7fbbe0e4",
+          "name": "Zutaten",
+          "servingGrams": 195.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0fc9834-8f29-5fc7-a90c-48ba60b81d6a",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, bone-in"
+            },
+            {
+              "key": "023bb5aa-a383-555b-8a24-919c87dca52f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "0e33123e-7f1b-560e-b0a5-d6d9b1b2e8a0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "84645609-eca4-5528-b7ae-b0fa3200307e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "fb16687b-2c05-5849-aeae-dde4953d1b4f",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "313fc0d5-dfe4-5edf-ad5a-33fb3c74e40f",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tassen, entsteint"
+            },
+            {
+              "key": "a179da62-781f-52bf-aecb-79cc84619263",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "fedcf9ec-7e55-56a6-832b-c316f7089ddb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4bf40474-e729-5b09-9603-dfa4f49ce05e",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "809ab5d7-9046-55b4-a7d8-fd20a0761c93",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf oder Schmortopf bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit Salz und Pfeffer, bräune es insgesamt 5 Minuten von allen Seiten und nimm es dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste im selben Topf die Zwiebeln etwa 4 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und Ingwer hinzu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in den Topf und füge Brühe, Aprikosen, Oliven und Zimt hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Köcheln, reduziere die Hitze, decke den Topf ab und lasse das Gericht 35-40 Minuten köcheln, bis das Hähnchen sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es mit Couscous oder Brot, um die Sauce aufzunehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/0fU4EHMhjOX0ZhMRz1LOX1KVukE=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tagine-with-preserved-lemons-olives-2394715-step-06-493352800d56492b8a621dc49fdc9ae3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/0fU4EHMhjOX0ZhMRz1LOX1KVukE=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tagine-with-preserved-lemons-olives-2394715-step-06-493352800d56492b8a621dc49fdc9ae3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-couscous",
+      "slug": "gen-couscous",
+      "title": "Couscous",
+      "instructions": "Marokkanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Couscous lose und spare 50% gegenüber Schachtelware",
+        "Verwende tiefgekühltes Gemüse, wenn frisches teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "marokkanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2616,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-couscous/",
+      "components": [
+        {
+          "key": "c2428cba-1c95-5185-9ab9-654edce48f86",
+          "name": "Zutaten",
+          "servingGrams": 466.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a668773-9de1-5761-8704-e5d9b1dbb084",
+              "ingredientName": "Couscous",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "df08a17d-780a-5d45-9a17-978fb19eccd4",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.25 Tassen"
+            },
+            {
+              "key": "00a445a4-381e-5c51-809e-aa19cc74b9ec",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "b33a24a2-4316-5425-99ce-fdc7de18cc1c",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "e682fac6-9465-599b-9f5b-53cee60b350e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleine Stücke, fein gehackt"
+            },
+            {
+              "key": "3551d01e-ac3e-56b2-9e43-aa804e6d078f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "72e9aa08-c6ed-5516-b045-c59e481f886a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1fe8deea-e93a-5e20-88b7-3bb72b6716ec",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¼ Tassen"
+            },
+            {
+              "key": "6a73f1bf-5c8f-5078-b2f1-4fb4df1e67f6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Teelöffel"
+            },
+            {
+              "key": "3c4db3e2-1e50-5ba6-8bf9-b8dd4ff50230",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Karotten und Zucchini hinzu und gare sie 5 Minuten, bis sie weich zu werden beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Gemüsebrühe hinzu und bringe sie zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Couscous, Rosinen, Zimt, Salz und Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Topf vom Herd, decke ihn fest mit einem Deckel ab und lasse alles 5 Minuten stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den Couscous mit einer Gabel auf und serviere ihn heiß oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ODAiTsTBgagHehhPwwQnNJWsvTU=/2902x1935/filters:fill(auto,1)/couscous-getty-3890-x-2562-56a645de5f9b58b7d0e0c3b1-af93f1c24efb43b9a3c143eba611aabd.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ODAiTsTBgagHehhPwwQnNJWsvTU=/2902x1935/filters:fill(auto,1)/couscous-getty-3890-x-2562-56a645de5f9b58b7d0e0c3b1-af93f1c24efb43b9a3c143eba611aabd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-musakhan",
+      "slug": "gen-musakhan",
+      "title": "Musakhan",
+      "instructions": "Libanesisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Hähnchenbrust – sie sind günstiger und aromatischer",
+        "Lass Pinienkerne weg oder ersetze sie als preiswerte Alternative durch Walnüsse"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "libanesisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2617,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-musakhan/",
+      "components": [
+        {
+          "key": "08c435e4-92c2-54c4-9df4-118a37c9a9c9",
+          "name": "Zutaten",
+          "servingGrams": 322.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "73ef32bc-e6a9-5f0a-9dbc-760f0d5c3ca6",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d6a3d0b5-d4eb-5613-81af-512e0b9827a3",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "8c472e5e-3c95-52c0-927f-f8002c839def",
+              "ingredientName": "Sumach",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ef81c6bd-6546-594c-90e3-a9be08d4a767",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "bf75189a-e5ba-5b59-b78d-3f8833896084",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "2ab0c7e8-4b9d-5ffa-b3cd-91cab002a213",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "01a482d8-9f51-5b99-ac0d-f4bc480fe3ed",
+              "ingredientName": "Fladenbrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7aaefda-84fa-5c24-886e-f4daf44c89c7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b4e680ec-a587-521b-8668-9954cc234cd2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in mundgerechte Stücke und würze es mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 3 Esslöffel Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze und bräune das Hähnchen. Nimm es dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl in dieselbe Pfanne und dünste die Zwiebelringe etwa 15 Minuten, bis sie goldbraun und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen zurück in die Pfanne, füge Sumach und Hühnerbrühe hinzu und lasse alles 15 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Pinienkerne in einer trockenen Pfanne etwa 3 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme das Fladenbrot und lege es auf Servierteller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege das Fladenbrot mit Hähnchen und Zwiebeln und bestreue alles mit gerösteten Pinienkernen und zusätzlichem Sumach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/67a3a498e5e3b71b8c9ad130/4:3/pass/undefined",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/67a3a498e5e3b71b8c9ad130/4:3/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fatteh",
+      "slug": "gen-fatteh",
+      "title": "Fatteh",
+      "instructions": "Libanesisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Joghurt von der Handelsmarke und Kichererbsen aus der Dose, um Geld zu sparen",
+        "Granatapfelmelasse lässt sich durch Zitronensaft mit einer Prise Zucker ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "libanesisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2618,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fatteh/",
+      "components": [
+        {
+          "key": "9c3fa97c-c276-51f2-9d0b-01315a8d44ce",
+          "name": "Zutaten",
+          "servingGrams": 343.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "10f98636-c17a-5af2-93b3-18110dab090a",
+              "ingredientName": "Fladenbrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7ca5d3b-c186-51ab-9159-066419b89d13",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7b65c5d0-e70e-5a1f-82ec-765c34a3048c",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dosen"
+            },
+            {
+              "key": "528b15ef-fb40-59da-bff5-937e3ac9099a",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c81f3607-4cfb-5a99-8cd4-0a4448726f0a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "40b012e9-5d73-551f-83b9-c04331ff6029",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "017a8038-72fa-5985-9133-54b6a9da71b0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2dfbc72b-2920-50a1-bba2-808202f0165f",
+              "ingredientName": "Granatapfelmelasse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0cd99eba-d7c6-50ca-ba2c-6335e60413d1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7a97cc35-4a9e-5a4a-8b8a-00a8d40645fa",
+              "ingredientName": "Sumach",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Fladenbrot in kleine Stücke und röste es im Ofen bei 375°F 8 Minuten, bis es knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Joghurt, gehackten Knoblauch und Salz in einer Schüssel, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Kichererbsen aus der Dose ab, spüle sie ab und erwärme sie vorsichtig in einer Pfanne mit 1 Esslöffel Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Tahini mit Zitronensaft und etwas Wasser in einer weiteren Schüssel, bis eine Sauce zum Beträufeln entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das geröstete Fladenbrot auf einem Teller, gib Joghurtsauce darauf und löffle die warmen Kichererbsen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle alles mit Tahinisauce und vollende das Gericht mit Olivenöl, Granatapfelmelasse und Sumach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2017/05/Lebanese-Chicken-Fatteh-Dinner-Bowls-Recipe-The-Mediterranean-Dish-2.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2017/05/Lebanese-Chicken-Fatteh-Dinner-Bowls-Recipe-The-Mediterranean-Dish-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mujadara",
+      "slug": "gen-mujadara",
+      "title": "Mujadara",
+      "instructions": "Libanesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Linsen und Reis in größeren Mengen, um deutlich Kosten zu senken",
+        "Verwende bei Bedarf Wasser statt Brühe"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "libanesisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2619,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mujadara/",
+      "components": [
+        {
+          "key": "ecfdf262-000e-5052-bd62-07a213d452ed",
+          "name": "Zutaten",
+          "servingGrams": 418.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb76538e-1dae-5f56-9896-363a3adf5e52",
+              "ingredientName": "Braune Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "40adf5ec-1a96-54d5-8824-a8a1ea4c1e08",
+              "ingredientName": "Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "a39cf116-484f-5c57-a457-6c1a99fc9d93",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "c800cd07-d021-598a-9d54-e322bdd11ad7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "95e6c47e-7c64-52e2-88a8-542e62b1384e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "79719f0e-8d17-5a4e-bc73-24d2aa13be6e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c4d4dc82-9445-5b4e-aada-719facb44193",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5b106730-9820-5525-95bd-448ceeacd597",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Linsen unter kaltem Wasser ab und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 3 Esslöffel Olivenöl in einem großen Topf bei mittlerer Hitze, gib die Zwiebelringe hinzu und gare sie etwa 10 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Hälfte der karamellisierten Zwiebeln heraus und stelle sie als Garnitur beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Linsen, Reis, Kreuzkümmel, Salz und Pfeffer zu den übrigen Zwiebeln in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Gemüsebrühe hinzu und bringe alles zum Kochen. Reduziere dann die Hitze und lasse alles 30 Minuten ohne Deckel köcheln, bis Linsen und Reis weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gelegentlich um und gib bei Bedarf mehr Wasser hinzu, damit nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Gericht auf eine Servierplatte und garniere es mit den beiseitegestellten knusprigen Zwiebeln und etwas Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/03/Mujadara-Recipe-2-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/03/Mujadara-Recipe-2-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hot-cross-bun",
+      "slug": "gen-hot-cross-bun",
+      "title": "Heißes Kreuzbrötchen",
+      "instructions": "Britisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Johannisbeeren in großen Mengen auf ethnischen Märkten oder ersetzen Sie sie durch Rosinen.",
+        "Machen Sie das Kreuz mit einer einfachen Mehlpaste anstelle von Spritzbeuteln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6745,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hot-cross-bun/",
+      "components": [
+        {
+          "key": "96b2e658-0e4c-5018-abc5-2cd8abf5d534",
+          "name": "Zutaten",
+          "servingGrams": 244.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "52e52971-2bd3-5414-9a8e-32c9b3cf9fe7",
+              "ingredientName": "Allzweckmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "71a3673f-0888-509a-a340-9edc8ac9e0b3",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "69fb2098-9177-536c-bb1d-e36afee41ebb",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.25 Teelöffel"
+            },
+            {
+              "key": "dfc04ca3-24ed-566e-9db9-ec1278451655",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2e8184f8-36f3-5816-bb64-e8729af1176e",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "42b5e6eb-d549-5475-a289-cc2376ee2aea",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa1cb80a-615d-502a-a0b2-c8dd7e95a11a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3b6cbd80-3be2-5a0f-8246-ed5ee73fcb41",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2e6d25a3-4a19-5584-84a7-f86617730a9a",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "84799327-2913-5e7b-838b-bfb416629b94",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse für die Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warme Milch, Hefe und 1 Esslöffel Zucker in einer Schüssel vermischen und 5 Minuten schaumig rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, restlichen Zucker, Salz und Gewürze in einer großen Schüssel vermischen, dann Hefemischung, geschmolzene Butter und Ei hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig 10 Minuten lang kneten, bis er glatt ist, dann die Johannisbeeren unterheben und 1 Stunde abgedeckt gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in 12 gleich große Kugeln teilen, auf ein mit Backpapier ausgelegtes Backblech legen, abdecken und 30 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heizen Sie den Ofen auf 400 °F vor und spritzen Sie mit einem Spritzbeutel mit glatter Spitze und dünner Mehlpaste ein Kreuz auf jedes Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "20–25 Minuten backen, bis die Brötchen goldbraun sind und beim Klopfen hohl klingen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Noch warm mit einer Glasur aus 1/4 Tasse Wasser und 2 Esslöffeln erhitztem Zucker bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/GEm9oP82W-fTPMSLmEt12k8PsWU=/2048x1366/filters:fill(auto,1)/bread-machine-hot-cross-buns-3053790-hero-08-622655a9367f44a0aedc2ded4c3a14a7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/GEm9oP82W-fTPMSLmEt12k8PsWU=/2048x1366/filters:fill(auto,1)/bread-machine-hot-cross-buns-3053790-hero-08-622655a9367f44a0aedc2ded4c3a14a7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bundt-cake",
+      "slug": "gen-bundt-cake",
+      "title": "Gugelhupf",
+      "instructions": "Amerikanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Sauerrahm und Butter von Handelsmarken.",
+        "Verzichten Sie auf das Glasieren und bestäuben Sie es stattdessen mit Puderzucker, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6746,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bundt-cake/",
+      "components": [
+        {
+          "key": "75507b39-666e-5389-aa65-6fd37c7912ef",
+          "name": "Zutaten",
+          "servingGrams": 117.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea4bddd1-4b5c-58bc-b8e1-4fdbcf5a0a0e",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7dd7db29-a1bf-521d-9fb8-2d163ea4879b",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "dfc608c5-0612-5713-948b-1103a73a08c2",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "10c18e74-87b1-553f-a385-48c5aab02e0b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98b169a7-d90b-58ae-ac11-e1a9b3b0de6b",
+              "ingredientName": "Sauerrahm",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "77c86e7c-913e-5ef2-8293-58c2c8295966",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "f8d7b515-1803-59af-b7c5-1e11328a8200",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "f1339ccc-fffc-5f7c-8d29-3fac1fc090c8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "3efb74f7-121b-50f3-a14a-059aa2ebf3ad",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse gemischt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und fetten Sie eine Gugelhupfform gründlich mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker in einer großen Schüssel 2-3 Minuten lang schaumig rühren, bis sie leicht und locker sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier einzeln unterrühren, dann Vanilleextrakt hinzufügen und verrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl, Backpulver und Salz in einer separaten Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abwechselnd Mehlmischung und Sauerrahm in drei Portionen zur Buttermischung geben und nach jeder Zugabe vorsichtig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streuen Sie 1/3 der Mischung aus Zimt und braunem Zucker in die vorbereitete Form, geben Sie dann die Hälfte des Teigs, ein weiteres 1/3 der Mischung und den restlichen Teig hinzu und geben Sie die restliche Zimtmischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "45–50 Minuten backen, bis ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "15 Minuten in der Form abkühlen lassen, dann zum vollständigen Abkühlen auf ein Kuchengitter stürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/67dcb239fddfddf18e0a3b86/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/67dcb239fddfddf18e0a3b86/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sopa-paraguaya",
+      "slug": "gen-sopa-paraguaya",
+      "title": "Sopa Paraguaya",
+      "instructions": "Paraguayisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorenen Mais, um Geld zu sparen und die Zubereitungszeit zu verkürzen.",
+        "Blockkäse kaufen und selbst zerkleinern statt vorzerkleinern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "paraguayisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6747,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopa-paraguaya/",
+      "components": [
+        {
+          "key": "d138c7d7-2cab-5448-8a8a-6167ce6bb9d9",
+          "name": "Zutaten",
+          "servingGrams": 331.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a5ca267f-f85f-5793-92c5-fa8ce770a107",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "56a519fc-585a-59ac-a85d-d71190bd9441",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3243681a-a78e-5f4e-be31-c67ca8d32561",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen gerieben"
+            },
+            {
+              "key": "4468bf87-6325-5212-807e-97ea87203f86",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "7de5bf19-6888-5b09-8ca0-9a3bee0f11b0",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "5ecbde03-7a00-5319-99f9-37a3ea880746",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "35895c14-5238-5bb0-b0fa-2eea0401f01a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42c74fe4-7368-5750-b834-f505262a8b92",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 375 °F vor und fetten Sie eine runde 9-Zoll-Auflaufform mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebeln in Butter bei mittlerer Hitze etwa 5 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maismehl, frische Maiskörner, sautierte Zwiebeln, Käse sowie Salz und Pfeffer in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier in einer separaten Schüssel verquirlen und zusammen mit Milch oder Brühe zur Maismischung geben und rühren, bis eine dicke, teigartige Konsistenz entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Mischung in die vorbereitete Auflaufform gießen und die Oberseite glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "35–40 Minuten backen, bis es goldbraun ist und ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten abkühlen lassen, bevor es warm serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Spalten schneiden und als Beilage oder leichte Mahlzeit servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/01/23/multimedia/23SOPArex-jqzf/23MORALESrex-jqzf-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/01/23/multimedia/23SOPArex-jqzf/23MORALESrex-jqzf-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chipa",
+      "slug": "gen-chipa",
+      "title": "Chipa",
+      "instructions": "Paraguayisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maniokstärke auf lateinamerikanischen Märkten, wo sie günstiger ist.",
+        "Um die Kosten zu senken, verwenden Sie einfachen Cheddar anstelle von Frischkäse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "paraguayisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6748,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chipa/",
+      "components": [
+        {
+          "key": "d3001db0-beec-5219-a4a9-7c90b4f40696",
+          "name": "Zutaten",
+          "servingGrams": 84.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "0af532fb-96a5-5d33-a08e-acdcb873361f",
+              "ingredientName": "Tapiokastärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "8cee446f-f6b5-52fc-8827-e3c0e15d7b25",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen gerieben"
+            },
+            {
+              "key": "9cf91784-f3f0-574f-9dd4-69cc360a90b0",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ab94c6d-628d-575e-9455-d8786e2e6277",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "032d14c0-4495-51a6-bcb7-84493e1c62f0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d06919a8-5136-5289-afa5-9cd14e4fcbc7",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d2141235-293f-5fd9-80b5-879f4d789f76",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 375 °F vor und legen Sie ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maniokstärke, geriebenen Käse und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier mit zerlassener Butter und Milch verquirlen, dann in die Stärkemischung gießen und verrühren, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gegebenenfalls Anissamen hinzufügen und 1-2 Minuten lang vorsichtig verkneten, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zu langen ovalen Ringen oder Stäbchen formen, die etwa 4 cm lang und 1/2 cm dick sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einem Abstand von 2 cm auf das vorbereitete Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "25–30 Minuten backen, bis es goldbraun und außen leicht knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Kuchengitter abkühlen lassen und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.saveur.com/uploads/2022/05/20/classic-chipa-paola-murray.jpg",
+          "sourcePageUrl": "https://www.saveur.com/uploads/2022/05/20/classic-chipa-paola-murray.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanada-paraguaya",
+      "slug": "gen-empanada-paraguaya",
+      "title": "Empanada Paraguaya",
+      "instructions": "Paraguayischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch im Sonderangebot und frieren Sie es bis zur Verwendung ein.",
+        "Das Frittieröl abseihen und wiederverwenden, indem es durch Kaffeefilter filtriert wird."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "paraguayisch",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6749,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanada-paraguaya/",
+      "components": [
+        {
+          "key": "09921950-0900-5725-b1cd-6b78f734a6f5",
+          "name": "Zutaten",
+          "servingGrams": 217.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "c9474ed2-ec83-5de8-b288-b7e63633057b",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "49b9b3ad-5610-5530-aaaf-2d48fe02da6c",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ca45f401-2f7d-5711-a7f2-20e845a3f913",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7114c28c-dbc8-524b-a978-ce96c5ef635f",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "3d4abd18-0282-5f84-a5c3-5a6a0570e986",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "aea36e0f-3ac4-5355-8eff-7d4aae929da1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "cc60f475-1f33-5a2d-af5a-212b710540d7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63793087-5a67-5e69-8e55-6fed748cbc7d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "3f52b554-2304-5552-8236-79e846e9c9f3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer Schüssel vermischen, kalte Butter einrühren, bis sie wie Semmelbrösel aussieht, dann kaltes Wasser hinzufügen, bis der Teig zusammenklebt; 30 Minuten kühl stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch mit Zwiebelwürfeln in einer Pfanne bei mittlerer bis hoher Hitze anbraten und beim Kochen auseinanderbrechen, etwa 8 Minuten; Überschüssiges Fett abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 geschlagenes Ei und geriebenen Käse unter das gekochte Rindfleisch rühren; Mit Salz und Pfeffer würzen und leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig zwischen Frischhaltefolie dünn ausrollen und in 3 cm große Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie 1 Esslöffel Füllung auf jedes Quadrat, falten Sie es diagonal zu einem Dreieck und verschließen Sie die Ränder, indem Sie es mit einer Gabel andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öl in einem tiefen Topf auf 350 °F erhitzen und Empanadas portionsweise 2-3 Minuten pro Seite goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Papiertüchern abtropfen lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Optional: Vor dem Braten mit geschlagenem Ei bestreichen, um ein glänzenderes Finish zu erzielen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ooohdelish.com/wp-content/uploads/2025/11/ridamine_01407_empanada_dough_recipe__Amateur_photo_from_redd_b2286c43-f469-4e94-8302-45711f121e63_0.png",
+          "sourcePageUrl": "https://ooohdelish.com/wp-content/uploads/2025/11/ridamine_01407_empanada_dough_recipe__Amateur_photo_from_redd_b2286c43-f469-4e94-8302-45711f121e63_0.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

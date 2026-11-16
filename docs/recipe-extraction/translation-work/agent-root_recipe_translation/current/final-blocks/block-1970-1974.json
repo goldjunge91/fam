@@ -1,0 +1,973 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53220",
+      "slug": "tmdb-53220",
+      "title": "Kabsa",
+      "instructions": "Saudi-arabisches Hähnchengericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "saudi-arabisch",
+        "hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1970,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53220/",
+      "components": [
+        {
+          "key": "cf113451-dd2c-57f5-94f5-07a1d655ebb8",
+          "name": "Zutaten",
+          "servingGrams": 346.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae5d9ae8-3f78-5d65-ab05-0a53a81bf5f3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d10756b-a7ea-53b3-a352-da573c988139",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "155d5981-94d3-593c-923f-880e23c6a4c8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc110e68-dea4-57c7-aa81-fbf426041f23",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60a2a905-64ad-51a2-b264-7819cb221c8b",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0bb1181-839a-5c98-96d0-10d419544b2d",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abc833fe-d1a3-5fef-b5b0-125a5aa8ea64",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a46cf3be-b9e5-5e9a-8f98-e97b91d298f9",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12f6841c-ca24-5b5c-8d23-6d2b1ee4d8e5",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2347b0a-0f29-5693-9062-910c7db5e59e",
+              "ingredientName": "Chinesisches Fünf-Gewürze-Pulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9517c983-f91c-5cd3-a64f-a41b04145521",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa0c6344-d2cd-5a21-bbe5-0d6a6ab9a9b2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Hähnchen mit Olivenöl anbraten, dann einen Maggi-Würfel dazugeben und etwa 30 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einem anderen Topf das gesamte Gemüse dazugeben und anbraten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn alles fertig ist, Reis, Rosinen und Gewürze zum Gemüse geben und 2 und eine halbe Tasse Wasser hinzufügen, damit der Reis garen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sobald der Reis gar ist, alles in den Ofen geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/utqnjv1763598650.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/utqnjv1763598650.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53398",
+      "slug": "tmdb-53398",
+      "title": "Kadu Borani",
+      "instructions": "Vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1971,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53398/",
+      "components": [
+        {
+          "key": "e8d69648-e312-5fc6-9300-2bcb479d4789",
+          "name": "Zutaten",
+          "servingGrams": 608.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "1764230b-24cc-5056-8d8a-e99f1175a042",
+              "ingredientName": "Butternusskürbis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "196fe54d-be51-5290-9468-cb62d410aebe",
+              "ingredientName": "Zwiebel",
+              "grams": 750,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfd6167e-08cb-503c-b36b-1e4d1d98b8cb",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22ab484d-da40-51a3-a878-eb1edc248b5c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24db4e23-5520-5801-93e9-03da1130a288",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4f1404b-50a3-5750-80d1-078199f0cbd4",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0664dfe-ec40-50ae-aaac-2e0242c236bb",
+              "ingredientName": "Zucker",
+              "grams": 105,
+              "quantity": 105,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97099e6e-bb10-5774-a6b0-2fc4a1897de5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cfdc9e9-3ecd-5c2e-a927-5e32644c720e",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98cf4765-9d02-57b9-b073-0ac016dd0a72",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kürbis schälen und in 1 cm breite Stücke schneiden. In Öl frittieren, bis er goldbraun ist, und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In derselben Pfanne und demselben Öl die Zwiebeln goldbraun frittieren. Herausnehmen und mit dem Knoblauch zermahlen. (Wenn du Knoblauchpaste verwendest, rühre sie nach dem Zermahlen unter die Zwiebeln.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwas Öl in eine Pfanne geben und bei mittlerer Hitze erwärmen. Sobald es heiß ist, Kurkuma dazugeben. Salz in eine Tasse Wasser rühren und zum Kurkuma geben. Eine Schicht Kürbis und dann eine Schicht Zwiebeln und Knoblauch daraufgeben. Wiederholen, bis Kürbis, Zwiebeln und Knoblauch aufgebraucht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zucker und eine Tasse Wasser dazugeben. Hitze reduzieren und kochen, bis das Wasser eingekocht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1–2 Esslöffel geschmolzenen Quark auf einen Teller geben, den Kürbis darauflegen und eine weitere Schicht geschmolzenen Quark daraufgeben. Zum Schluss etwas grüne Chili dazugeben und servieren!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/walmi81779552709.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/walmi81779552709.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52971",
+      "slug": "tmdb-52971",
+      "title": "Kafteji",
+      "instructions": "Tunesisches vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "tunesisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1972,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52971/",
+      "components": [
+        {
+          "key": "b0e29bc2-84b7-5bab-bdbe-f8e3065925cf",
+          "name": "Zutaten",
+          "servingGrams": 697.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "75b81b38-417e-5176-9399-fd92dc2504da",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f851f9e-d77f-5a6e-ace9-238dbf350029",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8221a1f-b3ec-52b1-a2ab-a9aa4507d477",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1d26f34-54d6-5ded-a3c6-f77f53f33f33",
+              "ingredientName": "Zwiebel",
+              "grams": 750,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef22b46e-abc5-5d99-9fdd-ba234ae755b0",
+              "ingredientName": "Ras el Hanout",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d004f0a-3b1e-5f4e-9d5a-ccdc072d006b",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2546623-9b6b-5a1f-9e13-f804fef0b44b",
+              "ingredientName": "Eier",
+              "grams": 1000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c36716b8-9b9c-538e-bda5-bd6c9223cfb7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und in 5 cm große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1–2 cm Olivenöl in eine große Pfanne geben und sehr stark erhitzen. Kartoffeln etwa 20 Minuten goldbraun braten und dabei gelegentlich wenden. Auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Paprika halbieren und entkernen. Mit etwas Olivenöl einreiben und mit der Schnittfläche nach unten auf ein Backblech legen. Unter den Grill legen und rösten, bis die Haut dunkel und blasig ist. Solange die Paprika noch heiß sind, in einen Plastikbeutel für Sandwiches geben und verschließen. Nach 15 Minuten herausnehmen und häuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In der Zwischenzeit mehr Olivenöl in einer anderen Pfanne erhitzen. Zwiebeln schälen und in dünne Ringe schneiden. 15 Minuten goldbraun braten und dabei häufig wenden. Zum Schluss Ras el Hanout dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kürbis in 5 cm große Würfel schneiden und in derselben Pfanne wie die Kartoffeln 10–15 Minuten braten, bis er weich und leicht gebräunt ist. Auf Küchenpapier geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das übrige Olivenöl aus der Pfanne abgießen, das gesamte gegarte Gemüse hineingeben und vermischen. Eier verquirlen und über das Gemüse gießen. Pfanne abdecken, damit die Eier garen. Pfanneninhalt auf ein großes Schneidebrett geben, Salz und Pfeffer hinzufügen und alles mit einem großen Messer hacken und vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1bsv1q1560459826.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1bsv1q1560459826.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52769",
+      "slug": "tmdb-52769",
+      "title": "Kapsalon",
+      "instructions": "Niederländisches Lammgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "niederlande",
+        "lamm",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1973,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52769/",
+      "components": [
+        {
+          "key": "b184be65-50d3-5284-a569-1aae40865c7f",
+          "name": "Zutaten",
+          "servingGrams": 607.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3c3fd7b-7425-5510-99d1-67e107b1b0d6",
+              "ingredientName": "Pommes frites (tiefgekühlt)",
+              "grams": 892.86,
+              "quantity": 8.93,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e71b7366-bc7f-57e9-9fba-2f345ac1d688",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 506.25,
+              "quantity": 506.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eebe061c-5f53-547d-abea-3fda573620a0",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1642c274-fe74-5d2c-92f7-26541296a4e5",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4225b315-c8fd-598b-a836-a60798bfd5d5",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b1c3ed3-f706-58b7-87ca-ef75d3092491",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bbdf948-981b-5f7a-b1bd-554e23a4deed",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa27a4c7-6700-523b-809f-8871dde85716",
+              "ingredientName": "Gouda",
+              "grams": 101.25,
+              "quantity": 101.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fleisch in Streifen schneiden. Öl in einer Pfanne erhitzen und die Streifen 6 Minuten braten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pommes frites in der Fritteuse goldbraun frittieren. Anschließend in eine Auflaufform geben und gleichmäßig darin verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pommes mit einer weiteren Schicht Fleisch bedecken und gleichmäßig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Schicht Käse auf das Fleisch geben. Du kannst auch geriebenen Käse verwenden. Für einige Minuten in den Ofen stellen, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Salat, Tomate und Gurke klein schneiden und zu einem einfachen Salat vermischen. Zusätzlich kannst du Oliven, Jalapeños und rote Zwiebeln dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Salat auf der Form verteilen und mit Knoblauchsauce und scharfer Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/sxysrt1468240488.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/sxysrt1468240488.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53125",
+      "slug": "tmdb-53125",
+      "title": "Karbonader (magere Rinderfrikadellen) mit karamellisierten Zwiebeln",
+      "instructions": "Norwegisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "norwegen",
+        "rind"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1974,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53125/",
+      "components": [
+        {
+          "key": "6717c338-ad36-5ea4-8cac-4e485ab04701",
+          "name": "Zutaten",
+          "servingGrams": 229.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "e24468e1-34a7-5932-a4c9-c9b35a213282",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f790ac5-e226-5b08-9ce7-6bb5eaec9478",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18b8e956-a34c-5981-80a5-8136c87b27f0",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b6169ba-2143-5d6d-b039-da7f8950d446",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5331e664-354c-56c3-9dab-8172ab644d02",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c977e8a4-1b09-569b-b03e-9d459a10a6fd",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52c15ad5-146f-5cc7-ad20-65054faab6d4",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25d61787-5259-575a-8ca6-359bace26ddc",
+              "ingredientName": "Wasser",
+              "grams": 428.57,
+              "quantity": 428.57,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hälfte einer Zwiebel reiben und beiseitestellen. Die übrigen Zwiebeln in Scheiben schneiden und bei niedriger bis mittlerer Hitze in Butter karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer Schüssel Rinderhackfleisch, geriebene Zwiebel, Salz, Pfeffer, Muskatnuss, Kartoffel- oder Maisstärke und Wasser vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zu einer Rolle formen und in 6 Frikadellen schneiden. Mit einem Messer ein leichtes Gittermuster in jede Frikadelle ritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Karbonader bei starker Hitze in Butter auf beiden Seiten anbraten, dann die Hitze reduzieren und weitere 2–3 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Karbonader und Zwiebeln zum Abendessen mit Kartoffeln, Erbsen und brauner Sauce servieren oder zum Mittagessen beziehungsweise als Snack auf einer Scheibe Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/0bpjb11763075817.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/0bpjb11763075817.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

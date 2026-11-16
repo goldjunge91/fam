@@ -1,0 +1,837 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:pb-banana-oats",
+      "slug": "pb-banana-oats",
+      "title": "Haferbrei mit Erdnussbutter und Banane",
+      "instructions": "Cremiger Mikrowellen-Haferbrei mit Bananenscheiben und einem Klecks Erdnussbutter.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 3,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Bananen kosten nur 25 Cent",
+        "Ein Glas Erdnussbutter reicht für viele Frühstücke"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Wasser oder Haferdrink",
+          "savings": "ca. $0.20"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Brauner Zucker oder Ahornsirup",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Haferflocken, Milch und eine Banane kosten pro Morgen weniger als $1.25.",
+      "healthierTips": [
+        "Honig weglassen",
+        "Chiasamen oder Leinsamen dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "wohnheimgeeignet",
+        "Frühstück",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 30,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/pb-banana-oats/",
+      "components": [
+        {
+          "key": "c700cc8b-f917-500f-b8cd-1829a3f4bc9f",
+          "name": "Zutaten",
+          "servingGrams": 501.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "13dabd2b-f361-5882-8896-e417d6a463f3",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ab91fc0-95f4-5e10-830d-7b08b3826e93",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3850dc25-0e73-5b26-abbf-3b804d9a2645",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7553044-9f76-5b1a-b018-c2d0ecf48ac7",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "322720fd-84ab-5168-a75a-786b1d2bea84",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "48738dad-c27f-5b98-9ef1-c601fac5c528",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Haferflocken und Milch in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Mischung 90 Sekunden in der Mikrowelle, rühre um und erhitze sie weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Bananenscheiben, Erdnussbutter, Zimt und etwas Honig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/pb-banana-oats.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/pb-banana-oats.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/pb-banana-oats.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/pb-banana-oats.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:apple-cinnamon-oats",
+      "slug": "apple-cinnamon-oats",
+      "title": "Haferbrei mit Apfel und Zimt",
+      "instructions": "Warmer Haferbrei mit gewürfeltem Apfel, Zimt und braunem Zucker, wie Apfelkuchen zum Frühstück.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 3,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Ein Apfel reicht für 1-2 Portionen",
+        "Zimt kostet pro Verwendung nur ein paar Cent"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple",
+          "swap": "Banane oder Tiefkühlbeeren",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Ahornsirup oder Honig",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Äpfel und Haferflocken sind günstig, sättigend und ballaststoffreich.",
+      "healthierTips": [
+        "Zucker weglassen, der Apfel ist süß genug",
+        "Haferdrink verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "wohnheimgeeignet",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 31,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/apple-cinnamon-oats/",
+      "components": [
+        {
+          "key": "916dd4b3-10ad-5308-9845-91008f4ce0de",
+          "name": "Zutaten",
+          "servingGrams": 537.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb7b6707-82df-5405-8215-366cb823112d",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77971c4d-682c-5808-b76d-25d19ff4652f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15855397-2333-59f7-aa5e-8cf6048d7aef",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d939926-8a96-5e34-9f60-7e425f565b8b",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "632b0edd-c23e-558b-a6e8-90079b297362",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4ad5769-a3b3-53aa-9bca-519f554c00b4",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Apfel in kleine Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Haferflocken, Milch, Apfel, Zimt und braunen Zucker in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme alles 2 Minuten in der Mikrowelle, rühre um und erhitze es weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue den Haferbrei mit gehackten Walnüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/apple-cinnamon-oats.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/apple-cinnamon-oats.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/apple-cinnamon-oats.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/apple-cinnamon-oats.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:overnight-oats-jar",
+      "slug": "overnight-oats-jar",
+      "title": "Overnight Oats im Glas",
+      "instructions": "Haferflocken ohne Kochen über Nacht mit Joghurt, Milch und Beeren einweichen. Einfach mitnehmen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Bereite gleich mehrere Gläser vor",
+        "Tiefgekühlte Beeren sind günstiger"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-berries",
+          "swap": "Banane oder Marmelade",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Mehr Milch",
+          "savings": "ca. $0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Tasse Haferflocken und Joghurt ergeben ein Frühstück für weniger als $2.",
+      "healthierTips": [
+        "Chiasamen dazugeben",
+        "Honig weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "ohne Kochen",
+        "zum Vorbereiten",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 32,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/overnight-oats-jar/",
+      "components": [
+        {
+          "key": "488f3b6f-a8c9-5a08-aa5d-1afccf910011",
+          "name": "Zutaten",
+          "servingGrams": 496.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad6f5817-eadc-52bc-b55f-60e6e902ad6b",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0019ac03-1ef3-5c06-9c79-c560b13bebb6",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "939f69d7-d73f-5aa6-8497-5777b469c1a4",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88cf3c2e-b2bf-52dd-b736-c1d7d6ab7031",
+              "ingredientName": "Tiefkühlbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78e12862-6aa9-5ed3-994b-e0533c944396",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f3b4f8d-5e62-55a3-8fbd-67f7d5236401",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Haferflocken, Milch, Joghurt, Honig und Zimt in ein Glas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre alles gut um und gib die Tiefkühlbeeren darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verschließe das Glas und stelle es über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kalt direkt aus dem Glas essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/overnight-oats-jar.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/overnight-oats-jar.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/overnight-oats-jar.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/overnight-oats-jar.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:savory-egg-oats",
+      "slug": "savory-egg-oats",
+      "title": "Herzhafter Haferbrei mit Ei",
+      "instructions": "Haferflocken aus der Mikrowelle, in Brühe gegart und mit weichem Ei, Sojasauce und Frühlingszwiebel im Congee-Stil serviert.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Falls du keine Brühe hast, löse einen Brühwürfel in Wasser auf",
+        "Haferflocken kosten 20 Cent pro Tasse"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + Sojasauce",
+          "savings": "ca. $0.30"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Zerbröselter Tofu",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Herzhafte Haferflocken sind eine oft unterschätzte Frühstücksidee.",
+      "healthierTips": [
+        "Brühe und Sojasauce mit weniger Salz verwenden",
+        "Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch",
+        "wohnheimgeeignet",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 33,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/savory-egg-oats/",
+      "components": [
+        {
+          "key": "bcca29d8-d844-5f23-bb9b-f4ecc3c54ca0",
+          "name": "Zutaten",
+          "servingGrams": 442.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "dac61383-0bf0-5615-b99a-2f729c2eb333",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "752e5846-c7bb-5065-a9ed-b48d75051109",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de440754-5359-54f6-bd57-d78a3297b649",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b401509-8496-5d8e-ad4a-3a7d2ec43bee",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7325f13e-798e-51bd-9d52-1d3a66701bbb",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06dd20f2-0e72-59cc-ad11-aa0a815921f4",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Haferflocken und Brühe 90 Sekunden in einer Schüssel in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre um, schlage ein Ei hinein und erwärme alles weitere 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sojasauce und Frühlingszwiebel darauf und beträufle das Gericht mit ein paar Tropfen Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/savory-egg-oats.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/savory-egg-oats.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/savory-egg-oats.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/savory-egg-oats.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:greek-yogurt-granola-bowl",
+      "slug": "greek-yogurt-granola-bowl",
+      "title": "Bowl mit griechischem Joghurt und Granola",
+      "instructions": "Griechischer Joghurt mit knusprigem Granola, frischem Obst und etwas Honig.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Große Becher mit griechischem Naturjoghurt kaufen",
+        "Granola in größeren Mengen selbst zubereiten"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "granola",
+          "swap": "Haferflocken + gehackte Nüsse",
+          "savings": "ca. $0.50"
+        },
+        {
+          "forIngredientId": "frozen-berries",
+          "swap": "Apfelscheiben",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Joghurt und Granola gehören zu den Vorratsgrundlagen; Obst ist während der Saison günstig.",
+      "healthierTips": [
+        "Honig weglassen",
+        "Granola mit weniger Zucker verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "ohne Kochen",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 34,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/greek-yogurt-granola-bowl/",
+      "components": [
+        {
+          "key": "2b333533-0a93-55ea-88b2-ceb0a750836d",
+          "name": "Zutaten",
+          "servingGrams": 434,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2c9fbf7-a0b3-5ca9-93b2-e51d92abc380",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce88fdc5-cdab-5714-94a4-daf1fa7cd6ce",
+              "ingredientName": "Granola",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13b54b96-72e2-51a0-b509-29930028ee19",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d568193f-5f75-5b55-ad26-c8fa1638b7af",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fd91bb6-109b-5434-ab77-c79e6e050e0c",
+              "ingredientName": "Tiefkühlbeeren",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib den Joghurt in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile Granola, Bananenscheiben und Beeren darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beträufle alles mit Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/greek-yogurt-granola-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/greek-yogurt-granola-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/greek-yogurt-granola-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/greek-yogurt-granola-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

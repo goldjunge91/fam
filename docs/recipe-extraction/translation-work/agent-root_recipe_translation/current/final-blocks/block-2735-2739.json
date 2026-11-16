@@ -1,0 +1,1115 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-galinha-passarinho",
+      "slug": "gen-galinha-passarinho",
+      "title": "Galinha à Passarinho",
+      "instructions": "Brasilianisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot in größeren Mengen und friere sie ein",
+        "Verwende frische Limetten aus der Rabattkiste oder Zitronensaft aus der Flasche"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "brasilianisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2735,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galinha-passarinho/",
+      "components": [
+        {
+          "key": "f98a3a63-6c9a-5b35-b448-da6dc512b5e7",
+          "name": "Zutaten",
+          "servingGrams": 210,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d8a1ea6-5574-511b-a1a4-993d003d850c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, cut into bite-size Stücke"
+            },
+            {
+              "key": "59b63f9d-d512-59e5-b9cf-5f463f842ef2",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "247c8f42-731a-5441-8d0a-79935da4563e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "df2d8ad2-d235-55ce-a7ea-f04aa1589f6e",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "ef6148cf-ec2e-5e76-b50a-438702e0c304",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "zum Braten"
+            },
+            {
+              "key": "0b78a9bd-61ac-5e27-a5f5-6bc8e71ea898",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e81b4df2-4797-5815-8193-b76e3b46e16e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleine Stücke, dünn geschnitten"
+            },
+            {
+              "key": "8a920f01-5204-5f0c-9a9a-b8548b3b3f5f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1, dünn geschnitten"
+            },
+            {
+              "key": "64678801-8e47-50b9-8128-f2b735cfadfd",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e0f94e8-2fa7-5a3c-8e03-52c585562369",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Hähnchenstücke mit Limettensaft, 2 gehackten Knoblauchzehen, Salz und Pfeffer und lasse sie 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Mehl in eine flache Schüssel, wende jedes Hähnchenstück darin und lege es dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und frittiere das Hähnchen portionsweise 3-4 Minuten pro Seite goldbraun und gar. Lege es auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zwiebel, Paprika, den restlichen Knoblauch und Lorbeerblätter in dieselbe Pfanne und dünste alles 3 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Hühnerbrühe hinzu, gib das Hähnchen zurück in die Pfanne und lasse alles 5 Minuten sanft köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht, passe die Würzung an und serviere es heiß mit weißem Reis oder Bratkartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.easyanddelish.com/wp-content/uploads/2016/02/fried-chicken-bites-or-wings-featured.png",
+          "sourcePageUrl": "https://www.easyanddelish.com/wp-content/uploads/2016/02/fried-chicken-bites-or-wings-featured.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-br-s-de-olho",
+      "slug": "gen-br-s-de-olho",
+      "title": "Brás de Olho",
+      "instructions": "Brasilianischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maniokmehl auf lateinamerikanischen Märkten statt in Spezialgeschäften",
+        "Verwende überreife Bananen für mehr Süße und niedrigere Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2736,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-br-s-de-olho/",
+      "components": [
+        {
+          "key": "3aeaeed1-5aae-5125-bb0f-fbe087d8a516",
+          "name": "Zutaten",
+          "servingGrams": 361.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8df0db1a-0b7d-5ab9-a459-3083f26b1911",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "259886b7-211c-545f-899a-895d8fffd7f6",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 kleine Stücke, geschält"
+            },
+            {
+              "key": "c3041e05-785f-5ff6-87df-9d0b304a74e4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "417ddfec-f25e-5307-a3e4-55727729848e",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0b3b0da5-7378-51f8-8dda-fa8dcad94844",
+              "ingredientName": "Rosinen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4e320682-2b22-52ad-a022-35a053b729e7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "8ae0ca78-7bd0-52d6-b62e-804a41cdb196",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "8b164129-e7c2-54ae-a271-b9a058b6f79f",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Stück, halbiert"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einer beschichteten Pfanne bei mittlerer Hitze, gib Maniokmehl hinzu und rühre 2 Minuten ständig, bis es leicht geröstet ist und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib braunen Zucker, Zimt und Salz hinzu, verrühre alles gut und röste es eine weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Bananen in dünne Scheiben und lege 4-5 Scheiben in die Pfanne. Drücke sie leicht in die Maniokmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Rosinen und Olivenhälften (als „Augen“) um die Bananenscheiben und bedecke alles mit einer dünnen Schicht der übrigen Maniokmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare alles 3-4 Minuten ohne Rühren, bis die Unterseite goldbraun und fest ist und eine Kruste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende den Fladen vorsichtig mit zwei Pfannenwendern und gare die andere Seite 2 Minuten, bis sie leicht goldbraun ist. Lege ihn dann auf einen Servierteller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ooohdelish.com/wp-content/uploads/2025/10/ridamine_01407_3_ingredient_guacamole_recipe__Amateur_photo_f_5b784bdc-2ebe-4854-a169-a704f9407abc_1.png",
+          "sourcePageUrl": "https://ooohdelish.com/wp-content/uploads/2025/10/ridamine_01407_3_ingredient_guacamole_recipe__Amateur_photo_f_5b784bdc-2ebe-4854-a169-a704f9407abc_1.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lomo-saltado",
+      "slug": "gen-lomo-saltado",
+      "title": "Lomo Saltado",
+      "instructions": "Peruanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderlende im Angebot und friere sie ein; Rinderschultersteak ist eine preiswerte Alternative",
+        "Bereite Aji-Amarillo-Paste aus gelben Chilis und Knoblauch selbst zu, falls sie nicht erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2737,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lomo-saltado/",
+      "components": [
+        {
+          "key": "bba7df36-5654-5943-8d97-52f1b47bebf7",
+          "name": "Zutaten",
+          "servingGrams": 276.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "0fe999de-991b-544c-b0ee-9991ca5afdb8",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "468eecb0-def6-553f-bb49-07f263211bbe",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "687fcd80-a957-5563-96c1-067100179e7d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "0752128d-359c-509a-9c2e-90948568d4e6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "643562d5-a6f5-5d3c-8cd2-7d1c106b10de",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "5df44420-5cc7-56bb-a5a9-ed131a452592",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "826fb920-c544-5e01-910b-4aab18653cdd",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "eb784c74-ab92-5aef-a48b-770db6ea40f5",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c636ffa8-7468-5a7e-8229-b2b46c0871c6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cbd232ba-6c98-5556-a661-a34b5148b859",
+              "ingredientName": "Aji-Amarillo-Paste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3a20e063-3225-5865-ad39-970565ea74ab",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 EL Öl in einer großen Pfanne oder einem Wok bei hoher Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Rindfleischstreifen mit Salz und Pfeffer und brate sie portionsweise 2-3 Minuten an, bis sie gebräunt sind. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl in dieselbe Pfanne und brate die Zwiebeln unter Rühren 2 Minuten, bis sie leicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und Aji-Amarillo-Paste hinzu und gare alles 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Fleisch zurück in die Pfanne und füge Tomatenspalten, Sojasauce und Essig hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge alles bei hoher Hitze 2-3 Minuten, bis die Tomaten leicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe frischen Koriander unter und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht sofort mit Bratkartoffeln oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/tnvrb8NKySWM55535cOA5g_7ZAw=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__03__20190321-lomo-saltado-vicky-wasik-28-68ac118a03324091afed4205428ddf4e.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/tnvrb8NKySWM55535cOA5g_7ZAw=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__03__20190321-lomo-saltado-vicky-wasik-28-68ac118a03324091afed4205428ddf4e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aji-de-gallina",
+      "slug": "gen-aji-de-gallina",
+      "title": "Ají de Gallina",
+      "instructions": "Peruanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenbrust statt Schenkelfleisch, um Kosten zu senken",
+        "Ersetze Walnüsse bei Bedarf durch günstigere Erdnüsse"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2738,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aji-de-gallina/",
+      "components": [
+        {
+          "key": "f592b1ae-0fd7-5b98-8a6a-cfada9d54340",
+          "name": "Zutaten",
+          "servingGrams": 462.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b79d546-ef6e-5ae6-a2fe-1d64600eea6f",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a111e032-2399-57c9-bd9b-739acc63b625",
+              "ingredientName": "Aji-Amarillo-Paste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01274a79-04c9-5bdd-be01-ea4b335b233e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "26fede9e-7a46-5533-8d68-9bb9f74cfd75",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1627f711-8d56-5e45-a0aa-c0767cb391de",
+              "ingredientName": "Walnüsse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "db6b44e1-e404-5977-b923-11a12b3d884d",
+              "ingredientName": "Kondensmilch (ungesüßt)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (12 Unzen)"
+            },
+            {
+              "key": "46bee9ca-3d40-5eec-9d04-ddd0632deaf3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "481354b6-f67c-5b69-8721-0f24cea8f1a1",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c083d68-dd31-5de5-8cd6-c3ceec49c456",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "5fee0e98-15de-59c0-849f-14af69591eaa",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "946957cc-a109-509a-8f79-d4daae6a19d5",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "54041fa0-5db1-5259-a4a7-660d27a9e2b7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche das Hähnchen 20 Minuten in Brühe mit der Hälfte der Zwiebel, bis es gar ist. Zupfe es auseinander und hebe die Brühe auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Aji-Amarillo-Chilis mit Knoblauch, der übrigen Zwiebel, Brotstücken, Walnüssen und 1 Tasse Brühe glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 2 EL Öl in einem Topf und dünste die pürierte Mischung 5 Minuten unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kondensmilch und gezupftes Hähnchen zur Sauce und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße nach und nach die restliche Brühe hinzu, bis die Sauce die gewünschte Konsistenz hat. Lasse sie 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte gekochte Kartoffeln auf einer Servierplatte an und gieße Ají de Gallina darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit halbierten hart gekochten Eiern, schwarzen Oliven und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1713877896/k/Photo/Recipes/2024-04-aji-de-gallina/aji-de-gallina-254.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1713877896/k/Photo/Recipes/2024-04-aji-de-gallina/aji-de-gallina-254.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-causa-lime-a",
+      "slug": "gen-causa-lime-a",
+      "title": "Causa Limeña",
+      "instructions": "Peruanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Thunfisch aus der Dose in Wasser statt frischem Fisch, um Geld zu sparen",
+        "Kaufe Kartoffeln im Angebot in größeren Mengen und lagere sie kühl und dunkel"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2739,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-causa-lime-a/",
+      "components": [
+        {
+          "key": "1869f789-c4f4-5c4b-b6b2-628922f674a6",
+          "name": "Zutaten",
+          "servingGrams": 646.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "75ab8d18-8982-5f00-95f2-3d9e17cf645c",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "719f37fb-4f29-56ca-a4b1-591660d10528",
+              "ingredientName": "Aji-Amarillo-Paste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2529ea69-ecf9-53b4-90cb-19b1da87a681",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "2375d8c2-20c4-5b21-b22b-c57d2bfd48d6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b945ff43-e5f1-5b21-9ed6-dcec9209ba0f",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (5 Unzen)"
+            },
+            {
+              "key": "808c1fbe-7206-5057-b250-e8f761657952",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Stücke"
+            },
+            {
+              "key": "0a432f7e-c882-511c-ae98-d1193f4f14ec",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "23f0cd94-8984-57bd-ad3c-c8e8339fae0d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "21d93eac-f59f-57cf-bd07-495debf217ed",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "19118e94-4ecc-5464-b0f0-ff1e20df0c8f",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "d3440d47-b310-5703-a3f0-c5619782f9f6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln in Salzwasser etwa 15 Minuten, bis sie mit einer Gabel leicht zu durchstechen sind. Gieße sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die warmen Kartoffeln mit Aji-Amarillo-Paste, Limettensaft und Öl zu einer cremigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Kartoffelmasse mit Salz und Pfeffer und verteile sie gleichmäßig auf mit Salat ausgelegten Serviertellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Thunfisch oder Hähnchen mit Mayonnaise, roten Zwiebeln, Koriander, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Häufe die Thunfisch- oder Hähnchenmischung auf jede Kartoffelbasis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte Scheiben hart gekochten Eis neben der Causa an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht gekühlt oder bei Raumtemperatur mit Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/09/CausaLimena-700x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/09/CausaLimena-700x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

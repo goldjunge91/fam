@@ -1,0 +1,1074 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chick-fil-a-chicken-biscuit",
+      "slug": "gen-chick-fil-a-chicken-biscuit",
+      "title": "Hähnchen-Sandwich im Buttermilchbrötchen nach Chick-fil-A-Art",
+      "instructions": "Amerikanisches Frühstücksgericht mit knusprig paniertem Hähnchen im warmen Buttermilchbrötchen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Buttermilch lässt sich günstig selbst herstellen: 1 EL Essig mit Milch verrühren und 5 Minuten stehen lassen.",
+        "Kaufe Hähnchenbrust im Angebot und friere sie portionsweise ein; so sparst du später 30–40 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5210,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chick-fil-a-chicken-biscuit/",
+      "components": [
+        {
+          "key": "61bbff68-477e-555b-9906-61dd0f0203bc",
+          "name": "Zutaten",
+          "servingGrams": 791.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e14f7a3-4827-5cbe-9cbd-377916620793",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "f72ab648-c78e-5f82-81fd-c1cd53df5f7f",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "feb6419e-aa09-56a6-8f16-a6218388d787",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "61d40846-eaf7-5a69-90dc-bba9a70094e8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b21fab02-eb7f-5d15-b077-9fabca459416",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "06eda55e-bd89-5786-90a3-ab7236dc02d4",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "9c478135-50f7-548d-b677-a5dbfc55753c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen zum Braten"
+            },
+            {
+              "key": "10f6bf1e-7337-507e-8b79-274cc2eecc43",
+              "ingredientName": "gekühlter Pizzateig",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0457abd-fdac-5d5c-99eb-018bbb432ba6",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "415f298a-5bdb-5689-bbdf-0460fbcd4958",
+              "ingredientName": "geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe die Hähnchenbrust gleichmäßig auf 0.5 Zoll Dicke und schneide sie in 2 gleich große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Buttermilch in einen flachen Teller. Vermische in einem zweiten Teller Mehl, Salz, Pfeffer und Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende die Hähnchenstücke zuerst in der Buttermilch und anschließend gründlich in der gewürzten Mehlmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Pflanzenöl in einem tiefen Topf oder einer tiefen Pfanne auf 350°F. Gib die panierten Hähnchenstücke vorsichtig ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere sie insgesamt 6–8 Minuten und wende sie nach der Hälfte der Zeit, bis sie goldbraun sind und eine Kerntemperatur von 165°F erreicht haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Hähnchen auf Küchenpapier abtropfen, während du die Buttermilchbrötchen nach Packungsanweisung bäckst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die warmen Brötchen auf, gib jeweils etwas Butter und eine Scheibe Käse hinein, lege das frittierte Hähnchen dazwischen und serviere die Sandwiches.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/64/f1/69/64f169f294f95132e3b16ef514af0295.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/64/f1/69/64f169f294f95132e3b16ef514af0295.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mcdonald-s-egg-mcmuffin",
+      "slug": "gen-mcdonald-s-egg-mcmuffin",
+      "title": "Ei-McMuffin nach McDonald's-Art",
+      "instructions": "Amerikanisches Frühstückssandwich mit Ei, kanadischem Speck und Käse im getoasteten English Muffin.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe English Muffins und Käsescheiben von der Hausmarke statt teurer Markenprodukte.",
+        "Achte auf Eierangebote und lege für dieses regelmäßig zubereitete Frühstück einen Vorrat an."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5211,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mcdonald-s-egg-mcmuffin/",
+      "components": [
+        {
+          "key": "0e2de92a-bf9c-5a83-b0c3-5ad89b6136bd",
+          "name": "Zutaten",
+          "servingGrams": 195.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3c40307-203b-591e-9701-46ff0bcf4c9c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "159d185b-29fc-592a-8742-f799455480fe",
+              "ingredientName": "English Muffin",
+              "grams": 114,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65b04c66-5aff-56ee-a1c5-8a5e49a9f61a",
+              "ingredientName": "kanadischer Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "dda38fe4-6d2c-5427-a025-f684e7fce44b",
+              "ingredientName": "amerikanische Schmelzkäsescheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18db635f-ac43-56b0-9b93-fa87f5fa9c15",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0642fc01-2ce5-5184-a179-f23fa20c925b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "abd0c262-e184-585c-8260-d326922f6db6",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.125 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die English Muffins auf und röste sie im Toaster oder Toasterofen leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete Pfanne bei mittlerer Hitze und gib die Butter hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Eier in die Pfanne und brate sie mit der Sonnenseite nach oben oder nach Belieben. Würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze die Scheiben kanadischen Specks in derselben oder einer separaten Pfanne 1–2 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die getoasteten Muffinhälften leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege die untere Muffinhälfte jeweils mit einer Scheibe Speck, einem gebratenen Ei und einer Scheibe amerikanischem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Setze die obere Muffinhälfte darauf und serviere die Sandwiches warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/08/Copycat-McDonalds-Egg-McMuffin.Nancy-Mock-1-MLedit.jpg?w=1163",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/08/Copycat-McDonalds-Egg-McMuffin.Nancy-Mock-1-MLedit.jpg?w=1163",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-salmon-with-quinoa",
+      "slug": "gen-grilled-salmon-with-quinoa",
+      "title": "Gegrillter Lachs mit Quinoa",
+      "instructions": "Nordisch inspiriertes Abendessen mit gegrilltem Lachs, Quinoa und grünem Spargel.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Lachsfilets statt frischer; sie sind oft 40–50 % günstiger und schnell aufgetaut.",
+        "Kaufe Quinoa lose statt in abgepackten Portionen; so sparst du etwa 30 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "skandinavisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5212,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-salmon-with-quinoa/",
+      "components": [
+        {
+          "key": "1420cc96-218d-58c8-9669-ac6e11ae1ce3",
+          "name": "Zutaten",
+          "servingGrams": 496.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f5f4178-f880-5d58-9ea7-70d8d8bed514",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (6 Unzen je)"
+            },
+            {
+              "key": "016a92d2-5144-5e39-a982-f585c7531851",
+              "ingredientName": "Quinoa",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen ungekocht"
+            },
+            {
+              "key": "e762e025-d67c-5957-bba8-2e1132085648",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f80bfa04-1faa-5d3d-9e07-56f7bf43b4cb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9c7fdb7d-3aa1-5ee0-99c8-d2f43167a103",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dff9664b-b5c5-5e41-ba9c-afdb2f80a182",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "f6dcd51f-6dd7-5a21-96df-fe77ced0d287",
+              "ingredientName": "frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            },
+            {
+              "key": "c50eb462-3db3-5c43-a58e-05cd6cd14434",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "19dac5fc-851b-5c3c-b8ad-9d66eaf6d0fc",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "81bee80c-e1ba-500c-b35f-af50a6e53987",
+              "ingredientName": "Spargel",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Quinoa unter kaltem Wasser ab und koche sie in 1.5 Tassen Wasser 15 Minuten lang. Lass sie anschließend zugedeckt 5 Minuten quellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Grill oder eine Grillpfanne auf mittelhohe bis hohe Hitze vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe die Lachsfilets trocken, bestreiche sie mit 1 EL Olivenöl und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Lachs mit der Hautseite nach unten auf den Grill und gare ihn 5–6 Minuten, ohne ihn zu bewegen. Wende ihn und grille ihn weitere 3–4 Minuten, bis er gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge den Spargel mit dem restlichen Olivenöl, gehacktem Knoblauch, Salz und Pfeffer. Grille ihn unter gelegentlichem Wenden 4–5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lockere die Quinoa mit einer Gabel auf und verteile sie auf zwei Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte Lachs und Spargel darauf an, garniere mit frischem Dill und Zitronenscheiben und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/QURT2rUPTiz6noTPcB81xyUf7kY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/salmon-with-roasted-tomatos-balsamic-quinoa-Beauty-005-0e4fde0785a447288e53c8266c614e8e.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/QURT2rUPTiz6noTPcB81xyUf7kY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/salmon-with-roasted-tomatos-balsamic-quinoa-Beauty-005-0e4fde0785a447288e53c8266c614e8e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baked-cod-with-roasted-vegetables",
+      "slug": "gen-baked-cod-with-roasted-vegetables",
+      "title": "Kabeljau aus dem Ofen mit Röstgemüse",
+      "instructions": "Mediterranes Abendessen mit zartem Kabeljau und im Ofen geröstetem Gemüse.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Kabeljaufilets; sie sind meist günstiger und länger haltbar als frischer Fisch.",
+        "Verwende saisonales Gemüse wie Zucchini und Paprika, um 20–30 % zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5213,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-cod-with-roasted-vegetables/",
+      "components": [
+        {
+          "key": "1fbedf5e-0aaa-5d63-8db3-089751e035b1",
+          "name": "Zutaten",
+          "servingGrams": 306.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "233bdac7-1d0c-5651-8ac1-e1117deebfed",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (6 Unzen je)"
+            },
+            {
+              "key": "9879f7bf-1d74-5ad6-9e2a-8b95bf484706",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroß in Scheiben geschnitten"
+            },
+            {
+              "key": "34e649a3-bb01-5452-8356-fd64dd87f72e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß gewürfelt"
+            },
+            {
+              "key": "2566e265-cf31-5460-b862-1ae0cd1b3fcf",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e0d81351-6f9a-5932-9664-49e401b112e6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9383733e-9d21-5186-97f6-152a29c405a5",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5998430e-00ce-5081-9210-6e977c2071a7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "1bbc9a3b-9033-5cec-93ba-db6560b661af",
+              "ingredientName": "getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0397c9c6-4578-50b5-8fc6-8f5245f0fdbc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b1c80a6f-90bc-5cc0-8d47-e17d5591df4f",
+              "ingredientName": "frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Zucchini, Paprika und Kirschtomaten mit 2 EL Olivenöl, gehacktem Knoblauch, Oregano, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile das Gemüse auf einer Seite des Backblechs und röste es 8–10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche währenddessen die Kabeljaufilets mit dem restlichen Olivenöl. Würze sie mit Salz, Pfeffer und einem Spritzer Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe das Röstgemüse zur Seite und lege die Kabeljaufilets auf das Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste alles zusammen weitere 10–12 Minuten, bis der Fisch undurchsichtig ist und sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere mit frischer Petersilie und Zitronenscheiben und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2022/04/EASY-Baked-Cod-with-Spring-Vegetables-30-minutes-1-sheet-pan-SO-satisfying-minimalistbaker-recipe-cod-sheetpan-5-1365x2048.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2022/04/EASY-Baked-Cod-with-Spring-Vegetables-30-minutes-1-sheet-pan-SO-satisfying-minimalistbaker-recipe-cod-sheetpan-5-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-chicken-breast-with-sweet-potato",
+      "slug": "gen-grilled-chicken-breast-with-sweet-potato",
+      "title": "Gegrillte Hähnchenbrust mit Süßkartoffel",
+      "instructions": "Ein amerikanisch inspiriertes Abendessen mit gegrillter Hähnchenbrust und gerösteter Süßkartoffel.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot in größeren Mengen und friere sie ein; so sparst du 25–35 %.",
+        "Kaufe Süßkartoffeln im 5-Pfund-Beutel statt einzeln, das ist günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5214,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-chicken-breast-with-sweet-potato/",
+      "components": [
+        {
+          "key": "9fbc9d06-a270-50cb-b658-c1b5ab12ca1c",
+          "name": "Zutaten",
+          "servingGrams": 260.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "31f4d828-ee79-51b7-8b6b-ff1ce5669299",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (8 Unzen je)"
+            },
+            {
+              "key": "9ba149d0-c1e7-57fb-a9d6-f6240ea938fc",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "03feda05-4e67-5c17-8f5e-23fee9b80ed1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bb03e91e-84e0-5692-afaa-a787e38fd960",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e61b95a2-010f-5bb4-9043-f45e3ea4bd36",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ea6c86b1-f774-529a-92e9-6ede526861e0",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "4aa0f9c8-57e4-58ab-b7b6-5e133636dbec",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "ffb7324d-d2c3-5392-a095-454bbf75fa02",
+              "ingredientName": "frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "52ac9f4d-a7c5-5ad9-9f57-63da23582245",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f3a4350d-2117-5b17-a88e-3bbe34690e49",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Süßkartoffeln, würfle sie in etwa 1 Zoll große Stücke und vermenge sie mit 1 EL Olivenöl, Salz, Pfeffer und Thymian.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile die Süßkartoffeln auf einem Backblech und röste sie bei 425°F 20–25 Minuten. Wende sie nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe die Hähnchenbrüste trocken und bestreiche sie mit dem restlichen Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze das Hähnchen von beiden Seiten mit Knoblauchpulver, Paprikapulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Grill oder eine Grillpfanne auf mittelhohe bis hohe Hitze vor. Grille das Hähnchen je Seite 6–7 Minuten, bis es eine Kerntemperatur von 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Hähnchen vom Grill und lass es vor dem Servieren 3–4 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib ein kleines Stück Butter auf die gerösteten Süßkartoffeln und beträufle sie mit Honig. Richte sie zusammen mit dem gegrillten Hähnchen an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/12686_1_1752165341.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/12686_1_1752165341.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

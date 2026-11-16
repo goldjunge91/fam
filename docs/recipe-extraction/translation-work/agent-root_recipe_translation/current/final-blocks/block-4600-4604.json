@@ -1,0 +1,1014 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-miso-bowl",
+      "slug": "gen-miso-bowl",
+      "title": "Miso-Bowl",
+      "instructions": "Japanisches Frühstück: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Misopaste in größeren Behältern im Asialaden zum halben Preis",
+        "Tiefgekühlter Spinat funktioniert genauso gut wie frischer und kostet weniger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4600,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-miso-bowl/",
+      "components": [
+        {
+          "key": "68ad12d9-3ee7-51b9-94f3-9fd404d27de3",
+          "name": "Zutaten",
+          "servingGrams": 1435,
+          "position": 0,
+          "items": [
+            {
+              "key": "09a23a67-2ac8-525d-a98a-2fb7f6b740ad",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "706082d0-6b32-5164-ba03-3e83d81dbe81",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f1648ce8-7814-56f5-a19d-fc575302a7c7",
+              "ingredientName": "Tofu",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "82838106-8bf9-5e41-9db0-49dab96d5353",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03693630-a5da-5994-8001-d484fde31371",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3d48ee6-5361-5623-93c3-bb2404e090fa",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98b60068-acb3-5d92-86d0-9037362b1cf3",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8c42998f-3650-59c2-a7b7-89bd3eceac9f",
+              "ingredientName": "Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "93b574b8-e715-507b-b812-86d1e01feeb6",
+              "ingredientName": "Dashi-Pulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7e01342e-0d4b-5301-958e-00ed0aa28caa",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser mit Dashipulver zum Köcheln bringen, dann vom Herd nehmen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tofu würfeln und Nori in kleine Stücke reißen, dann die Pilze in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einem separaten kleinen Topf Wasser aufkochen und die Eier pochieren, bis das Eiweiß fest, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Misopaste auf die Schüsseln verteilen, unter Rühren vorsichtig heiße Dashibrühe angießen und Tofuwürfel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Schüssel mit Spinat, Pilzen, einem pochierten Ei, Frühlingszwiebeln, Nori-Streifen und Sesam garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/67d4484a9714c8864137a92b/1:1/w_2560%2Cc_limit/20250110_01_WKNT_Grain%2520Bowl_033_FINAL.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/67d4484a9714c8864137a92b/1:1/w_2560%2Cc_limit/20250110_01_WKNT_Grain%2520Bowl_033_FINAL.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-congee-bowl",
+      "slug": "gen-congee-bowl",
+      "title": "Congee-Schale",
+      "instructions": "Chinesisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Gemüsebrühe oder Wasser statt Hühnerbrühe und spare 30%",
+        "Kaufe Ingwer in größeren Mengen und friere ihn für die spätere Verwendung in vielen Gerichten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4601,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-congee-bowl/",
+      "components": [
+        {
+          "key": "8b0acd1c-4a59-50be-8ee1-eb1f96ebe3e8",
+          "name": "Zutaten",
+          "servingGrams": 518.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "ecb275c7-a1db-5e58-bf77-793c321b0175",
+              "ingredientName": "Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "97765dbb-45e0-5ad1-aec7-0766a9ad0b06",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d5dadac5-3469-57a5-91b6-f103960c9492",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Unze"
+            },
+            {
+              "key": "240cd26a-3adf-5d6b-933a-15a7b7af21ff",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "294fedaa-e8b7-597f-b7c5-78e826d0f7b3",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "96947abb-252d-5e38-afc9-5afcf4f881ac",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d0645a36-608e-5fbe-9405-fb977139b13b",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "821e91e2-5e48-593a-9cfc-6912ae7eb313",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "826d3a69-f5e4-55b4-a658-847ae0912566",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "ccbf75e8-b676-587d-922d-33d7be35e032",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hühnerbrühe in einem großen Topf zum Kochen bringen und den abgespülten Reis sowie den in Scheiben geschnittenen Ingwer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hitze reduzieren und 45 Minuten ohne Deckel köcheln lassen, gelegentlich umrühren, bis der Reis zu einem Brei zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während der Congee kocht, die Eier in einer Schüssel verquirlen und Frühlingszwiebel sowie Koriander in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die verquirlten Eier unter vorsichtigem Rühren in den köchelnden Congee träufeln, sodass Fäden entstehen, dann 1 Minute weiterkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Sojasoße, Sesamöl und weißem Pfeffer würzen, in Schalen schöpfen und mit Frühlingszwiebel und Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/AnJONheVyKxdi9ZL0JcbQrB6bXc=/3936x2624/filters:no_upscale():max_bytes(150000):strip_icc()/1.Method1basic-congee-recipes-4065244_Final-5b9fa3aa46e0fb0025fe5272.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/AnJONheVyKxdi9ZL0JcbQrB6bXc=/3936x2624/filters:no_upscale():max_bytes(150000):strip_icc()/1.Method1basic-congee-recipes-4065244_Final-5b9fa3aa46e0fb0025fe5272.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-naan",
+      "slug": "gen-naan",
+      "title": "Naan",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Naturjoghurt nach griechischer Art oder normalen Joghurt, je nachdem, was günstiger ist",
+        "Bereite eine größere Menge zu und friere Reste für schnelles späteres Aufwärmen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4602,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-naan/",
+      "components": [
+        {
+          "key": "f84e96c9-0a3e-56b1-9b94-a313056a2dea",
+          "name": "Zutaten",
+          "servingGrams": 258,
+          "position": 0,
+          "items": [
+            {
+              "key": "f17b3863-2dd0-5617-83fc-5ee228827c22",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "4cca17c4-ec25-537e-8ae8-adc692e2cc6c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "71458e5e-388d-5b62-92b8-530cedfc2c1d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "a7690e73-6d9e-5401-b0c1-81acde84be44",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "88352ebd-3aea-5d28-b936-b4064ffaf907",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2d365d3d-3a71-5ed0-8d5c-b8926efb8a9e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4f712bb4-4d32-5b50-bc24-56afd180d67d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c15c7b0d-27a9-5ca1-a258-1396879239ef",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "401fc7da-971c-55a3-9010-de3222f46c46",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8ae68a45-a087-54e6-beda-212c54c8ebec",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und Backpulver in einer großen Schüssel vermischen, dann in der Mitte eine Mulde formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Joghurt und warmes Wasser in die Mulde geben, mit den Händen zu einem weichen Teig vermischen und 5 Minuten kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig leicht mit Öl bestreichen, mit Frischhaltefolie abdecken und 1 Stunde bei Raumtemperatur gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in 4 gleich große Portionen teilen und jede zu einem dünnen, etwa 0.25 Zoll dicken Oval ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Pfanne oder gusseiserne Pfanne bei hoher Hitze erhitzen und jedes Naan 2-3 Minuten pro Seite backen, bis es aufgegangen und angebräunt ist; vor dem Servieren mit Butter bestreichen und mit gehacktem Knoblauch, Koriander und Schwarzkümmel bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/05/FLUFFY-Perfect-Vegan-Naan-with-just-7-ingredients-Perfect-for-curries-soups-and-more-vegan-plantbased-naan-recipe-bread-indian.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/05/FLUFFY-Perfect-Vegan-Naan-with-just-7-ingredients-Perfect-for-curries-soups-and-more-vegan-plantbased-naan-recipe-bread-indian.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paratha",
+      "slug": "gen-paratha",
+      "title": "Paratha",
+      "instructions": "Indisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Öl in größeren Mengen, um die Kosten pro Portion zu senken",
+        "Verwende saisonale Zwiebeln und frischen Koriander aus Discountern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4603,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paratha/",
+      "components": [
+        {
+          "key": "9636e72b-15d4-5ec1-a427-0177403f7a26",
+          "name": "Zutaten",
+          "servingGrams": 442.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "100acacb-37e8-5c18-b639-db88e5e96c88",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "67889b41-298d-5c27-af39-3a2450b19e4f",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "9a242c58-8d48-5c17-911a-db4f62841907",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0b687870-cc8c-5a29-9c63-c9410360bcd2",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "96fdf005-fd1b-57da-bd61-30860a05cc65",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8afb0f57-be6e-570a-8922-a40fc3fbb980",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "3b53deb6-7eb1-5d90-8bd7-dd11b768e4d7",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "58e93b8d-7ddc-57fb-b6d8-622251f63a3c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und 1 Esslöffel Öl in einer Schüssel vermischen, dann nach und nach Wasser hinzufügen, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 5 Minuten kneten, bis er glatt ist, mit einem feuchten Tuch abdecken und 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in 4 Kugeln teilen und jede zu einem dünnen Kreis von etwa 6 Zoll Durchmesser ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebel, Chili, Koriander und eine Prise Salz vermischen und auf jedem Teigkreis verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zur Hälfte falten, dann erneut zur Hälfte falten, sodass ein Dreieck entsteht, und vorsichtig andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine Pfanne oder Tawa bei mittlerer bis hoher Hitze erhitzen und mit Ghee oder Öl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jedes Paratha 2-3 Minuten pro Seite backen, bis goldbraune Flecken entstehen, dabei vorsichtig mit einem Pfannenwender andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die fertigen Parathas mit zerlassener Butter bestreichen und heiß mit Joghurt oder Curry servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xNnc7LZcZ-sDeK_3Ox7RI0BXOE0=/5616x3744/filters:fill(auto,1)/GettyImages-676294571-7d58c21598a54c1b813fa12334fee6ad.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xNnc7LZcZ-sDeK_3Ox7RI0BXOE0=/5616x3744/filters:fill(auto,1)/GettyImages-676294571-7d58c21598a54c1b813fa12334fee6ad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pita",
+      "slug": "gen-pita",
+      "title": "Pita",
+      "instructions": "Nahöstliches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine große Menge zu und friere Reste für später ein",
+        "Kaufe Hefe in Großpackungen statt in einzelnen Tütchen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Naher Osten",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4604,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pita/",
+      "components": [
+        {
+          "key": "a1855ceb-4bb7-5257-b02a-ab183b4c5435",
+          "name": "Zutaten",
+          "servingGrams": 351.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec426e64-30f7-54ac-bb0f-11adab7d1dff",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "ce0396bf-3864-54aa-a1b9-b0b04b3fa786",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 45,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "d60d129a-aef5-5393-b323-f78aea3275b4",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d23d906e-7c8a-5924-91f7-bab71dd14701",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "4147fd94-1762-5d85-96b6-fa4a23f3eafa",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "aba46e2c-f16b-5e72-bc4d-321951a25200",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe und Zucker in warmem Wasser auflösen und 5 Minuten stehen lassen, bis die Mischung schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz in einer großen Schüssel vermischen, eine Mulde formen und die Hefemischung sowie Olivenöl hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig 8 Minuten kneten, bis er glatt und elastisch ist, dann in eine geölte Schüssel legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Frischhaltefolie abdecken und 1 Stunde an einem warmen Ort gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig in 6 gleich große Kugeln teilen und jede auf eine Dicke von etwa 1/4 Zoll flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die flach gedrückten Teigfladen auf Backpapier legen, abdecken und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Ofen auf 475°F vorheizen und ein Backblech darin 10 Minuten erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "2-3 Pita-Brote auf das heiße Backblech legen und 5-7 Minuten backen, bis sie aufgegangen und leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/33t2ncB0q7wVv6OfaBecaKZ_K84=/3024x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-homemade-pita-bread-3062291-carrie-parente-20201-d9a6fb9480b34bb5a4b6a6015e1d35f2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/33t2ncB0q7wVv6OfaBecaKZ_K84=/3024x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-homemade-pita-bread-3062291-carrie-parente-20201-d9a6fb9480b34bb5a4b6a6015e1d35f2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

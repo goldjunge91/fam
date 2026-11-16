@@ -1,0 +1,1088 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-blintzes",
+      "slug": "gen-blintzes",
+      "title": "Blintzes",
+      "instructions": "Jüdisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ricotta ist meist günstiger als Ersatz für Bauernkäse.",
+        "Bereite die Blintzes im Voraus zu und wärme sie im 350°F heißen Ofen 8-10 Minuten auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5970,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blintzes/",
+      "components": [
+        {
+          "key": "50138208-df73-5b19-8e9a-e030262b4872",
+          "name": "Zutaten",
+          "servingGrams": 233.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf79c276-4473-5269-9fd4-724156795053",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "04522ce8-9ac5-5c33-87e3-68860ea74e4d",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "e1aad9d4-df71-5438-b693-985d90b14f96",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "84fc8c9a-1499-5082-ae6f-449ebb8bda42",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "031aa1cb-6c5f-532e-9e82-99fed85fa7cb",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel geschmolzen, aufgeteilt"
+            },
+            {
+              "key": "0003e1e3-29dc-5ce0-8415-53c57587e77d",
+              "ingredientName": "Ricotta",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "9072d951-6f96-5339-9433-9f140b4b25b6",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse für die Füllung"
+            },
+            {
+              "key": "2b52fdbb-59e9-5c0a-b924-e974c68d60ed",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9c31fbec-02fa-5010-97ed-5dcad77438e9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Braten"
+            },
+            {
+              "key": "bb07793f-80e2-5736-a160-e1c2561d66dd",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Eier, Milch, Salz und 1 Esslöffel geschmolzene Butter zu einem glatten Teig und lasse ihn 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Bauernkäse, 1/4 Tasse saure Sahne und 2 Esslöffel Zucker in einer Schüssel für die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine beschichtete Pfanne bei mittelhoher Hitze und fette sie leicht mit Öl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße 1/4 Tasse Teig in die Pfanne und backe ihn 1 Minute, bis die Unterseite fest ist. Wende ihn und backe die andere Seite weitere 30 Sekunden leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege den Blintz mit der gebackenen Seite nach oben auf einen Teller. Gib 2 Esslöffel Füllung in die Mitte, klappe die Ränder zu einem Rechteck darüber und lege ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wiederhole den Vorgang mit dem restlichen Teig und der Füllung, um 12–16 Blintzes zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib 1 Esslöffel Butter in die Pfanne und brate die gefüllten Blintzes auf jeder Seite 1–2 Minuten goldbraun und heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie heiß mit saurer Sahne und Marmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/V6nHvd6b9kepuqhGKJE_IGW-nM4=/4494x3000/filters:fill(auto,1)/jewish-cheese-blintzes-recipe-1136318-hero-01-22d5e078d8914d90add2b45b79ab99b4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/V6nHvd6b9kepuqhGKJE_IGW-nM4=/4494x3000/filters:fill(auto,1)/jewish-cheese-blintzes-recipe-1136318-hero-01-22d5e078d8914d90add2b45b79ab99b4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cachapas",
+      "slug": "gen-cachapas",
+      "title": "Cachapas",
+      "instructions": "Venezolanisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Maiskörner in großen Packungen; sie eignen sich genauso gut wie frischer Mais.",
+        "Verwende normalen Mozzarella, wenn Queso de Mano nicht erhältlich oder teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "venezolanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5971,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cachapas/",
+      "components": [
+        {
+          "key": "369ecf3e-c59d-5f82-9082-0be805a630ac",
+          "name": "Zutaten",
+          "servingGrams": 162.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "51dab255-2c67-5218-a18a-b09c35418147",
+              "ingredientName": "Frischer Mais",
+              "grams": 180,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen (oder tiefgekühlt und aufgetaut)"
+            },
+            {
+              "key": "98cfc12d-a80d-5dbc-98fe-e57496c82608",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "cecd7dad-4d9d-553f-8917-46c685a4e824",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0410bbf9-8660-56c1-bbe4-f9b35ad6819d",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e3b75d55-e4f5-5964-b8e7-22582205b6f6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "0751de79-7071-5d92-98df-2467a70126ba",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel geschmolzen"
+            },
+            {
+              "key": "4ef48c47-bd24-5216-b093-d46f40992236",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Braten"
+            },
+            {
+              "key": "6d0fa8b9-de7f-5460-b947-2a42206d11d2",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 oz in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere die Maiskörner mit dem Ei, bis die Masse größtenteils glatt ist und noch einige kleine Maisstückchen enthält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Mehl, Zucker, Salz und 3 Esslöffel geschmolzene Butter ein, bis ein dickflüssiger, aber gießbarer Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine beschichtete Pfanne oder Grillplatte bei mittlerer Hitze und fette sie leicht mit Öl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße 1/3 Tasse Teig auf die heiße Fläche und backe ihn 2–3 Minuten, bis die Unterseite goldbraun und der Rand fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende den Fladen vorsichtig und backe die andere Seite 1–2 Minuten hellgoldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege eine Scheibe Queso de Mano oder Mozzarella auf eine Hälfte jeder Cachapa, solange sie noch heiß ist. Klappe sie zusammen und gib ein kleines Stück Butter darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie warm. Wiederhole den Vorgang mit dem restlichen Teig; insgesamt ergeben sich 6–9 Cachapas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/gG-AdUiIe2jZ80xMPNsOv_CyG-w=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/cachapas-fresh-corn-pancakes-3029660-step-01-5d1e0c042bc64e80b5c2ec7a72c944af.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/gG-AdUiIe2jZ80xMPNsOv_CyG-w=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/cachapas-fresh-corn-pancakes-3029660-step-01-5d1e0c042bc64e80b5c2ec7a72c944af.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-alabama-white-bbq-chicken",
+      "slug": "gen-alabama-white-bbq-chicken",
+      "title": "Alabama-White-BBQ-Hähnchen",
+      "instructions": "Amerikanisches BBQ-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen statt einzelner Teile und spare 30 %.",
+        "Bereite die Sauce mit Mayonnaise von der Hausmarke und Essig zu, den du wahrscheinlich schon zu Hause hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisches-bbq",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5972,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-alabama-white-bbq-chicken/",
+      "components": [
+        {
+          "key": "8f3b54c9-2ed6-5272-9fa8-7459b1767699",
+          "name": "Zutaten",
+          "servingGrams": 85,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ac002b5-1cef-5ab0-b3c2-bb765066de64",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 (4-5 Pfund)"
+            },
+            {
+              "key": "f84e10c6-5ef8-5241-98df-84d0f5e8579c",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "10d1f81e-bfa3-50de-abc2-f96723924acc",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "866883b0-3a1f-505f-a006-5ce35ba389a1",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "555beee9-c488-5247-8be6-7e1d3e883706",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a2a2ee66-c6d4-51d1-824b-473c10136572",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d52dc89d-9fb1-5886-880d-cc66f0e79f92",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "770ab72f-0483-5338-9811-32b0497ca4d9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ce915fe8-3e2a-5477-b81d-6b93fb361979",
+              "ingredientName": "Chilisauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "e405ec45-c962-5d4f-94c3-5cbf82e476da",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Grill auf mittelhohe Hitze vor und öle den Rost gut ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe das Hähnchen mit Küchenpapier trocken und würze es innen und außen mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Hähnchen mit der Brustseite nach oben auf den Grill, decke ihn ab und gare es 35–40 Minuten, bis die Kerntemperatur 165 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre währenddessen Mayonnaise, Essig, Zitronensaft, Worcestershiresauce, Knoblauchpulver, schwarzen Pfeffer und Chilisauce in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche das Hähnchen während der letzten 10 Minuten der Garzeit großzügig mit der weißen BBQ-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Hähnchen vom Grill und lasse es 5 Minuten ruhen. Zerteile es anschließend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Röste die Brotscheiben auf dem Grill 1 Minute pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Hähnchen auf geröstetem Brot mit zusätzlicher Sauce als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lifeloveandgoodfood.com/wp-content/uploads/2023/06/Alabama-White-Sauce-PIN8.jpg",
+          "sourcePageUrl": "https://lifeloveandgoodfood.com/wp-content/uploads/2023/06/Alabama-White-Sauce-PIN8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lexington-style-pulled-pork",
+      "slug": "gen-lexington-style-pulled-pork",
+      "title": "Pulled Pork nach Lexington-Art",
+      "instructions": "Amerikanisches BBQ-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie bis zur Zubereitung ein.",
+        "Lass teure Krautsalatmischungen weg und schneide den Kohl selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisches-bbq",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5973,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lexington-style-pulled-pork/",
+      "components": [
+        {
+          "key": "f4a160cc-d084-52c5-949a-cd920d5e6bdf",
+          "name": "Zutaten",
+          "servingGrams": 403.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "895af90c-649a-5c5b-8492-122d30aa710c",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "3f69b2c9-de6c-5936-af87-f17165ade7b5",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3decd9da-403b-5277-ba7a-ec3f2715297a",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7a0c5eef-34bb-55f4-a550-1e64996fb208",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e7fb7d5c-fecc-506e-a1b4-3dc5247939f9",
+              "ingredientName": "Pfeffer",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "00a42fe3-7db3-5a4b-8e5c-68027e1a2585",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7f0b4d1b-036d-537b-8357-5c63ccbdd1e5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0c7f1217-f058-5739-9873-381a976a8e62",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "89cbb750-e3a0-5e11-9a9a-e11099c95298",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2872935-0474-571a-99d2-8172445ea8fb",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide überschüssiges Fett von der Schweineschulter ab und reibe sie rundherum mit Salz, schwarzem Pfeffer und Knoblauchpulver ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize Smoker oder Grill auf 225 °F vor. Lege die Schweineschulter mit der Fettseite nach oben hinein und räuchere sie 6–8 Stunden, bis die Kerntemperatur 190 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Apfelessig, Ketchup, braunen Zucker, schwarzen Pfeffer und Chiliflocken in einem Topf und erhitze die Sauce 5 Minuten bei niedriger Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Fleisch aus dem Smoker und lasse es 15 Minuten ruhen. Zupfe es dann mit zwei Gabeln vollständig auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge das Pulled Pork mit der Lexington-Sauce, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Hamburgerbrötchen leicht auf dem Grill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Pulled Pork auf den gerösteten Brötchen und belege es mit Krautsalatmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/GCfyf6ordcSTkWvQ1sbEDWxP1Hg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Texas-Pulled-Pork-LEAD-2-d56e93b4db6b41b08b8a535c1c1ac57d.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/GCfyf6ordcSTkWvQ1sbEDWxP1Hg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Texas-Pulled-Pork-LEAD-2-d56e93b4db6b41b08b8a535c1c1ac57d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-texas-hill-country-sausage",
+      "slug": "gen-texas-hill-country-sausage",
+      "title": "Wurst nach Texas-Hill-Country-Art",
+      "instructions": "Amerikanisches BBQ-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wurst im Angebot und friere sie für später ein.",
+        "Verwende Senf von der Hausmarke und verzichte auf teure Spezialsaucen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisches-bbq",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5974,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-texas-hill-country-sausage/",
+      "components": [
+        {
+          "key": "e76e7e78-6a9d-52fd-bb89-634dd8822b9e",
+          "name": "Zutaten",
+          "servingGrams": 199.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "d59ba74a-d79a-5b97-8a5f-a746fc08ace5",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "3af5cfe5-f8b5-51ef-9813-2f0ec85a9c83",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "d5d262d5-5ee6-5e94-881a-46420333249f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "1030325e-f50b-5858-b8a0-f9b6fd47858c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "37ba92eb-5b12-52fb-a1e5-666b456ad28f",
+              "ingredientName": "Jalapeños",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "50b23345-8201-52b3-90cc-b5f803aaf212",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8e2feb6d-e718-59fd-9d52-1431c2d542d5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 große, in Scheiben geschnitten"
+            },
+            {
+              "key": "fd173ccc-1f14-560b-adb6-c232dbe5c6ec",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "c9e8d53b-c2ee-54a0-8944-fed86059a717",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ae5f3377-a1a2-50de-97bd-a91d8ca28764",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Wurst in 1/2 Zoll dicke Scheiben und ritze die Oberfläche kreuzweise mit einem Messer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Grill auf mittelhohe Hitze vor. Lege die Wurstscheiben direkt auf den Rost und grille sie 3–4 Minuten pro Seite, bis sie gut gebräunt und durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz Butter in einer gusseisernen Pfanne auf dem Grill und brate die Zwiebelscheiben und Jalapeños etwa 8 Minuten karamellisiert an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Brotscheiben auf dem Grill auf jeder Seite etwa 1 Minute goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche das geröstete Brot mit Senf und belege es mit der gebräunten Wurst, der Zwiebel-Jalapeño-Mischung und Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das Brot für 1 Minute zurück auf den Grill, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es sofort und bestreue es mit grob gemahlenem schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.texasfood.com/images/product/TXHILLCOUNTRY_DUO2.jpg",
+          "sourcePageUrl": "https://www.texasfood.com/images/product/TXHILLCOUNTRY_DUO2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

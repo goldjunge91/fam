@@ -1,0 +1,1026 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-tempeh-breakfast-scramble",
+      "slug": "mfr-tempeh-breakfast-scramble",
+      "title": "Tempeh-Rührei zum Frühstück",
+      "instructions": "Zerbröselter Tempeh wird mit Kurkuma, Paprika und Zwiebel angebraten: ein pflanzliches Frühstücksrührei mit mehr Protein als Rührei aus Eiern.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tempeh liefert 30g Protein pro Block, mehr als Eier, für etwa $2–4.",
+        "Hefeflocken sorgen für käsigen, herzhaften Geschmack und B12 für etwa $0.15 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tempeh",
+          "swap": "Fester Tofu für ein weicheres Rührei"
+        },
+        {
+          "forIngredientId": "nutritional-yeast",
+          "swap": "Weglassen. Kurkuma und Paprikapulver bringen genug Geschmack mit"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tempeh-breakfast-scramble",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "schnell",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 840,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tempeh-breakfast-scramble/",
+      "components": [
+        {
+          "key": "e986a36e-97ed-5d50-b50a-1ef3c72735f7",
+          "name": "Zutaten",
+          "servingGrams": 241.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f987edf2-65b2-5ad8-871a-6136462253a2",
+              "ingredientName": "Tempeh",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cf83209-71e5-5574-b0dd-e4c34f6e23df",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33b5aa8b-dc74-5e22-b676-17df574ff46b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb97dd59-1910-5ac9-970b-ecd5bb027962",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f445941c-7330-5871-b48c-4a2ad7475535",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cd20033-9af4-5b8a-a30d-a2b526ba7f9f",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16648a85-9853-5a40-a21e-c28f4d762589",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c626de1-6e41-5ffd-9973-17a4f95adff8",
+              "ingredientName": "Hefeflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b292173f-fb1b-5172-bbd8-bbd9018240c2",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "303ef7c6-30e7-5919-9e53-6c9c432e35a0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5913e1c-60fa-55f1-804d-152d8095438f",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "129368a1-1fb8-58a5-89e3-688e7ce93947",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrösele den Tempeh in kleine Stücke, die an Rührei erinnern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Sesamöl bei mittlerer Hitze. Dünste gewürfelte Zwiebel und Paprika 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und zerbröselten Tempeh dazu. Gare alles 4 Minuten, bis es leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Kurkuma, geräuchertem Paprikapulver, Sojasauce und Hefeflocken. Gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Rührei mit Frühlingszwiebel und Avocado. Dazu passt Toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/kQbAf0ul9Z5VjubM1w5qX2FoKPU=/5642x3761/filters:fill(auto,1)/breakfast-tempeh-hash-recipe-3376591-hero-1-b379b71fc1f24bd4bbb90444f0e1515a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/kQbAf0ul9Z5VjubM1w5qX2FoKPU=/5642x3761/filters:fill(auto,1)/breakfast-tempeh-hash-recipe-3376591-hero-1-b379b71fc1f24bd4bbb90444f0e1515a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lox-cream-toast",
+      "slug": "mfr-lox-cream-toast",
+      "title": "Power-Toast mit Lachs und Frischkäse",
+      "instructions": "Vollkorntoast mit Frischkäse, Räucherlachs, Kapern und Microgreens: ein Frühstück in 5 Minuten, das wie in einem schicken Brunchlokal schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs aus der Dose ist 80% günstiger als echter Räucherlachs und enthält ähnlich viel Protein.",
+        "Vollkornbrot liefert Ballaststoffe und hält länger satt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-salmon",
+          "swap": "Echter Räucherlachs oder Lox für den traditionellen Geschmack"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Reiswaffeln als glutenfreie, kohlenhydratarme Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lox-cream-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 841,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lox-cream-toast/",
+      "components": [
+        {
+          "key": "c9151188-991f-5718-a250-82193a13e3b7",
+          "name": "Zutaten",
+          "servingGrams": 546,
+          "position": 0,
+          "items": [
+            {
+              "key": "a07d06d5-d376-5acd-ac90-9217abeaefc9",
+              "ingredientName": "Lachs aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa6327f9-3874-58ec-9732-9938b4b6e81e",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b48b4372-5a86-59a9-b36a-23c5af50d205",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8218e966-e799-5595-b84f-fdfd8d0e62b7",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43a9785c-0a89-5e9e-ae2d-ffbd59cd7c22",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f5812aa-f72c-5f45-ba4e-2fb7aadafb14",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "611b2a12-cd85-5161-bc2c-bef5ce020e35",
+              "ingredientName": "Everything-Bagel-Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste zwei Scheiben Vollkornbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede Scheibe großzügig mit Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den zerpflückten Dosenlachs auf dem Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib dünne rote Zwiebelringe und etwas Everything-Bagel-Gewürzmischung sowie getrockneten Dill darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse zum Schluss etwas Zitronensaft darüber. Sofort essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/04/Smoked-Salmon-Toasts-with-Cream-Cheese-Recipe-10.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/04/Smoked-Salmon-Toasts-with-Cream-Cheese-Recipe-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-green-protein-smoothie",
+      "slug": "mfr-green-protein-smoothie",
+      "title": "Grüner Protein-Smoothie mit Spinat",
+      "instructions": "Ein sämiger, cremiger grüner Smoothie mit Spinat, Banane, griechischem Joghurt und Proteinpulver: schmeckt wie eine Leckerei und macht satt wie eine Mahlzeit.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Spinat kostet etwa $1–2 pro Beutel, und du brauchst nur eine Handvoll.",
+        "Die Banane süßt ganz natürlich. Je reifer sie ist, desto süßer wird der Smoothie."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-milk",
+          "swap": "Kuhmilch oder Hafermilch"
+        },
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Mehr griechischer Joghurt als Proteinquelle aus vollwertigen Lebensmitteln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-green-protein-smoothie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 842,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-green-protein-smoothie/",
+      "components": [
+        {
+          "key": "6d4c5b15-59a1-5765-9663-4d06b82c9c51",
+          "name": "Zutaten",
+          "servingGrams": 575.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d2c2489-6c55-532d-a503-68e057ab1fd9",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c31d226-997c-5841-9e2f-5a2446d842ea",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "524aad49-6a30-5a7c-a51e-4128cc59eb72",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97ea64b3-051c-5289-8187-0468cf69df57",
+              "ingredientName": "Mandelmilch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55f8c42b-75a8-52fb-b473-774934934fd2",
+              "ingredientName": "Proteinpulver",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9f36352-5665-5879-bc7d-cadfa8dbb3f9",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b5887fb-c5a8-5216-9b27-d301392d7f6f",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere tiefgekühlten Spinat, Banane, griechischen Joghurt, Mandelmilch, Proteinpulver, Erdnussbutter und Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beginne mit niedriger Geschwindigkeit, um den Spinat zu zerkleinern, und erhöhe dann auf hohe Stufe. Mixe alles 60 Sekunden, bis der Smoothie seidig-cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Probiere den Smoothie und passe die Süße an. Gieße ihn in ein Glas oder einen Becher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die beste Konsistenz sofort trinken oder bis zu 8 Stunden kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fannetasticfood.com/wp-content/uploads/2010/04/banana-spinach-smoothie-1.jpg",
+          "sourcePageUrl": "https://www.fannetasticfood.com/wp-content/uploads/2010/04/banana-spinach-smoothie-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-meal-prep-bowls",
+      "slug": "mfr-chicken-meal-prep-bowls",
+      "title": "Hähnchen-Gemüse-Schalen für 5 Tage",
+      "instructions": "Hähnchenbrust vom Blech mit gerösteter Süßkartoffel und Brokkoli auf Naturreis: fünf gleich zusammengestellte, perfekt portionierte Lunchboxen, die du einmal am Sonntag vorbereitest.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen in Großpackungen für Familien senkt den Preis pro Pfund um 30%.",
+        "Naturreis im großen Beutel kostet etwa $0.20 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffel oder Butternusskürbis"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Grüne Bohnen, Zucchini oder beliebiges Gemüse, das sich gut rösten lässt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-meal-prep-bowls",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 843,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-meal-prep-bowls/",
+      "components": [
+        {
+          "key": "4e2708f6-1286-51bf-9140-ba33c2fd0bb6",
+          "name": "Zutaten",
+          "servingGrams": 473.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d6a3ee6-bd50-5712-9084-17a70af01c59",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 250,
+              "quantity": 2.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5798ef0b-8edb-5584-b2f5-d79dbaa30160",
+              "ingredientName": "Süßkartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ede28fe6-d638-5bcc-8675-6edf1cbeee64",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1814d05-24cd-5603-ab5a-bdece36caaa8",
+              "ingredientName": "Naturreis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3bee596-78e0-5361-bd72-81209a1ddd17",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f25459ca-b6b2-5a1f-b190-1b6500d85cfe",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abc8878e-8634-591c-a43f-726967af22be",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56a8ecb3-4e2f-53e9-9a93-861502317eee",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e79704c3-1a21-5b44-b633-04254f965c16",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor. Koche den Naturreis nach Packungsanleitung oder verwende einen Reiskocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Süßkartoffeln und teile den Brokkoli in Röschen. Vermenge beides mit 1 tbsp Olivenöl, Salz und geräuchertem Paprikapulver auf einem großen Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Hähnchenbrüste mit Knoblauchpulver, italienischen Kräutern, dem restlichen Olivenöl, Salz und Pfeffer. Lege sie auf ein separates Blech oder auf die andere Hälfte desselben Blechs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste alles 25–30 Minuten, bis das Hähnchen vollständig gar und das Gemüse karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide das Hähnchen auf und verteile alles gleichmäßig auf 5 Meal-Prep-Behälter mit Reis. Bis zu 5 Tage im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/5b/2e/63/5b2e63db42418b9b0a8c8b25aab53b0e.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/5b/2e/63/5b2e63db42418b9b0a8c8b25aab53b0e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-rice-veggie-prep",
+      "slug": "mfr-turkey-rice-veggie-prep",
+      "title": "Meal Prep mit Putenhack und Naturreis",
+      "instructions": "Gewürztes mageres Putenhack mit Naturreis und angebratener Zucchini: eine einfache, vielseitige Meal-Prep-Basis, die du jeden Tag mit einer anderen Sauce variieren kannst.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Pfund Putenhack für 5 Tage kosten insgesamt etwa $8–10.",
+        "Naturreis aus dem Großgebinde kostet etwa $0.20 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Beliebiges saisonales Gemüse. Wechsle es im Laufe der Woche für mehr Abwechslung aus"
+        },
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Quinoa oder Farro für andere Protein- und Ballaststoffwerte"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-rice-veggie-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 844,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-rice-veggie-prep/",
+      "components": [
+        {
+          "key": "0d7478fd-c829-5c78-8c79-76b80f02e0a6",
+          "name": "Zutaten",
+          "servingGrams": 316.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "549908ab-75a0-59ab-9883-3535cf235b6c",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85714626-9412-56a2-a5ca-a6af0bb1f18e",
+              "ingredientName": "Naturreis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9b4b39d-9d8c-54c6-8cba-41bb05a93a1d",
+              "ingredientName": "Zucchini",
+              "grams": 588,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63b94c99-538b-55d6-99f4-0be253e6612f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a370c2f6-38ea-51fa-8541-aca625fdb4fa",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1d4dbec-9ffc-578d-a436-941fa6baa72c",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4264183-7601-59ab-a8d3-39838854150f",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd865a7b-aa58-5c10-926a-9b652e612fe3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "160fc756-5681-5961-acc1-1c8b09e3382f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Naturreis, am einfachsten im Reiskocher. Würze 2 lbs Putenhack mit italienischen Kräutern, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune das Putenhack 8 Minuten in Olivenöl bei mittelhoher Hitze und zerteile es dabei. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste in derselben Pfanne gewürfelte Zwiebel 4 Minuten an. Gib Knoblauch und gewürfelte Zucchini dazu und gare alles weitere 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Reis, Putenhack und Gemüse gleichmäßig auf 5 Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ergänze jeden Tag eine Sauce deiner Wahl, zum Beispiel Salsa, scharfe Sauce, Sriracha oder einfache Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlheartfood.com/wp-content/uploads/2021/05/Rice-and-Ground-Turkey-Bowls.jpg",
+          "sourcePageUrl": "https://girlheartfood.com/wp-content/uploads/2021/05/Rice-and-Ground-Turkey-Bowls.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

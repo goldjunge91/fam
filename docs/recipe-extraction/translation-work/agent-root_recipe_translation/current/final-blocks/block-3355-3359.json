@@ -1,0 +1,944 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tondaburu",
+      "slug": "gen-tondaburu",
+      "title": "Tondaburu",
+      "instructions": "Okinawanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter statt Schweinebauch verwenden, um Geld zu sparen",
+        "Daikon kann durch Kartoffeln ersetzt werden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "okinawanisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3355,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tondaburu/",
+      "components": [
+        {
+          "key": "02f1cce3-3365-537d-93ec-50f07631e3c2",
+          "name": "Zutaten",
+          "servingGrams": 311.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "100b23ed-8dcb-5ce3-8eee-124e6f10492d",
+              "ingredientName": "Schweineschulter",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "500 g"
+            },
+            {
+              "key": "cc9dbbda-0461-5deb-9cda-907aefc1aafc",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e479d537-d306-58dd-b77a-7fd29b40fb6d",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e5b7b245-4cbf-5818-8fb3-5350a4360de7",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6095437b-eb64-5314-b1b6-94cd82b2d3ad",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e5b57f39-30ae-509d-a1fb-810f657d0a64",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "27156745-b506-59a7-8ff5-907a88719420",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "116a037c-6ebe-51a3-9fbe-59a2b3db0022",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "200 g, gewürfelt"
+            },
+            {
+              "key": "d126e42e-c085-5f41-b103-098500c92069",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinefleisch in 3-inch-Würfel schneiden und 3 Minuten in kochendem Wasser blanchieren, dann abgießen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen Topf bei mittelhoher Hitze erhitzen und Schweinefleisch hineingeben; etwa 4 Minuten von allen Seiten leicht anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ingwer und Knoblauch hinzufügen und 1 Minute rühren, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser, Sojasauce, Mirin und Sake angießen, aufkochen und dann die Hitze auf mittelniedrig reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "20 Minuten köcheln lassen, dann Daikon-Rettich hinzufügen und weitere 8 Minuten köcheln lassen, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und vor dem Servieren mit geschnittener Frühlingszwiebel garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-asechi",
+      "slug": "gen-asechi",
+      "title": "Asechi",
+      "instructions": "Okinawanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Falls keine grüne Papaya erhältlich ist, Gurke verwenden",
+        "Thunfisch aus der Dose während Sonderangeboten in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "okinawanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3356,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-asechi/",
+      "components": [
+        {
+          "key": "2c759c93-8bba-56a6-95f3-9f338c431aaf",
+          "name": "Zutaten",
+          "servingGrams": 376.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b939325-5e41-5619-9ae4-0b7f7f023b62",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "200 g"
+            },
+            {
+              "key": "36fb30a0-8b7d-5d49-9e80-a4f765e0f1c6",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "300 g, in Scheiben geschnitten"
+            },
+            {
+              "key": "450ffb54-a286-5273-867d-8294889df527",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0a2d03cc-f2f4-5bf5-a249-781da0e992a7",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "25d408c3-098b-5d89-bb83-a78bc752b033",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2ac14d76-bbda-5e6e-bbab-8a900a83d677",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zehe, fein gehackt"
+            },
+            {
+              "key": "16ff9ff7-473c-5534-b682-b84957e63f23",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "66e24f35-383a-5c07-9b95-13d9743cf34b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grüne Papaya in dünne Stifte schneiden und in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salz über die Papaya streuen und 5 Minuten ruhen lassen, dann überschüssige Flüssigkeit vorsichtig ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Thunfisch aus der Dose abgießen und mit einer Gabel zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Essig, Sesamöl und gehackten Knoblauch in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Papaya und Thunfisch in einer Servierschüssel vermengen, Dressing darüber gießen und vorsichtig mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren mit geschnittener roter Chili und Sesamsamen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/gTbQyVqZCY7oA7iQeeE1FTV89Tk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/56561718-569b3e3d3df78cafda93ef11.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/gTbQyVqZCY7oA7iQeeE1FTV89Tk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/56561718-569b3e3d3df78cafda93ef11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-awamori",
+      "slug": "gen-awamori",
+      "title": "Awamori",
+      "instructions": "Okinawanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln lose auf Bauernmärkten kaufen",
+        "Falls keine Sake-Hefe erhältlich ist, normale Bäckerhefe verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "okinawanisch",
+        "abendessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3357,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-awamori/",
+      "components": [
+        {
+          "key": "e64784cf-18b6-537b-8773-b0031b03766d",
+          "name": "Zutaten",
+          "servingGrams": 295,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a4b49c9-7bf6-54e2-a9b7-360333a0bb20",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1000 g"
+            },
+            {
+              "key": "bcdd087e-d59a-5389-8489-d43b7f731cb3",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "db242b37-a8c9-5e10-ba4b-cd5fdccbae50",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "62673eda-d46e-5b72-9cd1-836a2d59249b",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "39ea41f2-49a2-56ba-a21f-7943dae0042e",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Süßkartoffeln dämpfen oder kochen, bis sie vollständig gar sind, dann ganz abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gekochte Süßkartoffeln gründlich zerstampfen und in einem sauberen Glas mit Koji-Sporen vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Mischung bei Raumtemperatur (68-75°F) 48 Stunden mit Käsetuch abgedeckt stehen lassen und täglich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hefe und Zucker zur Koji-Mischung geben und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Locker abdecken und 7-14 Tage bei Raumtemperatur fermentieren lassen; alle 2-3 Tage umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Durch ein Käsetuch in saubere Flaschen abseihen und verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Verzehr an einem kühlen, dunklen Ort mindestens 3 Monate reifen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2025/07/AwamoriShochu_1359.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2025/07/AwamoriShochu_1359.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-andagi",
+      "slug": "gen-andagi",
+      "title": "Andagi",
+      "instructions": "Okinawanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl in großen Mengen kaufen",
+        "Frittieröl vor dem Entsorgen mehrfach wiederverwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "okinawanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3358,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-andagi/",
+      "components": [
+        {
+          "key": "0e853602-4770-5881-b1cd-52a730b7bcf5",
+          "name": "Zutaten",
+          "servingGrams": 112.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "1901b4d7-1e49-5f3a-9173-fbd0bf9e8f8d",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "64b5635f-628b-56dd-b68b-fb46ba0b6cfd",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4e9e0b22-c583-5bf0-b62d-d3756915713d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "b7f3ce45-6dbf-5746-8e57-6f890d7f7b91",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "2522eb79-0da8-5482-8c7b-9e8548b3a4d7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "4589d05a-b7ce-5945-8f2f-dbea65e4e828",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3b257342-b855-5f48-9754-0768ce1ed0b1",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker, Backpulver und Salz in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier mit Vanilleextrakt in einer anderen Schüssel gut verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Flüssige und trockene Zutaten vermengen und rühren, bis ein dicker Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem tiefen Topf auf 350°F (175°C) erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffelweise Teig ins heiße Öl geben und 2-3 Minuten pro Seite goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Küchenpapier abtropfen lassen und vor dem Servieren leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2021-05-weeknight-global-hawaiian-sheldon/weeknight-hawaiian-andagi-okinawan-doughnuts-3",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2021-05-weeknight-global-hawaiian-sheldon/weeknight-hawaiian-andagi-okinawan-doughnuts-3",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pani-andagi",
+      "slug": "gen-pani-andagi",
+      "title": "Pani Andagi",
+      "instructions": "Okinawanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sirup während des Frittierens zubereiten, um Zeit zu sparen",
+        "Brauner Zucker ist manchmal günstiger als weißer Zucker"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "okinawanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3359,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pani-andagi/",
+      "components": [
+        {
+          "key": "a8da7f26-e3cd-5010-b60d-4d951d1065ad",
+          "name": "Zutaten",
+          "servingGrams": 232.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d4059df-b20f-5224-990f-859b50bbc9f6",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "56587980-9545-52fd-a676-63191697fffa",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "47db1742-9e69-54bf-a0f7-61e537421c23",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "155ef2e8-937e-5419-b5a8-580c6c8b58fb",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "c2d1d78a-010a-5d6b-8d4f-3787c428345f",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ecbd7af0-3037-586f-86e2-8218b511dd55",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "1536faf2-307f-5c57-912a-c24679b52ff4",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker und Backpulver in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier mit 3 tablespoons Wasser verquirlen und mit der Mehlmischung vermengen, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem tiefen Topf auf 350°F (175°C) erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kleine Löffel Teig ins heiße Öl geben und insgesamt 3-4 Minuten frittieren; gelegentlich wenden, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während des Frittierens braunen Zucker und 1/2 cup Wasser in einem Topf bei mittlerer Hitze etwa 5 Minuten sirupartig einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittierte Andagi auf Küchenpapier abtropfen lassen und dann im warmen braunen Zuckersirup wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm servieren, sodass der Sirup an jedem Stück haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2021-05-weeknight-global-hawaiian-sheldon/weeknight-hawaiian-andagi-okinawan-doughnuts-3",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2021-05-weeknight-global-hawaiian-sheldon/weeknight-hawaiian-andagi-okinawan-doughnuts-3",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

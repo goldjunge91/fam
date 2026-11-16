@@ -1,0 +1,1072 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-amina",
+      "slug": "gen-amina",
+      "title": "Amina",
+      "instructions": "Berberisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammgulaschfleisch lose statt abgepackt",
+        "Verwende Trockenfrüchte aus dem Großhandel statt teurer Spezialmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Berber",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6530,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-amina/",
+      "components": [
+        {
+          "key": "9129e20e-e6a8-57fa-a937-67f817a3344a",
+          "name": "Zutaten",
+          "servingGrams": 291.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "f1a153c0-8e32-5c59-adee-237bc43d86ec",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ef7f228e-9fa5-55df-bf59-17ee635ff681",
+              "ingredientName": "getrocknete Aprikosen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d1fe6b55-4e4c-5a19-8331-2856fd7f28d9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "efb515b4-c4a9-5226-b8b8-8b950cb6e8f0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "09414e73-fe0d-5ab2-bcd3-839b8c56e0bf",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "38d74e8d-f63d-51b7-ae78-aaebc0ab2dc1",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d770e595-06a6-5a0c-89eb-ab8a2ed4aa65",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6487b592-cf1d-5951-be9a-2466ae69b824",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "95812853-3bc7-55fb-8f85-54779d0087e9",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "592835bb-a92b-5b6c-9592-7b34c50aa9a6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Lammfleisch in 1.5-inch-Würfel und tupfe es mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze und brate das Lamm portionsweise etwa 3 Minuten pro Seite an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Lamm heraus und stelle es beiseite. Brate dann gewürfelte Zwiebeln und gehackten Knoblauch etwa 4 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Ingwer, Zimt und Kreuzkümmel in den Topf und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Lamm zurück in den Topf und gieße Hühnerbrühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Köcheln, decke den Topf ab und gare das Gericht 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib getrocknete Aprikosen dazu und gare alles weitere 15 Minuten, bis das Lamm sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze nach Geschmack mit Salz und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://amina.com.au/wp-content/uploads/IMG_4138.jpg",
+          "sourcePageUrl": "https://amina.com.au/wp-content/uploads/IMG_4138.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kabab-mkalli",
+      "slug": "gen-kabab-mkalli",
+      "title": "Kabab Mkalli",
+      "instructions": "Berberisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hackfleisch von Handelsmarken statt teurer Fleischstücke",
+        "Kaufe frische Kräuter in großen Mengen und friere sie für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Berber",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6531,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kabab-mkalli/",
+      "components": [
+        {
+          "key": "2f4ce385-aa21-5b74-ab59-c4988ff90d98",
+          "name": "Zutaten",
+          "servingGrams": 121.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "d57a6514-98b2-5340-9daf-e430007687a9",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "793f26f6-88b6-510d-9eda-d7fef01b601d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "5eb63e3d-7b4d-5c6b-bc06-5bcb98b52539",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "1363d262-8f62-5b6b-a600-a61f6b203c7b",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "29186316-4acf-5a46-a6a4-f4a9a59546bc",
+              "ingredientName": "frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a2db3b34-fc58-58e6-ae0f-9219d7e04180",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "daec7881-2205-53d8-9f26-306d93f0836d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "84bd961a-45ae-5bab-9e78-0f3d04f2c658",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d2eb9188-d36f-5c33-816e-0ad47feb9991",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8611c94d-7daf-5989-a5e6-4d9bd3972a5e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Zwiebeln und Knoblauch fein und hacke Koriander und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Rinderhackfleisch mit Zwiebel, Knoblauch, Kräutern, Zimt, Paprikapulver, Kreuzkümmel und Ei in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete die Mischung 2 Minuten, bis sie gut zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile sie in 12 gleich große Portionen und forme dicke ovale Frikadellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Frikadellen in die Pfanne und brate sie auf der ersten Seite 4-5 Minuten braun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende sie vorsichtig und brate die andere Seite weitere 4 Minuten, bis sie durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie heiß mit Brot oder auf Couscous.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/54d4153ce4b00c0e483c13a6/1429034698696-6KEZ4KFT4VDRKRE6V7G8/image-asset.jpeg?format=1500w",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/54d4153ce4b00c0e483c13a6/1429034698696-6KEZ4KFT4VDRKRE6V7G8/image-asset.jpeg?format=1500w",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mici-cu-musta",
+      "slug": "gen-mici-cu-musta",
+      "title": "Mici cu Mustață",
+      "instructions": "Siebenbürgisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hackfleisch im Angebot und friere es für später ein",
+        "Verwende Paprikapulver von Handelsmarken statt importierter Marken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "siebenbürgisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6532,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mici-cu-musta/",
+      "components": [
+        {
+          "key": "3ef8dd40-4451-5411-8d84-86bf9f5add1e",
+          "name": "Zutaten",
+          "servingGrams": 88.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "87ef9fe2-634e-5089-9646-c4a90305647a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6253a7df-269e-59e5-84e9-a54bc6b1627e",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "9959168b-b19a-585c-ba59-e9ea3ab14e22",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "337da4bf-9fb6-5989-bd8e-a7e230139b89",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "e1505409-f06e-5fbf-82f3-92a887d0cc3c",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b18bf67a-4a0b-5b5f-b1ae-1d67bbcf5d7e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "6ed744be-e45a-580c-bf71-965319d742f2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e9218123-12e2-5bd0-8543-78154d97c19d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ceb86ecc-05dc-5797-b3d1-d2ba7118bcd2",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e173b688-2786-57d2-ae7b-7512ffaa50c2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Rinderhackfleisch, Schweinehackfleisch, Semmelbrösel, Knoblauch, Paprikapulver, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ei und Wasser dazu und vermenge alles, bis die Masse zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme mit angefeuchteten Händen 8-10 kleine längliche Würste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer Grillpfanne oder Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Mici pro Seite 3-4 Minuten, bis sie gebräunt und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie heiß mit Senf und frischem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s13emagst.akamaized.net/products/99879/99878609/images/res_b7d91a0f6ab37b1a324a77b50ab55166.jpg",
+          "sourcePageUrl": "https://s13emagst.akamaized.net/products/99879/99878609/images/res_b7d91a0f6ab37b1a324a77b50ab55166.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ghiveci-transilv-nean",
+      "slug": "gen-ghiveci-transilv-nean",
+      "title": "Ghiveci Transilvănean",
+      "instructions": "Siebenbürgisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Gemüse der Saison auf Bauernmärkten",
+        "Verwende Tomaten aus der Dose das ganze Jahr über für gleichbleibende Preise"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "siebenbürgisch",
+        "Abendessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6533,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ghiveci-transilv-nean/",
+      "components": [
+        {
+          "key": "0db692ad-cc96-5028-98db-f3144a9a3686",
+          "name": "Zutaten",
+          "servingGrams": 165.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4c50b56b-011a-5f86-be34-94876b2c1542",
+              "ingredientName": "Aubergine",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ea4d4631-8c65-5673-9167-6035250aebf7",
+              "ingredientName": "Zucchini",
+              "grams": 98,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "bd6e4007-88e3-546a-a76a-bdd24caae8c8",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "701f1cf4-b6b7-5e2c-8870-8dc000e34ad9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "89a8db3f-3d2b-5712-a32b-04b75fb034e6",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "9ef3b6d4-d611-56a8-9569-4e09b1ed9ee4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "76eb92a0-8874-5ca3-b881-5037c3dc0818",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "db8ffa79-86f9-53bf-84a9-59019133de0b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "214229f9-f32d-566c-952d-4c4d01b2505d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel und Knoblauch etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprika dazu und gare sie 3 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge Aubergine und Zucchini hinzu und gare sie unter gelegentlichem Rühren 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Tomaten aus der Dose, Salz, Pfeffer und Paprikapulver ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf ab und lass alles 30-35 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke das Gericht ab und würze es bei Bedarf nach. Serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.blondelish.com/wp-content/uploads/2021/01/Easy-Ratatouille-Recipe-%E2%80%93-How-to-Make-Ratatouille-9-1.jpg",
+          "sourcePageUrl": "https://www.blondelish.com/wp-content/uploads/2021/01/Easy-Ratatouille-Recipe-%E2%80%93-How-to-Make-Ratatouille-9-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kebab-koobideh",
+      "slug": "gen-kebab-koobideh",
+      "title": "Kebab Koobideh",
+      "instructions": "Kurdisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lamm im Angebot und friere es portionsweise ein",
+        "Verwende gewöhnliche Zwiebeln statt Spezialsorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "kurdisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6534,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kebab-koobideh/",
+      "components": [
+        {
+          "key": "cb33f5d2-9e76-5cee-87b3-f0923e24d8d1",
+          "name": "Zutaten",
+          "servingGrams": 104.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "803a5c82-e300-51f9-adb1-9283ee201578",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f0a7d88e-1f0b-54e7-b719-237048ab4ba3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "588460a7-d464-5d00-9e6b-48cee9cdb09c",
+              "ingredientName": "frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "78789d52-7ced-5c7c-a695-df6cf7d25b92",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "d95c0c2e-9016-5e52-96d8-ffbb77b157a5",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b7e2417f-7964-5f75-8995-88cea80f099e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "4373dada-c4bb-59ab-9e6f-928a382a2ef7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "42a09ca0-eb5c-5520-809d-d97482da1074",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4d68ce4d-b4bc-58b2-a7b1-cc41ae12d9d6",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Lammhackfleisch, gehackte Zwiebel, Petersilie, Knoblauch, Kreuzkümmel, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile die Mischung in 8 Portionen und forme jede länglich um einen Metallspieß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Grillpfanne oder auf einem Außengrill bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille die Kebabs pro Seite 4-5 Minuten, bis sie durchgegart und gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie sofort auf warmem Fladenbrot mit Tomaten und Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2015/06/kabab-koobideh-facebook.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2015/06/kabab-koobideh-facebook.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

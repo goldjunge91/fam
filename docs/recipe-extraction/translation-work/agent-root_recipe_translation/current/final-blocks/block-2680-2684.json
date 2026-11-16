@@ -1,0 +1,1036 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-doro-wot",
+      "slug": "gen-doro-wot",
+      "title": "Doro Wot",
+      "instructions": "Äthiopisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenunterkeulen statt -schenkeln, um Kosten zu senken",
+        "Kaufe Gewürze lose auf Märkten mit internationalen Lebensmitteln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "äthiopisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2680,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-doro-wot/",
+      "components": [
+        {
+          "key": "7f62c21d-4df9-53a5-a6df-a010fa30d12d",
+          "name": "Zutaten",
+          "servingGrams": 308.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5dfd4f33-d689-563e-9602-e978dfa34761",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "f987a42b-91b6-5d7a-a7f4-7a450eaa5bcc",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroßes Stück"
+            },
+            {
+              "key": "7b793a0c-a933-5665-adeb-8f9d0002c0ea",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Knoblauchzehen"
+            },
+            {
+              "key": "60ba1b34-0faa-5bd1-9bf0-daaa852d8b48",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "0ab5e889-aa67-5b74-81fe-1fe178601632",
+              "ingredientName": "Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "943571de-ff98-5bfb-865d-bc26e9a4fa1e",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "5412a584-9dcb-541f-83eb-c3212a205d11",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c731d00f-5c9f-5715-8791-be7083525aeb",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "9430a058-55ac-5885-b047-b7665cc43725",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bbc6dab6-493e-55b8-9029-2bd1f65179c0",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25c30476-5706-504f-b16f-e713025846d8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "8f3a4634-d2aa-53c5-8181-1f5a084a1bb4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebeln fein und gare sie in Butter bei mittlerer Hitze etwa 15 Minuten, bis sie karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch, Ingwer, Paprikapulver, Cayennepfeffer und Bockshornklee hinzu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Hähnchenstücke hinzu und bräune sie 5 Minuten von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser hinzu, salze und bringe alles zum Köcheln. Decke den Topf ab und gare 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Eier separat hart, schäle sie und gib sie in den letzten 5 Minuten der Garzeit zum Eintopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/PumiBK5MJAK5GVeyEyXvqda2_Gk=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/doro-wat-39441-step-06-4c68f5b26c59488e9cf7a40632673277.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/PumiBK5MJAK5GVeyEyXvqda2_Gk=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/doro-wat-39441-step-06-4c68f5b26c59488e9cf7a40632673277.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-misir-wot",
+      "slug": "gen-misir-wot",
+      "title": "Misir Wot",
+      "instructions": "Äthiopisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen gehören zu den günstigsten Eiweißquellen im Supermarkt",
+        "Kaufe sie in größeren Mengen und bewahre sie monatelang luftdicht auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "äthiopisch",
+        "abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2681,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-misir-wot/",
+      "components": [
+        {
+          "key": "15d976e0-7b6c-5974-81be-27810c45c44a",
+          "name": "Zutaten",
+          "servingGrams": 429.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "719284c4-0611-5b05-9e96-619647e0c375",
+              "ingredientName": "Rote Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e87fa919-8f20-5399-90d3-7127825ef7ec",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "86be6f56-9fdc-5ef6-a018-4c8e9dd185af",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "75ad3795-634e-5bb3-b66c-bd9e536fa2d2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "3a09d63b-f8a4-5f3a-a41b-be87874d5123",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "634825d6-aec6-5064-a31f-42512318f9a7",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f8d587a6-fc25-5f8e-a3d6-7d0d79a85160",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8a7669d3-237d-58c6-a8f2-e578735cc717",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cc16bb73-b88c-5454-ab0a-741359cf813e",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "2c401b6f-0e14-5b5e-b243-7cb9a389ffec",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebeln und gare sie in Butter bei mittlerer Hitze etwa 8 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Ingwer, Paprikapulver und Cayennepfeffer hinzu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abgespülte Linsen und Wasser hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lasse alles ohne Deckel 25-30 Minuten köcheln, bis die Linsen sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre häufig um und zerdrücke einige Linsen am Topfrand, damit der Eintopf eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.makebetterfood.com/recipes/misir-wot/misir-wot_large.webp",
+          "sourcePageUrl": "https://www.makebetterfood.com/recipes/misir-wot/misir-wot_large.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shiro",
+      "slug": "gen-shiro",
+      "title": "Shiro",
+      "instructions": "Äthiopisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kichererbsenmehl von Bob's Red Mill oder einer Handelsmarke",
+        "Bereite größere Mengen zu und wärme sie für mehrere Mahlzeiten wieder auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "äthiopisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2682,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shiro/",
+      "components": [
+        {
+          "key": "060fcba8-68dd-5881-b9c4-603500c86d96",
+          "name": "Zutaten",
+          "servingGrams": 428.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "4341817c-88db-5a42-81f3-d92a9dd0ded3",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f5505528-f649-5370-8aec-b5b539e5bfc4",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "4714d251-05b2-5f97-bda4-3e466ff0ff67",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "cf366d34-eb0f-5790-abba-dbbebeaaffa3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "b9818ea3-c1bb-5f61-b801-0b50c26fc306",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "4b9bc50e-d33f-51f7-9420-21ccf0a3d6eb",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cb3822d4-bb5a-53f1-908c-a78331574876",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "edeeffc6-e08e-53bb-a971-619f95067953",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d5cf1dea-2bb3-58ef-9b82-5d86c6c5c013",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebel und gare sie in Butter bei mittlerer Hitze etwa 5 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch, Ingwer, Paprikapulver und Cayennepfeffer hinzu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Kichererbsenmehl in Wasser ein, bis die Mischung glatt und klumpenfrei ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mehlmischung unter ständigem Rühren zu den Zwiebeln in den Topf, damit sich keine Klumpen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe und rühre weitere 15-20 Minuten häufig um, bis die Mischung eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Salz hinzu und rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2022/05/shiro.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2022/05/shiro.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gomen",
+      "slug": "gen-gomen",
+      "title": "Gomen",
+      "instructions": "Äthiopisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Blattkohl im Angebot und friere ihn für später ein",
+        "Verwende stattdessen Senfblätter oder Grünkohl"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "äthiopisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2683,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gomen/",
+      "components": [
+        {
+          "key": "a818c4e2-2078-52d3-8006-120d34e8d758",
+          "name": "Zutaten",
+          "servingGrams": 112.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a727c48-01e1-5b03-a056-45aecc032421",
+              "ingredientName": "Blattkohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8b433c2c-6bd6-55a6-bd01-bf7254a52cd2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "bd21cb0f-c39b-5d84-9160-9b984e8e446e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "80a22963-ab79-5d7e-8629-b8c4dceffb85",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "17a8a2ed-a264-540a-9d84-7fcf5f0a18fc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "846a226a-4161-5c78-9e24-d39391c770af",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ff2a2d16-f9e2-5723-ace2-e5ef6fd01590",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            },
+            {
+              "key": "b1b16f97-b0f3-599e-a2a1-402d7c44e231",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche den Blattkohl gründlich, entferne die harten Stiele und schneide die Blätter in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebel und hacke den Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste die Zwiebel 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch, Ingwer, Paprikapulver und Chiliflocken hinzu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den gehackten Blattkohl und Salz hinzu und rühre um, damit das Öl alles überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und gare alles bei mittlerer bis niedriger Hitze 12-15 Minuten. Rühre gelegentlich um, bis der Kohl zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=1244&h=622&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2017%2F12%2F19%2F8527623.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=1244&h=622&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2017%2F12%2F19%2F8527623.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kitfo",
+      "slug": "gen-kitfo",
+      "title": "Kitfo",
+      "instructions": "Äthiopisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch im Verhältnis 80/20 für mehr Geschmack und geringere Kosten",
+        "Kaufe es in größeren Mengen und friere Portionen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "äthiopisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2684,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kitfo/",
+      "components": [
+        {
+          "key": "be945d3d-858e-581d-be7c-ea0369951440",
+          "name": "Zutaten",
+          "servingGrams": 58.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "2a4669fe-26ca-5239-8350-6a2833c2080f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3490bfae-fbff-5097-8a4e-3afb56bc044a",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8c8a4a0e-669a-5db7-b121-6a1cb10da98b",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2eceac14-c639-5201-b24f-1d2033498e8c",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "8ca16a81-a840-57bd-9309-937ae59b7222",
+              "ingredientName": "Mitmita",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d2179c01-a02a-54bf-bd33-9b1c325e5249",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            },
+            {
+              "key": "3b81e22b-7623-59f7-b602-05a65ee59aef",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "de585992-ab86-58da-9e03-6039b30a0f33",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einer Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer hinzu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Paprikapulver, Cayennepfeffer und Mitmita ein und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Rinderhackfleisch hinzu und gare es unter Rühren etwa 5 Minuten. Zerteile es dabei in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz und passe die Gewürze nach Geschmack an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/35/39/28/pic171fOX.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/35/39/28/pic171fOX.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

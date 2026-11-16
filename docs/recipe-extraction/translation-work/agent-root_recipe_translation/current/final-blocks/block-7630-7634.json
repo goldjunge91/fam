@@ -1,0 +1,1356 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-sans-rival",
+      "slug": "bake2-sans-rival",
+      "title": "Sans Rival",
+      "instructions": "Der klassische philippinische Dacquoise-Kuchen: vier Schichten knusprig-zäher Cashew-Baiserböden mit reichhaltiger, seidiger französischer Buttercreme dazwischen und gerösteten gehackten Cashews rundherum. Der Name bedeutet „ohne Rivalen“ und passt: ein Festkuchen der Philippinen voller Knusprigkeit, Butter und geröstetem Nussaroma.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cashews sind die teure Zutat. Kaufe rohe Cashewstücke lose statt ganze Hälften und röste sie selbst; Stücke sind günstiger und müssen ohnehin gehackt werden.",
+        "Verschwende die Eigelbe nicht: 10 Eiweiße kommen in den Baiser und 5 Eigelbe in die Buttercreme. Eine Packung Eier deckt beides fast ohne Reste ab.",
+        "Kein Zuckerthermometer? Mache die Kaltwasserprobe: Gib etwas Sirup in Eiswasser. Er sollte eine weiche, biegsame Kugel bilden, bevor du ihn zu den Eigelben gibst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cashews",
+          "swap": "Toasted Mandeln oder pecans — cashews are traditional but ein toasted nut von choice still gives der signature crunch",
+          "savings": "Mandeln oder Pekannüsse sind pro Pfund meist günstiger als Cashewkerne"
+        },
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "ein few drops von Zitronensaft oder white vinegar zu stabilize der Ei whites",
+          "savings": "Spart den Kauf eines Glases, das sonst kaum aufgebraucht würde"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "All unsalted Butter is klassisch, but du can verwenden half salted Butter und omit der added Salz",
+          "savings": "Nimm Butter, die gerade im Angebot ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Filipino",
+        "Backen",
+        "Nachtisch",
+        "meringue (deutsche Fassung)",
+        "dacquoise (deutsche Fassung)",
+        "celebration (deutsche Fassung)",
+        "nut-cake (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7630,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-sans-rival/",
+      "components": [
+        {
+          "key": "45d6cffa-2181-515e-9a69-b0f85963dc80",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 119.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "482e7cc3-a267-504f-b2ae-a2374404aa74",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Eiweiß, zimmerwarm (etwa 2.5 Tassen; Eiweiß frisch trennen)"
+            },
+            {
+              "key": "c31ec388-b856-56e5-a576-bc87cfb6bd22",
+              "ingredientName": "Weinstein",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Weinstein"
+            },
+            {
+              "key": "c3146ca7-e723-511e-868a-e643825ec37a",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker für das Baiser"
+            },
+            {
+              "key": "ad317648-0f41-51c5-9116-bebf12978436",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt für das Baiser"
+            },
+            {
+              "key": "5eb71025-0e05-5e47-9d7e-fe33f356b4ab",
+              "ingredientName": "Cashewnüsse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen geröstete Cashewkerne, fein gehackt, zum Unterheben unter das Baiser"
+            },
+            {
+              "key": "a0655025-f8c7-5de0-ab5b-f36c3b35733f",
+              "ingredientName": "Butter",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 Tassen (3 Stangen) ungesalzene Butter, weich, für die französische Buttercreme"
+            },
+            {
+              "key": "19d1a5ca-85d0-5917-8665-ebf4d6d7cb68",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker für den Sirup der Buttercreme"
+            },
+            {
+              "key": "7018b8c5-2c38-5b53-b6ab-de43bb019028",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse Wasser zum Kochen des Zuckersirups"
+            },
+            {
+              "key": "f22f12b2-992f-53f1-afbb-799afe4867f1",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "5 Eigelb (vom Eiweiß übrig), für die Buttercreme"
+            },
+            {
+              "key": "1c116c6f-5ab8-54bc-a3f2-aae7dd85d599",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt für die Buttercreme"
+            },
+            {
+              "key": "3c28ba40-2148-571b-a8cc-6cc827824d58",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "bb98dde9-a1bd-5c0a-a4c3-1af5a82628ae",
+              "ingredientName": "Cashewnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tasse geröstete Cashewkerne, gehackt, zum Ummanteln des zusammengesetzten Kuchens"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325F (165C) vor. Verteile alle 3 Tassen Cashews auf einem Blech und röste sie 8-10 Minuten duftend und leicht goldbraun. Vollständig abkühlen lassen. 2 Tassen fein hacken und 1 Tasse gehackt zum Umhüllen beiseitestellen. Lege die Rückseiten von zwei Blechen mit Backpapier aus und zeichne auf jedes zwei Quadrate oder Kreise von 8-Zoll, insgesamt vier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Eiweiße mit Weinstein bei mittlerer Stufe schaumig. Gib 1 Tasse Zucker esslöffelweise dazu, erhöhe die Geschwindigkeit und schlage zu festem, glänzendem Baiser. 1 TL Vanille einrühren. Hebe mit einem Teigschaber in drei Portionen vorsichtig die 2 Tassen fein gehackten Cashews unter. Möglichst viel Volumen erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Baiser gleichmäßig auf die vier vorgezeichneten Formen und streiche ihn etwa 1/4 Zoll dick. Backe bei 325F 25-30 Minuten und tausche die Bleche nach der Hälfte der Zeit. Die Böden sollen blassgolden, trocken und oben knusprig sein. Auf den Blechen vollständig abkühlen lassen und erst dann das Backpapier abziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die französische Buttercreme Butter auf Raumtemperatur bringen. 3/4 Tasse Zucker und 1/4 Tasse Wasser in einem kleinen Topf bei mittlerer Hitze ohne Rühren bis zur Weichballenstufe kochen, 238-240F auf dem Thermometer; der Sirup wird dick und blubbert langsam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während der Sirup erhitzt wird, 5 Eigelbe in der Küchenmaschine hell und dick schlagen. Bei laufender Maschine den heißen Sirup in dünnem, gleichmäßigem Strahl am Schüsselrand entlang eingießen, nicht direkt auf den Rührbesen. Auf hoher Stufe 5-7 Minuten schlagen, bis die Masse luftig und auf Raumtemperatur abgekühlt ist. So werden die Eigelbe gegart und stabilisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei mittlerer Stufe die weiche Butter esslöffelweise dazugeben und jeweils vollständig einarbeiten. Die Masse kann zwischendurch weich oder geronnen wirken; weiterschlagen, bis eine glatte, glänzende Buttercreme entsteht. 1 TL Vanille und 1/4 TL Salz einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege einen Dacquoise-Boden auf ein Servierbrett und bestreiche ihn großzügig mit Buttercreme. Mit den übrigen Böden wiederholen und mit Buttercreme abschließen. Auch die Seiten dünn damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Drücke die übrigen 1 Tasse gehackten gerösteten Cashews oben und an den Seiten an. Mindestens 2-3 Stunden, idealerweise über Nacht, kalt stellen. Für saubere Stücke und den Kontrast aus Knusprigem und Cremigem 10 Minuten bei Raumtemperatur stehen lassen und mit einem heißen, trockenen Messer schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Sans-rival-meringue-layer-cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sans-rival-meringue-layer-cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Sara McCleary, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Sans Rival",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-ube-cake",
+      "slug": "bake2-ube-cake",
+      "title": "Ube-Kuchen (philippinischer violetter Yams-Chiffon)",
+      "instructions": "Klassischer philippinischer Ube-Kuchen: federleichter Chiffonbiskuit nach der Baisermethode, kräftig aromatisiert mit Ube Halaya und Ube-Extrakt für die typische violette Farbe und den nussig-vanilligen Yamsgeschmack. Mit säuerlicher Ube-Frischkäsecreme geschichtet. Weich, saftig und genau süß genug für ein Fest.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 38,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ube-Extrakt und Ube Halaya aus einem philippinischen oder asiatischen Lebensmittelgeschäft sind viel günstiger als Spezialpackungen im Internet und reichen für viele Kuchen. Eine kleine Flasche Extrakt genügt für 4+ Kuchen.",
+        "Kein Kuchenmehl? Ersetze pro Tasse Weizenmehl 2 EL durch 2 EL Maisstärke und siebe die Mischung zweimal. Kostet nichts zusätzlich.",
+        "Kaufe Eier dutzendweise. Trenne sie kalt, dann lasse die Eiweiße für das größte Baiservolumen Raumtemperatur annehmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "All-purpose Mehl schneiden mit cornstarch (entfernen 2 tbsp AP per cup, hinzufügen 2 tbsp cornstarch) zu mimic cake Mehl",
+          "savings": "Spart den Kauf einer extra Tüte Kuchenmehl"
+        },
+        {
+          "forIngredientId": "ube-halaya",
+          "swap": "Mashed gegart taro oder extra ube extract plus 2 tbsp condensed Milch wenn du can't find halaya",
+          "savings": "Spart die Spezialmarmelade"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Evaporated Milch thinned mit ein splash von Wasser, oder any Milch du have auf hand",
+          "savings": "Nutzt Zutaten aus dem Vorrat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Filipino",
+        "Backen",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "ube (deutsche Fassung)",
+        "chiffon (deutsche Fassung)",
+        "purple-yam (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7631,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-ube-cake/",
+      "components": [
+        {
+          "key": "069f92c3-a3c4-5e71-a8a2-c2977a596ac0",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 207.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "3950a104-812e-5d4c-a7d7-316aaafad47d",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Kuchenmehl (ersatzweise Weizenmehl, siehe Alternativen)"
+            },
+            {
+              "key": "09a35ebd-f0b7-5f94-a56a-535f459ac328",
+              "ingredientName": "Backpulver",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 TL Backpulver"
+            },
+            {
+              "key": "daeb3577-396e-5e2d-82f0-6c79441f893b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "f9edf1e3-05ee-5e15-b320-9141fa27f838",
+              "ingredientName": "Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Kristallzucker, aufgeteilt"
+            },
+            {
+              "key": "6c96f8af-6581-5d50-9ae0-1807ae8d722e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse Pflanzenöl"
+            },
+            {
+              "key": "576334df-611f-5a77-b783-4c55b144aba4",
+              "ingredientName": "Eier",
+              "grams": 350,
+              "quantity": 7,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "7 große Eier, getrennt (Eigelb und Eiweiß)"
+            },
+            {
+              "key": "6e8b9204-77b5-5d29-a0f8-c9d56e389248",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch"
+            },
+            {
+              "key": "ea7dd33c-6e1b-5772-b72d-be8cb8ccc2bf",
+              "ingredientName": "Ube Halaya (Marmelade aus lila Yamswurzel)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse Ube Halaya (Marmelade aus lila Yamswurzel); falls nicht erhältlich, zerdrückten Taro oder zusätzlichen Extrakt verwenden"
+            },
+            {
+              "key": "06600bca-f319-59f8-afd7-ef78b4f2ccb9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL Ube-Extrakt (oder 1.5 TL Ube-Extrakt plus 0.5 TL Vanille)"
+            },
+            {
+              "key": "3bbdc694-df01-5a6a-9059-357c5d3e5f30",
+              "ingredientName": "Weinstein",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL Weinstein"
+            },
+            {
+              "key": "18e2336d-2bda-576b-926c-03445de76120",
+              "ingredientName": "Frischkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "8 Unzen Frischkäse, weich (für die Glasur)"
+            },
+            {
+              "key": "06cb2ffa-7c28-5da9-9f96-92eb31c8b85d",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse ungesalzene Butter, weich (für die Glasur)"
+            },
+            {
+              "key": "dabdbf98-50be-58b4-bd29-7fb287dd276b",
+              "ingredientName": "Puderzucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Tassen Puderzucker für die Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter mittig in den Ofen und heize auf 325F (165C) vor. Belege den Boden von zwei Kuchenformen von 8-Zoll mit Backpapier und lasse die Seiten UNGEFETTET, damit der Chiffonteig daran hochklettern kann. Vermische 2 1/4 Tassen Kuchenmehl, 4 TL Backpulver und 3/4 TL Salz und stelle die Mischung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Eigelbteig 7 Eigelbe mit 3/4 Tasse Zucker (12 EL) etwa 1 Minute hell und dick schlagen. 1/2 Tasse Öl, 1/2 Tasse Vollmilch, 1/2 Tasse Ube Halaya und 2 TL Ube-Extrakt glatt einrühren, bis die Masse gleichmäßig dunkelviolett ist. Die Mehlmischung darüber sieben und nur einrühren, bis keine trockenen Streifen bleiben. Nicht überrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für das Baiser 7 Eiweiße in einer sauberen, fettfreien Schüssel mit 1/2 TL Weinstein schaumig schlagen. Bei laufendem Mixer die übrigen 3/4 Tasse Zucker (12 EL) langsam einrieseln lassen und zu festen, glänzenden Spitzen schlagen, die ihre Form halten, aber nicht trocken sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre etwa ein Drittel des Baisers unter den Eigelbteig, um ihn aufzulockern. Hebe das restliche Baiser in zwei Portionen vorsichtig mit einem Teigschaber unter: mittig durchschneiden und an den Seiten hochheben. Nur bis zur Vermengung arbeiten, ohne weiße Streifen. Der Teig soll luftig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Teig gleichmäßig auf die beiden Formen und streiche die Oberfläche glatt. Klopfe jede Form einmal kräftig auf die Arbeitsfläche, um große Luftblasen zu lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe bei 325F 32 bis 38 Minuten, bis die Oberfläche bei leichtem Druck zurückfedert und ein Zahnstocher aus der Mitte sauber herauskommt. Stürze die Formen sofort auf ein Gitter, nötigenfalls auf Dosen gestellt, und lasse die Kuchen kopfüber vollständig abkühlen, damit der empfindliche Chiffon nicht zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Während die Kuchen abkühlen, die weichen Frischkäse und Butter 2 bis 3 Minuten glatt und luftig schlagen. 2 Tassen Puderzucker nach und nach einrühren. Für violette Creme 1/2 TL Ube-Extrakt oder einen Löffel Ube Halaya einrühren. Falls die Creme zu weich zum Bestreichen ist, 15 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fahre mit einem dünnen Messer am Rand entlang, löse die abgekühlten Kuchen und stürze sie aus den Formen. Lege eine Schicht auf eine Platte, bestreiche sie großzügig mit Creme und setze die zweite Schicht darauf. Oberseite und Seiten bestreichen. Vor dem Anschneiden 20 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ube_cake.jpg/1280px-Ube_cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ube_cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Roderick Suñaz Sumalinog, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ube-Kuchen (philippinischer violetter Yams-Chiffon)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-brazo-de-mercedes",
+      "slug": "bake2-brazo-de-mercedes",
+      "title": "Brazo de Mercedes",
+      "instructions": "Beliebte philippinische Baiserrolle: Eine wolkenweiche gebackene Baiserschicht wird mit Puderzucker bestäubt und um eine üppige Cremefüllung aus Eigelb und gezuckerter Kondensmilch gerollt. Ganz ohne Mehl; das Ergebnis ist zart, süß und schmilzt auf der Zunge. Der Name bedeutet „Arm der Mercedes“, nach der armähnlichen Rollenform.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier sind die Hauptzutat. Kaufe die größte Packung im Dutzendformat statt kleinere Packungen; so sinkt der Preis pro Ei deutlich.",
+        "Wirf Backpapierreste nicht weg und kratze Baiser und Creme aus den Schüsseln. Fülle Reste in eine kleine Auflaufform und backe dir eine Mini-Version.",
+        "Stelle Puderzucker selbst her: Zerkleinere 3 EL weißen Zucker mit einer Prise Maisstärke in einer sauberen Gewürzmühle zu Pulver."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "1 tsp Zitronensaft oder white vinegar zu stabilize der whites",
+          "savings": "Nutzt eine Vorratszutat, statt ein Glas zu kaufen, das nur einmal gebraucht wird"
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "1/2 tsp extra vanilla, oder Orange zest wenn du have it",
+          "savings": "Spart den Kauf einer ganzen Zitrone, wenn nur die Schale gebraucht wird"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "1 tbsp neutral Pflanzenöl in der custard",
+          "savings": "Kein Butterkauf nötig, wenn nur Öl da ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Filipino",
+        "Backen",
+        "Nachtisch",
+        "meringue (deutsche Fassung)",
+        "flourless (deutsche Fassung)",
+        "custard (deutsche Fassung)",
+        "rolled-cake (deutsche Fassung)",
+        "no-Mehl",
+        "machen-ahead"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7632,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-brazo-de-mercedes/",
+      "components": [
+        {
+          "key": "61f90cbd-b3fb-5919-986d-b45339e83aeb",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 115.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b1e5207-7c9e-50f8-93ea-115b65445efe",
+              "ingredientName": "Eier",
+              "grams": 500,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 große Eier, getrennt (Eiweiß für das Baiser, Eigelb für die Füllung)"
+            },
+            {
+              "key": "2fab515d-db67-5c91-9577-a2e42b2c0257",
+              "ingredientName": "Weinstein",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL Weinstein"
+            },
+            {
+              "key": "a7ae54b6-2068-5b2b-80ef-9aef2c34a307",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse weißer Zucker für das Baiser"
+            },
+            {
+              "key": "bef0a046-f2cd-5661-955f-0334441bb675",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 TL Vanilleextrakt (1 TL für das Baiser, 1/2 TL für die Füllung)"
+            },
+            {
+              "key": "ec8f0d99-cea0-57d0-9314-ae3a3ebbf65e",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 oz) gezuckerte Kondensmilch für die Puddingfüllung"
+            },
+            {
+              "key": "87e3ecd0-f6aa-5d8a-8ac7-693557adf0ab",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL ungesalzene Butter für die Puddingfüllung"
+            },
+            {
+              "key": "5952474e-c15d-503b-af51-a6a1b274d6aa",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL fein abgeriebene Zitronenschale, die der Creme Frische gibt"
+            },
+            {
+              "key": "a2e570af-6c40-54a8-8869-fb5edb40382e",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 3 EL Puderzucker zum Bestäuben"
+            },
+            {
+              "key": "3383b138-6506-5e45-b7f6-623b12dbb0e2",
+              "ingredientName": "Backtrennspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": true,
+              "source_note": "Backspray zum Einfetten der Form und des Backpapiers"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter mittig in den Ofen und heize auf 350F (175C) vor. Lege ein tiefes Backblech von 13x18-Zoll mit Backpapier aus und fette das Papier leicht mit Backspray ein, damit sich das Baiser sauber löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Trenne 10 Eier sorgfältig. Gib Eiweiße in eine große, absolut saubere, fettfreie Schüssel und Eigelbe in eine hitzefeste Schüssel oder einen Topf. Schon eine Spur Eigelb oder Fett verhindert, dass das Eiweiß aufschlägt. Trenne jedes Ei erst einzeln in eine Tasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eiweiß mit Weinstein bei mittlerer Stufe schaumig, erhöhe dann auf hohe Stufe und gib 3/4 Tasse weißen Zucker löffelweise dazu. 1 TL Vanille dazugeben und schlagen, bis das Baiser feste, glänzende Spitzen hält und der Zucker vollständig aufgelöst ist. Zwischen den Fingern darf es sich nicht körnig anfühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das Baiser gleichmäßig auf dem Blech und streiche es glatt. Ziehe mit der Palette sanfte diagonale Linien oder flache Wellen über die Oberfläche. Backe 18 bis 22 Minuten, bis die Oberseite leicht goldbraun ist und auf Berührung zurückfedert. Nicht überbacken, sonst reißt sie beim Rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während das Baiser backt, die Creme zubereiten: Verquirle 10 Eigelbe mit gezuckerter Kondensmilch, 1 EL Butter, Zitronenschale und 1/2 TL Vanille in der hitzefesten Schüssel. Über einem Wasserbad oder bei sehr niedriger direkter Hitze unter ständigem Rühren 10 bis 15 Minuten kochen, bis die Creme dick genug ist, einen Löffel zu überziehen und eine Spur zu hinterlassen. Vom Herd nehmen und etwas abkühlen lassen; beim Abkühlen wird sie fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestäube das fertige Baiser sofort großzügig mit Puderzucker. Lege Backpapier darauf, stürze alles vorsichtig auf eine saubere Arbeitsfläche und ziehe das nun oben liegende Backpapier behutsam ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestäube die freigelegte Oberfläche mit mehr Puderzucker. Verteile die warme Creme gleichmäßig auf dem Baiser und lasse an einer langen Seite einen 1-Zoll-Rand frei, damit beim Rollen nichts herausgedrückt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe das untere Backpapier zum Führen an und rolle das Baiser von einer langen Seite fest auf. Mit der Naht nach unten legen. Fest, aber vorsichtig rollen, damit es nicht reißt. In Backpapier wickeln und mindestens 1 Stunde kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auswickeln, nochmals mit Puderzucker bestäuben und für eine saubere Optik die Enden abschneiden. Mit einem Sägemesser in dicke Scheiben schneiden und gekühlt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Brazo_de_mercedes.jpg/1280px-Brazo_de_mercedes.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Brazo_de_mercedes.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "VirtualWolf, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Brazo de Mercedes",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-yema-cake",
+      "slug": "bake2-yema-cake",
+      "title": "Yema-Kuchen (philippinischer Cremekuchen)",
+      "instructions": "Luftiger philippinischer Chiffonbiskuit mit üppiger Yema-Creme: Eigelb und gezuckerte Kondensmilch werden mit Butter langsam zu einer dicken, goldenen, karamellartigen Glasur gekocht und mit geriebenem Käse vollendet. Zart, eiig und milchig-süß – ein Klassiker aus der Bäckertheke, der auf jeder Feier schnell verschwindet.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier dutzendweise. Das Rezept braucht insgesamt 6 Eiweiße und 8 Eigelbe; eine Packung reicht für den Kuchen, Eigelb bleibt für Yema übrig.",
+        "Kein Kuchenmehl nötig: Nimm pro Tasse Weizenmehl 2 EL heraus, ersetze sie durch 2 EL Maisstärke und siebe die Mischung gut.",
+        "Ein Block Cheddar der Hausmarke, frisch gerieben, kostet viel weniger als fertig geriebener und schmilzt besser in die Yema-Creme."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "verwenden grated queso de bola (Edam) für der traditional Filipino flavor, oder any mild yellow Käse",
+          "savings": "Etwa gleich teuer"
+        },
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "ersetzen 1 tsp Zitronensaft oder white vinegar zu stabilize der Ei whites",
+          "savings": "Spart etwa ~$3 gegenüber dem Kauf von Weinstein"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Any neutral Öl works — canola oder geschmolzen (cooled) Butter both behalten der chiffon tender",
+          "savings": "Nimm, was da ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Filipino",
+        "Backen",
+        "Nachtisch",
+        "custard (deutsche Fassung)",
+        "chiffon-cake (deutsche Fassung)",
+        "yema (deutsche Fassung)",
+        "Ei-yolk",
+        "party (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7633,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-yema-cake/",
+      "components": [
+        {
+          "key": "9faa030e-b498-5baf-a52e-c8ee092d8df3",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 132.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "f887e6c7-8774-5afb-9d42-1faadab6de88",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Kuchenmehl, gesiebt"
+            },
+            {
+              "key": "4ad304b6-3ac6-5f3a-b6c5-dababc8cbd56",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse weißer Zucker, aufgeteilt (1/2 Tasse für das Eigelb, 1/4 Tasse für das Eiweiß)"
+            },
+            {
+              "key": "b5eb7525-c746-5f0e-99bc-1d5bd7ceb6e6",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL Backpulver"
+            },
+            {
+              "key": "ff4e7f39-e711-59eb-906c-bde169774081",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "6f0a8a21-4c87-5662-9abd-80f50766cf0a",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 große Eier, getrennt"
+            },
+            {
+              "key": "0fcd1ac3-ce59-5e47-b4db-c9dda27d1eec",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse Pflanzenöl"
+            },
+            {
+              "key": "36340a14-458f-545c-bb62-3e77924b8d06",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch"
+            },
+            {
+              "key": "fa7967d0-a44c-5430-98ad-0ff5f105b0c7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "12dda900-f665-55e1-bbbc-84b863a91896",
+              "ingredientName": "Weinstein",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Weinstein"
+            },
+            {
+              "key": "92d7e6f5-4133-50be-b9b5-e8650bece6c5",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Dose (14 oz) gezuckerte Kondensmilch für die Yema-Creme"
+            },
+            {
+              "key": "491ce11f-bfb7-535c-bcd6-c2fd7997b9b1",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL ungesalzene Butter für die Yema-Creme"
+            },
+            {
+              "key": "27d248ab-c7d1-57f8-8d64-cdec6bfafece",
+              "ingredientName": "Kräftiger Cheddar am Stück",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Unzen Cheddar, fein gerieben, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Chiffonteig den Ofen auf 325F (165C) vorheizen. Lege den Boden von zwei runden Formen von 8-Zoll oder einer Form von 9x13 mit Backpapier aus. Die Seiten NICHT einfetten, damit der Chiffon aufgehen kann. Siebe Kuchenmehl, Backpulver, Salz und 1/2 Tasse Zucker in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle 6 Eigelbe mit Pflanzenöl, Vollmilch und Vanille glatt. Gieße die Mischung zu den trockenen Zutaten und rühre nur, bis ein glatter, klümpchenfreier Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für das Baiser 6 Eiweiße in einer sauberen, fettfreien Schüssel mit Weinstein schaumig schlagen. Den übrigen 1/4 Tasse Zucker nach und nach dazugeben und zu festen, glänzenden Spitzen schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre ein Drittel des Baisers in den Eigelbteig, um ihn aufzulockern. Hebe den Rest in zwei Portionen vorsichtig unter, bis keine weißen Streifen bleiben. Luftig halten, nicht zusammenfallen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Teig auf die Formen und ziehe einen Spieß durch, um große Blasen zu lösen. Backe 30–35 Minuten (40–45 Minuten in einer Form von 9x13), bis die Oberfläche zurückfedert und ein Zahnstocher sauber herauskommt. Stürze die Formen auf ein Gitter und lasse sie vor dem Herauslösen vollständig abkühlen; so bleibt der Chiffon hoch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Während der Kuchen abkühlt, die Yema-Creme zubereiten: Gieße gezuckerte Kondensmilch in einen beschichteten Topf bei niedriger bis mittlerer Hitze. Butter und 2 der übrig gebliebenen Eigelbe einrühren; Eigelbe vorher leicht schlagen und mit einem Löffel warmer Milch temperieren. Mit einem Holzlöffel 10–15 Minuten ständig rühren, bis die Creme dick genug ist, eine saubere Spur im Topf zu hinterlassen. Kurz bevor sie körnig wird, vom Herd nehmen und streichfähig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei zwei runden Böden Yema-Creme zwischen den Schichten verteilen und Oberfläche sowie Seiten bestreichen. Bei einer Form von 9x13 die warme, streichfähige Creme dick und gleichmäßig auf der ganzen Oberfläche verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Solange die Yema-Creme noch leicht klebrig ist, großzügig fein geriebenen Cheddar darüberstreuen. Mindestens 30 Minuten kühlen, damit die Creme fest wird, dann schneiden und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Yema_cake_%28Philippines%29.jpg/1280px-Yema_cake_%28Philippines%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yema_cake_(Philippines).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Yema-Kuchen (philippinischer Cremekuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-kek-lapis-sarawak",
+      "slug": "bake2-kek-lapis-sarawak",
+      "title": "Kek Lapis Sarawak (Sarawak-Schichtkuchen)",
+      "instructions": "Klassischer Gewürz-Schichtkuchen aus Sarawak im malaysischen Borneo: reichhaltiger Butterteig wird hauchdünn Schicht für Schicht in die Form gegeben und jeweils goldbraun gegrillt. So entsteht ein dichter Stapel duftender, puddingartiger Schichten, die durch ihre karamellisierten Oberseiten verbunden sind. Kardamom, Zimt und Nelken geben Aroma. Die einfache Variante „lapis biasa“ bildet horizontale Streifen und erhält einen Überzug aus Kondensmilchteig. Dicht, zart und festlich.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse teuren gemahlenen Kardamom weg und verwende eine warme Gewürzmischung, die du bereits hast. Der Kuchen setzt ebenso stark auf Zimt und Nelken.",
+        "Eine Dose gezuckerte Kondensmilch reicht für zwei Kuchen. Bereite doppelte Teigmenge zu und backe einen zweiten Kuchen zum Verschenken, solange der Grill heiß ist.",
+        "Kein Puderzucker? Zerkleinere Kristallzucker 30 Sekunden in einem sauberen Mixer zu feinem Zucker für das Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "verwenden der same volume von granulated Zucker whipped ein little longer in der whites",
+          "savings": "Spart den Kauf einer extra Tüte Puderzucker"
+        },
+        {
+          "forIngredientId": "cardamom",
+          "swap": "Replace der cardamom, clove und nutmeg mit 2 1/2 tsp aufbewahren mixed-spice oder speculaas mixen",
+          "savings": "Ein Glas statt drei einzelner Gewürze"
+        },
+        {
+          "forIngredientId": "sweetened-condensed-milk",
+          "swap": "2 tbsp Honig plus 2 tbsp whole Milch für ein lighter, weniger candy-süß crumb",
+          "savings": "Nutzt Vorratszutaten statt einer Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "malaysian (deutsche Fassung)",
+        "Backen",
+        "layer-cake (deutsche Fassung)",
+        "spiced (deutsche Fassung)",
+        "festive (deutsche Fassung)",
+        "Nachtisch",
+        "borneo (deutsche Fassung)",
+        "celebration (deutsche Fassung)"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7634,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-kek-lapis-sarawak/",
+      "components": [
+        {
+          "key": "3ab690dc-5798-53bc-b642-f10c21955fce",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 127.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d323863-9234-5f7d-8ee8-657be40e478b",
+              "ingredientName": "Butter",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen (3 Stangen) ungesalzene Butter, weich"
+            },
+            {
+              "key": "fa9db4e0-bfaa-5e46-8d6c-3f9cefb27a11",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (etwa eine halbe Dose mit 14 oz) gezuckerte Kondensmilch"
+            },
+            {
+              "key": "774a4f5f-af50-554c-9b68-eb4e050c580e",
+              "ingredientName": "Eier",
+              "grams": 500,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "10 große Eier, getrennt"
+            },
+            {
+              "key": "c4fa62b8-b264-5b20-a360-32c919b486a3",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse Puderzucker zum Aufschlagen des Eiweißes"
+            },
+            {
+              "key": "9466a373-bceb-5748-8c0f-ac290703c235",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker, mit der Butter schaumig gerührt"
+            },
+            {
+              "key": "e28fe8c3-30c9-556f-b9e7-15c355abadf2",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl, gesiebt"
+            },
+            {
+              "key": "b8d421aa-5020-5c6e-9f49-ac2c5a9d9afc",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "9cb0fc6f-7d86-5859-b935-9cfb966a4203",
+              "ingredientName": "Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL gemahlener grüner Kardamom"
+            },
+            {
+              "key": "43e6b2ca-655d-5bc0-995f-3722ad042f87",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt"
+            },
+            {
+              "key": "c362933b-95b6-52a5-b4b3-38102a35f4c7",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL gemahlene Gewürznelken"
+            },
+            {
+              "key": "e3049700-582c-5d1a-ae2f-a52733f6560e",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL gemahlene Muskatnuss"
+            },
+            {
+              "key": "bd72db8f-9d6d-5f88-aad1-ec5592f5b0a8",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "208b6de0-0007-5bbf-8527-d07dd6b821bc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "e57b4d3f-1856-51ce-be56-b94c7b6dc989",
+              "ingredientName": "Milch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "2 EL Vollmilch, um den Teig bei Bedarf zu verdünnen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege Boden und Seiten einer quadratischen Form von 8-Zoll mit Backpapier aus und lasse etwas überstehen. Setze ein Gitter ins obere Drittel und stelle den Ofen auf Oberhitze oder Grill. Lege ein Glas mit flachem Boden und eine kleine Winkelpalette oder einen Löffel zum Andrücken jeder Schicht bereit. Siebe Mehl, Kardamom, Zimt, Nelken, Muskatnuss, Backpulver und Salz zusammen und stelle die Mischung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage weiche Butter und Kristallzucker 5 bis 6 Minuten sehr hell und luftig. Eigelbe jeweils zu zweit dazugeben und nach jeder Zugabe gut schlagen. Gezuckerte Kondensmilch und Vanille glatt und dick einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eiweiß in einer sauberen Schüssel schaumig. Puderzucker in drei Portionen dazugeben und zu festen, glänzenden Spitzen schlagen. Puderzucker sorgt für die feine, dichte Krume der Schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die gesiebten trockenen Zutaten in zwei Portionen unter die Eigelb-Butter-Mischung, bis sie gerade vermengt sind. Anschließend das Baiser in drei Portionen vorsichtig unterheben. Falls der Teig dicker als ein Band ist, 2 EL Milch einrühren. Er soll dick vom Teigschaber fallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib etwa 4 bis 5 EL Teig in die Form und verteile ihn dünn und gleichmäßig bis in die Ecken. Klopfe die Form zum Glätten leicht auf. Grille auf der oberen Schiene, bis die Oberfläche tiefgolden ist, etwa 4 bis 6 Minuten. Die Form einmal drehen und ständig beobachten, die dünne Schicht kann rasch verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Form heraus und drücke die gebackene Schicht mit dem Glas vorsichtig flach, um Wölbungen zu glätten und große Blasen zu lösen. Die karamellisierte Oberfläche nicht abwischen; sie verbindet die Schichten. Gib die nächsten 4 bis 5 EL Teig direkt darauf, grille erneut goldbraun und drücke nach jeder Schicht flach. Wiederhole, bis der Teig aufgebraucht ist, etwa 10 bis 13 Schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für die letzte Schicht auf normale Ober-/Unterhitze bei 325F (160C) wechseln und 8 bis 10 Minuten backen, damit sie durchgart, ohne zu dunkel zu werden. Kuchen 15 Minuten in der Form abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe den Kuchen am Backpapier aus der Form und lasse ihn auf einem Gitter vollständig abkühlen. Eingewickelt mindestens einige Stunden, idealerweise über Nacht, ruhen lassen, damit sich die Schichten setzen und die Gewürze intensiver werden. Schneide mit einem scharfen Messer alle vier Ränder ab, um die Streifen freizulegen, und teile ihn in Finger oder Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Kek_Lapis_Sarawak.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kek_Lapis_Sarawak.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "bob P-&-S, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kek Lapis Sarawak (Sarawak-Schichtkuchen)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

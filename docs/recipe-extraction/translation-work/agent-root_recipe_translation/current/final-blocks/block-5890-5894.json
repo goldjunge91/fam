@@ -1,0 +1,1096 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-shakshuka-with-eggplant",
+      "slug": "gen-shakshuka-with-eggplant",
+      "title": "Shakshuka mit Aubergine",
+      "instructions": "Israelisches Frühstück: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe canned tomatoes in bulk at warehouse stores für 30% savings",
+        "Verwende lagern-brand spices instead of name brands"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "israelisch",
+        "breakfast",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5890,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shakshuka-with-eggplant/",
+      "components": [
+        {
+          "key": "92b16687-2885-51c8-a870-36b493cb90a4",
+          "name": "Zutaten",
+          "servingGrams": 216.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "433de83e-6217-55f2-b642-0a050062fbc9",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße gewürfelt"
+            },
+            {
+              "key": "cd42552c-0030-5353-9cd8-e7ccd862b94e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b9288bad-a3fa-5908-bca9-6136016c26a0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße gewürfelt"
+            },
+            {
+              "key": "4851fc79-59d1-59a4-9836-70e5ea4f94f5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen fein gehackt"
+            },
+            {
+              "key": "8be4de14-c3c8-5984-9c00-5b4a862e7a80",
+              "ingredientName": "stückige Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose 28 oz"
+            },
+            {
+              "key": "445508b0-4e56-5771-b261-255b58d76b7e",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c786aee0-29f9-5413-89f4-f26ad45d1188",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "302e4c88-c89f-5df8-869a-0de1210e0c5c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c3b42599-98f9-546a-9156-e68697efa10c",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "505783ff-cfc7-57a6-b59d-2838f0e33023",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "dc4b6898-939b-5db3-9aaf-b905758f19ec",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze und brate die gewürfelte Aubergine 5 Minuten, bis sie weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gewürfelte Zwiebel hinzu und brate sie weitere 3 Minuten. Rühre dann den gehackten Knoblauch ein und brate alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib stückige Tomaten, Paprikapulver, Kreuzkümmel, Salz und Pfeffer dazu. Lass die Sauce 10 Minuten köcheln, bis sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme vier kleine Mulden in der Tomatensauce und schlage jeweils ein Ei hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Pfanne ab und gare alles bei mittlerer Hitze 6–8 Minuten, bis das Eiweiß gestockt ist und das Eigelb noch flüssig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere das Gericht mit frischem Koriander und serviere es direkt aus der Pfanne mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.easyanddelish.com/wp-content/uploads/2026/04/Mediterranean-One-Pan-Eggplant-Shakshuka-Step-3-rotated.jpg",
+          "sourcePageUrl": "https://www.easyanddelish.com/wp-content/uploads/2026/04/Mediterranean-One-Pan-Eggplant-Shakshuka-Step-3-rotated.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sabzi-khordan-ba-kashk-e-bademjan",
+      "slug": "gen-sabzi-khordan-ba-kashk-e-bademjan",
+      "title": "Kräuterplatte mit Auberginen-Kaschk",
+      "instructions": "Persischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Skip kashk und drizzle mit thick griechischer Joghurt mixed mit Salz instead",
+        "Kaufe walnuts von bulk bins to reduce cost by 40%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "persisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5891,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sabzi-khordan-ba-kashk-e-bademjan/",
+      "components": [
+        {
+          "key": "bf1f62dd-cde7-5e19-ab1a-b7b8e35dd27c",
+          "name": "Zutaten",
+          "servingGrams": 175.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "9eb5b1df-081d-5ac8-9451-74372b865ed2",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "a7e052e6-18b5-545c-9ec9-a496c1988243",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "518deefa-df8f-5259-a03f-d1bc67cc5613",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße in Scheiben geschnitten"
+            },
+            {
+              "key": "954ab210-a767-5864-9935-1f331ed5e7db",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen fein gehackt"
+            },
+            {
+              "key": "cc3396de-b98e-51e0-9915-d6b207164e60",
+              "ingredientName": "Kaschk (Molke)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "39649c5a-a70e-52cb-b6e9-49a7d75a0089",
+              "ingredientName": "frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse gehackt"
+            },
+            {
+              "key": "a1b75f31-5cfa-5164-a75d-d840b3577523",
+              "ingredientName": "frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse gehackt"
+            },
+            {
+              "key": "f0db0cff-dec9-5d90-8fc5-9f5aa013d4f1",
+              "ingredientName": "frischer Dill",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse gehackt"
+            },
+            {
+              "key": "b677ec7f-da13-5e76-acbd-c955266a9dc5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7daf2ee1-df8c-5835-b555-c3673871e2d8",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "765c5a74-e49e-50bc-b5cf-3617c445f83b",
+              "ingredientName": "Walnusskerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "3873880c-6aec-5aa4-85f3-06811c76bd78",
+              "ingredientName": "Granatapfelsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Auberginen, würfle sie und brate sie in Öl bei mittlerer bis hoher Hitze etwa 12 Minuten goldbraun und weich. Lass sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Karamellisiere die geschnittenen Zwiebeln im selben Öl bei mittlerer Hitze 8–10 Minuten, bis sie dunkelbraun sind. Gib den gehackten Knoblauch dazu und brate ihn 1 Minute mit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Auberginen zurück in die Pfanne, würze mit Salz und Pfeffer und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Auberginenmischung auf eine Servierplatte und beträufle sie mit Kaschk-Molke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Minze, Petersilie, Dill und Walnüsse darauf, beträufle alles mit Granatapfelsirup und serviere es bei Zimmertemperatur mit Lavash-Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte frische Kräuter (Minze, Petersilie und Dillzweige), Radieschen und Frühlingszwiebeln als traditionelle Beilage zu Sabzi Khordan auf einer Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2023/06/Kashke-Bademjan-Persian-Eggplant-Dip-Featured.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2023/06/Kashke-Bademjan-Persian-Eggplant-Dip-Featured.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khoresht-e-bademjan",
+      "slug": "gen-khoresht-e-bademjan",
+      "title": "Khoresht-e Bademjan",
+      "instructions": "Persisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gemahlen meat instead of cubes to reduce total cooking time und cost",
+        "Kaufe prunes in bulk bins für 50% savings versus packaged"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5892,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khoresht-e-bademjan/",
+      "components": [
+        {
+          "key": "45f5b5d6-abda-548b-82e9-6b389866f962",
+          "name": "Zutaten",
+          "servingGrams": 262.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad0415a0-a13c-5dd5-bbea-a9c5ae932589",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "d5e15884-cf81-5c83-aded-25ce47742129",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "fc77d9e7-4463-501f-b9d3-4260aacfbad1",
+              "ingredientName": "getrockneter Salbei",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "dbdd4fe8-4689-5c0f-81b0-1dcb58af0a96",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dbb47940-b356-5a80-919c-3e7a19327be1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "19638791-1a79-5d8e-996e-b3a2cdb76d86",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große gewürfelt"
+            },
+            {
+              "key": "2e977448-4781-5b1a-b9bf-7c97cd2dd349",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "dc046c32-97b5-5537-b70b-6af3313b71fd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7681115c-c745-5cda-bea3-12dccc672ce5",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "63efd8e1-304e-512b-bcf8-c6f2f703b8ac",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und brate die Fleischwürfel rundherum 8 Minuten an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate im selben Topf die gewürfelte Zwiebel etwa 5 Minuten weich. Rühre Tomatenmark und Kurkuma ein und brate alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Fleisch zurück in den Topf. Füge Wasser, Salz und Pfeffer hinzu, bringe alles zum Kochen und lass es dann 30 Minuten sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle währenddessen die Auberginen und brate sie in einer separaten Pfanne mit Öl goldbraun. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gebratene Aubergine und die Trockenpflaumen in den Eintopf und lass alles weitere 15 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke das Gericht ab und serviere es heiß auf gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://substackcdn.com/image/fetch/$s_!npAt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F054d0855-97da-4e94-b6f0-268593adc87f_5712x4284.jpeg",
+          "sourcePageUrl": "https://substackcdn.com/image/fetch/$s_!npAt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F054d0855-97da-4e94-b6f0-268593adc87f_5712x4284.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aloo-baingan",
+      "slug": "gen-aloo-baingan",
+      "title": "Aloo Baingan",
+      "instructions": "Indisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe spices von Indian markets at 30-40% less than supermarket prices",
+        "Kaufe potatoes und eggplant in season (fall) für maximum savings"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "lunch",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5893,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aloo-baingan/",
+      "components": [
+        {
+          "key": "7ce51414-e09b-5c69-96bc-dc57d07ed417",
+          "name": "Zutaten",
+          "servingGrams": 172.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "74a74bef-5d13-598a-8d7f-7dbec00248b1",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße gewürfelt"
+            },
+            {
+              "key": "b984810d-a3cd-5152-bfcf-c4ff3087a316",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße gewürfelt"
+            },
+            {
+              "key": "91317857-a5d1-5971-b578-13deb2509869",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "707134d1-92f0-59c5-b54b-19563b3c9a00",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße gewürfelt"
+            },
+            {
+              "key": "8a61be6e-049a-5357-b2e6-27e6ff1b26e6",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "0af47cca-4e31-5b23-9aed-2f9cd1909848",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "b7092d02-4120-5e7d-b16a-ec08f5d4146d",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c5f53e87-3614-5e75-a053-1cdf66c1240c",
+              "ingredientName": "Kreuzkümmel seeds",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "f00edad8-e910-59d1-b197-39c99db7acde",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "985b8109-076b-572c-8dd9-770e3a91e177",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1c6e34e3-61ec-550b-b409-b8c3c69db2dc",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer Hitze. Gib die Kreuzkümmelsamen hinein und röste sie 30 Sekunden, bis sie knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gewürfelte Zwiebel hinzu und brate sie etwa 4 Minuten weich. Rühre Ingwer und Knoblauch ein und brate alles 1 Minute weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kurkuma, gemahlenen Koriander und Chilipulver hinzu. Rühre 30 Sekunden ständig, bis die Gewürze duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Kartoffelwürfel dazu und brate sie unter gelegentlichem Rühren 10 Minuten, bis sie langsam weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Auberginenwürfel und Salz ein. Decke die Pfanne ab und gare alles unter gelegentlichem Rühren 10–12 Minuten, bis beide Gemüse weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke das Gericht ab, garniere es mit frischem Koriander und serviere es heiß mit Reis oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://2.bp.blogspot.com/-qq5DXGlS2gc/UtHs5NvqWKI/AAAAAAAAAss/0mVt8Ohu238/s1600/DSCN0210.JPG",
+          "sourcePageUrl": "http://2.bp.blogspot.com/-qq5DXGlS2gc/UtHs5NvqWKI/AAAAAAAAAss/0mVt8Ohu238/s1600/DSCN0210.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sabra-hummus",
+      "slug": "gen-sabra-hummus",
+      "title": "Sabra-Hummus",
+      "instructions": "Israelischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tahini in bulk von Middle Eastern markets für 40% savings",
+        "Bereite large batches und einfrieren in ice cube trays für 2-3 weeks"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "israelisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5894,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sabra-hummus/",
+      "components": [
+        {
+          "key": "6ecd6c4e-40b3-5e59-89c3-bd27cc704f46",
+          "name": "Zutaten",
+          "servingGrams": 70.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "c007e74d-90ed-5901-8956-9e2bcf6840c2",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen 15 oz abgetropft"
+            },
+            {
+              "key": "78c11a5f-9c8a-5ff0-9e32-e941732d7377",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "bef44223-4cc6-5907-b214-afcc06c8152f",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "72fbff7e-c234-540f-af33-1cedacf0a35f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "e1ee800c-7f62-5165-8604-c214c8b8e789",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "66807e3f-eacd-552e-b463-639523ec589f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d89dadd5-4e25-5273-befd-67e00a6b654b",
+              "ingredientName": "weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "611aef5d-dbd6-5b1e-bc59-af66c4e797f2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6ed58c74-f4f1-5aaf-b723-6ce71469e22a",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Kichererbsen, Tahini, Zitronensaft und gehackten Knoblauch in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere alles und gib währenddessen langsam Eiswasser dazu, bis eine cremige, glatte Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze nach Geschmack mit Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Hummus in eine Servierschüssel und beträufle ihn mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue ihn mit Paprikapulver und serviere ihn mit Pita-Chips, frischem Gemüse oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.cindysrecipesandwritings.com/wp-content/uploads/2018/05/sabra-containers.jpg",
+          "sourcePageUrl": "http://www.cindysrecipesandwritings.com/wp-content/uploads/2018/05/sabra-containers.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

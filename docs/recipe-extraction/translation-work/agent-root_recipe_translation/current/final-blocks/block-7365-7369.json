@@ -1,0 +1,1670 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-vietnamese-banh-xeo",
+      "slug": "cur2-vietnamese-banh-xeo",
+      "title": "Vietnamesische Bánh Xèo (knusprige Pfannkuchen)",
+      "instructions": "Knusprige, filigrane Reis-Pfannkuchen mit Kurkuma und Kokosmilch, die beim Auftreffen des Teigs auf die heiße Pfanne zischen. Gefüllt mit Garnelen, Schweinebauch und knackigen Sojasprossen, in Salat und Kräuter gewickelt und in Nuoc Cham getunkt.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Den Teig ruhen lassen, auch über Nacht. Die Flüssigkeit kann so einziehen und die Ränder werden knusprig, ohne dass zusätzliche Zutaten nötig sind.",
+        "Schweinebauch und einige Garnelen reichen weit, da Pfannkuchen, Sprossen und Kräuter den Großteil der Portion ausmachen. Das Eiweiß auf alle vier Pfannkuchen verteilen.",
+        "Einen großen Beutel Sojasprossen und einen Kopf Blattsalat kaufen. Sie sind günstig, sättigen und machen das Gericht reichhaltig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-belly",
+          "swap": "verwenden thinly in Scheiben geschnitten Schweinefleisch shoulder oder even gemahlen Schweinefleisch pressed dünn",
+          "savings": "Spart etwa $2 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "weglassen der Garnelen und double der Schweinefleisch, oder verwenden in Scheiben geschnitten mushrooms für ein budget version",
+          "savings": "Spart etwa $3 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "verwenden all Wasser plus ein splash von any Milch; der crepe is slightly weniger rich but still crisp",
+          "savings": "Spart etwa $1.50 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "crepe (deutsche Fassung)",
+        "street-food (deutsche Fassung)",
+        "Garnelen",
+        "Schweinefleisch",
+        "Kurkuma",
+        "Abendessen",
+        "wrap (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7365,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-vietnamese-banh-xeo/",
+      "components": [
+        {
+          "key": "7ea2f18a-8329-58c1-bb80-eeea1e36a1c4",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 520.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "f838087c-d782-5caf-9008-63f2760a080f",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Reismehl für den Teig"
+            },
+            {
+              "key": "dca33891-6763-5f8b-90a0-59305163e72f",
+              "ingredientName": "Speisestärke",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL für besonders knusprige Ränder"
+            },
+            {
+              "key": "a2b1e914-f829-5717-8dc3-69b4e113c9c8",
+              "ingredientName": "Kurkuma",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL gemahlene Kurkuma für die typische goldene Farbe"
+            },
+            {
+              "key": "1759cf4f-caac-5a54-9265-209405e394af",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1 Tasse; den Rest mit Wasser verdünnen"
+            },
+            {
+              "key": "e015ed0d-59b7-511f-8b31-7ce96db448a2",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "ungefähr 1.5 Tassen für einen dünnen, gießfähigen Teig"
+            },
+            {
+              "key": "378de317-4a06-54b1-906e-d2647836a082",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "grüne Teile, dünn geschnitten und in den Teig gerührt"
+            },
+            {
+              "key": "f698a7f8-d630-51a5-b424-a9fd0a25455c",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL für den Teig"
+            },
+            {
+              "key": "b5568570-5783-5927-9a44-8090f0eff01e",
+              "ingredientName": "Schweinebauch",
+              "grams": 40,
+              "quantity": 0.4,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1/2 Pfund, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "b9779fbd-1fd5-5e8d-85a9-2f84921281c3",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "geschält, entdarmt und längs halbiert"
+            },
+            {
+              "key": "dd1e9980-69a8-549d-b226-2a0bfcbad864",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 3 Tassen, eine großzügige Handvoll pro Crêpe"
+            },
+            {
+              "key": "94cdf949-33e9-50d8-a3c5-e5b9a8e3350b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Braten der Crêpes"
+            },
+            {
+              "key": "921b0bfe-1210-5e2c-a13a-12e37b37f0b5",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "zarter Blattsalat zum Einwickeln"
+            },
+            {
+              "key": "6ba7d2e3-e4b8-586b-a00a-9ed84435214b",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "frische Blätter für den Kräuterteller"
+            },
+            {
+              "key": "fc484663-f4ac-5461-a72a-02ba8a0e27e9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "frische Zweige für den Kräuterteller"
+            },
+            {
+              "key": "ec8efadd-2eac-5daa-ac59-282ddde0ecc0",
+              "ingredientName": "Fischsauce",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "für die Nuoc-Cham-Dipsauce"
+            },
+            {
+              "key": "24cc39e5-15dc-5c18-a309-0acb5305e42f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "für Nuoc Cham ausgepresst"
+            },
+            {
+              "key": "1f068e3d-e5d9-5135-9412-c4a616c70f85",
+              "ingredientName": "Zucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "3 EL für Nuoc Cham"
+            },
+            {
+              "key": "dd12c604-7da4-5140-be3a-371d728c6f28",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 17,
+              "optional": false,
+              "source_note": "2 Zehen, für Nuoc Cham fein gehackt"
+            },
+            {
+              "key": "2e884a01-faec-5e66-b3ca-557a76eadf2b",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 18,
+              "optional": false,
+              "source_note": "fein gehackt, nach Geschmack, für Nuoc Cham"
+            },
+            {
+              "key": "6ee369e6-8362-5eee-9ac5-e4d9d9e7af9a",
+              "ingredientName": "Karotte",
+              "grams": 18.3,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 19,
+              "optional": true,
+              "source_note": "in feine Streifen geschnitten für Nuoc Cham"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig 2 Tassen Reismehl, 2 EL Maisstärke, 1 TL Kurkuma und 1 TL Salz verquirlen. 1 Tasse Kokosmilch und etwa 1.5 Tassen Wasser einrühren, bis der Teig glatt und dünn wie Sahne ist. Geschnittenes Frühlingszwiebelgrün einrühren und mindestens 30 Minuten oder über Nacht im Kühlschrank ruhen lassen, damit die Pfannkuchen besonders knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für Nuoc Cham 3 EL Zucker in 6 EL warmem Wasser auflösen. Limettensaft, Fischsauce, gehackten Knoblauch und Thai-Chili hinzufügen. Süß-sauer-salzig abschmecken, Karotte in feinen Streifen untermengen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Füllung Schweinebauch dünn schneiden und mit einer Prise Salz würzen; Garnelen längs halbieren. Salat, Minze und Koriander waschen, trocknen und zum Einwickeln auf einer Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine beschichtete oder gut eingebrannte Pfanne bei mittelhoher Hitze erhitzen. Etwas Öl hineingeben, einige Scheiben Schweinebauch und Garnelenstücke dazugeben und 2–3 Minuten garen, bis Fett austritt und die Garnelen rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig umrühren, da sich die Zutaten absetzen. Eine dünne Schicht in die heiße Pfanne schöpfen und sofort kreisend verteilen. Der Teig sollte laut zischen. Etwas Öl am Rand entlangträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine großzügige Handvoll Sojasprossen über eine Hälfte streuen, die Pfanne abdecken und 1–2 Minuten dämpfen, bis die Sprossen gar und der Pfannkuchen fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Deckel abnehmen und den Pfannkuchen weitere 2–3 Minuten braten, bis die Ränder tief goldbraun und knusprig sind und sich von der Pfanne lösen. Geduld macht ihn besonders kross.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Pfannkuchen über der Füllung zusammenklappen und auf einen Teller gleiten lassen. Mit dem restlichen Teig wiederholen und die Pfanne zwischen den Pfannkuchen einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Zum Essen ein Stück Pfannkuchen abreißen, mit Minze und Koriander in ein Salatblatt legen, einrollen und großzügig in Nuoc Cham tunken. Sofort knusprig servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/B%C3%A1nh_x%C3%A8o_with_pork_sausage_and_shrimp_served_with_various_garnishes.jpg/1280px-B%C3%A1nh_x%C3%A8o_with_pork_sausage_and_shrimp_served_with_various_garnishes.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_x%C3%A8o_with_pork_sausage_and_shrimp_served_with_various_garnishes.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ser Amantio di Nicolao — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Vietnamese Banh Xeo (Sizzling Crepes)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-summer-rolls",
+      "slug": "cur2-summer-rolls",
+      "title": "Vietnamesische Sommerrollen (Gỏi Cuốn)",
+      "instructions": "Frische, nicht frittierte vietnamesische Reispapierrollen mit pochierten Garnelen, weichen Reisnudeln, knackigem Salat, Gurke und reichlich Minze, Koriander und Thai-Basilikum. Dazu gibt es einen cremigen Hoisin-Erdnuss-Dip. Kühl, leicht und ideal für heiße Tage.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einen großen Beutel getrocknete Reisnudeln und eine Packung Reispapier kaufen. Beides kostet pro Rolle nur wenig und hält sich monatelang im Vorratsschrank.",
+        "Garnelen sind der teuerste Teil: Jede längs halbieren oder ganz weglassen und durch zusätzliche Kräuter und Tofu ersetzen.",
+        "Kräuter reichen weiter, wenn ein großer Bund gekauft und auch die Stiele verwendet werden. Minze auf der Fensterbank anzubauen, lohnt sich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Poached shredded Hähnchen breast oder Pfanne-gebraten tofu strips",
+          "savings": "Spart ~$3-4 pro Zubereitung gegenüber Garnelen"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "weglassen und verwenden natur hoisin thinned mit Wasser plus zerdrückt peanuts auf top",
+          "savings": "Spart etwa $0.30"
+        },
+        {
+          "forIngredientId": "thai-basil",
+          "swap": "Extra normal Minze und Koriandergrün",
+          "savings": "Spart ~$2 für ein besonderes Kraut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch",
+        "frisch",
+        "no-backen",
+        "Garnelen",
+        "Reis-paper",
+        "summer (deutsche Fassung)",
+        "light (deutsche Fassung)",
+        "meal-prep-friendly (deutsche Fassung)",
+        "peanut-Sauce"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7366,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-summer-rolls/",
+      "components": [
+        {
+          "key": "4633e470-0ea0-53f4-a9f1-ddffcbdadb76",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 372.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "91f3089c-8457-5e1c-a194-a5494dbabbdb",
+              "ingredientName": "Reispapierblätter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 runde Reispapierblätter (Banh Trang), ~22cm"
+            },
+            {
+              "key": "3d808e19-1f81-598b-99f0-ca797e123d20",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "getrocknete dünne Reisnudeln (Bun)"
+            },
+            {
+              "key": "3ce42f55-4e3c-5f9b-a9d7-f2077e6157b0",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "mittelgroße Garnelen, pochiert und längs halbiert"
+            },
+            {
+              "key": "fdf9b1fc-d3d5-54f6-bb25-cac49e6f3bcf",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "zarter grüner Kopfsalat oder Buttersalat, Blattrippen entfernt"
+            },
+            {
+              "key": "bce8a419-ef3c-555a-a86a-1095674a1cdb",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in feine Stifte geschnitten"
+            },
+            {
+              "key": "07a599c9-4ca5-51a7-93b4-5a3391a6bbba",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten"
+            },
+            {
+              "key": "d40b8ad8-0e64-5137-8f5e-922e7f7dcbcc",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7204e59e-afa8-5ddc-83e1-e7121ad17bd9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d9f7e2c-5da2-5d97-9679-8e1662ad38f2",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "30aaa641-cb0b-5a2e-b7b6-aa52a0ba6fe2",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "grüne Teile, optional zum Zusammenbinden"
+            },
+            {
+              "key": "db0bb63b-72e1-588c-a92c-88122d6cb020",
+              "ingredientName": "Hoisin-Sauce",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Grundlage der Erdnuss-Dipsauce"
+            },
+            {
+              "key": "6d74593c-59a0-52fa-bbb0-bcbf19986aa7",
+              "ingredientName": "Erdnussbutter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "glatt, verdünnt und verfeinert die Sauce"
+            },
+            {
+              "key": "8080e84f-c664-5ed8-9a98-f16987afcaa5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45ca5de4-b0d8-537c-b738-1ecc1950389f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a8e9931-23cb-5135-93af-706508b6a3ae",
+              "ingredientName": "Sriracha",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "nach Geschmack in der Dipsauce"
+            },
+            {
+              "key": "78ccb3f0-a8a5-5dba-bec6-b601fd32143d",
+              "ingredientName": "Erdnüsse",
+              "grams": 4.25,
+              "quantity": 4.25,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "geröstet und zerstoßen zum Garnieren der Sauce"
+            },
+            {
+              "key": "6800d07d-0fbc-5e24-bc0d-3fe0ca888acf",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e500103f-f30a-5759-90c6-494f89ba0a08",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen kleinen Topf leicht gesalzenes Wasser zum Kochen bringen. Garnelen hineingeben und 2–3 Minuten pochieren, bis sie gerade rosa und gekrümmt sind. In Eiswasser geben. Abgießen, schälen und jede Garnele längs halbieren, damit sie flach liegt. Mit der Schnittseite nach oben beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reisnudeln im selben Topf nach Packungsanweisung 3–5 Minuten garen, bis sie weich, aber nicht matschig sind. Abgießen, kalt abspülen, um den Garvorgang zu stoppen und Stärke zu entfernen, dann gut abtropfen lassen und in einer Schüssel auflockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für den Dip Hoisinsauce, Erdnussbutter, geriebenen Knoblauch, Zucker, einen Spritzer Limette und etwas Wasser in einer kleinen Pfanne bei niedriger Hitze unter Rühren 1–2 Minuten köcheln lassen, bis die Sauce glatt und gießfähig ist. Nach Geschmack Sriracha einrühren, in eine Schüssel geben und mit gehackten Erdnüssen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füllungen getrennt vorbereiten: Salat in Stücke in Größe der Reispapierblätter zupfen, Gurke und Karotte in feine Stifte schneiden und die Blätter von Minze, Koriander und Thai-Basilikum abzupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine breite, flache Schüssel mit warmem Wasser füllen. Ein Reispapierblatt 5–10 Sekunden eintauchen, bis es gerade biegsam ist. Auf einem sauberen, feuchten Brett wird es weiter weich, deshalb nicht zu lange einweichen. Flach auf eine saubere, feuchte Fläche legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Im unteren Drittel ein Salatstück, eine kleine Menge Reisnudeln, Gurke, Karotte und reichlich Kräuter schichten. Füllung kompakt halten und an den Seiten einen freien Rand lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "3 halbe Garnelen mit der Schnittseite nach unten in einer ordentlichen Reihe auf den freien Streifen über der Füllung legen, damit sie durch die fertige Rolle sichtbar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Unteren Rand über die Füllung klappen, beide Seiten einschlagen und die Rolle fest bis zu den Garnelen aufrollen. Beim Rollen andrücken, damit sie sich schließt. Mit den übrigen Reispapierblättern wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort ganz oder diagonal halbiert mit Erdnuss-Dip servieren. Zum Aufbewahren mit einem feuchten Tuch abdecken, damit die Blätter nicht austrocknen und festkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/G%E1%BB%8Fi_cu%E1%BB%91n.jpg/1280px-G%E1%BB%8Fi_cu%E1%BB%91n.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:G%E1%BB%8Fi_cu%E1%BB%91n.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Tran Hai Duong — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Vietnamese Summer Rolls (Gỏi Cuốn)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-indonesian-beef-rendang",
+      "slug": "cur2-indonesian-beef-rendang",
+      "title": "Indonesisches Rindfleisch-Rendang",
+      "instructions": "Indonesischer Rindfleischeintopf, der langsam mit Kokosmilch, Schalotten, Ingwer, Galgant, Zitronengras, Chili und Tamarinde geschmort wird, bis die Sauce dunkel und fast trocken ist und das Fleisch zart überzieht.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 145,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderbug gehört zu den günstigsten Stücken und eignet sich ideal für Rendang. Beim langen Köcheln wird das Bindegewebe zart; ein teures Premiumstück ist nicht nötig.",
+        "Eine große Portion zubereiten. Rendang hält sich eine Woche im Kühlschrank und schmeckt am nächsten Tag sogar besser, wenn die Gewürze durchgezogen sind.",
+        "Getrocknete ganze Chilis und ein Block Palmzucker reichen für viele Portionen und sind lange haltbar. So verteilen sich die anfänglichen Gewürzkosten auf viele Gerichte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "palm-sugar",
+          "swap": "verwenden brown Zucker, which has ein similar molasses note",
+          "savings": "Spart etwa $3 gegenüber dem Kauf von besonderem Palmzucker"
+        },
+        {
+          "forIngredientId": "galangal",
+          "swap": "verwenden extra frisch Ingwer plus ein pinch von white Pfeffer wenn galangal is hard zu find",
+          "savings": "Spart einen $4-Einkauf im Spezialgeschäft"
+        },
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "verwenden Rindfleisch stew meat, which is usually pre-schneiden chuck",
+          "savings": "Im Angebot pro Pfund oft $1-2 günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indonesisch",
+        "Rindfleisch",
+        "curry (deutsche Fassung)",
+        "slow-gegart",
+        "scharf",
+        "coconut (deutsche Fassung)",
+        "west-sumatran (deutsche Fassung)",
+        "meal-prep (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7367,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-indonesian-beef-rendang/",
+      "components": [
+        {
+          "key": "e8a65e02-af97-5238-873f-2b9b36829631",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 464.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "13fb8212-346d-5d75-8f15-9146beeaf565",
+              "ingredientName": "Rinderbug",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "in 1.5 Zoll große Würfel geschnitten"
+            },
+            {
+              "key": "59fffcc7-23ff-59df-b366-c32ddca5343f",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "Vollfett"
+            },
+            {
+              "key": "54ad375b-a1b0-5656-8ea0-237945192f1c",
+              "ingredientName": "Schalotte",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "für die Rempah-Gewürzpaste"
+            },
+            {
+              "key": "99876782-2796-5219-bb27-3f85011a165c",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen für die Rempah-Paste"
+            },
+            {
+              "key": "4ac16d12-7f0f-542b-8658-897b34b64479",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zoll großes Stück"
+            },
+            {
+              "key": "e2f2b33d-1f82-5bc3-9856-86ed392b9e79",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zoll großes Stück, in die Rempah-Paste gemixt"
+            },
+            {
+              "key": "0fb95344-8627-569a-92d2-adc006c153f2",
+              "ingredientName": "Zitronengras",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 ganze Stangen angedrückt, 1 in die Paste gemixt"
+            },
+            {
+              "key": "a8a3a35f-b189-52ff-8fa4-f65fbe966df7",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 100,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "in heißem Wasser eingeweicht; nach gewünschter Schärfe dosieren"
+            },
+            {
+              "key": "1e22bd1a-1155-5ac4-b48e-b63f753717e9",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddaed92b-fd79-5289-93ec-f84ffef90fc8",
+              "ingredientName": "Kaffernlimettenblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "568e6e30-9430-5870-9a07-9930933a863a",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62145d17-4748-53b9-8248-f3e354e9eea3",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "oder durch braunen Zucker ersetzen"
+            },
+            {
+              "key": "c38411a7-f4d3-5962-9491-e020a35edf66",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "kleiner Löffel"
+            },
+            {
+              "key": "c54d3cbc-33f8-5c3e-a8e3-3a0255909f38",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81cd1142-2c13-512b-b330-7a0cb467b63e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "zum Anbraten der Paste"
+            },
+            {
+              "key": "b1342c28-c21f-530c-8ad9-e872fd770182",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "zu Kerisik geröstet für die traditionelle Konsistenz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Chilis 10 Minuten in heißem Wasser einweichen, bis sie weich sind, dann abgießen. Mit Schalotten, Knoblauch, Ingwer, Galgant, einem Stängel Zitronengras, Kurkuma und Koriander zu einer glatten Rempah-Paste mixen. Falls nötig etwas Wasser hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Falls Kokosraspeln verwendet werden, diese in einer trockenen Pfanne bei mittlerer Hitze unter ständigem Rühren tief goldbraun rösten. Zu einer groben Paste (Kerisik) mahlen, die für nussiges Aroma sorgt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem schweren Topf bei mittlerer Hitze erhitzen. Rempah-Paste unter häufigem Rühren 5–8 Minuten braten, bis sie dunkler und intensiv duftend ist und der rohe Geruch verschwunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rindfleischwürfel hinzufügen und mit der Paste überziehen. Einige Minuten anbraten. Kokosmilch zugießen, die zwei angedrückten Zitronengrasstängel, Kaffernlimettenblätter, Tamarinde und Salz dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sanft zum Köcheln bringen und die Hitze reduzieren. Ohne Deckel unter gelegentlichem Rühren etwa 2 bis 2.5 Stunden garen, damit nichts am Topfboden ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn die Sauce reduziert und dickflüssiger wird, häufiger umrühren und Palmzucker sowie geröstete Kokospaste hinzufügen. Die Mischung wird von suppig zu einer dicken Sauce, die am Fleisch haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitergaren und rühren, bis sich Kokosöl absetzt und die Sauce dunkelbraun und fast trocken wird und das nun gabelzarte Fleisch überzieht. Diese Karamellisierung ist typisch für echtes Rendang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und Salz sowie Zucker anpassen. Zitronengrasstängel und Limettenblätter entfernen. Vor dem Servieren einige Minuten ohne Hitze ruhen lassen und mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Beef_Rendang..JPG/1280px-Beef_Rendang..JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beef_Rendang..JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Miansari66 — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Indonesian Rindfleisch Rendang",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-gado-gado",
+      "slug": "cur2-gado-gado",
+      "title": "Gado Gado",
+      "instructions": "Indonesischer „Mischmasch“-Salat mit blanchiertem Gemüse, gekochtem Ei und knusprig gebratenem Tofu und Tempeh. Alles wird mit warmer süß-säuerlicher Erdnusssauce aus Tamarinde, Palmzucker und Kecap Manis überzogen und mit Gurke, gebratenen Schalotten und Crackern serviert.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu, Tempeh und Eier machen das Gericht sättigend und proteinreich für wenig Geld. Teurere Eiweißquellen können ganz weggelassen werden.",
+        "Fürs Blanchieren beliebiges festes Gemüse verwenden. Das Gericht eignet sich gut, um Reste von Kohl, Karotten und Blattgemüse aufzubrauchen.",
+        "Naturbelassene Erdnussbutter mit Wasser verdünnen, statt selbst Erdnüsse zu mahlen. Für mehr Biss eine Handvoll zerstoßene Erdnüsse dazugeben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kecap-manis",
+          "swap": "Soy Sauce simmered mit ein extra spoon von brown Zucker",
+          "savings": "Spart eine besondere Flasche für etwa $3"
+        },
+        {
+          "forIngredientId": "tamarind",
+          "swap": "ein splash von Limette juice plus ein little brown Zucker",
+          "savings": "Spart etwa $2 bei Tamarindenpaste"
+        },
+        {
+          "forIngredientId": "peanuts",
+          "swap": "Extra peanut Butter (just verwenden it all in der Sauce)",
+          "savings": "Spart etwa $1.50 und eine Zutat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indonesisch",
+        "peanut-Sauce",
+        "salad (deutsche Fassung)",
+        "Vegetarier",
+        "tofu (deutsche Fassung)",
+        "tempeh (deutsche Fassung)",
+        "street-food (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7368,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-gado-gado/",
+      "components": [
+        {
+          "key": "45d35bfd-a1a8-5734-af1d-5c64ed650f14",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 560.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "18464010-d246-55c7-ab68-a6e30f48b64c",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "fester Tofu, gewürfelt und goldbraun gebraten"
+            },
+            {
+              "key": "a9be3a19-a71f-5f5c-a6a7-6e563c896f9e",
+              "ingredientName": "Tempeh",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten und knusprig gebraten"
+            },
+            {
+              "key": "ca629458-1342-5530-b5cf-2071b14d1a24",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "hart gekocht, halbiert"
+            },
+            {
+              "key": "f1291154-8829-593e-aa08-c92b18a6c9b8",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gekocht und in Scheiben geschnitten"
+            },
+            {
+              "key": "da58d336-229c-5928-981c-d03766255ff3",
+              "ingredientName": "Kohl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten und blanchiert"
+            },
+            {
+              "key": "6e7121a3-aa67-5e20-8824-fedb638deee9",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "ideal sind Schlangenbohnen; geputzt und blanchiert"
+            },
+            {
+              "key": "99575cf3-7cb7-58d8-bac2-3198f80011ae",
+              "ingredientName": "Sojasprossen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "kurz blanchiert"
+            },
+            {
+              "key": "b7476503-7118-5110-a0f2-fbaed48ab39a",
+              "ingredientName": "Spinat",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "ideal ist Kangkung beziehungsweise Wasserspinat; blanchiert"
+            },
+            {
+              "key": "d5b87ede-14aa-5859-b8ad-23842e3e6deb",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten und blanchiert"
+            },
+            {
+              "key": "d22eafd6-5359-5ade-9a84-4f6402dbf265",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "roh, in Scheiben geschnitten"
+            },
+            {
+              "key": "199e33b8-beb3-5e40-869a-300e3d4660c3",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "naturbelassen, als Ersatz für frisch gemahlene geröstete Erdnüsse"
+            },
+            {
+              "key": "87ba5655-4f8e-580a-86b7-4ce0fc4cb0d0",
+              "ingredientName": "Erdnüsse",
+              "grams": 8.51,
+              "quantity": 8.51,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "geröstet und für mehr Biss grob in die Sauce gemahlen"
+            },
+            {
+              "key": "d92a0c29-92ee-537d-8a0e-f885faece8ea",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "Zehen, gebraten"
+            },
+            {
+              "key": "9575f07a-81cc-5063-8897-4a848fd66ad4",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "in der Saucengrundlage angebraten"
+            },
+            {
+              "key": "bddc885d-1f1c-5622-b985-4829506ceced",
+              "ingredientName": "Thai-Chili",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "nach Geschmack, mit den aromatischen Zutaten angebraten"
+            },
+            {
+              "key": "fb3187e5-53a1-5524-8e7a-97de3d33f8fd",
+              "ingredientName": "brauner Zucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "Gula Jawa; auch brauner Zucker eignet sich"
+            },
+            {
+              "key": "f9aeecc7-708a-5ad1-81ca-cc0677dddfb8",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "mit warmem Wasser verdünnte Tamarindenpaste"
+            },
+            {
+              "key": "35b6fb58-a71a-5c6d-a5d0-29758cbf2064",
+              "ingredientName": "Kecap Manis (süße Sojasauce)",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "indonesische süße Sojasauce"
+            },
+            {
+              "key": "ef8ada75-5a10-58f2-ab26-d92bb87af449",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 18,
+              "optional": false,
+              "source_note": "ideal ist Kaffir-Limette; Saft in die Sauce geben und zum Servieren verwenden"
+            },
+            {
+              "key": "f84669ec-d49b-5dab-95c6-74a293ba9b5f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6339ad58-74d4-58dc-be92-4a3355690251",
+              "ingredientName": "Pflanzenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 20,
+              "optional": false,
+              "source_note": "zum Braten von Tofu, Tempeh und aromatischen Zutaten"
+            },
+            {
+              "key": "24bf800b-4e4e-5e7f-bf1a-69a3bc1bca48",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 21,
+              "optional": true,
+              "source_note": "Krupuk oder Garnelencracker separat dazu reichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tofu würfeln und Tempeh in Scheiben schneiden. Trocken tupfen und beides in wenig heißem Öl goldbraun und knusprig braten. Auf Küchenpapier abtropfen lassen. Eier etwa 9 Minuten hart kochen, abkühlen lassen, schälen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln weich kochen, bis eine Gabel leicht hineingeht, dann in Scheiben schneiden. Im selben Topf mit kochendem Salzwasser jedes Gemüse getrennt blanchieren, bis es knackig-zart ist: grüne Bohnen und Karotte etwa 2 Minuten, Kohl etwa 1 Minute, Spinat und Sojasprossen 30–45 Sekunden. In kaltem Wasser abschrecken und gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Saucengrundlage Knoblauch, Schalotte und Chilis in wenig Öl braten, bis sie duften und weich sind. Anschließend im Mörser zerstoßen oder zu einer groben Paste mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Paste bei niedriger Hitze zurück in die Pfanne geben und Erdnussbutter sowie gemahlene geröstete Erdnüsse einrühren. Mit etwas Wasser verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Palmzucker, Tamarindenwasser, Kecap Manis und eine gute Prise Salz einrühren. Sanft köcheln lassen und bei Bedarf Wasser hinzufügen, bis die Sauce glänzt und einen Löffel überzieht. Mit Limettensaft abschmecken und Süße, Säure, Salz und Schärfe ausbalancieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Blanchiertes Gemüse, Gurke, Kartoffelscheiben, gebratenen Tofu und Tempeh sowie halbierte Eier auf einer Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warme Erdnusssauce großzügig darüberlöffeln oder zum Dippen daneben servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit gebratenen Schalotten, einigen zerstoßenen Erdnüssen und Limettenspalten garnieren. Krupuk-Cracker dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Gado-gado_-_Bali_2025-09-25.jpg/1280px-Gado-gado_-_Bali_2025-09-25.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gado-gado_-_Bali_2025-09-25.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Gado Gado",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-singaporean-char-kway-teow",
+      "slug": "cur2-singaporean-char-kway-teow",
+      "title": "Singapurische Char Kway Teow",
+      "instructions": "Rauchig gebratene flache Reisnudeln in süß-salziger dunkler Sojasauce, mit chinesischer Wurst, Garnelen, Fischkuchen, Ei, Sojasprossen und Knoblauch-Schnittlauch. Ein Klassiker der Hawker-Stände, bei dem es auf hohe Hitze und Wok-Aroma ankommt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frische breite Reisnudeln im asiatischen Lebensmittelgeschäft kaufen. Sie sind günstig und deutlich besser als getrocknete. Getrocknete Nudeln nur bis zur Biegsamkeit einweichen, damit sie im Wok nicht matschig werden.",
+        "Eine chinesische Wurst und einige Garnelen reichen weit. Mit zusätzlichen Sojasprossen und Fischkuchen lässt sich das Gericht für mehr Personen strecken.",
+        "Keine Lap-Cheong-Wurst vorhanden? Etwas Speck mit einer Prise Zucker imitiert das süß-salzige ausgelassene Fett günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "in Scheiben geschnitten Hähnchen thigh oder extra Fisch cake",
+          "savings": "Spart ~$2 pro Portion"
+        },
+        {
+          "forIngredientId": "kecap-manis",
+          "swap": "normal dark soy + ein Teelöffel von brown Zucker",
+          "savings": "Spart ~$3 durch den Kauf einer statt zweier Flaschen"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "normal scallions schneiden in batons",
+          "savings": "Spart ~$1, meist bereits vorhanden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "singaporean (deutsche Fassung)",
+        "umrühren-fry",
+        "noodles (deutsche Fassung)",
+        "wok (deutsche Fassung)",
+        "hawker (deutsche Fassung)",
+        "street-food (deutsche Fassung)",
+        "hoch-erhitzen",
+        "Meeresfrüchte",
+        "scharf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7369,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-singaporean-char-kway-teow/",
+      "components": [
+        {
+          "key": "a989e029-84df-56a1-a3e7-65a60a861f0d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 401,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8c83a1b-dfcd-5b9d-91ad-12458a41d141",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Frische breite Reisbandnudeln (Kway Teow / Ho Fun); vor dem Garen vorsichtig voneinander lösen"
+            },
+            {
+              "key": "17cb496c-75aa-5f62-98f9-f33fdd42cfed",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 37.5,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "Lap Cheong, schräg in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "fe42d8b1-7b69-55e7-a937-7d4e5cfb36d2",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "Garnelen, geschält und entdarmt"
+            },
+            {
+              "key": "86f39275-ed51-55ac-9f12-8d004bb555ae",
+              "ingredientName": "Fischkuchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Dünn geschnitten"
+            },
+            {
+              "key": "f8b6aef0-611c-5bd1-82c3-84210ca775b2",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fe12fdf-3422-5860-acfb-7aa6a28d5c5c",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Große Handvoll, Schwänze nach Belieben"
+            },
+            {
+              "key": "d76714aa-2c53-5256-855f-037e7c973e97",
+              "ingredientName": "Schnittlauch",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Schnittknoblauch (Ku Chai), in 2 Zoll lange Stücke geschnitten"
+            },
+            {
+              "key": "88061150-cb87-571c-98c2-75d415def609",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "Fein gehackt"
+            },
+            {
+              "key": "21051905-2cdf-570d-9f7d-e43ae7cd0609",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Für Farbe und kräftiges Raucharoma"
+            },
+            {
+              "key": "0f279630-5d25-587f-a96d-fcd9e145fc7f",
+              "ingredientName": "Kecap Manis (süße Sojasauce)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "süße Sojasauce für die typische Glasur"
+            },
+            {
+              "key": "6b263e47-e25b-5acd-84d5-abf78675f3d3",
+              "ingredientName": "natriumarme Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "helle Sojasauce zum Würzen"
+            },
+            {
+              "key": "93fb93cc-ecf8-598d-9243-41f01cfeb2e3",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ca24b0c-8b53-511e-8790-ee2bf38bceb4",
+              "ingredientName": "Sambal Oelek",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "Oder Chilipaste nach Geschmack"
+            },
+            {
+              "key": "46999917-b244-571e-a067-1ecf5da29921",
+              "ingredientName": "Pflanzenöl",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "traditionell ausgelassenes Schweineschmalz für das typische Aroma"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Sauce dunkle Sojasauce, Kecap Manis, helle Sojasauce und Fischsauce in einer kleinen Schüssel verrühren. Frische Reisnudeln vorsichtig mit den Händen voneinander lösen, damit sie im Wok nicht reißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wok bei höchster Hitze erhitzen, bis er raucht. Die Hälfte des Öls hineingeben, dann die geschnittene chinesische Wurst. 30–45 Sekunden braten, bis Fett austritt und die Ränder knusprig sind. Knoblauch und Garnelen hinzufügen und braten, bis die Garnelen gerade rosa werden. Fischkuchen dazugeben und 30 Sekunden schwenken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Alles an eine Seite schieben. Übriges Öl in die freie Stelle geben, Eier hineinschlagen und einige Sekunden stocken lassen. Leicht verrühren und mit den übrigen Zutaten vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reisnudeln dazugeben und Sauce am Rand des Woks zugießen. Mit einem flachen Pfannenwender etwa 1–2 Minuten ständig wenden und unterheben, damit die Nudeln leicht anrösten und rauchiges Wok-Aroma aufnehmen. Nicht zu vorsichtig rühren; die Nudeln zwischen dem Wenden kurz auf dem heißen Metall liegen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nach Wunsch Sambal- oder Chilipaste hinzufügen und gleichmäßig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasprossen und Knoblauch-Schnittlauch dazugeben. 30–45 Sekunden kräftig wenden, damit sie zusammenfallen, aber knackig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und bei Bedarf einen Schuss helle Sojasauce hinzufügen. Sofort direkt aus dem Wok servieren, solange das Gericht rauchig und heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Charkwayteow.JPG/1280px-Charkwayteow.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Charkwayteow.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public domain",
+          "attributionRequired": false,
+          "attributionText": "Photo: Chen Siyuan — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Singaporean Char Kway Teow",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

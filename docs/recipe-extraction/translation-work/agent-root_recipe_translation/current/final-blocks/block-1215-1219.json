@@ -1,0 +1,1166 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-sea-mie-ayam",
+      "slug": "mfr-sea-mie-ayam",
+      "title": "Indonesisches Mie Ayam (Hähnchen-Nudelschale)",
+      "instructions": "Eiernudeln mit einer süßen Soja-Sesam-Sauce, belegt mit geschmortem Hähnchen und Pilzen, dazu klare Hühnerbrühe – die beliebte Nudelschale aus Indonesiens Bakso-Läden.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süße Sojasauce (Kecap Manis) ist die wichtigste Zutat und kostet $2-3 in asiatischen Lebensmittelgeschäften.",
+        "Frittierte Schalotten aus dem Glas lohnen sich und runden das Gericht wunderbar ab.",
+        "Die Hähnchenschenkel 15 Minuten zu schmoren ist der Schritt, der am meisten Zeit braucht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-soy-sauce",
+          "swap": "Normale Sojasauce und 1 TL brauner Zucker"
+        },
+        {
+          "forIngredientId": "fried-shallots",
+          "swap": "Knusprige Röstzwiebeln aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-mie-ayam",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "indonesisch",
+        "Mie-Ayam",
+        "Nudeln",
+        "Hähnchen",
+        "Reisschale"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1215,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-mie-ayam/",
+      "components": [
+        {
+          "key": "439d7c7d-a49c-5b85-8102-d1c7374570b1",
+          "name": "Zutaten",
+          "servingGrams": 738,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4f2a16e-a4a4-5d5c-980a-666ecf91b428",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb49d4e4-d8f7-517f-874c-8fe5ed6d0a60",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "850fd95c-1d14-561d-9938-a854c2848464",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd5be66b-c309-54d9-8ea0-a706dbfcb0b6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f579c69-3f8b-5888-a769-77e99b079717",
+              "ingredientName": "Süße Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f73a14d-6a7d-5bff-8e09-494c7e1b8943",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a747fc4-57d4-5a77-b4b0-91d20ad7457c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cfb50aa-0586-5c24-a4a4-3d9f48f78066",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27f06932-42ba-54e3-9f27-2fe0f30ed505",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05f8816f-d0e7-5e3b-8c4d-ca9d8e6f96aa",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd154ad3-fe5f-56e9-a481-699181332d38",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc9042c9-5383-56db-bd27-aadd8980bf6e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmore die Hähnchenschenkel 15 Minuten mit Knoblauch, Ingwer, süßer Sojasauce und Austernsauce, bis sie zart sind. Zerteile das Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Nudeln nach Packungsangabe. Vermische sie mit Sesamöl und 1 EL süßer Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Brühe mit einem Schuss süßer Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die gewürzten Nudeln mit Hähnchen, Pilzen, frittierten Schalotten und Frühlingszwiebel in einer Schale an. Serviere die Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2019/01/11/dining/jm-indonesian-chicken-soup/merlin_148333161_f25722c1-83e2-4019-942f-0ae44bfe702f-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2019/01/11/dining/jm-indonesian-chicken-soup/merlin_148333161_f25722c1-83e2-4019-942f-0ae44bfe702f-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-pancit-bihon",
+      "slug": "mfr-sea-pancit-bihon",
+      "title": "Philippinisches Pancit Bihon (gebratene Reisnudeln)",
+      "instructions": "Dünne Reisnudeln, im Wok mit Hähnchen, Gemüse sowie Soja-Austernsauce gebraten – das typische philippinische Geburtstagsgericht, dessen lange Nudeln ein langes Leben symbolisieren und die ganze Woche gegessen werden.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reisnudeln kosten $1.50 pro Packung und gehören zu den günstigsten Nudelsorten.",
+        "Pancit reicht für 4 Personen, kostet insgesamt weniger als $7 und lässt sich perfekt aufwärmen.",
+        "Auf philippinische Art bleiben die Nudeln leicht suppig und enthalten mehr Brühe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Schweinefilet oder Garnelen"
+        },
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Pak Choi oder Chinakohl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-pancit-bihon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "philippinisch",
+        "Pancit",
+        "Nudeln",
+        "Wok",
+        "Feier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1216,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-pancit-bihon/",
+      "components": [
+        {
+          "key": "f22c959a-706c-551f-97ed-a668c311080b",
+          "name": "Zutaten",
+          "servingGrams": 339.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "029020c2-4365-5e21-b76c-9fb65b6fdd4c",
+              "ingredientName": "Reisnudeln",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bddd79e8-270d-5506-93b9-0192eb16924d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5b326cd-cf43-5fa8-81a7-ef2048dda0a1",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a71c661-703a-5ff3-87f2-e1d4f104c6ec",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6696a33-1599-5e69-bced-13433598b68d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "128cebde-afb1-5ffb-b34a-48d584e96ab7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "742b5058-f2f0-5899-837c-40167cbe4722",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5eca12b-f039-53b9-8dca-8f46f1a2693a",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40154738-7fa8-5464-b567-583de81f4066",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84b85017-d744-5a2d-b431-e789aebd3e1f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "300304a1-6556-5798-9112-2b5e66847c67",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58cd4d7e-2fa9-5a2c-b832-567547eab7b6",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Reisnudeln 10 Minuten in kaltem Wasser ein. Schneide das Hähnchen in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Knoblauch und Zwiebel 2 Minuten im Wok an. Gib das Hähnchen dazu und gare es 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kohl und Karotten dazu und brate alles 2 Minuten. Füge Nudeln, Brühe, Sojasauce und Austernsauce hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schwenke alles, bis die Nudeln die gesamte Flüssigkeit aufgenommen haben. Verfeinere das Gericht mit Zitrone und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/42nVW3ByUeAUQKE1VGnQSF3Bvvw=/1365x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Pancit-Bihon-Bowls-LEAD-09-09d5c04a527d41589b34a1482193eda4.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/42nVW3ByUeAUQKE1VGnQSF3Bvvw=/1365x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Pancit-Bihon-Bowls-LEAD-09-09d5c04a527d41589b34a1482193eda4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-chicken-cacciatore",
+      "slug": "mfr-euro-chicken-cacciatore",
+      "title": "Italienisches Hähnchen-Cacciatore",
+      "instructions": "Hähnchenschenkel, geschmort in einer kräftigen Tomatensauce mit Oliven, Kapern, Paprika und Rosmarin – ein rustikaler italienischer Jägereintopf, der am nächsten Tag noch besser schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel für $2 pro Pfund eignen sich perfekt zum Schmoren – sie nehmen die Sauce auf und bleiben saftig.",
+        "Oliven und Kapern wirken vielleicht besonders, aber schon eine kleine Menge bringt viel Geschmack.",
+        "Dieses Gericht lässt sich wunderbar einfrieren – bereite gleich mehr zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Hühnerbrühe und ein Schuss Zitrone"
+        },
+        {
+          "forIngredientId": "capers",
+          "swap": "Mehr Oliven oder weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-chicken-cacciatore",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "italienisch",
+        "Cacciatore",
+        "Hähnchen",
+        "geschmort",
+        "Tomate"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1217,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-chicken-cacciatore/",
+      "components": [
+        {
+          "key": "5494d08d-ccfc-547e-9ee7-e1a783a1c6a1",
+          "name": "Zutaten",
+          "servingGrams": 429,
+          "position": 0,
+          "items": [
+            {
+              "key": "c78fdfce-4298-5a3c-9258-d7f4864d5ccb",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2a24082-fcd1-57c6-ba5d-ab9ade2a7321",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ea08230-2ffa-5409-871b-c2cd2ee63bc1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6655f9d0-a660-5058-b35a-1b15c621b22a",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a0ed327-373f-5b0f-8e37-b4c417b69aa2",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "955536e5-4317-52ab-a2a3-cbb7f6cc17f0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1695266a-a6bf-55bd-8a15-d5013c15c685",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9157be35-551e-50ff-8dba-aa7d9c200949",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd87fc79-6282-5650-ac8d-7ba313b7d16a",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b2a1c47-44f6-562a-809e-1ce3cfd2c0e0",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acba1953-db51-555e-95da-db543992b426",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "210f88ba-eb44-571e-b9af-b5a335da6b3e",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune die Hähnchenschenkel auf jeder Seite 4 Minuten in Olivenöl an und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel, Knoblauch und Paprika 4 Minuten an. Gib den Wein dazu und lass ihn 1 Minute einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Tomaten, Oliven, Kapern, Rosmarin und Thymian hinzu. Lege das Hähnchen wieder hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmore alles zugedeckt 30 Minuten, bis das Hähnchen zart ist. Serviere es mit Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2016/05/Best-Chicken-Cacciatore-IMAGE-22.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2016/05/Best-Chicken-Cacciatore-IMAGE-22.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-chicken-paprikash",
+      "slug": "mfr-euro-chicken-paprikash",
+      "title": "Ungarisches Hähnchen-Paprikasch",
+      "instructions": "Hähnchen, geschmort in einer seidigen, süßlich-rauchigen Paprikasauce mit saurer Sahne, serviert mit Eiernudeln – eines der großen Wohlfühlgerichte Osteuropas, das fast nichts kostet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Paprika ist hier die wichtigste Zutat – wenn möglich, verwende gute ungarische Paprika für $2-3.",
+        "Saucen mit saurer Sahne dürfen nicht kochen, sonst gerinnen sie – nimm sie immer vorher vom Herd.",
+        "Dieses Gericht kostet $1.50 pro Portion und schmeckt wie in einem guten europäischen Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt (weniger reichhaltig, aber ebenfalls köstlich)"
+        },
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Breite Pasta oder Spätzle"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-chicken-paprikash",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ungarisch",
+        "Paprikasch",
+        "Hähnchen",
+        "saure-Sahne",
+        "Nudeln"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1218,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-chicken-paprikash/",
+      "components": [
+        {
+          "key": "05fc3a73-1224-55d5-bc58-9ad316eb7982",
+          "name": "Zutaten",
+          "servingGrams": 272.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6aaf1b49-22a0-5cb1-81cd-0fec39873581",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e4939fc-fad1-5ff6-bad8-d341d15ba695",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fc0ceba-c830-57bf-b759-be289a246f48",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff7b3311-7fec-58aa-ab2d-53cdbaefa02b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65a51def-654f-5afc-8c08-6fd373bdc52b",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89f0102a-8d30-5006-a577-3db9eef89b6c",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d31347d-89c5-5b3c-a7e5-041392f6d40f",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f86c5b77-3d20-51f0-ad40-a7cae645fb05",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63bf84aa-7390-546d-9c29-3da0b890a794",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6790b27a-bac8-531c-bf23-a167729f17d7",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3346ea17-d769-5590-a5a3-2d608a03fc3c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f2c14b9-9e60-5de2-8cbb-3953d4d5fe6f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel und Knoblauch 4 Minuten in Butter an. Füge Paprika und Tomatenmark hinzu und brate alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die Hähnchenschenkel an und gib die Brühe dazu. Lass alles zugedeckt 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen heraus und rühre die saure Sahne abseits der Hitze in die Sauce. Gib das Hähnchen zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Gericht mit Eiernudeln und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/EXPS_TOHD24_205280_KristinaVanni_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/EXPS_TOHD24_205280_KristinaVanni_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-irish-beef-stew",
+      "slug": "mfr-euro-irish-beef-stew",
+      "title": "Irischer Rindereintopf mit Wurzelgemüse",
+      "instructions": "Rinderschulter, geschmort mit Guinness-ähnlichem Stout, Karotten, Pastinaken und Kartoffeln in einer kräftigen dunklen Brühe – der ideale Eintopf für kalte Tage, der 4 Personen für $10 satt macht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist das beste günstige Stück für Eintöpfe – nach einer Stunde wird sie besonders zart.",
+        "Eine Dose Guinness verleiht dem Gericht für $1.50 ein tiefes Aroma.",
+        "Bereite den Eintopf am Sonntag zu und iss die ganze Woche davon – für $2.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "stout-beer",
+          "swap": "Mehr Rinderbrühe und 1 EL Worcestershiresauce"
+        },
+        {
+          "forIngredientId": "parsnips",
+          "swap": "Steckrüben oder zusätzliche Karotten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-irish-beef-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "irisch",
+        "Eintopf",
+        "Rindfleisch",
+        "Wurzelgemüse",
+        "geschmort"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1219,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-irish-beef-stew/",
+      "components": [
+        {
+          "key": "f5855926-1243-550f-a20a-804cecccd018",
+          "name": "Zutaten",
+          "servingGrams": 524.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "acf22e0d-d06d-5b50-bf2a-7f05dec21ec5",
+              "ingredientName": "Rinderschulter",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43104860-31ed-54b5-b555-96eca768c0c2",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d80212ce-168f-5ea6-bdeb-037cfe9d9ca7",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "846a5876-1220-5eb9-9048-9e19ccacd461",
+              "ingredientName": "Pastinake",
+              "grams": 160,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a99739f-f4a1-5a68-aa5d-ecadfe13545b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bcee64c-b9fa-532e-b580-6a7b4a2e1376",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a49b60b-bdb8-5250-a794-cd40ee2dda2d",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "031b7bcb-56e7-5aa1-aaf5-a6cc58278173",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07751006-0c6a-5dd6-b12e-4845f75da89f",
+              "ingredientName": "Bier (zum Kochen)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb637fb4-e10e-551e-aa0e-0a7cb743e9a8",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "437f9ef0-9b03-5b35-977d-33eb40ea680e",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d797361-dc4c-50a3-913a-bdf4650650b2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Rindfleisch portionsweise in Olivenöl an und nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch 3 Minuten an. Gib Tomatenmark dazu und brate es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Stout-Bier dazu und löse den Bratensatz vom Pfannenboden. Gib Brühe, Rindfleisch, Kartoffeln, Karotten, Pastinaken und Kräuter dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Eintopf zugedeckt bei 325°F 55-60 Minuten, bis das Rindfleisch mit der Gabel zerteilt werden kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/gHnXd1ZygukzaWdkW-72ZkV2Hm8=/1800x1200/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2015__03__irish-beef-stew-horiz-a2-1800-24f1087421414a77a25518c0897d7e23.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/gHnXd1ZygukzaWdkW-72ZkV2Hm8=/1800x1200/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2015__03__irish-beef-stew-horiz-a2-1800-24f1087421414a77a25518c0897d7e23.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

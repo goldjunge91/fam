@@ -1,0 +1,1162 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cha-ore-sach-ko",
+      "slug": "gen-cha-ore-sach-ko",
+      "title": "Cha Oreу Sach Ko",
+      "instructions": "Kambodschanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Spinat, um Kosten und Abfall zu reduzieren",
+        "Kaufe Kokosmilch in größeren Mengen auf asiatischen Märkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "kambodschanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3570,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cha-ore-sach-ko/",
+      "components": [
+        {
+          "key": "eb35493a-4ecb-5e38-82f6-4380a1221af2",
+          "name": "Zutaten",
+          "servingGrams": 368,
+          "position": 0,
+          "items": [
+            {
+              "key": "2f9bd25c-3338-5c0b-907d-3e53112d1378",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d79dc31f-687f-5f19-a329-977564c03a30",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1d503917-70e2-5a24-8ab6-b60abc47644f",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a136a3e8-9ff8-5013-b793-e4e9a0cebae6",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "c3d1086e-d775-5761-9f04-623a55079127",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebc4b56a-360e-5ef8-9002-a9985c91b4d1",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00327b98-e0a1-5b31-95ed-8f6219b68870",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 10,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c9f6e19-3bfe-539e-979f-9d50de5f1bc7",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "48e22fdd-566a-552e-82b1-e4333551f4f5",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f1ae1afe-a9f1-5c01-9714-b3c17ebd06d4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerstoße Knoblauch, Schalotten und getrocknete Chili zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Kokosmilch und Wasser in einem Topf bei mittlerer Hitze, bis die Mischung köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Knoblauch-Schalotten-Paste hinzu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Fischsauce und Palmzucker hinzu und rühre, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hacke das Blattgemüse grob und gib es in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 5 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Limettensaft hinzu, probiere und passe Fischsauce oder Salz nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schalen als leichte Suppenvorspeise servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/5MGhe8P870-WrANbkqCAtry4iAY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sach-Ko-Jakak-LEAD-8-9b0a944d5b294c8098933b4a48520183.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/5MGhe8P870-WrANbkqCAtry4iAY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sach-Ko-Jakak-LEAD-8-9b0a944d5b294c8098933b4a48520183.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-samlor-skor",
+      "slug": "gen-samlor-skor",
+      "title": "Samlor Skor",
+      "instructions": "Kambodschanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brust für ein günstigeres und aromatisches Ergebnis",
+        "Verwende normale Kartoffeln, falls Süßkartoffeln teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "kambodschanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3571,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-samlor-skor/",
+      "components": [
+        {
+          "key": "2b981631-d8c2-5479-a67e-3fc02313ea18",
+          "name": "Zutaten",
+          "servingGrams": 794.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "f22c2275-0229-5d49-a136-e95b5dec9b8b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "7d023ee1-3b74-5cb2-8776-abae0d4950fc",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "2e5d18d8-b05f-5eaa-ad47-439722982abb",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "99209143-34ba-5521-8e7f-ff17ed4b4c03",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a78f9a7-5de4-53b0-8d3f-d353a26b4015",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5beb8511-741c-581d-aa38-0b33dbe866c4",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "b4eff794-d30f-5783-bd08-93f0cc29ae94",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "18855ca9-18d5-52cf-8c83-792848b9fa06",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "134f5f47-a96b-5b76-84f7-bd88bdc68418",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "14113d5b-bd7d-5f54-8a41-f2535b51c8e5",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "78f0d7b4-e844-56ed-bc24-211e73132a6e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Rind- oder Hähnchenfleisch in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerstoße Knoblauch, Schalotten, Zitronengras und Ingwer zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die aromatische Paste hinzu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Fleisch und Brühepulver hinzu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide Süßkartoffel und lange Bohnen in 2 Zoll große Stücke und gib sie in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles weitere 12 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Fischsauce hinzu, schmecke ab und würze nach Bedarf nach. Garniere mit Koriander und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://thidaskitchen.com/wp-content/uploads/2022/09/samlor-korko-kreung.jpg",
+          "sourcePageUrl": "http://thidaskitchen.com/wp-content/uploads/2022/09/samlor-korko-kreung.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kuy-teav",
+      "slug": "gen-kuy-teav",
+      "title": "Kuy Teav",
+      "instructions": "Kambodschanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineknochen oder Hähnchenkarkassen günstig an der Fleischtheke",
+        "Bereite Brühe in größeren Mengen zu und friere sie für mehrere Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "kambodschanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3572,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kuy-teav/",
+      "components": [
+        {
+          "key": "54d52abb-4f66-5651-9fa7-942b9cfe3d99",
+          "name": "Zutaten",
+          "servingGrams": 1023.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a60c10b-96ca-5b6a-83eb-200934c23ea5",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "41f889c1-eb83-5eaa-93a4-e178d0a4c644",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "aa85c342-ecb1-5923-b9ab-120b50846f20",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "1dbd6015-e818-54f7-9283-6c614025f4cf",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "707a1ca6-b51c-5150-b274-1b61b8519d6f",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6f60ba0-5b86-5b91-834d-ddd331eb4f70",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae3bbe06-eadb-5401-9313-451926b4c1b2",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "3e1b49bc-85e5-502b-b5ac-364c9e798789",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "21d4a802-2f59-5512-96ce-373e5fc7ab62",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b81fab61-5c87-5d7a-9e66-bbca2ffadc3a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Schweineknochen 2 Minuten in kochendem Wasser, gieße sie ab und spüle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die gesäuberten Knochen mit frischem Wasser in einen Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse die Knochen 20 Minuten köcheln, um Brühe zu gewinnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche währenddessen die Reisnudeln nach Packungsanweisung und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerstoße Knoblauch und Schalotten zusammen zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Seihe die Brühe ab und stelle sie bei mittlerer Hitze zurück auf den Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Knoblauch-Schalotten-Paste und Fischsauce zur Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Schweineleber und Fleischstücke hinzu und lasse sie 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Verteile die gekochten Nudeln auf zwei Schalen und schöpfe heiße Brühe und Fleisch darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Garniere großzügig mit Frühlingszwiebeln, Koriander und frittierten Schalotten und serviere heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.cambodiaflavours.com/wp-content/uploads/2025/12/Chha-Kuy-Teav-1.jpg",
+          "sourcePageUrl": "https://www.cambodiaflavours.com/wp-content/uploads/2025/12/Chha-Kuy-Teav-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banh-mi-cambodian",
+      "slug": "gen-banh-mi-cambodian",
+      "title": "Kambodschanisches Banh Mi",
+      "instructions": "Kambodschanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Aufschnittschinken oder verarbeitetes Fleisch statt spezieller vietnamesischer Aufschnitte",
+        "Bereite eingelegtes Gemüse selbst zu, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kambodschanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3573,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-mi-cambodian/",
+      "components": [
+        {
+          "key": "24a396c0-8522-517b-8e5d-0f7cd304ad82",
+          "name": "Zutaten",
+          "servingGrams": 163.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "596bc9d2-427a-580e-983f-9eb5eac9e4f2",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleines Stück (8 Unzen)"
+            },
+            {
+              "key": "bdbdf286-4ce1-5533-8980-8b82f265cb5c",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8af04541-0b2e-5347-b234-3c0fa9b0342e",
+              "ingredientName": "Leberpastete",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "55f659b6-62e5-5f05-9302-6b3b7e9c941a",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "faa41584-221d-5e76-bef0-a472ad9ab718",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fea64090-4386-5ced-8d10-942de2bea7e7",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f0c5122-bab4-5889-92a1-3d5c175983f3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "0e0fc1ea-499b-5958-99ea-390147d96c2f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f967cc2-806a-5b7c-b2ac-6e411014222d",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "efbe115e-7c5b-5e4a-950e-292eb041441e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette der Länge nach auf, ohne es ganz durchzuschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Innenseite des Baguettes leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile Mayonnaise auf der unteren und Pastete auf der oberen Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege das Baguette innen mit Aufschnitt, Gurkenscheiben, eingelegtem Gemüse und frischer Jalapeño.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue Koriander über die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücke das Baguette vorsichtig zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Halbiere es und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere dazu eine kleine Schale Sojasauce mit einem Schuss Wasser zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/02/banh-mi.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/02/banh-mi.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-braised-duck-dessert",
+      "slug": "gen-braised-duck-dessert",
+      "title": "Geschmorte Ente",
+      "instructions": "Kambodschanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ente im Angebot und friere sie ein; ganze Enten sind günstiger als einzelne Stücke",
+        "Verwende normalen braunen Zucker, falls Palmzucker nicht verfügbar ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "kambodschanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3574,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-braised-duck-dessert/",
+      "components": [
+        {
+          "key": "9b96803d-cbcb-5108-9296-69af9039da4d",
+          "name": "Zutaten",
+          "servingGrams": 256.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3bef02d6-158a-5bd4-9091-488ba477d7b0",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (5-6 Pfund)"
+            },
+            {
+              "key": "1747b745-0e46-5dc8-b9ca-11a72c67484d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d8ffa188-6378-58aa-86f3-cc79032962b4",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a7268fc5-19d2-5cb7-a93b-55e518d2bf2d",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "54bd0ebb-e02c-519f-9488-2819a089c637",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22fdc769-7875-53b0-84e4-afa9d9441755",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23b093b6-e677-5674-8552-d11e19db3aa5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zoll langes Stück"
+            },
+            {
+              "key": "839482c6-b1d0-598f-a1cf-3ffdb18f8201",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 30,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71bc0ca4-2719-5f94-adc0-74c02c7e2160",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c3e80e1a-dde9-5961-9ce1-8f4ad5541e3c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Ente in 8 Stücke und blanchiere sie 5 Minuten in kochendem Wasser. Gieße sie ab und spüle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerstoße Knoblauch, Schalotten, Ingwer und getrocknete Chilis mit Mörser und Stößel zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und brate die Paste 2 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Entenstücke hinzu und brate sie 5 Minuten unter Rühren goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser, Sojasauce, Fischsauce und Palmzucker hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze und lasse alles zugedeckt 1.5 Stunden köcheln, bis die Ente zart und die Sauce eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und passe es bei Bedarf mit Sojasauce und Fischsauce an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere es mit frischem Koriander und serviere es heiß auf Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2012/12/19/dining/19KITCH_SPAN/19KITCH_SPAN-superJumbo-v2.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2012/12/19/dining/19KITCH_SPAN/19KITCH_SPAN-superJumbo-v2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

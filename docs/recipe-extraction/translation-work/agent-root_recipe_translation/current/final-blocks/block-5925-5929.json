@@ -1,0 +1,1191 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicken-tikka-masala-noodles",
+      "slug": "gen-chicken-tikka-masala-noodles",
+      "title": "Hähnchen-Tikka-Masala-Nudeln",
+      "instructions": "Indisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende griechischen Joghurt statt Sahne, um Fett und Kosten um $0.75 pro Portion zu senken",
+        "Verwende ausgelöste Hähnchenschenkel statt Hähnchenbrust, spare 30 % und erhalte mehr Geschmack"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5925,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-tikka-masala-noodles/",
+      "components": [
+        {
+          "key": "cb7479d3-8ed5-5dd3-a19a-0bcab31a1e03",
+          "name": "Zutaten",
+          "servingGrams": 275.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "b845b866-f970-55d8-9cd5-6b44422a8d4c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4e950601-3e8e-5c93-8b8a-d2a922fee5d6",
+              "ingredientName": "griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e9d72235-14b5-5595-8cd0-302688772d36",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "aaf68489-890a-5831-9901-de916a4c9be5",
+              "ingredientName": "Garam Masala",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "1e279cd8-3240-5239-b451-dd387cf32897",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "65ed2ae8-9b9f-5195-a5ea-42f6c172f262",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "22421a01-bc95-5599-a0d1-552db73a4fd8",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "95d14e0a-cf92-5a1a-8ce4-5c3ee810358f",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f877e207-1466-53dd-935f-30f2c7342023",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "738f5960-8caf-59ea-9289-04d70710a91d",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "cdbddbf6-dbc4-553b-b422-a7604d3a38c4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d2ac5004-a0d9-5a4d-be70-e83d7e327663",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in 1.5-inch-Stücke. Mariniere sie in einer Mischung aus 0.75 cup Joghurt, 1 tbsp Ingwer-Knoblauch-Paste, 0.5 tsp Chilipulver und 0.25 tsp Kurkuma. Lass sie mindestens 20 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 tbsp Öl in einer großen Pfanne bei mittlerer bis hoher Hitze. Brate die marinierten Hähnchenstücke portionsweise rundherum braun an, etwa 2-3 Minuten pro Portion. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Eiernudeln nach Packungsanweisung in kochendem Salzwasser. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das restliche Öl in derselben Pfanne und brate die gewürfelte Zwiebel goldbraun. Gib gehackten Knoblauch und die restliche Ingwer-Knoblauch-Paste dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre das restliche Garam Masala, Chilipulver und Kurkuma ein und brate alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Tomatensauce dazu und lass sie aufkochen. Gib das gegarte Hähnchen zurück in die Pfanne und lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Sahne und gekochte Nudeln unter, vermenge alles vorsichtig und lass das Gericht 3-4 Minuten köcheln, bis es durchgehend heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer, garniere mit frischem Koriander und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/11/f330ce553c54cc72da357923174fbc7ea68d5aea.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/11/f330ce553c54cc72da357923174fbc7ea68d5aea.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cauliflower-manchurian",
+      "slug": "gen-cauliflower-manchurian",
+      "title": "Blumenkohl nach Manchurian-Art",
+      "instructions": "Indisch-chinesisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Blumenkohl zur Saison oder tiefgekühlt, um Kosten zu senken",
+        "Verwende neutrales Pflanzenöl statt spezieller Öle"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch-chinesisch",
+        "lunch",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5926,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cauliflower-manchurian/",
+      "components": [
+        {
+          "key": "27e43d7f-d34b-5ce8-a047-6fb7012cf9a4",
+          "name": "Zutaten",
+          "servingGrams": 271.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "79c312b3-2fae-5f26-937e-330632d7f700",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Kopf, in 1 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "e126f0ca-08ea-5190-872e-cf7287aa2f8f",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "92316f6d-44a1-579e-993f-00e082e81e36",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2d9a09f3-d66d-5e84-9df0-b8768570cbe4",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f4a5b75c-afd5-540a-8242-7093905c05db",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "a309b3d1-370d-5432-9572-63b947462830",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9fd080da-79de-5078-9e10-51fd3f362bb3",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c4771a58-2270-5366-833e-4fc113efd906",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "b507f52e-1cf1-5c9d-8f90-bcd099d94835",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a5531903-9b21-53e2-a8c9-612953f78e48",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4b45254-e2a8-57f8-bab2-032f7c0c7f47",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "b6df32af-a0ad-5eb3-83fb-537b94f29ad1",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Maisstärke, Wasser und Salz zu einem dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und frittiere die Blumenkohlröschen vorsichtig 5-7 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den frittierten Blumenkohl auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze 2 Esslöffel Öl in einem Wok oder einer großen Pfanne bei starker Hitze und brate Knoblauch und Ingwer 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Sojasauce, Ketchup, Chiliflocken und 0.25 cup Wasser dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den frittierten Blumenkohl in die Sauce und rühre, bis alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und serviere es sofort mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/vidthumb/images/gobi-manchurian-jpg-1661439833.jpg?crop=1xw:0.75xh;center,top&resize=1200:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/vidthumb/images/gobi-manchurian-jpg-1661439833.jpg?crop=1xw:0.75xh;center,top&resize=1200:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gobi-65",
+      "slug": "gen-gobi-65",
+      "title": "Gobi 65",
+      "instructions": "Indischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reismehl ist günstiger als Weizenmehl und sorgt für eine authentische Konsistenz",
+        "Kaufe einen ganzen Blumenkohl und schneide ihn selbst, statt bereits zerteilte Röschen zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5927,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gobi-65/",
+      "components": [
+        {
+          "key": "72e9e74a-4462-597e-b3f7-3ece1da58d22",
+          "name": "Zutaten",
+          "servingGrams": 165.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a86aa251-e01a-52ff-bc71-acdce9596a26",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Kopf, in 1 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "142fbf9d-87b3-5e81-a8c2-784684a07f0e",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d8eb5689-1231-578a-8575-0d1b778b9b1c",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "22e288bf-b037-5059-b654-8aa5f4938cb2",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "44535e38-526f-5fe1-a971-eca5f410c447",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9ac07326-fb4c-5470-8dcf-f84bdd93acf6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bf760bcb-b5f6-56df-b40c-12b343f58956",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "62762744-4f53-5aff-b034-3c30440d4eb1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "26a78163-7d25-5a87-a1e9-2a28cac3d6e5",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8-10 Blätter"
+            },
+            {
+              "key": "5a30143f-2a66-5fac-8fbb-de8ee9627d5d",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Reismehl, Maisstärke, Kurkuma, rotes Chilipulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 0.5 cup Wasser zur trockenen Mischung und verrühre alles zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauche die Blumenkohlröschen in den Teig und überziehe sie gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und frittiere die panierten Röschen etwa 6-8 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze in einer separaten kleinen Pfanne 1 Esslöffel Öl und brate gehackten Knoblauch und Curryblätter 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge den frittierten Blumenkohl mit dem Knoblauchöl und Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß als Snack oder mit grünem Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://traditionallymodernfood.com/wp-content/uploads/2014/09/gobi-65-baked-grilled-caulifower.jpg",
+          "sourcePageUrl": "https://traditionallymodernfood.com/wp-content/uploads/2014/09/gobi-65-baked-grilled-caulifower.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shahi-gobi",
+      "slug": "gen-shahi-gobi",
+      "title": "Shahi Gobi",
+      "instructions": "Indisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gewöhnlichen Joghurt statt Sahne und senke die Kosten um 30 %",
+        "Kaufe fertige Ingwer-Knoblauch-Paste in der Abteilung für asiatische Lebensmittel"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "dinner",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5928,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shahi-gobi/",
+      "components": [
+        {
+          "key": "4b25c435-b1dd-5955-9d1b-7ac27b95ef61",
+          "name": "Zutaten",
+          "servingGrams": 318.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0816d7a5-5a93-5a00-9333-73cbfce55a1d",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großer Kopf"
+            },
+            {
+              "key": "43479124-e124-51a4-b3c7-3c7e18165342",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "8aa47a03-355e-5e3d-a402-a8ea653fe767",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "4e3276ce-b29e-55eb-841d-bdd5e7cdee38",
+              "ingredientName": "Sahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "17c363e3-fb7b-51bd-a834-0e99880fd55f",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5adb4359-91f5-5930-a3b7-36a7a1d7ba89",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c3a8eb83-7abe-5ac3-8bbb-b36a94d816f4",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "eb29e2e9-11c9-5399-9146-ebab6479abad",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6150bfc1-d6cf-5471-ade0-9bb4617a0c9a",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "37dced20-dc9d-555d-9fdf-136fbbc8dc69",
+              "ingredientName": "Kreuzkümmel seeds",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "ee48bf69-cb89-530a-b555-55702770d79d",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b3e50ed9-9b62-55bb-bc8e-c5e4083abfa2",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Ghee in einer großen Pfanne und gib die Kreuzkümmelsamen hinein. Lass sie 20 Sekunden knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die geschnittenen Zwiebeln dazu und brate sie etwa 8 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Ingwer-Knoblauch-Paste ein und brate sie 1 Minute, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Tomatenpüree dazu und gare es unter gelegentlichem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Blumenkohl- und Kartoffelstücke dazu, wende sie in der Mischung und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Sahne und Kokosmilch dazu und füge Garam Masala, Salz und schwarzen Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Pfanne ab und lass alles 15-18 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Curry mit frischem Koriander und serviere es heiß mit Reis oder Naan-Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/cedtnSpUHs07S4XUqiEXNO9Fb-s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2016__10__2016-10-18-ShahiCauliflower-3-d477de3eb87543f294871051060e0743.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/cedtnSpUHs07S4XUqiEXNO9Fb-s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2016__10__2016-10-18-ShahiCauliflower-3-d477de3eb87543f294871051060e0743.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gobi-matar",
+      "slug": "gen-gobi-matar",
+      "title": "Gobi Matar",
+      "instructions": "Indisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Erbsen sind günstiger als frische und eignen sich genauso gut",
+        "Verwende Tomaten aus der Dose, wenn frische zu teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "indisch",
+        "dinner",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5929,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gobi-matar/",
+      "components": [
+        {
+          "key": "b4564623-2e4f-5c37-b2c1-71c9b6247f62",
+          "name": "Zutaten",
+          "servingGrams": 236.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f1dec65-da69-5109-827b-5f4317a195f9",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großer Kopf"
+            },
+            {
+              "key": "87799742-1624-582c-b628-79890c985f54",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "efe40303-2ebb-5d66-b242-7966ec298324",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "6b7366ab-62d8-5bfd-919c-16209f2f357e",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "527ce33d-9cb2-5c00-8631-e10a8091284e",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bd9b0fd8-b92f-5425-9a74-3681dd5201e8",
+              "ingredientName": "Kreuzkümmel seeds",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "cd97fe21-dd4c-5dfc-9c5e-5469eef8b3ad",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "11323e5b-849e-553c-bb05-aef5d07b15b2",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "24786ec1-f851-5e56-bfe6-05e05d8cc417",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "2d587d99-edf8-5f62-8cb2-07b21acfa47c",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "040daa8b-3fc9-5bc6-9999-d1a783c98589",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne und gib die Kreuzkümmelsamen hinein. Lass sie 20 Sekunden brutzeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gewürfelte Zwiebel dazu und brate sie etwa 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Ingwer-Knoblauch-Paste ein und brate sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kurkuma und gemahlenen Koriander dazu und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge die gewürfelten Tomaten hinzu und gare sie 3 Minuten, bis sie zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Blumenkohlröschen und tiefgekühlte Erbsen dazu und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Pfanne ab und gare alles bei mittlerer Hitze 15 Minuten, bis der Blumenkohl weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und schwarzem Pfeffer, garniere mit Koriander und serviere das Gericht mit Reis oder Roti.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/RNq8O9myCdkZ4wm2_WlAqCBdwxU=/1754x1754/filters:fill(auto,1)/Aloo-Matar-Gobi-58408e8a3df78c023037c0ec.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/RNq8O9myCdkZ4wm2_WlAqCBdwxU=/1754x1754/filters:fill(auto,1)/Aloo-Matar-Gobi-58408e8a3df78c023037c0ec.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

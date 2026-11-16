@@ -1,0 +1,1235 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-lemon-poppy-seed-muffins",
+      "slug": "bake-lemon-poppy-seed-muffins",
+      "title": "Zitrone Poppy Seed Muffins",
+      "instructions": "Tender, bakery-style muffins bursting mit bright Zitronenschale und crunchy poppy seeds, topped mit ein tangy Zitrone glaze. Buttermilk keeps der crumb soft und moist while der zest does der real flavor work.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 21,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen whole lemons und verwenden both der zest und juice, it is far cheaper und brighter than bottled juice.",
+        "No buttermilk? umrühren 1/2 Esslöffel Zitronensaft oder vinegar in 3/4 cup normal Milch und lassen it sit 5 Minuten.",
+        "Poppy seeds go rancid fast, so kaufen ein klein amount und aufbewahren them in der freezer."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "3/4 cup Milch soured mit 1/2 tbsp Zitronensaft",
+          "savings": "Keine ganze Packung kaufen, die nicht aufgebraucht wird"
+        },
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "frisch juice aus der lemons du already zested",
+          "savings": "Kostet nichts extra und schmeckt viel besser."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "gleich amount neutral Pflanzenöl",
+          "savings": "Günstiger und hält Muffins länger saftig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "muffins (deutsche Fassung)",
+        "Zitrone",
+        "poppy-seed (deutsche Fassung)",
+        "Backen",
+        "Frühstück",
+        "brunch (deutsche Fassung)",
+        "Vegetarier",
+        "bakery-style (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7475,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-lemon-poppy-seed-muffins/",
+      "components": [
+        {
+          "key": "92ad25a8-1bdb-5c1a-bb2d-cbffe238a775",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 154.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "695b1c04-09d0-51c8-88ef-e92b9c6192bf",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2.5 Tassen Weizenmehl"
+            },
+            {
+              "key": "cfbcc09b-d253-57b6-b363-af92b63ee31e",
+              "ingredientName": "weißer Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1 Tasse Kristallzucker"
+            },
+            {
+              "key": "53a8f9f7-12c4-5ddb-96c5-b4302e545ab9",
+              "ingredientName": "Poppy seeds (deutsche Fassung)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4f18cf1f-6476-580c-aff7-d6908e0019b9",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "a9d67328-6067-5e10-8e2d-d13b73e82449",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "22a0c065-6b89-5009-bdd3-075fe1244c67",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            },
+            {
+              "key": "9d8f74ca-277b-56a8-b403-1e4e8954e2b2",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86becc7b-dc5e-5654-8c53-697234d13e76",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück), geschmolzen und leicht abgekühlt"
+            },
+            {
+              "key": "d9f227f7-812b-53ba-8d95-e7bfe4251532",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "972da30e-24be-5b75-903c-4cd52bde0040",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 3 Zitronen, in den Zucker gerieben"
+            },
+            {
+              "key": "50278c58-a574-5186-9d5d-907ddbc35041",
+              "ingredientName": "Zitrone",
+              "grams": 252,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Zitronen für abgeriebene Schale und Saft"
+            },
+            {
+              "key": "88c908e8-981f-50e8-907b-4df7c9edba2f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6617d43c-af3f-52a1-b237-506c325e08ad",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Tasse für die Glasur"
+            },
+            {
+              "key": "0dee1eec-1804-53e7-9788-dc5f6029013c",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "2-3 Esslöffel frischer Zitronensaft für die Glasur; die bereits abgeriebenen Zitronen verwenden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen Ofen zu 425F (220C) und line ein 12-cup muffin tin mit paper liners. der hoch starting erhitzen gives der muffins ein tall, domed top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, rub der Zitronenschale in der granulated Zucker mit dein fingertips bis damp und fragrant. This releases der citrus oils und is der key zu deep Zitrone flavor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "verquirlen der Mehl, poppy seeds, Backpulver, Natron, und Salz in der Zitrone Zucker bis evenly combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "in einer separaten Schüssel, verquirlen der Eier, geschmolzen Butter, buttermilk, vanilla, und 2 tablespoons von juice aus der zested lemons bis glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "gießen der wet ingredients in der dry und unterheben gently mit ein spatula just bis no dry streaks remain. Do not overmix, ein few lumps are fine, oder der muffins will turn tough.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Divide der Teig among der 12 cups, Füllung je nearly zu der top für bakery-style domes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen at 425F für 5 Minuten, dann reduce der Ofen zu 350F (175C) ohne opening der door und backen 13-16 Minuten mehr, bis goldbraun und ein toothpick comes out clean.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen in der Pfanne 5 Minuten, dann transfer zu ein rack. verquirlen der powdered Zucker mit enough Zitronensaft zu machen ein pourable glaze und drizzle über der muffins once they are just warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Lemon_Poppy_Seed_Muffins_%283937150356%29.jpg/1280px-Lemon_Poppy_Seed_Muffins_%283937150356%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lemon_Poppy_Seed_Muffins_(3937150356).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Katrin Gilger — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Zitrone Poppy Seed Muffins",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-double-chocolate-muffins",
+      "slug": "bake-double-chocolate-muffins",
+      "title": "Double Schokolade Muffins",
+      "instructions": "Tall, bakery-style muffins mit ein deep, dark crumb aus Dutch-process cocoa und pockets von melting Schokolade chips. der trick is ein schnell hoch-erhitzen blast at der start für ein domed top, dann ein steady finish so they backen through moist und fudgy ohne drying out.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "aufbewahren-brand cocoa und Schokolade chips are ein fraction von der price von premium und taste nearly identical gebacken in muffins.",
+        "No buttermilk? umrühren 1.5 tsp vinegar oder Zitronensaft in ein scant cup von normal Milch und lassen it sit 5 Minuten.",
+        "der instant coffee is optional but cheap und makes der Schokolade taste richer — no coffee flavor comes through."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "normal Milch soured mit ein splash von vinegar, oder natur Joghurt thinned mit Milch",
+          "savings": "Spart ~$1 gegenüber einer nicht aufgebrauchten Packung Buttermilch"
+        },
+        {
+          "forIngredientId": "dutch-cocoa",
+          "swap": "normal unsweetened Kakaopulver (still great, just slightly weniger deep in color)",
+          "savings": "Spart ~$2 gegenüber besonderem alkalisiertem Kakao"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Neutral Öl like vegetable oder canola für ein even moister crumb",
+          "savings": "Spart ~$0.75 und hält sie länger saftig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Schokolade",
+        "Backen",
+        "Nachtisch",
+        "muffins (deutsche Fassung)",
+        "kid-friendly (deutsche Fassung)",
+        "machen-ahead",
+        "Vegetarier"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7476,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-double-chocolate-muffins/",
+      "components": [
+        {
+          "key": "bcfa139d-4962-5f34-92d1-d5ef76d4ff64",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 155.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "86b3c7ba-c702-583d-bedb-4f2118bbcc66",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, ~2 Tassen"
+            },
+            {
+              "key": "168dfb6f-8acd-54c3-a995-c1a53ca1c3ef",
+              "ingredientName": "Dutch process cocoa (deutsche Fassung)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "alkalisiertes Kakaopulver, ~3/4 Tasse"
+            },
+            {
+              "key": "a47927f6-0b69-58bc-a3c3-39342b0a2cfb",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Kristallzucker, ~1 Tasse"
+            },
+            {
+              "key": "49f79ea6-a84c-5a8e-89c5-8e629a58ae12",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "hellbrauner Zucker, fest angedrückt, ~1/2 Tasse"
+            },
+            {
+              "key": "b38ea1a9-d0f2-5b71-b2bc-a2e6696faf32",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "~1 TL"
+            },
+            {
+              "key": "ab1742ea-4833-5529-b9c9-5b2feb106629",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "~1.5 TL"
+            },
+            {
+              "key": "198eff29-02eb-5431-9104-0a7564c80862",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "~3/4 TL"
+            },
+            {
+              "key": "7d82e0e1-74dc-5125-b52e-306e45e3e3f1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db9ff7aa-e9d9-532a-9547-1b8607d5832a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "~1 Tasse"
+            },
+            {
+              "key": "fee8ed93-6209-5e24-b59c-19272044449d",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "geschmolzen, ~1/2 Tasse / 1 Stück"
+            },
+            {
+              "key": "9b57586a-6bda-5112-91e0-82ea1e78b6a9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "~2 TL"
+            },
+            {
+              "key": "4fb40196-c727-5683-b029-a356ca30e777",
+              "ingredientName": "Instantkaffee",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "~1 TL, aufgelöst, für kräftigeres Schokoladenaroma"
+            },
+            {
+              "key": "e1754492-1426-5ad2-8f84-c3bd0647c81c",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "~1.5 Tassen, aufgeteilt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 425F (220C) und line ein 12-cup muffin tin mit paper liners oder grease well. umrühren der instant coffee in der buttermilk und beiseitestellen so it dissolves.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, verquirlen together der Mehl, Dutch-process cocoa, granulated Zucker, brown Zucker, Natron, Backpulver, und Salz, breaking up any cocoa lumps.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in einer separaten Schüssel, verquirlen der Eier, dann verquirlen in der geschmolzen (but not heiß) Butter, der coffee-buttermilk, und der vanilla bis glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen der wet Mischung in der dry und unterheben mit ein spatula just bis no dry streaks remain — der Teig will be dick; do not overmix oder der muffins turn tough.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "unterheben in etwa 1 cup von der Schokolade chips, reserving der rest für topping. lassen der Teig rest 10 Minuten so it thickens und domes better.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Divide der Teig among der cups, Füllung je nearly zu der top, und scatter der reserved Schokolade chips über der surface.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen at 425F für 5 Minuten, dann — ohne opening der door — lower der Ofen zu 350F (175C) und backen 14 zu 17 Minuten mehr, bis der tops spring back und ein pick comes out mit moist crumbs (not wet Teig).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen in der tin 5 Minuten, dann transfer zu ein rack. servieren slightly warm so der Schokolade chips are still gooey.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:bake-english-scones",
+      "slug": "bake-english-scones",
+      "title": "English Scones (deutsche Fassung)",
+      "instructions": "klassisch British tea-time scones — tall, fluffy, und lightly süß mit ein golden glazed top und ein soft, tender crumb that pulls apart in two. Built auf kalt Butter rubbed in Mehl und just enough Milch zu bind, they backen in 12 Minuten und beg zu be split und slathered mit Marmelade und clotted Sahne.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 13,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "natur Mehl plus Backpulver costs ein fraction von self-raising Mehl und gives du control über der rise — behalten ein tub von Backpulver und du never need zu kaufen specialist Mehl.",
+        "Scones freeze beautifully unbaked: stamp them out, open-freeze auf ein tray, dann backen straight aus gefroren mit ein couple von extra Minuten — ein frisch scone any day mit zero waste.",
+        "No cutter? Pat der Teig in ein round und schneiden in 8 wedges like ein cake — same Teig, zero special equipment, und no offcuts zu re-ausrollen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "verwenden buttermilk (oder Milch soured mit der Zitronensaft) für ein even lighter, fluffier crumb",
+          "savings": "Gleiche Kosten, bessere Lockerung"
+        },
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "weglassen it entirely — der scones still rise well aus der Backpulver alone",
+          "savings": "Spart eine Vorratszutat"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Brush der tops mit ein little Milch anstatt Ei für der glaze",
+          "savings": "Spart ~$0.25 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Scones",
+        "Backen",
+        "afternoon-tea (deutsche Fassung)",
+        "Vegetarier",
+        "schnell-backen",
+        "tea-time (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7477,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-english-scones/",
+      "components": [
+        {
+          "key": "175e0bf9-24d6-5ea2-8b13-c084c8fd6394",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 48.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "d67de24f-5e55-58c2-92df-1388cee40fff",
+              "ingredientName": "Weizenmehl",
+              "grams": 168,
+              "quantity": 168,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "350g normales Weizenmehl"
+            },
+            {
+              "key": "f10776b3-d26c-5332-a9bb-c2d66f5c4d04",
+              "ingredientName": "Backpulver",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 TL Backpulver für kräftiges Aufgehen"
+            },
+            {
+              "key": "334b4047-6402-5db8-b904-d362f7f8c05f",
+              "ingredientName": "Butter",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "85g kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "a96dd821-fcdd-56a8-ada4-23d8ae8cf6db",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL feiner Kristallzucker"
+            },
+            {
+              "key": "f4eb0ea5-f7a0-5e11-afe3-2ef43f7a93c5",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "38b6ff00-00a1-5351-9cb2-2276145b152c",
+              "ingredientName": "Milch",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "175ml Vollmilch und ein Schuss zum Binden des Teigs"
+            },
+            {
+              "key": "8b57a69c-a18c-56c0-aad0-a0399787d63a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 TL Zitronensaft zum leichten Säuern der Milch und für bessere Lockerung"
+            },
+            {
+              "key": "ae567670-43a9-5554-a646-efe59c798336",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 verquirltes Ei für die Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 220C/425F und line ein Backen sheet mit parchment. umrühren der Zitronensaft in der Milch und beiseitestellen für ein few Minuten zu lightly sour, dann warm der Milch slightly (ein few seconds in der microwave) — barely warm Milch gives ein better rise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tip der Mehl, Backpulver, Salz und Zucker in ein groß Schüssel und verquirlen zu vermengen. hinzufügen der kalt cubed Butter und rub it in der Mehl mit dein fingertips bis der Mischung looks like fine breadcrumbs, working quickly so der Butter stays kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "machen ein well in der centre und gießen in most von der Milch. verwenden ein cutlery knife zu schneiden und umrühren der Milch through bis it forms ein soft, slightly shaggy Teig, adding der last splash von Milch only wenn it looks dry. Do not overwork it — handle as little as possible.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tip der Teig onto ein lightly floured surface und gently unterheben it über 2 oder 3 times just zu smooth it, dann pat (do not ausrollen hard) zu ein even 2.5cm / 1-inch thickness. Keeping it dick is what makes scones tall.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dip ein 5cm / 2-inch round cutter in Mehl und stamp out scones mit ein clean straight push down — do not twist, oder der sides seal und they rise lopsided. Gather und gently re-pat der offcuts zu schneiden der rest; expect 8 scones.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "legen der scones close together auf der sheet so they support je other as they rise. Brush der tops only mit verquirlt Ei, avoiding drips down der sides which would glue them zu der tray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen für 11-13 Minuten bis well risen und deep golden auf top. abkühlen auf ein wire rack für ein few Minuten, dann split und warm servieren mit Marmelade und clotted Sahne (Marmelade first oder Sahne first is ein matter von regional pride).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Scones_and_tea.jpg/1280px-Scones_and_tea.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Scones_and_tea.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: AlphaLemur — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von English Scones",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-cream-scones",
+      "slug": "bake-cream-scones",
+      "title": "Sahne Scones",
+      "instructions": "Tender, flaky scones made der einfach way — no kalt Butter zu schneiden in. Heavy Sahne does double duty as der fat und der liquid, giving ein rich, downy crumb mit ein golden, sparkling-Zucker top. Best warm mit Marmelade und clotted Sahne.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen ein pint von heavy Sahne und ein 5 lb bag von Mehl — this whole batch von 8 scones costs ein fraction von ein single bakery scone.",
+        "No turbinado Zucker? ein pinch von normal granulated Zucker brushed onto Sahne-dampened tops still gives ein nice crackle.",
+        "Freeze der schneiden, unbaked wedges auf ein tray, dann bag them — backen straight aus gefroren, just adding 3 zu 4 Minuten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "verwenden kalt buttermilk plus 3 tbsp geschmolzen Butter für ein tangier, slightly weniger rich scone",
+          "savings": "~30 %"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Swap in getrocknet cranberries oder ein handful von Schokolade chips, oder leave natur",
+          "savings": "weglassen und ~$1 sparen"
+        },
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "normal granulated Zucker für der topping",
+          "savings": "~$0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Scones",
+        "Backen",
+        "Frühstück",
+        "brunch (deutsche Fassung)",
+        "tea-time (deutsche Fassung)",
+        "Vegetarier",
+        "einfach",
+        "no-stovetop (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7478,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-cream-scones/",
+      "components": [
+        {
+          "key": "7620f41c-2934-5152-b368-e32c6e033539",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 111.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "7274a586-225e-560b-b787-584268bd917f",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, ~2 Tassen"
+            },
+            {
+              "key": "08e7f4e8-16c7-5842-87e6-3682b5f20359",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Kristallzucker, ~1/3 Tasse im Teig"
+            },
+            {
+              "key": "1d96ab8d-8289-51bd-b502-02d629bc9e14",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "fa75d909-b7b3-528d-8256-b500ae40005b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "96336ba4-667a-5448-8d84-f6aaa1b4c287",
+              "ingredientName": "Sahne",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "~1 1/4 Tassen, kalt, und etwas zum Bestreichen"
+            },
+            {
+              "key": "c8c1f7df-ff65-5150-bc00-6914de6c4a4d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9844be26-df69-515a-8a76-f2dcc1406838",
+              "ingredientName": "Rosinen",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "möglichst getrocknete Korinthen verwenden; ~2/3 Tasse"
+            },
+            {
+              "key": "ee606d11-f418-5960-808a-2b553a8a6110",
+              "ingredientName": "Turbinado Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "für eine knusprig-zuckerige Oberfläche"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 425F (220C) und line ein Backen sheet mit parchment. behalten der Sahne in der fridge bis der moment du need it — kalt Sahne makes ein flakier scone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, verquirlen together der Mehl, granulated Zucker, Backpulver, und Salz bis evenly combined. wenn using currants, vermengen them in now so they get coated mit Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "umrühren der vanilla in der kalt heavy Sahne, dann gießen it in der dry ingredients. Using ein fork oder flexible spatula, umrühren gently just bis ein shaggy, mostly-cohesive Teig forms — ein few dry patches are fine. Do not overmix.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Turn der Teig und any loose crumbs onto ein lightly floured surface. Gently kneten 4 oder 5 times, pressing stray bits in, just bis it holds together. Pat in ein round disk etwa 1 inch dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "schneiden der disk in 8 wedges mit ein sharp knife oder bench scraper, pressing straight down ohne twisting so der edges stay clean und rise tall.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Arrange der wedges auf der Backen sheet ein couple inches apart. Brush der tops mit ein little extra Sahne und bestreuen generously mit turbinado Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen für 15 zu 18 Minuten, bis der tops are golden und der bottoms are firm und lightly browned. Rotate der Pfanne halfway through für even color.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen auf der Pfanne für 5 Minuten, dann warm servieren mit Marmelade, Butter, oder clotted Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Scones_cream_jam.jpg/1280px-Scones_cream_jam.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Scones_cream_jam.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Takeaway — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Sahne Scones",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-buttermilk-biscuits",
+      "slug": "bake-buttermilk-biscuits",
+      "title": "Buttermilk Biscuits (deutsche Fassung)",
+      "instructions": "Tall, flaky Southern-style buttermilk biscuits mit crisp golden tops und soft, steamy layers inside. kalt Butter und tangy buttermilk plus ein gentle hand are der whole secret — split und slather mit Butter, Honig, oder Marmelade.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "No buttermilk? umrühren 1 tbsp vinegar oder Zitronensaft in 1 cup von normal Milch und lassen it sit 5 Minuten — it works just as well für ein fraction von der cost.",
+        "behalten everything kalt: freeze der cubed Butter für 10 Minuten und chill der Mehl. kalt Butter steaming in ein heiß Ofen is what makes biscuits rise tall anstatt spreading flat.",
+        "backen ein double batch und freeze der unbaked, schneiden biscuits auf ein tray. backen straight aus gefroren (hinzufügen 3-4 Minuten) für frisch biscuits any morning."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1 cup Milch + 1 tbsp vinegar, rested 5 min",
+          "savings": "~$1.50 gegenüber einer Packung Buttermilch"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Shortening für half der Butter — even flakier, cheaper",
+          "savings": "~$0.80 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Honig oder just omit it",
+          "savings": "Kaum zusätzliche Kosten, da Vorratszutaten verwendet werden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "southern-american (deutsche Fassung)",
+        "biscuits (deutsche Fassung)",
+        "Backen",
+        "Frühstück",
+        "brunch (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "Vegetarier",
+        "aus-scratch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7479,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-buttermilk-biscuits/",
+      "components": [
+        {
+          "key": "d3f2360d-5e34-5651-9f52-8e476ddb5574",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 128.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fba952c-3a88-56b4-992c-8e18f5bed7dd",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl und mehr zum Bestäuben"
+            },
+            {
+              "key": "31272c6c-34c4-5265-a51e-49a8e68c35cd",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL Backpulver"
+            },
+            {
+              "key": "5e2961ac-b461-50cc-bf0d-b2c66078ea77",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL Natron"
+            },
+            {
+              "key": "e0cbd3a0-8557-5b16-a156-b73158ba0500",
+              "ingredientName": "weißer Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL Zucker"
+            },
+            {
+              "key": "b220b7d8-79c0-5dcb-8ac6-769027624839",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d78f8fdd-cd12-5a43-bb63-bfe4f80a4e85",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "10 EL kalte ungesalzene Butter und 1 EL geschmolzen zum Bestreichen"
+            },
+            {
+              "key": "93c46504-cece-5e3a-a673-62689b23e4f1",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse kalte Buttermilch und bei Bedarf ein weiterer Schuss"
+            },
+            {
+              "key": "c66e5827-c0a4-5a53-99c5-34b622074690",
+              "ingredientName": "Honig",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen Ofen zu 450F. verquirlen Mehl, Backpulver, Natron, Zucker, und Salz in einer großen Schüssel, dann chill der Schüssel while du schneiden der Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Cube 10 tbsp von kalt Butter und vermengen it in der Mehl. schneiden it in mit dein fingers oder ein pastry cutter bis der largest Stücke are der size von peas — visible Butter flecks are what machen der layers.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "machen ein well, gießen in der kalt buttermilk, und umrühren mit ein fork just bis ein shaggy, barely-cohesive Teig forms. hinzufügen ein splash mehr buttermilk only wenn there is dry Mehl left. Do not overmix.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Turn der Teig onto ein floured surface, pat in ein 1-inch-dick rectangle, dann unterheben it in thirds like ein letter. Pat out und unterheben two mehr times — this builds der flaky layers.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pat der Teig zu etwa 1 inch dick. schneiden straight down mit ein floured 2.5-inch round cutter (do not twist, oder der edges seal und won't rise). Press scraps together gently und schneiden der rest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "legen biscuits auf ein parchment-lined sheet mit sides touching für tall, soft sides. Chill 10 Minuten so der Butter firms up again.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brush der tops mit geschmolzen Butter und backen 15-18 Minuten bis deep golden brown und risen tall.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen 5 Minuten, dann split und warm servieren mit Butter, Honig, oder Marmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Basically_Vegan_Buttermilk_Biscuits_%284277550116%29.jpg/1280px-Basically_Vegan_Buttermilk_Biscuits_%284277550116%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Basically_Vegan_Buttermilk_Biscuits_(4277550116).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Veganbaking.net from USA — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Buttermilk Biscuits",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

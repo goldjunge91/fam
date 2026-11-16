@@ -1,0 +1,1108 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53031",
+      "slug": "tmdb-53031",
+      "title": "Ägyptisches Fatteh",
+      "instructions": "Ägyptisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ägyptisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1880,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53031/",
+      "components": [
+        {
+          "key": "9e6945ca-f641-5c81-a266-f12ad45029de",
+          "name": "Zutaten",
+          "servingGrams": 521.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2b63b2c-4036-5dc3-b972-d234764ee97a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f482f277-1cf5-5fe2-aceb-58cf024385c1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0cf5194-3ed5-5396-8e4b-1fd3e740a1e1",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5d53bb3-0754-5879-b47f-66662666e745",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "537e4dfa-f8cb-5d94-a111-2f9314e6bc07",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07cfa562-36d0-55fc-ac4b-eb86d95a100f",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81a91cb3-3267-5dd4-ad43-8121ffd5afcd",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4302d779-d1f9-56c1-b160-79bdecedf168",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cfbfe77-e1ad-59d0-a1f2-b792ae1fde67",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0908d34-6156-51fa-b63e-d6c921e4c7a0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91e82da5-eddb-54d2-a4c6-bdd1b710714a",
+              "ingredientName": "Pitabrot",
+              "grams": 60,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "822cca24-5729-5b52-a645-342531d8ab0d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa4c5ff0-8363-5e90-a54d-82f308bb1595",
+              "ingredientName": "Weißweinessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c59fe31b-b587-59fc-ad93-0ed03e9ccd83",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "366f79db-e569-5c6b-a8eb-b05452f06f4f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Brotbasis: Reiße Pitabrot in mundgerechte Stücke. Gib etwa 1/4 Stück Butter in eine Pfanne, füge die Brotstücke hinzu und brate sie goldbraun und knusprig. Gib sie in eine gläserne Auflaufform, am besten in eine quadratische Form. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib etwas mehr Butter, Salz, etwa 2 zerdrückte frische Knoblauchzehen und ungefähr einen Teelöffel Kreuzkümmel in dieselbe Pfanne. Rühre alles kurz um, bis es duftet. Gib die gebratenen Brotstücke dazu und vermenge sie mit der Mischung. Gib sie zurück in die Auflaufform und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für das Fleisch: Gib etwas Butter in einen Topf und brate das Fleisch unter Rühren an, bis es braun ist. Gib 1 geviertelte Zwiebel, Salz und Pfeffer, 1 Würfel Hühnerbrühe und so viel Wasser dazu, dass das Fleisch bedeckt ist. Bringe alles zum Kochen, reduziere die Hitze, decke den Topf ab und gare das Fleisch etwa 2 Stunden, bis es zart ist. Lass es abkühlen, nimm dann die Fleischstücke heraus und stelle sie in einer Schüssel beiseite. Bewahre die Brühe separat auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für den Reis: Gib etwas Butter in einen Topf, füge eine Handvoll Shareya (Fideo-Nudeln) hinzu und rühre ständig, bis sie goldbraun, aber nicht zu dunkel sind. Gib dann zwei Tassen Reis dazu und rühre kurz, bis ein Teil des Reises undurchsichtig weiß wird. Füge 2-1/4 Tassen Wasser und Salz nach Geschmack hinzu. Bringe alles zum Kochen, decke den Topf ab, reduziere die Hitze und gare den Reis, bis er weich ist. Prüfe nach etwa 35 Minuten, ob er gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße etwas Fleischbrühe über die Brotstücke in der Auflaufform, damit sie sich vollsaugen. Gib den gekochten Reis darauf. Löffle langsam die übrige Brühe über den Reis und prüfe an den Seiten der Glasschale, wie hoch sie steht. Die Brühe sollte gerade bis zur Oberkante des Reises reichen, aber es muss nicht exakt sein. Jetzt kannst du die Sauce zubereiten und das Fleisch für den Belag anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die rote Sauce: Gib etwas Öl oder Butter, zerdrückte Tomate, einen halben Teelöffel Tomatenmark, Salz und Pfeffer, 2 zerdrückte frische Knoblauchzehen und Kreuzkümmel in eine Pfanne. Füge etwa 3 Esslöffel Essig hinzu und rühre alles, bis es duftet und etwas glatt wird. Die Sauce sollte dicklich und nicht wässrig sein. Wenn sie zu dick ist, gib etwas Wasser dazu. Verteile sie mit einem Holzlöffel auf dem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für das Fleisch: Gib etwas Butter oder Öl, das Fleisch, einen Hauch Tomatenmark, etwa einen Esslöffel zerdrückten frischen Knoblauch, Salz und Pfeffer sowie einen Teelöffel Kreuzkümmel in eine Pfanne. Brate das Fleisch goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löffle das Fleisch auf den Reis und serviere das Gericht. Guten Appetit!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/rlwcc51598734603.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/rlwcc51598734603.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53134",
+      "slug": "tmdb-53134",
+      "title": "Empanadas",
+      "instructions": "Argentinisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Argentinien",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1881,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53134/",
+      "components": [
+        {
+          "key": "8c366c63-7df4-53ee-96ea-c8a55b4648e9",
+          "name": "Zutaten",
+          "servingGrams": 322.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c800b7e5-e4e7-5e98-8672-54a51a0b2678",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf4dd34d-e19e-5f6e-9c45-532ed2baf7b5",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4c43339-e6ed-5ce8-bc4e-21850226c06d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f96aec7b-99b9-5a39-a89c-3dace66d24b2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f4c206f-3c51-586c-8e00-f89bf63c3a78",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97b0e608-3a47-5aea-abee-4cf341816f42",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba815c25-bc44-5909-9ed9-48c8baf2d89c",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e67e9a8-8689-51c2-88a0-ab0ccfe63ccd",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db64a19b-9e92-5d06-8aba-f9c0920c34a6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01de3a23-d662-5e14-9951-88669cd7002c",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "204d75d5-64e8-5f20-9196-f392f58f28ed",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Teig zubereiten: Vermische Mehl und Salz in einer großen Schüssel. Füge Butter hinzu und verreibe sie mit den Fingern, bis eine krümelige Masse entsteht. Gib nach und nach Wasser dazu und rühre, bis ein Teig entsteht. Wickle ihn ein und kühle ihn 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füllung zubereiten: Gare die Zwiebeln in einer Pfanne, bis sie glasig sind. Gib Rinderhackfleisch dazu und brate es krümelig braun. Rühre die Gewürze ein und nimm die Pfanne vom Herd. Sobald die Masse abgekühlt ist, vermische sie mit Eiern und Oliven.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Formen: Rolle den Teig aus und schneide Kreise aus. Gib jeweils einen Löffel Füllung darauf, klappe den Teig zusammen und drücke die Ränder fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backen: Backe die Empanadas bei 200°C (400°F) 20–25 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Profi-Tipps:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für einen blättrigeren Teig gib einen Esslöffel Essig in die Teigmischung. Das hemmt die Glutenbildung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Drücke die Ränder der Empanadas mit einer Gabel fest, damit sie sich beim Backen oder Frittieren nicht öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/q99te31763075494.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/q99te31763075494.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52895",
+      "slug": "tmdb-52895",
+      "title": "Englisches Frühstück",
+      "instructions": "Britisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1882,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52895/",
+      "components": [
+        {
+          "key": "5a2ec190-2b38-5c45-9fe1-b6f47096514e",
+          "name": "Zutaten",
+          "servingGrams": 484.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2f739ce-afd7-564b-86bb-e8b767ee0842",
+              "ingredientName": "Würstchen",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2230ed7c-3488-5581-b284-848cc5cd673c",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "143dfdc3-4b11-520d-b000-82a92cd4ade7",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76adc978-1f91-5391-8f96-77b11ce52b8b",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f768e8a-2072-5ddb-99b0-7adde600e180",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b06d793-c88b-554c-85db-9ff825d884ee",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4723388-5ccd-5754-88b2-b87a2eccdd08",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die flache Grillplatte bei niedriger Hitze über 2 Kochfeldern oder Flammen, falls sie darauf passt, und bestreiche sie sparsam mit mildem Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare zuerst die Würstchen. Lege sie auf die heiße Grillplatte oder, falls vorhanden, auf den kühleren Bereich und gare sie unter gelegentlichem Wenden etwa 15–20 Minuten langsam, bis sie goldbraun sind. Erhöhe nach den ersten 10 Minuten die Hitze auf mittlere Stufe, bevor du die übrigen Zutaten zubereitest. Wenn du nicht genug Platz hast, gare die Würstchen ganz durch und halte sie auf einem Teller im Ofen warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den fetten Rand des Specks an einigen Stellen ein. Lege ihn direkt auf die Grillplatte und brate ihn auf jeder Seite 2–4 Minuten oder bis er so knusprig ist, wie du ihn magst. Wie die Würstchen kann auch der gegarte Speck auf einem Teller im Ofen warm gehalten werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bürste für die Pilze den Schmutz ab und schneide die Stiele bündig mit den Hüten ab. Würze sie mit Salz und Pfeffer und beträufle sie mit etwas Olivenöl. Lege sie mit der Stielseite nach oben auf die Grillplatte und gare sie 1–2 Minuten. Wende sie dann und gare sie weitere 3–4 Minuten. Bewege die Pilze beim Garen möglichst wenig, damit sie ihren natürlichen Saft behalten und nicht matschig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Halbiere die Tomaten quer oder längs, falls du Pflaumentomaten verwendest, und entferne mit einem kleinen scharfen Messer den grünen Strunkansatz. Würze sie mit Salz und Pfeffer und beträufle sie mit etwas Olivenöl. Lege sie mit der Schnittfläche nach unten auf die Grillplatte und gare sie 2 Minuten, ohne sie zu bewegen. Wende sie vorsichtig und würze sie erneut. Gare sie weitere 2–3 Minuten, bis sie weich sind, aber ihre Form behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide den Blutpudding in 3–4 Scheiben und entferne die Haut. Lege ihn auf die Grillplatte und gare ihn auf jeder Seite 1½–2 Minuten, bis er leicht knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für richtiges Röstbrot brätst du es am besten in einer separaten Pfanne. Idealerweise verwendest du Brot, das ein paar Tage alt ist. Erhitze eine Pfanne auf mittlere Hitze und bedecke den Boden mit Öl. Gib das Brot hinein und brate es auf jeder Seite 2–3 Minuten knusprig und goldbraun. Wenn die Pfanne zu trocken wird, gib noch etwas Öl hinzu. Für ein reichhaltigeres Aroma gib nach dem Wenden ein Stück Butter dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schlage die Eier für Spiegeleier direkt neben dem Röstbrot in die Pfanne und lass sie 30 Sekunden garen. Gib ein großzügiges Stück Butter dazu und beträufle das Ei leicht mit der geschmolzenen Butter. Gare es bis zum gewünschten Gargrad, würze es und hebe es vorsichtig mit einem Fischwender heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sobald alles gar ist, serviere es auf warmen Tellern und genieße es sofort mit einem guten Schuss Tomatenketchup oder brauner Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/utxryw1511721587.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/utxryw1511721587.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53149",
+      "slug": "tmdb-53149",
+      "title": "Ensaimada",
+      "instructions": "Spanisches Dessert, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1883,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53149/",
+      "components": [
+        {
+          "key": "4fa7f141-abbe-580b-b044-c472fff9e528",
+          "name": "Zutaten",
+          "servingGrams": 102.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "203bd9aa-a286-5c04-83ca-ecb9e5be3982",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bea7498-227f-5fe8-82f1-297ef7193b6e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d618470-7b89-5369-8af9-f2fd65d34307",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc38591c-f04a-5d7a-83bf-672fb28a5993",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea3a4c90-5e7b-56a1-b7e1-f840ce32cfa0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d0b8004-6823-55d5-83d5-d342fc681180",
+              "ingredientName": "Blattkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße 230ml lauwarmes Wasser in eine Schüssel und gib die Hefe dazu. Lass sie 3 Minuten stehen und füge dann feinen Zucker, Eier, Mehl und 1 TL flockiges Meersalz hinzu. Vermenge alles zu einem Teig und knete ihn 10 Minuten mit dem Knethaken der Küchenmaschine oder 15 Minuten von Hand, bis er elastisch und beim Auseinanderziehen beinahe durchsichtig ist. Decke den Teig ab und lass ihn 30 Minuten ruhen. Teile ihn dann in vier gleich große Stücke. Lege sie auf ein mit Backpapier belegtes Backblech und lass sie weitere 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öle die Arbeitsfläche und ein Nudelholz mit Pflanzenöl ein. Bearbeite jeweils eine Teigportion: Drücke sie mit der Handfläche auf der Fläche flach und rolle sie zu einem dünnen Rechteck von etwa 30 x 50cm aus. Lass den Teig 2 Minuten ruhen, während du ein Viertel des Schmalzes darauf verstreichst. Wenn du den Teig mit Sobrasada de Mallorca füllen möchtest, vermische 50g Schmalz mit der Sobrasada und verstreiche diese Mischung stattdessen auf dem Teig. Ziehe eine Ecke des flach gedrückten Teigs so weit wie möglich, ohne ihn zu zerreißen. Wiederhole das etwa alle 10cm in alle Richtungen, bis der Teig etwa 50 x 70cm groß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide von den beiden kürzeren Seiten je einen Streifen ab und lege sie nebeneinander entlang einer der längeren Seiten des Rechtecks. Das nennen wir das Herz der Ensaimada. Rolle den Teig von dort aus zu einer langen Teigschlange auf. Wiederhole den Vorgang mit den übrigen Teigportionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die erste Teigrolle und ziehe sie auf über einen Meter Länge. Rolle sie dann spiralförmig auf und lass zwischen jeder Windung der Spirale 1cm Platz, damit der Teig aufgehen kann. Drücke sie leicht flach und lege sie auf ein mit Backpapier ausgelegtes Backblech. Wiederhole den Vorgang mit dem restlichen Teig. Lass ihn an einem warmen Ort mindestens 12 Stunden, idealerweise 24 Stunden, gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 200 °C/Umluft 180 °C/Gasstufe 6 vor. Schiebe die Ensaimadas in das obere Drittel des Ofens und reduziere sofort die Temperatur auf 180 °C/Umluft 160 °C/Gasstufe 4. Backe sie 18 Minuten, bis sie dunkelgolden sind. Lass sie auf einem Kuchengitter abkühlen. Für eine Füllung mit Schlagsahne schneidest du die Ensaimada auf, öffnest sie, verstreichst die Sahne darauf und schließt sie wieder. Bestäube sie nach Wunsch großzügig mit Puderzucker und schneide sie zum Servieren in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1ugsho1763248007.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1ugsho1763248007.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52944",
+      "slug": "tmdb-52944",
+      "title": "Escovitch-Fisch",
+      "instructions": "Jamaikanisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jamaikanisch",
+        "Meeresfrüchte",
+        "scharf",
+        "Spezialität",
+        "Ostern"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1884,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52944/",
+      "components": [
+        {
+          "key": "b54ae0c0-8b19-55c5-a5b2-211c1f56c47d",
+          "name": "Zutaten",
+          "servingGrams": 102.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e2353e9-05aa-51f6-a033-83838f1d3ec7",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbc175a1-4f4a-519c-b4d5-2a15cc8d40cd",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cdebac9-60c6-5a5f-83e8-f307800a79e7",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec755919-e022-5268-a820-e8849486072c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "449b8e26-b1d4-5e6a-b264-2692f9a5060c",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2f0a682-bf27-5c3b-9b7f-eb67de92948a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60bee1aa-ddf7-5910-ad4a-e74d212504f0",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "688ed97b-b7c7-57fd-b153-283a259f4344",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81c2d688-a697-5eb6-a8b4-208b377ec8d0",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ad32674-1c18-5294-abe3-d13829aab4ae",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd51670a-15c6-5f50-b5f7-7eef0e4cec16",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab6d1f84-9ac0-5d2d-b5c9-badfc8621668",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d84433e-a743-5281-8c99-c0ce137808f3",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "099325a3-a866-5ad3-81e2-6edaae264d29",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eca9102-4461-5202-94ff-f8ae09b6cd01",
+              "ingredientName": "Essig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Fisch ab und reibe ihn mit Zitrone oder Limette sowie Salz und Pfeffer oder deiner Lieblingswürzung ein. Ich habe kreolische Würzmischung verwendet. Stelle ihn beiseite oder halte ihn im Ofen warm, bis die Sauce fertig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer Hitze. Wenn es heiß ist, gib den Fisch hinein und brate jede Seite etwa 5–7 Minuten, bis er durchgegart und außen knusprig ist. Nimm den Fisch heraus und stelle ihn beiseite. Gieße das Öl ab und lass etwa 2–3 Esslöffel davon in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Lorbeerblatt, Knoblauch und Ingwer dazu und brate sie etwa eine Minute unter Rühren an. Achte darauf, dass der Knoblauch nicht verbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib dann Zwiebel, Paprika, Thymian, Scotch Bonnet und Piment dazu. Rühre den Zucker unter und brate alles etwa 2–3 Minuten an. Gib Essig dazu und schmecke die Sauce mit Salz und Pfeffer ab. Lass sie weitere etwa 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Entferne Lorbeerblatt und Thymianzweig. Serviere die Sauce über dem Fisch mit Bammy als Beilage. Du kannst die Sauce etwa 2 Tage im Voraus zubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1520084413.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1520084413.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

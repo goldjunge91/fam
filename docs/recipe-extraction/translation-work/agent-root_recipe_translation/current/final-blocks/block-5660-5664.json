@@ -1,0 +1,992 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-california-roll",
+      "slug": "gen-california-roll",
+      "title": "California-Roll",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sushi-Reis zu Hause zubereiten, statt Sushi-Reisportionen zu kaufen",
+        "Günstige Nori-Blätter vom Supermarkt statt Spezialmarken verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "japanisch",
+        "lunch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5660,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-california-roll/",
+      "components": [
+        {
+          "key": "2c7e67e0-d832-5af8-bc49-02cfcccf3050",
+          "name": "Zutaten",
+          "servingGrams": 418.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a2d4eb3-6b64-5872-b099-20374f93f2af",
+              "ingredientName": "Sushi-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "203ad0b8-6ec2-5bc4-b9dd-d7ec75e989d1",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e22db917-5a84-563a-b749-e6c8d3a84219",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e8a9e08d-9f66-57ee-80fa-d2e5c1578b12",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5ec30eb4-f186-5450-8f49-852f9098c94a",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21dac812-99e5-5889-a1fc-ae731fbb4d5c",
+              "ingredientName": "Surimi",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "f4ec5ccd-2c31-5642-b1e4-22962b9e08cb",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4841c59-3945-56ad-b632-6f3f028ecd6e",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "feb3ccd0-abae-51a7-99da-2c7e7935d8ff",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den warmen gekochten Sushi-Reis mit Essig, Zucker und Salz vermengen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gurke und Avocado in dünne Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Nori-Blatt mit der glänzenden Seite nach unten auf eine Bambusmatte legen und dünn mit Reis bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Surimi, Gurke und Avocado waagerecht im mittleren Drittel des Reises anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit der Matte von der unteren Kante her fest aufrollen und dabei leichten Druck ausüben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Außenseite der Rolle vor dem Schneiden mit Sesam bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem scharfen, angefeuchteten Messer in 6–8 Stücke schneiden und mit Sojasauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/yRMTPNJyxzHxViFj7VL0AyzlTTk=/5616x3744/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-California-Roll-LEAD-04-ca3515e6b8154644b45dc40e865a5217.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/yRMTPNJyxzHxViFj7VL0AyzlTTk=/5616x3744/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-California-Roll-LEAD-04-ca3515e6b8154644b45dc40e865a5217.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-okra-gomae",
+      "slug": "gen-okra-gomae",
+      "title": "Okra mit Sesam",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Okra während der Saison zum besten Preis kaufen",
+        "Sesam selbst rösten, statt gemahlenen zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "glutenfrei",
+        "japanisch",
+        "lunch",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5661,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-okra-gomae/",
+      "components": [
+        {
+          "key": "163dd2c8-564e-5119-9a03-545a7e429c47",
+          "name": "Zutaten",
+          "servingGrams": 332.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "52cb4569-b4e5-5eca-9ded-8fd8dde68203",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "e5801f67-694d-5618-a813-d33ed74f479a",
+              "ingredientName": "Sesam",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e83037a3-b9c0-53a5-b75b-605f03531a1f",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "defbb144-b65b-50e8-8b00-e205c3697c63",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "94d55144-cfbd-5016-9faf-17c961930588",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "85e149b5-e717-59b2-ac05-aa15d534dbb1",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4b712be7-0d8a-59ec-8a48-83c9aba47b6e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sesam in einer trockenen Pfanne bei mittlerer Hitze 2–3 Minuten rösten, bis er duftet, dann im Mörser oder in der Küchenmaschine mahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen Topf Salzwasser zum Kochen bringen, Okra 2 Minuten blanchieren, abgießen und in 1-Zoll-Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sojasauce, Mirin, Zucker und Wasser in einer kleinen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gemahlenen Sesam mit der Sauce vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Okra mit der Sesamsauce vermengen, bis alles überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekühlt oder bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://woonheng.com/wp-content/uploads/2021/04/15-minute-okra-recipe.jpg",
+          "sourcePageUrl": "https://woonheng.com/wp-content/uploads/2021/04/15-minute-okra-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-inari-sushi",
+      "slug": "gen-inari-sushi",
+      "title": "Inari-Sushi",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frittierte Tofutaschen aus der Dose online in größeren Mengen kaufen",
+        "Übrig gebliebenen Reis verwenden, um die Kochzeit zu verkürzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "japanisch",
+        "lunch",
+        "vegetarian"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5662,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-inari-sushi/",
+      "components": [
+        {
+          "key": "59009801-1601-535a-b4c3-83ee11471cd4",
+          "name": "Zutaten",
+          "servingGrams": 645.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab64c669-9391-54f8-8aab-a5f1f9ce75c4",
+              "ingredientName": "Sushi-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "7f71af6b-3574-58b5-9fc2-b67e966d206a",
+              "ingredientName": "Reisessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "932d79e5-c4f0-514d-a486-cd8814e25be4",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 EL"
+            },
+            {
+              "key": "f70264c9-f6ad-5e9a-a9e7-b1490ced0cc2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "633bd592-43cd-53bd-8357-34d4bb3c215e",
+              "ingredientName": "Tofu",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4519d4c-d9ab-5de4-bea7-321de1c9a6be",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "834d1359-e125-561f-8c22-be2df27af3b0",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c364776d-f771-5a90-966a-c51958f2a5be",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den warmen gekochten Reis mit Essig, Zucker und Salz gründlich vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Karotte und Gurke fein würfeln und mit Sesam unter den Reis heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede Tofutasche vorsichtig öffnen, indem die obere Naht behutsam gelöst wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa 2 Esslöffel der Reismischung in jede Tasche füllen und leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die gefüllten Taschen mit der Naht nach unten auf einer Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei Raumtemperatur oder leicht gekühlt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_EdLH1VG0t5AEg9UDzMGM1Qh0yg=/3000x2001/filters:no_upscale():max_bytes(150000):strip_icc()/rice-stuffed-tofu-pockets-2118773-step-10-5533ea6e0905487ca9842365f06d29c7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_EdLH1VG0t5AEg9UDzMGM1Qh0yg=/3000x2001/filters:no_upscale():max_bytes(150000):strip_icc()/rice-stuffed-tofu-pockets-2118773-step-10-5533ea6e0905487ca9842365f06d29c7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-meatball-nikomi",
+      "slug": "gen-meatball-nikomi",
+      "title": "Fleischbällchen-Nikomi",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack im Angebot kaufen und für später einfrieren",
+        "Eine doppelte Menge zubereiten und übrige Bällchen für schnelle Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "dairy-free",
+        "japanisch",
+        "lunch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5663,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-meatball-nikomi/",
+      "components": [
+        {
+          "key": "55d5639e-fe3b-5764-8435-159933e1b25f",
+          "name": "Zutaten",
+          "servingGrams": 208.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ce6ed0e-0a30-5d8e-992a-903996d65bd0",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7f2c2886-69b1-5c6d-9c32-40ab11badd55",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e644f6d7-e44e-5193-88ab-ccf1c3dc47e2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcb69b13-4dc1-59a8-9a5a-ca54440e20da",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "2f25f2b3-e0c4-512d-a3ae-de32ded239f0",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e2038b10-aa34-543b-a31c-48dbced9b4d6",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0ddde374-f42d-5aba-b600-115506d4dcfc",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e7fece07-5f21-5de7-9554-338c004af0e1",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel fein hacken und mit Rinderhack, Panko und Ei nur so lange vermengen, bis alles gerade verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Masse zu 12–16 Fleischbällchen mit etwa 1.5 Zoll Durchmesser rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen Topf bei mittlerer bis hoher Hitze erwärmen und die Fleischbällchen insgesamt 6–8 Minuten rundherum anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Überschüssiges Fett abgießen, dann Wasser, Sojasauce, Mirin und Zucker in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Aufkochen lassen, abdecken und 15–18 Minuten garen, bis die Fleischbällchen durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Frühlingszwiebelringen garnieren und heiß auf Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/2024/ItalianMeatballs_8.jpg?w=1200&q=82&auto=format&fit=crop&dm=1734978237&s=158284b73aef5c1196e2b140b5a67cf0",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/2024/ItalianMeatballs_8.jpg?w=1200&q=82&auto=format&fit=crop&dm=1734978237&s=158284b73aef5c1196e2b140b5a67cf0",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-honey-walnut-prawns",
+      "slug": "gen-honey-walnut-prawns",
+      "title": "Honig-Walnuss-Garnelen",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen kaufen und vor dem Garen auftauen, um Geld zu sparen",
+        "Rohe Walnüsse lose statt abgepackt kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "eiweißreich",
+        "chinese",
+        "lunch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5664,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-honey-walnut-prawns/",
+      "components": [
+        {
+          "key": "f76669e9-4801-5060-9993-4188456f3416",
+          "name": "Zutaten",
+          "servingGrams": 129.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d584cd7-fca3-5ae1-8ecc-35deaf31b025",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "5557fe83-7bcc-5151-9df4-1fc100716a62",
+              "ingredientName": "Walnüsse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d4799186-bb42-5901-95cb-07c64e1695aa",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "34aae10a-aa2d-5740-8655-3ce8abbff2b4",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6b57e689-1374-5d65-ab4c-d9bec7551a6e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a9c2c47e-6509-5fb2-9d48-6d6773cb84ca",
+              "ingredientName": "Reisessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 EL"
+            },
+            {
+              "key": "6944c2f4-f349-5046-88c0-73c138c84637",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "796261a7-c973-5140-bdf8-def83e4344ca",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f01ff506-6f85-5c4b-b604-89e3a7797e02",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Garnelen mit Speisestärke, Salz und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Öl in einer großen Pfanne oder einem Wok bei hoher Hitze erhitzen. Garnelen je Seite 2–3 Minuten rosa braten, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne die Walnüsse im restlichen Öl 2–3 Minuten unter ständigem Rühren rösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mayonnaise, Honig, Sojasauce, Essig und gehackten Knoblauch in einer kleinen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen zurück in die Pfanne geben, Honig-Mayonnaise-Sauce hinzufügen und 1–2 Minuten rasch schwenken, bis alles überzogen und heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort auf gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2014/04/Honey-Walnut-Shrimp-recipe-768x1024.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2014/04/Honey-Walnut-Shrimp-recipe-768x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

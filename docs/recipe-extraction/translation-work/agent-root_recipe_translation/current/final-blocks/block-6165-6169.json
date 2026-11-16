@@ -1,0 +1,1110 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-xandoh",
+      "slug": "gen-xandoh",
+      "title": "Xandoh",
+      "instructions": "Ein beliebtes assamesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenoberkeulen mit Knochen im Angebot und friere sie portionsweise ein.",
+        "Verwende Zwiebeln und Knoblauch aus den Sonderangeboten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "assamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6165,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-xandoh/",
+      "components": [
+        {
+          "key": "6ba78b41-b7c3-5159-a292-16eb5f94cfc3",
+          "name": "Zutaten",
+          "servingGrams": 377,
+          "position": 0,
+          "items": [
+            {
+              "key": "cefab223-58c7-5e84-aec3-eac1eb647a9d",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f5bf0fe9-e313-539b-908c-8511f17b756a",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "1cf19709-c68c-5fdd-ae6b-d4e8b37579a6",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2f59c6f-6c27-5125-8420-a279f64d08a9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "2de36c0b-93a3-5741-8c20-92a822837571",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99ef83de-eef5-520d-a701-9f181ec3a486",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "99ad98d7-bbd3-527d-9a72-e08c720e5e0c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e91425ae-8ff9-5dda-a175-66b45c435988",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "287b8e7b-d870-5011-9ed3-a88cb3d1bbc2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in mittelgroße Stücke und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Senföl in einem Topf mit schwerem Boden bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste geschnittene Zwiebeln goldbraun an. Gib gehackten Knoblauch und Ingwer dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Hähnchenstücke dazu und brate sie unter gelegentlichem Rühren 5-7 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kurkumapulver dazu und vermenge alles gut. Füge anschließend gehackte Tomaten und grüne Chilischoten hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze auf niedrige Stufe, decke den Topf ab und lass alles 25-30 Minuten köcheln, bis das Hähnchen zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere das Gericht heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Pistachio-Pudding-Dessert_EXPS_TOHD24_277554_KristinaVanni_7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Pistachio-Pudding-Dessert_EXPS_TOHD24_277554_KristinaVanni_7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arisa",
+      "slug": "gen-arisa",
+      "title": "Arisa",
+      "instructions": "Ein beliebtes assamesisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis und Mungbohnen in größeren Mengen in indischen Lebensmittelgeschäften.",
+        "Verwende Kondensmilch statt normaler Milch, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "assamesisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6166,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arisa/",
+      "components": [
+        {
+          "key": "521c2ddd-f76b-512d-a58c-ee03dfc83e0d",
+          "name": "Zutaten",
+          "servingGrams": 300.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "36c8ee2e-e930-5115-a338-932c780e163f",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "15759bfe-2910-57a8-8965-ceb578ed4d8a",
+              "ingredientName": "Mungbohnen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "aaf80bc0-148e-540f-bdb6-cccc9ea2d327",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "da9f8118-cf0b-59ef-962b-43cc6b576e96",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "e0ae8359-bc2d-5f11-b32c-dd710f601b2e",
+              "ingredientName": "Palmzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d36b58c0-94b9-5011-b111-db1f5504df8e",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d265a5b5-63cb-5726-8aaf-82d81f74363e",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b896d8f9-1d66-5a8c-9c33-b762cda1cf85",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche Reis und Mungbohnen und weiche sie getrennt 30 Minuten in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße beides ab und mahle Reis und Mungbohnen separat mit möglichst wenig Wasser zu einer feinen, dickflüssigen Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Ghee in einer Pfanne mit schwerem Boden bei mittlerer Hitze und gib die Reispaste hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre 5-7 Minuten ständig, bis die Paste hellgolden wird und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Mungbohnen--Paste dazu und rühre weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße nach und nach Milch unter ständigem Rühren dazu, damit keine Klümpchen entstehen. Koche alles, bis die Mischung eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Palmzucker, zerstoßene Kardamomkapseln und Ingwerpulver dazu und rühre, bis die Masse gut vermengt und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß in Schüsseln und beträufle es nach Wunsch mit etwas Ghee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mycookingjourney.com/wp-content/uploads/2016/04/Athirsam-(35).jpg",
+          "sourcePageUrl": "https://mycookingjourney.com/wp-content/uploads/2016/04/Athirsam-(35).jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-muga-momos",
+      "slug": "gen-muga-momos",
+      "title": "Muga Momos",
+      "instructions": "Ein beliebter assamesischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die Füllung in größeren Mengen zu und friere Momos für später ein.",
+        "Kaufe Hähnchenbrust im Angebot und friere sie portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "assamesisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6167,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-muga-momos/",
+      "components": [
+        {
+          "key": "a7fdf62d-a30e-5d3c-996f-f05a8b84839f",
+          "name": "Zutaten",
+          "servingGrams": 358.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1756a86-10a7-5049-9e29-dd7ea3c698e6",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "71f6ef4b-569d-5816-9035-03b408db306c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b59b5ce1-78ff-5994-b908-d5abd71e78a7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "1ed41a8c-2d2b-541b-85c2-40720c0c4d4d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b74a1b70-847f-5065-b9e1-9e195abb2f19",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "b678a1f6-9f52-5999-988a-072668c54495",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa619af4-7e64-51fd-8475-c576f9ab3719",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "78c53658-8f7d-5d5b-abec-e9c76e3f58b2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f985b5e9-348b-5760-a232-aba151ccc82a",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "5c954b94-0699-5c6c-9e45-03d0918c05b0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig aus Mehl, Wasser und einer Prise Salz zu. Knete ihn glatt und lass ihn 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinere Hähnchenbrust, Zwiebeln, Knoblauch, Ingwer und grüne Chilischoten zu einer feinen Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Hähnchenfüllung mit Salz, Pfeffer, Koriander und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig dünn aus und schneide mit einem Glas oder Ausstecher 3 Zoll große Kreise aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib einen Teelöffel Füllung auf jeden Kreis, ziehe die Ränder zusammen und falte sie zu einem verschlossenen Säckchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen und setze einen Dämpfeinsatz oder ein Sieb darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Momos in den Dämpfeinsatz, decke ihn ab und dämpfe sie 15-18 Minuten, bis sie durchscheinend sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie heiß mit Chilisauce oder einem Dip aus Sojasauce, Knoblauch und Essig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets-global.website-files.com/5f3046edc6b25cee367b4314/65c10ca468d8a7da0280c923_Three%20Darjeeling%20Momos%20in%20a%20spicy%20tomato%20chutney.jpg",
+          "sourcePageUrl": "https://assets-global.website-files.com/5f3046edc6b25cee367b4314/65c10ca468d8a7da0280c923_Three%20Darjeeling%20Momos%20in%20a%20spicy%20tomato%20chutney.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baghaar",
+      "slug": "gen-baghaar",
+      "title": "Baghaar",
+      "instructions": "Ein beliebtes assamesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Flaschenkürbis während der Saison, wenn die Preise am niedrigsten sind.",
+        "Verwende Pflanzenöl statt Senföl, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "assamesisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6168,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baghaar/",
+      "components": [
+        {
+          "key": "87330910-8e31-51e2-a198-9f59f69a7162",
+          "name": "Zutaten",
+          "servingGrams": 94.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd565b25-2302-5a0c-90d5-f0d2605fb05b",
+              "ingredientName": "Flaschenkürbis (Lauki)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "1d8bd0fc-ee36-5bde-bc44-c56412161ce1",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "116fbe82-2941-5690-a44c-25a5a44a32d3",
+              "ingredientName": "Senfsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "70c44870-61f5-570a-9480-b27550a2469c",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7fd00cb0-fe7b-5098-b2fe-2922b1967bd9",
+              "ingredientName": "Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21b135ef-5df0-584b-8681-6443ee755b96",
+              "ingredientName": "Curryblätter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f7eb4b9-19f8-580a-8f41-3771a7df5fa8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "1f6dcce0-bf75-5dd3-bc9a-6b4b45adbebf",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7a914c0f-c82d-5e07-a140-abfe94302f61",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d1a0b9d8-a9b1-5ec0-b9ba-f67e4110de32",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle den Flaschenkürbis, schneide ihn in mittelgroße Stücke und entferne die Kerne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer Hitze, bis es glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Senf- und Kreuzkümmelsamen dazu und lass sie etwa 30 Sekunden knistern und aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib getrocknete rote Chilischoten und Curryblätter dazu und gare alles weitere 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 30 Sekunden, ohne ihn braun werden zu lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kürbisstücke, Kurkumapulver und Salz dazu und rühre um, bis alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße Wasser dazu, decke die Pfanne ab und lass alles 15-20 Minuten köcheln, bis der Kürbis weich ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß als Beilage zu Reis oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tasteasianfood.com/wp-content/uploads/2018/10/dhal-4.jpg",
+          "sourcePageUrl": "https://tasteasianfood.com/wp-content/uploads/2018/10/dhal-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oopa-tenga",
+      "slug": "gen-oopa-tenga",
+      "title": "Oopa Tenga",
+      "instructions": "Ein beliebtes assamesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Fischfilets im Angebot und verwende sie innerhalb von 3 Monaten.",
+        "Verwende Tomaten aus der Dose statt frischer, um außerhalb der Saison Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "assamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6169,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oopa-tenga/",
+      "components": [
+        {
+          "key": "a058bc8c-7ab5-5ea1-98a2-79eececc0e66",
+          "name": "Zutaten",
+          "servingGrams": 488,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce55adfc-c7a3-5f1c-a8c9-0474a1a8908b",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3d271057-0584-563f-8de5-93312027a149",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "07be530f-278e-5c7a-ac9a-d9e2786f8450",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "63e28963-9f87-53ac-94ec-42891d49d100",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce2dfc80-2994-5224-a8c4-621c7ce1a314",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "1cbd5691-73f2-5a2b-9fab-2be9b7699ec4",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7bb2ab8-f7db-5692-ab34-ac6ad273d4f9",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ec61c2b0-9d19-5e55-9cbb-e0acfbdbc0ea",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "847cd103-9cb8-516f-8052-c5a7ba8ddf33",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a67c4bc6-6b17-5971-9a8b-e53054c325ec",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Fischfilets in mittelgroße Stücke und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Tomaten, Zwiebeln und grüne Chilischoten grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne und gib gehackten Knoblauch und Ingwer dazu. Gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackte Zwiebeln dazu und gare sie etwa 3-4 Minuten, bis sie weich und glasig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackte Tomaten und grüne Chilischoten dazu und gare sie etwa 5 Minuten, bis die Tomaten zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kurkuma und Salz dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Fischstücke dazu und wende sie vorsichtig in der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße Wasser dazu, bringe alles zum Köcheln, decke die Pfanne ab und gare das Gericht 12-15 Minuten, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere es heiß mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/1774367158871-EQTMI9F6DDUNRYP1RKCX/Soulchef3.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/1774367158871-EQTMI9F6DDUNRYP1RKCX/Soulchef3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

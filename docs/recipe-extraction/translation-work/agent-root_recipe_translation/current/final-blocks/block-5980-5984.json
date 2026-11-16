@@ -1,0 +1,1068 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-japanese-yakiniku",
+      "slug": "gen-japanese-yakiniku",
+      "title": "Japanisches Yakiniku",
+      "instructions": "Japanisches BBQ-Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rindfleisch im Angebot und friere es für später portionsweise in dünnen Scheiben ein.",
+        "Lass Mirin weg oder ersetze es durch Honig, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisches-bbq",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5980,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-japanese-yakiniku/",
+      "components": [
+        {
+          "key": "f73c8c5a-4ede-5f90-9106-076bdb8ef2c0",
+          "name": "Zutaten",
+          "servingGrams": 68.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b5051a2-3424-5f9f-808d-be4cd771cf19",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "5c379687-70f4-5337-a3b0-8602e34aa455",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ee917a75-b628-5aff-ace3-638238620e06",
+              "ingredientName": "Mirin",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "33dc77b2-93f6-52c9-a90f-1a6cb8d4e8e8",
+              "ingredientName": "Kochsake",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d4b2c9cd-c5e5-5e68-b70e-ea759fff4721",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "78a9f719-30e3-5ca0-8fd8-50aa47d0ce7f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "83e21ab9-3471-554c-bacd-4ac666227639",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5c8cd618-17e4-50f5-8513-86bf3fcacbec",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4, in 2 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "b054fee1-7fa4-5b72-8b14-9e27aad65468",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Sojasauce, Mirin, Sake, Knoblauch, Ingwer und Sesamöl in einer kleinen Schüssel zu einer Yakiniku-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die dünnen Rindfleischscheiben auf eine Platte und die Short Ribs auf eine zweite. Stelle beides bis 15 Minuten vor dem Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze einen Tischgrill oder Außengrill auf mittelhohe Temperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille die Rindfleischscheiben auf jeder Seite 30 Sekunden, bis sie leicht angekohlt sind. Tunke sie anschließend in Yakiniku-Sauce und iss sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Short Ribs auf jeder Seite 3–4 Minuten, bis sie außen angekohlt und innen medium-rare sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Grille die Frühlingszwiebelstücke auf jeder Seite 1–2 Minuten, bis sie angekohlt und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte alles Gegrillte auf einer Platte an, bestreue es mit Sesam und serviere es mit zusätzlicher Dip-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Y1ywgMqBFdoY6a0PvKty39sJstc=/3000x2000/filters:fill(auto,1)/yakiniku-sauce-for-grilled-meat-2030920-Hero_01-a67d2e0bb9194301b8ca44664d8a4f04.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Y1ywgMqBFdoY6a0PvKty39sJstc=/3000x2000/filters:fill(auto,1)/yakiniku-sauce-for-grilled-meat-2030920-Hero_01-a67d2e0bb9194301b8ca44664d8a4f04.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lebanese-shish-kebab",
+      "slug": "gen-lebanese-shish-kebab",
+      "title": "Libanesischer Schaschlik",
+      "instructions": "Nahöstliches BBQ-Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhüfte im Angebot und schneide sie selbst in Würfel.",
+        "Verwende gewässerte Holzspieße statt Metallspießen, das ist günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nahöstliches-bbq",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5981,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lebanese-shish-kebab/",
+      "components": [
+        {
+          "key": "73735174-3d91-5b95-ac11-8725e8c8b6b9",
+          "name": "Zutaten",
+          "servingGrams": 248,
+          "position": 0,
+          "items": [
+            {
+              "key": "ddb6f4c6-5c5d-51eb-b69f-acd8a69a3b62",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in 1.5 Zoll große Würfel geschnitten"
+            },
+            {
+              "key": "8e9d1882-1c68-546f-8c1a-60dea31cfcc1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große, in grobe Stücke geschnitten"
+            },
+            {
+              "key": "1b3d2597-4efd-5f64-84c1-e0ac970f83d6",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2, in grobe Stücke geschnitten"
+            },
+            {
+              "key": "73f73cab-1a2e-5e2a-b62d-4222a8b44ea6",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "1256ad6b-4101-55d5-b8aa-e4b4e7501a60",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ba3b93b0-45e7-51fc-a56a-d0d4be624a54",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "fcb86ad3-0356-542a-b8e7-e46efa37070d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0076d773-30ca-5a25-be84-373d5cddcf85",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "97641c7a-a162-5ba8-b4e5-811fcca987f5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "95b5a188-a74d-5da1-91ce-c8156face105",
+              "ingredientName": "Pitabrot",
+              "grams": 480,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Zitronensaft, Olivenöl, Knoblauch, Paprikapulver, Kreuzkümmel und Salz in einer Schüssel zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Rindfleischwürfel in eine große Form und gieße die Marinade darüber. Wende das Fleisch, bis es gleichmäßig bedeckt ist, und stelle es mindestens 4 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stecke Rindfleisch, Zwiebel und Paprika abwechselnd auf 8 Metallspieße und verteile die Zutaten gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Grill auf mittelhohe Hitze vor und öle den Rost gut ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Spieße auf den Grill und gare sie 8–10 Minuten. Wende sie alle 2–3 Minuten, bis das Rindfleisch den gewünschten Gargrad erreicht und das Gemüse angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme das Pitabrot auf jeder Seite 1 Minute auf dem Grill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ziehe Fleisch und Gemüse von den Spießen auf das warme Pitabrot und serviere es mit Tahinisauce und Tomaten-Gurken-Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/I1Lbe67FG3ONcAKKqxKL9DuHyZ4=/3000x2000/filters:fill(auto,1)/beef-shish-kebab-recipe-2355653-Hero_02-b84e98d366214f8f86494e10aa066c10.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/I1Lbe67FG3ONcAKKqxKL9DuHyZ4=/3000x2000/filters:fill(auto,1)/beef-shish-kebab-recipe-2355653-Hero_02-b84e98d366214f8f86494e10aa066c10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-turkish-adana-kebab",
+      "slug": "gen-turkish-adana-kebab",
+      "title": "Türkischer Adana-Kebab",
+      "instructions": "Nahöstliches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hackfleisch im Angebot und friere es ein. Verwende ein Verhältnis von 3:1 aus Lamm- zu Rinderhack, um das Lamm zu strecken.",
+        "Verwende Pitabrot von der Hausmarke und bereite Joghurtsauce selbst zu, statt teure Restaurant-Dips zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nahöstlich",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5982,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turkish-adana-kebab/",
+      "components": [
+        {
+          "key": "f996b6c1-7a70-5673-89d9-d980aa7f1399",
+          "name": "Zutaten",
+          "servingGrams": 235.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "b240274e-1bb0-581e-b75a-8fc31e8d96b6",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "54f7441e-d116-5cfa-821d-9afa2f6d8cb0",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "ad5d525c-a0a2-5f8a-88e4-169211fe7a8b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, sehr fein gehackt"
+            },
+            {
+              "key": "a736e368-58a2-553d-8350-996adff64606",
+              "ingredientName": "Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "afd5f43c-9503-50e8-8d90-e06ddc59e4b9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse, gehackt"
+            },
+            {
+              "key": "e5c5b718-5eba-502f-8e73-bc20fb709758",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b7b62481-8c02-5678-9a66-aac9d0c1d99e",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "00383a21-f50f-5a4b-a409-0a704dfe20c3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2e5bdfff-c84f-58db-a78c-a759ad7150e9",
+              "ingredientName": "Pitabrot",
+              "grams": 480,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Stück"
+            },
+            {
+              "key": "6aedea54-5374-5e04-83b7-4c0e5f9f8f64",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Lammhackfleisch, Rinderhackfleisch, gehackte Zwiebel, Chiliflocken, Petersilie, Salz und schwarzen Pfeffer in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete die Fleischmasse etwa 2 Minuten gründlich mit den Händen, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile die Masse in 8 Portionen und forme jede um einen Metallspieß zu einem länglichen Kebab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze einen Grill oder eine Grillpfanne auf mittelhohe Hitze und bestreiche sie mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Kebabs 12–15 Minuten und wende sie alle 3 Minuten, bis sie durchgegart und angekohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme das Pitabrot auf jeder Seite 1 Minute auf dem Grill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Kebabs auf warmem Pitabrot mit Zitronenspalten und gewünschten Beilagen wie Tomaten und Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/gzr0aDVWltTCXmAul17TblNjzGg=/3000x2000/filters:fill(auto,1)/adana-kebab-4164647-hero-01-db36939514e246f09eac6a3573e0631a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/gzr0aDVWltTCXmAul17TblNjzGg=/3000x2000/filters:fill(auto,1)/adana-kebab-4164647-hero-01-db36939514e246f09eac6a3573e0631a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-persian-koobideh",
+      "slug": "gen-persian-koobideh",
+      "title": "Persischer Koobideh-Kebab",
+      "instructions": "Nahöstliches Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass für eine günstigere Variante den Safran weg und verwende Kurkuma für eine ähnliche Farbe.",
+        "Koche Reis auf Vorrat und wärme ihn wieder auf, um bei mehreren Portionen Zeit und Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nahöstlich",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5983,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-persian-koobideh/",
+      "components": [
+        {
+          "key": "0d9c15ac-f21a-5165-8fd8-7562d10e34f8",
+          "name": "Zutaten",
+          "servingGrams": 234.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f35054b7-4f0b-568c-9eeb-a3f35cb8010c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "88bb3f58-0416-5e13-9c0e-504c4e6f4535",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große, fein gerieben"
+            },
+            {
+              "key": "93bf1b6b-3780-5841-880b-3f54adbc9e89",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, fein gehackt"
+            },
+            {
+              "key": "8b8ef905-4e28-5596-87bc-ce5a598805a2",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "55f3fa9b-acc1-56aa-b4b5-df5523e21513",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "7a006158-032d-552a-abda-c152dddd6228",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "878bc6c2-11a0-5786-abc8-cb1856d3de0b",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL, in warmem Wasser eingeweicht"
+            },
+            {
+              "key": "1eef111e-fbb2-55d8-8dd7-db39eefd83c4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cf9b0122-519c-5c6a-9e24-94c9f10a13f7",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "9843a189-791d-5892-895f-262a8f544000",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Rinderhackfleisch, geriebene Zwiebel, Petersilie, Salz und schwarzen Pfeffer in einer Schüssel und knete alles, bis die Masse klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile die Masse in 8 Portionen und forme jede länglich um einen Metallspieß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Grillpfanne oder einen Außengrill auf mittelhohe Hitze und öle die Fläche leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille die Koobideh 10–12 Minuten und wende sie alle 2–3 Minuten, bis sie durchgegart und an den Rändern angekohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die fertigen Koobideh auf eine Platte und gieße geschmolzene Butter mit Safran darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie auf lockerem Basmatireis mit Zitronenspalten als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/12683_1_1752144654.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/12683_1_1752144654.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-portuguese-piri-piri-chicken",
+      "slug": "gen-portuguese-piri-piri-chicken",
+      "title": "Portugiesisches Piri-Piri-Hähnchen",
+      "instructions": "Portugiesisches Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenunterkeulen statt Schenkeln und spare 20–30 % der Kosten.",
+        "Bereite Marinade in großen Mengen zu und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "portugiesisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5984,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-portuguese-piri-piri-chicken/",
+      "components": [
+        {
+          "key": "8d20cef5-bcb8-56e2-9731-9d12140ba86e",
+          "name": "Zutaten",
+          "servingGrams": 351.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5c0554fb-3126-5a85-8233-0407cff7480a",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Stück, mit Knochen und Haut"
+            },
+            {
+              "key": "382c0e92-4f81-5a9f-95a7-b6d3c4eca355",
+              "ingredientName": "Geröstete Paprika aus dem Glas",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "4-6, frisch oder getrocknet"
+            },
+            {
+              "key": "508f0a3b-1200-52d8-85bb-82fdec33bd75",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "63ab93d4-acf4-5e56-bd78-7eee1e4b9ee5",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9a2bd878-dda3-5481-938d-0ea59d10ca54",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "457c2d59-535c-5d0a-aca9-a4e53c7dbb60",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f5b681d2-8d25-5ef4-9c81-04d5119fc55f",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c49191bc-62d9-5180-94d4-e5b110670a5d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6a573f6b-f67a-550d-aa01-064d2dae1a93",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Chilischoten, Knoblauch, Zitronensaft, Olivenöl, Salz, schwarzen Pfeffer, Paprikapulver und Lorbeerblätter in eine Küchenmaschine und püriere alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Hähnchenschenkel in eine große Schüssel und überziehe sie gründlich mit der Piri-Piri-Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel ab und stelle das Fleisch mindestens 4 Stunden, vorzugsweise über Nacht, kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize Grill oder Grillpfanne auf mittelhohe Hitze vor und bestreiche sie mit Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Hähnchenschenkel mit der Hautseite nach unten auf den Grill und grille sie 6–7 Minuten, bis die Haut angekohlt ist. Wende sie dann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Grille weitere 8–10 Minuten, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse das Fleisch 5 Minuten ruhen und serviere es heiß mit gegrilltem Gemüse oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/dGwhsixJ0ulFJ1HiMzGjLLPcJ4U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7010805-ba17e32c7b814d0580da88fd668f70c3.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/dGwhsixJ0ulFJ1HiMzGjLLPcJ4U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7010805-ba17e32c7b814d0580da88fd668f70c3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1167 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-turkey-minestrone",
+      "slug": "mfr-turkey-minestrone",
+      "title": "Minestrone mit Putenhack und Gemüse",
+      "instructions": "Eiweißreiche Variante der klassischen italienischen Minestrone mit Putenhack, Pasta, weißen Bohnen und allerlei Gemüse in einer kräuterreichen Tomatenbrühe.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Minestrone ist die ursprüngliche Suppe zum Aufbrauchen: Verwende Gemüse, das weg muss.",
+        "Mit Pasta wird daraus ein vollständiges Gericht aus einer Schüssel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Italienische Wurst für ein kräftigeres Aroma"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Paprika oder grüne Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-minestrone",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "Suppe",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 965,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-minestrone/",
+      "components": [
+        {
+          "key": "8ce1d7db-3a52-5f06-8b99-bf6bd07195ab",
+          "name": "Zutaten",
+          "servingGrams": 525.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0676b4d-e68e-5a31-ae64-d43689e86ce0",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cb18c31-1d5f-51b0-8728-1b92bcfa4789",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80b4429e-696b-5f02-b94d-f43bca029d0d",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9de2470a-1269-5d62-bbb7-e6a9f8ef10d8",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0632d3df-3a65-5b73-a5ac-89b0fd43e6bb",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40ee96f7-9f55-53fe-8501-9a38f4185110",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ed861d1-cc3a-546e-9a9e-f448a072086b",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7834118f-b0df-5b7b-85fa-bc591fd91678",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa8bf360-83c4-5b30-a699-64c84d3f7cd0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "107566fc-39d5-5766-a08c-cb0a4fe418ae",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7842a6d-ac51-5b63-af75-364e346e5176",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47f261af-8254-5bb8-8dcd-84a6813e201a",
+              "ingredientName": "Hühnerbouillon",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Putenhack in Olivenöl an. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel, Karotte und Zucchini 6 Minuten an. Gib Knoblauch und italienische Gewürzmischung dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Tomaten, Bouillon + 5 Tassen Wasser, Putenhack und weiße Bohnen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, gib die Pasta dazu und gare sie 10 Minuten. Rühre Spinat ein und würze die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://jennycookies.com/wp-content/uploads/2026/03/IMG_3839-scaled.jpeg",
+          "sourcePageUrl": "https://jennycookies.com/wp-content/uploads/2026/03/IMG_3839-scaled.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-potato-onion-soup",
+      "slug": "mfr-potato-onion-soup",
+      "title": "Kartoffelsuppe mit karamellisierten Zwiebeln",
+      "instructions": "Herzhafte Suppe aus karamellisierten Zwiebeln und Kartoffeln: eine vegetarische Bisque nach französischer Art, die fast nichts kostet und wunderbar reichhaltig schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwiebeln zu karamellisieren braucht Geduld, kostet aber nur $0.55 und sorgt für unglaubliche geschmackliche Tiefe.",
+        "Kartoffeln gehören zu den günstigsten und sättigendsten Gemüsesorten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Ein Schuss Milch oder für eine milchfreie Variante weglassen"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl für milchfrei karamellisierte Zwiebeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-potato-onion-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "Suppe",
+        "vegetarisch",
+        "Wohlfühlessen",
+        "günstig",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 966,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-potato-onion-soup/",
+      "components": [
+        {
+          "key": "159d6ef0-68fc-5e19-bcae-97a8950f20f2",
+          "name": "Zutaten",
+          "servingGrams": 420.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "30b1da10-ddd2-50df-9a8e-3c5a6654e666",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df27fc5f-b659-5818-b97c-4f1d66030976",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cda43933-525c-5189-8fc9-57e4405cb763",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b357bf35-f618-5d4e-a054-2384c4a71434",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f23f4cf9-9f87-52fe-8cdd-60965175f4fc",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e76e312-186a-5aa3-b531-d7d85210aff8",
+              "ingredientName": "Hühnerbouillon",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cf7cc2a-9df7-5474-ba69-99857b332357",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a07f76a7-ae2c-57cf-aebb-1abb3cd6f64a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "502faf5b-e635-5d5e-b719-ec7641e8534b",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d3de429-e7a5-5fe2-84a5-e39c37f4676d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50a305d5-1aed-5dfa-932b-3304f805cb90",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5928a0f-ede9-55fb-9d36-17399e82c48c",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere die Zwiebeln 20–25 Minuten in Butter und Olivenöl bei mittlerer bis niedriger Hitze, bis sie goldbraun und süß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Thymian dazu und gare alles 2 Minuten. Gib gewürfelte Kartoffeln sowie 5 Tassen Wasser und Bouillon dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Suppe 15 Minuten köcheln, bis die Kartoffeln sehr weich sind. Püriere sie teilweise, sodass einige Stücke erhalten bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre griechischen Joghurt für mehr Cremigkeit ein. Würze die Suppe und garniere sie mit Petersilie und Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/11/Crockpot-Cheesy-Mashed-Potatoes-with-Caramelized-Onions-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/11/Crockpot-Cheesy-Mashed-Potatoes-with-Caramelized-Onions-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chickpea-tomato-stew",
+      "slug": "mfr-chickpea-tomato-stew",
+      "title": "Kichererbsen-Tomaten-Eintopf",
+      "instructions": "Kräftig gewürzte Kichererbsen nach spanischer Art in einer reichhaltigen Tomatensoße mit Spinat: eine Tapas-Bar-Spezialität, die genauso gut als Hauptgericht schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieser Kichererbseneintopf nach spanischer Art kostet etwa $2 pro Portion und macht lange satt.",
+        "Das Brot dient als Besteck: traditionell und günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bread",
+          "swap": "Für weniger Kohlenhydrate das Brot weglassen und den Eintopf stattdessen auf Reis servieren"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen für einen cremigeren Eintopf"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chickpea-tomato-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "spanisch",
+        "Eintopf",
+        "vegan",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 967,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chickpea-tomato-stew/",
+      "components": [
+        {
+          "key": "9e5b5fb1-32c9-5a4d-b2d3-978a23c84c74",
+          "name": "Zutaten",
+          "servingGrams": 813.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "11f09b74-3a14-57e2-80bc-1faa0692cda2",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1052989a-68ff-50ed-b5bf-1da9ac0fb8c7",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9168e82c-2b37-592f-9e7b-500e8f67fcea",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f7e3c5c-b44a-5eb3-a443-c48de50d8e6e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2381033-16cd-5277-956c-280cd75efa3a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05e094bb-f8f1-5f0e-8497-e84895d4e56c",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a153b52a-598d-58a5-9bcc-0588e22153f2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed1d9c43-3af1-52c4-ba50-3344710d7bbc",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4da83e1-674c-5d01-a6da-04929e330be3",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c17d0f1-59de-5291-a91f-10b0974c1c8f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea81ebf8-4fb6-5c2f-addb-70c4ef6e64f5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4041cfb3-0535-5457-ae67-799a4fa0747a",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 6 Minuten in Olivenöl an. Gib Knoblauch, Paprikapulver und Kreuzkümmel dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Tomaten und Kichererbsen dazu. Lass alles 12 Minuten köcheln, bis der Eintopf dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Spinat ein. Presse Zitrone darüber und gib zum Schluss Petersilie dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Eintopf mit knusprigem Brot zum Auftunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2019/10/Chickpea-Tomato-Peanut-Stew-1456-v1-06-min.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2019/10/Chickpea-Tomato-Peanut-Stew-1456-v1-06-min.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-beef-vegetable-stew",
+      "slug": "mfr-beef-vegetable-stew",
+      "title": "Rindfleisch-Gemüse-Eintopf",
+      "instructions": "Schnell zubereiteter, herzhafter Rindfleischeintopf mit Rinderhack, Kartoffeln, Karotten und einer glänzenden Tomaten-Rinderbrühe, die von innen wärmt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack ergibt einen überzeugenden Eintopf, nimmt die Brühe wunderbar auf und braucht 20 Minuten statt Stunden.",
+        "Kartoffeln dicken die Brühe beim Kochen auf natürliche Weise an. Mehl ist nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Gulaschfleisch in Würfeln (1 zusätzliche Stunde köcheln lassen)"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Wasser + 2 Brühwürfel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-vegetable-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Eintopf",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 968,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-vegetable-stew/",
+      "components": [
+        {
+          "key": "f74c9666-8b1b-513d-bcab-facd3e1f0b19",
+          "name": "Zutaten",
+          "servingGrams": 539.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab2f4929-e69b-5d9c-81de-eb262e2d352a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc8347df-255e-5cd8-8c68-4637f2409d80",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8a2e355-e006-5389-8c2e-b868909ee833",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eeebc1fd-7d12-59f8-94b4-9f7cf4d97e7d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef4b9716-6b09-56d5-a850-313bd5f908e8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fcbbeb8-ede8-53bb-a97c-7bdb26239a74",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3d31cce-bdbb-5c12-8622-b7afc06cc269",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30a4bf2a-41d9-5677-826d-ab1b65372a65",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a58645ed-8103-53f0-a9b3-5f5be818ee5f",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ef64241-c9a8-5068-bb43-c635674824ac",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4291a40-66b3-50b6-bbd6-401fbb812b69",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed6da7bd-c8da-5cfc-a74a-b129a0b86ed1",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Rinderhack an und stelle es beiseite. Brate Zwiebel und Karotte 6 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Tomatenmark dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Rinderbrühe, 2 Tassen Wasser, gewürfelte Kartoffeln, Rindfleisch und Gewürze dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 20 Minuten köcheln, bis die Kartoffeln weich sind. Würze den Eintopf und garniere ihn mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ZC1ag5GeOw5BIh5RorpviTnCIY0=/6016x4016/filters:fill(auto,1)/beef-stew-with-vegetables-3051410-hero-01-618f4e08a34a402985b4aac6aa2b76a7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ZC1ag5GeOw5BIh5RorpviTnCIY0=/6016x4016/filters:fill(auto,1)/beef-stew-with-vegetables-3051410-hero-01-618f4e08a34a402985b4aac6aa2b76a7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mushroom-lentil-soup",
+      "slug": "mfr-mushroom-lentil-soup",
+      "title": "Pilz-Linsen-Suppe",
+      "instructions": "Erdige Pilze und Linsen nach französischer Art in einer dunklen, herzhaften Brühe: eine vegane Suppe mit Umami-Tiefe, die schmeckt, als wäre Fleisch darin.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sojasoße sorgt auch ohne Fleisch für Umami-Tiefe: ein klassischer Trick der veganen Küche.",
+        "Linsen und Pilze schmecken zusammen mehr nach Fleischsuppe als jede der Zutaten allein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "thyme-fresh",
+          "swap": "1 TL getrockneter Thymian"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Worcestersoße für einen Umami-Kick, wenn das Gericht nicht vegan sein muss"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mushroom-lentil-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "Suppe",
+        "vegan",
+        "günstig",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 969,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mushroom-lentil-soup/",
+      "components": [
+        {
+          "key": "c9971b7a-3e85-518e-9399-c0b865023764",
+          "name": "Zutaten",
+          "servingGrams": 427.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3627010c-f547-55ec-b360-ef9a51e585bd",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "023e8db6-f2a1-5a32-ab6b-fd62c5755500",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83b81388-2a64-5adc-a684-30ea3ad5b1be",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0706c3a6-f708-53db-877e-ebf498619ae2",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a8f06ed-5e2f-51e9-8f92-25a2a104bf8b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93803ad8-42d0-5767-9ebc-4f96b74b5433",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72ede2a1-1e81-5c3c-a1c9-84008024aa84",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0ebbbd4-17bd-5e85-85f4-79abf1b4e833",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dd51096-4619-50ca-bb58-c800f213f5d0",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed2d34a1-ac31-5ad9-bddb-26b267b676c1",
+              "ingredientName": "Hühnerbouillon",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "400c86b5-c11c-5866-9d05-0ddd474a0dc2",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07049260-4ca3-585e-8d41-5e8d2f2135c1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Pilze bei hoher Hitze in Olivenöl 5 Minuten an, bis sie gebräunt sind. Überfülle die Pfanne nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel, Karotte und Knoblauch dazu und gare alles 5 Minuten. Gib Tomatenmark und Sojasoße dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Linsen, Bouillon, Thymian und 5 Tassen Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 22–25 Minuten köcheln, bis die Linsen weich sind. Würze die Suppe und garniere sie mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/EceKwtB1k1X3C6rwtfRkulH20R8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Mushroom-and-lentil-soup-221-4ce9c0ee29764acc8ad626f6df206e49.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/EceKwtB1k1X3C6rwtfRkulH20R8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Mushroom-and-lentil-soup-221-4ce9c0ee29764acc8ad626f6df206e49.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

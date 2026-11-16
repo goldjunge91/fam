@@ -1,0 +1,1161 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chinese-sesame-chicken-salad",
+      "slug": "mfr-chinese-sesame-chicken-salad",
+      "title": "Chinesischer Sesam-Ingwer-Hähnchensalat",
+      "instructions": "Zerpflücktes Hähnchen mit Sesam-Ingwer-Dressing, knackigem Salat und Frühlingszwiebeln vermischen. Ein klassischer Salat zum Mitnehmen, den du für unter $3 pro Portion zu Hause zubereitest.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen pochieren ist die günstigste fettfreie Garmethode.",
+        "Sesamsamen halten sich ein Jahr. Einmal kaufen und für vieles verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Reisessig oder Limettensaft verwenden."
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Reis für eine leichtere reine Salatvariante weglassen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chinese-sesame-chicken-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Salat",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 895,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chinese-sesame-chicken-salad/",
+      "components": [
+        {
+          "key": "ad76ef28-0602-5220-8b97-1c699a0cb963",
+          "name": "Zutaten",
+          "servingGrams": 575.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a894536-b03a-594d-a599-a6843b7b1433",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "150b2031-4485-54e7-8dd8-44471fcad969",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee950086-bfc7-56c0-af49-39c4d162a2e6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c216b644-b77e-50b0-bedc-c3ed187e1793",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "527bf04f-8b5d-5f08-97da-fc6718ef0788",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6c9038c-2c3f-5f14-94ca-2d482b12ffd7",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f50a757-325c-5605-a5ea-650d9f4f8f78",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "212aeb65-5555-55b6-8508-218965e76002",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "737ac8b8-a4e8-5b1f-b822-4c78db7db723",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8ed5323-d690-58fb-a9f4-8f9b2002b665",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3eda6895-ae35-5420-9a38-5db521190333",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8b9c215-dfe9-5408-b488-0ddceea339a2",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pochiere Hähnchenbrüste 15 Minuten in leicht köchelndem Wasser mit Ingwer und Knoblauch. Lass sie abkühlen und zerpflücke sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare den Reis. Bereite das Dressing aus Sesamöl, Sojasauce, Essig, Honig, Ingwer und Knoblauch zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zupfe den Salat auseinander, schneide die Gurke in Scheiben und hacke die Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische das Hähnchen mit dem Dressing. Serviere es auf Reis mit Salat, Gurke, Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/02/Sesame-Ginger-Orange-Chicken-Salad-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/02/Sesame-Ginger-Orange-Chicken-Salad-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vietnamese-shrimp-herb-salad",
+      "slug": "mfr-vietnamese-shrimp-herb-salad",
+      "title": "Vietnamesischer Reisnudelsalat mit Garnelen und Kräutern",
+      "instructions": "Saftige Garnelen auf kalten Reisnudeln mit einer Fülle frischer Kräuter, Gurke und spritzigem Limetten-Chili-Dressing. Frisch, belebend und in 20 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reisnudeln kosten etwa ~$0.50 pro Portion und sind von Natur aus glutenfrei.",
+        "Frische Kräuter machen diesen Salat aus. Ein einzelner Bund reicht weit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Pochierte und zerpflückte Hähnchenbrust verwenden."
+        },
+        {
+          "forIngredientId": "rice-noodles",
+          "swap": "Soba oder dünne Pasta verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vietnamese-shrimp-herb-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch",
+        "Salat",
+        "Nudeln",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 896,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vietnamese-shrimp-herb-salad/",
+      "components": [
+        {
+          "key": "8c54d45e-7d48-59d7-89e2-f26be49b3418",
+          "name": "Zutaten",
+          "servingGrams": 647.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c8e7380-ede2-5723-897a-6218213ad130",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "681c7917-6b72-51af-964c-75a3aa6a7d12",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb752d58-7409-5fec-b30f-9fa174be8fad",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce8be231-fb3b-5db0-a49a-abcae84415d5",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2187aee0-7378-5a72-94d6-92a04db3a57d",
+              "ingredientName": "Frische Minze",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65f8f6a8-b5f3-5b4e-b49f-2e8d5cee5743",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd1b0688-83f4-5dce-a404-2175a67d0542",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19e8aa39-d7df-5eae-a0b4-e0f9d6e7deaf",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8954b571-b274-50d3-a6ac-2fcb2361df33",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d776aba4-541a-522c-92cd-94a2a9a3f124",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ca5ce0f-3115-599a-88f2-11e0f83f044d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39cf3ec1-3de5-50d5-b808-649fe97c7f71",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reisnudeln 6–8 Minuten in kochendem Wasser ein, gieße sie ab und spüle sie kalt ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Garnelen 2 Minuten pro Seite mit Knoblauch in einer heißen Pfanne. Lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Limettensaft, Chili-Knoblauch-Sauce, Sojasauce, Honig und Knoblauch zu einem frischen Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zupfe den Salat auseinander. Schneide die Gurke in Scheiben und hacke Minze, Koriander und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Nudeln auf Schüsseln und gib Garnelen, Kräuter, Gurke und Salat darauf. Beträufle alles mit Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2024/01/vegan-vietnamese-rice-noodle-salad-recipe-6-1367x2048.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2024/01/vegan-vietnamese-rice-noodle-salad-recipe-6-1367x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-miso-salmon-brown-rice-bowl",
+      "slug": "mfr-miso-salmon-brown-rice-bowl",
+      "title": "Reisschüssel mit Miso-Lachs und braunem Reis",
+      "instructions": "Karamellisierter, in Miso marinierter Lachs auf braunem Reis mit Sesamspinat. Eine japanische Schüssel wie aus dem Restaurant.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dosensalmon kann als Ersatz dienen. Rühre die Miso-Glasur nach dem Erwärmen unter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 TL Honig und 1 TL Reisessig verrühren."
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tofu verwenden. Mariniere und backe ihn auf dieselbe Weise."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-miso-salmon-brown-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Schüsselgericht",
+        "Meeresfrüchte",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 897,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-miso-salmon-brown-rice-bowl/",
+      "components": [
+        {
+          "key": "dacb5c89-04c2-5324-807e-7b0822c8ce04",
+          "name": "Zutaten",
+          "servingGrams": 655.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "921bdedf-6f42-5421-a61f-2c7933c72b10",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d08b3a78-67c7-5b7e-917a-3d76e4d159e0",
+              "ingredientName": "Brauner Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff48315d-3085-5e49-919e-544556a84319",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7b005f2-60d0-56f6-a9e0-fc87dff7a896",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89e59976-0154-50e7-bb38-dfa479058980",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddda3c7b-cb85-535d-90ca-7e10aa246bb1",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f23d5094-e32e-5c9d-984c-8faf045fd907",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37a50852-2def-5e8d-9237-9626fc602ef9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d462ec1-fb57-5308-80eb-80d6d568c619",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32d5e3c8-f41e-5730-a335-c6ffdab60e63",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20a0d88a-2d48-50a3-88ab-a2e58ff7f93f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere den Lachs 5–30 Minuten in Sojasauce, Mirin, Honig und geriebenem Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe den Lachs bei 400°F 12–14 Minuten oder grille ihn für eine karamellisierte Oberfläche. Gare den braunen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Spinat in 1 TL Sesamöl und Knoblauch an, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Reis, Sesamspinat und glasiertem Lachs an. Garniere sie mit Sesamsamen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/xUZjbmfIjPonzap9gME4-MdAtaw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Miso-Salmon-LEAD-6-599f7d68d4d0430598e9d0a664329dce.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/xUZjbmfIjPonzap9gME4-MdAtaw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Miso-Salmon-LEAD-6-599f7d68d4d0430598e9d0a664329dce.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-spicy-tofu-rice-noodle-bowl",
+      "slug": "mfr-spicy-tofu-rice-noodle-bowl",
+      "title": "Scharfe Tofu-Reisnudel-Schüssel",
+      "instructions": "Knusprig gebratener Tofu und Reisnudeln in einer feurigen Chili-Knoblauch-Sesam-Sauce mit frischem Gemüse. Eine vegane Schüssel fürs Abendessen unter der Woche mit echter Schärfe.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu nimmt die Sauce besser auf, wenn du ihn auspresst und anbrätst. Lass das Auspressen nicht aus.",
+        "Reisnudeln brauchen keinen Kochtopf. Eine Schüssel mit kochendem Wasser genügt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Tempeh für eine nussigere Konsistenz verwenden."
+        },
+        {
+          "forIngredientId": "chili-garlic-sauce",
+          "swap": "Gochujang mit einem Schuss Wasser für eine koreanische Note verrühren."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-spicy-tofu-rice-noodle-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Nudeln",
+        "vegan",
+        "scharf",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 898,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-spicy-tofu-rice-noodle-bowl/",
+      "components": [
+        {
+          "key": "484c83aa-7449-543a-a70b-1cc568937f71",
+          "name": "Zutaten",
+          "servingGrams": 567,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec9b0641-52d7-503d-85dd-076111ea12e5",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fd5c4a9-1179-5cc2-ae36-ba9b56f1b924",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a406f0d-feca-5b25-9bef-5281bcd60c94",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8986f28b-1314-54ba-8c40-1b524d694e23",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57fbc2dc-60c0-525d-9bc6-3f0774436fa5",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c3e5c42-3ed5-528d-821f-480a077e6f41",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be3b32ee-1ae0-5dfe-b808-68804541a4c2",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74aa0f80-93d1-523e-b300-111cb1d9d2df",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7d3f1ba-f1c0-55cd-bfbc-d91acc359c7b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53011821-4fe9-5575-b67f-f9abb229d560",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28d2d95a-be02-5c06-99b8-d90e05aef923",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu trocken und schneide ihn in Würfel. Brate ihn in Pflanzenöl bei hoher Hitze pro Seite 3–4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die Reisnudeln 6 Minuten in kochendem Wasser ein und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Knoblauch und Ingwer 30 Sekunden an und gib dann Chili-Knoblauch-Sauce, Sojasauce und Sesamöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Paprika, Spinat und Nudeln dazu und schwenke alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere die Schüssel mit knusprigem Tofu und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2024/01/vegan-gochujang-tofu-rice-bowls-1-1367x2048.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2024/01/vegan-gochujang-tofu-rice-bowls-1-1367x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-chicken-lettuce-slaw",
+      "slug": "mfr-asian-chicken-lettuce-slaw",
+      "title": "Asiatische Salatschüssel mit Hähnchen",
+      "instructions": "Knackiger, fein geschnittener Salat mit zerpflücktem Hähnchen, Edamame und Sesam-Limetten-Dressing. Eine kühle Schüssel mit abwechslungsreicher Konsistenz und eine frische Alternative zu warmem Mittagessen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Salatkopf reicht für 2–3 Portionen Krautsalat und kostet etwa ~$2.50.",
+        "Fein geschnittener Salat hat eine ähnliche Konsistenz wie richtiger Krautsalat aus dem Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen aus der Dose für eine noch schnellere Zubereitung verwenden."
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Reis für eine reine kohlenhydratarme Salatschüssel weglassen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-chicken-lettuce-slaw",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Salat",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 899,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-chicken-lettuce-slaw/",
+      "components": [
+        {
+          "key": "a7fdbdac-2298-5d6f-a23c-964febdce2e4",
+          "name": "Zutaten",
+          "servingGrams": 711.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "acb662f8-065e-521b-b456-aa2e884abcbf",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21558074-bca3-5b57-9f90-aa807ae9a14b",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "885e8e8e-2dff-5edf-af19-6b8035aebad3",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c0cd627-8dfc-5096-87ea-eee174b9c859",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "826fe4e9-f2d5-5818-9bd4-5f27c7cab09c",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1f2a473-757b-588d-8b94-836a0dc84517",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73ac2ea3-7985-5406-911a-d3b30c18cc65",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e83de0b-a07d-5b19-b50a-d35b8d19bb4c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdec7e71-cfef-5ab6-a48a-2e0b4da683cc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bdbc774-2551-5f74-a845-681ce08fd0ea",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25cfdb7c-9437-5329-a647-b6cd94237ca8",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e22909f5-51a3-5e5e-884e-bd5af7bfd978",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pochiere das Hähnchen und zerpflücke es. Gare den Reis und erwärme Edamame in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Salat in feine Streifen. Schneide Gurke und Frühlingszwiebeln in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Sesamöl, Sojasauce, Limette, Ingwer und Knoblauch zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Salat, Gurke, Edamame und Frühlingszwiebeln mit dem Dressing. Serviere das Hähnchen und Sesamsamen auf dem Reis dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://riehlfood.com/wp-content/uploads/2012/03/chinesecoleslaw2.jpg",
+          "sourcePageUrl": "https://riehlfood.com/wp-content/uploads/2012/03/chinesecoleslaw2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

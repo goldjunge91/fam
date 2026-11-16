@@ -1,0 +1,1458 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-swedish-meatballs",
+      "slug": "cur-swedish-meatballs",
+      "title": "Schwedische Fleischbällchen (Köttbullar)",
+      "instructions": "Zarte Rind- und Schweinefleischbällchen, gebunden mit in Milch eingeweichten Semmelbröseln und gewürzt mit Piment und Muskat. In der Pfanne gebraten und in cremiger Rahmsauce geschmort. Klassisch mit einem Löffel Preiselbeerkonfitüre serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn Schweinefleisch teuer ist, nur Rinderhackfleisch oder eine Mischung aus Rind und Pute verwenden. Die eingeweichten Semmelbrösel halten die Bällchen in jedem Fall zart.",
+        "Statt Preiselbeerkonfitüre aus dem Glas etwas Zucker in aufgetaute Cranberrys oder Johannisbeerkonfitüre rühren. So entsteht derselbe süß-säuerliche Geschmack.",
+        "Eine doppelte Portion zubereiten und gegarte Fleischbällchen einfrieren. An einem hektischen Abend ist die Sauce in wenigen Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "verwenden all gemahlen Rindfleisch oder swap in gemahlen turkey",
+          "savings": "spart ~$2 und vereinfacht den Einkauf"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "whole Milch loosened mit ein extra Teelöffel von Mehl",
+          "savings": "spart ~$1.50"
+        },
+        {
+          "forIngredientId": "jam",
+          "swap": "cranberry Sauce oder red currant jelly",
+          "savings": "spart ~$3 gegenüber spezieller Preiselbeermarmelade"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schwedisch",
+        "comfort-food (deutsche Fassung)",
+        "meatballs (deutsche Fassung)",
+        "kottbullar (deutsche Fassung)",
+        "Sahne-gravy",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7340,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-swedish-meatballs/",
+      "components": [
+        {
+          "key": "1f0a4a23-cf57-53fc-967a-055b37855b53",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 378.11,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfc73b33-e61c-5b28-8eae-4c41fd94074e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "die Hälfte der Fleischmischung"
+            },
+            {
+              "key": "b25218c3-168c-5c63-92ef-3ba0a33bbfa0",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "die andere Hälfte der Fleischmischung"
+            },
+            {
+              "key": "b3f690f0-f96d-56dd-8057-d2dbdb850d87",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für die Milch-Brot-Masse"
+            },
+            {
+              "key": "05eec13b-56f0-59f3-ab32-b866ac49bfed",
+              "ingredientName": "Milch",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Einweichen der Semmelbrösel"
+            },
+            {
+              "key": "76cde571-9f3e-5c16-afa0-44cdf7c39a6b",
+              "ingredientName": "Zwiebel",
+              "grams": 112.5,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gerieben oder gehackt, in Butter angedünstet"
+            },
+            {
+              "key": "b114fa94-ca6c-5ccd-953a-9439a6ee4eaf",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb7dce81-3e33-5d9b-a7cd-a471e9389849",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gemahlen; das prägende warme Gewürzaroma"
+            },
+            {
+              "key": "cb751cca-d9ae-528d-833c-fb17a71783ef",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8fc884f-324f-5e60-8d74-b7e8a3b64842",
+              "ingredientName": "Salz",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96178789-b749-5ccc-bc8f-b26f261203d6",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc3ce66e-14bc-5460-8fab-19e0e3a2a699",
+              "ingredientName": "Butter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Braten der Fleischbällchen und für die Mehlschwitze der Sauce"
+            },
+            {
+              "key": "e232efae-5eca-5657-b889-da1720b91ac7",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "für die Mehlschwitze der Sauce"
+            },
+            {
+              "key": "32915edc-081a-5060-b50c-beb4b326fe83",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "etwa 2 Tassen"
+            },
+            {
+              "key": "cde11cbe-38e9-57c8-a9c7-3c159f15cfdb",
+              "ingredientName": "Sahne",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "für die Sahnesauce"
+            },
+            {
+              "key": "ce340c5a-e858-565c-abba-e757eaf65c55",
+              "ingredientName": "Sojasauce",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "ein kleiner Schuss für Farbe und herzhaftes Aroma"
+            },
+            {
+              "key": "d69bbf45-bd37-553d-9498-20edadce9d1d",
+              "ingredientName": "Dijon-Senf",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "in die Sauce eingerührt"
+            },
+            {
+              "key": "d30fcb22-cc95-5e6b-826f-80f34b5264bb",
+              "ingredientName": "Konfitüre",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "Preiselbeermarmelade als Beilage"
+            },
+            {
+              "key": "5630d1b3-7990-56b4-a12f-2f07d41dda05",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "gekocht oder gestampft zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Semmelbrösel in eine Schüssel geben, mit Milch übergießen und 5–10 Minuten einweichen lassen, bis eine weiche Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein kleines Stück Butter in einer Pfanne bei mittlerer Hitze schmelzen. Fein geriebene Zwiebel 3–4 Minuten sanft darin dünsten, bis sie weich und glasig, aber nicht gebräunt ist. Etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch, Schweinehackfleisch, eingeweichte Semmelbrösel, gegarte Zwiebel, Ei, Piment, Muskat, Salz und Pfeffer in einer großen Schüssel vermengen. Mit den Händen nur so lange mischen, bis alles verbunden ist. Zu kleinen Kugeln von etwa 1 Zoll Durchmesser rollen; angefeuchtete Hände erleichtern das Formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übrige Butter in der Pfanne bei mittlerer Hitze schmelzen und die Fleischbällchen portionsweise braten. Rundherum bräunen und fast garen, etwa 6–8 Minuten pro Portion. Auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Im selben Topf die gebräunten Reste mit Mehl bestäuben und mit Butter und Bratfett zu einer Mehlschwitze verrühren. 1 Minute kochen, bis sie leicht goldgelb ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rinderbrühe nach und nach einrühren, anschließend die Sahne zugießen und den Bratensatz vom Topfboden lösen. Sojasauce und Dijon-Senf dazugeben und unter Rühren 3–5 Minuten köcheln lassen, bis die Sauce dick genug ist, einen Löffel zu überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fleischbällchen und ausgetretenen Saft zurück in die Pfanne geben. Bei niedriger Hitze 5–8 Minuten sanft köcheln lassen, bis sie durchgegart und mit Sauce überzogen sind. Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit gekochten oder gestampften Kartoffeln und einem Löffel Preiselbeerkonfitüre servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Swedish_meatballs_with_egg_noodles.jpg/1280px-Swedish_meatballs_with_egg_noodles.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Swedish_meatballs_with_egg_noodles.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: RandomKatze — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Swedish Meatballs (Köttbullar)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-southern-collard-greens",
+      "slug": "cur-southern-collard-greens",
+      "title": "Geschmorte Blattkohlblätter aus dem Süden der USA",
+      "instructions": "Langsam geschmorter Blattkohl mit geräuchertem Schinken, süßer Zwiebel und Knoblauch, bis die Blätter butterzart sind. Mit Apfelessig und scharfer Sauce abgeschmeckt und mit würziger Kochbrühe serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 130,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stiele und Kochbrühe nicht wegwerfen. Die rauchige Brühe schmeckt besonders gut, wenn man sie mit Maisbrot auftunkt.",
+        "Ein geräucherter Putenschenkel oder -flügel eignet sich ebenso gut wie ein Schinkenknochen und ist pro Pfund oft günstiger.",
+        "Blattkohl bündelweise kaufen und selbst waschen statt abgepackten zu verwenden. So sinken die Kosten pro Portion deutlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham",
+          "swap": "verwenden ein smoked turkey leg oder ein few Scheiben von bacon",
+          "savings": "Geräucherte Pute kann pro Pfund ~30% günstiger sein und liefert das gleiche Raucharoma"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "verwenden Wasser plus ein bouillon cube",
+          "savings": "Spart etwa $1.50 gegenüber fertig abgepackter Brühe"
+        },
+        {
+          "forIngredientId": "collard-greens",
+          "swap": "ersetzen mustard greens oder kale",
+          "savings": "In der Saison oft etwas günstiger und schneller gar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "southern-american (deutsche Fassung)",
+        "soul-food (deutsche Fassung)",
+        "southern (deutsche Fassung)",
+        "braised (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "side-Gericht",
+        "smoky (deutsche Fassung)",
+        "one-Topf"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7341,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-southern-collard-greens/",
+      "components": [
+        {
+          "key": "8da9d671-e24a-5f09-84db-5485f05fa503",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 150.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "15ae634a-06c6-5dbf-bced-67a6fa9681a3",
+              "ingredientName": "Blattkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Bund, Stiele entfernt, Blätter gehackt"
+            },
+            {
+              "key": "39e417dc-21ee-5272-ab9b-0a81393ddf57",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 fleischige geräucherte Schweinshaxe (oder 1 geräucherte Putenkeule)"
+            },
+            {
+              "key": "9714e635-cd65-5870-b73b-6d02ac7c4812",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große gelbe Zwiebel, gewürfelt"
+            },
+            {
+              "key": "7c19edb2-e8cc-5de9-a26c-827a72b72313",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "f97a7004-3c99-551d-a791-439d25110fa7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 4 Tassen, salzarm"
+            },
+            {
+              "key": "5780e000-6596-5cc9-94f3-281ce646c8bb",
+              "ingredientName": "Apfelessig",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 2 EL und mehr nach Geschmack"
+            },
+            {
+              "key": "7a54608e-1b01-55de-b446-bf426654f9f1",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL zum Ausgleichen der Bitterkeit"
+            },
+            {
+              "key": "5f07980a-a86d-5112-8135-6a161e508f23",
+              "ingredientName": "Chiliflocken",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL und mehr nach Geschmack"
+            },
+            {
+              "key": "3805c0ed-0f2d-5de9-a1be-4cd186f6ed73",
+              "ingredientName": "scharfe Sauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "am Tisch nach Geschmack"
+            },
+            {
+              "key": "1f49e9a2-5c5d-556d-9e96-485cd80ec469",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL zum Andünsten der Zwiebel"
+            },
+            {
+              "key": "8e7024f8-20ae-5f2e-83fc-6c1c18e74826",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4848b1f8-1b73-5e56-bcbc-11188136c913",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blätter von den harten Mittelrippen lösen, stapeln, aufrollen und in breite Streifen schneiden. Zwei- bis dreimal gründlich in kaltem Wasser waschen, um Sand zu entfernen, dann abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen, schweren Topf oder Schmortopf bei mittlerer Hitze erhitzen. Gewürfelte Zwiebel etwa 5 Minuten braten, bis sie weich und glasig ist. Knoblauch und Chiliflocken einrühren und 1 Minute weiterbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geräucherten Schinkenknochen in den Topf legen und Hühnerbrühe sowie so viel Wasser angießen, dass der Schinken fast bedeckt ist. Zum Kochen bringen, dann die Hitze reduzieren. Zugedeckt 45 Minuten sanft köcheln lassen, damit sich das Raucharoma entfaltet und das Fleisch zart wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Blattkohl portionsweise in den Topf geben. Umrühren und jede Portion zusammenfallen lassen, bevor die nächste hinzugefügt wird, bis alles in der köchelnden Brühe liegt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zucker einrühren, zudecken und bei niedriger Hitze 1 bis 1.5 Stunden sanft köcheln lassen. Gelegentlich umrühren, bis die Blätter sehr weich und dunkel sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schinkenknochen herausnehmen, Fleisch vom Knochen lösen, zerpflücken und zurück in den Kohl rühren. Knochen, Schwarte und Fett entsorgen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Apfelessig einrühren, abschmecken und mit Salz und Pfeffer würzen. Bei Bedarf weiteren Essig oder Chiliflocken hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit reichlich Kochbrühe servieren und am Tisch scharfe Sauce dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Soul_Food_Dinner.jpg/1280px-Soul_Food_Dinner.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Soul_Food_Dinner.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Clancy Ratliff from St. Paul, MN, U.S. — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Southern Collard Greens",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-classic-apple-pie",
+      "slug": "cur-classic-apple-pie",
+      "title": "Klassischer Apfelkuchen",
+      "instructions": "Klassischer gedeckter Apfelkuchen mit mürbem Butterteig und süß-säuerlichen Äpfeln, gewürzt mit Zimt und Muskat. Mit Ei bestrichen und grobem Zucker bestreut, damit die Oberfläche goldbraun und knusprig wird.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Äpfel sind im Herbst am günstigsten. Eine Mischung beliebiger fester, säuerlicher Sorten aus dem Angebot funktioniert gut; besondere Sorten sind nicht nötig.",
+        "Eine doppelte Menge Teig zubereiten und eine Scheibe gut eingewickelt einfrieren. Sie hält sich monatelang und spart beim nächsten Mal einen Arbeitsschritt.",
+        "Keinen fertigen Teigboden kaufen: Mehl, Butter und Salz kosten nur einen Bruchteil eines gekühlten Kuchenbodens und schmecken besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "verwenden 4 Tbsp Mehl instead, though der Füllung will be ein touch cloudier",
+          "savings": "~$0.10"
+        },
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "natur white Zucker für der topping (slightly weniger crunch)",
+          "savings": "~$0.15"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "1 Tbsp bottled Zitronensaft oder Apfel cider vinegar",
+          "savings": "~$0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "Backen",
+        "fall (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "double-crust (deutsche Fassung)",
+        "pie (deutsche Fassung)",
+        "klassisch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7342,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-classic-apple-pie/",
+      "components": [
+        {
+          "key": "5a634ac1-3ba7-51ef-8861-b96fc0d471a5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 130.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7cab9ebf-b5cb-5ac9-897d-ade95f1783fa",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2.5 Tassen für Boden und Teigdecke"
+            },
+            {
+              "key": "48e722cd-980b-56bc-8ea8-e16063b76a2b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke), kalt und gewürfelt, für den Boden"
+            },
+            {
+              "key": "7b1abbc5-3cbd-5226-864f-c608cfa5b50d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL im Boden und eine Prise in der Füllung"
+            },
+            {
+              "key": "c717f0aa-c1a5-5bcd-a2ec-b3902fe7ef4f",
+              "ingredientName": "Zucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL im Boden + 1/2 Tasse in der Füllung"
+            },
+            {
+              "key": "262f1cb4-45da-50dd-852b-8630bf6b0078",
+              "ingredientName": "Apfel",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 3 Pfund / 8 Äpfel, Mischung aus Granny Smith und Honeycrisp"
+            },
+            {
+              "key": "a51a8e22-8204-52b5-a713-a0767a4f02c9",
+              "ingredientName": "brauner Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse hellbrauner Zucker, fest angedrückt"
+            },
+            {
+              "key": "4fdd4baa-b3a4-5b45-a1a1-b69175a5d61d",
+              "ingredientName": "Speisestärke",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL zum Andicken der Flüssigkeit"
+            },
+            {
+              "key": "36153361-a154-5bdd-8ed8-8afc16a13efd",
+              "ingredientName": "Zimt",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL, gemahlen"
+            },
+            {
+              "key": "eb8147c2-bb60-522c-9c46-c26418ac68f1",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL, frisch gerieben"
+            },
+            {
+              "key": "19c9c0ab-7286-53d3-91f7-b49cf933a7c0",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL Saft für Frische und gegen das Braunwerden der Äpfel"
+            },
+            {
+              "key": "d9d27e14-694f-5c79-b0a0-c2a1c931aa05",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bb0f4aaa-5649-53f1-8ea4-fa55a56742a1",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Ei, mit einem Schuss Wasser zum Bestreichen verquirlt"
+            },
+            {
+              "key": "5202d059-f162-5588-b6c0-d1f5be2cdb8c",
+              "ingredientName": "Turbinadozucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1 EL grober Zucker zum Bestreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Mehl, 1 TL Salz und 1 EL Zucker verquirlen. Kalte Butterwürfel mit den Fingern oder einem Teigmischer einarbeiten, bis erbsengroße Stücke übrig sind. Eiswasser esslöffelweise zugießen und vorsichtig mischen, bis der Teig beim Zusammendrücken hält. Halbieren, zu flachen Scheiben formen, einwickeln und mindestens 1 Stunde kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Füllung Äpfel schälen, entkernen und in 1/4 Zoll dicke Scheiben schneiden. Mit 1/2 Tasse Zucker, braunem Zucker, Maisstärke, Zimt, Muskat, einer Prise Salz, Zitronensaft und Vanille vermengen. 15–20 Minuten ziehen lassen, damit die Äpfel Saft abgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die erste Teigscheibe auf einer bemehlten Fläche zu einem Kreis von 12 Zoll ausrollen und in eine Kuchenform von 9 Zoll legen, sodass der Teig über den Rand hängt. Die zweite Scheibe ebenfalls zu einem Kreis von 12 Zoll für den Deckel ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Äpfel in die Teigschale häufen und in der Mitte etwas höher auftürmen. Den in der Schüssel gesammelten Saft darüber gießen. Falls Butter übrig ist, einige kleine Stücke darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den zweiten Teigkreis über die Äpfel legen oder ein Gitter flechten. Auf 1 Zoll Überhang kürzen, die Ränder unterklappen und zusammendrücken. Bei geschlossenem Teigdeckel einige Dampfschlitze einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teigdeckel mit Ei bestreichen und mit Turbinadozucker bestreuen. Den zusammengesetzten Kuchen 20 Minuten kühlen, während der Ofen auf 425 °F (220 °C) vorheizt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 425 °F 20 Minuten backen, dann die Temperatur auf 375 °F (190 °C) senken und weitere 40–50 Minuten backen, bis der Teig kräftig goldbraun ist und dickflüssiger Saft an den Schlitzen blubbert. Ränder mit Folie abdecken, falls sie zu schnell bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Kuchen auf einem Gitter mindestens 3–4 Stunden abkühlen lassen, damit die Füllung fest wird. Zu frühes Anschneiden macht die Füllung flüssig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Apple_pie_24.jpg/1280px-Apple_pie_24.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Apple_pie_24.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shisma — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch Apfel Pie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-sunday-pot-roast",
+      "slug": "cur-sunday-pot-roast",
+      "title": "Sonntags-Schmorbraten",
+      "instructions": "Klassischer Sonntagsbraten aus kräftig angebratenem, gut marmoriertem Rinderbug, langsam mit Rotwein, Rinderbrühe und Gewürzen geschmort, bis sich das Fleisch mit der Gabel zerteilen lässt. Karotten und Kartoffeln garen direkt im Topf, und der würzige Schmorsud wird zu einer sämigen Sauce.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 205,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderbug gehört zu den günstigsten und besten Stücken für Schmorbraten. Fett und Bindegewebe schmelzen beim langen Schmoren in die Sauce; ein mageres, teureres Stück lohnt sich nicht.",
+        "Wein weglassen und durch eine zusätzliche Tasse Brühe sowie einen Schuss Essig oder Worcestersauce ersetzen. Das Gericht schmeckt weiterhin ausgezeichnet und spart Geld.",
+        "Am Vortag zubereiten: Aufgewärmt schmeckt der Braten noch besser. Nach einer Nacht im Kühlschrank lässt sich das fest gewordene Fett einfach von der Oberfläche abheben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-wine",
+          "swap": "Extra Rindfleisch Brühe plus ein splash von balsamic oder red wine vinegar",
+          "savings": "Spart ~$3-5 und den Kauf einer ganzen Flasche"
+        },
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Rindfleisch stew meat oder ein bottom round roast",
+          "savings": "Gulaschfleisch ist pro Pfund oft günstiger und wird beim Schmoren ebenso zart"
+        },
+        {
+          "forIngredientId": "thyme-fresh",
+          "swap": "1 tsp getrocknet Thymian",
+          "savings": "Vorratszutat, keine Kosten für frische Kräuter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "comfort-food (deutsche Fassung)",
+        "braised (deutsche Fassung)",
+        "one-Topf",
+        "sunday-Abendessen",
+        "Rindfleisch",
+        "machen-ahead",
+        "fall (deutsche Fassung)",
+        "winter (deutsche Fassung)"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7343,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-sunday-pot-roast/",
+      "components": [
+        {
+          "key": "be133494-0e5b-5255-9df1-585c76d7d515",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 413.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "8faf65fb-f4fc-5df6-9ab3-66fcbdc259d4",
+              "ingredientName": "Rinderbug",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3-3.5 Pfund Rinderschulter ohne Knochen"
+            },
+            {
+              "key": "e5f0de29-c56f-58cb-bbdf-b26da5b36fdf",
+              "ingredientName": "Salz",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15c95cd5-ada9-5757-a686-1bcb9e98bed2",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b06116f-f43a-5e84-955c-818a405007d7",
+              "ingredientName": "Olivenöl",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb9c53e0-e91a-56b6-895b-d52d8aa9d138",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5ee1025-bdd4-572e-b542-76e5ae1b5c3f",
+              "ingredientName": "Karotte",
+              "grams": 366,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in 2 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "df6a1d26-2401-5276-bf2b-20de15fadb9d",
+              "ingredientName": "Kartoffel",
+              "grams": 1020,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "Yukon Gold, halbiert"
+            },
+            {
+              "key": "ba3e5d11-b37b-5762-a8b1-01f3ad7bcac0",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "4720d6ca-6ff7-563c-94f1-ee2b3deec353",
+              "ingredientName": "Tomatenmark",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59a856e0-f9d5-5885-ad1e-cd380c0b0cd5",
+              "ingredientName": "Rotwein zum Kochen",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse trockener Rotwein"
+            },
+            {
+              "key": "335c5383-2239-5dd6-86e3-1c7b06d21c2b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 168,
+              "quantity": 168,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa 3 Tassen"
+            },
+            {
+              "key": "336cd18c-3fbb-58e8-ad54-dc96c64bb85f",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "421d69e7-aadc-5e93-b324-bc7448b41f69",
+              "ingredientName": "Frischer Thymian",
+              "grams": 0.6,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "einige Zweige"
+            },
+            {
+              "key": "179e1730-2609-5c16-b039-e0abc8d52af9",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "be0bc358-37f7-5b75-9ad7-94e07308fbd6",
+              "ingredientName": "Weizenmehl",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "zum Andicken der Sauce"
+            },
+            {
+              "key": "82d5a41b-e8fc-594f-b5aa-e28814b6f26f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "gehackt, zum Verfeinern"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderbug sehr trocken tupfen und rundherum großzügig mit Salz und Pfeffer würzen. Bei Raumtemperatur 20–30 Minuten ruhen lassen, während der Ofen auf 325 °F (165 °C) vorheizt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Schmortopf bei mittelhoher Hitze erhitzen, bis es schimmert. Braten ohne Bewegung auf jeder Seite 4–5 Minuten kräftig anbraten, bis alle Seiten dunkel gebräunt sind. Auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere Stufe reduzieren. Geviertelte Zwiebeln dazugeben und 4–5 Minuten braten, bis sie weich und an den Rändern gebräunt sind. Knoblauch und Tomatenmark einrühren und 1–2 Minuten kochen, bis das Mark etwas dunkler wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rotwein zugießen und alle gebräunten Reste vom Topfboden lösen. 2–3 Minuten köcheln lassen, damit der rohe Alkoholgeschmack verfliegt. Rinderbrühe, Worcestersauce, Thymianzweige und Lorbeerblätter einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Braten samt ausgetretenem Saft zurück in den Topf legen. Die Flüssigkeit sollte etwa bis zur halben Höhe des Fleischs reichen. Sanft zum Köcheln bringen, zudecken und in den Ofen stellen. 2 Stunden schmoren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Karotten und Kartoffeln um den Braten herum verteilen, zudecken und für weitere 1 bis 1.5 Stunden in den Ofen stellen, bis das Fleisch gabelzart und das Gemüse gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Braten und Gemüse auf eine Platte geben und locker mit Folie abdecken. Thymianstiele und Lorbeerblätter entfernen. Überschüssiges Fett von der Schmorsauce abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mehl mit einigen Esslöffeln kaltem Wasser glatt rühren. Schmorsauce auf dem Herd zum Köcheln bringen, die Mehlmischung einrühren und 3–5 Minuten kochen, bis die Sauce eindickt. Mit Salz abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Braten entlang der Faser zerteilen oder aufschneiden, mit Gemüse anrichten, Sauce darüberlöffeln und mit frischer Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/American_pot_roast%2C_plated_up.jpg/1280px-American_pot_roast%2C_plated_up.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:American_pot_roast,_plated_up.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Mark Miller — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Sunday Topf Roast",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-breakfast-tacos",
+      "slug": "cur-breakfast-tacos",
+      "title": "Frühstückstacos",
+      "instructions": "Tex-Mex-Frühstückstacos mit langsam gerührten Eiern, knusprigem Speck und geschmolzenem Cheddar in warmen Maistortillas, dazu frischer Pico de Gallo, Avocado und Limette. In Austin sind sie oft schon um 9 Uhr ausverkauft.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cheddar am Stück kaufen und selbst reiben. Das ist pro Unze viel günstiger als fertig geriebener Käse, und er schmilzt besser in den Eiern.",
+        "Pico de Gallo selbst aus einer Tomate, etwas Zwiebel, Jalapeño und Koriander zubereiten statt fertig zu kaufen.",
+        "Maistortillas sind günstiger als Weizentortillas und von Natur aus glutenfrei. Eine Packung reicht für mehrere Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Swap in frisch oder soy chorizo, oder browned Frühstück sausage, für ein mehr traditional Tex-Mex Füllung",
+          "savings": "Etwa gleiche Kosten; Chorizo kostet pro Portion oft etwas weniger"
+        },
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "verwenden Monterey Jack, Pfeffer jack, oder queso fresco",
+          "savings": "Ungefähr gleich"
+        },
+        {
+          "forIngredientId": "pico",
+          "swap": "verwenden jarred salsa oder salsa verde",
+          "savings": "Spart etwa $1 gegenüber Frischware"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "tex-mex (deutsche Fassung)",
+        "Frühstück",
+        "tacos (deutsche Fassung)",
+        "Eier",
+        "bacon (deutsche Fassung)",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7344,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-breakfast-tacos/",
+      "components": [
+        {
+          "key": "d96f190e-b15e-5947-9f48-24e151b36c9e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 352.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "941bcdd1-e551-5547-890b-7e1bc26242bf",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Eier"
+            },
+            {
+              "key": "bbd0a6e5-2b9d-5de0-a704-76faf34194db",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 kleine Mais- oder Weizentortillas"
+            },
+            {
+              "key": "bfbdbf15-f330-58d0-9e76-709b0fe80fa0",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Streifen, etwa 2 Portionen"
+            },
+            {
+              "key": "ab4eccca-358e-5755-9abe-fc491111605e",
+              "ingredientName": "würziger Cheddar am Stück",
+              "grams": 4.25,
+              "quantity": 4.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse geriebener würziger Cheddar"
+            },
+            {
+              "key": "07b5857a-7876-5cf1-8c3a-c2b8cb1c6733",
+              "ingredientName": "Butter",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL für die Eier"
+            },
+            {
+              "key": "37d40daa-9ee8-5605-8388-8742a57bd185",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 reife Avocado, in Scheiben geschnitten"
+            },
+            {
+              "key": "d46ddc76-8bc5-5a3d-b142-e4d1e6480425",
+              "ingredientName": "Pico de Gallo",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse frische Pico de Gallo"
+            },
+            {
+              "key": "1097cda9-df1a-51c1-ab20-7981120707e8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "kleine Handvoll, gehackt"
+            },
+            {
+              "key": "b8ce0db1-9b48-54b4-b451-aca3a2f7dcd7",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "Spalten zum Servieren"
+            },
+            {
+              "key": "ffd91b28-2164-50a1-9e38-9d9efb890474",
+              "ingredientName": "scharfe Sauce",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "einige Spritzer nach Geschmack"
+            },
+            {
+              "key": "e23a8625-93b4-54c1-82f8-ef08466a0964",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7827584f-aace-5d00-9657-2852701d6f34",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck in eine kalte Pfanne legen, auf mittlere Hitze stellen und 6–8 Minuten braten, dabei einmal wenden, bis er knusprig ist. Auf Küchenpapier legen und bis auf einen dünnen Fettfilm das Fett abgießen; das ausgelassene Fett aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier mit einer Prise Salz und Pfeffer in eine Schüssel schlagen und glatt sowie leicht schaumig verquirlen. Gegarten Speck grob hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tortillas in einer trockenen Pfanne oder auf einer Comal-Platte bei mittelhoher Hitze je Seite 20–30 Sekunden erwärmen, bis sie weich sind und stellenweise leicht gebräunt sind. Stapeln und in ein sauberes Tuch wickeln, damit sie warm und biegsam bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pfanne auswischen, Hitze auf mittlere bis niedrige Stufe reduzieren und Butter schmelzen. Eier hineingießen und 10 Sekunden ruhen lassen. Dann mit einem Pfannenwender vorsichtig vom Rand zur Mitte schieben und falten, bis große weiche Stücke entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn die Eier noch glänzen und leicht weich sind, gehackten Speck und geriebenen Cheddar einrühren, damit der Käse schmilzt. Sofort vom Herd nehmen, solange die Eier weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für jeden Taco einige Stücke der Speck-Käse-Eier mittig auf eine warme Tortilla geben. Mit Avocadoscheiben, einem Löffel Pico de Gallo und etwas Koriander bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Limettensaft beträufeln, etwas scharfe Sauce dazugeben und sofort servieren, solange die Tortillas warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Breakfast_taco_at_C_Casa_-_2021-09-24_-_Sarah_Stierch_01.jpg/1280px-Breakfast_taco_at_C_Casa_-_2021-09-24_-_Sarah_Stierch_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Breakfast_taco_at_C_Casa_-_2021-09-24_-_Sarah_Stierch_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Missvain (Sarah Stierch) — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Frühstück Tacos",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

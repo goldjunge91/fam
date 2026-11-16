@@ -1,0 +1,1084 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-escalope-de-veau-la-normande",
+      "slug": "gen-escalope-de-veau-la-normande",
+      "title": "Kalbsschnitzel nach normannischer Art (Escalope de Veau à la Normande)",
+      "instructions": "Normannisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hähnchenbrust anstelle von Kalbfleisch, um die Kosten zu halbieren",
+        "Kaufen Sie vorgeschnittene Pilze im Laden, um Zeit bei der Zubereitung zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "normannisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6400,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-escalope-de-veau-la-normande/",
+      "components": [
+        {
+          "key": "fbb2f147-0920-5ffa-9577-61d6dbc77a83",
+          "name": "Zutaten",
+          "servingGrams": 241.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "373b4216-4da9-56a0-8d04-bc7f11824997",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Schnitzel (je 5 oz)"
+            },
+            {
+              "key": "a41ac6e5-1cc9-5e72-b9ad-c006bbf392fc",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d94fda53-b687-53d6-9fa4-27d0725587b1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65318554-a93c-56f0-baa0-a20ee483fd3f",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6eecaf64-21ca-5efd-85eb-7b7175db1f9e",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "fefbe5b1-2b24-5eb3-b068-c67ce3bacec7",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6af747d9-2125-5df3-8b80-a1afd541c815",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "7d93fca7-f9d8-5a5e-80fa-cf10527f7603",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bc24751-d6e8-551d-8cdc-9caa17f8999c",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bd309edb-c4ee-5668-a482-06384cbca739",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Schnitzel zwischen Frischhaltefolie legen und mit einem Fleischklopfer auf 1/4 Zoll Dicke flach klopfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drei Panierstationen vorbereiten: Mehl in eine Schüssel, verquirlte Eier in eine zweite und Semmelbrösel in eine dritte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jedes Schnitzel in Mehl wenden, überschüssiges Mehl abschütteln, dann in Ei tauchen und gründlich mit Semmelbröseln bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3 Esslöffel Butter in einer großen Pfanne bei mittlerer bis hoher Hitze schmelzen. Die panierten Schnitzel pro Seite 3–4 Minuten goldbraun und gar braten. Auf einem warmen Teller beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In derselben Pfanne geschnittene Champignons und gehackte Schalotten in der restlichen Butter 4 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Pfanne mit Weißwein ablöschen, die gebräunten Stücke herauskratzen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schlagsahne einrühren und 2–3 Minuten sanft köcheln lassen, bis die Sauce leicht eindickt. Mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Schnitzel auf Serviertellern anrichten und die Champignon-Sahnesauce darüber geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.cuisine-et-mets.com/wp-content/uploads/2017/07/Fotolia_87295097_Subscription_Monthly_XXLopt.jpg",
+          "sourcePageUrl": "https://www.cuisine-et-mets.com/wp-content/uploads/2017/07/Fotolia_87295097_Subscription_Monthly_XXLopt.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-pes-normandes",
+      "slug": "gen-cr-pes-normandes",
+      "title": "Crêpes Normandes",
+      "instructions": "Normannisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Überspringen Sie den Calvados und verwenden Sie stattdessen Vanilleextrakt",
+        "Bereiten Sie den Crêpe-Teig am Vorabend zu, um morgens Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "normannisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6401,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-pes-normandes/",
+      "components": [
+        {
+          "key": "fa5d7187-8b2a-5b77-9893-d723b254ae65",
+          "name": "Zutaten",
+          "servingGrams": 354.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "80152a3b-50aa-5647-b65b-a64ed27185c2",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "d5aa4fbd-c657-5b88-81ed-2c92281aa517",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "5871f36c-03b2-57ae-93b5-c181b484d10e",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3cad161d-5701-5b98-8910-51529d4ec6c5",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "910d2434-21b1-5eb3-bcf5-31e639d44b8c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fba201be-b748-5a5c-84dc-6f76a03580f4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "f3e649f8-86b0-5355-949b-a7412b646428",
+              "ingredientName": "Apfel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "c005d702-75bd-525b-aeb8-95095bbe6627",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "0395434a-0092-53f9-8b57-f9fd258e0cbe",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f1dbdd93-d894-5d14-901d-d8f8ab2f38d6",
+              "ingredientName": "Calvados oder Brandy (optional)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer großen Schüssel vermischen, in der Mitte eine Mulde formen und Eier und die Hälfte der Milch hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier und Milch verquirlen, dabei nach und nach Mehl von den Seiten einziehen lassen, dann die restliche Milch und das Wasser hinzufügen und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig 30 Minuten bei Zimmertemperatur ruhen lassen und dann die geschmolzene Butter unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine leicht gebutterte beschichtete 8 Zoll große Pfanne bei mittlerer bis hoher Hitze erhitzen. 1/4 Tasse Teig hineingießen und die Pfanne sofort schwenken, damit er sich dünn und gleichmäßig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Crêpe ca. 1 Minute backen, bis die Unterseite hellgolden ist, dann umdrehen, auf der anderen Seite 30 Sekunden backen und auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Äpfel schälen, entkernen und in dünne Scheiben schneiden, dann in Butter mit Zucker und Zimt 5 Minuten kochen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Falls gewünscht, Calvados hinzufügen und noch 1 Minute köcheln lassen, dann vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Füllen Sie jeden warmen Crêpe mit der Apfelmischung, falten Sie ihn in Viertel und servieren Sie ihn sofort mit einem Klecks Crème fraîche oder Schlagsahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/basic-crepes-recipe-1747844017.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/basic-crepes-recipe-1747844017.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanada-galega",
+      "slug": "gen-empanada-galega",
+      "title": "Empanada Galega",
+      "instructions": "Galizisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch im Sonderangebot und frieren Sie es für die spätere Verwendung ein",
+        "Machen Sie das Füllen einen Tag im Voraus, um Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Galizisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6402,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanada-galega/",
+      "components": [
+        {
+          "key": "9a156122-00c8-52e2-b05c-743353eb15c7",
+          "name": "Zutaten",
+          "servingGrams": 366.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1797903-0b48-5604-b50b-e5e0b6ed4257",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "be42ef0f-2642-515f-809a-518e39d374bf",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6864b00c-01ac-5a50-bf7d-a451994c6c32",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ffa48d5e-29e1-539f-9d40-62381eb425aa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c00284c2-ef15-5fb3-81d5-9edc4889956f",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a4b04e05-fd3e-5376-9d34-e1938b55ec87",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "0f7ab55b-eb39-54af-aa55-18710314bf8a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e13a75ad-7929-5cc1-9fc7-13ec225d5714",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "43b8d3e6-8da2-5956-91d5-9c71440c57ed",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d5e06515-233f-5c78-8c44-2cc8a42bd77f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser, 2 Esslöffel Olivenöl und Salz zu einem weichen Teig verrühren. 5 Minuten kneten, dann zugedeckt 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Esslöffel Olivenöl in einer großen Pfanne erhitzen. Gewürfelte Zwiebel und gehackten Knoblauch darin weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch hinzufügen und anbraten, bis es braun ist, dann Tomatensauce, Paprika, Lorbeerblatt und Salz hinzufügen; 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teilen Sie den Teig in zwei Hälften und rollen Sie jede Portion auf einer bemehlten Oberfläche zu einem dünnen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie einen Teigkreis auf ein Backblech, verteilen Sie die Füllung gleichmäßig darauf und bedecken Sie ihn dann mit dem zweiten Teigkreis. Versiegeln Sie die Kanten, indem Sie sie mit einer Gabel andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Oberfläche mit Olivenöl bestreichen und bei 375 °F 30–35 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Schneiden und Servieren 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/0RcilNrcWS0arxQaiqMkBdlT_Z4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-562483487-5875d84d3df78c17b6941d4a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/0RcilNrcWS0arxQaiqMkBdlT_Z4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-562483487-5875d84d3df78c17b6941d4a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-filloas",
+      "slug": "gen-filloas",
+      "title": "Filloas",
+      "instructions": "Galizisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Eier in großen Mengen, wenn sie im Angebot sind",
+        "Verwenden Sie Milch und Butter von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Galizisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6403,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-filloas/",
+      "components": [
+        {
+          "key": "705cff7d-96ae-5db4-add9-fbcca327ba92",
+          "name": "Zutaten",
+          "servingGrams": 295.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "e5a6aaa6-fd70-5901-9e83-5d47f780e78f",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "84ca0078-d78d-5f21-bf55-a886481e76ce",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfdaa7fa-d7c7-5688-8c0c-a3d202220b9e",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "47e6e574-5369-5246-8ec7-dcbcc1dc3ec3",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6c265f73-3e9a-5ad9-af68-64050b78f967",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "b8b59281-ffe1-52af-9c6a-ac7add66eccc",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "86f0fc4b-8f9a-5d8f-beee-19efb5e86b3d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e9d48182-b8e4-5a1e-9f6e-2aad9e6ca2de",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und Zucker in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer anderen Schüssel Eier verquirlen und unter Rühren nach und nach Milch hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die feuchten Zutaten in die Mehlmischung geben und verquirlen, bis ein glatter Teig entsteht. 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 Esslöffel Butter in einer beschichteten Pfanne bei mittlerer bis hoher Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1/4 Tasse Teig in die Mitte der Pfanne gießen. Die Pfanne sofort kippen und drehen, damit sich der Teig dünn über den gesamten Boden verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1-2 Minuten braten, bis die Unterseite hellgolden ist, dann umdrehen und die andere Seite 30 Sekunden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller geben und mit dem restlichen Teig wiederholen, nach Bedarf Butter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm servieren, mit Honig beträufeln und geschmolzener Butter als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://andaspain.com/wp-content/uploads/2017/02/FilloaswithPork-scaled.jpg",
+          "sourcePageUrl": "https://andaspain.com/wp-content/uploads/2017/02/FilloaswithPork-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lac-n-con-grelos",
+      "slug": "gen-lac-n-con-grelos",
+      "title": "Lacón con Grelos",
+      "instructions": "Galizisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schinkenhaxen mit Rabatt, wenn sie im Angebot sind",
+        "Wenn frisches nicht verfügbar ist, können Sie es durch Rübengrün aus der Dose ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Galizisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6404,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lac-n-con-grelos/",
+      "components": [
+        {
+          "key": "5a592334-73d7-5f42-b9c6-e6c817889dcc",
+          "name": "Zutaten",
+          "servingGrams": 275.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "01713274-d952-5ebe-8b40-cc0b49e0bd54",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "0dd4aac0-9bbf-5cd9-af6c-680b9498b89b",
+              "ingredientName": "Rübe",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "95a9709b-25b1-5a8e-8b7f-4e1ae52ae8d8",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "73bacba9-c9c3-5a49-bc75-139bda679e6e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "bc6c3b25-1777-5c33-8fac-71855a99d007",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e493e457-ba80-5055-afdc-30c3db67d5c5",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53e5fe78-b6bb-5116-9531-4451220dda1a",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Quart"
+            },
+            {
+              "key": "c1102837-7b8a-5702-9111-757b297a17e9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5473ff83-03fd-5a80-a7ef-cebeca8b9b61",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schinkenhaxe in einen großen Topf geben, mit Wasser bedecken und zum Kochen bringen; Gießen Sie das erste Wasser weg und spülen Sie das Fleisch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Fleisch mit frischem Wasser zurück in den Topf geben. Zwiebel, Knoblauch und Lorbeerblatt hinzufügen, aufkochen und anschließend 90 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln schälen, vierteln und nach 90 Minuten in den Topf geben; 20 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rübengrün gründlich waschen, harte Stiele entfernen und grob hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie das Gemüse in den Topf und kochen Sie es 10–15 Minuten lang, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fleisch aus dem Topf nehmen und zerkleinern oder in Stücke schneiden; Brühe mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Geben Sie das Fleisch wieder in den Topf und servieren Sie es heiß in Schüsseln mit Kartoffeln, Gemüse und Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/9b/2b/f1/9b2bf1ad4c01bbf93bac83f73185ee97.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/9b/2b/f1/9b2bf1ad4c01bbf93bac83f73185ee97.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

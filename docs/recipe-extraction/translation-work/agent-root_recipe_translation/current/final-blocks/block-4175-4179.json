@@ -1,0 +1,1093 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cazuela-de-mariscos",
+      "slug": "gen-cazuela-de-mariscos",
+      "title": "Cazuela de Mariscos",
+      "instructions": "Salvadorianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie tiefgekühlte Garnelen und tauen Sie sie vorher auf, um 40 % zu sparen.",
+        "Achten Sie an Fischtheken auf Angebote für nicht makellose Muscheln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "salvadorianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4175,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cazuela-de-mariscos/",
+      "components": [
+        {
+          "key": "4133591e-c7f4-56fa-b313-f2d19a7f2ac7",
+          "name": "Zutaten",
+          "servingGrams": 338.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "c24b1176-b399-5458-84fa-ed69b9e6f1bf",
+              "ingredientName": "Tiefgekühlte Garnelen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "edc994a7-9a46-5345-87aa-43b45cdfb1d8",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "e51e4845-6742-5f63-b5ee-8fb951598302",
+              "ingredientName": "Venusmuscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "df94498e-ac98-5713-a7fe-68c52fcb053f",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cca30254-aa8b-5013-ac13-9cff2406a061",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "6d666c1d-b63e-52f3-9767-06adeac943f8",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "abd91328-c2de-5e6b-afd5-5a88f1bff7b4",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2e7e7d12-d3be-591f-8108-d99319b70d1f",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fc2d5e26-bc6b-5867-85b3-bd414a03703b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "430f5e13-25c3-57bd-8aae-98ba9c54f995",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "75b35ecd-be81-5af3-8905-ccf0653976ca",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "d083c47f-4e6b-59e1-a7f2-0e5dabc7ac61",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Tontopf oder einem Topf mit schwerem Boden bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch und gewürfelte Zwiebel 3 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatensauce und Weißwein hinzufügen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Meeresfrüchtebrühe zugießen und sanft zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zuerst Venusmuscheln und Miesmuscheln hinzufügen und 3 Minuten garen, bis sie sich zu öffnen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garnelen und Fischstücke hinzufügen und weitere 5–7 Minuten garen, bis die Garnelen rosa und der Fisch undurchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nicht geöffnete Muscheln entfernen, mit Salz und Pfeffer würzen und im selben Topf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Cazuela-de-Mariscos-Seafood-Stew.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Cazuela-de-Mariscos-Seafood-Stew.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ceviche-salvadore-o",
+      "slug": "gen-ceviche-salvadore-o",
+      "title": "Ceviche Salvadoreño",
+      "instructions": "Salvadorianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Tilapia oder Mahi-Mahi statt teurem Wolfsbarsch.",
+        "Kaufen Sie Limetten während der Saison und pressen Sie den Saft im Voraus aus."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "salvadorianisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4176,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ceviche-salvadore-o/",
+      "components": [
+        {
+          "key": "f9dd25c3-cc98-588c-a97f-47892bab5719",
+          "name": "Zutaten",
+          "servingGrams": 279.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "2693df6d-5456-51d4-b3d2-da3b12497dbc",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f820ed3f-5079-54dd-99b1-b49ed5d30c38",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "acc90d9c-452e-5126-9702-a4670e7f5c93",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "5e198866-0d13-50c3-8c91-4225fa8637f3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "934381e7-a61f-5c48-be73-82395ccb3651",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6d67935-dbe7-50e8-a9ad-03b6f8823896",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "6ff97127-547d-50a3-a080-89acc6ba7816",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 rotes Stück"
+            },
+            {
+              "key": "30fca3bb-00bd-527a-8d89-ddf5fe36cca9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "00942cf3-81a6-502d-b325-4235a6785fb9",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fisch in kleine 1 Zoll große Würfel schneiden und in eine Glasschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Limettensaft vollständig über den Fisch gießen, sodass alle Stücke bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und mindestens 20 Minuten im Kühlschrank marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während der Fisch mariniert, Zwiebel, Tomate, Paprika und Jalapeño fein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nach dem Marinieren überschüssigen Limettensaft vom Fisch abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fisch mit gewürfeltem Gemüse, Koriander, Salz und schwarzem Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kurz vor dem Servieren vorsichtig Avocadoscheiben unterheben, damit sie nicht braun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/04/TMD-Shrimp-Ceviche-WEB-24-768x1152.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/04/TMD-Shrimp-Ceviche-WEB-24-768x1152.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sopa-de-pata",
+      "slug": "gen-sopa-de-pata",
+      "title": "Sopa de Pata",
+      "instructions": "Salvadorianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderfüße auf ethnischen Märkten bis zu 50 % günstiger als beim üblichen Metzger.",
+        "Kochen Sie die doppelte Menge und frieren Sie Portionen für schnelle spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "salvadorianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4177,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopa-de-pata/",
+      "components": [
+        {
+          "key": "ff94e02a-681a-5654-a1a4-6d8a654e3e30",
+          "name": "Zutaten",
+          "servingGrams": 438.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "aa83fb21-f76c-5aec-a0d6-f811ba9fe835",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d89b469d-344e-5f39-9252-cf0c7ec06254",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "f10b6cd9-faab-5f88-8293-d8c540014e41",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Zehen"
+            },
+            {
+              "key": "d60b6340-132a-5c49-8c5a-f03d50e8ecec",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 rote Stücke"
+            },
+            {
+              "key": "8fb31e24-636e-53a6-9728-bd89c4aa2e1e",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "f9423ed3-cd20-5a84-b2f4-3de5f8f559a3",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "de432411-0959-5eea-8de0-8eeec5315ca6",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e284b27e-3ced-5b10-b0b8-9466b9b2cde6",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "96b0412b-a037-5caf-8585-2aa7aaa39961",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "b10b3a72-a4a4-5e7b-be57-a5bbed966fd1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0d582ac7-dabf-510b-b30c-a1b9008cf2d1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderfüße unter fließendem Wasser gründlich reinigen und in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderfüße mit Salz in einem großen Topf 2 Stunden kochen, bis sie sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einer anderen Pfanne erhitzen und gehackten Knoblauch, gewürfelte Zwiebel und Paprika 4 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Tomaten hinzufügen und weitere 2 Minuten kochen, bis sie leicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das angebratene Gemüse zusammen mit den Rinderfüßen in die Brühe geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gewürfelte Kartoffeln, Karotten und Kochbanane hinzufügen und 20–25 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit schwarzem Pfeffer und Koriander würzen, weitere 5 Minuten köcheln lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/01/Salvadoran-Sopa-de-Pata-Cows-Feet-Soup.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/01/Salvadoran-Sopa-de-Pata-Cows-Feet-Soup.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-atol-de-elote",
+      "slug": "gen-atol-de-elote",
+      "title": "Atol de Elote",
+      "instructions": "Salvadorianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühlten Mais in der Nebensaison im Angebot in größeren Mengen.",
+        "Verwenden Sie Kondensmilch statt Vollmilch, um 25 % zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "salvadorianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4178,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-atol-de-elote/",
+      "components": [
+        {
+          "key": "04345be8-d653-5a9f-a900-dd0540af04bc",
+          "name": "Zutaten",
+          "servingGrams": 452.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "764c532f-1e1e-5dd6-9917-4ee98f21b4e5",
+              "ingredientName": "Tiefgekühlte Maiskörner",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "6ab022fe-ec0a-551e-954f-ab9a21eb5a05",
+              "ingredientName": "Milch",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "4042f3e3-dac8-5555-8bdb-7351f7904723",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9b1833d6-ff67-5891-a159-95ad8d1b78be",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1bf048e0-ddea-5031-97b6-d50136890b0f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "735a193e-9c9e-52a9-9fd6-b3f39a39fd1e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "503c2a89-6d83-5577-9c80-3c8ad5a954c4",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "40297cd1-df91-507b-8d7a-e15fc94d34f8",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühlte Maiskörner mit 1 Tasse Milch vollständig glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die pürierte Maismischung durch ein feines Sieb streichen, um größere Stücke zu entfernen, und dabei die gesamte Flüssigkeit herausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die restlichen 3 Tassen Milch in einem großen Topf bei mittlerer Hitze erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Maisstärke in 3 Esslöffeln Wasser auflösen und unter ständigem Rühren zur erwärmten Milch geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgeseihte Maisflüssigkeit, Zucker, Salz und Butter in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "10–12 Minuten köcheln lassen und häufig umrühren, bis die Mischung eindickt und sich das Maisaroma entfaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vanille und Zimt einrühren und heiß in Schalen als dickflüssiges warmes Getränk servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://svelsalvador.com/wp-content/uploads/2023/09/Atol-de-Elote-El-Abrazo-Calido-de-la-Tradicion-Salvadorena-en-un-Delicioso-Atol.jpg",
+          "sourcePageUrl": "https://svelsalvador.com/wp-content/uploads/2023/09/Atol-de-Elote-El-Abrazo-Calido-de-la-Tradicion-Salvadorena-en-un-Delicioso-Atol.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-atol-shuco",
+      "slug": "gen-atol-shuco",
+      "title": "Atol Shuco",
+      "instructions": "Salvadorianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maismehl in größeren Mengen auf lateinamerikanischen Märkten und sparen Sie 40 %.",
+        "Verwenden Sie geriebenen Käse von Handelsmarken, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "salvadorianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4179,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-atol-shuco/",
+      "components": [
+        {
+          "key": "2712fa1a-a544-5077-a55e-bc3f0d818957",
+          "name": "Zutaten",
+          "servingGrams": 451.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d2d0da2-7b1e-525f-b1b5-53b37675e6cd",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "95c4fbb4-c480-5c59-a059-465cccca8da7",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "454de053-5e99-5cde-9d04-9d764add0751",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "e9be7d91-fc80-5ae9-b684-0eb7496359f3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "55233d42-cdd7-5582-86e2-b195ca66031d",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "cf2ef6ae-289d-5ce1-a572-8687f2b5c63b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "d1f5b1f2-593a-541a-8fb2-3d933ca59413",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d2852a1c-bbcb-5106-b042-a6d814e4d78a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser in einem großen Topf bei mittlerer bis hoher Hitze erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maismehl in einer Schüssel mit 1 Tasse kaltem Wasser zu einer glatten, klümpchenfreien Flüssigkeit verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Maismehlmischung langsam unter ständigem Rühren in das kochende Wasser gießen, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch und gewürfelte Zwiebel in Butter weich anbraten und dann in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und 8–10 Minuten köcheln lassen, dabei häufig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und schwarzem Pfeffer würzen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren und jede Schale für einen herzhaften, sättigenden Trunk mit geriebenem Käse garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.amerisalfoods.com/cdn/shop/files/fotoweb_shuco-5.jpg?v=1765302559",
+          "sourcePageUrl": "http://www.amerisalfoods.com/cdn/shop/files/fotoweb_shuco-5.jpg?v=1765302559",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

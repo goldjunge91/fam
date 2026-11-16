@@ -1,0 +1,1089 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ramen-with-miso-broth",
+      "slug": "gen-ramen-with-miso-broth",
+      "title": "Ramen mit Misobrühe",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche weich gekochte Eier selbst, statt sie fertig zu kaufen.",
+        "Verwende tiefgekühlte Pilze und Mais, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4910,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ramen-with-miso-broth/",
+      "components": [
+        {
+          "key": "46d80616-2dc7-53f8-a015-b9e7146c8504",
+          "name": "Zutaten",
+          "servingGrams": 1070.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "70a4dec0-6ce2-54ad-a383-71d544c48252",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "accb4f0c-8c0d-5f37-95e7-ac9c6c07a6de",
+              "ingredientName": "Misopaste",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "c021a04f-49c5-5439-910a-178a874db06a",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ba028cae-773f-5bbf-8993-a84e927924db",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f609e5f3-919b-5603-b961-ee8adfcbb519",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "da677038-d642-5f17-b522-36e9241c1c98",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e34eec6-96ff-5faa-97ac-1435462b42c6",
+              "ingredientName": "Glasnudeln / Zellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "25d953c6-4b0a-5e19-96d8-eea5aa7c932f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "5a89bea5-7a3a-5d1b-9c17-622e5b3f0219",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1904f6fd-d187-5c80-a24a-502c264d3461",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ecd9c73b-eab5-5a01-990e-dc3a323e9eab",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f1cd0707-783a-50da-b574-a35a2f427166",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Brühe mit Ingwer und Knoblauch zum Köcheln und lasse sie 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm Ingwer und Knoblauch heraus. Rühre Misopaste, Sojasauce und Mirin ein, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe in einem zweiten Topf Wasser zum Kochen und gare frische Ramen-Nudeln nach Packungsanweisung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Nudeln ab und verteile sie auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die Pilze in einer separaten Pfanne etwa 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe die heiße Misobrühe über die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege sie mit Pilzen, Mais, halbierten weich gekochten Eiern, Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren und heiß essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Kctw5gK0YDdZVaXg1e5AwKm9eCg=/4272x2848/filters:fill(auto,1)/GettyImages-1355176861-56de62135f9b5854a9f644aa.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Kctw5gK0YDdZVaXg1e5AwKm9eCg=/4272x2848/filters:fill(auto,1)/GettyImages-1355176861-56de62135f9b5854a9f644aa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bun-oc",
+      "slug": "gen-bun-oc",
+      "title": "Bún ốc (vietnamesische Schneckensuppe mit Reisnudeln)",
+      "instructions": "Ein beliebtes vietnamesisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schnecken aus der Dose statt frischer Schnecken. Das spart Geld und Vorbereitungszeit.",
+        "Verwende Fischsauce der Hausmarke statt einer teuren Marke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4911,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bun-oc/",
+      "components": [
+        {
+          "key": "a623e95a-852d-5ac2-9fcf-cba4a72ef5a1",
+          "name": "Zutaten",
+          "servingGrams": 1025.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e5d8aa70-23d5-5ba3-8e74-434cf0ac8f14",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2120c17c-3228-5d7b-bfbd-13c72c8e63d6",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "035d725d-5aca-5bdf-94cc-d41b52b52654",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "39e2c5b9-74e2-55fd-8443-3eeec8bd1a58",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3d1d368-7b56-566e-908a-c0e7d930a980",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b09aad8f-c30b-552c-8567-320332e4633f",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "9f9f6913-f26c-5bd5-85c4-6bb933e91196",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "48fcd147-bc5e-5193-916f-d30c0172098b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c5e9096c-fbe7-5f88-ad2b-08f0ab70be67",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd00627b-5f31-5276-8777-7daf09e8ca18",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fdc3dbe6-b998-5edc-ad61-3c0b5bf32916",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wenn du frische Schnecken verwendest, blanchiere sie 10 Minuten zum Reinigen. Löse sie nach Wunsch anschließend aus den Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Topf und dünste Knoblauch, Schalotten und Zitronengras etwa 3 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Wasser dazu und bringe alles zum Kochen. Füge die Schnecken hinzu und lasse sie 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke die Brühe mit Fischsauce, Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Reisnudeln in kochendem Salzwasser, bis sie weich sind, und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Nudeln auf zwei Schüsseln und gieße die heiße Schneckenbrühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere die Suppe mit frischen Kräutern und serviere sie mit Limettenspalten, Chilipaste und zusätzlicher Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jede Person kann nach Geschmack Würzmittel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Bun-oc-803x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Bun-oc-803x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sichuan-hot-pot-broth",
+      "slug": "gen-sichuan-hot-pot-broth",
+      "title": "Sichuan-Brühe für Hot Pot",
+      "instructions": "Eine beliebte chinesische Abendessen-Brühe, die du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sichuan-Pfefferkörner und getrocknete Chilischoten in Großpackungen auf asiatischen Märkten.",
+        "Bereite die doppelte Menge zu und friere übrig gebliebene Brühe für den nächsten Hot Pot ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4912,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sichuan-hot-pot-broth/",
+      "components": [
+        {
+          "key": "e876c5c9-1985-5dfe-974d-cff6d8f4f558",
+          "name": "Zutaten",
+          "servingGrams": 598.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "25071648-c3d1-5ef7-9784-6596400425fb",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "5e7c4a9f-feed-5592-ae29-f568e452cb6d",
+              "ingredientName": "Ganze Gewürznelken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5543ee62-1b6c-5af9-9eb0-70f56b92102c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af5c22f4-30b6-5612-94c3-07b6af6e5992",
+              "ingredientName": "Sternanis",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "155feeaf-06aa-504b-9d0d-f9ff287bb562",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f991edf-9547-52ba-8504-5bb4b028985b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a9709677-7da7-5c67-9b5e-a0f1efe824bb",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfb0b665-7e2e-508d-9d6a-0e4f62b7c591",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71ae8c33-a0a9-56b2-949b-85111bcbfb12",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e618fb4e-5a2d-554e-85cf-49aef7e038a4",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9cab7298-cfb5-5cba-aa74-a616b31a4a07",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Sichuan-Pfefferkörner und getrocknete Chilischoten 1-2 Minuten in einer trockenen Pfanne, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe die Brühe in einem Hot-Pot-Topf oder großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gerösteten Pfefferkörner, Chilischoten, Sternanis, Zimt, Ingwer und Knoblauch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Brühe 20-25 Minuten köcheln, damit sie kräftig durchzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Seihe die Brühe ab, wenn du sie klarer möchtest. Für einen intensiveren Geschmack kannst du die Gewürze darin lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Sojasauce, Sesamöl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle den Topf auf ein Hot-Pot-Rechaud oder lasse die Brühe zum Dippen der Zutaten auf dem Herd köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere dazu dünn aufgeschnittenes rohes Eiweiß, Gemüse und Nudeln, die am Tisch gegart werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/62018faab2827628f3c8e1bc/master/w_1600%2Cc_limit/BA0322hotpot04_2.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/62018faab2827628f3c8e1bc/master/w_1600%2Cc_limit/BA0322hotpot04_2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chocolate-truffles",
+      "slug": "gen-chocolate-truffles",
+      "title": "Schokoladentrüffel",
+      "instructions": "Ein beliebter französischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schokodrops im Angebot oder verwende eine günstigere Hausmarke statt einer Premiummarke.",
+        "Kakaopulver ist preiswert und schon eine kleine Menge reicht weit."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4913,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chocolate-truffles/",
+      "components": [
+        {
+          "key": "9e1c0b67-f856-54fa-a9be-773d4d0d2dee",
+          "name": "Zutaten",
+          "servingGrams": 72.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6089480-a38f-55f3-aece-a592614ae30b",
+              "ingredientName": "Zartbitter-Schokodrops",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "73c06f54-960d-5f6a-a271-cdbb02da68d2",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1bf8281d-d573-592a-831e-716662ad0e91",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e7fdb149-31ff-5c9b-82e2-e2be0ffe9cf0",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f48c13a4-9cfd-59f0-9ad5-aa2cb44b1a81",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ddf1fe67-aa8d-50bc-a3a7-73213894f3aa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Schlagsahne in einem kleinen Topf bei mittlerer Hitze, bis sie dampft, aber nicht kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Sahne über die Schokodrops in einer Schüssel und lasse alles 2 Minuten stehen, damit die Schokolade weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Masse glatt. Gib Butter, Vanille und Salz dazu und rühre, bis alles vollständig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Masse 20 Minuten kalt, bis sie fest genug zum Portionieren ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stäube Kakaopulver auf einen Teller und forme aus jeweils einem esslöffelgroßen Stück der Schokoladenmasse eine Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wälze jede Kugel gleichmäßig in Kakaopulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die fertigen Trüffel vor dem Servieren mindestens 1 Stunde kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chocolate-Truffles_EXPS_HCA17_13122_B10_20_3b-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chocolate-Truffles_EXPS_HCA17_13122_B10_20_3b-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-no-bake-cookies",
+      "slug": "gen-no-bake-cookies",
+      "title": "Kekse ohne Backen",
+      "instructions": "Ein beliebter amerikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken und Erdnussbutter sind preiswerte Vorratszutaten.",
+        "Für dieses Rezept brauchst du nur einfache Zutaten, die du wahrscheinlich schon zu Hause hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4914,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-no-bake-cookies/",
+      "components": [
+        {
+          "key": "b680cbd6-3d2b-5a7f-82dd-56adc72eb64f",
+          "name": "Zutaten",
+          "servingGrams": 224.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1b83389-49e7-53b5-942a-4fe36492ba46",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6c027ef5-3eb5-5aff-ad1d-c0de4c8e2797",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "578c3698-2631-54fc-a567-7573d5125b25",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "b8de2620-33fe-5976-847f-e9812e884248",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ecf3a8cb-73de-5abe-af99-38a12ab5e5f6",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a81c0111-8ccb-5f08-bfa9-5dac40bcb240",
+              "ingredientName": "Haferflocken",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "96bab1a7-74ee-5d4a-a80e-1b2e1a094b70",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Butter, Zucker, Kakaopulver und Milch in einem mittelgroßen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe die Mischung bei mittlerer Hitze unter ständigem Rühren zum Kochen und lasse sie genau 1 Minute sprudelnd kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd und rühre Erdnussbutter und Vanilleextrakt ein, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Haferflocken dazu und rühre, bis alles gleichmäßig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze gehäufte Esslöffel der Masse auf Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Kekse bei Zimmertemperatur 15-20 Minuten abkühlen und fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/04/No-Bake-Cookies.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/04/No-Bake-Cookies.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

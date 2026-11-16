@@ -1,0 +1,1037 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bruschetta",
+      "slug": "gen-bruschetta",
+      "title": "Bruschetta",
+      "instructions": "Italienischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tomaten in der Hauptsaison und friere sie für später ein.",
+        "Bereite Bruschetta mit Brot vom Vortag aus der Bäckerei zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3245,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bruschetta/",
+      "components": [
+        {
+          "key": "7f3b0fa2-1c59-58a0-9272-c12f4018cc7c",
+          "name": "Zutaten",
+          "servingGrams": 699.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e4e0df3-6ef0-58a7-9d4e-0ccf572ac38e",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten in 1/2-Zoll Stücke"
+            },
+            {
+              "key": "c0358063-d330-5c1e-a52c-f34f2a8998bf",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel, aufgeteilt"
+            },
+            {
+              "key": "df668190-1c2b-56b0-9a43-2677aba639f0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "7ebbc551-aa2f-5e24-9e03-805c38e142f8",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "1a2ff9fe-94e4-575b-85c5-1770c46b3d70",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel, gehackt"
+            },
+            {
+              "key": "f3ecba15-dfca-5f50-b0f6-d489d57805cd",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0f7a138b-4e6b-5c6d-98d0-df56da4fce36",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "5fcbf679-8588-58e7-a09d-dab104319ba9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor und bestreiche Baguettescheiben auf beiden Seiten mit 1.5 tablespoons Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Brotscheiben 5-7 Minuten im Ofen, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die heißen gerösteten Brotscheiben sofort mit aufgeschnittenen Knoblauchzehen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische gewürfelte Tomaten, frisches Basilikum, das übrige Olivenöl, Balsamico-Essig, Salz und schwarzen Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Tomatenmischung 3-5 Minuten stehen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib großzügig Tomatenbelag auf jedes mit Knoblauch eingeriebene Toaststück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort, solange das Brot noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/10/tomato-basil-bruschetta-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/10/tomato-basil-bruschetta-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pesto-pasta",
+      "slug": "gen-pesto-pasta",
+      "title": "Pesto-Pasta",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Walnüsse statt Pinienkernen und spare 50 %.",
+        "Kaufe Basilikum im Sommer in größeren Mengen und friere es mit Olivenöl in Eiswürfelformen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3246,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pesto-pasta/",
+      "components": [
+        {
+          "key": "fa16827c-1bc5-5dfa-9578-c2ee4a1a5659",
+          "name": "Zutaten",
+          "servingGrams": 71.11,
+          "position": 0,
+          "items": [
+            {
+              "key": "5615523f-94c0-53e6-86ab-32d76903c55c",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0b6c9266-477c-5f29-a45b-0253f3c5a69d",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2ec98808-5589-5d5f-9d08-3e63313e48d2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8730c20d-9cf1-5f0a-8bd0-555abf6126cb",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "a0fae933-899d-559a-a408-a2c62967e63a",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen gerieben"
+            },
+            {
+              "key": "d34be3eb-90b1-5e79-8ac9-871a16a391b6",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "0cdcfd8d-dddc-542f-8a2d-ecbb8aabb808",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5e3a5524-2895-590a-896d-1eae6d573f59",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8eeb3c28-659c-5bea-ab18-422a37460fb5",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gare Pasta bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib währenddessen Basilikum, Knoblauch, Pinienkerne und Parmesan in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerkleinere die Zutaten stoßweise grob und gieße dann während des Mixens langsam Olivenöl dazu, bis die gewünschte Konsistenz erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Zitronensaft ein und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Pasta ab und hebe 1 cup Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Pasta und Pesto in einer großen Schüssel. Gib nach und nach Nudelwasser dazu, bis die Sauce die gewünschte Konsistenz hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort mit zusätzlichem Parmesan und frisch gemahlenem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-pesto-pasta-lead-web-986-rv-del069925-685bf1ea60f0e.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-pesto-pasta-lead-web-986-rv-del069925-685bf1ea60f0e.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vietnamese-banh-mi",
+      "slug": "gen-vietnamese-banh-mi",
+      "title": "Vietnamesisches Bánh mì",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eingelegtes Gemüse selbst mit Essig, Zucker und Salz zu.",
+        "Ersetze Pâté durch Schinken von der Wursttheke und halbiere die Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3247,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vietnamese-banh-mi/",
+      "components": [
+        {
+          "key": "198a0d98-de55-5644-8cdc-1a5f7ebfcbc4",
+          "name": "Zutaten",
+          "servingGrams": 258.72,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab0078e4-baa0-574e-9e5b-f405e2df6b1d",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "4d9aec52-5a84-5a69-9410-1eed1dcee17e",
+              "ingredientName": "Brathähnchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen geraspelt"
+            },
+            {
+              "key": "873034c2-881b-5879-915d-b2a4d52814b6",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3c7e37fe-afff-51ee-b1e5-a5b29abeff38",
+              "ingredientName": "Vietnamesische Pâté",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "7086da53-c335-5944-aeba-507aa2b4c55a",
+              "ingredientName": "Karotte",
+              "grams": 45.75,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "dc5c67e3-a024-57ca-89c6-2345648d5d39",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "8c2c606e-9da5-5fc5-8bb8-d13d1a5ae96f",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 in Scheiben geschnitten"
+            },
+            {
+              "key": "5322bae0-c21a-5ffb-9791-a72b4c1fe7d1",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "8fb440c4-acd7-5e24-b280-ee571ca0d507",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "aac62154-4a81-58f3-b483-d32c1f8ddff8",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette der Länge nach auf und bestreiche die Innenseiten leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste das Baguette in einem auf 350°F vorgeheizten Ofen 5 Minuten, bis es leicht knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche eine Seite des gerösteten Baguettes mit Mayonnaise und die andere mit Pâté.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische zerpflücktes Hähnchen mit Sojasauce und verteile es auf dem Baguette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege das Hähnchen mit eingelegtem Gemüse, Gurkenscheiben, Koriander und Jalapeño.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbiere das Sandwich und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/02/banh-mi-sandwich.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/02/banh-mi-sandwich.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-frittata",
+      "slug": "gen-frittata",
+      "title": "Frittata",
+      "instructions": "Italienisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten statt frischen Spinat, um Geld zu sparen.",
+        "Kaufe Eier im Angebot in größeren Mengen und lagere sie im Kühlschrank."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "italienisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3248,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-frittata/",
+      "components": [
+        {
+          "key": "9d8851b1-7582-5e2f-a937-907fdb70d400",
+          "name": "Zutaten",
+          "servingGrams": 262.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b49c2e7d-b0df-5cc5-8968-1325654f0883",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aaf0514c-d9d5-5675-9a01-e2ebe4da55a6",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "39fcbc69-0797-5ce1-b766-dab2c74968a3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen gewürfelt"
+            },
+            {
+              "key": "13ae45f2-cf18-5404-9421-53a0b1e6d805",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "43534e99-2774-59fe-b9f3-0c0ae299b72d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen geraspelt"
+            },
+            {
+              "key": "6efc155f-479a-5bbc-940f-cdf067fdc889",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen gehackt"
+            },
+            {
+              "key": "2b942532-e34c-5278-84bc-a1cf66d0fc1a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fabcdf14-a68e-5426-88c7-862dbd5a237f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter in einer 10-inch-Gusseisenpfanne bei mittlerer Hitze und brate Paprika und Zwiebel etwa 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Spinat dazu und gare ihn etwa 2 Minuten, bis er zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eier, Schlagsahne, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiermischung über das Gemüse in der Pfanne und bestreue sie mit Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare die Frittata auf dem Herd 3 Minuten, bis die Ränder anfangen fest zu werden. Stelle die Pfanne dann in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Frittata 8-10 Minuten, bis die Mitte gerade gestockt und die Oberseite leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide sie in Stücke und serviere sie warm oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/frittata-lead-645d02175cc61.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/frittata-lead-645d02175cc61.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pan-seared-salmon",
+      "slug": "gen-pan-seared-salmon",
+      "title": "In der Pfanne gebratener Lachs",
+      "instructions": "Französisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lachs im Angebot und friere ihn für später ein.",
+        "Verwende tiefgekühlte Lachsfilets; sie sind oft günstiger als frische."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3249,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pan-seared-salmon/",
+      "components": [
+        {
+          "key": "f09fc5df-2799-556b-ac89-c3be85d8cea1",
+          "name": "Zutaten",
+          "servingGrams": 155.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d77a1f4b-bec3-502b-8955-d80cff6e78bd",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (6 Unzen je)"
+            },
+            {
+              "key": "053d9755-1428-53f5-a43d-62fc7d350fa6",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "809a7b63-08ae-54c9-bb3d-de7b5188134f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c244f3fc-224e-58e3-afb0-fd0d74a89ab5",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "ed194c39-4488-50fd-9477-b967d24ee086",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "1245a891-19a0-5247-86fd-0cefa6e525b9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f56fad52-dd24-5175-954d-f27bf8f3b08f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9e76bbe5-aeb1-5609-ac70-4bed8320111c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nimm den Lachs 10 Minuten vor dem Garen aus dem Kühlschrank, damit er Raumtemperatur erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe den Lachs mit Küchenpapier trocken und würze beide Seiten großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittelhoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Lachs mit der Hautseite nach oben in die Pfanne und gare ihn 4 Minuten ohne ihn zu bewegen, bis die Haut knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende den Lachs und gib Butter, Thymian und Knoblauch in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare ihn 3 Minuten und beträufle die Filets dabei ununterbrochen mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frischen Zitronensaft über den Lachs und serviere ihn sofort mit Pfannensauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/03/Blackened-Salmon-with-Lemon-Butter-Sauce.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/03/Blackened-Salmon-with-Lemon-Butter-Sauce.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1533 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-crispy-falafel",
+      "slug": "cur-crispy-falafel",
+      "title": "Knusprige Falafel",
+      "instructions": "Knusprige Falafel mit Kräutern aus eingeweichten getrockneten Kichererbsen, Petersilie, Koriander, Zwiebel, Knoblauch und warmen Gewürzen. Goldbraun frittiert und innen locker. Mit Tahinisoße im Fladenbrot oder pur servieren.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Kichererbsen sind deutlich günstiger als Kichererbsen aus der Dose; eine Packung reicht für mehrere Portionen.",
+        "Frittieröl zwei- oder dreimal wiederverwenden: abkühlen lassen, durch einen Kaffeefilter gießen und in einem Glas aufbewahren.",
+        "Petersilie und Koriander bundweise statt abgepackt kaufen. Übrige rohe Falafelmasse einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cilantro",
+          "swap": "verwenden all Petersilie wenn du dislike Koriandergrün, oder hinzufügen ein handful von frisch Dill",
+          "savings": "Spart einen Bund Kräuter, ~$1"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "backen oder air-fry at 375F brushed mit Öl für ein lighter version",
+          "savings": "Verwendet nur einige Esslöffel statt eines Quart, ~$2"
+        },
+        {
+          "forIngredientId": "cardamom",
+          "swap": "Omit, oder verwenden ein pinch von Zimt für warmth",
+          "savings": "Vernachlässigbar, ~$0"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "Naher Osten",
+        "Falafel",
+        "vegan",
+        "vegetarisch",
+        "Streetfood",
+        "Kichererbse",
+        "frittiert",
+        "kräuterreich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7305,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-crispy-falafel/",
+      "components": [
+        {
+          "key": "b286c5d8-ec55-5f63-87d0-fcbc85d32997",
+          "name": "Zutaten",
+          "servingGrams": 378.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c13f9d2a-787d-5651-b1e2-0864194c1b3c",
+              "ingredientName": "getrocknete Kichererbsen",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "GETROCKNETE Kichererbsen, 18-24h eingeweicht; keine gekochten oder aus der Dose (damit zerfallen Falafel)"
+            },
+            {
+              "key": "d7712b59-a6da-582d-bea3-90ec07ec4507",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "kleine, grob gehackt"
+            },
+            {
+              "key": "aca5dd53-d74c-56a1-be16-6eabe9ef24c5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Zehen"
+            },
+            {
+              "key": "f6e7d04a-f377-5e43-9673-15e1b319a00a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "großer Bund glatte Petersilie, Blätter + zarte Stiele"
+            },
+            {
+              "key": "61439b23-d946-53bb-81b7-ab918856f15e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Bund, Blätter + zarte Stiele"
+            },
+            {
+              "key": "a870912f-e1d7-5892-8f5e-e8ffbddd9cef",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "TL, idealerweise aus gerösteten Samen gemahlen"
+            },
+            {
+              "key": "a9529266-a523-586f-8859-f62078f3b6e8",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "TL, gemahlen"
+            },
+            {
+              "key": "c73d413f-fd0d-5a4c-8dbe-5a12a26120d5",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "TL, optional für Schärfe"
+            },
+            {
+              "key": "776c0ff5-a519-5642-beb6-352b4f51be76",
+              "ingredientName": "Kardamom",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "TL, gemahlen, optional für eine warme Gewürznote"
+            },
+            {
+              "key": "083e7b0c-e656-5636-a0d8-aab270ced2fd",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "2baa6ac8-7fa0-586c-a5ec-3b8acfc18faa",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "99145d5d-2b40-5cc1-b3db-2dfacc149571",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "EL Kichererbsen- oder Weizenmehl, nur bei zu lockerer Masse"
+            },
+            {
+              "key": "f88014b2-6b5d-5363-81f3-d3782706caf2",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "TL, kurz vor dem Frittieren für eine luftige Konsistenz einrühren"
+            },
+            {
+              "key": "aef2534a-fee1-5069-aca3-7f1dd88add1d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "EL, für mehr Knusprigkeit auf die Bratlinge gedrückt"
+            },
+            {
+              "key": "9d9aa0d4-f68e-5434-a9d8-486e5b75593f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "zum Frittieren, ~3-4 Tassen; wiederverwendbar"
+            },
+            {
+              "key": "e69cdd73-5677-5896-a11b-ec6435bd6d34",
+              "ingredientName": "Tahini",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "für die Sauce"
+            },
+            {
+              "key": "51d8d9dc-e8c0-5766-9758-5fe80e091eb9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": "ausgepresst, für die Tahinisauce"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Am Vortag die getrockneten Kichererbsen reichlich mit kaltem Wasser bedecken und 18–24 Stunden einweichen, bis sie sich deutlich vergrößert haben und beim Drücken weich sind. Keine Kichererbsen aus der Dose oder gekochten Kichererbsen verwenden, da sie zu viel Wasser enthalten und die Falafel zerfallen könnten. Sehr gut abgießen und trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel, Knoblauch, Petersilie und Koriander in einer Küchenmaschine fein hacken, aber nicht pürieren. Seitenwände abschaben. Abgetropfte rohe Kichererbsen, Kreuzkümmel, Koriander, Cayennepfeffer, Kardamom, Salz und schwarzen Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In kurzen Intervallen mixen, bis die Masse wie grober, feuchter Sand aussieht und beim Zusammendrücken zusammenhält. Nicht zu einer Paste verarbeiten. Ist sie zu feucht, etwas Mehl einmixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In eine Schüssel geben, abdecken und mindestens 1 Stunde oder über Nacht kalt stellen, damit die Masse fester wird und die Aromen sich verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kurz vor dem Frittieren Natron darüberstreuen und unterheben; es macht das Innere locker. Zu 1.5 Zoll großen Kugeln oder leicht abgeflachten Talern formen. Risse zusammendrücken. Nach Wunsch Sesam auf die Oberseite drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1.5 Zoll Öl in einem tiefen Topf auf 350 °F (175 °C) erhitzen. Tahini mit Zitronensaft, einer Prise Salz und kaltem Wasser esslöffelweise verrühren, bis eine cremige, gießfähige Soße entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Falafel portionsweise ohne Gedränge 3–4 Minuten frittieren und einmal wenden, bis sie tief mahagonibraun und rundum knusprig sind. Zuerst ein Stück testen: Zerfällt es, etwas Mehl einarbeiten; ist es zu fest, etwas mehr Natron hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Gitter oder Küchenpapier abtropfen lassen und heiß mit einer Prise Salz würzen. Sofort mit Zitronen-Tahinsoße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Falafel_1.JPG/1280px-Falafel_1.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Falafel_1.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Miansari66 — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Crispy Falafel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-chicken-gyros",
+      "slug": "cur-chicken-gyros",
+      "title": "Hähnchen-Gyros",
+      "instructions": "Griechisch gewürzte Hähnchenschenkel, in Joghurt, Zitrone, Knoblauch und Oregano mariniert und anschließend scharf angebraten. Warmes Fladenbrot mit Tzatziki, Tomate, roter Zwiebel und ein paar Pommes dazu servieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel ohne Knochen sind günstiger als Brustfleisch und bleiben beim scharfen Anbraten saftig.",
+        "Marinade und Tzatziki aus demselben Becher griechischen Joghurts zubereiten, damit nicht zwei Milchprodukte gekauft werden müssen.",
+        "Pommes weglassen und die Portion mit zusätzlichem Fladenbrot, Zwiebel und Tomate ergänzen, um Kosten zu senken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "verwenden boneless Hähnchen breast, pounded dünn, wenn that's what du have",
+          "savings": "etwa gleich"
+        },
+        {
+          "forIngredientId": "pita",
+          "swap": "Wrap in Mehl tortillas oder naan instead",
+          "savings": "spart ~$1"
+        },
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "verwenden getrocknet Dill oder frisch Minze aus der marinade herbs",
+          "savings": "spart ~$1.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "mediterran",
+        "Hähnchen",
+        "Wrap",
+        "Tzatziki",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7306,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chicken-gyros/",
+      "components": [
+        {
+          "key": "63e765cc-235c-55d3-871e-6307a08f453a",
+          "name": "Zutaten",
+          "servingGrams": 313.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "816a26be-6d95-5e34-a8ff-39d501bffe44",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Oberkeulen ohne Knochen und Haut"
+            },
+            {
+              "key": "2eff7965-4b24-5182-972d-3ba52753af6c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "aufgeteilt: den Großteil für die Marinade, den Rest für das Tzatziki"
+            },
+            {
+              "key": "8fc55cee-c774-587b-9025-d8915649fa3b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dede2378-d3cd-5391-9f08-7b702afefb1c",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, auf Marinade und Tzatziki verteilt"
+            },
+            {
+              "key": "e5ff9d1f-6441-5676-a313-e0414f3bf6fb",
+              "ingredientName": "Olivenöl",
+              "grams": 2.7,
+              "quantity": 2.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für die Marinade und Pfanne"
+            },
+            {
+              "key": "8bbb221b-95d0-5f5f-b63e-e086eec9e13f",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "getrockneter griechischer Oregano"
+            },
+            {
+              "key": "86f159e5-294c-5c2d-902d-665966001adb",
+              "ingredientName": "Paprikapulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edc9ad35-f1d3-53cf-871e-0bacad882107",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "657bd485-f6aa-517d-917c-909761d59528",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "558d57c0-2b41-55f5-bca8-c3cd119dd8da",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6808ac63-2e4f-592d-8e6f-f899055e501d",
+              "ingredientName": "Fladenbrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "dickes Pitabrot nach griechischer Art"
+            },
+            {
+              "key": "c5d6012b-dcd7-5718-8350-2027c9d6fbf5",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "für das Tzatziki"
+            },
+            {
+              "key": "6416f70f-9a35-5ba6-bfdc-8118b24d489c",
+              "ingredientName": "Frischer Dill",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "oder Minze für das Tzatziki"
+            },
+            {
+              "key": "48029204-dd8c-56f3-be74-0d8aef008353",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, zum Füllen"
+            },
+            {
+              "key": "2319eb56-f08d-5d79-bbe0-56278ea9faf6",
+              "ingredientName": "Zwiebel",
+              "grams": 60,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "19a21c47-d530-56a9-8c1f-5b9e4f142168",
+              "ingredientName": "tiefgekühlte Pommes frites",
+              "grams": 30,
+              "quantity": 0.3,
+              "unit": "portion",
+              "position": 15,
+              "optional": true,
+              "source_note": "traditionelle Gyrosfüllung"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Marinade etwa zwei Drittel des griechischen Joghurts mit Olivenöl, dem Saft einer halben Zitrone, 3 geriebenen Knoblauchzehen, Oregano, Paprikapulver, Kreuzkümmel, Salz und Pfeffer verquirlen. Hähnchenschenkel darin wenden und mindestens 30 Minuten marinieren lassen; über Nacht wird es noch aromatischer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für das Tzatziki die Gurke raspeln und möglichst viel Wasser ausdrücken. Mit dem restlichen Joghurt, 2 geriebenen Knoblauchzehen, gehacktem Dill, etwas Olivenöl, dem Saft der zweiten Zitronenhälfte und einer Prise Salz verrühren. Bis zum Servieren kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Falls Pommes verwendet werden, nach Packungsanweisung im Ofen oder Heißluftfritteuse zubereiten, damit sie fertig sind, wenn das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine schwere Pfanne oder Grillpfanne bei mittelhoher Hitze mit einem dünnen Ölfilm erhitzen. Überschüssige Marinade von den Hähnchenschenkeln abstreifen und das Fleisch in einer Lage in die heiße Pfanne legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5–6 Minuten ungestört braten, bis die Unterseite kräftig gebräunt und an den Rändern leicht angekohlt ist. Wenden und weitere 4–5 Minuten braten, bis das Hähnchen eine Kerntemperatur von 165 °F erreicht hat und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Hähnchen einige Minuten ruhen lassen und dann schräg in dünne Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fladenbrote leicht mit Öl bestreichen und in der heißen Pfanne 30–60 Sekunden pro Seite erwärmen, bis sie weich und aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Für jedes Gyros Tzatziki in die Mitte eines warmen Fladenbrots streichen. Hähnchen, Tomate, rote Zwiebel und ein paar Pommes daraufgeben, mit mehr Tzatziki garnieren, zusammenklappen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Main_box_%28chicken_gyros%2C_pancetta%2C_kaserokroketes%2C_halloumi%29_-_Archipelagos_Gyros_2024-07-22.jpg/1280px-Main_box_%28chicken_gyros%2C_pancetta%2C_kaserokroketes%2C_halloumi%29_-_Archipelagos_Gyros_2024-07-22.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Main_box_(chicken_gyros,_pancetta,_kaserokroketes,_halloumi)_-_Archipelagos_Gyros_2024-07-22.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Gyros",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-beef-kofta",
+      "slug": "cur-beef-kofta",
+      "title": "Rindfleisch-Kofta",
+      "instructions": "Saftige orientalisch gewürzte Hackfleisch-Kofta mit geriebener Zwiebel, frischer Petersilie, Knoblauch, Kreuzkümmel, Koriander, Zimt und Piment. Auf Spieße geformt und gegrillt, bis die Ränder gebräunt sind. Mit Fladenbrot, Tzatziki und Zitrone servieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geriebene und ausgedrückte Zwiebel macht die Kofta saftig und streckt die Fleischmenge; ein Pfund Rindfleisch reicht bequem für vier Portionen.",
+        "Ganze Gewürze oder größere Gläser kaufen und die Kofta-Gewürzmischung selbst herstellen.",
+        "Für die Zubereitung sind keine Spieße nötig: ovale Frikadellen formen und auf einem Gitter grillen oder in der Pfanne braten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "verwenden gemahlen Lammfleisch, gemahlen turkey, oder ein Rindfleisch-Lammfleisch mixen",
+          "savings": "Putenhackfleisch ist günstiger und leichter; eine Rind-Lamm-Mischung ist traditioneller"
+        },
+        {
+          "forIngredientId": "tzatziki",
+          "swap": "umrühren grated cucumber und Knoblauch in natur Greek Joghurt",
+          "savings": "Spart ~$3 gegenüber dem Kauf eines Bechers Tzatziki"
+        },
+        {
+          "forIngredientId": "pita",
+          "swap": "servieren über Reis oder mit any flatbread/naan",
+          "savings": "Verwendet Reis aus dem Vorrat statt frisch gekauftem Pitabrot"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "Naher Osten",
+        "Kofta",
+        "Kebab",
+        "Rinderhackfleisch",
+        "Grillen",
+        "Backofengrill",
+        "Abendessen",
+        "Spieße"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7307,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-beef-kofta/",
+      "components": [
+        {
+          "key": "cf7b3807-ba05-53c7-82f2-0b10dfcff780",
+          "name": "Zutaten",
+          "servingGrams": 173.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4e6380f-fafd-5894-ab4e-d7a040f31981",
+              "ingredientName": "Hackfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "80/20 Rinderhackfleisch; Lammhackfleisch oder eine 50/50-Mischung aus Rind und Lamm ist noch traditioneller"
+            },
+            {
+              "key": "00a549de-69ad-5410-82b7-6c45068a6826",
+              "ingredientName": "Zwiebel",
+              "grams": 112.5,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gerieben, anschließend überschüssige Flüssigkeit ausgedrückt"
+            },
+            {
+              "key": "04c2c24c-843f-54dd-ab34-1adb13d1d08c",
+              "ingredientName": "Knoblauch",
+              "grams": 0.45,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen, sehr fein gehackt oder gerieben"
+            },
+            {
+              "key": "1b0edf43-4710-527f-a66f-26b606dbb7a7",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse fein gehackte glatte Petersilie"
+            },
+            {
+              "key": "084e6ae3-5379-57c5-b7f2-663a77e30301",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL gemahlener Kreuzkümmel"
+            },
+            {
+              "key": "c423c41d-2750-567e-8c7f-b2f4c16ba8f2",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL gemahlener Koriander"
+            },
+            {
+              "key": "6d8c0d1b-07b7-565a-b1d1-ba26b1ad66cd",
+              "ingredientName": "Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL, edelsüß oder geräuchert"
+            },
+            {
+              "key": "24d395b1-7bce-5aaa-9858-998d94b229d3",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Zimt"
+            },
+            {
+              "key": "3201ff9d-356b-5487-8521-21a1f4956195",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Piment"
+            },
+            {
+              "key": "43802114-ec8f-5ad0-a940-41a596e6b7e6",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "Prise für die Schärfe"
+            },
+            {
+              "key": "d4b60379-b4ae-5814-9c36-d9b65b45df78",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1.5 TL grobes Salz"
+            },
+            {
+              "key": "9a1040cd-1636-5ef3-bfa8-961c7bec46b6",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 TL schwarzer Pfeffer"
+            },
+            {
+              "key": "ba14bdc6-0096-59dc-83f1-2ab0fffa5e0a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL, und mehr zum Bestreichen"
+            },
+            {
+              "key": "de07b40a-40a9-5a1b-804d-d7789ad1bcec",
+              "ingredientName": "Fladenbrot",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "erwärmt, zum Servieren"
+            },
+            {
+              "key": "f3de850a-be1f-5a4e-9484-057e2a784923",
+              "ingredientName": "Tzatziki-Sauce",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "2b5ac6aa-679e-5c5c-8319-a0f5406b57c9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "in Spalten geschnitten, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Zwiebel auf der groben Seite einer Reibe raspeln und mit den Händen oder einem sauberen Tuch kräftig ausdrücken, um überschüssige Flüssigkeit zu entfernen. Zu nasse Zwiebel könnte die Kofta beim Garen auseinanderfallen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hackfleisch, ausgedrückte geriebene Zwiebel, gehackten Knoblauch, gehackte Petersilie, Kreuzkümmel, Koriander, Paprikapulver, Zimt, Piment, nach Wunsch Cayennepfeffer, Salz und schwarzen Pfeffer in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Masse mit den Händen 3–5 Minuten kräftig kneten, bis sie klebrig wird und zusammenhält. Abdecken und mindestens 30 Minuten kalt stellen; so lässt sie sich leichter formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In 8 Portionen teilen. Mit feuchten Händen jede Portion um einen flachen Metallspieß zu einem 5 Zoll langen Röllchen formen. Ohne Spieße stattdessen längliche Frikadellen formen. Leicht mit Olivenöl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein Ofengitter etwa 6 Zoll unter dem Grill platzieren und den Backofengrill auf hohe Stufe vorheizen. Ein Backblech mit Folie auslegen und ein Gitter daraufstellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Kofta 5–6 Minuten grillen, dann wenden und weitere 4–6 Minuten bräunen und garen, bis sie an den Rändern leicht angekohlt sind und innen 160 °F erreicht haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "3–4 Minuten ruhen lassen und heiß mit warmem Fladenbrot, Tzatziki und Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Beef_kofta_kebab_at_the_Folklife_Festival.jpg/1280px-Beef_kofta_kebab_at_the_Folklife_Festival.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beef_kofta_kebab_at_the_Folklife_Festival.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ser Amantio di Nicolao — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Rindfleisch Kofta",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-beef-moussaka",
+      "slug": "cur-beef-moussaka",
+      "title": "Rindfleisch-Moussaka",
+      "instructions": "Klassischer griechischer Auflauf aus gerösteten Auberginen und Kartoffeln, einer würzigen Tomaten-Hackfleischsoße mit Zimt und Piment sowie einer dicken, cremigen Béchamelkruste. Am nächsten Tag schmeckt er noch besser.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 105,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Auberginen salzen und rösten statt sie in Öl zu frittieren; so wird weniger Fett benötigt.",
+        "Statt teurem Kefalotyri einen Hartkäse wie Parmesan oder Pecorino für die Béchamelkruste verwenden.",
+        "Moussaka schmeckt aufgewärmt noch besser. Die ganze Form backen und auf mehrere Mahlzeiten verteilen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "verwenden gemahlen Lammfleisch (der most traditional choice) oder ein 50/50 Rindfleisch-Lammfleisch mixen für deeper flavor",
+          "savings": "Ungefähr gleiche Kosten; Lamm ist teurer, aber traditioneller"
+        },
+        {
+          "forIngredientId": "red-wine",
+          "swap": "Replace mit Rindfleisch Brühe plus ein splash von red wine vinegar",
+          "savings": "Spart durch Weglassen der Flasche etwa $3-5"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "verwenden any hard grating Käse oder even ein sharp cheddar in der béchamel",
+          "savings": "Spart etwa $2 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Auflauf",
+        "Hausmannskost",
+        "gebacken",
+        "Aubergine",
+        "Béchamel",
+        "zum Vorbereiten",
+        "mediterran"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7308,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-beef-moussaka/",
+      "components": [
+        {
+          "key": "8c8ccb86-7079-5c95-b22c-57480667a2e6",
+          "name": "Zutaten",
+          "servingGrams": 341.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "263bc7d2-dcd7-5467-8b54-b5389469216e",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "große runde Auberginen, in 1/2 Zoll dicke Scheiben geschnitten"
+            },
+            {
+              "key": "fa5959d9-37e0-5bb5-8c36-b2a3daace18c",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "mehligkochende Kartoffeln, geschält und in 1/4 Zoll dicke Scheiben geschnitten"
+            },
+            {
+              "key": "c378a515-0c83-5a37-aca1-4f6ba9a32b03",
+              "ingredientName": "Hackfleisch",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "80/20 Rinderhackfleisch für die Fleischsauce"
+            },
+            {
+              "key": "34e51019-4356-56ca-bdae-fe54154ed433",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "1676986d-50fc-54d7-8a2b-e7fa8e421950",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "42fbbc6e-2136-5432-a747-c459148a5675",
+              "ingredientName": "Tomatenmark",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "78bba2b9-8914-50b7-af29-78c237c8787a",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "eine 14 oz-Dose"
+            },
+            {
+              "key": "9a1974bb-9194-51af-9853-b456f83ab709",
+              "ingredientName": "Rotwein",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse trockener Rotwein"
+            },
+            {
+              "key": "dcf7e135-6126-5276-9937-a986c22ceeeb",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL, gemahlen, und eine Stange, falls vorhanden"
+            },
+            {
+              "key": "7bc05f9f-b38b-50ed-999e-0decbc80b3fa",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL, gemahlen"
+            },
+            {
+              "key": "1c9abc70-d7bb-57fa-9c5d-5fb9013d5fb9",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL getrocknet"
+            },
+            {
+              "key": "f17b4aee-a78b-52a0-850e-da5112d90e38",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "64a7c147-30a5-5475-a37f-c4b43422d92e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "zum Bestreichen der Auberginen und für das Sofrito"
+            },
+            {
+              "key": "88407f12-0af2-51e2-9934-7a77ea9d78f3",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "für die Béchamelsauce, etwa 5 EL"
+            },
+            {
+              "key": "3ab7a75d-6cc6-57ad-99e3-1f6bbd53f135",
+              "ingredientName": "Weizenmehl",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse für die Mehlschwitze der Béchamelsauce"
+            },
+            {
+              "key": "ef29d0aa-0653-5b3c-813b-3eed3c4998f4",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "etwa 3 Tassen Vollmilch, erwärmt"
+            },
+            {
+              "key": "4abef524-fc60-5e2c-af6e-76a204306336",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": "Eigelbe (oder ganze Eier), temperiert in die Béchamelsauce eingerührt"
+            },
+            {
+              "key": "215c99ed-b84f-5ae0-b47f-a691ffb5ef0a",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "Prise, frisch gerieben, für die Béchamelsauce"
+            },
+            {
+              "key": "fcf5ef47-f557-50de-9c6c-f0d4c43d7b6d",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "gerieben; falls vorhanden Kefalotyri oder Pecorino verwenden"
+            },
+            {
+              "key": "c741e880-3617-5b62-87a3-e4fd16a2038b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e7a57cf-3454-5beb-8996-b4a3f280a423",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 20,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Auberginen salzen: 1/2 Zoll dicke Scheiben auf ein Gitter oder Tuch legen, großzügig salzen und 30 Minuten ruhen lassen, damit Bitterstoffe und Wasser austreten. Sehr trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gemüse rösten: Auberginen- und Kartoffelscheiben mit Olivenöl bestreichen, würzen und auf Backblechen bei 425 °F (220 °C) etwa 20–25 Minuten weich und leicht gebräunt rösten; einmal wenden. Beiseitestellen und den Ofen auf 350 °F (175 °C) herunterstellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fleischsoße zubereiten: Gewürfelte Zwiebel in Olivenöl in einer breiten Pfanne weich dünsten und Knoblauch hinzufügen. Zur Seite schieben, Hackfleisch dazugeben und unter Zerteilen kräftig bräunen, bis es karamellisiert ist und Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark einrühren und 1 Minute anrösten. Mit Rotwein ablöschen und die Flüssigkeit auf die Hälfte einkochen. Zerkleinerte Tomaten, Zimt, Piment, Oregano, Lorbeerblatt, Salz und Pfeffer hinzufügen. Ohne Deckel 20–25 Minuten dick einkochen; Lorbeerblatt entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Béchamelsoße zubereiten: Butter schmelzen, Mehl einrühren und die Mehlschwitze 2 Minuten ohne Bräunung garen. Warme Milch nach und nach unterrühren und köcheln lassen, bis die Soße einen Löffel überzieht. Vom Herd nehmen, salzen, eine Prise Muskatnuss und den größten Teil des Käses einrühren. Eigelb langsam unterrühren, damit es andickt, ohne zu stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auflauf schichten: Kartoffelscheiben in eine geölte Form legen, darauf Auberginen und gleichmäßig die Fleischsoße verteilen. Falls vorhanden eine zweite Auberginenschicht auflegen. Béchamel darübergießen, glatt streichen und mit dem übrigen Käse bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350 °F (175 °C) 45–50 Minuten backen, bis die Oberfläche fest und tief goldbraun ist. Für mehr Farbe in den letzten 2–3 Minuten den Grill zuschalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Anschneiden mindestens 30 Minuten ruhen lassen, damit die Schichten fest werden. Lauwarm lässt sich der Auflauf am besten schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Siam_Niramit_Bangkok_buffet_beef_moussaka_%282014%29.jpg/1280px-Siam_Niramit_Bangkok_buffet_beef_moussaka_%282014%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Siam_Niramit_Bangkok_buffet_beef_moussaka_(2014).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kathy — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Rindfleisch Moussaka",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-cinnamon-french-toast",
+      "slug": "cur-cinnamon-french-toast",
+      "title": "Zimt-French-Toast",
+      "instructions": "Dicke Brioche- oder Challah-Scheiben in Vanille-Zimt-Eiermilch getränkt und in Butter goldbraun gebraten. Außen knusprig, innen weich und cremig. Mit Zimtzucker bestäubt und echtem Ahornsirup serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brot vom Vortag oder leicht trockenes Brot verwenden; es nimmt die Eiermilch besser auf und ist oft günstiger als frisches Brot.",
+        "Vollmilch ergibt eine besonders reichhaltige Eiermilch, aber jede Milch funktioniert. Für eine noch cremigere Variante etwas Sahne hinzufügen.",
+        "Fertige Scheiben auf einem Gitter im 200 °F warmen Ofen warm halten, während die übrige Menge gebraten wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brioche-buns",
+          "swap": "normal sandwich Brot oder Texas toast",
+          "savings": "Spart etwa $2 gegenüber einem Brioche-Laib"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig oder ein schnell fruit compote aus gefroren berries",
+          "savings": "Spart $3-4 gegenüber echtem Ahornsirup"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Almond oder oat Milch für ein dairy-lighter custard",
+          "savings": "Ungefähr gleiche Kosten, verwendet vorhandene Zutaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "Brunch",
+        "süß",
+        "kinderfreundlich",
+        "klassisch",
+        "vegetarisch",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7309,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-cinnamon-french-toast/",
+      "components": [
+        {
+          "key": "5458d438-8817-5fda-9f8d-d04bccdde06a",
+          "name": "Zutaten",
+          "servingGrams": 97.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "b182a275-b65a-5c5b-8b57-dc846a63d20f",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 60,
+              "quantity": 0.6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 dicke Scheiben Brioche oder Challah"
+            },
+            {
+              "key": "b16def60-8451-5db4-82c9-c0c4789b7bb0",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa814cb0-62e0-50dc-802b-3e3084d4fb6d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1 Tasse Vollmilch"
+            },
+            {
+              "key": "4df06ccd-fc53-5312-9ea6-5564fc154e99",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "bedce805-fdd7-5779-a7bf-6d33e0ae8991",
+              "ingredientName": "Zimt",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL für die Eiercreme und mehr für den Zimtzucker"
+            },
+            {
+              "key": "3d409e12-48d2-5b70-8df4-82c03de7b4ef",
+              "ingredientName": "Zucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL in der Eiercreme und mehr zum Bestäuben"
+            },
+            {
+              "key": "e07674e6-c6e6-57aa-aa43-114473cfda9a",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "1d02856b-be0f-5b0c-a6fa-2fc7bf0c911a",
+              "ingredientName": "Butter",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "für die Grillplatte, ~3 EL"
+            },
+            {
+              "key": "d35035ba-af62-515a-a15a-cb0128278cfe",
+              "ingredientName": "Ahornsirup",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "77b11029-63c4-55be-8aa0-426b612c9696",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "winzige Menge, gerieben, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brioche oder Challah in acht dicke, etwa 3/4 Zoll starke Scheiben schneiden. Frisches Brot 10–15 Minuten offen liegen lassen, damit es leicht trocknet und die Eiermilch aufnimmt, ohne auseinanderzufallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier, Milch, Vanille, 1.5 TL Zimt, 2 EL Zucker, eine Prise Salz und nach Wunsch Muskatnuss in einer breiten flachen Schüssel glatt verquirlen, bis keine Eiweißstreifen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer kleinen Schale 2 EL Zucker mit 1/2 TL Zimt zu Zimtzucker verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine große Pfanne oder Grillplatte bei mittlerer Hitze erwärmen. Etwa 1 EL Butter darin schmelzen lassen, bis sie schäumt, aber nicht bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Brotscheibe 15–20 Sekunden pro Seite in die Eiermilch tauchen, damit sie durchzieht, aber nicht matschig wird. Überschüssige Mischung abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Scheiben 2–3 Minuten pro Seite goldbraun braten, bis sie auch in der Mitte fest sind. Zwischen den Portionen frische Butter hinzufügen und die Hitze verringern, falls das Brot zu schnell bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller geben und noch heiß von beiden Seiten mit Zimtzucker bestäuben. Sofort mit warmem Ahornsirup servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/FrenchToast.JPG/1280px-FrenchToast.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:FrenchToast.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jonathunder — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Zimt French Toast",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

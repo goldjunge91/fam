@@ -1,0 +1,1113 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicken-plate",
+      "slug": "gen-chicken-plate",
+      "title": "BBQ-Hähnchenteller",
+      "instructions": "Südstaaten-BBQ-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganze Hühner statt einzelner Teile, um Geld zu sparen.",
+        "Bereiten Sie Soße aus Grundnahrungsmitteln zu, anstatt vorgefertigte BBQ-Soße zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6865,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-plate/",
+      "components": [
+        {
+          "key": "26f7069f-bfa7-51f9-8473-bcab351b1dda",
+          "name": "Zutaten",
+          "servingGrams": 78.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "19bb1e3b-c16f-5504-8447-54bda44d7c6a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "48640783-6823-531d-8145-b1e733418caa",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "23546d48-67cd-5a7a-96c5-30d85aaca648",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ea5bcdc0-e8df-5373-8992-1c54d751e16a",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "daf259ba-04f4-50cf-9c0e-1f924047b96a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "49b42fcd-cf7e-5e5f-8b66-8aeee5e758c1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e9479532-8159-525d-9cf4-96124ab3cb0d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a0d548b5-3d28-5929-be30-7cc7ee322671",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "34ca8c79-511c-5ede-a517-5ed867008495",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "37070945-69df-5b47-b107-4e493d7cd407",
+              "ingredientName": "Schatz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Braunen Zucker, Paprika, Knoblauchpulver, schwarzen Pfeffer und Salz vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reiben Sie die Gewürzmischung innen und außen über das ganze Hähnchen und achten Sie dabei besonders auf die Haut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heizen Sie den Ofen auf 375 °F vor und legen Sie das Hähnchen mit der Brustseite nach oben auf einen Bräter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 Stunde und 15 Minuten rösten, bis die Innentemperatur an der dicksten Stelle des Oberschenkels 165 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während der letzten 20 Minuten Butter, Ketchup, Apfelessig und Honig vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Während der letzten 20 Minuten des Garvorgangs das Huhn zweimal mit der Soße bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Schnitzen 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Servieren Sie das geschnitzte Hähnchen mit zusätzlicher Soße als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/rlrGgOpnorrKfweAeyNymEi5bPk=/5443x3629/filters:fill(auto,1)/classic-southern-fried-chicken-3056867-hero-01-58b66ff9e2f14b86bfdd50c7088cfe45.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/rlrGgOpnorrKfweAeyNymEi5bPk=/5443x3629/filters:fill(auto,1)/classic-southern-fried-chicken-3056867-hero-01-58b66ff9e2f14b86bfdd50c7088cfe45.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brisket-sandwich",
+      "slug": "gen-brisket-sandwich",
+      "title": "Sandwich mit Rinderbrust",
+      "instructions": "Südstaaten-BBQ-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie übrig gebliebenes gekochtes Rinderbruststück, um Vorbereitungszeit und Energiekosten zu sparen.",
+        "Kaufen Sie Brot und Gewürze von Eigenmarken anstelle von Premiummarken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6866,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brisket-sandwich/",
+      "components": [
+        {
+          "key": "a056d2bd-fd62-5586-b765-01e15af3cabd",
+          "name": "Zutaten",
+          "servingGrams": 132.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "672429f1-5f66-507e-b4fc-e0816e84c14a",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9261b331-0d94-523b-9739-49c00319af32",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "e5401e64-5061-543a-bb0a-d654fbad4e3b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "076c3830-7e5b-5697-afc3-c37f0ec503ce",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "2858aed3-f8a5-5675-8e69-677384d9ab96",
+              "ingredientName": "Gurken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "778efe8e-38d8-5558-ade0-7685f264d696",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleine in Scheiben geschnitten"
+            },
+            {
+              "key": "abed33bd-d8f3-5882-bead-a0804c5fd2b9",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "007ea41f-5e82-51d1-98e5-d149f7f259fd",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5711efeb-6fd0-51af-9f7f-dd3a3c76e625",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "67f12b11-433f-5693-b153-a4c9e083853a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "BBQ-Sauce in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geben Sie das geschnittene Rinderbrust in die Soße und rühren Sie es vorsichtig etwa 5–7 Minuten lang um, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mayonnaise und Senf vermischen und auf 4 Brotscheiben verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gurken und Zwiebeln auf die Senf-Mayo-Mischung schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die restlichen 4 Brotscheiben leicht einfetten und in einer separaten Pfanne goldbraun rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geben Sie mit einem Schaumlöffel eine großzügige Portion heißes Rinderbrust auf die Gurken und Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Etwas mehr Soße aus der Pfanne über das Rinderbrust träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit der gerösteten Butterbrotscheibe belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Pulled-Brisket-Sandwiches_EXPS_SCMBZ18_119694_B01_17_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Pulled-Brisket-Sandwiches_EXPS_SCMBZ18_119694_B01_17_1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-half-smoke",
+      "slug": "gen-half-smoke",
+      "title": "Half-Smoke-Wurst",
+      "instructions": "Südstaaten-BBQ-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie halbgeräucherte Würste im Sonderangebot und frieren Sie sie zur späteren Verwendung ein.",
+        "Verwenden Sie Hot-Dog-Brötchen von Handelsmarken anstelle von Spezialmarken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6867,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-half-smoke/",
+      "components": [
+        {
+          "key": "657358eb-0fb1-58d1-95c9-c29b5703e9d7",
+          "name": "Zutaten",
+          "servingGrams": 335.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "44ff2f93-8d8a-5d76-aa6e-331510402a13",
+              "ingredientName": "halbgeräucherte Würstchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c2b085d-7a31-5350-987d-30c86200c42a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "64a4669d-9085-5ba1-bda1-7b2fcaec92e3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße in Scheiben geschnitten"
+            },
+            {
+              "key": "d605d793-4082-5665-be40-156184fa74a9",
+              "ingredientName": "Hot-Dog-Brötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0818b07-bd01-552d-b7e0-f53947535eab",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "05190758-c0a4-52cf-b2c8-75f9148b8062",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "553fae56-9e83-514b-8598-6071ee3d2624",
+              "ingredientName": "Mango-Essiggurke (Achar)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9f62725d-2955-5832-b49e-d80e5821800e",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a976d247-a567-5435-b1fb-4f1354650e52",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b8e169d0-1344-5495-b4b0-68ef31e6c318",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und in Scheiben geschnittene Zwiebeln hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln 5 Minuten kochen, bis sie anfangen zu karamellisieren, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die halbgeräucherten Würste in die Pfanne geben und 8–10 Minuten braten, dabei gelegentlich wenden, bis sie von allen Seiten gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "BBQ-Sauce über die Würstchen und Zwiebeln gießen und 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rösten Sie die Hot-Dog-Brötchen leicht in einer separaten Pfanne oder unter dem Grill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mayonnaise mit einer Prise schwarzem Pfeffer vermischen und auf der Innenseite jedes getoasteten Brötchens verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In jedes Brötchen eine Wurst legen und mit karamellisierten Zwiebeln und BBQ-Sauce belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Eine kleine Kugel Krautsalat darüber geben und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://preview.redd.it/csemth7utpo41.jpg?auto=webp&s=1ba245e9bd7d8bd03fe6eadf42398ac504203d00",
+          "sourcePageUrl": "https://preview.redd.it/csemth7utpo41.jpg?auto=webp&s=1ba245e9bd7d8bd03fe6eadf42398ac504203d00",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-sausage",
+      "slug": "gen-smoked-sausage",
+      "title": "Geräucherte Wurst",
+      "instructions": "Südstaaten-BBQ-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie geräucherte Wurst in großen Mengen in Lagerhäusern, um günstigere Preise pro Pfund zu erzielen.",
+        "Verwenden Sie saisonale Paprika, wenn sie am günstigsten sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6868,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-sausage/",
+      "components": [
+        {
+          "key": "1f4859c1-13e2-5898-8f35-61c09943446c",
+          "name": "Zutaten",
+          "servingGrams": 155.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "22057825-4d9d-5708-9183-2a72b2e0726d",
+              "ingredientName": "Geräucherte Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "63a98757-9c9f-5dab-afb1-a62cdfac4a8c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "79a46a96-9117-581a-9fc2-a1e24538d7b7",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große in Scheiben geschnitten"
+            },
+            {
+              "key": "440009f4-e8cb-59bf-b511-ab922530bd6d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große in Scheiben geschnitten"
+            },
+            {
+              "key": "bd80ca97-6f21-549d-9329-a8f9e374b6e7",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "46d5c5e2-d371-5387-ae4b-3bebed36c365",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "08e708ae-8697-5d1a-b569-4076b1d29cca",
+              "ingredientName": "Apfelsaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "b59ce411-d6b3-58cc-9f70-9030c61f1191",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5400f0dc-02da-548b-9ea9-08cc52362395",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie die geräucherten Wurststücke in 1/2 Zoll dicke Münzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und die Paprika und Zwiebeln hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Gemüse 5–7 Minuten kochen, bis es weich ist, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch hinzufügen und noch 1 Minute kochen, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Wurstscheiben in die Pfanne geben und 5 Minuten braten, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "BBQ-Sauce, Apfelsaft, braunen Zucker, schwarzen Pfeffer und Salz in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Sauce über die Wurst und das Gemüse gießen und 10-12 Minuten köcheln lassen, bis die Sauce leicht einkocht und karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß über Reis oder mit Maisbrot als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/01/Smoked-Sausage-and-Sweet-Potato-recipe-4.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/01/Smoked-Sausage-and-Sweet-Potato-recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-memphis-brisket",
+      "slug": "gen-memphis-brisket",
+      "title": "Memphis-Rinderbrust",
+      "instructions": "Memphis-BBQ-Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderbrust im Sonderangebot kaufen und einfrieren; Dieser Schnitt wird oft rabattiert.",
+        "Verwenden Sie Gewürze aus der Vorratskammer, die Sie wahrscheinlich haben; Die Zutaten für spezielle Gewürzmischungs sind minimal."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "memphis-bbq",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6869,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-memphis-brisket/",
+      "components": [
+        {
+          "key": "36a230a7-8aad-57dd-bf05-44e7e59f9453",
+          "name": "Zutaten",
+          "servingGrams": 153.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "87a3e19f-d8c1-5ff5-9b6e-da24cb05deda",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "c5053996-491d-507b-9c0f-66a8f873cfd4",
+              "ingredientName": "Paprika",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "86515edc-0c86-588d-97e0-64abf38397de",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "463f1ac4-3bd9-5879-b243-4a9258d1f65c",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "842e3320-858b-5911-971f-6bb0a41296e4",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9bf41171-086d-56ee-8eee-0f3e095b96b7",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "45e7ce08-e0ed-588e-9cfa-559ad2200862",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aa168926-dba8-51e9-8731-0fc960dcddf4",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "451170e7-b74b-5630-bb06-d1e73fbfa7c2",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "072efefd-2202-52ef-94b6-015b02a92ccd",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Paprika, braunen Zucker, Knoblauchpulver, schwarzen Pfeffer, Zwiebelpulver und Cayennepfeffer in einer Schüssel vermischen, um eine Gewürzmischung herzustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Rinderbrust trocken tupfen und von allen Seiten großzügig trockenreiben, dabei fest andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heizen Sie den Ofen auf 300 °F vor und legen Sie das Rinderbrust mit der Fettseite nach oben in eine große Bratpfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe, Apfelessig und Worcestershire-Sauce verrühren und dann um die Rinderbrust gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decken Sie die Pfanne fest mit Folie ab und schmoren Sie sie 4 Stunden lang, wobei Sie sie nach der Hälfte der Zeit einmal wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entfernen Sie die Folie, erhöhen Sie die Hitze auf 350 °F und garen Sie das Fleisch ohne Deckel noch 1 Stunde lang, bis es gabelweich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lassen Sie es 15 Minuten ruhen, bevor Sie es gegen die Faser aufschneiden und mit Bratensaft servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Qch2UpqrMAdaLPi6WwJxPHzz6BY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sous-vide-brisket-mfs-193-4x3-1-24930daf16854a9091eaff1503aac157.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Qch2UpqrMAdaLPi6WwJxPHzz6BY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sous-vide-brisket-mfs-193-4x3-1-24930daf16854a9091eaff1503aac157.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

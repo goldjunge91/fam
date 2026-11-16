@@ -1,0 +1,1170 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-mex2-esquites",
+      "slug": "mfr-mex2-esquites",
+      "title": "Esquites (mexikanischer Straßenmais im Becher)",
+      "instructions": "In Butter angebratene Maiskörner, vermischt mit Mayonnaise, Limettensaft und Chilipulver, im Becher mit Cotija-Käse und frischem Koriander bestreut. Die praktische Variante von Elote zum Mitnehmen, die zu Hause schneller gelingt als am Straßenstand.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Mais ist günstiger als frische Maiskolben und lässt sich genauso gut rösten.",
+        "Feta ist ein idealer Ersatz für Cotija und hat dieselbe salzige, krümelige Konsistenz.",
+        "Das Rezept lässt sich leicht für eine Party vervielfachen. Bereite einfach eine größere Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Cotija oder Parmesan, jeder trockene salzige Käse"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-esquites",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Esquites",
+        "Mais",
+        "Streetfood",
+        "Elote",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1475,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-esquites/",
+      "components": [
+        {
+          "key": "0012c1f5-e71e-5863-8e16-cbce770bd10c",
+          "name": "Zutaten",
+          "servingGrams": 326.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b5566899-e783-5ec4-802d-a8d706888400",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f684299-c01d-5672-bf35-f597cbb93aa4",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18767529-1610-5a2c-9fca-feeb2910b542",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab8cc170-d1cc-5f58-94fd-0006d8ae0c24",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8248a46c-6330-5d54-a3d6-f65c1d4e2349",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eef2ff7a-8c79-5c13-b1f0-dfefece3904e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b6ef326-c23c-5896-b16b-c229cc275599",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1464d73d-2ab0-56dc-a7c6-97ae6f392e0b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96c0f259-26eb-5033-bcd3-04116e2b55d5",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d84ca259-f749-5233-a303-853ef290bebe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste den tiefgekühlten Mais 5–6 Minuten bei starker Hitze in einer trockenen gusseisernen Pfanne, bis er leicht geschwärzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Butter und Knoblauch unter und gare alles 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pfanne vom Herd und vermische den Mais mit Mayonnaise, Limettensaft, Chilipulver und der Hälfte des Käses.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Mais in Becher und garniere ihn mit dem restlichen Cotija, Paprika und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2021/05/esquites-served-in-cups.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2021/05/esquites-served-in-cups.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-carnitas",
+      "slug": "mfr-mex2-carnitas",
+      "title": "Carnitas-Tacos (mexikanisches geschmortes Schweinefleisch)",
+      "instructions": "Langsam in Orangensaft, Knoblauch, Kreuzkümmel und Lorbeerblättern geschmortes Schweinefleisch, bis es butterzart ist, anschließend im eigenen ausgelassenen Fett knusprig gebraten. Der Klassiker aus Michoacán, der jede Tortilla zum Genuss macht, serviert mit eingelegter roter Zwiebel, Koriander und Salsa Verde.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen sind die schnelle Variante. Schweineschulter ist traditionell, braucht aber 3 Stunden.",
+        "Der Schritt unter dem Grill ist unverzichtbar: Dabei entstehen die knusprigen Stückchen, die Carnitas besonders machen.",
+        "Bereite eine größere Menge zu. Carnitas lassen sich perfekt einfrieren und in 5 Minuten aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Schweinenacken, gewürfelt und für die authentische Variante 2–3 Stunden gegart"
+        },
+        {
+          "forIngredientId": "salsa-verde",
+          "swap": "Salsa aus dem Glas, jede Sorte"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-carnitas",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Carnitas",
+        "Schweinefleisch",
+        "geschmort",
+        "Taco",
+        "Michoacán"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1476,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-carnitas/",
+      "components": [
+        {
+          "key": "26722858-505e-5d4a-89be-7b68e16e8015",
+          "name": "Zutaten",
+          "servingGrams": 457.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ec34948-4fbf-530b-9b5a-1ad042f238a3",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a55edad6-b203-5272-abc3-5f9778a5eef8",
+              "ingredientName": "Tortilla",
+              "grams": 400,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c14b96ca-ea57-5a24-b62c-cf28ab65e749",
+              "ingredientName": "Orange",
+              "grams": 262,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80c6977e-6216-5010-b7a4-148b50803f01",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68f709f0-514e-5c40-804f-8bdecff5d73c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d849813-c4ab-59f8-9d87-fa4a505f7096",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c23eabfc-6dd1-5c03-9d4d-652752422a47",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5279c88f-5491-52bf-9def-09b08fde2bf4",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "912676fc-da0b-54d9-8fcb-672417a6086e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f5261d9-6ced-56cf-9188-ef0fa3f95042",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57f736af-6d15-5936-af0b-d4d224d088a8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "791383b2-0e71-5426-b2c5-db306f89b157",
+              "ingredientName": "Salsa Verde",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06476bfb-8d3a-55a3-a04d-f8ba9d9a336f",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen mit Kreuzkümmel, Oregano, Salz und Pfeffer. Brate es in Öl rundherum braun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Orangensaft, Knoblauch, Lorbeerblatt und so viel Wasser hinzu, dass das Fleisch halb bedeckt ist. Gare es zugedeckt bei 325°F 45 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Deckel ab, erhöhe die Hitze und gare alles 15 Minuten, bis die Flüssigkeit reduziert ist und das Hähnchen beginnt, im eigenen Fett zu braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerpflücke das Fleisch, verteile es auf einem Blech und grille es 5 Minuten, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Fleisch auf warmen Tortillas mit eingelegter Zwiebel aus Essig und Zwiebel, Koriander und Salsa Verde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2017/05/Crispy-Pork-Carnitas-IMAGE-1-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2017/05/Crispy-Pork-Carnitas-IMAGE-1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-sopa-fideo",
+      "slug": "mfr-mex2-sopa-fideo",
+      "title": "Sopa de Fideo (mexikanische Nudelsuppe)",
+      "instructions": "Dünne Nudeln wie Fadennudeln werden goldbraun geröstet und dann in einer gerösteten Tomaten-Knoblauch-Brühe mit Chili und Koriander geköchelt. Diese einfache mexikanische Wohlfühlsuppe gelingt wie im Restaurant und kostet weniger als 2 Dollar pro Schale.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Engelshaar-Pasta oder dünne Spaghetti, in Stücke gebrochen, sind der perfekte Ersatz für Fideo-Nudeln.",
+        "Die Nudeln anzurösten ist unverzichtbar: So entsteht ein nussiges Aroma, das sich anders nicht erreichen lässt.",
+        "Dieses Gericht reicht für 4 Personen und kostet insgesamt weniger als 3 Dollar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pasta",
+          "swap": "Engelshaar-Pasta oder dünne Fadennudeln, in 2-Zoll-Stücke gebrochen"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit einem Brühwürfel als günstige Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-sopa-fideo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mexikanisch",
+        "Fideo",
+        "Nudeln",
+        "Suppe",
+        "günstig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1477,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-sopa-fideo/",
+      "components": [
+        {
+          "key": "8b695255-c264-5b50-a05d-8269c5e16a00",
+          "name": "Zutaten",
+          "servingGrams": 469,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2588457-e101-519f-bc1b-bae2da60e39a",
+              "ingredientName": "Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bca77809-fef3-5925-bcb9-28a35aac0272",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b48069ee-4a5a-5b52-ba4a-7aace4a3da35",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acd444b8-9535-5e32-ada5-b5f697667398",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7393f2ba-2fed-5c53-bd35-2c8b74a0f211",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b00b9f48-e9cd-5f35-84b9-b3ccc1b3d306",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3351eed-c127-59c9-9a7a-8af24ea6314e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5432f12-4610-5877-91ba-b0a92a56f4ea",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea3d294e-d133-5b03-851d-1ce336fdf8f4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19849835-009d-514b-9dab-753f8c409045",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb9271d2-189f-51e1-ab1e-67fe6e0359b9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste dünne Nudeln 4–5 Minuten in Öl bei mittlerer Hitze goldbraun und rühre dabei ständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Tomaten, Knoblauch und Zwiebel. Gib alles zu den gerösteten Nudeln und brate es 2 Minuten zusammen an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brühe, Kreuzkümmel und Chilipulver dazu. Lass die Suppe 12 Minuten köcheln, bis die Nudeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Passe die Konsistenz bei Bedarf mit Wasser an. Die Suppe soll brühig und nicht dick sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit frischer Limette, Koriander und Avocadoscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://comfortablefood.com/wp-content/uploads/2022/09/sopa-de-fideo-Featured-Image-2-1536x1536.jpg",
+          "sourcePageUrl": "https://comfortablefood.com/wp-content/uploads/2022/09/sopa-de-fideo-Featured-Image-2-1536x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-stuffed-pepper-mex",
+      "slug": "mfr-mex2-stuffed-pepper-mex",
+      "title": "Mexikanische gefüllte Paprika mit Picadillo",
+      "instructions": "Paprika nach Poblano-Art, gefüllt mit Picadillo aus Rinderhackfleisch, Rosinen, Mandeln, Tomate und wärmenden Gewürzen. Das Gericht stammt aus Mexikos berühmter Tradition gefüllter Paprika und wird mit einer vereinfachten Walnuss-Sahnesauce und Granatapfelkernen in den Farben der Nationalflagge serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Paprika ist die günstigste Variante dieses Gerichts. Poblanos sind ideal, falls du sie bekommst.",
+        "Rosinen und Zimt im Fleisch machen das Gericht besonders. Lass sie nicht weg.",
+        "Übriges Picadillo schmeckt hervorragend in Tacos, auf Reis oder in Quesadillas."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Cashewkerne mit Frischkäse püriert für einen anderen cremigen Belag"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Getrocknete Cranberrys für eine leicht säuerliche Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-stuffed-pepper-mex",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "gefüllte-Paprika",
+        "Picadillo",
+        "Rindfleisch",
+        "Festessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1478,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-stuffed-pepper-mex/",
+      "components": [
+        {
+          "key": "cae1e2eb-6075-5ce8-9dbf-d801835ffc5c",
+          "name": "Zutaten",
+          "servingGrams": 278.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6172269-a4e5-5333-a5c5-d1a496e92c4b",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0ab4cbf-a9c5-5e32-b4db-bf66601dd753",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf837797-94be-5cf1-abb8-680cec0aac42",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ea7d161-8c63-5483-a856-873bfda5723d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d52ccb2f-b461-5ccd-8d75-eb1bed92cb6d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fec0f106-afd5-5dea-b002-ab53c9c77013",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a7d1c86-d1d8-510d-b2de-541381537365",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0aa68e7-7b1a-58c1-9b58-ca1cbd20396e",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc90496f-25b9-57f6-b805-7a419cf6ecc2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5c2cd5f-2389-573e-87c7-eda685597439",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0cba7c0-3d69-57a5-bc00-7aaa055650ad",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98272e50-6b2c-5e60-a57f-85799c0262af",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite das Picadillo zu: Gare Rinderhackfleisch mit Zwiebel, Knoblauch, Tomate, Kreuzkümmel, Zimt, Rosinen und gehobelten Mandeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere und entkerne die Paprika. Röste sie mit der Schnittfläche nach unten bei 425°F 10 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Paprikahälften mit Picadillo und stelle sie für weitere 10 Minuten in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere für die Walnusscreme Walnüsse, saure Sahne und etwas Milch, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Paprika an, beträufle sie mit Walnusscreme und streue Granatapfelkerne und Koriander darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/nCVXq2zRigEjZl3oTxw4U7a-bY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7999971-chiles-en-nogada-beauty-square-cd1ce7fb35574d099ee7ef3dafeb79b9.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/nCVXq2zRigEjZl3oTxw4U7a-bY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7999971-chiles-en-nogada-beauty-square-cd1ce7fb35574d099ee7ef3dafeb79b9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-tacos-canasta",
+      "slug": "mfr-mex2-tacos-canasta",
+      "title": "Tacos de Canasta (Tacos mit Bohnen und Kartoffeln aus dem Dämpfkorb)",
+      "instructions": "Der gedämpfte Straßentaco aus Mexiko-Stadt: Weiche Maistortillas werden mit würzigen Bohnen, Kartoffeln oder Chicharrón gefüllt und zusammengedrückt, bis sich die Füllung mit der Tortilla verbindet. Ein besonders günstiges, schnelles und sättigendes mexikanisches Streetfood-Erlebnis für zu Hause.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das ist eines der günstigsten Gerichte überhaupt: Bohnen, Kartoffeln und Tortillas kosten weniger als 2 Dollar für 4 Portionen.",
+        "Der Dämpfschritt macht die Korb-Tacos besonders, denn dabei verbindet sich die Füllung mit der Tortilla.",
+        "Iss sie sofort. Wenn sie stehen, werden sie noch weicher."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus als typischere Füllung für Korb-Tacos"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel für eine nährstoffreichere Füllung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-tacos-canasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "mexikanisch",
+        "Korb-Taco",
+        "Bohnen",
+        "Kartoffeln",
+        "Streetfood",
+        "günstig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1479,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-tacos-canasta/",
+      "components": [
+        {
+          "key": "b0ab28ab-1606-553a-9e2b-48579d0e6932",
+          "name": "Zutaten",
+          "servingGrams": 545.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b0c4973-a61b-537b-b166-fcc650076e56",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5b3172d-f29d-53c6-acab-b923d7242ed6",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d74a05ca-ee2d-538f-9208-99265f385ed2",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c6248b6-bf5a-56e9-ae80-a47ddcb0d14e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db3bab05-7ef3-5c0f-b81a-3eff57132bbe",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ee0d206-030c-5136-8ded-4e4f6acdad67",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bf2c7ac-7fbf-58d6-88b5-fc2decf2d1d8",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f453a4eb-7673-565f-a486-55e5091d5a67",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3079b85d-a5d5-531e-9047-61585099d31a",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d44dc2bf-9971-56c5-9f13-2fa80814e0d3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c4142d3-b310-596b-bc29-3d0a35b836c5",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare gewürfelte Kartoffeln mit Kreuzkümmel und Chilipulver, bis sie knusprig sind. Würze schwarze Bohnen mit Knoblauch, Kreuzkümmel und etwas Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle sie mit Kartoffeln oder Bohnen oder beidem und klappe sie zusammen. Lege einen Topf mit Folie aus, schichte die gefüllten Tacos hinein und decke sie mit weiterer Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe sie bei niedriger Hitze 5–8 Minuten, bis sie weich und zusammengedrückt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Salsa, frischem Koriander und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/PvBlUsaLP3S5xftR2j7vTpjFiFA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2014__10__20141023-canasta-tacos-vicky-wasik-16-7527df7802ae4142a543709ee44f7c5f.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/PvBlUsaLP3S5xftR2j7vTpjFiFA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2014__10__20141023-canasta-tacos-vicky-wasik-16-7527df7802ae4142a543709ee44f7c5f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

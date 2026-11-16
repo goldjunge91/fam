@@ -1,0 +1,1191 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-kor2-doenjang-jjigae",
+      "slug": "mfr-kor2-doenjang-jjigae",
+      "title": "Doenjang Jjigae (koreanischer Eintopf aus fermentierter Sojabohnenpaste)",
+      "instructions": "Koreas wohltuender Alltags-Eintopf: fermentiertes Doenjang (Sojabohnenpaste) in Sardellenbrühe auflösen und mit weichem Tofu, Zucchini, Pilzen und Zwiebeln garen. Erdig, kräftig umami und befriedigend, wie es nur fermentierte Zutaten sein können. Kochend heiß mit Reis servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Doenjang-Paste kostet $5 und hält sich 6+ Monate im Kühlschrank. Eine der besten Vorratszutaten.",
+        "Seidentofu ist eine der günstigsten eiweißreichen Zutaten und kostet weniger als $2 pro Packung.",
+        "Dieser Eintopf ist in 30 Min. fertig und kostet $1.50 pro Person."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "doenjang",
+          "swap": "Miso-Paste ergibt einen milderen, aber ähnlichen Eintopf"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Gochugaru (koreanische Chiliflocken) oder weglassen für eine milde Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-doenjang-jjigae",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "doenjang-jjigae",
+        "koreanischer Eintopf",
+        "fermentiert",
+        "Tofu",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1520,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-doenjang-jjigae/",
+      "components": [
+        {
+          "key": "03caeb4c-1d2e-53c5-b402-091827d5e5fb",
+          "name": "Zutaten",
+          "servingGrams": 738.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f4a5388-ab73-5db0-873c-5b5d084b3728",
+              "ingredientName": "Doenjang (fermentierte Sojabohnenpaste)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "102ae17b-e6f0-52f9-909a-b6451a364175",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a341107-2f74-5de8-85d8-6682d2612846",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bbe0f22-974c-5cb6-9189-871a40967ce7",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9d2a522-b165-524c-9387-7f176a88e919",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db4723e8-305f-5b3a-8cfa-9b019c216525",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cca0c65f-5a7d-556d-9e56-d268dc9dc29f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c513eae-3707-55c1-ae42-4afbc130b126",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2daddf71-4639-5cb6-a26b-1d7cf8a7c09e",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22447e63-6add-5a67-a3b6-238e9a249e79",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a79a31d8-972e-5742-95e7-f4e3eb2ba421",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe zum Kochen bringen. Doenjang darin auflösen, indem du die Paste durch ein kleines Sieb drückst oder kräftig verquirlst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel, Knoblauch und Zucchini hinzufügen und 8 Min. köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pilze und gewürfelten Seidentofu hinzufügen und weitere 5 Min. köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Einen kleinen Löffel Gochujang für Farbe und milde Schärfe hinzufügen. Abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit geschnittenen Frühlingszwiebeln und Sesamöl belegen und mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lovekoreanfood.com/wp-content/uploads/2021/11/IMG_8767.jpg",
+          "sourcePageUrl": "https://lovekoreanfood.com/wp-content/uploads/2021/11/IMG_8767.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kor2-sundubu",
+      "slug": "mfr-kor2-sundubu",
+      "title": "Sundubu Jjigae (würziger, weicher Tofu-Eintopf)",
+      "instructions": "Seidiger, puddingzarter Tofu in einer feurig roten Brühe aus Gochugaru, Knoblauch und Sardellen, dazu Garnelen und ein Ei, das direkt am Tisch hineingeschlagen wird. Dieser koreanische Eintopf kommt noch kochend heiß im Steintopf an den Tisch und schmeckt noch besser, als er aussieht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Seidentofu kostet weniger als $2 und ist die Hauptzutat des Gerichts.",
+        "Rote Chiliflocken und geräuchertes Paprikapulver ahmen den Geschmack von Gochugaru überraschend gut nach.",
+        "Dieses Abendessen ist in 25 Min. fertig und kostet insgesamt $3."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-oil",
+          "swap": "Gochugaru (koreanische rote Chiliflocken) für die authentische Variante"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Venusmuscheln oder Thunfisch aus der Dose als andere Eiweißquelle"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-sundubu",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "Sundubu",
+        "weicher Tofu",
+        "würzig",
+        "Eintopf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1521,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-sundubu/",
+      "components": [
+        {
+          "key": "5528588a-4aaa-5818-95e6-777d93b43620",
+          "name": "Zutaten",
+          "servingGrams": 669.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b5db317a-3f57-559c-b26f-2072b83ddb08",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "864e5f15-633b-5931-b350-d84a63a8200e",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48dbcb3d-ae1b-5ee0-b049-4e909b0f6c72",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d189e10b-ffd7-510a-bbc7-47344ec7f916",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61f6d420-12a3-518c-aaee-53c952c55a72",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68ab5f3e-66f9-5026-9fca-c85623c043f3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9683c215-5584-5191-8e69-1413c89e1318",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8412de16-14d3-5970-b3b6-122a65f68840",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63fb06e0-99c6-5338-9156-369b67c2ae03",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab33da55-a0fe-52ef-8a65-29d5152c7cac",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdcd8b48-9997-5e95-b06e-467be5bb09a1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2564abc8-26d1-583b-9a28-ecd617003a06",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61c71c23-67a2-5c65-9fc1-66f04e9e8b37",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch und rote Chiliflocken (oder Gochugaru) 1 Min. in Sesamöl braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brühe hinzufügen und aufkochen. Garnelen und Stücke Seidentofu hineingeben. Nicht umrühren; den Tofu von selbst zerfallen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Sojasoße würzen und 5 Min. köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ein Ei direkt in den blubbernden Eintopf schlagen und 2 Min. zugedeckt garen, bis das Eiweiß gerade gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit geschnittenen Frühlingszwiebeln belegen und mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Sundubu-Jjigae-Soft-Tofu-Stew.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Sundubu-Jjigae-Soft-Tofu-Stew.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kor2-bokkeumbap",
+      "slug": "mfr-kor2-bokkeumbap",
+      "title": "Kimchi Bokkeumbap (gebratener Kimchi-Reis)",
+      "instructions": "Reis vom Vortag mit kräftigem, säuerlichem Kimchi und dessen Saft im Wok braten, bis der Reis am Pfannenboden knusprig wird. Mit einem Spiegelei mit flüssigem Eigelb und Sesamöl belegen. Das ultimative koreanische Vorrats-Abendessen macht aus Resten etwas Besonderes.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gebratener Kimchi-Reis ist die beste Verwendung für Reisreste; Reis vom Vortag ist unverzichtbar.",
+        "Ein Glas Kimchi kostet $5 und reicht für 4+ Portionen gebratenen Reis.",
+        "Dieses Abendessen aus Vorratszutaten ist in 15 Min. fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kimchi",
+          "swap": "Sauerkraut und eine Prise Gochugaru für einen ähnlichen fermentiert-säuerlichen Geschmack"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha und etwas Miso-Paste"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-bokkeumbap",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "bokkeumbap",
+        "Kimchi-gebratener Reis",
+        "schnell",
+        "übrig geblieben"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1522,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-bokkeumbap/",
+      "components": [
+        {
+          "key": "05463bae-b26e-5495-92ea-55844ee6859d",
+          "name": "Zutaten",
+          "servingGrams": 365.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "49f9d99f-4cbf-5d71-8e5f-0382330e3425",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47f9e8ae-a302-576d-81cc-2d346f7166f2",
+              "ingredientName": "Kimchi",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68d8488b-59a5-5c9b-a2b6-ecb4e6be3041",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2041dad-b916-5d5b-9856-8079d18e4976",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5614ba47-ee2c-5e80-bcae-9db891ccf9b4",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "877517b4-9679-5f8f-aa87-be9b535a14f1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2d8139e-45fd-5b97-90b3-effa37d77fd6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e78552ef-cbbd-511f-a29d-91fe04ea86b2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b0bc29d-b5e0-51bc-aa01-2bb65853baf8",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6911c411-624c-5b87-9e72-9627e4b1ba7c",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kalten Reis vom Vortag verwenden. Frischer Reis macht den gebratenen Reis matschig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Kimchi 3 Min. bei hoher Hitze in Öl braten, bis das Kimchi zu karamellisieren beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis hinzufügen und in einer Lage verteilen. 2 Min. nicht bewegen, damit sich eine Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sojasoße und Gochujang hinzufügen und alles vermengen. Einige knusprige Reiskörner übrig lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Schüssel mit einem Spiegelei, Sesam, Frühlingszwiebeln und Sesamöl belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://coupleeatsfood.com/wp-content/uploads/2017/10/Kimchi-Fried-Rice-Kimchi-Bokkeumbap-Recipe-1-e1516483454546.jpg",
+          "sourcePageUrl": "https://coupleeatsfood.com/wp-content/uploads/2017/10/Kimchi-Fried-Rice-Kimchi-Bokkeumbap-Recipe-1-e1516483454546.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kor2-gamja-jorim",
+      "slug": "mfr-kor2-gamja-jorim",
+      "title": "Gamja Jorim (koreanische Schmorkartoffeln) mit Ei",
+      "instructions": "Kleine Kartoffeln in einer klebrigen Glasur aus Soja und Gochujang schmoren, bis jede Kartoffel mit der glänzenden süß-herzhaft-scharfen Soße überzogen ist. Ein beliebtes koreanisches Banchan, das mit Reis und einem Spiegelei auch als Hauptgericht funktioniert. Besonders befriedigend und sehr günstig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln für 50 Cent pro Pfund machen dieses Gericht zu einem der günstigsten sättigenden Abendessen.",
+        "Gochujang ist die weitere wichtige Zutat; ein Glas reicht monatelang.",
+        "Die klebrige Glasur macht das ganze Gericht aus; lass sie ausreichend einkochen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha + ein Teelöffel Misopaste"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Honig oder Ahornsirup; der Geschmack ist etwas anders, aber ebenfalls sehr gut."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-gamja-jorim",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "koreanisch",
+        "gamja-jorim",
+        "Schmorkartoffel",
+        "banchan",
+        "klebrig"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1523,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-gamja-jorim/",
+      "components": [
+        {
+          "key": "d83a2b0d-bbcd-5da5-b18b-1ddfe6e4fcf5",
+          "name": "Zutaten",
+          "servingGrams": 558,
+          "position": 0,
+          "items": [
+            {
+              "key": "c24989d8-2a59-5b70-b5e9-b8fc24b44c33",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d752ac3-ddb9-5cb0-9b46-dabd922c9b04",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d996936d-2fa5-5bdd-9b58-2da2cc8e9c45",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "954973e9-468e-50be-9275-0a3d56473e46",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e2e569b-6cbb-5c7e-892d-990deacc5ed6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "181c1d46-9105-55f2-b99a-82ef582fdee2",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "659a7df8-b575-5058-b7d1-fc06cc67b89d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0de6dd69-bc68-53a6-98cf-9eebb880bc3f",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd479466-9d47-5489-8b93-d12209b58450",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58d72834-435c-5091-9938-d694f667a62a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad7ebb24-ca0a-51b8-9e2c-f2fdd5abf669",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die kleinen Kartoffeln 8 Minuten vor und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl und brate die Kartoffeln, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sojasauce, braunen Zucker, Gochujang, Knoblauch und 1/4 Tasse Wasser dazu und wende die Kartoffeln darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles köcheln, bis die Sauce dick und klebrig ist, etwa 8–10 Minuten; wende die Kartoffeln dabei häufig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue das Gericht mit Sesam und Frühlingszwiebeln. Serviere es mit Reis und je einem Spiegelei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Uac0UhjawcxOf263yCPnlITlgFw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simply-recipes-gamja-jorim-potatoes-method-04-b2baf93525724f41859bdf6fcd1d0ae4.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Uac0UhjawcxOf263yCPnlITlgFw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simply-recipes-gamja-jorim-potatoes-method-04-b2baf93525724f41859bdf6fcd1d0ae4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kor2-japchae-chicken",
+      "slug": "mfr-kor2-japchae-chicken",
+      "title": "Japchae mit Hühnchen (koreanische Glasnudeln)",
+      "instructions": "Bissfeste, durchscheinende Glasnudeln aus Süßkartoffelstärke mit in Julienne geschnittenem Gemüse, Hähnchen und Pilzen in Sesam-Soja-Soße braten. Koreas festlichstes Nudelgericht wird zu jedem Geburtstag und Feiertag serviert, ist aber auch schnell genug für einen Dienstag.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Glasnudeln (Dangmyeon) kosten 2 $ pro Packung und sind in jedem asiatischen Lebensmittelgeschäft erhältlich.",
+        "Koche jedes Gemüse einzeln; genau das macht den Geschmack von Japchae so klar und ausgewogen.",
+        "Dieses Gericht schmeckt auch bei Zimmertemperatur sehr gut und eignet sich daher bestens zur Vorbereitung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-noodles",
+          "swap": "Echte Süßkartoffel-Glasnudeln (Dangmyeon) für den authentischen Geschmack"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Rindfleischstreifen für die traditionellere Japchae-Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-japchae-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "japchae",
+        "Glasnudeln",
+        "unter Rühren anbraten",
+        "festlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1524,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-japchae-chicken/",
+      "components": [
+        {
+          "key": "6bffb672-f18a-5a02-84fc-b20fdb3f7e99",
+          "name": "Zutaten",
+          "servingGrams": 488.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "d90b90e7-fafa-5b9a-89b1-deca92b1993c",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86bd1771-3751-5546-985f-b61722bcda24",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fc889f6-2657-58c7-a8f0-287b8fe00b0f",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecb163b6-eff4-5584-ab31-80c31f1a2392",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44c6250c-6271-5181-a81f-33a883fa9860",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e44b6b9-eeee-5215-b80e-a0416ecfb4a6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b3a7037-bf0c-595d-bcfe-ff702df631be",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38ec8c85-59e8-5eae-9dc4-af6fe34364e0",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06682b53-c36b-562c-b471-f4c1d4bca769",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c946f0e5-b81d-548e-8873-e8f56dbb70da",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb95645f-b1c1-5c5d-9bac-b09b1a813ebe",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf997a08-7e8b-5a3b-9a5e-a9ad0b0e7ee6",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc51218f-1165-5f50-8d65-017923d6e663",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Glasnudeln 20 Minuten in warmem Wasser ein, koche sie anschließend 5 Minuten in kochendem Wasser und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die gekochten Nudeln mit Sojasauce, Sesamöl und einer Prise Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate jede Zutat einzeln in derselben Pfanne kurz an: zuerst die Hähnchenstreifen, dann Karotte, Pilze und Spinat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib alles zusammen in die Pfanne und vermenge es mit der restlichen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere das Gericht mit in Streifen geschnittenem Omelett und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/02/Japchae-Recipe-Korean-Noodle-Stir-Fry-with-Steak-Beef-2.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/02/Japchae-Recipe-Korean-Noodle-Stir-Fry-with-Steak-Beef-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

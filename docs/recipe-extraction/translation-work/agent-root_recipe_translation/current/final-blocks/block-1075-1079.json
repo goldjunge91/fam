@@ -1,0 +1,1043 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-south-african-bobotie",
+      "slug": "mfr-south-african-bobotie",
+      "title": "Südafrikanisches Bobotie",
+      "instructions": "Würziges Hackfleisch, im Ofen unter einer herzhaften Eiercreme mit Aprikosen und Curry gebacken. Südafrikas Nationalgericht mit seiner besonderen Mischung aus süßen und herzhaften Aromen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bobotie ist im Grunde Hackbraten mit Curry und einer Eierkruste. Klingt vornehm, ist aber preiswert.",
+        "Aprikosenmarmelade gleicht das Curry aus. Schon eine kleine Menge macht einen Unterschied."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Lamm- oder Putenhack"
+        },
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Mango-Chutney"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-south-african-bobotie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "südafrikanisch",
+        "Ofengericht",
+        "gewürzt",
+        "festlich",
+        "Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1075,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-south-african-bobotie/",
+      "components": [
+        {
+          "key": "dce29a2b-9a95-5667-b45d-b44dc8cc6b11",
+          "name": "Zutaten",
+          "servingGrams": 659,
+          "position": 0,
+          "items": [
+            {
+              "key": "91ca8c55-7485-5638-82d3-2c242f10774c",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64471436-72e8-58fc-ad6e-886bc835f20b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9915d4d-a93e-5467-9d3d-4a81c28b65bf",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef4f10d7-4fc7-5be7-a65a-4607ff92980e",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23a495ac-fa7b-57f1-9383-f35f852c276c",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "342e0feb-62ef-5755-846d-d9ee4eee51a6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18e71406-a959-5f39-965c-d081c47370fb",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9e8f57c-fd1b-54ac-88e2-f731cee03ea9",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fa9388b-76c0-5eaf-93b0-b14ccf3cae3a",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18b55098-6643-5976-a1ca-c298c730d436",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49d967a4-f3be-58b0-b00d-cb7680a36b32",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Knoblauch anschwitzen. Rinderhack, Curry und Kurkuma dazugeben und 5 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aprikosenmarmelade und Mandeln einrühren. In eine Auflaufform geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier mit Milch verquirlen und über das Fleisch gießen. Lorbeerblätter darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei 350°F 30 Minuten backen, bis die Eiercreme gestockt ist. Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Rm_gM4Ff4HffMsORJsSie7TYdg4=/6016x4000/filters:fill(auto,1)/beef-bobotie-recipe-39440-hero-01-5c38fca646e0fb00012b4b3a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Rm_gM4Ff4HffMsORJsSie7TYdg4=/6016x4000/filters:fill(auto,1)/beef-bobotie-recipe-39440-hero-01-5c38fca646e0fb00012b4b3a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kenyan-ugali-sukuma",
+      "slug": "mfr-kenyan-ugali-sukuma",
+      "title": "Kenianischer Ugali mit Sukuma Wiki",
+      "instructions": "Fester Maisbrei (Ugali) mit geschmortem Blattkohl, Zwiebel, Tomate und Rindfleisch. Kenias alltägliche Mahlzeit: einfach und besonders sättigend.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ugali gehört zu den günstigsten Grundnahrungsmitteln. Ein Beutel Maismehl kostet $2 und reicht für viele Mahlzeiten.",
+        "Sukuma Wiki bedeutet auf Swahili „die Woche strecken“. Das Gericht ist als preiswertes Essen gedacht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cornmeal",
+          "swap": "Polenta (ist dasselbe)"
+        },
+        {
+          "forIngredientId": "collard-greens",
+          "swap": "Grünkohl, Mangold oder Spinat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kenyan-ugali-sukuma",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kenianisch",
+        "Maismehl",
+        "Blattgemüse",
+        "Rindfleisch",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1076,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kenyan-ugali-sukuma/",
+      "components": [
+        {
+          "key": "a1e4e4b4-1d25-5af0-9fa4-b5e2146110fd",
+          "name": "Zutaten",
+          "servingGrams": 1088,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8d314ce-c6b1-5481-83a5-3bf4a2468c16",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a07c4d6-1cba-517d-b40a-6fac4080f01f",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8f80902-34ca-55aa-a295-19a584953b64",
+              "ingredientName": "Blattkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01d9c7e8-7001-5686-8b4c-917832e8aabd",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8646e96-7622-5ba2-bd27-32c834005c5d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73ba5be7-6ce1-5fce-8d9f-0742ec8cfc7b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9036d9d-cf8f-5726-83e8-9b0bec8c1e5e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56e5ec6c-1c2d-500d-b6a5-f1ada10b0bf0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe52afc3-e417-55ed-9748-d290f8979712",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ugali zubereiten: Brühe aufkochen. Maismehl nach und nach einrühren und dabei ständig rühren. 10–15 Minuten kochen, bis ein fester Brei entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sukuma Wiki zubereiten: Zwiebel, Knoblauch und Tomate 5 Minuten anbraten. Zerkleinerten Blattkohl dazugeben und 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sukuma mit Rindfleisch: Rinderhack anbraten und unter das Gemüse heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ugali auf einem Teller zu einem Häufchen formen und mit Sukuma Wiki servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/pn_0-kVmKKJVimCCdVFgXEVNxs0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240806-SEA-Ugali-MaureenCelestine-15-5816fa3f94df47c0a0bd61b887c3fbf2.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/pn_0-kVmKKJVimCCdVFgXEVNxs0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240806-SEA-Ugali-MaureenCelestine-15-5816fa3f94df47c0a0bd61b887c3fbf2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-haitian-black-mushroom-rice",
+      "slug": "mfr-haitian-black-mushroom-rice",
+      "title": "Haitianischer schwarzer Pilzreis mit Hähnchen",
+      "instructions": "Reis in einer tiefschwarzen Brühe aus getrockneten haitianischen Schwarzpilzen (Djon Djon) mit Hähnchen und Erbsen gegart. Ein geschätztes haitianisches Festgericht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Djon-Djon-Pilze gibt es in haitianischen Lebensmittelgeschäften. Es lohnt sich, danach zu suchen.",
+        "Andere getrocknete schwarze Pilze ergeben eine ähnliche dunkle Brühe, falls keine Djon-Djon-Pilze erhältlich sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dried-mushrooms",
+          "swap": "Getrocknete schwarze Pilze und Shiitake für Farbe und Geschmack"
+        },
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Schwarze Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-haitian-black-mushroom-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "haitianisch",
+        "Reis",
+        "Pilze",
+        "Hähnchen",
+        "festlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1077,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-haitian-black-mushroom-rice/",
+      "components": [
+        {
+          "key": "7f7aabac-aa1f-5ced-80a2-154d36c90899",
+          "name": "Zutaten",
+          "servingGrams": 1042,
+          "position": 0,
+          "items": [
+            {
+              "key": "0cbd1ae6-2fb3-5475-a0bc-08de9e445858",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f825d066-3643-533d-bc16-a3ae53dad561",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "326b644f-bc4e-5b96-81c5-7fd7144452a7",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54399767-8f76-51a0-ab56-5dcb2301f3d8",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36d54078-16f4-50a9-a5ba-f57ef16efd0e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6c4066b-de45-5613-975e-6a1bcb785187",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b30c538-905e-50a7-b566-d15f0536a7fc",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74130457-83f9-5281-88c6-13103299c04e",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b264938b-9cec-57ee-9d7b-c04c2188d0fc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fbb259a-340b-5399-b1a7-694305405a51",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Pilze in 2 Tassen heißem Wasser 15 Minuten ziehen lassen. Die dunkle Brühe aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen anbraten. Zwiebel, Knoblauch und Thymian anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pilzbrühe, Hühnerbrühe, Kidneybohnen und Reis dazugeben. Abdecken und bei niedriger Hitze 20 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "5 Minuten ruhen lassen. Der Reis sollte tiefschwarz und aromatisch sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://loveforhaitianfood.com/wp-content/uploads/2020/05/UNADJUSTEDNONRAW_thumb_2bf-copy-c.jpg",
+          "sourcePageUrl": "https://loveforhaitianfood.com/wp-content/uploads/2020/05/UNADJUSTEDNONRAW_thumb_2bf-copy-c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-barbadian-flying-fish-bowl",
+      "slug": "mfr-barbadian-flying-fish-bowl",
+      "title": "Fisch-Reis-Bowl nach bajanischer Art",
+      "instructions": "Weißfisch mit Gewürzen aus Barbados, Thymian, Majoran, Limette und Scotch Bonnet, in der Pfanne gebraten und auf Reis mit frischem Zwiebel-Tomaten-Relish serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tilapia ist der günstigste Weißfisch: frisch kostet er $4–5/lb, tiefgekühlt weniger.",
+        "Die bajanische Würzung dauert 5 Minuten und macht aus günstigem Fisch etwas Besonderes."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tilapia",
+          "swap": "Kabeljau, Goldmakrele oder ein beliebiger Weißfisch"
+        },
+        {
+          "forIngredientId": "scotch-bonnet",
+          "swap": "Habanero oder Jalapeño"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-barbadian-flying-fish-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "barbadisch",
+        "Meeresfrüchte",
+        "karibisch",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1078,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-barbadian-flying-fish-bowl/",
+      "components": [
+        {
+          "key": "1b924494-02eb-5d9c-9fe8-2dbab80d2872",
+          "name": "Zutaten",
+          "servingGrams": 517.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc7cf739-b821-5180-90a8-c90076b2bc12",
+              "ingredientName": "Tilapiafilet",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56031be8-4b2e-55f7-9139-7eec2e3c59c9",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4c109d8-9f0e-5575-bef3-b60dc93b5789",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e869f3a7-9d73-5a3e-b0a3-7fcbf28da708",
+              "ingredientName": "Frischer Majoran",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17468226-69a3-5283-a918-db02144b1093",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4ce3935-7b4d-5252-88da-65d2740058bc",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8d33b5f-429e-5700-894b-2343fcd378d8",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de35950d-07df-5228-9776-a286d71a5a11",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "885b6213-e740-5d9c-9406-da9554bffc6d",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b10331cc-2e3a-544e-9529-50c4db03634a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fisch würzen: mit Thymian, Majoran, Knoblauch, Limette und Salz einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pro Seite 4 Minuten in der Pfanne braten, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Relish zubereiten: Tomate, Zwiebel und Scotch Bonnet würfeln und mit Limette vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fisch auf Reis mit dem Relish servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/06/Salmon-Rice-Bowl-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/06/Salmon-Rice-Bowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-classic-club-sandwich",
+      "slug": "mfr-classic-club-sandwich",
+      "title": "Eiweißreiches Club-Sandwich",
+      "instructions": "Dreistöckiges Sandwich mit Pute, Speck, Salat und Tomate auf Vollkornbrot. Der amerikanische Diner-Klassiker mit besseren Makros und Mayonnaise aus griechischem Joghurt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischer Joghurt mit Dijon-Senf hat 50 kcal weniger als Mayonnaise und deutlich mehr Eiweiß.",
+        "Aufschnitt aus Putenbrust ist die günstigste Eiweißquelle pro Unze."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck für weniger Fett"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Weglassen oder durch Käsescheiben ersetzen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-classic-club-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Sandwich",
+        "Pute",
+        "schnell",
+        "Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1079,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-classic-club-sandwich/",
+      "components": [
+        {
+          "key": "8721083d-c238-5290-8b30-f0e61f237d91",
+          "name": "Zutaten",
+          "servingGrams": 1102.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e62f83db-032d-5c15-bca5-c3a6920fb44f",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bee737e0-4cca-51e1-b9f2-47aff6d1de7d",
+              "ingredientName": "Putenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fb62950-1e61-56db-9686-b020fb1aa57f",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edaeb041-f19e-5ac2-87fb-bfb52eff485e",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c120e78-3b4b-5867-83dc-c1ef526b0b28",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8823ecb-aeb0-5873-bc57-13d1a986e6c8",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ddb8afa-f740-50f3-b6c7-6255d06e3bba",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c0afa64-2f1e-5a7d-89f7-c88034a805f1",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck knusprig braten. Griechischen Joghurt mit Dijon-Senf als Aufstrich verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brot toasten. Jede Scheibe mit dem Joghurt-Senf-Aufstrich bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pute, Tomate, Speck, Avocado und Salat schichten. Zu einem dreistöckigen Sandwich stapeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Diagonal durchschneiden und mit einem Zahnstocher fixieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Mb1XDRC56r_qTsGuZllzWkgUJHk=/3600x0/filters:no_upscale():max_bytes(150000):strip_icc()/turkey-club-sandwich-recipe-996062-step-04-5c252ecec9e77c0001d6b56a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Mb1XDRC56r_qTsGuZllzWkgUJHk=/3600x0/filters:no_upscale():max_bytes(150000):strip_icc()/turkey-club-sandwich-recipe-996062-step-04-5c252ecec9e77c0001d6b56a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

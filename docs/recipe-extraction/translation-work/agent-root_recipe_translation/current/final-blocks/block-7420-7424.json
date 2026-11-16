@@ -1,0 +1,1452 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-victoria-sponge-cake",
+      "slug": "bake-victoria-sponge-cake",
+      "title": "Victoria Sponge Cake",
+      "instructions": "Der klassische britische Kuchen zur Teestunde: Zwei lockere, buttrige Vanilleböden aus aufgeschlagener Butter-Zucker-Masse werden großzügig mit Himbeerkonfitüre und luftig geschlagener Sahne gefüllt und mit Puderzucker bestäubt. Zart, goldgelb und nicht zu süß.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nimm normales Weizenmehl und gib 2 tsp Backpulver dazu, statt selbstaufgehendes Mehl zu kaufen. Eine Prise Salz ergänzt die Mischung.",
+        "Gleiche Mengen Butter, Zucker, Mehl und Eier (ungefähr 4 Eier und je 225g der übrigen Zutaten) ergeben ein leicht skalierbares Rezept, bei dem nichts übrig bleibt.",
+        "Lass die Schlagsahne weg und fülle den Kuchen mit Konfitüre und einer dünnen Schicht Buttercreme aus übriger Butter und Puderzucker. So hält er länger und entspricht einer traditionelleren Variante."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vanille-Buttercreme (mit Puderzucker aufgeschlagene Butter) statt Schlagsahne als Füllung verwenden.",
+          "savings": "Hält länger, spart Sahne und verwendet Vorratszutaten"
+        },
+        {
+          "forIngredientId": "jam",
+          "swap": "Zitronencreme oder Orangenmarmelade.",
+          "savings": "Eine bereits vorhandene Fruchtkonfitüre verwenden"
+        },
+        {
+          "forIngredientId": "sugar",
+          "savings": "Kein besonderer feiner Kristallzucker nötig",
+          "swap": "Normalen Kristallzucker einige Sekunden im Mixer zu feinem Zucker mahlen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "kuchen",
+        "backen",
+        "dessert",
+        "teestunde",
+        "vanille",
+        "klassisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7420,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-victoria-sponge-cake/",
+      "components": [
+        {
+          "key": "ae96442d-0b7f-5c23-b96a-d807b00eaf40",
+          "name": "Zutaten",
+          "servingGrams": 60.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "80f60c32-6367-5e6a-a0f2-38ffc5d88fde",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "225g, ungesalzen und zimmerwarm weich"
+            },
+            {
+              "key": "775fba8c-5cd8-5130-ae2b-0f61c78203cb",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "225g feiner Kristallzucker"
+            },
+            {
+              "key": "d31d575c-2390-5c70-88aa-1a1fafb7a2d8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "große, zimmerwarm"
+            },
+            {
+              "key": "62b08d54-2e99-5ece-9b6e-756e6b9b5677",
+              "ingredientName": "Weizenmehl",
+              "grams": 9.6,
+              "quantity": 9.6,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "225g Mehl mit Backpulver (oder Weizenmehl + 2 TL Backpulver)"
+            },
+            {
+              "key": "05e374f1-8045-5fce-a7f5-cb3671bcfc74",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL bei Verwendung von normalem Mehl"
+            },
+            {
+              "key": "d64cb3e0-69a7-5a3e-9c19-096353f51458",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "21dc5d37-85dc-5249-8f6a-dc1c8d4de276",
+              "ingredientName": "Milch",
+              "grams": 31.2,
+              "quantity": 31.2,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1-2 EL, bis der Teig zähflüssig vom Löffel fällt."
+            },
+            {
+              "key": "5c647f31-9f6d-527d-b596-f619f7ca8b6c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "11144b3a-d251-5b55-a53b-2dfeb24378ad",
+              "ingredientName": "Konfitüre",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse gute Himbeer- oder Erdbeermarmelade"
+            },
+            {
+              "key": "b57a1cd8-ea89-585c-a4eb-bd77b598b920",
+              "ingredientName": "Sahne",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 250ml, geschlagen"
+            },
+            {
+              "key": "8c674446-d511-5c6a-b542-91a8527242a8",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL zum Bestäuben und etwas zum Süßen der Sahne"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 180C/350F vorheizen. Zwei runde Kuchenformen mit 8-inch Durchmesser einfetten und die Böden mit Backpapier auslegen. Butter und Eier sollten Zimmertemperatur haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die weiche Butter mit dem feinen Zucker mit dem Handrührgerät 4-5 Minuten schlagen, bis die Masse sehr hell, luftig und schaumig ist. Dabei wird Luft eingearbeitet, die den Kuchen aufgehen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Eier einzeln einrühren und nach jeder Zugabe gut vermischen. Falls der Teig gerinnt, einen Löffel Mehl dazugeben und weiterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das selbstaufgehende Mehl (bei normalem Mehl zusätzlich Backpulver und Salz) über den Teig sieben und mit einem Teigschaber vorsichtig unterheben, bis gerade alles vermengt ist. Vanille und so viel Milch unterheben, dass der Teig weich vom Löffel fällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig gleichmäßig auf beide Formen verteilen und die Oberfläche glatt streichen. 22-25 Minuten backen, bis die Böden goldgelb sind, bei leichtem Druck zurückfedern und ein hineingesteckter Holzspieß sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Böden 5 Minuten in den Formen abkühlen lassen, dann auf ein Kuchengitter stürzen, das Backpapier abziehen und vollständig auskühlen lassen. Einen warmen Boden nie füllen, sonst schmilzt die Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Sahne mit etwas Puderzucker zu weichen Spitzen schlagen. Die flache Seite eines Bodens mit Himbeerkonfitüre bestreichen und die Schlagsahne darauf verteilen oder aufspritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den zweiten Boden mit der flachen Seite nach unten daraufsetzen. Großzügig Puderzucker durch ein Sieb darüberstäuben. Am selben Tag servieren, am besten zum Tee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Victoria_Sponge_Cake.jpg/1280px-Victoria_Sponge_Cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Victoria_Sponge_Cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Victoria Spongebob — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Victoria Sponge Cake",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-german-chocolate-cake",
+      "slug": "bake-german-chocolate-cake",
+      "title": "German Chocolate Cake",
+      "instructions": "Ein zarter Schokoladenkuchen mit mildem Geschmack, gekrönt von der typischen Füllung aus Kokos und Pekannüssen: ein gekochter Pudding aus Kondensmilch, Eigelb, braunem Zucker, Butter, gerösteten Pekannüssen und Kokosraspeln. Trotz des Namens ist dies ein amerikanischer Klassiker, der nach German’s Sweet Chocolate benannt wurde. Die Böden mit Buttermilch bleiben saftig, und die Füllung kommt zwischen die Schichten und obendrauf.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Günstiges Kakaopulver in heißem Kaffee auflösen, statt Backschokolade zu kaufen. Das verstärkt das Aroma und kommt dem ursprünglichen German’s Sweet Chocolate für wenige Cent nahe.",
+        "Keine Buttermilch da? 1 tbsp Essig oder Zitronensaft in eine Tasse Milch rühren und 5 Minuten stehen lassen.",
+        "Pekannüsse aus einer Großpackung selbst rösten. Das ist deutlich günstiger als fertig geröstete Nüsse und ergibt eine aromatischere Füllung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1 cup Milch mit 1 tbsp Essig oder Zitronensaft säuern.",
+          "savings": "Spart ~$2 gegenüber einer größtenteils ungenutzten Packung Buttermilch"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Geröstete Walnüsse.",
+          "savings": "Oft $3-4/Pfund günstiger als Pekannüsse"
+        },
+        {
+          "forIngredientId": "evaporated-milk",
+          "savings": "Verwendet bereits vorhandene Milch",
+          "swap": "Vollmilch einkochen, bis nur noch zwei Drittel übrig sind, und 1 extra tbsp Butter hinzufügen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "kuchen",
+        "dessert",
+        "schokolade",
+        "kokos",
+        "pekannuss",
+        "schichtkuchen",
+        "backen",
+        "klassisch"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7421,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-german-chocolate-cake/",
+      "components": [
+        {
+          "key": "8090eb52-6188-5401-83a3-370e5e3073dc",
+          "name": "Zutaten",
+          "servingGrams": 289.32,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1800d0b-9245-5738-8bc1-c87a16ba32c7",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "122cd4a4-5726-5bea-b40c-46f243b6a053",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker für den Kuchenteig"
+            },
+            {
+              "key": "47036f64-8022-5c02-b63a-8483ebbf07cd",
+              "ingredientName": "Kakaopulver",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse ungesüßtes Kakaopulver"
+            },
+            {
+              "key": "d5213348-1832-550c-b443-6a9b2e2827da",
+              "ingredientName": "Natron",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL Natron"
+            },
+            {
+              "key": "835d327e-6fcb-5c40-99b3-a17cb3778ce7",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "f72a1b41-3565-50c8-b561-0a0e8a743882",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Salz, auf Teig und Füllung verteilt"
+            },
+            {
+              "key": "1121d57a-c555-5326-976f-97a3c45a0f54",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 ganze Eier für den Teig, 4 Eigelbe für die Kokos-Pekannuss-Füllung"
+            },
+            {
+              "key": "cbcee608-b959-59e8-9e08-dcc203d71ab6",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse Buttermilch"
+            },
+            {
+              "key": "c2445239-f7d2-51e9-bd45-0dcc112b1b8a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse neutrales Öl für eine saftige Krume"
+            },
+            {
+              "key": "b38a4efa-6f73-5561-8b13-652832f9bc9f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL Vanille für Teig und Füllung"
+            },
+            {
+              "key": "89caa7f5-5fd1-5d74-8fe3-3f0e00841212",
+              "ingredientName": "Filterkaffee",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse heißer gebrühter Kaffee zum Entfalten des Kakaoaromas"
+            },
+            {
+              "key": "7cc5a932-a61f-5c90-9e6e-90e2f428871c",
+              "ingredientName": "ungesüßte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "12 oz-Dose für die Kokos-Pekannuss-Füllung"
+            },
+            {
+              "key": "bcb5c6e6-b730-5a36-911e-bdf819a5ffb9",
+              "ingredientName": "brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Tasse hellbrauner Zucker, fest angedrückt, für die Füllung"
+            },
+            {
+              "key": "204b724e-5a24-551c-9cb0-f4c91f9c93bf",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "3/4 Tasse (1.5 US-Sticks) Butter für Füllung und Form"
+            },
+            {
+              "key": "0e3860f4-2e68-5d00-907b-542376d3adf9",
+              "ingredientName": "Ungesüßte Kokosraspel",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1.5 Tassen gesüßte Kokosraspeln"
+            },
+            {
+              "key": "a573d098-444e-589d-b533-b12d897d9910",
+              "ingredientName": "Pekannüsse",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 Tasse gehackte Pekannüsse, geröstet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F vorheizen. Zwei runde Formen mit 9-inch Durchmesser mit Butter einfetten und die Böden mit Backpapier auslegen. Pekannüsse 6-8 Minuten im Ofen rösten, bis sie duften, dann hacken und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Kuchenteig Mehl, Kristallzucker, Kakao, Natron, Backpulver und 1/2 tsp Salz in einer großen Schüssel verquirlen. In einer anderen Schüssel 2 ganze Eier, Buttermilch, Öl und 1 tsp Vanille glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die flüssigen Zutaten zu den trockenen geben und nur kurz verrühren, dann den heißen Kaffee einrühren. Der Teig wird dünnflüssig, das ist richtig. Auf beide Formen verteilen und 28-32 Minuten backen, bis am hineingesteckten Holzspieß ein paar feuchte Krümel haften. 10 Minuten abkühlen lassen, dann zum vollständigen Auskühlen auf ein Gitter stürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Kokos-Pekannuss-Füllung Kondensmilch, braunen Zucker, 4 Eigelb, Butter, 1/2 tsp Salz und 1 tsp Vanille in einem Topf verquirlen. Bei mittlerer Hitze unter ständigem Rühren 10-12 Minuten kochen, bis die Masse eindickt und goldgelb wird. Sie soll einen Löffel überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen und Kokosraspel sowie geröstete Pekannüsse einrühren. Die Füllung auf einem Teller verstreichen und etwa 30 Minuten abkühlen lassen, bis sie dick und streichfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die abgekühlten Böden bei Bedarf begradigen. Einen Boden auf eine Platte legen und mit einem Drittel der Füllung bestreichen. Den zweiten Boden daraufsetzen und die übrige Füllung obendrauf bis zu den Rändern verteilen, die Seiten aber frei lassen – so sieht die traditionelle Variante aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Kuchen vor dem Anschneiden bei Zimmertemperatur 20 Minuten fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/GermanChocolateCake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:GermanChocolateCake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tracy Hunter from Kabul, Afghanistan — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: German Chocolate Cake",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-hummingbird-cake",
+      "slug": "bake-hummingbird-cake",
+      "title": "Hummingbird Cake",
+      "instructions": "Ein klassischer Schichtkuchen aus dem Süden der USA: Saftiger, würziger Teig mit zerdrückter Banane, Ananasstücken und gerösteten Pekannüssen, gekrönt von säuerlichem Frischkäsefrosting. Kein Rührgerät nötig; alles wird mit Schneebesen und Schüssel vermengt.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende sehr reife, stark gesprenkelte Bananen. Reduzierte Bananen sind oft die günstigsten und beim Backen besonders süß.",
+        "Kaufe Pekannüsse lose statt in abgepackten Backtütchen. Du brauchst nur eine kleine Menge und lose Nüsse sind pro Unze deutlich günstiger.",
+        "Ananasstücke aus der Dose im eigenen Saft sind preiswert, und du verwendest die ganze Dose samt Saft – es bleibt nichts übrig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pecans",
+          "swap": "Stattdessen Walnüsse verwenden. Sie lassen sich genauso rösten und hacken und sind meist günstiger.",
+          "savings": "~$2 pro Kuchen"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Geschmolzene Butter oder ein beliebiges neutrales Öl verwenden, das du schon da hast.",
+          "savings": "~1 $"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Eine einfache Glasur aus Puderzucker und Milch zubereiten, um den Frischkäse wegzulassen.",
+          "savings": "~3 $"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südstaaten-amerikanisch",
+        "kuchen",
+        "dessert",
+        "backen",
+        "banane",
+        "ananas",
+        "pekannuss",
+        "frischkäsefrosting",
+        "südstaaten",
+        "schichtkuchen",
+        "buffet"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7422,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-hummingbird-cake/",
+      "components": [
+        {
+          "key": "b5dbf614-dda0-568b-a3a5-a4e50cf36d68",
+          "name": "Zutaten",
+          "servingGrams": 342.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e850f4c-a144-5a4f-b51c-824197a9047e",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, ~3 Tassen"
+            },
+            {
+              "key": "81d952bd-0d40-5e15-909c-a35f1ec76c40",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "~2 Tassen Kristallzucker"
+            },
+            {
+              "key": "c6e56b02-a136-5b50-a631-bb02ff224dce",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aedb1f6b-ff3b-5bfc-9cb8-1f04302874e8",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL, gemahlen"
+            },
+            {
+              "key": "f7e8bbcf-eb38-526b-9741-c7d20d5b4ffd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "aaa40c77-2f8f-529b-8c48-87d33a7f43d5",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cc53943-c4e4-5e20-aa7d-64780c0116aa",
+              "ingredientName": "Pflanzenöl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "~1 Tasse neutrales Öl"
+            },
+            {
+              "key": "89ff4eca-4064-53e6-8e90-a53916010edd",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL Extrakt"
+            },
+            {
+              "key": "fbe56d2c-07e2-5559-9987-16318ab3f25a",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "sehr reif, zerdrückt (~1.75 Tassen)"
+            },
+            {
+              "key": "d0a17bdb-8b4a-5a95-999c-7a40aa621836",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Dose zerkleinerte Ananas, nicht abgetropft (~8 oz)"
+            },
+            {
+              "key": "702a13ce-94c5-5dc1-8162-7ac1bc36d8ce",
+              "ingredientName": "Pekannüsse",
+              "grams": 340.2,
+              "quantity": 340.2,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "~1.5 Tassen, gehackt, auf Teig und Garnitur verteilt"
+            },
+            {
+              "key": "3bdf0b4c-ea24-57ab-9df4-91b6c86ede0a",
+              "ingredientName": "Frischkäse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "16 oz, weich, für die Glasur"
+            },
+            {
+              "key": "088575cb-e6b1-5de4-a45d-dbc76f3f2833",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/2 Tasse, weich, für die Glasur"
+            },
+            {
+              "key": "726ab719-efe9-5414-9059-8f3c24414f7a",
+              "ingredientName": "Puderzucker",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "~4 Tassen für die Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F (175C) vorheizen. Zwei Kuchenformen mit 9-inch Durchmesser einfetten und mit Backpapier auslegen. Pekannüsse auf einem trockenen Blech 6-8 Minuten rösten, bis sie duften. Abkühlen lassen und etwa ein Drittel zum Garnieren beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Kristallzucker, Natron, Zimt und Salz in einer großen Schüssel gleichmäßig vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer zweiten Schüssel Eier, Öl und Vanille glatt rühren. Zerdrückte Banane und Ananas samt Saft einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die flüssige Mischung zu den trockenen Zutaten geben und mit einem Teigschaber vorsichtig unterheben, bis keine trockenen Mehlstellen mehr zu sehen sind. Nicht zu stark rühren. Geröstete Pekannüsse für den Teig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig gleichmäßig auf die beiden Formen verteilen und 25-30 Minuten backen, bis ein Holzspieß sauber herauskommt und die Oberfläche zurückfedert. 10 Minuten in den Formen abkühlen lassen, dann zum vollständigen Auskühlen auf ein Gitter stürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für das Frosting den weichen Frischkäse und die Butter glatt rühren. Puderzucker nach und nach dazugeben und alles luftig aufschlagen. Wenn die Masse weich wirkt, 10 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abgekühlte Böden bei Bedarf begradigen. Einen Boden auf eine Platte legen, mit Frosting bestreichen, den zweiten Boden daraufsetzen und Oberseite sowie Seiten einstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die zurückgelegten gerösteten Pekannüsse am oberen Rand verteilen, den Kuchen anschneiden und servieren. Reste abgedeckt im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Hummingbird_cake_-_homemade.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hummingbird_cake_-_homemade.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: ukahbob777 — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Hummingbird Cake",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-funfetti-birthday-cake",
+      "slug": "bake-funfetti-birthday-cake",
+      "title": "Funfetti-Geburtstagskuchen",
+      "instructions": "Ein zarter, buttriger Vanille-Schichtkuchen mit bunten Streuseln und luftigem Vanille-Buttercreme-Frosting mit Frischkäse. Der klassische Festtagskuchen mit lockerer Krume, intensivem Vanillearoma und etwas Mandelextrakt für den nostalgischen Geschmack eines Geburtstagskuchens.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische dir Kuchenmehl selbst: Ersetze pro Tasse Weizenmehl 2 tbsp davon durch Speisestärke und siebe die Mischung. So wird die Krume feiner und zarter, ohne eine Spezialpackung zu kaufen.",
+        "Kaufe einmal eine Dose lange, bunte Zuckerstreusel. Pro Kuchen brauchst du nur ein paar Esslöffel, und sie halten jahrelang. Das ist günstiger als eine fertige Funfetti-Backmischung.",
+        "Butter, Eier und Milch bei Zimmertemperatur verbinden sich viel besser als kalte Zutaten. Stell sie 30 Minuten vorher heraus, damit der Teig nicht gerinnt und der Kuchen nicht kompakt wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Weglassen und ausschließlich Butter für eine klassische amerikanische Vanille-Buttercreme verwenden.",
+          "savings": "Spart ~$1.00 und eine Zutat beim Einkauf"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Buttermilch oder Milch, die mit 1 tsp Essig gesäuert wurde.",
+          "savings": "Verwendet Vorhandenes, ~$0.50"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "savings": "Eine besondere Flasche weglassen und ~$3.00 sparen",
+          "swap": "Zusätzlich 1/2 tsp Vanille."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "dessert",
+        "kuchen",
+        "geburtstag",
+        "backen",
+        "funfetti",
+        "feier",
+        "streusel",
+        "vanille"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7423,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-funfetti-birthday-cake/",
+      "components": [
+        {
+          "key": "b3cd1820-5651-5c53-9912-7752e03afa9a",
+          "name": "Zutaten",
+          "servingGrams": 236.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "064c1db1-4fa0-5b82-9dac-307644348f86",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl (feines Kuchenmehl eignet sich noch besser, falls vorhanden)"
+            },
+            {
+              "key": "0964144e-e5a4-5fff-a226-b7a42f89dc5e",
+              "ingredientName": "Zucker",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 3/4 Tassen Kristallzucker für den Kuchen"
+            },
+            {
+              "key": "4041476c-f49f-5362-b926-252d38b072e5",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stücke) weiche ungesalzene Butter für den Kuchen"
+            },
+            {
+              "key": "48a9f2ca-8b74-510a-af4e-a7562c7ff2bf",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse Öl hält zusammen mit der Butter die Krume saftig"
+            },
+            {
+              "key": "bcbf24fb-5f32-5376-8d31-05b1634f58a1",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 ganze Eier + 1 zusätzliches Eiweiß, zimmerwarm"
+            },
+            {
+              "key": "9f57c3c0-ca0b-5d69-a1d0-e7011d81aa6a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse Vollmilch oder Buttermilch, zimmerwarm"
+            },
+            {
+              "key": "d528336c-376f-56d5-9bd3-ce41ea03d5f6",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "insgesamt 1 EL Vanilleextrakt für Teig und Glasur"
+            },
+            {
+              "key": "1813df8b-551f-5c29-94fb-4cae40be7259",
+              "ingredientName": "Mandelextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL Mandelextrakt für die typische Geburtstagskuchennote"
+            },
+            {
+              "key": "cbbea4e6-17ff-5207-8dcb-d209e8ebc50c",
+              "ingredientName": "Backpulver",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 1/2 TL Backpulver"
+            },
+            {
+              "key": "87587baa-afbe-53da-b5ba-16c3c882161f",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 TL feines Salz"
+            },
+            {
+              "key": "6de473ab-271b-53cd-b78d-3671879c0920",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse bunte längliche Streusel für den Teig; keine Zuckerperlen verwenden, damit die Farben nicht verlaufen"
+            },
+            {
+              "key": "61c1a26c-04c1-5654-9e44-9b0192696e7e",
+              "ingredientName": "Puderzucker",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 Tassen Puderzucker für die Buttercreme"
+            },
+            {
+              "key": "5c79d564-efaa-5925-82aa-3d9e2364733c",
+              "ingredientName": "Frischkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "4 oz weicher Frischkäse für Säure und Festigkeit der Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F (175C) vorheizen. Zwei runde Formen mit 8-inch Durchmesser einfetten, die Böden mit Backpapier auslegen und erneut einfetten. Mehl, Backpulver und Salz verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter, Öl und Kristallzucker bei mittelhoher Stufe 3-4 Minuten hell und luftig aufschlagen. Eier und zusätzliches Eiweiß einzeln einrühren, dann Vanille und Mandelextrakt dazugeben und dabei die Schüsselwand abstreifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei niedriger Rührstufe die Mehlmischung in drei Portionen abwechselnd mit der Milch dazugeben. Mit Mehl beginnen und enden. Nur so lange rühren, bis alles gerade vermengt ist. Zu langes Rühren macht den Kuchen zäh und gummiartig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Streusel mit einem Teelöffel des abgemessenen Mehls vermengen und vorsichtig von Hand unterheben, damit die Farben klar bleiben und den Teig nicht verfärben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig gleichmäßig auf die Formen verteilen und glatt streichen. 24-28 Minuten backen, bis die Mitte zurückfedert und am Holzspieß ein paar feuchte Krümel haften. 10 Minuten in den Formen abkühlen lassen, dann auf einem Gitter vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Buttercreme die übrige weiche Butter und den Frischkäse glatt rühren. Puderzucker bei niedriger Stufe Tasse für Tasse einrühren. Übrige Vanille und eine Prise Salz einrühren, dann 2 Minuten luftig und streichfähig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abgekühlte Böden bei Bedarf begradigen. Einen Boden auf eine Platte legen, großzügig mit Frosting bestreichen, den zweiten Boden daraufsetzen und Oberseite sowie Seiten glatt oder wellig einstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zusätzliche Streusel an den unteren Rand drücken und weitere über die Oberseite streuen. 20 Minuten kühlen, damit das Frosting fest wird, dann in 12 Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Cake-for-30%2C000-Wikipedia-edits.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cake-for-30,000-Wikipedia-edits.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Y2kcrazyjoker4 — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Funfetti-Geburtstagskuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-devils-food-cake",
+      "slug": "bake-devils-food-cake",
+      "title": "Devil’s Food Cake",
+      "instructions": "Ein besonders dunkler, sehr saftiger Schokoladen-Schichtkuchen mit zarter, fast fudgeartiger Krume. Kakao wird in heißem Kaffee angerührt, damit das Schokoladenaroma stärker hervortritt. Buttermilch und Natron sorgen für die typische leichte Säure und rötlich-mahagoniartige Farbe. Dazu kommt glänzende Schokoladenbuttercreme.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 32,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Buttermilch selbst machen: 1 tbsp Essig oder Zitronensaft in 1 cup Milch rühren und 5 Minuten stehen lassen. Hier funktioniert das genauso wie gekaufte Buttermilch.",
+        "Kein Filterkaffee da? 1 tsp löslichen Kaffee in 1 cup heißem Wasser auflösen. Der Kuchen schmeckt nicht nach Kaffee, aber das Schokoladenaroma wird dadurch kräftiger.",
+        "Kaufe Kakao in großen Mengen und verzichte auf teure Backschokolade. Der angerührte Kakao sorgt in diesem Kuchen für den größten Teil des Aromas."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1 cup Milch mit 1 tbsp Essig verrühren und 5 min stehen lassen.",
+          "savings": "Spart den Kauf einer ganzen Packung Buttermilch, die nicht aufgebraucht wird"
+        },
+        {
+          "forIngredientId": "coffee",
+          "swap": "Die gleiche Menge heißes Wasser oder löslichen Kaffee in heißem Wasser.",
+          "savings": "Kostenlos, wenn kein gebrühter Kaffee vorhanden ist"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch nach und nach zugießen.",
+          "savings": "Verwendet Vorhandenes aus dem Kühlschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "kuchen",
+        "schokolade",
+        "dessert",
+        "backen",
+        "schichtkuchen",
+        "selbstgemacht"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7424,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-devils-food-cake/",
+      "components": [
+        {
+          "key": "193f1260-4e7a-517a-8a2f-35b420358ba2",
+          "name": "Zutaten",
+          "servingGrams": 263.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b89d82a-bca7-5908-b4d6-6258f6c65eb5",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, ~2 Tassen"
+            },
+            {
+              "key": "9f78236f-8a2a-5574-adb3-954892bfe74e",
+              "ingredientName": "Kakao nach holländischer Art",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "alkalisiertes Kakaopulver, ~3/4 Tasse, in heißem Kaffee angerührt"
+            },
+            {
+              "key": "2630f1ec-046f-55b1-992d-f9cd1650f5d9",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Kristallzucker, ~2 Tassen"
+            },
+            {
+              "key": "fedd8dfd-d091-5ed6-9b52-3c04f0279ef3",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "hellbrauner Zucker, ~1/2 Tasse, für Saftigkeit und volles Aroma"
+            },
+            {
+              "key": "f3362b15-3ac0-5783-a580-d35205361639",
+              "ingredientName": "Natron",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "~2 TL, reagiert mit Kakao und Buttermilch"
+            },
+            {
+              "key": "90e7da91-15a3-5a8b-9100-c3266e382bfa",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "~1 TL"
+            },
+            {
+              "key": "c83d5f8b-97a2-5979-bd77-682dfe269598",
+              "ingredientName": "Salz",
+              "grams": 6.25,
+              "quantity": 6.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "~1.25 TL"
+            },
+            {
+              "key": "b144f266-50a6-57b1-adda-24ea77893a02",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "zimmerwarm"
+            },
+            {
+              "key": "d909a7c5-40df-5bf7-9675-6340e4272832",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "~1 Tasse, zimmerwarm"
+            },
+            {
+              "key": "ac916ea5-021a-5881-843f-f2c3dff3f2a3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "~1/2 Tasse, hält die Krume saftig"
+            },
+            {
+              "key": "f7919bba-9a23-5fac-9e6f-283642e9871e",
+              "ingredientName": "Filterkaffee",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "~1 Tasse heiß gebrühter Kaffee, über den Kakao gegossen, damit sich das Aroma entfaltet."
+            },
+            {
+              "key": "72abcdd6-ecec-5a24-82ff-2be6b145e34b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "~2 TL"
+            },
+            {
+              "key": "d8550e94-b0ca-57dc-967b-51f46b97de82",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "ungesalzen und weich, für die Buttercreme (~1.5 Stücke)"
+            },
+            {
+              "key": "01df8863-7659-5d97-a10f-3c73b76d6006",
+              "ingredientName": "Puderzucker",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "~3 Tassen für die Buttercreme"
+            },
+            {
+              "key": "75770a8b-36ad-526c-9831-2e2fa1994cc4",
+              "ingredientName": "Kakaopulver",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "~2/3 Tasse ungesüßter Kakao für die Buttercreme"
+            },
+            {
+              "key": "aa991325-c0d8-5cc7-93ed-928ace1d3d1d",
+              "ingredientName": "Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "~1/4 Tasse zum Verdünnen der Buttercreme"
+            },
+            {
+              "key": "36c3de65-1006-5063-b778-b05b342d7c83",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "geschmolzen und unter die Buttercreme gerührt, für mehr Glanz und ein intensiveres Aroma."
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F (175C) vorheizen. Zwei runde Formen mit 9-inch Durchmesser einfetten, die Böden mit Backpapier auslegen und erneut einfetten. In einer Schüssel oder einem großen Messbecher Dutch-Process-Kakao mit heißem Filterkaffee glatt rühren und etwas abkühlen lassen. Dadurch entfaltet sich das Kakaoaroma besonders gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Kristallzucker, braunen Zucker, Natron, Backpulver und Salz in einer großen Schüssel verquirlen und Klümpchen im braunen Zucker zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer zweiten Schüssel Eier, Buttermilch, Öl und Vanille glatt rühren, dann die abgekühlte Kakao-Kaffee-Mischung einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die flüssigen Zutaten zu den trockenen geben und nur so lange verquirlen, bis keine Mehlspuren mehr zu sehen sind. Der Teig ist dünn und gießfähig, das ist richtig. Nicht zu lange rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig gleichmäßig auf die Formen verteilen und 28-34 Minuten backen, bis am Holzspieß ein paar feuchte Krümel haften und die Oberfläche bei leichtem Druck zurückfedert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Kuchen 10 Minuten in den Formen abkühlen lassen, dann auf ein Gitter stürzen, das Backpapier abziehen und vor dem Verzieren vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für die Buttercreme die weiche Butter hell und luftig schlagen. Gesiebten Puderzucker und Kakao portionsweise einrühren. Nach Wunsch geschmolzene und abgekühlte Schokoladenstückchen sowie Schlagsahne und eine Prise Salz hinzufügen. Cremig und streichfähig schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Kuchenoberseiten bei Bedarf begradigen. Einen Boden auf eine Platte setzen, mit Frosting bestreichen, den zweiten Boden darauflegen und Oberseite und Seiten einstreichen. Vor dem Anschneiden 15 Minuten fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Devil%27s_Food_Cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Devil%27s_Food_Cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Lili — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Devil’s Food Cake",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

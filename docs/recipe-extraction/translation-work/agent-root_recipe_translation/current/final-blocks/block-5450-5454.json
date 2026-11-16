@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kartoffel-im-schlafrock",
+      "slug": "gen-kartoffel-im-schlafrock",
+      "title": "Gefüllte Ofenkartoffeln",
+      "instructions": "Deutsches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch aus der Schulter statt magerem Hackfleisch, um Geld zu sparen.",
+        "Bereite die Füllung am Vortag zu, damit die Zubereitung des Abendessens schneller geht."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5450,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kartoffel-im-schlafrock/",
+      "components": [
+        {
+          "key": "e66eaa26-5c2a-509f-8520-278da9783f5f",
+          "name": "Zutaten",
+          "servingGrams": 428.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "59f7a86b-6a71-5f20-a4af-13d5ef85ddff",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9407100-7915-5eb0-83f6-44545ed53691",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4f31f835-10ec-5dae-a4ad-c171602dc6f8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß, gewürfelt"
+            },
+            {
+              "key": "09f5af37-85ff-5c7a-a819-d72ca0726c45",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "15d9572a-ef90-5a68-9bf9-b5f69d4e5d32",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "827eaea5-549b-5a60-a2f9-e9727c4f9562",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5758ab3e-fb41-509e-b12c-96a4719477c5",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8f15a8bd-24fb-5256-9b5c-884b4115de04",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fc7f196b-83c1-5568-a564-52c089a79622",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "845e4249-5b4d-5c4e-b314-786cd7493209",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die ganzen Kartoffeln in Salzwasser 20-25 Minuten, bis sie gerade weich sind. Gieße sie ab und lasse sie etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Rinderhackfleisch mit der gewürfelten Zwiebel in einer Pfanne bei mittlerer bis hoher Hitze krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark, Worcestershiresauce und Rinderbrühe ein. Würze mit Salz und Pfeffer und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite eine Mehlschwitze zu, indem du Butter schmilzt und Mehl einrührst. Rühre sie unter die Fleischmischung, bis diese eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide von jeder abgekühlten Kartoffel oben einen Deckel ab und höhle sie aus, sodass eine dünne Schale bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Kartoffeln mit der Fleischmischung und setze die Deckel wieder auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die gefüllten Kartoffeln in eine Auflaufform, decke sie mit Folie ab und backe sie bei 375°F 20 Minuten, bis sie durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere sie mit frischer Petersilie und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/93/20/47/9320474582d85247abc07005a9ef60e8.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/93/20/47/9320474582d85247abc07005a9ef60e8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-potato-farcie",
+      "slug": "gen-potato-farcie",
+      "title": "Kartoffeln mit Schinkenfüllung",
+      "instructions": "Französisches Mittagessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Gruyère durch Cheddar, um Kosten zu senken.",
+        "Kaufe Schinken an der Frischetheke in größeren Mengen und würfle ihn selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5451,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-potato-farcie/",
+      "components": [
+        {
+          "key": "ca904215-5db3-53a5-91dd-0e777f95cc6b",
+          "name": "Zutaten",
+          "servingGrams": 265.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "36fe9649-5195-520f-ab65-b285f625d2de",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fc2bc48-567f-579c-b8aa-cc69b1a53689",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen, gewürfelt"
+            },
+            {
+              "key": "b8d9d22d-c324-5734-8a6a-959fd7e71301",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "5b9cfad1-4e31-561c-a21b-24c08d75d8a0",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "12e3964b-2f28-5fa3-b60e-3f1cd877cf8e",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "473ab089-2c7a-51cc-b125-c792383c910b",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b012d8db-b8d0-5742-84c7-fd88fe3d9874",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "ceac8f8b-1db0-56b2-8412-49742ed366f6",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7cfd09f1-f3df-5396-a46e-0cb3978be261",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "52cdce8b-4c2f-5374-88ae-4100f9c403c3",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Kartoffeln bei 400°F 40 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere die Kartoffeln längs und höhle sie aus, sodass eine dünne Schale bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke das Kartoffelinnere mit Butter, Milch und gehackter Schalotte zu einer cremigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe gewürfelten Schinken, Gruyère, Eigelb, Muskatnuss, Salz und weißen Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Kartoffelschalen großzügig mit der Mischung und lege sie auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe sie bei 375°F 12-15 Minuten, bis sie goldbraun und durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue sie mit frischem Schnittlauch und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2022/12/hasselback-potatoes.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2022/12/hasselback-potatoes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pommes-anna",
+      "slug": "gen-pommes-anna",
+      "title": "Pommes Anna",
+      "instructions": "Französisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schmelze Butter selbst und kläre sie, statt geklärte Butter fertig zu kaufen.",
+        "Verwende normale Kartoffeln statt kleiner Fingerling-Kartoffeln, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Französisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5452,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pommes-anna/",
+      "components": [
+        {
+          "key": "41193329-0ad3-5d97-b631-954a0ababb54",
+          "name": "Zutaten",
+          "servingGrams": 53.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bcb7dd3-6b19-5798-a2eb-909318fa4f8f",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0070be92-fcf2-5740-a794-93c9ac83a25b",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 EL"
+            },
+            {
+              "key": "866249f7-9bed-50b5-a434-2381e0b9adee",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a568e467-6687-5d3a-a34f-3f6308a52d03",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln und schneide sie mit einem Hobel gleichmäßig in 1/8-inch dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 8 tbsp Butter bei niedriger Hitze und schöpfe die Milchbestandteile ab, um sie zu klären.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte die Kartoffelscheiben in eine gut gebutterte 9-inch Pfanne. Würze jede Lage mit Salz, Pfeffer und Thymian.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Schichten beim Aufbauen vorsichtig mit einem Pfannenwender an und verwende etwa die Hälfte der geklärten Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate sie bei mittlerer Hitze 15 Minuten, ohne umzurühren, bis sich unten eine goldbraune Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die Pfanne in den auf 375°F vorgeheizten Ofen und backe die Kartoffeln 25-30 Minuten, bis sie innen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stürze die Pommes Anna auf eine Servierplatte, sodass die knusprige goldbraune Seite oben liegt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle sie mit der übrigen geschmolzenen Butter und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/G3mJAlZUIpPwiFXKf3eng1EVT7A=/2800x2100/filters:no_upscale():max_bytes(150000):strip_icc()/20220201-pommes-anna-vicky-wasik-12-c6a939e89f3a43cabbf6f7fde7c2caa9.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/G3mJAlZUIpPwiFXKf3eng1EVT7A=/2800x2100/filters:no_upscale():max_bytes(150000):strip_icc()/20220201-pommes-anna-vicky-wasik-12-c6a939e89f3a43cabbf6f7fde7c2caa9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-patatas-rellenas",
+      "slug": "gen-patatas-rellenas",
+      "title": "Gefüllte Kartoffeln nach spanischer Art",
+      "instructions": "Spanisches Mittagessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Cheddar statt Manchego.",
+        "Kaufe Chorizo im Angebot und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5453,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-patatas-rellenas/",
+      "components": [
+        {
+          "key": "88f824a6-7441-577c-adf3-bb31edb3c88d",
+          "name": "Zutaten",
+          "servingGrams": 275.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "134508be-e394-5ec2-943a-461bd2e5a5c4",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5447ec5-4151-5ec5-a0a4-e567eb5c527c",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "afcc96cf-893a-5db9-8a05-b8b9e363675b",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen, gewürfelt"
+            },
+            {
+              "key": "3ff940aa-1033-53c9-9ff5-688d096010a2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2, gewürfelt"
+            },
+            {
+              "key": "9540bb1a-baf5-5389-8a8c-e3faea7449d8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "7f2e7083-3d31-5e4d-a2d9-07384c381107",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2, gewürfelt"
+            },
+            {
+              "key": "3a5a5491-758e-55dd-ad48-e274368983f6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "58bedd76-b70e-5cb4-80b8-a3b90f8e97ad",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c9668628-3f51-5581-889b-17152e0f52ac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2b64a860-2a43-507a-8a98-511deb28ebe7",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Kartoffeln bei 400°F 35 Minuten, bis sie gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl und dünste Zwiebel, Knoblauch und rote Paprika an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hackfleisch und Chorizo in die Pfanne und brate alles etwa 8 Minuten, bis das Schweinefleisch gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre geräuchertes Paprikapulver, Salz und Pfeffer ein. Nimm die Pfanne vom Herd und rühre den Manchego unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Halbiere die Kartoffeln und höhle sie aus. Bewahre die Schalen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jede Kartoffelschale mit der Fleischmischung und lege sie auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie bei 375°F 12 Minuten, bis die Füllung durchgewärmt und die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie sofort und gib nach Wunsch zusätzlichen Käse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/89/61/e9/8961e93ad0681fdfcd96fc2299e65347.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/89/61/e9/8961e93ad0681fdfcd96fc2299e65347.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-batata-recheada",
+      "slug": "gen-batata-recheada",
+      "title": "Portugiesische gefüllte Süßkartoffeln",
+      "instructions": "Portugiesisches Mittagessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gewürfelte Tomaten aus der Dose, wenn frische Tomaten keine Saison haben.",
+        "Kaufe Süßkartoffeln in großen Säcken, um einen besseren Preis pro Pfund zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5454,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-batata-recheada/",
+      "components": [
+        {
+          "key": "255e349e-c22e-5f14-a45c-7eaa326907ee",
+          "name": "Zutaten",
+          "servingGrams": 272,
+          "position": 0,
+          "items": [
+            {
+              "key": "3df5bc69-1c0e-55c7-8607-087f0e2cb4d7",
+              "ingredientName": "Süßkartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ccf5290-b9a2-5e29-83b1-a886b50694fa",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "98771661-a6e8-5f48-af2b-6b35c9054eae",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß, gewürfelt"
+            },
+            {
+              "key": "2407db4e-1c52-5b8f-831b-4feef8579923",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3, fein gehackt"
+            },
+            {
+              "key": "c4e6ea75-4966-5acc-94a0-f4f5c7262187",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß, gewürfelt"
+            },
+            {
+              "key": "80794aad-6e2d-5da8-bff9-19a0801568cb",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse gehackt"
+            },
+            {
+              "key": "b63022de-22d8-54ca-980b-0002a73c02a5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e3a6ffb3-4283-5deb-b9ca-8e45323c6c1f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "af8fa04a-7833-5acd-8e00-9371f25a8186",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c6e18b12-2fdb-5868-80d1-8df8d416b25e",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Süßkartoffeln bei 400°F 30 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl und dünste Zwiebel und Knoblauch etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Rinderhackfleisch hinzu und brate es krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gewürfelte Tomaten, Oliven, Kreuzkümmel, Salz und Pfeffer ein und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Limettensaft hinzu und schmecke die Füllung ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbiere die abgekühlten Kartoffeln längs und höhle sie leicht aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle jede Kartoffelhälfte mit der Fleischmischung und richte sie auf einer Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie warm oder bei Zimmertemperatur und gib nach Wunsch frischen Koriander dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/77/24/3a/77243a4f3539ff44ab4c3c6dcd77ba02.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/77/24/3a/77243a4f3539ff44ab4c3c6dcd77ba02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

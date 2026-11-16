@@ -1,0 +1,1036 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chettinad-vada",
+      "slug": "gen-chettinad-vada",
+      "title": "Chettinad-Vada",
+      "instructions": "Ein beliebter Chettinad-Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Urdbohnen in größeren Mengen und lagere sie monatelang luftdicht.",
+        "Siebe Frittieröl ab und verwende es erneut; es hält 3-4 Frittiervorgänge."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Chettinad",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6180,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chettinad-vada/",
+      "components": [
+        {
+          "key": "35b11b42-99e0-50c9-ac47-f422441bc24b",
+          "name": "Zutaten",
+          "servingGrams": 72.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "264e6ff4-0a74-579f-b73d-7db6a15e7d10",
+              "ingredientName": "Urdbohnen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "409c6ea3-70a7-5b04-ad39-2c51650dfd99",
+              "ingredientName": "halbierte Kichererbsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "eb90e317-b80b-516e-9471-ee79da15ea16",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d55da2ff-1e17-593f-bf86-29821057929c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "df094e07-3e3a-59d0-b250-43cacd402bee",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "926c4be7-3aaf-5a3b-b9fd-c82b15a271e5",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6a924a39-1002-58d9-8888-8f9756869901",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e0fe6682-d4a6-5c0a-a381-08a0a10f2e04",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c2fc0860-17f6-5c4d-a612-09784e1513e0",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "63a6ec2f-22e2-5f1f-9917-9c3f2160c029",
+              "ingredientName": "Kokosöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Urdbohnen und halbierte Kichererbsen zusammen 2 Stunden in Wasser ein und gieße sie gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mahle die eingeweichten Linsen in einem Nassmahlwerk oder einer Küchenmaschine. Gib möglichst wenig Wasser hinzu, bis ein dicker, luftiger Teig entsteht, der seine Form behält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Teig in eine Schüssel und hebe grüne Chilischoten, Ingwer, Zwiebel, Curryblätter, Salz, zerstoßene Pfefferkörner und Kreuzkümmelsamen vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Masse 15 Minuten ruhen und erhitze währenddessen Kokosöl in einem tiefen Topf auf 350°F (175°C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Befeuchte deine Hände, nimm eine Portion Teig (etwa 2 Esslöffel) und forme eine Kugel. Drücke mit dem Daumen ein Loch in die Mitte und erweitere es vorsichtig zu einem Ring.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Vadas vorsichtig ins heiße Öl gleiten und frittiere jeweils 3-4 Stück, ohne den Topf zu voll zu machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frittiere sie 3-4 Minuten und wende sie einmal, bis beide Seiten goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie mit einer Schaumkelle heraus, lass sie auf Küchenpapier abtropfen und serviere sie warm mit Kokos-Chutney oder Sambar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tarladalal.com/media/recipe/thumbnail/2024/12/16/Medu_Vada.webp",
+          "sourcePageUrl": "https://www.tarladalal.com/media/recipe/thumbnail/2024/12/16/Medu_Vada.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-assamese-pitha",
+      "slug": "gen-assamese-pitha",
+      "title": "Assamesisches Pitha",
+      "instructions": "Ein beliebtes assamesisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Palmzucker und Klebreismehl in indischen oder asiatischen Lebensmittelgeschäften zum halben Supermarktpreis.",
+        "Bereite die Füllung in größerer Menge zu und bewahre sie bis zu 5 Tage im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "assamesisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6181,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-assamese-pitha/",
+      "components": [
+        {
+          "key": "fe939de3-f26d-5e31-892e-9a81fd9e4014",
+          "name": "Zutaten",
+          "servingGrams": 322.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "4395c83a-16e8-599a-9ee9-810568c27069",
+              "ingredientName": "Klebreismehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "02f45c4c-40d5-5f44-90ab-1d72601c071e",
+              "ingredientName": "Palmzucker, geraspelt",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "09a93885-3909-597b-884a-9be68123b53d",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4caf428b-764c-5fc2-bf45-1e10c0288018",
+              "ingredientName": "Schwarzer Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "83497352-4180-568a-987b-f2849d81b56e",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1b33411c-5f34-5743-8573-c91cfc7de410",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "e9edff9b-82ab-5177-92f8-1caa92ae639d",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische geraspelten Palmzucker, Kokosnuss, schwarzen Sesam und Salz in einer Schüssel zur Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach Wasser zum Reismehl und vermische es mit den Fingern, bis die Masse Semmelbröseln ähnelt und beim Zusammendrücken zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm eine kleine Portion Teig (etwa 2 Esslöffel), drücke sie in der Handfläche flach und gib 1 Esslöffel Füllung in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage die Teigränder um die Füllung und drücke sie vorsichtig zusammen, sodass eine glatte Kugel entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Ghee in einer flachen Pfanne oder auf einer Grillplatte bei mittlerer Hitze und lege das Pitha hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe es auf der ersten Seite 3-4 Minuten goldbraun. Wende es vorsichtig und backe die andere Seite weitere 3-4 Minuten, bis sie gleichmäßig gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege das Pitha auf einen Teller und lass es vor dem Servieren warm oder bei Zimmertemperatur 2-3 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://cookingwithsapana.com/wp-content/uploads/2014/04/image-200.jpg",
+          "sourcePageUrl": "http://cookingwithsapana.com/wp-content/uploads/2014/04/image-200.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sate-babi",
+      "slug": "gen-sate-babi",
+      "title": "Sate Babi",
+      "instructions": "Ein beliebtes balinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie bis zur Verwendung ein.",
+        "Verwende normale Erdnussbutter statt einer Premiumsorte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "balinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6182,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sate-babi/",
+      "components": [
+        {
+          "key": "5af82755-a6c3-554b-b6c4-dbe6f9c7e6a8",
+          "name": "Zutaten",
+          "servingGrams": 1280.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "75328c81-6f03-5d07-ab70-fb11fa53f28e",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3e351068-2eac-5315-ba56-6782ae569534",
+              "ingredientName": "Erdnussbutter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e1137e96-99f4-5226-a903-a025ebb2f67c",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f5902d77-7471-5797-b412-8f752350d771",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "497a3a21-7a56-5217-b4ad-c8fd2ebb012d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "29c800e3-1351-5b70-be62-bf3454cc404b",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5952fdc8-bc53-543f-995c-cc6324933a2f",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1dd90b53-1fe5-5705-9ff9-ea18d651a38c",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ab992c57-b075-56e2-b1f1-d270afdc9173",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "beb94c62-4c0c-5439-9935-deb2c67c91b3",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 4800,
+              "quantity": 12,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Bambusspieße 30 Minuten in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Schweinefleisch in 1 Zoll große Würfel und stecke sie auf die Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere Erdnussbutter, Kokosmilch, Knoblauch, Ingwer, Chilipulver, Limettensaft, Sojasauce und braunen Zucker zu einer glatten Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Spieße mit Sauce und lass sie 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize Grill oder Grillpfanne auf mittlere bis hohe Hitze vor und grille die Spieße pro Seite 3-4 Minuten, bis das Fleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Spieße mit der restlichen warmen Sauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/ninalovesfood.com/wp-content/uploads/2023/01/MG_6654-scaled.jpg?fit=2560%2C1707&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/ninalovesfood.com/wp-content/uploads/2023/01/MG_6654-scaled.jpg?fit=2560%2C1707&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-plecing-kangkung",
+      "slug": "gen-plecing-kangkung",
+      "title": "Plecing Kangkung",
+      "instructions": "Ein beliebtes balinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Spinat, falls Kangkung nicht erhältlich ist; taue ihn auf und drücke ihn trocken.",
+        "Kaufe Erdnüsse in größeren Mengen und zerstoße sie selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "balinesisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6183,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-plecing-kangkung/",
+      "components": [
+        {
+          "key": "21e7b6a1-5aa2-5bdb-b59a-3af2aeab3f42",
+          "name": "Zutaten",
+          "servingGrams": 498.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "09f7967c-21ba-510a-a37c-919a2774cb38",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9e4e3771-b93f-5ea7-b247-0152ed05bc54",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adcc9ae6-82c1-5933-87f8-62664614f1e8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dec03d74-6e5c-51e8-884c-a2e5709af240",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc98fc18-c213-5f5c-b59b-7c9a76869c7e",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7d382971-11c6-5e5c-a55b-83bc0ce54851",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "04e18b8d-3f0c-54cd-a906-7d5336b3aaac",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "7bf0d591-cea2-5046-9939-6868d300bdc6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "284898c2-1c67-5562-81a8-788c28951b2a",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse zerstoßen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Kangkung 2 Minuten in kochendem Salzwasser, bis es zart ist, und gieße es gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerstoße Schalotten, Knoblauch und rote Chilischoten in einem Mörser grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne und brate die zerstoßene Mischung 2 Minuten an, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kokosmilch, Limettensaft und Salz dazu und rühre 1 Minute um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Sauce über das abgetropfte Kangkung und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue das Gericht mit zerstoßenen Erdnüssen und serviere es bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn0-production-images-kly.akamaized.net/vuNLoz6bREIFOCLB2E4aIWXrBQg=/2560x1440/smart/filters:quality(75):strip_icc()/kly-media-production/medias/1280408/original/056169300_1467472810-20160702-sayur_plecing-denpasar.jpg",
+          "sourcePageUrl": "https://cdn0-production-images-kly.akamaized.net/vuNLoz6bREIFOCLB2E4aIWXrBQg=/2560x1440/smart/filters:quality(75):strip_icc()/kly-media-production/medias/1280408/original/056169300_1467472810-20160702-sayur_plecing-denpasar.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sambal-matah",
+      "slug": "gen-sambal-matah",
+      "title": "Sambal Matah",
+      "instructions": "Ein beliebtes balinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schalotten und Knoblauch in größeren Mengen auf internationalen Märkten.",
+        "Bereite eine große Menge zu und bewahre sie eine Woche im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "balinesisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6184,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sambal-matah/",
+      "components": [
+        {
+          "key": "72665a32-6010-5332-89e3-0f2adee50cac",
+          "name": "Zutaten",
+          "servingGrams": 582.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "893c22a8-2ed9-563e-8bab-f1886829265f",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e342fa1b-d5b5-5bb4-bcd0-15e91f8e13ec",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Bund"
+            },
+            {
+              "key": "d54f5e4b-f06f-5c99-959c-b3db81a52c05",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "355b1069-838e-5787-914c-75f279aeeedf",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9402263e-47bc-5146-a82a-7b5d5f9e7437",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "dc16314d-871e-5a96-8d66-725d183497ed",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3d066608-5ef4-5906-81b0-9826fc76bffa",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b1047b77-f083-52b4-982e-02c32306ae93",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide rote Chilischoten, Frühlingszwiebeln, Schalotten und Knoblauch in dünne Scheiben und halte sie getrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl, bis es glänzt, und gieße es über Schalotten und Knoblauch in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Limettensaft, Salz und Garnelenpaste ein, solange das Öl noch heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geschnittene Chilischoten und Frühlingszwiebeln dazu und vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Mischung vor dem Servieren auf Zimmertemperatur abkühlen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.simplecomfortfood.com/wp-content/uploads/2017/11/sambal-matah-high.jpg",
+          "sourcePageUrl": "http://www.simplecomfortfood.com/wp-content/uploads/2017/11/sambal-matah-high.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

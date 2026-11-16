@@ -1,0 +1,1324 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-g-teau-basque",
+      "slug": "bake2-g-teau-basque",
+      "title": "Gâteau Basque (baskischer Kuchen)",
+      "instructions": "Der klassische Kuchen aus dem französischen Baskenland: Zwei Schichten reichhaltigen, fast keksartigen Butterteigs umschließen dicke Vanille-Rum-Konditorcreme. Goldbraun gebacken und traditionell oben mit einem Gittermuster oder baskischen Kreuz verziert. Knusprig am Rand, zart in der Mitte und nicht zu süß.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rum weglassen und 1/2 tsp zusätzliche Vanille verwenden.",
+        "Mandelmehl weglassen und 1/4 cup zusätzliches Weizenmehl nehmen. Der Teig wird etwas weniger zart, bleibt aber authentisch.",
+        "Vollmilch und Eier einzeln kaufen. Die übrigen Zutaten sind Vorratsware, daher bleiben die Kosten für 10 Stück niedrig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rum",
+          "swap": "1 tsp zusätzliche Vanille und etwas Orangensaft.",
+          "savings": "Spart den Kauf einer Flasche Rum."
+        },
+        {
+          "forIngredientId": "almond-flour",
+          "swap": "Dieselbe Menge Weizenmehl.",
+          "savings": "Mandelmehl kostet das 3-4-fache von normalem Mehl."
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "2%ige Milch mit 1 extra tbsp geschmolzener Butter.",
+          "savings": "Verwende die Milch, die schon da ist."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "baskisch-französisch",
+        "backen",
+        "dessert",
+        "französisch",
+        "baskisch",
+        "gebäck",
+        "zum-vorbereiten",
+        "konditorcreme"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7595,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-g-teau-basque/",
+      "components": [
+        {
+          "key": "26a9e8e0-f8b4-52fa-856e-1c885f72db12",
+          "name": "Zutaten",
+          "servingGrams": 183.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "a8cad3a7-3dc4-565e-a288-9dea2ab672b8",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl (für den Teig)"
+            },
+            {
+              "key": "3c70298e-97cb-5da7-8a7b-da77e7ffd03c",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) ungesalzene Butter, weich (für den Teig)"
+            },
+            {
+              "key": "e84cbf5b-32ae-58fb-b24f-c787df03b5cd",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "15b7a156-1cd2-5d8d-aa11-5204afc9c272",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 ganze Eier für den Teig, plus 1 Eigelb separat für die Eistreiche"
+            },
+            {
+              "key": "2d7e07cf-1af1-54d1-b2ae-2acef905b7f6",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 1/2 TL Backpulver"
+            },
+            {
+              "key": "a0e55267-10aa-5c4d-ba5b-5cef0f708acd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "860349ae-72dc-59c3-abb4-3341f4425e15",
+              "ingredientName": "Mandelmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse Mandelmehl (traditionell in vielen baskischen Varianten)"
+            },
+            {
+              "key": "e59433c7-b668-50d3-a5a8-f790488a7044",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL fein abgeriebene Zitronenschale"
+            },
+            {
+              "key": "7df13b1c-6bd2-5d59-9df0-5476d1a8e7cb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt (auf Teig und Creme verteilt)"
+            },
+            {
+              "key": "d6bb5ed6-0638-5de0-a23b-ce0da216f9b8",
+              "ingredientName": "Rum",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 oz (2 EL) dunkler Rum für die Konditorcreme"
+            },
+            {
+              "key": "4ab73faf-8ae3-5311-ba6d-c9ba7ab1c199",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen Vollmilch für die Konditorcreme"
+            },
+            {
+              "key": "d8279529-4c82-562b-a7e7-300a4ce0776b",
+              "ingredientName": "Speisestärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 EL Maisstärke, damit die Konditorcreme fest wird"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vollmilch mit 1/2 cup Zucker (8 tbsp der Gesamtmenge) erwärmen, bis Dampf aufsteigt, aber nicht kochen. die Eigelbe aus 2 ganzen Eiern, hier 1 zurückbehaltenes Eigelb und 1 ganzes Ei mit Speisestärke und einer Prise Zucker hell verquirlen. Heiße Milch nach und nach einrühren und alles zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Creme bei mittlerer Hitze unter ständigem Rühren kochen und 60 Sekunden sprudelnd halten. Vom Herd 1 tsp Vanille und dunklen Rum einrühren. In eine Schüssel füllen, Folie direkt auf die Oberfläche legen und mindestens 2 hours kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiche Butter mit restlichem Zucker 3-4 Minuten hell schlagen. 1 Ei, Zitronenschale und 1 tsp Vanille einrühren. Mehl, Mandelmehl, Backpulver und Salz verquirlen, zur Butter geben und nur zu weichem, klebrigem Teig vermischen. In zwei Scheiben teilen, eine etwas größer, einwickeln und mindestens 1 hour kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Ofen auf 350°F (175°C) erhitzen. Eine Spring- oder Kuchenform mit 9-inch Durchmesser einfetten. Größere Teigscheibe zwischen Backpapier rund ausrollen, sodass sie Boden und etwa 1 inch Seiten bedeckt. In die Form drücken und Lücken ausbessern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kalte Konditorcreme glatt rühren und auf dem Boden verstreichen. Am Rand 1/2-inch frei lassen, damit die Teigschichten verschlossen werden können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zweite Scheibe zu einem Kreis von 9-inch ausrollen und als Deckel auflegen. Teigränder zusammendrücken. Oberseite mit dem zurückbehaltenen Eigelb bestreichen, das mit einem Teelöffel Wasser verquirlt wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Gabel ein Gittermuster oder baskisches Kreuz (lauburu) einritzen und einige kleine Dampflöcher in den Deckel stechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "40-50 Minuten tief goldbraun backen. Falls die Oberfläche zu schnell bräunt, die letzten 10 Minuten locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "In der Form vollständig abkühlen und vor dem Anschneiden mindestens 4 hours oder über Nacht ruhen lassen. Bei Zimmertemperatur servieren, ohne oder mit wenig Puderzucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/G%C3%A2teau_basque.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:G%C3%A2teau_basque.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Thomon, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Gâteau Basque (baskischer Kuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-tarte-aux-pommes",
+      "slug": "bake2-tarte-aux-pommes",
+      "title": "Tarte aux Pommes (französische Apfeltarte)",
+      "instructions": "Die französische Apfeltarte: Ein knuspriger Butter-Pâte-brisée-Boden wird mit hausgemachtem Apfelkompott bestrichen und mit hauchdünnen Apfelscheiben in Rosenform belegt. Goldbraun gebacken und mit glänzender Aprikosenglasur vollendet.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Granny-Smith-Äpfel sind meist günstig und behalten ihre Form. Einen Beutel von 3 lb kaufen und angeschlagene Äpfel fürs Kompott nehmen.",
+        "Eine normale Pieform funktioniert statt einer speziellen Tarteform; den Teig von Hand hineindrücken.",
+        "Keine Aprikosenkonfitüre da? Eine helle Konfitüre oder Sirup aus Zucker und Wasser ergibt ebenfalls Glanz."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Orangenmarmelade oder Konfitüre mit Wasser verdünnen.",
+          "savings": "Vorhandene Zutaten aus dem Kühlschrank verwenden."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter für einen milchfreien Boden.",
+          "savings": "Ähnlicher Preis und vegan geeignet."
+        },
+        {
+          "forIngredientId": "apple",
+          "swap": "Birne statt Apfel für eine mildere Tarte aux poires.",
+          "savings": "Nimm gerade erhältliches Stein- oder Kernobst im Angebot."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "backen",
+        "dessert",
+        "apfel",
+        "tarte",
+        "mürbeteig",
+        "obst",
+        "klassisch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7596,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-tarte-aux-pommes/",
+      "components": [
+        {
+          "key": "ec4f29c3-3558-5a48-a33f-45219e0eb9a1",
+          "name": "Zutaten",
+          "servingGrams": 167.37,
+          "position": 0,
+          "items": [
+            {
+              "key": "7037cb52-b8b5-5751-827d-175337560f48",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl für den Pâte-Brisée-Teig"
+            },
+            {
+              "key": "a1e27689-3dea-5b8e-8e9b-179f1ebee092",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) kalte ungesalzene Butter, gewürfelt (für den Boden)"
+            },
+            {
+              "key": "d6550e05-8d64-5632-9074-e5a78abc5352",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL feines Salz"
+            },
+            {
+              "key": "a392e690-7452-5dbd-a1da-753b9c796738",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL Zucker für den Teig"
+            },
+            {
+              "key": "a8f80067-d29c-5e80-986c-ebae81bccc94",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Eigelb (Eiweiß zurückbehalten), um den Teig zu binden"
+            },
+            {
+              "key": "4b3e29ad-c325-5cd2-bfee-dd16992e47eb",
+              "ingredientName": "Wasser",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL Eiswasser, nach und nach zugeben"
+            },
+            {
+              "key": "c5d256ed-cc8b-552b-af9d-2adeed213689",
+              "ingredientName": "Apfel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 feste, säuerliche Äpfel insgesamt (z. B. Granny Smith / Honeycrisp): 2 für das Kompott, 3 für den Belag"
+            },
+            {
+              "key": "f8c74987-5311-5d29-9154-6b92e751a73b",
+              "ingredientName": "weißer Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tasse Zucker, auf Kompott und Bestreuen verteilt"
+            },
+            {
+              "key": "f5d06cf8-1704-5954-a6db-7c6fcaff754d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL ungesalzene Butter: 1 EL für das Kompott, 1 EL über den Belag geben"
+            },
+            {
+              "key": "cf277f29-579d-5ee3-8eef-82cb33d68281",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zitrone, ausgepresst, damit die Äpfel nicht braun werden und das Kompott frischer schmeckt"
+            },
+            {
+              "key": "0b2212d4-523b-5d89-8a3c-aef7194b8e4f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt für das Kompott"
+            },
+            {
+              "key": "ff4b44af-1194-588e-9335-5c015cd3662c",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "1/2 TL Zimt (optional, sparsam im Kompott)"
+            },
+            {
+              "key": "ab20c38a-eab7-5a9e-9394-3a1234457ce4",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 EL Aprikosenkonfitüre, erwärmt und passiert (für die Glasur)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und 1 tbsp Zucker verquirlen. Kalte Butterwürfel einarbeiten, bis grobe Krümel und erbsengroße Stücke entstehen. Eigelb mit Eiswasser verquirlen, nach und nach zugießen und mit einer Gabel vermengen, bis der Teig beim Zusammendrücken hält. Nicht überarbeiten. Zur Scheibe drücken, einwickeln und mindestens 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Äpfel schälen, entkernen und würfeln. Mit 1 tbsp Butter, etwa 2 tbsp Zucker, halbem Zitronensaft, Vanille und nach Wunsch Zimt 10-12 Minuten weich kochen. Grob zerdrücken und abkühlen; das Kompott soll dick sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gekühlten Teig auf bemehlter Fläche zu einem 12-inch-Kreis von etwa 1/8 inch Dicke ausrollen. Eine Tarteform von 9-inch damit auskleiden, Rand abschneiden und Boden einstechen. 15 Minuten kühlen, während der Ofen auf 375°F (190°C) heizt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übrige 3 Äpfel schälen, halbieren, entkernen und in dünne Halbmonde von etwa 1/8 inch schneiden. Mit restlichem Zitronensaft gegen Braunwerden vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kompott gleichmäßig im gekühlten Boden verstreichen. Apfelscheiben eng überlappend in Kreisen von außen nach innen wie Rosenblätter anordnen, da sie beim Backen schrumpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Restlichen Zucker über die Äpfel streuen und restliche 1 tbsp Butter in kleinen Stücken darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375°F (190°C) 45-55 Minuten backen, bis Boden und Apfelränder goldbraun und die Scheiben weich sind. Rand bei Bedarf locker mit Folie schützen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aprikosenkonfitüre mit etwas Wasser erwärmen, durch ein Sieb streichen und dünn auf die warmen Äpfel pinseln. Zum Servieren auf warm oder Zimmertemperatur abkühlen lassen. Pur oder mit Crème fraîche servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tarte_aux_Pommes_-_Julien_Plumart_2025-07-30.jpg/960px-Tarte_aux_Pommes_-_Julien_Plumart_2025-07-30.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tarte_aux_Pommes_-_Julien_Plumart_2025-07-30.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 (Public Domain)",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li (Wikimedia Commons user Onthewings) — CC0 Public Domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Tarte aux Pommes (französische Apfeltarte)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-chouquettes",
+      "slug": "bake2-chouquettes",
+      "title": "Chouquettes (Brandteiggebäck mit Hagelzucker)",
+      "instructions": "Leichte, hohle Brandteiggebäcke mit knusprigem Hagelzucker, ein typischer Snack französischer Bäckereien. Außen knusprig, innen luftig und meist tütenweise verkauft. Ohne Füllung: Brandteig, Eistreiche und Zucker.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hagelzucker ist teuer. Zerdrückte Zuckerwürfel oder Rohrohrzucker geben denselben Biss für weniger Geld.",
+        "Kein Spritzbeutel? Einen Gefrierbeutel mit abgeschnittener Ecke nehmen oder Häufchen mit zwei Teelöffeln formen.",
+        "Eier, Mehl, Butter und Zucker sind alles, was du brauchst. Kein besonderer Belag oder Schokolade nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "Zerdrückte Zuckerwürfel oder grober Rohzucker für den knusprigen Belag.",
+          "savings": "Spart den Kauf von speziellem belgischem Hagelzucker; ein paar Dollar weniger."
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Nur Wasser (1/2 cup + 1/4 cup) für eine rustikalere knusprige Hülle.",
+          "savings": "Eine Zutat weniger."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter für eine milcharme Variante und Wasser als Flüssigkeit.",
+          "savings": "Ähnlicher Preis; praktisch, wenn Milchprodukte vermieden werden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "backen",
+        "brandteig",
+        "snack",
+        "dessert",
+        "pâte-à-choux"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7597,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-chouquettes/",
+      "components": [
+        {
+          "key": "b3592c3c-c842-57d1-9697-61c43c665dcc",
+          "name": "Zutaten",
+          "servingGrams": 95.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c3a44c3-9471-5986-bc0d-92fff1393ad4",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse Wasser"
+            },
+            {
+              "key": "e9363ead-19e5-5d7e-bb75-07566d00ecc2",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse Vollmilch"
+            },
+            {
+              "key": "ae2835bd-924d-58f1-a10d-7730c588eb16",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "25f74335-c7db-50b1-ade6-bf0efa008984",
+              "ingredientName": "Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Zucker (für den Teig)"
+            },
+            {
+              "key": "1dc8eb02-c2d9-58e2-9ed4-b08c0c8ce09b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "0c6a97a4-5f68-505a-82fd-26df7044f65e",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse plus 2 EL Weizenmehl"
+            },
+            {
+              "key": "6bc7465c-efc2-58cc-9bc9-f2b560b2992f",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 große Eier (3 für den Teig, 1 zum Bestreichen)"
+            },
+            {
+              "key": "f5e5fdcf-307f-5a4f-ba37-d9e01c4ef683",
+              "ingredientName": "Rohrohrzucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tasse Hagelzucker (oder Turbinadozucker als ähnlichste Katalogoption) für den Belag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 425F (220C) vorheizen und zwei Bleche mit Backpapier belegen. Wasser, Milch, Butterwürfel, 1 tsp Zucker und Salz im Topf erhitzen, bis die Butter geschmolzen ist und die Mischung sprudelnd kocht. Flüssigkeit nicht verdampfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vom Herd nehmen, Mehl auf einmal zugeben und kräftig rühren, bis glatter Teig entsteht. Zurück auf mittlere Hitze stellen und 2 to 3 Minuten unter Rühren trocknen, bis er sich vom Rand löst und ein dünner Film am Topfboden bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in eine Schüssel oder Küchenmaschine mit Flachrührer geben und 3 to 4 Minuten abkühlen lassen, bis er nur noch warm ist. In zu heißen Teig gerührte Eier würden stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3 Eier einzeln vollständig einrühren. Der Teig wirkt zuerst gebrochen und verbindet sich wieder. Er soll glänzen und langsam in V-Form vom Löffel fallen. Falls er noch steif ist, ein oder zwei Teelöffel des übrigen verquirlten Eis einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spritzbeutel mit runder Tülle von etwa 1/2 inch verwenden und Häufchen von 1.25-inch mit 2 inches Abstand spritzen. Spitzen mit feuchtem Finger glätten, übriges Ei verquirlen, dünn aufpinseln und mit Hagelzucker bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 425F 10 Minuten backen, ohne die Tür zu öffnen auf 375F (190C) senken und weitere 15 to 20 Minuten tiefgolden und fest backen. Sie müssen gut Farbe haben, sonst fallen sie zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ofen ausschalten, Tür mit Holzlöffel einen Spalt öffnen und Chouquettes 5 Minuten darin trocknen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Gitter abkühlen und am selben Tag essen. In den ersten Stunden nach dem Backen sind sie am knusprigsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Chouquettes.jpg/1280px-Chouquettes.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chouquettes.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "NavyOctopus, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Chouquettes (Brandteiggebäck mit Hagelzucker)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-tarte-bourdaloue",
+      "slug": "bake2-tarte-bourdaloue",
+      "title": "Tarte Bourdaloue (Mandel-Birnen-Tarte)",
+      "instructions": "Die klassische Pariser Mandel-Birnen-Tarte, benannt nach der Rue Bourdaloue, wo sie in den 1850er-Jahren entstand. Ein knuspriger Mürbeteigboden wird mit Mandel-Frangipane gefüllt, mit pochierten Birnen belegt und goldgelb gebacken. Mit Aprikosenglasur und Mandelblättchen vollendet.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Birnenhälften aus der Dose sind hier traditionell und kosten weniger als frische pochierte Birnen. Gut abtropfen und gründlich trocken tupfen.",
+        "Mandelmehl selbst herstellen: ganze Mandeln mit einem Löffel Zucker mahlen, damit sie nicht zu Mus werden.",
+        "Rum weglassen und etwas Zitronensaft sowie mehr Vanille für ein frisches Aroma verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rum",
+          "swap": "1 tsp zusätzliche Vanille und eine Prise mehr Mandelextrakt.",
+          "savings": "Spart den Kauf einer Flasche Rum."
+        },
+        {
+          "forIngredientId": "almond-flour",
+          "swap": "Ganze Mandeln mit etwas Zucker in der Küchenmaschine fein mahlen.",
+          "savings": "Etwa 30% günstiger als fertig gemahlenes Mandelmehl."
+        },
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Erwärmten Honig oder helle Konfitüre mit Wasser verdünnen.",
+          "savings": "Verwende, was bereits im Vorratsschrank ist."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "backen",
+        "dessert",
+        "tarte",
+        "birne",
+        "mandel",
+        "frangipane",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7598,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-tarte-bourdaloue/",
+      "components": [
+        {
+          "key": "22847c72-6a69-5275-bd7e-5b50049fe0ca",
+          "name": "Zutaten",
+          "servingGrams": 217.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bf9d92e-372f-5c59-97f8-bbb7e07ade0b",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Weizenmehl (für den Pâte-Sucrée-Teig)"
+            },
+            {
+              "key": "349937fc-7c04-54d0-9735-49bffe656abf",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) kalte ungesalzene Butter, gewürfelt (für den Boden)"
+            },
+            {
+              "key": "1ae28808-f47a-571c-8700-e7ffa854c9eb",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Puderzucker (für den Boden)"
+            },
+            {
+              "key": "631c84d6-3442-5f81-9aa7-900c08b85be5",
+              "ingredientName": "Mandelmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse Mandelmehl (macht den Boden zarter)"
+            },
+            {
+              "key": "b7870c6d-6283-5eb9-8e64-883abe08d5e7",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "4b3041ce-ccb5-5b2f-929e-4d7142128649",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 große Eier insgesamt: 1 für den Boden, 2 für die Frangipane"
+            },
+            {
+              "key": "288b56e8-c8f8-5946-ae1e-04870af0a78f",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) weiche ungesalzene Butter (für die Frangipane)"
+            },
+            {
+              "key": "79c50a22-a014-53cb-8faf-f85de1d2ca0f",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker (für die Frangipane)"
+            },
+            {
+              "key": "f98bc4ab-e569-55cc-bd44-9f82e4377169",
+              "ingredientName": "Mandelmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse Mandelmehl (Hauptzutat der Frangipane)"
+            },
+            {
+              "key": "02cc24a9-6761-5f6b-81f2-a7d1be601916",
+              "ingredientName": "Weizenmehl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL Weizenmehl (stabilisiert die Frangipane)"
+            },
+            {
+              "key": "203da178-79d3-5790-91c6-8f1371f7dd55",
+              "ingredientName": "Mandelextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL Mandelextrakt"
+            },
+            {
+              "key": "ec1b9f83-8b63-5c0c-a6da-e6ad7e3fa96b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "55e3d2e7-8700-5a7e-bc86-01ffbd9d0ec8",
+              "ingredientName": "Rum",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 oz (2 EL) dunkler Rum, traditionell in der Frangipane"
+            },
+            {
+              "key": "2d542700-9443-5674-a745-7c6a6aee46dc",
+              "ingredientName": "Birne",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "3 reife, aber feste Birnen (Bartlett oder Bosc), geschält, halbiert und entkernt"
+            },
+            {
+              "key": "bf071f83-5a12-5cda-a6aa-755aa6c67c1e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 Zitrone, ausgepresst, damit die Birnen nicht braun werden"
+            },
+            {
+              "key": "f6341440-0d55-55d5-bf2d-d5e9a60cd668",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "3 EL Aprikosenkonfitüre, erwärmt (für die abschließende Glasur)"
+            },
+            {
+              "key": "d34bb323-f762-5a27-ad16-d40ff76ff373",
+              "ingredientName": "Mandelstifte",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1/4 Tasse Mandelstifte oder Mandelblättchen für die Oberfläche"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 1/4 cups Mehl, Puderzucker, 1/4 cup Mandelmehl und Salz in der Küchenmaschine pulsieren. Kalte Butterwürfel zugeben und zu Krümeln pulsieren. 1 Ei kurz einarbeiten, bis Teigklumpen entstehen. Zu einer Scheibe drücken, einwickeln und mindestens 1 hour kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gekühlten Teig auf bemehlter Fläche etwa 1/8 inch dick ausrollen und eine Tarteform von 9-inch auskleiden. Boden einstechen und 15 Minuten einfrieren. Ofen auf 350°F (175°C) vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Backpapier und Backgewichten oder Bohnen belegen, 15 Minuten blindbacken, Gewichte und Papier entfernen und weitere 5 Minuten backen, bis der Boden trocken ist. Leicht abkühlen lassen; Ofen bei 350°F lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weiche Butter und Zucker 2-3 Minuten hell schlagen. Übrige 2 Eier einzeln einrühren, dann 1 cup Mandelmehl, 2 tbsp Mehl, Mandelextrakt, Vanille und Rum glatt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Birnenhälften mit Zitronensaft vermengen. Frangipane gleichmäßig im Boden verstreichen. Jede Birne quer in dünne Scheiben schneiden, auffächern und mit Schnittseite nach unten in die Creme drücken, Stiele zum Zentrum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mandelblättchen zwischen den Birnen über die Creme streuen. Bei 350°F 45-55 Minuten backen, bis die Frangipane aufgegangen, goldbraun und in der Mitte fest ist. Mandeln bei Bedarf mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tarte 20 Minuten abkühlen lassen. Aprikosenkonfitüre mit etwas Wasser erwärmen und über Birnen und Creme pinseln. Vollständig abkühlen lassen, bevor sie aus der Form genommen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Tarte_Bourdaloue.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tarte_Bourdaloue.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "traaf, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Tarte Bourdaloue (Mandel-Birnen-Tarte)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-crostata",
+      "slug": "bake2-crostata",
+      "title": "Crostata di Marmellata (italienische Marmeladentarte)",
+      "instructions": "Die klassische italienische Marmeladentarte, die jede Nonna auswendig kennt: Buttriger, leicht süßer Pasta-Frolla-Mürbeteig wird mit Aprikosenkonfitüre gefüllt und mit einem handgelegten Gitter verziert. Zart und mürbe statt blättrig, hält sich tagelang und passt zum Morgenkaffee oder nach dem Abendessen.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aprikose ist traditionell, doch jedes Glas Konfitüre, das du schon hast – Erdbeere, Pflaume oder Feige – eignet sich. Kaufe, was im Angebot ist.",
+        "Eine normale Pie- oder mit Backpapier ausgelegte Kuchenform statt einer Tarteform verwenden. Die rustikale Optik ist authentisch.",
+        "Teigreste fürs Gitter erneut ausrollen, damit nichts verschwendet wird. Pasta Frolla lässt sich gut erneut ausrollen, solange sie kalt bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Beliebige dicke Konfitüre oder Marmelade verwenden.",
+          "savings": "Ein geöffnetes Glas aufbrauchen, statt ein besonderes zu kaufen."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Kalte Pflanzenbutter für milchfreie Pasta Frolla.",
+          "savings": "Ähnlicher Preis; mit Leinsamenei auch vegan."
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "1/2 tsp zusätzliche Vanille oder eine Prise Zimt.",
+          "savings": "Spart den Kauf einer frischen Zitrone nur für die Schale."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "backen",
+        "dessert",
+        "tarte",
+        "zum-vorbereiten",
+        "vegetarisch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7599,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-crostata/",
+      "components": [
+        {
+          "key": "7b97460d-a85e-5103-aab5-de99226d9ad8",
+          "name": "Zutaten",
+          "servingGrams": 131.72,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d908467-1daa-5865-92a7-3f98be44057a",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl (etwa 250g Tipo 00 oder normales Weizenmehl)"
+            },
+            {
+              "key": "0137353b-4664-5310-a86a-ad2940194968",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker (100g)"
+            },
+            {
+              "key": "95886ccb-e50e-58d4-aef0-8066815a04d7",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "10 EL kalte ungesalzene Butter, gewürfelt (etwa 140g)"
+            },
+            {
+              "key": "5315b072-7714-5685-89fd-d5e8ac30e97a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 ganzes Ei plus 1 Eigelb für den Teig"
+            },
+            {
+              "key": "7ce0aee0-dde0-53d5-b4f5-9edfa1beceb4",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL fein abgeriebene Zitronenschale"
+            },
+            {
+              "key": "a6d5e1a7-cc4c-5b90-aa9f-9dccfc4add5f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "3d236945-5f71-5077-87a9-7febee7ec9cb",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "360b390d-5ae1-5cd0-886c-b2489c242ea7",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "9981deee-5e3a-5305-8447-31c9afece178",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse gute Aprikosenkonfitüre (etwa 320g)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker, Salz und Backpulver verquirlen. Kalte Butterwürfel mit den Fingerspitzen einarbeiten oder im Mixer pulsieren, bis die Mischung wie grober, feuchter Sand aussieht und keine Butterstücke größer als eine Erbse sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ei, zusätzliches Eigelb, Zitronenschale und Vanille dazugeben. Nur kurz mischen, bis Teig entsteht. Zur Scheibe drücken, einwickeln und mindestens 30 Minuten oder bis über Nacht kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ofen auf 350F (180C) erhitzen. Ein Drittel des Teigs für das Gitter kühl stellen. Größeren Teil auf leicht bemehlter Fläche zu einem etwa 1/8 inch dicken Kreis ausrollen und eine Tarteform von 9-inch auskleiden. Rand bündig abschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Aprikosenkonfitüre gleichmäßig auf dem Boden verstreichen, einen dünnen Rand frei lassen. Sehr feste Konfitüre glatt rühren; sehr flüssige 2-3 Minuten einkochen, damit sie nicht überläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Übrigen Teig ausrollen und in Streifen von etwa 3/4 inch schneiden. Gitter auf die Tarte legen und Enden auf dem Rand festdrücken. Reste bei Bedarf erneut ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf mittlerer Schiene 30-35 Minuten backen, bis der Teig fest und goldgelb und die Konfitüre leicht am Blubbern ist. Gitter bei zu schneller Bräunung locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Crostata vollständig in der Form auf einem Gitter abkühlen lassen. Konfitüre ist heiß und der Teig empfindlich, beim Abkühlen wird alles fest. In Stücke schneiden und bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Crostata_di_mele_di_Santin_spolverata_con_zucchero_a_velo.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Crostata_di_mele_di_Santin_spolverata_con_zucchero_a_velo.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "fugzu, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Crostata di Marmellata (italienische Marmeladentarte)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

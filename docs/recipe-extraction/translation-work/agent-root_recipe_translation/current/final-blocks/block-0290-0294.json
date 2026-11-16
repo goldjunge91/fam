@@ -1,0 +1,1378 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-huevos-pericos",
+      "slug": "egg-huevos-pericos",
+      "title": "Huevos Pericos (kolumbianisches Rührei)",
+      "instructions": "Weiches, fluffiges Rührei mit süßen Frühlingszwiebeln und reifen Tomaten, cremig gegart und bunt wie ein Sittich. Das beste kolumbianische Frühstück: wenige Zutaten, in weniger als 20 Minuten fertig und ideal zum Auftunken mit warmer Arepa und einer Tasse heißer Schokolade.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frühlingszwiebeln gehören zu den günstigsten aromatischen Zutaten im Laden, und du brauchst nur 3 Stangen. Stelle die Wurzelenden in einem Glas Wasser auf die Fensterbank; sie wachsen für die nächste Portion nach.",
+        "Nimm beliebige Tomaten aus dem Angebot oder sogar eine leicht überreife. Weichere Tomaten zerfallen schneller und schmecken aus der Pfanne süßer.",
+        "Gare die Eier bei mittelniedriger Hitze und nimm sie früh vom Herd. Niedrige, langsame Hitze hält sie cremig, sodass du weder Butter noch Milch für mehr Reichhaltigkeit brauchst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "1 EL Butter für einen reichhaltigeren, traditionelleren Geschmack",
+          "savings": "Kostet ein paar Cent mehr, sorgt aber für Cremigkeit (Hinweis: nicht mehr milchfrei)"
+        },
+        {
+          "forIngredientId": "scallion",
+          "swap": "Eine halbe kleine weiße Zwiebel, fein gehackt",
+          "savings": "Ersetzen, falls Zwiebeln vorhanden sind und keine Frühlingszwiebeln"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "2-3 EL gehackte oder zerdrückte Dosentomaten, gut abgetropft",
+          "savings": "uses up a pantry can and funktioniert year-round"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kolumbianisch",
+        "Ei",
+        "Frühstück",
+        "Rührei",
+        "schnell",
+        "günstig",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 290,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-huevos-pericos/",
+      "components": [
+        {
+          "key": "ead7945d-d21b-5850-8128-5e5982b20076",
+          "name": "Zutaten",
+          "servingGrams": 199.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "630a978a-c3be-584e-ac09-c4a2b064773a",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2863bea2-e3b0-57c5-8f68-202aa12c9b97",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "white und green parts, finely gehackt"
+            },
+            {
+              "key": "42430431-ad30-5a48-b984-0ff5eab8ab31",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "ripe, seeded und fein gewürfelt"
+            },
+            {
+              "key": "9e6138ae-5920-527c-b2da-083cc8bfdd95",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder substitute butter für a richer flavor"
+            },
+            {
+              "key": "840189a8-007a-550d-8f6b-8b3da2eac400",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f607cea6-01d8-5922-a74a-0251112ea009",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffab7009-80b7-5a0a-814e-7280c6d305fd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die 4 Eier in eine Schüssel, gib eine Prise Salz und Pfeffer dazu und verquirle sie mit einer Gabel, bis Eigelb und Eiweiß vollständig vermischt und leicht schaumig sind. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke die Frühlingszwiebeln (weiße und grüne Teile) fein und würfle die Tomate. Entferne die wässrigen Kerne, damit das Ei nicht suppig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer beschichteten Pfanne bei mittlerer Hitze, bis es schimmert. Gib die Frühlingszwiebeln dazu und gare sie unter Rühren 1-2 Minuten weich und aromatisch, aber nicht braun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Tomate und restliches Salz dazu. Gare alles 3-4 Minuten unter häufigem Rühren, bis die Tomate zu einer weichen, marmeladigen Mischung zerfällt und die meiste Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittelniedrig und gieße die verquirlten Eier hinein. Lass sie etwa 10 Sekunden ungestört stocken und falte und schiebe dann die Eierflocken vorsichtig mit einem Pfannenwender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Falte langsam weiter und ziehe die Eier von den Rändern zur Mitte, damit sich große, weiche Flocken bilden. Rühre nicht ständig und erhöhe die Hitze nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare die Eier insgesamt nur etwa 2-3 Minuten, bis sie vollständig gestockt, aber noch glänzend und saftig sind. Aus Lebensmittelsicherheit darf kein flüssiges Ei übrig bleiben. Nimm sie sofort vom Herd, wenn sie gestockt sind, da sie durch die Restwärme weitergaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile das Rührei sofort auf Tellern, gib nach Wunsch frischen Koriander darauf und serviere es heiß mit Arepa und heißer Schokolade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Huevos_pericos.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Huevos_pericos.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Bertahan Luxing, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Huevos Pericos (kolumbianischem Rührei)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-kuku-sabzi-persian-herb-frittata",
+      "slug": "egg-kuku-sabzi-persian-herb-frittata",
+      "title": "Kuku Sabzi (persisches Kräuteromelett mit Walnüssen und Berberitzen)",
+      "instructions": "Ein Nowruz-Klassiker, der an ein grünes Omelett erinnert: viel mehr frische Kräuter als Ei, zu smaragdgrünen Stücken gebacken und mit säuerlichen Berberitzen und knackigen Walnüssen verziert. Leuchtend, gut mitzunehmen und am nächsten Tag kalt in warmem Fladenbrot genauso köstlich.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf je einen großen Bund Petersilie, Koriander und Dill statt Kräuter in Kunststoffschalen. Hier wird der ganze Bund gebraucht und es ist viel günstiger.",
+        "Tiefkühlspinat funktioniert nach dem Auftauen und sehr gründlichen Ausdrücken bestens statt frischem Spinat und kostet weniger. Füge einfach weniger zusätzliche Flüssigkeit hinzu.",
+        "Berberitzen sind eine kleine Besonderheit, aber eine Tüte reicht monatelang. Lass sie weg oder ersetze sie durch fein gehackte getrocknete Cranberrys mit etwas Zitronensaft für dieselbe Säure."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "barberries",
+          "swap": "Gehackte getrocknete Cranberrys und ein Spritzer Zitrone für eine säuerliche Note",
+          "savings": "spart etwa $0.50 and uses a pantry staple"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Gehackte Mandeln oder Kürbiskerne",
+          "savings": "Pumpkin seeds run a bit günstiger pro Portion"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Aufgetauter, ausgedrückter Tiefkühlspinat",
+          "savings": "spart roughly $0.55 pro Rezept"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "persisch",
+        "Ei",
+        "Omelett",
+        "Kräuter",
+        "Nowruz",
+        "vegetarisch",
+        "zum Vorbereiten",
+        "gut mitzunehmen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 291,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-kuku-sabzi-persian-herb-frittata/",
+      "components": [
+        {
+          "key": "76c6ab93-ad3e-52db-9eb1-e4a3e43c3e50",
+          "name": "Zutaten",
+          "servingGrams": 433.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "f11c07ee-d5d3-5b59-a147-3941624c6e43",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b9b5544-c426-5cf5-a50e-9751254e7a17",
+              "ingredientName": "Frische Petersilie",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6a4cd2e-e4ea-561f-9109-c4bd2e0e017c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f2ab5c1-649c-5eaf-b0e0-4553ccbd8807",
+              "ingredientName": "Frischer Dill",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68bbf761-9c95-51d7-a8a2-72ab1b52bc0c",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d06c77de-3ab1-55da-9747-df4c0828430e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25c4b1aa-ced0-5673-a720-00847f6740c5",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "116058b9-bc4c-5cec-9599-420c080b2234",
+              "ingredientName": "Getrocknete Berberitzen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba9cff70-c075-5649-9479-a53483fcc88a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91b25398-effb-513e-8ba3-8cc5293fe652",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f542307-17d2-5a08-b661-7744360a18e7",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1ea27f1-adb1-523f-b1b8-a5344fe06273",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9fd6646-cbf6-5c6c-9712-65b45656faf3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc1fac29-024b-510c-9dde-50b41e851c8c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e1b1701-030f-5d71-9ac0-bd55d7cea3b4",
+              "ingredientName": "Fladenbrot",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Servieren as a sandwich"
+            },
+            {
+              "key": "10c3260d-ea9c-5b32-9e60-64a39c004603",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "dollop on side"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Petersilie, Koriander, Dill und Frühlingszwiebeln fein und den Spinat grob. Hacke den Knoblauch. Der Berg aus Kräutern sollte fast zu groß wirken; das ist bei Kuku Sabzi richtig. Tupfe alles trocken, damit die Eier stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wenn du Berberitzen verwendest, spüle sie in einer kleinen Schüssel mit Wasser ab, lass sie abtropfen und weiche sehr trockene Beeren 5 Minuten in frischem Wasser ein. Tupfe sie trocken. Hacke die Walnüsse grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle in einer großen Schüssel Eier, Backpulver, Kurkuma, Salz und Pfeffer etwa 30 Sekunden, bis die Mischung glatt und leicht schaumig ist. Das Backpulver macht das Kuku locker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe gehackte Kräuter, Spinat, Frühlingszwiebeln, Knoblauch, Walnüsse und den größten Teil der Berberitzen unter die Eier, bis alles gleichmäßig überzogen ist. Die Mischung wird sehr dick und grün sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze 2 EL Olivenöl in einer 9-10-Zoll-beschichteten Pfanne bei mittelniedriger Hitze. Gib die Kräuter-Ei-Mischung hinein und verstreiche sie mit einem Pfannenwender. Decke die Pfanne ab und gare die Mischung ungestört 12-15 Minuten, bis der Boden goldbraun und die Oberfläche größtenteils gestockt, in der Mitte aber noch leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Wenden: Schiebe das Kuku auf einen Teller, träufle das restliche 1 EL Öl in die Pfanne und stürze die Pfanne über den Teller, sodass das Kuku zurück in die Pfanne fällt. Gare es ohne Deckel weitere 5-7 Minuten, bis es vollständig gestockt ist und in der Mitte kein flüssiges Ei bleibt (ein hineingestecktes Messer soll sauber herauskommen und die Mitte 160F / 71C erreichen). Einfacher geht es, wenn du stattdessen eine ofenfeste Pfanne in einen auf 375F geheizten Ofen stellst und sie 10-12 Minuten backst, bis das Omelett gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schiebe das Omelett auf ein Brett und lass es 5 Minuten ruhen. Schneide es anschließend in 4 Stücke und streue die übrigen Berberitzen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Kuku warm oder bei Raumtemperatur mit warmem Fladenbrot und einem Klecks griechischem Joghurt. Reste halten sich gekühlt 3 Tage und eignen sich gut als kaltes Sandwich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Kuku_Sabzi_%28Iranian_food%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kuku_Sabzi_(Iranian_food).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Sonabona, CC0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kuku Sabzi (persischem Kräuteromelett mit Walnüssen und Berberitzen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-green-shakshuka",
+      "slug": "egg-green-shakshuka",
+      "title": "Grüne Shakshuka (Eier in Blattgemüse und Kräutern pochiert)",
+      "instructions": "Eine frische, kräuterige Variante von Shakshuka, bei der Eier statt in Tomaten in einem Gewirr aus angebratenem Spinat, Mangold, Zucchini und Knoblauch pochiert werden. Zerbröselter Feta, ein kühler Klecks Joghurt und knuspriger Dukkah machen aus welkem Kühlschrankgemüse ein echtes Abendessen.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Blattgemüse, das im Kühlschrank welk wird: Spinat, Mangold, Grünkohl oder sogar Karotten- und Radieschenblätter. Die Grundlage ist flexibel, du kannst nehmen, was du hast.",
+        "Tiefkühlspinat ist nach dem Auftauen und Ausdrücken günstiger als frischer und schmilzt direkt in die Grundlage. Ersetze einen Teil des frischen Grüns damit, um Kosten zu sparen.",
+        "Kein Dukkah da? Röste einen Löffel Sesamsamen oder gehackte Nüsse mit einer Prise Kreuzkümmel für dieselbe knusprig-nussige Note für wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "swiss-chard",
+          "swap": "Mehr Spinat oder Grünkohl oder aufgetauter Tiefkühlspinat",
+          "savings": "Tiefgekühlter Spinat kostet etwa halb so viel wie frischer Mangold"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Zerbröselter Ziegenkäse oder eine Handvoll geriebener Parmesan",
+          "savings": "Use whatever cheese bereits vorhanden to avoid a special trip"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Naturjoghurt oder saure Sahne",
+          "savings": "Plain yogurt costs less than half of Greek pro Tasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "nahöstlich",
+        "Ei",
+        "Shakshuka",
+        "vegetarisch",
+        "Blattgemüse",
+        "aus einer Pfanne",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 292,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-green-shakshuka/",
+      "components": [
+        {
+          "key": "4efd9742-858d-5fb9-9380-7300b68bd17c",
+          "name": "Zutaten",
+          "servingGrams": 1198.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9557e741-d5cc-546a-8832-857b893446fc",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bb8eb1f-be6c-53d0-8783-d5bd20f57595",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d33eb3f-f23e-5610-883a-9260d84aa231",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04004b5c-cecf-52ca-9f62-57cfd9d2bb82",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb0de257-186e-5a20-9cca-7324b51ff62e",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4da41bd5-1688-5c58-8247-7e9992f46610",
+              "ingredientName": "Mangold",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c0891fa-8ef6-55a6-b951-e2aabf56acc0",
+              "ingredientName": "Grünkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1ae9d19-0f08-5b75-8b5f-07619f045030",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3dcfaec-2c35-5f3a-bc92-6325197b284f",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d4bf83c-4108-5c07-8fcd-19e1d5d4d830",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc98db09-5c4f-5173-aa5c-b0a99f1503c4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3529b0f3-42c6-5833-a009-69385fc5e68f",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0360c54-ae36-574e-9513-7c27704429fd",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f664ecd-1873-5f1c-aa92-f675418de88c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1cf7ba5-9c0f-5c05-90df-474251e3f757",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05a1eb02-7c0e-5956-9a7d-bb95466ad36c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "7232854f-58fd-5f4c-8909-9eaf5295cfc1",
+              "ingredientName": "Sumach",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "76297032-b2fd-5a34-94ff-f1ee8a81b5bd",
+              "ingredientName": "Dukkah-Gewürzmischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "c08ccab8-7b81-58a4-add1-124de1e2336b",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 18,
+              "optional": true,
+              "source_note": "zum Servieren; omit oder verwenden GF bread zum keep it gluten-free"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer breiten Pfanne bei mittlerer Hitze. Gib gewürfelte Zwiebel und eine Prise Salz dazu und gare sie unter Rühren 5-6 Minuten weich und glasig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und gewürfelte Zucchini dazu. Gare alles 3-4 Minuten, bis der Knoblauch süßlich duftet und die Zucchini gerade weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Kreuzkümmel und Koriander unter und röste sie 30 Sekunden, bis sie duften. Gib gehackten Spinat, Mangold und Grünkohl portionsweise dazu und rühre nach jeder Zugabe um, bis alles zu einer weichen grünen Grundlage zusammenfällt; das dauert etwa 4-5 Minuten. Würze mit restlichem Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Hälfte des Dills (und nach Wunsch Koriander) ein. Verteile das Gemüse gleichmäßig und forme mit einem Löffel 4 flache Mulden. Schiebe das Gemüse bis zum Pfannenboden zur Seite, damit die Eier die heiße Oberfläche berühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage je ein Ei in jede Mulde und würze jedes leicht mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab, reduziere die Hitze auf mittelniedrig und gare alles 6-9 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig und das Eigelb noch flüssig ist. Für vollständig gestockte Eigelbe (sicherer für Schwangere, kleine Kinder oder Menschen mit geschwächtem Immunsystem) weitere 2-3 Minuten garen, bis die Eigelbe fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd. Zerbrösele Feta darüber und streue den restlichen Dill und Koriander darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Kleckse griechischen Joghurt um die Eier und streue Sumach und reichlich Dukkah darüber. Serviere das Gericht direkt aus der Pfanne mit warmem oder geröstetem Brot zum Auftunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Liat_Portal_for_Foodie_Disorder_-_Green_shakshuka_with_spinach_and_egg.jpg/1280px-Liat_Portal_for_Foodie_Disorder_-_Green_shakshuka_with_spinach_and_egg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Green_shakshuka_with_spinach_and_egg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Liat Portal, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto grüner Shakshuka mit in Blattgemüse und Kräutern pochierten Eiern",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-sucuklu-yumurta",
+      "slug": "egg-sucuklu-yumurta",
+      "title": "Sucuklu Yumurta (türkische Sucuk mit Eiern)",
+      "instructions": "Würzige, knoblauchige türkische Sucuk wird im eigenen paprikagefärbten Fett knusprig gebraten; anschließend werden Eier direkt in der brutzelnden Butter gebraten. Ein herzhaftes 10-Minuten-Frühstück mit knusprigem Brot, Tomaten und Oliven – ein Gericht, das schon beim ersten Bissen überzeugt.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf eine ganze Sucuk oder Chorizo und friere sie ein. Schneide jeweils nur so viel ab, wie du für ein Frühstück brauchst.",
+        "Lass die Garnitur weg – mit Eiern, Wurst und Brot ist das Gericht vollständig. Tomaten und Oliven nur dazugeben, wenn du sie bereits hast.",
+        "Verwende das ausgelassene Gewürzfett statt zusätzlichem Öl. Es dient zugleich als Bratfett und Sauce, sodass nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chorizo",
+          "swap": "Spanische Chorizo, Kielbasa, Räucherwurst oder sogar Peperoni – jede feste Wurst, die knusprig wird und Fett abgibt",
+          "savings": "pepperoni runs a bit günstiger pro Portion"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl oder Ghee, falls keine Butter da ist – die Wurst gibt ohnehin den größten Teil des Fetts ab",
+          "savings": "Pflanzenöl ist die günstigste Option"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Pita, Simit oder beliebiges übriges Brot zum Auftunken",
+          "savings": "Vorhandenes Brot aufbrauchen, statt Simit zu kaufen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "Ei",
+        "Frühstück",
+        "Wurst",
+        "schnell",
+        "Pfannengericht",
+        "Frühstück zum Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 293,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-sucuklu-yumurta/",
+      "components": [
+        {
+          "key": "b12c2014-0f8a-5493-8756-d1e3099c9415",
+          "name": "Zutaten",
+          "servingGrams": 256.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "521adf43-b520-5104-9832-a10a4165559c",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e0ec455-a1af-500c-8a43-a3eae1d0edfc",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "stand-in für Turkish sucuk; slice into 1/4-inch coins"
+            },
+            {
+              "key": "498fd674-623d-53ca-831c-5446b1b6a3f6",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f98ee6f4-c9e1-52ad-8cc6-8e751ad315ca",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "boosts classic red sucuk color und warmth"
+            },
+            {
+              "key": "69340880-4e3a-5bb4-8c38-fe44c1e7a632",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d47c895f-9bd4-5b64-84bf-ff4b3bb4b7bc",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63ea9d95-f639-5f2f-8e46-e03b3483383c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "für zusätzliche Schärfe"
+            },
+            {
+              "key": "70ff1259-9344-5217-9f88-9c4ed4ee16b9",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "crusty bread oder simit, zum Servieren"
+            },
+            {
+              "key": "4c9ba4f7-7dff-5cae-a551-e9d7d7439782",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, on side"
+            },
+            {
+              "key": "dc92a3cb-ae75-5b5c-934a-34c64e37ed1c",
+              "ingredientName": "Oliven",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "a small handful, on side"
+            },
+            {
+              "key": "da8b7596-be5f-53a2-9c3e-a1ec8a6862e1",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Sucuk oder Chorizo in 1/4-Zoll-Scheiben. Schmilz Butter in einer Pfanne bei mittlerer Hitze, bis sie schäumt und nussig duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Wurstscheiben in einer Lage hinein und gare sie 1-2 Minuten pro Seite, bis sich die Ränder wölben und knusprig werden und das Fett in die Butter übergeht, die sich tief paprikarot färbt. Gare die Wurst vollständig durch; die Mitte darf nicht rosa sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Paprikapulver und nach Wunsch rote Chiliflocken etwa 15 Sekunden in das ausgelassene Fett, damit sich die Gewürze entfalten. Lass sie nicht anbrennen, sonst werden sie bitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die Wurst an den Pfannenrand. Schlage die Eier direkt in das gewürzte Fett und achte darauf, dass das Eigelb ganz bleibt. Würze das Eiweiß leicht mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Pfanne ab und gare die Eier bei mittelniedriger Hitze 5-7 Minuten: Nach 5 Minuten sind die Eigelbe noch cremig, nach 7 vollständig gestockt. Das Eiweiß muss in beiden Fällen vollständig undurchsichtig und fest sein, ohne klare, wackelige Stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste oder erwärme währenddessen das Brot. Schiebe Eier und Sucuk auf Teller und streue gehackte Petersilie darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß, nach Wunsch direkt aus der Pfanne, mit geschnittenen Tomaten und Oliven. Tunke Brot in die Gewürzbutter und das Eigelb. Am besten sofort essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Sucuklu_yumurta_with_butter.jpg/1280px-Sucuklu_yumurta_with_butter.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sucuklu_yumurta_with_butter.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "E4024, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Sucuklu Yumurta (türkischer Sucuk mit Eiern)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-ful-medames-soft-egg-cumin",
+      "slug": "egg-ful-medames-soft-egg-cumin",
+      "title": "Ful Medames mit weichem Ei und Kreuzkümmel",
+      "instructions": "Ägyptisches Nationalfrühstück: cremige Saubohnen warm mit Kreuzkümmel, Knoblauch und Zitrone zerdrückt und großzügig mit Olivenöl beträufelt, dazu ein cremiges Ei und warme Pita zum Auftunken. Sehr günstig, reich an Eiweiß und Ballaststoffen und hält den ganzen Morgen satt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Saubohnen aus der Dose sind hier der günstigste schnelle Weg – eine Dose reicht für das Frühstück von zwei Personen. Kauf ein paar Dosen im Angebot und bewahre sie im Vorratsschrank auf.",
+        "Lass frische Zitrone weg und verwende stattdessen einen Esslöffel Zitronensaft aus der Flasche. Er hält lange und du verschwendest keine halbe Zitrone.",
+        "Tomate, Petersilie und Jalapeño sind optionale Beilagen. Wenn du sparen musst, schmeckt das Gericht auch nur mit Bohnen, Kreuzkümmel, Knoblauch und einem weichen Ei."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fava-beans",
+          "swap": "Eine Dose Kichererbsen auf dieselbe Weise zerdrücken – nicht traditionell, aber günstiger und genauso sättigend",
+          "savings": "ca. $0.90/can"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "1 EL Zitronensaft aus der Flasche oder ein Schuss Essig für dieselbe frische Säure",
+          "savings": "ca. $0.55"
+        },
+        {
+          "forIngredientId": "pita",
+          "swap": "Geröstete Brotscheiben oder Tortilla statt Pita zum Auftunken",
+          "savings": "ca. $0.30 each"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "ägyptisch",
+        "Ei",
+        "Frühstück",
+        "vegetarisch",
+        "günstig",
+        "Saubohnen",
+        "15-minütig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 294,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-ful-medames-soft-egg-cumin/",
+      "components": [
+        {
+          "key": "8d3ca2eb-8f46-56b4-a175-ad790ad2e2e7",
+          "name": "Zutaten",
+          "servingGrams": 489,
+          "position": 0,
+          "items": [
+            {
+              "key": "82bf8c8c-a423-5f05-b5ad-35cb07ebc475",
+              "ingredientName": "Saubohnen",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 can, drained; reserve a splash von liquid"
+            },
+            {
+              "key": "e9db70a0-8cf9-506e-9717-a1bd13f69509",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "eins pro Portion"
+            },
+            {
+              "key": "1df297f0-5c3a-5d63-adf7-a3a0b825f011",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "ad9b6b4a-e148-59c8-bd37-7135d0236ed7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65411070-f319-51d0-9a90-8df8e7a5af85",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "plus extra zum drizzle"
+            },
+            {
+              "key": "a841bb98-a358-58d7-88ef-9d7de423fef1",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "ausgepresst"
+            },
+            {
+              "key": "a2c46355-3526-5eef-9322-fc2a6d451298",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f88ad541-edc1-5cd1-ac96-71cee59b498c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "gehackt, für topping"
+            },
+            {
+              "key": "9f75be1b-2b1c-5a2a-91ab-a7d20d26bbda",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "b8bdef7c-6e20-52be-8c97-2278ab13a99b",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "dünn geschnitten, für Schärfe"
+            },
+            {
+              "key": "9378abbd-6d7a-57de-80fb-6eb62086afe4",
+              "ingredientName": "Pitatasche",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "für scooping"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Dose Saubohnen abtropfen und hebe einige Esslöffel Flüssigkeit auf. Gib die Bohnen mit etwa 1/4 Tasse Wasser oder der aufgehobenen Flüssigkeit in einen kleinen Topf und stelle ihn auf mittlere Hitze. Erwärme alles 5-6 Minuten unter gelegentlichem Rühren, bis es dampft und durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und zerdrücke etwa die Hälfte der Bohnen mit einer Gabel am Topfrand; lass den Rest für mehr Struktur ganz. Rühre gehackten Knoblauch, Kreuzkümmel und Salz ein und gare alles weitere 1-2 Minuten, bis es duftet. Gib etwas Wasser dazu, falls die Mischung trocken wirkt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd und rühre Zitronensaft und 1 EL Olivenöl ein. Probiere und passe Salz und Zitrone an. Verteile die warmen Bohnen auf zwei flache Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für weich gekochte Eier mit cremigem Eigelb: Bringe einen kleinen Topf Wasser leicht zum Kochen, gib die Eier mit einem Löffel hinein und gare sie 6.5-7 Minuten, bis das Eiweiß fest und das Eigelb flüssig bis cremig ist. Lege sie 1 Minute in kaltes Wasser, pelle sie und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Braten der Eier: Erhitze das übrige 1 EL Olivenöl in einer beschichteten Pfanne bei mittlerer Hitze, schlage die Eier hinein und gare sie 2-3 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig und das Eigelb weich ist. Für feste Eigelbe die Pfanne abdecken und weitere 1-2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jede Schüssel Bohnen mit einem Ei. Streue nach Wunsch gehackte Tomate, Petersilie und geschnittene Jalapeño darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle alles großzügig mit Olivenöl und streue eine zusätzliche Prise Kreuzkümmel darüber. Heiß mit warmer Pita zum Auftunken servieren und sofort essen, solange das Ei warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Ful_medames.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ful_medames.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Zachbe at en.wikipedia, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ful Medames mit weichem Ei und Kreuzkümmel",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

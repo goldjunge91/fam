@@ -1,0 +1,1144 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-spicy-tomato-pork-chops",
+      "slug": "toh-spicy-tomato-pork-chops",
+      "title": "Scharfe Schweinekoteletts in Tomatensauce",
+      "instructions": "Zarte Schweinekoteletts ohne Knochen in einer rauchig-scharfen Tomatensauce mit süßer Zwiebel, Chilipulver und einer Prise Chiliflocken geschmort. Ein schnelles Pfannengericht mit viel Geschmack aus Vorratszutaten. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/spicy-tomato-pork-chops/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinekarree und schneide die Koteletts selbst. Das ist günstiger als bereits geschnittene Koteletts ohne Knochen.",
+        "Eine einfache Dose Tomatensauce mit Gewürzen aus dem Vorrat kostet nur einen Bruchteil einer fertigen Schmor-Sauce im Glas.",
+        "Zwiebeln halten sich wochenlang an einem kühlen, dunklen Ort. Lege einen Vorrat an, wenn sie im Angebot sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-chop",
+          "swap": "Hähnchenschenkel ohne Knochen oder Hähnchenbrust, nach derselben Methode in der Pfanne gegart",
+          "savings": "Hähnchenschenkel sind oft pro Pfund günstiger als Lendenkoteletts."
+        },
+        {
+          "forIngredientId": "red-pepper-flakes",
+          "swap": "Ein Schuss scharfe Sauce oder Cayennepfeffer für dieselbe Schärfe",
+          "savings": "Verwende, was bereits im Gewürzregal ist, statt Flocken zu kaufen."
+        },
+        {
+          "forIngredientId": "worcestershire",
+          "swap": "Sojasauce mit einem kleinen Schuss Essig für eine ähnlich herzhafte Säure"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Pfannengericht",
+        "scharf",
+        "Tomate",
+        "unter der Woche",
+        "aus einer Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 510,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-spicy-tomato-pork-chops/",
+      "components": [
+        {
+          "key": "bb6915b7-2197-5798-98a5-82106e203785",
+          "name": "Zutaten",
+          "servingGrams": 222.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c3a2332-3d08-555b-baad-dd6a30d3e743",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37acd7a9-b27c-5cf9-a311-1b29d824e4f6",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d3e9aa2-2bd1-52fa-b1eb-b9c56ffe75c8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "groß, gehackt"
+            },
+            {
+              "key": "04cd3b5d-7a52-5adf-a222-5587e4289dd4",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9a9a25a-771b-5554-af82-1efc46a2b30a",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a75d7e5e-d0db-5712-9730-ffb97da18440",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1c26e9e-9e01-55d0-8180-0c5def3e4def",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e01299f-917c-5419-8060-0904e939ae7e",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "593d1a5f-3139-512f-8e74-48b5b00ce413",
+              "ingredientName": "Zucker",
+              "grams": 2.55,
+              "quantity": 2.55,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "248fe6b2-4d19-568b-9512-cd584fe2e715",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zerstoßen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Olivenöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Schweinekoteletts auf beiden Seiten an, bis sie gebräunt sind. Lege sie auf einen Teller und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gehackte Zwiebel in dieselbe Pfanne und gare sie unter Rühren, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatensauce, Wasser, Chilipulver, Oregano, Worcestershiresauce, Zucker und Chiliflocken ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Schweinekoteletts zurück in die Pfanne und bringe die Sauce zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke die Pfanne ab und lass alles 15 bis 20 Minuten köcheln, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd und lass das Fleisch 5 Minuten ruhen. Serviere die Koteletts mit Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps49624_SD153208B08_08_6b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/spicy-tomato-pork-chops/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von scharfen Schweinekoteletts in Tomatensauce",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-spinach-and-feta-stuffed-chicken",
+      "slug": "toh-spinach-and-feta-stuffed-chicken",
+      "title": "Mit Spinat und Feta gefülltes Hähnchen",
+      "instructions": "Zarte Hähnchenschenkel, gefüllt mit würzigem, zusammengefallenem Spinat und salzigem Feta, goldbraun angebraten und mit einer schnellen Pfannensauce serviert. Ein einfaches Abendessen wie im Restaurant, in einer halben Stunde fertig. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/spinach-and-feta-stuffed-chicken/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze frischen Spinat durch tiefgekühlten gehackten Spinat, aufgetaut und gut ausgedrückt. So sparst du Geld und kannst den Schritt zum Zusammenfallenlassen überspringen.",
+        "Kaufe eine größere Packung Hähnchenschenkel und friere den Rest ein. Hähnchenschenkel gehören pro Pfund zu den günstigsten Proteinquellen.",
+        "Zahnstocher halten die Röllchen genauso gut zusammen wie Küchengarn."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Zerbröselter Ziegenkäse oder geriebener Mozzarella",
+          "savings": "Verwende, was du vorrätig hast"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Dünn geklopfte Hähnchenbrust ohne Knochen",
+          "savings": "Oft im Angebot; magerere Variante"
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Weißweinessig oder Zitronensaft"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "gefülltes Hähnchen",
+        "Spinat",
+        "Feta",
+        "unter der Woche",
+        "kohlenhydratarm",
+        "Pfannensauce"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 511,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-spinach-and-feta-stuffed-chicken/",
+      "components": [
+        {
+          "key": "db4f38c1-4fad-5d0a-9d8a-8918392acbf8",
+          "name": "Zutaten",
+          "servingGrams": 1424.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "cae460c0-9b2c-556c-852a-c8e488fa3a6f",
+              "ingredientName": "Spinat",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "frisch, wilted down"
+            },
+            {
+              "key": "2c7c5e35-633a-585a-aa7c-6a1c5af2264c",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15462238-ab5d-574a-840a-095dc3a29f8e",
+              "ingredientName": "Zucker",
+              "grams": 2.55,
+              "quantity": 2.55,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c36d4347-a2e1-5540-8079-3d598f066cf2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1707de61-cef5-583b-bbd0-aba8ded3ea0a",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, pounded dünn"
+            },
+            {
+              "key": "3042d9b1-d657-566f-9bbd-654e6a081aea",
+              "ingredientName": "Geflügelgewürz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bee80ac5-1db5-5402-8f8e-3f6c5cb14b9c",
+              "ingredientName": "Feta",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zerbröselt"
+            },
+            {
+              "key": "036c04a9-1aba-5277-affd-d25a5325227d",
+              "ingredientName": "Olivenöl",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9eff1874-36e0-590f-9a76-2a0ca38b4e6e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "e91dbcee-e945-51c1-b24a-a147e78a2abb",
+              "ingredientName": "Butter",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375F vor. Gare Spinat in einer großen Pfanne bei mittelhoher Hitze unter Rühren, bis er zusammengefallen ist. Rühre Apfelessig, Zucker und Pfeffer ein und stelle die Mischung zum leichten Abkühlen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Klopfe die Hähnchenschenkel mit einem Fleischklopfer dünn und würze beide Seiten mit Geflügelgewürz. Verteile Spinatmischung und zerbröselten Feta auf jedem Schenkel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle jeden Schenkel von einer langen Seite aus fest auf und binde ihn mit Küchengarn zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer ofenfesten Pfanne bei mittelhoher Hitze. Brate die Hähnchenröllchen rundherum an, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Pfanne in den Ofen und gare das Hähnchen 13 bis 15 Minuten, bis seine Innentemperatur 170F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das Hähnchen auf einen Teller und halte es warm. Stelle die Pfanne zurück auf den Herd, gib Brühe und Butter hinein und bringe alles zum Kochen. Kratze dabei die gebräunten Reste vom Pfannenboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Sauce 3 bis 5 Minuten köcheln, bis sie leicht eindickt. Löffle sie zum Servieren über das Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Spinach-and-Feta-Stuffed-Chicken_EXPS_TOHD24_176968_DianaChistruga_7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/spinach-and-feta-stuffed-chicken/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von mit Spinat und Feta gefülltem Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-spinach-and-mushroom-smothered-chicken",
+      "slug": "toh-spinach-and-mushroom-smothered-chicken",
+      "title": "Hähnchen mit Spinat und Pilzen",
+      "instructions": "Saftige gegrillte Hähnchenbrust mit geschmolzenem Provolone und einer herzhaften Mischung aus gebratenen Pilzen, zusammengefallenem Spinat und gerösteten Pekannüssen. Ein schnelles, leichtes Abendessen für unter der Woche, das viel aufwendiger schmeckt, als die 30 Minuten Zubereitungszeit vermuten lassen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/spinach-and-mushroom-smothered-chicken/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchenbrüste und schneide sie selbst in dünne Stücke, statt vorgeschnittene Schnitzel zu nehmen.",
+        "Ersetze frischen Spinat durch tiefgekühlten, aufgetaut und gut ausgedrückt. Das ist günstiger und vermeidet Abfall.",
+        "Walnüsse sind meist günstiger als Pekannüsse und lassen sich genauso gut rösten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "provolone",
+          "swap": "Mozzarella- oder Schweizer-Käse-Scheiben",
+          "savings": "~$0.10 pro Portion"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Gehackte Walnüsse oder Mandelblättchen",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Champignons",
+          "savings": "~$0.25 pro Tasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Hähnchen",
+        "kohlenhydratarm",
+        "gegrillt",
+        "schnell",
+        "unter der Woche",
+        "ketofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 512,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-spinach-and-mushroom-smothered-chicken/",
+      "components": [
+        {
+          "key": "7a799537-1a72-5952-b24a-2e4a84cc0ce2",
+          "name": "Zutaten",
+          "servingGrams": 414.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "7adf0923-e5ac-5e88-a5a0-4e268a54d517",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1c05a4c-7d8d-5496-99e1-51c21b062cd3",
+              "ingredientName": "Pilze",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59be6fe4-a023-5aab-a208-e87f7c5ee536",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "228830f7-e098-57a0-bcf4-48a9b8febc27",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8367261b-3a4e-5a96-9950-70421a7bdf60",
+              "ingredientName": "Pekannüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a426c38-e6e3-511c-8702-474a4b9895d7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a20c337c-3564-519b-9753-278baeb57774",
+              "ingredientName": "Geflügelgewürz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8f0e541-b9c5-52be-bc5d-3b7e85266bd4",
+              "ingredientName": "Provolone",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher Hitze. Gib geschnittene Pilze und Frühlingszwiebeln dazu und gare sie, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Spinat und gehackte Pekannüsse ein und schwenke alles nur so lange, bis der Spinat zusammengefallen ist. Nimm die Pfanne vom Herd und halte die Mischung warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Hähnchenbrüste auf beiden Seiten mit Geflügelgewürz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille das Hähnchen zugedeckt auf einem geölten Rost bei mittelhoher Hitze, bis es gar ist (165F Kerntemperatur), etwa 4 bis 5 Minuten pro Seite. Kein Grill vorhanden? Gare es stattdessen auf einer geölten Pfanne 4 inches unter dem Ofengrill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die halbierten Provolone-Scheiben auf das Hähnchen und grille es kurz, bis der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffle die warme Pilz-Spinat-Mischung über jedes Stück und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Spinach-and-Mushroom-Smothered-Chicken_EXPS_TOHD24_39907_SarahTramonte_5.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/spinach-and-mushroom-smothered-chicken/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen mit Spinat und Pilzen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-super-quick-chicken-fried-rice",
+      "slug": "toh-super-quick-chicken-fried-rice",
+      "title": "Einfacher gebratener Reis mit Hähnchen",
+      "instructions": "Ein unkompliziertes Pfannengericht für unter der Woche, das Hähnchen vom Drehspieß, fertigen Reis und Mischgemüse in einer halben Stunde in ein herzhaftes, nach Sesam duftendes Abendessen verwandelt. Lockeres Rührei und ein Schuss Sesamöl zum Schluss sorgen für den Geschmack eines Liefergerichts, ganz ohne Wartezeit. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/super-quick-chicken-fried-rice/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze das Hähnchen vom Drehspieß durch eine Portion gegarte Hähnchenbrust oder -schenkel vom Vortag, um Geld zu sparen.",
+        "Verwende einfachen Reis vom Vortag statt teurer Portionsbeutel für Fertigreis und gib selbst gewürfeltes Gemüse dazu.",
+        "Kaufe einen großen Beutel tiefgekühltes Mischgemüse statt einzelner Packungen. Das senkt den Preis pro Tasse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rotisserie-chicken",
+          "swap": "Gekochte, zerzupfte Hähnchenbrust oder -schenkel",
+          "savings": "Ungefähr gleich teuer oder günstiger, wenn du eine Großpackung selbst zubereitest"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Jasmin- oder weißer Reis vom Vortag",
+          "savings": "Etwa $1 pro Portion gegenüber verzehrfertigen Beuteln"
+        },
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Frisch gewürfelte Karotten, Erbsen und Mais",
+          "savings": "Vergleichbar; verwertet Reste aus dem Kühlschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch-amerikanisch",
+        "gebratener Reis",
+        "Hähnchen",
+        "schnell",
+        "unter der Woche",
+        "30 Minuten",
+        "Reste",
+        "aus einer Pfanne",
+        "Wokgericht"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 513,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-super-quick-chicken-fried-rice/",
+      "components": [
+        {
+          "key": "ecce296e-8583-5135-a360-96cd375a11b7",
+          "name": "Zutaten",
+          "servingGrams": 472.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "781b59f7-5870-5eb9-ab31-765a27a9992a",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb1be662-46f4-5e0c-8c80-5cd109b485b2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b20a4a3e-0929-5dfc-b40f-dae31791923b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c584a91a-80dc-5efd-8f08-722f0d398070",
+              "ingredientName": "Sesamöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea9383ff-6367-5390-94f7-3cc22a9b0b2e",
+              "ingredientName": "Reis",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "verzehrfertiger Reis mit Gartengemüse"
+            },
+            {
+              "key": "ca81c594-bb4a-5e7a-8853-96da18307624",
+              "ingredientName": "Hähnchen vom Drehspieß",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "skin removed, gerieben"
+            },
+            {
+              "key": "56f2e5ec-2976-5bb5-8a72-98f812dbef9d",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b60e1a1a-7e06-59bd-b659-28375e387106",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare das tiefgekühlte Mischgemüse nach Packungsanleitung und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 Esslöffel Olivenöl in einer großen Pfanne bei mittelhoher Hitze. Gieße die verquirlten Eier hinein und rühre, bis sie gerade gestockt sind und keine flüssige Masse übrig ist. Nimm sie dann aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme in derselben Pfanne 2 Esslöffel Sesamöl zusammen mit dem übrigen Esslöffel Olivenöl bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Reis dazu und brate ihn unter Rühren 10 bis 12 Minuten, bis er anfängt, goldbraun und geröstet zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre zerzupftes Hähnchen, Salz und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe gegartes Gemüse und Rührei unter. Zerteile das Ei beim Umrühren in kleinere Stücke und erhitze alles vollständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Träufle zum Schluss die übrigen 2 Esslöffel Sesamöl darüber und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Super-Quick-Chicken-Fried-Rice_EXPS_FT22_117849_F_0315_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/super-quick-chicken-fried-rice/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einfachem gebratenem Reis mit Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-sweet-barbecued-pork-chops",
+      "slug": "toh-sweet-barbecued-pork-chops",
+      "title": "Süß-herzhafte Barbecue-Schweinekoteletts",
+      "instructions": "Dicke, saftige Schweinelendenkoteletts goldbraun angebraten und anschließend in einer glänzenden, süß-säuerlichen Sauce aus Ketchup, Barbecuesauce, French Dressing und Honig geschmort. Ein Pfannengericht für unter der Woche, das schmeckt, als hätte es den ganzen Nachmittag geköchelt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/sweet-barbecued-pork-chops/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinekoteletts mit Knochen sind meist günstiger als Stücke ohne Knochen und bleiben beim Schmoren in der Sauce besonders saftig.",
+        "Lass fertiges French Dressing weg und verrühre Ketchup, Öl, Essig und eine Prise Zucker selbst, um ein paar Dollar zu sparen.",
+        "Kaufe ein ganzes Schweinekarree und schneide die Koteletts selbst. Das kostet pro Pfund viel weniger als bereits geschnittene Koteletts ohne Knochen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "french-dressing",
+          "swap": "Italienisches Dressing oder Honig-Senf-Dressing für eine ähnlich süß-säuerliche Glasur",
+          "savings": "Verwende, was bereits im Kühlschrank ist"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Zusätzlicher brauner Zucker oder Ahornsirup",
+          "savings": "Brauner Zucker kostet etwa ein Zehntel von Honig"
+        },
+        {
+          "forIngredientId": "pork-chop",
+          "swap": "Hähnchenschenkel ohne Knochen oder Schweineschnitzel eignen sich mit derselben Sauce",
+          "savings": "Schenkel sind oft pro Pfund günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Barbecue",
+        "Pfannengericht",
+        "unter der Woche",
+        "süß-herzhaft",
+        "aus einer Pfanne",
+        "30 Minuten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 514,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-sweet-barbecued-pork-chops/",
+      "components": [
+        {
+          "key": "fe716626-60ea-5ad6-84bd-5db9349a400c",
+          "name": "Zutaten",
+          "servingGrams": 188.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "f72616e6-6a62-57a8-9fec-65ae1835823f",
+              "ingredientName": "Rapsöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaa0c86c-ad3a-5766-9bf6-6caf39704121",
+              "ingredientName": "Schweinekotelett",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Lendenkoteletts ohne Knochen, etwa 3/4 Zoll dick"
+            },
+            {
+              "key": "effcaad5-d7ca-5376-8ceb-0eda3ab61921",
+              "ingredientName": "Brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "gepackt, 1/2 Tasse"
+            },
+            {
+              "key": "5d181800-8703-5478-b38a-9cbd0bc1774b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "süße Zwiebel, gehackt (etwa 1/2 Tasse)"
+            },
+            {
+              "key": "9d628457-78c3-5a52-946b-d581f473a254",
+              "ingredientName": "Ketchup",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ffc22466-f518-517c-ba4f-cb252ccb7248",
+              "ingredientName": "Barbecuesauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b6fb767e-6832-5b9b-9f35-25377c523d9b",
+              "ingredientName": "französisches Dressing",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d10e5192-7169-57e1-b46e-65b583617852",
+              "ingredientName": "Honig",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Rapsöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Schweinekoteletts portionsweise 2-3 Minuten pro Seite an, bis sie schön gebräunt sind. Gib sie dann alle zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre braunen Zucker, gehackte Zwiebel, Ketchup, Barbecuesauce, French Dressing und Honig in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Sauce über die Koteletts und bringe sie zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze, decke die Pfanne ab und lass alles 4-5 Minuten köcheln, bis das Schweinefleisch auf einem Thermometer 145F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und lass die Koteletts 5 Minuten ruhen, damit sich der Fleischsaft setzt. Serviere sie mit der Sauce aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Sweet-Barbecue-Pork-Chops_EXPS_TOHD24_36801_KaylaWidmer_6.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/sweet-barbecued-pork-chops/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von süß-herzhaften Barbecue-Schweinekoteletts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

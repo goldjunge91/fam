@@ -1,0 +1,1052 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bisque",
+      "slug": "gen-bisque",
+      "title": "Bisque",
+      "instructions": "Chamorro-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühltes Krabbenfleisch; es ist deutlich günstiger als frisches.",
+        "Bereite eine größere Menge zu und friere Portionen für spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "chamorro",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3085,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bisque/",
+      "components": [
+        {
+          "key": "5c44dedd-2a2e-50ac-b534-24d9e7702fb4",
+          "name": "Zutaten",
+          "servingGrams": 412.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6971fe8-d0c1-583e-8c3f-a890a5380041",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "cd0d3240-2125-50b3-9486-c307b0972ba1",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "1ae25c8f-c0c7-5551-a022-6e445f669a7f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "06ff55f1-3511-51f3-a036-91bbf0e41dcb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "903e58af-8c26-5e67-92a7-88569f6baddf",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stangen, gewürfelt"
+            },
+            {
+              "key": "4a361aac-7c47-5dfe-984a-f5322bac280c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3, fein gehackt"
+            },
+            {
+              "key": "f16d9d89-3fae-5d99-8051-1f45c2ec1c5a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9395a253-1c9b-561e-9181-d9cb745cfc42",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c69819fe-1768-5c74-a7cc-363c5a297ce3",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3194a884-bab2-5fab-8ce3-bbb6ab5207c3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "22fce974-f4e9-5710-8073-5320d3da2b73",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einem großen Topf bei mittlerer Hitze und brate gewürfelte Zwiebel, Sellerie und Knoblauch 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten, damit sich das Aroma entfaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hühnerbrühe und Lorbeerblatt dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze, gib Krabbenfleisch dazu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Schlagsahne und Cayennepfeffer ein und würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Suppe bei niedriger Hitze weitere 10 Minuten köcheln und rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne das Lorbeerblatt und serviere die Suppe heiß in Schalen, nach Wunsch mit frischer Petersilie garniert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/FkkII5CvvpG4ub5ULaonkwmxawA=/4048x2696/filters:fill(auto,1)/classic-lobster-bisque-recipe-101952-hero-01-24ce7b69195940daadee28f25e5503a1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/FkkII5CvvpG4ub5ULaonkwmxawA=/4048x2696/filters:fill(auto,1)/classic-lobster-bisque-recipe-101952-hero-01-24ce7b69195940daadee28f25e5503a1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-red-rice-and-beans",
+      "slug": "gen-red-rice-and-beans",
+      "title": "Roter Reis mit Bohnen",
+      "instructions": "Chamorro-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis in Großpackungen und spare deutlich.",
+        "Verwende Bohnen aus der Dose, um Zeit und Vorbereitungsaufwand zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chamorro",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3086,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-red-rice-and-beans/",
+      "components": [
+        {
+          "key": "624ab770-7e61-5c0c-915e-7c6a5675e5f0",
+          "name": "Zutaten",
+          "servingGrams": 502.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "69b08fdd-3250-5ed7-9e11-9f3f8c80426a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen ungekocht"
+            },
+            {
+              "key": "5660791c-e531-5c84-9579-c57068c47ce8",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen je), abgetropft"
+            },
+            {
+              "key": "950c2a07-f83f-5eb5-bde1-e000b48c4d4a",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dosen (15 Unzen)"
+            },
+            {
+              "key": "8cf10338-e990-5cf0-8d94-41779588ae51",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3892755f-8a64-5b62-8385-fa7049075c38",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "dfbde8b5-33f0-598b-b639-3937f2d50ba6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4, fein gehackt"
+            },
+            {
+              "key": "48c0f216-ed36-5741-8b9f-c4dd10e92d47",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cdbf4001-c875-5af6-b4ec-4ebd1d806bfe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3b596e6f-89d9-51ba-a8a3-ce49cd8dd801",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7608044d-a03d-5b37-9dc3-7f37641e7d8d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und brate gewürfelte Zwiebel und gehackten Knoblauch etwa 3 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ungekochten Reis dazu und rühre 2-3 Minuten häufig um, damit die Körner leicht angeröstet werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Tomatensauce und Brühe dazu, würze mit Salz und Pfeffer und gib das Lorbeerblatt hinein. Rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze auf niedrig und decke den Topf fest ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles 15 Minuten köcheln und rühre dann vorsichtig abgetropfte Kidneybohnen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf wieder ab und lasse alles weitere 5-10 Minuten köcheln, bis der Reis weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Topf vom Herd und lasse den Reis 5 Minuten ruhen. Lockere ihn vor dem Servieren mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://assets.epicurious.com/photos/5565e5885fa91f011a452eb7/master/pass/234813_red-beans-rice_6x4.jpg",
+          "sourcePageUrl": "http://assets.epicurious.com/photos/5565e5885fa91f011a452eb7/master/pass/234813_red-beans-rice_6x4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-congee",
+      "slug": "gen-congee",
+      "title": "Congee",
+      "instructions": "Chinesisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende selbst gemachte Brühe oder Wasser mit Brühwürfeln, um Geld zu sparen.",
+        "Kaufe Reis auf asiatischen Märkten in größeren Mengen und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3087,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-congee/",
+      "components": [
+        {
+          "key": "f3a2ccd1-f97c-56ca-912d-fd96e330c0b2",
+          "name": "Zutaten",
+          "servingGrams": 785.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "968f2552-b519-5ecc-a14a-acab582ae2b7",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "1fff305c-e48a-5ce3-8169-5d09a3b9193b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "272e6894-9d97-5b01-9580-1bff2d4c4236",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6d3fd3a5-e264-5ef1-8fde-8b72a3252bf8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel fein gehackt"
+            },
+            {
+              "key": "7c7518eb-9044-5faf-b684-8c8b1829cac5",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stangen gehackt"
+            },
+            {
+              "key": "f5236384-96fc-54d1-9505-acacbc9cceb5",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cd00b253-ef82-52a7-a8e7-0b1970035036",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c3533dab-190a-566b-8609-8256fe0431ef",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "37d6e4b8-93e4-5e2c-b0fb-85ae05942950",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser ab, bis das Wasser klar bleibt, und gieße ihn dann gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Hühnerbrühe und Wasser in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgespülten Reis und geschnittenen Ingwer in die kochende Flüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf niedrig und lasse alles ohne Deckel 30-40 Minuten köcheln. Rühre gelegentlich um, bis der Reis zu einem cremigen Brei zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Sojasauce, Sesamöl und weißen Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere den Brei und passe die Salzmenge bei Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe ihn in Schalen und bestreue ihn vor dem Servieren mit gehackten Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6172bc98b0562e91c3d7d3a2/1:1/w_2560%2Cc_limit/BonesInCongee_RECIPE_102121_22909.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6172bc98b0562e91c3d7d3a2/1:1/w_2560%2Cc_limit/BonesInCongee_RECIPE_102121_22909.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bagels-and-lox",
+      "slug": "gen-bagels-and-lox",
+      "title": "Bagel mit Lachs",
+      "instructions": "Jüdisch-amerikanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bagels aus der Backwaren-Restekiste und spare 30-50 %.",
+        "Verwende Lachsabschnitte statt geschnittener Scheiben, falls erhältlich; sie sind günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jüdisch-amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3088,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bagels-and-lox/",
+      "components": [
+        {
+          "key": "51426885-ad7b-54a3-9ad0-6f4ec9db6933",
+          "name": "Zutaten",
+          "servingGrams": 867.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6a651b2-84b7-552d-b738-74cd307144ef",
+              "ingredientName": "Bagel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 ganz"
+            },
+            {
+              "key": "d96a4b97-a921-5819-9899-4b0fe2a0f1fb",
+              "ingredientName": "Frischkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "75a09703-4fd0-5ee9-b068-6da621888c23",
+              "ingredientName": "Räucherlachs",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "a96e984e-1a5b-59af-af18-90d29444668f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel dünn geschnitten"
+            },
+            {
+              "key": "c3edf0fa-5ea2-5017-b488-1a80bca54eed",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "52e41683-0fba-5074-b6aa-773155227012",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel gehackt"
+            },
+            {
+              "key": "59da3362-c86f-519f-98dd-3077b9b92e30",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 für Spalten"
+            },
+            {
+              "key": "40e40ef6-f515-5d2d-aa24-3efa10f9a88b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Bagels und röste sie goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede Bagelhälfte mit 2 tablespoons Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege 1 ounce Räucherlachs auf jede Bagelhälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile geschnittene rote Zwiebel und Kapern über dem Lachs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue alles mit frischem Dill und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sofort mit Zitronenspalten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishliving.com/wp-content/uploads/2024/04/Bagel-and-Lox-1.jpg",
+          "sourcePageUrl": "https://delishliving.com/wp-content/uploads/2024/04/Bagel-and-Lox-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-pes",
+      "slug": "gen-cr-pes",
+      "title": "Crêpes",
+      "instructions": "Französisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Crêpes im Voraus zu und friere sie zwischen Backpapier ein, damit das Frühstück schnell fertig ist.",
+        "Serviere sie mit frischem Obst oder Marmelade statt mit teuren Füllungen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3089,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-pes/",
+      "components": [
+        {
+          "key": "46dec980-08ba-57af-ba07-eb91542ba2c0",
+          "name": "Zutaten",
+          "servingGrams": 172.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "140427c8-e9f3-51ae-928a-0069eb1caf6a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "258f2180-86b0-55d1-97b8-d3661fc62c1f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "6ea20d24-030b-5851-b793-8f1bd7dfadfa",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "027b0ce9-89e8-5a7b-9bc3-199710ecaa3a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel melted"
+            },
+            {
+              "key": "6a268b79-b05f-5507-943c-28912c43bc47",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "b7dd4880-fe21-5a82-98ac-b3cf9cddf557",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7e760356-f046-5898-8198-6f07ac00424b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz und Zucker in einer großen Rührschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme in der Mitte eine Mulde und schlage die Eier hinein. Verquirle dann langsam die Milch unter, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre geschmolzene Butter und Vanilleextrakt ein, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Teig 15 Minuten bei Raumtemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine beschichtete 8-inch-Pfanne oder Crêpepfanne bei mittelhoher Hitze und fette sie leicht mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße etwa 1/4 cup Teig in die Mitte und neige die Pfanne sofort kreisförmig, damit sich der Teig dünn und gleichmäßig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Crêpe etwa 1-2 Minuten, bis die Unterseite hellgolden ist. Wende ihn und gare die andere Seite weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege den Crêpe auf einen Teller und wiederhole den Vorgang mit dem restlichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Ll2WfmSG4xrA6Nab3KIag4Is-Cw=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/crepes-suzette-recipe-1374973-hero-02-8a5cdce2f09f4c0d908431b808b5071e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Ll2WfmSG4xrA6Nab3KIag4Is-Cw=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/crepes-suzette-recipe-1374973-hero-02-8a5cdce2f09f4c0d908431b808b5071e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

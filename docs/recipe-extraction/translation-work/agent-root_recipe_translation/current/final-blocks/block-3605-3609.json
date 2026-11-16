@@ -1,0 +1,1128 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-otak-otak",
+      "slug": "gen-otak-otak",
+      "title": "Otak-Otak",
+      "instructions": "Sumatranischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Makrele aus der Dose statt frischem Fisch, um Kosten zu senken",
+        "Ersetze Bananenblätter bei Bedarf durch Backpapier oder Alufolie"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sumatranisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3605,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-otak-otak/",
+      "components": [
+        {
+          "key": "55ac5bae-ca92-5d11-920f-f080eb23ffee",
+          "name": "Zutaten",
+          "servingGrams": 525.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a497f3d4-e563-5c6d-a3af-390524d57891",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "7f45c361-bac1-54d3-8a85-8536648a459a",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "8082b1a5-8391-5478-9a23-1e6e5bc3d85b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf8fd2c8-f4d8-5708-b2bb-efeb0c421320",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "5b9c4b33-82c9-5668-98b2-6f06f5066821",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5b6064b-ddbb-519c-9589-0e9acd83bb6b",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "405282f5-ff57-56b8-bc59-a4fa2fbc6d6a",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "fa372d50-04f3-59a7-a980-212b5d04abbe",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "18464ca3-dcaf-53f7-b9e4-4fa328285121",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Stücke oder Folienquadrate"
+            },
+            {
+              "key": "e8c41e72-b3a7-5274-811b-c996131a2c6b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Zwiebeln, Knoblauch und rote Chilis fein und vermische sie mit dem Fischhack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier mit Kokosmilch, Kurkuma und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Fischmischung mit der Ei-Kokos-Mischung und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Mischung gleichmäßig auf Quadraten aus Bananenblatt oder Folie und falte die Ränder zu fest verschlossenen Päckchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer großen Pfanne oder Grillpfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Päckchen mit der Naht nach unten hinein und gare sie 8-10 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende die Päckchen vorsichtig und gare die andere Seite weitere 7-8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Sambal oder Chilisauce als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/DSC05318.jpg",
+          "sourcePageUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/DSC05318.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rendang-telur",
+      "slug": "gen-rendang-telur",
+      "title": "Rendang Telur",
+      "instructions": "Sumatranisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in größeren Mengen günstiger",
+        "Verwende getrocknetes Zitronengras, falls frisches nicht verfügbar oder teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sumatranisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3606,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rendang-telur/",
+      "components": [
+        {
+          "key": "51f06f26-ac8d-5db8-83cd-179a8b4a29a7",
+          "name": "Zutaten",
+          "servingGrams": 706.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5a8741c-f943-5114-8b98-6c001d9d0e06",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9c35ad1-5641-5c2d-8fb8-47ac888c2648",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "2e894aa9-322b-5589-a131-82ef10afaa74",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "95025177-e5a9-54a6-ba52-70ded569b975",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a24245bc-1f43-5b09-a730-b376ddcd45a8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL, fein gehackt"
+            },
+            {
+              "key": "12b3a2ad-ad6c-5f7f-b7f2-2b007d214779",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f90eb09-0c50-5aaf-ae6e-8b056900110a",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2a532cd-0e6c-5fed-a35d-bc5eee41bf27",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "99b950d1-6896-5eab-a713-c5155c42ffda",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cf3c00a3-5f17-53a1-8c82-56744f06893b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 8 Minuten hart, schäle sie und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Zwiebeln, Knoblauch, Ingwer, Chilis und Zitronengras zu einer dicken Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne und brate die Paste 3-4 Minuten, bis sie aromatisch duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kurkuma hinzu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch hinzu und bringe sie unter gelegentlichem Rühren sanft zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gekochten Eier hinzu und lasse alles 10-12 Minuten köcheln, bis die Sauce reduziert ist und die Eier überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.finnafood.com/blog/wp-content/uploads/2024/11/resep-rendang-telur.jpg",
+          "sourcePageUrl": "https://www.finnafood.com/blog/wp-content/uploads/2024/11/resep-rendang-telur.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gulai-ayam",
+      "slug": "gen-gulai-ayam",
+      "title": "Gulai Ayam",
+      "instructions": "Sumatranisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brust, sie sind günstiger und aromatischer",
+        "Kaufe ganze Gewürze und mahle sie selbst, um bessere Preise zu bekommen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sumatranisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3607,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gulai-ayam/",
+      "components": [
+        {
+          "key": "9ff135b8-ec6b-5f37-94f8-5daeed218a8a",
+          "name": "Zutaten",
+          "servingGrams": 311.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5205e3bc-be52-510b-bf0e-c3795a8f5488",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "a4424aa9-cf1f-5142-97a6-6954582ad3fa",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "7eac8551-75a5-5694-aedb-4f098dc8602d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "01aeba03-9374-52b9-8586-158e3c2c5781",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7035e160-747d-5cf3-b273-725c169ec219",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL, fein gehackt"
+            },
+            {
+              "key": "c125b190-95ad-5018-9e73-0ba9680ce57f",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db61d796-e408-53ac-8aea-97ddb5270f24",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9198291b-aad7-59d0-bbed-a2afd882a03c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "62e7a3d2-27b9-584a-995e-5c0a8dcd05c5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "69fa06d9-91fe-5d5f-9275-4fc49bf963fb",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "74f386a0-7cdc-541e-abb2-1f310f040d35",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Zwiebeln, Knoblauch, Ingwer und rote Chilis zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und brate die Gewürzpaste 2-3 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kurkuma und Kreuzkümmel hinzu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Hähnchenstücke hinzu und bräune sie rundherum 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch und Wasser hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 30-35 Minuten köcheln, bis das Hähnchen zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Deckel ab und lasse die Sauce weitere 5 Minuten leicht einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer und serviere das Curry mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/c4/e3/21/c4e32110d51db9f5139b318809cc6680.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/c4/e3/21/c4e32110d51db9f5139b318809cc6680.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sambal-goreng-udang",
+      "slug": "gen-sambal-goreng-udang",
+      "title": "Sambal Goreng Udang",
+      "instructions": "Sumatranisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen statt frischer und spare deutlich",
+        "Verwende normale Sojasauce statt Fischsauce, wenn du auf das Budget achtest"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "sumatranisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3608,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sambal-goreng-udang/",
+      "components": [
+        {
+          "key": "1fb95ba4-ec71-5e67-9827-66830b3dbad8",
+          "name": "Zutaten",
+          "servingGrams": 794.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "67493582-5c68-5b9c-b61b-aa1a65463496",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "08b17f86-4962-5e50-ae33-4517421e99d5",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69d4c302-faf4-52b0-8369-02b610159916",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f800d6c6-4396-5cc2-bcc0-29925c3b7407",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 mittelgroße Stücke"
+            },
+            {
+              "key": "4e399be7-376a-5aeb-abe1-f16dccfd07e7",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "2728d8fc-87c2-529f-aeb3-20fc7634742b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "89dc1d97-cb9e-5ff7-87c5-33cde12474bb",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "747c6251-2e7b-54c5-95ad-ab213fb35564",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "55e17391-d85a-5dfd-9ba7-3b9c6a90c86a",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "39385822-a9f3-5448-9d36-33bb952010e8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere rote Chilis, Knoblauch und Zwiebeln zu einer groben Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Gewürzpaste hinzu und brate sie 2 Minuten unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Garnelen hinzu und brate sie 2-3 Minuten unter Rühren, bis sie rosa werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelte Tomaten hinzu und brate alles weitere 2-3 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Limettensaft, Fischsauce und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare alles 1 weitere Minute, bis die Garnelen vollständig gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Gericht, passe die Würzung mit Salz und Pfeffer an und serviere es sofort mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://resepkoki.id/wp-content/uploads/2017/06/Resep-Sambal-Goreng-Kentang-Udang.jpg",
+          "sourcePageUrl": "https://resepkoki.id/wp-content/uploads/2017/06/Resep-Sambal-Goreng-Kentang-Udang.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lemang",
+      "slug": "gen-lemang",
+      "title": "Lemang",
+      "instructions": "Sumatranisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Röhren aus Alufolie statt Bambus, falls Bambus teuer ist",
+        "Kaufe Klebreis in größeren Mengen auf asiatischen Märkten günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "sumatranisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3609,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lemang/",
+      "components": [
+        {
+          "key": "ff17b2f3-6e7e-5f21-a52d-e39c21be883b",
+          "name": "Zutaten",
+          "servingGrams": 494.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "83280990-19ed-5a54-9db7-bd1e04fb7950",
+              "ingredientName": "Klebreismehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "98d3dc51-e066-5726-930e-3e225151412b",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "1d119b79-2f95-504e-8766-246752f5e8a6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8b01c613-43b6-5201-b2ba-df2362a6e2a5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9225ffb3-e66b-5923-aafd-6b57446fcbf3",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4-5 große Stücke"
+            },
+            {
+              "key": "a8f19c48-5590-56fd-82bf-7256c8e17360",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5226c55a-50a3-5b87-8cf9-7bd54e855259",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Klebreis gründlich unter kaltem Wasser, bis es klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Kokosmilch mit Salz, Zucker und Wasser in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Reis zur Kokosmischung und rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Bambusrohre oder Folienröhren mit Bananenblättern aus und falte die Blätter passend ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle jede Röhre zu drei Vierteln mit der Reismischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Falte die Bananenblattenden ein, um die Röhren zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Röhren senkrecht in einen großen Topf mit 2 Zoll Wasser am Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke den Topf ab und dämpfe alles 90 Minuten. Prüfe regelmäßig den Wasserstand und gib bei Bedarf mehr Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm den Topf vom Herd, lasse die Röhren leicht abkühlen und drücke den Lemang vorsichtig auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schneide ihn in Scheiben und serviere ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.julieolive.co.uk/wp-content/uploads/2020/08/P8250047-scaled.jpg",
+          "sourcePageUrl": "http://www.julieolive.co.uk/wp-content/uploads/2020/08/P8250047-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

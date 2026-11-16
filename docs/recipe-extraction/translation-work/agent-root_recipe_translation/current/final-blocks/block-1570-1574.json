@@ -1,0 +1,1170 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-jp-oyakodon",
+      "slug": "mfr-jp-oyakodon",
+      "title": "Oyakodon – Reisschale mit Hähnchen und Ei",
+      "instructions": "Donburi als „Elternteil und Kind“: mundgerechte Stücke Hähnchenschenkel mit Zwiebel in süßer Dashi-Brühe geschmort, bis das ganz zum Schluss zugegebene Ei zu einer seidigen, leicht durchscheinenden Creme stockt und über den heißen weißen Reis läuft. Ein typisches japanisches Hausmannsgericht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger als Brustfleisch und bleiben in der Brühe zart.",
+        "Das nur halb gestockte Ei ist entscheidend – nimm die Pfanne früh vom Herd.",
+        "Eine einzelne Oyakodon-Pfanne kostet $15, aber jede breite, flache Pfanne funktioniert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust – 1 Minute kürzer garen"
+        },
+        {
+          "forIngredientId": "dashi",
+          "swap": "Hühnerbrühe und ein Schuss Sojasauce für mehr Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-oyakodon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "japanisch",
+        "Oyakodon",
+        "Donburi",
+        "Hähnchen",
+        "Ei",
+        "schnell",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1570,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-oyakodon/",
+      "components": [
+        {
+          "key": "feebc023-7cac-5a1f-b79d-e6a902013c3b",
+          "name": "Zutaten",
+          "servingGrams": 590,
+          "position": 0,
+          "items": [
+            {
+              "key": "4b2333e6-6981-5e91-bf7a-a2c6e65ad676",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba301724-f0d3-5951-8629-75155ff9ec8d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa9eca82-edc0-5c6a-80dc-22df26d5b6ca",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae102083-5b62-51e4-bfcc-7c5cfd335648",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb147d60-d5ec-53cf-84ef-a728120be860",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1b61607-496c-5ae3-82b3-7d9e9eb5d349",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c94b1c4d-dd2c-59fc-9928-0b8000712327",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcc325a8-97a2-5ed6-ab36-08b8beec7814",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a585464-5b29-5fb6-a401-7c7f59eb9248",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Schneide das Hähnchen in mundgerechte Stücke und die Zwiebel in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Dashi, Sojasauce, Mirin und Zucker in einer flachen Pfanne und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Zwiebel dazu und gare sie 3 Minuten. Füge das Hähnchen hinzu und gare es 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle die Eier leicht, sodass sie noch etwas Schlieren haben. Gieße sie kreisförmig über das Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Pfanne ab und gare alles 1–2 Minuten, bis das Ei gerade eben stockt und cremig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Mischung auf Reis und garniere sie mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Oyakodon.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Oyakodon.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-tempura-bowl",
+      "slug": "mfr-jp-tempura-bowl",
+      "title": "Reisschale mit Garnelen-Tempura (Tendon)",
+      "instructions": "Spitzen, besonders knuspriger Tempurateig um saftige Garnelen – das Geheimnis ist eiskaltes Sprudelwasser und den Teig nicht zu stark zu rühren. Auf Dashi-Reis mit leichter Tsuyu-Dipsauce serviert, die sich zum Dippen am Boden sammelt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sprudelwasser sorgt für den zarten Tempurateig – lass es nicht weg.",
+        "Der Teig muss kalt bleiben – stelle die Schüssel beim Eintauchen in Eiswasser.",
+        "Frittiere portionsweise, damit die Öltemperatur gleich bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Nur Gemüse wie Süßkartoffel, Zucchini oder Pilze für vegetarisches Tempura"
+        },
+        {
+          "forIngredientId": "daikon",
+          "swap": "Weglassen oder durch etwas Zitronensaft ersetzen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-tempura-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Tempura",
+        "Garnelen",
+        "Tendon",
+        "frittiert",
+        "Reis"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1571,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-tempura-bowl/",
+      "components": [
+        {
+          "key": "88dadddd-82a6-5394-a8c5-d5b4ab9428b1",
+          "name": "Zutaten",
+          "servingGrams": 466.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "26b6c797-312f-50d2-b82e-912241bc9fc9",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "470f209f-c1b6-586c-84e5-d7e71eae6ef1",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36ca67f5-79a1-53c8-aacb-a50a609e8011",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa0ae59d-8fa7-5154-b6e8-9bc60b2139c7",
+              "ingredientName": "Speisestärke",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2778c96f-cd74-5ca8-a2a0-4f4eee5e6d5d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68a71c6a-ccaa-54c4-abf1-37933fb5dccc",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ba60497-ab9a-5e2d-a49a-5cb044abd54f",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6996604b-39e9-5397-bef9-f5bc98f176ef",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd75567f-5f92-5980-b661-38f2d3aea163",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a37c62ac-30ff-504e-ae21-6379857bd212",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Für Tsuyu: Erwärme Dashi mit Sojasauce und Mirin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Speisestärke. Gib eiskaltes Sprudelwasser dazu und rühre nur kurz, bis alles gerade vermischt ist – Klümpchen sind gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauche Garnelen in den Teig und frittiere sie 2–3 Minuten, bis sie hell und knusprig sind. Lass sie auf einem Gitter abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Tsuyu in eine Schale, gib Reis dazu und lege Tempura darauf. Serviere das Gericht mit geriebenem Daikon.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://preview.redd.it/dinner-tempura-rice-bowl-tendon-with-zucchini-and-tjs-v0-c56jfo29dfe91.jpg?auto=webp&s=9d5d87e6f9d0cb2d2898ea35f9736190876ea145",
+          "sourcePageUrl": "https://preview.redd.it/dinner-tempura-rice-bowl-tendon-with-zucchini-and-tjs-v0-c56jfo29dfe91.jpg?auto=webp&s=9d5d87e6f9d0cb2d2898ea35f9736190876ea145",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-miso-tofu-bowl",
+      "slug": "mfr-jp-miso-tofu-bowl",
+      "title": "Miso-Suppen-Bowl mit Tofu und Reis",
+      "instructions": "Eine herzhafte Weiterentwicklung der einfachen Misosuppe: Seidentofu, Wakame-Algen, Pilze und Frühlingszwiebel in kräftiger Brühe aus weißem und rotem Miso sowie Dashi, auf gedämpftem Reis serviert. Ein vollständiges, wärmendes Essen in 15 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Misopaste hält sich monatelang im Kühlschrank – kaufe einen großen Becher.",
+        "Getrocknetes Wakame kostet im asiatischen Lebensmittelgeschäft fast nichts.",
+        "Seidentofu ist eine der günstigsten Eiweißquellen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "silken-tofu",
+          "swap": "Fester Tofu für eine stückigere Konsistenz"
+        },
+        {
+          "forIngredientId": "wakame",
+          "swap": "Spinat oder beliebiges Blattgemüse – weglassen, falls nicht verfügbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-miso-tofu-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "japanisch",
+        "Miso",
+        "Tofu",
+        "Suppe",
+        "Bowl",
+        "vegan",
+        "preiswert",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1572,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-miso-tofu-bowl/",
+      "components": [
+        {
+          "key": "0ed8bae4-624b-5bf0-94b2-733cfcfae8b9",
+          "name": "Zutaten",
+          "servingGrams": 738.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "66366f9a-120f-53a0-8e27-1be5d9c74601",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7602430c-5e86-56c7-89ba-d93c63b4503c",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76a77471-6bee-5d58-a500-0e28fa32565f",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49bcc9c7-51e7-571b-a114-bffb2cc451ba",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa182fc0-68e9-5ad5-a240-f4160341bdca",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a43b8e2-167d-5c31-b06c-0f6c11188ada",
+              "ingredientName": "Getrocknetes Wakame",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cd02ee5-f48b-57b2-916c-824b6b0f9e00",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84e5df72-ddab-550c-91e8-3e9bfe16a68a",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9527d9c8-6706-5b9c-9e2d-20cfe7d5f685",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Weiche Wakame 5 Minuten in warmem Wasser ein und gieße es ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Dashi knapp unter dem Siedepunkt. Gib Pilze dazu und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Löse Miso in einer Kelle Brühe auf und rühre es zurück in den Topf. Koche die Suppe nach dem Zugeben von Miso NICHT mehr auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelten Tofu, Wakame und Sesamöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Brühe auf Reis und garniere sie mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/q5pzZZKO021eP9s4x_-Mq6m_I8Q=/4494x3000/filters:fill(auto,1)/basic-miso-soup-3377886_09-5b3f7fb6c9e77c00378bf68f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/q5pzZZKO021eP9s4x_-Mq6m_I8Q=/4494x3000/filters:fill(auto,1)/basic-miso-soup-3377886_09-5b3f7fb6c9e77c00378bf68f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-teriyaki-tofu-bowl",
+      "slug": "mfr-jp-teriyaki-tofu-bowl",
+      "title": "Teriyaki-Tofu-Bowl",
+      "instructions": "Fester Tofu, gepresst, in Würfel geschnitten und goldbraun-knusprig gebraten, dann mit süß-herzhafter hausgemachter Teriyaki-Sauce glasiert. Auf gedämpftem Reis mit Brokkoli und Sesamsamen serviert – die ultimative vegane Bowl zum Sattwerden.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Presse den Tofu mindestens 15 Minuten – so wird er knusprig.",
+        "Tiefgekühlte Brokkoliröschen funktionieren perfekt und sparen Geld.",
+        "Hausgemachte Teriyaki-Sauce schmeckt viel besser als gekaufte und kostet etwa $0.10 pro Menge."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "firm-tofu",
+          "swap": "Tempeh für mehr Eiweiß und ein nussigeres Aroma"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Pak Choi, Zuckerschoten oder beliebiges grünes Gemüse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-teriyaki-tofu-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Teriyaki",
+        "Tofu",
+        "Bowl",
+        "vegan",
+        "Reis",
+        "Brokkoli"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1573,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-teriyaki-tofu-bowl/",
+      "components": [
+        {
+          "key": "017937cb-5c02-5f31-9950-8440d48b4caf",
+          "name": "Zutaten",
+          "servingGrams": 420.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2520a71-2ebb-51da-b1d7-aacf4e0a1e8a",
+              "ingredientName": "Tofu",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0315a0d3-5a50-5480-826d-010048d7fb54",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc5ec503-441f-52f4-9a70-c336827ed842",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10acad12-88fd-50ab-a7ca-a3a4ddff8e40",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0da8c2a-97d3-5f6f-be10-b4a736216efd",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f848fd7-d82b-5c1b-8eb7-48cfce28c85e",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cc4684f-e4a0-5de4-954b-14a3224d52e7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a62b9e87-0343-58e5-953e-fc032cd16da2",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "639a68ce-d6b2-5707-b99d-e85f386325cf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41f6fd8e-7311-53f5-a4b2-9d3390cea5a4",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "178d47a4-f6cb-5c47-a530-f4aceef08aa3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39442350-6a9e-5b87-be09-aa623596c31c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 15 Minuten und schneide ihn in Würfel. Koche den Reis und dämpfe den Brokkoli.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für Teriyaki: Verrühre Sojasauce, Mirin, Sake, Zucker, Knoblauch und Ingwer. Lass alles 3 Minuten köcheln und rühre eine Mischung aus Speisestärke und Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Tofu 8 Minuten insgesamt in Öl bei mittlerer bis hoher Hitze goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Teriyaki-Sauce über den Tofu und schwenke alles, bis er glasiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Tofu auf Reis mit Brokkoli und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://zegreenfood.com/thumb/1024/teriyaki-tofu-bowl-recipe.webp",
+          "sourcePageUrl": "https://zegreenfood.com/thumb/1024/teriyaki-tofu-bowl-recipe.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind2-paneer-tikka-masala",
+      "slug": "mfr-ind2-paneer-tikka-masala",
+      "title": "Paneer Tikka Masala",
+      "instructions": "Würfel aus indischem Frischkäse, unter dem Grill leicht angekohlt und anschließend in einer samtigen, würzigen Tomaten-Sahnesauce mit Garam Masala, Ingwer und Knoblauch geschmort – die vegetarische Alternative zu Butter Chicken, ebenso herzhaft auf Basmatireis.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Paneer selbst herzustellen ist oft günstiger als ihn zu kaufen – erhitze Milch und gib Zitronensaft dazu.",
+        "Kokoscreme ist ein günstiger, veganerfreundlicher Ersatz für Sahne.",
+        "Diese Sauce lässt sich wunderbar einfrieren – bereite die doppelte Menge zu und friere die Hälfte ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "paneer",
+          "swap": "Extra-fester Tofu für eine vegane Variante"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollfette Kokoscreme oder griechischer Joghurt, erst abseits der Hitze einrühren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-paneer-tikka-masala",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Paneer",
+        "Tikka-Masala",
+        "vegetarisch",
+        "cremig",
+        "Tomate"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1574,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-paneer-tikka-masala/",
+      "components": [
+        {
+          "key": "934a8093-cfe8-5f35-acbf-f7033d328135",
+          "name": "Zutaten",
+          "servingGrams": 271.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "b488ecaa-8388-5c8d-b31b-783fbf7a13c9",
+              "ingredientName": "Paneer",
+              "grams": 340.2,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68385664-a7ce-583d-9aa7-212f756f64fb",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cda12d0c-9baf-56ec-b62b-e0eb9827d534",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d34d329e-902c-5a6f-832b-2e0bb9c3037c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bbbb56c-15a8-5851-b7cb-4aac497c271a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f07b1ac-b670-58de-aacf-5f4dec9de42e",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffbc753e-b5a0-585f-9ecd-00a5182ed8f2",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f043a39-f661-5a76-a43c-c7223fd04505",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab697228-8892-5cbd-8329-ab60e87a8a98",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89cd2e2c-9dbc-5f1d-bbb9-c1bcca2a81ad",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19d6cc94-4025-5354-84c3-4ce54ec5a541",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18ebdd47-08e0-5f2d-be91-07fc6dbf3d4f",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5d71467-6823-5554-82be-47faa683b252",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6285f95c-7307-5590-8e7b-b81959fcdfe2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Paneer in Würfel und vermische ihn mit Paprika, Kreuzkümmel, Salz und Öl. Grille ihn 8 Minuten, bis er leicht angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel 5 Minuten in Butter an. Gib Knoblauch und Ingwer dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kreuzkümmel, Koriander, Garam Masala und Kurkuma dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomaten dazu und lass alles 10 Minuten köcheln. Püriere die Sauce glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Sahne und Paneer unter und lass alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verfeinere das Gericht mit Koriander und serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sukhis.com/app/uploads/2013/02/Sukhis-Paneer-Tikka-Masala.jpg",
+          "sourcePageUrl": "https://sukhis.com/app/uploads/2013/02/Sukhis-Paneer-Tikka-Masala.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

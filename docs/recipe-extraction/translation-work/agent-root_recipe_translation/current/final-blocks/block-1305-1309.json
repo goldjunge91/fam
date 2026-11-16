@@ -1,0 +1,936 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-onepot-slow-pork-carnitas",
+      "slug": "mfr-onepot-slow-pork-carnitas",
+      "title": "Carnitas-Bowls mit Schweinefleisch aus dem Slow Cooker",
+      "instructions": "Schweineschulter mit Zitrusfrüchten und Kreuzkümmel geschmort, bis das Fleisch auseinanderfällt, danach unter dem Grill gebräunt, bis die Ränder goldbraun sind. Mit Reis, Bohnen und allen Toppings als Bowl servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 480,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter gehört zu den günstigsten Fleischstücken pro Pfund.",
+        "Das Gericht reicht für 8 Personen und kostet insgesamt etwa $12, also weniger als $1.50 pro Portion.",
+        "Übrige Carnitas lassen sich perfekt für Tacos, Nachos und Frühstücks-Hash wieder aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Hähnchenoberkeulen für eine magerere Variante (nur 6 Stunden garen)"
+        },
+        {
+          "forIngredientId": "orange-juice",
+          "swap": "Limettensaft und ½ TL Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-slow-pork-carnitas",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "mexikanisch",
+        "Schweinefleisch",
+        "Carnitas",
+        "Ofengericht",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 1305,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-slow-pork-carnitas/",
+      "components": [
+        {
+          "key": "98a85ca0-61c2-57fc-a1ff-266c2ea0d99a",
+          "name": "Zutaten",
+          "servingGrams": 77.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4ac11ee-e916-5b72-a68f-7a99985b89de",
+              "ingredientName": "Schweineschulter",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e8ca60f-05e5-5cda-8473-0a8ecc294ab3",
+              "ingredientName": "Orangensaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0362135-5ff2-5928-a87a-7fa660d0052e",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e24c520-4f3a-5198-a1dd-e419af47b8b8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c358608a-1ebf-58ec-bbf3-a3f818937fec",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54812701-42ce-5c08-95ea-c4e0e5fb542e",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "794cb47f-ece3-5433-b868-6fe5ca8806f2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd6b07df-545f-5a23-a1ea-4f42be81a99d",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a5123ec-c69f-55a3-93e1-5f34caa2f9f0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinefleisch mit Kreuzkümmel, Paprikapulver, Oregano und Salz einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit Orangensaft, Limette, Knoblauch und Zwiebel in den Slow Cooker legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf niedriger Stufe 8–10 Stunden garen. Zerpflücken und auf einem Backblech verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "5–7 Minuten unter dem Grill bräunen, bis die Ränder knusprig sind. Als Bowl oder in Tacos servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/whatbriscooking.com/wp-content/uploads/2017/08/IMG_8164.jpg?fit=4032%2C3024",
+          "sourcePageUrl": "https://i0.wp.com/whatbriscooking.com/wp-content/uploads/2017/08/IMG_8164.jpg?fit=4032%2C3024",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-african-bkfst-akara",
+      "slug": "mfr-african-bkfst-akara",
+      "title": "Nigerianisches Akara (Frittierte Augenbohnenküchlein)",
+      "instructions": "Über Nacht eingeweichte Augenbohnen mit Zwiebel und Scotch Bonnet zu einem dicken Teig püriert und anschließend zu lockeren, goldbraunen Küchlein ausgebacken. Ein beliebtes eiweißreiches westafrikanisches Frühstück, serviert mit Pap oder Brot.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Augenbohnen kosten etwa $1.50/lb und reichen für 4 großzügige Portionen.",
+        "Das Entfernen der Schalen dauert am längsten. Durch gründliches Einweichen wird es leichter.",
+        "Akara lässt sich gut einfrieren und für ein schnelles Frühstück im Toasterofen aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "scotch-bonnet",
+          "swap": "Serrano-Chili oder Jalapeño für mildere Schärfe"
+        },
+        {
+          "forIngredientId": "black-eyed-peas",
+          "swap": "Weiße Bohnen für eine ähnliche Textur"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-akara",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "nigerianisch",
+        "Akara",
+        "Augenbohnen",
+        "Küchlein",
+        "westafrikanisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1306,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-akara/",
+      "components": [
+        {
+          "key": "78f1b23d-1392-5749-91df-8d7f4ad636f1",
+          "name": "Zutaten",
+          "servingGrams": 276.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9313558f-1284-53ae-b7b2-521b1030bd33",
+              "ingredientName": "Augenbohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50c5ea36-aecb-5157-88e1-27cd9c49349c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "496dd59d-2d04-5d4b-a23b-248721fc198c",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb38b11c-ab98-5edb-9875-9b2eb40daa85",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a71ce47-acc3-5518-b3e2-eb9bcfaed86f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Augenbohnen über Nacht einweichen. Die Schalen durch Reiben entfernen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bohnen mit Zwiebel, Scotch Bonnet und etwas Wasser zu einem dicken Teig pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Salz würzen. Den Teig mit einem Holzlöffel aufschlagen, damit Luft hineinkommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer Pfanne erhitzen. Teig löffelweise hineingeben und pro Seite 3 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/qqL7S2KdDdRRKrGqOioCLjVgpj8=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/20220705-AkaraMaureen-Celestine-23-737f2009c4d642a794083f6bdf0bd265.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/qqL7S2KdDdRRKrGqOioCLjVgpj8=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/20220705-AkaraMaureen-Celestine-23-737f2009c4d642a794083f6bdf0bd265.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-african-bkfst-firfir",
+      "slug": "mfr-african-bkfst-firfir",
+      "title": "Äthiopisches Firfir (Zerrissene Injera mit Berbere-Sauce)",
+      "instructions": "Injera vom Vortag in Stücke gerissen und mit Berbere-Gewürzpaste, Zwiebel und geklärter Butter angebraten. Ein traditionelles äthiopisches Frühstück, das Reste in eine würzige, sättigende Morgenmahlzeit verwandelt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Firfir wurde genau dafür erfunden, übrig gebliebene Injera zu verwerten und Lebensmittelabfälle zu vermeiden.",
+        "Berbere-Gewürzmischung lässt sich mit Vorratsgewürzen selbst herstellen: Paprikapulver, Cayennepfeffer, Ingwer, Koriander und Bockshornklee.",
+        "Dieses ganze Frühstück kostet weniger als $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "injera",
+          "swap": "Pita oder Fladenbrot für eine ähnliche Textur"
+        },
+        {
+          "forIngredientId": "berbere-spice",
+          "swap": "Harissa und eine Prise Bockshornklee"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-firfir",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "äthiopisch",
+        "Injera",
+        "Berbere",
+        "gewürzt"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1307,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-firfir/",
+      "components": [
+        {
+          "key": "1739f52f-ac4a-553e-8c90-f631b873435c",
+          "name": "Zutaten",
+          "servingGrams": 250.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6aeae90-391a-5424-a15c-29b5b46d5b20",
+              "ingredientName": "Injera-Fladenbrot",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3f9fcf4-d31b-580c-8e35-b98faeb834e1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2c84000-b6ef-5810-91c7-41e55a187f53",
+              "ingredientName": "Berbere-Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "187e302b-9da4-5809-a0b8-873b73a4d0c4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1521bd51-0eb6-5e64-9108-0d403483cdd0",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe5282dc-1d1d-5aeb-acbc-ff4078e43f9b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a01ddef-e269-5501-ad74-840640d364b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel 5 Minuten in Öl anschwitzen, bis sie weich ist. Knoblauch und Berbere dazugeben und 2 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Tomate dazugeben und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Injera in mundgerechte Stücke reißen und unter die Sauce heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vorsichtig rühren, bis die Injera die Sauce aufgenommen hat, aber noch Biss hat. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2017/08/Doro-Wot-on-Injera.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2017/08/Doro-Wot-on-Injera.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-african-bkfst-hausa-koko",
+      "slug": "mfr-african-bkfst-hausa-koko",
+      "title": "Ghanaisches Hausa Koko (gewürzter Hirsebrei)",
+      "instructions": "Fermentierter Hirsebrei, mit Ingwer, Nelken und Pfeffer gewürzt. Ein wärmendes ghanaisches Frühstück, von Natur aus vegan und reich an komplexen Kohlenhydraten, das hervorragend zu frittiertem Koose (Bohnenküchlein) passt.",
+      "prepTimeMinutes": 480,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hirsemehl gehört zu den günstigsten Getreideprodukten in afrikanischen Lebensmittelgeschäften.",
+        "Die Fermentation geschieht über Nacht von selbst. Eine spezielle Starterkultur ist nicht nötig.",
+        "Dieses traditionelle Frühstück wird jeden Morgen gegessen und kostet nur wenige Cent pro Schüssel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "millet-flour",
+          "swap": "Maismehl (der Brei wird dadurch dicker)"
+        },
+        {
+          "forIngredientId": "cloves",
+          "swap": "Kardamom für ein anderes aromatisches Profil"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-hausa-koko",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "ghanaisch",
+        "Hirse",
+        "Brei",
+        "Hausa Koko",
+        "Ghana"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1308,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-hausa-koko/",
+      "components": [
+        {
+          "key": "aca56093-4cda-50b3-8de4-976805fa5bff",
+          "name": "Zutaten",
+          "servingGrams": 411.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "32223a98-3cf1-5dba-9c03-c5e0c4080b44",
+              "ingredientName": "Hirsemehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64cbb006-35ea-544f-8a2c-c9f34efdf937",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3977ec30-c088-5471-9a96-166f3b888024",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2961ccb1-f934-5708-874b-56ab1f9eb8aa",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c58b99b-9081-510f-8920-8544488bcf32",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3735e1c6-52aa-56a7-991c-1b072d5ce471",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61f4e5a8-251d-5915-865e-b485bdfff2c9",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hirsemehl mit Wasser zu einem dünnen Teig verrühren und über Nacht fermentieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Mischung abseihen und die aufgefangene Flüssigkeit in einem Topf erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frischen Ingwer, Nelken und schwarzen Pfeffer einrühren und 10–12 Minuten kochen, bis der Brei eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach Geschmack süßen. Warm servieren, traditionell mit frittierten Bohnenküchlein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/TVJo6Zy_diqgl3iOpkZBUBfajIY=/5850x0/filters:no_upscale():max_bytes(150000):strip_icc()/hausa-koko-spicy-millet-porridge-39547-step-01-75308dd426824839b58dd5abc4ceb8c7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/TVJo6Zy_diqgl3iOpkZBUBfajIY=/5850x0/filters:no_upscale():max_bytes(150000):strip_icc()/hausa-koko-spicy-millet-porridge-39547-step-01-75308dd426824839b58dd5abc4ceb8c7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-african-bkfst-pap-eggs",
+      "slug": "mfr-african-bkfst-pap-eggs",
+      "title": "Südafrikanischer Pap mit Eiern",
+      "instructions": "Fester Maisbrei (Pap) mit einem würzigen Topping aus Tomaten und Ei nach Art von Shakshuka. Ein besonders sättigendes und unglaublich günstiges Frühstück aus südafrikanischen Townships.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maismehl ist die günstigste Stärke der Welt. $2 reichen für 10 Personen.",
+        "Dieses ganze Frühstück kostet etwa $1.20 für zwei Personen.",
+        "Pap macht satt. Eine kleine Portion reicht weit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cornmeal",
+          "swap": "Polenta für ein sehr ähnliches Ergebnis"
+        },
+        {
+          "forIngredientId": "chili-flakes",
+          "swap": "Frische Chili oder Peri-Peri-Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-pap-eggs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "südafrikanisch",
+        "Pap",
+        "Eier",
+        "Mais"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1309,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-pap-eggs/",
+      "components": [
+        {
+          "key": "fe1a589a-4f2a-5da6-a9d0-15234db0e552",
+          "name": "Zutaten",
+          "servingGrams": 375.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4e431a7-58ab-5a38-bc3d-5589e5f85b9f",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac2d2218-c5cf-5bc2-ba58-5a6e62ee5f6a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc08e2fa-0eef-5986-afd6-6d6ffbac2635",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "631eb897-1aa3-5218-ac86-1ff62419ed8d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6abfef8b-5bba-5afc-a071-02e61cefaf1c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc69e930-0144-5826-8985-176315eb4b3c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46aeeff0-62cc-5bc8-b00c-126e44282265",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6558d186-cfe8-5ef3-b273-1e13e7663d26",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 Tassen Wasser zum Kochen bringen und Maismehl unter Rühren einrieseln lassen. Hitze reduzieren und 8 Minuten unter Rühren kochen, bis ein fester Brei entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Knoblauch 3 Minuten anschwitzen. Gewürfelte Tomaten und Chili dazugeben und 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mulden in die Sauce drücken, Eier hineinschlagen, abdecken und 4 Minuten garen, bis die Eier gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier mit der Sauce neben dem festen Pap servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2024/06/Pap-and-Chakalaka.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2024/06/Pap-and-Chakalaka.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

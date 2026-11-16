@@ -1,0 +1,1024 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-baked-lemon-herb-chicken",
+      "slug": "mfr-baked-lemon-herb-chicken",
+      "title": "Gebackene Hähnchenbrust mit Zitrone und Kräutern",
+      "instructions": "Saftige, zarte Hähnchenbrust, in einer Marinade aus Zitrone, Knoblauch und Kräutern gebacken: das beliebte eiweißreiche Gericht zum Vorbereiten. 35 g Eiweiß pro Brust.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gebackene Hähnchenbrust lässt sich gut für mehrere Mahlzeiten vorbereiten. Gare 4 Stücke auf einmal für die ganze Woche.",
+        "Klopfe die Hähnchenbrust vor dem Backen auf eine gleichmäßige Dicke, damit sie gleichmäßig gart."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "thyme",
+          "swap": "Rosmarin oder italienische Gewürzmischung"
+        },
+        {
+          "forIngredientId": "green-beans",
+          "swap": "Beliebiges gedämpftes Gemüse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-baked-lemon-herb-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Hähnchen",
+        "gebacken",
+        "Meal Prep",
+        "mager"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1045,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-baked-lemon-herb-chicken/",
+      "components": [
+        {
+          "key": "971e374f-bb8d-529a-b428-14e856ebe465",
+          "name": "Zutaten",
+          "servingGrams": 413,
+          "position": 0,
+          "items": [
+            {
+              "key": "78f3d462-e6a7-5384-a6d0-926a3daab13f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "158f68af-fe57-5944-b89c-51afdc7c6873",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22d8c5d9-5bb0-525a-8ee6-be3b15caf403",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2051a701-ba35-534f-86ed-758a0382a9d1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8314728-c99e-57bc-925c-878caf41421f",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a795d18-7c75-5b3b-aa8b-b062ab630f6f",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5008d900-a7df-5460-9433-d205510d519a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76a5a34b-5f9c-55eb-8bd2-0305b51b7c93",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04b311d0-b327-51f5-bd47-bfce58f97645",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Zitronenschale, Zitronensaft, Knoblauch, Olivenöl, Kräuter, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche das Hähnchen damit. Lass es 5 Minuten (oder über Nacht) marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe es bei 400°F 22–25 Minuten, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Hähnchen vor dem Aufschneiden 5 Minuten ruhen. Serviere es mit grünen Bohnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2022/09/EASY-Lemon-Herb-Roasted-Chicken-Thighs-30-minutes-SO-satisfying-and-elegant-minimalistbaker-recipe-roasted-chicken-thighs-11-1365x2048.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2022/09/EASY-Lemon-Herb-Roasted-Chicken-Thighs-30-minutes-SO-satisfying-and-elegant-minimalistbaker-recipe-roasted-chicken-thighs-11-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sheet-pan-shrimp-fajitas",
+      "slug": "mfr-sheet-pan-shrimp-fajitas",
+      "title": "Garnelen-Fajitas vom Blech",
+      "instructions": "Gewürzte Garnelen und Fajita-Gemüse, bei hoher Hitze auf einem Blech geröstet, bis alles leicht gebräunt ist: in 20 Minuten fertig und in warme Tortillas gefüllt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen tauen in kaltem Wasser in 5 Minuten auf und sind immer günstiger als frische.",
+        "Für Fajita-Gemüse eignet sich Paprika in jeder Farbe. Kaufe die Sorte, die gerade im Angebot ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Hähnchenbruststreifen oder Steak"
+        },
+        {
+          "forIngredientId": "tortillas",
+          "swap": "Salat-Wraps oder Reisschalen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sheet-pan-shrimp-fajitas",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Garnelen",
+        "Fajitas",
+        "Blechgericht",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1046,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sheet-pan-shrimp-fajitas/",
+      "components": [
+        {
+          "key": "daed6da0-1c12-5895-be07-64a04050c4c0",
+          "name": "Zutaten",
+          "servingGrams": 431,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c3bd448-1eb0-58b8-95f4-0b241226f3bd",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bac459a-bf08-5ffa-8a65-c56ad30beff1",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a6adf63-5d0a-5a63-8d7e-96e376d5c176",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8791c57a-f0af-5be2-ac34-ce3a067c2488",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12b0165a-28b0-5229-8d85-c8fa714336c1",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cef36428-fa74-57ea-94d6-d230977d70ba",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2af3e1dd-b593-595d-b586-6010b3c7fc12",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba518d39-ee95-526c-b627-d88bc363ab23",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "084a04e7-271b-5e97-abfd-f00461c4f7d4",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "339b4483-b8fc-5329-a68a-32bacaefe6c8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Garnelen und Gemüse mit Olivenöl und Gewürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile alles auf einem Blech. Röste es bei 425°F 10–12 Minuten (die Garnelen werden rosa und rollen sich zusammen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Tortillas während der letzten 2 Minuten im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Tortillas mit Garnelen und Gemüse. Gib Limette und Koriander darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2022/02/211015_DAMN-DELICIOUS_Shrimp-Fajitas_058-1365x2048.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2022/02/211015_DAMN-DELICIOUS_Shrimp-Fajitas_058-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-oven-herb-crusted-cod",
+      "slug": "mfr-oven-herb-crusted-cod",
+      "title": "Im Ofen gebackener Kabeljau mit Kräuterkruste",
+      "instructions": "Kabeljaufilets mit einer Kruste aus Parmesan, Kräutern und Semmelbröseln, goldbraun gebacken: so wird Fisch ganz einfach zu etwas Besonderem, in 20 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Kabeljau kostet weniger als $5 pro lb und gehört zu den Fischen mit dem besten Preis-Leistungs-Verhältnis.",
+        "Die Semmelbröselkruste hält den Fisch saftig und gibt ihm Biss. Sie ist das Geheimnis für Fisch aus dem Ofen wie im Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cod-fillet",
+          "swap": "Tilapia, Schellfisch oder ein beliebiger Weißfisch"
+        },
+        {
+          "forIngredientId": "parmesan-cheese",
+          "swap": "Zusätzliche Semmelbrösel mit Kräutern"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-oven-herb-crusted-cod",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Meeresfrüchte",
+        "gebacken",
+        "schnell",
+        "besonders"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1047,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-oven-herb-crusted-cod/",
+      "components": [
+        {
+          "key": "9dc80d0e-a2bf-5751-8aa9-a51412793540",
+          "name": "Zutaten",
+          "servingGrams": 917.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1bed824-dd5d-5d90-bb38-bf687b4c677c",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e212e90e-f114-5147-b040-c16ad2b1b354",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cec9063-2550-523e-bc6d-fe280a404e88",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "615d2b43-2a47-56e7-b608-935579b42035",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d399a1c-6787-5f15-933c-6cfebe5d4233",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "409168a5-1b32-5d36-86a9-9133df1567f9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e4b7ffe-533c-50d7-b6e4-bf82fb49bd0c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e504755-d40f-520f-abc9-5451d8da257b",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3a8d212-69c4-59b6-b574-6f4a25fbb18f",
+              "ingredientName": "Spargel",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Semmelbrösel, Parmesan, Knoblauch, Petersilie und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche den Kabeljau mit Dijon-Senf. Drücke die Semmelbröselmischung auf die Oberseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe ihn bei 400°F 12–14 Minuten, bis die Kruste goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Fisch mit geröstetem Spargel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/09/baked-cod-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/09/baked-cod-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sheet-pan-sausage-peppers",
+      "slug": "mfr-sheet-pan-sausage-peppers",
+      "title": "Italienische Putenwurst mit Paprika vom Blech",
+      "instructions": "Italienische Putenwurst, zusammen mit Paprika, Zwiebel und Zucchini im Ofen geröstet: ein italienisch-amerikanischer Klassiker, der vollständig im Ofen gart.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenwurst ist magerer und günstiger als italienische Schweinswurst und eignet sich genauso gut.",
+        "Einfacher geht es kaum: schneiden, vermengen, rösten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-sausage",
+          "swap": "Hähnchen- oder Schweinswurst"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Polenta oder Reis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sheet-pan-sausage-peppers",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Wurst",
+        "Blechgericht",
+        "italienisch-amerikanisch",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1048,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sheet-pan-sausage-peppers/",
+      "components": [
+        {
+          "key": "f8bb7178-ea1f-52c5-ba82-40fb8bca85af",
+          "name": "Zutaten",
+          "servingGrams": 715,
+          "position": 0,
+          "items": [
+            {
+              "key": "18c8ca01-b84e-5f23-b7d7-06ad26e9ec38",
+              "ingredientName": "Italienische Wurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5420f51d-48cd-50ca-a99a-4b723d2c44e7",
+              "ingredientName": "Paprika",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9118bb02-a96f-5705-b64c-ccb6636399db",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a78ae5d3-7ae9-5e4f-a46f-29c7c878449e",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4dd9921-5088-5326-ab4f-33d2615b1867",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93af2238-d1f0-59c2-871a-a8a026436148",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24bf45b6-f7e1-50b0-b8e2-161ffa74d663",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd9b14b4-e589-5bce-b82d-00474a8ef6b4",
+              "ingredientName": "Fenchelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c076d4d9-8f97-59ed-a67f-3fa2941d72b1",
+              "ingredientName": "Marinara-Soße",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "359fddbb-cbc1-5e28-87f5-e8e23c33bba7",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Paprika, Zwiebel und Zucchini in Scheiben. Vermenge sie mit Olivenöl, Knoblauch und italienischer Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die ganzen Würste darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste alles bei 400°F 25–30 Minuten und wende es nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Gericht mit warmer Marinara-Soße und knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco/k/Photo/Series/2019-05-snapshot-cooking-5-ingredient-sheet-pan-dinner/Snapshot-5-ingredient-Sheetpan-Dinner_Italian-Sausage-and-Veggies",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco/k/Photo/Series/2019-05-snapshot-cooking-5-ingredient-sheet-pan-dinner/Snapshot-5-ingredient-Sheetpan-Dinner_Italian-Sausage-and-Veggies",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-baked-stuffed-bell-peppers",
+      "slug": "mfr-baked-stuffed-bell-peppers",
+      "title": "Gefüllte Paprika aus dem Ofen",
+      "instructions": "Paprika, gefüllt mit einer herzhaften Mischung aus Putenhack, Reis, Marinara-Soße und Käse, im Ofen gebacken, bis die Paprika weich und die Füllung blubbernd heiß ist.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Paprika im Angebot? Fülle sie gleich und friere sie ungebacken ein.",
+        "Dieses Gericht sieht beeindruckend aus, ist aber im Grunde einfach Fleisch und Reis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Hähnchenhack"
+        },
+        {
+          "forIngredientId": "mozzarella-cheese",
+          "swap": "Beliebiger Käse, der gut schmilzt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-baked-stuffed-bell-peppers",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "gefüllte Paprika",
+        "Putenhack",
+        "gebacken",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1049,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-baked-stuffed-bell-peppers/",
+      "components": [
+        {
+          "key": "ec30e0b9-7b89-5193-8e81-db9e53f73114",
+          "name": "Zutaten",
+          "servingGrams": 843,
+          "position": 0,
+          "items": [
+            {
+              "key": "a88fd3fb-4dc1-5e2e-a58a-12f2f212ac04",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4faaf327-b862-51bb-9234-b6c48cc2ff1e",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d751100f-2974-5641-a5df-568f0e206ccf",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e876bb7a-8449-5ae3-8f2d-d6538528f804",
+              "ingredientName": "Marinara-Soße",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59dd80b5-413d-5a3e-b05d-b14e74228a2e",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68830620-8fdd-52fc-803d-333e375ab6fe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92b2a376-fcd4-5b76-a637-5b7c080b763f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbf6a3a0-da43-594d-ac74-9cbdae983a62",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "528d311d-6073-5c5f-bd3e-0a3e6a3e8200",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Brate Putenhack mit Zwiebel und Knoblauch an. Vermenge es mit Reis, Marinara-Soße und Gewürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere die Paprika und entferne die Kerne. Fülle sie mit der Putenmischung und belege sie mit Mozzarella.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe die Paprika bei 375°F 30–35 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2020/12/Tuna-Melt-Stuffed-Bell-Peppers-9.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2020/12/Tuna-Melt-Stuffed-Bell-Peppers-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

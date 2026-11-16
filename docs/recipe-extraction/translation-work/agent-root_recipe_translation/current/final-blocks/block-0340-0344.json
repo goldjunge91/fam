@@ -1,0 +1,1323 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-chia-and-oat-puddings",
+      "slug": "she-chia-and-oat-puddings",
+      "title": "Chia-Hafer-Pudding",
+      "instructions": "Ein cremiger Overnight-Pudding ohne Kochen: Haferflocken und Chiasamen quellen über Nacht zu einer dicken, löffelzarten Masse auf. Griechischer Joghurt, Ahornsirup, frisches Obst und knackige Toppings runden ihn ab. Ein schnelles, vollwertiges Frühstück, das in wenigen Minuten vorbereitet ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chia-and-oat-puddings/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Haferflocken und Chiasamen in größeren Mengen. Eine Portion kostet nur wenige Cent, und eine große Packung reicht für monatelange Frühstücke.",
+        "Ersetze frische Blaubeeren durch tiefgekühlte. Sie sind das ganze Jahr über günstiger und tauen über Nacht im Pudding perfekt auf.",
+        "Verwende Nüsse und Obst, die du ohnehin zu Hause hast, statt besondere Toppings zu kaufen. Das Rezept lässt sich leicht anpassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Hafer- oder Mandelmilch für eine milchfreie Variante",
+          "savings": "Vergleichbarer Preis"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Naturjoghurt oder Kokosjoghurt eignen sich beide gut",
+          "savings": "plain yogurt is günstiger"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Mandeln, Pekannüsse oder Cashews passen ebenfalls gut",
+          "savings": "almonds are oft cheapest"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "international",
+        "Frühstück",
+        "über Nacht",
+        "ohne Kochen",
+        "ballaststoffreich",
+        "Meal Prep",
+        "vegetarisch",
+        "Chia",
+        "Haferflocken",
+        "gesund"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 340,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chia-and-oat-puddings/",
+      "components": [
+        {
+          "key": "ea70aa87-e450-583e-8a53-7e619957a9bf",
+          "name": "Zutaten",
+          "servingGrams": 256.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd8138ff-84a2-538f-b72d-ead99fb3f371",
+              "ingredientName": "Haferflocken",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL quick oats"
+            },
+            {
+              "key": "bc34856b-c706-569d-b28a-faf83d6ad9f0",
+              "ingredientName": "Chiasamen",
+              "grams": 11.34,
+              "quantity": 11.34,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a953d1bb-2c9e-57b9-b0fb-80c536df4a82",
+              "ingredientName": "Milch",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "80 ml"
+            },
+            {
+              "key": "8b17e94d-74c6-539d-a81e-6a674651f207",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "80 g griechischer Joghurt natur"
+            },
+            {
+              "key": "40b1a9ae-da46-55fe-9606-5f2057fc4b59",
+              "ingredientName": "Ahornsirup",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "67be0aa0-7806-5994-89fa-c021e27de17a",
+              "ingredientName": "Blaubeeren",
+              "grams": 14.4,
+              "quantity": 14.4,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1 EL, oder fruit von your choice"
+            },
+            {
+              "key": "28b659c1-2557-56fe-9089-795fa620dc49",
+              "ingredientName": "Walnüsse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 EL, oder any nuts von your choice"
+            },
+            {
+              "key": "9b6a297e-d3ad-5319-aacc-48248d21a371",
+              "ingredientName": "Kokosraspel",
+              "grams": 4.8,
+              "quantity": 4.8,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 TL, oder dried fruit/cacao nibs/granola"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die zarten Haferflocken und Chiasamen in ein Glas oder eine Tasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Milch dazu und rühre alles vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Mischung 10 Minuten stehen, bis sie andickt, oder stelle sie für einen festeren Pudding über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den griechischen Joghurt obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Träufle den Ahornsirup darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere alles mit Blaubeeren, Walnüssen und Kokosraspeln und serviere den Pudding.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2021/06/Chia-and-Oat-Pudding-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chia-and-oat-puddings/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Chia-Hafer-Pudding",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-chicken-banh-mi",
+      "slug": "she-chicken-banh-mi",
+      "title": "Bánh mì mit Honig-Soja-Hähnchen",
+      "instructions": "Saftige Hähnchenspieße mit Honig und Sojasauce stecken in knusprigen Brötchen mit Mayonnaise, knackiger Karotte, kühler Gurke, frischem Koriander und etwas Chili. Ein frisches, glänzend glasiertes Bánh mì, das in nur 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-banh-mi/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine ganze Packung Hähnchenoberkeulen und friere sie portionsweise ein. Das ist pro Portion deutlich günstiger als vorgeschnittenes Fleisch.",
+        "Lass die Brötchen weg und serviere die Spieße mit Reis als günstige Schüssel.",
+        "Lege Karotte und Gurke in zusätzlichem Reisessig ein. So kannst du das Gemüse strecken und bekommst fast kostenlos eine säuerliche Note dazu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale Sojasauce funktioniert genauso gut",
+          "savings": "spart etwa $0.10/EL"
+        },
+        {
+          "forIngredientId": "sub-rolls",
+          "swap": "Jedes knusprige Baguette oder längliche Sandwichbrötchen",
+          "savings": "vorhundene Zutaten's im Angebot"
+        },
+        {
+          "forIngredientId": "fresno-chili",
+          "swap": "Thai-Chili oder eine Prise Chiliflocken",
+          "savings": "Spart ein paar Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch",
+        "Bánh mì",
+        "Hähnchen",
+        "Honig-Soja",
+        "Sandwich",
+        "Spieße",
+        "schnell",
+        "vietnamesisch inspiriert",
+        "unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 341,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-banh-mi/",
+      "components": [
+        {
+          "key": "053d2101-592d-578b-b332-dac59bbb4eb5",
+          "name": "Zutaten",
+          "servingGrams": 390.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "566615eb-b627-59de-98ff-6e74f130f5c4",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "500g ohne Knochen ohne Haut, geschnitten in bite-sized pieces"
+            },
+            {
+              "key": "8fb463b9-36eb-5537-93e5-317517d8faa9",
+              "ingredientName": "Tamari",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "60ml tamari oder Weizen- Sojasauce"
+            },
+            {
+              "key": "e79ac976-573d-52c9-9045-af4899240dba",
+              "ingredientName": "Honig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "90g"
+            },
+            {
+              "key": "d912af5b-6c7d-5bde-ac32-a9d2d1cd993a",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL Reisessig"
+            },
+            {
+              "key": "f4cd0aa1-3b1a-51fa-ab10-44c649be45a8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt"
+            },
+            {
+              "key": "81a4a74f-f7e7-54db-b300-e51938767346",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a7505be1-e29c-5055-aaed-968d8e4d5b36",
+              "ingredientName": "Wasser",
+              "grams": 31.2,
+              "quantity": 31.2,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ac0e0e05-4d1a-59ec-96f3-1e884ce47deb",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "585f015e-45d7-5bfd-8732-7fbe7bb223d2",
+              "ingredientName": "Sandwichbrötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "vietnamesische Rollen"
+            },
+            {
+              "key": "0d5a8fa3-7df7-5164-9321-19461b8478a6",
+              "ingredientName": "Mayonnaise",
+              "grams": 19.5,
+              "quantity": 19.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 TL Vollei- mayonnaise"
+            },
+            {
+              "key": "959dac59-88dd-5411-9c1b-3fb380815bc1",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "julienned oder dünn in Scheiben geschnitten"
+            },
+            {
+              "key": "e7afefdb-48b1-58f2-9b16-fd012482fbe9",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 groß, fein in Scheiben geschnitten"
+            },
+            {
+              "key": "41d1b9e2-b89c-5e16-8e67-03eb1e974494",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1/4 Bund Koriander"
+            },
+            {
+              "key": "fda623d3-9116-5243-9d26-8a915034a506",
+              "ingredientName": "Fresno-Chili",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "2 frisch chillies, fein in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche 8 Holzspieße 5 Minuten in kaltem Wasser ein, damit sie nicht verbrennen. Prüfe, ob sie in deine Pfanne passen, und kürze sie bei Bedarf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische in einer großen Schüssel das Hähnchen mit Tamari, Honig, Reisweinessig und Knoblauch. Wende es darin und lasse es mindestens 20 Minuten marinieren, für ein kräftigeres Aroma bis zu 24 Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stecke das marinierte Hähnchen auf die eingeweichten Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das Olivenöl in einer großen, schweren Pfanne und brate die Spieße 8-10 Minuten unter regelmäßigem Wenden, bis das Fleisch durchgegart ist. Gib in den letzten Minuten das Wasser dazu, um den Bratensatz zu lösen und eine glänzende Glasur zu erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Hähnchen von den Spießen und bestreue es mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbiere die Brötchen. Bestreiche jeweils eine Hälfte mit Mayonnaise und belege sie dann mit Hähnchen, Karotte, Gurke, Koriander und nach Wunsch Chili.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/07/Banh-Mi.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-banh-mi/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Bánh mì mit Honig-Soja-Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-chicken-fried-rice",
+      "slug": "she-chicken-fried-rice",
+      "title": "Hähnchen-Bratreis",
+      "instructions": "Zartes, in Sojasauce mariniertes Hähnchen, knuspriger Speck, süßer Mais und Erbsen sowie lockeres Ei werden mit goldbraunem Bratreis, Sesamöl und Frühlingszwiebeln vermischt. Ein schnelles, sättigendes Pfannengericht, das besser schmeckt als Essen zum Mitnehmen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-fried-rice/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 13,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Reis vom Vortag statt frisch gekochtem Reis. Er brät fester und spart Geld und Zeit.",
+        "Ersetze Hähnchenbrust durch günstigere Hähnchenoberkeulen. Sie bleiben saftiger und kosten pro Portion weniger.",
+        "Lass den optionalen Mirin, die Röstzwiebeln und das Chiliöl weg. Das Gericht schmeckt auch ohne sie sehr gut und diese Zutaten verursachen den größten Teil der Zusatzkosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen",
+          "savings": "ca. $0.20/Portion und stays juicier"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl",
+          "savings": "ca. $0.20/EL und a mehr neutral flavor for stir-frying"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Puten-Speck",
+          "savings": "ca. $0.13/Scheibe und lower in fat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Bratreis",
+        "Hähnchen",
+        "aus einer Pfanne",
+        "schnell",
+        "unter der Woche",
+        "wie vom Lieferservice"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 342,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-fried-rice/",
+      "components": [
+        {
+          "key": "1c672fa0-6f81-56e9-8770-4aa9f84872e4",
+          "name": "Zutaten",
+          "servingGrams": 398.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "00f39db1-425d-5e55-a958-8b79461e1899",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 ohne Knochen ohne Haut breasts, geschnitten in bite-sized pieces"
+            },
+            {
+              "key": "a44c7a40-848e-5dcd-947a-a24835a7f132",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": true,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ef4e9cb5-ce79-5c4e-95c1-22b64ac4f2f4",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL für marinade + 2 EL für rice"
+            },
+            {
+              "key": "88276d00-b716-5db4-b5c1-e12eadc50ad6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4fd78812-f59b-5b0e-84de-ba48e4c53b1a",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "70g fein gewürfelt"
+            },
+            {
+              "key": "f29f4adf-b67e-5271-b7dd-883d45cd7750",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt"
+            },
+            {
+              "key": "7d8ec477-8af6-5747-9d59-3c109d7fd209",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "75g tiefgekühlt kernels"
+            },
+            {
+              "key": "5a825d63-c611-5ba6-9085-3c81c1e2f10f",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "80g tiefgekühlt"
+            },
+            {
+              "key": "d62208ba-5032-5571-a9e8-93face01a38d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "verquirlt"
+            },
+            {
+              "key": "cc6101b1-d29c-542c-9ab8-cb85f87a9e5a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "370g gegart long-grain white rice"
+            },
+            {
+              "key": "297a3ea5-4e35-50e4-8f34-9eeff7e58e0b",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "15497b48-31a2-5acb-aa9e-53611d00819a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 spring onions, fein in Scheiben geschnitten"
+            },
+            {
+              "key": "2ec46488-71e4-5f10-a5ee-79bd2dba15ec",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "crispy fried shallots, zum Servieren"
+            },
+            {
+              "key": "b7c2b046-bc34-5a27-bcf4-8251a32f9fc1",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "chilli oil, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib das Hähnchen, den Mirin und 2 EL Sojasauce in eine mittelgroße Schüssel und wende alles, bis es gut überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 EL Olivenöl in einer großen, schweren Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen 4-6 Minuten, bis es gerade gar ist. Nimm es aus der Pfanne und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das restliche 1 EL Öl zusammen mit dem Speck in dieselbe Pfanne. Brate alles 2-3 Minuten goldbraun. Falls nötig, gib einen Schuss Wasser dazu, um klebrige Reste vom Pfannenboden zu lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Knoblauch dazu und brate ihn unter Rühren 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den tiefgekühlten Mais und die Erbsen dazu und brate alles unter Rühren 1 Minute, bis das Gemüse aufgetaut ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schiebe alles auf eine Seite der Pfanne und gieße das verquirlte Ei hinein. Brate es 1-2 Minuten, bis es gestockt ist, und mische es dann unter den Speck, Mais und die Erbsen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib das Hähnchen zusammen mit dem gekochten Reis, den restlichen 2 EL Sojasauce, dem Sesamöl und der Frühlingszwiebel zurück in die Pfanne. Vermische alles und erhitze es gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere den Bratreis nach Wunsch mit knusprigen Röstzwiebeln und Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/07/Chicken-Fried-Rice.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-fried-rice/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Bratreis",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-chicken-green-curry",
+      "slug": "she-chicken-green-curry",
+      "title": "Grünes Hähnchen-Curry",
+      "instructions": "Zarte Hähnchenoberkeulen schmoren in einem aromatischen grünen Curry mit cremiger Kokossoße und knackigem Gemüse. Das Gericht ist in nur 15 Minuten fertig, schmeckt frisch und würzig und passt hervorragend zu gedämpftem Jasminreis. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-green-curry/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Glas grüne Currypaste und friere den Rest portionsweise in Esslöffeln ein. Sie hält sich monatelang und kostet nur einen Bruchteil von Curry zum Mitnehmen.",
+        "Verwende Gemüse, das gerade im Angebot ist oder schon im Kühlschrank liegt. Brokkoli, Paprika oder grüne Bohnen passen anstelle des abgebildeten Gemüses ebenfalls gut.",
+        "Hähnchenoberkeulen mit Knochen sind günstiger als ausgelöste. Löse das Fleisch selbst aus und bewahre die Knochen für Brühe auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust ohne Knochen oder fester Tofu für eine leichtere oder vegetarische Variante",
+          "savings": "Tofu is oft günstiger pro Portion than thighs"
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce und eine Prise Salz, falls du keine Fischsauce hast",
+          "savings": "verwenden eine Vorratszutat you bereits own"
+        },
+        {
+          "forIngredientId": "thai-basil",
+          "swap": "Gewöhnliches süßes Basilikum oder frischer Koriander",
+          "savings": "weglassen the Spezial- herb"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch",
+        "Curry",
+        "Hähnchen",
+        "Kokos",
+        "schnell",
+        "unter der Woche",
+        "aus einer Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 343,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-green-curry/",
+      "components": [
+        {
+          "key": "9cc4d0b1-8920-5e12-a77e-775813a03e35",
+          "name": "Zutaten",
+          "servingGrams": 432.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0aaf160f-3ce4-512e-9021-7dd7881d3b61",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b33ab58c-5409-592d-abb9-94ef0b4f40e6",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "500g ohne Knochen, ohne Haut, geschnitten in bite-sized pieces"
+            },
+            {
+              "key": "5fff52fe-d5e7-5f21-abbe-64ca685c4b39",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7fb3109d-3a4f-5487-9a71-0f5c225f6c50",
+              "ingredientName": "Kokosmilch",
+              "grams": 280,
+              "quantity": 0.7,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "270 ml"
+            },
+            {
+              "key": "ec6977ce-690b-5143-b0be-c82b7ec179f2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "41c0d6d5-e443-53bb-a172-13150cc34b46",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL (3 TL)"
+            },
+            {
+              "key": "1bec1596-6167-538c-a307-86f1085d8055",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "part von 300g vegetables, in Scheiben geschnitten"
+            },
+            {
+              "key": "1cbd81de-a42f-5797-bb60-63e0dd205269",
+              "ingredientName": "Datteltomaten",
+              "grams": 168,
+              "quantity": 168,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "cherry tomatoes, part von 300g vegetables"
+            },
+            {
+              "key": "bc171918-4f82-50fb-9cb3-3fb3e21d2da7",
+              "ingredientName": "Zuckerschoten",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "sugar snap peas, part von 300g vegetables"
+            },
+            {
+              "key": "cbab6235-a43c-5dd1-91e8-8a0c6a223085",
+              "ingredientName": "Thailändisches Basilikum",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 9,
+              "optional": true,
+              "source_note": "Thai basil Blätter, zum Servieren"
+            },
+            {
+              "key": "61803f13-6ad6-59d5-9a32-127ff4c979a5",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "lime wedges, zum Servieren"
+            },
+            {
+              "key": "9300a28c-a514-5667-bd03-62797ab952e1",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "steamed, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Olivenöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Hähnchen dazu und brate es 5-6 Minuten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die grüne Currypaste und Kokosmilch dazu und bringe alles sanft zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den braunen Zucker, die Fischsauce und das Gemüse dazu. Koche alles 2 Minuten, bis das Gemüse weich und das Hähnchen durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Blätter des thailändischen Basilikums unter, gib zum Schluss etwas Limettensaft darüber und serviere das Curry mit gedämpftem Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/11/Chicken-Green-Curry-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-green-curry/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von grünem Hähnchen-Curry",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-chicken-gyros",
+      "slug": "she-chicken-gyros",
+      "title": "Hähnchen-Gyros",
+      "instructions": "Saftige, mit Paprika und Oregano marinierte Hähnchenoberkeulen werden goldbraun gebraten und mit kühlem Tzatziki, frischer Tomate, roter Zwiebel und Kalamata-Oliven in warmes Pitabrot gefüllt. Ein schnelles, frisches Abendessen nach griechischer Art, das in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-gyros/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenoberkeulen mit Knochen und löse sie selbst aus oder nimm Hähnchenbrust aus dem Angebot, um die Fleischkosten zu senken.",
+        "Bereite dein Tzatziki selbst aus Naturjoghurt, Gurke und Knoblauch zu, statt einen Becher zu kaufen.",
+        "Lass Kalamata-Oliven und frische Petersilie weg, wenn du sparen möchtest. Sie sind optionale Garnituren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Dünn geschnittene Hähnchenbrust, damit sie saftig bleibt",
+          "savings": "oft günstiger pro Portion im Angebot"
+        },
+        {
+          "forIngredientId": "pita",
+          "swap": "Fladenbrot, Naan oder ein weicher Wrap",
+          "savings": "beliebige vorhundene bread bereits vorhunden"
+        },
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "Normales Speisesalz oder koscheres Salz, etwas sparsamer dosiert",
+          "savings": "ca. $0.10/tsp günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Gyros",
+        "Hähnchen",
+        "Wrap",
+        "unter der Woche",
+        "mariniert",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 344,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-gyros/",
+      "components": [
+        {
+          "key": "3425b67f-fbdd-5ade-a1ea-7c6bf239f10b",
+          "name": "Zutaten",
+          "servingGrams": 420.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5aa8b6f3-77d4-5adc-b8aa-bad57bb1320e",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 700,
+              "quantity": 7,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kg ohne Knochen, ohne Haut"
+            },
+            {
+              "key": "4aaf97b5-4d32-540b-bf37-cc94d30aa66c",
+              "ingredientName": "Edelsüßes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "29de5128-f2fa-52dd-9db4-349b4cb5d509",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "20564947-b8d3-5a47-ae35-334adba79049",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "0a13ebb9-8b09-562c-93f9-c6d7a9385a41",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "bd4d4566-4779-5443-a77d-e4c9750eb92b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt"
+            },
+            {
+              "key": "c0efbcac-2a18-5918-8403-6011953db3c6",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 lemon, juiced und zested"
+            },
+            {
+              "key": "20b4ce2d-f0eb-5ea9-a977-92740a833e9f",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "60 ml"
+            },
+            {
+              "key": "65710a91-49a6-56ca-934d-64c48449005f",
+              "ingredientName": "Pitabrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Pitabrote / Fladenbrote"
+            },
+            {
+              "key": "8ca210c6-930f-5af5-941e-8c85946fafed",
+              "ingredientName": "Tzatziki",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "ff3fa1fa-10ba-5374-baa8-66505e3ca349",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "d3cd926e-de02-5e59-a167-22b0ab78ad0c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1, fein in Scheiben geschnitten"
+            },
+            {
+              "key": "b5279ca9-3ccc-5fc9-abc7-ff0d2ffc4eea",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1 EL gehackt flat-leaf"
+            },
+            {
+              "key": "52478860-0ef8-5cd5-839f-abe6b487cf77",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 100,
+              "quantity": 0.2,
+              "unit": "package",
+              "position": 13,
+              "optional": true,
+              "source_note": "2 EL in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische die Hähnchenoberkeulen in einer großen Schüssel mit Paprika, Oregano, Meersalz, schwarzem Pfeffer, gehacktem Knoblauch, Zitronensaft und -schale sowie Olivenöl. Reibe die Marinade mit den Händen gleichmäßig in das Fleisch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Fleisch sofort oder decke es ab und mariniere es für ein kräftigeres Aroma bis zu 24 Stunden im Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine große Pfanne bei mittlerer bis hoher Hitze. Gib das Hähnchen hinein und brate es etwa 10 Minuten goldbraun und gar. Wende es nach der Hälfte der Zeit einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falls der Pfannenboden zu klebrig wird, gib nach der Hälfte der Garzeit 1/4 Tasse (60 ml) Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Hähnchen auf ein Brett und lass es 5 Minuten ruhen, bevor du es in Scheiben schneidest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme das Pitabrot oder Fladenbrot und bestreiche jedes Stück mit Tzatziki.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege das Brot mit dem geschnittenen Hähnchen, Tomate, roter Zwiebel, Petersilie und Kalamata-Oliven. Klappe es zusammen und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/12/Chicken-Gyros-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-gyros/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Gyros",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1011 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-banitza",
+      "slug": "gen-banitza",
+      "title": "Banitza",
+      "instructions": "Mazedonisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie einfachen Joghurt von Handelsmarken anstelle von griechischem Joghurt",
+        "Kaufen Sie Butter im Sonderangebot und frieren Sie sie ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mazedonisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6605,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banitza/",
+      "components": [
+        {
+          "key": "050a911a-0e51-5c99-8a70-bbc0367ba6ba",
+          "name": "Zutaten",
+          "servingGrams": 123.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "b61b5c0c-243a-5c1e-a739-2d16dcedd68e",
+              "ingredientName": "Filoteig",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "a4c76424-6a69-5130-840e-42ce1eb4fae1",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5561e395-0fd3-51a1-9e44-1ee3b9cd68a1",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c97b7a02-cc82-5b52-8565-5c0de401048b",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "6e930612-0c7b-590c-b5d4-f6d551963ce0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "260b467d-54ec-562d-94bf-1e5de72ef426",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 350°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier, Joghurt, Salz und schwarzen Pfeffer in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter schmelzen und eine 9 × 13 Zoll große Auflaufform damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2 Filoteigblätter einschichten und jedes mit zerlassener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie die Hälfte der Eimischung über den Phyllo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 2 Filoteigblätter mit Butter dazwischen einschichten und die restliche Eiermischung darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit 4–5 weiteren Filoteigblättern bedecken und jedes mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "25–30 Minuten backen, bis es goldbraun und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "5 Minuten abkühlen lassen, in Quadrate schneiden und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gradfood.com/wp-content/uploads/2022/12/Banitsa-3-scaled.jpg",
+          "sourcePageUrl": "https://gradfood.com/wp-content/uploads/2022/12/Banitsa-3-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mlinci",
+      "slug": "gen-mlinci",
+      "title": "Mlinci",
+      "instructions": "Mazedonisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn verfügbar, verwenden Sie hausgemachte Rinderbrühe aus Knochen",
+        "Machen Sie Teig von Grund auf neu, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "mazedonisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6606,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mlinci/",
+      "components": [
+        {
+          "key": "f30304d8-1507-5ca8-9c85-fed0a61b42d7",
+          "name": "Zutaten",
+          "servingGrams": 623.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "abbc004f-02e5-5fef-8217-728d261d98d0",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "6d83d065-c054-5832-88af-714684546253",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87f26c82-0c89-5a7d-89e9-83061218c02d",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "61370eee-a349-5f3b-88e4-0dc099f42b52",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2774031c-0900-5ebd-b384-54826e5b3773",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "e4c07877-f41d-5fbc-b277-58406ad57a96",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "72839c38-86c8-5927-ad12-58893b605ac8",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Teig zubereiten: Mehl, Eier, Wasser und 0.5 TL Salz vermischen und glatt und elastisch kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rollen Sie den Teig auf einer bemehlten Fläche sehr dünn aus und lassen Sie ihn dann 10 Minuten trocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den getrockneten Teig in 2 Zoll große Quadrate oder Rechtecke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mlinci-Quadrate in Butter in einer Pfanne braten, bis sie leicht goldbraun sind, etwa 2 Minuten pro Portion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geben Sie die frittierten Quadrate portionsweise in die kochende Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Restliches Salz und Paprika hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vorsichtig umrühren und heiß als suppenähnliches Gericht servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/39/67/12/pic7OoRbt.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/39/67/12/pic7OoRbt.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tetovska-pita",
+      "slug": "gen-tetovska-pita",
+      "title": "Tetovska Pita",
+      "instructions": "Mazedonisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie ein geschliffenes Spannfutter anstelle von schlankeren Schnitten",
+        "Kaufen Sie Zwiebeln und Tomaten der Saison"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mazedonisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6607,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tetovska-pita/",
+      "components": [
+        {
+          "key": "408105c6-3777-575d-9e78-07764835273a",
+          "name": "Zutaten",
+          "servingGrams": 338.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "afd2b7ae-7f70-5ddd-bf93-31b9c6e03a29",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "4b5a33cd-7aeb-5e51-85b4-6274533465d3",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8a8a6887-81ce-5439-b2e5-b5cc73486ef7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "63d51958-5dd8-5426-b2ea-3d87891c182c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0bd47423-e3b6-5fa6-a773-e3d92ad3806a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "2488b6ce-441e-5ba3-be13-bcad8da90ae7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4d696c22-227f-542b-a73e-db353f251c0a",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7f29b466-4b83-5f8b-9aaa-9da1963bb45b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Teig herstellen: Mehl, Wasser und Salz mischen und 10 Minuten lang kneten, bis er elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig in 4 Kugeln teilen, abdecken und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch mit Zwiebelwürfeln anbraten, Tomate hinzufügen, mit Salz und Pfeffer würzen, 5 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Teigkugel sehr dünn ausrollen, sodass sie eine 9 × 13 Zoll große Auflaufform bedecken kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In der Auflaufform abwechselnd Teigblätter und Fleischfüllung schichten und jedes Teigblatt mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ofen auf 375°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "30-35 Minuten backen, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Quadrate schneiden und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sopska-pita",
+      "slug": "gen-sopska-pita",
+      "title": "Sopska Pita",
+      "instructions": "Mazedonisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kohl in großen Mengen kaufen; es dauert wochenlang",
+        "Wenn das Budget knapp ist, verzichten Sie auf Kümmel"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mazedonisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6608,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopska-pita/",
+      "components": [
+        {
+          "key": "26d72039-8583-520f-9d69-bfa5a936d943",
+          "name": "Zutaten",
+          "servingGrams": 111.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "932c1600-ff16-56a3-a110-9b81525ce360",
+              "ingredientName": "Filoteig",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "decb9dc0-f412-563f-a728-0ec8f533c859",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "4130faef-1bc0-5209-ae1d-a28fecc20372",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "31b678a2-9b8b-5313-ac62-3ec408387bd4",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "33bf68cf-7ff8-5643-91a4-7ce81bd3c947",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8f0ed5e8-d780-5b2f-a3b2-25a079a74cf3",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "2a3c69c2-677d-53c7-9fac-b93150f4da2e",
+              "ingredientName": "Kümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 350°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kohl fein hacken und mit gewürfelten Zwiebeln in 2 EL Butter 8 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Salz, Pfeffer und Kümmel würzen und dann vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine 9 × 13 Zoll große Auflaufform mit zerlassener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3–4 Filoteigblätter einschichten und jedes mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Kohlmischung gleichmäßig auf dem Phyllo verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit den restlichen 4–5 Phyllo-Blättern belegen und die Schichten zwischen den Schichten mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "25-30 Minuten backen, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "5 Minuten abkühlen lassen, in Quadrate schneiden und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2022/08/ground-beef-pita-sandwich-recipe-4.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2022/08/ground-beef-pita-sandwich-recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zelnik",
+      "slug": "gen-zelnik",
+      "title": "Zelnik",
+      "instructions": "Mazedonisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorenen Spinat, wenn frischer Spinat teuer ist. auftauen und ausdrücken",
+        "Kaufen Sie Feta im Sonderangebot und zerbröseln Sie ihn selbst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mazedonisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6609,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zelnik/",
+      "components": [
+        {
+          "key": "7211bbf9-0108-5ab0-867a-0d63b544a436",
+          "name": "Zutaten",
+          "servingGrams": 150.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "b84b4a5c-e6a8-5f6d-ba7a-035ff5a38c5f",
+              "ingredientName": "Filoteig",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "dd0f07dc-ea3a-5926-98de-fae1730c5a73",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "541af38e-494d-5d7a-b2cc-30814d173414",
+              "ingredientName": "Feta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ca25feb8-0162-5a01-b5ca-52a6643df30e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "c4be9033-1356-5441-b8bc-a7a7cc98f793",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1be20636-b277-529d-87af-a390d1c84ed2",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7d9d9f2f-d7e8-5db9-ae88-738f33eaea86",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "149d8814-7908-515e-a667-7f9ee0b9e01e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 350°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebeln in 1 EL Butter 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Spinat hinzufügen und ca. 5 Minuten kochen, bis er zusammengefallen ist und die Flüssigkeit verdunstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen und abkühlen lassen, dann zerbröckelten Feta, Eier, Salz und Pfeffer untermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine 9 × 13 Zoll große Auflaufform mit zerlassener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "3–4 Filoteigblätter einschichten und jedes mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Spinatfüllung gleichmäßig auf dem Phyllo verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit den restlichen 4–5 Phyllo-Blättern belegen und die Schichten zwischen den Schichten mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "30-35 Minuten goldbraun backen, 5 Minuten abkühlen lassen, schneiden und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.etsystatic.com/29117038/r/il/ff8f48/6497714741/il_fullxfull.6497714741_sqyz.jpg",
+          "sourcePageUrl": "https://i.etsystatic.com/29117038/r/il/ff8f48/6497714741/il_fullxfull.6497714741_sqyz.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1004 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-diner-eggs-benedict",
+      "slug": "mfr-diner-eggs-benedict",
+      "title": "Eggs Benedict mit Hollandaise",
+      "instructions": "Getoastete English Muffins, belegt mit kanadischem Speck, perfekt pochierten Eiern und reichhaltiger Hollandaise – ein Brunchgericht, das aus einem einfachen Ei etwas Besonderes macht und auch beim ersten Versuch gelingt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kanadischer Speck ist viel günstiger und fettärmer als normaler Speck.",
+        "Für Hollandaise brauchst du nur 3 Zutaten, die du wahrscheinlich schon da hast.",
+        "Essig im Pochierwasser hilft dem Ei, seine Form zu behalten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canadian-bacon",
+          "swap": "Räucherlachs für Eggs Royale"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl für eine leichtere Sauce (die Konsistenz verändert sich)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-eggs-benedict",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Eggs-Benedict",
+        "Hollandaise",
+        "Brunch",
+        "pochiertes-Ei"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1390,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-eggs-benedict/",
+      "components": [
+        {
+          "key": "be488a7f-c10a-58de-9a19-73518d703f83",
+          "name": "Zutaten",
+          "servingGrams": 289,
+          "position": 0,
+          "items": [
+            {
+              "key": "98d1e47d-1056-5f48-b1f2-4d8da553b0d3",
+              "ingredientName": "English Muffin",
+              "grams": 114,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bd4a72d-19c7-5bed-9af2-96543e9dc31d",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9192107-7a30-5e9c-88c6-4c35e3a131d7",
+              "ingredientName": "Kanadischer Speck",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62d39be3-5cdc-5af7-9bb3-6b058379040a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e079d69-e9eb-55ec-94b5-7190180fe3cd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4516ba66-1069-59e4-a26f-b6d5c9fcca02",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0642f25-eeae-5b19-adcb-dfb6dfecdf8f",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "932d3c16-7e60-55fc-8354-1744b7d99374",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Hollandaise: Verrühre 2 Eigelbe und Zitronensaft über einem Wasserbad, bis die Masse dick wird. Träufle langsam geschmolzene Butter dazu und rühre dabei ständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 EL Essig in leicht köchelndes Wasser. Schlage jedes Ei einzeln ins Wasser und poche es 3–4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere und toaste die English Muffins. Erwärme den kanadischen Speck in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Muffin, kanadischen Speck, pochiertes Ei und Hollandaise mit Cayennepfeffer aufeinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2022/09/220602_DD_Eggs-Benedict_357.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2022/09/220602_DD_Eggs-Benedict_357.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-diner-chicken-noodle-soup",
+      "slug": "mfr-diner-chicken-noodle-soup",
+      "title": "Klassische Hühnernudelsuppe",
+      "instructions": "Goldene, wohltuende Hühnerbrühe mit zerpflücktem Hähnchen, Eiernudeln, Karotten, Sellerie und Zwiebel – der amerikanische Klassiker, der bei Krankheit, Müdigkeit oder Kälte guttut.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel ergeben eine bessere Suppe als Brustfleisch: Sie bleiben saftig und geben der Brühe mehr Geschmack.",
+        "Selbstgemachte Hühnersuppe ist 80% günstiger als Suppe aus der Dose und schmeckt 500% besser.",
+        "Die Suppe lässt sich gut einfrieren – koche eine große Menge und friere Portionen ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Beliebige Pasta oder Reis"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Ein ganzes Grillhähnchen, zerpflückt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-chicken-noodle-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Hühnernudelsuppe",
+        "Suppe",
+        "Wohlfühlessen",
+        "Klassiker"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1391,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-chicken-noodle-soup/",
+      "components": [
+        {
+          "key": "704830f4-1488-5154-89b0-2c42f7253a33",
+          "name": "Zutaten",
+          "servingGrams": 255.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "d58167e1-191c-56f3-b2e4-a8ab44b83831",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfe18404-a69f-5216-b227-681185268008",
+              "ingredientName": "Eiernudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12261be5-78af-5c63-b7a1-090718769d42",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9627b442-cd36-551c-ba3a-e42c4d57d034",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d885470-cc24-598c-9075-0b6c56c01d9e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cad8d64f-9499-5b88-9596-8f504c1f58f1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd202076-002f-5d84-bf92-218595b5c377",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee31708d-b0ae-5a2f-89ec-87955636b122",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adae4a8a-052b-5725-aab6-d943cff805d6",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba84cabc-49d7-5324-bf22-75235a5ae434",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Hähnchen, Brühe, Zwiebel, Knoblauch, Lorbeerblätter und Thymian in einen Topf und lass alles 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen heraus und zerpflücke es. Gib aufgeschnittene Karotten und Sellerie dazu und gare alles 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Nudeln dazu und koche sie nach Packungsangabe. Gib das Hähnchen zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze kräftig und garniere die Suppe mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5e0f9ecd563dfe00085b132f/1:1/w_2560%2Cc_limit/Basically-Chicken-Noodle-Soup-02.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5e0f9ecd563dfe00085b132f/1:1/w_2560%2Cc_limit/Basically-Chicken-Noodle-Soup-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-diner-beef-chili",
+      "slug": "mfr-diner-beef-chili",
+      "title": "Chili con Carne nach texanischer Art",
+      "instructions": "Rinderhackfleisch und Kidneybohnen in einem feurigen, kreuzkümmelbetonten Chili mit Ancho- und Chipotle-Chili – texanisches Chili ist kräftig gewürzt, unkompliziert und perfekt für einen Freitagabend mit Maisbrot.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch und zwei Dosen Bohnen reichen für 6 Personen und kosten weniger als $10.",
+        "Am nächsten Tag schmeckt das Chili viel besser, nachdem sich die Aromen entfaltet haben.",
+        "Chili lässt sich perfekt einfrieren – koche gleich die dreifache Menge und friere Portionen ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Truthahnhackfleisch oder pflanzliches Hack"
+        },
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Schwarze Bohnen oder Pintobohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-beef-chili",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Chili",
+        "Rindfleisch",
+        "Texas",
+        "Kidneybohnen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1392,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-beef-chili/",
+      "components": [
+        {
+          "key": "32f767aa-3492-5d33-929d-6391dc0247fc",
+          "name": "Zutaten",
+          "servingGrams": 307.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "fdcd4ded-e91b-580f-b98d-31699e63e9c1",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edbadb62-503d-5176-bb1b-c908a17e86b4",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9d922fe-aebd-5508-abe5-31dd9445bc55",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4aea6df4-cbde-518a-9e2e-97c3db8bdc41",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29bd847c-223e-5825-a659-57bc59dd3713",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9119a664-fb02-50ff-9a0d-1262f5d0b6f1",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d92a889e-3580-50d3-8f13-7dc05b0fd5a3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "214e3e0e-37ad-5b50-8c3e-a7f8ae255381",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16acefb6-9eaa-5c5b-848f-b70b00ebf3c1",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4250766-2bf3-5b46-a361-5a14cc9e9552",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Rinderhackfleisch 5 Minuten mit Zwiebel und Knoblauch an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Chilipulver, Kreuzkümmel und Paprikapulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Tomaten, Bohnen, Chipotle und Brühe hinzu. Lass alles 35 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze kräftig. Serviere das Chili mit saurer Sahne, geriebenem Käse und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2019/08/Texas-Chili1-SpendWithPennies-700x1050.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2019/08/Texas-Chili1-SpendWithPennies-700x1050.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-diner-hot-turkey-sandwich",
+      "slug": "mfr-diner-hot-turkey-sandwich",
+      "title": "Heißes Truthahn-Sandwich mit Sauce",
+      "instructions": "Dicke Scheiben Truthahnbraten auf Weißbrot, mit herzhafter Truthahnsauce bedeckt und mit Kartoffelpüree und Cranberrysauce serviert – ein Diner-Mittagessen, das Thanksgiving-Reste verwertet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das ist ein klassisches Rezept für Thanksgiving-Reste.",
+        "Mit Truthahnaufschnitt wird daraus ein Gericht für das ganze Jahr.",
+        "Truthahnsauce aus der Tüte kostet $0.80 und eignet sich perfekt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-gravy",
+          "swap": "Hühnersauce funktioniert genauso gut, wenn es schnell gehen muss"
+        },
+        {
+          "forIngredientId": "cranberry-sauce",
+          "swap": "Weglassen oder Marmelade verwenden – Kirschmarmelade passt gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-hot-turkey-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "heißes-Truthahn-Sandwich",
+        "offenes-Sandwich",
+        "Bratensauce",
+        "Diner"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1393,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-hot-turkey-sandwich/",
+      "components": [
+        {
+          "key": "5ee90b38-8df6-5b01-b6ed-63b4e6c2c638",
+          "name": "Zutaten",
+          "servingGrams": 775,
+          "position": 0,
+          "items": [
+            {
+              "key": "67e8374b-7d13-54ee-91cf-2762cb5963db",
+              "ingredientName": "Truthahnaufschnitt",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79b361cc-f8b5-5e82-90f9-32ad7c361bc6",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4dbeda2-3887-5ab4-961e-d591538dd3f6",
+              "ingredientName": "Truthahnsauce",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1384e031-590b-503b-b31c-a7c66ccc28e1",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a81fa5c-0a7e-5bed-b363-d50db804e829",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "207cfeb1-b8d4-5af6-81a0-93eb00c0513c",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbe5a36a-62c7-5849-8cc8-7a5da8145664",
+              "ingredientName": "Cranberrysauce",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c69a272-2adf-512c-b731-57b413a07b8d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln und zerstampfe sie mit Butter, Milch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Truthahnsauce und erhitze die Truthahnscheiben darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Toaste das Brot und lege es auf Teller. Gib Truthahn darauf und schöpfe Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Sandwich mit Kartoffelpüree und einem Löffel Cranberrysauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/11/Hot-Turkey-Sandwich-SpendWithPennies-3.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/11/Hot-Turkey-Sandwich-SpendWithPennies-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-diner-biscuits-gravy",
+      "slug": "mfr-diner-biscuits-gravy",
+      "title": "Buttermilchbrötchen mit Wurst-Sauce",
+      "instructions": "Lockere, buttrige Drop Biscuits, bedeckt mit einer cremigen Sauce aus Schweinswurst und schwarzem Pfeffer – ein Südstaatenfrühstück, besonders reichhaltig und eines der günstigsten Gerichte auf einer Diner-Karte.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Drop Biscuits sind schneller als ausgerollte Brötchen und schmecken genauso gut.",
+        "Frühstückswurst aus Großgebinden ist viel günstiger als einzelne Würstchen – zerkrümle sie einfach.",
+        "Das ganze Gericht für 4 Personen kostet etwa $5."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "breakfast-sausage",
+          "swap": "Truthahnwurst für eine leichtere Variante"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Normale Milch für fettärmere Brötchen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-biscuits-gravy",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Biscuits-mit-Sauce",
+        "Südstaaten",
+        "Frühstück",
+        "Wurst"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1394,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-biscuits-gravy/",
+      "components": [
+        {
+          "key": "98525018-b620-5e5c-a0cc-a673cdd13d92",
+          "name": "Zutaten",
+          "servingGrams": 336.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6e14f21-9561-5e07-80eb-d93b652db071",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d6d5633-79ca-5f6a-853e-bdd9023a2a82",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91c17ddc-1822-540c-a8d6-305dbdd81ba3",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bbe02e2-f0d1-5d81-bc23-2cc2b21a2703",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f89fda92-8728-5762-aa6d-1bd44ec74536",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a97b8c7-d255-50a1-be57-1405f68519e3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9364193-2677-591a-8fd5-60c0a7a0c27e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b2eb255-ddf3-5e0b-8423-9aa3101d5ae3",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Brötchen: Vermische Mehl, Backpulver und Salz. Arbeite kalte Butter ein, gib Sahne dazu und setze Teighäufchen aufs Blech. Backe sie bei 450°F 12 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die zerkrümelte Wurst in einer Pfanne. Streue 3 EL Mehl darüber und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre nach und nach Milch ein und lass die Sauce 5 Minuten köcheln, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Salz und reichlich schwarzem Pfeffer. Löffle die Sauce über die aufgeschnittenen Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/EXPS_BMZ17_8030_D10_25_3b.jpg",
+          "sourcePageUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/EXPS_BMZ17_8030_D10_25_3b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

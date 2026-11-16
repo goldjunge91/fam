@@ -1,0 +1,1549 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-korean-japchae",
+      "slug": "cur-korean-japchae",
+      "title": "Koreanisches Japchae",
+      "instructions": "Beliebtes koreanisches Gericht aus gebratenen Glasnudeln aus Süßkartoffelstärke mit mariniertem Rindfleisch, Shiitake, Spinat, Karotte und Zwiebel in einer glänzenden Sesam-Sojasoße. Die einzelnen Zutaten werden getrennt gegart und zum Schluss miteinander vermengt.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Glasnudeln sind günstig und bilden die Grundlage des Gerichts. So lässt sich eine größere Portion zubereiten und das Rindfleisch reicht dünn geschnitten für alle Portionen.",
+        "Rindfleisch weglassen und zusätzliche Shiitake sowie Sojasprossen verwenden, um eine sättigende vegetarische oder vegane Variante zuzubereiten.",
+        "Einen ganzen Bund Spinat und einen Beutel Karotten kaufen und die Reste in der Woche für andere Gerichte verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-sirloin",
+          "swap": "verwenden shiitake plus extra Zwiebel und Karotte für ein vegan japchae",
+          "savings": "Spart durch Weglassen des Rindfleischs etwa $2-3 pro Portion"
+        },
+        {
+          "forIngredientId": "shiitake",
+          "swap": "Any frisch mushroom such as cremini oder button",
+          "savings": "Spart ungefähr $1 gegenüber Shiitake aus dem Spezialgeschäft"
+        },
+        {
+          "forIngredientId": "toasted-sesame-oil",
+          "swap": "normal sesame Öl mit ein pinch von toasted sesame seeds",
+          "savings": "Spart etwa $0.50 pro Portion."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Nudeln",
+        "Glasnudeln",
+        "Pfannengericht",
+        "süß-würzig",
+        "Dangmyeon",
+        "für den Feierabend"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7330,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-korean-japchae/",
+      "components": [
+        {
+          "key": "03507b78-2bd8-523d-acbb-a8b28da8dfcc",
+          "name": "Zutaten",
+          "servingGrams": 303.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6c0859f-338a-544a-9f24-387e21a9965f",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Dangmyeon (Süßkartoffelstärkenudeln), ~200g Trockengewicht"
+            },
+            {
+              "key": "3e0a11fc-133d-5295-8673-2dd2cacc5ab3",
+              "ingredientName": "Rinderfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "in dünne Streifen geschnitten"
+            },
+            {
+              "key": "0bf121f9-0450-51f9-bc2f-bc8ef2df6f8c",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "ein halber Bund, blanchiert"
+            },
+            {
+              "key": "d1d84a33-3600-5986-8aa5-df9cb428ee11",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten"
+            },
+            {
+              "key": "bb609036-24e0-5789-9bda-b3aaf4d29b62",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "68c468e3-dbc9-572e-9dcb-443f5516d6d0",
+              "ingredientName": "Pilze",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "entstielt und dünn geschnitten"
+            },
+            {
+              "key": "d28440c7-f31d-5da2-bfaf-e7f54ca46d3c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in 2 Zoll lange Stücke geschnitten"
+            },
+            {
+              "key": "9b7e934a-59a5-5f3f-8ac5-1a67cc857e5b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "für die dünne Eiergarnitur (Jidan)"
+            },
+            {
+              "key": "b3792b4a-689e-59fc-a14d-8bab32572e6d",
+              "ingredientName": "Sojasauce",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Esslöffel insgesamt, auf Sauce und Rindfleischmarinade verteilt"
+            },
+            {
+              "key": "efc4d18f-5243-5a77-be11-2a06cec7425f",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Esslöffel insgesamt, aufgeteilt"
+            },
+            {
+              "key": "36256bbb-8ca1-5064-9035-3d500bf6ac43",
+              "ingredientName": "geröstetes Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Esslöffel insgesamt, aufgeteilt"
+            },
+            {
+              "key": "8fb8cb97-9a27-5d99-bc04-7e5cebe7f4ff",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "97786e6c-6855-57b1-ac99-87b390333a4d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Esslöffel, geröstet, zum Garnieren"
+            },
+            {
+              "key": "d5f145ce-daa8-52c3-a056-c4335c7d0972",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "zum Pfannenrühren"
+            },
+            {
+              "key": "78964553-97f4-5b08-a377-e0c54ad54d4e",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "Prise für das Rindfleisch"
+            },
+            {
+              "key": "65e232b3-51a3-577f-b997-12064526eb80",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "zum Würzen des Gemüses"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleischstreifen mit 1 EL Sojasoße, 1 TL Zucker, 1 TL Sesamöl, einem Drittel des gehackten Knoblauchs und einer Prise schwarzem Pfeffer vermengen. 15 Minuten marinieren lassen. Shiitake schneiden und mit etwas Sojasoße und Sesamöl vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Grundsoße 4 EL Sojasoße, 2.5 EL Zucker, 2 EL Sesamöl und den übrigen Knoblauch in einer Schüssel verrühren, bis sich der Zucker auflöst. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen großen Topf Wasser zum Kochen bringen. Spinat 30 Sekunden blanchieren, dann in kaltes Wasser geben, trocken ausdrücken und mit einer Prise Salz sowie einigen Tropfen Sesamöl vermengen. Glasnudeln im selben kochenden Wasser 6–7 Minuten garen, bis sie durchsichtig und bissfest sind. Abgießen, kurz abspülen und mit einer Schere einige Male kürzen, damit sie nicht zu lang sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine leicht geölte Pfanne bei mittelhoher Hitze erwärmen. Gemüse getrennt pfannenrühren, damit Farbe und Biss erhalten bleiben: Zwiebel mit einer Prise Salz weich dünsten, dann Karotte bissfest garen, Shiitake glänzend braten und Frühlingszwiebel kurz anbraten. Fertiges Gemüse jeweils in eine große Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In derselben heißen Pfanne das marinierte Rindfleisch 2–3 Minuten braten, bis es gar und nicht mehr rosa ist. Zum Gemüse geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgetropfte Nudeln und Grundsoße bei mittlerer Hitze in die Pfanne geben. 1–2 Minuten schwenken, bis die Nudeln die Soße aufnehmen und glänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gegartes Gemüse, Rindfleisch und Spinat zurück in die Pfanne geben oder alles in der großen Schüssel vermengen. Mit den Händen oder einer Zange gründlich wenden, bis alles gleichmäßig gewürzt ist. Abschmecken und bei Bedarf etwas Sojasoße oder Zucker ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit geröstetem Sesam und etwas Sesamöl abschließen. Nach Wunsch dünne Eierstreifen daraufgeben. Warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Homemade_Japchae%2C_Dhaka_02.jpg/1280px-Homemade_Japchae%2C_Dhaka_02.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_Japchae,_Dhaka_02.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ibrahim Husain Meraj — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Korean Japchae",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-pork-gyoza",
+      "slug": "cur-pork-gyoza",
+      "title": "Gyoza mit Schweinefleisch",
+      "instructions": "Saftige japanische Teigtaschen mit Schweinefleisch, Chinakohl, Ingwer und Knoblauch. Die Böden werden knusprig gebraten und die Oberseiten im Dampf zart gegart. Mit würziger Sojasoßen-Essig-Chili-Dipsoße servieren.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Runde Teigblätter im Asia-Laden kaufen; sie sind günstig und sparen die Zeit für selbst gemachten Teig.",
+        "Chinakohl ist günstig und ein Kopf reicht für mehrere Portionen. Die Füllung lässt sich gut einfrieren.",
+        "Rohe Gyoza auf einem Blech einfrieren und anschließend in einen Beutel geben. Tiefgekühlt garen und 2 Minuten länger dämpfen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "verwenden gemahlen Hähnchen oder gemahlen turkey mit ein extra drizzle von sesame Öl für moisture",
+          "savings": "Etwa gleich teuer oder etwas günstiger"
+        },
+        {
+          "forIngredientId": "napa-cabbage",
+          "swap": "normal green cabbage, finely gehackt und salted der same way",
+          "savings": "Spart ~30%"
+        },
+        {
+          "forIngredientId": "sake",
+          "swap": "Dry sherry, Shaoxing wine, oder just omit",
+          "savings": "Spart einige Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Teigtaschen",
+        "in der Pfanne gebraten",
+        "Schweinefleisch",
+        "Potstickers",
+        "Yaki-Gyoza",
+        "zum Einfrieren"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7331,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-pork-gyoza/",
+      "components": [
+        {
+          "key": "aecb3089-8194-56de-bf66-383701e299ff",
+          "name": "Zutaten",
+          "servingGrams": 71.47,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ac7b171-bf79-5e06-876d-685255d088d8",
+              "ingredientName": "Hackfleisch",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "fetteres Schweinefleisch (etwa 20% Fett) bleibt saftig"
+            },
+            {
+              "key": "17d137be-5e11-5757-8254-2129d3d86a85",
+              "ingredientName": "Chinakohl",
+              "grams": 40,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53e12c0c-7291-5feb-b5d0-4c18e6b51272",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da3f28d4-e5f2-59d4-9eaa-d002ce513a4f",
+              "ingredientName": "Knoblauch",
+              "grams": 0.45,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 3 Zehen, fein gerieben"
+            },
+            {
+              "key": "90ae9598-4186-5caf-a953-c559f61462e8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 EL, fein gerieben"
+            },
+            {
+              "key": "bc75e090-6f81-56c1-92ed-e2f45ee86c5f",
+              "ingredientName": "Sojasauce",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b24facc-4f0e-5fee-b412-f19dc75b6579",
+              "ingredientName": "Sesamöl",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29e94446-09bf-5741-9494-e7b93a8c2a3c",
+              "ingredientName": "Sake zum Kochen",
+              "grams": 0.45,
+              "quantity": 0.45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "oder trockener Sherry; macht das Fleisch zarter"
+            },
+            {
+              "key": "36e93822-6368-51a6-8981-56298d36a06d",
+              "ingredientName": "Zucker",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca7e1f2f-c7e9-5af2-a5f6-331cf568b68e",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f24b68c7-5808-5070-b69a-1cd356819e90",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f587023c-3118-5f4b-91f7-47ece5e10480",
+              "ingredientName": "Knödelhüllen",
+              "grams": 120,
+              "quantity": 1.2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "runde Gyoza-Teigblätter, etwa 32-36 Stück"
+            },
+            {
+              "key": "5716f43c-42c7-5055-9254-13cb04f19f9c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 0.45,
+              "quantity": 0.45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "zum Braten in der Pfanne"
+            },
+            {
+              "key": "a295aacd-7a77-5a1c-ab06-7c553fb1d6fb",
+              "ingredientName": "Speisestärke",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "1 TL in Wasser aufgelöst ergibt einen filigranen, knusprigen Teigrand."
+            },
+            {
+              "key": "44ad7f27-fb3b-5332-9cd9-9500f70e1c63",
+              "ingredientName": "Reisessig",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "für die Dipsauce"
+            },
+            {
+              "key": "fdc59b6d-d566-5d71-917f-fd09fb660fd2",
+              "ingredientName": "Chiliöl",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "Rayu für die Dipsauce"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chinakohl fein hacken, mit 1 TL Salz vermengen und 10 Minuten ziehen lassen. Mit den Händen oder einem sauberen Tuch möglichst viel Flüssigkeit ausdrücken, damit die Füllung nicht wässrig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinehackfleisch, ausgedrückten Kohl, fein geschnittene Frühlingszwiebel, geriebenen Knoblauch und Ingwer, Sojasoße, Sesamöl, Sake, Zucker, restliches Salz und weißen Pfeffer in einer Schüssel vermengen. Etwa 2 Minuten kräftig in eine Richtung rühren, bis die Füllung klebrig und leicht pastös wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Teigblatt in die Handfläche legen und einen gehäuften Teelöffel Füllung in die Mitte geben. Rand mit Wasser befeuchten, halbmondförmig zusammenklappen und eine Seite mit 5–6 Falten zur Mitte hin falten. Zum Verschließen fest zusammendrücken. Jede Gyoza mit flachem Boden aufrecht hinstellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 EL Pflanzenöl in einer beschichteten oder gusseisernen Pfanne bei mittelhoher Hitze erhitzen. Gyoza mit der flachen Seite nach unten dicht in einem Kreis oder in Reihen anordnen. 2–3 Minuten ungestört braten, bis die Böden tief goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Etwa 1/3 Tasse Wasser zugießen (nach Wunsch vorher Maisstärke einrühren, damit ein knuspriger Spitzenrand entsteht). Sofort abdecken und 5–6 Minuten dämpfen, bis das Wasser verdampft und der Teig durchsichtig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Deckel abnehmen, etwas Öl am Rand entlang träufeln und die Böden 1–2 Minuten erneut knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller stürzen, sodass die goldbraunen Böden nach oben zeigen. Reisessig, einen Schuss Sojasoße und Chiliöl als Dip verrühren. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Pork_gyoza_-_Massachusetts.jpg/1280px-Pork_gyoza_-_Massachusetts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pork_gyoza_-_Massachusetts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Daderot — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Schweinefleisch Gyoza",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-chicken-laksa",
+      "slug": "cur-chicken-laksa",
+      "title": "Hähnchen-Laksa",
+      "instructions": "Aromatische malaysisch-singapurische Curry-Laksa: Laksa-Gewürzpaste wird in Öl angeröstet und mit Kokosmilch und Hühnerbrühe zu einer würzigen, leicht süßen Brühe gekocht. Mit Reisnudeln, pochiertem Hähnchen, Tofupuffs, Sojasprossen, Ei, Kräutern, Limette und Sambal servieren.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein gutes Glas Laksa-Paste reicht für mehrere Töpfe und spart gegenüber dem Kauf von 12 einzelnen Gewürzen Zeit und Geld.",
+        "Hähnchenschenkel sind günstiger als Brustfleisch und bleiben saftig. Beim Pochieren in der Brühe geben sie zusätzlich Geschmack ab.",
+        "Die Brühe mit zusätzlicher Brühe oder Wasser strecken und mehr Tofupuffs sowie Sojasprossen statt mehr Fleisch verwenden, um mehr Portionen zu erhalten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "verwenden Hähnchen breast oder even canned Hähnchen wenn that's what's auf hand",
+          "savings": "$1-2 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "rice-vermicelli",
+          "swap": "Swap in natur Reis noodles oder even ramen/Ei noodles",
+          "savings": "~1 $"
+        },
+        {
+          "forIngredientId": "tofu-puffs",
+          "swap": "verwenden cubes von firm tofu oder Fisch cake Scheiben",
+          "savings": "etwa gleich teuer, aber leichter erhältlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "malaysisch",
+        "Laksa",
+        "Nudelsuppe",
+        "Curry",
+        "Kokos",
+        "scharf",
+        "südostasiatisch",
+        "Hähnchen",
+        "Hausmannskost"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7332,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chicken-laksa/",
+      "components": [
+        {
+          "key": "45676cab-9519-534a-8027-b05995783e05",
+          "name": "Zutaten",
+          "servingGrams": 515.86,
+          "position": 0,
+          "items": [
+            {
+              "key": "c18c7821-81c5-544b-bebd-0a53b3a3eb4d",
+              "ingredientName": "Laksa Paste",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "fertige Laksa-Paste (etwa 6 EL)"
+            },
+            {
+              "key": "3bc5a100-48c3-5a13-a2b6-487dd59f714f",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "Vollfett, ~1.5 Dosen"
+            },
+            {
+              "key": "30145da5-5404-5975-99bc-e02b7ad61008",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 4 Tassen / 1 L"
+            },
+            {
+              "key": "24c52eaf-a0f7-52e1-a4e7-5a5d943b15e6",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, 1 pro Portion"
+            },
+            {
+              "key": "5e8200c7-cabe-5821-8896-ebb02fe2f911",
+              "ingredientName": "Reisnudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "getrocknet, eingeweicht und gekocht; ~1 Portion pro Person"
+            },
+            {
+              "key": "1555ec3f-a09a-5b4c-8c0a-f7c97bfc6229",
+              "ingredientName": "Tofupuffs",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "frittierte Tofuwürfel, halbiert"
+            },
+            {
+              "key": "d0fa0794-f8f1-54e7-86bd-3a4dda45e58d",
+              "ingredientName": "Sojasprossen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "blanchiert, zum Garnieren"
+            },
+            {
+              "key": "63ae1c43-34d7-5c35-83b6-b0311649f49d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "weich gekocht und halbiert, 1/2 pro Portion"
+            },
+            {
+              "key": "b04783c8-ad7b-5878-8d41-89e95dfc0c67",
+              "ingredientName": "Garnelenpaste",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "Belacan, ~1 TL für kräftigere Brühe"
+            },
+            {
+              "key": "b21404fd-9d70-5d63-97b8-3d9428c2191b",
+              "ingredientName": "Fischsauce",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Würzen, ~1 EL"
+            },
+            {
+              "key": "55cf2cda-c122-563f-954d-0f2428542592",
+              "ingredientName": "Zucker",
+              "grams": 0.45,
+              "quantity": 0.45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Palmzucker oder weißer Zucker, ~2 TL"
+            },
+            {
+              "key": "36a55d15-2b24-5a14-9a5a-1123cbc73d04",
+              "ingredientName": "Pflanzenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Anbraten der Paste, ~2 EL"
+            },
+            {
+              "key": "cd8fd152-1d6b-56b9-9dca-78e7fa9b3222",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "in Spalten geschnitten zum Servieren"
+            },
+            {
+              "key": "30adffe2-493b-57e8-a314-f1928c72e5fc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "oder Laksa-Blätter zum Garnieren"
+            },
+            {
+              "key": "67b5db3a-fb00-5a5f-a9b0-4f9dc1dee6a7",
+              "ingredientName": "Sambal oelek (deutsche Fassung)",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "Sambal Oelek separat dazu reichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen kleinen Topf Wasser zum Kochen bringen und Eier vorsichtig hineingeben. 6.5 Minuten köcheln lassen, damit das Eigelb weich bleibt. In Eiswasser abschrecken, schälen und halbieren. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenschenkel in der Hühnerbrühe bei sanfter Hitze 12–14 Minuten pochieren, bis sie gerade gar sind. Herausheben, ruhen lassen und dann in Scheiben schneiden oder zupfen. Brühe vollständig aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem schweren Topf bei mittlerer Hitze erhitzen und Laksa-Paste sowie nach Wunsch Garnelenpaste 4–5 Minuten unter ständigem Rühren anbraten, bis sie dunkler wird und sich aromatisches Chiliöl am Rand absetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Aufbewahrte Pochierbrühe zugießen, aufkochen und die Paste vom Topfboden lösen. Kokosmilch einrühren und 10 Minuten sanft köcheln lassen. Nicht stark kochen, sonst kann die Kokosmilch gerinnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brühe mit Fischsoße und Zucker würzen. Abschmecken, bis sie herzhaft, leicht süß und ausgewogen ist. Tofupuffs hinzufügen und 3–4 Minuten köcheln lassen, damit sie Brühe aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reisvermicelli in frisch gekochtem Wasser 3–4 Minuten einweichen, bis sie biegsam sind, dann abgießen. Sojasprossen 20 Sekunden blanchieren und ebenfalls abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reisnudeln auf 4 Schüsseln verteilen und mit Hähnchen, Tofupuffs und Sojasprossen belegen. Heiße Laksa-Brühe darüber schöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jede Schüssel mit einer halben weich gekochten Eierscheibe, einer Handvoll Koriander oder Laksa-Blättern, einer Limettenspalte und einem Löffel Sambal garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Chicken_Curry_Laksa_-_Gold_Star_Noodle_AUD8_%282741533134%29.jpg/1280px-Chicken_Curry_Laksa_-_Gold_Star_Noodle_AUD8_%282741533134%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_Curry_Laksa_-_Gold_Star_Noodle_AUD8_(2741533134).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Alpha from Melbourne, Australia — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Laksa",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-singapore-noodles",
+      "slug": "cur-singapore-noodles",
+      "title": "Singapur-Nudeln",
+      "instructions": "Dünne Reisvermicelli mit duftendem Currypulver, Char Siu, Garnelen, Eierstreifen, Paprika und knackigen Sojasprossen. Ein kantonesisches Pfannengericht, trocken, rauchig und niemals matschig.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Char Siu ist die teuerste Zutat. Übrigen Schweinebraten, Schinken oder geschnittene Hähnchenschenkel verwenden.",
+        "Einen großen Beutel getrocknete Reisvermicelli kaufen; sie sind günstig und reichen für mehrere Mahlzeiten.",
+        "Fertige Singapore-Nudelsoße weglassen. Currypulver, Sojasoße und eine Prise Zucker reichen aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "char-siu",
+          "swap": "Leftover ham, roast Schweinefleisch, oder in Scheiben geschnitten Hähnchen thigh",
+          "savings": "~$2.50/Rezept"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Extra Ei oder Pfanne-gebraten tofu für ein budget protein",
+          "savings": "~$3/Rezept"
+        },
+        {
+          "forIngredientId": "rice-wine",
+          "swap": "Dry sherry oder ein splash von Reis vinegar plus Wasser",
+          "savings": "~$0.50/Rezept"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "kantonesisch",
+        "Pfannengericht",
+        "Reisnudeln",
+        "Curry",
+        "Wok",
+        "Char Siu",
+        "Garnelen",
+        "scharf",
+        "Take-away-Art"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7333,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-singapore-noodles/",
+      "components": [
+        {
+          "key": "60bd1e4c-74f9-55e3-9769-f5b8408e1eb8",
+          "name": "Zutaten",
+          "servingGrams": 366.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "373a64ac-9469-58be-9415-d84ef9f41a69",
+              "ingredientName": "Reisnudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "dünne getrocknete Reisnudeln (Mai Fun)"
+            },
+            {
+              "key": "b602f077-e91b-573d-8ff1-2bb1ece125e7",
+              "ingredientName": "Currypulver",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "nach Madras-Art; das prägende Aroma"
+            },
+            {
+              "key": "fea9e691-fe32-5422-8012-3fb39ce4208b",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "verstärkt die goldene Farbe"
+            },
+            {
+              "key": "69906e37-6a72-50ed-9696-f31296cec0cb",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "kleine Garnelen, geschält und entdarmt"
+            },
+            {
+              "key": "ed8de38a-c861-5487-a947-edb99ad780c8",
+              "ingredientName": "Char siu (BBQ Schweinefleisch)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "chinesisches Grill-Schweinefleisch, dünn geschnitten"
+            },
+            {
+              "key": "93eec829-0541-58f8-906c-3721c4241f10",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "leicht verquirlt"
+            },
+            {
+              "key": "f33af7e5-3f89-5601-902e-be3aeefa0722",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "je zur Hälfte rot und grün, in feine Streifen geschnitten"
+            },
+            {
+              "key": "865e9766-6b28-5cb8-aeed-94ca7ef79911",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "14d16f43-2ef7-5655-8444-c98be89b2454",
+              "ingredientName": "Sojasprossen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Schluss für mehr Biss zugegeben"
+            },
+            {
+              "key": "39d09fd2-512e-5ab8-b0a2-6dc781143959",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "in 2 Zoll lange Stifte geschnitten"
+            },
+            {
+              "key": "b8f07fe4-b790-5cc1-bfb2-f1cf21a3474b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "fe81dd60-c938-5633-acda-329df257a872",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "daumengroßes Stück, fein gehackt"
+            },
+            {
+              "key": "daf75692-f316-5933-a891-910907252926",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "ccc32bb6-c862-50d6-b79f-fcc9405b636c",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "Shaoxing-Reiswein, Esslöffel"
+            },
+            {
+              "key": "ceaf12b1-5f43-55db-b76b-41221d369bb7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "Teelöffel zum geschmacklichen Ausgleich des Currys"
+            },
+            {
+              "key": "4cd54ba1-ecf7-540e-8b18-b4f0192b879a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "Teelöffel zum Verfeinern"
+            },
+            {
+              "key": "edc43867-2326-52d7-9e3c-f2ba249294f2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "Esslöffel zum Pfannenrühren bei hoher Hitze"
+            },
+            {
+              "key": "e44d1ea1-6c86-5f75-9b65-fc13c8d890f6",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "0f145a44-819a-5a94-b4af-a04f41244674",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "Teelöffel nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reisvermicelli 6–8 Minuten in heißem, nicht kochendem Wasser einweichen, bis sie biegsam, aber noch fest sind. Gut abgießen und mit einer Schere kürzen. Ausbreiten, damit sie nicht zusammenkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Currypulver und Kurkuma mit Sojasoße, Shaoxing-Wein, Zucker und weißem Pfeffer in einer kleinen Schüssel zu einer glatten Soßenmischung verrühren. Durch das Vormischen verbrennt das Curry im Wok nicht so leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wok oder breite Pfanne bei hoher Hitze erhitzen, bis sie raucht. 1 EL Öl hineingeben, verquirlte Eier zugießen, zu weichem Rührei stocken lassen und herausnehmen. Garnelen 60–90 Sekunden braten, bis sie gerade rosa sind. Zu den Eiern geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die übrigen 2 EL Öl hineingeben. Knoblauch und Ingwer 15 Sekunden braten, bis sie duften. Zwiebel und Paprika hinzufügen und 1–2 Minuten kräftig wenden, damit sie knackig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geschnittenes Char Siu hinzufügen und 30 Sekunden schwenken, damit es warm wird und Wok-Aroma aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze etwas reduzieren, abgetropfte Nudeln hinzufügen und die Currysoße gleichmäßig darüber gießen. 2–3 Minuten mit einer Zange oder zwei Pfannenwendern durchgehend wenden, bis alle Nudeln goldgelb überzogen, trocken und bissfest sind. Weiterbewegen, damit das Curry röstet, aber nicht verbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ei und Garnelen zurück in den Wok geben. Sojasprossen und Frühlingszwiebeln hinzufügen und 30–45 Sekunden schwenken, damit die Sprossen knackig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hitze ausschalten, Sesamöl darüberträufeln und mit Salz oder etwas mehr Currypulver abschmecken. Sofort heiß und aromatisch servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Singapore_Fried_Noodles_-_Unithai_2025-05-07.jpg/1280px-Singapore_Fried_Noodles_-_Unithai_2025-05-07.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Singapore_Fried_Noodles_-_Unithai_2025-05-07.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Singapore Noodles",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-vegetable-samosas",
+      "slug": "cur-vegetable-samosas",
+      "title": "Gemüsesamosas",
+      "instructions": "Knusprige nordindische Samosas mit blättrigem Teigmantel aus Maida und würziger Kartoffel-Erbsen-Füllung. Der Teig wird mit Öl mürbe geknetet, damit er beim Frittieren blättrig-knusprig wird. Die Füllung mit geröstetem Kreuzkümmel, Koriander, Garam Masala und säuerlichem Amchur erinnert an indische Chaat-Stände.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Samosas lassen sich gut einfrieren. Eine größere Menge formen, ungegart einfrieren und direkt tiefgekühlt frittieren; so reichen wenige Kartoffeln für viele Gäste.",
+        "Teigmantel aus Mehl, Öl und Wasser selbst machen statt fertigen Teig zu kaufen. Er kostet wenig und wird knuspriger.",
+        "Tiefgekühlte Erbsen und Gewürze aus dem Vorrat verwenden; Kartoffelfüllung ist ein besonders günstiger Snack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "amchur-powder",
+          "swap": "ein squeeze von frisch Zitronensaft oder 1/2 tsp Zitronenschale für der same tang",
+          "savings": "Spart ein besonderes Gewürz und verwendet eine vermutlich bereits vorhandene Zitrone"
+        },
+        {
+          "forIngredientId": "thai-chili",
+          "swap": "1/2 tsp chili powder oder ein pinch von chili flakes",
+          "savings": "Verwendet Gewürze aus dem Vorrat statt frischer Chilis"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "aufbewahren-bought spring ausrollen oder samosa wrappers, folded in triangles",
+          "savings": "Etwas höhere Kosten sparen viel Zeit bei der Teigzubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Samosa",
+        "Streetfood",
+        "frittiert",
+        "vegetarisch",
+        "vegan",
+        "Snack",
+        "Kartoffel",
+        "Vorspeise"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7334,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-vegetable-samosas/",
+      "components": [
+        {
+          "key": "75951372-1fcf-54ef-a1bd-92b8de6ca3df",
+          "name": "Zutaten",
+          "servingGrams": 259.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "7974962f-aa24-5d88-9998-e6bc17ee6509",
+              "ingredientName": "Weizenmehl",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Maida oder Weizenmehl für die Teighülle"
+            },
+            {
+              "key": "f585dded-8087-579c-93cf-c4dea86fb0ff",
+              "ingredientName": "Pflanzenöl",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "aufgeteilt: ~3 EL als Moyan in den Teig einarbeiten, den Rest zum Frittieren"
+            },
+            {
+              "key": "1d3e3b1b-5b2c-5351-93a7-d93c2309dc7f",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gekocht, geschält und grob gestampft"
+            },
+            {
+              "key": "b20b65ad-37df-5c00-99ef-16f015d00045",
+              "ingredientName": "tiefgekühlte Erbsen",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdc3f005-69b6-5165-ad1c-7774e9da74b2",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "b0067fa1-e23a-5203-871c-f3265423388a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL frisch geriebener Ingwer"
+            },
+            {
+              "key": "5b0c0eb7-40a6-5b0b-8820-323d4c2d1956",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "grüne Chilis, fein gehackt"
+            },
+            {
+              "key": "bec4055b-3112-527d-9451-f9da8fe6db14",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL ganze Kreuzkümmelsamen"
+            },
+            {
+              "key": "bb2cd1d3-a683-51d5-933e-ece8283901f0",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL gemahlener Koriander"
+            },
+            {
+              "key": "7885f862-0c03-5285-bcc2-26cc65aec294",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "10d7bde9-ea5e-5b01-81c4-cbd47874219e",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7c411c77-deaa-534f-b25d-fd25ba92aca4",
+              "ingredientName": "Amchur (getrocknetes Mangopulver)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL getrocknetes Mangopulver für Säure"
+            },
+            {
+              "key": "c6d8c8f5-287e-59fb-bf46-c477b33887d7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "gehackt, in die Füllung gerührt"
+            },
+            {
+              "key": "2f018adb-098a-533d-9969-8cac97a9138f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "nach Geschmack, für Teig und Füllung"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Mehl mit 1/2 TL Salz und etwa 3 EL Öl vermengen. Öl mit den Fingern einarbeiten, bis die Masse zusammenhält, wenn man sie in der Faust zusammendrückt. Kaltes Wasser nach und nach hinzufügen und zu einem festen, glatten Teig kneten. Abdecken und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Füllung 1 EL Öl in einer Pfanne erhitzen. Kreuzkümmelsamen darin aufplatzen lassen, dann Ingwer, grüne Chilis und nach Wunsch Zwiebel hinzufügen und 1–2 Minuten anbraten. Koriander, Kurkuma, Garam Masala und Erbsen einrühren und 2 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gekochte, zerdrückte Kartoffeln, Amchur und Salz hinzufügen. 3–4 Minuten zusammen braten und zerdrücken, bis alles gut vermischt und trocken ist. Gehackten Koriander unterheben und vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den ruhenden Teig in 4 Kugeln teilen. Jede Kugel zu einem etwa 6 Zoll langen Oval dünn ausrollen und halbieren, sodass zwei Halbkreise entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Kegel die gerade Kante leicht mit Wasser bestreichen, zum Kegel falten und die Naht fest zusammendrücken. Etwa 2 EL Kartoffelfüllung hineingeben. Öffnung oben zudrücken und leicht falten, damit die Samosa aufrecht stehen kann. Mit allen 8 Stück wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das übrige Öl auf eine mittlere Temperatur von 325–330 °F (165 °C) erhitzen; es darf nicht zu heiß sein. Samosas portionsweise vorsichtig hineingleiten lassen und bei niedriger bis mittlerer Hitze 10–12 Minuten frittieren. Dabei wenden, bis sie hellgolden sind und knusprige Blasen werfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Schluss die Hitze etwas erhöhen, damit sie goldbraun werden. Auf einem Gitter oder Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Minz-Koriander-Chutney und Tamarinden-Chutney servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Vegetable_Samosas_%28filled_with_spiced_potato_and_peas%29_%28717781926%29.jpg/1280px-Vegetable_Samosas_%28filled_with_spiced_potato_and_peas%29_%28717781926%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegetable_Samosas_(filled_with_spiced_potato_and_peas)_(717781926).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Xin Mei from Chicago, USA — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Vegetable Samosas",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

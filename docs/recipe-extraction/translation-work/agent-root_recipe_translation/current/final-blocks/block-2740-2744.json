@@ -1,0 +1,1136 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-papa-a-la-huanca-na",
+      "slug": "gen-papa-a-la-huanca-na",
+      "title": "Papa a la Huancaína",
+      "instructions": "Peruanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Walnüsse durch Erdnussbutter, um Kosten zu senken.",
+        "Kaufe Kartoffeln im Angebot und lagere sie in größeren Mengen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "peruanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2740,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-papa-a-la-huanca-na/",
+      "components": [
+        {
+          "key": "654dc8b1-12c1-5c7e-aaf8-b1ca96f2a17f",
+          "name": "Zutaten",
+          "servingGrams": 437.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a431e771-74a1-59d3-9d93-6f65cb6581df",
+              "ingredientName": "Kartoffel",
+              "grams": 1020,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5b773bc-fc61-5025-bd0f-7f7be071ac02",
+              "ingredientName": "Ají-Amarillo-Paste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "14c13d87-ccc2-5e6e-8be8-077f31c4cf1f",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "5d59756e-16d3-59b9-af56-5f462dac18ea",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleine Stücke"
+            },
+            {
+              "key": "2a032d0e-3d0b-5b67-bc69-3d4a39f65dc1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2195c8f6-1c1c-5bf8-8b25-5616c3e05eef",
+              "ingredientName": "Kondensmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "bda6625f-309b-5e6d-80b1-0e74742382a1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5a2c8b79-6c38-51c8-ad34-5514ee3dc399",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "257b7e3e-93ed-53c0-8bc3-58f6831d3e95",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6c0c0001-63fb-5ddf-a830-0a84b91573c0",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "3af194a4-25e2-5161-90fe-79e3431044c2",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln in Salzwasser etwa 20 Minuten, bis sie ganz weich sind. Gieße sie ab und schäle sie, solange sie noch warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Ají-Amarillo-Paste, Walnüsse, Zwiebel, Knoblauch und Limettensaft glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne und brate die pürierte Mischung bei mittlerer Hitze 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre nach und nach Kondensmilch ein, bis die Sauce eine gießfähige Konsistenz hat. Lasse sie 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze die Sauce nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte die warmen ganzen Kartoffeln auf einer Servierplatte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Huancaína-Sauce großzügig über die Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere mit schwarzen Oliven und halbierten hart gekochten Eiern. Serviere das Gericht bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/2282284.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/2282284.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ceviche-de-at-n",
+      "slug": "gen-ceviche-de-at-n",
+      "title": "Ceviche de Atún",
+      "instructions": "Peruanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Thunfisch und taue ihn vollständig auf; er ist günstiger als frischer Sushi-Thunfisch.",
+        "Bereite das Gericht während der Limettensaison zu, wenn die Preise niedriger sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "peruanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2741,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ceviche-de-at-n/",
+      "components": [
+        {
+          "key": "9d33b67a-007b-5141-9aa6-d7d8a83ad22e",
+          "name": "Zutaten",
+          "servingGrams": 214.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "4890e4be-07bb-5854-ad81-0b718580c601",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a26901ae-2e8e-5d61-99c1-974163aeac61",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "5b0c1852-e1c3-5295-9cbd-5c408fd71322",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "b9b3d5f1-1264-502b-a7fa-af6afb2d6dcc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "c37ec965-b219-5786-9f27-c67eaf4dc070",
+              "ingredientName": "Ají-Amarillo-Paste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "189b6972-db26-5e0d-be29-6714e3aec58f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1082de2b-46a5-5d62-b27d-1c201d8c2834",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2db17375-25ec-506d-8215-0280f2cf2da4",
+              "ingredientName": "Maiskörner (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "cc298654-7447-5ed4-9c3d-ce40a7bba8fb",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "c7640b41-b97d-5008-ae7f-bb4de531a1d5",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib gewürfelten Thunfisch in eine Glas- oder Keramikschüssel, gieße Limettensaft darüber und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene rote Zwiebel, Koriander und Ají-Pfeffer dazu und vermische alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze mit Salz und Pfeffer und lasse alles 15 Minuten bei Raumtemperatur ziehen (die Säure gart den Fisch).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Süßkartoffel, Mais und Sellerie dazu und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das Ceviche auf Servierschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jede Schale mit Avocadoscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort in gekühlten Schalen mit Limettenspalten und Crackern dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hyfood.com/wp-content/uploads/2023/05/tuna-ceviche-scaled-e1684964702808.jpg",
+          "sourcePageUrl": "https://hyfood.com/wp-content/uploads/2023/05/tuna-ceviche-scaled-e1684964702808.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiradito",
+      "slug": "gen-tiradito",
+      "title": "Tiradito",
+      "instructions": "Peruanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstigeren weißen Fisch wie Flunder statt teurer Sorten.",
+        "Kaufe Fisch im Angebot und bereite ihn noch am selben Tag zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "peruanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2742,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiradito/",
+      "components": [
+        {
+          "key": "5ac5f781-6c45-58b8-a4ff-fce6a0c0bce6",
+          "name": "Zutaten",
+          "servingGrams": 42.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2bc922d3-5832-52ea-9631-fb93bcc509f1",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1e40488c-65b2-50f2-a1b8-5f1e8bd53497",
+              "ingredientName": "Ají-Amarillo-Paste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cc1a920a-6b1a-5a94-89cd-0609d28a9516",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "ba9725f6-796e-5762-b8b2-be04c1f1e295",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Stücke"
+            },
+            {
+              "key": "c58bdf5c-cd4a-5443-845f-4a373711e57e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "15ff8295-fc56-5331-8464-065b8629c4a7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "242084c9-c5aa-558b-aacd-f6be1580982c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "607a82d7-595f-5be0-bcef-73f721a38e61",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "24b99650-200a-5944-890f-8d6edb183c18",
+              "ingredientName": "Schinken, in Scheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Ají-Amarillo-Paste mit Limettensaft, Olivenöl und gehacktem Knoblauch glatt. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Richte dünn geschnittenen Fisch in einer Lage auf einem gekühlten Servierteller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile rote Zwiebelscheiben und Jalapeños gleichmäßig über dem Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle das gesamte Gericht großzügig mit der Ají-Amarillo-Limettensauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue es mit frischen Korianderblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere es sofort auf kalten Tellern mit Limettenspalten und knusprigen Tortillachips.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/NFNBiPNyUF9DdAg8LQMDvay8ayw=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__03__20190314-tiradito-vicky-wasik-10-c69c3c7a4274408f91d38a15beb4cf93.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/NFNBiPNyUF9DdAg8LQMDvay8ayw=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__03__20190314-tiradito-vicky-wasik-10-c69c3c7a4274408f91d38a15beb4cf93.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-anticuchos",
+      "slug": "gen-anticuchos",
+      "title": "Anticuchos",
+      "instructions": "Peruanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhüftsteak statt Herz; es ist leichter erhältlich und ähnlich teuer.",
+        "Mariniere eine größere Menge und friere übrige Portionen für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2743,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-anticuchos/",
+      "components": [
+        {
+          "key": "90a97e7d-f8b3-52ac-b445-d60f01e1c4d5",
+          "name": "Zutaten",
+          "servingGrams": 311.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "81e54173-6966-5c24-a888-d436182eb755",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "194ddc91-2438-5d8c-906e-60a0a945e05f",
+              "ingredientName": "Ají-Amarillo-Paste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "aee3bba8-5498-59f9-ab63-3cedcc3e3fd2",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "fcf6c18f-af9a-5ed8-b61d-a3e24ee39120",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5000a8fa-9617-5917-98b3-57206d5da5eb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4ee9258b-2d5a-55b0-9555-b610c18e5286",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "83200bfe-b051-5df3-b25f-089a44ad4712",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6ed0ec68-f6e9-5558-8ed5-7bbd78de8bba",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "f6776446-b2ac-5d57-ba36-7efddaa3b1e8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "b415ed11-7033-5ef5-a4ff-65a868a3c093",
+              "ingredientName": "Holzspieße, eingeweicht",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Ají-Mirasol-Paste, Essig, Knoblauch, Kreuzkümmel, Olivenöl, Salz und Pfeffer in einer Schüssel zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rindfleischwürfel in die Marinade und wende sie gründlich darin. Stelle sie mindestens 2 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stecke das marinierte Rindfleisch abwechselnd mit Zwiebelringen auf eingeweichte Holzspieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze einen Grill oder eine Grillpfanne auf hohe Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Spieße 8-10 Minuten und wende sie gelegentlich, bis das Fleisch gar und leicht angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche sie während des Grillens mit der übrigen Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß, garniert mit frischem Koriander und Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reiche gekochte Kartoffeln und Maiskolben dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/CQSe4GYIw6kmwnda9lv1BQ5QS7g=/4087x2720/filters:no_upscale():max_bytes(150000):strip_icc()/grilled-beef-anticuchos-de-carne-3029521-step-11-4caf3a8fcffc409683a410bc1268e759.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/CQSe4GYIw6kmwnda9lv1BQ5QS7g=/4087x2720/filters:no_upscale():max_bytes(150000):strip_icc()/grilled-beef-anticuchos-de-carne-3029521-step-11-4caf3a8fcffc409683a410bc1268e759.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chupe-de-camarones",
+      "slug": "gen-chupe-de-camarones",
+      "title": "Chupe de Camarones",
+      "instructions": "Peruanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte statt frische Garnelen; taue sie vor dem Kochen auf und lasse sie gut abtropfen.",
+        "Kaufe Mais im Angebot tiefgekühlt und in größeren Mengen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2744,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chupe-de-camarones/",
+      "components": [
+        {
+          "key": "5ac8dda3-68bd-5cec-adf0-0640cb86d69a",
+          "name": "Zutaten",
+          "servingGrams": 732.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "03e516ba-babd-5513-a96f-aa99431175db",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "38ef0b15-4ccf-5892-829d-a15a015a0b8c",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "b344e93b-29f3-520e-a611-437273e057ec",
+              "ingredientName": "Maiskörner (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "fc472bc7-a60b-5e2f-8a99-4673dceb4eab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "087ab8cc-fe64-581c-a200-56e21f565a0b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "2d546d85-5834-52f3-a6c3-40c2fa163a23",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "f229cbfa-715d-59d8-bafe-90d7b25c499d",
+              "ingredientName": "Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (12 Unzen)"
+            },
+            {
+              "key": "cb21f7f6-b248-5fcb-aaf5-f441be3d2b75",
+              "ingredientName": "Ají-Amarillo-Paste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c322d50e-2955-5e5d-b2e1-5aa6342c5444",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a401f1db-cb99-58fa-b5a5-268de424e95a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "eddedd10-638d-5f4e-bf58-6da2d0d2601e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f226746f-ba61-5628-9293-700695c4f4ef",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate Zwiebel und Knoblauch etwa 3 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Ají-Amarillo-Paste ein und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Gemüsebrühe dazu und bringe sie zum Kochen. Füge gewürfelte Kartoffeln hinzu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Garnelen und Mais dazu und gare alles 5 Minuten, bis die Garnelen anfangen, rosa zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und rühre langsam Kondensmilch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle Eier leicht in einer kleinen Schüssel und träufle sie unter Rühren langsam in die Suppe, sodass Eierflocken entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und lasse alles weitere 2 Minuten sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe die Suppe in Schalen, garniere sie mit frischem Koriander und serviere sie heiß mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hispanicfoodnetwork.com/wp-content/uploads/2023/09/Chupe-de-Camarones-Recipe-Card.jpg",
+          "sourcePageUrl": "https://hispanicfoodnetwork.com/wp-content/uploads/2023/09/Chupe-de-Camarones-Recipe-Card.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

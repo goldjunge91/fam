@@ -1,0 +1,1105 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ashure",
+      "slug": "gen-ashure",
+      "title": "Aschure",
+      "instructions": "Albanischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Bohnen und Getreide aus Großpackungen, um deutlich zu sparen.",
+        "Lass teure Nüsse weg oder verwende stattdessen Erdnüsse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "albanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6565,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ashure/",
+      "components": [
+        {
+          "key": "eb587803-b329-5e2d-9326-4e698509ab96",
+          "name": "Zutaten",
+          "servingGrams": 624.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "918c1e75-ee00-5de4-afc2-9e01300170f6",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "276271e6-b3e5-50b6-bd98-486532c55f8a",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "aca6e0d1-7c1c-589c-8aab-8836b02a8e62",
+              "ingredientName": "Bulgur",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "f7aafcef-c396-50a2-93cb-b33eb34a4efe",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "cf0433cb-27e1-565e-9b3c-2e17c7096ba1",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6172c1fe-1a63-5b86-a244-d32bcde11581",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "4ed3225a-a075-5641-a68f-88e539ae6eca",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d4eceb92-3c34-5acd-b549-fcadd32194e6",
+              "ingredientName": "Gehackte Haselnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ce9be3f7-2ee5-535f-90bb-25133d894700",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "68b8cd15-1b29-5197-8b07-aa5f076ef235",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Kichererbsen und Bohnen über Nacht ein und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib eingeweichte Hülsenfrüchte, Weizenkörner und Wasser in einen großen Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lasse alles 60 Minuten unter gelegentlichem Rühren köcheln, bis Hülsenfrüchte und Weizen sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Zucker, Rosinen, Walnüsse, Haselnüsse, Zimt und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles weitere 10 Minuten köcheln, damit sich die Aromen verbinden. Verteile die Aschure auf Schalen und serviere sie warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.freepik.com/premium-photo/turkish-traditional-dessert-ashure-noahs-pudding_659681-7765.jpg?w=2000",
+          "sourcePageUrl": "https://img.freepik.com/premium-photo/turkish-traditional-dessert-ashure-noahs-pudding_659681-7765.jpg?w=2000",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-urojo",
+      "slug": "gen-urojo",
+      "title": "Urojo",
+      "instructions": "Sansibarischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gewöhnliche Kartoffeln nur, falls keine Maniok erhältlich ist.",
+        "Bereite Tamarindenpaste zu, indem du getrocknete Tamarinde in heißem Wasser einweichst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "sansibarisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6566,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-urojo/",
+      "components": [
+        {
+          "key": "555ec945-59c8-5d48-a160-f2a21a6c6a92",
+          "name": "Zutaten",
+          "servingGrams": 698.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "be555146-1bbc-5515-9f61-95c40353feb3",
+              "ingredientName": "Kaffeesahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b801b282-3887-5ac9-a8d1-1b1e90130745",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c5a81d41-f020-5a03-a4e5-1ac830c678b2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "433c3150-6b1b-59c8-aba3-98c385ac14cc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "44a060a9-9e94-5b3c-8f5b-4930f2f881fa",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44436fd7-97ea-53fe-a138-218d1c5da588",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "cec95911-69d4-528f-bc47-4036228882b4",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5e7f960a-8457-5b8a-bc62-694214990624",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "9b21139a-16a0-5e53-8f37-7897201f4020",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7327c22b-b76d-5f0a-921c-a820c5cfe7a6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und dünste gewürfelte Zwiebel und Knoblauch 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Maniok- und Kartoffelwürfel hinzu, rühre um und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Wasser dazu, bringe es zum Kochen, reduziere die Hitze und lasse das Gemüse 15 Minuten weich köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tamarindenpaste, Salz und scharfe Chili ein und lasse alles weitere 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schöpfe die Suppe in Schalen, garniere sie mit Koriander und serviere sie heiß mit Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/09/12/multimedia/12FD-KOMOLAFEREX-yk-zanzibari-mix-plzj/12FD-KOMOLAFEREX-yk-zanzibari-mix-plzj-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/09/12/multimedia/12FD-KOMOLAFEREX-yk-zanzibari-mix-plzj/12FD-KOMOLAFEREX-yk-zanzibari-mix-plzj-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pilau",
+      "slug": "gen-pilau",
+      "title": "Pilau",
+      "instructions": "Sansibarisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot in größeren Mengen und friere es ein.",
+        "Lass Kardamom weg, falls er zu teuer ist, und verwende mehr Kreuzkümmel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "sansibarisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6567,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pilau/",
+      "components": [
+        {
+          "key": "3db68fb7-9720-51b6-ae75-c7388311505b",
+          "name": "Zutaten",
+          "servingGrams": 547.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "a593a010-84f3-5146-adcb-f796f8f7729b",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b8cee9e9-9686-5a4d-84f9-7f029d6688b2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1fc15632-37e3-5b21-a4c5-ac03e5a77c0c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d39ddfaa-9f14-5777-9ab0-ec6f1b89b677",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "524b1336-bd23-5337-9c09-35ff5bc229dc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0051ccc-2102-57ff-ae5c-fc6a9ef4b96e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "846e132b-7449-547e-9c37-2f61285e23ac",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3728daed-0599-5b31-9355-ad76426e02b0",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b6bbba5d-ecf5-57d4-aa58-c928e27d15a2",
+              "ingredientName": "Kardamom",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "007d7b4c-08d4-555a-8877-a7df818a6456",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a834635-f58c-59a8-b296-ff503cafa6d2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8b31d6a9-10f0-59ca-9195-144df5a57176",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und bräune die Hähnchenstücke rundherum an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel im selben Topf weich. Gib dann Knoblauch und Ingwer dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kreuzkümmelsamen, Kardamomkapseln und Zimtstange hinzu und rühre 30 Sekunden ständig, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen zurück in den Topf, füge Reis hinzu und rühre um, bis er mit Öl überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Brühe hinein, salze und bringe alles zum Kochen. Decke den Topf ab, reduziere die Hitze und lasse den Reis 20 Minuten weich köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Topf vom Herd und lasse ihn zugedeckt 5 Minuten ruhen. Lockere den Reis mit einer Gabel auf und garniere ihn vor dem Servieren mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1738685503/k/Photo/Recipes/2025-02-rice-pilaf/rice-pilaf-071.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1738685503/k/Photo/Recipes/2025-02-rice-pilaf/rice-pilaf-071.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-octopus-curry",
+      "slug": "gen-octopus-curry",
+      "title": "Tintenfisch-Curry",
+      "instructions": "Sansibarisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Oktopus, der günstiger als frischer ist.",
+        "Verwende Kokosmilch aus der Dose statt frischer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "sansibarisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6568,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-octopus-curry/",
+      "components": [
+        {
+          "key": "763d2448-cac2-5b9d-b96d-2e79e18a38d6",
+          "name": "Zutaten",
+          "servingGrams": 525.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "dcbbc22c-c36c-55b8-a9eb-4529c13badc1",
+              "ingredientName": "Oktopus",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8282ca83-e523-54ff-b4b6-f9e299af78e3",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "78e634c9-737a-5f22-b090-6c8b20ced2f5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "850e919b-9ed7-5300-911a-3d28fa4dfed4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "147f51cf-10d8-5554-8cd9-28253d16b309",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46a5bd84-ff62-5dc9-84dd-2cdbcc00d11a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 Esslöffel"
+            },
+            {
+              "key": "db3a0224-4a4c-590d-8a33-e5856e6db6ca",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7f98bfc2-45cd-57dc-951f-d3a24b5ec5b9",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3c6053a3-e31c-5691-96c1-29b008c8acf1",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c9e7af08-43ac-50ac-afa4-ff932ebe88f3",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            },
+            {
+              "key": "0caa55b8-0a6a-574b-9dd0-d9a6dea6c598",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e796e74a-1388-581a-b87e-2d77106c1667",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Oktopusstücke 45 Minuten in Salzwasser sehr weich. Gieße sie ab und schneide sie in kleinere Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Topf und dünste Zwiebel weich. Gib Knoblauch und Ingwer dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Currypulver und Kurkuma ein und röste sie 30 Sekunden, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gegarten Oktopus, Kokosmilch, Wasser, Salz und scharfe Chili hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse das Curry 15 Minuten sanft köcheln, damit sich die Aromen verbinden. Garniere es mit Koriander und serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://curriedspatula.com/wp-content/uploads/2020/05/20200503_133616-e1590212482936.jpg",
+          "sourcePageUrl": "https://curriedspatula.com/wp-content/uploads/2020/05/20200503_133616-e1590212482936.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pweza-wa-kumimina",
+      "slug": "gen-pweza-wa-kumimina",
+      "title": "Pweza wa Kumimina",
+      "instructions": "Sansibarisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Oktopus, um Geld zu sparen.",
+        "Verwende Dosentomaten, wenn frische zu teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "sansibarisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6569,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pweza-wa-kumimina/",
+      "components": [
+        {
+          "key": "c467a837-1287-5dc5-981a-f1b5a9717ff1",
+          "name": "Zutaten",
+          "servingGrams": 344.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "e543ab75-882f-5f13-b7a0-ad49e3b8bff1",
+              "ingredientName": "Oktopus",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "67981b88-6751-56eb-b53f-a27a9f10c3f1",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "2675475f-d4c4-562e-b31c-9e4b879fb11c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "a6fe74b5-2c08-5e98-b962-f81f55b5e2bc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bb51bf9-ad9f-5e3d-b1f7-435b9d65ceb6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6932c2ab-e18b-5880-bfd8-63e6800803ac",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "47031f44-895c-5b21-a21b-36b3b5546144",
+              "ingredientName": "Hotdog-Wurst",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3f9de28-1c05-5bf3-b6a3-29206071950d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ee2007d1-f1e6-549a-aae5-6da958126532",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7627841f-14d2-5551-878b-8f7644d5599d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8874003e-c452-5bb8-9453-b16cee28f457",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Oktopus 40 Minuten in Salzwasser weich. Gieße ihn ab und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und dünste Zwiebel weich. Gib Knoblauch und Ingwer dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Tomaten und scharfe Chilis dazu und gare alles unter Rühren 5 Minuten, bis die Tomaten zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge gegarten Oktopus, Wasser und Salz hinzu und lasse alles 10 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre kurz vor dem Servieren Koriander und Limettensaft ein. Serviere das Gericht mit Reis oder knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tanzaniaadvisor.com/wp-content/uploads/2018/09/pweza-wa-nazi-czyli-ugali-i-osmiornica-w-zanzibarskim-sosie.jpg",
+          "sourcePageUrl": "https://tanzaniaadvisor.com/wp-content/uploads/2018/09/pweza-wa-nazi-czyli-ugali-i-osmiornica-w-zanzibarskim-sosie.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1032 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-maraq",
+      "slug": "gen-maraq",
+      "title": "Maraq",
+      "instructions": "Jemenitisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rinderfilet oder Schulterstücke, die günstiger sind und beim Kochen zart werden.",
+        "Stellen Sie für ein besseres Preis-Leistungs-Verhältnis Tomatensoße aus Dosentomaten her."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jemenitisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3960,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-maraq/",
+      "components": [
+        {
+          "key": "5ccdfc48-6673-5338-b41c-6881dbd3c635",
+          "name": "Zutaten",
+          "servingGrams": 459.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "824e1741-a515-59a0-bfad-2ded8f304d27",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a490f73c-c5ce-54c5-8471-917baa3207a2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "de073361-479e-505c-a67f-5f6be0151b5e",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e5f8b5f3-5ee6-5583-911f-ced6d722d71b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "af729af1-4e70-52a5-9a79-f6c22a5433c3",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "aa8da52b-f1c1-5860-94e9-3993fa63a6d3",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a9b6e39d-4913-5f03-ac3c-0fa181144efb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3e652869-98fb-50f1-b7ed-12e9a2fd7226",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3b0d1857-eae7-5988-bc61-c311c4d0c0f0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ghee in einem großen Topf erhitzen und die Fleischstücke von allen Seiten anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im gleichen Topf die gewürfelten Zwiebeln anbraten, bis sie weich sind, dann den gehackten Knoblauch hinzufügen und 1 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kreuzkümmel und Koriander hinzufügen und 30 Sekunden lang rühren, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie das Fleisch wieder in den Topf, fügen Sie Tomatensauce und Wasser hinzu und lassen Sie es köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abdecken und 35 Minuten kochen lassen, dabei gelegentlich umrühren, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in Schüsseln als dicke Suppe oder Eintopf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Traditionell serviert mit Brot zum Dippen oder über Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/668cfc28b17831f635e7a8c4/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/668cfc28b17831f635e7a8c4/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-haneed",
+      "slug": "gen-haneed",
+      "title": "Haneed",
+      "instructions": "Jemenitisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rinderhack oder Schulter mit Knochen anstelle von Lammfleisch, um die Kosten zu senken.",
+        "Kaufen Sie Fleisch im Sonderangebot und frieren Sie es bis zur Verwendung ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jemenitisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3961,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-haneed/",
+      "components": [
+        {
+          "key": "2216329c-32fb-5238-aaf5-be57df42dea0",
+          "name": "Zutaten",
+          "servingGrams": 320.11,
+          "position": 0,
+          "items": [
+            {
+              "key": "6fb002a1-1e4d-5416-97e9-ca01ceda69e2",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "8b9b4bb3-519e-5047-ab29-ff4756e002f6",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 180,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "3d64f073-c887-5671-aff3-7b57197fe3fc",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "35cffb5a-164a-5bef-9329-b2d1ff36a644",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "b47a5440-8045-5e72-a68c-da642dd15f67",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "37f21395-7bee-5ca5-b599-ffe119afa881",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "12fc41b1-8b2d-50eb-b89a-f5011d7672c5",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "9b93e6de-2bd7-5560-ab91-87feb68ad30f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "bbf1ddd0-358c-53a9-ad53-0e1bd725649d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "In einem großen Topf die Fleischstücke mit Knochen von allen Seiten anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im gleichen Topf mit dem restlichen Ghee die in Scheiben geschnittenen Zwiebeln und den gehackten Knoblauch anbraten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark, Kreuzkümmel, Salz und Pfeffer hinzufügen und 1 Minute lang rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie das Fleisch wieder in den Topf, fügen Sie Wasser hinzu und lassen Sie es köcheln, dann decken Sie es ab und kochen es 45 Minuten lang, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einer separaten Schüssel Mehl mit geschmolzenem Ghee vermischen, bis eine dicke Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fleischstücke aus dem Topf nehmen und beiseite stellen, dabei die Kochflüssigkeit auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Formen Sie aus der Mehl-Ghee-Mischung eine Teigkugel, wickeln Sie sie in ein Tuch und legen Sie sie dann in die Mitte einer großen Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Ordnen Sie das gekochte Fleisch um die Teigkugel herum an, gießen Sie die restliche Kochflüssigkeit über alles und servieren Sie es, indem Sie Teigstücke zerreißen und in die Fleischsoße tauchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://haneedcorner.co.uk/wp-content/uploads/2025/03/HC-scaled.jpg",
+          "sourcePageUrl": "https://haneedcorner.co.uk/wp-content/uploads/2025/03/HC-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-areesh",
+      "slug": "gen-areesh",
+      "title": "Areesh",
+      "instructions": "Jemenitisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Brot vom Vortag, um erhebliche Einsparungen zu erzielen.",
+        "Kaufen Sie Datteln und Nüsse in großen Mengen auf Märkten im Nahen Osten zu günstigeren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jemenitisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3962,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-areesh/",
+      "components": [
+        {
+          "key": "70aba928-3019-561c-8325-834ac6a41932",
+          "name": "Zutaten",
+          "servingGrams": 307.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ebb49930-95b7-5a6a-ac7a-a4cc9c994a13",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a0331159-1672-5900-89c1-b63316601b0b",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "84634b4a-6c1f-59ef-9f15-f55d2b445a77",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "79813662-8ecb-5bbc-b6f3-0dc5cbe8c425",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "89d728f4-ece6-5fca-b86e-d7610c84c0b8",
+              "ingredientName": "Medjool-Datteln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "8-10 ganze Stücke"
+            },
+            {
+              "key": "6ddef000-7b3a-5686-9a27-7c6d23774c73",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "958c2fcf-354c-5123-a81f-d24e6465834e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brot in mundgerechte Stücke reißen oder schneiden und in eine flache Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ghee in einer kleinen Pfanne bei mittlerer bis niedriger Hitze erwärmen, bis es gerade geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Datteln hacken und Nüsse grob hacken, dann vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie warmes Ghee gleichmäßig über die Brotstücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Joghurt in einem Topf vorsichtig erwärmen, ohne zu kochen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gießen Sie warmen Joghurt über das Brot und das Ghee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streuen Sie die Dattel-Nuss-Mischung darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Alles großzügig mit Honig beträufeln und sofort warm servieren, vor dem Essen leicht umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://global-food.com/wp-content/uploads/2023/02/AAREESH-Tempura700g-1024x1024.jpg",
+          "sourcePageUrl": "https://global-food.com/wp-content/uploads/2023/02/AAREESH-Tempura700g-1024x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brik",
+      "slug": "gen-brik",
+      "title": "Brik",
+      "instructions": "Tunesischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Thunfischkonserven im Angebot und frieren Sie sie für die spätere Verwendung ein",
+        "Verwenden Sie Filoteig von Handelsmarken anstelle von Markenteig"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "tunesisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3963,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brik/",
+      "components": [
+        {
+          "key": "35506c96-de80-5784-bd4a-70ffcd63fb1c",
+          "name": "Zutaten",
+          "servingGrams": 387.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3dd2b996-26da-5eeb-ad09-b8b4d66fce06",
+              "ingredientName": "Phyllo-Teig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "e3d5722b-a6e1-53a2-938e-e539689cc555",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4846528-0e2a-56b3-bf16-cbff79ad57ea",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (5 Unzen)"
+            },
+            {
+              "key": "46b4038c-14d2-50ee-ae9f-a4cfc5fcef4b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "0553916d-8dde-5fbf-947a-80ddd04cad6f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "daa3915e-311a-5105-8dfb-f4583667765f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "04750c24-3391-5dbd-840d-b3cf7b0ba4ea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "46184d26-2725-5d64-9153-9bb2087e1248",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer tiefen Pfanne auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Abgetropften Thunfisch, gehackte Zwiebeln, gehackte Petersilie, Salz und Pfeffer in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Legen Sie ein Phyllo-Blatt auf eine saubere Oberfläche und löffeln Sie die Thunfischmischung in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlagen Sie ein Ei in die Mitte der Füllung und falten Sie das Phyllo zu einem Dreieck, wobei Sie die Ränder verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie den gefalteten Brik vorsichtig in heißes Öl und braten Sie ihn 2-3 Minuten pro Seite, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einem Schaumlöffel herausnehmen und auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Harissa oder Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/06/Tiropitakia-9950.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/06/Tiropitakia-9950.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tajine",
+      "slug": "gen-tajine",
+      "title": "Tajine",
+      "instructions": "Tunesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hähnchenschenkel anstelle von Hähnchenbrust, um Geld zu sparen",
+        "Kaufen Sie während des Verkaufs Kartoffeln in großen Mengen und lagern Sie sie an einem kühlen, dunklen Ort"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tunesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3964,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tajine/",
+      "components": [
+        {
+          "key": "efaec69e-8402-54ae-b669-4daa0ad55f87",
+          "name": "Zutaten",
+          "servingGrams": 341,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea0b280a-6bc3-5f53-b752-4da991f689dc",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "725e828f-b84a-526f-8752-43d3577302dc",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "8d81bf8c-10ea-5e34-b354-f8aa8a50047a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "976f4a0c-949b-5aa0-b688-77ef1760dd73",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "f6e01c8c-f3ea-5962-a455-e5359faefa82",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "43e039d5-10ae-5472-9fb5-8b21762b8e4f",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e31c8aea-5ca3-53ab-a2a5-fc6f117afb25",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "294f7897-d730-59e7-9f7e-f8397cded271",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "856b21ba-c8f6-5282-8ec2-872859fe48e6",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und die Hähnchenschenkel auf beiden Seiten anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In derselben Pfanne gewürfelte Zwiebeln und gehackten Knoblauch anbraten, bis sie weich sind, etwa 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Paprika, Salz und Pfeffer zur Zwiebelmischung hinzufügen und 1 Minute rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie das Huhn wieder in die Pfanne, fügen Sie Wasser hinzu, decken Sie es ab und lassen Sie es 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Kartoffeln hinzufügen und zugedeckt 15 Minuten weitergaren, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Machen Sie 4 Vertiefungen in der Mischung und schlagen Sie ein Ei in jede Vertiefung, dann decken Sie es ab und kochen Sie es 4-5 Minuten lang, bis die Eier fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß direkt aus der Pfanne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/0fU4EHMhjOX0ZhMRz1LOX1KVukE=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tagine-with-preserved-lemons-olives-2394715-step-06-493352800d56492b8a621dc49fdc9ae3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/0fU4EHMhjOX0ZhMRz1LOX1KVukE=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tagine-with-preserved-lemons-olives-2394715-step-06-493352800d56492b8a621dc49fdc9ae3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

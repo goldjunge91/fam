@@ -1,0 +1,1145 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-biryani",
+      "slug": "gen-biryani",
+      "title": "Biryani",
+      "instructions": "Hyderabadi-Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Basmatireis in größeren Mengen auf indischen Märkten zum 50% des Supermarktpreises kaufen",
+        "Pflanzenöl statt Ghee verwenden und 2 $ pro Portion sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "hyderabadi",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2445,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-biryani/",
+      "components": [
+        {
+          "key": "f7d95171-6a95-59a2-b8d5-73c6bfda8019",
+          "name": "Zutaten",
+          "servingGrams": 316.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a56133c-b639-5714-8004-35457c9696e7",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "016edf54-aaa6-596e-a568-53bb795516dd",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ba31224d-934a-538f-9834-d32089592c4b",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "59a5fef1-6227-504f-a426-8aa3ae2a4b33",
+              "ingredientName": "Ghee",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "95a36510-b58f-5d0d-8c4f-9efe26cc7674",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "0e1d1cbe-b99e-5a11-bbda-dc58f707b818",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04a0d825-58f6-5e65-8c72-89559e634731",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Esslöffel fein gehackt"
+            },
+            {
+              "key": "50bb937c-4563-5be5-a66f-3f75f542e587",
+              "ingredientName": "Garam Masala",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "ca428748-abe5-5cfa-949b-32fa6344fb0b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5329202-7e20-5cd4-9ca8-50ce6409acb0",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10101d2b-ce86-5d01-831d-3aad8366d155",
+              "ingredientName": "Grüner Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b9c3566-e0a7-5938-a1c0-559e7b566311",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "830f2bf2-0d99-5895-b685-bcc14dc13906",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Basmatireis 30 Minuten in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen in 2-inch-Stücke schneiden und in Joghurt, 2 EL gehacktem Knoblauch, 0.5 EL Ingwer und 0.5 TL Salz 30 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln sehr dünn schneiden und in 3 EL Ghee dunkelgolden braten. Die Hälfte als Garnitur beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übrige 3 EL Ghee erhitzen und Hähnchen mit den restlichen Zwiebeln braten, bis es zu 75% gar ist, etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gesalzenes Wasser in einem großen Topf mit Lorbeerblättern, Zimt und Kardamom zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eingeweichten und abgetropften Reis ins kochende Wasser geben und kochen, bis er zu 70% gar ist, etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den halbgegarten Reis über das Hähnchen schichten, dann beiseitegestellte Röstzwiebeln, Garam Masala, Koriander und Minze dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Topf mit Folie und einem gut schließenden Deckel abdecken und bei niedriger Hitze 30 Minuten garen, bis der Reis vollständig weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "5 Minuten ruhen lassen, dann Biryani vorsichtig mit einer Gabel auflockern und vermengen. Servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/TrcanS_VyacUzoYDWBqUcur529U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__01__Chicken-Biryani-LEAD-VERTICAL-66c2393ee5c94314aee2d619b52fa3fa.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/TrcanS_VyacUzoYDWBqUcur529U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__01__Chicken-Biryani-LEAD-VERTICAL-66c2393ee5c94314aee2d619b52fa3fa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rogan-josh",
+      "slug": "gen-rogan-josh",
+      "title": "Rogan Josh",
+      "instructions": "Kaschmirisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lamm bei Fleischern mit internationalen Spezialitäten kaufen; oft ist es 30% günstiger als im Supermarkt",
+        "Ziegenfleisch statt Lamm verwenden und 40% sparen, ohne den authentischen Geschmack zu verlieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "kaschmirisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2446,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rogan-josh/",
+      "components": [
+        {
+          "key": "e2f49649-83c3-5423-951b-bab0f802be15",
+          "name": "Zutaten",
+          "servingGrams": 240,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc4b4bce-4b0f-594e-89c5-c2caaf470b72",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "52a26275-fdd3-5a2d-a53b-337ba9fc0384",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "bedcbf66-7237-5326-ab29-3f0891013447",
+              "ingredientName": "Tomate",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "44090334-8829-5a44-b840-df95fc6a4d50",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "087b21be-685c-5788-becb-842387b5bf26",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9debfb11-9f73-59aa-a4c3-3206a1c55b3a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "a41637cc-31ee-5fa4-8226-3cdfc369f1d5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "52e83591-cf0e-5372-8a6e-c3dd772d7578",
+              "ingredientName": "Garam Masala",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "faf75575-4a16-5774-8701-5f6bdf532e6f",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1119ebc2-368c-5ae3-a23a-c69bced46622",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "91b5110c-2120-551f-b6b3-f783d87aa9b8",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "de5d8ada-0311-5b38-a66f-d1edccfcc494",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4a04b632-1ecd-5e81-89fb-4fbbfe5375e7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lamm in 1.5-inch-Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln würfeln und Knoblauch hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem großen Topf bei starker Hitze erhitzen und Lamm portionsweise etwa 8 Minuten insgesamt von allen Seiten bräunen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Im selben Topf gewürfelte Zwiebeln etwa 4 Minuten weich garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackten Knoblauch und Ingwer dazugeben und 1 Minute braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garam Masala, Kreuzkümmel, Koriander und Chilipulver einrühren und 30 Sekunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tomatenpüree und Joghurt dazugeben und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lamm mit Salz zurück in den Topf geben und zum Köcheln bringen. Abdecken und bei niedriger Hitze 25 Minuten garen, bis das Lamm zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit Koriander garnieren und mit Basmatireis oder Naan servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/quTxXWw8wOyyeDS2m7jZ_TOexSQ=/4638x3092/filters:no_upscale():max_bytes(150000):strip_icc()/rogan-josh-recipe-1957574-hero-02-2268d5782b514887ac4629e52138d100.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/quTxXWw8wOyyeDS2m7jZ_TOexSQ=/4638x3092/filters:no_upscale():max_bytes(150000):strip_icc()/rogan-josh-recipe-1957574-hero-02-2268d5782b514887ac4629e52138d100.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spring-rolls",
+      "slug": "gen-spring-rolls",
+      "title": "Frühlingsrollen",
+      "instructions": "Thailändischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Garnelen aus der Dose oder Tofu als günstigere Alternative verwenden",
+        "Reispapier in großen Mengen auf asiatischen Märkten kaufen und deutlich sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "thailändisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2447,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spring-rolls/",
+      "components": [
+        {
+          "key": "e9acf5a7-958e-5141-854e-3d8c523182aa",
+          "name": "Zutaten",
+          "servingGrams": 2570.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c116776-5a8d-57ea-a990-9cf2af0da5f5",
+              "ingredientName": "Reispapierblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "42f4909a-0895-57be-9493-4c395824dc42",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "8d5bba5f-a284-5550-835b-ff96be550ff7",
+              "ingredientName": "Reisvermicelli",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            },
+            {
+              "key": "eff35bed-2932-5b52-9d74-a186089b91c0",
+              "ingredientName": "Salat",
+              "grams": 6000,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "c50b6c69-3169-5718-8ac4-729e48308943",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d02c2ae1-ec08-502c-b2a4-703f25066790",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "69dd1150-4319-59d1-a1c5-dac405b920b8",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße, in feine Streifen geschnitten"
+            },
+            {
+              "key": "47ae0877-78a5-5b1e-8ebe-cb4969e019bb",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2c94d9c6-2aee-5507-84ca-28a162f8405d",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "aa5f4999-d0d4-51d1-94b9-e7598bbe1ae7",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reispapierblätter 30 Sekunden in warmem Wasser einweichen, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein Blatt auf ein feuchtes Tuch legen und Salat, Nudeln, Garnelen, Kräuter und Gurke auf der unteren Hälfte in einer Reihe anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blattseiten nach innen falten und fest von dir weg aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erdnussbutter, Fischsauce, Limettensaft und 2 Esslöffel Wasser zu einer Dip-Sauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frühlingsrollen mit Erdnuss-Dip servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/LehwAeBFFpEIR1JArEk7hAkWZ9Y=/4494x3000/filters:fill(auto,1)/thai-fresh-rolls-with-vegetarian-option-3217706_form-rolls-step-07-f2d1c96942b04dd0830026702e697f17.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/LehwAeBFFpEIR1JArEk7hAkWZ9Y=/4494x3000/filters:fill(auto,1)/thai-fresh-rolls-with-vegetarian-option-3217706_form-rolls-step-07-f2d1c96942b04dd0830026702e697f17.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-krapow-gai",
+      "slug": "gen-pad-krapow-gai",
+      "title": "Pad Krapow Gai",
+      "instructions": "Thailändisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frisches Basilikum durch Koriander ersetzen, falls Basilikum teuer ist",
+        "Hähnchen im Angebot kaufen und für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2448,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-krapow-gai/",
+      "components": [
+        {
+          "key": "aeab39e3-72b9-55c6-8f88-e8c564fcdd70",
+          "name": "Zutaten",
+          "servingGrams": 219,
+          "position": 0,
+          "items": [
+            {
+              "key": "c74ad9cb-336d-520e-b95e-13fce5d0cf01",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen, fein gehackt"
+            },
+            {
+              "key": "db360078-e98f-5392-9478-b55c4cdf4994",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse locker gepackt"
+            },
+            {
+              "key": "fd59b306-8b74-5d58-835b-647a68a3dafa",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4, fein gehackt"
+            },
+            {
+              "key": "da3ea141-0a71-5dd1-ba19-7a77a0fb87de",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "989591cd-7451-55e3-bf5c-3cca96aff799",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "70024656-ec46-5e6d-9c02-0604bb934cf0",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8cc04b3f-ea42-516d-a1b2-1998486dc757",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9286f13e-30f4-569a-8a19-df2a3aabb798",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            },
+            {
+              "key": "0b23f97a-1f11-5f80-9f6d-9699372cd95b",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch und Thai-Chilis dazugeben und 30 Sekunden rühren, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehacktes Hähnchen dazugeben und 5–7 Minuten pfannenrühren, bis es vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fischsauce und Sojasauce angießen und verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frisches Basilikum und Limettensaft dazugeben und 1 Minute schwenken, bis das Basilikum leicht zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort über Jasminreis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/12/Thai-Basil-Chicken_EXPS_TOD24_278390_JonathanMelendez_06.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/12/Thai-Basil-Chicken_EXPS_TOD24_278390_JonathanMelendez_06.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khao-pad",
+      "slug": "gen-khao-pad",
+      "title": "Khao Pad",
+      "instructions": "Thailändisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Am Vortag extra Reis kochen und für gebratenen Reis verwenden",
+        "Tiefgekühltes Mischgemüse statt frischem Gemüse kaufen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "thailändisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2449,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khao-pad/",
+      "components": [
+        {
+          "key": "e1ebf281-c39c-51e2-99e5-a03f6bad8665",
+          "name": "Zutaten",
+          "servingGrams": 528.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "282ba402-d906-5ee1-a8bb-b2f4b7028446",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen, vom Vortag oder gekühlt"
+            },
+            {
+              "key": "86dd9ea6-6189-5cdc-aada-6e9ad3e1de52",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e791fd1-6d48-5828-89b9-69f79e29144a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "cc03c86d-4ac2-552d-8c38-a2db275c6bfa",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3, fein gehackt"
+            },
+            {
+              "key": "554b287e-8c95-5de3-9558-33fa33cdd1c9",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a31eb8f1-6e73-578c-bcf8-7f7124bbb4f9",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ebbfbe2c-c134-5c78-a3ec-b6b4b316d2a1",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e9dad27a-34ea-5007-a215-7bbf2cd333e2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2, gehackt"
+            },
+            {
+              "key": "0b57c849-a641-514d-9ead-b4ab05d67610",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Spalten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 Esslöffel Öl in einem Wok bei mittelhoher Hitze erhitzen und Eier braten, bis sie gestockt sind. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Übriges Öl dazugeben und gehackten Knoblauch 30 Sekunden pfannenrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gekühlten Reis dazugeben und Klumpen mit dem Pfannenwender lösen. 3–4 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tiefgekühltes Gemüse, Fischsauce und Sojasauce einrühren und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier zurück in den Wok geben und Frühlingszwiebeln hinzufügen. 1 Minute schwenken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Limettenspalten als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/633b061915ee3f27cf08774c/1:1/w_2560%2Cc_limit/FriedRiceChicken_RECIPE_092922_40198.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/633b061915ee3f27cf08774c/1:1/w_2560%2Cc_limit/FriedRiceChicken_RECIPE_092922_40198.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1225 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-dhansak",
+      "slug": "gen-dhansak",
+      "title": "Dhansak",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen sind sehr preiswert; kaufe Hähnchenschenkel statt Brustfleisch, das ist günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4725,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dhansak/",
+      "components": [
+        {
+          "key": "a5aca703-e72c-5b83-9365-c07b1aa06ad9",
+          "name": "Zutaten",
+          "servingGrams": 336.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f96a66e-d803-5b80-af87-6ad4b02f84b4",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund, gewürfelt"
+            },
+            {
+              "key": "093452c1-9933-58be-9fbb-668089a0c799",
+              "ingredientName": "Rote Linsen",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "3070c1e0-3d83-50e6-a074-1d6bec9d90db",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "34b0e4a2-4637-5389-ad2a-26575960211e",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b4e2799b-608e-5932-aeae-440ad85a3ebe",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL, fein gehackt"
+            },
+            {
+              "key": "b2300099-8889-5fe4-859d-fdeff1a06311",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "c52ab04d-d797-5359-8323-eb409c868563",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "ceba08fd-c5b2-5995-80bd-a598d4e66567",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "23098098-c073-5938-a5cd-32345eae33c3",
+              "ingredientName": "Kurkuma",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "689f47d9-cc76-5d2d-9202-a3c3d4765599",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6554fb34-c454-5e12-a650-4b31e57b9d70",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7bfb52d8-726f-5eb0-a4a7-632c54181d1a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die roten Linsen gründlich mit kaltem Wasser ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher bis hoher Hitze und bräune die Hähnchenstücke etwa 6 Minuten rundum an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebeln in den Topf und gare sie etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Knoblauch, Ingwer, Tomatenmark, Kreuzkümmel, Koriander, Kurkuma und Chilipulver ein und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Linsen und Hühnerbrühe dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Hähnchen zurück in den Topf, reduziere die Hitze und lasse alles zugedeckt 30 Minuten köcheln, bis Linsen und Hähnchen zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zerdrücke einige Linsen am Topfrand, damit die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer und serviere das Gericht mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://joosfood.com/wp-content/uploads/2019/01/Chicken-Dhansak-Square-2.jpg",
+          "sourcePageUrl": "https://joosfood.com/wp-content/uploads/2019/01/Chicken-Dhansak-Square-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-phaal",
+      "slug": "gen-phaal",
+      "title": "Phaal",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Habaneros statt Ghost-Chilis, um Kosten zu senken; kaufe Chilis in der Saison auf Bauernmärkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4726,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-phaal/",
+      "components": [
+        {
+          "key": "c60f0e18-edb1-5b1c-afd9-540d7affe6b7",
+          "name": "Zutaten",
+          "servingGrams": 332,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ab5b452-2f70-5493-b0fd-4788d91510d5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "cb9b4468-a72d-5bcb-9b01-53ea41e21843",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4-6 Stück, gehackt"
+            },
+            {
+              "key": "44e0918f-acec-570d-b18d-3875ba4df4b6",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Stück, gehackt"
+            },
+            {
+              "key": "4c33efe9-62b4-5fb3-8e42-c23234ac80a5",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "89594912-99a7-5d40-b59c-4c7fe09e331f",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "60e41dce-adc3-5966-854f-5320de32b55f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, fein gehackt"
+            },
+            {
+              "key": "182d93e3-4023-5d04-a52f-8e9a6dfd13aa",
+              "ingredientName": "Tomatenmark",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "a4c0d4d3-55ed-565c-887c-74f1faf20c4d",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "07465990-d805-54f4-a324-22e9576f0fca",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "fc377ce8-f292-5f89-9cd2-a480a1dc5daa",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "af3219ac-61a0-5eca-ba85-682e9a963288",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne der Chilis, falls du es milder magst. Hacke sie mit Handschuhen fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf mit schwerem Boden bei mittelhoher bis hoher Hitze. Gib Kreuzkümmelsamen hinzu und röste sie 30 Sekunden, bis sie aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebeln hinzu und gare sie unter häufigem Rühren etwa 10 Minuten dunkelgoldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und Ingwer hinzu und gare sie 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre alle gehackten Chilis und Tomatenmark ein und gare alles unter ständigem Rühren 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gewürfeltes Hähnchen hinzu, wende es in der Gewürzpaste und gare es 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße Kokosmilch hinzu, reduziere die Hitze auf mittlere Stufe und lasse alles 20 Minuten köcheln, bis das Hähnchen gar und die Sauce dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und serviere das Gericht mit Reis und Joghurt. Stelle reichlich Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/4480733.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/4480733.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-madras",
+      "slug": "gen-madras",
+      "title": "Madras",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische Madras-Currypulver selbst und kaufe Hähnchenbrust im Angebot zum Einfrieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4727,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-madras/",
+      "components": [
+        {
+          "key": "8a9f9105-2f0a-5d50-982f-2ea2b0fca507",
+          "name": "Zutaten",
+          "servingGrams": 231.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfd9b1f1-c3f4-58e6-adc3-85d43933cd72",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "df64bf7a-e36e-52f1-bf0f-4c5b3b33a4e4",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "05dd6db7-ba33-5041-9c80-19fd08819f63",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "523035df-979f-50e7-b1f3-436bc5cc68a1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL, fein gehackt"
+            },
+            {
+              "key": "2c08dbbd-9637-5104-9f5d-25ac40defcdd",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "614e4ce2-432c-5a09-b473-5c223da145d7",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "363dca5d-4cf2-522a-a9a2-41f04cd702d0",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "38bdce5f-081f-5a72-9a28-6c9771f16f0f",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "f9ed3c1e-ed60-5c4f-ba04-f5e92a5d1537",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "3ca0130a-dcd0-57a1-960f-f473c682f409",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a9cb193a-598c-5db5-9406-ba50238c8b1e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1df3ecf4-4694-568a-a5dd-99f2aa255874",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher bis hoher Hitze. Bräune die Hähnchenstücke etwa 6 Minuten rundum an, nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebeln in dieselbe Pfanne und gare sie etwa 6 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Ingwer hinzu und gare sie 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark, Madras-Currypulver, Kurkuma und Chilipulver ein und gare alles unter ständigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in die Pfanne und füge Kokosmilch und Hühnerbrühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Köcheln und gare es ohne Deckel 20 Minuten, bis das Hähnchen gar und die Sauce leicht eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230103-chickenmadras-079-ls-vertical-1673477429.jpg?resize=768:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230103-chickenmadras-079-ls-vertical-1673477429.jpg?resize=768:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jalfrezi",
+      "slug": "gen-jalfrezi",
+      "title": "Jalfrezi",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Paprika im Angebot; frische Tomaten lassen sich durch gewürfelte Tomaten aus der Dose ersetzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4728,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jalfrezi/",
+      "components": [
+        {
+          "key": "cc02759b-52d5-5e56-ad39-f69be119c578",
+          "name": "Zutaten",
+          "servingGrams": 352.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "5dd84cd1-6f89-5d1f-9954-a16a6efa5a82",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "83be2de6-fe0d-535e-8158-a16c5935e907",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "5d6fa1b0-e776-55e1-9f23-3872a45aa5d6",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 große Stücke, gewürfelt"
+            },
+            {
+              "key": "e16c18c1-08a0-53ba-ae3b-96cf64c279c7",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "e5422b83-88c2-5f3c-8b1c-92c80218cea9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "648a7932-fe4d-5b57-a183-1ffdd8716312",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "5b3a23ba-6d05-5529-8923-dffcb922c11d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0d6e7298-19c4-54a8-a577-aae6cbcc64d6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bdf40e97-eb36-5ef8-bdeb-3efa262b7ae5",
+              "ingredientName": "Chilipulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "97a0d1bd-4f82-5376-8783-51f2b263913f",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "8a25cb32-d973-5ea6-9e7a-c23dd532309e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5f8f0248-63ad-5479-bafc-735e78d69990",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne oder einem Wok bei mittelhoher bis hoher Hitze. Brate das gewürfelte Hähnchen etwa 6 Minuten rundum an, nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebeln in die Pfanne und gare sie etwa 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Knoblauch und Ingwer ein und gare sie 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kreuzkümmel, Koriander, Chilipulver und Kurkuma hinzu und gare alles unter Rühren 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in die Pfanne und füge gewürfelte Tomaten und Paprikastreifen hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre alles gut um und lasse es ohne Deckel 15 Minuten köcheln, bis das Hähnchen gar und die Paprika noch bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Reis oder Naan servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2021/08/chicken-jalfrezi-1-13.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2021/08/chicken-jalfrezi-1-13.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-karahi",
+      "slug": "gen-karahi",
+      "title": "Karahi",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel statt Brustfleisch, sie sind saftiger und günstiger; frischen Koriander gibt es oft günstig im Dollar-Laden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "Pakistanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4729,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-karahi/",
+      "components": [
+        {
+          "key": "2e0823b1-1b75-504a-a386-6585a244ae55",
+          "name": "Zutaten",
+          "servingGrams": 457,
+          "position": 0,
+          "items": [
+            {
+              "key": "dbfa8d01-4223-52eb-bb8d-741a4dbfac03",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "2d8bd961-db85-55a3-a214-6fd54772242c",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "64564857-9f50-5ba8-a6f2-da2b9e1c5d53",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke, grob zerteilt"
+            },
+            {
+              "key": "e0bdf501-4a2a-53c1-9deb-8e87071f70a9",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 große Stücke, grob zerteilt"
+            },
+            {
+              "key": "e1591ceb-8526-5ca0-8448-ddfb52434d2c",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "b0bd2fb4-ef81-579b-88b3-72a0d6553c4a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, fein gehackt"
+            },
+            {
+              "key": "41a79b92-2ca3-580a-984e-71a882e0cb88",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "db5788a3-726b-5690-853f-0847bfddab27",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0ff8fe5c-2946-5c9e-822e-479b62addc48",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "27e99c91-0b9e-50cf-bcf9-1f579fc4b133",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "a4a9201a-2a97-59ad-be5d-d8f6355e6434",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Karahi oder einer Pfanne mit dickem Boden bei hoher Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Hähnchenstücke hinein und bräune sie etwa 8 Minuten rundum an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Zwiebelstücke in die Karahi und bräune sie etwa 4 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gehackten Knoblauch und Ingwer ein und gare sie 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gemahlenen Koriander, Kreuzkümmel und Chilipulver hinzu und gare alles unter Rühren 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Hähnchen zurück in die Karahi und füge gewürfelte Tomaten und Paprikastücke hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare alles bei hoher Hitze 12-15 Minuten und rühre gelegentlich um, bis das Hähnchen gar und der Großteil der Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere mit frischem Koriander, würze mit Salz und Pfeffer und serviere sofort in der Karahi oder auf einer Platte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2024/12/Chicken-Karahi-847828f.jpg",
+          "sourcePageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2024/12/Chicken-Karahi-847828f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1074 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-labra",
+      "slug": "gen-labra",
+      "title": "Labra",
+      "instructions": "Bengalisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Saisonales Gemüse ist besonders günstig und frisch",
+        "Kaufe vorgeschnittenes Gemüse, wenn die Zeit knapp ist; ganzes Gemüse ist jedoch günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "bengalisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3400,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-labra/",
+      "components": [
+        {
+          "key": "7958125c-3ba8-5018-a7e3-eec68b84a7b9",
+          "name": "Zutaten",
+          "servingGrams": 165.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "4933fdc6-64d0-5120-8418-6371e0f0895a",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "b7f7e5c1-2335-5c34-b466-b78a47b67ea4",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "12848a13-5bf2-5bc5-91dd-5844b342f5f2",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund, in 1-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "4c888700-c91e-5b1b-816d-b27fd37c9f69",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 kleiner Kopf, gewürfelt"
+            },
+            {
+              "key": "7fc7b442-64b6-5ea5-aa5c-4fb740c63311",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0522fe7d-fe3c-52a4-9c76-3756b33238f3",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fbdae0d5-aa60-574a-ac2f-cd7694298cbf",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "d1ae3269-f805-5c17-b6bd-765c1301b93d",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "39c3d0bd-ccbe-54e2-88a3-1470ffbcd306",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "7d311289-8f03-560f-a6b0-cae3173caae3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "51c5e939-0510-5652-a211-914334d161d6",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne und gib Kreuzkümmelsamen hinzu, bis sie knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Ingwer hinzu und brate ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das gewürfelte Gemüse hinzu und rühre 2 Minuten gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Kurkuma und rotes Chilipulver darüber und vermische alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Wasser und Salz hinzu, decke die Pfanne ab und gare das Gemüse bei mittlerer Hitze 12-15 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gelegentlich um, damit alles gleichmäßig gart und nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß als Beilage zu Reis oder als leichte Hauptmahlzeit servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.everydayrecipe.in/wp-content/uploads/2019/11/IMG_0878-Selected.jpg",
+          "sourcePageUrl": "https://www.everydayrecipe.in/wp-content/uploads/2019/11/IMG_0878-Selected.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-begun-bhaja",
+      "slug": "gen-begun-bhaja",
+      "title": "Begun Bhaja",
+      "instructions": "Bengalischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen in der Saison, wenn sie am günstigsten sind",
+        "Verwende Frittieröl bei sorgfältiger Filterung mehrmals, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "bengalisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3401,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-begun-bhaja/",
+      "components": [
+        {
+          "key": "ad163db2-b0d0-5828-90e9-d6d0f30d38bc",
+          "name": "Zutaten",
+          "servingGrams": 26.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "2794e2d5-70cb-54c6-b542-d2076a204414",
+              "ingredientName": "Aubergine",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, längs in 0.25 Zoll dicke Scheiben geschnitten"
+            },
+            {
+              "key": "896991a4-2f43-5d50-91c3-ccb668deb993",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse zum Frittieren"
+            },
+            {
+              "key": "13b2e7f9-071a-58c1-a318-4fc0db521128",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6182a4a1-9bef-5d69-a103-9d823dd507f7",
+              "ingredientName": "Chilipulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "62c48e72-9a64-56d5-89c4-64a8da0e50fe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0310a7d9-72e7-5558-9beb-615932233730",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "274363ef-4623-5f14-9008-dbcaf78fd9c5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, in feine Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Auberginenscheiben mit Küchenpapier trocken, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Kurkuma, Chilipulver, Salz und Schwarzkümmelsamen in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Wok, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Auberginenscheiben auf beiden Seiten leicht mit der Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Aubergine portionsweise je Seite 3-4 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm als Beilage oder Snack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://relishdelish.ca/wp-content/uploads/2021/06/IMG_5257-800x840.jpeg",
+          "sourcePageUrl": "https://relishdelish.ca/wp-content/uploads/2021/06/IMG_5257-800x840.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-doi-maach",
+      "slug": "gen-doi-maach",
+      "title": "Doi Maach",
+      "instructions": "Bengalisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe preiswerte Weißfischsorten wie Kabeljau oder Tilapia im Angebot statt Premiumsorten",
+        "Verwende einfachen Joghurt einer Hausmarke und spare gegenüber Spezialmarken deutlich"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "bengalisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3402,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-doi-maach/",
+      "components": [
+        {
+          "key": "b1b0d66c-ea69-5842-9c44-d7fd53c742c7",
+          "name": "Zutaten",
+          "servingGrams": 192.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e7cda45b-39c5-5890-98e7-82306105c6f8",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "075c4de3-bdf5-5769-9a6f-a6e8a916439e",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6a70a3cf-cd0d-5439-a586-2e9a196d47d6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bdb981f1-af04-590e-be46-ca0a24ebc4e9",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "2a76200f-5333-5810-a47e-1f9973419afd",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "a3dafd70-93db-53cc-a246-403e3644924e",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "45cc1f55-2026-5b40-88c5-8437150aac48",
+              "ingredientName": "Kurkuma",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "85d4a261-8f1b-50f3-ae7b-57f59f6bb565",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f521e9bb-01c3-558f-863d-a789c7888d10",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "2604b5bb-8893-5dd5-9060-bee63895bec8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5fbcc944-6483-54e1-9289-e912df821352",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Joghurt mit Kurkuma, Koriander, Kreuzkümmel, Salz, Ingwer-Knoblauch-Paste und grünen Chilis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere die Fischfilets 15 Minuten in der Hälfte der Joghurtmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer flachen Pfanne und brate die Zwiebeln etwa 5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den marinierten Fisch vorsichtig in die Pfanne und gare ihn 3 Minuten auf einer Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende den Fisch vorsichtig und verteile die restliche Joghurtmischung um und über ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare alles bei niedriger bis mittlerer Hitze 12-15 Minuten, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Koriander garniert und gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.myfridayfoodswings.com/wp-content/uploads/2020/05/Doimaach2.jpg",
+          "sourcePageUrl": "https://www.myfridayfoodswings.com/wp-content/uploads/2020/05/Doimaach2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paturi",
+      "slug": "gen-paturi",
+      "title": "Paturi",
+      "instructions": "Bengalisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Bananenblätter in größeren Mengen auf asiatischen Märkten günstiger",
+        "Verwende ganzjährig erhältliche und günstigere tiefgekühlte Kokosraspeln statt frischer Kokosnuss"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "bengalisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3403,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paturi/",
+      "components": [
+        {
+          "key": "068b04e5-5498-5ac6-af39-60b214bf4a25",
+          "name": "Zutaten",
+          "servingGrams": 241.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "13a786c2-b4a5-562d-9739-6382e55436c4",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "24759fce-ea95-5b78-8cd8-fa7facaa158c",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "151f2808-eb2f-5911-ac1e-3d8e1c73fed2",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "aeadfe29-645f-5ab9-8e04-8d3956920410",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse, gerieben, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "1571e6b4-0016-50b2-8700-1bfbf0461d46",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "d432fea8-36f1-54fe-af72-7cf4b16f1081",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0542b83b-e919-5b50-b1d3-d6ea7cabc2d4",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 große Stücke, gesäubert"
+            },
+            {
+              "key": "a45929fb-ba45-571c-894f-3597e19e5056",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "725352e2-d682-5636-98d9-80a49252e5f5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Senfpaste, Ingwer, grüne Chilis, Kokosnuss, Kurkuma, Salz und Senföl in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Bananenblätter kurz über einer Flamme an, damit sie biegsam werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege jeweils ein Fischfilet in die Mitte eines Bananenblatts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Senf-Kokos-Mischung großzügig auf jedem Fischfilet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage das Bananenblatt zu einem festen Päckchen um den Fisch und stecke die Ränder darunter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer großen Pfanne oder auf einer Grillplatte und lege die Päckchen mit der Naht nach unten hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare sie je Seite 10-12 Minuten, bis der Fisch gar ist. Öffne die Päckchen vorsichtig und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/0b/97/63/0b97630117c10f7de88e27241b632b96.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/0b/97/63/0b97630117c10f7de88e27241b632b96.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hunan-preserved-duck",
+      "slug": "gen-hunan-preserved-duck",
+      "title": "Hunan-Ente nach Konservierungsart",
+      "instructions": "Hunan-Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Entenbrust im Angebot oder verwende Hähnchen als preiswertere Alternative",
+        "Verwende normale Sojasauce statt einer Premiummarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hunan",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3404,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hunan-preserved-duck/",
+      "components": [
+        {
+          "key": "62218bcd-f428-5a60-9166-da50bd7f9dea",
+          "name": "Zutaten",
+          "servingGrams": 255.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "734d748a-cf0c-5faf-ab39-a4b54d838877",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b83734da-8ffe-5a97-a2b6-214d3dc199b7",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "f4c79ab6-1d7b-593f-9800-fd1538ded3f5",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d53e2e12-6158-5dce-935e-f356627b2db1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "40b3a250-bbe0-590e-9158-d1a4aea6696e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "73354858-7706-5ada-8397-7516faed4a5f",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5188e0bd-2f95-585c-a919-97f8ef4e86a3",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af690a6b-f422-5ab2-bbf2-aa13853f3956",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "580febfb-e157-5e77-b9b4-a4c461d46c0f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c18b471b-de06-588f-892a-8953bd984028",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher Hitze und brate die Entenbrust mit der Hautseite nach unten 4 Minuten an, bis sie gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Ente und brate die andere Seite 3 Minuten an. Nimm sie heraus und schneide sie in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate im selben Topf gehackten Ingwer, zerdrückten Knoblauch und getrocknete Chilis 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sojasauce, Essig, Zucker, Sternanis und Wasser hinzu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Entenstücke zurück in den Topf, bringe alles zum Kochen und lasse es ohne Deckel bei reduzierter Hitze 25 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gelegentlich um, bis die Sauce eindickt und die Ente zart ist. Heiß mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2016/01/25/dining/25COOKING_HUNANBEEF1/25COOKING_HUNANBEEF1-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2016/01/25/dining/25COOKING_HUNANBEEF1/25COOKING_HUNANBEEF1-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

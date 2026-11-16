@@ -1,0 +1,993 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53318",
+      "slug": "tmdb-53318",
+      "title": "Torta de fiambre",
+      "instructions": "Uruguayisches Schweinefleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "uruguayisch",
+        "schwein"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2275,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53318/",
+      "components": [
+        {
+          "key": "41772c39-3e4a-58b8-be1d-8bd631ba8d9d",
+          "name": "Zutaten",
+          "servingGrams": 206.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e24432c0-c0e2-5a22-bbd7-7b6e9e0fddc8",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68dc7378-e14e-51e2-8adc-d350a9b9374d",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2adbc42a-abc9-503a-a9c4-6011e0c80fb9",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "faafbaab-4692-5f30-bf71-5f1f30ca9f41",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9759596-6cee-504b-a8d7-2cb5b354f7df",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "081281dc-90ab-5e6a-aa36-11f97a33a842",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03005082-52d6-5cd5-abd9-40fb708fd2c1",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1c87eea-68dc-5267-a051-e167c3545c14",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bfd33dd-4d75-5e80-b6c6-e7f4ad39e466",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Boden einer Springform von 20–2cm (8–9 inches) mit Backpapier auslegen. Ich lasse meist etwas Papier überstehen, da der Teig sehr flüssig ist und überlaufen kann. Backofen auf 220 Grad Celsius vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Käse reiben und Schinken bereitlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Alle übrigen Zutaten in einer großen Schüssel etwa ein bis zwei Minuten vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hälfte des Teigs in die vorbereitete Form gießen; er wird sehr flüssig sein. Schinken und Käse darauflegen und den restlichen Teig darüber gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Etwa 20–25 Minuten backen oder bis die Oberfläche goldbraun ist. Vor dem Lösen aus der Form einige Minuten warten. Mit frischen Kräutern heiß oder kalt genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/okl9cm1764371087.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/okl9cm1764371087.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53075",
+      "slug": "tmdb-53075",
+      "title": "Tortang Talong",
+      "instructions": "Philippinisches vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "philippinisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2276,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53075/",
+      "components": [
+        {
+          "key": "7abe2eb5-26c1-5a6b-a37e-4e89a11e010d",
+          "name": "Zutaten",
+          "servingGrams": 101.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6643589a-f6dd-5bf9-a15b-0b183112eec9",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3053df4c-06f2-5d7c-9dcb-d078a463aad0",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68103bce-19e0-564b-b169-ad34e7209a36",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d342c2f3-3099-51c2-b245-9f0c775f3b81",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "0. Aubergine grillen, bis die Schale fast schwarz ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1. Aubergine kurz abkühlen lassen, dann Schale abziehen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2. Eier aufschlagen und in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3. Salz dazugeben und verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "4. Aubergine auf eine flache Fläche legen und mit einer Gabel flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5. Flachgedrückte Aubergine in die verquirlte Eiermischung tauchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "6. Pfanne erhitzen und Speiseöl hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "7. Aubergine braten, nachdem sie in die verquirlte Mischung getaucht wurde. Beide Seiten garen. Bei mittlerer Hitze dauert das etwa 3 bis 4 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/va668f1683209318.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/va668f1683209318.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52926",
+      "slug": "tmdb-52926",
+      "title": "Tourtière",
+      "instructions": "Kanadisches Schweinefleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kanadisch",
+        "schwein",
+        "pastete",
+        "hauptgericht",
+        "bbq",
+        "kuchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2277,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52926/",
+      "components": [
+        {
+          "key": "ad90c610-64c6-5696-9bca-0d64c692635a",
+          "name": "Zutaten",
+          "servingGrams": 136.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "084b98e0-37f7-5932-ab64-a0ac4daee453",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b00ce92-b855-5daa-8243-9f09fabcf5a3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "408a9eab-f284-5f0a-8f32-5bd64dc6e15f",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c1c4666-8b23-5218-a4ae-e6ee6fab6740",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdbbc346-d2b2-53f2-aac6-f67871aaf2cd",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7588cd06-9bf4-5892-8725-a87adfd863d6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79508caa-6622-57d6-841c-7b454f762024",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92c65737-ea65-5f12-9a41-bd678e7998a7",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d83de6b-03de-5341-8b67-483134eea181",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b8947f8-3e37-5957-9886-1246d413f6da",
+              "ingredientName": "Mürbeteig",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87d49b15-6e9b-5764-91cc-9c940f068d55",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 200C/180C Umluft/Gasstufe 6 erhitzen. Kartoffel weich kochen, abgießen und zerstampfen, dann abkühlen lassen. Öl in einer beschichteten Pfanne erhitzen, Hackfleisch und Zwiebel dazugeben und rasch anbraten, bis alles gebräunt ist. Knoblauch, Gewürze, Brühe, reichlich Pfeffer und etwas Salz dazugeben und gut vermischen. Vom Herd nehmen, unter die Kartoffel rühren und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hälfte des Teigs ausrollen und Boden einer Kuchen- oder Tarteform von 20–23cm damit auslegen. Schweinefleischmischung einfüllen und Teigränder mit Wasser bestreichen. Übrigen Teig ausrollen und Pastete damit abdecken. Ränder zum Verschließen andrücken und Überschuss abschneiden. Teigdecke einstechen, damit Dampf entweichen kann, und mit verquirltem Ei bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "30 Minuten backen, bis der Teig knusprig und goldbraun ist. In Stücke schneiden und mit knackigem grünem Salat servieren. Reste schmecken am nächsten Tag kalt zum Mittagessen mit einer Auswahl an eingelegtem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ytpstt1511814614.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ytpstt1511814614.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53057",
+      "slug": "tmdb-53057",
+      "title": "Traditionelles kroatisches Gulasch",
+      "instructions": "Kroatisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kroatisch",
+        "rind",
+        "suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2278,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53057/",
+      "components": [
+        {
+          "key": "0aa11b26-f728-52bf-922d-6a1a71308205",
+          "name": "Zutaten",
+          "servingGrams": 284.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c0ed827-45e8-520a-95bb-3e2c7c885330",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77e27c0c-7985-5e25-a58b-2b63f46439db",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b249f755-13df-514f-b9ae-f51ca0096da0",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b6db66d-41a4-5f65-83ea-cb0460f78617",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9965b978-f8d3-5bce-831b-c17eb8eb1d2e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5eda1987-78bc-5e8b-b7b0-96bc5f57573a",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc2bf53a-16a7-5691-9a6f-2cf8ab46af82",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38322cc1-efca-5f77-b116-cb3f96ba171c",
+              "ingredientName": "Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f530e37-64d3-569c-9aa7-e9d12e32980b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18d5cccd-cac8-501a-9537-4b91daa7e665",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e32f895-dfe6-5b29-bf0a-206ac6e003eb",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7e2005e-134e-5d70-a0fe-d08a25b3a440",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fleisch von eventuellen Sehnen befreien und in kleinere Stücke von 3 × 3 cm schneiden. Fleisch in Senf und Gewürzen marinieren und eine Stunde im Kühlschrank ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen Esslöffel Schweineschmalz oder Pflanzenöl in einem Topf erhitzen und Fleisch von allen Seiten bräunen. Gegartes Fleisch auf einen Teller geben und einen weiteren Esslöffel Fett in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln sehr fein schneiden, Karotten schälen und mit einer Reibe raspeln. Zwiebeln und Karotten bei niedriger Hitze 15 Minuten garen. Etwas Salz kann das Gemüse schneller weich machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sobald das Gemüse gebräunt und leicht matschig ist, Fleisch, Lorbeerblätter und Knoblauch dazugeben. Wein angießen und 10–15 Minuten köcheln lassen, damit der Alkohol verdampft. Jetzt ist es an der Zeit, 2/3 der Flüssigkeitsmenge dazuzugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Topf abdecken und eine Stunde bei niedriger Hitze garen; gelegentlich umrühren. Nach der ersten Stunde restliches Wasser oder Brühe angießen und weitere 30–45 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eintopf etwas abkühlen lassen und mit gehackter Petersilie sowie einigen Scheiben frischer scharfer Paprika servieren, wenn du es etwas schärfer magst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frisches Brot aufschneiden, Salat würzen und diese wunderbaren Aromen genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/n1hcou1628770088.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/n1hcou1628770088.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53391",
+      "slug": "tmdb-53391",
+      "title": "Traditionelle niederländische Reistarte (Rijstevlaai)",
+      "instructions": "Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2279,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53391/",
+      "components": [
+        {
+          "key": "d6b6f7ec-50ba-5b16-8327-666bb1f6b6ed",
+          "name": "Zutaten",
+          "servingGrams": 192.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec3aade0-041a-5983-a7a7-2f0220936af1",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d8ec2d2-a8d3-51c3-9aff-430aa2ec8d3e",
+              "ingredientName": "Kokosöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39b5f6bd-b469-586d-927e-b31fb107c879",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a4b183f-7e6c-532b-92a5-82cdfab854b5",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11ddccd4-1169-5cd1-9c8e-d82be20b9b49",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04bbeb4c-4adf-53a3-a030-64a7c836d385",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e439863c-6120-5d65-a5f0-3995f0bc63fb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61d7a19c-87fe-51b3-814b-9da8cccf5bf8",
+              "ingredientName": "Kardamom",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02e6d620-8dd0-56cc-9fa3-29412d1ed8bc",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "966bc77d-e14e-5723-b1e4-6b0701e799ca",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13d2332f-6225-5668-828b-e8ff1c10742e",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "545d0600-55cd-5044-aaf7-f55223162f58",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 180°C erhitzen. Für den Teig Mehl und Zucker in einer Schüssel vermischen. 100 Gramm Milch lauwarm erwärmen und Hefe darin auflösen. Eine Weile stehen lassen, bis sie anfängt zu schäumen. Dann zusammen mit Kokosöl zum Mehl geben und zu einem glatten Teig vermengen. Abgedeckt an einem warmen Ort 30 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen Milchreis zubereiten: Reis mit Zucker, Milch und Vanilleextrakt in einen Topf geben. Kardamom, Sternanis und Zimt dazugeben. Unter ständigem Rühren zum Kochen bringen und garen. Gewürze herausnehmen. Natron in einer kleinen Schüssel mit Zitronensaft/Apfelessig vermischen. Gut rühren, bis sich Natron aufgelöst hat, dann unter den Milchreis mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig auf einer bemehlten Arbeitsfläche ausrollen (er ist sehr klebrig, aber keine Sorge, es wird schon) und Boden sowie Rand einer eingefetteten Form damit auslegen. Milchreis darauf verteilen und etwa 25 bis 30 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/x8opo81777582259.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/x8opo81777582259.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1042 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cip-te-du-lac-saint-jean",
+      "slug": "gen-cip-te-du-lac-saint-jean",
+      "title": "Cipâte du Lac-Saint-Jean",
+      "instructions": "Québécois-Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter und Schweineschulter im Angebot kaufen und portionsweise einfrieren",
+        "Aus Hühnerknochen, die im Gefrierfach aufbewahrt wurden, eigene Brühe kochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "québécois",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4280,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cip-te-du-lac-saint-jean/",
+      "components": [
+        {
+          "key": "3adf8e91-d730-5ab3-8525-6f65703ea434",
+          "name": "Zutaten",
+          "servingGrams": 589.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f3197a0-f9ae-5ec0-9ddd-4810070e71fb",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Teigscheiben"
+            },
+            {
+              "key": "78e4ceaf-286a-5ddb-9f96-f207329be7cc",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c0cd798c-5820-596c-a0a0-720f8ae432f8",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4a0fb28f-0fc9-5e89-81a1-0369ccf6c32b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "18d7d9a1-633c-5f38-94fd-44eb77e8fec8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "6a859204-c4e7-5ca4-a377-9d2b42201288",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "4c34b532-8d0c-5cf3-b128-2efc117d43ec",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "c04c6029-c45e-5baa-9c9d-c22710f03058",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1d99803-6237-5d2e-8ff1-8536d3defeb3",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0c456b12-c650-58ed-ad92-7b191a65782f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "341ea7f1-1220-5ee8-a8a0-13f97eee6e23",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gewürfelten Pökelspeck in einem großen Topf bei mittlerer Hitze etwa 5 Minuten braten, bis das Fett austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfeltes Schweine- und Rindfleisch hinzufügen und insgesamt etwa 10 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel hinzufügen und etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe angießen, Lorbeerblätter und Thymian hinzufügen und 30 Minuten köcheln lassen, bis das Fleisch teilweise zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Kartoffeln hinzufügen und weitere 20 Minuten köcheln lassen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer würzen und die Fleischmischung zwischen zwei Schichten Tarteboden in eine tiefe Tarteform von 9-inch geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit dem letzten Tarteboden bedecken, Ränder verschließen, Dampfschlitze einschneiden, mit verquirltem Ei bestreichen und bei 375°F 40 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gourmandeboutique.com/cdn/shop/products/Cipate_Lac_St-Jean.jpg?v=1583704512",
+          "sourcePageUrl": "https://gourmandeboutique.com/cdn/shop/products/Cipate_Lac_St-Jean.jpg?v=1583704512",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-p-t-chinois",
+      "slug": "gen-p-t-chinois",
+      "title": "Pâté Chinois",
+      "instructions": "Québécois-Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten statt Mais aus der Dose verwenden, um Geld zu sparen",
+        "Kartoffeln in großen Mengen kaufen und kühl sowie dunkel lagern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "québécois",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4281,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-p-t-chinois/",
+      "components": [
+        {
+          "key": "7e2c1bdd-e29d-510b-b33a-789f4205e435",
+          "name": "Zutaten",
+          "servingGrams": 296.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e81bd985-6122-572e-9d64-90955a4b1b8c",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3359e4ba-4e1d-5a3d-8733-f1c652e925a1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "39c77aba-9fb9-5f4a-8343-f367f516982b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "7d6fb021-0088-5cd1-b6c2-816dfb0fc9e1",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8482a565-f62c-5aac-87da-aee7f6776354",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f1e36ebe-03cc-5585-8732-d0526e85cda8",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "46c62d05-ba62-5321-a52c-3fd09b0d4fcf",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "894020ee-dc7c-53cb-bd03-ef9b8c503b5b",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e6222f87-d372-52d9-b435-224e6a8f5459",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "648053f6-276c-5133-8545-90c251297644",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7a5fddcd-9271-563f-bd94-682d1c735c71",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhack mit gewürfelter Zwiebel und Knoblauch in einer großen Pfanne bei mittelhoher bis hoher Hitze etwa 8 Minuten vollständig gar braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mais, Rinderbrühe und Worcestershiresauce einrühren und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Währenddessen geschnittene Kartoffeln etwa 10 Minuten in Salzwasser weich kochen, abgießen und mit Butter sowie Milch glatt stampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Ofen auf 375°F vorheizen und die Fleisch-Mais-Mischung auf dem Boden einer gefetteten Auflaufform von 9x13 verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffelpüree gleichmäßig über die Fleischschicht streichen und die Oberfläche glätten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geriebenen Cheddar über die Kartoffeln streuen und 15 Minuten goldbraun backen, bis alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/e9/1b/07/e91b0700e99fea02699d745979d225b0.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/e9/1b/07/e91b0700e99fea02699d745979d225b0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cretons",
+      "slug": "gen-cretons",
+      "title": "Cretons",
+      "instructions": "Québécois-Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinehack in größeren Mengen kaufen und einfrieren",
+        "Semmelbrösel aus altbackenem Brot selbst herstellen statt gekaufte zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "québécois",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4282,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cretons/",
+      "components": [
+        {
+          "key": "67404623-6dec-5367-ab1a-8d98983cc78c",
+          "name": "Zutaten",
+          "servingGrams": 146.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "da5f695e-252c-54a3-a127-e524aa2c1a4e",
+              "ingredientName": "Schweinehack",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a1f22448-9b2b-54bf-b408-175e51ebccc5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "c627ea75-6f45-563d-a827-f39974583942",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "aabc80d1-ea6e-56a6-b16a-b98106bb4b97",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5ba056e2-35bf-5041-a37b-f0ab8f70529b",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "777d062d-708b-5399-a062-1a2c7ff3f40b",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "08fbc5e2-8305-5159-b79e-f4e14b6e0ebf",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "451fdeff-a48e-5c34-9eed-7a13f704de2f",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "0715786b-a6f4-5a71-b74d-6daa367957f8",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "6ca71cb9-b6c9-5e36-a2e7-aa7357c6c0ae",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.125 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinehack in einem großen schweren Topf bei mittlerer Hitze etwa 10 Minuten anbraten und dabei zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und gehackten Knoblauch hinzufügen und etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Semmelbrösel und Wasser einrühren und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salz, Pfeffer, Nelken, Muskatnuss und Zimt hinzufügen und die Gewürze gleichmäßig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und 20 Minuten köcheln lassen, gelegentlich umrühren, bis die Mischung dick ist und die Flüssigkeit aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Cretons in eine Terrinen- oder Kastenform füllen und vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren auf Toast oder Crackern mindestens 2 Stunden kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/JpabUlYynkxR6IGpaGuPb7yFYiU=/3888x2592/filters:fill(auto,1)/6960630-13b8f9fc2c824e7eb105c9ff946e4a35.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/JpabUlYynkxR6IGpaGuPb7yFYiU=/3888x2592/filters:fill(auto,1)/6960630-13b8f9fc2c824e7eb105c9ff946e4a35.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tarte-au-sucre",
+      "slug": "gen-tarte-au-sucre",
+      "title": "Tarte au Sucre",
+      "instructions": "Québécois-Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tarteboden selbst herstellen statt fertig zu kaufen und 50 Cent pro Portion sparen",
+        "Hellbraunen Zucker statt dunklen verwenden; Geschmack bleibt gleich und die Kosten sind niedriger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "québécois",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4283,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tarte-au-sucre/",
+      "components": [
+        {
+          "key": "a5d37b25-6a95-58b0-a385-9b2fcce82f9e",
+          "name": "Zutaten",
+          "servingGrams": 124.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "73288919-fbdb-541c-b020-d7ef2c397fa5",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d0d95b40-87a0-5c87-a768-41fd4422796f",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "e994f282-759d-52ee-9d8e-9ecd783fafe6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "a3580ea2-3f54-567b-8f66-85785b4a7a82",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4-5 EL"
+            },
+            {
+              "key": "1c9900f5-252e-54c9-920b-ae36ff871dc3",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7fc8393c-7c08-56d9-96e2-1895640dacb7",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "256abc0c-9350-5fe9-ad34-08c1850e878a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz vermengen und kalte Butter einarbeiten, bis die Mischung groben Krümeln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eiswasser esslöffelweise hinzufügen, bis der Teig gerade zusammenkommt, dann 20 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig ausrollen, in eine Tarteform von 9-inch drücken und bei 375°F 10 Minuten blindbacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Braunen Zucker, Sahne, Butter und Vanille in einem Topf vermengen und unter ständigem Rühren erhitzen, bis sich der Zucker auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Warme Füllung in den vorgebackenen Boden gießen und bei 375°F 15-18 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Schneiden und Servieren vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a9/c4/d6/a9c4d6917825920eab7599ae702155ac.png",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a9/c4/d6/a9c4d6917825920eab7599ae702155ac.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tire-d-rable-sur-la-neige",
+      "slug": "gen-tire-d-rable-sur-la-neige",
+      "title": "Ahornsirup-Schnee",
+      "instructions": "Québécois-Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ahornsirup aus dem Supermarkt statt reinem Ahornsirup verwenden und die Hälfte sparen",
+        "Im Winter draußen zubereiten, damit kein Schnee gekauft werden muss"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "québécois",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4284,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tire-d-rable-sur-la-neige/",
+      "components": [
+        {
+          "key": "1c54490a-9c37-5ea7-b515-52a162b7d6b7",
+          "name": "Zutaten",
+          "servingGrams": 349.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "5900d084-814f-55c9-aec1-f922d613c082",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ac01a629-2d60-5a77-99fc-31df006f0445",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f6dc7caf-c05c-5279-a49c-42cd7408f71f",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b22533ef-f6dd-5bf0-9b04-74334f08a4e7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "faab6641-6ee8-5fe8-a479-211d1bb86764",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "7c5cf4d7-baf4-5870-b448-4ec5331b5714",
+              "ingredientName": "Sauberer Schnee",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9dc46d00-5970-58b7-adbf-cc8092b04269",
+              "ingredientName": "Tiefgekühlte Fischstäbchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ahornsirup in einem Topf mit schwerem Boden auf 235°F erhitzen, etwa 10 Minuten, bis die Weichkugelstufe erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vom Herd nehmen und Butter, Sahne, Vanille sowie Salz einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sauberen Schnee in eine flache Form oder in einer langen Linie auf Backpapier geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heißen Sirup in einem dünnen Band spiralförmig über den Schnee gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2-3 Minuten warten, bis der Sirup leicht fest wird, dann noch warm mit einem Holzstäbchen aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Naturjoghurt oder Sahne zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lacabanesucree.com/wp-content/uploads/istockphoto-925426372-612x612-1.png",
+          "sourcePageUrl": "https://lacabanesucree.com/wp-content/uploads/istockphoto-925426372-612x612-1.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

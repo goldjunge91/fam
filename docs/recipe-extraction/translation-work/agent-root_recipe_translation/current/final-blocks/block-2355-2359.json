@@ -1,0 +1,1123 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mole-poblano",
+      "slug": "gen-mole-poblano",
+      "title": "Mole Poblano",
+      "instructions": "Mexikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achte in mexikanischen Lebensmittelgeschäften oder online auf Angebote für getrocknete Chilis",
+        "Das Rezept ergibt genug zum portionsweisen Einfrieren für spätere Mahlzeiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2355,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mole-poblano/",
+      "components": [
+        {
+          "key": "e08d2070-449c-5a69-9458-592e93e59dfc",
+          "name": "Zutaten",
+          "servingGrams": 226.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "f706a381-0269-5bab-88db-bbd5303b53b0",
+              "ingredientName": "getrockneter Salbei",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c160a54-9102-54a3-a157-386ade10a2b9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "ab35125a-cf89-551d-bf1a-e5403bf83ff5",
+              "ingredientName": "weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ada6ec9f-112a-517c-a18b-98df090713ac",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fdd1ea5-730d-5acb-b5c7-226c07efa9ae",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 (2-Zoll)"
+            },
+            {
+              "key": "cbd0de69-7817-5ed0-94bc-316f40ec9db1",
+              "ingredientName": "ganze Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "880e411d-a04d-5564-9f2f-c2ed0e16b7aa",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b8280785-8b62-5ff3-b5f5-b3bbf1e3b10f",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "68e34dbc-2dda-5691-aefb-6e9c89d948d5",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "21b90eec-feaa-566b-b327-6d5c863dabb6",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "9efe7414-eb77-5d12-98af-6e87aeff00ca",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a055dc79-772a-5842-b9cc-90c86e039fae",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d5b749b4-ee60-54bf-993f-4e2d6b94a816",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "87b5dc99-bea1-573e-aee8-5573927be5b1",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Hähnchenbrust mit 4 cups Brühe, geviertelter Zwiebel und 2 Knoblauchzehen in einen Topf. Bringe alles zum Köcheln und gare es 25 Minuten, bis es durch ist. Zupfe das Hähnchen und bewahre 3 cups Brühe auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entferne Stiele und Kerne der getrockneten Chilis. Röste sie in einer trockenen Pfanne 30 seconds, bis sie duften. Nimm sie heraus und weiche sie 15 Minuten in heißem Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Chilis ab und püriere sie mit der aufbewahrten Hühnerbrühe, 3 Knoblauchzehen, Zimtstange, Nelken, Kakaopulver, Erdnussbutter, Rosinen und gemahlenen Mandeln vollständig glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Pflanzenöl in einem großen Topf bei mittlerer Hitze. Seihe die Chilimischung vorsichtig durch ein feines Sieb in das heiße Öl und rühre dabei ständig 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gezupftes Hähnchen in die Mole-Soße und lasse alles unter gelegentlichem Rühren 20 Minuten sanft köcheln. Falls die Soße zu dick wird, gib mehr Brühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere die Soße und schmecke sie mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Mole in eine Servierschale und garniere sie vor dem Servieren mit gerösteten Sesamsamen. Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/TDTUNSd7lu5ULsBw164JkSDrJDI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simply-recipes-mole-poblano-chicken-lead-6-fa14b6c7e489485095099860cfde6b9c.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/TDTUNSd7lu5ULsBw164JkSDrJDI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simply-recipes-mole-poblano-chicken-lead-6-fa14b6c7e489485095099860cfde6b9c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tamales",
+      "slug": "gen-tamales",
+      "title": "Tamales",
+      "instructions": "Mexikanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Masa Harina in großen Packungen auf mexikanischen Märkten statt im Supermarkt",
+        "Bereite eine große Menge zu und friere ungegarte Tamales für schnelle spätere Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2356,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tamales/",
+      "components": [
+        {
+          "key": "18431d56-355e-5c5f-bcd8-70e7686ab276",
+          "name": "Zutaten",
+          "servingGrams": 576.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "084f1683-1c3b-538a-a292-b47b432f499b",
+              "ingredientName": "tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9bb7fbe2-b365-5acd-a161-905b41432667",
+              "ingredientName": "Masa Harina",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "159cc5e2-a598-5706-8a33-a422b17c0c62",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "37a35ec1-fcc1-578c-aa13-c4602a067bac",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "69bb267a-be51-531c-b4bf-cb8f92cfb8fd",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c7d61900-2673-530d-bb00-cfd17160bd15",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "fce6fb6c-366e-5cfc-b956-6d32c72ab6af",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "370b9a39-9f91-5084-a645-0a6652148138",
+              "ingredientName": "Salsa",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0972c3c0-fa96-5aa6-a356-d879ab7cefc5",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "75561352-a3f7-5e1b-bd27-43c0910b22df",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d6a48ed9-0f23-5464-9ada-a306fd17acdb",
+              "ingredientName": "weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Maishüllblätter 30 Minuten in heißem Wasser ein, bis sie weich sind. Gieße sie ab und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Butter oder Schmalz in einer großen Schüssel mit einem elektrischen Mixer 5 Minuten hell und luftig. Gib nach und nach Masa Harina, vermischt mit Backpulver und Salz, abwechselnd mit Hühnerbrühe hinzu, bis ein leichter, streichfähiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Prüfe den Teig, indem du ein kleines Stück in kaltes Wasser gibst. Wenn es schwimmt, ist er fertig; andernfalls schlage ihn länger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege ein weiches Maishüllblatt flach hin und verstreiche 2 Esslöffel Masa-Teig in der Mitte. Belege ihn mit 1 Esslöffel gezupftem Hähnchen, 1 Esslöffel Salsa, einigen Jalapeño-Scheiben und einem kleinen Stück Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe die Seiten des Maishüllblatts über die Füllung und dann den unteren Teil nach oben. Lasse die Oberseite offen (das ist die traditionelle Form).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die Tamales mit der offenen Seite nach oben dicht aneinander in einen Dämpftopf mit Wasser unter dem Dämpfeinsatz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Tamales mit zusätzlichen Maishüllblättern und einem feuchten Tuch ab. Setze den Deckel auf und dämpfe sie über kochendem Wasser 45 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Topf vom Herd und lasse die Tamales zugedeckt 5 Minuten ruhen, bevor du sie vorsichtig aus dem Dämpfeinsatz nimmst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß mit zusätzlicher Salsa als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/sft3Wj2RwuCghlgi8Q87SwFWt_Q=/4288x2848/filters:fill(auto,1)/dough-for-tamales-with-masa-harina-2342680-Hero-5b55fb0646e0fb0037daaf88.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/sft3Wj2RwuCghlgi8Q87SwFWt_Q=/4288x2848/filters:fill(auto,1)/dough-for-tamales-with-masa-harina-2342680-Hero-5b55fb0646e0fb0037daaf88.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-teriyaki-chicken",
+      "slug": "gen-teriyaki-chicken",
+      "title": "Teriyaki-Hähnchen",
+      "instructions": "Japanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot und friere es portionsweise ein",
+        "Verwende Honig oder braunen Zucker als Ersatz für Mirin"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2357,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-teriyaki-chicken/",
+      "components": [
+        {
+          "key": "0e561ca2-8ad0-5a8f-96aa-8cf656cfedae",
+          "name": "Zutaten",
+          "servingGrams": 72.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c96b1f73-a309-562c-bbf6-1cf4466eb986",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "91eeb31a-0f71-5e16-bec2-51e04f360397",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "7a3af0ee-fda5-5f34-89cb-7825252a36d9",
+              "ingredientName": "Mirin",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "5af7ff34-814c-55d9-9bd1-35cbf6dd6b20",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0e182d14-bcc0-5fec-9470-c4b45fd41a33",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9bed1563-b297-5855-a0b4-9771a63b1697",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "d81a2121-f27a-5eba-9b5e-f3f24c46ce20",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "ce977030-320a-5817-9c5f-a0b5bf40f948",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6eaf844b-b117-567b-8f3a-124e1ee3dcbe",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "77f3aab2-a0e2-53c1-a1b7-77c25ea6bc99",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen etwa 8-10 Minuten, bis es goldbraun und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Sojasoße, Mirin, Sake, Zucker, Knoblauch und Ingwer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Soße über das gegarte Hähnchen und lasse alles 3-4 Minuten köcheln, bis die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte das Gericht auf einem Teller an und garniere es mit Sesamsamen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/10/Instant-Pot-Chicken-Teriyaki-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/10/Instant-Pot-Chicken-Teriyaki-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-teppanyaki",
+      "slug": "gen-teppanyaki",
+      "title": "Teppanyaki",
+      "instructions": "Japanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende statt Rinderlende ein günstigeres rundes Steak",
+        "Kaufe Gemüse im Angebot und bereite es im Voraus vor"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2358,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-teppanyaki/",
+      "components": [
+        {
+          "key": "9a7b0f34-779d-5d50-b958-d71484f064f5",
+          "name": "Zutaten",
+          "servingGrams": 173.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "233403dc-e9a3-58eb-8ec4-b9a7aa923fd8",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "ccc6f61e-cb7c-53ee-bd76-42a515f92e52",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "785659ab-a572-50bf-8f84-3187af23823a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große, in Scheiben geschnitten"
+            },
+            {
+              "key": "ecb122f6-5dba-5eeb-b1c0-79f40a9b0dae",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "43bafbe3-40c4-5427-a078-286b66e303ae",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "b39ad7f3-89cd-51fd-a455-618bcc330fed",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "83dbbca2-a9bb-58f3-bcad-c712d9a52da6",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3898b25d-8878-5e49-996f-ce7113cc0c75",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9056f86e-5252-5e66-88f0-b862d452e98d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "16c027ba-f519-5469-ab04-59862ea9391a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große Pfanne oder Grillplatte bei hoher Hitze und gib 1 Esslöffel Pflanzenöl hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Rindfleisch, bis es gebräunt ist. Nimm es heraus und stelle es auf einem Teller beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl und die Butter hinzu und gare Zwiebeln und Zucchini weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Rindfleisch mit Pilzen und Knoblauch zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Sojasoße, Mirin und Sesamöl und gieße die Mischung über die Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge alles und gare es 2-3 Minuten, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit gedämpftem Reis oder Nudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://smellslikedelish.com/wp-content/uploads/2023/07/teppenyaki-sauce-vertical-1-Copy.jpg",
+          "sourcePageUrl": "https://smellslikedelish.com/wp-content/uploads/2023/07/teppenyaki-sauce-vertical-1-Copy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-miso-soup",
+      "slug": "gen-miso-soup",
+      "title": "Misosuppe",
+      "instructions": "Japanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Dashi aus Kombu und Bonitoflocken zu, statt Instant-Dashi zu kaufen",
+        "Kaufe Misopaste in größeren Mengen und bewahre sie im Gefrierfach auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2359,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-miso-soup/",
+      "components": [
+        {
+          "key": "6456558b-bba0-53ce-afd4-5e515723cfde",
+          "name": "Zutaten",
+          "servingGrams": 655,
+          "position": 0,
+          "items": [
+            {
+              "key": "8890425b-5692-550c-80a6-11c5d05402c8",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "20d9761a-f3f0-5459-9fc8-f565a49ce2b9",
+              "ingredientName": "Misopaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0d51e64e-2769-52c1-9607-39d8f36faddb",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen, gewürfelt"
+            },
+            {
+              "key": "65dc569b-098d-52a1-a984-9b856d6a0aa8",
+              "ingredientName": "getrocknete Wakame-Algen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0b14bfc9-347b-5d37-977d-096543e940ad",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, gehackt"
+            },
+            {
+              "key": "fd202647-ebe4-5394-bf2d-ad451d58ae3a",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1, in Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Dashi-Brühe in einem Topf bei mittlerer Hitze, bis sie dampft, aber nicht kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Wakame-Algen hinzu und lasse sie 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Misopaste in eine kleine Schüssel und löse sie mit etwas warmer Dashi-Brühe auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die aufgelöste Misopaste zurück in den Topf und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tofuwürfel dazu und lasse die Suppe weitere 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Suppe in Schüsseln und garniere sie mit Frühlingszwiebeln und Nori-Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/q5pzZZKO021eP9s4x_-Mq6m_I8Q=/4494x3000/filters:fill(auto,1)/basic-miso-soup-3377886_09-5b3f7fb6c9e77c00378bf68f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/q5pzZZKO021eP9s4x_-Mq6m_I8Q=/4494x3000/filters:fill(auto,1)/basic-miso-soup-3377886_09-5b3f7fb6c9e77c00378bf68f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

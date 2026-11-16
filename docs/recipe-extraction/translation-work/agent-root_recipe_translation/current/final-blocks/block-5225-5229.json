@@ -1,0 +1,957 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-soparnik",
+      "slug": "gen-soparnik",
+      "title": "Soparnik",
+      "instructions": "Kroatisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Spinat statt frischem, um Zeit und Geld zu sparen.",
+        "Geöffneter Filoteig hält sich im Kühlschrank mehrere Wochen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kroatisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5225,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soparnik/",
+      "components": [
+        {
+          "key": "31394157-358c-5268-9ff5-eee1419cd589",
+          "name": "Zutaten",
+          "servingGrams": 643.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "d3524d49-a304-54e8-abb2-a01a6a6f75aa",
+              "ingredientName": "Filoteig",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Blätter"
+            },
+            {
+              "key": "34772417-42e8-50cf-9885-66db2751f9b7",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "242bbd72-fe2c-58e6-a65f-461936036886",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "052b3e6b-22ae-5acd-a10b-42d903026ce1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "c9caf683-7354-52ea-9166-8cfc36d7d7e0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c9b963d-dfe6-5b95-8aff-0e4c8fb14d59",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "12df3091-e426-5224-b1e3-520100403bff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "32b98ac7-519f-57f9-ad5a-7d479b0de5e7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste die gewürfelte Zwiebel und den Knoblauch in Butter weich an. Gib den frischen Spinat dazu und gare ihn, bis er zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den gegarten Spinat in einer Schüssel mit Ricotta, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche ein Backblech mit Olivenöl und lege 3 Filoteigblätter darauf. Bestreiche jedes Blatt dazwischen mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Spinat-Käse-Mischung gleichmäßig auf dem Filoteigboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die übrigen 3 Filoteigblätter darauf und bestreiche auch sie jeweils dazwischen mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die oberste Teigschicht mit der restlichen Butter und ritze mit einem scharfen Messer Quadrate ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Soparnik bei 375°F 25–30 Minuten, bis er goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gradfood.com/wp-content/uploads/2023/10/Croatian-Soparnik-2-scaled.jpg",
+          "sourcePageUrl": "https://gradfood.com/wp-content/uploads/2023/10/Croatian-Soparnik-2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tapenade-toast",
+      "slug": "gen-tapenade-toast",
+      "title": "Toast mit Tapenade",
+      "instructions": "Französischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine größere Menge Tapenade zu und bewahre sie bis zu 2 Wochen im Kühlschrank auf.",
+        "Kaufe Oliven lose statt abgepackt, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "französisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5226,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tapenade-toast/",
+      "components": [
+        {
+          "key": "91845459-d18a-5c15-92d5-3c57b62bf449",
+          "name": "Zutaten",
+          "servingGrams": 896.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fa973dc-a027-5ca1-ab8b-322654446146",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "726a2535-1260-5b8f-9c5b-afa1ac9222d0",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0947dda6-4495-5f85-8a5c-5ad217c483fc",
+              "ingredientName": "Sardellenpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fbab0e0-e9ca-5cda-b6e9-f95ed0a885f8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cbeb905-7c93-503b-a33c-ee5649061569",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "02ad2a31-7972-5bf0-b8be-86b99103eb2e",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a52b92b6-97da-56b7-8a9d-a5739bffec68",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a47f0160-07a0-55a6-b963-a3687f702c44",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entsteine die Kalamata-Oliven und gib sie mit Kapern und Sardellen in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den gehackten Knoblauch dazu und pulsiere die Mischung, bis sie grob gehackt, aber noch nicht glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Olivenöl und Zitronensaft dazu und pulsiere einige Male, bis alles vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Brotscheiben goldbraun, bestreiche sie mit Tapenade, bestreue sie mit schwarzem Pfeffer und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2022/05/tapenade-1.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2022/05/tapenade-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-burrata-toast",
+      "slug": "gen-burrata-toast",
+      "title": "Burrata-Toast",
+      "instructions": "Italienisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Burrata im Angebot und verbrauche sie innerhalb von 2–3 Tagen, solange sie frisch ist.",
+        "Verwende Mozzarella di Bufala als preisgünstigere Alternative zu Burrata."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5227,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burrata-toast/",
+      "components": [
+        {
+          "key": "e7522a84-29a3-587a-8241-a0044bce39c4",
+          "name": "Zutaten",
+          "servingGrams": 562.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a763289-77e1-54ad-b509-6fa1c7a0c862",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "f161bc6a-c416-5c85-8d3b-3580e8098c61",
+              "ingredientName": "Geriebener Käse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "30ec600a-f1f4-520e-a1fc-f91ded5abca5",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "3ed77f75-3f51-516b-a728-7a39cce9c79c",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "1ec49f1b-8a21-5c3d-838e-d1c2ee739a2f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "82d7b467-db05-5222-b055-e99d8a06f4e4",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6e977190-aaf0-5eeb-a6c6-759295822a88",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "74ba834f-716f-5482-9b8e-622bbf148bb7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben, bis sie außen goldbraun und innen noch leicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Tomaten in Scheiben und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die warmen Toasts auf einen Teller und zupfe die Burrata vorsichtig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Tomatenscheiben auf der Burrata, gib frische Basilikumblätter dazu, beträufle alles mit Olivenöl und Balsamico-Essig und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.easyanddelish.com/wp-content/uploads/2023/04/Burrata-toast-half-of-one-slice.jpg",
+          "sourcePageUrl": "https://www.easyanddelish.com/wp-content/uploads/2023/04/Burrata-toast-half-of-one-slice.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-souffl-pancakes",
+      "slug": "gen-souffl-pancakes",
+      "title": "Soufflé-Pancakes",
+      "instructions": "Japanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Angebot und lege dir einen Vorrat an.",
+        "Verwende Mehl und Milch von der Hausmarke, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5228,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-souffl-pancakes/",
+      "components": [
+        {
+          "key": "72b229ff-befb-59cc-875c-4521a5b0b338",
+          "name": "Zutaten",
+          "servingGrams": 552.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "76a9c5e3-acf1-5efb-860c-6f0ffec65500",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae6e2c90-0292-5747-bcb8-7f7fc98e2bf3",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a6dd1cc2-ff12-55e1-be93-c43ad0de95cc",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "64854499-868c-53d0-83ca-c8accbbc8096",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b24c294d-d5bc-5467-87b5-63e1e44bd139",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "995dd2ca-ce4f-5776-92d0-789f609c9adb",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7ae47142-2be3-5604-8de6-caeb294c8a35",
+              "ingredientName": "Ahornsirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre in einer Schüssel Eigelb mit 1.5 EL Zucker, Milch, Vanille und Mehl zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage in einer zweiten Schüssel das Eiweiß mit dem restlichen Zucker steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe die Eiweißmasse in zwei Portionen vorsichtig unter die Eigelbmasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Butter in einer beschichteten Pfanne bei niedriger Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Teig in 3 Zoll großen Klecksen in die Pfanne und gare die Pfannkuchen zugedeckt 4 Minuten, bis die Unterseiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende sie vorsichtig und gare sie ohne Deckel weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stapele die Pancakes und serviere sie sofort mit Ahornsirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/n09d-JfiE-vSqzquH3UWPslAyCA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Japanese-Pancakes-LEAD-6-b950d6fd61624f9ab551b31043b24e4e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/n09d-JfiE-vSqzquH3UWPslAyCA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Japanese-Pancakes-LEAD-6-b950d6fd61624f9ab551b31043b24e4e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-burrata-salad",
+      "slug": "gen-burrata-salad",
+      "title": "Burrata-Salat",
+      "instructions": "Italienisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Burrata im Angebot und verbrauche sie innerhalb von 2–3 Tagen.",
+        "Verwende normalen Mozzarella als günstigere Alternative, falls keine Burrata erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5229,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burrata-salad/",
+      "components": [
+        {
+          "key": "a4f97593-78f3-5117-9b55-ccd0bee87f3f",
+          "name": "Zutaten",
+          "servingGrams": 701.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dc47d67-1c02-5cda-89ea-b03c210383e4",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e5e7aa0e-378c-587b-a057-9e4fe6ed8915",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "334bd52f-84f6-5d03-845e-77cf8f6ead30",
+              "ingredientName": "Rucola",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "81dacc22-cac5-5f19-9ccf-286ee20afe8c",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d0b6c661-ea97-5d95-aea7-ffad7a8f7767",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "76bb4c2f-82ec-5bdb-95d9-8517eacc86d5",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "81126d54-a839-5e27-adae-67bbdd636c8a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5a684df9-6e02-5109-8b06-3c2bbc0daad3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Kirschtomaten und gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den Rucola mit 2 EL Olivenöl, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Rucola als Grundlage auf zwei Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die halbierten Tomaten darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege je eine Burrata in die Mitte der Salate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle alles mit dem restlichen Olivenöl und Balsamico-Essig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zupfe frisches Basilikum und verteile es über dem Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2021/07/Tomato-Peach-and-Burrata-Salad-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2021/07/Tomato-Peach-and-Burrata-Salad-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

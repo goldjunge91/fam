@@ -1,0 +1,940 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-cabbage-wedges-soy-garlic",
+      "slug": "af-cabbage-wedges-soy-garlic",
+      "title": "Kohlspalten mit Soja-Knoblauch-Glasur",
+      "instructions": "Dicke Kohlspalten, in der Heißluftfritteuse mit einer Soja-Knoblauch-Glasur karamellisiert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 14,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "4 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Kohl ist das günstigste Gemüse pro Pfund – 4 Spalten reichen für 2 Portionen für weniger als $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup (vegan)"
+        },
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Brokkoli"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein halber Kohlkopf (~$0.60) + Zutaten für die Sauce aus dem Vorratsschrank = weniger als $1.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Chiliflocken",
+        "Frühlingszwiebel",
+        "Sesamsamen"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Heißluftfritteuse",
+        "vegan",
+        "Beilage",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 135,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-cabbage-wedges-soy-garlic/",
+      "components": [
+        {
+          "key": "e1776608-77a0-5be3-b0cf-af02f3d773f6",
+          "name": "Zutaten",
+          "servingGrams": 517.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4fb95b8-a8c9-57f7-b429-8de294839f4a",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9925db57-b3e5-543d-a8ee-5a7be35dd8b1",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00b5ee17-874e-5030-a621-207b935ef471",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9c8e449-4a93-57f4-8e6d-1c4e0c0b84bd",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b27e5a60-5cd6-5af0-9f4c-d5016531b52a",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a839c077-96f1-58d5-8b2a-34821b30029b",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Kohl in 4 dicke Spalten und lass den Strunk dran, damit die Blätter zusammenhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Öl, 1 EL Sojasauce, Knoblauchpulver und Honig. Bestreiche die Spalten damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 400°F ein und gare die Spalten 14 Minuten; wende sie nach 7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle sie vor dem Servieren mit der restlichen Sojasauce und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1584270354949-c26b0d5b4a0c",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Kohlspalten mit Soja-Knoblauch-Glasur",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-zucchini-chips",
+      "slug": "af-zucchini-chips",
+      "title": "Knusprige Zucchini-Chips",
+      "instructions": "Dünne Zucchinischeiben mit Parmesan paniert und in der Heißluftfritteuse knusprig gebacken.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Frisch essen; nach einer Stunde werden sie weich.",
+      "reheatingInstructions": "2 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Aus 2 Zucchini (~$1.50) werden mehr als 30 Chips – viel günstiger als eine gekaufte Tüte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger geriebener Hartkäse"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Kartoffelscheiben"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "2 Zucchini (~$1.50) + Gewürze aus dem Vorratsschrank ergeben gesunde Chips für weniger als $1 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Paprikapulver",
+        "Chiliflocken",
+        "Ranch-Dressing zum Dippen"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch inspiriert",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 136,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-zucchini-chips/",
+      "components": [
+        {
+          "key": "fbfc4994-772a-5277-8970-b63404b69b14",
+          "name": "Zutaten",
+          "servingGrams": 229.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d244e29-245a-59a4-87a5-6d3d36bda4f0",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2907ddad-c00b-58ee-9edd-df15cc1896aa",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c57417d-1867-5bfc-a753-9fb158f2b09f",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "866974da-ceb3-5a77-9c26-0fa49b3b8777",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f1d8745-b754-5302-955d-5e88e46312fc",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "131eb968-7c7d-5f63-aa25-31d90bb71086",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Zucchini in 1/4 Zoll dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Öl und wende sie in Parmesan, Knoblauchpulver, italienischer Kräutermischung und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile sie in einer Lage im Korb. Lege nicht zu viele hinein, sonst dämpfen sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 400°F ein und gare die Scheiben 10 Minuten; wende sie nach 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Iss sie heiß, solange sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Zucchini_with_herbs%2C_air_fried_on_a_plate.jpg/960px-Zucchini_with_herbs%2C_air_fried_on_a_plate.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zucchini_with_herbs,_air_fried_on_a_plate.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Infrogmation of New Orleans — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Zucchini-Chips",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-cauliflower-buffalo-bites",
+      "slug": "af-cauliflower-buffalo-bites",
+      "title": "Buffalo-Blumenkohl-Happen",
+      "instructions": "Blumenkohlröschen in Mehl gewendet, knusprig gebacken und in einer scharfen Buffalo-Butter-Sauce geschwenkt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 13,
+      "storageInstructions": "Frisch essen; die Sauce macht sie weich.",
+      "reheatingInstructions": "Die Röschen vor dem erneuten Wenden in Sauce 3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Blumenkohlröschen (~$2) und scharfe Sauce aus dem Vorratsschrank ergeben einen Snack oder eine Beilage für weniger als $1.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Frischer Blumenkohl (Tiefkühlröschen eignen sich ebenfalls)"
+        },
+        {
+          "forIngredientId": "ranch",
+          "swap": "Griechischer Joghurt + getrocknete Kräuter"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 13,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Blumenkohlröschen + scharfe Sauce, Butter und Mehl aus dem Vorratsschrank ergeben vegetarische Wings für weniger als $1.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Blauschimmelkäsebrösel",
+        "Selleriestangen",
+        "Frühlingszwiebel"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "scharf",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 137,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-cauliflower-buffalo-bites/",
+      "components": [
+        {
+          "key": "f6a4c601-b389-565e-91f7-0cdc8b1a6f25",
+          "name": "Zutaten",
+          "servingGrams": 760,
+          "position": 0,
+          "items": [
+            {
+              "key": "66f28536-b265-5230-9263-184de33f5acc",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "oder eine entsprechende Menge Blumenkohl verwenden"
+            },
+            {
+              "key": "793d40b8-77ce-5334-a74d-eb61a96d6f1d",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4efd28e-b6af-53aa-98aa-4150ef17ea4e",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dd4f8f1-ebe5-56c1-a0b1-a05012800727",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c341958-bfcb-55fe-a039-1b71c3098a8f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9de94c1-10ac-5ef2-baab-f7b8926f6281",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a3d87cc-78d3-507a-8ce5-dd3f0979f604",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff8d77c6-f3b7-5a52-9e25-980ed1d9ee72",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Röschen in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Mehl, Knoblauchpulver, Salz und Öl, bis sie rundum bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 400°F ein und gare die Stücke 13 Minuten; schüttle den Korb nach 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme scharfe Sauce und Butter 30 Sekunden in der Mikrowelle und verrühre alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende die knusprigen Röschen in der Buffalo-Sauce und serviere sie mit Ranch-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Honey_Garlic_Cauliflower_Bites_-_Cadillac_Farmers_Market_%2828915434070%29.jpg/960px-Honey_Garlic_Cauliflower_Bites_-_Cadillac_Farmers_Market_%2828915434070%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Honey_Garlic_Cauliflower_Bites_-_Cadillac_Farmers_Market_(28915434070).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: A Healthier Michigan — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger, goldbrauner Blumenkohlröschen mit Frühlingszwiebeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-frozen-vegetable-crisp-bowl",
+      "slug": "af-frozen-vegetable-crisp-bowl",
+      "title": "Knusprige Tiefkühlgemüse-Schüssel",
+      "instructions": "Einfach die vorhandene Tüte Tiefkühlgemüse aus dem Gefrierfach nehmen und in der Heißluftfritteuse knusprig zubereiten.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Gemischtes Tiefkühlgemüse (~$0.40 pro Tasse) ist besonders zuverlässig und günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Nur Tiefkühlbrokkoli"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger Käse"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "2 Tassen Tiefkühlgemüse (~$0.80) + Gewürze aus dem Vorratsschrank + 1 EL Parmesan = weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Chiliflocken",
+        "Frische Kräuter",
+        "Balsamicoessig"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Vorratsküche",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "preiswert"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 138,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-frozen-vegetable-crisp-bowl/",
+      "components": [
+        {
+          "key": "4d8be499-e893-51fb-9273-67740e9a1f05",
+          "name": "Zutaten",
+          "servingGrams": 534.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "eff4024a-fe8d-5253-b5d8-5beae284041d",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08b2cea7-cf1c-5af4-a9c7-91ecd06c58c5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2baf7a29-8ccb-57fe-8eff-42d2c06de121",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8ee16c9-8537-5058-9fb8-fe180e9a2113",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed5bb7a0-6302-519a-90f4-a4e890620ce4",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "a481387f-d4e0-5269-9cb8-a9b39f77f255",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib das gefrorene Gemüse direkt in den Korb und taue es nicht auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beträufle es mit Öl und streue italienische Kräutermischung und Salz darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 400°F ein und gare alles 12 Minuten; schüttle den Korb alle 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge das Gemüse nach Wunsch mit Parmesan und Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1617297813124-3ae34e1596b4?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1617297813124-3ae34e1596b4",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer knusprigen Tiefkühlgemüse-Schüssel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-corn-potato-hash",
+      "slug": "af-corn-potato-hash",
+      "title": "Kartoffel-Mais-Rösti",
+      "instructions": "Gewürfelte Kartoffeln und Mais in der Heißluftfritteuse goldbraun gebacken und mit Paprikapulver abgeschmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 17,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "4 Minuten bei 380°F in der Heißluftfritteuse wieder knusprig backen.",
+      "cheapTips": [
+        "2 Kartoffeln + 1 Tasse Tiefkühlmais ergeben ein ganzes Frühstück für 2 Personen für weniger als $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-corn",
+          "swap": "Gemischtes Tiefkühlgemüse"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 17,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "2 mehligkochende Kartoffeln (~$0.80) + 1 Tasse Tiefkühlmais (~$0.40) = weniger als $1 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Spiegelei obenauf",
+        "Scharfe Sauce",
+        "Geriebener Käse"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegan",
+        "Frühstück",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 139,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-corn-potato-hash/",
+      "components": [
+        {
+          "key": "f1122d80-1c64-5f3c-b271-45c5359fbbbb",
+          "name": "Zutaten",
+          "servingGrams": 310,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fd36596-a4c8-5f3a-9d01-f08073fca09f",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e0b3e0d-83d0-50df-8243-2155c47a3c13",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4670f1ec-bbf9-5cc2-a688-210bad055468",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2821fc25-36dc-5c40-9e6c-f0c2b8631a17",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b08f749-fda9-5931-a405-cc520cd69ae7",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95b13acc-4da6-5a79-ab6f-353cf30bc085",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca30937b-29da-5f3d-a193-f0f66ac8846c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in 1/2 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Kartoffeln mit Öl, Paprikapulver, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 400°F ein und gare die Kartoffeln 12 Minuten; schüttle den Korb nach 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib für die letzten 5 Minuten den Tiefkühlmais dazu (weiterhin bei 400°F garen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte alles auf einem Teller an und garniere es mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1641898378503-327316fdde77?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1641898378503-327316fdde77",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Kartoffel-Mais-Rösti",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

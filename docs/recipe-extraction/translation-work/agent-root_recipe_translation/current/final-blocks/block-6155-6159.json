@@ -1,0 +1,1375 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chettinad-biryani",
+      "slug": "gen-chettinad-biryani",
+      "title": "Chettinad-Biryani",
+      "instructions": "Ein beliebtes Chettinad-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Langkornreis statt Basmatireis und halbiere die Kosten.",
+        "Kaufe ganze Gewürze in größeren Mengen und mahle sie zu Hause."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chettinad",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6155,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chettinad-biryani/",
+      "components": [
+        {
+          "key": "dd1c2e31-fb51-50e1-a3eb-32984ec8cab2",
+          "name": "Zutaten",
+          "servingGrams": 632.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "5054a87c-158f-575c-80e0-8b25ab25a613",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "795901c7-a672-53fe-a7fe-f476652a50c2",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e32a867d-9fa0-5492-9413-e9dfa925a67f",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "e44ce996-37dc-53f8-82d6-19f0a74bd4ac",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a92561fe-63a5-5fc7-b1db-368238b321a5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL fein gehackt"
+            },
+            {
+              "key": "e4ceb9e0-02e5-5039-b346-992c2e3e0588",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "10fa3f40-5fb5-595b-8cfb-ce5ccc60cfe0",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "72568b9d-bb5d-5460-be0a-e80d5d312ada",
+              "ingredientName": "Ghee",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "5 EL"
+            },
+            {
+              "key": "e4f19157-7bb6-5bf1-8222-388387fbf2bb",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "932e5e9c-9e1f-50bd-9a1e-628d605bff67",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "573c2959-40cd-5ca4-862c-902c9f80c99b",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a43e56e7-5bc1-5573-911e-255a0c9783c6",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b27b52f-00f6-5596-b947-273e24638b71",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "93093731-7b2c-58cc-8d02-64bc39e35906",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "09cee8fa-890c-5cb7-bcc6-6e4944aa7eef",
+              "ingredientName": "Kurkuma",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "6639591c-e42c-5011-9512-4c02e16f9e73",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f38f60f1-8627-5471-9d6c-e53801a7800b",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in mittelgroße Stücke und mariniere es 15 Minuten in Joghurt, Ingwer-Knoblauch-Paste, Chilipulver und Kurkuma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide 3 Zwiebeln in dünne Scheiben und 1 Zwiebel in Ringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiche den Basmatireis 20 Minuten in Wasser ein und gieße ihn anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche Wasser mit Lorbeerblättern, Zimt, Kardamom und Nelken in einem großen Topf auf. Gib den abgetropften Reis mit Salz dazu und gare ihn, bis er zu 70% gar ist. Gieße ihn anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze 2 tbsp Ghee in einem schweren Topf und brate die Zwiebelscheiben dunkelgolden an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze das restliche Ghee im selben Topf und brate das marinierte Hähnchen bei hoher Hitze unter Rühren 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue die Hälfte der gebratenen Zwiebeln über das Hähnchen und verteile den halbgegarten Reis gleichmäßig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue die restlichen gebratenen Zwiebeln darüber und beträufle den Reis mit Kokosmilch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Decke den Topf fest mit Folie und anschließend mit einem Deckel ab. Gare alles bei hoher Hitze 2 Minuten, bis Dampf entsteht, reduziere dann die Hitze und gare es weitere 20-25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schalte die Hitze aus und lass den Topf zugedeckt 5 Minuten ruhen. Lockere den Reis vorsichtig mit einer Gabel auf und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vismaifood.com/storage/app/uploads/public/914/f47/fa9/thumb__1200_0_0_0_auto.jpg",
+          "sourcePageUrl": "https://vismaifood.com/storage/app/uploads/public/914/f47/fa9/thumb__1200_0_0_0_auto.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nandu-masala",
+      "slug": "gen-nandu-masala",
+      "title": "Nandu Masala",
+      "instructions": "Ein beliebtes Chettinad-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Krabben im Angebot tiefgekühlt und bewahre sie für später auf.",
+        "Verwende Krabbenbeine statt ganzer Krabben, um die Zubereitung zu erleichtern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chettinad",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6156,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nandu-masala/",
+      "components": [
+        {
+          "key": "9cef9027-7e2b-5b7c-a490-80544795e669",
+          "name": "Zutaten",
+          "servingGrams": 329.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "c96a8645-7c6b-5bdf-8a5a-eab65f027d18",
+              "ingredientName": "Krebsfleischimitat",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "46938ff0-5c63-530a-b1a2-9bb3679deb46",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "42f9231b-f80a-5360-80d0-3e90b6b176ba",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a26db29-d1d7-5d2e-accd-459e72b209c4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL fein gehackt"
+            },
+            {
+              "key": "5dd9fe60-9ae2-55fe-a535-9f83ab1be4da",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0eadad9b-13e7-51d0-a2fc-af7184c4540e",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "bb4cc8f6-aa42-5698-8bf1-21b1b445e2ab",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "50e7fd6b-d78a-566c-a631-0fe7e3b1b611",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "22c6ec06-258a-5056-ba1b-e51cfe34e70b",
+              "ingredientName": "Kokosöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "06531dfa-ecdf-5346-955c-c5e23c0f482a",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "adccbf63-80dd-557f-861d-69f6f6760527",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bc20f624-2363-552c-bc34-d7a649b6efd6",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "672f23ba-b56b-5598-85ed-255dc1382d88",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "db458bde-4df2-51f1-a2a4-4d1e657bea09",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere die Krabbe, viertle sie und spüle sie gründlich unter kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Koriandersamen, Kreuzkümmelsamen und schwarze Pfefferkörner 1 Minute in einer trockenen Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mahle die gerösteten Gewürze mit Knoblauch, Ingwer und 2 tbsp Wasser zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Kokosöl in einer großen Pfanne, gib gehackte Zwiebeln dazu und brate sie goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib grüne Chilischoten und Curryblätter dazu und rühre 30 Sekunden um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gemahlene Gewürzpaste dazu und gare sie unter häufigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Chilipulver und Kurkumapulver ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib die Krabbenstücke dazu und gare sie bei hoher Hitze 3 Minuten. Rühre dabei um, damit sie mit Masala überzogen werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gieße Wasser dazu, decke die Pfanne ab und lass alles 12-15 Minuten köcheln, bis die Krabbe gar und das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Würze mit Salz und serviere das Gericht heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://platetopalateblog.com/wp-content/uploads/2020/05/20200126_121150-scaled.jpg",
+          "sourcePageUrl": "https://platetopalateblog.com/wp-content/uploads/2020/05/20200126_121150-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chettinad-egg-curry",
+      "slug": "gen-chettinad-egg-curry",
+      "title": "Chettinad-Eiercurry",
+      "instructions": "Ein beliebtes Chettinad-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in größeren Mengen im Großhandel.",
+        "Reduziere die Kokosmilch um die Hälfte und ergänze Wasser, um das Budget weiter zu schonen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chettinad",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6157,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chettinad-egg-curry/",
+      "components": [
+        {
+          "key": "98e20618-0fbf-5969-a95b-a6934070b4ae",
+          "name": "Zutaten",
+          "servingGrams": 344.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7118b44-0b61-5f31-a1c8-0e57b71e528d",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d834a461-de32-5216-bf47-94021307ecf5",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 oz)"
+            },
+            {
+              "key": "410b8842-de4a-5dd9-a506-0ec43f54f73d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "6f861af0-c23b-5597-ac09-d85782f2ddf2",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49273aad-6aaf-549e-b3a5-43872836f610",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "b84ad17f-aa86-54c6-b320-25cb09018e3d",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44a2bb07-e909-5788-a119-8f44e489a9a9",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1e4ddc5d-d620-5df6-86d7-71a03598f08e",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6bd167a9-e1d1-5207-8c1c-724ce0d0b090",
+              "ingredientName": "Kokosöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2ba1ec30-68e8-56ad-93ea-501cec2ad217",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "c2c49ae9-104b-55f0-a179-50c7bf6d7a5a",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "cc19e8ba-999d-55fa-8de6-81e6d51d12c6",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "90bfd7a3-cf83-55b5-8a8e-3fe10b24adb8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 10 Minuten hart, schäle sie und halbiere sie anschließend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Koriander- und Kreuzkümmelsamen 1 Minute in einer trockenen Pfanne an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die gerösteten Gewürze mit Knoblauch, Ingwer, grünen Chilischoten und 3 tbsp Kokosmilch zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Kokosöl in einer Pfanne und dünste gehackte Zwiebeln goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Gewürzpaste dazu und gare sie unter ständigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Kurkuma, Chilipulver und Curryblätter ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die restliche Kokosmilch hinein und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib die Eierhälften vorsichtig dazu und lass sie 3-4 Minuten heiß werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Würze mit Salz und serviere das Curry heiß mit Reis oder Dosa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://yourfoodfantasy.com/wp-content/webpc-passthru.php?src=https://yourfoodfantasy.com/wp-content/uploads/2018/04/South-Indian-Chettinad-Egg-Curry-Recipe-Your-Food-Fantasy.jpg&nocache=1",
+          "sourcePageUrl": "https://yourfoodfantasy.com/wp-content/webpc-passthru.php?src=https://yourfoodfantasy.com/wp-content/uploads/2018/04/South-Indian-Chettinad-Egg-Curry-Recipe-Your-Food-Fantasy.jpg&nocache=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thalippu-sadam",
+      "slug": "gen-thalippu-sadam",
+      "title": "Thalippu Sadam",
+      "instructions": "Ein beliebtes Chettinad-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Reis vom Vortag, damit das Gericht sofort zubereitet ist.",
+        "Lass Cashewkerne weg und verwende Erdnüsse zum halben Preis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chettinad",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6158,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thalippu-sadam/",
+      "components": [
+        {
+          "key": "beffaea3-a4fe-5273-88aa-c260beb50e93",
+          "name": "Zutaten",
+          "servingGrams": 387.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b7390844-c14a-5ddf-a434-eb95c4d9fe17",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0c0f4d07-e944-551f-ac67-4f12a45a6ca7",
+              "ingredientName": "Kokosöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "47fd51fa-40f6-5b06-b5bb-1d1fca0a261e",
+              "ingredientName": "Senfsamen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "6c81c077-c072-5018-9b08-7475db843f26",
+              "ingredientName": "Urdbohnen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "59660bcb-15d6-51fa-8623-b48164efe906",
+              "ingredientName": "Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34bad311-1c3f-5f15-96a8-c40572818c22",
+              "ingredientName": "Curryblätter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "fb17b8e8-2a78-5389-8034-ccabd9f824fd",
+              "ingredientName": "Asant",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "2b511a9f-7912-57a8-8c89-63309f140467",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "310af1e9-c9e4-52b4-ab39-eb7bba8697bf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4ab21eb5-72f3-586e-98e6-09436a6f4201",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5533a5ab-6ca9-5947-a13c-2c72d65e64a6",
+              "ingredientName": "Cashewkerne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Kokosöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib schwarze Senfsamen dazu und lass sie etwa 30 Sekunden aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Urdbohnen dazu und gare sie etwa 1 Minute goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib getrocknete rote Chilischoten und Curryblätter dazu und brate alles 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackte Zwiebeln dazu und gare sie etwa 2 Minuten glasig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Erbsen und Cashewkerne ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Asantpulver dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib den gekochten Reis dazu und vermenge alles vorsichtig, aber gründlich. Löse dabei Klümpchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Schmecke mit Salz ab und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://traditionallymodernfood.com/wp-content/uploads/2023/07/ulundhu-soru-ulundhu-sadam-25-2048x1667.jpeg",
+          "sourcePageUrl": "https://traditionallymodernfood.com/wp-content/uploads/2023/07/ulundhu-soru-ulundhu-sadam-25-2048x1667.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nattu-kozhi-roast",
+      "slug": "gen-nattu-kozhi-roast",
+      "title": "Nattu-Kozhi-Braten",
+      "instructions": "Ein beliebtes Chettinad-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenviertel mit Keule statt einzelner Keulen, um günstiger einzukaufen.",
+        "Karamellisiere Zwiebeln im Voraus und spare Zeit."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chettinad",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6159,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nattu-kozhi-roast/",
+      "components": [
+        {
+          "key": "68e8a3d0-34cf-50b7-958c-12962e603eab",
+          "name": "Zutaten",
+          "servingGrams": 242.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "29900155-0636-519e-9acb-4edcc16c69c6",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.75 Pfund"
+            },
+            {
+              "key": "ac070d24-4cc7-57b2-ac82-9d0e13598f0c",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "a027872b-91c8-5356-a100-ce9ad9e0ff8a",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cd37c37-7603-5ff5-a50e-3f04165e552d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL fein gehackt"
+            },
+            {
+              "key": "96a8176d-ff31-5638-ab28-5d1a8e3ce9e7",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68aa5374-fe22-510b-bf46-803085146f38",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "458d3fd4-5a6e-511a-bc3d-b55c8177d44a",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "30491fa9-ff3e-545f-9a6f-d8f6d6e96fa1",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0add5805-2bab-5f3d-9df9-8953de24afa2",
+              "ingredientName": "Kokosöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "5 EL"
+            },
+            {
+              "key": "226a0f37-e06f-5299-a706-04772c9c2100",
+              "ingredientName": "Curryblätter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "3b15f2ac-8047-50a5-b425-b5c33eb03d74",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "18a9acf6-c960-5260-ba72-b866097d392c",
+              "ingredientName": "Kurkuma",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "575815ee-9e3f-573a-b194-01befcb538d7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Koriandersamen, Kreuzkümmelsamen und schwarze Pfefferkörner 1 Minute in einer trockenen Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mahle die gerösteten Gewürze mit Knoblauch, Ingwer und grünen Chilischoten zu einer groben Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Hähnchenoberkeulen in mittelgroße Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Kokosöl in einer großen Pfanne mit schwerem Boden bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib geschnittene Zwiebeln dazu und karamellisiere sie unter gelegentlichem Rühren etwa 8-10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gemahlene Gewürzpaste dazu und gare sie unter Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Chilipulver und Kurkuma ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Hähnchenstücke und Curryblätter dazu und gare sie bei hoher Hitze 5 Minuten. Rühre dabei um, damit alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Reduziere die Hitze auf mittel-niedrig und gare alles ohne Deckel 20-25 Minuten. Rühre gelegentlich um, bis das Hähnchen gar ist und die Zwiebeln tief karamellisiert und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Würze mit Salz und serviere das Gericht heiß mit Reis oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.snazzycuisine.com/wp-content/uploads/2017/04/Kozhi-Prichathu-priya.jpg",
+          "sourcePageUrl": "https://www.snazzycuisine.com/wp-content/uploads/2017/04/Kozhi-Prichathu-priya.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,954 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-instant-ramen",
+      "slug": "gen-instant-ramen",
+      "title": "Instant-Ramen",
+      "instructions": "Schnelle Ramen-Suppe mit Ei, Gemüse und würziger Sojasauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ramen in Großpackungen bei Discountern für weniger als $0.30 pro Packung.",
+        "Verwende tiefgekühltes Gemüse statt frischem, um Geld und Vorbereitungszeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5105,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-instant-ramen/",
+      "components": [
+        {
+          "key": "5f2416e5-8f80-536f-ac8b-92b6cf059451",
+          "name": "Zutaten",
+          "servingGrams": 844,
+          "position": 0,
+          "items": [
+            {
+              "key": "15f7583f-fcfd-54b6-b530-301109978317",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dab27450-7c21-51f3-a36c-2bd32f96c912",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "12e3b78f-6bd5-5f81-a07f-194215e77c67",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99c8f3f6-7fd6-5028-8f7e-74864aba5c28",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d8001be-73a3-5e30-84ee-e24160c2dfa4",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "99f5c931-f621-5587-85f8-0e7ea20d0a6e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41e79c61-1301-5ecc-bcab-530288f31965",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8070cfa4-c3fd-54b9-bd67-f0cc4ead008f",
+              "ingredientName": "Gemüsemischung (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 4 cups Wasser in einem großen Topf sprudelnd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Ramen-Nudeln hinein und koche sie 3 Minuten. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, gehackten Knoblauch und Sesamöl in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das tiefgekühlte Gemüse in den Topf und koche es 1 Minute mit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze leicht und schlage die Eier vorsichtig in die köchelnde Brühe, um sie 2 Minuten pochieren zu lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Sojasaucenmischung in den Topf und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Ramen auf zwei Schüsseln, garniere sie mit Frühlingszwiebeln und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2022/12/cheesy-ramen-120122-TOH-06_Lauren-Habermehl-for-Taste-of-Home_MLedit.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2022/12/cheesy-ramen-120122-TOH-06_Lauren-Habermehl-for-Taste-of-Home_MLedit.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-peanut-butter-and-jelly-sandwich",
+      "slug": "gen-peanut-butter-and-jelly-sandwich",
+      "title": "Erdnussbutter-Marmeladen-Sandwich",
+      "instructions": "Ein einfaches amerikanisches Sandwich aus Erdnussbutter und Marmelade auf gebuttertem Brot.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Erdnussbutter und Marmelade der Hausmarke, um deutlich zu sparen.",
+        "Verwende Vollkornbrot für zusätzliche Nährstoffe zu ähnlichen Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5106,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-peanut-butter-and-jelly-sandwich/",
+      "components": [
+        {
+          "key": "149807c5-2bd7-5cd7-b980-baa6b074a340",
+          "name": "Zutaten",
+          "servingGrams": 110,
+          "position": 0,
+          "items": [
+            {
+              "key": "d62a3859-7cd5-55e2-b0e5-335be363dd5e",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75d21dc3-1aae-5b06-bf05-f961c20725f0",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "be09c822-71f7-54ff-a87c-567032cd7ba2",
+              "ingredientName": "Marmelade",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "8c72183f-eb3f-5e61-883f-7d7732f3fbb7",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche jeweils eine Seite der Brotscheiben leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verstreiche Erdnussbutter gleichmäßig auf der gebutterten Seite einer Scheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verstreiche Gelee oder Marmelade gleichmäßig auf der gebutterten Seite der anderen Scheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Scheiben so zusammen, dass Erdnussbutter und Marmelade innen liegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide das Sandwich diagonal durch und serviere es sofort oder wickle es für später ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/WGL8iOPCM_Mg5_OwTgvTXy53Gjk=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/gourmet-peanut-butter-and-jelly-recipe-305473-step-02-f6b7aa8478aa44fb9e841989bfcaf13f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/WGL8iOPCM_Mg5_OwTgvTXy53Gjk=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/gourmet-peanut-butter-and-jelly-recipe-305473-step-02-f6b7aa8478aa44fb9e841989bfcaf13f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eggs-on-toast",
+      "slug": "gen-eggs-on-toast",
+      "title": "Eier auf Toast",
+      "instructions": "Britisches Frühstück mit cremigem Rührei auf gebuttertem Toast.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in Großpackungen und bewahre sie während der Woche im Kühlschrank auf.",
+        "Verwende Brot der Hausmarke, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "britisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5107,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eggs-on-toast/",
+      "components": [
+        {
+          "key": "e5e4d66c-25fb-5cdf-9c25-b2bfa4450fd1",
+          "name": "Zutaten",
+          "servingGrams": 272.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2d2688f-eb27-5a48-9cbb-1675f0827e93",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dc0f81b-8337-50bf-8190-3f48f4d4a6f1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f360067d-ce9b-556e-822f-3c8d0060a8af",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4778db19-0ee2-5f5f-bc12-818378e55b86",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "50e8482a-952b-5b5f-9fee-3450d177076d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "775cc7bf-5477-5931-9b3a-dc58d2f87742",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben goldbraun und lege sie auf einen Servierteller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche den warmen Toast großzügig auf beiden Seiten mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass 1 Esslöffel Butter in einer beschichteten Pfanne bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage die Eier in einer Schüssel auf, gib Milch, Salz und Pfeffer dazu und verquirle alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiermischung in die heiße Pfanne und rühre sie mit einem Pfannenwender etwa 3-4 Minuten, bis sie gerade gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Rührei auf den gebutterten Toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit zusätzlichem Salz und Pfeffer und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/12437_1_1750594451.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/12437_1_1750594451.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-puttanesca",
+      "slug": "gen-puttanesca",
+      "title": "Puttanesca",
+      "instructions": "Italienische Pasta mit Tomaten, Kalamata-Oliven, Kapern, Knoblauch und Sardellen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Oliven und Kapern aus Großpackungen, um Geld zu sparen.",
+        "Verwende Dosentomaten statt frischer, damit das Gericht das ganze Jahr über günstig bleibt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5108,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puttanesca/",
+      "components": [
+        {
+          "key": "566cd014-218c-5046-9318-b9d9aac262cf",
+          "name": "Zutaten",
+          "servingGrams": 1163.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c9a6ae2-52ad-5c9e-8558-b4d4d81344db",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9372dd6e-4cb4-5fce-8630-42cd4a4dbbe7",
+              "ingredientName": "Tomate",
+              "grams": 2400,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "c63e2a8f-cc31-5eb9-a64e-a39cba38641e",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9271885f-01a0-5f32-a6ce-f69bd90dfcfe",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "78be38d6-a146-5c12-9629-586c75508466",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "313d1fce-cc40-5880-92bc-4a2d9c79aefd",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0b04ad04-a61f-5dc7-a144-56f7dd6a2fad",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "291a5be8-2816-5773-be64-c523b8a8afd8",
+              "ingredientName": "Sardellenpaste",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50c2163e-338c-50c9-a0a1-745a31b2a85b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "49a8a5dc-6aa6-5fec-94ac-63507acd6196",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf mit gesalzenem Wasser zum Kochen und koche die Spaghetti nach Packungsanleitung bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke die Knoblauchzehen fein und schneide die Sardellen in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze. Gib gehackten Knoblauch, Chiliflocken und Sardellen dazu und rühre 1 Minute, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Dosentomaten samt Saft, Oliven und Kapern in die Pfanne und lass die Sauce 8-10 Minuten unter gelegentlichem Rühren köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die gekochte Pasta abtropfen, gib sie zur Sauce und vermenge sie, bis sie gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke die Pasta mit Salz und schwarzem Pfeffer ab und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/07/puttanesca.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/07/puttanesca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-chicken-breast-with-quinoa",
+      "slug": "gen-grilled-chicken-breast-with-quinoa",
+      "title": "Gegrillte Hähnchenbrust mit Quinoa",
+      "instructions": "Eiweißreiches amerikanisches Gericht mit gegrillter Hähnchenbrust und lockerer Quinoa.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie für später ein.",
+        "Kaufe Quinoa in Großpackungen, um die Kosten pro Pfund zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5109,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-chicken-breast-with-quinoa/",
+      "components": [
+        {
+          "key": "ed613ea7-f6fa-5736-92b9-186db596e054",
+          "name": "Zutaten",
+          "servingGrams": 298.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "030f11eb-218f-50e4-a14d-66fbde151539",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Brustfilets"
+            },
+            {
+              "key": "c6243b0d-3731-51cc-8474-951879e6e7bf",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b7e05a4d-7ad7-5f48-ad8b-2f8486eef467",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f978186c-d014-57e9-ad5e-1adf1cc52caa",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "25146490-cf1c-58b3-b2c4-c2bbe7984964",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "223da3cb-3037-5269-bb02-a544c5276980",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "26bdf8e4-8b14-5971-9ba9-44ccd0d716de",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3c7e380b-dcc6-54ec-be7a-1fc6a9a4d24a",
+              "ingredientName": "Paprikapulver",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "574494f6-0084-50aa-9e27-57e2682b8bc2",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Quinoa unter kaltem Wasser ab und gib sie mit Hühnerbrühe in einen Topf. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze, decke den Topf ab und lass die Quinoa 15 Minuten köcheln, bis die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe die Hähnchenbrüste trocken und würze beide Seiten mit Knoblauchpulver, Paprikapulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche einen Grill oder eine Grillpfanne mit Olivenöl und erhitze ihn bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Hähnchenbrüste pro Seite 6-7 Minuten, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Hähnchen vom Grill und beträufle es mit Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere die gekochte Quinoa mit einer Gabel auf und verteile sie zusammen mit dem Hähnchen auf Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://delishar.com/wp-content/uploads/2017/03/Quinoa-Salad-with-Grilled-Maple-Chicken-2.jpg",
+          "sourcePageUrl": "http://delishar.com/wp-content/uploads/2017/03/Quinoa-Salad-with-Grilled-Maple-Chicken-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

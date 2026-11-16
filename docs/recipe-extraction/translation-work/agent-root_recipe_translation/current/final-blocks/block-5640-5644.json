@@ -1,0 +1,951 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-campfire-corn-on-the-cob",
+      "slug": "gen-campfire-corn-on-the-cob",
+      "title": "Maiskolben vom Lagerfeuer",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mais im Sommer kaufen, wenn er am günstigsten ist",
+        "Butter weglassen oder durch Olivenöl ersetzen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "dairy-free",
+        "amerikanisch",
+        "Abendessen",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5640,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-campfire-corn-on-the-cob/",
+      "components": [
+        {
+          "key": "004d4503-b5f9-5206-bc2d-dd8f989e80cb",
+          "name": "Zutaten",
+          "servingGrams": 272.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "573f9cd5-7953-594a-a5fd-16bc081465fb",
+              "ingredientName": "Maiskolben",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Kolben"
+            },
+            {
+              "key": "ad043ce1-31c0-542d-a4d1-93dfe61249a2",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "16be3579-5d15-5850-97be-70b257f45771",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "0b8df85c-ef8c-5d52-b208-c69f5367d128",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "0bd1fb64-dc44-562e-9140-e947f89bb4b7",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "c9e02608-9eff-5e0e-b2ef-4dffaf3e7ce6",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Maishüllblätter zurückziehen, aber nicht ganz entfernen. Möglichst viel Maisseide abziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hüllblätter wieder über die Maiskörner klappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Mais mindestens 10 Minuten in Wasser einweichen, damit die Hüllblätter nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den eingeweichten Mais direkt auf einen Rost 4–6 Zoll über die Kohlen legen oder in Folie wickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "15–20 Minuten garen und gelegentlich mit einer Zange wenden, bis die Hüllblätter leicht verkohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Mais vorsichtig vom Feuer nehmen und die Hüllblätter abziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Großzügig mit weicher Butter bestreichen und vor dem Servieren mit Salz, Pfeffer und Knoblauchpulver würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/06/Corn-on-the-Cob_EXPS_TOHVP25_279692_MF_05_20_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/06/Corn-on-the-Cob_EXPS_TOHVP25_279692_MF_05_20_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-foil-packet-fish",
+      "slug": "gen-foil-packet-fish",
+      "title": "Fischpäckchen aus Folie",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fischfilets tiefgekühlt im Angebot kaufen und vor dem Garen auftauen, um 40 % zu sparen",
+        "Dill weglassen und schlicht mit Salz, Pfeffer und Zitronensaft würzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "glutenfrei",
+        "dairy-free",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5641,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-foil-packet-fish/",
+      "components": [
+        {
+          "key": "a923229e-e6d6-5d0a-90cf-0da993973e52",
+          "name": "Zutaten",
+          "servingGrams": 328,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1c8a09c-b156-5124-b2ba-38a2f996bcfc",
+              "ingredientName": "weißer Fisch (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Filets (je 6 oz)"
+            },
+            {
+              "key": "cc7bddd3-7f03-5441-9772-a1322e1bea40",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "c3aaf018-d475-5f42-bfa9-f7e058e17a4b",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9513e166-3f7e-5477-8834-063d7d656e7d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "789c70e6-b296-5998-9fa1-2a9b9be5615e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8c91da10-9fce-5d75-aaca-a40157588ef1",
+              "ingredientName": "frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b8675498-d4e1-5221-99cf-3f8c488c7dbf",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bfff8b92-64c7-5b2b-a6d2-0fb9f160027e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwei Stücke robuste Alufolie von jeweils 12 × 12 Zoll abreißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Je ein Fischfilet in die Mitte eines Folienstücks legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zucchinischeiben und Kirschtomaten auf die Päckchen verteilen und um den Fisch herum anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch, Dill, Salz und Pfeffer über jedes Filet streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zitrone in dünne Scheiben schneiden und je 2–3 Scheiben auf jedes Filet legen. Mit Butterflöckchen belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Folie vorsichtig um die Zutaten falten und die Ränder fest verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Päckchen auf einen Rost 4–6 Zoll über mittelheiße Kohlen oder auf einen Grill legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "12–15 Minuten garen, bis sich der Fisch beim vorsichtigen Öffnen mit einer Gabel leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/06/Mediterranean-Fish-Foil-Packets-20.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/06/Mediterranean-Fish-Foil-Packets-20.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cowboy-breakfast",
+      "slug": "gen-cowboy-breakfast",
+      "title": "Cowboy-Frühstück",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Speckabschnitte statt geschnittenen Speck kaufen und 30 % sparen",
+        "Cheddar einer Handelsmarke statt Markenprodukte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "eiweißreich",
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5642,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cowboy-breakfast/",
+      "components": [
+        {
+          "key": "6bb4c1d5-e86e-58c8-8ed9-8b6cebf687e0",
+          "name": "Zutaten",
+          "servingGrams": 326.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b82dc9f-d119-59c3-a62e-455df1e5b7f9",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "634fad1d-6726-504f-9d4f-f2f7a2378bf4",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "049f5615-44cb-53ef-8615-cb022220d71b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "3ea88a1b-53fa-5da4-ac1a-4971b1fd70f9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "d632ef1f-1295-5ea5-8825-e0eaa36c251d",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c54ddef-518b-549c-8979-747c08fc2a22",
+              "ingredientName": "geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b5f8a8bc-a317-56d5-9e67-152abe2e4806",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "df168f82-f3bf-52c8-85dd-2d81a68ab5b3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gewürfelten Speck in einer großen gusseisernen Pfanne bei mittlerer Hitze etwa 8 Minuten knusprig braten. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter zum Speckfett in der Pfanne geben. Gewürfelte Kartoffeln hinzufügen und etwa 12 Minuten goldbraun und weich braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel und Paprika hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den gebratenen Speck zurück in die Pfanne geben und alles vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier mit Salz und Pfeffer in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Eier über die Kartoffel-Speck-Mischung gießen und vorsichtig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Etwa 3–4 Minuten garen, bis die Eier fast gestockt sind, dann den Käse darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Noch 1–2 Minuten garen, bis der Käse geschmolzen und die Eier gestockt sind. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Sheepherder-s-Breakfast_EXPS_GHBZ18_983_B08_15_4b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Sheepherder-s-Breakfast_EXPS_GHBZ18_983_B08_15_4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bannock-bread",
+      "slug": "gen-bannock-bread",
+      "title": "Bannock-Brot",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Alle Zutaten sind günstige Vorratsgrundlagen und machen das Gericht besonders preiswert",
+        "Pflanzenfett statt Butter verwenden, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "canadian",
+        "Frühstück",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5643,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bannock-bread/",
+      "components": [
+        {
+          "key": "d9b27112-1345-5f78-b713-e8cd8463d8de",
+          "name": "Zutaten",
+          "servingGrams": 186.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c4985f01-bebd-5b61-a941-088f0a74ad38",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b2c10403-9c02-54e1-96f9-7388cfd97137",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "edd418b0-887e-5872-900d-08ed7190e04c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "391b0dc7-33f2-557e-9bef-4842f6768a5b",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "2428bc22-000d-52fb-b51e-21b4fa3173a5",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ebb3f1bb-cba9-52ec-bfec-fced731859fd",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter oder Schmalz hinzufügen und mit den Fingern ins Mehl einarbeiten, bis die Mischung groben Brotkrümeln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Unter Rühren nach und nach Wasser zugießen, bis ein weicher, klebriger Teig entsteht. Falls er zu feucht ist, weniger Wasser verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig auf einer bemehlten Fläche in 4 Portionen teilen. Jede zu einem etwa 1/2 Zoll dicken Fladen formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine gusseiserne Pfanne oder Grillplatte bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bannock je Seite 3–4 Minuten goldbraun und gar braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit Honig, Marmelade oder Butter servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3ye-LyYGoJBajoyLhepc6Eu4Pp4=/4680x3120/filters:no_upscale():max_bytes(150000):strip_icc()/classic-oat-bannock-bread-3056324-step-09-5c6f7509c9e77c00010d6bb2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3ye-LyYGoJBajoyLhepc6Eu4Pp4=/4680x3120/filters:no_upscale():max_bytes(150000):strip_icc()/classic-oat-bannock-bread-3056324-step-09-5c6f7509c9e77c00010d6bb2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-damper-bread",
+      "slug": "gen-damper-bread",
+      "title": "Damper-Brot",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Selbsttreibendes Mehl ist günstiger als Mehl und Backpulver einzeln zu kaufen",
+        "Dieses Brot braucht nur wenige preiswerte Vorratszutaten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "australian",
+        "Frühstück",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5644,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-damper-bread/",
+      "components": [
+        {
+          "key": "a17bbe0f-c91a-5e84-89f3-72a70827cf38",
+          "name": "Zutaten",
+          "servingGrams": 248.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "da03a2b3-75ab-52d9-bda6-dd2561eec12d",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0ab2458b-83c9-5af0-bfed-f61263288152",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "a0da092e-42c7-5fb1-bf51-807d66f4d604",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8e386fb4-f52f-5cf4-b739-e01c796ea37d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 bis 1.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Selbsttreibendes Mehl und Salz in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In der Mitte eine Mulde formen und geschmolzene Butter sowie den Großteil des Wassers hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit einem Holzlöffel zu einem weichen Teig verrühren. Bei Bedarf mehr Wasser hinzufügen; der Teig sollte leicht klebrig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig auf eine bemehlte Fläche geben und 2–3 Mal vorsichtig kneten, bis er zusammenhält. Nicht zu lange kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zu einem runden Laib von etwa 2 Zoll Dicke formen und auf ein Stück Folie legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Direkt auf den Kohlen oder auf einem Rost 4–6 Zoll über mittlerer Hitze 25–30 Minuten garen und gelegentlich drehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Holzspieß prüfen: Kommt er sauber heraus, ist das Brot fertig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm aufschneiden und mit Honig oder Butter servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Damper-Bread.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Damper-Bread.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

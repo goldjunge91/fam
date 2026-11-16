@@ -1,0 +1,1051 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-patate-ripiene",
+      "slug": "gen-patate-ripiene",
+      "title": "Gefüllte Kartoffeln nach italienischer Art",
+      "instructions": "Italienisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Kalbfleisch durch Rinderhackfleisch, um deutlich zu sparen.",
+        "Verwende Ricotta und Parmesan einer Hausmarke statt importierter Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5455,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-patate-ripiene/",
+      "components": [
+        {
+          "key": "14e11bb3-8249-5860-a51d-29fce60f1ab3",
+          "name": "Zutaten",
+          "servingGrams": 272.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c818893-3117-5640-b849-f7b9d8cdd2e1",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0272d2e-9b8b-5662-8de7-c084ab8b5ee8",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "739466b0-8774-5ea8-bd1a-a73cc2777935",
+              "ingredientName": "Pancetta",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen, gewürfelt"
+            },
+            {
+              "key": "1c2d32f2-7995-5139-8390-f0903ee6b33e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 klein, fein gehackt"
+            },
+            {
+              "key": "8970198e-0b80-5d72-8894-978101fe620d",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d24cd9df-6b37-5a4d-85d8-fb0b864b5486",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "1a9f02a9-b579-58b3-a41e-4cb1ae0e3680",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a4aa36c-1acb-5827-b051-7ea5ccc91295",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL gehackt"
+            },
+            {
+              "key": "6cbcc947-424e-5311-9606-e290bd27e160",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ddf83748-9235-5849-8d7a-319f12ebf299",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln 20 Minuten in Salzwasser, bis sie teilweise gar sind. Gieße sie ab und lasse sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Pancetta und Zwiebel in Olivenöl etwa 4 Minuten an, bis die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Kalbshackfleisch hinzu und brate es etwa 6 Minuten, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und rühre Ricotta, Parmesan, Ei, Petersilie, Salz und Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Halbiere die abgekühlten Kartoffeln und höhle sie aus, sodass eine dünne Schale bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Kartoffelschalen mit der Fleischmischung und lege sie in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie bei 375°F 20-25 Minuten, bis die Kartoffeln weich und die Oberseiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie heiß und garniere sie mit zusätzlichem Parmesan und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://blog.giallozafferano.it/toniaincucina/wp-content/uploads/2013/11/IMG_4112_ps.jpg",
+          "sourcePageUrl": "https://blog.giallozafferano.it/toniaincucina/wp-content/uploads/2013/11/IMG_4112_ps.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pampushky",
+      "slug": "gen-pampushky",
+      "title": "Pampuschki-Kartoffelpuffer",
+      "instructions": "Ukrainischer Snack für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln lose statt in abgepackten Säcken.",
+        "Bereite den Sauerrahm-Dip mit Sauerrahm einer Hausmarke zu und spare bei den Kräutern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5456,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pampushky/",
+      "components": [
+        {
+          "key": "adcd119f-acdb-5b1f-971a-2cf10e923361",
+          "name": "Zutaten",
+          "servingGrams": 121.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "d05e309d-b258-546d-ac5d-275cf0809cf7",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "29a85cae-5e5b-5757-ad02-76446be63bbf",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "433228e7-39d2-585c-8aa1-9004c08b3ec3",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68bf0b37-fe92-5acc-83b9-aa65d62e932b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a25e9618-251f-51d6-834d-61eda48afaea",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen zum Braten"
+            },
+            {
+              "key": "239f2f5a-df3e-5b88-baa1-73da2bb94128",
+              "ingredientName": "Sauerrahm",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "cdcd449c-ba98-5ec7-844f-2a691ca17572",
+              "ingredientName": "Frischer Dill",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL gehackt"
+            },
+            {
+              "key": "21ea6ad1-41ab-5ba1-8bd7-b2600ac1ab5c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle und reibe die Kartoffeln. Drücke überschüssige Flüssigkeit mit einem Küchentuch aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die geriebenen Kartoffeln mit Mehl, Ei, Salz und Pfeffer zu einem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib vorsichtig Löffel der Kartoffelmasse in das heiße Öl und frittiere sie von allen Seiten insgesamt etwa 3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Puffer mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Sauerrahm, frischen Dill und gehackten Knoblauch in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die warmen Pampuschki mit dem Knoblauch-Dill-Sauerrahm zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlmeetsfood.com/wp-content/uploads/2023/12/Ukrainian-pampushky.jpg.webp",
+          "sourcePageUrl": "https://girlmeetsfood.com/wp-content/uploads/2023/12/Ukrainian-pampushky.jpg.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-farcito",
+      "slug": "gen-farcito",
+      "title": "Gefüllte Kartoffeln mit Mozzarella",
+      "instructions": "Italienisches Mittagessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Speckwürfel statt Prosciutto als preiswerte Alternative.",
+        "Kaufe Marinara-Sauce im Angebot in großen Mengen und friere sie portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5457,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-farcito/",
+      "components": [
+        {
+          "key": "b70f9346-cb1a-533c-a514-d7825f2d32a3",
+          "name": "Zutaten",
+          "servingGrams": 321.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "dbc1ad66-90c7-536d-b88c-8a68aea74827",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dd23e8c-5e50-5924-a2a4-d2e53824d2d1",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "77ecda4b-f166-54b4-af51-365650e003b9",
+              "ingredientName": "Schinken",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben, gehackt"
+            },
+            {
+              "key": "5cf34888-f4d5-5540-a4f4-a22525a6047c",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen, gewürfelt"
+            },
+            {
+              "key": "4368e320-e90b-5219-b3e5-396fb97020a6",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroß, fein gehackt"
+            },
+            {
+              "key": "a28ceecb-a7eb-5781-8c25-536a41421b78",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "af9a5199-f71f-5ab6-ac9b-cd624e06a19f",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL gehackt"
+            },
+            {
+              "key": "532f54b4-beea-5402-bffc-c0e63985019f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "67045722-b4ea-5441-9255-f56238751db0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "537621be-f154-5930-b398-80e0462d8f16",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Kartoffeln bei 400°F 35 Minuten, bis sie fast gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl und dünste Zwiebel und Knoblauch etwa 2 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Rinderhackfleisch hinzu und brate es krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gehackten Prosciutto, Salz, Pfeffer und frisches Basilikum ein und nimm die Pfanne vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Mischung etwas abkühlen und hebe die Mozzarellawürfel unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbiere die abgekühlten Kartoffeln und höhle sie vorsichtig aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Kartoffelhälften mit der Fleisch-Käse-Mischung und lege sie in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße Marinara-Sauce um die Kartoffeln und backe sie bei 375°F 15 Minuten, bis die Kartoffeln weich und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere sie heiß mit zusätzlicher Marinara-Sauce und Basilikum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/g0F7WNsn9-pknm34xdTLTGWo8DE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/4470990-817e6ccb29064beaacc0e7fb60f90e85.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/g0F7WNsn9-pknm34xdTLTGWo8DE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/4470990-817e6ccb29064beaacc0e7fb60f90e85.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-potato-nest",
+      "slug": "gen-potato-nest",
+      "title": "Kartoffelnester",
+      "instructions": "Amerikanisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Backe den Speck zusammen mit den Kartoffeln im Ofen, um Zeit und Abwasch zu sparen.",
+        "Verwende milden Cheddar statt kräftigem Cheddar, um günstiger einzukaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5458,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-potato-nest/",
+      "components": [
+        {
+          "key": "f5fcdbc7-6003-5cc5-a4e8-636f67454f9a",
+          "name": "Zutaten",
+          "servingGrams": 151.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ee85d7f-4db8-54d8-a37d-4d360e147597",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "f2de09f2-bfdf-55a9-b19e-62cf80dc2eb2",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "db532f9d-9ef5-5dbf-be60-602e1b811267",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d71b0b40-1323-54ec-9ec3-63c1b400b9c9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1e91e3df-672c-5beb-b67b-a59cc78ac18d",
+              "ingredientName": "Scharfer Cheddar-Block",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "618e0109-165d-533b-a29b-8768af2a502e",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Scheiben, gegart und zerbröselt"
+            },
+            {
+              "key": "d6a8da32-76cb-5d9b-b334-ac4454894e01",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3, gehackt"
+            },
+            {
+              "key": "baebce53-14a4-5a49-a72e-c552c927d50e",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die gewürfelten Kartoffeln 12-15 Minuten in Salzwasser, bis sie sehr weich sind. Gieße sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Kartoffeln mit Butter, Milch, Salz und Pfeffer zu einer cremigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe Cheddar, Speck, die Hälfte der Frühlingszwiebeln und Sauerrahm unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze die Kartoffelmasse in 4 Häufchen auf ein gebuttertes Backblech. Forme mit der Rückseite eines Löffels Nester mit einer leichten Vertiefung in der Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie bei 375°F 15 Minuten, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue jedes Nest mit den übrigen Frühlingszwiebeln und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Wunsch kannst du die Mitte vor dem Servieren mit einem Spiegelei oder einer Hackfleischmischung füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/ed/c7/c8/edc7c8c748e1e01a0895437265facc98.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/ed/c7/c8/edc7c8c748e1e01a0895437265facc98.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-duchess-potato",
+      "slug": "gen-duchess-potato",
+      "title": "Herzoginkartoffeln",
+      "instructions": "Französisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende das übrig gebliebene Eiweiß in anderen Rezepten, damit nichts verschwendet wird.",
+        "Nutze statt eines Spritzbeutels einen Gefrierbeutel und schneide eine Ecke ab."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5459,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-duchess-potato/",
+      "components": [
+        {
+          "key": "e27bdcc0-935b-531a-a8dc-ca55a419b590",
+          "name": "Zutaten",
+          "servingGrams": 150.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5322cc4-da2f-545a-900d-eec1e47573f4",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "85ff52cd-7756-5e3c-9bc8-0139e76fadcf",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "2e69ee42-a2ea-5991-a85a-63bd84502f7e",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91c36750-5724-5773-8356-b968e9ae2720",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 (zum Bestreichen)"
+            },
+            {
+              "key": "2ec568b7-c667-5930-bce2-6529a7667f9f",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "5868e698-d602-534f-aba6-c977aaa986c9",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f2e31d9a-e0d0-5aad-bb41-c788dd9479b8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL zum Einfetten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die gewürfelten Kartoffeln 12-15 Minuten in Salzwasser, bis sie sehr weich sind. Gieße sie ab und gib sie zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Kartoffeln sehr fein und rühre die Butter unter, bis sie eingearbeitet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 3 Eigelb einzeln hinzu und schlage die Masse nach jeder Zugabe cremig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Masse nach Geschmack mit Muskatnuss, Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Masse in einen Spritzbeutel mit großer Sterntülle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spritze Röschen mit 2 inches Abstand auf ein gefettetes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle 1 ganzes Ei und bestreiche jedes Röschen leicht damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe sie bei 400°F 12-15 Minuten, bis sie oben goldbraun sind. Serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Tfu82UPv9jsML_42b1CyYHT8OFA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chef-Johns-Duchess-Potatoes-1x1-1-2000-f8fa137efb8243aebc4e88cd18f84083.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Tfu82UPv9jsML_42b1CyYHT8OFA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chef-Johns-Duchess-Potatoes-1x1-1-2000-f8fa137efb8243aebc4e88cd18f84083.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

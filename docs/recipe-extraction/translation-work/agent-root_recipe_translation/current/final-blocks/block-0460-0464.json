@@ -1,0 +1,1201 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-cinnamon-apple-pork-chops",
+      "slug": "toh-cinnamon-apple-pork-chops",
+      "title": "Schweinekoteletts mit Äpfeln",
+      "instructions": "Saftige Schweinekoteletts aus der Pfanne, belegt mit zarten, zimtgewürzten Äpfeln und gerösteten Pekannüssen in einem schnellen Sirup aus braunem Zucker. Ein wärmendes, süß-herzhaftes Wohlfühlgericht aus einer Pfanne, das in weniger als einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/cinnamon-apple-pork-chops/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinefilet und schneide die Koteletts selbst. Das ist pro Pfund viel günstiger als fertig geschnittene Koteletts ohne Knochen.",
+        "Jeder feste, säuerliche Apfel eignet sich. Kaufe, was gerade im Angebot ist, oder verwende weichere Äpfel, die du noch aufbrauchen möchtest.",
+        "Ersetze Pekannüsse durch günstigere Walnüsse oder lass die Nüsse ganz weg. Das Gericht schmeckt trotzdem hervorragend."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "green-apple",
+          "swap": "Apfel einer beliebigen festen Sorte",
+          "savings": "spart ~$0.05 pro Apfel"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Gehackte Walnüsse oder ganz weglassen",
+          "savings": "spart ~$0.40"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter für eine milchfreie Variante",
+          "savings": "spart ~$0.03 pro Esslöffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Äpfel",
+        "Pfannengericht",
+        "aus-einer-Pfanne",
+        "Herbst",
+        "süß-herzhaft",
+        "Abendessen",
+        "30-Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 460,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-cinnamon-apple-pork-chops/",
+      "components": [
+        {
+          "key": "5493fef4-1f0d-5f49-9d68-d94be2b9ab8e",
+          "name": "Zutaten",
+          "servingGrams": 224.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "b7a46f95-3819-524f-90b5-6bbd2440d7a2",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "00927fd6-e476-54fb-b4c4-3569383134dc",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "ohne Knochen, etwa 4 Unzen je Stück"
+            },
+            {
+              "key": "c8cea48b-6e43-519f-9e37-55ce9a4abf66",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17e547d0-588a-5ffb-9b10-1f2949d0c63e",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fd57234-9fe3-5f8d-b842-717690959a97",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a573f202-dc5f-5db8-9474-f6788b3da253",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c608ab3-8ce4-5b94-adeb-3ad7b4b50a74",
+              "ingredientName": "Grüner Apfel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "tart Äpfel, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "68414e67-ee17-5083-8b0d-5645efeb03ff",
+              "ingredientName": "Pekannüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz die Hälfte der Butter in einer großen Pfanne bei mittlerer Hitze und gib dann die Schweinekoteletts hinein. Achte darauf, dass die Pfanne nicht zu voll ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Koteletts etwa 4-5 Minuten pro Seite, bis ein sofort ablesbares Thermometer 145F anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische währenddessen braunen Zucker, Zimt, Muskatnuss und Salz in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Koteletts auf einen Teller und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Apfelscheiben, Pekannüsse, die gewürzte Zuckermischung und die übrige Butter in dieselbe Pfanne. Löse dabei die gebräunten Röststoffe vom Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare alles unter Rühren, bis die Äpfel weich sind und der Zucker zu einem glänzenden Sirup geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löffle Äpfel und Sirup über die Koteletts und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/Cinnamon-Apple-Pork-Chops_EXPS_TOHD24_39905_IsabellaCassini_20.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/cinnamon-apple-pork-chops/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweinekoteletts mit Äpfeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-contest-winning-broccoli-chicken-casserole",
+      "slug": "toh-contest-winning-broccoli-chicken-casserole",
+      "title": "Hähnchen-Brokkoli-Auflauf",
+      "instructions": "Ein wärmender Auflauf für viele: Zartes Hähnchen und leuchtend grüne Brokkoliröschen in cremiger Käsesoße, bedeckt mit herzhaft gewürzter Füllung und schmelzendem Cheddar. Dieses Wohlfühlessen ist schnell fertig und noch schneller aufgegessen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/contest-winning-broccoli-chicken-casserole/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenes Hähnchen oder Hähnchen vom Drehspieß statt frische Hähnchenbrust zu kaufen und zu garen. So sparst du Geld und Zeit.",
+        "Ersetze frischen Brokkoli durch tiefgekühlte Röschen. Sie sind das ganze Jahr über günstiger und müssen nur kurz aufgetaut werden.",
+        "Kaufe ein Stück Cheddar und reibe ihn selbst. Das ist pro Unze günstiger als fertig geriebene Packungen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rotisserie-chicken",
+          "swap": "Hähnchen aus der Dose oder übrig gebliebener Truthahn",
+          "savings": "~$0.50 pro Portion mit Konserven"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Tiefgekühlte Brokkoliröschen, aufgetaut und abgetropft",
+          "savings": "~$0.05 pro Tasse"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Zerbröselte Cracker oder Panko, mit geschmolzener Butter und Kräutern vermischt",
+          "savings": "ähnliche Kosten, verwendet Vorratszutaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Auflauf",
+        "Wohlfühlessen",
+        "Hähnchen",
+        "Brokkoli",
+        "käsig",
+        "Abendessen",
+        "gebacken",
+        "familienfreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 461,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-contest-winning-broccoli-chicken-casserole/",
+      "components": [
+        {
+          "key": "2eaff3c7-a35d-57cf-bdb3-139f6a674e5e",
+          "name": "Zutaten",
+          "servingGrams": 258.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "a0886c4b-7cbb-57b1-b228-a4e38de762ae",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Ersatz für 6 Unzen gewürzte Hähnchenfüllungsmischung; zum Belegen geröstet oder gewürzt"
+            },
+            {
+              "key": "4696a73b-d450-55a6-ab58-6940cd1515ab",
+              "ingredientName": "Hähnchen vom Drehspieß",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 2 Tassen gewürfelt gekocht Hähnchen"
+            },
+            {
+              "key": "298971af-0358-522d-8404-a632ec1fea9d",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "frische Röschen, mundgerecht geschnitten"
+            },
+            {
+              "key": "ceaff890-aca6-54be-96ff-50ce7cdfbfaa",
+              "ingredientName": "Champignoncremesuppe aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "ersetzt ein 10-3/4 Unzen Dose condensed Brokkoli-Käse-Suppe, undiluted"
+            },
+            {
+              "key": "97a6028d-96f5-5035-a966-137729a92ad0",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 Tasse gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 350F vor und fette eine 11x7-Zoll-Auflaufform leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Füllung nach Packungsanleitung zu, verwende aber nur 1-1/2 Tassen Wasser, damit sie eher fest bleibt. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische gewürfeltes Hähnchen, Brokkoliröschen und die unverdünnte Brokkoli-Käsesuppe aus der Dose in einer großen Schüssel, bis alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Hähnchenmischung in einer gleichmäßigen Lage in der vorbereiteten Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die zubereitete Füllung darauf und bestreue die Oberfläche mit geriebenem Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Form ab und backe den Auflauf 20 Minuten. Nimm dann den Deckel ab und backe ihn weitere 10 bis 15 Minuten, bis er heiß ist und überall blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Auflauf vor dem Servieren etwa 10 Minuten ruhen, damit er fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/07/Contest-Winning-Broccoli-Chicken-Casserole_EXPS_CAS26_37392_DR_07_10_02b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/contest-winning-broccoli-chicken-casserole/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Brokkoli-Auflauf",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-crescent-turkey-casserole",
+      "slug": "toh-crescent-turkey-casserole",
+      "title": "Truthahn-Auflauf mit Hörnchenteig",
+      "instructions": "Ein wärmender Auflauf für unter der Woche: Zarter Truthahn und süßes Gemüse köcheln in einer cremigen, herzhaften Soße und werden mit goldbraunem Hörnchenteig bedeckt. Ein Wohlfühlessen, das in einer halben Stunde fertig ist und Reste vom Truthahn in etwas Besonderes verwandelt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/crescent-turkey-casserole/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen gebratenen Truthahn oder Hähnchen statt frische Brust zu kaufen. So sinken die Kosten fast auf null.",
+        "Eine Packung einfaches tiefgekühltes Mischgemüse ist günstiger, als Erbsen, Mais und Karotten einzeln zu kaufen.",
+        "Hörnchenteig und Mayonnaise der Hausmarke eignen sich genauso gut wie Markenprodukte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-breast",
+          "swap": "Gegartes Hähnchen vom Drehspieß, gezupft oder gewürfelt",
+          "savings": "Oft günstiger pro Pfund und muss nicht gekocht werden"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Eine Dose Champignoncremesuppe mit einem Schuss Milch verdünnt",
+          "savings": "Die Schritte mit Mehl und Brühe entfallen"
+        },
+        {
+          "forIngredientId": "two-percent-milk",
+          "swap": "Vollmilch oder ungesüßte Pflanzenmilch",
+          "savings": "Verwende, was bereits im Kühlschrank ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Auflauf",
+        "Wohlfühlessen",
+        "Truthahnreste",
+        "Abendessen",
+        "30-Minuten",
+        "Hörnchenteig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 462,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-crescent-turkey-casserole/",
+      "components": [
+        {
+          "key": "9b9aef50-b098-5cd8-98c2-c019aeba4af3",
+          "name": "Zutaten",
+          "servingGrams": 441.91,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7d584e3-c5d7-56bf-a81b-f31984e80834",
+              "ingredientName": "Mayonnaise",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "124319a9-c750-5504-bdbb-2760a1777e7c",
+              "ingredientName": "Weizenmehl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c286c90-c111-5814-89b3-37a0fc373ce6",
+              "ingredientName": "Hühnerbrühepulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc19e7f6-60ec-54f5-a80d-97bbc75ecbfd",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59ed2fa1-76b4-5a72-b98b-496184224090",
+              "ingredientName": "Milch mit 2 % Fett",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9c6148d-3335-5668-9e47-864dd44ffd0b",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0b578f9-bd9e-52f7-bce1-50d09afe1e10",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teil des tiefgekühlten Mischgemüses"
+            },
+            {
+              "key": "91b56e62-113b-5a0f-8f89-0384a89ef97c",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "gewürfelt, als Ersatz für den Möhrenanteil der tiefgekühlten Gemüsemischung"
+            },
+            {
+              "key": "d1f223ba-16e0-519b-87cc-e706a27890b3",
+              "ingredientName": "Truthahnbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "gekocht und gewürfelt"
+            },
+            {
+              "key": "c5021c17-8dde-5720-b494-2d079b2fd968",
+              "ingredientName": "Gekühlter Hörnchenteig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375F vor und fette eine quadratische 8-Zoll-Auflaufform leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mayonnaise, Mehl, Hühnerbrühepulver und Pfeffer in einem Topf vom Herd, bis die Mischung glatt ist. Rühre dann langsam die Milch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle den Topf bei mittlerer Hitze auf den Herd und koche die Soße unter Rühren etwa 2 Minuten, bis sie aufkocht und eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Erbsen, Mais, gewürfelte Karotte und gewürfelten Truthahn ein. Gare alles weiter, bis es vollständig durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Truthahnmischung in die vorbereitete Auflaufform und streiche sie glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den Hörnchenteig auseinander, trenne ihn in 8 Dreiecke und lege sie so über die Füllung, dass diese bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Auflauf 15 bis 20 Minuten, bis die Füllung blubbert und der Teig aufgegangen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/10/Crescent-Turkey-Casserole_EXPS_SDAS17_25584_D04_12_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/crescent-turkey-casserole/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Truthahn-Auflauf mit Hörnchenteig",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-crispy-bbq-chip-tenders",
+      "slug": "toh-crispy-bbq-chip-tenders",
+      "title": "Knusprige Hähnchenstreifen mit BBQ-Chips",
+      "instructions": "Saftige Hähnchenstreifen mit unwiderstehlich knuspriger Kruste aus zerdrückten Barbecue-Kartoffelchips, goldbraun gebacken und mit einem kühlen, würzigen Dip aus saurer Sahne und Schnittlauch serviert. Eine lustige, kinderfreundliche Abwandlung klassischer Hähnchenstreifen mit rauchig-süßem Geschmack in jedem Bissen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/crispy-bbq-chip-tenders/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine leicht beschädigte oder günstige Packung Barbecue-Chips für die Panade und zerdrücke sie selbst in einem verschließbaren Beutel, statt teure Spezialbrösel zu kaufen.",
+        "Schneide ganze Hähnchenbrüste in Streifen, statt vorgeschnittene Filetstücke zu kaufen. So sparst du ein paar Dollar pro Pfund.",
+        "Lass frischen Schnittlauch weg und verwende ein paar Teelöffel getrockneten Schnittlauch oder geschnittene Frühlingszwiebeln im Dip. Das kostet nur einen Bruchteil."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chips",
+          "swap": "Beliebige zerdrückte dicke Chips, Cornflakes oder Panko mit Barbecue-Gewürz für dieselbe Knusprigkeit",
+          "savings": "Verwerte kostenlos die zerbrochenen Chips am Boden einer geöffneten Tüte"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt natur für einen leichteren, würzigeren Dip",
+          "savings": "Oft günstiger pro Portion und liefert zusätzlich Eiweiß"
+        },
+        {
+          "forIngredientId": "chicken-breast-tenders",
+          "swap": "Hähnchenoberkeulen, in Streifen geschnitten, für saftigeres und günstigeres Fleisch",
+          "savings": "Schenkel sind normalerweise günstiger pro Pfund als Filetstücke"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Hähnchen",
+        "Hähnchenstreifen",
+        "Grillgeschmack",
+        "gebacken",
+        "knusprig",
+        "kinderfreundlich",
+        "Abendessen",
+        "Abendessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 463,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-crispy-bbq-chip-tenders/",
+      "components": [
+        {
+          "key": "56db1b2f-37f1-58c8-9df4-8a822096b201",
+          "name": "Zutaten",
+          "servingGrams": 240.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "b35dc048-4344-55ed-8001-e0e1d23383f1",
+              "ingredientName": "Saure Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "für die Dip-Sauce"
+            },
+            {
+              "key": "307d46ea-c000-55b0-b8a4-43dcf868c607",
+              "ingredientName": "Schnittlauch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gehackt frisch"
+            },
+            {
+              "key": "f19a40d7-c5fb-5ce0-86ca-3cb79e2dcf08",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "aa4e8faa-bbd6-51ec-92e4-c7ce3bed0c82",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für die Sauce"
+            },
+            {
+              "key": "090b96ac-a881-5e8f-8477-bac6c59d4ef0",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Weizenmehl zum Wenden"
+            },
+            {
+              "key": "93e77693-20fd-56b6-b06c-971902a9e9d9",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "hellbraun"
+            },
+            {
+              "key": "5ec8884a-a1bc-53eb-9e81-73f717c1614b",
+              "ingredientName": "Senfpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Senfpulver"
+            },
+            {
+              "key": "89407cb5-4ed8-5a53-a5d5-f5488a1b0b25",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6807931e-bf6e-5124-b417-bbe6066b8495",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "für die Panade"
+            },
+            {
+              "key": "77a0c91d-1102-5122-93aa-5c7418c02034",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46ec2db9-9ac3-53b3-8ed2-35e60c3acaea",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "leicht verquirlt"
+            },
+            {
+              "key": "f064bc77-f8fb-5832-abda-7c2bbecc07d1",
+              "ingredientName": "Kartoffelchips",
+              "grams": 250,
+              "quantity": 2.5,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "barbecue Kartoffelchips, grob zerstoßen"
+            },
+            {
+              "key": "12efda50-55bf-5037-a7bb-87bbcfd9233f",
+              "ingredientName": "Hähnchenfiletstreifen",
+              "grams": 680.4,
+              "quantity": 680.4,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Hähnchenfiletstreifen, 1.5 Pfund"
+            },
+            {
+              "key": "2fbc10eb-7210-52f0-8907-348b21e097dd",
+              "ingredientName": "Ölspray",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "package",
+              "position": 13,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400 °F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre saure Sahne, gehackten Schnittlauch, Knoblauch und 1/2 TL Salz für den Dip. Decke ihn ab und stelle ihn bis zum Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Mehl, braunen Zucker, gemahlenen Senf, Pfeffer, 1/2 TL Salz und Cayennepfeffer in einer flachen Schüssel. Gib die verquirlten Eier in eine zweite flache Schüssel und die zerdrückten Barbecue-Chips in eine dritte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende jeden Hähnchenstreifen in der gewürzten Mehlmischung und schüttle überschüssiges Mehl ab. Tauche ihn dann ins Ei und drücke ihn anschließend in die zerdrückten Chips, damit die Kruste haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die panierten Hähnchenstreifen auf ein Gitter in einem tiefen Backblech und besprühe sie mit Ölspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe sie 12 bis 15 Minuten, bis die Panade goldbraun und knusprig und das Hähnchen vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit dem gekühlten Dip aus saurer Sahne und Schnittlauch servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps189082_TH153054D11_25_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/crispy-bbq-chip-tenders/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Hähnchenstreifen mit BBQ-Chips",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-crispy-orange-chicken",
+      "slug": "toh-crispy-orange-chicken",
+      "title": "Einfaches Orangenhähnchen",
+      "instructions": "Knusprige Hähnchenstücke aus dem Ofen, vermischt mit einer glänzenden, süß-herzhaften Orangen-Hoisin-Soße und zarten Karotten. Auf lockerem Reis serviert entsteht ein schnelles Abendessen wie vom Imbiss zu Hause. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/crispy-orange-chicken/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte panierte Hähnchen-Nuggets oder Popcorn-Hähnchen sind meist im großen Vorratsbeutel am günstigsten. Portioniere die benötigte Menge und friere den Rest ein.",
+        "Orangensaft aus der Flasche funktioniert genauso gut wie frischer und kostet nur einen Bruchteil von Orangen zum Auspressen.",
+        "Strecke das Gericht, indem du mehr Karotten oder tiefgekühltes Mischgemüse dazugibst. Die Soße reicht problemlos für mehr Gemüse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-chicken-nuggets",
+          "swap": "Tiefgekühlte Hähnchenstreifen, in mundgerechte Stücke geschnitten",
+          "savings": "ähnliche Kosten"
+        },
+        {
+          "forIngredientId": "hoisin",
+          "swap": "Sojasoße mit etwas zusätzlichem Zucker und einem Klecks Ketchup",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Vollkornreis für mehr Ballaststoffe",
+          "savings": "vernachlässigbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Orangenhähnchen",
+        "Abendessen",
+        "wie-vom-Imbiss",
+        "schnell",
+        "kinderfreundlich",
+        "Pfannensoße"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 464,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-crispy-orange-chicken/",
+      "components": [
+        {
+          "key": "aa0bd3b3-3d19-5beb-b5cc-0db4160e132c",
+          "name": "Zutaten",
+          "servingGrams": 1078.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "1ca15fca-4b23-54ab-adbe-f91a398a07c3",
+              "ingredientName": "Tiefgekühlte Hähnchen-Nuggets",
+              "grams": 3200,
+              "quantity": 32,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Ersatz für 16 Unzen tiefgekühltes Popcorn-Hähnchen, ~32 Stück"
+            },
+            {
+              "key": "19900d10-421d-5847-ad20-293b4a40994a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "01540985-3acc-594a-9d7d-f101be822f18",
+              "ingredientName": "Rapsöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08d87b22-24ca-59de-a923-7c776617a820",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "8505c727-732f-5bea-9723-e4e751e1877c",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "für gerieben zest, etwa 1-1/2 Teelöffel"
+            },
+            {
+              "key": "dd5aacbd-fd08-5c5a-9aa7-b9be4a113c98",
+              "ingredientName": "Orangensaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7219152-1e50-5328-9466-ce8a59cce1e6",
+              "ingredientName": "Hoisinsoße",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "2e0c3719-0b37-57ac-9057-f0d7f97aafb7",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d892c6ba-9b2c-50f3-a3bb-b7d8cfdcca1b",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a0e44ff-1007-57eb-9bd7-db63f8f137bc",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4d4911d-8ded-5add-ae38-5d2d8fa3f475",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "nur ein Spritzer"
+            },
+            {
+              "key": "6eef9ac5-9bd7-57d7-a3d2-b451c4a02a8a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "gekocht, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die tiefgekühlten panierten Hähnchenstücke nach Packungsanleitung auf einem Backblech, bis sie heiß und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze währenddessen Rapsöl in einer großen Pfanne bei mittlerer bis hoher Hitze und brate die geschnittenen Karotten etwa 3 bis 5 Minuten, bis sie gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Knoblauch dazu und brate ihn eine weitere Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Orangenschale, Orangensaft, Hoisinsoße, Zucker, Salz, Pfeffer und eine Prise Cayennepfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Soße aufkochen, reduziere dann die Hitze und koche sie ohne Deckel unter ständigem Rühren etwa 4 bis 6 Minuten, bis sie zu einer Glasur eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das gebackene Hähnchen in die Pfanne und wende jedes Stück in der Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß auf gekochtem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Crispy-Orange-Chicken_EXPS_TOHD24_73206_JonathanMelendez_05.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/crispy-orange-chicken/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einfachem Orangenhähnchen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

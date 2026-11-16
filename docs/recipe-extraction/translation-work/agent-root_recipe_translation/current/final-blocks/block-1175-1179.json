@@ -1,0 +1,1068 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-budget-white-bean-toast",
+      "slug": "mfr-budget-white-bean-toast",
+      "title": "Toast mit zerdrückten weißen Bohnen und Kräutern",
+      "instructions": "Cremige weiße Bohnen, zerdrückt mit Olivenöl, Zitrone und Knoblauch auf dickem Toast: ein proteinreicher, sättigender mediterraner Snack oder ein Frühstück in 5 Minuten für wenige Cent.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 2,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose weiße Bohnen, Gewürze aus dem Vorratsschrank und zwei Scheiben Brot kosten weniger als $1.",
+        "Weiße Bohnen sind ein unterschätzter Toastbelag und schmecken viel besser als erwartet.",
+        "Mit wirklich gutem Brot schmeckt das Gericht noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder Hummus"
+        },
+        {
+          "forIngredientId": "rosemary-fresh",
+          "swap": "Getrockneter Thymian oder Oregano"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-white-bean-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "Toast",
+        "Bohnen",
+        "preiswert",
+        "schnell",
+        "Snack"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1175,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-white-bean-toast/",
+      "components": [
+        {
+          "key": "ba4a0d66-f0c9-59c7-b323-ced828c03d80",
+          "name": "Zutaten",
+          "servingGrams": 564,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d6a0f2f-a9c4-537a-a158-3c1b4a231583",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75618392-fcf7-5d6c-9879-c8fd49ed2aea",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ba440f4-8468-5638-ba3d-b64f836ebf64",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9863394b-a9a9-5b27-b9c5-c2bae77a2b1c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "deb3292d-8673-59dc-b433-df2ce551c838",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea607217-a42b-549d-91da-cf87b1a77c38",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "510da014-6c35-5fae-a0e2-8913f478830d",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d052de9a-c4b1-52f5-a88e-cc33772be8c8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste das Brot. Erwärme die Bohnen in einer Pfanne oder Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Bohnen mit einer Gabel und vermenge sie mit Olivenöl, Knoblauch, Zitronensaft und Salz. Lass die Masse stückig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Bohnen auf dem Toast. Belege ihn mit frischem Rosmarin und Chiliflocken und träufle zum Schluss Olivenöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/bMYztK12vkMzbpB43pfhfovevRM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/CucumberWhiteBeanSandwich-Hero-04_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-ef282413bd13421b9aef34d15b26ec6d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/bMYztK12vkMzbpB43pfhfovevRM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/CucumberWhiteBeanSandwich-Hero-04_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-ef282413bd13421b9aef34d15b26ec6d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-budget-lentil-veggie-curry",
+      "slug": "mfr-budget-lentil-veggie-curry",
+      "title": "Preiswertes Curry mit roten Linsen und Gemüse",
+      "instructions": "Rote Linsen, Tiefkühlgemüse und eine einfache Currysauce auf Reis: ein günstiger Favorit für Studierende, der $1.50 pro Portion kostet, in 20 Minuten fertig ist und wirklich gut schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühltes Mischgemüse ist hier besonders günstig: $2 für einen großen Beutel.",
+        "Rote Linsen, Currypulver und eine Dose Tomaten reichen für den ganzen Geschmack.",
+        "Dieses Gericht liefert besonders viel Protein pro ausgegebenem Dollar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-vegetables",
+          "swap": "Beliebiges frisches Gemüse, etwa Kartoffel, Brokkoli oder Blumenkohl"
+        },
+        {
+          "forIngredientId": "curry-powder",
+          "swap": "Je 1 tsp Kreuzkümmel, Koriander, Kurkuma und Garam Masala"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-lentil-veggie-curry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Curry",
+        "Linsen",
+        "preiswert",
+        "vegan",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1176,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-lentil-veggie-curry/",
+      "components": [
+        {
+          "key": "a616a00b-cd88-58fb-b4e0-b5e59620dd8a",
+          "name": "Zutaten",
+          "servingGrams": 627.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "920bfab6-e8cb-57c5-9a20-59c564ff8c90",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2c22760-f945-5b9d-8a75-800e518ae280",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "722ab4ca-3e59-5bd2-a4c1-37d3bb010a6c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89dd80df-c7ac-5025-a562-8782280ebd04",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3c805b8-7cf1-51e9-bad7-36b2f11405a5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "276c9bbc-6f48-573b-a2cf-d066d3654ef8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5dccfaad-dd95-5262-a31e-6e940120b8ec",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20b6498e-8006-540b-8bba-5074cd687e1e",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89ab31a3-dbf6-5dbe-9475-28d246070029",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fac87da-f852-5273-b02c-2e50dfe84115",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2230acf8-07ae-564a-a4a4-f76bcae10123",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "105edf93-9419-59b4-9983-96ebd3f29d80",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Knoblauch und Ingwer 3 Minuten in Öl an. Gib Currypulver und Kurkuma dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Linsen, Tiefkühlgemüse, Tomaten, Brühe und Kokosmilch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 18-20 Minuten köcheln, bis sich die Linsen auflösen und das Curry dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Curry auf Reis. Ergibt 4 Portionen für insgesamt $6-8.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.yayforfood.com/wp-content/uploads/vegan-curried-red-lentil-quinoa-vegetable-soup-featured-scaled.jpg",
+          "sourcePageUrl": "https://www.yayforfood.com/wp-content/uploads/vegan-curried-red-lentil-quinoa-vegetable-soup-featured-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fitness-chicken-broccoli",
+      "slug": "mfr-fitness-chicken-broccoli",
+      "title": "Klassische Reisschale mit Hähnchenbrust und Brokkoli",
+      "instructions": "Ein verlässlicher Klassiker für Sportbegeisterte: perfekt gewürzte Hähnchenbrust mit gedämpftem Brokkoli auf Reis, mit 45 g Protein, magerer Energie und wenig Vorbereitung.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen 3-lb-Beutel Hähnchenbrust und portioniere ihn für 4-5 Mahlzeiten. Das kostet $2.50 pro Portion.",
+        "Dämpfe Brokkoli zugedeckt mit 2 tbsp Wasser 4 Minuten in der Mikrowelle. So brauchst du keinen Topf.",
+        "Dieses Rezept lässt sich für die Vorbereitung mehrerer Mahlzeiten leicht vervielfachen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice",
+          "swap": "Naturreis für mehr Ballaststoffe"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Beliebiges Gemüse, das du gerade da hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-chicken-broccoli",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Schüssel",
+        "Hähnchen",
+        "Brokkoli",
+        "Essensvorbereitung",
+        "Fitness"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1177,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-chicken-broccoli/",
+      "components": [
+        {
+          "key": "db63fa28-37aa-54fa-8ea7-5a8454c5922f",
+          "name": "Zutaten",
+          "servingGrams": 812,
+          "position": 0,
+          "items": [
+            {
+              "key": "463ca696-c896-51cd-9e6f-2c0ed09fb27b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61604d5f-ae1e-515e-ba79-7e2833d5b594",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24bc9de6-9171-5eb8-ae0e-4b20360ca5e7",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd1313e8-8888-58e2-a934-84b1e5261290",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba723588-4c0a-5156-800c-071cf47b29f1",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a49da37-d2ff-5b57-8291-96d52be153de",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5145913b-4f9d-5b88-b863-b38e4eb0bd83",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddf02d67-05fa-55be-a7c4-34ffbed8a04c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6adbda6-f9b2-5079-a7f9-23127007dcb2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f272c65-657d-5913-bcb5-a487e246b940",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Würze das Hähnchen mit Knoblauchpulver, Zwiebelpulver, Paprikapulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare das Hähnchen in Olivenöl bei mittlerer Hitze 6-7 Minuten pro Seite, bis es vollständig durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dämpfe den Brokkoli 5 Minuten, bis er leuchtend grün und bissfest-zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide das Hähnchen auf und serviere es auf Reis mit Brokkoli und etwas Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/04/chicken-and-rice-bowl-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/04/chicken-and-rice-bowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fitness-egg-white-scramble",
+      "slug": "mfr-fitness-egg-white-scramble",
+      "title": "Rührei mit Eiweiß und viel Gemüse",
+      "instructions": "Sechs Eiweiße werden mit Paprika, Spinat, Pilzen und Zwiebel verrührt: ein mageres, voluminöses Frühstück mit 36 g Protein und weniger als 300 Kalorien, das lange satt macht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flüssiges Eiweiß aus dem Karton kostet $3-4 und enthält kein Fett.",
+        "Vorgeschnittenes Tiefkühlgemüse macht die Zubereitung noch schneller.",
+        "6 Eiweiße und Gemüse liefern 36g Protein bei 280 Kalorien. Bei diesen Fitnesswerten schwer zu übertreffen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "egg-whites",
+          "swap": "3 ganze Eier und 3 Eiweiße für mehr Geschmack und Nährstoffe aus dem Eigelb"
+        },
+        {
+          "forIngredientId": "mushrooms",
+          "swap": "Zucchini oder beliebiges Gemüse, das du gerade da hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-egg-white-scramble",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück",
+        "Ei",
+        "Fitness",
+        "kalorienarm"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1178,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-egg-white-scramble/",
+      "components": [
+        {
+          "key": "6ab29af7-9a5c-5da2-b2dd-397c1ff73ea4",
+          "name": "Zutaten",
+          "servingGrams": 1565,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c64b49c-d9da-5d71-9446-d47d48c78af4",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee717253-72ff-5a79-8754-56bbb6978cf0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e413bc8d-0aac-52e9-af08-b6d91dcab6fb",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16976fff-b5b0-5386-b40e-9c991faae60d",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01c3ddbf-de77-5806-8cfb-85dc51b6bdc4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "712f6467-623f-5032-89c6-276cd9c0b0d0",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a34ad96-3456-5f6f-adc2-216d1c19ac5c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "071ce6d7-0b27-5229-a0f5-3780d5aa9da4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5236e941-4ded-5124-90e8-af9bd9e15aa4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "747c4342-1410-5b6a-82fa-871102b2f711",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste gewürfelte Zwiebel, Pilze und Paprika 4 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Eiweiß mit Knoblauchpulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Spinat zum Gemüse und lass ihn 1 Minute zusammenfallen. Gieße das Eiweiß dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Eier bei mittelniedriger Hitze vorsichtig, bis sie gerade eben gestockt sind. Nicht zu lange garen. Mit scharfer Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://allrecipesclub.com/wp-content/uploads/2024/11/IMG_1769.jpeg",
+          "sourcePageUrl": "https://allrecipesclub.com/wp-content/uploads/2024/11/IMG_1769.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fitness-tuna-power-salad",
+      "slug": "mfr-fitness-tuna-power-salad",
+      "title": "Proteinreicher Powersalat mit Thunfisch und weißen Bohnen",
+      "instructions": "Dosen-Thunfisch und weiße Bohnen auf Blattgemüse mit Gurke, roter Zwiebel und Zitronen-Dijon-Dressing: ein sättigender, auf Makros abgestimmter Salat für $3, fertig in 8 Minuten.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Thunfisch, Bohnen und Dressing aus Vorratszutaten kosten $3 für eine sättigende Mahlzeit.",
+        "Die Bohnen verdoppeln das Protein und machen den Salat richtig sättigend.",
+        "Bereite Bohnen und Dressing am Vorabend vor und nimm den Salat am nächsten Tag mit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen"
+        },
+        {
+          "forIngredientId": "tuna-canned",
+          "swap": "Lachs aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-tuna-power-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "mediterran",
+        "Salat",
+        "Thunfisch",
+        "Bohnen",
+        "Fitness",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1179,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-tuna-power-salad/",
+      "components": [
+        {
+          "key": "d1e5620d-8134-5547-a1e0-4493dc72ed5c",
+          "name": "Zutaten",
+          "servingGrams": 2854,
+          "position": 0,
+          "items": [
+            {
+              "key": "d09b8a9a-ff43-533d-b169-b60719b414c2",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68af503d-a352-58ad-9357-862df6a2fea8",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80063d11-955e-5bbd-a9e6-d2a0c993b9a8",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01e31048-b394-599b-a5f2-84da09f2bb43",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c03a958e-cf8b-5029-a842-4f24d4115348",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34038c4a-ff71-5010-add9-26d39db2b87e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54d22a10-862a-5e34-b6bd-7c5e8c44246b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7368ad6e-9c5e-5363-baab-2857a6c7ab90",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bcbefb3-46ea-5e81-a7f8-5c1cb592d0c7",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f028246e-0b2f-5f47-998c-2c6a44f77e78",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße Thunfisch und Bohnen gut ab. Schneide Gurke und rote Zwiebel in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Olivenöl, Zitronensaft und Dijon-Senf zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge das Blattgemüse mit Dressing und belege es mit Thunfisch, Bohnen, Gurke, Tomaten, Zwiebel und Kapern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Pl5P2ZeeiieSksIzrw7I8cT4BQ4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Pickled-Tuna-Salad-hero-1x1-2329_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-7e54a6a671d2410298efac2b5b138986.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Pl5P2ZeeiieSksIzrw7I8cT4BQ4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Pickled-Tuna-Salad-hero-1x1-2329_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-7e54a6a671d2410298efac2b5b138986.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

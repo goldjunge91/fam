@@ -1,0 +1,1141 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-birria-de-chivo",
+      "slug": "gen-birria-de-chivo",
+      "title": "Birria de Chivo",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Suche in Latin- oder Nahost-Märkten nach günstigerem Ziegenfleisch als im normalen Supermarkt.",
+        "Bereite die doppelte Menge zu und friere Portionen für spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5505,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria-de-chivo/",
+      "components": [
+        {
+          "key": "f580623e-90a1-5937-bc41-2d3ade63580c",
+          "name": "Zutaten",
+          "servingGrams": 551.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "37a9cda9-ed5c-51ef-ae2b-5d261d2c68c6",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Pfund"
+            },
+            {
+              "key": "a2f9e683-fc11-5975-ad7e-3c530656b02e",
+              "ingredientName": "Getrocknete Chilis",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e11e0cb-2e09-52a0-939d-12b966c185a0",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 groß"
+            },
+            {
+              "key": "02e23b8c-9de2-5b8c-bc82-49c604f892e0",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d30024b3-ceff-5a93-9895-60bbff232f83",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "b64d1ad8-e578-5206-820f-b4735d441d4d",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6bf64cac-4ed0-5e79-8a6e-fcabb5c9f965",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "0cadbd18-c27a-5c25-8c52-db5824b93713",
+              "ingredientName": "Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "40f97f8f-87be-5d5d-8faf-8fd77200dc1a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90060e2c-693e-5e8c-920e-8b20f81563e9",
+              "ingredientName": "Tortillas",
+              "grams": 640,
+              "quantity": 16,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste getrocknete Guajillo- und Pasilla-Chilis in einer trockenen Pfanne 1-2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die gerösteten Chilis 10 Minuten in heißem Wasser ein. Püriere sie anschließend mit 1.5 cups Einweichwasser, Zwiebel, Knoblauch, Essig, Kreuzkümmel und Oregano glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze das Ziegenfleisch mit Salz und Pfeffer und bräune es in einem großen Topf bei mittlerer bis hoher Hitze 10-12 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Chilisauce durch ein feines Sieb über das Fleisch. Gib Hühnerbrühe und Lorbeerblätter dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf ab und lasse das Ziegenfleisch 3-3.5 Stunden köcheln, bis es ganz zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Fleisch heraus, zupfe es auseinander und lasse es weitere 10 Minuten im Topf köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere gezupftes Ziegenfleisch und Consomé in flachen Schüsseln, dazu warme Tortillas, Limette und Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/4374da56-3dd3-4513-beb6-295e6c862597/birria-recipe.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/4374da56-3dd3-4513-beb6-295e6c862597/birria-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-birria-de-borrego",
+      "slug": "gen-birria-de-borrego",
+      "title": "Birria de Borrego",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Lammschulter statt teurerer Stücke wie Lammkeule.",
+        "Übrige Consomé eignet sich hervorragend für Reis oder Suppen. Gekühlt innerhalb von 4-5 Tagen verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5506,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria-de-borrego/",
+      "components": [
+        {
+          "key": "94f826cd-95e0-5b5d-9024-cab26a8d7f89",
+          "name": "Zutaten",
+          "servingGrams": 560,
+          "position": 0,
+          "items": [
+            {
+              "key": "4afe9fcd-4654-58b5-9159-48485ef96324",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Pfund"
+            },
+            {
+              "key": "cdfbb665-4bc8-54a3-85d6-dda96bf7bdd5",
+              "ingredientName": "Getrocknete Chilis",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26eafee2-cdc5-5388-af0d-95596f04372e",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 groß"
+            },
+            {
+              "key": "d7842ddf-b4d0-55e8-ad4e-d9011dd63bff",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "890b9d18-328c-5f98-8051-3c123b414a0e",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "e13e2642-1c83-51fd-a312-007dd5a5b4a4",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "53a7f7d9-1bed-57c4-b776-30b03c5d2543",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "08a2df85-22e9-5e9e-8b75-6faff9cd0c08",
+              "ingredientName": "Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "18da82cb-60e4-50bc-9952-ca5738c2c932",
+              "ingredientName": "Tortillas",
+              "grams": 640,
+              "quantity": 16,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste getrocknete Guajillo-, Ancho- und Pasilla-Chilis 1-2 Minuten in einer trockenen Pfanne an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die Chilis 10 Minuten in heißem Wasser ein. Püriere sie anschließend mit 1.5 cups Einweichwasser, Zwiebel, Knoblauch, Essig, Kreuzkümmel und Oregano vollständig glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Lammschulterstücke mit Salz und Pfeffer und bräune sie in einem großen Topf bei mittlerer bis hoher Hitze 10-12 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Chilisauce durch ein feines Sieb in den Topf zum Lamm. Gib Rinderbrühe dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf ab und lasse das Lamm 3-3.5 Stunden köcheln, bis es butterzart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zupfe das gegarte Lamm mit zwei Gabeln auseinander und lasse es weitere 10 Minuten im Topf köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme die Maistortillas in einer trockenen Pfanne, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere gezupftes Lamm und kräftige Consomé in flachen Schüsseln, dazu warme Tortillas, Limettenspalten und gewürfelte weiße Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/01lNyKDcz944JzNVRukUOkGJWZI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-LEAD-05-cf8274d9a2384d59acdcc9f152dc3256.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/01lNyKDcz944JzNVRukUOkGJWZI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-LEAD-05-cf8274d9a2384d59acdcc9f152dc3256.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pozole-blanco",
+      "slug": "gen-pozole-blanco",
+      "title": "Pozole Blanco",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie für später ein.",
+        "Verwende Hominy aus der Dose statt getrocknetem Mais, um viel Kochzeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5507,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pozole-blanco/",
+      "components": [
+        {
+          "key": "523799ba-2c8e-5db5-8ade-12c6fd017ecd",
+          "name": "Zutaten",
+          "servingGrams": 762.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf403a36-2301-5b83-a040-699cbc3d2788",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a3eb392c-4902-5996-8e9b-c0edb3c642a4",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (29 Unzen je)"
+            },
+            {
+              "key": "b5c0df3a-bdd4-54cc-8dde-1f1ed574c915",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5d54b8a9-9f72-5a17-bf80-1f92f24ed61f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "3adfd97c-7ba1-5c2b-8af3-0c3fdf1d796c",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77e96323-56fc-5a1d-bd9f-0b7db31d1d77",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e16f065a-101d-58ea-a44f-13d79658fa97",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e66a5c14-21ff-5692-9f0b-35bcf26c0058",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8f41bf3a-84e5-5505-aa97-226413307c5a",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0e197b9-fdcd-5e71-97ef-5ef9848b734d",
+              "ingredientName": "Rettich",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Bund"
+            },
+            {
+              "key": "7f35dfec-1662-5cbf-95b9-22a18979eab0",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "aabb4a69-cc23-5f2e-a6eb-6a3c59dea673",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die Schweineschulterwürfel mit Hühnerbrühe, der Hälfte der geviertelten Zwiebel und 3 Knoblauchzehen in einen großen Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe, decke den Topf ab und lasse alles 45 Minuten köcheln, bis das Schweinefleisch fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgetropften Hominy, Oregano und Kreuzkümmel dazu und lasse alles weitere 20 Minuten köcheln, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze das Pozole nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte geschnittene Radieschen, geraspelten Kohl, den übrigen gehackten Knoblauch und die Zwiebel, Limettenspalten und Tostadas auf einer Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe das heiße Pozole in Schüsseln und lasse alle nach Wunsch Toppings von der Platte hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse kurz vor dem Essen frischen Limettensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/65fd9f700de4b266b157d045/1:1/w_2560%2Cc_limit/20240214-0524-DIS-0410.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/65fd9f700de4b266b157d045/1:1/w_2560%2Cc_limit/20240214-0524-DIS-0410.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-tlalpe-o",
+      "slug": "gen-caldo-tlalpe-o",
+      "title": "Caldo Tlalpeño",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch; sie sind aromatischer und günstiger.",
+        "Kaufe Chipotle-Chilis aus der Dose in größeren Mengen und friere portionsweise in Eiswürfelformen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5508,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-tlalpe-o/",
+      "components": [
+        {
+          "key": "5aca72a7-41a9-5a61-83b7-a544711cd4e7",
+          "name": "Zutaten",
+          "servingGrams": 643.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3d8df436-a80a-5d14-a1f4-06b3b4b45950",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "bc635d98-fc5d-531d-a04c-4a3094c26b20",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "687ab2f5-fb32-56eb-a6fb-85311aa77ee6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "105f8063-93a4-5543-8da7-dbbb6f300735",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25b027cf-ef6a-5eb4-bb86-3e1b41cbc489",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "f617427d-0ea6-59df-9a44-9ac84ed215e6",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "44cbaa21-e5dd-5f97-82b3-c7576bbff24d",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a85d9fc-c037-5ff8-b0b8-3e18059b6b5f",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "fe228cbe-4dd0-5b85-9bf7-14d6b96bf6dd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "53a13dc9-a759-5a84-8321-c0ac9abf89b8",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "259e2222-0727-5f44-a4f5-572285d57fdc",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e7ad36f4-7991-5d04-8f41-1e445ad80fcf",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Hühnerbrühe in einem großen Topf zum Kochen und gib geviertelte Zwiebel sowie zerdrückte Knoblauchzehen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Hähnchenbrust, Karotten und Kartoffeln dazu. Reduziere die Hitze und lasse alles 25-30 Minuten köcheln, bis das Hähnchen gar und das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm 1 cup heiße Brühe heraus und püriere sie mit Chipotle-Chilis und Adobo-Sauce glatt. Seihe die Mischung zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze den Caldo nach Geschmack mit Salz und Pfeffer und rühre den Sauerrahm ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib frischen Koriander in den Topf und presse den Saft einer Limette in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe den Caldo in Schüsseln und gib Tortillastreifen, geschnittene Avocado, zusätzlichen Koriander und eine Limettenspalte darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/gen-caldo-tlalpe-o.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/gen-caldo-tlalpe-o.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/gen-caldo-tlalpe-o.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/gen-caldo-tlalpe-o.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-barbacoa-de-borrego",
+      "slug": "gen-barbacoa-de-borrego",
+      "title": "Barbacoa de Borrego",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammschulter im Angebot und friere sie bis zu 3 Monate ein.",
+        "Bereite eine große Menge zu und friere Portionen des gezupften Fleisches samt Kochflüssigkeit für schnelle Tacos im Laufe des Monats ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5509,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-barbacoa-de-borrego/",
+      "components": [
+        {
+          "key": "0873a4a9-f8cd-5bf7-81af-3fe69806275c",
+          "name": "Zutaten",
+          "servingGrams": 402.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bcd4b5fc-e33b-5aa1-add3-8402bdca11c1",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "3ff45d43-8fc1-5bd6-834a-4ef530ad9f8e",
+              "ingredientName": "Getrocknete Chilis",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56a47427-a32b-5fc8-8e5b-590e8f812818",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "4fd957eb-bd75-5c89-88c0-2c8bb9543d8f",
+              "ingredientName": "Knoblauch",
+              "grams": 36,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72208349-af2a-54f6-ab0c-11fca40737ba",
+              "ingredientName": "Apfelessig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "a8099fa6-e1be-5ca4-ac28-61f83daa065f",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "64ccd5b1-5ba2-53a2-b39c-ca0cbfac984a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "91cc3782-a981-5d43-bdb3-8814eabc0255",
+              "ingredientName": "Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "ab63fb6f-05ac-5272-b66f-c5c2580b1605",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "321e3624-827f-554d-8063-515eb89e428d",
+              "ingredientName": "Tortillas",
+              "grams": 640,
+              "quantity": 16,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste getrocknete Guajillo- und Ancho-Chilis 1-2 Minuten in einer trockenen Pfanne an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die gerösteten Chilis 10 Minuten in heißem Wasser ein. Püriere sie anschließend mit 1 cup Einweichwasser, Zwiebel, Knoblauch, Essig, Kreuzkümmel und Oregano glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Seihe die Chilipaste durch ein feines Sieb in eine große Bratform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze große Stücke Lammschulter mit Salz und Pfeffer und lege sie in die Form. Wende sie in der Chilipaste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Brühe und Lorbeerblätter dazu, decke die Form fest mit Folie ab und stelle sie in den auf 325°F vorgeheizten Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate das Lamm 4-4.5 Stunden, bis es sehr zart ist und sich leicht zupfen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das Lamm aus der Form und zupfe es mit Gabeln auseinander. Gib es zurück in die Form und lasse es 15 Minuten den Bratensaft aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das gezupfte Barbacoa auf warmen Tortillas mit Limette, Zwiebel und Koriander. Reiche die eingekochte Kochflüssigkeit dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/n05pr1kids331.jpg",
+          "sourcePageUrl": "https://i.redd.it/n05pr1kids331.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

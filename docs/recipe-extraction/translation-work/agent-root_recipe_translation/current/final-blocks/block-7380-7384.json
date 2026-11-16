@@ -1,0 +1,1585 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-chicken-kebab-koobideh",
+      "slug": "cur2-chicken-kebab-koobideh",
+      "title": "Persische Hähnchen-Kebab Koobideh",
+      "instructions": "Persische Hackfleischspieße aus gewürztem Hähnchenfleisch mit Zwiebel, Kurkuma und Safran, über hoher Hitze gegrillt und rauchig-knusprig gebräunt. Mit Safranreis, gegrillter Tomate und Sumach servieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenhackfleisch aus der Keule ist günstiger als Brust und bleibt saftiger. Der höhere Fettgehalt passt besonders gut zu Koobideh.",
+        "Eine Prise Safran reicht weit. In heißem Wasser ziehen lassen, damit sich Farbe und Aroma bestmöglich entfalten.",
+        "Keine Spieße vorhanden? Hackfleisch zu flachen länglichen Laiben formen und auf einem mit Folie belegten Blech unter dem Grill garen. So entsteht dieselbe Röstung ganz ohne Zubehör."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-chicken",
+          "swap": "gemahlen turkey (thigh) für ein similar lean kebab",
+          "savings": "Etwa gleiche Kosten; Pute ist in Großpackungen oft günstiger"
+        },
+        {
+          "forIngredientId": "saffron",
+          "swap": "ein pinch von Kurkuma plus Paprika für color",
+          "savings": "Spart ~$2-3 pro Verwendung"
+        },
+        {
+          "forIngredientId": "basmati-rice",
+          "swap": "normal long-grain oder jasmine Reis",
+          "savings": "Spart ~$0.50/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "persisch",
+        "kebab (deutsche Fassung)",
+        "grilled (deutsche Fassung)",
+        "Hähnchen",
+        "Naher Osten",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7380,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-chicken-kebab-koobideh/",
+      "components": [
+        {
+          "key": "daf0f6fa-601c-5efb-a8af-6623084f2b29",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 328.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2c28f7c-d2bf-5943-81d7-80cdbe31b71c",
+              "ingredientName": "Hähnchenhackfleisch",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "möglichst Hähnchenhackfleisch aus Oberkeulen verwenden; der höhere Fettgehalt hält es saftig"
+            },
+            {
+              "key": "29d39cdb-3b3e-5651-b7c7-987672f996bd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "große gelbe Zwiebel, gerieben und überschüssige Flüssigkeit ausgedrückt"
+            },
+            {
+              "key": "30262c3b-cea7-5fb0-8ff0-20a0294b1243",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2422d7da-69d4-565c-9848-0da96ab63d37",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Prise, in 2 EL heißem Wasser ziehen gelassen"
+            },
+            {
+              "key": "fe0a7597-e91b-5fd1-8ef9-70ac69fd69fe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "c41f5011-6960-5336-a9a6-70bd910cf656",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL, frisch gemahlen"
+            },
+            {
+              "key": "3366e367-07f6-5347-b109-97573d53a82e",
+              "ingredientName": "Sumach",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Bestäuben am Tisch"
+            },
+            {
+              "key": "775d3ece-c80b-5d26-924f-e8ac69c56c6a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen, zum Übergießen"
+            },
+            {
+              "key": "1ce93482-714d-580a-820d-9792253b6ebc",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "zusammen mit den Kebabs gegrillt"
+            },
+            {
+              "key": "26a40b40-c10e-5088-99df-2e18bb7a5b6c",
+              "ingredientName": "Basmatireis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "gedämpft, zum Servieren"
+            },
+            {
+              "key": "176bae5b-00e9-5cc6-936a-9af4d512c4a1",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "als Eier zugeordnet, optionales Bindemittel für mageres Hähnchenfleisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Safranfäden zerstoßen und in 2 EL sehr heißem Wasser ziehen lassen, bis das Wasser Farbe annimmt. Zwiebel auf den großen Löchern einer Vierkantreibe reiben, in ein feines Sieb geben und möglichst viel Flüssigkeit ausdrücken. Zu feuchte Zwiebel lässt das Hackfleisch vom Spieß fallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenhackfleisch, ausgedrückte Zwiebel, Kurkuma, Salz, Pfeffer und die Hälfte des Safranwassers in einer großen Schüssel vermengen. Nach Wunsch Eigelb hinzufügen, wenn das Hähnchen sehr mager ist. Mit den Händen 5–8 Minuten kräftig kneten, bis die Masse glatt, hell und deutlich klebrig ist. Dadurch bindet das Eiweiß und haftet am Spieß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und das Hackfleisch mindestens 30 Minuten, bis über Nacht, kalt stellen. Durch das Kühlen lässt es sich fester und leichter formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit feuchten Händen in 4–6 Portionen teilen. Jede Portion fest und gleichmäßig länglich um einen flachen Metallspieß drücken und mit den Fingern im Abstand von je einem Zoll Rillen eindrücken. Ohne Spieße längliche, flache Laibe auf ein mit Folie belegtes Blech formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grill, Grillpfanne oder Backofengrill auf hohe Hitze vorheizen. Tomaten halbieren und daneben aufspießen oder legen. Kebabs ohne Bewegung 3–4 Minuten grillen, bis die Unterseite gebräunt ist und sich löst, dann wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit geschmolzener Butter und dem restlichen Safranwasser bestreichen und die zweite Seite weitere 3–4 Minuten grillen, bis das Fleisch gerade durchgegart ist (165 °F, kein Rosa mehr), aber noch saftig bleibt. Hähnchen-Koobideh gart schnell, daher nicht zu lange grillen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kebabs 2 Minuten vom Herd nehmen und ruhen lassen. Auf gedämpftem Basmatireis mit den gegrillten Tomaten servieren und am Tisch großzügig mit Sumach bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Kebab_koobideh_persian.jpg/1280px-Kebab_koobideh_persian.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kebab_koobideh_persian.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Amin — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Kebab Koobideh",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-persian-fesenjan",
+      "slug": "cur2-persian-fesenjan",
+      "title": "Persisches Fesenjan (Hähnchen mit Walnuss und Granatapfel)",
+      "instructions": "Sämiger nordiranischer Eintopf (Khoresh) aus Hähnchen mit Knochen, in fein gemahlenen gerösteten Walnüssen und herbem Granatapfelsirup geschmort, bis die Sauce mahagonibraun wird. Süß, sauer und nussig zugleich; traditionell zu persischem Reis bei Festen und in der Yalda-Nacht serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Walnüsse in größeren Mengen kaufen und selbst in der Küchenmaschine mahlen statt fertiges Nussmehl zu kaufen. Das ist günstiger und schmeckt frischer.",
+        "Hähnchenschenkel mit Knochen und Haut sind günstiger als Brustfleisch, bleiben beim langen Schmoren saftiger und geben der Sauce Geschmack.",
+        "Wenn Granatapfelsirup teuer oder schwer zu finden ist, reinen Granatapfelsaft mit etwas Zucker und Zitrone einkochen, bis ein Sirup entsteht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "verwenden bone-in Hähnchen drumsticks, oder cubed butternut squash und chickpeas für ein vegetarisch fesenjan",
+          "savings": "Unterkeulen sind pro Pfund günstiger; Kürbis + Bohnen halbieren die Kosten der Eiweißzutat"
+        },
+        {
+          "forIngredientId": "pomegranate-molasses",
+          "swap": "Reduce pomegranate juice mit Zucker und ein squeeze von Zitrone in ein dick syrup",
+          "savings": "Spart $3-4 gegenüber einer besonderen Flasche bei einmaliger Verwendung"
+        },
+        {
+          "forIngredientId": "saffron",
+          "swap": "ein pinch von Kurkuma plus ein tiny bit von Paprika für color",
+          "savings": "Safran ist das teuerste Gewürz; dies spart einige Dollar pro Prise"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "persisch",
+        "iranisch",
+        "stew (deutsche Fassung)",
+        "khoresh (deutsche Fassung)",
+        "walnut (deutsche Fassung)",
+        "pomegranate (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "celebration (deutsche Fassung)",
+        "yalda (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7381,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-persian-fesenjan/",
+      "components": [
+        {
+          "key": "6def50e5-498a-5bdb-b428-570d4aa1500a",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 394.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "31ede165-c525-5252-984b-ac5e31e5ab3f",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "mit Knochen, ohne Haut (oder 8 Oberkeulen für eine größere Runde)"
+            },
+            {
+              "key": "5c4f6dfc-7d6b-5262-9030-51208c62dff1",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 2.5 Tassen, fein gemahlen und geröstet"
+            },
+            {
+              "key": "e6d90015-c706-546e-9088-a242d8012f19",
+              "ingredientName": "Granatapfelsirup",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse; die prägende säuernde Zutat"
+            },
+            {
+              "key": "77687c5e-f794-5042-94a5-88cceb565fa0",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gerieben oder fein gewürfelt"
+            },
+            {
+              "key": "7f726c39-64e3-50ca-be2b-24a10fc53e79",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL zum Andünsten der Zwiebel"
+            },
+            {
+              "key": "43cc3682-c241-583d-aeac-c0b304dcad54",
+              "ingredientName": "Zucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL zum Ausgleichen der Säure; nach Geschmack anpassen"
+            },
+            {
+              "key": "f196c46d-fb82-55b1-98fe-a9e27bbea87c",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "b0c2e5f0-d718-5e79-af88-7560c584ee6f",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL, gemahlen"
+            },
+            {
+              "key": "d6d75732-e172-5dd6-8e61-65aa08c84f8d",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "Prise, optional für eine warme Gewürznote"
+            },
+            {
+              "key": "547873cc-4054-57e4-9629-c9658fb33987",
+              "ingredientName": "Safranfäden",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "kleine Prise, in heißem Wasser ziehen gelassen"
+            },
+            {
+              "key": "47e58351-fab0-5d3e-9aa5-0cbbb411180d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa 2 Tassen zum Verdünnen der Walnusssauce"
+            },
+            {
+              "key": "d70c00af-4572-5b08-8d77-1a594c32aa2c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96e11462-3e68-53c6-a4bb-e351d0fe7a06",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddbedece-f650-5ed9-83c9-47f809da95e0",
+              "ingredientName": "Granatapfelkerne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "26c874f8-713b-5c9f-906d-681f9f560d84",
+              "ingredientName": "Basmatireis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "gedämpft, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Walnüsse in einer trockenen Pfanne bei mittlerer bis niedriger Hitze unter ständigem Rühren 4–6 Minuten rösten, bis sie duften und leicht goldgelb, aber nicht braun sind. So entfalten sie ihr Aroma und Öl. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem schweren Topf oder Schmortopf bei mittlerer Hitze schmelzen. Geriebene Zwiebel mit Kurkuma etwa 8 Minuten anbraten, bis sie weich und hellgolden ist. Hähnchenschenkel mit Salz und Pfeffer würzen und im Topf auf jeder Seite 2–3 Minuten anbräunen. Hähnchen herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geröstete gemahlene Walnüsse in den Topf geben und 1–2 Minuten rühren, damit sie mit Zwiebel und Butter überzogen sind. Hühnerbrühe und 1 Tasse Wasser zugießen und sanft zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Walnusssauce ohne Deckel bei niedriger Hitze 30–40 Minuten köcheln lassen und häufig umrühren, damit sie nicht ansetzt. Warten, bis Walnussöl aufsteigt und die Sauce dunkler und dicker wird. Nach Wunsch überschüssiges Öl abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Granatapfelsirup, Zucker, Zimt, Muskat und den aufgeblühten Safran einrühren. Abschmecken: Die Sauce sollte deutlich säuerlich und zugleich sanft süß sein. Für mehr Säure Granatapfelsirup, für mehr Süße Zucker hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hähnchen samt ausgetretenem Saft zurück in den Topf geben und in die Sauce betten. Zugedeckt bei niedriger Hitze 45–60 Minuten sanft köcheln lassen, das Hähnchen einmal wenden, bis es gabelzart und die Sauce glänzend mahagonibraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die letzten 10 Minuten ohne Deckel köcheln lassen, falls die Sauce noch eindicken muss. Sie sollte einen Löffel überziehen. Salz anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vom Herd nehmen und 10 Minuten ruhen lassen, damit sich die Aromen verbinden und das Öl absetzt. Mit frischen Granatapfelkernen garnieren und heiß über gedämpftem Basmatireis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Khoresht-e_fesenjan.jpg/1280px-Khoresht-e_fesenjan.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Khoresht-e_fesenjan.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: stringparts — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Persian Fesenjan (Walnut & Pomegranate Hähnchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-greek-pastitsio",
+      "slug": "cur2-greek-pastitsio",
+      "title": "Griechisches Pastitsio",
+      "instructions": "Griechische Antwort auf Lasagne: lange Nudeln mit Käse, dazwischen würziges Rinderragù mit Zimt und Nelken und obenauf eine dicke, mit Ei verfeinerte Béchamel, goldbraun gebacken. Wärmend, aromatisch und herzhaft.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Parmesan am Stück kaufen und selbst reiben statt fertig geriebenen Kefalotyri zu kaufen. Das kostet weniger und schmilzt besser.",
+        "Mageres Rinderhackfleisch reicht im lange gekochten Ragù weiter. Die Hälfte kann durch Putenhack ersetzt werden, ohne den würzigen Geschmack zu verlieren.",
+        "Pastitsio schmeckt am nächsten Tag sogar besser. Eine ganze Form zubereiten, Scheiben die Woche über aufwärmen oder einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bucatini",
+          "swap": "verwenden normal spaghetti broken in half oder penne",
+          "savings": "Spart ~40% gegenüber besonderen langen Makkaroni"
+        },
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Replace half mit gemahlen turkey",
+          "savings": "Spart ~$2-3 pro Form"
+        },
+        {
+          "forIngredientId": "red-wine",
+          "swap": "verwenden Rindfleisch Brühe mit ein splash von red wine vinegar",
+          "savings": "Den Kauf einer Flasche Wein sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "griechisch",
+        "gebacken-Pasta",
+        "comfort-food (deutsche Fassung)",
+        "casserole (deutsche Fassung)",
+        "bechamel (deutsche Fassung)",
+        "gemahlen-Rindfleisch",
+        "machen-ahead",
+        "mediterranean (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7382,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-greek-pastitsio/",
+      "components": [
+        {
+          "key": "b156b2e3-d9c4-51c2-811a-120b77d1fe08",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 311.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e017957-ba12-5e28-aefe-2c99a09b42d5",
+              "ingredientName": "Nudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "lange dicke Röhrennudeln (Bucatini oder Makkaroni Nr. 2); ersatzweise Spaghetti"
+            },
+            {
+              "key": "1a259356-4167-5662-ae53-34cf2e5470cf",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "mageres Rinderhackfleisch für die Fleischsauce"
+            },
+            {
+              "key": "aa9c8ca3-5de1-5cdf-8203-612807a8c469",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "68d856c6-4de0-5ce5-9238-30c699dd781d",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "127ba8fd-2ebc-5be0-ae46-5caa0afc3211",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "eine 14 oz-Dose"
+            },
+            {
+              "key": "3d656ca5-56f2-5f1c-a14a-b3c24f3a2159",
+              "ingredientName": "Tomatenmark",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c19e0771-10f4-55ed-b378-51d926c5d206",
+              "ingredientName": "Rotwein zum Kochen",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse trockener Rotwein für das Ragù"
+            },
+            {
+              "key": "eef1e9c1-078d-5f3c-b9ac-9bb89ae75c31",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL, gemahlen, und eine kleine Stange, falls vorhanden"
+            },
+            {
+              "key": "b5223b94-a196-59e2-9a9b-97fb72e67ff7",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL, gemahlen"
+            },
+            {
+              "key": "07c02bcd-3c02-5567-8b29-f4e029412f52",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Prise, etwa 1/8 TL"
+            },
+            {
+              "key": "c6d306c8-6b2a-56d3-9a6a-5864370878a6",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "086cd6b2-5693-5126-b05c-5c922990d55c",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "für die Béchamelsauce, etwa 6 EL"
+            },
+            {
+              "key": "16a53be7-71c9-5560-9417-3276104084c0",
+              "ingredientName": "Weizenmehl",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse für die Mehlschwitze"
+            },
+            {
+              "key": "6f3f5131-eea0-54f9-a949-c06604219596",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Quart Vollmilch, erwärmt"
+            },
+            {
+              "key": "a950d93e-fec6-57e3-b625-5db8d1c6eac9",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "leicht verquirlt, zum Verfeinern und Binden von Béchamelsauce und Nudelschicht"
+            },
+            {
+              "key": "5b50a63a-b055-5795-b4a1-e00de8b744e5",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "als Ersatz für Kefalotyri oder Kefalograviera; gerieben, auf Schichten und Belag verteilt"
+            },
+            {
+              "key": "5d5c266e-a42d-5500-8c55-4b5aa6a4070a",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "frisch gerieben, für die Béchamelsauce"
+            },
+            {
+              "key": "12d273b5-363b-5f78-95de-79324c3045bd",
+              "ingredientName": "Olivenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "zum Anbraten von Rindfleisch und aromatischen Zutaten"
+            },
+            {
+              "key": "df584fda-c890-57af-9193-de83e74c444e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07ca4f57-ebed-5dce-a661-24e4a1f150d1",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab60f107-a986-5b00-a274-02e0192ca293",
+              "ingredientName": "Feta",
+              "grams": 18,
+              "quantity": 18,
+              "unit": "g",
+              "position": 20,
+              "optional": true,
+              "source_note": "für mehr Würze in die Nudelschicht gebröselt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für das Ragù Olivenöl in einer breiten Pfanne bei mittelhoher Hitze erhitzen. Rinderhackfleisch krümelig anbraten, dann Zwiebel und Knoblauch dazugeben und weich garen. Tomatenmark einrühren und 1 Minute kochen. Rotwein zugießen und einkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinerte Tomaten, Zimt, Piment, gemahlene Nelken, Lorbeerblatt, Salz und Pfeffer hinzufügen. Ohne Deckel 25–30 Minuten köcheln lassen, bis die Sauce dick und größtenteils eingekocht ist, nicht suppig. Lorbeerblatt entfernen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nudeln in gut gesalzenem Wasser 1–2 Minuten kürzer als bissfest kochen, dann abgießen. Warme Nudeln mit etwas Olivenöl, etwa einem Drittel des geriebenen Käses und einem verquirlten Ei vermengen, damit sie nicht zusammenkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Béchamel Butter bei mittlerer Hitze schmelzen. Mehl einrühren und 2 Minuten ohne Bräunung kochen. Warme Milch in einem stetigen Strahl unter ständigem Rühren zugießen, bis die Sauce dick und glatt ist. Mit Salz, Pfeffer und frisch geriebener Muskatnuss würzen und vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die übrigen 2 Eier mit einer Kelle heißer Béchamel temperieren. Dann unter die Sauce rühren und die Hälfte des übrigen Käses einarbeiten, bis die Béchamel glänzt und gießfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In einer gebutterten Auflaufform von 9 × 13 Zoll schichten: die Hälfte der Nudeln verteilen, nach Wunsch Feta darüberstreuen, das gesamte Ragù darauf geben und mit den übrigen Nudeln bedecken. Béchamel darüber gießen und glatt streichen. Mit dem restlichen Käse bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350 °F (175 °C) 45–50 Minuten backen, bis die Oberfläche fest und tief goldbraun ist. Mindestens 20–30 Minuten ruhen lassen, bevor das Pastitsio angeschnitten wird, damit sich saubere Stücke schneiden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Greek_Pastitsio_%284645038613%29.jpg/1280px-Greek_Pastitsio_%284645038613%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Greek_Pastitsio_(4645038613).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Katrin Gilger — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Greek Pastitsio",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-moroccan-lamb-tagine",
+      "slug": "cur2-moroccan-lamb-tagine",
+      "title": "Marokkanische Lamm-Tagine",
+      "instructions": "Wärmendes marokkanisches Schmorgericht aus butterzarter Lammschulter mit Ras el Hanout, Ingwer und Safran sowie süßen getrockneten Aprikosen. Eingelegte Zitrone bringt Frische, geröstete Mandeln und Koriander runden das Gericht ab. Die würzige, glänzende Sauce wird über Couscous gelöffelt.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 125,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine ganze Lammschulter mit Knochen kaufen und selbst zerteilen oder Lammragoutfleisch und Schulterkoteletts aus dem Angebot verwenden. Die Knochen geben dem Schmorgericht mehr Fülle.",
+        "Ras el Hanout aus vorhandenen Gewürzen wie Kreuzkümmel, Koriander, Zimt, Paprika, Ingwer und einer Prise Cayennepfeffer und Nelken selbst mischen, statt ein Glas zu kaufen.",
+        "Am nächsten Tag schmeckt die Tagine noch besser. Eine doppelte Portion zubereiten und die Hälfte einfrieren; Gewürze und Aprikosenaroma vertiefen sich mit der Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lamb-shoulder",
+          "swap": "Rindfleisch stew meat oder chuck, braised der same way",
+          "savings": "~40% günstiger als Lamm"
+        },
+        {
+          "forIngredientId": "ras-el-hanout",
+          "swap": "DIY mixen von Kreuzkümmel, Koriander, Zimt, Paprika, Ingwer und ein pinch von cayenne",
+          "savings": "Spart ~$5 gegenüber einem besonderen Glas"
+        },
+        {
+          "forIngredientId": "dried-apricot",
+          "swap": "Pitted prunes oder Rosinen",
+          "savings": "Kostet oft halb so viel wie Aprikosen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "marokkanisch",
+        "Lammfleisch",
+        "tagine (deutsche Fassung)",
+        "braise (deutsche Fassung)",
+        "north-african (deutsche Fassung)",
+        "stew (deutsche Fassung)",
+        "ras-el-hanout (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7383,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-moroccan-lamb-tagine/",
+      "components": [
+        {
+          "key": "927da1aa-3469-5637-9990-d0174bbf4236",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 336.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bd7b6b1-fa98-5e60-b873-19b7ad687c3a",
+              "ingredientName": "Lammschulter",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ohne Knochen, in 1.5 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "41e176d0-2e15-527f-bc3e-2cca13462f7e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große, fein gerieben oder gehackt"
+            },
+            {
+              "key": "e854ad6f-b0e2-5983-bf8b-3cb254c91f33",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "246466be-a069-5a23-8c56-a18340de9543",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL frisch gerieben"
+            },
+            {
+              "key": "3ca702b3-87bd-5fe2-964d-81aee5b1051f",
+              "ingredientName": "Ras el Hanout",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9823f942-8f1c-5a50-ab77-5dc22edcf106",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL, gemahlen"
+            },
+            {
+              "key": "6ff3dd11-95de-5014-9654-f0ba4988e251",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL, gemahlen"
+            },
+            {
+              "key": "af5c3eea-4ffc-5b21-ad90-967b67f16712",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL und 1 Stange, falls vorhanden"
+            },
+            {
+              "key": "755064f8-c6e2-5ae1-8022-668be5bebe9c",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0538845e-d1f4-5843-8c33-538097622eb9",
+              "ingredientName": "Safranfäden",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "große Prise, in warmem Wasser ziehen gelassen"
+            },
+            {
+              "key": "cd3b66b3-30c9-5477-8081-f8bc37dc33ff",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa eine halbe Dose"
+            },
+            {
+              "key": "909228b1-7670-5744-a9b7-87b68c7ff59d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "~2 Tassen oder Lamm- beziehungsweise Rinderbrühe"
+            },
+            {
+              "key": "54aaae8d-d5ab-53b4-92ae-eb34d2f52ffa",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, halbiert"
+            },
+            {
+              "key": "568d1585-7acd-5770-ac0b-8444db213232",
+              "ingredientName": "Honig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "37c769fd-9270-5c07-a9db-9a26b97c1ef4",
+              "ingredientName": "Eingelegte Zitrone",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "Schale von 1 Frucht, abgespült und in feine Streifen geschnitten"
+            },
+            {
+              "key": "9de89e98-b5ec-5d54-95d7-95b34f0291ee",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "2 EL zum scharfen Anbraten"
+            },
+            {
+              "key": "4b5a7825-5afc-53d3-923d-a751b7c243ae",
+              "ingredientName": "Mandelstifte",
+              "grams": 18,
+              "quantity": 18,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1/3 Tasse, geröstet, zum Garnieren"
+            },
+            {
+              "key": "9fe12046-d969-5e9f-b077-4beabebf17d1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt, und Petersilie"
+            },
+            {
+              "key": "19c30027-8ef2-5a54-b6e1-2c47b0d71218",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c989a5f8-6c8e-53f8-95a9-5f5a504e7a56",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lammstücke trocken tupfen und großzügig mit Salz und Pfeffer würzen. Safran in 3 EL warmem Wasser ziehen lassen und beiseitestellen. Ras el Hanout, Kreuzkümmel, Koriander, Zimt und Kurkuma in einer kleinen Schüssel mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem schweren Schmortopf oder einer Tagine bei mittelhoher Hitze erhitzen. Lamm portionsweise rundherum kräftig anbraten, insgesamt etwa 8 Minuten, dann auf einen Teller geben. Topf nicht überfüllen, sonst dämpft das Fleisch statt zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere Stufe reduzieren und geriebene Zwiebel hinzufügen. 6–8 Minuten braten, bis sie weich und goldgelb ist, dabei den Bratensatz lösen. Knoblauch und Ingwer einrühren und 1 Minute braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürzmischung dazugeben und unter ständigem Rühren 30–60 Sekunden rösten, bis sie duftet. Zerkleinerte Tomaten einrühren und 2–3 Minuten kochen, damit sich das Aroma vertieft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lamm samt Saft zurück in den Topf geben. Hühnerbrühe und Safran samt Einweichwasser zugießen, nach Wunsch eine Zimtstange hinzufügen. Sanft zum Köcheln bringen, zudecken und Hitze reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Etwa 1.5 Stunden sanft schmoren und gelegentlich umrühren, bis das Lamm gabelzart ist. Falls es trocken aussieht, etwas Wasser zugießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Getrocknete Aprikosen, Honig und eingelegte Zitrone einrühren. Ohne Deckel weitere 20–30 Minuten köcheln lassen, bis die Aprikosen aufquellen und die Sauce glänzend und löffelbar eingekocht ist. Mit Salz abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Währenddessen Mandelstifte in einer trockenen Pfanne bei mittlerer Hitze 3–4 Minuten goldbraun rösten. Gut beobachten, damit sie nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Tagine 5 Minuten vom Herd nehmen und ruhen lassen. Mit gerösteten Mandeln und gehacktem Koriander bestreuen und über Couscous oder mit warmem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/African_Dinner.jpg/1280px-African_Dinner.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:African_Dinner.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kimberly Vardeman — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Moroccan Lammfleisch Tagine",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-shakshuka-with-feta",
+      "slug": "cur2-shakshuka-with-feta",
+      "title": "Shakshuka mit Feta",
+      "instructions": "Eier werden sanft in einer würzigen Tomaten-Paprika-Sauce pochiert und mit zerbröseltem Feta und frischen Kräutern serviert. Nordafrikanischer und nahöstlicher Klassiker aus einer Pfanne, direkt mit knusprigem Brot zum Auftunken serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zerkleinerte Tomaten aus der Dose sind die günstigste und verlässlichste Grundlage. Sie sind besser als frische Tomaten außerhalb der Saison und ergeben eine reichhaltigere Sauce.",
+        "Feta am Stück in Salzlake statt fertig zerbröselten kaufen. Er ist pro Unze günstiger, hält länger und schmeckt cremiger.",
+        "Brot verwenden, das gerade vorhanden ist. Altbackenes Brot in einer trockenen Pfanne rösten und kostenlos als perfekte Beilage zum Auftunken servieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "verwenden ein can von whole peeled tomatoes und crush them by hand, oder ersetzen Tomate-Sauce in ein pinch",
+          "savings": "Ganze Dosentomaten sind oft einige Cent günstiger und erlauben die gewünschte Konsistenz"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Crumble in goat Käse oder ein firm queso fresco",
+          "savings": "Am Stück oft günstiger und ebenso würzig"
+        },
+        {
+          "forIngredientId": "cilantro-fresh",
+          "swap": "verwenden frisch Petersilie, oder omit entirely",
+          "savings": "Spart etwa $1.50 beim Weglassen des frischen Krauts"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "north-african-middle-eastern (deutsche Fassung)",
+        "shakshuka (deutsche Fassung)",
+        "Eier",
+        "one-Pfanne",
+        "Vegetarier",
+        "brunch (deutsche Fassung)",
+        "Tomate",
+        "scharf",
+        "Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7384,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-shakshuka-with-feta/",
+      "components": [
+        {
+          "key": "182d8150-66f1-5c2f-8871-c33660f29d7f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 269.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "713d4129-96b1-54d2-acc7-54b498522e4d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9b250280-1b90-5190-a3bf-115a17a3c292",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große, fein gewürfelt"
+            },
+            {
+              "key": "c2fead3d-dd50-5852-9b2d-5bba2339eb16",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 rote Paprika, gewürfelt"
+            },
+            {
+              "key": "b9ee3e44-953d-58f7-bbaa-0d94660498a5",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "942f9df3-bf2e-5cb9-a62a-a3cabdede50a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL gemahlener Kreuzkümmel"
+            },
+            {
+              "key": "b514bb6e-de5f-523c-9b9f-1267269e8f58",
+              "ingredientName": "Süßes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "42951abe-15b7-572b-903b-1c5ccc8f763a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "798e8a32-2b17-55f2-9b2f-91bb48ddc669",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL oder nach Geschmack"
+            },
+            {
+              "key": "bd3fff35-cf8c-589e-8240-845475782448",
+              "ingredientName": "Tomatenmark",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f26b95cd-733c-5124-8fed-e13392e5ac58",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 28-oz Dose"
+            },
+            {
+              "key": "bb0dae62-1d39-5492-a638-e19d4c010e8f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7ca32d48-08b1-5bc3-a96c-5f31f3b23270",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4cb88768-52cd-5128-8d66-61f707c7d619",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL zum Ausgleichen der Säure"
+            },
+            {
+              "key": "f75b5d3c-74b5-5031-8003-05e206bd4e2a",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "6 große Eier"
+            },
+            {
+              "key": "8f5a2eaa-a825-5e26-9d19-83735b80845e",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "etwa 4 oz, zerbröselt"
+            },
+            {
+              "key": "c760341a-bbdc-570b-b832-ae507a528bbf",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "Handvoll, gehackt, oder Petersilie"
+            },
+            {
+              "key": "8efa1c6a-eb1a-543a-8faa-729d62833d2b",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": "knuspriges Brot zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen, tiefen Pfanne bei mittlerer Hitze erhitzen. Gewürfelte Zwiebel und rote Paprika dazugeben und unter gelegentlichem Rühren 8–10 Minuten braten, bis sie weich ist und die Zwiebel an den Rändern goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch, Kreuzkümmel, süßes und geräuchertes Paprikapulver sowie Cayennepfeffer einrühren. 1 Minute braten, bis es duftet. Tomatenmark hinzufügen und eine weitere Minute anrösten, damit sich sein Aroma vertieft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerkleinerte Tomaten zugießen, Zucker, eine großzügige Prise Salz und einige Umdrehungen Pfeffer hinzufügen. Ohne Deckel 10–15 Minuten köcheln lassen und gelegentlich umrühren, bis die Sauce eindickt und der rohe Tomatengeschmack verschwindet. Abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa die Hälfte des Fetas in die Sauce bröseln und einrühren. Mit dem Löffelrücken 6 gleichmäßig verteilte flache Mulden in die Sauce drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Je ein Ei in eine Mulde schlagen. Etwas Sauce nur über das Eiweiß löffeln, das Eigelb frei lassen und die Eier mit einer Prise Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pfanne abdecken und Hitze auf niedrige Stufe reduzieren. 8–12 Minuten garen, bis das Eiweiß gerade gestockt und das Eigelb noch flüssig ist. Häufig kontrollieren, da es schnell fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Übrigen zerbröselten Feta und gehackten Koriander oder Petersilie darüberstreuen. Sofort direkt aus der Pfanne mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/SHAKSHUKA_%26_FETA_-_The_Meeting_Place_2025-06-28.jpg/1280px-SHAKSHUKA_%26_FETA_-_The_Meeting_Place_2025-06-28.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:SHAKSHUKA_%26_FETA_-_The_Meeting_Place_2025-06-28.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Shakshuka mit Feta",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

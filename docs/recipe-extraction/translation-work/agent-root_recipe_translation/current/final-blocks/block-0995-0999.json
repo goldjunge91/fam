@@ -1,0 +1,1125 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-mexican-beef-rice-bowl",
+      "slug": "mfr-mexican-beef-rice-bowl",
+      "title": "Mexikanische Rinderhack-Reis-Bowl",
+      "instructions": "Mit Kreuzkümmel und Chili gewürztes Rinderhack auf Tomatenreis und schwarzen Bohnen mit allen Toppings. Ein Tex-Mex-Klassiker für den Feierabend, in 20 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reis in verdünnter Tomatensauce zu kochen ist eine mexikanische Methode, die ohne zusätzliche Kosten Geschmack bringt.",
+        "Rinderhack und Bohnen aus der Dose decken den Eiweißbedarf für weniger als $3."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "tomato-sauce",
+          "swap": "Salsa für einen anderen Tomatengeschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mexican-beef-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "Bowl",
+        "Tex-Mex",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 995,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mexican-beef-rice-bowl/",
+      "components": [
+        {
+          "key": "ab9446d2-67c1-5488-9d99-5d19c8eb1672",
+          "name": "Zutaten",
+          "servingGrams": 711.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "82613fe0-0b47-5343-91cf-1f4dd9762287",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00cde2af-6ffb-58b2-a664-5ab51f460cf7",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a4eb82f-2c89-5cb5-b3fa-56662a39daaf",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56f83df7-8c13-5748-97ad-01c48d510c1c",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81f4145f-9031-5e0e-828b-613d8a35d02f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "325f3779-5427-5e12-8f08-9a7f6ae5e1e3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93ac35e6-e1b4-50b1-b035-04e78df20b41",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a45d3b5-8b4a-5d33-b2a6-ca7f419d4c91",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23f60388-2d0b-5ea1-98d8-f9e31e4fe040",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a56872eb-ea71-5e18-9061-36b5f6c12f13",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f3627e5-08c3-5443-b474-ee286d0872e0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis mit Tomatensauce und Wasser statt mit klarem Wasser kochen. Das verleiht ihm Farbe und Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhack mit Zwiebel, Knoblauch, Chilipulver und Kreuzkümmel 8 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schwarze Bohnen erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl Tomatenreis, gewürztes Rinderhack und schwarze Bohnen anrichten. Mit Limette und Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.taste.com.au/kHLy9oWd/taste/2016/11/healthy-mexican-rice-beef-bowls-100077-1.jpeg",
+          "sourcePageUrl": "https://img.taste.com.au/kHLy9oWd/taste/2016/11/healthy-mexican-rice-beef-bowls-100077-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-taco-soup",
+      "slug": "mfr-taco-soup",
+      "title": "Taco-Suppe",
+      "instructions": "Alle Taco-Aromen in einer würzigen Brühe: Putenhack, Bohnen, Mais und Tomaten mit Taco-Gewürz. Herzhaft, schnell und nach Belieben abwandelbar.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Taco-Suppe gehört zu den preiswertesten eiweißreichen Suppen und kostet weniger als $1.50 pro Schüssel.",
+        "Eine große Menge lässt sich hervorragend bis zu 3 Monate einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Hähnchen aus der Dose als Abkürzung ohne Anbraten"
+        },
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Kidneybohnen oder Pintobohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-taco-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Suppe",
+        "Tex-Mex",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 996,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-taco-soup/",
+      "components": [
+        {
+          "key": "173cf891-8290-5b1e-b19d-520c11dace17",
+          "name": "Zutaten",
+          "servingGrams": 489.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1110d2b9-348f-526c-8def-41331228d5c4",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "870e0e52-9e87-5e9d-b34e-77640e54a853",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a09abae-0d16-5da5-9865-fa53a0b5822a",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af37376a-a8a8-5ab7-a566-27481196a50e",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71dde14e-9e06-5a4a-bae3-422a984380ec",
+              "ingredientName": "Hühnerbrühepulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5d8271e-1b57-5ac6-bd9c-eebe7afda446",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a489b13-347c-529a-8919-1dc4894e239e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "614870e3-62ac-54fd-9350-390e9ac3b9da",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5770ba2-bc56-5827-9e90-e5c01c5c9a8b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e393e547-3582-56e5-9a53-16bfc125240e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdc9cb66-938e-5927-bd12-28dbec204012",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72a67007-f1d8-5a23-aaa6-746070c39ac0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Putenhack mit Zwiebel und Knoblauch in Olivenöl 8 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackte Tomaten, schwarze Bohnen, Mais, Brühepulver und 3 Tassen Wasser sowie Chilipulver und Kreuzkümmel dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "12 Minuten köcheln lassen. Limettensaft darüberpressen und mit Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https://storage.googleapis.com/gen-atmedia/3/2017/09/e5e251afc95d4bf1cc9f32d170899a6d744d6ac5.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https://storage.googleapis.com/gen-atmedia/3/2017/09/e5e251afc95d4bf1cc9f32d170899a6d744d6ac5.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-peru-quinoa-chicken",
+      "slug": "mfr-peru-quinoa-chicken",
+      "title": "Peruanische Hähnchen-Quinoa-Bowl",
+      "instructions": "Mit Kreuzkümmel und Kräutern mariniertes Hähnchen auf Quinoa mit grüner Sauce nach Art von Ají, Avocado und Tomate. Eine südamerikanische Bowl mit ausgewogenen Makros.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die grüne Sauce besteht nur aus püriertem Koriander und Limette. So nutzt du den Bund, den du ohnehin gekauft hast, für zusätzlichen Geschmack.",
+        "Quinoa und Hähnchen liefern zusammen 50 g Eiweiß aus nur zwei Zutaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sriracha",
+          "swap": "Jalapeño oder keine Schärfe für eine mildere Sauce"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Gurke für Knusprigkeit ohne zusätzliches Fett"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-peru-quinoa-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "peruanisch",
+        "Bowl",
+        "lateinamerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 997,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-peru-quinoa-chicken/",
+      "components": [
+        {
+          "key": "327d1457-2c17-5316-986b-05dacdac2a01",
+          "name": "Zutaten",
+          "servingGrams": 658,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b2f72d2-43f6-5f79-b60c-cf353a34060b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3dec543-13be-54e0-a1ea-81ea6ed1fcad",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4df4c3c-0568-5359-ac85-baca112a5e8f",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9db0fd52-782a-525a-8668-52f1c185fdac",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "660bb33e-a6b9-50d8-92e6-d97c283f3fa5",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5209a305-5d94-5fc3-abaf-9d8c6418976b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd2fb372-ee4e-5341-9a47-3cb4a9027cc4",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9075f445-ecaf-5098-8c52-f6e3dc57e8c4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9327c81-4f95-5ce9-8572-002e1bff1ea2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b4b7481-99e1-512f-a6ef-facc7187b524",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e36e1dcc-7fc4-52a9-a40b-0ab2051abb48",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de4ab264-5b43-5bae-9380-c195c5478fbb",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen 10 Minuten in Kreuzkümmel, Paprikapulver, Knoblauch, Olivenöl und Limettensaft marinieren. 5–6 Minuten pro Seite braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Quinoa kochen. Für die grüne Sauce nach Ají-Art Koriander, Knoblauch, Limette, Sriracha, 1 EL Olivenöl und Salz pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer Bowl Quinoa, Spinat, Hähnchenscheiben, Avocado und Tomate anrichten. Grüne Sauce darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Quinoa-Bowls-with-Balsamic-Dressing_EXPS_SDFM18_199806_D10_05_2b_w_dressing-2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Quinoa-Bowls-with-Balsamic-Dressing_EXPS_SDFM18_199806_D10_05_2b_w_dressing-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-black-bean-sweet-potato-soup",
+      "slug": "mfr-black-bean-sweet-potato-soup",
+      "title": "Suppe mit schwarzen Bohnen und Süßkartoffel",
+      "instructions": "Rauchige, wärmende Suppe aus schwarzen Bohnen und Süßkartoffel mit Kreuzkümmel und Limette. Eine vegane Bowl nach mexikanischer Art, sämig, sättigend und für weniger als $2 pro Portion.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen schwarze Bohnen und zwei Süßkartoffeln kosten insgesamt etwa ~$3.60 und reichen für 3 großzügige Portionen.",
+        "Teilweises Pürieren macht die Suppe reichhaltig und cremig, ganz ohne Milchprodukte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder normale Kartoffel"
+        },
+        {
+          "forIngredientId": "chicken-bouillon",
+          "swap": "Gemüsebrühepulver für eine vollständig vegane Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-black-bean-sweet-potato-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Suppe",
+        "vegan",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 998,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-black-bean-sweet-potato-soup/",
+      "components": [
+        {
+          "key": "7df47833-3383-5ee0-bd48-839871ece4d4",
+          "name": "Zutaten",
+          "servingGrams": 486.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "0786b4fd-9da2-591d-9e48-e3f66fff4a82",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f78cfec1-b959-5f20-9138-d964bcf2fc82",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfc7a6f3-4e62-5955-841d-69c2e2f52cce",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f99a23dc-04ac-5880-8edc-03ed438dea88",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1e6e6ce-c9ac-5a0f-a380-1c5ea5217d21",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfb1479c-1b39-56b4-b983-0e96581e6bf6",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57fddac1-c647-527c-ab6d-2ca0ea6cec56",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66d3d9a4-2c22-5e7f-8adf-ddbc12c677d0",
+              "ingredientName": "Hühnerbrühepulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b84561d-bb1c-55b4-9ab8-e16ad70a5d0c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "902c811e-30fc-542f-bce1-b9f684c81156",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f38f6563-df45-516f-b68c-9e2dbe479f89",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel 5 Minuten in Öl anschwitzen. Knoblauch, Kreuzkümmel und Chilipulver dazugeben und 1 Minute mitbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Süßkartoffel, schwarze Bohnen, Brühepulver und 4 Tassen Wasser dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "18 Minuten köcheln lassen, bis die Süßkartoffel weich ist. Einen Teil pürieren, sodass die Suppe zugleich cremig und stückig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Limettensaft darüberpressen und mit Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlheartfood.com/wp-content/uploads/2021/03/Black-Bean-Sweet-Potato-Soup-Recipe-Feature.jpg",
+          "sourcePageUrl": "https://girlheartfood.com/wp-content/uploads/2021/03/Black-Bean-Sweet-Potato-Soup-Recipe-Feature.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-venezuelan-chicken-asado-bowl",
+      "slug": "mfr-venezuelan-chicken-asado-bowl",
+      "title": "Venezolanische Hähnchen-Asado-Bowl",
+      "instructions": "Im Ofen gebratenes Hähnchen mit Knoblauch, Zwiebel, Kreuzkümmel und Bitterorange, serviert auf weißem Reis mit schwarzen Bohnen. Eine vereinfachte Variante des Asado Criollo.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Marinade mit Orangensaft kostet nichts, wenn du eine Orange auspresst, und macht das Fleisch wunderbar zart.",
+        "Bei hoher Hitze gebratene Hähnchenoberkeulen bekommen karamellisierte Ränder und schmecken, als kämen sie vom Holzgrill."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "orange",
+          "swap": "Ein Schuss Apfelsaft und etwas zusätzliche Limette"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust (die Bratzeit um 5 Minuten verkürzen)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-venezuelan-chicken-asado-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "venezolanisch",
+        "Bowl",
+        "lateinamerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 999,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-venezuelan-chicken-asado-bowl/",
+      "components": [
+        {
+          "key": "f383bcbc-9f0a-5479-902f-16266bbc1783",
+          "name": "Zutaten",
+          "servingGrams": 815,
+          "position": 0,
+          "items": [
+            {
+              "key": "048cd0e2-4c37-5609-a6fb-f7410d96a23e",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a12bd2ed-5e95-5690-9c94-78a309db7613",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bc312f9-ede9-5a30-a6b6-5163bdd70b55",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f91e7c60-5074-5097-8d70-d602b0b378a1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5aedac67-9b6e-5637-9897-4a0324e6fed9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a21a9505-fb53-5364-90c1-cbcf09dee633",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15d28dfa-2b49-55a7-9e09-2bde025dc296",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c747904-6d04-5389-9fd9-c98669e45227",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35cd0d37-3839-5a00-87eb-c1e029ff4a2a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2da6f772-6dac-5b16-b519-e4720a7cf124",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8515d978-c03e-5141-9a8a-0121d287383f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, Knoblauch, Kreuzkümmel, Paprikapulver, Limettensaft, Orangensaft und Öl zu einer Marinade pürieren. Hähnchenoberkeulen damit einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bei 425°F 22–25 Minuten braten, bis das Hähnchen karamellisiert und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis kochen. Schwarze Bohnen erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl Reis, schwarze Bohnen und aufgeschnittenes Hähnchen anrichten und mit Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/08/Asado-Chicken-recipe-4.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/08/Asado-Chicken-recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

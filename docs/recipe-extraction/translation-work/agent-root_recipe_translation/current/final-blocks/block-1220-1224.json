@@ -1,0 +1,1138 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-euro-swedish-meatballs",
+      "slug": "mfr-euro-swedish-meatballs",
+      "title": "Schwedische Putenfleischbällchen mit Rahmsoße",
+      "instructions": "Zarte Putenfleischbällchen in einer cremigen Rahmsoße mit Piment und Muskat, serviert auf Eiernudeln: der IKEA-Klassiker für zu Hause mit magerer Pute, griechischem Joghurt und Preiselbeermarmelade.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhackfleisch kostet $3-4/lb und eignet sich hervorragend für schwedische Fleischbällchen. Es ist weniger fettig als Schweinefleisch.",
+        "Griechischer Joghurt ersetzt saure Sahne in der Soße und verbessert die Makros.",
+        "Preiselbeermarmelade kostet bei IKEA oder online $3 und lohnt sich für den authentischen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lingonberry-jam",
+          "swap": "Cranberrysoße mit demselben süß-säuerlichen Geschmacksprofil"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne für eine traditionellere Rahmsoße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-swedish-meatballs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schwedisch",
+        "Fleischbällchen",
+        "Pute",
+        "Rahmsoße",
+        "cremig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1220,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-swedish-meatballs/",
+      "components": [
+        {
+          "key": "0a805504-b467-50d9-96ef-4aa152b19b52",
+          "name": "Zutaten",
+          "servingGrams": 425,
+          "position": 0,
+          "items": [
+            {
+              "key": "808aa441-6cae-59f1-a2f5-b2cb9761a6b8",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a1122f4-e6eb-5f0b-80ea-f9f7b8e5d67d",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd8e10f8-9fa4-57fc-b904-e331109e774e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3753bf9-4b62-5b83-829f-fd80bc550ba2",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d174d956-3a75-534f-a6ee-8445362fc0ab",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb756365-979d-55a0-b07c-d8f428265911",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d7dc495-67ae-5bbc-919f-9fbf00c18d59",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c0658cf-543a-56c7-8fe8-1ddbea63c9f8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1204314f-90fb-54db-9d8a-5faf9e08d759",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ade93785-945e-5607-a427-f90afa76511f",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ef2a3c6-c941-503c-8974-09f945bb0a1b",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09d3717c-2cfa-594c-ae58-bc941912c50a",
+              "ingredientName": "Preiselbeermarmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Putenhack, Semmelbrösel, Ei, Muskat, Piment, geriebene Zwiebel und Salz. Forme daraus Fleischbällchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Fleischbällchen 5-6 Minuten in Butter an, bis sie gebräunt sind. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Rahmsoße zu: Verrühre Butter und Mehl zu einer Mehlschwitze, gib Brühe dazu und lass alles 3 Minuten köcheln. Rühre den griechischen Joghurt abseits der Hitze ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Fleischbällchen zurück in die Soße. Serviere sie auf Eiernudeln mit Preiselbeermarmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/68e4252ec9ed8f477e9f6f93/1:1/w_2560%2Cc_limit/recipe3.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/68e4252ec9ed8f477e9f6f93/1:1/w_2560%2Cc_limit/recipe3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-bouillabaisse",
+      "slug": "mfr-euro-bouillabaisse",
+      "title": "Vereinfachte französische Bouillabaisse",
+      "instructions": "Eine nach Safran duftende Meeresfrüchtebrühe mit Tomate und Fenchel, Garnelen, Fisch und Muscheln: eine alltagstaugliche Variante des legendären Marseiller Gerichts, fertig in 30 Minuten und voller Geschmack.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Prise Safran (für $0.10 aus einem Glas für $6) verwandelt die Brühe. Lass ihn nicht weg.",
+        "Tiefgekühlte gemischte Meeresfrüchte kosten $5-8 pro Beutel und eignen sich perfekt für Bouillabaisse.",
+        "Zu dieser Suppe passt ein guter knuspriger Laib Brot besonders gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "saffron",
+          "swap": "1 TL Kurkuma + eine Prise Paprikapulver (günstiger Ersatz)"
+        },
+        {
+          "forIngredientId": "fennel",
+          "swap": "Sellerie + 1/4 TL Fenchelsamen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-bouillabaisse",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "französisch",
+        "Bouillabaisse",
+        "Meeresfrüchte",
+        "Safran",
+        "Suppe"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1221,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-bouillabaisse/",
+      "components": [
+        {
+          "key": "8b3a11a6-7042-584a-92dd-156850cfdafa",
+          "name": "Zutaten",
+          "servingGrams": 640.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "d6fd968c-004c-5a25-8bde-e40a75b15c80",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae81c045-7b29-54ae-85ed-fa9d0bba5125",
+              "ingredientName": "Tilapiafilet",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aebf2ec5-1f6f-5af0-a6e7-efd7a2007c18",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "033b5b26-deee-54da-baf3-ff06d83aa6ea",
+              "ingredientName": "Fenchelknolle",
+              "grams": 234,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e53c47de-78cf-510c-951c-64ae0a9be119",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fe062d3-73d1-5589-b074-01d889384c17",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a2430c3-415e-5670-8183-a7db355dc6cf",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e7c4f03-4d6f-5226-8736-1d0b8db08363",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3870d5f-082a-596f-b3ba-44b74efc90d9",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "810f2330-3b7f-50fa-a1a6-05cc2bf74b53",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6743327b-326f-5761-aa96-9f584571308f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ba32107-f740-56fa-b555-ce2e2033a80d",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eed98e64-a66a-5882-9d39-6031d33f51fc",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel, Fenchel und Knoblauch 4 Minuten in Olivenöl an. Gib Tomaten, Brühe, Safran, Thymian und Lorbeerblatt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles 12 Minuten köcheln. Gib Fischstücke und Garnelen dazu und gare sie weitere 5 Minuten, bis sie gerade gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze mit Salz und Zitrone. Serviere die Suppe mit getoastetem Brot zum Auftunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/QZpy39Vy0TpZhzAxKeQ2YlzGAD0=/5214x3476/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Bouillabaisse-LEAD-5-b2153bf6e82d42deb4a5a007231738c3.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/QZpy39Vy0TpZhzAxKeQ2YlzGAD0=/5214x3476/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Bouillabaisse-LEAD-5-b2153bf6e82d42deb4a5a007231738c3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-moussaka-bowl",
+      "slug": "mfr-euro-moussaka-bowl",
+      "title": "Griechische Bowl nach Moussaka-Art",
+      "instructions": "Die Aromen von Moussaka – gewürztes Lammhack, geröstete Aubergine und eine leichte Béchamel – als Bowl auf Reis neu zusammengestellt für eine alltagstaugliche Variante des griechischen Klassikers.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammhack kostet $5-8/lb, aber schon eine kleine Menge gibt einer gewürzten Soße viel Aroma.",
+        "Béchamel aus griechischem Joghurt ist eine schnelle Variante mit 3 Zutaten und der passenden Cremigkeit.",
+        "Zimt in herzhaftem Lammfleisch ist ein griechischer Geheimtipp. Lass ihn nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-lamb",
+          "swap": "Rinderhack für eine günstigere Variante"
+        },
+        {
+          "forIngredientId": "eggplant",
+          "swap": "Zucchini"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-moussaka-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Moussaka",
+        "Lamm",
+        "Aubergine",
+        "Bowl"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1222,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-moussaka-bowl/",
+      "components": [
+        {
+          "key": "45a35355-6fbd-5d69-a5eb-0fc811f5d983",
+          "name": "Zutaten",
+          "servingGrams": 755.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d632930-23c0-52ff-992b-ccf18e5e05a8",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ae55179-b88f-5453-bd21-12919614bae3",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17cb93ba-141c-5a8d-b76a-afa0ba991d24",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46d96b72-2d28-58e4-87b0-400cb1c47a63",
+              "ingredientName": "Tomatensoße",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a5baca2-65ea-5f3f-bea1-926c0e68c113",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fabf9114-d044-586f-b9e4-3d2872335eb2",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a5c0d6c-c573-55a4-8641-3c67ab14622f",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da2eb800-256e-5ea0-8ca0-c6bc118e7a72",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd32e9f4-00dd-593c-9a76-e12ab9d5a743",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e3760be-8ba1-5c57-9d6f-153b425d6f28",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcaf8d39-5ec4-5a21-ad2a-b51be94c3321",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c60d67c-046e-5372-8b6f-62a9ead4f6b6",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d652aeb-8c4a-5f59-a123-29c36f55b5eb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste gewürfelte Aubergine bei 425°F 20 Minuten. Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Lamm mit Zwiebel, Knoblauch, Zimt und Piment an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre griechischen Joghurt, Ei, Muskat und Parmesan zu einer leichten „Béchamel“.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl an: Reis → Lamm → Aubergine → Joghurt-Béchamel darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/08/grilled-eggplant-with-whipped-feta-6.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/08/grilled-eggplant-with-whipped-feta-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-german-pork-sauerkraut",
+      "slug": "mfr-euro-german-pork-sauerkraut",
+      "title": "Schweinefilet mit Sauerkraut nach deutscher Art",
+      "instructions": "Schweinefilet, mit säuerlichem Sauerkraut, Apfel und Kümmel geschmort: eine klassische deutsche Kombination, die schnell zubereitet ist, herzhaft schmeckt und durch die natürliche Fermentation gut für den Darm ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sauerkraut kostet $2-3, hält sich monatelang im Kühlschrank und liefert zugleich Würze und Gemüse.",
+        "Schweinefilet gehört zu den magersten Fleischstücken und ist schnell gar.",
+        "Kümmelsamen kosten $1-2 und prägen die deutsche Küche. Der Kauf lohnt sich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "caraway-seeds",
+          "swap": "Fenchelsamen für ein anderes, aber ebenfalls passendes Aroma"
+        },
+        {
+          "forIngredientId": "pork-tenderloin",
+          "swap": "Schweinekoteletts"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-german-pork-sauerkraut",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "deutsch",
+        "Schweinefleisch",
+        "Sauerkraut",
+        "fermentiert",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1223,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-german-pork-sauerkraut/",
+      "components": [
+        {
+          "key": "4328b2c7-47b9-517c-94e3-f4f0eb1ceb97",
+          "name": "Zutaten",
+          "servingGrams": 698.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "01585ae1-a100-564a-8b56-453bc9a2fbb4",
+              "ingredientName": "Schweinefilet",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c31da78-72f1-5e6b-bbed-825dda041d18",
+              "ingredientName": "Sauerkraut",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fe36f3e-a30c-532d-a7b0-028bd74565b0",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ec31667-8124-595f-9445-65e1b9e130c6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8555fc79-71a0-56c7-9daf-d5e2b7f8ef54",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6b26737-6508-5642-a56a-6c04026cc810",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d78f8847-d2e2-591a-9e3f-f60a46ba58f3",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83d74d25-ff5e-52cc-892a-6e39df44d029",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d6ab7d5-13d0-5d4a-9c35-ef577708522f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cb8011e-3d9f-51e6-956b-3b2e5a887322",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Schweinefilet und brate es 3 Minuten pro Seite an, bis es goldbraun ist. Schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel 3 Minuten an. Gib Sauerkraut, Apfelscheiben, Kümmelsamen und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Schweinefleisch zurück in den Topf und lass alles zugedeckt 12 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Gericht mit Salzkartoffeln und etwas Dijon-Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Pennsylvania-Style-Pork-Roast_EXPS_TOHD24_18882_AbbeyLittlejohn_08.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Pennsylvania-Style-Pork-Roast_EXPS_TOHD24_18882_AbbeyLittlejohn_08.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-moules-frites",
+      "slug": "mfr-euro-moules-frites",
+      "title": "Miesmuscheln in Weißweinbrühe nach belgischer Art",
+      "instructions": "Miesmuscheln, in Weißwein mit Knoblauch, Schalotten und Petersilie gedämpft: der belgische Klassiker Moules Marinières, hier mit knusprigem Brot statt Pommes als schnellere und leichtere Variante.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Miesmuscheln gehören zu den nachhaltigsten Zuchtmuscheln und kosten $3-5/lb: ein hervorragendes Angebot.",
+        "Das ganze Gericht ist in 15 Minuten vom Herd auf dem Tisch.",
+        "Miesmuscheln von der Fischtheke sind meistens frischer als abgepackte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Hühnerbrühe + ein Spritzer Zitrone"
+        },
+        {
+          "forIngredientId": "cream",
+          "swap": "Kokoscreme für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-moules-frites",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "belgisch",
+        "Miesmuscheln",
+        "Meeresfrüchte",
+        "Wein",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1224,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-moules-frites/",
+      "components": [
+        {
+          "key": "63af193a-857c-5df6-99d9-d10123b03b8d",
+          "name": "Zutaten",
+          "servingGrams": 379,
+          "position": 0,
+          "items": [
+            {
+              "key": "9dfaec81-cf15-56ec-af8b-665b5e2fd7d5",
+              "ingredientName": "Miesmuscheln",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6a82a01-3b66-5675-8bd7-c6192b83a80c",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5a97602-832f-5a14-9ee5-9d8ec2f1b9e2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0345a381-96a1-53d3-9e8e-7e0380def535",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1681dc0b-0372-5e37-99e2-e225fa9c1ee1",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abe2abdf-f0dc-54fd-9259-7382dbf155e5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b404a0aa-e15f-51e0-bee6-5061c1ec0aed",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9101e6b-7c58-564a-a12c-9ccec98898c8",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc0f8596-e0ed-54ce-978f-13dc52f83ace",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d532c1e-8e4c-5a56-b433-95c9e287a411",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinige die Miesmuscheln und entferne die Bärte. Wirf offene Muscheln weg, die sich beim Antippen nicht schließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Schalotten und Knoblauch 2 Minuten in Butter an. Gib Wein und Sahne dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Miesmuscheln dazu. Decke den Topf ab und dämpfe sie 4-5 Minuten, bis sie sich alle geöffnet haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wirf Muscheln weg, die sich nicht geöffnet haben. Serviere sie mit Brühe, Petersilie, Zitrone und knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/yDDtLzQ-OKzh50bB3eQFpNvy9CU=/4048x2696/filters:fill(auto,1)/steamed-mussels-white-wine-recipe-995527-hero-01-5c7d663446e0fb00018bd861.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/yDDtLzQ-OKzh50bB3eQFpNvy9CU=/4048x2696/filters:fill(auto,1)/steamed-mussels-white-wine-recipe-995527-hero-01-5c7d663446e0fb00018bd861.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1278 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-congo-bars",
+      "slug": "bake2-congo-bars",
+      "title": "Klassische Congo-Schnitten",
+      "instructions": "Buttrige Blondies mit Braunzucker, Schokotropfen und gerösteten Walnüssen – ein Klassiker aus den Gemeindekochbüchern Neuenglands. Sie sind eine zähe, karamellige Variante des Schokoladenkekses, in einer Form gebacken und in Quadrate geschnitten. Keine Küchenmaschine nötig.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schokotropfen und Weizenmehl der Hausmarke kosten nur einen Bruchteil der Markenware und backen genauso gut. In diesen Riegeln merkt niemand den Unterschied.",
+        "Lasse Walnüsse weg, wenn du sparen musst. Die Schnitten schmecken auch ohne sie traditionell und köstlich; außerdem entfällt die teuerste Zutat.",
+        "Kaufe Braunzucker in großen Säcken statt kleinen Packungen. Diese Schnitten benötigen viel davon. Luftdicht mit einer Scheibe Brot aufbewahrt hält er monatelang weich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "gehackt pecans oder omit entirely",
+          "savings": "Weglassen spart etwa $1.50."
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "dark oder white Schokolade chips, oder ein 50/50 mischen",
+          "savings": "Die Handelsmarke spart etwa $1."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "gleich amount von neutral Pflanzenöl (slightly weniger rich but works)",
+          "savings": "Spart etwa $1."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "bars (deutsche Fassung)",
+        "blondie (deutsche Fassung)",
+        "Schokolade",
+        "potluck (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7555,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-congo-bars/",
+      "components": [
+        {
+          "key": "acb2d9c7-e03c-5c12-a3c8-eecd63b7a659",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 115.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8e2f903-b048-5f38-98d1-65e265c4ab65",
+              "ingredientName": "Weizenmehl",
+              "grams": 660,
+              "quantity": 660,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 3/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "852eacff-2d40-5f00-8802-3a51d0c2cc4c",
+              "ingredientName": "Backpulver",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/2 TL Backpulver"
+            },
+            {
+              "key": "6ac0a2f5-ee19-5178-939a-865ddec04ad2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "9b944c0f-8dd5-5c5f-b3d1-bd23a390e402",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stück) ungesalzene Butter, geschmolzen"
+            },
+            {
+              "key": "45a87546-2625-5b47-8b12-497a4af13ad2",
+              "ingredientName": "brauner Zucker",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 1/4 Tassen fest eingedrückter hellbrauner Zucker (etwa 33 EL)"
+            },
+            {
+              "key": "c0709c1c-dbe6-5144-80e2-919afc96ca9a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 große Eier"
+            },
+            {
+              "key": "e581ba5d-1da7-5145-be1f-4b24e49c87d3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "ef174b55-6ba1-596b-a423-8625743dbcbf",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse (etwa 16 EL) halbbittere Schokoladenstückchen"
+            },
+            {
+              "key": "46319380-77d1-5243-9bf4-281a79272e8f",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1/4 Tasse gehackte Walnüsse, geröstet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Lege eine Form von 9x13-Zoll mit Backpapier aus, lasse es an zwei Seiten überstehen und buttere es leicht. Röste Walnüsse nach Wunsch im trockenen Ofen 6-8 Minuten duftend und hacke sie anschließend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Backpulver und Salz in einer mittelgroßen Schüssel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle geschmolzene Butter und Braunzucker in einer großen Schüssel etwa 1 Minute glatt und glänzend. Die Mischung sollte feuchtem Sand ähneln und keine trockenen Klümpchen haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage die Eier einzeln unter, dann Vanille. Nach jeder Zugabe gut schlagen, bis der Teig dick, glänzend und bandartig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe die Mehlmischung mit einem festen Teigschaber ein, bis keine trockenen Streifen mehr sichtbar sind. Nicht überrühren, sonst werden die Schnitten zäh. Schokotropfen und geröstete Walnüsse unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den dicken Teig in die Form und verteile ihn gleichmäßig bis in die Ecken. Nach Wunsch einige zusätzliche Schokotropfen darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe 28-32 Minuten, bis die Oberfläche goldbraun und fest ist, die Ränder einige Risse zeigen und ein Zahnstocher aus der Mitte mit wenigen feuchten Krümeln herauskommt. Der Teig in der Mitte darf noch leicht weich aussehen; beim Abkühlen wird er fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse alles mindestens 1 Stunde vollständig in der Form auf einem Gitter abkühlen. Hebe den Kuchen am Backpapier heraus und schneide ihn in 16 Quadrate. Für besonders saubere Ränder vor dem Schneiden 20 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Toffee_blondies.jpg/1280px-Toffee_blondies.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Toffee_blondies.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Bryan Ochalla, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassische Congo-Schnitten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-oatmeal-fudge-bars",
+      "slug": "bake2-oatmeal-fudge-bars",
+      "title": "Haferflocken-Fudgeschnitten",
+      "instructions": "Klassische Revel Bars aus dem Mittleren Westen: buttriger Haferkeks-Teig mit Braunzucker als Boden, bedeckt mit seidiger Fudge-Füllung aus gezuckerter Kondensmilch und Schokolade. Darüber kommen Teigstreusel, sodass beim Backen ein dicker Haferkeks mit Fudge-Kern entsteht. Zähe Ränder, weiche Mitte und kräftiger Schokoladengeschmack.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schokotropfen und gezuckerte Kondensmilch der Hausmarke. Daraus entsteht derselbe Fudge für die Hälfte des Markenpreises.",
+        "Altmodische Haferflocken lose sind pro Pfund viel günstiger als in kleinen Packungen und genau richtig für dieses Rezept.",
+        "Lasse Walnüsse weg und spare ein paar Dollar. Die Schnitten sind auch ohne sie reichhaltig und vollständig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "dark-Schokolade-chips für ein weniger-süß, mehr intense fudge",
+          "savings": "Ähnlicher Preis."
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "pecans, oder omit entirely",
+          "savings": "Spart etwa $2."
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "white Zucker plus 1 tbsp molasses per cup",
+          "savings": "Verwendet Vorratszutaten."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "bars (deutsche Fassung)",
+        "Schokolade",
+        "oatmeal (deutsche Fassung)",
+        "potluck (deutsche Fassung)",
+        "machen-ahead",
+        "kid-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7556,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-oatmeal-fudge-bars/",
+      "components": [
+        {
+          "key": "f3a6258a-22ec-527c-a39a-1b5dce1677a7",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 124.27,
+          "position": 0,
+          "items": [
+            {
+              "key": "74cf2fc1-18ad-5e23-bb81-b17995aa692c",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse ungesalzene Butter, weich (für den Haferteig)"
+            },
+            {
+              "key": "258069e0-5177-5f4e-8217-2413e04eb9b6",
+              "ingredientName": "brauner Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen fest eingedrückter hellbrauner Zucker"
+            },
+            {
+              "key": "0f80b139-2e9e-548a-90aa-c939c3dd7d64",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "06ef3bd0-4287-59fa-b52c-5de7670478ba",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 1/2 TL Vanilleextrakt (2 TL für den Teig, 1/2 TL für den Fudge)"
+            },
+            {
+              "key": "a6e98b46-5da3-549a-84db-bd9ab2d2e62f",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "ecc5ee56-0bbd-59a5-ac82-4d697b830036",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "2ae4279e-11cc-5be6-a8ae-b74266f00f5e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Salz (plus eine Prise für den Fudge)"
+            },
+            {
+              "key": "d546b03a-fdcd-5b86-a2b7-f2e48d620d10",
+              "ingredientName": "Haferflocken",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen kernige Haferflocken"
+            },
+            {
+              "key": "f011ffc9-9de6-5abe-92ec-06e7d15a7f4e",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "12 oz halbbittere Schokoladenstückchen (etwa 2 Tassen)"
+            },
+            {
+              "key": "4c01bee1-fdca-5d6c-ad2b-059498e46c6e",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Dose (14 oz) gezuckerte Kondensmilch"
+            },
+            {
+              "key": "e5b517df-a28e-5ba5-b344-f65b8f5aa97e",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1/2 Tasse gehackte Walnüsse, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Lege eine Form von 9x13-Zoll mit Backpapier aus, lasse es an zwei Seiten überstehen und fette es leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite zuerst die Fudge-Füllung zu und lasse sie leicht abkühlen: Schmilz Schokotropfen und gezuckerte Kondensmilch in einem schweren Topf bei niedriger Hitze unter ständigem Rühren etwa 4-5 Minuten glatt. Nimm den Topf vom Herd und rühre 1/2 TL Vanille, eine Prise Salz und nach Wunsch Walnüsse ein. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für den Haferteig weiche Butter und Braunzucker in einer großen Schüssel 2-3 Minuten hell und luftig schlagen. Eier einzeln und anschließend 2 TL Vanille einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Mehl, Natron und 1 TL Salz und rühre es bei niedriger Stufe gerade eben unter die Buttermischung. Haferflocken einrühren. Der Teig ist dick und leicht krümelig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke etwa zwei Drittel des Haferteigs fest und gleichmäßig auf den Boden der vorbereiteten Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die warme Fudge-Füllung darüber und verstreiche sie vorsichtig mit einer Winkelpalette bis zu den Rändern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zerbrösele das übrige Drittel des Haferteigs in kleine Stücke und verteile sie gleichmäßig über dem Fudge. Etwas Füllung sichtbar lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe 25-30 Minuten, bis die Oberfläche goldbraun und fest ist und der Fudge am Rand leicht blubbert. Nicht zu lange backen, sonst wird der Schokoladenkern zu fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse den Kuchen mindestens 2 Stunden vollständig in der Form auf einem Gitter abkühlen. Für saubere Schnitte 30 Minuten kalt stellen, dann am Backpapier herausheben und in 24 Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:bake2-french-silk-pie",
+      "slug": "bake2-french-silk-pie",
+      "title": "Französische Schokoladen-Seidentorte",
+      "instructions": "Klassische amerikanische Schokoladentorte mit knusprigem, blindgebackenem Butterboden, gefüllt mit luftigem, glattem dunklem Schokoladenmousse und gekrönt mit leicht gesüßter Schlagsahne und Schokoladenraspeln. Die seidige Füllung entsteht, indem Butter und Zucker cremig geschlagen und abgekühlte Schokolade sowie sanft über dem Wasserbad erhitzte Eier eingerührt werden. Ohne rohe Eier, Gelatine oder Abkürzungen.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende getrocknete Bohnen, die du bereits hast, statt Backgewichte zu kaufen. Lege sie zum Blindbacken auf das Backpapier und bewahre sie danach nur zum Backen auf.",
+        "Eine Bitterschokoladentafel der Hausmarke funktioniert in der Füllung genauso gut wie teure Kuvertüre und kostet nur einen Bruchteil.",
+        "Ziehe mit einem Sparschäler am Rand derselben Schokoladentafel entlang, um Schokoladenlocken herzustellen, statt separate Dekoration zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chocolate",
+          "swap": "semi-süß-Schokolade-chips (verwenden ein scant 3/4 cup) für ein slightly sweeter, softer Füllung",
+          "savings": "Schokostückchen sind pro Unze meist günstiger als Tafelschokolade."
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "ein aufbewahren-bought refrigerated pie crust, blind-gebacken per its package, zu weglassen making Teig",
+          "savings": "Spart Zeit, kostet aber meist etwas mehr als selbst gemachter Teig."
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "kalt evaporated Milch whipped mit ein little powdered Zucker, oder ein tub von thawed whipped topping",
+          "savings": "Beide Alternativen sind günstiger als ein Becher Schlagsahne."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "pie (deutsche Fassung)",
+        "Schokolade",
+        "no-backen-Füllung",
+        "machen-ahead",
+        "klassisch"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7557,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-french-silk-pie/",
+      "components": [
+        {
+          "key": "f7cbae50-3c02-56cc-b49c-65276d67916f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 149.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "52cd93e3-b2cd-549f-8453-1e9dc0d6d3ed",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Weizenmehl für den Boden"
+            },
+            {
+              "key": "edb007a6-6f59-59be-a3c2-611306aa263b",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) kalte ungesalzene Butter, gewürfelt (für den Boden)"
+            },
+            {
+              "key": "8804637e-8e1b-5764-ac68-17235a592108",
+              "ingredientName": "Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL Kristallzucker (für den Boden)"
+            },
+            {
+              "key": "d78d4690-b3f5-5847-a8bf-1e93cae2d8e7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Salz (für den Boden)"
+            },
+            {
+              "key": "61f65029-7424-5720-9305-13794e2d11aa",
+              "ingredientName": "Wasser",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL Eiswasser (für den Boden)"
+            },
+            {
+              "key": "cf97190f-8586-5bd9-97e8-0b9dbc629e17",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 oz Zartbitterschokolade (60-70 %), gehackt (für die Füllung)"
+            },
+            {
+              "key": "283dc67b-ec4d-53bf-a23a-4961dbee437c",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) ungesalzene Butter, weich (für die Füllung)"
+            },
+            {
+              "key": "c9da1092-d687-5380-99ef-16c765a93802",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker (für die Füllung)"
+            },
+            {
+              "key": "302294e0-30bd-5821-9324-108361f3057c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 große Eier, zimmerwarm"
+            },
+            {
+              "key": "1cde85d0-991a-5c23-9d2e-9c50f5cbdba3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "9e661f45-166c-5e45-844a-51ae6728691c",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse kalte Schlagsahne (für den Belag)"
+            },
+            {
+              "key": "612d9194-52e9-57b1-9649-12ef43fd09e4",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL Puderzucker für die Schlagsahne"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Boden Mehl, 1 TL Zucker und Salz vermischen. Kalte Butterwürfel mit den Fingern oder einem Teigmischer einarbeiten, bis grobe Streusel mit einigen erbsengroßen Butterstücken entstehen. Eiswasser esslöffelweise einträufeln und unterheben, bis der Teig beim Zusammendrücken gerade hält. Zu einer Scheibe drücken, einwickeln und mindestens 1 Stunde kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zum Ausrollen und Blindbacken den Ofen auf 375F (190C) vorheizen. Rolle den Teig auf einer bemehlten Fläche zu einem Kreis von 12-Zoll aus, lege ihn in eine Tortenform von 9-Zoll und forme den Rand. Stich den Boden mit einer Gabel ein, belege ihn mit Backpapier und Backgewichten oder getrockneten Bohnen. Backe 18 Minuten, entferne Gewichte und Papier und backe weitere 10-12 Minuten, bis der Boden goldbraun und vollständig trocken ist. Vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz gehackte Schokolade in einer hitzefesten Schüssel über leicht siedendem Wasser oder in kurzen Mikrowellenintervallen unter Rühren glatt. Auf lauwarm abkühlen lassen. Sie darf nicht heiß sein, wenn sie mit Eiern vermischt wird, sonst stocken diese.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Creme 1 Tasse weiche Butter mit 1 Tasse Kristallzucker in einer großen Schüssel 3-4 Minuten sehr hell und luftig schlagen. Abgekühlte Schokolade und Vanille gleichmäßig einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Seidencreme die Eier einzeln dazugeben. Erhitze sie nicht roh: Stelle die Mischung über siedendes Wasser und schlage unter Abschaben der Schüsselränder ständig, bis sie leicht eindickt und 160F (71C) erreicht, etwa 4-5 Minuten. So werden die Eier gegart, während die Creme seidig bleibt. Vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die seidige Textur die warme Mischung zurück in die Küchenmaschine geben und bei mittelhoher Stufe volle 5 Minuten schlagen, bis die Füllung dick, glänzend, heller und luftig ist und weiche Bänder hält. Nicht abkürzen; langes Schlagen macht sie luftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Masse in den abgekühlten Boden und streiche die Oberfläche glatt. Stelle die Torte mindestens 4 Stunden oder über Nacht kalt, bis sie vollständig fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schlage kalte Sahne mit Puderzucker zu weichen bis mittelfesten Spitzen. Häufe sie auf die gekühlte Torte oder spritze sie darauf. Nach Wunsch mit Schokoladenraspeln garnieren und kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/French_silk_pie_%286610443047%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:French_silk_pie_(6610443047).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Corey Taratuta, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Französische Schokoladen-Seidentorte",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-apple-galette",
+      "slug": "bake2-apple-galette",
+      "title": "Klassische französische Apfel-Galette",
+      "instructions": "Rustikale französische Apfeltarte in freier Form: ein runder, blättriger Butterteig, um dünn aufgefächerte Apfelscheiben geschlagen, mit Butter bestrichen und Zucker bestäubt. Gebacken, bis die Kruste kräftig goldbraun und die Apfelränder karamellisiert sind. Eine warme Aprikosenglasur sorgt für den Glanz vom Bäcker. Keine Tarteform nötig; der unregelmäßig gefaltete Rand gehört dazu.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Granny-Smith-Äpfel sind meist die günstigsten Backäpfel und behalten ihre Form am besten. Kaufe einen 3-lb-Beutel und verwende den Rest als Snack.",
+        "Lasse die Aprikosenglasur weg, falls du keine Konfitüre hast. Eistrich und grober Zucker verleihen der Kruste bereits Glanz und Knusprigkeit.",
+        "Bereite den Teig von Hand in einer Schüssel zu, ohne Küchenmaschine. Rolle ihn auf Backpapier aus, um Mehl und Abwasch zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "verwenden marmalade oder any clear Marmelade thinned mit ein little Wasser, oder just weglassen it",
+          "savings": "So musst du kein Glas kaufen, von dem du nur 2 EL verwendest."
+        },
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "normal granulated Zucker works für sprinkling der crust",
+          "savings": "Verwende, was bereits im Vorrat ist."
+        },
+        {
+          "forIngredientId": "apple",
+          "swap": "Firm pears (Bosc) machen ein equally klassisch galette — Scheibe und backen der same way",
+          "savings": "Nimm die gerade günstigere Variante."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Backen",
+        "Nachtisch",
+        "Apfel",
+        "pastry (deutsche Fassung)",
+        "rustic (deutsche Fassung)",
+        "fall (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7558,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-apple-galette/",
+      "components": [
+        {
+          "key": "59f6f0cf-5740-5775-8cc2-38f6f5ce4151",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 134.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5113fd0-06e9-5bf8-ad63-e17a85bac0b7",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl, plus etwas zum Ausrollen"
+            },
+            {
+              "key": "8ecc1a99-b1ac-54cd-925f-f176d0e228c2",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) kalte ungesalzene Butter, in 1/2-inch Würfel geschnitten"
+            },
+            {
+              "key": "c6b1c1f8-1bab-5119-8365-b2034b955426",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL Kristallzucker (für den Teig)"
+            },
+            {
+              "key": "e00b4d98-ceee-573b-ac9a-62dc6cd845f6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "8d67e224-241a-5147-83ed-615063ee290b",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Etwa 1/4 Tasse Eiswasser, nach und nach zugeben"
+            },
+            {
+              "key": "c3a5ab59-cd94-5a53-9a74-330ac490021c",
+              "ingredientName": "Apfel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 feste, säuerliche Äpfel (Granny Smith oder Honeycrisp), geschält, entkernt und dünn geschnitten"
+            },
+            {
+              "key": "1cc501a4-0b51-5c75-9bf2-a64c54986d3e",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "Saft von 1/2 Zitrone, mit den Äpfeln vermischt"
+            },
+            {
+              "key": "e0c6f13c-87ef-5b9c-86e4-d1f0a2a7d05f",
+              "ingredientName": "brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL hellbrauner Zucker für die Füllung"
+            },
+            {
+              "key": "7b5129a2-a187-59ab-b95d-f46b5a836753",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt"
+            },
+            {
+              "key": "f4d4fa36-15ab-58dd-b711-6fce6656034e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL ungesalzene Butter, geschmolzen (zum Bestreichen der Äpfel)"
+            },
+            {
+              "key": "6b2c9c71-8dfa-5270-977a-679ea66da30d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Ei, verquirlt, zum Bestreichen des Teigs"
+            },
+            {
+              "key": "dddc2d53-f714-54d1-8024-5704a00cb536",
+              "ingredientName": "Turbinado Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL Turbinadozucker (Rohzucker) zum Bestreuen des Bodens"
+            },
+            {
+              "key": "505a3a39-bbfe-5ee1-8a0f-0b3861d996ae",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL Aprikosenkonfitüre, erwärmt, für die abschließende Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Mehl, 1 EL Kristallzucker und Salz vermischen. Kalte Butterwürfel mit den Fingerspitzen oder in der Küchenmaschine einarbeiten, bis grobe Streusel mit einigen erbsengroßen Butterflocken entstehen. Diese Flocken machen die Kruste blättrig. Eiswasser esslöffelweise einträufeln und einarbeiten, bis der Teig beim Zusammendrücken gerade hält. Nicht überarbeiten. Zu einer Scheibe drücken, einwickeln und mindestens 1 Stunde kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Äpfel schälen, entkernen und etwa 1/8-Zoll dick schneiden. Mit Zitronensaft, Braunzucker und Zimt vermischen. 10 Minuten stehen lassen, damit sie etwas weicher werden und Saft abgeben, während der Ofen aufheizt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 400F (200C) vor und belege ein Backblech mit Backpapier. Rolle den kalten Teig auf einer leicht bemehlten Fläche grob zu einem Kreis von 12-Zoll aus, etwa 1/8-Zoll dick. Lege ihn auf das Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Apfelscheiben fächerförmig und leicht überlappend in konzentrischen Kreisen in der Mitte. Lasse einen 2-Zoll breiten Rand frei und häufe die Äpfel leicht auf. Gieße überschüssige Flüssigkeit ab, damit der Boden knusprig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage und falte den 2-Zoll breiten freien Rand über die äußeren Apfelscheiben und forme alle paar Zoll rustikale Falten. Bestreiche den Teigrand mit verquirltem Ei und bestreue ihn mit grobem Turbinadozucker. Bestreiche die sichtbaren Äpfel mit 2 EL geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe 40 bis 50 Minuten, bis die Kruste dunkelgolden und die Apfelränder karamellisiert sind. Decke den Rand locker mit Folie ab, falls er zu schnell bräunt. Backe auf der unteren mittleren Schiene, damit der Boden durchgart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für den Glanz die warme Aprikosenkonfitüre auf die noch warme Galette streichen. Mindestens 15 Minuten auf dem Blech abkühlen lassen, damit sich der Saft vor dem Schneiden setzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schiebe die Galette auf ein Brett, schneide sie in 8 Stücke und serviere sie warm oder bei Raumtemperatur. Sie schmeckt pur, mit Vanilleeis oder einem Löffel Crème fraîche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Apple_galette_%283926990412%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Apple_galette_(3926990412).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Karen and Brad Emerson, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassische französische Apfel-Galette",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-hong-kong-egg-tart",
+      "slug": "bake2-hong-kong-egg-tart",
+      "title": "Hongkonger Eierküchlein (港式蛋撻)",
+      "instructions": "Klassische Eierküchlein aus Hongkonger Cha-Chaan-Teng-Teestuben: zarter, leicht süßer Mürbeteig mit seidiger, gerade gestockter Eiercreme, die glänzt und warm leicht wackelt. Die Creme besteht aus ganzen Eiern und etwas ungezuckerter Kondensmilch und wird sanft gebacken, damit sie glatt und blasenfrei bleibt. Die Mürbeteigvariante ist der Klassiker, den Hobbybäcker zu Hause meistern.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ungezuckerte Kondensmilch hält sich lange, und eine 12 oz Dose kostet wenig. Du brauchst hier nur 3 EL; verwende den Rest für Hongkonger Milchtee oder eine weitere Portion.",
+        "Spezielle Tarteletteformen sind unnötig: Eine Muffinform mit 12 Mulden ergibt perfekte Teigschalen. Fette die Mulden leicht ein, damit sich die Küchlein lösen.",
+        "Kaufe Eier und Butter im Angebot und bereite die doppelte Menge Teig zu. Er lässt sich gut einfrieren, sodass du später frische Küchlein backen kannst, ohne erneut einkaufen zu müssen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "evaporated-milk",
+          "swap": "gleich amount von whole Milch für ein lighter, weniger caramelized custard (slightly weniger rich but still smooth)",
+          "savings": "Verwende vorhandene Milch, statt eine Dose zu öffnen."
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Granulated Zucker blitzed fine, oder just 3 tbsp granulated Zucker in der Teig",
+          "savings": "Spart den Kauf einer eigenen Packung Puderzucker."
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Omit, oder verwenden ein drop von almond extract für ein traditional Cantonese bakery note",
+          "savings": "Ein Einkaufsposten weniger."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hong-kong-cantonese (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "custard (deutsche Fassung)",
+        "hong-kong (deutsche Fassung)",
+        "cha-chaan-teng (deutsche Fassung)",
+        "Ei-tart",
+        "shortcrust (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7559,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-hong-kong-egg-tart/",
+      "components": [
+        {
+          "key": "4465afb2-39a9-54be-820a-4c9eb21544d4",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 129.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "47315ed1-b231-516f-b842-9d0f09fa949e",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 3/4 Tassen Weizenmehl (für den Teigboden)"
+            },
+            {
+              "key": "9701789d-80ee-5c2a-acec-aeb10d8034ef",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "28253d96-052f-583b-a777-aace29945966",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse Puderzucker (für den Teig)"
+            },
+            {
+              "key": "3fbbe20f-253d-5a53-bf37-abf1e67e5adc",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 große Eier insgesamt: 1 für den Teig, 4 für den Pudding"
+            },
+            {
+              "key": "22bd4352-5016-57e8-9301-075659d13094",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL Salz (für den Teig)"
+            },
+            {
+              "key": "e1d91562-07ad-5439-9b25-a38a8a528ad0",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt (für den Teig)"
+            },
+            {
+              "key": "aa916b79-4ef5-53c5-8fe6-18ccbbb04633",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker für den Puddingsirup"
+            },
+            {
+              "key": "3b4f93c1-761e-53bf-a706-948847f26a18",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse heißes Wasser zum Auflösen des Puddingzuckers"
+            },
+            {
+              "key": "44c0ab04-e22f-5da1-82fb-e847603ce946",
+              "ingredientName": "ungesüßte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tasse Kondensmilch (etwa 3 EL aus einer 12-oz-Dose)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig weiche Butter mit Puderzucker und Salz etwa 1 Minute glatt und hell schlagen. 1 Ei und Vanille vollständig einrühren. Mehl dazugeben und nur so lange mischen, bis ein weicher Teig entsteht. Nicht überarbeiten, sonst werden die Schalen zäh. Einwickeln und 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in 12 gleich große Stücke (je etwa 30 g). Drücke jedes Stück gleichmäßig auf den Boden und an die Seiten einer normalen Muffinform mit 12 Mulden oder gewellten Tarteletteförmchen. Die Wände sollen dünn und gleichmäßig, der Rand sauber sein. Stelle die ausgelegte Form kalt, während du die Creme zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für den Zuckersirup Kristallzucker in 3/4 Tasse heißem Wasser unter Rühren vollständig auflösen. Auf lauwarm abkühlen lassen; heißer Sirup würde die Eier stocken lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Eiercreme die 4 übrigen Eier mit der ungezuckerten Kondensmilch vorsichtig verrühren. Nur vermengen und möglichst wenig Schaum erzeugen. Abgekühlten Zuckersirup hineingießen und behutsam umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Siebe die Creme mindestens zweimal durch ein feines Sieb in einen Messbecher. So entfernst du Hagelschnüre und Luftblasen. Das ist der wichtigste Schritt für eine spiegelglatte Oberfläche. Schöpfe Schaum an der Oberfläche ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 400 F (200 C) vor. Gieße die gesiebte Creme vorsichtig in die gekühlten Teigschalen, bis knapp unter den Rand (etwa 90%). Backe auf einer unteren Schiene 10 Minuten, reduziere dann die Temperatur auf 325 F (165 C) und backe weitere 10–15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Küchlein sind fertig, wenn die Creme gerade fest ist und in der Mitte leicht wackelt. Ein schräg eingesteckter Zahnstocher sollte von selbst aufrecht stehen. Die Creme darf sich nicht wölben, sonst ist sie überbacken. Bräunt sie zu schnell, öffne die Ofentür für die letzten Minuten einen Spalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Küchlein 5 Minuten in der Form ruhen und hebe sie dann vorsichtig heraus. Warm servieren, wenn die Creme am seidigsten und der Teig am zartesten ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Two_Egg_Tarts_CC_02_HK.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Two_Egg_Tarts_CC_02_HK.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "CCheungimm, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hongkonger Eierküchlein (港式蛋撻)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

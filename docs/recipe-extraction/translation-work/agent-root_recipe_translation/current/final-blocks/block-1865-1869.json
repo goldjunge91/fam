@@ -1,0 +1,962 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53193",
+      "slug": "tmdb-53193",
+      "title": "Betrunkene Nudeln (Pad Kee Mao)",
+      "instructions": "Thailändisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "thailändisch",
+        "rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1865,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53193/",
+      "components": [
+        {
+          "key": "495dbc75-5ba2-5f91-a8d5-444525293ff7",
+          "name": "Zutaten",
+          "servingGrams": 140.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "0fabb35e-ef07-5e7d-8374-fdb18e56bac5",
+              "ingredientName": "Reisnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a4733bb-d83f-5242-a22a-98715fbd7356",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66685bd8-98be-5ad8-8a81-4d8fe3928940",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fe2df71-4f7e-5845-9457-2175f9862218",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00992a89-f137-5e3a-9147-fd654718ca0e",
+              "ingredientName": "Rinderlende",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51cce1fe-3093-566a-b38c-34e3b6ca3b04",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0018a5e4-d01b-539d-a250-c0080ce35cf4",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93344b53-3d70-594e-b00a-a2a8b27803db",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aec0351a-d4b9-525f-9d9b-94ba4b81be66",
+              "ingredientName": "Austernsauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a9b4243-a10d-5afa-849e-2180dd94b77a",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a3799f8-1e8e-518e-a761-3fdb3a75e602",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nudeln nach Packungsanleitung zubereiten, abgießen und beiseitestellen. Alle Saucenzutaten in einer kleinen Schüssel oder einem Messbecher verrühren und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Wok oder einer Pfanne bei starker Hitze erhitzen. Knoblauch und Chili 20 Sekunden unter Rühren braten, bis sie gerade beginnen goldbraun zu werden. Steak dazugeben und 1 Minute unter Rühren braten, bis es scharf angebraten und leicht gebräunt ist. Brokkoli hinzufügen und eine weitere Minute braten. Nudeln und Sauce dazugeben. Weitere 1-2 Minuten unter Rühren braten, bis alles gut vermengt und sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Basilikum unterheben und Hitze ausschalten. Sofort servieren, damit nichts übergart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/2wx8cm1763373419.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/2wx8cm1763373419.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52907",
+      "slug": "tmdb-52907",
+      "title": "Entenconfit",
+      "instructions": "Französisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "frankreich",
+        "sonstiges"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1866,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52907/",
+      "components": [
+        {
+          "key": "b5751e62-016f-5dac-9e54-00ab68a8c187",
+          "name": "Zutaten",
+          "servingGrams": 38.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "c90a64cf-336a-5eb1-9714-31bb7dc928d0",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c21e6941-7d5c-58b4-b24d-aa8f45d411fc",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6901da55-6ca5-596b-8632-c163f1539344",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6ebf22d-ec45-56fe-9f44-8853db6f51d2",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19f024fd-e69b-5588-b8f8-99518a6cb4cc",
+              "ingredientName": "Entenkeulen",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87279c7d-0dd9-59bc-a560-5a9c229bd31b",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Am Vortag die Hälfte des Salzes, des Knoblauchs und der Kräuter auf dem Boden einer kleinen flachen Form verteilen. Entenkeulen mit der Hautseite nach oben darauflegen und mit restlichem Salz, Knoblauch und Kräutern bestreuen. Abdecken und über Nacht kühlen. Bis zu 2 Tage vorher möglich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wein in einen Topf gießen, in den die Entenkeulen nebeneinander passen. Salz von den Keulen abstreifen und Keulen mit der Hautseite nach unten in den Wein legen. Topf abdecken und bei mittlerer Hitze erwärmen. Sobald der Wein zu blubbern beginnt, Hitze auf niedrigste Stufe stellen und 2 Stunden garen. Gelegentlich prüfen, dass die Flüssigkeit nur ganz leicht köchelt. Falls du einen Wärmediffusor hast, kannst du ihn hier verwenden. Nach 2 Stunden sollten die Keulen im eigenen Fett liegen und das Fleisch beim Einstechen sehr zart sein. Abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Entenkeulen sind nun gar und können sofort gegessen werden. Für knusprige Haut folgt der nächste Schritt. Zum Vorbereiten Keulen dicht in einen Behälter oder ein Glas legen und mit dem Fett übergießen, aber nicht mit der Flüssigkeit am Topfboden. Abdecken und bis zu einem Monat im Kühlschrank oder bis zu 3 Monate im Gefrierfach aufbewahren. Die übrige Flüssigkeit ergibt eine schmackhafte Bratensauce, die bis zur Verwendung gekühlt oder eingefroren werden kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Aufwärmen und Knusprigwerden Backofen auf 220C/Umluft 200C/Gasstufe 7 erhitzen. Keulen aus dem Fett nehmen und mit der Hautseite nach unten in eine ofenfeste Pfanne legen. 30–40 Minuten braten und nach der Hälfte wenden, bis sie gebräunt und knusprig sind. Mit aufgewärmter Sauce, knackigem Salat und knusprigen goldbraunen Kartoffeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wvpvsu1511786158.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wvpvsu1511786158.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53137",
+      "slug": "tmdb-53137",
+      "title": "Dulce de Leche",
+      "instructions": "Argentinisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "argentinisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1867,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53137/",
+      "components": [
+        {
+          "key": "28312b14-6d31-5eec-9db9-7f9e3bc5fc11",
+          "name": "Zutaten",
+          "servingGrams": 35.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b046e118-7e94-571f-a88b-1a7d29e12219",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "562dbaf5-ff2d-5400-8e30-fe20932018d6",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2752b58-aef5-5073-8112-5322acc74eac",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3673bdaa-bd4b-5e4a-b957-1dbb6e92e4ba",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zutaten vermengen: Milch, Zucker und Natron in einem großen Topf mit schwerem Boden verrühren. Bei niedriger Hitze unter ständigem Rühren kochen, damit nichts anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eindicken: Unter häufigem Rühren weiterkochen, bis die Mischung dick und karamellfarben ist, etwa 1-2 Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aromatisieren: Vanilleextrakt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abkühlen: Dulce de leche abkühlen lassen und in ein Glas füllen. Beim Abkühlen dickt sie weiter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tipps:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ständig rühren und die Hitze niedrig halten, damit die Milch nicht anbrennt und am Topfboden festklebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ein Tropfen Vanilleextrakt zum Ende der Kochzeit verstärkt das Aroma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/jyjlhj1763075323.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/jyjlhj1763075323.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52899",
+      "slug": "tmdb-52899",
+      "title": "Dundee-Kuchen",
+      "instructions": "Britisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "dessert",
+        "reichhaltig",
+        "nussig",
+        "fruchtig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1868,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52899/",
+      "components": [
+        {
+          "key": "a6631071-ae36-55b2-9688-32a3506cae54",
+          "name": "Zutaten",
+          "servingGrams": 311.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9eaaac74-454f-582a-9c09-ccd4238fafac",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4aa6bbd5-1ee0-573a-9012-69a33286fa1b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c4d806e-2a73-5cd8-8d87-b5619728fb72",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6061b5e-7277-5df8-ae67-c7aaa9c8d2ee",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ef1dc3c-3a6c-5ee4-acc2-5e00ba8b7dbf",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9ea401e-95d4-5495-b714-d6639124b047",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5936bd7-ae25-50b5-a52b-926066e73a45",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09053d88-a2c4-562d-a4da-7213553f4779",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa36401b-2f3f-55b9-999b-40cf0bac161c",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be873cb6-8728-557c-b106-4c9eb5e1201a",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07f83273-b4c2-5f5e-bb9b-9f4e70bdf6f5",
+              "ingredientName": "Belegkirschen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mandeln in eine kleine Schüssel geben und mit kochendem Wasser bedecken. 5 Minuten einweichen, dann in einem Sieb abgießen und trocknen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backofen auf 180C/160 C Umluft/Gasstufe 4 vorheizen. Eine tiefe Springform von 20cm mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer großen Schüssel weich schlagen. Zucker dazugeben und hell und luftig schlagen. Orangenabrieb und Aprikosenmarmelade einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl und Backpulver zusammensieben. Eier nach und nach zur Butter-Zucker-Mischung geben und jede Zugabe gut unterrühren. Falls die Mischung gerinnt, etwas Mehl einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Restliches Mehl und gemahlene Mandeln dazugeben und gut vermischen. Milch einrühren, dann Trockenfrüchte und Kirschen vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mischung in die vorbereitete Form geben und mit dem Löffelrücken glatt streichen. Ganze Mandeln in ordentlichen Kreisen dicht nebeneinander auf dem Kuchen verteilen. 45 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ofentemperatur auf 160C/140 C Umluft/Gasstufe 3 senken und weitere 60–80 Minuten backen. Nach 50 Minuten mit einem Holz- oder Metallspieß prüfen. Der Kuchen ist fertig, wenn nur wenige Krümel daran haften. Alle 10 Minuten erneut prüfen. Nicht zu lange backen, damit die Mitte leicht weich bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Kuchen kurz aus dem Ofen nehmen. Milch und Zucker in einem kleinen Topf sanft erhitzen, bis sich der Zucker aufgelöst hat. Über den Kuchen streichen und für 2-3 Minuten zurück in den Ofen stellen. Herausnehmen und in der Form abkühlen lassen. Vollständig erkaltet aus der Form nehmen, in Folie wickeln und vor dem Anschneiden mindestens 2 Tage ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wxyvqq1511723401.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wxyvqq1511723401.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53386",
+      "slug": "tmdb-53386",
+      "title": "Niederländischer Apfelkuchen",
+      "instructions": "Dessert aus den Niederlanden, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "niederlande",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1869,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53386/",
+      "components": [
+        {
+          "key": "1a6f7bfe-5c81-5f34-94af-e659a1e50f1d",
+          "name": "Zutaten",
+          "servingGrams": 355,
+          "position": 0,
+          "items": [
+            {
+              "key": "729be359-574f-59ce-8d47-f01ede881a0e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34205a21-022a-58c1-a6f9-c4f14e0c24ea",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dbca232-68c6-5458-a91b-c6f6c87a9b4a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51d0572a-e7e9-5ca7-8094-f18be997f604",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d56fcf09-95f1-5fbf-9865-d016c8b0e65b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2df88306-89ef-5a1a-889d-1244243b2cd7",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a92f7aa3-4415-5172-8145-67f756d2278a",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2827052-254d-504d-b4e7-466d57a98bbe",
+              "ingredientName": "Apfelmus",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e1b5bad-747c-55dd-85ee-ff2ea98ce6d8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, 150 gr Zucker, eine Prise Salz und 1 Eigelb in die Schüssel einer Küchenmaschine geben. Butter in kleine Würfel schneiden und dazugeben. Zu einem festen Teig verarbeiten, nicht zu lange mixen, damit er nicht warm wird. Zwischen den Fingern prüfen, ob er zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf Frischhaltefolie geben. Mit den Händen zu einer runden Kugel formen und in Folie wickeln. Eine halbe Stunde im Kühlschrank kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine runde Backform mit 22 cm Durchmesser mit Backpapier auslegen. Seiten mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backofen auf 170˚C (340˚F) vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Apfel würfeln und mit Rosinen, übrigem Zucker und Zimt vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgekühlten Teig auf einer bemehlten Arbeitsfläche dünn ausrollen. In die Backform legen und Boden sowie Seiten auskleiden. Ich drücke den Teig meist direkt in die Form, ohne ihn auszurollen. So geht es leichter, wird aber weniger glatt. Mach es so, wie es für dich am besten funktioniert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "1/4 des Teigs für die Streifen auf der Oberseite beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sobald Boden und Seiten ausgekleidet sind, Zwieback zerkrümeln und auf dem Boden verteilen. Alternativ Paniermehl verwenden. Form etwas schütteln, damit die Krümel gleichmäßig verteilt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Apfelmischung hineingeben und gleichmäßig verteilen. Restlichen Teig ausrollen, in Streifen schneiden und rautenförmig auf die Oberseite legen. Streifen und Seiten mit dem übrigen Eigelb bestreichen und in den vorgeheizten Ofen stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Apfelkuchen etwa 1 Stunde backen, bis er goldbraun und durchgebacken ist. In der Form abkühlen lassen und vor dem Öffnen prüfen, dass sich die Ränder gelöst haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/zy4fs51777540384.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/zy4fs51777540384.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

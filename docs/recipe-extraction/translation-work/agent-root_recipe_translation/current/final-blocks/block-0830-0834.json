@@ -1,0 +1,1204 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ethiopian-doro-stew",
+      "slug": "mfr-ethiopian-doro-stew",
+      "title": "Äthiopischer Hähnchen-Eier-Eintopf mit Gewürzen",
+      "instructions": "Ein Eintopf nach Art von Doro Wat: Hähnchenoberkeulen und hart gekochte Eier in einer kräftig gewürzten Soße nach Berbere-Art. Wärmend, vielschichtig und besonders herzhaft.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Karamellisierte Zwiebeln sind das Herzstück der äthiopischen Küche. Lass dir für Schritt 2 Zeit.",
+        "Die Gewürzmischung ersetzt Berbere; passe die Schärfe nach Geschmack an."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenunterkeulen für eine noch authentischere Präsentation"
+        },
+        {
+          "forIngredientId": "allspice",
+          "swap": "Nelken (nur eine kleine Prise) für eine ähnliche warme Würznote"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ethiopian-doro-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "äthiopisch",
+        "Meal Prep",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 830,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ethiopian-doro-stew/",
+      "components": [
+        {
+          "key": "e3aa6248-df11-5a18-878a-ea2619a90db6",
+          "name": "Zutaten",
+          "servingGrams": 402.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6994f6a-8c5f-5086-96ec-b2d3e040089f",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc511541-6997-5d7b-82ea-29790e45cb90",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83b40042-a1d3-5c1f-a51b-b488929909a1",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd6f0b61-540f-5380-9a48-46aba43093f4",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b47d8ca0-ad6c-58c8-b006-97c4a316d216",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c77c8a6-3c60-5916-8c78-8c49a3813bd3",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "537adaf6-541a-5b20-b8b6-e30fdd789a90",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4008d155-dabc-502b-a2f4-da3ce85fc5de",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c78a8ce2-97c3-5058-81b7-cc18884367d9",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5ce8174-456c-555b-8b37-142afe82ccf4",
+              "ingredientName": "Piment",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81094484-e6a4-563c-a964-c61b1d010388",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8e9c3f0-f4cc-5241-8007-8dd03174f566",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff2b30db-43bd-5606-96a6-743667648a46",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "643862f7-23d7-5e85-ba19-4b8dc4b7cc61",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche 4 Eier hart, schäle sie und ritze die Oberfläche mit einem Messer leicht ein, damit die Soße einziehen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Karamellisiere 3 Zwiebeln in Butter bei mittlerer bis niedriger Hitze 20 Minuten lang. Das ist die Grundlage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, Ingwer und alle Gewürze dazu und gare alles 3 Minuten. Rühre Tomatenmark ein und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Hähnchenoberkeulen und Brühe dazu. Lass alles 20 Minuten köcheln, bis das Hähnchen zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die eingeritzten Eier dazu und lass alles weitere 5 Minuten köcheln. Serviere den Eintopf mit Reis und zusätzlicher Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/XjiSwyvvsnnyvcAEhbMzb_N41fA=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/doro-wat-39441-step-06-4c68f5b26c59488e9cf7a40632673277.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/XjiSwyvvsnnyvcAEhbMzb_N41fA=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/doro-wat-39441-step-06-4c68f5b26c59488e9cf7a40632673277.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kenyan-maharagwe",
+      "slug": "mfr-kenyan-maharagwe",
+      "title": "Kenianischer Kidneybohnen-Eintopf mit Kokosmilch",
+      "instructions": "Maharagwe: ostafrikanische Kidneybohnen, langsam in Kokosmilch mit Tomaten und Gewürzen geköchelt. Cremig, wärmend und besonders wohltuend zu Reis.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kidneybohnen und Kokosmilch ergeben eine Portion für vier Personen für $3.",
+        "Dieses Gericht hält sich 4 Tage und schmeckt mit jedem Tag besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Augenbohnen als traditionelle Variante"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Kokosmilch light für eine kalorienärmere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kenyan-maharagwe",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kenianisch",
+        "Meal Prep",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 831,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kenyan-maharagwe/",
+      "components": [
+        {
+          "key": "05e3b00b-4366-5105-a3dc-c50fe3000b90",
+          "name": "Zutaten",
+          "servingGrams": 536.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "df569187-5d06-5d10-a2a6-f8716274b926",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7523f8e-91cc-5db4-b9e1-5c97f9a2e20e",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "670778e6-5ff9-5ddd-8676-38abd71e9354",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c773285f-d342-55d2-bb89-ac8d0dbc3ead",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c9f43ec-e566-554a-bf69-a2d840fea5c2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c4aca58-6aad-5a10-96b1-df98d2046e22",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d4953b2-6930-5145-86c9-d05e8c60c51c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35546611-5b16-5c01-8f1c-bbf564397c97",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f61b8e88-b405-5a34-8d02-45fd935f0834",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e0e2271-2375-5abe-bd41-4076462e3f93",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bf21f9b-cd57-5a52-9397-08aa76b9dd94",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dad944b1-4345-5a86-9ede-128203c12f11",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4685b21a-397d-51a2-b607-ed8f5232b5a3",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 5 Minuten in Olivenöl an. Gib Knoblauch und Ingwer dazu und gare alles 2 Minuten. Gib Kreuzkümmel, Kurkuma und Koriander dazu und röste die Gewürze 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gehackten Tomaten dazu und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die abgetropften Kidneybohnen und Kokosmilch dazu. Lass alles 12 Minuten köcheln, bis die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Limettensaft und Koriander ein. Würze kräftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht mit Reis. Es schmeckt auch hervorragend mit Chapati oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/VZyQhZn9UlE_2zQcLJ_Jp39Y_2c=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/20210420-njahi-beans-coconut-sauce-vicky-wasik-29-304257ae911b4b0588893a6a0309a25c.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/VZyQhZn9UlE_2zQcLJ_Jp39Y_2c=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/20210420-njahi-beans-coconut-sauce-vicky-wasik-29-304257ae911b4b0588893a6a0309a25c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-trinidadian-pelau",
+      "slug": "mfr-trinidadian-pelau",
+      "title": "Trinidadisches Pelau (Hähnchen-Reis-Eintopf aus einem Topf)",
+      "instructions": "Hähnchen, in braunem Zucker karamellisiert und anschließend mit Reis, Straucherbsen und Kokosmilch geschmort: Trinidads beliebtes Sonntagsgericht aus einem Topf.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Karamellisieren des braunen Zuckers in Schritt 1 gibt dem Pelau seine typische Farbe und Tiefe. Lass diesen Schritt nicht aus.",
+        "Ein Gericht aus einem Topf, das 5 Personen für insgesamt weniger als $10 satt macht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenunterkeulen oder ein beliebiges Hähnchenteil mit Knochen"
+        },
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Straucherbsen (Gandules) sind traditionell; Kidneybohnen eignen sich ebenfalls sehr gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-trinidadian-pelau",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "karibisch",
+        "Meal Prep",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 832,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-trinidadian-pelau/",
+      "components": [
+        {
+          "key": "9f94dd22-3626-5d77-8504-e5d222335c15",
+          "name": "Zutaten",
+          "servingGrams": 413.15,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b6a1530-a068-51a7-ad86-e6600d2e7e8c",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f18853b-c983-512d-afda-a08c55225192",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "033eec61-1a42-5865-8782-43e2010b4c99",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "208665ab-4397-5da9-9276-1f4c2fdb4550",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f1bae30-1d54-5ae5-9a4f-c9ef292f2a72",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5b081e7-47f9-5522-a80b-86ef74a719e1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f73c920-4000-54e6-ba93-05877ffb079a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3eccec2-0b7b-5771-84aa-ad649890b95d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14c85f6e-39dc-504a-ada0-3932434af684",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60111dee-c714-5427-989f-c8e3b122dac7",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8ea8176-dc93-5704-a915-8c2a114cdc66",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e598f033-f477-5ae0-8806-d5767280b9cb",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae4ca5bc-2ab3-5d74-b571-de8f810b713d",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze braunen Zucker mit einem winzigen Schuss Wasser in einem großen Topf, bis er bernsteinfarben karamellisiert. Gib die Hähnchenstücke dazu; sie brutzeln kräftig. Wende sie 1–2 Minuten im Karamell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel, Knoblauch und Paprika dazu und rühre 2 Minuten. Gib Thymian, Frühlingszwiebel und Cayennepfeffer dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Reis, abgetropfte Kidneybohnen, Brühe und die Hälfte der Kokosmilch dazu. Verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, decke den Topf fest ab und gare das Gericht bei niedrigster Hitze 25 Minuten, bis der Reis gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Deckel ab und lockere den Reis mit einer Gabel auf. Serviere das Gericht mit Krautsalat oder einem einfachen Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/y2z_qhWiUlh4wqKIU1bK4m_IaCY=/4594x0/filters:no_upscale():max_bytes(150000):strip_icc()/trini-pelau-recipe-2138057-step-10-01ef29da230d43b6b78977c155844ad1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/y2z_qhWiUlh4wqKIU1bK4m_IaCY=/4594x0/filters:no_upscale():max_bytes(150000):strip_icc()/trini-pelau-recipe-2138057-step-10-01ef29da230d43b6b78977c155844ad1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-red-red-black-eyed-peas",
+      "slug": "mfr-red-red-black-eyed-peas",
+      "title": "Ghanaisches Red Red (Eintopf mit Augenbohnen)",
+      "instructions": "Ghanas berühmter Eintopf mit Augenbohnen: mit Palmöl oder Olivenöl, Tomaten und wärmenden Gewürzen gekocht und mit gebratener Kochbanane serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reife Banane ist eine günstige Alternative zur Kochbanane. Beides schmeckt hervorragend.",
+        "Zwei Dosen Augenbohnen kosten weniger als $2 und ergeben eine vollständige Mahlzeit für vier Personen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Augenbohnen (Cowpeas) als traditionelle Zutat aus Ghana"
+        },
+        {
+          "forIngredientId": "banana",
+          "swap": "Für eine kalorienärmere Variante weglassen oder durch Süßkartoffel ersetzen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-red-red-black-eyed-peas",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "ghanaisch",
+        "Meal Prep",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 833,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-red-red-black-eyed-peas/",
+      "components": [
+        {
+          "key": "924e23e2-32e1-52cf-8fcb-144a3cbbc045",
+          "name": "Zutaten",
+          "servingGrams": 534.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "e36a7e0c-0e04-5583-b61f-0979ed3f32fe",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9736163-9e8b-54f0-b358-076388df8561",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29478b7f-fa73-5671-8b99-89fec165c736",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "755396ae-af49-5932-bdb5-456c68048621",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd47fa30-edcc-5b7c-99fe-fb9b16b31535",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa65d26e-90bd-58fd-b636-a97f2b913d81",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbd7fb21-2e86-5060-8696-2a6b2c31bfab",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7527ff5-cb1b-51a5-95df-d793f608928f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a05bca17-d6de-5341-a57c-5e4b09e45dc5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cbe947c-b02f-5c5d-b562-961f4f4d528f",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86330daa-0858-54cc-9fce-21e9d39795ad",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ac67503-91a5-5b43-98d9-7d284b364436",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 6 Minuten in Olivenöl an. Gib Knoblauch, Ingwer, geräuchertes Paprikapulver, Cayennepfeffer und Tomatenmark dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gehackten Tomaten dazu und gare alles 5 Minuten. Gib die abgetropften Augenbohnen (oder schwarze Bohnen als Ersatz) dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 10 Minuten köcheln, bis die Soße dick und aromatisch ist. Würze kräftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Kochbanane oder Banane in Scheiben und brate sie in einer leicht geölten Pfanne, bis sie karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Bohnen mit Reis und gebratener Kochbanane.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/12/TMD-Greek-Black-Eyed-Pea-Stew-Leads-02-Angle.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/12/TMD-Greek-Black-Eyed-Pea-Stew-Leads-02-Angle.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-smoked-salmon-bagel-bowl",
+      "slug": "mfr-smoked-salmon-bagel-bowl",
+      "title": "Protein-Bagel-Bowl mit Räucherlachs",
+      "instructions": "Der Geschmack eines Everything-Bagels in einer Schüssel: Räucherlachs mit Frischkäse, Gurke, Kapern und roten Zwiebeln auf einem getoasteten Bagel oder Crackern. In 3 Minuten fertig.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs aus der Dose liefert 25g Eiweiß für etwa $2. Er ist Räucherlachs sehr ähnlich, kostet aber nur einen Bruchteil.",
+        "Ein halber Bagel hält den Kohlenhydratanteil beim Frühstück im Rahmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-salmon",
+          "swap": "Echter Räucherlachs für den vollen Lachs-Bagel-Genuss"
+        },
+        {
+          "forIngredientId": "bagel",
+          "swap": "Reiswaffeln oder Cracker als glutenfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-smoked-salmon-bagel-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 834,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-smoked-salmon-bagel-bowl/",
+      "components": [
+        {
+          "key": "ec63bdb4-a188-595c-bcae-b5619eee2ad5",
+          "name": "Zutaten",
+          "servingGrams": 701,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bba4bff-f51e-5cef-ba81-d081560b6cc5",
+              "ingredientName": "Lachs aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5a4a444-7526-58fa-a1e2-dc957a237a5b",
+              "ingredientName": "Frischkäse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e0f69b2-5d29-5c2f-b988-bfe13ea1a245",
+              "ingredientName": "Bagel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8cc3f5b-ccce-5800-845e-9f65842d0e2d",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee8256ac-ee82-55ca-9989-b90dbc60ca7b",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c56063e-7d18-59eb-90da-6036a3949aab",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbd9adf1-50d8-511c-afcc-47740aca9a1c",
+              "ingredientName": "Everything-Bagel-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc1f4481-ee60-5dba-815c-634eaa396613",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "204ee43b-1430-583a-baa5-4289cb50b03c",
+              "ingredientName": "Frischer Dill",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste einen halben Bagel oder nimm Cracker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche den Bagel großzügig mit Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege ihn mit zerzupftem Lachs aus der Dose, dünn geschnittener Gurke und einigen Ringen roter Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Everything-Bagel-Gewürz und, falls vorhanden, frischen Dill darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse Zitrone darüber und iss den Bagel sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/BxqtqS8DijTJ-_LkL0V87ogrLho=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/open-face-smoked-salmon-bagel-101094-diana-andrews-2020-Image_21-87c897a81e054bcbad4c152e30c36a81.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/BxqtqS8DijTJ-_LkL0V87ogrLho=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/open-face-smoked-salmon-bagel-101094-diana-andrews-2020-Image_21-87c897a81e054bcbad4c152e30c36a81.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

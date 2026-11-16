@@ -1,0 +1,1070 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chi-lantro-korean-tacos",
+      "slug": "gen-chi-lantro-korean-tacos",
+      "title": "Koreanische Chi'lantro-Tacos",
+      "instructions": "Koreanisch-mexikanisches Fusion-Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rocksteak im Sonderangebot und frieren Sie es in der Marinade bis zu 3 Monate ein",
+        "Machen Sie große Mengen Marinade und bewahren Sie sie in einem Glas auf, um sie den ganzen Monat über wiederzuverwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch-mexikanische Fusion",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7135,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chi-lantro-korean-tacos/",
+      "components": [
+        {
+          "key": "8d083f67-b927-5b3e-9966-c31f5f1479bf",
+          "name": "Zutaten",
+          "servingGrams": 232.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c16741f-9e0d-5b8c-8d68-5ce456eea43a",
+              "ingredientName": "Rocksteak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e21c638c-0349-527e-83e7-4110323b7611",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5653fb39-1771-542d-8398-345b2387ad73",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "df8aef76-73c1-5c04-baac-907f5d014365",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "1e26524c-b243-5517-b46d-423e2c25ef94",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "8ebf9a35-3640-5fbb-9e71-d1d452976a7b",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "355c8d7e-2d7a-5cd2-bc17-54908dc1f503",
+              "ingredientName": "Tortilla",
+              "grams": 360,
+              "quantity": 9,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "9 Tortillas"
+            },
+            {
+              "key": "0e3dfed2-b4f9-556c-8661-28886e1524db",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse gehackt"
+            },
+            {
+              "key": "a1c1d440-9258-5911-afb2-9b29f2c97a4c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eee92e01-3ef5-54c2-a997-e987f16c46e7",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "a15763cf-9062-5124-be93-ea4423383768",
+              "ingredientName": "Kimchi",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Rocksteak dünn gegen die Faserrichtung in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sojasauce, Sesamöl, gehackten Ingwer, Knoblauch und Zucker in einer Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Marinieren Sie das Steak in der Mischung mindestens 15 Minuten lang, während Sie die anderen Zutaten zubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitzen Sie eine gusseiserne Pfanne bei starker Hitze, bis sie sehr heiß ist, und kochen Sie dann das marinierte Steak portionsweise insgesamt 2–3 Minuten lang, wobei das Fleisch rare bis medium-rare bleiben soll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tortillas direkt über einer Gasflamme oder in einer trockenen Pfanne 15 Sekunden pro Seite erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stellen Sie Tacos mit warmen Tortillas, Steak, Koriander, Jalapeño-Scheiben und einer Prise Kimchi zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Limettensaft über die Tacos pressen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.ctfassets.net/rve58b4kyp9e/2ShOjzMH8Hc8FHYMNgFsAE/f21d9043d4930bfe73c7066f3c0bdc0f/Korean_Tacos_6.jpg?fm=webp&q=75",
+          "sourcePageUrl": "https://images.ctfassets.net/rve58b4kyp9e/2ShOjzMH8Hc8FHYMNgFsAE/f21d9043d4930bfe73c7066f3c0bdc0f/Korean_Tacos_6.jpg?fm=webp&q=75",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-east-side-king-fried-chicken-sandwich",
+      "slug": "gen-east-side-king-fried-chicken-sandwich",
+      "title": "Fried-Chicken-Sandwich von East Side King",
+      "instructions": "Amerikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hähnchenbrust in großen Mengen, wenn sie im Angebot sind, und frieren Sie sie für die spätere Verwendung ein",
+        "Stellen Sie Ihre eigene Pökellake mit Essig und Gewürzen her, anstatt vorgefertigte Pökellake zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7136,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-east-side-king-fried-chicken-sandwich/",
+      "components": [
+        {
+          "key": "2d7e1721-feae-51ff-92bf-5ae3d1081427",
+          "name": "Zutaten",
+          "servingGrams": 391.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "817dd4ae-8414-520c-a1bc-beb1986a28da",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Brüste"
+            },
+            {
+              "key": "7f5d2723-55db-52c6-9544-9dab4003898e",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d28318f8-a77d-551d-8d62-2299eeec5592",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "52755f13-1492-5d9a-a6d8-6576364452af",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b1be788f-ec7a-545b-a18a-c520cb8fba7e",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6514188d-5999-5dbf-a570-14aa6255f7e8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0b444eac-e99e-5640-b214-bd949580639f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "28d99910-1080-5722-9312-3a866c29bb5f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "c50082ca-ef7d-534e-b629-d09d2f46f4af",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Brötchen"
+            },
+            {
+              "key": "f8913bc4-5e92-5230-9c9b-43c12bcdee52",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "76093be2-9bbe-57f2-be18-edfa58b5530a",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust auf 3/4 Zoll Dicke klopfen und leicht mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Maisstärke, Paprika, Cayennepfeffer, Salz und schwarzen Pfeffer in einer flachen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pflanzenöl in einer tiefen Pfanne oder einem Schmortopf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Hähnchen in der Mehlmischung wälzen, vollständig damit bestreichen und überschüssiges Mehl abschütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie das Hähnchen vorsichtig in heißes Öl und braten Sie es 6–8 Minuten lang, bis es goldbraun ist und die Innentemperatur 165 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lassen Sie das gebratene Hähnchen 1 Minute lang auf Papiertüchern abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brioche-Brötchen in einer trockenen Pfanne leicht rösten, dann mit Mayonnaise bestreichen und mit Hähnchen- und Dillgurkenscheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2021/06/Fried-Chicken-SandwichesIMG_1116.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2021/06/Fried-Chicken-SandwichesIMG_1116.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-the-odd-duck-beef-tartare",
+      "slug": "gen-the-odd-duck-beef-tartare",
+      "title": "Rindertatar von Strange Duck",
+      "instructions": "Französischer Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitten Sie den Metzger um Rindfleischreste oder -proben, anstatt erstklassiges Filet zu kaufen",
+        "Beziehen Sie die Zutaten von Costco, um Mengeneinsparungen bei Qualitätsrindfleisch zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Französisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7137,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-the-odd-duck-beef-tartare/",
+      "components": [
+        {
+          "key": "bf6b70b5-b274-567e-9f48-5817905412c9",
+          "name": "Zutaten",
+          "servingGrams": 512.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3fbaf050-ece0-5805-aca0-9b6807bc10a5",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 oz, beste Qualität"
+            },
+            {
+              "key": "cdf1828a-e15b-56b0-acb0-a29e25d72aac",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Eigelb"
+            },
+            {
+              "key": "ddd1db72-f00e-533f-9211-fc208bcf461f",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL, gehackt"
+            },
+            {
+              "key": "c7185f32-ac4f-5b4d-9fb1-ea7816f8561c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "048c0ab9-1e44-5de3-9206-ea0c4962fb65",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, gehackt"
+            },
+            {
+              "key": "cad330b0-38ec-522e-a1eb-f8a30d54fa1b",
+              "ingredientName": "Gurken",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "c57f89a3-f9f2-5057-b1e5-9c18abdb5f22",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e1e5ed0e-f293-5588-aa26-41ffdb43889d",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "b535f41c-0383-57d1-ba06-eea74a3d190f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "cc994b00-5f73-59c4-8781-bc7d00fba581",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "3ae4e111-00ce-562c-8902-a3368790389e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2a4ae7ae-9044-5cc4-9e75-6f21319ac840",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 Scheiben zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderfilet mit einem scharfen Messer von Hand fein hacken; Verwenden Sie keine Küchenmaschine, da diese die Textur beschädigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das gehackte Rindfleisch auf einen gekühlten Teller legen und in der Mitte eine kleine Mulde bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie das rohe Eigelb vorsichtig in die mittlere Mulde, ohne es zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kapern, rote Zwiebeln, Petersilie, Cornichon und Senf rund um das Rindfleisch anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Olivenöl und Worcestershire-Sauce beträufeln und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kurz vor dem Verzehr vorsichtig mit einer Gabel vermischen und dabei das Eigelb einarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit gerösteten, knusprigen Brotscheiben servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/97/c4/d9/97c4d94d74de1d446c89882420b20019.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/97/c4/d9/97c4d94d74de1d446c89882420b20019.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-torchy-s-queso",
+      "slug": "gen-torchy-s-queso",
+      "title": "Torchys Queso",
+      "instructions": "Mexikanischer Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie weißen amerikanischen Käse in großen Mengen an der Feinkosttheke und schneiden Sie ihn selbst zu besseren Preisen",
+        "Verwenden Sie Chorizo von Eigenmarken anstelle von Premiummarken, ohne auf Geschmack zu verzichten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7138,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-torchy-s-queso/",
+      "components": [
+        {
+          "key": "3cb8eef8-a916-5f1a-a2b8-95acd4264645",
+          "name": "Zutaten",
+          "servingGrams": 195,
+          "position": 0,
+          "items": [
+            {
+              "key": "66b962aa-d8d9-52fd-8a33-33d3eaa35253",
+              "ingredientName": "Amerikanische Käse-Singles",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund in Scheiben geschnitten"
+            },
+            {
+              "key": "c186fc9f-0a28-5927-9ed2-e9fcdce5ae9c",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "8d612422-96c4-55e0-af99-f4cab81db764",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1, geröstet und gehackt"
+            },
+            {
+              "key": "3a52937f-0887-5937-a809-8d4ddf32fcaf",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "47bdb19a-bc49-5d7a-b235-b9d6e9620ad3",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Zwiebel, fein gehackt"
+            },
+            {
+              "key": "c0d39841-c090-5944-8eda-fdf95ff6e83d",
+              "ingredientName": "Schwere Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d8142dcb-94e5-5d0f-9e8e-d0cffb383e87",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "47065d56-41ff-5b70-8467-d9ddd5080975",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "9325f136-c823-503c-808b-889ec1bc575a",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Beutel zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entfernen Sie die Hülle von der Chorizo und kochen Sie sie in einer großen Pfanne bei mittlerer Hitze, indem Sie sie in kleine Stücke brechen, bis sie gebräunt und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Poblano-Pfeffer über einer Gasflamme oder unter einem Grill rösten, bis er verkohlt ist, und dann zum Dämpfen 5 Minuten in eine Plastiktüte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Poblano aus der Tüte nehmen und die verkohlte Haut abziehen, dann die Kerne entfernen und fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduzieren Sie die Hitze der Pfanne auf einen niedrigen Wert und fügen Sie unter ständigem Rühren geschnittenen Käse hinzu, bis er vollständig geschmolzen und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sahne einrühren, dann gerösteten Poblano, gehackten Jalapeño und gehackte Zwiebeln hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koriander unterheben und mit Salz abschmecken, dann in eine Servierschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit warmen Tortillachips zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://theheartylife.org/wp-content/uploads/2024/04/3-IMG_9375.webp",
+          "sourcePageUrl": "https://theheartylife.org/wp-content/uploads/2024/04/3-IMG_9375.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pontefract-cakes",
+      "slug": "gen-pontefract-cakes",
+      "title": "Pontefract-Küchlein",
+      "instructions": "Yorkshire-Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lakritzpulver in großen Mengen in Reformhäusern",
+        "Machen Sie große Mengen und lagern Sie sie wochenlang in einem luftdichten Behälter"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "Yorkshire",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7139,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pontefract-cakes/",
+      "components": [
+        {
+          "key": "0bf36c7b-746d-506a-8f71-15aba3f5db55",
+          "name": "Zutaten",
+          "servingGrams": 625,
+          "position": 0,
+          "items": [
+            {
+              "key": "0792deea-bfe5-5b39-a097-acbc7472f3ed",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "99ce44a6-d1c0-53d1-b637-5331210c63f3",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0c1f867c-f47d-5ba2-9daf-4d5cd88c0c20",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3195defb-c100-5d15-8453-6352c4630ebc",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5b8c2c1f-506f-598b-ab91-9fab85dd5bc3",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lakritzpulver mit Puderzucker in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gummi arabicum in Wasser auflösen und unter die Lakritzmischung rühren, bis eine dicke Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Arbeitsfläche mit Maisstärke bestäuben und die Paste 1/4 Zoll dick ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit einem Flaschenverschluss oder einem kleinen runden Ausstecher kleine Kreise ausschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lassen Sie die Kuchen vor dem Servieren 24 Stunden lang offen ruhen, damit sie fester werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://oldesweetshop.co.uk/wp-content/uploads/2023/07/M-pontefract-cakes-sweet-jar-scaled.jpg",
+          "sourcePageUrl": "https://oldesweetshop.co.uk/wp-content/uploads/2023/07/M-pontefract-cakes-sweet-jar-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

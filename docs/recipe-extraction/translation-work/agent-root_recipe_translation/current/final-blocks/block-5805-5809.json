@@ -1,0 +1,1113 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicken-yakitori",
+      "slug": "gen-chicken-yakitori",
+      "title": "Hähnchen-Yakitori",
+      "instructions": "Japanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Mirin weg und verwende 2 zusätzliche Esslöffel braunen Zucker mit Wasser.",
+        "Kaufe Hähnchenkeulen auf Vorrat und friere sie für mehrere Portionen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "japanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5805,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-yakitori/",
+      "components": [
+        {
+          "key": "1fdc40f0-0a10-5dae-a50f-3a98063d677b",
+          "name": "Zutaten",
+          "servingGrams": 805.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a03688f-267b-566c-a216-f27a2010b5bc",
+              "ingredientName": "Hähnchenkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "5a3b4acc-2821-5ff2-a725-a87ed6dbf17b",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e0ae3dda-21f7-5743-b62d-f40c44c4286b",
+              "ingredientName": "Mirin",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "32535f86-6468-578d-bfde-6bbe7d146c3d",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c04cbead-bb79-54a3-bf1c-f1d9be175abb",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d7bab79a-e1b1-5a28-b948-4be8d6047aae",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0612e9ec-7f72-5802-8960-66f67adf6986",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "716fcee2-0793-5598-a97a-0d8cd3c4ae3a",
+              "ingredientName": "Holzspieße",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a9a5b17-177c-5a3c-9bfa-edac787ee452",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "899a517b-749c-5f5f-bf73-499a9526d9b5",
+              "ingredientName": "Chinesisches Fünf-Gewürze-Pulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Holzspieße 30 Minuten in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasoße, Mirin, Sake, braunen Zucker und gehackten Knoblauch in einem kleinen Topf zu einer Glasur und lasse sie 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Hähnchenkeulen in 1.5-Zoll große Würfel und die Frühlingszwiebeln in 2-Zoll lange Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stecke Hähnchen und Frühlingszwiebeln abwechselnd auf die Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Spieße bei mittlerer bis hoher Hitze 8-10 Minuten und wende sie häufig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche in den letzten 2 Minuten der Garzeit beide Seiten der Spieße mit der Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue Sesamsamen und Shichimi-Gewürz darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie sofort mit einer kleinen Schale der übrigen Glasur zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-yakitori-index-65e738c4f032e.jpg?crop=0.891xw:1.00xh;0.0554xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-yakitori-index-65e738c4f032e.jpg?crop=0.891xw:1.00xh;0.0554xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-biryani",
+      "slug": "gen-chicken-biryani",
+      "title": "Hähnchen-Biryani",
+      "instructions": "Indisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen statt Brustfleisch und spare 30%.",
+        "Verwende normalen Reis, wenn Basmatireis zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5806,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-biryani/",
+      "components": [
+        {
+          "key": "f3fef3c2-9a3c-5f58-9662-cc965ad62571",
+          "name": "Zutaten",
+          "servingGrams": 501,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b6ee470-49c4-5e00-b74e-2e4bbe67b8d2",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "85871fc3-f575-5599-a99c-5fda5c6b0115",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1fd60b21-fbb0-5dbb-b59f-bcea607dd395",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "80b50d35-89b6-5317-8fe3-5c54a2bbdbf4",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "3f1f9e5a-c6c3-5f91-84aa-29c3c7313585",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "3cf3783f-02eb-5fdd-9576-9bb1cce08097",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8243a665-dfd9-55b2-8d16-7fd641d409c5",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "6842ed6f-f095-54c0-8ded-75e02c432edd",
+              "ingredientName": "Garam Masala",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "878a9c66-eba7-5941-a74c-581bf7fd83af",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "1e10c7cc-167a-570c-9e07-53a49914f0b7",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9cd3cc91-b6be-5998-a189-4873aa58e5b8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9095ee59-c51b-5c5b-b65e-b894b67c3e53",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Hähnchen 30 Minuten in Joghurt, gehacktem Knoblauch und Ingwer, Garam Masala und Kurkuma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einem großen Topf und brate die geschnittenen Zwiebeln goldbraun. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das marinierte Hähnchen im selben Ghee 5 Minuten an und nimm es dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche Wasser mit Lorbeerblatt und Kreuzkümmelsamen auf. Gib den abgespülten Basmatireis hinzu und gare ihn, bis er zu 70% gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte im selben Topf die Hälfte des Reises, dann das ganze Hähnchen und darüber den restlichen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue die gebratenen Zwiebeln darüber und decke den Topf fest mit Folie und einem Deckel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare alles bei hoher Hitze 2 Minuten, bis Dampf entsteht. Reduziere dann die Hitze und gare es 30 Minuten auf niedriger Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse das Gericht 10 Minuten ruhen, ohne den Deckel zu öffnen. Lockere den Reis anschließend vorsichtig mit einer Gabel auf und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/B8Guiht_NGjFaof2Xftj7XFCzUU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2017__01__24150956__2017-02-27-Chicken-Biryani-8-ab24d7b96a5c41c6a50abd6bcbb72326.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/B8Guiht_NGjFaof2Xftj7XFCzUU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2017__01__24150956__2017-02-27-Chicken-Biryani-8-ab24d7b96a5c41c6a50abd6bcbb72326.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poulet-r-ti",
+      "slug": "gen-poulet-r-ti",
+      "title": "Poulet Rôti",
+      "instructions": "Französisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen statt einzelner Teile und spare 40%.",
+        "Lass frische Kräuter weg und verwende stattdessen getrocknete (je 1 Teelöffel), um die Kosten zu halbieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5807,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poulet-r-ti/",
+      "components": [
+        {
+          "key": "8638909d-c77e-5e59-8933-c09b81a69cab",
+          "name": "Zutaten",
+          "servingGrams": 182,
+          "position": 0,
+          "items": [
+            {
+              "key": "01575fbf-8db0-5ded-8d18-e6d2eff7b1d9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4-5 Pfund"
+            },
+            {
+              "key": "eab3e386-1b84-590c-bd4e-4ef9a649fdd4",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "086ad883-94e3-5839-9555-d9c6b2ae47c8",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81ae5ef0-656f-5e3b-9686-63baff3db916",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "e27740f2-f2fe-5db7-8907-52e93cb0a3a6",
+              "ingredientName": "Frischer Thymian",
+              "grams": 8,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "13e9f7d4-161f-5e50-9740-54504ae3f66c",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "1dff13c0-57d7-505d-b93c-36901e497f0a",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "88a2e55b-55cc-5357-af93-31ba2e4fcc2d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "fcf29457-669b-510e-9404-cb718bd39d50",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 450°F vor und tupfe das Hähnchen mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische weiche Butter mit gehacktem Knoblauch, Salz und Pfeffer und reibe die Mischung unter und auf die Hähnchenhaut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Bauchhöhle mit halbierten Zitronen und Kräuterzweigen und binde die Keulen mit Küchengarn zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das Hähnchen in einen Bräter und gieße die Brühe hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate es 1 Stunde bis 1 Stunde 15 Minuten und übergieße es alle 20 Minuten mit Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Hähnchen ist gar, wenn die Keule 165°F erreicht hat und der austretende Fleischsaft klar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse es vor dem Tranchieren 10 Minuten ruhen und serviere es mit dem Bratensaft als Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.pardonyourfrench.com/wp-content/uploads/2022/10/French-Roast-Chicken-Poulet-Roti-21.jpg",
+          "sourcePageUrl": "https://www.pardonyourfrench.com/wp-content/uploads/2022/10/French-Roast-Chicken-Poulet-Roti-21.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lemon-chicken",
+      "slug": "gen-lemon-chicken",
+      "title": "Zitronenhähnchen",
+      "instructions": "Chinesisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen für einen kräftigeren Geschmack und spare Geld.",
+        "Bereite die Soße mit Zitronensaft aus der Flasche zu und spare Vorbereitungszeit."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5808,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lemon-chicken/",
+      "components": [
+        {
+          "key": "58373d0b-3c14-57d8-b7a2-406166ce47f0",
+          "name": "Zutaten",
+          "servingGrams": 232.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "eabba718-bd60-57bf-9f36-53e0e4e68fe5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "5633850c-4026-5c3a-95d0-8c777d67157c",
+              "ingredientName": "Speisestärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ec3ad241-5052-58ba-bfcd-501db0c552e1",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23997171-bc8b-538b-b4fe-8d43b6e5f2a3",
+              "ingredientName": "Zitrone",
+              "grams": 252,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5eb0e05-0398-540e-9ab5-522712d7354d",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d80ef151-7928-5dae-a357-f714c08104f5",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "67801ee9-d5f1-5d8c-8767-6ed788dec22c",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dbc0cec3-3736-5095-9892-5c33a309ed26",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "fd436289-619e-5188-b08f-a468860f34e5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "707a8bb0-1883-5dd9-98c8-818f2517115a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in mundgerechte Stücke, wende sie in Ei und dann in Speisestärke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok oder einer tiefen Pfanne auf 350°F und frittiere das Hähnchen portionsweise etwa 3-4 Minuten, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das frittierte Hähnchen heraus und lasse es auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Zucker, Zitronensaft, Wasser, Sojasoße und gehackten Knoblauch in einem Topf und bringe die Soße zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Soße 5 Minuten köcheln, bis sie leicht eingedickt ist, und gieße sie dann über das frittierte Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge alles vorsichtig, damit die Soße das Hähnchen überzieht. Garniere es mit geschnittener Frühlingszwiebel und Zitronenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es sofort auf gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Garlic-Lemon-Baked-Chicken-Thighs-2.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Garlic-Lemon-Baked-Chicken-Thighs-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-shaslyk",
+      "slug": "gen-chicken-shaslyk",
+      "title": "Hähnchen-Schaschlik",
+      "instructions": "Russisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen statt Brustfleisch; sie schmecken kräftiger und sind günstiger.",
+        "Lasse das Hähnchen über Nacht marinieren, damit es besonders zart und aromatisch wird."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "russisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5809,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-shaslyk/",
+      "components": [
+        {
+          "key": "2e2d5b22-6ec3-5417-aa5a-93eec28ad89d",
+          "name": "Zutaten",
+          "servingGrams": 156.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "07727e10-821c-514d-b8d0-c8a9d2360dca",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "47f86d44-91f7-5634-a45e-b234826e451d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "924b1572-b26d-5e38-acbb-bb879bb53c9e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "400d6332-d397-5ea3-946e-5d8e67906a52",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "83c8572b-b98f-5732-aff8-42d03899d251",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "2c48e7e9-8b13-54ad-8e9c-1b3a31cf2435",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "88514410-9e46-50f4-a477-68cb498734fc",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4bfcecec-3d54-504b-bc3b-c3a62c95e6af",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "36c7ddf9-5a44-5f4e-8efa-397e05d58afd",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in 1.5-Zoll große Würfel und die Zwiebeln in dicke Ringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Öl, Essig, Wasser, gehackten Knoblauch, Salz, Pfeffer und Lorbeerblatt zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Hähnchen und Zwiebel in einer Schüssel mit der Marinade und stelle alles für 2-4 Stunden oder über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stecke Hähnchen und Zwiebel abwechselnd auf Metall- oder Holzspieße (Holzspieße zuvor 30 Minuten einweichen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze einen Grill oder eine Grillpfanne stark und grille die Spieße 8-10 Minuten. Wende sie alle 2 Minuten, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Hähnchen sollte eine Kerntemperatur von 165°F erreicht und leichte Röstspuren haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es heiß mit der restlichen Marinade als Dip und Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://zuranazrecipe.com/wp-content/uploads/2017/02/chicken-sushlic.jpg",
+          "sourcePageUrl": "http://zuranazrecipe.com/wp-content/uploads/2017/02/chicken-sushlic.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

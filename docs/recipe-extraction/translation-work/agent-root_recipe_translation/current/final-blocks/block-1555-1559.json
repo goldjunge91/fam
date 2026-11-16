@@ -1,0 +1,1158 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-skillet-pork-apple",
+      "slug": "mfr-skillet-pork-apple",
+      "title": "Schweinefilet-Apfel-Pfanne",
+      "instructions": "Medaillons vom Schweinefilet karamellisieren und mit süß-säuerlichen Apfelscheiben, frischem Thymian und einer schnellen Pfannensoße aus Hühnerbrühe und Dijon-Senf fertig garen. Ein elegantes Herbstessen, das überraschend in 25 Minuten fertig ist.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinefilet gehört pro Pfund zu den magersten und günstigsten Fleischstücken.",
+        "Jede Apfelsorte eignet sich; Gala oder Fuji sind günstig und süß-säuerlich.",
+        "Serviere das Gericht mit Süßkartoffelpüree oder geröstetem Kürbis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-tenderloin",
+          "swap": "Schweinekoteletts; verlängere die Garzeit um 2 Minuten."
+        },
+        {
+          "forIngredientId": "apple",
+          "swap": "Birne für eine süßere, weichere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-pork-apple",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Apfel",
+        "Pfanne",
+        "Herbst",
+        "Dijon"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1555,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-pork-apple/",
+      "components": [
+        {
+          "key": "594eeb48-a0f5-5875-bb01-1af7fe09a09e",
+          "name": "Zutaten",
+          "servingGrams": 138.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "35257a23-8bd5-5926-a184-9da8a640449d",
+              "ingredientName": "Schweinefilet",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4dda010-0440-5765-be94-03e8146670f7",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96b92464-fa66-5900-ae7e-cbf70ef968f2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb82e94e-e669-554f-b917-59c6209f87f2",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a3aa2b9-7eee-5e97-b002-19715ce7c5f6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d84c4ca9-21b8-5271-8a9d-f610fcd4d3df",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "350f3408-d493-5e5c-b278-657debf6f6f0",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "824fe58b-f08d-59cd-833a-f68f2c877b6d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8744d2eb-ef8c-55e2-b509-8712d2b023a0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d63edd28-5bd5-597a-ae64-888f10dcb54c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Schweinefilet in 1 Zoll dicke Medaillons und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Medaillons in Öl bei hoher Hitze 3 Minuten pro Seite scharf an und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Zwiebel dazu und gare sie 3 Minuten. Gib Äpfel und Thymian dazu und gare alles weitere 3 Minuten, bis die Äpfel gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch dazu und gare ihn 30 Sekunden. Gieße Brühe dazu und rühre Dijon-Senf ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Schweinefilet zurück in die Pfanne und lass es 2 Minuten köcheln, bis die Sauce eindickt und das Fleisch durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2022/11/08/dining/as-miso-caramel-pork-chops/merlin_216141114_a19401e7-4d4e-41ba-8f77-7cacbc225967-jumbo.jpg?quality=75&auto=webp",
+          "sourcePageUrl": "https://static01.nyt.com/images/2022/11/08/dining/as-miso-caramel-pork-chops/merlin_216141114_a19401e7-4d4e-41ba-8f77-7cacbc225967-jumbo.jpg?quality=75&auto=webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-skillet-lamb-couscous",
+      "slug": "mfr-skillet-lamb-couscous",
+      "title": "Gewürzte Lamm-Couscous-Pfanne",
+      "instructions": "Lammhackfleisch mit Kreuzkümmel, Zimt und Piment würzen — Marokkos Dreiklang der Gewürze. Mit Tomaten in der Pfanne garen, sodass der lockere Couscous die Flüssigkeit aufsaugt. Ein duftendes Abendessen aus einer Pfanne, das mit jedem Bissen in eine andere Welt entführt.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammhack ist günstiger als Lammkoteletts und eignet sich hervorragend als Eiweißquelle für eine Pfanne.",
+        "Der Couscous nimmt die gewürzte Brühe auf und wird dabei gleich zur Beilage.",
+        "Zum Schluss eingerührte Rosinen bringen für wenige Cent eine marokkanische Süße ins Gericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-lamb",
+          "swap": "Rinderhack mit einer zusätzlichen Prise Zimt"
+        },
+        {
+          "forIngredientId": "couscous",
+          "swap": "Quinoa oder Orzo; passe Flüssigkeitsmenge und Garzeit an"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-lamb-couscous",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Lamm",
+        "Couscous",
+        "marokkanisch",
+        "gewürzt",
+        "eine Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1556,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-lamb-couscous/",
+      "components": [
+        {
+          "key": "86efbc98-a024-5b48-86cf-a66391795c51",
+          "name": "Zutaten",
+          "servingGrams": 329.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1355c2b4-0861-51f9-9aea-1238266bed70",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8aad4bda-c987-543b-900b-d74415f3d23d",
+              "ingredientName": "Couscous",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "190b3b1e-be48-5956-902b-a8e7beea87ae",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec0ca42e-bcf5-548c-89f5-8e8f6844a2f6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5184bbdd-891c-576c-9ae3-9148565165ec",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30993a17-1716-54ce-baa7-e23e3a503e2e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd53af94-bb8d-58fe-a4d2-d1c2e6e22d6a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b93a64a4-c044-5614-a3f6-7743cfbb14ab",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b944aef-83b3-5c79-8229-6285c06aaf49",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8af126cd-d0c5-56f1-a38f-a9a6414b1c18",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd0ef317-6cd6-51e6-bc00-283054c76143",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Lammhack 6 Minuten an und zerteile es dabei. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel und Knoblauch dazu und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Kreuzkümmel, Zimt und Piment ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomaten und Brühe dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Couscous ein, nimm die Pfanne vom Herd und decke sie 5 Minuten ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lockere den Couscous mit einer Gabel auf und garniere ihn mit frischer Minze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/06/17/2585c283-0fa8-43fe-9d2e-a24a0187a11c/spiced-lamb-couscous-and-spinach-salad.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/06/17/2585c283-0fa8-43fe-9d2e-a24a0187a11c/spiced-lamb-couscous-and-spinach-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-skillet-egg-hashbrown",
+      "slug": "mfr-skillet-egg-hashbrown",
+      "title": "Herzhafte Rösti-Ei-Pfanne",
+      "instructions": "Geriebene Kartoffeln goldbraun und knusprig braten, dann mit angebratener Paprika, Zwiebeln und Spiegeleiern belegen, die direkt in der Pfanne garen. Ein Frühstück-zum-Abendessen nach Art eines Diners, das weniger als $1.50 pro Portion kostet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Wasser aus den Kartoffeln auszupressen ist entscheidend, damit sie knusprig werden.",
+        "Russet-Kartoffeln sind am günstigsten für Rösti.",
+        "Gib beliebige übrig gebliebene Eiweißzutaten dazu, etwa Wurst, Schinken oder gewürfeltes Hähnchen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Tiefgekühlte geraspelte Rösti-Kartoffeln, damit das Reiben entfällt"
+        },
+        {
+          "forIngredientId": "cheddar",
+          "swap": "Jeder gut schmelzende Käse, etwa Monterey Jack oder Pepper Jack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-egg-hashbrown",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Eier",
+        "Rösti",
+        "Kartoffel",
+        "Frühstück zum Abendessen",
+        "preiswert",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1557,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-egg-hashbrown/",
+      "components": [
+        {
+          "key": "0624e70e-8a39-550c-911f-6aec86481d62",
+          "name": "Zutaten",
+          "servingGrams": 448.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "256fe145-7d89-58f8-b4b3-ffdfb698d63b",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b895f0e6-0bcf-59b8-9701-0fecb539bdc1",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26f9c55d-7e9e-5ff5-930e-caf5a4e308cf",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "279c3add-8f9f-5689-8e2b-bf680e210c0e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16bdb717-7424-5cef-8288-462eb529e178",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7b55c92-2131-5b20-b866-8df371e7e8cf",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cde4104-0ad9-57c2-bb74-d05802ab6f48",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b296aad4-1330-5ffb-8a7f-5190f5dc9355",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c04046ee-6c6b-5993-b005-961ea4fe0726",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1cfa359-612e-50f2-8ce6-4e01695d4f0d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rasple die Kartoffeln und presse mit einem Tuch das GESAMTE Wasser heraus; das ist entscheidend für die Knusprigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass Butter in einer Pfanne bei mittlerer bis hoher Hitze schmelzen. Verteile die Kartoffeln gleichmäßig darin und drücke sie an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate sie 8 Minuten ungestört. Wende sie portionsweise und brate sie weitere 6 Minuten, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die Rösti an den Pfannenrand und gib Paprika und Zwiebel in die Mitte. Gare sie 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Knoblauch dazu und würze alles. Forme 3 Mulden und schlage je ein Ei hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare die Eier 3–4 Minuten. Streue Käse darüber und decke sie für 1 weitere Minute ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/_wOjvvt033gfaqsPNGIgPdvGXLM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4536885-9533982e0b46490f95fbca31d3bea143.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/_wOjvvt033gfaqsPNGIgPdvGXLM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4536885-9533982e0b46490f95fbca31d3bea143.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ital-amatriciana",
+      "slug": "mfr-ital-amatriciana",
+      "title": "Bucatini all'amatriciana",
+      "instructions": "Die kräftige römische Tomatensoße wird durch ausgelassenes Guanciale (oder Pancetta), Pecorino und etwas Weißwein verfeinert. Die dicken Bucatini-Röhren nehmen jeden Tropfen der Soße auf. Ein Pastagericht, das Römer seit Jahrhunderten essen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Guanciale ist authentisch, aber Pancetta oder sogar gewürfelter Speck eignen sich ebenfalls.",
+        "Tomaten aus der Dose der Sorte San Marzano machen hier den größten Geschmacksunterschied.",
+        "Bereite die doppelte Menge Sauce zu; sie lässt sich perfekt einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pancetta",
+          "swap": "Dick geschnittener Speck; rauchiger, aber köstlich"
+        },
+        {
+          "forIngredientId": "bucatini",
+          "swap": "Spaghetti oder Rigatoni"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-amatriciana",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Nudeln",
+        "Amatriciana",
+        "römisch",
+        "Tomate",
+        "Pancetta"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1558,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-amatriciana/",
+      "components": [
+        {
+          "key": "cb71c6f6-1f51-5024-b79e-9c3357ac574c",
+          "name": "Zutaten",
+          "servingGrams": 535.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ccca0ea-f0be-5778-87f4-6c96675baf0f",
+              "ingredientName": "Nudeln",
+              "grams": 1400,
+              "quantity": 14,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b4012de-0e38-5cc9-a34d-c790ddf06b9a",
+              "ingredientName": "Pancetta",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8984466-3445-586f-aafe-50da87bd954d",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cf5aa5f-c1d0-5c99-b42c-3d1e9784cc43",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1299904-6a96-5693-81f8-ed2769fa6c7f",
+              "ingredientName": "Weißwein (Kochen)",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d8477b8-3faa-5563-a018-53f880e0ff42",
+              "ingredientName": "Pecorino Romano",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "880768e0-0332-52f9-8dca-9eb219561641",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76bfb79f-39f5-5484-b20d-c92d798d53a0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea2aa656-cdd6-5f3d-b31a-174d1df93247",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0ff7a32-278a-5fa4-b3bc-c2ec89582aea",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Pancetta in Öl knusprig aus; nimm sie mit einer Schaumkelle heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel im ausgelassenen Fett 4 Minuten an. Gib Chiliflocken dazu und gieße den Wein hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomaten dazu und lass die Sauce 15 Minuten köcheln, bis sie kräftig schmeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Bucatini, hebe etwas Nudelwasser auf und gieße die Nudeln ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die Nudeln mit der Sauce, der beiseitegestellten Pancetta und Pecorino. Lockere die Sauce nach Bedarf mit Nudelwasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/566853fff5ca65c43a7969d5/1:1/w_2560%2Cc_limit/EP_12012015_dannymeyers_Maialino_Bucatini.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/566853fff5ca65c43a7969d5/1:1/w_2560%2Cc_limit/EP_12012015_dannymeyers_Maialino_Bucatini.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ital-mushroom-risotto",
+      "slug": "mfr-ital-mushroom-risotto",
+      "title": "Pilzrisotto",
+      "instructions": "Arborio-Reis wird langsam mit warmer Brühe, Weißwein sowie Cremini- und getrockneten Steinpilzen gerührt. So entsteht ein cremiges, besonders würziges Risotto, das mit Parmesan und Butter verfeinert wird und für einen Bruchteil des Preises mit jedem italienischen Restaurant mithalten kann.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Steinpilze kosten wenig, sorgen aber für viel Aroma; verwende auch das Einweichwasser.",
+        "Cremini-Pilze sind günstiger als gemischte Wildpilze.",
+        "Das Rühren ist die eigentliche Technik – ohne Abkürzungen, aber erstaunlich entspannend"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "arborio-rice",
+          "swap": "Carnaroli oder beliebiger Rundkornreis"
+        },
+        {
+          "forIngredientId": "dried-porcini",
+          "swap": "Mehr frische Pilze; gib für mehr Umami einen Schuss Sojasauce dazu."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-mushroom-risotto",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "Risotto",
+        "Pilz",
+        "Arborio",
+        "Vegetarier",
+        "umami"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1559,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-mushroom-risotto/",
+      "components": [
+        {
+          "key": "bc93835e-ab97-5a8b-a4ad-09c12aa757f8",
+          "name": "Zutaten",
+          "servingGrams": 635.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "861d34eb-e39d-5b36-9cef-a8c57e5a1660",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03e5444c-a7de-554c-abac-e2854bc4a486",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aef925f8-6b58-564e-b2a2-18452e3d01aa",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f52412e0-18dc-57bb-9e8f-ff8a8e8d9c49",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72491943-9a2a-549e-87b6-e8765e66e803",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcf2ffa1-70da-575c-b1e5-2ad16a8bc339",
+              "ingredientName": "Weißwein (Kochen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1488ea8a-3b9a-510d-aff6-e6b24c23f918",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c17019ee-c4aa-50e8-bbb2-a34f2b59a028",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddac11e7-87e1-5aad-9da7-e105c32d0adf",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b6fcd41-6ec2-5bad-979e-5bb94fa5c264",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6444e221-a37d-5283-8d31-04fef69435da",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5d19fa4-c2cf-5208-912f-ff20c4dc7fdd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Steinpilze 15 Minuten in heißem Wasser ein. Drücke sie aus und hacke sie. Stelle das Einweichwasser beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel 4 Minuten in Öl und Butter an. Gib die Pilze dazu und gare sie 5 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Thymian dazu und gare alles 1 Minute. Rühre den Reis ein und röste ihn 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Wein dazu und rühre, bis er aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die warme Brühe schöpflöffelweise dazu und rühre dabei ununterbrochen 18–20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Parmesan und kalte Butter ein. Würze das Risotto und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/35/1504128527-delish-mushroom-risotto.jpg",
+          "sourcePageUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/35/1504128527-delish-mushroom-risotto.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

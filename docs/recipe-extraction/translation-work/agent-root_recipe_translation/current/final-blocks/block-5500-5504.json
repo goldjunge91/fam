@@ -1,0 +1,1148 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gyu-soboro-don",
+      "slug": "gen-gyu-soboro-don",
+      "title": "Gyu Soboro Don",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Sojasauce statt einer teuren Premiummarke.",
+        "Ersetze Erbsen durch gefrorenes Mischgemüse für Abwechslung zum gleichen Preis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5500,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gyu-soboro-don/",
+      "components": [
+        {
+          "key": "b44fb05e-ff55-5435-8107-8f82321be6b5",
+          "name": "Zutaten",
+          "servingGrams": 490,
+          "position": 0,
+          "items": [
+            {
+              "key": "7972bfb2-9266-5165-9850-538d69a82065",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "581cca00-fc41-53a2-8b76-1e631685ba24",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d03c44a6-a8ac-5b6d-a18a-be553a498419",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ad5f3b32-b6fe-50c5-aaba-2ddf0080e45d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "62d9c583-2c2f-5d07-8575-36866658e7ac",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2495991b-cfd9-5497-a130-0123a67b8ae2",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ec4a2833-ab62-52ce-8e69-47636ea41353",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "0617f96d-1a81-5b11-8d41-c9ff4f26d07b",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1e70354c-4b0e-5e6b-af21-993f0f6a9e2f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d14b4930-53f4-55c8-b99e-208dc4dec831",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis nach Packungsanleitung und verteile ihn auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze. Gib das Rinderhackfleisch dazu und brate es unter Zerteilen 5-7 Minuten an, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Ingwer dazu und brate ihn 1 Minute mit. Gieße Sojasauce, Mirin, Zucker und Dashi-Brühe hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Fleischmischung 3-4 Minuten köcheln, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe das Fleisch an den Rand der Pfanne und rühre die Eier in der Mitte 2-3 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die Erbsen ein und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Fleisch-Ei-Mischung auf den Reisschüsseln und gieße übrige Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fUZ8lmfS3GqXwDKKHaulRiH2xoo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Soboro-58a4b5325f9b58819cfeab43.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fUZ8lmfS3GqXwDKKHaulRiH2xoo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Soboro-58a4b5325f9b58819cfeab43.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shabu-shabu-rice-bowl",
+      "slug": "gen-shabu-shabu-rice-bowl",
+      "title": "Shabu-Shabu-Reisschüssel",
+      "instructions": "Ein beliebtes japanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter und friere sie an, bis sie teilweise gefroren ist. Dann kannst du sie dünn aufschneiden, statt teures Roastbeef zu verwenden.",
+        "Verwende normale Pilze statt Shiitake, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5501,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shabu-shabu-rice-bowl/",
+      "components": [
+        {
+          "key": "2da4025b-03a8-5e28-bacc-2c61effdbee3",
+          "name": "Zutaten",
+          "servingGrams": 1052.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "0cb08dae-ab73-5718-b1d5-9aa20b88be55",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c37d92dc-2e0e-5725-80a4-aa6d64cc6ca0",
+              "ingredientName": "Chinakohl",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "3c1f8799-d42c-5ed9-8089-155bfe653b46",
+              "ingredientName": "Pilze",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "ad36502e-0781-5726-a4c6-db3a97458d6f",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "001d1779-da65-5d7d-a25d-eee4a6d84d83",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Block"
+            },
+            {
+              "key": "d6a5f204-d501-5289-934c-f3787bc4d296",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "b73067fc-cfb2-5f35-b381-412f64b9de9c",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "401ba5a3-f2f2-5143-9b91-0ad240d06267",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "28a2b614-39bd-561f-a27c-574c4d2975a9",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen gekocht"
+            },
+            {
+              "key": "1151892a-6b03-5ec5-b5ed-a3470d8ee89e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dfd8263-4863-52b4-83ad-9360acc17400",
+              "ingredientName": "Ponzu",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Dashi-Brühe in einem großen Topf bei mittlerer Hitze zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Sojasauce und Mirin zur Brühe und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Chinakohl, Pilze, Karotten und Tofu in die köchelnde Brühe und gare alles 5-7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ziehe dünne Rindfleischscheiben mit Stäbchen oder einer kleinen Gabel 10-15 Sekunden durch die heiße Brühe, bis sie gar sind. Gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schöpfe Gemüse und Brühe über den gekochten Reis in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gegarten Rindfleischscheiben darauf und garniere mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere Ponzu-Sauce als Dip dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gordonramsayfood.com/wp-content/uploads/2026/02/gordon-ramsay-chicken-pilaf-masterpiece-63.webp",
+          "sourcePageUrl": "https://gordonramsayfood.com/wp-content/uploads/2026/02/gordon-ramsay-chicken-pilaf-masterpiece-63.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-birria-de-jalisco",
+      "slug": "gen-birria-de-jalisco",
+      "title": "Birria de Jalisco",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie für später ein.",
+        "Bereite eine größere Menge zu und friere Portionen für schnelle Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5502,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria-de-jalisco/",
+      "components": [
+        {
+          "key": "8b469e97-ecac-5ddb-9756-044d56359234",
+          "name": "Zutaten",
+          "servingGrams": 431.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e72ddf20-b174-54d9-a2aa-627af06492ca",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "34d2251d-645c-5e34-bab2-810c144e90ec",
+              "ingredientName": "Getrocknete Chilis",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09905e75-51f5-58de-acc7-c124e19d49c0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "016a14d1-c217-5606-a14b-fe997e28085e",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e91ea689-e573-5b65-a539-7cad0c7afaf8",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ceab73de-b265-5994-ba0e-0ae08aa094e7",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "b7a34e45-29ef-59b7-852d-2686564e5722",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f900cc9-38ee-5c85-bf14-b900fb4d1ef1",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fb54cdca-f4b9-5cac-b4b7-6843fb5af67d",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f045e444-b192-5b5d-bae3-090d8261417e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "79d85ae2-aff2-5052-869f-8b2619c04a88",
+              "ingredientName": "Tortillas",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne der getrockneten Chilis. Röste sie in einer trockenen Pfanne 1-2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die gerösteten Chilis 10 Minuten in heißem Wasser ein, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die weichen Chilis mit 1 cup Einweichwasser, Zwiebel, Knoblauch, Essig, Kreuzkümmel und Oregano glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Rinderschulter mit Salz und Pfeffer. Bräune sie in einem großen Topf bei mittlerer bis hoher Hitze 8-10 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Seihe die Chilisauce ab und gieße sie über das Fleisch. Gib Rinderbrühe und Lorbeerblätter dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf ab und lasse das Fleisch 2.5-3 Stunden köcheln, bis es butterzart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das Fleisch heraus, zupfe es mit Gabeln auseinander und gib es zurück in die Brühe. Lasse es weitere 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erwärme die Tortillas. Serviere die Birria in flachen Schüsseln mit gezupftem Fleisch und Brühe, dazu Limette und Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/b47d826c-4221-4bef-abf6-b7a1ce4aa47b/taco+birria.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/b47d826c-4221-4bef-abf6-b7a1ce4aa47b/taco+birria.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-birria-tapat-a",
+      "slug": "gen-birria-tapat-a",
+      "title": "Birria Tapatía",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tomatenmark aus der Dose statt aus der Tube, um Geld zu sparen.",
+        "Kaufe Chilis in größeren Mengen im Latin-Markt, dort sind sie günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5503,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria-tapat-a/",
+      "components": [
+        {
+          "key": "cca97f18-a06b-5034-9f34-ffb6ece9cb19",
+          "name": "Zutaten",
+          "servingGrams": 448.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "adf3fd04-55fc-54f3-9667-7079ed82ca74",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "b15fd463-bec7-5425-b8eb-4373b899b5ba",
+              "ingredientName": "Getrocknete Chilis",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dc8eda2-24bb-5367-8c40-765e90af344e",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6b58357c-1d4c-5197-8616-e30bb0abb8ab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "02e9d2cc-1dbd-53ff-a3e9-78622f613e5c",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f793c6e6-2c9c-5e4b-8668-31dcd2021535",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "42784c50-dc89-5672-b365-61b1c82ef2bd",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6f2096d5-396a-54d7-8171-907a335d5ce8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "d02a029e-b768-5c24-8a34-9099b70bf691",
+              "ingredientName": "Oregano",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "c8fc3ce7-0034-5782-9df7-682d05a94a7e",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a39d723-e102-5bb5-8c1f-32bc8ea1e52f",
+              "ingredientName": "Tortillas",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste getrocknete Guajillo- und Chipotle-Chilis 1-2 Minuten in einer trockenen Pfanne an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die gerösteten Chilis 10 Minuten in heißem Wasser ein. Püriere sie anschließend mit 1.5 cups Einweichwasser, Tomatenmark, Zwiebel, Knoblauch, Essig, Kreuzkümmel, Oregano und Nelken glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Rinderschulter mit Salz und Pfeffer und bräune sie in einem großen Topf 8-10 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Chili-Tomaten-Sauce ab und gieße sie über das Fleisch. Gib Rinderbrühe dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf ab und lasse alles 2.5-3 Stunden köcheln, bis das Fleisch leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Fleisch heraus, zupfe es auseinander und gib es für 15 Minuten zurück in den Topf, damit es Geschmack aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Birria in flachen Schüsseln mit gezupftem Fleisch, Brühe und warmen Tortillas. Dazu Limettenspalten reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/4374da56-3dd3-4513-beb6-295e6c862597/birria-recipe.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/4374da56-3dd3-4513-beb6-295e6c862597/birria-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-birria-de-res",
+      "slug": "gen-birria-de-res",
+      "title": "Birria de Res",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie für später ein.",
+        "Die Consomé hält sich gekühlt bis zu 5 Tage und eignet sich gut für die Essensvorbereitung."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5504,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria-de-res/",
+      "components": [
+        {
+          "key": "528ab83d-c0d6-50c8-9c9e-a2163fdb273c",
+          "name": "Zutaten",
+          "servingGrams": 540.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b2ad39f-8ac4-5512-b8cb-c4930daad6ff",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Pfund"
+            },
+            {
+              "key": "a5efa60a-0df0-5193-9bed-b1f34b8d53ea",
+              "ingredientName": "Getrocknete Chilis",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acdc322f-c4e1-5aa8-9547-fce7e6f7eea9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "851998ab-3071-5aac-8762-1567f73a47e5",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f972bd8f-bc72-5b5d-9e28-b52399ef26c6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "4fd1e70f-7f74-5afd-88a1-703538fc5478",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9af0b947-3007-5d45-bacb-50b07285c706",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "b0ddf514-b218-524a-aaaa-344e5effb45c",
+              "ingredientName": "Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "2bf631ee-7179-52ce-bf33-f4b8da39b112",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30861df2-e846-5eb2-9455-39e1147ac35f",
+              "ingredientName": "Tortillas",
+              "grams": 640,
+              "quantity": 16,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste getrocknete Guajillo- und Ancho-Chilis in einer trockenen Pfanne 1-2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die Chilis 10 Minuten in heißem Wasser ein. Püriere sie anschließend mit 1.5 cups Einweichwasser, Zwiebel, Knoblauch, Essig, Kreuzkümmel und Oregano vollständig glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Rinderschulter in große Stücke und würze sie großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bräune das Fleisch in einem großen Topf bei mittlerer bis hoher Hitze 8-10 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Seihe die Chilisauce durch ein feines Sieb in den Topf über das Fleisch. Gib Rinderbrühe und Lorbeerblätter dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf ab und lasse alles 2.5-3 Stunden köcheln, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zupfe das Fleisch mit zwei Gabeln auseinander und gib es für weitere 10 Minuten in den Topf zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere reichlich gezupftes Fleisch und Consomé in Schüsseln, dazu warme Tortillas, Limette und gewürfelte Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/1955784.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/1955784.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1138 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-banh-mi-thit-nuong",
+      "slug": "gen-banh-mi-thit-nuong",
+      "title": "Bánh Mì Thịt Nướng",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter im Angebot kaufen und mit einem scharfen Messer selbst aufschneiden",
+        "Normales Weißbrot als günstige Alternative zu Baguette verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2470,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-mi-thit-nuong/",
+      "components": [
+        {
+          "key": "76e21393-ca03-5edb-b36c-90d10f211f3c",
+          "name": "Zutaten",
+          "servingGrams": 204.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ecb2f38-3dc6-5bea-ae77-ed670c495737",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "81293740-ad19-50e9-a4b1-9186d615387b",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ca327fb9-5782-5c2b-97b6-02aee0842ba9",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Zehen fein gehackt"
+            },
+            {
+              "key": "0eeb8e86-ba6d-5dca-ae0b-3e5657f63d73",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6c990c61-1e2d-55bf-afaf-61022c89876a",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 kleine oder 1 große"
+            },
+            {
+              "key": "3d7b68be-9334-5db3-81d9-580262452b3c",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ce224630-aecb-5669-b7f0-ec556b278762",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "978e25b6-65e9-59e4-bd00-549c8509e986",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e405d76-9c19-5c51-88dc-e217ac7f241e",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e8c4f8be-dffb-50f1-bc5b-43149c94647a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Bund"
+            },
+            {
+              "key": "406cad92-f398-53c2-b1ac-444938fe9f66",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fischsauce, gehackten Knoblauch und braunen Zucker vermengen, dann dünne Schweinefleischscheiben mindestens 30 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen Karotte und Gurke in feine Streifen schneiden, mit Essig und einer Prise Zucker vermengen und einlegen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Pfanne bei starker Hitze erhitzen und mariniertes Schweinefleisch portionsweise etwa 3–4 Minuten braten, bis es karamellisiert und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Baguettes längs aufschneiden und beide Seiten mit Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eingelegtes Gemüse, gegartes Schweinefleisch, frischen Koriander und Jalapeñoscheiben in jedes Baguette schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, solange das Schweinefleisch noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vnifood.com/wp-content/uploads/2024/07/banh-mi-thit-nuong.png",
+          "sourcePageUrl": "https://vnifood.com/wp-content/uploads/2024/07/banh-mi-thit-nuong.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banh-mi-pate",
+      "slug": "gen-banh-mi-pate",
+      "title": "Bánh Mì Pâté",
+      "instructions": "Vietnamesisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pâté aus der Dose kaufen; es ist günstig, lange haltbar und praktisch für ein schnelles Frühstück",
+        "Eingelegtes Gemüse am Vorabend vorbereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2471,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-mi-pate/",
+      "components": [
+        {
+          "key": "e9bae424-dea4-5b39-97fd-c2769e6f42ac",
+          "name": "Zutaten",
+          "servingGrams": 193.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "be4af698-ee8d-50f8-a09f-bac46092aaa7",
+              "ingredientName": "Pâté",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen aus der Dose oder frisch"
+            },
+            {
+              "key": "eddc6642-5667-5f58-9627-7fec101f06ca",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 kleine oder 1 große"
+            },
+            {
+              "key": "031988dc-5161-5ca0-92b9-de20bc9f9b73",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3b27be71-72d4-5c6c-8e1c-d14a0bb52b1f",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64290fcc-14c6-5a62-b2bf-7fa498fd82c2",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "376fee73-575b-5e5a-8e1e-def883c2f97b",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1f699836-8f03-576d-92c2-f4dd2e7e9233",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Bund"
+            },
+            {
+              "key": "741e25c8-ed89-526f-b28f-60b566a12dd0",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58277676-2ee4-557d-8b7f-bd8eed255b6b",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karotte und Gurke in feine Streifen schneiden, mit Essig und einer Prise Zucker vermengen und zum Einlegen beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Baguettes längs aufschneiden und nach Wunsch leicht toasten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter und Mayonnaise auf beide Innenseiten des Baguettes streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pâté großzügig auf eine Seite jedes Baguettes streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eingelegtes Gemüse, frischen Koriander und Jalapeñoscheiben auf dem Pâté verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Papier einwickeln und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://1.bp.blogspot.com/-OvTlqrs4E44/Wv6SOPi4YhI/AAAAAAAAIMk/r_4NXJ-qs1wlpUfbWQjf5CKrP-Pr1vNcACLcBGAs/s1600/IMG_3054.JPG",
+          "sourcePageUrl": "https://1.bp.blogspot.com/-OvTlqrs4E44/Wv6SOPi4YhI/AAAAAAAAIMk/r_4NXJ-qs1wlpUfbWQjf5CKrP-Pr1vNcACLcBGAs/s1600/IMG_3054.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-com-tam",
+      "slug": "gen-com-tam",
+      "title": "Cơm Tấm",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bruchreis in großen Mengen auf asiatischen Märkten kaufen; er ist deutlich günstiger als Vollkornreis",
+        "Günstige Schweinekoteletts aus dem Angebotsregal verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2472,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-com-tam/",
+      "components": [
+        {
+          "key": "0c203eac-55a2-5b4c-bac7-b1d0eaeafc60",
+          "name": "Zutaten",
+          "servingGrams": 638.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b7475bf-d176-5298-a699-32aa769cde74",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen ungekocht"
+            },
+            {
+              "key": "b29a540e-1973-5651-9150-d230bb19c55e",
+              "ingredientName": "Schweinekotelett",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 (je 6 Unzen)"
+            },
+            {
+              "key": "f5d96352-7270-5c71-b5e9-5c6197f8ea7b",
+              "ingredientName": "Fischsauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "1ea6175b-938c-5956-bd8b-80fe4a60c67a",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen fein gehackt"
+            },
+            {
+              "key": "497ee102-917d-5948-8b7d-1101efcf9525",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ee623a12-6648-59cf-b4e6-88bd4f5d28b7",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "0154d095-5e94-509e-8a4e-d640da7d48f6",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f1ee4f9-a798-50b5-bbc2-40329452af00",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66bf5d4d-1cdb-5252-a67a-6193c0c20afc",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f18651df-8c3c-563a-853a-5862571173e8",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0d8ba33a-77b7-59dc-a4e4-52157328d451",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bruchreis mit 3 Tassen Wasser in einem Topf nach der Quellmethode kochen (aufkochen, abdecken und 15 Minuten köcheln lassen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinekoteletts in 2 EL Fischsauce, der Hälfte des Knoblauchs und 1 EL braunem Zucker 20 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer Pfanne erhitzen und Schweinekoteletts etwa 5–6 Minuten pro Seite karamellisieren und durchgaren. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übrigen Knoblauch in derselben Pfanne braten und Eier mit der Spiegelseite nach oben garen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomate und Gurke in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gegarten Reis auflockern und auf Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede Schale mit einem Schweinekotelett, einem Spiegelei, Tomaten- und Gurkenscheiben sowie geschnittenen Frühlingszwiebeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einer kleinen Schüssel Dip-Sauce servieren, die aus übriger Fischsauce und braunem Zucker besteht, aufgelöst in warmem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/11/EXPS_TOHCR25_281589_TT_1117_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/11/EXPS_TOHCR25_281589_TT_1117_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hu-tieu",
+      "slug": "gen-hu-tieu",
+      "title": "Hủ Tiếu",
+      "instructions": "Vietnamesisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Garnelen tiefgekühlt und in größeren Mengen kaufen, nach Bedarf auftauen",
+        "Schweineknochen und günstige Fleischstücke für eine preiswerte, aromatische Brühe verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2473,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hu-tieu/",
+      "components": [
+        {
+          "key": "a2554715-5bbd-5386-8239-35ce94ec30c5",
+          "name": "Zutaten",
+          "servingGrams": 768.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "06b74850-9d98-55b8-b7bc-2673ef93e511",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8ff191a9-73e8-5726-93d9-2adfc22f6b5b",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "a35a61e7-c590-5f92-ac9e-dba57a33e263",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "9bcbd6fc-a383-5e68-bd3d-2ba5e06c600a",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "7a8d4c71-417b-5b94-ade8-e6f8fee14fbc",
+              "ingredientName": "Glasnudeln / Zellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3e3cdd8d-00ee-53e5-9823-73d6cd7e3df6",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "87900bff-8cef-5a00-9888-0f92c6dd951f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "6f475592-f6fa-535b-aff2-ba8791e4bb91",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e09fb47-4aca-5213-9bd7-ba6720f7f3ac",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "40bfaa83-a84b-53be-b4bf-79712a6b96a2",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "94703bda-ce8e-56c7-ae4e-10dae6666ec1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Bund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineknochen 2 Minuten in kochendem Wasser blanchieren, dann gründlich abspülen und reinigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "8 Tassen frisches Wasser mit gereinigten Knochen und gehacktem Knoblauch zum Kochen bringen, dann 50 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinehack oder gewürfelten Schweinebauch in einer separaten Pfanne etwa 5 Minuten durchbraten. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen in die Brühe geben und etwa 3–4 Minuten rosa garen. Herausnehmen und hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brühe abseihen und zurück in den Topf geben. Gegartes Schweinefleisch und Garnelen dazugeben und mit Fischsauce sowie schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tapiokanudeln nach Packungsanleitung kochen und auf Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiße Brühe und Fleischmischung über die Nudeln schöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Sojasprossen, geschnittenen Frühlingszwiebeln und Koriander belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Hu-Tieu-Nam-Vang-930x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Hu-Tieu-Nam-Vang-930x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cao-lau",
+      "slug": "gen-cao-lau",
+      "title": "Cao Lầu",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frische Ramen- oder Eiernudeln als Ersatz verwenden, falls Cao-Lầu-Nudeln nicht erhältlich sind",
+        "Erdnüsse zu Hause aus rohen Erdnüssen aus dem Großgebinde rösten und deutlich sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2474,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cao-lau/",
+      "components": [
+        {
+          "key": "ab0adefe-8b7c-58be-bad9-38418ff02a23",
+          "name": "Zutaten",
+          "servingGrams": 412.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "1dfb4a97-e578-58f6-9a17-6dad4a09745c",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "df47b49b-6122-5f97-9c07-3c94e8e1236f",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "dd51c380-34f9-5a7b-9eec-d7a22623e99a",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Zehen fein gehackt"
+            },
+            {
+              "key": "1d01928e-4578-58e7-8b5d-5c8055620af0",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a09db68a-a3bc-59c5-851a-b6e0180baa4d",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6f3618d3-34e4-5a4b-9712-b9547cb5e519",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "29608e52-cbbf-576f-bada-9bc3afafe995",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Kopf"
+            },
+            {
+              "key": "a0af7572-2c4e-5814-93d4-a9f06536bf20",
+              "ingredientName": "Kräuter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Bund gemischte Minze und Koriander"
+            },
+            {
+              "key": "9d45ca80-103c-521b-9030-bd26ffc2732a",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tasse zerstoßen"
+            },
+            {
+              "key": "c9508eeb-10d9-5df8-ac70-9ada90aa26cd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bbb97eb7-f7f9-5474-9ce9-95816f743005",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünne Schweinefleischscheiben mindestens 20 Minuten in Fischsauce, gehacktem Knoblauch und braunem Zucker marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer Pfanne bei starker Hitze erhitzen und mariniertes Schweinefleisch portionsweise etwa 4–5 Minuten karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "4 Tassen Wasser in einem Topf zum Köcheln bringen und Nudeln weich garen; frische Nudeln benötigen etwa 4–5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nudeln abgießen und mit etwas Öl vermengen, damit sie nicht kleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Salat und frische Kräuter auf Serviertellern anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warme Nudeln und karamellisiertes Schweinefleisch darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit zerstoßenen Erdnüssen und gerösteten Sesamsamen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Limette und zusätzlicher Fischsauce als Dip servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/2287852.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/2287852.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

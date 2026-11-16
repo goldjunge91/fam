@@ -1,0 +1,1224 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-crispy-mozzarella-sticks",
+      "slug": "af2-crispy-mozzarella-sticks",
+      "title": "Mozzarella-Sticks aus der Heißluftfritteuse",
+      "instructions": "Goldbraune, mit Panko panierte Mozzarella-Sticks mit herrlich langem Käsefaden und warmer Marinara-Sauce als Dip – der ganze Genuss eines frittierten Snacks ohne Fritteuse oder schlechtes Gewissen. Aus einer günstigen Packung Käse-Sticks wird ein proteinreicher Snack für die Studentenküche, der in wenigen Minuten knusprig wird. Inspiriert von Michael Kory (@michaelkory) auf TikTok (https://www.tiktok.com/@michaelkory/video/7171860320460279082).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine günstige Packung schnittfester Mozzarella-Sticks mit wenig Feuchtigkeit ist das ganze Geheimnis – sie liefert pro Gramm Eiweiß mehr fürs Geld als die meisten Snackriegel und ist bereits portioniert.",
+        "Das Einfrieren nicht auslassen: 30-60 Minuten im Tiefkühler verhindern, dass Käse ausläuft, sodass nichts verschwendet wird. Bereite die doppelte Menge paniert vor und halte den Überschuss tiefgekühlt für schnelle Snacks direkt aus dem Tiefkühler bereit.",
+        "Strecke das Panko, indem du ein paar altbackene Brotscheiben im Mixer zerkleinerst oder übrige Cracker zerdrückst und kostenlos unter die Panade mischst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "panko",
+          "swap": "Normale Semmelbrösel oder zerdrückte Cornflakes – sie werden ebenfalls knusprig und sind meist schon im Vorratsschrank",
+          "savings": "spart ca. $0.05/Portion"
+        },
+        {
+          "forIngredientId": "marinara",
+          "swap": "Fertig-Pizzasauce oder eine schnelle Mischung aus Ketchup, Knoblauchpulver und italienischer Kräutermischung zum Dippen",
+          "savings": "spart ca. $0.40/Portion"
+        },
+        {
+          "forIngredientId": "cooking-spray",
+          "swap": "Stattdessen leicht mit Olivenöl bestreichen oder besprühen",
+          "savings": "Etwa gleich teuer, Öl sorgt aber für ein kräftigeres Aroma"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 7,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Käsefaden",
+        "Snack",
+        "Spieltag",
+        "vegetarisch",
+        "günstig",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 180,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-mozzarella-sticks/",
+      "components": [
+        {
+          "key": "5bff6d3b-a190-5eb4-b4b9-d7a2fc686069",
+          "name": "Zutaten",
+          "servingGrams": 425.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e438104-bf51-562a-9fad-f4140e364455",
+              "ingredientName": "Mozzarella",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "verwenden 6 low-moisture string cheese sticks (~6 oz), each cut in half into 12 logs"
+            },
+            {
+              "key": "40f334a7-9dcd-506e-8896-5b29f458d744",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für first dredge"
+            },
+            {
+              "key": "46c596fe-d9cb-5580-8c4e-d0fba188b634",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "verquirlt, für egg wash"
+            },
+            {
+              "key": "41e23608-ba70-5348-921b-e186665ed767",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "double-coat für max crunch"
+            },
+            {
+              "key": "7895caab-b8e9-5142-ae74-ff6b6170ea04",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "mixed into panko"
+            },
+            {
+              "key": "644cce59-7248-5295-99f5-e0cdf3d722ed",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cb56ff8-acaa-53cb-a08c-4f52797f1817",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a8d7cea-dc07-5cc0-8abb-8d81dec50764",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10ad7fd8-0abc-59b9-8481-8cd968189253",
+              "ingredientName": "Kochspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "to coat befüre air frying"
+            },
+            {
+              "key": "205d407c-12a3-5224-b81c-ff9a76c9cad3",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "warm, zum Dippen"
+            },
+            {
+              "key": "4c67a85d-8919-543c-a04a-a8357e3d2ee9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide 6 Mozzarella-Sticks in der Mitte durch, sodass du 12 kurze Stücke erhältst. Stelle drei Schüsseln bereit: Mehl in die erste, das verquirlte Ei in die zweite und Panko mit Parmesan, italienischer Kräutermischung, Knoblauchpulver und Salz in die dritte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende jedes Käsestück erst in Mehl, dann im Ei und anschließend in der Panko-Mischung. Für eine extra knusprige doppelte Panade tauche es ein zweites Mal in Ei und Panko und drücke die Brösel fest an, damit der Käse lückenlos versiegelt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die panierten Stücke auf einen Teller und friere sie mindestens 30-60 Minuten ein (oder bis sie fest sind). Dieser Schritt ist entscheidend: Gefrorener Käse behält seine Form, während das Panko knusprig wird, und läuft deshalb in der Heißluftfritteuse nicht aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Besprühe den Korb der Heißluftfritteuse leicht, lege die gefrorenen Sticks mit etwas Abstand in einer Lage hinein und besprühe die Oberseiten mit Kochspray, bis die Brösel gleichmäßig feucht aussehen (so werden sie braun).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie bei 390F 6-7 Minuten in der Heißluftfritteuse und wende sie vorsichtig nach der Hälfte der Zeit. Die Panade soll dunkelgold und knusprig sein, der Käse innen geschmolzen und weich. Beobachte die letzten 1-2 Minuten und nimm sie sofort heraus, sobald Käse hervortritt, damit sie nicht aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie 1-2 Minuten ruhen (der Käse ist sehr heiß), streue dann gehackte Petersilie darüber und serviere sie mit warmer Marinara-Sauce zum Dippen und für den perfekten Käsefaden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/2017-10-04_21_22_22_Mozzarella_sticks_with_marinara_sauce_at_the_Applebee%27s_on_Virginia_State_Route_7_%28Harry_Byrd_Highway%29_in_Countryside%2C_Loudoun_County%2C_Virginia.jpg/1280px-thumbnail.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:2017-10-04_21_22_22_Mozzarella_sticks_with_marinara_sauce_at_the_Applebee's_on_Virginia_State_Route_7_(Harry_Byrd_Highway)_in_Countryside,_Loudoun_County,_Virginia.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Famartin, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Mozzarella-Sticks aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-parmesan-crusted-smashed-potatoes",
+      "slug": "af2-parmesan-crusted-smashed-potatoes",
+      "title": "Knusprige zerdrückte Kartoffeln mit Parmesan aus der Heißluftfritteuse",
+      "instructions": "Zarte kleine Kartoffeln flach gedrückt und mit der Schnittseite in geriebenen Parmesan gepresst, der zu einer goldbraunen, splitterknusprigen Käsekruste brät. Innen bleiben sie locker, die Ränder werden knusprig. Sie schmecken wie das Beste vom Sonntagsbraten und kosten nur ein paar Cent; außerdem duftet damit die ganze Studentenküche herrlich. Inspiriert von Nathan Anthony (@boredoflunch) auf TikTok (https://www.tiktok.com/@boredoflunch/video/7303105177672863009).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 24,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine kleine Tüte kleine oder junge Kartoffeln im Angebot; sie kosten pro Pfund oft weniger als große Russet-Kartoffeln und müssen nicht geschält werden.",
+        "Ein Stück echter Parmesan, selbst gerieben, wird knuspriger als fertig geriebener und reicht lange. Doch selbst der günstigste Parmesan aus der grünen Dose brät zu einer tollen Kruste.",
+        "Verwende eine gelochte Einlage für die Heißluftfritteuse oder stich Löcher in ein Stück Backpapier, damit loser Käse knusprig wird, ohne durchzutropfen und am Heizelement anzubrennen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl oder Kochspray",
+          "savings": "Spart ein paar Cent und ist mit veganem Parmesan milchfrei"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Pecorino Romano für eine kräftigere Kruste oder geriebener Mozzarella für längere Käsefäden",
+          "savings": "Pecorino ist ähnlich teuer; Mozzarella ist pro Boden günstiger"
+        },
+        {
+          "forIngredientId": "paprika",
+          "swap": "Geräuchertes Paprikapulver oder italienische Kräutermischung",
+          "savings": "keine Zusatzkosten, just uses what's in your cabinet"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 24,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "britisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Kartoffeln",
+        "Parmesan",
+        "Snack",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "viral",
+        "Beilage",
+        "knusprig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 181,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-parmesan-crusted-smashed-potatoes/",
+      "components": [
+        {
+          "key": "c331e543-fa81-5097-8901-2d324a422e54",
+          "name": "Zutaten",
+          "servingGrams": 610,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d80b09d-1e38-568e-a60c-bb9033093501",
+              "ingredientName": "Kartoffel",
+              "grams": 1020,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "kleine Kartoffeln oder Babykartoffeln, halbiert"
+            },
+            {
+              "key": "263a111a-e026-59b0-83d2-f617aa7be6b4",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "melted; oder verwenden olive oil"
+            },
+            {
+              "key": "51d5f842-1f98-5609-9aaf-f25c3eb8a5bb",
+              "ingredientName": "Parmesan",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gerieben; ~4 tbsp pressed under potatoes, ~4 tbsp on top"
+            },
+            {
+              "key": "2d0364ba-958e-5a13-86e3-8c95d2ef0afe",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "475fbeae-7434-55c8-a89b-2cc02493e8d3",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75d4388d-5218-5361-8686-f619d751afaa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34ff3394-9503-541c-8c00-38fed2c6eceb",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "c463a8c7-64be-527b-9f73-0c210215ae3c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die halbierten Kartoffeln zugedeckt mit einem Schuss Wasser in eine Schüssel und gare sie 5-6 Minuten in der Mikrowelle, bis eine Gabel leicht hineingleitet und sie innen etwa 205F haben. Gieße das Wasser ab und lass sie 1-2 Minuten abdampfen, damit die Oberfläche trocken wird (das ist wichtig für die Knusprigkeit).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücke jede Kartoffelhälfte vorsichtig mit dem Boden eines Bechers oder einer Gabel auf etwa 1/2 inch Dicke flach, ohne sie zu zerbrechen. Ritze die Schnittseite leicht ein, damit der Käse daran haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre in einer kleinen Schüssel die geschmolzene Butter mit Paprikapulver, Knoblauchpulver und Salz. Bestreiche die zerdrückten Kartoffeln damit, besonders die Schnittseiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile etwa 4 EL Parmesan gleichmäßig auf dem Boden des Korbs der Heißluftfritteuse (verwende ein kleines Stück gelochtes Backpapier oder eine gelochte Einlage, damit loser Käse und Butter nicht auf das Heizelement tropfen). Drücke jede Kartoffel mit der Schnittseite NACH UNTEN fest in den Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Kartoffeln bei 400F 14 Minuten in der Heißluftfritteuse, ohne sie zu wenden, damit der Parmesan am Boden jeder Kartoffel zu einer Kruste schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende jede Kartoffel vorsichtig, sodass die knusprige Parmesan-Kruste oben liegt. Streue die restlichen etwa 4 EL Parmesan und etwas frisch gemahlenen Pfeffer darüber und gare sie bei 400F weitere 8-10 Minuten, bis die Oberseiten dunkelgold und die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie 2 Minuten ruhen, damit die Kruste fest wird, und hebe sie dann mit einem dünnen Pfannenwender heraus. Bestreue sie mit gehackter Petersilie und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thesassyfoodie.com/wp-content/uploads/2022/05/air-fryer-smashed-potatoes-featured-1.jpg",
+          "sourcePageUrl": "https://thesassyfoodie.com/garlic-parmesan-smashed-potatoes/",
+          "sourceName": "The Sassy Foodie",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen zerdrückten Kartoffeln mit Parmesan aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-cajun-corn-ribs-chipotle-mayo",
+      "slug": "af2-cajun-corn-ribs-chipotle-mayo",
+      "title": "Cajun-Maisrippen aus der Heißluftfritteuse mit Chipotle-Mayonnaise",
+      "instructions": "Geviertelte Maiskolben, die sich in der Heißluftfritteuse dramatisch wie kleine Rippchen aufrollen und Röstaromen bekommen, dann mit cremiger Chipotle-Mayonnaise, salzigem Cotija und frischem Koriander belegt werden. Ein viraler Snack zum Essen mit den Fingern, der Spaß macht und unglaublich günstig ist. Inspiriert von Farrah J (@spicednice) auf TikTok (https://www.cleaneatingkitchen.com/air-fryer-corn-ribs/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mais gehört zu den günstigsten Snacks überhaupt – für etwa $0.70 pro Kolben reichen zwei Kolben für zwei Personen und kosten fast nichts. Im Sommer ist er im Angebot noch günstiger.",
+        "Lass Cotija weg und verwende einen beliebigen zerbröselbaren Käse, den du schon hast, oder etwas geriebenen Parmesan. So sparst du, ohne den salzigen Geschmack zu verlieren.",
+        "Eine kleine Dose Chipotle in Adobo reicht für Mayonnaise für viele Portionen. Friere die übrigen Chilis in einem kleinen Beutel oder Eiswürfelbehälter ein, damit nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cajun-seasoning",
+          "swap": "Kreolische Gewürzmischung oder eine Mischung aus Paprikapulver + Cayennepfeffer + Knoblauchpulver + Oregano, die du schon hast",
+          "savings": "Vorhandene Vorratszutaten verwenden, $0 Zusatzkosten"
+        },
+        {
+          "forIngredientId": "cotija",
+          "swap": "Zerbröselter Feta oder geriebener Parmesan",
+          "savings": "spart etwa $0.30"
+        },
+        {
+          "forIngredientId": "chipotle-in-adobo",
+          "swap": "1/2 TL geräuchertes Paprikapulver + ein paar Tropfen scharfe Sauce in die Mayonnaise rühren",
+          "savings": "spart etwa $0.50 if you skip buying the can"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch inspiriert",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "viral",
+        "Fingerfood",
+        "vegetarisch",
+        "Mais",
+        "scharf",
+        "Party"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 182,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-cajun-corn-ribs-chipotle-mayo/",
+      "components": [
+        {
+          "key": "9b62a5c7-2f4c-5a05-b491-fabecc3185b5",
+          "name": "Zutaten",
+          "servingGrams": 203.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "c4c84fb5-330b-5f0e-801b-f360acf2dab3",
+              "ingredientName": "Frischer Mais",
+              "grams": 180,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "ganze Maiskolben, geschält"
+            },
+            {
+              "key": "42ab4872-e51f-5b0b-a736-d9419c39312a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Wenden der Rippchen"
+            },
+            {
+              "key": "b2686c82-56fa-5347-a889-36996c3019e4",
+              "ingredientName": "Cajun-Gewürzmischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "das Hauptgewürz"
+            },
+            {
+              "key": "e86e19a7-c749-5123-b659-eeaf43fb1f46",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "325b6e37-21eb-5c62-b444-464b52941f76",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7dfd9db-0631-51b5-b955-5fbbc64b088f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61ff516e-dbab-5b2d-96d3-bed1e4dd5c7b",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Grundlage der Chipotle-Mayonnaise"
+            },
+            {
+              "key": "1d9e4caa-4467-51f1-9a4c-91821e1321a8",
+              "ingredientName": "Jalapeño",
+              "grams": 24,
+              "quantity": 0.2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1 tsp fein gehackte Chili plus etwas Adobo-Sauce aus der Dose"
+            },
+            {
+              "key": "73c19e9b-2c09-5d35-9361-c8d7ccb7b306",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "die Hälfte für die Mayonnaise, die andere Hälfte zum Darüberträufeln"
+            },
+            {
+              "key": "e00e7238-2beb-506b-859e-87f7bca03e1b",
+              "ingredientName": "Cotija",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zerbröselt darübergestreut"
+            },
+            {
+              "key": "c48e439e-383b-514b-accd-4210013fcc5c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle 2 Maiskolben und gare sie 2-3 Minuten auf einem Teller in der Mikrowelle, damit die Kolben weicher werden (so lassen sie sich viel sicherer und leichter schneiden). Lass sie 1 Minute abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle jeden weichen Kolben aufrecht hin und schneide ihn vorsichtig längs in zwei Hälften. Halbiere jedes Stück dann noch einmal, sodass pro Kolben 4 lange „Rippen“ und insgesamt 8 Stücke entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende die Maisstücke in einer Schüssel mit 1 EL Pflanzenöl, 2 TL Cajun-Gewürzmischung, 1/2 TL Knoblauchpulver, 1/2 TL Paprikapulver und 1/2 TL Salz, bis alles gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Maisstücke mit der Schnittseite nach oben in einer Lage in den Korb der Heißluftfritteuse (bei Bedarf portionsweise garen, damit es nicht zu voll wird). Gare sie bei 400F 10-14 Minuten und wende sie nach der Hälfte der Zeit, bis sie Röstaromen bekommen, Blasen werfen und sich sichtbar wie Rippchen aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre währenddessen 3 EL Mayonnaise, etwa 1 TL fein gehackten Chipotle in Adobo (plus etwas Sauce aus der Dose) und einen Spritzer Limettensaft zur Chipotle-Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte die aufgerollten Maisrippen auf einem Teller an, beträufle sie großzügig mit Chipotle-Mayonnaise und zerbrösele Cotija darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue gehackten Koriander darüber und presse noch etwas Limettensaft darauf. Heiß servieren – am besten direkt mit den Fingern essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Corn_ribs%2C_Wagamama_Battersea_Power_Station%2C_2026-04-19.jpg/1280px-Corn_ribs%2C_Wagamama_Battersea_Power_Station%2C_2026-04-19.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Corn_ribs,_Wagamama_Battersea_Power_Station,_2026-04-19.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Cajun-Maisrippen aus der Heißluftfritteuse mit Chipotle-Mayonnaise",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-cottage-cheese-egg-bites",
+      "slug": "af2-cottage-cheese-egg-bites",
+      "title": "Eihappen mit Hüttenkäse aus der Heißluftfritteuse",
+      "instructions": "Luftige, puddingzarte Eihappen mit cremigem Hüttenkäse, der für einen Eiweißschub sorgt und den ganzen Morgen satt hält. Alles mixen, in Silikonformen füllen und langsam bei niedriger Temperatur in der Heißluftfritteuse garen, damit die Happen weich und nicht gummiartig werden – eine ganze Woche Frühstücke für viel weniger als die $5-Café-Variante. Inspiriert von einem viralen TikTok-Trend mit hohem Eiweißgehalt als Starbucks-Nachahmung.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hüttenkäse zählt zu den günstigsten Eiweißquellen aus Milchprodukten im Laden. Ein Becher reicht für eine ganze Portion; im Gericht schmeckt man ihn kaum, sodass selbst Skeptiker ihn nicht bemerken.",
+        "Bereite die doppelte Menge in zwei Formen zu und friere die Hälfte ein. Einen gefrorenen Eihappen aufzuwärmen kostet nur ein paar Cent und ist jeden Morgen günstiger als ein $5-Besuch im Café.",
+        "Verwende Käsereste oder Gemüse, das du schon hast – übrig gebliebene Paprika, Spinat oder etwas geriebener Käse passen alle dazu, sodass nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Stattdessen Naturjoghurt nach griechischer Art für dieselbe cremige, eiweißreiche Konsistenz verwenden",
+          "savings": "spart etwa $0.30 wenn bereits vorhanden yogurt on hand"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Geriebenen Mozzarella oder zerbröselten Feta für eine andere geschmolzene Käsenote verwenden",
+          "savings": "Mozzarella runs a few cents günstiger pro Zubereitung"
+        },
+        {
+          "forIngredientId": "scallion",
+          "swap": "Eine Handvoll Tiefkühlspinat (aufgetaut und ausgedrückt) unterrühren",
+          "savings": "etwa gleich teuer cost but adds bulk and iron"
+        }
+      ],
+      "crispinessLevel": "soft",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 300,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Mahlzeitenvorbereitung",
+        "Frühstück",
+        "vegetarisch",
+        "Starbucks-Nachahmung",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 183,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-cottage-cheese-egg-bites/",
+      "components": [
+        {
+          "key": "14b41141-9dcc-5670-917a-11209e252dc3",
+          "name": "Zutaten",
+          "servingGrams": 184.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "0cb099a7-e053-5054-9906-3053f5d84b4e",
+              "ingredientName": "Ei",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0459bb87-3ced-53af-91d8-b5ed0df9f299",
+              "ingredientName": "Hüttenkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "insgesamt etwa 1 cup"
+            },
+            {
+              "key": "a26cc322-6ccb-5e4a-aec2-083c1b07d647",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "geraspelt für eine geschmolzene Füllung"
+            },
+            {
+              "key": "94bded97-dfc5-5b35-8b4f-6b065a0abac0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3e2feae-98ce-5d4a-858f-35c89f56ae4b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d23bc5a-3a9f-51fe-8e78-0b3832fdcd0d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b438bcdd-c763-5770-8659-bb7274eb4607",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Einfetten der Förmchen"
+            },
+            {
+              "key": "431dfeea-758e-5681-b68c-9ba3ea17946c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "gehackt, untergerührt oder darübergestreut"
+            },
+            {
+              "key": "6c6b5090-d30d-5abb-a7a4-fd900a37d931",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die 8 Eier in einen Mixer (oder in einen hohen Becher für einen Stabmixer) und gib 1 cup Hüttenkäse, 1/2 TL Salz, 1/4 TL Pfeffer und 1/2 TL Knoblauchpulver dazu. Mixe alles 20-30 Sekunden, bis die Masse ganz glatt und schaumig ist – so werden die Happen puddingzart und schmecken nicht einfach nur nach Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Besprühe eine Muffinform aus Silikon leicht mit Kochspray, damit sich die Happen gut lösen. Rühre geriebenen Käse und gehackte Frühlingszwiebel in die Masse oder gib von beidem eine Prise in jede Mulde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Masse in die Formen, jeweils etwa 3/4 voll, damit sie aufgehen können. Stelle die gefüllte Form in den Korb der Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Eihappen bei 300F 12-15 Minuten in der Heißluftfritteuse. Die niedrige Temperatur ist entscheidend, damit sie weich bleiben und nicht die gummiartige Konsistenz einer Imbissbude bekommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schau nach etwa 8 Minuten nach und drehe die Form, wenn deine Heißluftfritteuse ungleichmäßig gart. Wenden ist nicht nötig, da die Happen in den Förmchen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sie sind fertig, wenn sie aufgegangen und in der Mitte gestockt sind, keine flüssige Masse mehr wackelt und das sofort ablesende Thermometer in der Mitte 160F anzeigt. Brauchen sie länger, gib weitere 2-3 Minuten dazu und prüfe erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie 3-4 Minuten abkühlen (sie fallen dabei leicht zusammen, das ist normal) und drehe dann das Silikon, um sie herauszulösen. Garniere sie mit gehacktem Schnittlauch und genieße sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Vorbereiten für mehrere Tage: vollständig abkühlen lassen, bis zu 4 Tage im Kühlschrank aufbewahren und in der Heißluftfritteuse bei 300F 2-3 Minuten (oder 30-40 Sekunden in der Mikrowelle) erwärmen, bis sie heiß sind und innen 160F erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.crumbtopbaking.com/wp-content/uploads/2022/10/Air-Fryer-Egg-Bites-6.jpg",
+          "sourcePageUrl": "https://www.crumbtopbaking.com/air-fryer-egg-bites/",
+          "sourceName": "Crumb Top Baking",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Eihappen mit Hüttenkäse aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-molten-chocolate-lava-cake",
+      "slug": "af2-molten-chocolate-lava-cake",
+      "title": "Flüssiger Schokoladenkuchen aus der Heißluftfritteuse",
+      "instructions": "Ein Schokoladenkuchen wie im Restaurant, dessen Ränder zu einer zarten Kruste backen, während die Mitte warm und weich bleibt – in einer Schüssel und in weniger als 15 Minuten fertig. Schneide ihn auf und die flüssige Schokolade läuft heraus: ein Dessert wie aus dem Bilderbuch, ganz ohne den Backofen einzuschalten. Inspiriert von einem beliebten Trend für Lava-Kuchen aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keine Auflaufförmchen da? Verwende zwei saubere, ofenfeste Kaffeetassen oder kleine Gläser und fette sie gut ein, damit sich der Kuchen löst.",
+        "Eine Handvoll Schokotropfen ist günstiger als eine ganze Tafel und schmilzt schneller. Kaufe einen Beutel, dann bleibt genug zum Naschen übrig.",
+        "Lass Beeren und Puderzucker weg, damit das Dessert unter einem Dollar pro Portion bleibt – die flüssige Mitte ist der Star und braucht keine Garnitur."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate-chips",
+          "swap": "Zartbitter-Schokotropfen für eine süßere, klassische Variante",
+          "savings": "spart etwa $0.06/tbsp"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter für eine milchfreie Variante",
+          "savings": "spart etwa $0.03/tbsp"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Mandelmehl für eine glutenfreie Variante (die Konsistenz bleibt weich und schokoladig)",
+          "savings": "Etwas teurer, funktioniert aber"
+        }
+      ],
+      "crispinessLevel": "soft",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 370,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Dessert",
+        "Schokolade",
+        "studentenküchengeeignet",
+        "unter 15 Minuten",
+        "eine Schüssel"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 184,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-molten-chocolate-lava-cake/",
+      "components": [
+        {
+          "key": "e49e9e58-25a6-5885-a13d-c996bdb84d14",
+          "name": "Zutaten",
+          "servingGrams": 185.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b0bc64f-67b4-5e41-80a8-4e6586d98ca1",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "in den Teig geschmolzen für den flüssigen Kern"
+            },
+            {
+              "key": "817d815f-f824-5c06-8c18-6291070ccadf",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b991694-1859-5163-91f4-419fc97b54e1",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2133f5c3-8bd3-5600-987c-45f357e8d2a1",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ef128c8-b842-5d31-bfa2-dad1abc24938",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45bccc25-56b4-5dcb-9fea-22f890961593",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ccfe3ea-bf66-540f-8ecd-982311b0b88f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39ee2c91-1939-5199-80d7-df4bd0a00731",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "053b5abd-3086-555b-844d-1b5ba81d12a7",
+              "ingredientName": "Kochspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Einfetten der Förmchen, damit sich die Küchlein lösen"
+            },
+            {
+              "key": "6815bae2-2cfe-5691-b3c7-976e1e4a54b3",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Schluss darübergestäubt"
+            },
+            {
+              "key": "08155693-364d-5ff2-8333-ec2262405e17",
+              "ingredientName": "Tiefkühlbeeren",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "aufgetaut zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Butter und Zartbitter-Schokotropfen in eine mikrowellengeeignete Schüssel. Erwärme sie in der Mikrowelle jeweils 20 Sekunden und rühre dazwischen um, bis die Masse glatt und glänzend ist (insgesamt etwa 60 Sekunden).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Ei, Zucker und Vanille mit der warmen (nicht heißen) Schokolade, bis die Masse glänzt. Streue Mehl, Kakaopulver und Salz darüber und rühre nur so lange, bis keine trockenen Stellen mehr zu sehen sind; nicht zu lange rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fette zwei kleine Auflaufförmchen gründlich mit Kochspray ein, auch am Boden und bis oben an den Seiten. Verteile den Teig gleichmäßig darauf und fülle jedes Förmchen etwa zu drei Vierteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize die Heißluftfritteuse bei 370F 2 Minuten vor und stelle dann die Förmchen mit etwas Abstand zueinander in den Korb, damit die Luft zirkulieren kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Kuchen bei 370F 8 bis 10 Minuten in der Heißluftfritteuse. Die Oberseiten sollten fest und matt aussehen und leicht gewölbt sein, während die Mitte weich bleibt und beim Bewegen leicht wackelt. Prüfe erstmals nach 8 Minuten, da eine flüssigere Mitte weniger Zeit braucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die Förmchen vorsichtig heraus (sie sind heiß; benutze ein Geschirrtuch oder eine Zange) und lass sie 1 bis 2 Minuten ruhen, damit die Ränder fest genug zum Stürzen werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fahre mit einem Messer am Rand entlang, lege einen Teller auf das Förmchen und stürze den Kuchen darauf. Bestäube ihn mit Puderzucker und gib nach Wunsch aufgetaute Beeren dazu. Schneide ihn auf, damit die flüssige Schokolade herausläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Coulant_with_chocolate.JPG/1280px-Coulant_with_chocolate.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Coulant_with_chocolate.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 3.0",
+          "verifiedMatch": true,
+          "altText": "Foto von flüssigem Schokoladenkuchen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

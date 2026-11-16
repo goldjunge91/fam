@@ -1,0 +1,1060 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-dal-tadka",
+      "slug": "gen-dal-tadka",
+      "title": "Dal Tadka",
+      "instructions": "Ein beliebtes indischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Erbsen in großen Mengen in indischen oder asiatischen Lebensmittelgeschäften",
+        "Verwenden Sie Pflanzenöl anstelle von Ghee, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "Abendessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6820,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dal-tadka/",
+      "components": [
+        {
+          "key": "800b335e-584f-53b0-88c8-5ff5076e9a8a",
+          "name": "Zutaten",
+          "servingGrams": 348,
+          "position": 0,
+          "items": [
+            {
+              "key": "ebaab11b-4327-5ce7-a477-91362f321556",
+              "ingredientName": "Gelbe Spalterbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "97fbe122-6c5b-5828-a3ca-4a8b9e6269d4",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "71282401-10df-5b7e-b2b7-6ab462670936",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1bd55207-d529-503e-b187-dfdcff330af0",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "405e421f-fc96-5a87-93c4-4e435783e294",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3a6a5eee-6658-542b-839d-e6c7fd33b807",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "daf2972d-0b1a-51c3-a64f-7bf661d568bc",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "151e4d6c-79b6-5491-ab7c-085126dabd90",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6aba44db-aa3f-57ff-8f7d-a5aea75119e2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "b823306e-af3c-59dd-8583-d4db36d1d635",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5af4e35c-7803-5414-8102-ece2359a0f69",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spülen Sie die Spalterbsen unter kaltem Wasser ab, bis das Wasser klar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einem großen Topf 4 Tassen Wasser zum Kochen bringen und das abgespülte Dal, Kurkuma und Salz hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduzieren Sie die Hitze auf mittlere Stufe und lassen Sie es 25–30 Minuten köcheln, bis das Dal weich ist und leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ghee in einer kleinen Pfanne bei mittlerer Hitze erhitzen, Kreuzkümmel hinzufügen und etwa 30 Sekunden lang knistern lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackten Knoblauch und gewürfelte Zwiebeln zum Ghee geben und ca. 5 Minuten kochen, bis die Zwiebeln goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die getrockneten roten Chilis in die Pfanne geben und 1 Minute kochen lassen, dann die gesamte Mischung in das gekochte Dal gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gut umrühren, Zitronensaft hinzufügen und vor dem Servieren mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/lasooni-dal-tadka-recipe-dal-lasooni-garlic-dal-tadka-recipe-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/lasooni-dal-tadka-recipe-dal-lasooni-garlic-dal-tadka-recipe-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pinto-bean-stew",
+      "slug": "gen-pinto-bean-stew",
+      "title": "Pintobohneneintopf",
+      "instructions": "Ein beliebtes neumexikanischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Bohnen in großen Mengen, um gegenüber Dosenbohnen deutlich zu sparen",
+        "Verwenden Sie Speckenden und -stücke statt ganzer Streifen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "neu-mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6821,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pinto-bean-stew/",
+      "components": [
+        {
+          "key": "7edb180c-dded-5ef2-b229-330cea1e15db",
+          "name": "Zutaten",
+          "servingGrams": 1213,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d0cef22-617f-53a7-8420-8719fb7cbee3",
+              "ingredientName": "Pintobohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f9fd3be1-8f69-5dd1-b2f7-779b7bb7769e",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "30a83f07-ffff-547a-97b5-cd4391959790",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "0baf631b-bc04-5ecc-9a21-857f02c57b77",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ce9f35c-763c-5302-baa0-3fdd8dbe7d9a",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a3fc923-cb3b-5a4b-b3fa-582ba2257858",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d6deee6d-c9f3-5682-b295-58ac8d684ae6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d74271da-aeb4-5132-b3a6-e6c990526c99",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8e986c60-5c5a-5bf1-8b4b-6fab9a471a41",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "5d75b5af-33fb-58dd-802d-1eb913534284",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pintobohnen über Nacht in Wasser einweichen, dann abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Speck in einem großen Topf bei mittlerer Hitze knusprig braten, herausnehmen und in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Im gleichen Topf die gewürfelten Zwiebeln und den gehackten Knoblauch im Speckfett anbraten, bis sie weich sind, etwa 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die abgetropften Bohnen, Speckstücke, getrockneten Chilischoten, Rinderbrühe, Kreuzkümmel, Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und ohne Deckel 60–75 Minuten köcheln lassen, bis die Bohnen sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entfernen Sie die ganzen getrockneten Chilischoten und zerdrücken Sie einige der Bohnen am Topfrand, um den Eintopf zu verdicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit zusätzlichem Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/51GIkQBxkKBaR8SHfekG77xizms=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/smoky-pinto-bean-kale-stew-2000-be4e9693d0de4efbb6e9cf8222e0e9f3.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/51GIkQBxkKBaR8SHfekG77xizms=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/smoky-pinto-bean-kale-stew-2000-be4e9693d0de4efbb6e9cf8222e0e9f3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lobia",
+      "slug": "gen-lobia",
+      "title": "Lobia",
+      "instructions": "Ein beliebtes afghanischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Schwarzaugenerbsen in großen Mengen zu den niedrigsten Kosten",
+        "Lassen Sie die Koriandergarnitur weg, um ein paar Cent pro Portion zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "afghanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6822,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobia/",
+      "components": [
+        {
+          "key": "cef8bf6a-a6b1-512f-83c5-2002d40d2282",
+          "name": "Zutaten",
+          "servingGrams": 626.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "41809baf-192b-5a72-a0cd-a26189d25310",
+              "ingredientName": "Schwarzaugenerbsen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b7401a35-2b9f-594e-950f-5170008e11d6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "e8034710-a92d-5278-aad1-56423ad1376e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff3376a6-d4df-5287-b0ee-d45e56e39be2",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6bb6918d-375f-594f-823d-7b6429499c72",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "0819d681-fb63-5cbd-86d3-f5e99ee872cd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "23d53b99-3a2f-5d20-a947-8787a6d08a20",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d9b827ce-23ac-5c08-b6c6-bb862dfdae29",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "77094a10-a25e-5f36-8246-f175beb2c9f1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cc4ec1ea-bb72-5993-81f3-8ecad76c64c9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "d6f4d02f-f0e0-5286-af0c-54449b0e697b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Schwarzaugenerbsen 6 Stunden oder über Nacht in Wasser einweichen, dann abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pflanzenöl in einem großen Topf bei mittlerer Hitze erhitzen und die gewürfelten Zwiebeln etwa 5 Minuten lang goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch hinzufügen und 1 Minute kochen lassen, dann Tomatenmark, Kurkuma und Kreuzkümmel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie die abgetropften Erbsen und 6 Tassen frisches Wasser in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 45–50 Minuten köcheln lassen, bis die Erbsen vollständig weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und schwarzem Pfeffer würzen und frischen Koriander unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 5 Minuten köcheln lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/67d59e113e836b917738f05e/1:1/w_2560%2Cc_limit/ST_MARYAM%2520JILLANI_Lobia%2520Karahi_1096.jpeg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/67d59e113e836b917738f05e/1:1/w_2560%2Cc_limit/ST_MARYAM%2520JILLANI_Lobia%2520Karahi_1096.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-picanha",
+      "slug": "gen-picanha",
+      "title": "Picanha",
+      "instructions": "Ein beliebtes brasilianischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Shop-Verkäufe an Metzgertheken für bessere Picanha-Preise",
+        "Rinderfilet ist günstiger als Premiumsteaks, aber sehr aromatisch"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Brasilianer",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6823,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-picanha/",
+      "components": [
+        {
+          "key": "25b5bbd4-883e-5765-83d3-88b19bcc04bb",
+          "name": "Zutaten",
+          "servingGrams": 85.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "67109fc7-596f-5339-8232-053865f2a267",
+              "ingredientName": "Lendensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0ddf0808-6305-5ac9-bd4c-9693ef77c906",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4615673a-d541-5afc-bbee-acb7d114e088",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9404dbf6-effe-5551-85e9-84045da9a882",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f390169d-d6a3-50b5-ab4a-c5d006a169ed",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0540e50-0ed9-54c5-b2e9-d3501e7b86bb",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9afafab8-acd5-546f-a4d3-1c25a9f5b795",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nehmen Sie die Picanha 30 Minuten vor dem Garen aus dem Kühlschrank, um sie auf Raumtemperatur zu bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Fettkappe kreuzweise einschneiden, ohne in das Fleisch einzuschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reiben Sie das gesamte Steak auf beiden Seiten großzügig mit grobem Meersalz und schwarzem Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einer großen gusseisernen Pfanne oder auf dem Grill auf hoher Hitze erhitzen, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie das Steak mit der Fettseite nach unten in die heiße Pfanne und braten Sie es 6–7 Minuten lang an, damit das Fett knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drehen Sie das Steak um und braten Sie es auf der Fleischseite 5–6 Minuten lang an, um einen mittel-seltenen Gargrad zu erreichen. Geben Sie dann Knoblauch und Rosmarin in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen, locker mit Folie abdecken und 8 Minuten ruhen lassen, bevor man es gegen die Faserrichtung aufschneidet und frischen Limettensaft darüber drückt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del059924-picanhasteak-024-bjg-index-664d1411c61e0.jpg?crop=0.891xw:1.00xh;0.0423xw,0",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del059924-picanhasteak-024-bjg-index-664d1411c61e0.jpg?crop=0.891xw:1.00xh;0.0423xw,0",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiptoe",
+      "slug": "gen-tiptoe",
+      "title": "Tiptoe",
+      "instructions": "Ein beliebtes thailändischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Klebreis in großen Mengen auf asiatischen Märkten",
+        "Um Geld zu sparen, verwenden Sie Pergamentpapier anstelle von Bananenblättern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "thailändisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6824,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiptoe/",
+      "components": [
+        {
+          "key": "b28ed9dc-a5b1-5023-ba50-2e1bb48874bd",
+          "name": "Zutaten",
+          "servingGrams": 466,
+          "position": 0,
+          "items": [
+            {
+              "key": "999845de-2004-5d6b-a872-2e6ac1befa63",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            },
+            {
+              "key": "acce3f0a-e45c-5cb6-98a1-1339c7f292e1",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Stück"
+            },
+            {
+              "key": "7577556f-b1a8-5c8a-9eef-7525be675932",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "ad159281-4c77-51c9-9a39-bc06431ecbce",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3eaa1af0-ab60-5380-b0e1-fabc83bdbffd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "9acaf10e-3b3b-5e27-9a9a-e33ff438abf9",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klebreis nach Packungsanweisung kochen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kokosmilch in einem kleinen Topf mit braunem Zucker und Salz erhitzen, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischen Sie die warme Kokosnussmischung unter den gekochten Klebreis und lassen Sie ihn 5 Minuten lang einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärmen Sie Bananenblätter über einer Flamme oder kochendem Wasser, um sie geschmeidig zu machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie eine Portion der Kokos-Klebreis-Mischung in die Mitte jedes Bananenblatts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Großzügig mit Sesamkörnern über den Reis streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Falten Sie das Bananenblatt zu einem Dreieck oder Beutel und servieren Sie es warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/yzgNMDbhS95406wb6T_NOe_suOo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Steak-Tips-LEAD-2-3a7a23c4a7cd4976b8cbf65a1a87fcad.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/yzgNMDbhS95406wb6T_NOe_suOo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Steak-Tips-LEAD-2-3a7a23c4a7cd4976b8cbf65a1a87fcad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

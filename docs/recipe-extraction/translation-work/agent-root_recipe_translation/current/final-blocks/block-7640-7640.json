@@ -1,0 +1,246 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-cream-pan",
+      "slug": "bake2-cream-pan",
+      "title": "Japanisches Cream Pan (Brot mit Vanillecreme)",
+      "instructions": "Klassisches japanisches Gebäck: Wolkenweiches, milchiges Hefebrot mit Tangzhong umhüllt selbstgemachte, seidige Vanillecreme. Der Teig wird zur traditionellen Handschuhform gefaltet und goldgelb gebacken. So weich, dass man es mit der Hand auseinanderziehen kann, mit reichhaltiger, aber nicht zu süßer Cremefüllung.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weizenmehl eignet sich, wenn du kein Brotmehl kaufen möchtest. Knete den Teig einfach ein oder zwei Minuten länger, damit sich das Gluten entwickelt und die Krume trotzdem weich wird.",
+        "Bereite die Konditorcreme am Vortag zu. Das kostet nichts extra und verteilt die Arbeit, sodass das Backen selbst schneller und entspannter geht.",
+        "Lass die Eistreiche weg, wenn du nur noch wenige Eier hast, und bestreiche die Brötchen stattdessen mit etwas Milch. So bekommen sie eine weichere, matte Oberfläche und bräunen trotzdem schön."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Verwende 2%ige Milch oder sogar Hafermilch. Vollmilch ergibt die reichhaltigste Creme, aber jede Milch stockt dank der Speisestärke gut.",
+          "savings": "Nimm Milch aus dem Kühlschrank, statt Vollmilch zu kaufen"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Speisestärke durch die gleiche Menge Weizenmehl ersetzen; die Konditorcreme 1-2 Minuten länger kochen, damit der rohe Mehlgeschmack verschwindet.",
+          "savings": "Mehl ist meist günstiger und schon vorrätig"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter oder neutrales Öl verwenden (etwa 2 1/2 tbsp Öl), damit der Teig weich bleibt, falls die Butter ausgegangen ist.",
+          "savings": "Kein extra Butterkauf nötig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "bäckerei",
+        "süßes-hefebrot",
+        "tangzhong",
+        "frühstück",
+        "dim-sum",
+        "backen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7640,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-cream-pan/",
+      "components": [
+        {
+          "key": "2d6ad701-ec31-58d5-a12d-62d2021133e1",
+          "name": "Zutaten",
+          "servingGrams": 173.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "e47bedf5-5abe-5a23-bc94-36a4e33afced",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Brotmehl für den Teig und etwas mehr zum Bestäuben"
+            },
+            {
+              "key": "a10ea87b-3990-598c-8a9d-e80556dd592a",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Insgesamt 1 1/2 Tassen Vollmilch: ~2/3 Tasse warm für den Teig, ~1 Tasse für die Vanillecreme"
+            },
+            {
+              "key": "119c72f8-956e-5502-87cc-cbb3bfa5d617",
+              "ingredientName": "Zucker",
+              "grams": 165,
+              "quantity": 165,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Insgesamt etwa 11 EL Zucker: 3 EL für den Teig, 8 EL (1/2 Tasse) für die Vanillecreme"
+            },
+            {
+              "key": "bf297af9-a56d-59f3-961a-e462b8c5fe9f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL ungesalzene Butter, weich (in den Teig einarbeiten)"
+            },
+            {
+              "key": "bac0dbc7-dda4-58b2-aa76-e34a0966a010",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 große Eier: 1 ganzes Ei für den Teig, 2 Eigelb für die Vanillecreme; etwas Eiweiß oder verquirltes Ei zum Bestreichen zurückbehalten"
+            },
+            {
+              "key": "1241ec99-9284-5146-afce-e9027f8bc509",
+              "ingredientName": "Trockenhefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL Instanthefe"
+            },
+            {
+              "key": "ae799cee-0a45-5cfc-8e27-554094159746",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "8ac6ae79-e6d8-5c3f-8632-a4346493fb4d",
+              "ingredientName": "Speisestärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL Speisestärke (zum Andicken der Vanillecreme)"
+            },
+            {
+              "key": "9a071cd2-cfe1-5160-886a-1fafd41bddd4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 1/2 TL Vanilleextrakt für die Vanillecreme"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite zuerst die Konditorcreme zu, damit sie abkühlen kann. Erwärme 1 cup Vollmilch in einem Topf, bis Dampf aufsteigt. Verquirle in einer Schüssel 2 Eigelb mit 8 tbsp (1/2 cup) Zucker und 3 tbsp Speisestärke, bis die Masse hell und glatt ist. Gieße unter ständigem Rühren langsam etwa die Hälfte der heißen Milch dazu, um die Eigelbe anzugleichen. Gib alles zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Creme bei mittlerer Hitze unter ständigem Rühren, bis sie puddingartig eindickt und große Blasen an der Oberfläche platzen, etwa 2-4 Minuten. Nimm den Topf vom Herd und rühre 1 1/2 tsp Vanille ein. Fülle die Creme in eine flache Form, lege Frischhaltefolie direkt auf die Oberfläche und stelle sie mindestens 1 Stunde kalt, bis sie vollständig abgekühlt und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite den Teig zu. Vermische in einer großen Schüssel 2 1/2 cups Brotmehl, 2 tsp Trockenhefe, 3 tbsp Zucker und 3/4 tsp Salz. Gib 1 ganzes Ei und etwa 2/3 cup warme Milch (etwa 100F) dazu. Verrühre alles zu einem groben Teig und knete ihn anschließend 8-10 Minuten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die 3 tbsp weiche Butter nach und nach dazu und knete, bis sie vollständig aufgenommen ist und der Teig glatt, geschmeidig und leicht klebrig ist. Er sollte den dünnen Fenstertest bestehen. Forme eine Kugel, lege sie in eine gefettete Schüssel, decke sie ab und lasse sie an einem warmen Ort gehen, bis sich ihr Volumen verdoppelt hat, etwa 1 to 1 1/2 Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke die Luft aus dem Teig und teile ihn in 8 gleich große Stücke. Forme jedes Stück zu einer Kugel, decke sie ab und lasse sie 10 Minuten ruhen. Drücke jede Kugel zu einem 4-5 inch großen Oval flach. Gib einen gehäuften Esslöffel kalte Konditorcreme auf eine Hälfte und lasse am Rand einen sauberen Streifen frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe den Teig über die Füllung zu einem Halbmond und drücke die Ränder fest zusammen, damit sie vollständig verschlossen sind. Bei einer undichten Naht kann die Creme herauslaufen. Für die typische Handschuhform 3-4 kurze Schlitze in den runden Rand schneiden. Auf ein mit Backpapier ausgelegtes Blech legen, locker abdecken und 40-50 Minuten gehen lassen, bis die Brötchen aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heize den Ofen auf 350F (175C) vor. Verquirle das zurückbehaltene Ei mit einem Schuss Milch und bestreiche die Brötchen leicht damit, damit sie glänzen. Die eingeschnittenen Stellen dabei aussparen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "13-16 Minuten backen, bis die Brötchen kräftig goldbraun sind und beim Klopfen hohl klingen. Auf einem Gitter mindestens 20 Minuten abkühlen lassen, damit die Cremefüllung fest wird. Am besten in einem luftdichten Behälter aufbewahren; leicht angewärmt schmecken sie besonders gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Cream_pan.jpg/1280px-Cream_pan.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cream_pan.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "7'o'7, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Japanisches Cream Pan mit Vanillecreme",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1139 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ciorba-de-burt-cu-sm-nt-n",
+      "slug": "gen-ciorba-de-burt-cu-sm-nt-n",
+      "title": "Ciorbă de Burtă mit saurer Sahne",
+      "instructions": "Siebenbürgisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kutteln zum besten Preis bei Metzgern mit internationalen Spezialitäten oder auf Spezialmärkten",
+        "Bereite die doppelte Menge zu und friere Portionen für schnelle Mahlzeiten später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "siebenbürgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6520,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ciorba-de-burt-cu-sm-nt-n/",
+      "components": [
+        {
+          "key": "bb09db5e-14b4-53b6-a17b-9f243079bc9e",
+          "name": "Zutaten",
+          "servingGrams": 649.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "1dbda835-81ba-55e2-8029-9cedaeb6e589",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund, gesäubert und gewürfelt"
+            },
+            {
+              "key": "3ebb9287-9b90-5e97-a14f-7211980906b3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große, gewürfelt"
+            },
+            {
+              "key": "2a3d4807-a23c-53c1-a754-d178f8059712",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "cc4a57b3-7386-5dd2-b298-736e974c0582",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "31ac25e9-8c33-5174-a2f7-1a54056f637b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "272f10cb-8436-527d-a1ee-66db7e6f4395",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "71851c3a-fcb8-5850-a401-ab81e1ae86ff",
+              "ingredientName": "saure Sahne",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "94ad9489-f002-59d0-a35b-5775942d0105",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d717d48b-d64c-5bc8-b55e-e2275ba97e87",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "73869590-520f-53cc-a5ae-685133ff993d",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "bf590cb4-9200-5e72-9a58-ce4428e01f6c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c65c1cc-bdcb-52f8-ac58-ad1d5acc81f3",
+              "ingredientName": "frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "f1ad29c9-bcf8-5340-b0d7-07b93cc1bb73",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c75a1d80-f53c-5f46-ae75-51cc94648791",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere die Kutteln 20 Minuten in kochendem Salzwasser, um den Geruch zu entfernen. Gieße sie ab und spüle sie gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate Zwiebel, Karotten, Sellerie und Knoblauch 8 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Kutteln dazu und gare sie unter gelegentlichem Rühren 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark und Paprikapulver ein und gare alles 2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rinderbrühe dazu, gib Lorbeerblätter und Thymian hinein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf ab und lass die Kutteln 90 Minuten köcheln, bis sie sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Topf vom Herd und lass die Suppe etwas abkühlen. Rühre dann vorsichtig saure Sahne ein, bis sie vollständig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre Essig für den typischen säuerlichen Geschmack ein, würze mit Salz und Pfeffer und serviere die Suppe heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2014/02/tripe-soup-1-15.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2014/02/tripe-soup-1-15.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salat-de-burt",
+      "slug": "gen-salat-de-burt",
+      "title": "Salată de Burtă",
+      "instructions": "Siebenbürgisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kutteln in großen Mengen und bereite gleich mehrere Portionen für die Mahlzeitenplanung zu",
+        "Verwende günstige Dillgurken und schneide sie selbst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "siebenbürgisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6521,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salat-de-burt/",
+      "components": [
+        {
+          "key": "ff92422d-e6a5-532f-92b5-cd52e0e6ad22",
+          "name": "Zutaten",
+          "servingGrams": 535.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "19d344e1-e76e-5fde-bb8e-7bbc12ca30ad",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gesäubert"
+            },
+            {
+              "key": "b4357e31-0a30-5ed7-bf94-7d4a886047c9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "ca47524b-7ff9-56cc-873e-3015db417725",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "76db2e2d-5f3b-5ac9-8a02-d0ec7db517f6",
+              "ingredientName": "Dillgurken aus dem Glas",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2, gewürfelt"
+            },
+            {
+              "key": "82a23ace-3ebb-5e53-9e87-d6de2f9d6cf8",
+              "ingredientName": "Orangensaft",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "28cf5f1d-e730-51ce-853e-ccfbb030952b",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "79523375-ad64-5ec5-b8c0-53ddcc4441e0",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8172e38c-9e19-59d9-847c-e6550b746c6d",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e0cebe65-bf1a-50bb-8b56-46f5a2e9d976",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "707d51c7-3dd3-5a62-8146-71e2c77437b9",
+              "ingredientName": "frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "250ef386-a39f-5900-ab91-07dc034a1edc",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kutteln 40 Minuten in Salzwasser, bis sie zart sind. Gieße sie ab und lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die abgekühlten Kutteln in kleine Würfel und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge gewürfelte Zwiebel, Karotte und Dillgurken hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Öl, Essig, Gurkenlake, Paprikapulver, Salz und Pfeffer in einer separaten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über die Kuttelmischung und vermenge alles vorsichtig, aber gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle den Salat mindestens 15 Minuten kalt, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre kurz vor dem Servieren frische Petersilie ein und hebe gehackte hartgekochte Eier vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke den Salat ab und serviere ihn gekühlt oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a5/c1/b8/a5c1b89cf6a7858a21f1803965a23489.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a5/c1/b8/a5c1b89cf6a7858a21f1803965a23489.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaminwurzer",
+      "slug": "gen-kaminwurzer",
+      "title": "Kaminwurzer",
+      "instructions": "Tiroler Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preiswerte geräucherte Wurstmarken statt teurer Sorten",
+        "Kaufe Brot vom Vortag reduziert"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tiroler",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6522,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaminwurzer/",
+      "components": [
+        {
+          "key": "fd99139b-5c21-581a-99b6-b4410242b8a7",
+          "name": "Zutaten",
+          "servingGrams": 470,
+          "position": 0,
+          "items": [
+            {
+              "key": "74ba5ce1-599f-589b-beb0-5c017d07be2d",
+              "ingredientName": "geräucherte Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9282fbf9-e31b-5f4c-9223-29e41b5f54a8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "d62c810f-6fdb-5593-b943-d51a21b4531d",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e1d3bd22-10b8-58ab-92c6-593d113c0af3",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "861f0673-b985-5a88-9716-ee558fc60e23",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "938ac6de-0245-57c0-b759-227ce59d771a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "542f2900-2734-5bc4-ac06-72a6bd55fa35",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a996c1bc-af72-5f27-9f2e-5aabd66c5508",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die geräucherte Wurst in etwa 1/2 inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebel fein und erhitze Butter in einem großen Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebel und Kümmelsamen in den Topf und gare sie etwa 4 Minuten, bis die Zwiebel goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge die Wurstscheiben hinzu und bräune sie etwa 3 Minuten leicht auf beiden Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rinderbrühe dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die dunklen Brotscheiben und lege sie in Servierschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe die heiße Wurstbrühe über das Brot und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tyrolean-sauerkraut",
+      "slug": "gen-tyrolean-sauerkraut",
+      "title": "Tiroler Sauerkraut",
+      "instructions": "Tiroler Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sauerkraut lose an der Feinkosttheke statt in Dosen",
+        "Verwende günstige Speckabschnitte statt geschnittenen Speck"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Tiroler",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6523,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tyrolean-sauerkraut/",
+      "components": [
+        {
+          "key": "923a4320-8e8e-5a15-9306-656c93ee02b2",
+          "name": "Zutaten",
+          "servingGrams": 582.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c127402e-7752-5887-b95b-85122d98ecf2",
+              "ingredientName": "Sauerkraut",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "260f50ac-3caf-5563-a7f5-21aecf93a8f3",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "f6fe3a8f-0ca2-5bd7-ba1c-775fa35d9384",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "7b5750ce-8b49-5c36-bd26-09973d42a2b9",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7623fb3f-1ce7-5e48-8def-2957256cd4a7",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d1147360-a4ad-5757-9603-fd0e8e02be99",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "30a7cbc7-ec57-5151-be50-b90e6a5fd1fd",
+              "ingredientName": "tiefgekühlte Beeren",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e52af8c4-10db-52a9-87a0-5fb1289af9d7",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e4327e2-6dd1-5808-afb2-ceae47fb23cf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "715fc51f-b578-5c2a-8824-2db12058b8d7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Speck klein und brate ihn in einem großen Topf knusprig. Nimm ihn heraus und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebel und brate sie im Speckfett bei mittlerer Hitze etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgetropftes Sauerkraut und Kümmelsamen in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schäle den Apfel, schneide ihn in Scheiben und gib ihn zusammen mit Wacholderbeeren und Lorbeerblatt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rinderbrühe hinein und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und lass alles 20 Minuten köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den Speck zurück in den Topf und würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/sausages-and-sauekrautpin-1650312158.jpg?crop=0.910xw:0.860xh;0.0575xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/sausages-and-sauekrautpin-1650312158.jpg?crop=0.910xw:0.860xh;0.0575xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiroler-fleischkn-del",
+      "slug": "gen-tiroler-fleischkn-del",
+      "title": "Tiroler Fleischknödel",
+      "instructions": "Tiroler Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch von Handelsmarken statt teurer Fleischstücke",
+        "Bereite Semmelbrösel selbst aus altbackenem Brot zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tiroler",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6524,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiroler-fleischkn-del/",
+      "components": [
+        {
+          "key": "5525e504-10cd-5e7e-974e-35bc811d4752",
+          "name": "Zutaten",
+          "servingGrams": 496.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c420887f-57b3-5da0-a961-c2d2d7db19aa",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "bdd9d956-df70-599f-8442-f2643c347fb5",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "279f936a-6a07-5285-acb7-587fe204a076",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fc80717-ffc0-548a-97c6-13c5520bf99b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "cc010452-f95e-56b0-9efd-f0895f17868d",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9c29688d-4709-5c78-b566-d7dce67c5622",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d3098061-0bff-5a7d-bd0d-e7e434e881fc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e23f821f-4e06-5589-b96f-fb35229ffb77",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a3f4ceb3-189c-5605-83fb-438a661324ed",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "4d43b995-3207-5211-806c-b3671b255724",
+              "ingredientName": "frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebel fein und vermenge sie mit Rinderhackfleisch, Semmelbröseln, Eiern, Parmesan, Milch, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Masse 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe die Rinderbrühe in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme die Fleischmasse mit nassen Händen zu 8 großen Kugeln von etwa 3 inches Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Knödel vorsichtig in die kochende Brühe und reduziere die Hitze, sodass sie nur sanft köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Knödel 20-25 Minuten, bis sie an die Oberfläche steigen und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie in Schalen mit Brühe und garniere sie mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.herdmitherz.de/wp-content/uploads/2021/01/tiroler-knoedel-1-von-1-1920x1920.jpg",
+          "sourcePageUrl": "https://www.herdmitherz.de/wp-content/uploads/2021/01/tiroler-knoedel-1-von-1-1920x1920.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

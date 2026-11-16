@@ -1,0 +1,933 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:drink-virgin-mojito",
+      "slug": "drink-virgin-mojito",
+      "title": "Virgin Mojito",
+      "instructions": "Erfrischender alkoholfreier Mojito nach kubanischer Art mit frischer Minze, Limette, etwas Süße und sprudelndem Sodawasser.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine einzelne Minze kaufen und übrige Blätter einfrieren, damit nichts verdirbt.",
+        "Eine große Flasche Sodawasser ist pro Getränk viel günstiger als einzelne Dosen.",
+        "Frisch gepresste Limette statt Flaschensaft verwenden; eine Limette reicht für ein Glas."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "club-soda",
+          "swap": "natur sparkling Wasser oder ein splash von Zitrone-Limette soda",
+          "savings": "Vorhandenes aus dem Kühlschrank verwenden; Kohlensäure und Süße zugleich"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Honig oder agave syrup stirred in bis dissolved",
+          "savings": "Grundzutaten, die vermutlich bereits vorrätig sind"
+        },
+        {
+          "forIngredientId": "simple-syrup",
+          "swap": "Dissolve natur Zucker in ein splash von warm Wasser",
+          "savings": "Spart den Kauf von abgefülltem Sirup"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "kubanisch",
+        "mocktail (deutsche Fassung)",
+        "no-garen",
+        "non-alcoholic (deutsche Fassung)",
+        "refreshing (deutsche Fassung)",
+        "Minze",
+        "Limette",
+        "summer (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7260,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-virgin-mojito/",
+      "components": [
+        {
+          "key": "329fe6df-0f60-59c1-b2d1-b4a33ce1eb2d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 507.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "903b25b1-3e25-5f65-94a8-89e3810821af",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "frische Blätter und ein Zweig zum Garnieren"
+            },
+            {
+              "key": "f817e9f6-b9f4-5215-a13f-7153ab8e820d",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "in Spalten geschnitten"
+            },
+            {
+              "key": "def7480e-cb72-501d-9dd8-f9f898babbcd",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Teelöffel oder stattdessen Zuckersirup verwenden"
+            },
+            {
+              "key": "d8bd9e2a-19e9-50b7-bb21-7e809a70c955",
+              "ingredientName": "Zuckersirup",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "0.5 oz als Zuckerersatz, lässt sich leichter mischen"
+            },
+            {
+              "key": "a57c1899-6815-56d1-bac5-73cfbd3337c9",
+              "ingredientName": "Sodawasser",
+              "grams": 141.75,
+              "quantity": 141.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 oz, gekühlt, zum Auffüllen"
+            },
+            {
+              "key": "af0d09c2-6ed4-5c25-81ea-eacee65d632c",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gewürfelt oder zerstoßen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Etwa 8 Minzblätter, 3 Limettenspalten und Zucker oder Zuckersirup in ein stabiles Longdrinkglas geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Zutaten 4–5-mal vorsichtig mit einem Stößel andrücken, damit Minzöl und Limettensaft austreten, ohne die Blätter zu zerreißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Glas mit Eis füllen, mit gekühltem Sodawasser aufgießen und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit einem Minzzweig und einer Limettenspalte garnieren, einen Trinkhalm dazugeben und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Drinks_-_Virgin_Mojito%2C_Orange_Juice.jpg/1280px-Drinks_-_Virgin_Mojito%2C_Orange_Juice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Drinks_-_Virgin_Mojito,_Orange_Juice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Aditijuneja2023 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Virgin Mojito",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-shirley-temple",
+      "slug": "drink-shirley-temple",
+      "title": "Shirley Temple",
+      "instructions": "Klassischer alkoholfreier Cocktail mit prickelndem Ginger Ale, Grenadine und einer süßen Kirsche. In weniger als zwei Minuten fertig.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ginger Ale einer Handelsmarke schmeckt hier genauso gut und kostet deutlich weniger.",
+        "Statt einer Cocktailkirsche eine frische Kirsche oder vorhandene Limette verwenden.",
+        "Eine Flasche Grenadine reicht für viele Getränke, weil pro Glas nur ein kleiner Schuss gebraucht wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ginger-ale",
+          "swap": "verwenden Zitrone-Limette club soda für ein weniger süß, drier version",
+          "savings": "~$0.40/Drink"
+        },
+        {
+          "forIngredientId": "grenadine",
+          "swap": "ein splash von cherry oder cranberry juice plus ein pinch von Zucker",
+          "savings": "~$0.25/Drink"
+        },
+        {
+          "forIngredientId": "cherry-fresh",
+          "swap": "ein Limette wheel oder Orange Scheibe",
+          "savings": "~$0.30/Drink"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "mocktail (deutsche Fassung)",
+        "no-garen",
+        "non-alcoholic (deutsche Fassung)",
+        "kid-friendly (deutsche Fassung)",
+        "fizzy (deutsche Fassung)",
+        "party (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7261,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-shirley-temple/",
+      "components": [
+        {
+          "key": "d0a4b021-6a61-5f9f-a3f8-2cfd8672875e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 561.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6d1313c-1eca-54d2-a10d-ee06192f0097",
+              "ingredientName": "Ginger Ale",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gekühlt, etwa 3/4 Tasse"
+            },
+            {
+              "key": "a6414819-34db-5b8a-b46f-848d51204379",
+              "ingredientName": "Grenadine",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für Farbe und Süße"
+            },
+            {
+              "key": "bf0ccc88-6859-5059-b1eb-7da98938e131",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Glas füllen"
+            },
+            {
+              "key": "a8bd3123-00e3-5cea-b789-763941490ef3",
+              "ingredientName": "Frische Kirschen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "Maraschinokirsche zum Garnieren"
+            },
+            {
+              "key": "a1b3d9ca-7b3f-5232-a327-8aa14cf111b3",
+              "ingredientName": "Limette",
+              "grams": 16.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "eine dünne Scheibe zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein hohes Longdrink- oder Collinsglas mit Eis füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Grenadine über das Eis gießen und zum Boden sinken lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit gekühltem Ginger Ale auffüllen. Langsam eingießen, damit die Kohlensäure erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Einmal langsam umrühren, sodass sich die rubinrote Grenadine in der Limonade verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einer Kirsche und nach Wunsch einer Limettenscheibe garnieren und mit einem Trinkhalm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Shirley_Temple_%26_Cosmopolitan_cocktails.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shirley_Temple_%26_Cosmopolitan_cocktails.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: cbgrfx123 — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Shirley Temple",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-cranberry-spritzer",
+      "slug": "drink-cranberry-spritzer",
+      "title": "Cranberry-Limetten-Spritzer",
+      "instructions": "Prickelnder, alkoholfreier Drink aus herbem Cranberrysaft, frischer Limette und Sodawasser auf Eis. Fruchtig und nur leicht gesüßt.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cranberrysaft als Konzentrat oder in einer großen Flasche kaufen und verdünnen; das kostet pro Glas deutlich weniger als Einzelportionen.",
+        "Sodawasser in größeren Mengen kaufen oder einen Wassersprudler verwenden statt kleiner Dosen.",
+        "Frische Limetten im Angebot kaufen; bei Bedarf tut es auch abgefüllter Limettensaft."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "simple-syrup",
+          "swap": "agave-syrup oder ein klein spoon von Zucker stirred in",
+          "savings": "Vorhandenen Zucker verwenden und den Sirupkauf sparen, ~$0.40 Ersparnis"
+        },
+        {
+          "forIngredientId": "club-soda",
+          "swap": "any natur sparkling oder seltzer Wasser",
+          "savings": "Mineralwasser einer günstigen Marke kostet pro Glas ~$0.30 weniger"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "bottled Limette juice (etwa 0.5 oz)",
+          "savings": "Spart ~$0.25 gegenüber einer frischen Limette"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "mocktail (deutsche Fassung)",
+        "no-garen",
+        "non-alcoholic (deutsche Fassung)",
+        "spritzer (deutsche Fassung)",
+        "refreshing (deutsche Fassung)",
+        "summer (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7262,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-cranberry-spritzer/",
+      "components": [
+        {
+          "key": "04f33ace-ee69-574d-a710-8ceb9f7f74a2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 501.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "610e1241-82de-55f8-ac9d-082dbddfe605",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Glas füllen"
+            },
+            {
+              "key": "c7d3dc46-2a3a-54f6-b89b-663306a6e5d6",
+              "ingredientName": "Cranberrysaft",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "100% Saft oder Cranberry-Saftgetränk"
+            },
+            {
+              "key": "b1858391-f357-55e2-bca1-1fc1cffc8b4c",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "ausgepresst, etwa 0.5 oz; eine Scheibe aufbewahren"
+            },
+            {
+              "key": "9f69f75d-6335-57ce-b5cc-7f29ebb29eaa",
+              "ingredientName": "Zuckersirup",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "nach Geschmack anpassen"
+            },
+            {
+              "key": "1d5e3fd4-039d-5c71-92fa-9b480d645f12",
+              "ingredientName": "Sodawasser",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "zum Auffüllen"
+            },
+            {
+              "key": "0a7e6b6a-6a66-5d81-924b-e65fd20cbbf2",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "Zweig zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein hohes Glas bis oben mit Eis füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Cranberrysaft, frischen Limettensaft und Zuckersirup hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit gekühltem Sodawasser auffüllen und ein- bis zweimal vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit einer Limettenscheibe und einem Minzzweig garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jamaica_Spritz.jpg/960px-Jamaica_Spritz.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jamaica_Spritz.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Sarah Stierch — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von ein bright red refreshing Getränk mit ice, Limette wedge, und decorative umbrella garnieren in ein clear glass",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-virgin-pina-colada",
+      "slug": "drink-virgin-pina-colada",
+      "title": "Virgin Piña Colada",
+      "instructions": "Cremiger tropischer Drink aus Ananas und Kokos, mit Eis zu einer alkoholfreien, frostigen Variante des Inselklassikers gemixt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine ganze Ananas im Angebot kaufen, würfeln und selbst einfrieren, statt abgepackte Tiefkühlfrüchte zu kaufen.",
+        "Kokoscreme ist ergiebig: Eine Dose reicht für mehrere Getränke und ist pro Portion günstiger, als es zunächst scheint.",
+        "Statt Flaschensaft zusätzliche frische Ananas mit einem Schuss Wasser mixen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-cream",
+          "swap": "coconut-Milch reduced mit ein little Zucker",
+          "savings": "~$0.40/Drink"
+        },
+        {
+          "forIngredientId": "pineapple-juice",
+          "swap": "blended frisch pineapple thinned mit Wasser",
+          "savings": "~$0.30/Drink"
+        },
+        {
+          "forIngredientId": "frozen-pineapple",
+          "swap": "frisch pineapple plus extra ice",
+          "savings": "~$0.25/Drink"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "caribbean (deutsche Fassung)",
+        "mocktail (deutsche Fassung)",
+        "no-garen",
+        "blender (deutsche Fassung)",
+        "tropical (deutsche Fassung)",
+        "non-alcoholic (deutsche Fassung)",
+        "pineapple (deutsche Fassung)",
+        "coconut (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7263,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-virgin-pina-colada/",
+      "components": [
+        {
+          "key": "bf9a5e72-d75c-52b8-9fdd-dcefabf3d248",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 1010.15,
+          "position": 0,
+          "items": [
+            {
+              "key": "52fdedcc-f959-5764-832c-59c94b19e9cf",
+              "ingredientName": "Ananassaft",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 oz, gekühlt"
+            },
+            {
+              "key": "38c39a7e-baa3-50d9-8676-3fc776dfb9bb",
+              "ingredientName": "Kokoscreme aus der Dose",
+              "grams": 160,
+              "quantity": 0.4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 oz gesüßte Kokoscreme"
+            },
+            {
+              "key": "cc7c286a-1317-5bde-bce3-48a1f699ce1e",
+              "ingredientName": "Gefrorene Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse tiefgekühlte Stücke für Konsistenz und Kühlung"
+            },
+            {
+              "key": "c094c3d6-c36e-599e-b051-68a6aef0600e",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d901dd5d-a0ad-582f-b188-1d02bcff9074",
+              "ingredientName": "Limette",
+              "grams": 16.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "ein kleiner Spritzer für Frische"
+            },
+            {
+              "key": "252d3d58-0730-5aac-a795-3ac2449b9fa2",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1 Spalte zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ananassaft und Kokoscreme in den Mixer geben. Nach Wunsch etwas Limettensaft hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gefrorene Ananasstücke und Eis dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "30–45 Sekunden auf höchster Stufe mixen, bis die Mischung ganz glatt und frostig ist und keine Eisstücke mehr enthält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In ein gekühltes Hurricane- oder hohes Glas füllen, mit einer Ananasspalte garnieren und sofort mit einem Trinkhalm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/PINA_COLADA_-_Efes_Town_Turkish_Cuisine_2026-01-27.jpg/1280px-PINA_COLADA_-_Efes_Town_Turkish_Cuisine_2026-01-27.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:PINA_COLADA_-_Efes_Town_Turkish_Cuisine_2026-01-27.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Virgin Piñein Colada",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-strawberry-banana-smoothie",
+      "slug": "drink-strawberry-banana-smoothie",
+      "title": "Erdbeer-Bananen-Smoothie",
+      "instructions": "Cremiger Smoothie aus reifen Erdbeeren und Banane mit griechischem Joghurt und etwas Milch. Natürlich süß und proteinreich.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefrorene Erdbeeren verwenden und das Eis weglassen. Sie sind günstiger, länger haltbar und machen den Smoothie dicker.",
+        "Sehr reife Bananen im Angebot kaufen, schälen und für Smoothies einfrieren.",
+        "Ein großer Becher Naturjoghurt nach griechischer Art kostet pro Portion deutlich weniger als einzelne Becher."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden oat-Milch oder almond-Milch für ein dairy-free version",
+          "savings": "Ungefähr gleiche Kosten; Hafermilch ist ungeöffnet länger haltbar"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "verwenden agave-syrup oder just rely auf ein ripe Banane für sweetness",
+          "savings": "Das Weglassen von Süßungsmitteln spart ~$0.10 pro Smoothie"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Swap in natur-Joghurt für ein thinner, lighter mixen",
+          "savings": "Normaler Joghurt ist meist ~30% günstiger als griechischer"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "smoothie (deutsche Fassung)",
+        "no-garen",
+        "blender (deutsche Fassung)",
+        "Frühstück",
+        "fruit (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7264,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-strawberry-banana-smoothie/",
+      "components": [
+        {
+          "key": "c380ad24-4ec3-5dcd-9570-2734e123ad2f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 733,
+          "position": 0,
+          "items": [
+            {
+              "key": "1968a46f-d41b-5000-99f4-16872c3346a9",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "a3ce14e0-4b4c-5ca3-a5fb-8c183f953e7f",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "reif; für eine dickere Mischung einfrieren"
+            },
+            {
+              "key": "2e9c2709-0bb0-5b9f-9a99-bb3688886bf3",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, natur oder Vanille"
+            },
+            {
+              "key": "77753a93-b1a5-56cd-8776-526c70f2e02d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse und bei Bedarf mehr zum Verdünnen"
+            },
+            {
+              "key": "1688f7e4-ae91-58a4-8771-c37d03a2687f",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "1 TL nach Geschmack"
+            },
+            {
+              "key": "8542fb1b-5088-5ff1-9539-8b5bd372abf0",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1/2 Tasse bei frischem Obst"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst die Milch in den Mixer geben, dann griechischen Joghurt, Banane und Erdbeeren hinzufügen, damit die Klingen die Flüssigkeit gut erfassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Honig einträufeln. Eis nur hinzufügen, wenn frisches statt gefrorenes Obst verwendet wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "45–60 Sekunden auf höchster Stufe mixen, bis der Smoothie glatt und cremig ist. Bei Bedarf die Seitenwände abschaben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Konsistenz prüfen: Für einen dünneren Smoothie etwas Milch, für einen dickeren ein paar gefrorene Beeren hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In ein hohes Glas füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Red_berry_smoothie_in_a_jar_%2823698836144%29.jpg/960px-Red_berry_smoothie_in_a_jar_%2823698836144%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Red_berry_smoothie_in_a_jar_(23698836144).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 1.0 (Public Domain)",
+          "attributionRequired": false,
+          "attributionText": "Photo: www.Pixel.la Free Stock Photos — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch Strawberry Banane Smoothie",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

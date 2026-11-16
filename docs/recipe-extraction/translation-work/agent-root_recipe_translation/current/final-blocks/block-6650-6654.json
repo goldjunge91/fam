@@ -1,0 +1,1105 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fish-cakes",
+      "slug": "gen-fish-cakes",
+      "title": "Fischfrikadellen",
+      "instructions": "Ein beliebtes snack, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Salzfisch im Sonderangebot und frieren Sie ihn für die spätere Verwendung im Laufe des Monats ein",
+        "Verwenden Sie zum Braten günstigeres Pflanzenöl wie Raps anstelle von Spezialölen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "guyanisch",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6650,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fish-cakes/",
+      "components": [
+        {
+          "key": "22192be3-0111-5512-a22e-4c663c4d9d83",
+          "name": "Zutaten",
+          "servingGrams": 181.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "91aba5ee-dac7-5ca6-b2ad-4cc1d2e40ae3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "49e6ce5d-b4cb-50f6-a3ee-8c14e985e1bd",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "e56eb7ae-27f7-594b-b9ca-49cdf373d47e",
+              "ingredientName": "Allzweckmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "99fa808c-f333-5edf-bdb9-0e1ddd854293",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e35a855c-3402-5b2c-8c55-5604db44cc1b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "b459a4b4-ad9d-5d86-8b7f-bafeb4933c91",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "54dcaf5c-b2c8-5363-b7f1-19570cbcb998",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel gehackt"
+            },
+            {
+              "key": "f1513cca-0726-55b5-bcb6-078d4c25a131",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a10a556d-39dd-521f-9a5a-4502a6fd5d12",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "926a7df8-150a-5b9f-ab84-1b0c417072ad",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salzfisch 2–4 Stunden in Wasser einweichen, nach der Hälfte der Zeit das Wasser wechseln, dann abtropfen lassen und in kleine Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln in Salzwasser 15 Minuten kochen, bis sie weich sind, dann abgießen und zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffelpüree mit Salzfischflocken, gehacktem Knoblauch, gewürfelten Zwiebeln und gehacktem Koriander vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer separaten Schüssel Mehl und Backpulver vermischen und dann zur Fischmischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier verquirlen und unter Rühren zur Mischung geben, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Pflanzenöl in einer tiefen Pfanne auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Geben Sie einen Löffel Teig in das heiße Öl und braten Sie ihn 3–4 Minuten pro Seite, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit Limettenspalten oder scharfer Soße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/BVSEtCBrjggTTNKur4T4ekrsLMM=/5587x3725/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Cod-Fish-Cakes-LEAD-20-226e03db735542b29997ad4495361471.JPG",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/BVSEtCBrjggTTNKur4T4ekrsLMM=/5587x3725/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Cod-Fish-Cakes-LEAD-20-226e03db735542b29997ad4495361471.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crab-back",
+      "slug": "gen-crab-back",
+      "title": "Gefüllte Krabbenrücken",
+      "instructions": "Ein beliebtes abendessen, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie lebende Krabben am Tag des Kochens zum besten Preis auf Märkten",
+        "Mit leichter Kokosmilch können Sie die Kosten um 20 % senken, ohne viel Geschmack einzubüßen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "guyanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6651,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crab-back/",
+      "components": [
+        {
+          "key": "491fa8db-77b8-5dd4-a45d-e98a9ad65043",
+          "name": "Zutaten",
+          "servingGrams": 396.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "03d18dbc-dfdc-5b12-8070-c0a53ce3f3a3",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "054dd69a-9768-5c7c-b04a-d6914adcfaf9",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "2ce28ae9-1a04-5aea-89b5-7bd4cf6c5ae7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "d7412f3a-0e3f-5763-8ec3-c5f46617c53b",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "c630bd34-d8b4-5bda-a3ee-fcb2bab5ac1d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "0dafb5ed-df64-5ccd-9ef0-e8135612e724",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f3fe9fa-eaa4-5102-ae6a-3e89bd086e5c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "658cc45d-7654-5627-9861-73e5f198201c",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d0d7ed29-51e4-57bf-9629-4f60004b3f22",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "98b64260-234c-51a5-9a85-d8f595e873b6",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinigen Sie die Krabben gründlich, indem Sie sie unter fließendem kaltem Wasser schrubben und die Oberschale vorsichtig entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nehmen Sie das braune Fleisch aus der Schale und legen Sie es beiseite. Behalten Sie dabei die Schalenhälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entfernen Sie die Beine und Krallen vom Krabbenkörper und legen Sie sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem großen Topf erhitzen und gehackten Knoblauch und gewürfelte Zwiebeln etwa 3 Minuten lang goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fügen Sie die Krabbenkörperteile und -beine hinzu, rühren Sie um, bis sie mit dem Öl bedeckt sind, und kochen Sie sie dann 5 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gießen Sie Kokosmilch und Wasser hinzu und fügen Sie dann das zurückbehaltene braune Fleisch, den ganzen Scotch Bonnet Pepper und den Koriander hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 25–30 Minuten köcheln lassen, bis die Krabben vollständig gekocht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Entfernen Sie den Scotch Bonnet Pepper und würzen Sie ihn mit Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nach Belieben die Krabben in die Muscheln geben, die Soße darübergießen und mit Limettenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/OagUdLpo8yrZZBd8T74CxD4ACqU=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/King-Crab-LEAD-2-8bbc17130da44ce0bba35c2f53fb4685.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/OagUdLpo8yrZZBd8T74CxD4ACqU=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/King-Crab-LEAD-2-8bbc17130da44ce0bba35c2f53fb4685.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-garnaches",
+      "slug": "gen-garnaches",
+      "title": "Garnachen",
+      "instructions": "Ein beliebtes snack, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Bohnen in großen Mengen und kochen Sie sie selbst, anstatt sie aus der Dose zu kaufen.",
+        "Durch den Einsatz von Markenkäse können Sie die Kosten um 30 % senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belizisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6652,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-garnaches/",
+      "components": [
+        {
+          "key": "9db63ab8-7538-53ad-b3bf-5d60d07e1504",
+          "name": "Zutaten",
+          "servingGrams": 300,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c60e4ec-87d0-5941-8cbb-c7146073ccdf",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "128413c7-7360-5de3-980e-9d1db62c8fa8",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "73d359c2-630b-5cd5-b9a6-835813286286",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4db14fd4-6e50-549a-ab15-8b59aa01fea6",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "651ceb73-2105-5e21-8dfd-2fe1ea4066ce",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c889e1b8-a730-56e6-b8b8-a7f00499231a",
+              "ingredientName": "Gekühlte Bohnen",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "e5bb2d2e-55ba-5801-8229-3d54490b2e6a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f448847b-7b0d-5dbb-8954-5d0a3620e076",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "f180e749-2791-5b5e-93a7-ed7e8e26b208",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "f4030261-781d-51bf-ad6e-c6d687f74e0f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Warmes Wasser und 1 EL Öl hinzufügen und kneten, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in 8 Kugeln teilen und 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Restliches Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Teigkugel zu einer dünnen Scheibe formen und auf jeder Seite 2-3 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärmen Sie die Bohnen in einem kleinen Topf und verteilen Sie sie dann auf jeder frittierten Scheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Käse, Zwiebeln, Habanero und Koriander belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/c8/0c/36/c80c36753b847d8c8796baefc43c0b5f.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/c8/0c/36/c80c36753b847d8c8796baefc43c0b5f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rcado",
+      "slug": "gen-rcado",
+      "title": "Rcado",
+      "instructions": "Ein beliebtes snack, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Avocados, wenn sie im Angebot sind, und lagern Sie sie im Kühlschrank, um die Frische zu verlängern.",
+        "Vergessen Sie teure Chips und servieren Sie stattdessen geschnittene Tortillas."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "belizisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6653,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rcado/",
+      "components": [
+        {
+          "key": "9b51ef3c-90b3-5bb2-8b9c-4c71a7ff57fc",
+          "name": "Zutaten",
+          "servingGrams": 279.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dee2344-a69a-51a5-8c79-775debe94d4e",
+              "ingredientName": "Avocado",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "8c0106f1-2d9e-5b84-a3b0-920a16505158",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1476a5b4-13c3-5270-bdd7-d1c76d6fdaf8",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, fein gewürfelt"
+            },
+            {
+              "key": "a72df1a2-d405-566c-b32b-35075bc22d1b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "bcd15c38-8783-5fe3-93eb-f3d5a94a47cb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "35586f0b-5c5a-5267-a4d4-f5ffb54a2955",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "f64d7928-f2ea-55d8-ac1c-143baaafb029",
+              "ingredientName": "Tortillachips",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Beutel (10 oz)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Avocados der Länge nach halbieren und den Kern entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Avocadofruchtfleisch in eine Schüssel geben und mit einer Gabel zerdrücken, bis die gewünschte Konsistenz erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beide Limetten auspressen und zur Avocadomischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel, Jalapeño, Koriander, Salz und schwarzen Pfeffer unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abschmecken und nach Bedarf nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Tortillachips zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/DKfzOTFvOzB52VjZ4ceai7x9UCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230728-SEA-ScallopCrudo-AmandaSuarez006-b26cce4484544cd784352f3ef6ebb4e1.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/DKfzOTFvOzB52VjZ4ceai7x9UCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230728-SEA-ScallopCrudo-AmandaSuarez006-b26cce4484544cd784352f3ef6ebb4e1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coconut-bread",
+      "slug": "gen-coconut-bread",
+      "title": "Kokosbrot",
+      "instructions": "Ein beliebtes frühstück, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie braunen Zucker und Kokosnuss von Handelsmarken.",
+        "Kaufen Sie ungesüßte Kokosraspeln in Großpackungen zum halben Preis im Vergleich zu verpackten Kokosraspeln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belizisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6654,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coconut-bread/",
+      "components": [
+        {
+          "key": "71aa5bef-f65c-5655-ae37-2d33619ba5f4",
+          "name": "Zutaten",
+          "servingGrams": 127.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "56a4ddb6-8c4c-5968-a831-cc8debc1e5d2",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0026863c-8f55-5234-97b8-88edc445e8c0",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "ce4a54aa-5aa6-5d4c-80a5-873661cbe9b9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6d74eefc-57f9-57d9-8027-95531d33e253",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse, weich"
+            },
+            {
+              "key": "c27e79f2-ad8e-56a9-b673-b47be7f8ddca",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c5231b20-a68d-56c1-8d70-6dda309e5a86",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "24ba0048-35a0-5494-a598-5621332ee4b0",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen, ungesüßt"
+            },
+            {
+              "key": "e07ac3a1-d661-5aa6-989f-fb15f244534e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bf022db0-6f72-5b95-8331-bfc1c72bb911",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "37e73544-078c-577e-8159-61d81724b4ab",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und fetten Sie eine Kastenform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver, Salz und Muskatnuss in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter und braunen Zucker etwa 2 Minuten lang schaumig rühren, bis sie leicht und locker sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier einzeln unterrühren und dann Vanilleextrakt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abwechselnd Mehlmischung und Milch hinzufügen, mit Mehl beginnen und enden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kokosraspeln vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Teig in die vorbereitete Form gießen und 45–50 Minuten backen, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "10 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter stürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/37/37/14/bP2cx9QbTIqzf8WoUfw3_Quick%20Coconut%20Bread_0071.JPG",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/37/37/14/bP2cx9QbTIqzf8WoUfw3_Quick%20Coconut%20Bread_0071.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

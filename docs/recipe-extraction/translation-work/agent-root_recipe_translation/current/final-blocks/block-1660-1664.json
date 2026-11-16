@@ -1,0 +1,1365 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-eu2-beef-bourguignon",
+      "slug": "mfr-eu2-beef-bourguignon",
+      "title": "Bœuf bourguignon",
+      "instructions": "Julia Childs Beitrag zum Kochen unter der Woche: Rinderschulter schmort in einer ganzen Flasche Rotwein mit Perlzwiebeln, Pilzen und Speckwürfeln, bis das Fleisch zerfällt und die Sauce zu einer glänzenden, kräftigen Bratensauce einkocht. Dieser französische Schmorbraten überzeugt alle, die ihn probieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 150,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist das günstigste gute Schmorfleisch. Teures Gulaschfleisch vermeiden.",
+        "Eine trinkbare Flasche Rotwein für 6 $ genügt. Nie mit Wein kochen, den du nicht trinken würdest.",
+        "Reste schmecken viel besser. Wenn möglich 2 Tage vorher zubereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-wine",
+          "swap": "Rinderbrühe und 2 EL Rotweinessig. Schmeckt ebenfalls hervorragend."
+        },
+        {
+          "forIngredientId": "pearl-onions",
+          "swap": "Normale Zwiebel in Spalten geschnitten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-beef-bourguignon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "bœuf-bourguignon",
+        "schmorgericht",
+        "rotwein",
+        "pilz",
+        "klassisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1660,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-beef-bourguignon/",
+      "components": [
+        {
+          "key": "ae847fe5-c39c-5d3b-8849-72e6f4735615",
+          "name": "Zutaten",
+          "servingGrams": 366.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "b286fac1-ed50-56f2-b0c0-03e8c9262e69",
+              "ingredientName": "Rinderschulter",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a977f534-7d58-5774-be3b-c297a4fbd797",
+              "ingredientName": "Rotwein (zum Kochen)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e5c245e-55a3-5b3a-80a5-f2be9575d45d",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09d92b41-474f-5236-a2b5-f40ad6166e66",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96037753-3709-521a-bded-a5964c5e9870",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87c12f7c-0467-5ab0-84ab-462062dc4f7f",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f53043e-dc80-598b-bb65-2ba24fae59af",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b119296-483b-57a5-87a7-3e8709dc561e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77e7ea96-16f6-5ed2-9647-73c64c8ae374",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6eb52e4c-f11b-52da-8009-fdb3d579c890",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24880af9-fab5-5de2-a06f-0305c2482a80",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddad65f2-8ac0-5060-ae9f-f11886500b49",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27f6740e-9176-57fa-9385-60d2dbc50063",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b272205-400c-5483-8671-07e0ba031e20",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7cba4bc-2340-5a36-9bbb-9aa7f9c7a4c0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d6d5fc4-3e9a-5665-b764-cf193e100d72",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch würfeln, trocken tupfen und würzen. Speck im Schmortopf auslassen und herausnehmen. Fleisch portionsweise im Fett anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Karotte 4 Minuten anbraten. Knoblauch und Tomatenmark dazugeben und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl darüberstreuen und 2 Minuten garen. Wein und Brühe angießen und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fleisch und Speck zurück in den Topf geben. Thymian und Lorbeer hinzufügen. Zugedeckt bei 325°F 2 Stunden schmoren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pilze und Perlzwiebeln separat in Butter anbraten und in den letzten 30 Minuten dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und würzen. Mit Kartoffelpüree oder Eiernudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/02/Beef-Bourgignon-IMAGE-RECIPE-17.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/02/Beef-Bourgignon-IMAGE-RECIPE-17.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu2-sauerbraten",
+      "slug": "mfr-eu2-sauerbraten",
+      "title": "Deutscher Sauerbraten",
+      "instructions": "Deutschlands berühmter Schmorbraten: Rindfleisch wird 3 Tage in einer säuerlichen Marinade aus Rotweinessig und Gewürzen eingelegt, dann butterzart geschmort und mit einer durch Lebkuchen gebundenen Sauce vollendet. Süß-sauer-herzhaft und einzigartig.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 180,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Marinade für 3 Tage besteht hauptsächlich aus Essig und Wasser und ist sehr günstig.",
+        "Lebkuchen sind das traditionelle Bindemittel. Eine geniale deutsche Technik.",
+        "Die doppelte Menge zubereiten und das geschmorte Fleisch einfrieren. Aufgewärmt schmeckt es noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gingersnap-cookies",
+          "swap": "1 EL brauner Zucker, eine Prise Ingwer und 1 TL Maisstärke"
+        },
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Schweineschulter für einen ähnlichen deutschen Schmorbraten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-sauerbraten",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "deutsch",
+        "sauerbraten",
+        "schmorbraten",
+        "rotweinessig",
+        "lebkuchen",
+        "besonders"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1661,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-sauerbraten/",
+      "components": [
+        {
+          "key": "5de99d99-64ec-5aeb-b201-800ad51643e6",
+          "name": "Zutaten",
+          "servingGrams": 198.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "da8743f3-d7bd-558f-a090-8c4ba53c921c",
+              "ingredientName": "Rinderschulter",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03644cd1-34a4-5e59-a965-403002bfcff7",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57bc37ec-99ad-5cdb-895b-f3383720a0e3",
+              "ingredientName": "Rotwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1532463-64d0-59ce-9255-fb50825975b9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad2b59a6-2bd7-527d-a778-c904e75b002a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09322665-1aa1-56df-9e16-f683e34e11b4",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa0fe359-d230-50f0-9a56-e75a0e97046f",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "444eca55-f09a-58dd-b453-385e04cc2ae5",
+              "ingredientName": "Ganze Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90e3b43a-0381-5fe8-8cef-c3da3b48c000",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75999de9-2ca0-5039-87d5-e012c91837be",
+              "ingredientName": "Lebkuchen",
+              "grams": 90,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e08103fe-b8fc-5f2e-8e2e-9bc3bc5a29fb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02f763e3-2905-585d-a508-78769a67755b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e379a829-4a9c-5270-b4af-770b0162ec25",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84adc241-c2d6-5ffe-9f94-eb590ffa955a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tag 1–3: Essig, Wein, Zwiebel, Karotte, Sellerie, Zucker, Nelken und Lorbeer verrühren und aufkochen. Abkühlen lassen. Rindfleisch einlegen und 3 Tage gekühlt marinieren, täglich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleisch herausnehmen, trocken tupfen und Marinade aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch rundum in Öl anbräunen. Abgeseihte Marinade und Brühe dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zugedeckt bei 325°F 2.5–3 Stunden schmoren, bis das Fleisch ganz zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fleisch herausnehmen, Lebkuchen in die Sauce bröseln und 5 Minuten köcheln lassen, bis sie andickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Rotkohl und Kartoffelklößen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1641322467/k/Photo/Recipe%20Ramp%20Up/2022-01-Sauerbraten/sauerbraten.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1641322467/k/Photo/Recipe%20Ramp%20Up/2022-01-Sauerbraten/sauerbraten.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu2-cottage-pie",
+      "slug": "mfr-eu2-cottage-pie",
+      "title": "Britischer Cottage Pie",
+      "instructions": "Der britische Wohlfühlauflauf schlechthin: eine kräftige Füllung aus Rinderhack, Zwiebel, Karotte und Erbsen in einer Bratensauce mit Worcestershire und Tomate. Darauf kommt cremiges Kartoffelpüree, das im Ofen goldbraun gebacken und an den Rändern knusprig wird.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack und Kartoffeln ergeben eines der günstigsten vollständigen Abendessen pro Portion.",
+        "Die doppelte Menge zubereiten und ungebacken einfrieren. Gefroren bei 375°F 45 Minuten garen.",
+        "Tiefgekühlte Erbsen sind sehr günstig. Nicht weglassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Lammhack für Shepherd’s Pie, die traditionelle Variante"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffelpüree als süßlichere, nährstoffreichere Kruste"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-cottage-pie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "cottage-pie",
+        "rinderhack",
+        "kartoffelpüree",
+        "auflauf",
+        "comfort-food"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1662,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-cottage-pie/",
+      "components": [
+        {
+          "key": "23ea56f1-127c-52de-8fd1-cf7dce196d01",
+          "name": "Zutaten",
+          "servingGrams": 366.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "352c6346-8c25-5c50-9460-4fbcb680bfed",
+              "ingredientName": "Rinderhack",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f28821d0-e22d-59cc-b65e-65d68d2cebac",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "081b1a9f-618f-524b-9aee-f08b37300c9d",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12835f7b-bd3e-5453-a1e5-09aa883dd0d1",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12cf7cb9-e3b3-56a3-aeae-5ceb156f571b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c3ad93e-085c-55d8-aabd-312746b2647d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9545b75-f1fc-5c8e-bd17-d43140205c73",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed651b08-d160-52c8-a3be-b2302e308da8",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f345c610-0ad3-5661-88d5-fec6b22bad6d",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb2cd4ea-76bd-5860-bacc-090c71d48d58",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41b4e8ff-d127-5b97-960d-7de566c40ee8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7194032-64d2-56bf-a692-4de7e9c71c38",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91b509cf-edf4-527d-b48c-f1cadac28355",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a6c1ffa-d76b-51e9-8085-2275ad772a43",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln weich kochen, abgießen und mit Butter und Milch stampfen. Gut würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhack anbräunen und abgießen. Zwiebel, Karotte und Knoblauch 4 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhack zurückgeben. Worcestershire, Tomatenmark, Brühe, Thymian und Erbsen dazugeben. 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füllung in eine Auflaufform geben. Püree darauf verteilen und mit einer Gabel strukturieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 400°F 20–25 Minuten backen, bis die Oberfläche goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/dQKD_RHVbta9QSjeizbHgKl4xNg=/6016x4000/filters:fill(auto,1)/easy-traditional-cottage-pie-recipe-435744-hero-01-5c1d176046e0fb0001a90e5b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/dQKD_RHVbta9QSjeizbHgKl4xNg=/6016x4000/filters:fill(auto,1)/easy-traditional-cottage-pie-recipe-435744-hero-01-5c1d176046e0fb0001a90e5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu2-swedish-meatballs",
+      "slug": "mfr-eu2-swedish-meatballs",
+      "title": "Schwedische Fleischbällchen mit Rahmsauce",
+      "instructions": "Das Original: zarte Fleischbällchen aus Rind- und Schweinefleisch, gewürzt mit Piment und Muskat, serviert in einer cremigen, samtigen braunen Sauce mit Preiselbeermarmelade und Salzkartoffeln. Viel besser als Möbelhausanleitungen und in 35 Minuten fertig.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Mischung aus Rind und Schwein ist klassisch, aber nur Rindfleisch funktioniert ebenfalls.",
+        "60 Fleischbällchen zubereiten und die Hälfte einfrieren. Die Sauce lässt sich perfekt aufwärmen.",
+        "Piment sorgt für den besonderen Geschmack. Klingt ungewöhnlich, ist aber unverzichtbar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Halb und halb oder Vollmilch für eine leichtere Sauce"
+        },
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Nur Rinderhack. Schmeckt ebenfalls hervorragend."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-swedish-meatballs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schwedisch",
+        "schwedische-fleischbällchen",
+        "fleischbällchen",
+        "bratensauce",
+        "piment",
+        "cremig",
+        "skandinavisch"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1663,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-swedish-meatballs/",
+      "components": [
+        {
+          "key": "36b37d0d-eb86-5f9d-9241-d78cb5c4e807",
+          "name": "Zutaten",
+          "servingGrams": 297.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "04f70270-bcc6-5503-833c-dcf5b9f3a432",
+              "ingredientName": "Rinderhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1dd843b-92ec-5204-b16e-4f8d89e82d0c",
+              "ingredientName": "Schweinehack",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d8c4dca-092c-5305-b0c0-c8e80c11dab9",
+              "ingredientName": "Italienisches Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61edc77c-15de-5762-9974-888b3da534c2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8171831e-e906-5b82-93ef-e1253b9a3444",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "420a91a3-67e6-5765-9d90-c2f644693ab3",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c65e28fe-8446-5661-affe-60d3bd31cf49",
+              "ingredientName": "Muskat",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15803d49-cfba-5d45-9e3b-225737e371ad",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08ef49c0-a303-52c9-8a78-5986f4c89770",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ca55475-046c-5268-a533-1f18dd071941",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87e87aa1-7a69-5813-bc35-c3dc3ea5e799",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8ae89bb-5207-58d1-b54b-9e3440a8f4c3",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebf92872-d84f-5d7c-a293-7da37ab3ae38",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4fbacff-8227-53f8-a83a-da2449e988e3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b513fef-706e-5553-b74d-8d6b496f1ac5",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rind, Schwein, Paniermehl, Ei, Zwiebel, Piment, Muskat, Salz und Pfeffer vermengen. 1 Zoll große Bällchen formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In Butter rundum 5 Minuten anbraten und herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehr Butter schmelzen, Mehl einrühren und 2 Minuten garen. Brühe dazugeben und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sahne, Worcestershire und Dijon dazugeben und 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fleischbällchen zurückgeben und 8 Minuten köcheln. Mit Eiernudeln oder Kartoffelpüree servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2017/05/Swedish-Meatballs-IMAGE-7.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2017/05/Swedish-Meatballs-IMAGE-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu2-coq-au-vin",
+      "slug": "mfr-eu2-coq-au-vin",
+      "title": "Coq au Vin",
+      "instructions": "Der große französische Hähnchenschmorbraten: Hähnchenschenkel mit Knochen schmoren langsam in Rotwein mit Pilzen, Perlzwiebeln, Speck und Kräutern, bis der Wein zu einer kräftigen Sauce einkocht, die jedes Stück umhüllt. Beeindruckend und einfacher, als du denkst.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen sind günstiger und zum Schmoren besser geeignet als Brust.",
+        "Ein trinkbarer Rotwein für 6 $ ist ideal. Teurer Wein ist nicht nötig.",
+        "2 Tage vorher zubereiten. Dieses Gericht wird mit der Zeit wirklich besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-wine",
+          "swap": "Hühnerbrühe und 1 EL Rotweinessig"
+        },
+        {
+          "forIngredientId": "pearl-onions",
+          "swap": "Schalotten oder grob geschnittene normale Zwiebel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu2-coq-au-vin",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "coq-au-vin",
+        "hähnchen",
+        "rotwein",
+        "schmorgericht",
+        "pilz"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1664,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu2-coq-au-vin/",
+      "components": [
+        {
+          "key": "abd56a6b-4c9d-5d5c-be0c-3d0e083f7f58",
+          "name": "Zutaten",
+          "servingGrams": 383.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "0cfa70c8-a5bc-54c2-8ba6-677562d8c8ff",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5db2fad-c220-5aad-8512-2a17790f7fd8",
+              "ingredientName": "Rotwein (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "987fb85d-71d1-5469-a46f-fa47cdb7e734",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69f8981e-4177-539c-bf93-9dc467a66f5b",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6036eeb-de40-5c94-915e-ee00e12f67a8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b1938b2-3b43-53d1-8480-f3c83db1d197",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b270e92-9212-52b4-9f88-c5f39521596c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c47cf5a1-adbd-5911-aa74-9f7601cb5a62",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb2955ea-3184-53b1-b74e-4c234d879032",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf7b2de3-d93f-5214-9fc4-706fafbb3efe",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20aba6e3-fda8-56b3-bed7-8dfe6d3ce231",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d868e112-d1a4-5b22-a4d2-1f7d522cee9a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94efbeea-dac2-56d8-a6a3-7c0b6a4ef6d6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc16c812-f245-5626-97f6-941ccd914226",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10f5c28d-072b-539a-be78-45e97fadef9b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck im Schmortopf auslassen und herausnehmen. Hähnchen im Fett rundum anbräunen und herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Perlzwiebeln 3 Minuten anbraten. Tomatenmark dazugeben und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl darüberstreuen und 1 Minute garen. Wein und Brühe angießen und verrühren. Hähnchen und Speck zurückgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Thymian und Lorbeer dazugeben und zugedeckt bei 325°F 45 Minuten schmoren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pilze separat in Butter anbraten und in den letzten 10 Minuten dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Petersilie abschließen. Mit knusprigem Brot oder Eiernudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2021/12/Easy-Coq-Au-VinIMG_1480.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2021/12/Easy-Coq-Au-VinIMG_1480.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

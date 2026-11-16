@@ -1,0 +1,1041 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-beef-veggie-stir-fry",
+      "slug": "mfr-beef-veggie-stir-fry",
+      "title": "Ingwer-Rindfleisch mit Brokkoli aus dem Wok",
+      "instructions": "Dünne Rindfleischstreifen bei hoher Hitze mit Brokkoli in einer Ingwer-Soja-Austernsauce anbraten. Diese Version eines beliebten Gerichts zum Mitnehmen ist in 15 Minuten fertig und kostet nur einen Bruchteil.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack statt dünn geschnittenem Rindfleisch verwenden. Das ist deutlich günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Zusätzliche Sojasauce und einen Teelöffel Honig verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-veggie-stir-fry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch-asiatisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 750,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-veggie-stir-fry/",
+      "components": [
+        {
+          "key": "17624ccf-d37d-5aec-bbbc-f1e7e76011d7",
+          "name": "Zutaten",
+          "servingGrams": 764.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e2842dc-6ab9-5411-aed3-b95fc7ce1c8c",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "200abdab-904c-5f67-a498-ea95bb6a1754",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f62ff234-371a-5fff-92bc-41ceabd2b5eb",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9177989-4986-5e19-8722-876729d7ba16",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fce1220-90dd-5c7c-b93d-e449a15a3377",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "842a71b1-665a-5d3f-abea-6263e554052d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8936ca5-577a-5fe5-9ab7-3db8ec64d3ba",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1068e22-00d6-5a2c-bdb5-dd78c22e164e",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0eb0f8da-cae1-5e2a-8a15-2b0e66b1df5a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f394fa06-6f3d-5ff5-881d-05b2f371275b",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef0ee39b-218e-5340-8eec-4ff8c47545d0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Verrühre Sojasauce, Austernsauce und Sesamöl für die Woksauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei sehr hoher Hitze. Gib das Rindfleisch hinein und brate es unter Rühren 3 Minuten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 30 Sekunden. Füge Brokkoliröschen und 2 EL Wasser hinzu und brate sie unter Rühren 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Sauce dazu und schwenke alles 1 Minute, bis es vermischt ist. Serviere das Gericht auf Reis und garniere es mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-caesar-wrap",
+      "slug": "mfr-chicken-caesar-wrap",
+      "title": "Eiweißreicher Caesar-Wrap mit Hähnchen",
+      "instructions": "Gegrilltes Hähnchen in Scheiben, knackiger Romanasalat und ein Caesar-Dressing mit griechischem Joghurt, fest in eine Weizentortilla gerollt. Dieses handliche Mittagessen liefert 44 Gramm Eiweiß.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Caesar-Dressing mit griechischem Joghurt ist günstiger und enthält mehr Eiweiß als fertiges Dressing aus dem Laden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Nährhefe für eine milchfreie Variante mit ähnlichem Geschmack verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-caesar-wrap",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 751,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-caesar-wrap/",
+      "components": [
+        {
+          "key": "11e7b495-b693-505a-9eaf-67e556931a23",
+          "name": "Zutaten",
+          "servingGrams": 290,
+          "position": 0,
+          "items": [
+            {
+              "key": "fed13ba6-f1f0-52a0-acf3-9940fb05d29e",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dc23300-7d4c-5564-82d3-f3a80bf17212",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b1f97bd-9909-571b-a6f5-15c2c49959b1",
+              "ingredientName": "Salat",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98a82f25-5aa6-5b32-bad3-20aa6f59bc96",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4093c048-f4d6-563f-b2bc-ecd724d34a9a",
+              "ingredientName": "Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc7c414a-b0c0-5421-b3cf-e295c4f66b61",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe12f466-8973-51fa-a649-63383e5f53af",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "763ff306-46f9-5080-819e-c3a639cd4d63",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34f5ebd4-302f-56ea-80f5-be85e2423518",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72a45634-ef5b-57a7-856f-ab14534cd01e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen mit Salz und Pfeffer. Brate es in Olivenöl bei mittlerer bis hoher Hitze 5–6 Minuten, bis es durchgegart ist. Schneide es in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite das Dressing zu: Verquirle griechischen Joghurt, Parmesan, Zitronensaft, Knoblauch, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische den zerkleinerten Romanasalat mit der Hälfte des Dressings. Fülle die Tortillas mit Salat, Hähnchenscheiben und zusätzlichem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle die Wraps fest auf, schneide sie in der Mitte durch und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/EiolafNtsc1hMZbRelfS0FSlUtA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chicken-Caesar-Wrap-LEAD-3-625d2966013148649e76ef825e8d45d1.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/EiolafNtsc1hMZbRelfS0FSlUtA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chicken-Caesar-Wrap-LEAD-3-625d2966013148649e76ef825e8d45d1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shrimp-garlic-pasta",
+      "slug": "mfr-shrimp-garlic-pasta",
+      "title": "Pasta mit Garnelen in Zitronen-Knoblauch-Butter",
+      "instructions": "Saftige Garnelen in Knoblauch und Zitronenbutter anbraten und mit Pasta vermengen. Dieser italienisch-amerikanische Klassiker ist mit tiefgekühlten Garnelen schnell und günstig zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen tauen unter kaltem Wasser in 10 Minuten auf. Sie schmecken genauso gut wie frische, kosten aber nur einen Bruchteil."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pasta",
+          "swap": "Zucchini-Nudeln für eine kohlenhydratärmere Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-garlic-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 752,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-garlic-pasta/",
+      "components": [
+        {
+          "key": "3f35b24b-732c-5a39-937c-9bb9ced292c6",
+          "name": "Zutaten",
+          "servingGrams": 297,
+          "position": 0,
+          "items": [
+            {
+              "key": "2910c6af-e383-55c8-af3a-b064920ca279",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab99732e-0cf5-5788-b6be-fb35a7dbbf92",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89d383e3-fd04-53af-9e13-37e9d65b3c95",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cffaee8c-e034-5018-8a1d-20de7b0cb994",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc688b4b-a3ce-551f-aebe-5f65a549e88c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24dabf24-f9b4-5e3f-b83d-ade7718d74fb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0299a8c8-9cc2-5677-9f6c-5e2e67205f18",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4efb896-9699-58a8-88ae-7edbd66a0949",
+              "ingredientName": "Frische Petersilie",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ef403cf-6f66-5867-ae8f-12c4e3abc936",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81205597-e688-5aae-b0cf-fe73f3cb1418",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Pasta. Erhitze Olivenöl und Butter bei mittlerer bis hoher Hitze. Gib Knoblauch und rote Chiliflocken dazu und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Garnelen hinzu und gare sie pro Seite 1–2 Minuten, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zitronensaft und einen Schuss Pastawasser dazu. Vermische alles mit der abgegossenen Pasta und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/SWtOFefv6LFHFd78c87yPLqURu4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/229960-Shrimp-Scampi-with-Pasta-mfs-050-09903cd453324332b01e5670eaffbf74.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/SWtOFefv6LFHFd78c87yPLqURu4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/229960-Shrimp-Scampi-with-Pasta-mfs-050-09903cd453324332b01e5670eaffbf74.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-burrito-bowl",
+      "slug": "mfr-chicken-burrito-bowl",
+      "title": "Burrito-Schüssel mit Koriander-Limetten-Hähnchen",
+      "instructions": "Gewürzte Hähnchenbrust, Koriander-Limetten-Reis, schwarze Bohnen, Mais und Salsa in einer Schüssel. So holst du dir eine Chipotle-Mahlzeit nach Hause und zahlst nur einen Bruchteil.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese Mahlzeit kostet etwa $2.50 pro Portion statt $12+ in einem Schnellrestaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Rinderhack oder Garnelen für Abwechslung verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-burrito-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 753,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-burrito-bowl/",
+      "components": [
+        {
+          "key": "276a47eb-6adb-5b04-8f9a-7ce96b1cb095",
+          "name": "Zutaten",
+          "servingGrams": 731.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec82cef5-9cc8-5877-a907-1bb309a73df4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "309ce579-c76a-558f-83bb-20e287a42936",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "873030e3-6344-5de9-9bb0-0f81ae301e33",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0c5bc3c-ba2f-5fb1-be79-377d05eb34b0",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4a06202-cdbb-54c4-ba19-cc3ac5b6045d",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25b53fd2-bc07-5914-9417-c16b27743b3f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e7ffbf7-08ba-54cb-b2aa-8bd6b21a24cd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b911eb0c-4dd6-5849-8d5f-11b9044dc644",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab3789e1-801a-555d-95ba-9b0f0c1b6512",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb5f4ed8-6fbf-5fb5-bd0b-fb38feba631e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18758d00-3bcf-5216-8d7f-ee273e67b73b",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23124b22-99d4-5294-b25d-5d8a81ab1931",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen mit Kreuzkümmel, Chilipulver, Knoblauchpulver und Salz. Brate es in Olivenöl 5–6 Minuten pro Seite. Schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare den Reis und rühre Limettensaft und Koriander unter, damit daraus Koriander-Limetten-Reis wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Bohnen und Mais.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüsseln an: Reis, Bohnen, Mais, Hähnchen und Salsa. Garniere sie mit zusätzlicher Limette und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/07/Chicken-Avocado-Burrito-Bowl-IMAGE-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/07/Chicken-Avocado-Burrito-Bowl-IMAGE-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuna-white-bean-pasta",
+      "slug": "mfr-tuna-white-bean-pasta",
+      "title": "Nudelsalat mit Thunfisch und weißen Bohnen",
+      "instructions": "Kalte Pasta mit Dosenthunfisch, weißen Bohnen, Kirschtomaten und einem Zitronen-Olivenöl-Dressing vermischen. Dieses Mittagessen ohne Kochen liefert pro Portion 35 Gramm Eiweiß.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Thunfisch, Bohnen aus der Dose und Pasta ergeben eine vollständige, eiweißreiche Mahlzeit für etwa $3.50."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder schwarze Bohnen eignen sich genauso gut."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-white-bean-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "schnell",
+        "makrofreundlich",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 754,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-white-bean-pasta/",
+      "components": [
+        {
+          "key": "4bff2765-d481-58ee-8f1a-9fb122101ab6",
+          "name": "Zutaten",
+          "servingGrams": 1029.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4b27a1f-de15-5aa4-ba0e-b883e72b07d3",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e42b01a-003e-5a96-bb57-ce5d09ba302a",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f643c5c1-642f-59e6-a50e-1d58c066a63d",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61940b7b-03b7-5e48-8136-7b60c624918b",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2339660-2022-5826-a83a-449d85ba3c2b",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f6c3bf8-6283-5180-b4d8-7698106350b7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a029cb86-af05-5125-9d0e-ed742f2a9adb",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b184991e-6d75-5590-a4e8-a35fbaf3a06e",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2280985-1b85-5cf1-9ba4-3a14a9535526",
+              "ingredientName": "Frische Petersilie",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e24c247e-22d3-5763-a980-1b1e271bb543",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Pasta und spüle sie kalt ab. Gieße den Thunfisch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die Pasta mit weißen Bohnen, Thunfisch, gewürfelten Tomaten und Gurke, Olivenöl, Zitronensaft, Petersilie und Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze alles mit Salz. Serviere den Salat bei Zimmertemperatur oder kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myspecialfood.com/wp-content/uploads/2024/09/White-Bean-Tuna-Salad-11-Qhe91p.jpeg",
+          "sourcePageUrl": "https://myspecialfood.com/wp-content/uploads/2024/09/White-Bean-Tuna-Salad-11-Qhe91p.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

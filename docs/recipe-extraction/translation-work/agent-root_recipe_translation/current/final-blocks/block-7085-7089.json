@@ -1,0 +1,1044 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-poutine-g-t",
+      "slug": "gen-poutine-g-t",
+      "title": "Poutine Gâté",
+      "instructions": "Quebecer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hühnchen, wenn es im Angebot ist, und portionieren Sie es in Gefrierbeutel",
+        "Verwenden Sie Champignons statt Spezialpilzsorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Quebec",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7085,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-g-t/",
+      "components": [
+        {
+          "key": "57bf603e-0d75-53a5-bca3-4e967f66cc1e",
+          "name": "Zutaten",
+          "servingGrams": 500,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb860d13-59d2-55c3-a805-7d8601f4d058",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "cb51a607-a923-5cd5-9c72-b9d59d365cf1",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "631a38db-eb73-51b2-b56a-e37218c244ab",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "71ec38b2-c0bb-5a17-a46e-a33584175ea0",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroße gewürfelt"
+            },
+            {
+              "key": "10a83150-9958-5be4-9804-99dae4f7d691",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4cd4cd0e-ba83-5cd1-96d9-f5a3aec5ae3f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "073c38bb-912b-5475-afb3-a3ccc4af3ea2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "b6cc177b-0fb7-5e58-b716-bca26dc2fb77",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in Pommes schneiden und 30 Minuten in kaltem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenbrust in kleine Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 Esslöffel Öl in einer Pfanne erhitzen und das Hähnchen bei mittlerer Hitze etwa 6 Minuten lang goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebeln und in Scheiben geschnittene Pilze hinzufügen und etwa 4 Minuten lang weich kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Rinderbrühe aufgießen und 5 Minuten köcheln lassen, bis eine leichte Soße entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittieröl auf 325 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kartoffeln abtropfen lassen und portionsweise goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiße Pommes Frites in einen Behälter schichten, mit Käsebruch belegen und alles mit Hühnersoße übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/2022/HomemadePoutineRecipe_Shot8_78.jpg?w=1200&q=82&auto=format&fit=crop&dm=1667570349&s=3cd94c0af52699777115476e21d3fdf5",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/2022/HomemadePoutineRecipe_Shot8_78.jpg?w=1200&q=82&auto=format&fit=crop&dm=1667570349&s=3cd94c0af52699777115476e21d3fdf5",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-aurore",
+      "slug": "gen-poutine-aurore",
+      "title": "Poutine Aurore",
+      "instructions": "Quebecer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie die Soße in großen Mengen zu und bewahren Sie sie bis zu 3 Tage im Kühlschrank auf",
+        "Kaufen Sie Brühe im Sonderangebot und füllen Sie Ihre Speisekammer auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Quebec",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7086,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-aurore/",
+      "components": [
+        {
+          "key": "e6c22098-a971-5156-bb29-b503232fd4cf",
+          "name": "Zutaten",
+          "servingGrams": 688.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b369726-0c06-5775-9e28-07a610f49abf",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "85943d4d-beea-5e84-bbce-808b63fe8299",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b13fe072-c2ee-5e4c-80d5-059cc3ab807d",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "029ee9ea-47c9-5af8-915a-749739c14d75",
+              "ingredientName": "Maisstärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "7342f53a-3cc5-50bf-ad1b-7380cc220cd8",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "900efc02-8b01-5203-8fef-0cfc9dc1db9e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e90769e7-6581-5bee-bd0e-98443e967070",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "3f3d3428-7051-51c6-95ba-739bed6e10dd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in Pommes schneiden und 30 Minuten in kaltem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderbrühe und Tomatensauce in einem Topf bei mittlerer Hitze vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maisstärke mit Wasser vermischen und etwa 2 Minuten lang in die Soße einrühren, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die rosa Soße noch 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittieröl auf 325 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kartoffeln abgießen, trocken tupfen und portionsweise goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Pommes auf Küchenpapier abtropfen lassen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiße Pommes Frites in einen Behälter schichten, mit Käsebruch belegen und alles mit rosa Soße übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/05/15/multimedia/mk-poutine-vqkt/mk-poutine-vqkt-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/05/15/multimedia/mk-poutine-vqkt/mk-poutine-vqkt-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-bbq",
+      "slug": "gen-poutine-bbq",
+      "title": "Poutine-BBQ",
+      "instructions": "Quebecer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie BBQ-Sauce von Handelsmarken anstelle von Markensaucen",
+        "Kaufen Sie Kartoffeln in großen Mengen, um die Bratkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Quebec",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7087,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-bbq/",
+      "components": [
+        {
+          "key": "142b5b86-47bd-57a4-9303-7644ff4617ff",
+          "name": "Zutaten",
+          "servingGrams": 625,
+          "position": 0,
+          "items": [
+            {
+              "key": "0eb4aab2-7716-5e32-893c-52c4425df860",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "17e4b903-1750-502e-91e8-118db1046f54",
+              "ingredientName": "Tomatensauce",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "de0e33e1-dfae-582e-89bd-cceba0462e02",
+              "ingredientName": "Rinderbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "bb96b022-4152-5496-81c6-e53b4fddb119",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e843b21f-2e2c-5c39-af0c-5b8902c02e3e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "e276cfc9-918d-58cc-88cd-bfe1ae272de1",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8710fadf-7149-5b2f-a333-e6f61a5be4d9",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1a43e51b-fd73-5895-b19f-ba2454c8f0ac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in Pommes schneiden und 30 Minuten in kaltem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderbrühe und Barbecuesauce zusammen in einem Topf bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maisstärke mit Wasser vermischen und in die Soße einrühren, dabei ca. 2 Minuten köcheln lassen, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frittieröl auf 325 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffeln abgießen, trocken tupfen und portionsweise goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Pommes auf Küchenpapier abtropfen lassen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiße Pommes Frites in einen Behälter schichten, mit Käsebruch belegen und alles mit BBQ-Soße übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren, solange die Soße heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/vICHAu16XWhAc-WLQV-7avihHKY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ultimate-perfect-poutine-fries-cheese-curds-gravy-recipe-hero-2-7637732f8c174bc59f9b84e7b6e6b660.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/vICHAu16XWhAc-WLQV-7avihHKY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ultimate-perfect-poutine-fries-cheese-curds-gravy-recipe-hero-2-7637732f8c174bc59f9b84e7b6e6b660.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-complet",
+      "slug": "gen-poutine-complet",
+      "title": "Poutine komplett",
+      "instructions": "Mittagessen in Quebec  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hotdogs im Sonderangebot und frieren Sie sie zur späteren Verwendung ein",
+        "Hackfleisch in großen Mengen ist günstiger als kleine Packungen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7088,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-complet/",
+      "components": [
+        {
+          "key": "a5cb8a78-286d-5d3f-8ab2-931524f389f8",
+          "name": "Zutaten",
+          "servingGrams": 756.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "91ae91fb-c027-5c9e-8592-b84b9680af24",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "274a6c72-946c-58a4-b690-e2d28406a58e",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "e712c82b-704a-5807-bd97-9e76c1507beb",
+              "ingredientName": "Hotdog",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b93eb27a-6237-54fc-bc6e-21d72c2745cb",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroße gewürfelt"
+            },
+            {
+              "key": "5877019a-b556-5e9d-93c3-6ca5be9eac45",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "57ab7d57-4ce7-55ea-853a-2279ab6d79d3",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0e3b6e42-98c0-55f4-8219-2faf82b004f9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "ffb031cd-aa2d-524d-8ec3-c684d3c24780",
+              "ingredientName": "Maisstärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "1388cfd2-2704-5e39-8427-882f019737fb",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "311d85e6-1bef-55b4-bde7-6c3df391f317",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in Pommes schneiden und 30 Minuten in kaltem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch mit Zwiebelwürfeln in einer Pfanne bei mittlerer bis hoher Hitze anbraten und dabei das Fleisch auseinanderbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hot Dogs in Scheiben schneiden, zum Rindfleisch geben und weitere 2 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einem separaten Topf Rinderbrühe erhitzen und die Fleischmischung einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Maisstärke mit Wasser vermischen und etwa 2 Minuten lang in die Soße einrühren, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittieröl auf 325 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kartoffeln abgießen, trocken tupfen und portionsweise goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiße Pommes Frites in einen Servierbehälter schichten, mit Käsequark und Fleisch belegen und alles mit heißer Soße übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/vICHAu16XWhAc-WLQV-7avihHKY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ultimate-perfect-poutine-fries-cheese-curds-gravy-recipe-hero-2-7637732f8c174bc59f9b84e7b6e6b660.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/vICHAu16XWhAc-WLQV-7avihHKY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ultimate-perfect-poutine-fries-cheese-curds-gravy-recipe-hero-2-7637732f8c174bc59f9b84e7b6e6b660.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-montreal-style-bagel",
+      "slug": "gen-montreal-style-bagel",
+      "title": "Bagel im Montreal-Stil",
+      "instructions": "Jüdisches Frühstück in Montreal  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mehl und Hefe in großen Mengen, um die Kosten pro Charge zu senken",
+        "Verwenden Sie alle Samen, die Sie zur Hand haben, oder lassen Sie sie ganz weg"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Montreal-jüdisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7089,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-montreal-style-bagel/",
+      "components": [
+        {
+          "key": "a64ea7fe-6817-537e-a3f7-fce0a00c2f94",
+          "name": "Zutaten",
+          "servingGrams": 255.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f26d7797-950d-52a1-89db-8f5e1e61d8e1",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5f8f5ca4-f615-5e33-a6cf-5bec22c2d311",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0edfb820-4da2-51c4-9ce5-1aff7b4e87ca",
+              "ingredientName": "Schatz",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "793d39af-bde7-580a-87db-c0dadc638f77",
+              "ingredientName": "Instant-Hefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "3cd07bc6-69df-5148-8e25-f6132d619881",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "266b354a-262b-5600-b186-6bf26217c6f6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "03d1ee5a-09a9-5b18-af53-c0603aa163ac",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warmes Wasser, Honig und Hefe in einer Schüssel vermischen und 5 Minuten schaumig rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Salz und Öl untermischen, bis ein steifer Teig entsteht, dann 8–10 Minuten von Hand kneten, bis ein glatter und elastischer Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in 8 gleich große Stücke teilen, jedes zu einer Kugel rollen, in die Mitte ein Loch drücken und zu einem Bagel mit einer 2 Zoll großen Öffnung formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bagels auf ein mit Backpapier ausgelegtes Backblech legen, mit einem feuchten Tuch abdecken und 30 Minuten bei Zimmertemperatur gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 425 °F vorheizen und einen großen Topf Wasser mit 2 Esslöffeln Honig zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bagels 1-2 Minuten pro Seite kochen, bis sie schwimmen und wieder aufgehen, dann mit einem Schaumlöffel herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gekochte Bagels auf ein Backblech legen, mit Wasser bestreichen und mit Sesam oder Mohn bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "25–30 Minuten backen, bis es außen goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.kingarthurbaking.com/sites/default/files/recipe_legacy/9744-3-large.jpg",
+          "sourcePageUrl": "https://www.kingarthurbaking.com/sites/default/files/recipe_legacy/9744-3-large.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

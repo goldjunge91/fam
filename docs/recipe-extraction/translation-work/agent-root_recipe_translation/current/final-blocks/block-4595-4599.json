@@ -1,0 +1,1050 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-couscous-bowl",
+      "slug": "gen-couscous-bowl",
+      "title": "Couscous-Bowl",
+      "instructions": "Marokkanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Aprikosen lose statt abgepackt",
+        "Kichererbsen aus der Dose sind im Angebot meist günstiger als getrocknete"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4595,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-couscous-bowl/",
+      "components": [
+        {
+          "key": "9cdcc3b4-442b-55d2-9fdf-486c305f9e4a",
+          "name": "Zutaten",
+          "servingGrams": 445,
+          "position": 0,
+          "items": [
+            {
+              "key": "22ba08e9-36b8-5dc8-ae58-13568484a729",
+              "ingredientName": "Couscous",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "ec051dcc-bda5-595d-904b-8b63d4f416fa",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8c6d3895-6729-56e2-97fc-283ccdec03b9",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "7bc52b80-9814-5f4a-8489-6d6f051d18d3",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5ad5c8cb-2da2-5fb4-86f8-2668091104a4",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "13f1c9b6-7c79-5bc2-8eaa-34c446bbdbfa",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "54434b95-30ea-5e59-9a8b-21989970af83",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "feb6436d-7baf-5e36-b96c-44e925c29f59",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "8fb532df-e3cb-50b6-a7ba-4d8908c4f2a6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f4dc6109-c79a-531a-be60-de09ebc0d27a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "63228984-f303-527e-bbf9-c2bb3e22b434",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem Topf erhitzen und die gewürfelte Zwiebel mit Kreuzkümmel und Zimt 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gemüsebrühe hinzufügen und aufkochen, dann Couscous einrühren und vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Topf 5 Minuten abdecken, damit der Couscous die Flüssigkeit aufnehmen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kichererbsen aus der Dose abgießen und abspülen, dann mit Couscous, gehackten Aprikosen und Mandeln vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer würzen, mit frischem Koriander garnieren und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/sweet-potato-couscous-sunshine-bowls-lead-679432a8750a7.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/sweet-potato-couscous-sunshine-bowls-lead-679432a8750a7.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rice-and-beans-bowl",
+      "slug": "gen-rice-and-beans-bowl",
+      "title": "Reis-Bohnen-Bowl",
+      "instructions": "Kubanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis und Bohnen in größeren Mengen, um bei diesem günstigen Gericht maximal zu sparen",
+        "Verwende über Nacht eingeweichte getrocknete Bohnen statt Bohnen aus der Dose, um die Kosten um 60% zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "kubanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4596,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rice-and-beans-bowl/",
+      "components": [
+        {
+          "key": "7a2fa6c2-0351-5ff7-959b-36dc52149de6",
+          "name": "Zutaten",
+          "servingGrams": 410.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a93425a8-8085-5334-a347-6357be63c0ee",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "60109553-ed20-5ef7-8d13-46a90c2ae27f",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "9d9eaf82-d5d4-5fe9-99bf-59360da9f50f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "77610356-4f75-5bfa-b7d5-182d75bc8c7c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "8573b8b6-e46f-557f-9533-02ee443f0b9a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "5a9a0d37-6910-5d08-8870-9340e4aa0efb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1f5c9404-4c2c-5dc5-a604-7e28e1c3483c",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "910f2ab8-97c5-55f6-b296-4f774d3b1473",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "7d6c0e8a-79e1-5c00-b2c2-bf1ba1aaaec1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "da5fb31f-dfb9-54b6-85bf-a76c77bd75de",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Paprika würfeln und mit gehacktem Knoblauch und Kreuzkümmel 3 Minuten in Olivenöl anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schwarze Bohnen abspülen und abgießen, mit Salz und Pfeffer in die Pfanne geben und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis nach Packungsanleitung in 3 Tassen Wasser kochen, etwa 18 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gekochten Reis und Bohnen vermengen, Limettensaft darüberpressen und alles umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit frischem Koriander garnieren und heiß mit Limettenspalten als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/02/DELICIOUS-Black-Bean-Plantain-Bowls-9-healthy-ingredients-BIG-flavor-SO-satisfying-vegan-glutenfree-plantains-beans-plantbased-minimalistbaker-11.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/02/DELICIOUS-Black-Bean-Plantain-Bowls-9-healthy-ingredients-BIG-flavor-SO-satisfying-vegan-glutenfree-plantains-beans-plantbased-minimalistbaker-11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panzanella-bowl",
+      "slug": "gen-panzanella-bowl",
+      "title": "Panzanella-Bowl",
+      "instructions": "Italienisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Brot am Vortag in der Bäckereiabteilung für 50% weniger",
+        "Verwende das frische Gemüse, das diese Woche im Angebot ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4597,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panzanella-bowl/",
+      "components": [
+        {
+          "key": "99d54546-4e0f-53b9-b82f-0ba2b510d941",
+          "name": "Zutaten",
+          "servingGrams": 246.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "244f4e34-8209-586a-9a25-f24eca762547",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen, gewürfelt"
+            },
+            {
+              "key": "5ce91b2c-12f5-586b-beec-bb0cbc9bfb31",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "0fb2ef38-3e4d-5dbd-aa1a-c598bcf6312d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "eaa1cfb4-40c6-5edc-a241-5417ad9e9505",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "aee6989d-a0fb-5f8f-b095-d3eec278c956",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b0fb6a45-be76-5190-8f38-94c7e2f00be7",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "347d0c91-71b4-5861-8b20-dc6c41090dc4",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4d43758f-d333-55d1-af14-7b365ea1db8f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6a7d4b62-b6bd-564d-b459-a042a77df7ca",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Altbackenes Brot würfeln und mit 1 Esslöffel Olivenöl vermengen, dann bei 375°F 8 Minuten rösten, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomaten und Gurke würfeln und die rote Zwiebel in einer großen Schüssel in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauchzehen mit Salz zerdrücken und mit dem übrigen Olivenöl und Balsamico-Essig verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Dressing über das Gemüse gießen und 5 Minuten stehen lassen, damit es Saft zieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geröstete Brotwürfel und gezupftes Basilikum hinzufügen, vorsichtig vermengen, mit Pfeffer würzen und vor dem Servieren 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/wKO789x29iVq1vooYqBMqJpDN2Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Roasted-Root-Panzanella-LEAD-5-defab282522e4aa3aedd70706a485cf5.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/wKO789x29iVq1vooYqBMqJpDN2Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Roasted-Root-Panzanella-LEAD-5-defab282522e4aa3aedd70706a485cf5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-farro-e-verdure",
+      "slug": "gen-farro-e-verdure",
+      "title": "Farro e Verdure",
+      "instructions": "Italienisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe saisonales Gemüse auf dem Wochenmarkt, um bessere Preise zu bekommen",
+        "Verwende geriebenen Parmesan der Hausmarke statt frischem, um zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4598,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-farro-e-verdure/",
+      "components": [
+        {
+          "key": "d4437e5c-f56e-5907-9de6-77219390b60a",
+          "name": "Zutaten",
+          "servingGrams": 453.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a06e6a2-e586-573b-bdd7-e11362a8f549",
+              "ingredientName": "Farro",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a7aa10f1-768c-5403-89e2-93f3c44f4eda",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "94716a22-f853-5a28-a801-21bd7f565c0e",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "aed673f1-f48b-59b6-9bba-b1b45f0c0a1c",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "b389bd91-e4dd-5068-9e36-5a380c3e2d7e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 rotes Stück"
+            },
+            {
+              "key": "eda30cfe-d9c4-5e3c-8906-2a01c995c846",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "671935f6-0650-5cee-8041-cac993189dc9",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "3ceee492-d77c-5f99-96b2-41f32f37a621",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "a69f743a-4798-56c5-915b-57273d60334e",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "40c21288-e89b-5494-ae7d-afba9151ee57",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4af83243-7718-551f-8548-9c802a705462",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zucchini, Aubergine, Paprika und Zwiebel in gleichmäßige Stücke würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen und das Gemüse mit gehacktem Knoblauch etwa 10 Minuten anbraten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemüsebrühe angießen und aufkochen, dann Farro hinzufügen und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgedeckt 30 Minuten köcheln lassen und gelegentlich umrühren, bis der Farro weich ist und die Flüssigkeit aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frische Petersilie unterrühren, mit Salz und Pfeffer würzen, mit geriebenem Parmesan bestreuen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://blog.giallozafferano.it/cucinavistamare/wp-content/uploads/2016/09/555-Insalata-di-farro-con-verdure.jpg",
+          "sourcePageUrl": "https://blog.giallozafferano.it/cucinavistamare/wp-content/uploads/2016/09/555-Insalata-di-farro-con-verdure.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tabbouleh-bowl",
+      "slug": "gen-tabbouleh-bowl",
+      "title": "Tabbouleh-Bowl",
+      "instructions": "Libanesisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bulgur und Kräuter lose, um Verpackung und Kosten zu sparen",
+        "Bereite dieses Gericht im Sommer zu, wenn Tomaten und frische Kräuter am günstigsten sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "libanesisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4599,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tabbouleh-bowl/",
+      "components": [
+        {
+          "key": "6e516d15-bc77-5062-b013-56fb4f455912",
+          "name": "Zutaten",
+          "servingGrams": 590.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "0149f347-d0c0-5c85-81ad-e850d7267c14",
+              "ingredientName": "Bulgurweizen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d7b45a5e-4ec8-5878-a7a5-90e9c1d23f8f",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c0a99f85-f6ac-53ed-9190-7f9dadae30e5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0b9d2160-ff7d-5b47-b4f1-f8fb2e3f0c33",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "32a066b5-5ce2-5af3-80dc-582fbddc1055",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "14c33b82-7bb6-5dbe-bb6e-4018d8381ddb",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "e92c5ceb-be85-5373-b2ce-6c6b423e8e83",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 mittelgroßes Stück"
+            },
+            {
+              "key": "b2079859-f5a8-53ae-9ce1-0d6a69e38f5e",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5f5c29c2-e7e2-59a2-87c3-a42794aec4cc",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "9514509b-f49b-5410-9074-4cf83522208f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kochendes Wasser über den Bulgur in einer Schüssel gießen, mit Folie abdecken und 15 Minuten quellen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Petersilie, Minze, Tomaten, Gurke und rote Zwiebel fein und in gleichmäßige kleine Stücke hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Bulgur mit einer Gabel auflockern und in eine große Rührschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kräuter und Gemüse zum Bulgur geben, dann mit Zitronensaft und Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Alles vorsichtig vermengen, mit Salz und Pfeffer würzen und bis zum Servieren kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/in6nSoNi1A1zMNL6CVVq8X8K8aQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tabbouleh-LEAD-01-cc080599f8a54ab8ba0f5da4bb3434ff.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/in6nSoNi1A1zMNL6CVVq8X8K8aQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tabbouleh-LEAD-01-cc080599f8a54ab8ba0f5da4bb3434ff.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

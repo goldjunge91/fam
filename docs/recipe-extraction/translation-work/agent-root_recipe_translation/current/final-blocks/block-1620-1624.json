@@ -1,0 +1,1299 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-nafr2-chicken-tagine",
+      "slug": "mfr-nafr2-chicken-tagine",
+      "title": "Marokkanische Hähnchen-Tajine mit Salzzitrone",
+      "instructions": "Ein langsam geschmortes Hähnchengericht voller aromatischer Gewürze: Hähnchenoberkeulen köcheln mit grünen Oliven, Salzzitrone, Safran, Ingwer und einer Fülle marokkanischer Gewürze, bis die Sauce glänzt und sich das Fleisch vom Knochen löst. Authentisch marokkanisch und einfach im Schmortopf zuzubereiten.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Salzzitronen lassen sich zu Hause aus Salz, Zitronen und einem Glas in 3 Wochen selbst herstellen.",
+        "Safran kannst du weglassen und für mehr Farbe einfach mehr Kurkuma verwenden.",
+        "Hähnchenoberkeulen sind viel günstiger als die als Tajine-Fleischstücke verkauften Teile."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "preserved-lemon",
+          "swap": "Frische Zitronenschale und 1 TL Salz"
+        },
+        {
+          "forIngredientId": "saffron",
+          "swap": "1 TL Kurkuma und eine Prise Paprikapulver für die Farbe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-chicken-tagine",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "Tajine",
+        "Hähnchen",
+        "Salzzitrone",
+        "Olive",
+        "Safran"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1620,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-chicken-tagine/",
+      "components": [
+        {
+          "key": "56dfe24f-920e-5ab3-8a88-7f5083c49b32",
+          "name": "Zutaten",
+          "servingGrams": 251.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "534b9745-cb4d-5f96-b706-23c8e2c317c7",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08fc0c57-5a06-588d-bf02-59ea8fcae3f3",
+              "ingredientName": "Salzzitrone",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "651c6c03-f07e-5e91-92b8-57345a6ba949",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51028e77-64b5-5e51-91dd-1a773cb07414",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3df791bf-2458-55f1-899a-158fa48ff1b3",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03ccbb35-17c3-5fd0-8586-bf38197798a9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2509b27-0c12-5487-b760-90c4391486cc",
+              "ingredientName": "Safranfäden",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca7b4b88-ba17-5af8-8de2-820f326120c7",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d298b046-160b-5b66-a584-b3c80c7c2594",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad712b92-1692-5ae4-b0a1-a5c06811ba85",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c549e7a-d386-5a6e-bcd0-43838f9133fb",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb9d8609-5e2b-50fb-b3bd-36b48a8b3e3b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7cc5522-218a-5dca-9587-0d18c37dded1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b833e6e9-791d-5df6-92b8-f4d7c9ee96bd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "670bef08-9e34-5f68-b92e-853e6af494da",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen mit Kurkuma, Kreuzkümmel, Koriander, Zimt und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune es im Schmortopf in Öl 4 Minuten pro Seite und nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Zwiebel 5 Minuten an. Gib Knoblauch und Ingwer dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das Hähnchen zurück in den Topf und gib Brühe, Safran und die in Streifen geschnittene Schale der Salzzitrone dazu. Entferne das Fruchtfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmore alles zugedeckt bei 325°F 45 Minuten. Gib die Oliven in den letzten 10 Minuten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere mit Koriander und serviere das Gericht mit Couscous.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/0fU4EHMhjOX0ZhMRz1LOX1KVukE=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tagine-with-preserved-lemons-olives-2394715-step-06-493352800d56492b8a621dc49fdc9ae3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/0fU4EHMhjOX0ZhMRz1LOX1KVukE=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tagine-with-preserved-lemons-olives-2394715-step-06-493352800d56492b8a621dc49fdc9ae3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nafr2-shakshuka-green",
+      "slug": "mfr-nafr2-shakshuka-green",
+      "title": "Grüne Shakshuka",
+      "instructions": "Eine leuchtend grüne Variante des Klassikers: Eier pochieren in einer geköchelten Sauce aus Tomatillos oder grünen Tomaten, Spinat, Jalapeño und Kreuzkümmel. Grüne Shakshuka schmeckt frischer und kräftiger als die rote Version, mit ebenso flüssigen Eigelben und einer ebenso unwiderstehlichen Sauce zum Dippen mit Pita.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tomatillos sind in mexikanischen Lebensmittelgeschäften günstig. Alternativ kannst du Salsa Verde aus dem Glas pürieren.",
+        "Grüne Shakshuka enthält mehr Gemüse als die rote und kostet pro Portion weniger.",
+        "Serviere das Gericht mit Pita, Sauerteigbrot oder einfach mit einer Gabel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tomatillos",
+          "swap": "Salsa Verde aus dem Glas, nach der Zwiebel einrühren"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Cotija-Käse oder Ziegenkäse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-shakshuka-green",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "nahöstlich",
+        "Shakshuka",
+        "grün",
+        "Eier",
+        "Tomatillo",
+        "Spinat",
+        "Brunch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1621,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-shakshuka-green/",
+      "components": [
+        {
+          "key": "e91a6cc6-d877-52d7-aa0f-e9807ee75ff1",
+          "name": "Zutaten",
+          "servingGrams": 533,
+          "position": 0,
+          "items": [
+            {
+              "key": "600e8a41-1bab-5e8c-84da-47b9f36d5edd",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9524ae5-15e8-555c-826c-8fd4d3da3d4d",
+              "ingredientName": "Tomatillos",
+              "grams": 35,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f271e18-7d15-58b6-9b75-721689a129b7",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "352aabbf-658c-5f7a-ba96-97a1042b5963",
+              "ingredientName": "Jalapeño",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20bf20ce-2dd6-5eb7-9998-15b22a0f04e2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08a83050-1084-5dd2-ac41-f2096383174f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4253eb73-2474-5561-a40d-8487c0f8c287",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d29c1eb0-500e-5bd5-afd4-863181a6922c",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04acb4cc-8447-5411-95a0-6af59542bee1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1cd7eec-a24d-51b9-8ea7-fb1746722ba7",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f155ee41-6d39-5073-bf96-409d28ea3193",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d88ea02-ff81-5f7f-ad69-ca53fca72219",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db15de40-f863-5267-96c2-933bfc288bba",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Tomatillos mit Jalapeño, Knoblauch und Koriander zu einer stückigen Salsa Verde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel 4 Minuten in Öl an. Gib Kreuzkümmel und Koriander dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Salsa Verde hinein und lass alles 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den Spinat unter, bis er zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke 6 Mulden in die Sauce und schlage jeweils ein Ei hinein. Decke die Pfanne ab und gare die Eier 5–7 Minuten, bis sie den gewünschten Gargrad haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerbrösele Feta darüber, presse Limette aus und garniere mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2020/10/green-shakshuka-recipe-6.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2020/10/green-shakshuka-recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nafr2-harira",
+      "slug": "mfr-nafr2-harira",
+      "title": "Harira (marokkanische Kichererbsen-Linsen-Suppe)",
+      "instructions": "Marokkos legendäre Suppe zum Fastenbrechen: Kichererbsen und Linsen köcheln mit Lamm oder Rindfleisch, Tomaten, Safran, Ingwer, Kurkuma, Koriander und einer Handvoll Fadennudeln. Die Suppe ist dick und wärmend und wird traditionell zu Ramadan oder im Herbst mit Datteln und in Honig getauchtem Brot serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass das Lamm weg oder verwende Rinderhackfleisch für den halben Preis. Die Suppe schmeckt trotzdem köstlich.",
+        "Linsen dicken Harira auf natürliche Weise an. Es ist keine klare Brühe.",
+        "Harira schmeckt am nächsten Tag deutlich besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-lamb",
+          "swap": "Rinderhackfleisch oder für eine vegane Variante ganz weglassen"
+        },
+        {
+          "forIngredientId": "vermicelli",
+          "swap": "Beliebige kleine Pasta oder Reis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-harira",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "Harira",
+        "Suppe",
+        "Kichererbsen",
+        "Linsen",
+        "Lamm",
+        "traditionell"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1622,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-harira/",
+      "components": [
+        {
+          "key": "2f5c3fc6-2d55-5fe2-ba95-16aec1a8d902",
+          "name": "Zutaten",
+          "servingGrams": 238.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f372253-8c11-5285-bcc9-9e8996e97c30",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cea1457d-bb68-56bf-a420-384d30b7945f",
+              "ingredientName": "Rote Linsen",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2037f912-28f9-533a-bc30-348b80e16782",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b518c26-731e-5f0b-8a47-32daa2c3dac2",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "130139ef-f0e7-5846-bac2-446834f4dbdf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7dfa6f7-4a23-54ae-9ba4-0e74cd42a6b2",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c39a972a-b860-5923-bf1c-45bb5b10684e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "396549b0-fc77-5a7e-aaf7-9198534d450d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8594b2d4-7969-561c-9089-fb7b09be09d4",
+              "ingredientName": "Safranfäden",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2a2f766-daba-526b-a1ee-93f8810f4956",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c76c6c7b-0165-5e2b-8cb5-d785896d4803",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2846312-aca7-5ad6-bf01-70930d147d22",
+              "ingredientName": "Fadennudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4284228a-62a5-5ed7-a81e-1c48d08711de",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67fe59f2-1392-51e8-ac24-4725c99b371d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9ad18cd-3318-57be-8719-5e4c6de569d9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9531faa7-6467-5975-888c-39a592d02cd0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Lamm in Öl. Gib Zwiebel, Sellerie und Knoblauch dazu und gare alles 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ingwer, Kurkuma, Zimt und Safran dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Tomaten, Kichererbsen, Linsen und 6 Tassen Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Suppe 35 Minuten köcheln, bis die Linsen ganz weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Fadennudeln dazu und koche sie weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verfeinere die Suppe mit Zitronensaft und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/EHwrUo8y6ell4iFbTzEjz9ark2g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-moroccan-harira-soup-2394920-Tara-Omidvar-2022-aa389de3819d42d1ad2354d37ef1c9e1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/EHwrUo8y6ell4iFbTzEjz9ark2g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-moroccan-harira-soup-2394920-Tara-Omidvar-2022-aa389de3819d42d1ad2354d37ef1c9e1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nafr2-shakshuka-classic",
+      "slug": "mfr-nafr2-shakshuka-classic",
+      "title": "Klassische rote Shakshuka",
+      "instructions": "Das zeitlose nordafrikanische Eiergericht: Eier pochieren in einer gewürzten Tomatensauce mit süßer Paprika, Knoblauch, Kreuzkümmel und Paprikapulver, bis das Eiweiß gestockt und das Eigelb cremig ist. Serviert mit knusprigem Brot zum Auftunken und zerbröseltem Feta ergibt es ein herzhaftes Frühstück oder Abendessen.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose gehackte Tomaten und 6 Eier reichen für 3 Personen und kosten weniger als 3 Dollar.",
+        "Mit zusätzlichen Chiliflocken wird das Gericht schärfer. Die Schärfe kostet nichts extra.",
+        "Shakshuka lässt sich gut aufwärmen. Bereite mehr Sauce vor und pochier beim nächsten Mal frische Eier darin."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse oder für eine milchfreie Variante weglassen"
+        },
+        {
+          "forIngredientId": "crushed-tomatoes",
+          "swap": "Frische Tomaten würfeln und verwenden, wenn sie günstig sind"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-shakshuka-classic",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "nahöstlich",
+        "Shakshuka",
+        "rot",
+        "Eier",
+        "Tomate",
+        "Paprika",
+        "Klassiker",
+        "Brunch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1623,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-shakshuka-classic/",
+      "components": [
+        {
+          "key": "b511047c-bd05-5de6-9588-9634eff363c2",
+          "name": "Zutaten",
+          "servingGrams": 394.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "f99c1cf1-a05d-5620-ae7a-705fcb02b51b",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e69f2809-f177-580f-bd3e-7d2e620c15ce",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "653c5181-e3bb-538c-8424-64f80a8cdaa3",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b04a71b-5873-568e-b1ca-51a7f72edcd6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65665181-f39e-5155-b33b-2146553bf31e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "721d6bb5-c543-5365-afd8-3c97e2894cca",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21858c04-4919-57ee-a07b-a1f3d50b036b",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82fc2951-a613-5fcb-a432-783799d3c5d5",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41ad83d4-ffb5-516e-8d34-4bbcf3bc821c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9d0bc75-5f9e-5e1c-b0e6-1b864db145ad",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f4f663c-2f11-5014-b427-39955ca9eebd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f41fb36-299b-507c-af3e-bfc273f49f3c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09c6e58b-bade-59cf-9d4d-1a9b815f328f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 4 Minuten in Öl an. Gib Paprika dazu und gare sie 3 Minuten. Füge Knoblauch hinzu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Gewürze dazu und gare sie 1 Minute. Füge die Tomaten hinzu und lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke 6 Mulden in die Sauce und schlage jeweils ein Ei hinein. Decke die Pfanne ab und gare die Eier 5–7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerbrösele Feta darüber und garniere mit Koriander. Serviere direkt aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2019/02/classic-shakshuka-recipe-2.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2019/02/classic-shakshuka-recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nafr2-ful-medames",
+      "slug": "mfr-nafr2-ful-medames",
+      "title": "Ful Medames (ägyptischer Saubohneneintopf)",
+      "instructions": "Ägyptens Nationalfrühstück und ein beliebtes Gericht der Arbeiterklasse: Langsam gekochte Saubohnen werden mit Kreuzkümmel, Knoblauch, Zitrone und Olivenöl zerdrückt, mit einer frischen Tomaten-Kräuter-Salsa beträufelt und mit warmem Fladenbrot zum Auftunken serviert. Äußerst günstig und nahrhaft, seit 5,000 Jahren Teil der ägyptischen Küche.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Saubohnen kosten fast nichts. Ein Pfund reicht für 6–8 Personen.",
+        "Saubohnen aus der Dose sind eine völlig akzeptable Abkürzung.",
+        "Dies ist womöglich das älteste Rezept der Welt und kostet etwa $0.60 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fava-beans",
+          "swap": "Dicke Bohnen, Kichererbsen oder Augenbohnen"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Für eine von Natur aus glutenfreie Variante in einer Schale mit Löffel servieren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-ful-medames",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "nahöstlich",
+        "Ful",
+        "Saubohnen",
+        "ägyptisch",
+        "Frühstück",
+        "vegan",
+        "günstig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1624,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-ful-medames/",
+      "components": [
+        {
+          "key": "a33dc860-ac42-5dd7-b769-d2a06e6225e9",
+          "name": "Zutaten",
+          "servingGrams": 293.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "65e87fdc-cc37-5d1e-8f62-c54f6f93641c",
+              "ingredientName": "Saubohnen",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec59d709-3b7b-5676-9781-baa1dbf22a15",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea28028f-262f-5889-bbc7-db05e30ef564",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6ab212b-5747-5f8d-9cc8-5bf2d94cc03b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c86bacbc-0bd0-5539-b98d-84f22007d894",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2792af4d-251d-58ad-b0e2-96d6c24b8ff5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "159b3f56-0b08-5c31-866a-3b68f36b3b6f",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31fe32fe-4029-5362-9604-25f234c244ed",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b46b14f-4157-5f8e-a741-09891316d386",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "687bc8ec-b9a4-5a37-85b0-a137915ae5ff",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bei getrockneten Bohnen: über Nacht einweichen und 1 Stunde kochen. Bohnen aus der Dose abgießen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Saubohnen mit Wasser, das sie bedeckt, Knoblauch und Kreuzkümmel 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke etwa die Hälfte der Bohnen und würze sie mit Zitrone, Salz und roten Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Tomate und Petersilie darauf und beträufle alles großzügig mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht mit warmem Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HuhYKKtsm6EiB7DMsW0a4_ToAWw=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/ful-medames-egyptian-fava-beans-recipe-2355699-step-05-b9f2fd1ea95a407d88dff1e66c7a27c2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HuhYKKtsm6EiB7DMsW0a4_ToAWw=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/ful-medames-egyptian-fava-beans-recipe-2355699-step-05-b9f2fd1ea95a407d88dff1e66c7a27c2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

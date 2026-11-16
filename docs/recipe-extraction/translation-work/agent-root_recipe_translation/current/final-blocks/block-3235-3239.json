@@ -1,0 +1,1125 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-grilled-pork-tenderloin",
+      "slug": "gen-grilled-pork-tenderloin",
+      "title": "Gegrilltes Schweinefilet",
+      "instructions": "Amerikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinefilet im Angebot kaufen und einfrieren; es ist vielseitig und lange haltbar",
+        "Bei knappem Budget getrocknete Kräuter wie Rosmarin und Thymian statt frischer verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3235,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-pork-tenderloin/",
+      "components": [
+        {
+          "key": "308f5199-f4a1-50a5-8b88-b1a51f6f6d8a",
+          "name": "Zutaten",
+          "servingGrams": 59.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "37a472b3-ee7d-54e0-9553-ffa9314693f9",
+              "ingredientName": "Schweinefilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6c25c77f-74dd-5be2-a7e4-9a274f2bb316",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "94438e6c-5177-503c-89da-b8a8ebf5fe22",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "6e19e250-a106-5443-a618-0e2a7057acb2",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch"
+            },
+            {
+              "key": "9d5b011e-9cbf-59b9-aa75-e867b3396945",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch"
+            },
+            {
+              "key": "1057e390-0463-5aba-bacf-df7f4076bd2d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2cb71f37-5b96-5957-a383-6468e2c7ce97",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "4a6d8adc-11cd-5483-a626-206cc6881a01",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "990456f7-c320-57ad-865c-102e3bc36872",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0d85d850-fadb-5935-8c68-42d9034bf7c0",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinefilet aus dem Kühlschrank nehmen und 10 Minuten Raumtemperatur annehmen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl, gehackten Knoblauch, Rosmarin, Thymian, Salz und Pfeffer in einer kleinen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kräutermischung rundum auf das Schweinefilet reiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grill auf mittelhohe Hitze vorheizen und den Rost leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinefleisch 15-20 Minuten grillen und gelegentlich wenden, bis die Kerntemperatur 145°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Honig und Balsamicoessig vermischen und in den letzten 2 Minuten der Garzeit auf das Schweinefleisch pinseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten ruhen lassen, dann in Scheiben schneiden und mit Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/646f646c0bcd58b2b9f880a8/1:1/w_2560%2Cc_limit/20230524-SEO-RECIPES-BON-APP24260.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/646f646c0bcd58b2b9f880a8/1:1/w_2560%2Cc_limit/20230524-SEO-RECIPES-BON-APP24260.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-whey-protein-pancakes",
+      "slug": "gen-whey-protein-pancakes",
+      "title": "Pfannkuchen mit Molkenprotein",
+      "instructions": "Amerikanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Molkenproteinpulver online in größeren Mengen zu besseren Preisen kaufen",
+        "Mehl und Backpulver der Hausmarke verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3236,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whey-protein-pancakes/",
+      "components": [
+        {
+          "key": "e5298987-2d0d-57f7-b7fc-9ddee5bb4f92",
+          "name": "Zutaten",
+          "servingGrams": 293.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "21eff0fa-8580-51cd-8112-8c276a007131",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "1892e35a-178d-5a6d-90cf-0885ecf8e08b",
+              "ingredientName": "Proteinpulver",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "d02d89e3-71df-561a-b988-2b6ad0ab42d0",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "284c073c-49ba-5100-a3e4-b9e4ab3af171",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "5b54c99d-31d6-59ec-a01e-0de902cbe3aa",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "fbdb9e77-53db-510b-b0dc-013206db9dcc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "60713b6b-4a67-5004-a8f7-e3338a92dc34",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b74a1079-3b1d-5da9-88be-82d109cd9680",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a62f8b28-1256-5b94-b694-a3062d110d47",
+              "ingredientName": "Ahornsirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Molkenproteinpulver, Backpulver und Salz in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier, Milch, geschmolzene Butter und Vanilleextrakt in einer anderen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Flüssige und trockene Zutaten vermengen, bis sie gerade zusammenkommen; nicht zu stark rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine beschichtete Pfanne oder Grillplatte bei mittlerer Hitze erhitzen und leicht mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pro Pfannkuchen 1/4 cup Teig hineingießen und etwa 2 Minuten garen, bis sich oben Blasen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenden und die andere Seite etwa 1.5 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller legen und warm mit Ahornsirup servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/11/94/07/1194074873cc481f496c748d4823bcbd.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/11/94/07/1194074873cc481f496c748d4823bcbd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-chicken-kebabs-with-rice",
+      "slug": "gen-grilled-chicken-kebabs-with-rice",
+      "title": "Gegrillte Hähnchenspieße mit Reis",
+      "instructions": "Türkisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust im Angebot kaufen und für später einfrieren",
+        "Günstige Reissorten statt Premiumvarianten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "türkisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3237,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-chicken-kebabs-with-rice/",
+      "components": [
+        {
+          "key": "cea8826d-ecd5-5f29-a130-7a5851dcda51",
+          "name": "Zutaten",
+          "servingGrams": 533,
+          "position": 0,
+          "items": [
+            {
+              "key": "740d0ee8-5e66-5038-b0bd-6e5bfb6993bc",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4bfcf349-4d16-5123-8d95-f78ea3a75cc9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fb3d3bec-74d1-5dd7-97bc-9a70ba573864",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ea8cfc8e-8608-535a-a1cf-06b5a89e3ed1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "1be9b50d-c581-562d-ad00-0b27ceb79651",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "26af54ed-6717-5b5f-b9c6-c3c82d9c0bbd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2f5458a3-30e1-5c9e-b69c-e11b1d0bbdb0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5f7dd165-a187-58d5-8cf2-deb8b85677bd",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "2ec2d0ac-5bf5-55f7-be71-86e1df3ab974",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7803bf6e-1442-5974-8ccc-4232eb1c9d1b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, geviertelt"
+            },
+            {
+              "key": "0c45c6b9-44e7-5d1f-9464-f0c99884c268",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 großes Stück, in Stücke geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust in 1.5-inch-Würfel schneiden und in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl, Zitronensaft, Knoblauch, Paprikapulver, Kreuzkümmel, Salz und Pfeffer vermengen, über das Hähnchen gießen und 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen, Zwiebel und Paprika abwechselnd auf Metallspieße stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grill auf mittelhohe Hitze vorheizen und Spieße 12-15 Minuten grillen; alle 3 Minuten wenden, bis sie durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Währenddessen Reis abspülen und Hühnerbrühe in einem Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reis in die kochende Brühe geben, einmal umrühren, abdecken und Hitze auf niedrig reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reis 18 Minuten köcheln lassen, bis er weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Spieße auf dem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/06/Grilled-Chicken-Skewers-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/06/Grilled-Chicken-Skewers-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-scampi",
+      "slug": "gen-shrimp-scampi",
+      "title": "Garnelen-Scampi",
+      "instructions": "Italienisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen in größeren Mengen kaufen und nach Bedarf auftauen",
+        "Trockenen Weißwein als Ersatz verwenden oder ganz weglassen, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3238,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-scampi/",
+      "components": [
+        {
+          "key": "fcd3f65e-ec30-5604-ae0d-e6b91786c044",
+          "name": "Zutaten",
+          "servingGrams": 506,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fc06cdb-4390-5f8d-9373-bbd2554d67ed",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "cfdff0db-a8b2-58ff-9b2d-84e2576310c4",
+              "ingredientName": "Pasta",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "4fbc3d6d-94cc-5f52-aa82-60d47495d309",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bd84805b-2236-5b31-8cac-c45560466f43",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5abfd772-933f-589d-b506-2fa936b569f6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "6c2e1f89-eff7-57b1-a0bd-da4727786f0e",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "1fd49f27-8910-537f-8aa1-74da97eadca2",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "71ab69f7-c252-5399-b258-32159d9ab1b1",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "20e8a7af-d307-578b-8111-f571bb045558",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d963f91e-bc59-5046-866a-7b2b48868323",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salzwasser in einem großen Topf zum Kochen bringen und Pasta nach Packungsanweisung al dente kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch und rote Chiliflocken hinzufügen und 30 Sekunden anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen hinzufügen und 2 Minuten pro Seite garen, bis sie sich rosa zu färben beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weißwein und Zitronensaft angießen und gebräunte Reste vom Pfannenboden lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "3-4 Minuten köcheln lassen, bis die Garnelen vollständig gar sind und die Sauce leicht eingekocht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Pasta abgießen und mit Garnelen sowie Sauce vermengen, mit frischer Petersilie garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/03/Garlic-Butter-Shrimp-IMAGE-65.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/03/Garlic-Butter-Shrimp-IMAGE-65.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stir-fried-beef-with-broccoli",
+      "slug": "gen-stir-fried-beef-with-broccoli",
+      "title": "Rindfleisch mit Brokkoli aus dem Wok",
+      "instructions": "Chinesisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rindfleisch im Angebot kaufen und für später einfrieren",
+        "Tiefgekühlten Brokkoli verwenden, um Geld und Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "chinesisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3239,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stir-fried-beef-with-broccoli/",
+      "components": [
+        {
+          "key": "bfea8188-da5d-541f-81a2-48fc2d0c4df5",
+          "name": "Zutaten",
+          "servingGrams": 580.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fcfad8b2-5fc7-504a-8a8a-594a26c542a5",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "6eb1496f-1a1c-51b8-96a1-fa2ca464d4a3",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen, in Röschen geteilt"
+            },
+            {
+              "key": "362e5b1f-40f2-59fc-8b92-38d2d89943ee",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5730c214-d162-5bdf-8b80-583bd102da16",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "073bf359-429d-5a35-95e8-d29e80176a25",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "13c7d83f-b31c-55f7-82f1-eb202a20e42d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "f2911af1-4abf-552d-a572-3fa831bcbba9",
+              "ingredientName": "Maisstärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "9b03658f-4b7b-5906-9db4-43e7445e26c9",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "24cf7193-5573-5419-8383-54df8f7221eb",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "988f9b3c-5263-503a-95bc-8c417a741c64",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleischscheiben mit Maisstärke und 1 Esslöffel Sojasauce in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1.5 Esslöffel Pflanzenöl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch portionsweise hinzufügen und jeweils 2 Minuten braten, bis es gebräunt ist; dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Restliches Öl in den Wok geben und Brokkoli 3-4 Minuten pfannenrühren, bis er bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackten Knoblauch und Ingwer hinzufügen und 30 Sekunden anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rindfleisch zurück in den Wok geben und restliche Sojasauce, Wasser sowie Sesamöl hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Alles vermengen und 1-2 Minuten garen, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf gedämpftem weißem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

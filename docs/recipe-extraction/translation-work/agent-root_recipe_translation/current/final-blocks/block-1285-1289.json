@@ -1,0 +1,1023 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-asian-breakfast-thai-jok",
+      "slug": "mfr-asian-breakfast-thai-jok",
+      "title": "Thailändischer Jok (gewürzter Reisbrei)",
+      "instructions": "Thailands Variante von Congee: Reis, mit Schweinefleischbällchen, Ingwer und Fischsauce zu einem Brei gekocht und mit Spiegelei, knusprigem Knoblauch und Koriander belegt. Ein Frühstück wie in Bangkok.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jok an einem Straßenstand in Bangkok kostet $1 – diese Variante zu Hause $1.50 für zwei Portionen.",
+        "Schweinefleischbällchen sind die wichtigste Zutat – gare sie direkt im Reisbrei.",
+        "Fischsauce erst zum Schluss hinzufügen, nicht zur Brühe, damit ihr Aroma erhalten bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchen- oder Truthahnhackfleisch"
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce für eine Variante ohne Fisch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-thai-jok",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch",
+        "Jok",
+        "Congee",
+        "Frühstück",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1285,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-thai-jok/",
+      "components": [
+        {
+          "key": "1015add2-24c0-5f47-902d-9b0fe4b07bc0",
+          "name": "Zutaten",
+          "servingGrams": 823.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8151f98-7c2c-51dc-bc6e-4f6622431562",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2628cc3b-3365-5299-a39c-1628b6047944",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b8960c0-b5d6-5ba9-bb84-487cc2cad2a5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a97cebb0-b70a-5d3a-a34e-457fb0990292",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cf44a79-e067-51db-bcc5-b262e2807048",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34bd2edf-92ad-5914-8ad3-152aef9b22f5",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0fec639-f4bd-576c-80ea-51120a711290",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca78d012-35da-5fab-9690-b9ed2f60ceb5",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7db6fb64-2267-5918-89db-b4c342464701",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5a10e3e-7bec-5053-b59e-5ff63d2f7a56",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3a1d3cf-4a0c-56a3-be46-a122d7477b20",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62bf3aa8-a9d9-5b85-8658-ff792db9c09e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Schweinefleisch mit Ingwer, Fischsauce und weißem Pfeffer und forme kleine Fleischbällchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Reis 25 Minuten in der Brühe köcheln, bis er zu einem Brei zerfallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Schweinefleischbällchen in den köchelnden Jok und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate Knoblauch in Öl goldbraun an. Brate die Eier. Belege den Jok mit Ei, frittiertem Knoblauch und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipesecret.com/wp-content/uploads/2026/03/Rice-Porridge-768x1152.png",
+          "sourcePageUrl": "https://www.allrecipesecret.com/wp-content/uploads/2026/03/Rice-Porridge-768x1152.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-octopus-bowl",
+      "slug": "mfr-med-seafood-octopus-bowl",
+      "title": "Griechische Bowl mit gegrilltem Oktopus",
+      "instructions": "Zarter, erst geschmorter und dann gegrillter Oktopus auf weißen Bohnen mit Kirschtomaten und Oliven, verfeinert mit Zitrone und Oregano – ein Klassiker aus der Küstentaverne, mager und eiweißreich.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Oktopus ist deutlich günstiger als frischer und nach dem Schmoren genauso zart.",
+        "Weiße Bohnen aus der Dose eignen sich perfekt – spüle sie gut ab.",
+        "Die Portionen sind großzügig für 2 Personen und lassen sich gut für die Essensvorbereitung vorbereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "octopus",
+          "swap": "Große Garnelen (auf jeder Seite 3 Minuten garen)"
+        },
+        {
+          "forIngredientId": "olives",
+          "swap": "Kapern für eine salzige Note und geringere Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-octopus-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "griechisch",
+        "Meeresfrüchte",
+        "Oktopus",
+        "mediterran",
+        "Bohnen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1286,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-octopus-bowl/",
+      "components": [
+        {
+          "key": "4a7a07d0-5508-5a5a-8437-913716d07183",
+          "name": "Zutaten",
+          "servingGrams": 395,
+          "position": 0,
+          "items": [
+            {
+              "key": "a39fa88d-e724-5788-96fb-5626966021b7",
+              "ingredientName": "Oktopus",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94fa7777-18ff-5761-a45b-5d87cf45ad1b",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce82dccf-83e2-53bf-8989-1c47bc6ff05a",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd9f9d79-08ed-5ffd-a845-fd32a5a43564",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c3e663f-9622-5024-82bd-b4acdc5883bd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "969774fe-86f3-531e-971a-47022e9180df",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54a459e9-52c4-5e94-8913-0cd5fab6b5c9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d01ca283-dfaa-5c19-9b88-f591813ed531",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Oktopus mit einem Weinkorken in Salzwasser 35 Minuten köcheln, bis er zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße ihn ab, tupfe ihn trocken und bestreiche ihn mit Olivenöl. Grille ihn auf jeder Seite 3 Minuten, bis er gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme inzwischen weiße Bohnen mit Knoblauch, halbierten Kirschtomaten und Oliven.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide den Oktopus in Stücke und serviere ihn auf der Bohnenmischung. Beträufle alles mit Zitronensaft und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/grilled-octopus1-1652446908.jpg?crop=1xw:0.8278863102232668xh;0",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/grilled-octopus1-1652446908.jpg?crop=1xw:0.8278863102232668xh;0",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-sicilian-tuna-pasta",
+      "slug": "mfr-med-seafood-sicilian-tuna-pasta",
+      "title": "Sizilianische Pasta mit Thunfisch",
+      "instructions": "Thunfisch aus der Vorratskammer trifft auf eine kräftige Sauce aus gehackten Tomaten, Kapern, Oliven und einer Prise roter Chili – sizilianischer Puttanesca-Geschmack zu einem Bruchteil der Kosten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Thunfisch aus der Dose in Olivenöl bringt zusätzliches Aroma ohne extra Fett.",
+        "Dieses Gericht kostet etwa $1.40 pro Portion.",
+        "Kaufe Kapern auf Vorrat – im Kühlschrank halten sie sich monatelang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "capers",
+          "swap": "Gehackte Gewürzgurken für eine ähnliche salzige Note"
+        },
+        {
+          "forIngredientId": "whole-wheat-pasta",
+          "swap": "Normale Spaghetti oder glutenfreie Pasta"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-sicilian-tuna-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Pasta",
+        "Thunfisch",
+        "sizilianisch",
+        "preiswert"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1287,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-sicilian-tuna-pasta/",
+      "components": [
+        {
+          "key": "001d3e99-7d2a-5f62-ae00-3f0ab2b45fff",
+          "name": "Zutaten",
+          "servingGrams": 663,
+          "position": 0,
+          "items": [
+            {
+              "key": "0feaf1d1-cddd-5ea5-80d1-bd1113cb9a9e",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2957962-65c2-5209-8c70-140c1433ccc7",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b38403b-9837-5d1d-90e8-d2912c7819c7",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12a6781a-c349-5377-b2cf-9033665a9e4c",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8a46a73-12e3-5e67-afb5-67197d9e30b8",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ec9a3bf-807d-509f-93a7-615342aadd7c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "955267f1-ce6a-56e7-9eaf-3a65682c1711",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83b97179-1d74-57ae-9d1a-9ec80a68f1bd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta in gut gesalzenem Wasser al dente. Hebe ½ Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Knoblauch und Chiliflocken 1 Minute in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gehackten Tomaten dazu und lass alles 8 Minuten köcheln. Rühre Kapern und Oliven unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass den Thunfisch abtropfen und hebe ihn unter die Sauce. Vermische sie mit der Pasta und gib etwas Nudelwasser dazu, falls die Sauce zu dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/68b9f82ee460bbf9c0370aec/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/68b9f82ee460bbf9c0370aec/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-gambas-ajillo",
+      "slug": "mfr-med-seafood-gambas-ajillo",
+      "title": "Spanische Gambas al Ajillo als Reisschale",
+      "instructions": "Knoblauchgarnelen in Olivenöl mit geräuchertem Paprikapulver und Sherryessig, serviert auf Safranreis – Spaniens beliebte Tapa als vollständige Mahlzeit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen eignen sich perfekt – taue sie 10 Minuten in kaltem Wasser auf.",
+        "Sherryessig ist optional; ersetze ihn durch einen Schuss Weißweinessig.",
+        "Das Gericht ist insgesamt in weniger als 25 Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sherry-vinegar",
+          "swap": "Weißweinessig oder Zitronensaft"
+        },
+        {
+          "forIngredientId": "white-rice",
+          "swap": "Knuspriges Brot, um das Knoblauchöl aufzunehmen (traditionell)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-gambas-ajillo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "spanisch",
+        "Garnelen",
+        "Knoblauch",
+        "Tapas",
+        "Reis"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1288,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-gambas-ajillo/",
+      "components": [
+        {
+          "key": "b0c2d4d1-5880-5d9e-8129-5281bf04ee01",
+          "name": "Zutaten",
+          "servingGrams": 262.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "14f80561-281f-5698-a0b6-fa3a3d0c5006",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21fefa74-b6dd-517d-85cc-990ee756dc2d",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d3b7e24-0302-5074-bf03-d22eee8da0f5",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44d0b434-1635-58f6-91dd-939154b238b4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8505540e-7153-52be-b0b7-587312bf48a4",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a691baf9-29a7-5bed-a22b-f8df62a4a8e2",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49850f38-80bd-5cec-a0d0-e42b55f8ec33",
+              "ingredientName": "Sherryessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cad21d9e-e7cf-5bb1-865b-97fcf5248e06",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Erwärme Olivenöl in einer breiten Pfanne bei niedriger bis mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittenen Knoblauch und Chiliflocken dazu. Gare sie 3 Minuten sanft, bis sie duften, aber noch nicht braun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhöhe die Hitze und gib Garnelen und Paprikapulver dazu. Brate alles auf jeder Seite 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib einen Schuss Sherryessig dazu und schwenke die Pfanne. Serviere die Garnelen auf Reis mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6830a01def031ddf2d8c896b/1:1/w_2560%2Cc_limit/20250519_02_Garlicky%2520Spanish%2520Shrimp_019_FINAL.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6830a01def031ddf2d8c896b/1:1/w_2560%2Cc_limit/20250519_02_Garlicky%2520Spanish%2520Shrimp_019_FINAL.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-turkish-baked-fish",
+      "slug": "mfr-med-seafood-turkish-baked-fish",
+      "title": "Türkischer Ofenfisch mit Gemüse",
+      "instructions": "Ganze Weißfischfilets auf einer Schicht aus geschnittenen Paprika, Zwiebeln und Tomaten, gewürzt mit Kreuzkümmel und Zitrone – ein klassischer Fırın Balık, der unkompliziert gelingt und preiswert ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kabeljau und Tilapia sind die günstigsten Weißfische und eignen sich beide sehr gut.",
+        "Die Gemüseschicht dämpft den Fisch von unten; zusätzliche Flüssigkeit ist nicht nötig.",
+        "Ein Blech, unkompliziert zubereitet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cod-fillet",
+          "swap": "Tilapia, Schellfisch oder ein anderer fester Weißfisch"
+        },
+        {
+          "forIngredientId": "cumin",
+          "swap": "Za’atar für eine levantinische Note"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-turkish-baked-fish",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "türkisch",
+        "Fisch",
+        "Ofengericht",
+        "Gemüse",
+        "mediterran"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1289,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-turkish-baked-fish/",
+      "components": [
+        {
+          "key": "40c3bc2c-ff3e-5b59-8c59-4410454bf28f",
+          "name": "Zutaten",
+          "servingGrams": 351.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f525ec1-aa12-5244-894f-ec3f4f654c4c",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d412e5c-d443-5ddd-96f4-5cf54a074af6",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d0765ac-b9b5-5db8-95b7-de5c745f8de8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cff8226-93b9-5cdb-8859-0e2853e88fbf",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f84d8f8-923c-5b13-acb8-5769e4c96960",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4043f2de-0ce4-5e7f-a768-23affe5ae9c2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e23fe013-c251-5cba-94c4-6fc0dac2b27a",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "603c5b50-0a9d-5034-ad9c-304ddfcbbfcf",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29232ba4-b1bc-55e4-9052-b30d83296f01",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor. Schneide Paprika, Zwiebel und Tomaten und verteile sie in einer Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beträufle das Gemüse mit Olivenöl und würze es mit Kreuzkümmel, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege den Fisch darauf und presse Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Fisch 20–25 Minuten, bis er sich leicht zerteilen lässt. Garniere ihn mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/623fa7c6298f240f759a0482/1680027913885-J6OHT0219X3Q98GY1KXV/381DC12B-2702-48E1-A73D-DEB4D37031DF.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/623fa7c6298f240f759a0482/1680027913885-J6OHT0219X3Q98GY1KXV/381DC12B-2702-48E1-A73D-DEB4D37031DF.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

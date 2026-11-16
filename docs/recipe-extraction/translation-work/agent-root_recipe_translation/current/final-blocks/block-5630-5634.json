@@ -1,0 +1,1074 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mushroom-tart",
+      "slug": "gen-mushroom-tart",
+      "title": "Pilztarte",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Champignons statt gemischter Pilze verwenden, um Kosten zu sparen",
+        "Tiefgekühlten Blätterteig im Angebot und in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "lunch",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5630,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-tart/",
+      "components": [
+        {
+          "key": "07728b40-cb41-5a92-9602-edda0e5e4e51",
+          "name": "Zutaten",
+          "servingGrams": 141.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "b05b0acf-9ace-5d22-b912-d3249e1853d9",
+              "ingredientName": "Tiefkühl-Blätterteig",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "c8e69f51-5eb1-5ede-b412-cfca5e28bd04",
+              "ingredientName": "Champignons",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "04e5f335-0a88-5254-ac25-9d1d578d6495",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "7e849aaa-9b68-56d9-b15f-1c5bf9bc5c2e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "bb23e290-3a84-5787-bb70-840a26fffaf4",
+              "ingredientName": "Crème fraîche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "90465ad6-2256-52cd-8389-538d69b3737a",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "13e0f121-0fdd-5478-9f03-a063f7b27ee3",
+              "ingredientName": "frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e1abdf67-49d1-537d-8b95-916030d12034",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ab56e942-8ae9-5f90-9c4d-c4dd0fe9d005",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400°F vorheizen und den Blätterteig auf ein mit Backpapier ausgelegtes Blech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Champignons und Zwiebel würfeln, Knoblauch fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und die Zwiebel etwa 4 Minuten glasig dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Champignons und Knoblauch dazugeben und etwa 10 Minuten braten, bis die Pilze Flüssigkeit abgeben und bräunen. Mit Salz, Pfeffer und Thymian würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen und Crème fraîche sowie Dijon-Senf einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Pilzmischung gleichmäßig auf dem Blätterteig verteilen und rundherum einen 0.5-Zoll-Rand frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "18–22 Minuten backen, bis der Teig aufgegangen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "2 Minuten abkühlen lassen, in 4 Stücke schneiden und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/VEF0tJAV1M_st6CagIyTVScB8h8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7375104_Puff-Pastry-Mushrom-Tart_lutzflcat_4x3-486f5b7cf5694f459c893329a6fbc177.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/VEF0tJAV1M_st6CagIyTVScB8h8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7375104_Puff-Pastry-Mushrom-Tart_lutzflcat_4x3-486f5b7cf5694f459c893329a6fbc177.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pumpkin-bread",
+      "slug": "gen-pumpkin-bread",
+      "title": "Kürbisbrot",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kürbispüree aus der Dose nach Halloween in größeren Mengen kaufen, wenn der Preis sinkt",
+        "Pflanzenöl statt Butter verwenden, um deutlich Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "breakfast",
+        "vegetarian"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5631,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pumpkin-bread/",
+      "components": [
+        {
+          "key": "a47020ad-e1f1-56d5-9e19-c67c9ab0896e",
+          "name": "Zutaten",
+          "servingGrams": 194.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ab33400-22b1-5a61-8663-ab8f188b1574",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.75 Tassen"
+            },
+            {
+              "key": "36b25503-f0d3-53bc-a032-8b18041405f2",
+              "ingredientName": "Kürbispüree aus der Dose",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6567f5b1-a6be-5300-8213-1632dd719baf",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3fe27ede-4432-5f03-8aa9-6d01431bfdec",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "8bd2e4c6-c387-5ecb-86e3-410658d62158",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "65f9680d-816a-5bc9-87b5-595075597d8c",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a9c9baca-f49a-587f-a33b-10d798cc60ca",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "208bf22a-6f9f-5fd0-8eb5-4717eff75a91",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "4aeccfde-73e3-5178-8dd9-05a645f6a11e",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "141f44d0-f287-5c99-b757-96d27cfab458",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "9c389574-6fd5-55df-9cd0-54ec85c81091",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350°F vorheizen und eine Kastenform (9 × 5 Zoll) einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Natron, Backpulver, Salz, Zimt, Muskatnuss und Ingwer in einer mittelgroßen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kürbispüree, Zucker, Öl und Eier in einer großen Schüssel glatt verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die trockenen Zutaten nur so lange unter die feuchten heben, bis alles gerade vermischt ist. Nicht zu stark rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig in die vorbereitete Kastenform füllen und die Oberfläche glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "50–55 Minuten backen, bis ein in die Mitte gesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "10 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter stürzen und vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/NSsAXA8dOVoBDWt-59M9cDAUIeQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-pumpkin-bread-beauty1x1-191-45c2782c1d5e4581b343be019836eb37.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/NSsAXA8dOVoBDWt-59M9cDAUIeQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-pumpkin-bread-beauty1x1-191-45c2782c1d5e4581b343be019836eb37.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spiced-apple-cider",
+      "slug": "gen-spiced-apple-cider",
+      "title": "Gewürzter Apfelpunsch",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Honig weglassen und die natürliche Süße des Apfelweins nutzen",
+        "Gewürze beim Discounter in größeren Mengen kaufen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "dairy-free",
+        "amerikanisch",
+        "Snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5632,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spiced-apple-cider/",
+      "components": [
+        {
+          "key": "c583eb54-dd8a-51e2-b8c3-da875cb6f76d",
+          "name": "Zutaten",
+          "servingGrams": 118,
+          "position": 0,
+          "items": [
+            {
+              "key": "a032a4e3-f2b5-5a3c-9d59-4225e7b94993",
+              "ingredientName": "Apfelwein",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "7770949b-80ce-5d97-aece-b06426728cae",
+              "ingredientName": "Zimtstangen",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Stangen"
+            },
+            {
+              "key": "4266aba7-9fd6-5170-9f10-8df8a386cc2e",
+              "ingredientName": "ganze Nelken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Nelken"
+            },
+            {
+              "key": "82d35676-f0bf-5547-a570-6699f9b022e1",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Kapseln"
+            },
+            {
+              "key": "56bab7f9-579e-5bff-8673-3493784a2d61",
+              "ingredientName": "frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "5637367b-80fd-519d-9544-0851d7c7833b",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "226717f4-8bce-5d01-83f5-a70b2eaff413",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Zitrone"
+            },
+            {
+              "key": "670ab326-98be-5816-8fef-01a91240cfea",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Apfelwein in einen großen Topf gießen und Zimtstangen, Nelken, Sternanis und Ingwerscheiben hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bei mittlerer Hitze etwa 10 Minuten erwärmen, bis Dampf aufsteigt, aber nicht kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Honig einrühren und den Zitronensaft hineindrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Prise Muskatnuss hinzufügen und weitere 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Tassen abseihen und heiß servieren. Nach Wunsch mit einer Zimtstange garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2022/07/Spice-Filled-Apple-Cider-with-no-added-sweeteners-PERFECT-for-fall-4-ingredients-and-20-minutes-minimalistbaker-recipe-applecider-1.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2022/07/Spice-Filled-Apple-Cider-with-no-added-sweeteners-PERFECT-for-fall-4-ingredients-and-20-minutes-minimalistbaker-recipe-applecider-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pear-tart",
+      "slug": "gen-pear-tart",
+      "title": "Birnentarte",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Birnenhälften aus der Dose verwenden, wenn frische Birnen zu teuer oder nicht erhältlich sind",
+        "Die Schicht aus Mandelmasse weglassen und durch einfache Konditorcreme ersetzen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Abendessen",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5633,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pear-tart/",
+      "components": [
+        {
+          "key": "22bbcd3b-1637-5949-9e32-b65ce4c45ae4",
+          "name": "Zutaten",
+          "servingGrams": 248.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f304161c-4a49-5526-a869-a96347595419",
+              "ingredientName": "Tiefkühl-Tarteboden",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Teigboden"
+            },
+            {
+              "key": "eee3c583-7f27-5e68-aeb2-a15ccd2bc440",
+              "ingredientName": "Birne",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "c23c646e-4af1-50c0-b2cb-f1a5d3763c7d",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "acdaeb8b-5bcd-5893-b058-52cf9c5b733f",
+              "ingredientName": "Ingwerpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "95c8e98a-3465-5740-8dd0-6d238be08a6d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2d682c04-7f99-5bfc-a1f1-e322e084f330",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "f11885a5-5855-5483-a959-b5d273d041c4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "cd023eb7-640b-59fd-8863-a46d26d02425",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "76a5431e-8740-5d70-b1e9-7abeb39a9055",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 375°F vorheizen und den tiefgekühlten Teigboden in eine Tarteform legen oder auf ein Backblech setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mandelmasse, Butter, Zucker, Ei und Vanilleextrakt glatt cremig rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Mandelmasse gleichmäßig auf dem Teigboden verstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Birnen schälen, halbieren, entkernen und jede Hälfte in dünne Scheiben schneiden, ohne sie auseinanderzuschieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Birnenscheiben fächerförmig auf der Mandelmasse anordnen und leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "25–30 Minuten backen, bis der Teig goldbraun und die Birnen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Aprikosenkonfitüre mit Wasser in einem kleinen Topf erwärmen und die warme Tarte damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Raumtemperatur abkühlen lassen, dann anschneiden und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/wFxKkbYu9XdwHAPFZwx5Y7zZQDM%3D/4096x4096/filters:fill(auto%2C1)/Pear-Frangipane-Tart-58adea815f9b58a3c9da0efe.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/wFxKkbYu9XdwHAPFZwx5Y7zZQDM%3D/4096x4096/filters:fill(auto%2C1)/Pear-Frangipane-Tart-58adea815f9b58a3c9da0efe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cabbage-roll",
+      "slug": "gen-cabbage-roll",
+      "title": "Kohlrouladen",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack im Angebot kaufen und für später einfrieren",
+        "Tomatensauce einer Handelsmarke verwenden und so 50 % sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "eiweißreich",
+        "eastern-european",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5634,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cabbage-roll/",
+      "components": [
+        {
+          "key": "bd11cf00-bdbd-5629-9935-36bd7cbb857d",
+          "name": "Zutaten",
+          "servingGrams": 339,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e8c4276-0a1e-585f-8378-bb1c27801620",
+              "ingredientName": "Weißkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroßer Kopf"
+            },
+            {
+              "key": "4d6600ee-40ec-5250-81d7-9112ce151c5c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c5fc8669-10d1-5a17-9dfd-f6486d22481e",
+              "ingredientName": "Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "6e94644f-827c-5e96-9a98-72960d7a3e4e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "57447259-33ad-5b17-a92a-e975fd7820a8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "323f6baf-489e-5491-9e9a-38ae1e65da7f",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b0d48004-91d3-5503-a4fb-c2a1cf368472",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "df0c92de-1156-5d46-bb18-28ab6f22d075",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a64fd2d2-60ab-53d6-9675-967aef5f2fd3",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf Salzwasser zum Kochen bringen. Die Kohlblätter vorsichtig einzeln lösen und jeweils 2–3 Minuten blanchieren, bis sie weich sind. Auf Küchenpapier beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis nach Packungsanleitung kochen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhack in einer großen Pfanne bei mittlerer bis hoher Hitze etwa 5 Minuten krümelig anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel würfeln, Knoblauch hacken, zum Fleisch geben und 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gekochten Reis, Salz, Pfeffer und Paprika einrühren und die Pfanne vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Etwa 3 Esslöffel Füllung auf jedes Kohlblatt geben, Seiten einklappen und fest aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Rouladen mit der Naht nach unten in eine Auflaufform legen. Tomatensauce und Rinderbrühe darüber gießen und mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 350°F 30–35 Minuten backen, bis der Kohl sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/eNQ23UmT3mTAyvgi9mSDx-6I2Rk=/4200x2799/filters:fill(auto,1)/cabbage-rolls-with-ground-beef-and-rice-3052232-hero-01-df85ded82bf5438ea15b8ab226675dd9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/eNQ23UmT3mTAyvgi9mSDx-6I2Rk=/4200x2799/filters:fill(auto,1)/cabbage-rolls-with-ground-beef-and-rice-3052232-hero-01-df85ded82bf5438ea15b8ab226675dd9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

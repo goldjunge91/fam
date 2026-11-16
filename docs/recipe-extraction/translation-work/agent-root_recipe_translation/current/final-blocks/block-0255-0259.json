@@ -1,0 +1,1320 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-make-ahead-muffin-cups",
+      "slug": "egg-make-ahead-muffin-cups",
+      "title": "Vorbereitbare Eier-Muffins (Mini-Frittatas)",
+      "instructions": "Lockere kleine Frittatas aus dem Ofen mit Käse, Speck und Gemüse, die du direkt aus dem Kühl- oder Gefrierschrank nehmen kannst. Verrühren, in die Form füllen, einmal backen und schon hast du eine ganze Woche lang ein warmes, proteinreiches Frühstück – in etwa einer Minute griffbereit.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende welkendes Gemüse aus dem Kühlschrank, statt frisches zu kaufen: Eine halbe Zwiebel, der Rest einer Paprika und eine Handvoll Spinat verschwinden im Ei.",
+        "Lass fertig geriebenen Käse weg und reibe einen Käseblock selbst oder nimm das Endstück, das du sonst wegwerfen würdest. Selbst ein Esslöffel pro Tasse reicht für viel Geschmack.",
+        "Bereite die doppelte Menge zu und friere sie ein. Ein Dutzend Eier auf einmal zu kaufen ist pro Frühstück viel günstiger, als auf dem Weg zum Unterricht ein Sandwich mitzunehmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Gewürfelter Schinken, gegarte Wurst oder Fleisch weglassen und mehr Gemüse dazugeben",
+          "savings": "Schinken oder das Weglassen von Fleisch senkt die Kosten gegenüber Speck"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Milch, die du da hast, oder notfalls ein Schuss Wasser",
+          "savings": "Angebrochene Zutaten verwenden; Wasser ist kostenlos"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefkühlspinat (aufgetaut und trocken ausgedrückt) oder beliebiges gehacktes Gemüse wie Brokkoli oder Champignons",
+          "savings": "Tiefgekühltes ist günstiger und länger haltbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Ei",
+        "Frühstück",
+        "vorbereiten",
+        "gefriergeeignet",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 255,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-make-ahead-muffin-cups/",
+      "components": [
+        {
+          "key": "4c2e783a-e789-514a-995e-9ca1437d4ad4",
+          "name": "Zutaten",
+          "servingGrams": 202.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d400b50-d455-5329-87c9-7554ad7ac050",
+              "ingredientName": "Ei",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eb0ca1e-4bd7-58b8-902b-81ebe55cb300",
+              "ingredientName": "Milch",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1/3 cup, hält sie zart"
+            },
+            {
+              "key": "c0b33213-4485-54c2-8cdf-321bd26476c9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "geraspelt cheddar, ~3/4 cup total, divided between filling und tops"
+            },
+            {
+              "key": "9ca43134-43b4-5d86-b729-e9b98d61770b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "c46e2389-299d-5493-afe2-5f4e9efa2c69",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt, frisch oder aufgetaut"
+            },
+            {
+              "key": "ad56cd28-24c5-540e-baa2-81e342f6fb33",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "afd9e75b-66d0-5e67-a4ae-da6c7c140faa",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "cooked crisp und crumbled"
+            },
+            {
+              "key": "dcd18756-1742-5c08-93eb-7261f822e53f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42b7b9a8-7167-59ed-bb92-048a7794c361",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4180baf4-3f2b-5e90-8cb3-11e87b9c695d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f0f836e-12af-5ff0-b8b6-c6f7ea3c8c95",
+              "ingredientName": "Ölspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum grease tin"
+            },
+            {
+              "key": "062dedcc-5e09-55df-8b56-b5aea352cf7f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren, in Scheiben geschnitten"
+            },
+            {
+              "key": "d3fdc4e6-8aad-5e8d-b652-2f5cab27e4c1",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen mit einem Rost in der Mitte auf 350F vor. Fette eine 12-cup-Muffinform großzügig mit Ölspray ein oder verwende Silikon- oder Backpapierförmchen, damit sich das Ei leicht löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate zuerst den Speck: Lege die Scheiben in eine kalte beschichtete Pfanne bei mittlerer Hitze und brate sie 6-8 Minuten. Wende sie einmal, bis sie vollständig knusprig und nirgends mehr rosa sind. Lass sie auf einem Papiertuch abtropfen und zerbrösele sie anschließend. Das Schweinefleisch muss ganz durchgegart sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die gewürfelte Zwiebel und Paprika im Speckfett oder in 1 tsp Öl bei mittlerer Hitze 3-4 Minuten an, bis sie weich sind. Gib gehackten Spinat dazu und gare ihn 1 Minute, bis er gerade zusammenfällt. Etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eier, Milch, Salz, Pfeffer und Knoblauchpulver in einer großen Schüssel etwa 30 Sekunden kräftig, bis alles vollkommen vermischt und leicht schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das abgekühlte Gemüse, den zerbröselten Speck und etwa zwei Drittel des Käses gleichmäßig auf die 12 Mulden (jede etwa halb voll). Gieße die Eiermischung darüber, bis jede Mulde etwa zu 3/4 gefüllt ist, und streue den übrigen Käse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Muffins 20-25 Minuten, bis die Mitte vollständig gestockt und nicht mehr feucht oder wackelig ist und die Oberfläche leicht gebräunt ist. Für eine sichere Aufbewahrung zur Vorbereitung muss das Ei vollständig durchgegart sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Muffins 5 Minuten in der Form abkühlen, fahre dann mit einem Messer um jede Mulde und hebe sie auf ein Gitter. Nach Wunsch mit geschnittener Frühlingszwiebel und scharfer Sauce garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aufbewahren: Vollständig abkühlen lassen und in einem luftdichten Behälter bis zu 4 Tage im Kühlschrank oder bis zu 3 Monate im Gefrierfach lagern. Gekühlte Muffins 30-45 Sekunden in der Mikrowelle erwärmen, gefrorene 60-90 Sekunden, bis sie durchgehend dampfend heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Egg-muffin_%2849218808517%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Egg-muffin_(49218808517).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Meg H, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von vorbereitbaren Eier-Muffins (Mini-Frittatas)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-loaded-vegetable-cheese-frittata",
+      "slug": "egg-loaded-vegetable-cheese-frittata",
+      "title": "Reichhaltige Gemüse-Käse-Frittata",
+      "instructions": "Goldbrauner, gut schneidbarer Eierkuchen mit angebratenen Paprika, Zucchini, Spinat und geschmolzenem Käse, in einer Pfanne gebacken, bis er gerade gestockt ist. Das perfekte Gericht zum Aufbrauchen von Kühlschrankresten: reicht für viele, hält sich fünf Tage im Kühlschrank und schmeckt zum Frühstück, Mittag- oder Abendessen heiß oder kalt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Gericht ist absichtlich zum Aufbrauchen von Kühlschrankresten gedacht. Verwende welkendes Gemüse, das du bereits hast – etwa eine halbe Zwiebel, eine Handvoll Tiefkühlspinat oder den Rest einer Paprika – statt genau die aufgelisteten Zutaten zu kaufen.",
+        "Tiefkühlgemüse ist günstiger als frisches und eignet sich prima. Taue es einfach auf und tupfe es trocken, damit die Frittata fest und nicht matschig bleibt.",
+        "Eine Frittata ergibt 6 Portionen und hält sich 5 Tage im Kühlschrank. Schneide sie in Stücke und nimm dir die ganze Woche ein günstiges Frühstück oder Mittagessen zum Mitnehmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Milch verwenden (Vollmilch, Hafer- oder Mandelmilch) oder einen Schuss Wasser; Milchprodukte machen die Frittata lediglich zarter.",
+          "savings": "Mit Wasser kostet es nichts"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Jeder schmelzende Käse eignet sich; nimm geriebenen Mozzarella, zerkrümelten Feta oder Käsereste aus der Schublade.",
+          "savings": "Käsereste aufbrauchen, statt weiteren Käse zu kaufen"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Stattdessen das günstigste oder bereits welkende Gemüse verwenden; Brokkoli, Champignons oder gemischtes Tiefkühlgemüse eignen sich ebenfalls.",
+          "savings": "Tiefgekühltes Gemüse kostet etwa halb so viel wie frische Zucchini"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch-amerikanisch",
+        "Ei",
+        "Frittata",
+        "vegetarisch",
+        "zum Vorbereiten",
+        "aus einer Pfanne",
+        "Kühlschrankreste verwerten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 256,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-loaded-vegetable-cheese-frittata/",
+      "components": [
+        {
+          "key": "4f6d087d-d0a6-5c0a-84fd-d57eb5cd6652",
+          "name": "Zutaten",
+          "servingGrams": 348.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "dda7e73c-b21e-543c-967c-d69f09f8c5fc",
+              "ingredientName": "Ei",
+              "grams": 500,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b21a408-4a86-5e03-8ace-1fc9cd291028",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44b6be69-5701-554a-9d0e-377c3792579f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40d82c0a-0e8c-5ca5-84ff-4ce5f65ec5eb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5eceaa6a-85a1-55cb-8832-a2d4eb14c74e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7480c980-5277-5470-a1ca-cad1431b1f07",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9b902d6-6cf3-593a-a7fb-6421e257c226",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7723fe82-fe54-50a8-b876-4187b7aa64fc",
+              "ingredientName": "Champignons",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73b12943-4f42-53d3-8332-461aae5bd7fb",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73d0efde-6af1-54f5-9666-7fada4443cff",
+              "ingredientName": "Geriebener Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "geraspelt, divided between egg mix und top"
+            },
+            {
+              "key": "32b22efc-92a0-5ff0-be41-1c44d7d1482f",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fdb688c-edfa-59f8-8c1a-af3720d7bf61",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b8facc4-fdf3-5151-8112-1f39c4daf0b6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b4128c1-5323-55ae-b336-07975e3ec224",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b201c6dc-3062-5dd7-9c40-dae69e78f4a9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Ofenrost in die Mitte und heize den Ofen auf 400F vor. Schlage die 10 Eier in eine große Schüssel, gib Milch, italienische Kräutermischung, Salz und Pfeffer dazu und verquirle alles, bis es vollständig vermischt und leicht schaumig ist. Rühre etwa die Hälfte des geriebenen Käses und den gesamten Parmesan ein und stelle die Schüssel beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer ofenfesten Pfanne von 10-12 inch (Gusseisen eignet sich gut) bei mittlerer Hitze. Gib die gewürfelte Zwiebel dazu und gare sie 3-4 Minuten, bis sie weich ist. Füge gehackten Knoblauch hinzu und gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Paprika, Zucchini und geschnittene Champignons dazu. Brate alles 6-8 Minuten unter gelegentlichem Rühren an, bis das Gemüse weich ist und ausgetretene Flüssigkeit verdampft ist, damit die Frittata nicht wässrig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Spinat portionsweise dazu und rühre ihn etwa 1-2 Minuten ein, bis er gerade zusammenfällt. Verteile das Gemüse gleichmäßig in der Pfanne und reduziere die Hitze auf mittelniedrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiermischung gleichmäßig über das Gemüse. Lass sie 2-3 Minuten ungestört garen und hebe die Ränder vorsichtig mit einem Pfannenwender an, damit noch flüssiges Ei darunterlaufen kann. Der Boden und die Ränder sollen anfangen zu stocken, während die Mitte noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue den restlichen geriebenen Käse darüber und stelle die Pfanne vorsichtig in den Ofen. Backe die Frittata 15-20 Minuten, bis sie aufgegangen, goldbraun und vollständig gestockt ist. Die Mitte soll nicht mehr wackeln und ein hineingestochenes Messer sauber herauskommen (das Ei muss ganz durchgegart sein, nicht flüssig).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne aus dem Ofen (der Griff ist sehr heiß, verwende einen Ofenhandschuh) und lass die Frittata 5 Minuten ruhen, damit sie fest wird und sich sauber schneiden lässt. Fahre mit einem Pfannenwender am Rand entlang, schneide sie in 6 Stücke, garniere sie nach Wunsch mit gehackter Petersilie und serviere sie heiß oder gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Homemade_frittata_%2816215994580%29.jpg/1280px-Homemade_frittata_%2816215994580%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_frittata_(16215994580).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Ruth Hartnup, via Wikimedia Commons (CC BY 2.0)",
+          "verifiedMatch": true,
+          "altText": "Foto einer reichhaltigen Gemüse-Käse-Frittata",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-omurice-ketchup-fried-rice",
+      "slug": "egg-omurice-ketchup-fried-rice",
+      "title": "Omurice (Ketchup-Hähnchenreis unter einem weichen Omelett)",
+      "instructions": "Herzhafter gebratener Reis mit Ketchup und Hähnchen unter einem weichen, glänzenden Omelett, darauf ein Zickzack aus Ketchup. Dieser nostalgische japanische Yoshoku-Klassiker macht in weniger als 30 Minuten aus übrig gebliebenem Reis pures Wohlfühlessen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Reis vom Lieferdienst oder Reis vom Vortag, den du schon hast – kalter Reis lässt sich besser anbraten und kostet nichts extra.",
+        "Ersetze das Hähnchen durch ein paar zusätzliche Eier, eine Handvoll Tiefkühlgemüse oder gehackte Reste nach Spam-Art. So wird das Gericht noch günstiger und bleibt sättigend.",
+        "Kaufe eine große Flasche Ketchup – er bildet die geschmackliche Grundlage und kostet pro Portion nur wenige Cent im Vergleich zu abgefüllten Bratreissaucen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Übrig gebliebenes Grillhähnchen oder gewürfelter Schinken",
+          "savings": "Verwertet Reste, die bereits gekauft wurden"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenöl zum Braten des Omeletts",
+          "savings": "spart etwa $0.15/Portion and is dairy-free"
+        },
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Beliebiges gemischtes Tiefkühlgemüse oder gewürfelte Karotte",
+          "savings": "Vorhandenes aus dem Gefrierfach verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Ei",
+        "Yoshoku",
+        "Omelett",
+        "gebratener Reis",
+        "Seelenfutter",
+        "Reisreste",
+        "Abendessen",
+        "unter 30 Minuten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 257,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-omurice-ketchup-fried-rice/",
+      "components": [
+        {
+          "key": "48617868-0af0-573f-baba-673292d8f211",
+          "name": "Zutaten",
+          "servingGrams": 714.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b138353-1a8a-5aa1-bd34-a29e131b7104",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "cold, day-old cooked rice eignet sich best"
+            },
+            {
+              "key": "a415d307-6f0a-5960-80c8-8373f254eeab",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 pro Omelett"
+            },
+            {
+              "key": "23e3e18b-05b3-5482-8a3b-f00f521a8404",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "gewürfelt small; thigh stays juicy"
+            },
+            {
+              "key": "c205a3cd-3b7e-5446-afac-bda4cd20ab58",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "7f0dea3b-8c36-5697-9a9d-fa4c7fb695d6",
+              "ingredientName": "Ketchup",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 tbsp für rice, plus extra zum drizzle"
+            },
+            {
+              "key": "b40de67c-3607-5c05-b2d0-8eba8ddae141",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL pro Omelett"
+            },
+            {
+              "key": "014319ed-a0c2-5c19-a278-f7ab71054c16",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9af2700a-69e6-593e-b15a-147a25726552",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20335c87-a5d7-51b0-8935-eafe7e8845ef",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d97b3662-d124-55d9-aa3c-6ba892889421",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "oder gemischtes Tiefkühlgemüse"
+            },
+            {
+              "key": "f6459224-e169-5cd1-9007-b4f01db9e94f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "thinly in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die gewürfelten Hähnchenschenkel trocken und würze sie leicht mit einer Prise Salz und Pfeffer. Schneide die Zwiebel fein und miss nach Wunsch die Tiefkühlerbsen ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen beschichteten Pfanne bei mittelhoher Hitze. Gib das Hähnchen dazu und gare es unter Rühren 4-5 Minuten, bis es goldbraun und innen vollständig durchgegart ist (165F / vollständig undurchsichtig, kein Rosa in der Mitte). Gib Zwiebel und Erbsen dazu und gare alles 2-3 Minuten, bis die Zwiebel weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe alles auf eine Seite der Pfanne, drücke 3 tbsp Ketchup hinein und lass ihn etwa 30 Sekunden brutzeln und dunkler werden, damit die rohe Säure verkochen kann. Verrühre ihn dann mit dem Hähnchen und der Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den kalten Reis dazu und löse Klumpen auf. Brate alles bei mittelhoher Hitze 2-3 Minuten unter Rühren an, bis jedes Korn glänzend überzogen ist. Würze mit dem restlichen Salz und Pfeffer. Verteile den Reis auf zwei Häufchen, forme jedes auf einem Teller oval und halte es warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische die Pfanne aus und stelle sie auf mittelniedrige Hitze. Verquirle 2 Eier mit einer winzigen Prise Salz, bis alles vollständig vermischt ist. Schmilz 1 tbsp Butter in der Pfanne, schwenke sie darin und gieße dann die Eier hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die Eier in den ersten Sekunden vorsichtig mit Stäbchen oder einem Pfannenwender, damit kleine weiche Flocken entstehen. Höre dann auf zu rühren und lass die Unterseite stocken, während die Oberfläche glänzend und gerade noch leicht feucht bleibt, etwa 1 Minute. Das Omelett gart durch die Restwärme fertig, sobald es auf dem Reis liegt, und wird sicher weich, aber nicht mehr nass.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gleite mit dem Omelett über eines der Reis-Häufchen und schlage die Ränder darunter, sodass es den Reis umhüllt. Wiederhole die Schritte 5-6 mit den übrigen 2 Eiern und 1 tbsp Butter für die zweite Portion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib auf jedes Omelett großzügig einen Zickzack aus Ketchup und streue nach Wunsch geschnittene Frühlingszwiebel darüber. Sofort servieren, solange das Omelett heiß und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Omurice_by_Taimeiken.jpg/1280px-Omurice_by_Taimeiken.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Omurice_by_Taimeiken.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Kanesue, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Omurice (Ketchup-Hähnchenreis unter einem weichen Omelett)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-ajitsuke-tamago-ramen-eggs",
+      "slug": "egg-ajitsuke-tamago-ramen-eggs",
+      "title": "Ajitsuke Tamago (in Sojasauce marinierte Ramen-Eier)",
+      "instructions": "Weich gekochte Eier mit cremigem Eigelb und glänzender Soja-Marinade, in einem süß-herzhaften Sud aus Sojasauce und Mirin eingelegt. Bereite am Sonntag eine Portion zu und verfeinere damit die ganze Woche Instantnudeln, Reisschüsseln oder Toast wie im Ramen-Restaurant.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das ist eine der günstigsten Verbesserungen beim Kochen: Ein Ei für weniger als 30 Cent macht aus einer Ramen-Packung für 55 Cent eine Schüssel, die wie ein Gericht für $14 schmeckt.",
+        "Wirf die Marinade nicht weg, wenn die Eier aufgegessen sind: Verwende sie für eine weitere Portion Eier oder träufle etwas davon als schnelle Sauce über Reis, Nudeln oder gedämpftes Gemüse.",
+        "Kein Mirin oder Sake da? Lass beides weg und verwende eine zusätzliche Prise Zucker und einen Schuss Wasser. Sojasauce, Zucker und Wasser ergeben allein weiterhin eine hervorragende Marinade für wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 tbsp Honig oder Zucker in einem Schuss Wasser auflösen",
+          "savings": "spart buying a specialty bottle"
+        },
+        {
+          "forIngredientId": "sake",
+          "swap": "Reisessig oder nur Wasser mit einer Prise Zucker",
+          "savings": "Spart den Gang zum Spirituosenladen"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari für eine glutenfreie Variante oder salzreduzierte Sojasauce, um den Salzgehalt zu senken",
+          "savings": "Vorhandenes aus dem Vorratsschrank verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Ei",
+        "Ramen",
+        "vorbereiten",
+        "weich gekocht",
+        "preiswert",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 258,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-ajitsuke-tamago-ramen-eggs/",
+      "components": [
+        {
+          "key": "251b7d9d-170c-5a0b-984b-6fa1228c19d8",
+          "name": "Zutaten",
+          "servingGrams": 118.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "77382eee-0759-59d2-9fd5-9efa0a243f23",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bf6fe5c-5f40-55da-8566-73b7e81d117e",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8db3592-5ce9-58ed-93e7-1723d760b932",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0d4cfac-fc50-5ec9-99b0-b3a9c1f07405",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ecdbae1-29dc-57eb-84a5-675983b66a09",
+              "ingredientName": "Weißer Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae5ab8ac-7f30-59ad-874e-14161e7eed1e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6232f935-2f67-5d75-b0fe-6ff43268b87d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "thinly in Scheiben geschnitten, zum Servieren"
+            },
+            {
+              "key": "fdbc62c0-e219-578f-bef9-bb07cb405513",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe in einem kleinen Topf bei hoher Hitze ausreichend Wasser zum sanften Kochen, sodass die Eier vollständig bedeckt sind. Fülle währenddessen eine Schüssel mit Eis und kaltem Wasser für ein Eisbad. Lass die Eier bis zur Verwendung kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die kalten Eier einzeln auf einem Löffel ins kochende Wasser gleiten und stelle einen Timer auf genau 7 Minuten. Halte das Wasser gleichmäßig am sanften Kochen; rühre in der ersten Minute vorsichtig um, damit das Eigelb mittig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach 7 Minuten sind die Eier weich gekocht: Das Eiweiß ist vollständig gestockt und sicher zu essen, das Eigelb noch cremig. Gib sie sofort ins Eisbad und kühle sie mindestens 5 Minuten, damit der Garvorgang stoppt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schäle die gekühlten Eier unter einem dünnen Strahl kalten Wassers, beginnend am breiten Ende mit der Luftkammer. Sei vorsichtig, das Eiweiß weich gekochter Eier reißt leicht. Stelle die geschälten Eier beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite die Marinade zu: Vermenge Sojasauce, Mirin, Sake, Zucker und Wasser in einem kleinen Topf. Bringe alles bei mittlerer Hitze zum Köcheln und gare es 1 Minute, damit der Alkohol verkocht und der Zucker sich auflöst. Nimm den Topf vom Herd und lass die Marinade vollständig auf Zimmertemperatur abkühlen (sie MUSS kalt sein, damit die Eier nicht weitergaren oder warm liegen bleiben).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die abgekühlte Marinade in einen kleinen Behälter oder einen Gefrierbeutel und gib die geschälten Eier hinein. Sie sollen größtenteils bedeckt sein. Lege ein gefaltetes Papiertuch darauf, damit die herausragenden Stellen ebenfalls mariniert werden, oder wende die Eier ein- oder zweimal während des Ziehens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verschließe den Behälter und stelle ihn 12 bis 24 Stunden in den Kühlschrank. Längeres Marinieren sorgt für eine dunklere Farbe und salzigeren Geschmack – lass die Eier nicht länger als 2 Tage darin, sonst wird das Eiweiß gummiartig und zu salzig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Servieren ein Ei herausnehmen und mit einem sauberen, leicht angefeuchteten Messer halbieren, damit die cremige Mitte sichtbar wird. Mit geschnittener Frühlingszwiebel und Sesamsamen garnieren. Übrige Eier in der Marinade im Kühlschrank aufbewahren und innerhalb von 4 Tagen essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Ajitama.jpg/1280px-Ajitama.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ajitama.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Guilhem Vellut, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ajitsuke Tamago (in Sojasauce marinierten Ramen-Eiern)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-masala-omelette-desi",
+      "slug": "egg-masala-omelette-desi",
+      "title": "Masala-Omelett (Desi-Omelett)",
+      "instructions": "Das 10-Minuten-Frühstück, das ein schlichtes Omelett in den Schatten stellt: Eier mit Zwiebel, Tomate, grüner Chili und Koriander verquirlt, mit Kurkuma und Chilipulver verfeinert und gebraten, bis sie gestockt und an den Rändern zart knusprig sind. Günstig, schnell und immer wieder anpassbar.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": 6,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Zwiebel und eine Tomate würzen vier oder fünf Omeletts. Hacke beides auf einmal und bewahre den Rest im Kühlschrank auf, damit jedes Frühstück kaum mehr kostet als die Eier.",
+        "Keine frische grüne Chili da? Eine Prise rotes Chilipulver oder einige Chiliflocken sorgen für Schärfe und kosten nur einen Bruchteil.",
+        "Kaufe Eier im Dutzend oder in einer 18er-Packung statt einzeln – der Preis pro Ei sinkt deutlich und sie halten sich wochenlang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "serrano",
+          "swap": "1 Jalapeño oder eine Prise Chiliflocken",
+          "savings": "Jalapeños kosten nur wenige Cent und sind milder sowie leichter zu finden"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "1 tbsp Butter oder Ghee für ein reichhaltigeres Aroma",
+          "savings": "use whatever fat bereits vorhanden on hand"
+        },
+        {
+          "forIngredientId": "cilantro-fresh",
+          "swap": "Gehackte Frühlingszwiebel oder eine Prise getrockneter Koriander",
+          "savings": "Frühlingszwiebeln sind günstig und halten im Kühlschrank länger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Ei",
+        "Frühstück",
+        "vegetarisch",
+        "schnell",
+        "scharf",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 259,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-masala-omelette-desi/",
+      "components": [
+        {
+          "key": "54730fe8-be5f-57f7-b1c8-e59ab945d467",
+          "name": "Zutaten",
+          "servingGrams": 436.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8396ca64-84bf-550b-88e2-b719e48b4f11",
+              "ingredientName": "Ei",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f411ada-21a0-555f-9548-d90611f09d65",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "5f0ec431-8abb-5f4c-bf07-e503f9465b02",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "seeded und finely gehackt"
+            },
+            {
+              "key": "8286185f-2aef-585a-947d-10c015de83d2",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "grüne Chili, fein gehackt; für weniger Schärfe entkernen"
+            },
+            {
+              "key": "fb6a385e-645c-5d36-9ecc-a6a7b00b6100",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt, plus extra zum Garnieren"
+            },
+            {
+              "key": "9790e272-bcd8-53fa-8885-441695db6f4f",
+              "ingredientName": "Kurkuma",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "059ed40a-4a9b-5055-93ac-13fc8ef86d64",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c6b9718-e926-5e71-b2eb-91f7b7e84028",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "optional, für warmth"
+            },
+            {
+              "key": "46d4c917-6f0e-562a-ac1b-2da3c6525abf",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35a8466e-650c-5f1d-87bd-402d536b7604",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8be7f5c8-441a-5c9b-837a-f63395e8ab58",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke 1/4 Zwiebel, 1/2 entkernte Tomate und 1 grüne Chili fein (entkerne sie für weniger Schärfe) und hacke den Koriander grob. Kleine Gemüsestücke sorgen dafür, dass das Omelett gleichmäßig gart und sich gut zusammenklappen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage 3 Eier in eine Schüssel und verquirle sie etwa 30 Sekunden gründlich, bis Eigelb und Eiweiß vollständig vermischt und leicht schaumig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Zwiebel, Tomate, Chili und den größten Teil des Korianders zum Ei. Würze mit Salz, Kurkuma, Chilipulver, nach Wunsch Kreuzkümmel und Pfeffer. Verquirle alles erneut, damit sich die Zutaten gleichmäßig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das Pflanzenöl etwa 1 Minute in einer beschichteten Pfanne bei mittlerer Hitze, bis es schimmert. Ein Tropfen Ei sollte beim Kontakt leicht brutzeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiermischung hinein und neige die Pfanne, damit sie sich gleichmäßig rund verteilt. Lass das Omelett 2 bis 3 Minuten ungestört garen, bis der Boden gestockt und goldbraun ist und die Ränder spitzenartig und leicht knusprig aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe einen Pfannenwender unter das Omelett und wende es oder klappe es in der Mitte zusammen. Gare die zweite Seite 1 bis 2 Minuten, bis kein flüssiges Ei mehr zu sehen und die Mitte vollständig gestockt ist – Eier sollen durchgegart und nicht flüssig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Omelett auf einen Teller gleiten, streue den übrigen Koriander darüber und serviere es heiß, pur oder mit gebuttertem Toast oder warmem Roti.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Masala_egg_omelette_%28cropped%29.jpeg/1280px-Masala_egg_omelette_%28cropped%29.jpeg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Masala_egg_omelette_(cropped).jpeg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "User:Yuvipanda, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Masala-Omelett (Desi-Omelett)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1399 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-tomato-cream-penne",
+      "slug": "rice-cooker-tomato-cream-penne",
+      "title": "Penne mit Tomaten-Sahne-Soße aus dem Reiskocher",
+      "instructions": "Eine zartrosa, seidige Pasta mit Tomaten-Sahne-Soße als unkompliziertes Wohlfühlessen: Zarte Penne in einer hellroten Soße, die schmeckt, als hättest du dir Mühe gegeben, obwohl du nur auf Kochen gedrückt hast. Das perfekte Abendessen für eine winzige Wohnheimküche, ganz ohne Abgießen und Herd. Inspiriert von @nomadetteats in ihrem Blog (https://nomadette.com/rice-cooker-pasta/).",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Packung Penne und eine Dose oder ein Glas Tomatensoße reichen für mehrere Portionen. Kaufe die Hausmarke, dann kostet dieses Abendessen etwa einen Dollar pro Portion.",
+        "Kein frischer Parmesan? Der haltbare Parmesan aus der grünen Dose schmilzt problemlos und hält sich monatelang im Wohnheimschrank.",
+        "Mach daraus morgen ein Mittagessen: Rühre während des letzten Garzyklus eine Handvoll tiefgekühlte Erbsen oder Spinat ein, um für wenige Cent pro Portion Gemüse und mehr Volumen hinzuzufügen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Schlagsahne oder Kaffeesahne für eine besonders reichhaltige Soße wie im Restaurant verwenden.",
+          "savings": "Milch ist hier die günstigste Wahl; Sahne kostet etwas mehr, schmeckt aber besonders fein."
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Ein paar Esslöffel Frischkäse für eine noch seidigere, säuerlichere Soße einrühren.",
+          "savings": "ungefähr gleich teuer; praktisch, wenn Frischkäse bereits geöffnet ist."
+        },
+        {
+          "forIngredientId": "penne",
+          "swap": "Jede kurze Pasta eignet sich, etwa Makkaroni oder Hörnchennudeln. Sie garen genauso.",
+          "savings": "Makkaroni sind pro Portion oft ein paar Cent günstiger."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Pasta",
+        "vegetarisch",
+        "Wohlfühlessen",
+        "schnell",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 680,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-tomato-cream-penne/",
+      "components": [
+        {
+          "key": "f689e2c9-8fc4-5f09-86d9-80cdb8f176cc",
+          "name": "Zutaten",
+          "servingGrams": 582.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b63e55f6-1a44-5a20-8d02-9c598bb66476",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9690779-20d3-58b1-97aa-6495b9992d0f",
+              "ingredientName": "Tomatensoße",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9104d45f-f5a8-5b10-8a76-0891c4518695",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cc046a6-a808-54dc-ab4e-a578f43c652e",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "223fb31b-3e4f-57de-9467-0c8acf628d06",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bcb7d28-d545-5342-b77c-28469e9fb1c8",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6265af5c-0e4d-582e-8af5-80905be045cb",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ed0f262-bbc2-5868-a1ff-2089a22e7b60",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cc82d6f-aadc-55bb-b70d-52cbb3eebfcb",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "039e54ca-a76d-5046-a2ee-2e40ce5bda66",
+              "ingredientName": "Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81c77c87-d03a-50df-bd98-e9e233ba42e3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "55efc65b-edde-57d8-a274-5dedb0ae8c15",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "für etwas Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die Penne in den Topf des Reiskochers und gieße Tomatensoße, Milch und Wasser dazu. Gib gehackten Knoblauch, Butter, Salz, Pfeffer und italienische Gewürzmischung hinzu. Rühre gründlich um, sodass jede Nudel in der Flüssigkeit liegt und nichts trocken herausragt. Schabe den Topfboden ab, damit sich keine Milch absetzt und anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schließe den Deckel und starte den normalen Kochzyklus für Kochen oder weißen Reis. Öffne den Deckel nach etwa 8 Minuten und rühre gründlich um. Schabe dabei den Topfboden ab, damit die Penne nicht festkleben und die Soße nicht ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel wieder und gare weiter. Rühre um die 16-Minuten-Marke noch einmal um. Insgesamt dauert das Garen ungefähr 20-25 Minuten. Die Pasta ist fertig, wenn sie ganz weich und die Soße eingedickt und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn die Nudeln noch einen festen Biss haben, aber keine Flüssigkeit mehr übrig ist, gib 2-3 EL Milch oder Wasser dazu, rühre um und lass den Zyklus noch ein paar Minuten laufen, bis die Nudeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald die Penne weich ist, schalte auf Warmhalten und rühre den Parmesan nach und nach ein, damit er glatt in die glänzende, rosafarbene Sahnesoße schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere und würze bei Bedarf mit etwas mehr Salz oder Pfeffer nach. Lass die Pasta 2-3 Minuten auf Warmhalten stehen, damit sie leicht eindickt und bindet. Rühre einmal um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe die Pasta in Schüsseln und garniere sie mit gehackter frischer Petersilie und nach Wunsch einer Prise Chiliflocken. Warm direkt aus dem Topf essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/PenneAllaVodka.jpg/1280px-PenneAllaVodka.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:PenneAllaVodka.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Joseph O'Connell — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Penne mit Tomaten-Sahne-Soße aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-yaksik-sweet-rice",
+      "slug": "rice-cooker-yaksik-sweet-rice",
+      "title": "Yaksik aus dem Reiskocher (koreanischer süßer Reis mit Datteln und Nüssen)",
+      "instructions": "Glänzender, angenehm zäher Klebreis mit weichen Datteln, prallen Rosinen und gerösteten Walnüssen, glasiert mit Soja, braunem Zucker, Honig und Sesam. Eine Schüssel schmeckt nach koreanischem Feiertag. Das Gericht wirkt raffiniert, ist aber einfach Klebreis mit Süßungsmitteln aus dem Vorrat. Kein Herd, kein Ofen, nur der Reiskocher erledigt die Arbeit. Inspiriert von Kimchimari (https://kimchimari.com/yaksik-korean-sweet-rice-dessert/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Pinienkerne, die teuerste Zutat, weg und verwende Walnüsse oder andere Nüsse, die du schon hast. Das Gericht wird auch ohne sie genauso glänzend und angenehm zäh.",
+        "Das Einweichen gibt kostenlos Geschmack: Wenn der günstige Klebreis über Nacht einweicht, wird er praller und klebriger. So bekommst du für dasselbe Geld ein besonders festliches Dessert.",
+        "Kaufe Klebreis, Rosinen und braunen Zucker lose und nimm nur so viel, wie das Rezept braucht, statt ganze Packungen zu bezahlen, die du im Wohnheim nicht aufbrauchst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "medjool-dates",
+          "swap": "Zusätzliche Rosinen oder getrocknete Cranberrys verwenden, falls Datteln teuer sind oder du keine hast",
+          "savings": "spart ~$2 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Gehackte Mandeln, Pekannüsse oder Erdnüsse verwenden. Jede Nuss sorgt für denselben gerösteten Biss.",
+          "savings": "verwende Vorräte aus dem Schrank, ~$0.50"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder etwas zusätzlichen braunen Zucker für eine vollständig vegane und günstigere Süße verwenden",
+          "savings": "spart ~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "Dessert",
+        "süß",
+        "vegan",
+        "festlich",
+        "ohne Herd"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 681,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-yaksik-sweet-rice/",
+      "components": [
+        {
+          "key": "44cb2e7b-2380-5e86-ab32-d1966238771e",
+          "name": "Zutaten",
+          "servingGrams": 297.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "26202b96-3b20-568d-94ad-3e19f3a52723",
+              "ingredientName": "Süßer Klebreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Klebreis; vorher einweichen"
+            },
+            {
+              "key": "3da22fed-d1b6-5e7d-b983-cbd3e435ac57",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Garen des abgetropften, eingeweichten Reises"
+            },
+            {
+              "key": "ad7330d4-1427-59d4-87d7-14fe562bbd07",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für Farbe und herzhaften Geschmack"
+            },
+            {
+              "key": "e840cd43-16d2-5ee4-9382-f5ffda2e6515",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f4732b9-dae5-5370-9159-8fad98fb52f5",
+              "ingredientName": "Honig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24b1778c-277e-5ae7-a208-c5945df5b8f2",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b131729-dbf3-561c-a2a1-ab9ec792dbdd",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80ce655f-24fb-561c-960a-024de96019e6",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fe41833-5250-50a8-9ace-50a5b6d6f2d2",
+              "ingredientName": "Medjool-Datteln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "entsteint und geviertelt; als Ersatz für Jujube"
+            },
+            {
+              "key": "234a4498-438c-5743-a9b4-efec8d528166",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62ff5eb1-594e-51a5-a9b3-d1bf449841fc",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "grob gehackt; als Ersatz für Kastanien"
+            },
+            {
+              "key": "e88e884d-64b1-526a-8777-27d70dec3fc9",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "als Garnitur darübergeben"
+            },
+            {
+              "key": "66a085f6-a858-5dd2-925c-1a882aaf66f2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Klebreis im Topf des Reiskochers und gieße das Wasser 3-4 Mal ab, bis es fast klar abläuft. Bedecke ihn mit kaltem Wasser und lass ihn mindestens 2 Stunden oder bis zu über Nacht direkt im Topf einweichen. Dadurch werden die Körner prall und zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße den Reis in einem Sieb gut ab und stelle ihn beiseite, während du die Soße zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, braunen Zucker, Honig, Sesamöl, Zimt und Salz in einer Tasse oder kleinen Schüssel, bis sich der Zucker zu einer glänzenden dunklen Soße auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den abgetropften Reis zurück in den Reiskocher und gieße 1.25 cups frisches Wasser sowie die gesamte Soße dazu. Rühre um, damit jedes Korn gleichmäßig überzogen und braun gefärbt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die geviertelten Datteln, Rosinen und gehackten Walnüsse darüber und hebe sie vorsichtig unter, damit sie gleichmäßig verteilt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schließe den Deckel und starte einen normalen Zyklus für weißen Reis. Der Kocher dämpft alles zu einem klebrigen, glänzenden süßen Reis, während du nichts tun musst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und halte den Reis 15-20 Minuten warm, damit die Mitte weich wird und sich die Aromen verbinden. Hebe den Yaksik dann mit einem nassen Reislöffel oder Löffel unter, damit sich Soße und Früchte verteilen. Er sollte dunkel, glänzend und klebrig aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe den Reis in Schüsseln oder drücke ihn in einen kleinen, angefeuchteten Behälter, damit er fest wird. Garniere mit Pinienkernen und einer Prise Sesamsamen. Warm oder gekühlt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Yaksik.jpg/1280px-Yaksik.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yaksik.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Hyeon-Jeong Suk — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Yaksik aus dem Reiskocher (koreanischer süßer Reis mit Datteln und Nüssen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-nasi-uduk",
+      "slug": "rice-cooker-nasi-uduk",
+      "title": "Nasi Uduk aus dem Reiskocher (Jakartas Kokos-Gewürz-Reis)",
+      "instructions": "Jakartas beliebter Kokosreis, von Anfang bis Ende im Reiskocher des Wohnheims zubereitet: Jasminreis dämpft in Kokosmilch mit Zitronengras, Galgant und Lorbeer, bis jedes Korn duftet, locker und leicht süß ist. Dazu knusprige Röstschalotten, kühle Gurke und ein cremiges Ei, Sambal daneben – schon hast du eine vollständige Mahlzeit, die nach einem Garkarren in Jakarta duftet. Inspiriert von einem viralen Reiskocher-Trend auf TikTok.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende nur 3/4 der Dose Kokosmilch und friere den Rest in einer Eiswürfelform ein. Die Würfel passen später perfekt in ein Curry oder eine Portion Haferbrei.",
+        "Knusprige Röstschalotten halten sich in einem verschlossenen Glas wochenlang. Brate eine große Menge auf einmal und gib sie über alles.",
+        "Galgant, Zitronengras und Kaffirlimettenblätter lassen sich ganz wunderbar einfrieren. Kaufe sie einmal und bewahre sie für monatelang aromatischen Reis im Tiefkühler auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "galangal",
+          "swap": "1 tsp frischen oder gemahlenen Ingwer verwenden. Er ist milder und etwas harziger, sorgt aber weiterhin für Frische und Wärme.",
+          "savings": "erspart den Gang zum Feinkostregal"
+        },
+        {
+          "forIngredientId": "kaffir-lime-leaves",
+          "swap": "Einen Streifen Limettenschale dazugeben oder die Blätter ganz weglassen. Zitronengras und Lorbeer sorgen trotzdem für reichlich Aroma.",
+          "savings": "Spart ~$0.60"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen Langkornreis verwenden. Gib einen kleinen Schuss mehr Wasser dazu, dann erhältst du trotzdem duftenden Kokosreis.",
+          "savings": "Spart ein paar Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indonesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Kokosreis",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 682,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-nasi-uduk/",
+      "components": [
+        {
+          "key": "774ceae6-3283-5add-a974-17e30da485cb",
+          "name": "Zutaten",
+          "servingGrams": 458.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "ddf2fb7b-ca1e-5587-8078-8b572d78c00e",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aac18614-c1ca-5d86-a667-11b0fb50ec82",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 3/4 einer 13.5 oz-Dose; den Rest einfrieren"
+            },
+            {
+              "key": "6c510633-bb7e-5056-9962-bc5b789735f1",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91ac8515-4a4b-5276-85e2-fa69cb9870b7",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "das untere Ende des Stängels andrücken und verknoten"
+            },
+            {
+              "key": "682fe94a-6582-5dc9-8acb-b53cbac31092",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 tsp; oder eine dünne Scheibe frischen Galgants"
+            },
+            {
+              "key": "cf4aa18b-838e-5fb6-a25a-13a2aa543f2f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03b1964f-dbdc-513d-8eba-9c7dba66f3c7",
+              "ingredientName": "Salz",
+              "grams": 6.25,
+              "quantity": 6.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69ece6da-bcdc-5cb9-9b1d-3b69d84b0bb2",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "Ersatz für Pandan; sehr aromatisch"
+            },
+            {
+              "key": "23402329-e6d8-5a48-8091-e302bd217e9e",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten, als Belag mit frittierten Schalotten"
+            },
+            {
+              "key": "1571ca40-0723-5802-bf84-06efe79796cc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Knusprigbraten der Schalotten im Reiskocher"
+            },
+            {
+              "key": "4d495537-406e-5091-a48d-a70565eeb4ef",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "ein Ei mit flüssigem Eigelb pro Schüssel"
+            },
+            {
+              "key": "00699894-0105-51a2-8fee-0e3211e11104",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Servieren"
+            },
+            {
+              "key": "ce2a4a19-09aa-5944-b9b4-b4a3583f2dfc",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "626d250f-e1b2-54eb-9165-c48f934fbb94",
+              "ingredientName": "Sambal Oelek",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "für Schärfe, als Beilage serviert"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis im Innentopf unter kaltem Wasser. Bewege ihn dabei und gieße das Wasser 2-3 Mal ab, bis es fast klar abläuft. Gieße den Reis gut ab. So wird Stärke von der Oberfläche gespült und der Reis locker statt klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Optionale Röstschalotten, nur wenn dein Kocher eine Anbrat- oder Kochstufe hat: Stelle den Reis beiseite und gib Pflanzenöl und geschnittene Schalotten in den leeren Topf. Lass sie 6-8 Minuten brutzeln und rühre häufig um, bis sie gleichmäßig goldbraun sind. Gib sie zum Abtropfen auf ein Papiertuch. Beim Abkühlen werden sie knusprig. Lass diesen Schritt ganz aus, wenn dein Kocher nur eine einfache Taste für weißen Reis hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den abgetropften Reis zurück in den Topf und füge Kokosmilch, Wasser, Salz, zusammengebundenes Zitronengras, Galgant, Lorbeerblätter und nach Wunsch Kaffirlimettenblätter hinzu. Rühre einmal vorsichtig um, damit Salz und Kokosmilch gleichmäßig verteilt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte den normalen Zyklus für weißen Reis. Öffne den Deckel während des Zyklus nicht. Der eingeschlossene Dampf gart den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und den Reis 10 Minuten auf Warmhalten ruhen, damit die Körner fertig dämpfen und fester werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Eier aus Sicherheitsgründen separat: Lege ganze Eier in einen kleinen Topf mit kochendem Wasser auf dem Herd oder in eine hitzebeständige Schüssel mit Wasser aus dem Wasserkocher und koche sie 7 Minuten für ein cremiges Eigelb oder 9-10 Minuten, bis sie vollständig fest sind. Kühle sie dann unter kaltem Wasser ab und schäle sie. Wenn du keine zweite Wärmequelle hast, gare sie vorher im Reiskocher mit einer Tasse Wasser auf der Koch- oder Dampfstufe, bis Eiweiß und Eigelb vollständig fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm Zitronengras, Galgant, Lorbeerblätter und Limettenblätter heraus und wirf sie weg. Lockere den Reis mit einer Gabel oder einem Reislöffel auf, damit Dampf entweicht und die Körner getrennt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe den Reis in Schüsseln und gib knusprige Röstschalotten, Gurkenscheiben und Frühlingszwiebel darüber. Halbiere je ein Ei über jeder Schüssel und serviere Sambal dazu für alle, die es scharf mögen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/4_Nasi_uduk_btw_220904-074850_ut.jpg/1280px-4_Nasi_uduk_btw_220904-074850_ut.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:4_Nasi_uduk_btw_220904-074850_ut.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Wibowo Djatmiko (Wie146) — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Nasi Uduk aus dem Reiskocher (Jakartas Kokos-Gewürz-Reis)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-mujadara",
+      "slug": "rice-cooker-mujadara",
+      "title": "Mujadara aus dem Reiskocher mit süß-weichen Zwiebeln",
+      "instructions": "Erdige braune Linsen und lockerer Reis garen zusammen mit warmem Kreuzkümmel, bis beides butterzart ist. Obendrauf kommt ein Berg süßer, tiefgoldener Zwiebeln, die langsam direkt im Topf gegart werden. Ein uraltes Wohlfühlessen, günstig, sättigend und 100% pflanzlich, wenn man den optionalen Joghurt weglässt. Ein Abendessen, das nach viel mehr Aufwand schmeckt, als es tatsächlich kostet. Inspiriert von einem viralen Mujadara-Trend mit Reiskochern auf TikTok.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Braune Linsen und einfacher Reis gehören zu den günstigsten, sättigendsten Grundnahrungsmitteln. Ein Beutel von jedem kostet nur ein paar Dollar und reicht für viele Portionen Mujadara.",
+        "Der Belag besteht nur aus langsam gegarten Zwiebeln und Öl. Lass teure Röstzwiebeln aus dem Laden weg. Deine zwei weich gegarten Zwiebeln schmecken besser und kosten fast nichts.",
+        "Koche eine doppelte Menge und bewahre sie im Kühlschrank auf. Mujadara lässt sich mit einem Schuss Wasser wunderbar aufwärmen und ergibt die ganze Woche ein besonders günstiges Mittagessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice",
+          "swap": "Basmatireis für eine duftigere Mujadara wie im Restaurant verwenden",
+          "savings": "kostet etwas mehr, reicht aber genauso weit"
+        },
+        {
+          "forIngredientId": "brown-lentils",
+          "swap": "Grüne Linsen verwenden. Sie behalten ihre Form und kosten pro cup weniger.",
+          "savings": "Spart etwa $0.45 pro Tasse"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl eignet sich gut zum Garen der Zwiebeln.",
+          "savings": "Spart etwa $0.22 pro tbsp"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "levantinisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "vegan",
+        "günstig",
+        "Linsen",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 683,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-mujadara/",
+      "components": [
+        {
+          "key": "83d0b9c4-e7a3-502a-822e-9e9f15b6ffa8",
+          "name": "Zutaten",
+          "servingGrams": 511.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea9d25b3-1d00-5107-a2cd-babaf2fd110d",
+              "ingredientName": "Braune Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f140ea95-9f4b-5997-abcc-1a0a1d46f4ef",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fe8a956-c298-546b-a1ca-40dbf3de6527",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "296b1fe5-1f50-59ec-ba0e-fe5f0a8f4a3d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a0502b1-30e2-5c8d-9233-718b106a1f6f",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddf4d28a-8cc1-56f9-b681-fb0a8f3eb02c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ab11e91-8c46-5f8a-bea8-6f8f5af02da1",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41f678c0-bb83-5300-8c30-b37d138309f5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "gerieben oder gehackt"
+            },
+            {
+              "key": "7b2f588e-4d81-5cf2-ae04-25e059bf5bc4",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "2b9d08a3-09ff-50a8-9b4e-a890cac52e53",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "d6776756-bbf0-52b0-81cd-a77bb60fa0e6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "33904812-19d0-5ab3-a227-478da5bd1252",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "als Beilage servieren; weglassen, damit das Gericht vegan bleibt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 cup braune Linsen unter kaltem Wasser ab und entferne kleine Steinchen. Gib sie mit 4 cups Wasser, 1 tsp Kreuzkümmel und 1 tsp Salz direkt in den Reiskocher und rühre um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus für Kochen oder weißen Reis. Wenn der Kocher nach etwa 20-25 Minuten auf Warmhalten umschaltet, sollten die Linsen gerade eben weich und das meiste Wasser aufgenommen sein. Dieser Vorsprung ist wichtig, denn Linsen brauchen länger als Reis. Wenn noch viel Wasser übrig ist, starte den Zyklus kurz erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spüle 1 cup Reis, bis das Wasser größtenteils klar abläuft, und rühre ihn dann zusammen mit dem restlichen 1 tsp Kreuzkümmel, 1 tsp Salz und nach Wunsch geriebenem Knoblauch, Koriander und schwarzem Pfeffer unter die heißen Linsen. Wenn der Topf trocken aussieht, gib 1/4 cup Wasser dazu. Schließe den Deckel und starte einen weiteren vollständigen Kochzyklus für Kochen oder weißen Reis, bis der Kocher auf Warmhalten umschaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide während des Garens 2 Zwiebeln in dünne Scheiben. Wenn der Zyklus endet, lockere Reis und Linsen mit einer Gabel auf, gib sie in eine Servierschüssel und decke sie zum Warmhalten ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische den leeren Topf aus, gib 4 tbsp Olivenöl und die geschnittenen Zwiebeln hinein und starte die Koch- oder Anbratstufe. Rühre alle paar Minuten 25-30 Minuten lang um und schalte auf Warmhalten, wenn die Zwiebeln zu schnell bräunen. Sie sollen zu einem weichen, süßen, tiefgoldenen Berg Zwiebelmarmelade zusammenfallen. Ein Haushaltskocher brät sie nicht knusprig wie auf dem Herd. Langsames, geduldiges Garen ist das Ziel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe etwa die Hälfte der Zwiebeln unter Reis und Linsen, damit jeder Bissen gewürzt ist, und häufe den Rest obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue gehackte Petersilie darüber und serviere das Gericht warm. Nach Wunsch einen Klecks kühlen griechischen Joghurt dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Mujaddara.jpg/1280px-Mujaddara.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mujaddara.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bazel — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Mujadara aus dem Reiskocher mit süß-weichen Zwiebeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-arroz-con-gandules",
+      "slug": "rice-cooker-arroz-con-gandules",
+      "title": "Arroz con Gandules aus dem Reiskocher",
+      "instructions": "Puerto Ricos beliebtes Nationalgericht, ganz einfach zubereitet: Reis, rot gefärbt von Sofrito und gesprenkelt mit Oliven, dazu nussige Taubenerbsen. Alles gart in einem rauchig-herzhaften Topf. Jedes lockere Reiskorn nimmt den Geschmack der Feiertage auf der Insel auf, während der Reiskocher arbeitet und eine begehrte goldbraune Reiskruste am Topfboden bildet, den Pegao. Inspiriert von einem viralen Reiskocher-Trend auf TikTok.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 38,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Glas gekauftes Sofrito reicht für viele Mahlzeiten. Friere es in einer Eiswürfelform ein und gib beim Kochen von Reis, Bohnen oder Suppe einfach einen Würfel dazu.",
+        "Ersetze Hühnerbrühe durch Wasser mit einem zerdrückten Brühwürfel oder einem Teelöffel Hühnerbrühepulver. So sparst du Geld, ohne auf herzhaften Geschmack zu verzichten.",
+        "Taubenerbsen aus der Dose sind das ganze Jahr über günstig und lange haltbar. Kaufe ein paar Dosen extra, wenn sie im Angebot sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pigeon-peas",
+          "swap": "Eine Dose rote Bohnen oder Kidneybohnen verwenden. Nicht traditionell, aber trotzdem sättigend und lecker.",
+          "savings": "oft günstiger und leichter zu finden"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit einem Brühwürfel oder einem Teelöffel Hühnerbrühepulver verwenden",
+          "savings": "Spart etwa $1.50 pro Topf"
+        },
+        {
+          "forIngredientId": "sofrito",
+          "swap": "Zwiebel, Knoblauch, Paprika und Koriander selbst zu einer Paste pürieren",
+          "savings": "verwendet Vorratszutaten statt eines Glases"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "puerto-ricanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Reis",
+        "Abendessen",
+        "Bohnen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 684,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-arroz-con-gandules/",
+      "components": [
+        {
+          "key": "6d89515f-bca1-58d3-b1a4-a3e97d8db968",
+          "name": "Zutaten",
+          "servingGrams": 481.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4d7c9c1-6bec-516f-9c17-d4cbe64f5fd4",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "011d51c2-acaa-5415-83d1-ba1abda596f7",
+              "ingredientName": "Augenbohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "abgetropft und abgespült; die Hauptzutat des Gerichts"
+            },
+            {
+              "key": "8ef4795f-498c-5507-88e6-848c2a0698d2",
+              "ingredientName": "Sofrito",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "die Geschmacksbasis, gekauft oder selbst gemacht"
+            },
+            {
+              "key": "6440ad22-8157-5a85-ab8f-833eecd91486",
+              "ingredientName": "Tomatensoße",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be3bf2ae-9f32-5dec-b45a-4b3e166948b8",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Manzanilla- oder spanische grüne Oliven mit Pimentfüllung, grob gehackt"
+            },
+            {
+              "key": "a875cc16-d903-5970-88dd-7642b9ad3c9f",
+              "ingredientName": "Sazón-Gewürzmischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "mit Culantro und Achiote für die typische Farbe"
+            },
+            {
+              "key": "fa348f6b-a901-51b6-9172-922d6e4a4e4c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c45746fc-3f4b-5fb9-94db-a23737d86590",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1d0d328-b1a4-5cb5-8dc2-c4a1821b6508",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "abd9ca3b-e088-5030-bb29-cdb4db184643",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "cbfbf9ad-6646-58c3-b58f-ae17cd7ae5a1",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "gewürfelt; falls vorhanden grüne Cubanelle-Art"
+            },
+            {
+              "key": "7ee262b4-4745-52ad-8c37-7a839c73ae9b",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb705ad6-7fcd-53d8-b9d2-5c8eb9e4f76c",
+              "ingredientName": "Adobo-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9c606c5-9d78-5fab-b336-c4ef2e78f111",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5f735ee-87da-55ac-96c2-5978a89ae66e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Schluss hinzufügen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Reiskocher bei GEÖFFNETEM Deckel auf Anbraten oder Kochen. Bei einem einfachen Gerät mit nur einem Schalter drücke auf Kochen und lass den Deckel offen. Die Heizplatte funktioniert trotzdem. Gib Olivenöl, Zwiebel, Paprika und Knoblauch hinein und lass alles 3-4 Minuten brutzeln. Rühre dabei um, bis das Gemüse weich ist und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Sofrito, Tomatenmark und Tomatensoße ein. Koche alles unter Rühren weitere 2-3 Minuten, bis der rohe Geruch des Sofritos verschwindet und der Topf tief rostrot wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spüle den Reis, bis das Wasser größtenteils klar abläuft, und gieße ihn gut ab. Gib ihn direkt in den Topf und rühre etwa 1 Minute um, sodass jedes Korn mit dem aromatisierten Öl überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abgetropfte Taubenerbsen, Oliven, Sazón, Adobo, Lorbeerblatt und Hühnerbrühe dazu. Rühre einmal um, damit alles gleichmäßig verteilt ist. Die Flüssigkeit sollte etwas salzig schmecken, weil der Reis beim Garen Flüssigkeit aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte einen normalen Kochzyklus für weißen Reis. Rühre während des Garens NICHT um. Wenn der Reis ungestört gart, bildet sich am Boden die begehrte goldbraune Reiskruste, der Pegao.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, lass den Reis bei geschlossenem Deckel 10 Minuten auf Warmhalten ruhen, damit er fertig dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öffne den Deckel, entferne das Lorbeerblatt und lockere den Reis vorsichtig mit einer Gabel oder einem Pfannenwender von unten nach oben auf, sodass sich die Erbsen verteilen. Bestreue ihn mit frischem Koriander und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Arroz_con_gandules.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arroz_con_gandules.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jose Kevo from Springfield, Missouri, EEUU — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Arroz con Gandules aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

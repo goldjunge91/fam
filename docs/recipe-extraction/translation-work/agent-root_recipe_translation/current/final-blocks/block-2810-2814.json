@@ -1,0 +1,1014 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bibingka",
+      "slug": "gen-bibingka",
+      "title": "Bibingka",
+      "instructions": "Philippinisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geriebene Kokosnuss selbst aus tiefgekühlter Kokosnuss herstellen und 40% sparen",
+        "Falls keine Kokosmilch erhältlich ist, Milchpulver mit Wasser mischen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "philippinisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2810,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bibingka/",
+      "components": [
+        {
+          "key": "cd4248b6-2b22-55c0-a5b7-ac568ab448b9",
+          "name": "Zutaten",
+          "servingGrams": 177.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "324b6d5c-f725-5494-89f5-b7a8e3da7243",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7b6b5c58-6c25-5f87-b930-e9aa5ddbcbab",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "a74fdb86-c9a7-5edc-bca2-75286cce1fcc",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "5d365199-28ff-5f5a-9ddd-0f542ff4aa82",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "88ec92eb-f850-5c1d-a7a7-23e05ff402fc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "df8087f5-3fb0-5d00-a8c4-b832ea2173c6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4de373a2-58d5-53e8-a694-cf34a2711347",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "69b0dba8-4c6c-511a-82c2-b24791a96e9a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 375°F vorheizen und eine Backform von 8x12 inch mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reismehl, braunen Zucker, Backpulver und Salz in einer großen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer anderen Schüssel Eier verquirlen und mit Kokosmilch vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Flüssige Zutaten zu den trockenen geben und nur so lange rühren, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig in die vorbereitete Form gießen und die Oberfläche glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geriebene Kokosnuss und Käse gleichmäßig darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Butter in kleinen Stücken auf der Oberfläche verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "20-25 Minuten backen, bis ein in die Mitte gesteckter Zahnstocher sauber herauskommt und die Oberseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/MBRUWVCv4RpQUQOSAjXYOrBiJfU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/BibingkaStep6ORBeautyalt-869a937f4da541ec844e11879a6ba5c9.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/MBRUWVCv4RpQUQOSAjXYOrBiJfU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/BibingkaStep6ORBeautyalt-869a937f4da541ec844e11879a6ba5c9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-puto",
+      "slug": "gen-puto",
+      "title": "Puto",
+      "instructions": "Philippinisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl in großen Mengen kaufen, um die Stückkosten zu senken",
+        "Käsebelag weglassen und stattdessen mit braunem Zucker oder Sirup servieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "philippinisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2811,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puto/",
+      "components": [
+        {
+          "key": "030e5934-f51a-5135-81da-2afbdf6ea110",
+          "name": "Zutaten",
+          "servingGrams": 119.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "94177885-8c11-5364-9d3a-55ac6e8a696e",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7b81ff32-0763-54b6-bb8c-574b79dd6ddd",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 TL"
+            },
+            {
+              "key": "066b2a9e-4cdb-5740-a8a0-5b845c01a1fe",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "a72457fc-bc76-5073-8478-d02c3ef121c8",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "f5c43a63-9c71-5d92-9844-0697d25300d9",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4218b3d-cb34-55ef-90f4-2150b7824c9f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fd9deac9-174a-5f87-9a3e-e0fcac2e35c4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "88c71191-42e7-59ad-a96b-c696e687e5ac",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in eine Schüssel sieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer anderen Schüssel Eier und Zucker etwa 2 Minuten hell und luftig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschmolzene Butter und Vanille zur Eiermischung geben und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehlmischung und Milch abwechselnd zu den flüssigen Zutaten geben und verrühren, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Puto-Förmchen oder Muffinformen zur Hälfte mit Teig füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In einem Dampfgarer oder Topf mit Wasser 12-15 Minuten dämpfen, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2 Minuten in den Förmchen abkühlen lassen, dann auf ein Kuchengitter stürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm mit Käse oder nach Wunsch mit Puto-Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/07/Puto-Steamed-Rice-Cakes.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/07/Puto-Steamed-Rice-Cakes.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-turon",
+      "slug": "gen-turon",
+      "title": "Turon",
+      "instructions": "Philippinischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für geringere Kosten normale Bananen statt Kochbananen verwenden",
+        "Füllung im Voraus zubereiten und erst direkt vor dem Frittieren einrollen, damit es schneller geht"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "philippinisch",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2812,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turon/",
+      "components": [
+        {
+          "key": "f733e73c-2932-5286-836d-df8c55c7d5bf",
+          "name": "Zutaten",
+          "servingGrams": 296.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5982862-8d94-5cd6-ad77-620d2294b68b",
+              "ingredientName": "Frühlingsrollenteig",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63820d70-e072-5c51-96a6-c862c1609d74",
+              "ingredientName": "Kochbanane",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "30b7e4f7-f748-5dff-9a65-ece612418a37",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "c6095a65-9d71-5383-95ba-7738000c2ba8",
+              "ingredientName": "Jackfruit in Salzlake (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "2f1fe25a-766d-58da-ad27-100ae94fd87e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f196e63d-c905-5149-a694-282458c8af44",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kochbananen schälen und der Länge nach in dünne, etwa 1/4 inch dicke Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Frühlingsrollenteig rautenförmig auf eine ebene Fläche legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Scheibe Kochbanane in die Mitte legen und ein Stück Jackfruit daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa 1/2 tsp braunen Zucker über die Füllung streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zu einer Frühlingsrolle falten: zuerst die untere Ecke nach oben, dann die Seiten einschlagen und fest bis zur oberen Ecke aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Rand mit etwas Wasser auf dem Finger verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl auf 350°F erhitzen und Turon vorsichtig etwa 2-3 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einer Schaumkelle herausnehmen, auf Küchenpapier abtropfen lassen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.saymedia-content.com/.image/t_share/MTc0MjI0MDkwNzQyMTM4NzQ4/quick-and-easy-recipe-for-turon-philippine-banana-roll-dessert.jpg",
+          "sourcePageUrl": "https://images.saymedia-content.com/.image/t_share/MTc0MjI0MDkwNzQyMTM4NzQ4/quick-and-easy-recipe-for-turon-philippine-banana-roll-dessert.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-taho",
+      "slug": "gen-taho",
+      "title": "Taho",
+      "instructions": "Philippinisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu auf asiatischen Märkten statt im normalen Supermarkt kaufen",
+        "Eine große Menge Sirup zubereiten und mehrere Tage im Kühlschrank aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "philippinisch",
+        "frühstück",
+        "vegan",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2813,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-taho/",
+      "components": [
+        {
+          "key": "3d47ca0c-2668-5cc3-a195-c7a693e23612",
+          "name": "Zutaten",
+          "servingGrams": 91.47,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a8b164e-8140-5a45-a2f1-c7daa7dd99ce",
+              "ingredientName": "Tofu",
+              "grams": 57.14,
+              "quantity": 0.57,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "16 Unzen"
+            },
+            {
+              "key": "3f937b97-ce53-5c8a-b8c7-718f0921cd06",
+              "ingredientName": "Brauner Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "d3d82643-69fa-5364-9a38-1cfded6c54c7",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "b60685fc-e8bb-5159-a1e5-c8c2f4ee3788",
+              "ingredientName": "Birne",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "3268e1cc-7f19-59f9-9137-26b4d22ffcf7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "393d1830-56a5-580d-a7a8-fbebfc518282",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sago nach Packungsanweisung kochen, bis es durchsichtig ist, dann abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Braunen Zucker und Wasser in einem Topf vermengen und bei mittlerer Hitze zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sago einrühren und 2 Minuten köcheln lassen, dann vom Herd nehmen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vanille und Salz in den abgekühlten Sirup einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Seidentofu vorsichtig in Servierschalen schöpfen, ohne ihn zu sehr zu zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warmen oder abgekühlten Sirup mit Sago über den Tofu gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort bei Raumtemperatur oder gekühlt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://maeservesyoufood.com/wp-content/uploads/2022/02/taho-filipino-sweet-tofu.jpeg",
+          "sourcePageUrl": "https://maeservesyoufood.com/wp-content/uploads/2022/02/taho-filipino-sweet-tofu.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-goto",
+      "slug": "gen-goto",
+      "title": "Goto",
+      "instructions": "Philippinisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kutteln auf asiatischen oder hispanischen Märkten kaufen, wo sie deutlich günstiger sind",
+        "Instantbrühe oder Brühwürfel statt frischer Brühe verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "philippinisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2814,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-goto/",
+      "components": [
+        {
+          "key": "99747cd8-0a3f-5501-81f7-1a0f16eaf484",
+          "name": "Zutaten",
+          "servingGrams": 605.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "978738d2-5364-53b0-b027-d78488db0981",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "d520b8ab-0f5d-59ff-93f8-6fcd9ed9a8e1",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "30bb90da-a047-50a2-aaaf-fd3d23ff8f74",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "c3ce8ea9-8c61-52b5-aded-b2c85bb93854",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "9edf53d9-a93f-5786-a8ae-0e0d94c3af8b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "3ef3699c-6441-57af-bc16-b95b7ea35fac",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "877a72c0-b213-5465-8ed1-1853658af1e9",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1e5d4d5b-0d77-511a-b5e2-df6ff2f1afa6",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "52e44213-bb6d-53ac-97c9-0de36c549bd6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kutteln 15 Minuten in Salzwasser kochen, um sie zu reinigen; abgießen und mundgerecht schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Topf erhitzen und gehackten Knoblauch sowie Ingwer 1 Minute anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brühe angießen und aufkochen, dann die gereinigten Kutteln hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und Kutteln 30-40 Minuten köcheln lassen, bis sie sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reis abspülen und in den Topf geben; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15-20 Minuten köcheln lassen, bis der Reis sehr weich ist und die Mischung breiartig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sojasauce, Sesamöl, Salz und Pfeffer nach Geschmack einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß in Schalen servieren und mit geschnittener Frühlingszwiebel garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a1/ff/79/a1ff791cc89ae2111d527922bfcbf451.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a1/ff/79/a1ff791cc89ae2111d527922bfcbf451.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,840 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cake-pb-banana-stack",
+      "slug": "rice-cake-pb-banana-stack",
+      "title": "Reiswaffeln mit Erdnussbutter und Banane",
+      "instructions": "Knusprige Reiswaffeln mit Erdnussbutter, Bananenscheiben und etwas Zimt.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Reiswaffeln sind pro Stück sehr günstig",
+        "Bananen gehören zu den günstigsten Früchten"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-cakes",
+          "swap": "Toast oder Bagel",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Weglassen",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Drei günstige Zutaten aus dem Vorratsschrank kosten zusammen weniger als $1.50.",
+      "healthierTips": [
+        "Honig weglassen",
+        "Naturbelassene Erdnussbutter verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "ohne Kochen",
+        "Snack",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 80,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cake-pb-banana-stack/",
+      "components": [
+        {
+          "key": "6d3643cb-de42-5559-97a9-9d9f01631bd7",
+          "name": "Zutaten",
+          "servingGrams": 176.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ad40aa4-86cc-50de-80f1-de8cb112e474",
+              "ingredientName": "Reiswaffeln",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c6043ec-f1af-5a73-a1fe-28b1a7fb2f82",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eefdd4e2-03a6-589a-b6f2-b68af00a7099",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e895fe1-bf12-5a72-8403-7cd26e5d77b3",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "fe5bcd84-d89a-5617-b534-050b694732f5",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die Reiswaffeln mit Erdnussbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege sie mit Bananenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue Zimt darüber und beträufle alles mit Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/rice-cake-pb-banana-stack.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/rice-cake-pb-banana-stack.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/rice-cake-pb-banana-stack.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/rice-cake-pb-banana-stack.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:microwave-egg-fried-rice",
+      "slug": "microwave-egg-fried-rice",
+      "title": "Gebratener Reis mit Ei aus der Mikrowelle",
+      "instructions": "Übrig gebliebener Reis mit verquirltem Ei, Tiefkühlgemüse und Sojasauce – komplett in der Mikrowelle zubereitet.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Verwertet Reis vom Vortag",
+        "Nur eine Schüssel und eine Gabel nötig"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Beliebiges übriges Gemüse",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Tofuwürfel",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Macht aus übrig gebliebenem Reis ein Mittagessen in 5 Minuten.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Salzreduzierte Sojasauce verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch",
+        "studentenküchengeeignet",
+        "Mikrowelle",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 81,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/microwave-egg-fried-rice/",
+      "components": [
+        {
+          "key": "416dd315-37d9-5db6-9bb9-5f23f00b4c15",
+          "name": "Zutaten",
+          "servingGrams": 442.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c53f0e91-5f0f-5dab-9f8a-d7f767ccba0b",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46250c93-b839-5a36-a3cb-82a59cab0134",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45b3ecf8-6272-5364-9486-9d2dbd98079b",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a94c098-f074-53c2-beb3-84bbce5071e1",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7644bb28-7f50-5d43-b102-ffcd8e18104d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8283cdd6-a6ce-5963-bc15-399f7de6478c",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle das Ei in einer mikrowellengeeigneten Schüssel und gare es 45 Sekunden in der Mikrowelle; rühre um und gare es weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Reis, Tiefkühlgemüse und Sojasauce dazu und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme alles 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Frühlingszwiebel und Sesamöl darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/microwave-egg-fried-rice.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/microwave-egg-fried-rice.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-egg-fried-rice.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-egg-fried-rice.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:microwave-mac-and-peas",
+      "slug": "microwave-mac-and-peas",
+      "title": "Makkaroni mit Erbsen aus der Mikrowelle",
+      "instructions": "In der Mikrowelle gekochte Pasta mit Käse, Milch und Tiefkühlerbsen – ein Abendessen aus einer Schüssel für die Studentenküche.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Mit einem Schuss Milch 60 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kein Herd nötig",
+        "Tiefkühlerbsen statt frischer Erbsen verwenden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Pflanzendrink",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Tiefkühlbrokkoli",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Pasta und Käse werden komplett in einer mikrowellengeeigneten Schüssel zubereitet.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Weniger Käse verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "studentenküchengeeignet",
+        "Mikrowelle",
+        "Seelenfutter"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 82,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/microwave-mac-and-peas/",
+      "components": [
+        {
+          "key": "0de8caee-3065-5f19-9d02-318942c005c1",
+          "name": "Zutaten",
+          "servingGrams": 408.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8695c3d5-9a33-5442-a163-3f00e594b5bf",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f16c0da-fd2c-536b-a63a-ea598bf623a9",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8394277d-0011-5062-a6b9-93fca46ff0b1",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91bbf2a9-daea-5ba9-a062-ee864a50b4d3",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c81934e9-58bc-5314-8655-d2154e34f73f",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30e3ad94-deb4-5a8c-a7f6-3aabf61a18e5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Pasta und 1.5 Tassen Wasser in einer großen mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare alles 8 Minuten in der Mikrowelle und rühre einmal um, bis die Pasta weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße überschüssiges Wasser ab und rühre Milch, Käse, Butter, Erbsen und Knoblauchpulver ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme alles 60 Sekunden in der Mikrowelle, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/microwave-mac-and-peas.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/microwave-mac-and-peas.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-mac-and-peas.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-mac-and-peas.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:yogurt-oat-bowl",
+      "slug": "yogurt-oat-bowl",
+      "title": "Haferflocken-Joghurt-Schüssel",
+      "instructions": "Griechischer Joghurt mit Haferflocken, Honig und Obst – über Nacht vorbereitet oder sofort serviert.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Große Joghurtbecher sind pro Unze günstiger",
+        "Tiefkühlbeeren sind günstiger als frische"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-berries",
+          "swap": "Banane oder Marmelade",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "almonds",
+          "swap": "Walnüsse oder weglassen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein günstiges Frühstück aus Vorratszutaten für weniger als $2.",
+      "healthierTips": [
+        "Honig weglassen",
+        "Naturjoghurt verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "ohne Kochen",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 83,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/yogurt-oat-bowl/",
+      "components": [
+        {
+          "key": "c55ba57f-0375-562a-99f8-f4a6fbba8bb9",
+          "name": "Zutaten",
+          "servingGrams": 436.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b44325ad-be4e-5a06-b103-55ae9c156cdb",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bec4e30d-8bd8-5e27-9d79-4818f80b5223",
+              "ingredientName": "Zarte Haferflocken",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef56394a-878f-5267-86df-b92e674c3a17",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c7cb348-03cb-5348-9145-25f49a066f84",
+              "ingredientName": "Tiefkühlbeeren",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "309bf1e8-0caf-52a7-a238-e7355556a905",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "2f46e5a8-bced-508b-957c-d9f785543231",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Joghurt, Haferflocken, Honig und Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Beeren und Mandeln darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/yogurt-oat-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/yogurt-oat-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/yogurt-oat-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/yogurt-oat-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tortilla-tuna-crunch-wrap",
+      "slug": "tortilla-tuna-crunch-wrap",
+      "title": "Thunfisch-Crunch-Wrap",
+      "instructions": "Thunfischsalat mit zerdrückten Chips in eine Tortilla gerollt – ein knuspriges, cremiges Mittagessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Sorgt für Knusprigkeit ohne zusätzliche Einkäufe",
+        "Kein Kochen nötig"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chips",
+          "swap": "Tortillachips oder Cracker",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Dose Thunfisch, eine Tortilla und vorhandene Chips kosten zusammen $2.75.",
+      "healthierTips": [
+        "Chips weglassen",
+        "Vollkorntortilla verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "ohne Kochen",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 84,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tortilla-tuna-crunch-wrap/",
+      "components": [
+        {
+          "key": "85281fcc-f42c-583d-b12f-301b2421e540",
+          "name": "Zutaten",
+          "servingGrams": 1008.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ad1db0c-2c61-583f-980a-7f580385a8d7",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2abc28e6-8ace-57fa-8c69-f298d6b5c9b2",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4e2a8e9-6338-5412-9067-a0868700fb12",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44f3f9d7-cb7a-5923-8aff-b7d02f68bab5",
+              "ingredientName": "Kartoffelchips",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8348bec-6715-5531-ac78-2ac8789af3f6",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0579264-954e-5315-b335-89c6b00ab59c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac8d1c79-1eac-5e83-b35c-d9774e9ccbf1",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Thunfisch mit Mayonnaise, Senf und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile den Thunfischsalat auf der Tortilla und belege ihn mit Salat und zerdrückten Chips.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle die Tortilla fest auf und schneide sie in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tortilla-tuna-crunch-wrap.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tortilla-tuna-crunch-wrap.jpg",
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Albacore_tuna_rice_wrap_%287000531264%29.jpg/960px-Albacore_tuna_rice_wrap_%287000531264%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Albacore_tuna_rice_wrap_(7000531264).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jen Arrr — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines Thunfisch-Crunch-Wraps",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

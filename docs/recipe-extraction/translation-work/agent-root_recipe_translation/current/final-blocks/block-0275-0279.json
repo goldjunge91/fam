@@ -1,0 +1,1224 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-dutch-baby-puffed-oven-pancake",
+      "slug": "egg-dutch-baby-puffed-oven-pancake",
+      "title": "Dutch Baby (aufgegangener Ofenpfannkuchen)",
+      "instructions": "Ein eindrucksvoller Mix aus Eierpudding und Crêpe, der in einer sehr heißen Pfanne zu einem großen goldenen Kissen aufgeht und zu zarten, buttrigen Falten zusammensinkt, sobald er aus dem Ofen kommt. Ein Teig aus dem Mixer, eine Pfanne, kein Wenden; mit Puderzucker und einem Spritzer Zitrone servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Mixer da? Verquirle den Teig 2 Minuten kräftig von Hand in einer Schüssel, bis er glatt und schaumig ist, und lass ihn vor dem Eingießen 10 Minuten ruhen.",
+        "Keine gusseiserne Pfanne? Jede ofenfeste Metallpfanne oder eine gläserne Kuchenform eignet sich. Heize sie leer vor, damit die Butter zischt, wenn der Teig hineinkommt.",
+        "Lass abgefüllte Garnierungen weg und serviere den Pfannkuchen mit weißem Zucker und einem Spritzer frischer Zitrone. Das schmeckt genauso gut und kostet nur ein paar Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Beliebige Milch, auch 2% Milch oder Mandelmilch",
+          "savings": "Vorhandenes aus dem Kühlschrank verwenden"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "1/4 TL Zimt für eine warme Gewürznote",
+          "savings": "Kostet nur wenige Cent und passt zu Vorratszutaten"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Ein dünner Schuss Ahornsirup oder Honig",
+          "savings": "Kein Puderzucker nötig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch-amerikanisch",
+        "Ei",
+        "Frühstück",
+        "Ofen",
+        "aufgegangener Pfannkuchen",
+        "Mixer",
+        "Wochenende",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 275,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-dutch-baby-puffed-oven-pancake/",
+      "components": [
+        {
+          "key": "d4527ceb-c668-5872-ab64-2a90b5f0eda1",
+          "name": "Zutaten",
+          "servingGrams": 279.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e1fb20c-efde-50cb-ba6d-e0668f9b7056",
+              "ingredientName": "Ei",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2a6c5eb-23ff-5917-8313-53ff77e02038",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6689b602-e5b3-5ac4-a21e-3b3045682748",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2b86451-2c41-5e83-bf0d-4214efc211c0",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4872fcb1-79f7-5043-a4e3-49153c848db3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ada26d0-27eb-5eeb-9560-07d67ecca39e",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86fe1edf-6c42-5f9f-9998-c8d7931f923d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "842a8966-06ac-5428-bfd3-81b018fd18f4",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Bestäuben"
+            },
+            {
+              "key": "06be7650-d491-51e3-a804-d9361bd09b87",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in Spalten zum Auspressen geschnitten"
+            },
+            {
+              "key": "bed6fd0e-4926-5f15-a2c2-a7407763619e",
+              "ingredientName": "Ahornsirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Beträufeln at table"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle eine 10-inch-Gusseisenpfanne oder ofenfeste Pfanne auf den mittleren Rost und heize den Ofen auf 425F vor. Lass die leere Pfanne mindestens 10 Minuten heiß werden, damit sie sehr heiß ist, wenn der Teig hineinkommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage 3 Eier in einen Mixer und lass sie ein paar Minuten stehen, damit sie nicht mehr ganz so kalt sind; Eier und Milch bei Zimmertemperatur sorgen für den höchsten Pfannkuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 1/2 cup Mehl, 1/2 cup Vollmilch, 1 TL Vanille, 1 EL Zucker und 1/4 TL Salz dazu. Mixe alles 30-45 Sekunden, bis der Teig völlig glatt und leicht schaumig ist; einmal die Seiten abschaben. Lass den Teig ruhen, während die Pfanne weiterheizt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ziehe die Pfanne mit dicken Ofenhandschuhen heraus (der Griff ist sehr heiß) und gib 3 EL Butter hinein. Schwenke die Pfanne, bis die Butter schmilzt und schäumt und Boden und Seiten überzieht; sie sollte beim Kontakt zischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig sofort in einem gleichmäßigen Strahl in die Mitte der zischenden Pfanne. Nicht umrühren. Schiebe die Pfanne direkt zurück in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe den Pfannkuchen ohne Unterbrechung 20-25 Minuten, bis er an den Seiten eindrucksvoll hochgestiegen und dunkelgold mit knusprigen Rändern ist. Öffne den Ofen nicht zu früh, sonst fällt er zusammen. Er ist vollständig durchgebacken und sicher, sobald die Mitte gestockt und nicht mehr feucht oder wackelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm ihn heraus. Innerhalb einer Minute fällt er zu zarten Falten zusammen; das ist genau richtig. Bestäube ihn großzügig mit Puderzucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Presse Zitronenspalten darüber und beträufle ihn mit Ahornsirup. Schneide ihn in Stücke und serviere ihn sofort heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Cast_iron_dutch_baby_on_oven_mitts.jpg/1280px-Cast_iron_dutch_baby_on_oven_mitts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cast_iron_dutch_baby_on_oven_mitts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Taylorderek, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Dutch Baby (aufgegangenem Ofenpfannkuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-classic-creme-brulee",
+      "slug": "egg-classic-creme-brulee",
+      "title": "Klassische Crème Brûlée",
+      "instructions": "Kalte, seidige Vanillecreme unter einer dünnen, glasig-knackenden Schicht karamellisierten Zuckers. Nur eine Handvoll Zutaten, und der erste Knack der Kruste ist der ganze Grund, warum man dieses Dessert macht.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hebe die 5 übrigen Eiweiße im Tiefkühler für Omeletts, Baiser oder Eiweiß-Rührei auf, damit nichts verschwendet wird.",
+        "Vanilleextrakt liefert fast den ganzen Geschmack für ein paar Cent. Lass die teure Vanilleschote weg, außer du möchtest die hübschen Punkte für ein romantisches Abendessen.",
+        "Kein Küchenbrenner da? Der Backofengrill karamellisiert den Zucker kostenlos. Lass die Ofentür einen Spalt offen und bleib die ganze Zeit dabei."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "1 aufgeschnittene Vanilleschote für intensiveren Geschmack und echte Vanillepunkte",
+          "savings": "Kostet mehr, aber weglassen, wenn nur Extrakt vorhanden ist"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Half-and-half für eine leichtere, weniger reichhaltige Creme",
+          "savings": "spart a bit and lowers the fat"
+        },
+        {
+          "forIngredientId": "egg-yolks",
+          "swap": "Ganze Eier selbst trennen und das Eigelb verwenden",
+          "savings": "Often günstiger per yolk and you keep the whites"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "Ei",
+        "Dessert",
+        "Pudding",
+        "romantisches Abendessen",
+        "vorab zubereiten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 276,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-classic-creme-brulee/",
+      "components": [
+        {
+          "key": "cd5c4242-8f84-5c66-b602-5f16337e895f",
+          "name": "Zutaten",
+          "servingGrams": 248.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "31c589dd-3e15-5e09-9120-1b28f041060c",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37a56caa-4976-58ef-9099-de6a79f8023c",
+              "ingredientName": "Eigelb",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11ed4f99-1448-5e34-b800-9d6d36a5e67e",
+              "ingredientName": "Zucker",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für custard"
+            },
+            {
+              "key": "bfd7f391-464b-5f03-88e3-0066fd43683c",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für torched topping (about 1 tbsp per ramekin)"
+            },
+            {
+              "key": "820457fb-186e-5e52-a597-9c0ea619300f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a303fb2-2860-512e-be3b-df07547c8676",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nur eine kleine Prise"
+            },
+            {
+              "key": "8038623b-0d6a-5428-9214-c13aa0091a73",
+              "ingredientName": "Vanilleschote",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "split und scrape für real bean flecks instead von (oder alongside) extract"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325F vor. Stelle vier Förmchen à 6 oz in eine tiefe Auflaufform und koche Wasser im Wasserkocher für das Wasserbad.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Schlagsahne mit Vanilleextrakt (und nach Wunsch ausgekratzter Vanilleschote) in einem kleinen Topf bei niedriger bis mittlerer Hitze, bis Dampf aufsteigt und sich am Rand kleine Bläschen bilden; das dauert etwa 5 Minuten. Nicht kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle in einer Schüssel die 5 Eigelbe mit 6 EL Zucker und einer Prise Salz etwa 1 Minute, bis die Masse hell und glatt ist. Die Eigelbe garen sanft im Ofen und werden nicht roh serviert; verwende daher frische, saubere Eier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Temperiere die Eier: Gieße die heiße Sahne unter ständigem Rühren langsam in einem dünnen Strahl zu den Eigelben, damit sie warm werden, ohne zu stocken. Rühre, bis alles gut vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Creme durch ein feinmaschiges Sieb in einen Messbecher, um gegarte Stückchen aufzufangen, und verteile sie dann gleichmäßig auf die Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße kochendes Wasser in die Auflaufform, bis es halb an den Seiten der Förmchen hochreicht. Backe die Creme 35-45 Minuten, bis die Ränder fest sind, die Mitte beim Bewegen aber noch wie weiches Gelee wackelt (mit Thermometer etwa 170-175F in der Mitte).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe die Förmchen aus dem Wasserbad, lass sie auf Zimmertemperatur abkühlen und kühle sie dann unbedeckt mindestens 3 Stunden (oder über Nacht), bis die Creme kalt und vollständig fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Kurz vor dem Servieren Kondenswasser von den Oberseiten tupfen und etwa 1 EL Zucker gleichmäßig auf jede Creme streuen. Bewege den Brenner langsam kreisend darüber, bis der Zucker bernsteinfarben blubbert. Kein Brenner da? 1-3 Minuten auf der obersten Schiene unter dem Grill bräunen und dabei ständig beobachten, damit der Zucker nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lass das Karamell 1 Minute fest werden, knacke dann die Kruste auf und serviere das Dessert kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Creme_brulee_%282%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Creme_brulee_(2).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Janine from Mililani, Hawaii, United States, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von klassischer Crème Brûlée",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-denver-western-omelette",
+      "slug": "egg-denver-western-omelette",
+      "title": "Denver-Omelett (Western-Omelett)",
+      "instructions": "Das herzhafte Omelett wie im Diner: würziger Schinken, süße Paprika und Zwiebel in Butter angebraten und anschließend in fluffige Eier mit einer Schicht geschmolzenem Cheddar eingeschlagen. Eine sättigende, eiweißreiche Mahlzeit aus einer Pfanne, die auch Reste aus dem Kühlschrank verwertet.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 11,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwerte Reste: das Endstück übrig gebliebenen Aufschnittschinkens, eine halbe Paprika und die halbe Zwiebel, die du schon hast. So wird fast nichts verschwendet.",
+        "Kaufe ein Stück Cheddar und reibe ihn selbst. Pro Unze ist er spürbar günstiger als vorgeriebener Käse aus der Tüte und schmilzt ohne Trennmittel besser.",
+        "Keine Schlagsahne da? Ein Schuss normale Milch oder sogar ein Teelöffel Wasser reicht für fluffige Eier. Dafür musst du nicht extra zum Laden gehen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham",
+          "swap": "Gewürfelter gegarter Speck, Frühstückswurst oder übrig gebliebenes Grillhähnchen; für eine vegetarische Variante angebratene Pilze verwenden",
+          "savings": "Bacon ends or leftover meat can be günstiger than deli ham"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Ein Schuss Vollmilch oder ein Teelöffel Wasser",
+          "savings": "spart buying cream you may not use"
+        },
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "Beliebiger schmelzender Käse: geriebener Mozzarella, Schweizer Käse, Pepper Jack oder Scheibletten",
+          "savings": "Angebrochenes aus dem Kühlschrank verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Ei",
+        "Omelett",
+        "Frühstück",
+        "eine Pfanne",
+        "Diner"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 277,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-denver-western-omelette/",
+      "components": [
+        {
+          "key": "ded694aa-ef6b-5750-901d-185035897467",
+          "name": "Zutaten",
+          "servingGrams": 402.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "8539e65c-8578-5a37-a749-f05f3764fd50",
+              "ingredientName": "Ei",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b54951c-016f-5322-bfd0-4359812732d5",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gewürfelt into small cubes"
+            },
+            {
+              "key": "d5347c18-a32f-5465-b216-471964fd66a9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "any color, fein gewürfelt"
+            },
+            {
+              "key": "5c77956a-217a-55bd-adfc-f06bff301ddd",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "dabda19c-a7a5-5b5a-9fef-1cb87d5bdd45",
+              "ingredientName": "Reifer Cheddar am Stück",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "geraspelt"
+            },
+            {
+              "key": "b4a76192-11b0-563a-bf68-18889298bf4f",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7894ab88-819b-55e1-9f02-b2cef7bc5d9e",
+              "ingredientName": "Schlagsahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "ein Schuss, etwa 2 EL"
+            },
+            {
+              "key": "82f04123-4984-5793-9085-a980ea3902ae",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9cfeb90-c383-59f0-a5f2-5e1a7350f953",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3d22302-1d32-5651-968f-8545bb13e5ed",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in Scheiben zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in eine Schüssel, gib einen Schuss Schlagsahne, Salz und Pfeffer dazu und verquirle alles mit einer Gabel, bis es vollständig vermengt und leicht schaumig ist. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in einer beschichteten Pfanne von 8-10 inches bei mittlerer Hitze, bis sie schäumt. Gib gewürfelten Schinken, Zwiebel und Paprika dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate alles 4-6 Minuten unter häufigem Rühren an, bis die Zwiebel weich und glasig, die Paprika nicht mehr roh-knackig und der Schinken heiß und an den Rändern leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe und gieße die verquirlten Eier hinein. Neige die Pfanne, damit sie sich gleichmäßig über der Füllung verteilen. Lass sie etwa 30 Sekunden unberührt stehen, bis die Ränder zu stocken beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe die gestockten Ränder mit einem Pfannenwender vorsichtig zur Mitte und neige die Pfanne, damit rohes Ei darunterfließt. Wiederhole dies, bis die Eier größtenteils gestockt, oben aber noch leicht feucht sind; das dauert insgesamt etwa 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue den geriebenen Cheddar auf eine Hälfte des Omeletts und gare es weitere 30-60 Sekunden, bis der Käse zu schmelzen beginnt und die Eier gerade gestockt sind und keine flüssigen Stellen mehr haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schlage die unbelegte Hälfte über die Käsehälfte, drücke sie leicht an und schiebe das Omelett auf einen Teller. Für sicheres Essen müssen die Eier vollständig durchgegart und nicht mehr feucht sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nach Wunsch mit geschnittener Frühlingszwiebel bestreuen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Denver_omelette.jpg/1280px-Denver_omelette.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Denver_omelette.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Ruth Hartnup, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Denver-Omelett (Western-Omelett)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-cloud-eggs-baked-nests",
+      "slug": "egg-cloud-eggs-baked-nests",
+      "title": "Wolken-Eier (gebackene Eiweißnester mit flüssigem Eigelb)",
+      "instructions": "Zu fluffigen, goldenen Wolken geschlagenes Eiweiß aus dem Ofen, mit einem sonnengelben, flüssigen Eigelb in der Mitte. Sie sehen aus wie aus einem Brunch-Café, bestehen aber nur aus Eiern, einem Schneebesen und einem Backblech – perfekt, um deine Mitbewohner vor 9 Uhr morgens zu beeindrucken.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das ganze Gericht besteht aus 4 Eiern und etwas Käse und kostet deutlich weniger als einen Dollar pro Portion; besondere Zutaten sind nicht nötig.",
+        "Kein Handmixer da? Mit einem normalen Schneebesen und 3 Minuten Armarbeit bekommst du festen Eischnee kostenlos hin. Achte nur darauf, dass Schüssel und Schneebesen knochentrocken und fettfrei sind.",
+        "Lass den optionalen Parmesan und Schnittlauch ganz weg – es gelingt trotzdem. Aufgeschlagenes Eiweiß mit flüssigem Eigelb ist die ursprüngliche günstige Variante."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger Hartkäse, geriebener Pecorino oder Cheddar; für eine milchfreie Variante etwas Nährhefe",
+          "savings": "Vorhandenes aus dem Kühlschrank statt Parmesan aus dem Laden verwenden"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Ein kurzer Sprühstoß Kochspray oder einfach gutes Backpapier verhindert das Ankleben ganz ohne Fett",
+          "savings": "spart a few cents pro Portion"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "Geschnittenes Grün von Frühlingszwiebeln oder eine Prise getrocknete Petersilie sorgen für dieselbe frische grüne Note",
+          "savings": "Frühlingszwiebeln sind deutlich günstiger als ein Bund frischer Schnittlauch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch inspiriert",
+        "Ei",
+        "französisch",
+        "Frühstück",
+        "vegetarisch",
+        "eindrucksvoll",
+        "kohlenhydratarm"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 278,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-cloud-eggs-baked-nests/",
+      "components": [
+        {
+          "key": "8232ea83-0b78-5a98-8215-369a3e312764",
+          "name": "Zutaten",
+          "servingGrams": 131.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d36775a0-3625-5187-a646-371e94a52e54",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e38b0b2-7141-5970-8b05-c3d24764bdd8",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37c378a3-a717-5573-96cc-28489b6ac540",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa3e85bd-c56f-5fad-b56d-98a0a3613d60",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c49cc054-28f1-56a0-9c13-c4ce6dd78dee",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "zum Einfetten der Form instead von cooking spray"
+            },
+            {
+              "key": "fed3101b-794e-502b-b66f-1ab0a609f88b",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "zum Garnieren, snipped over top"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle einen Rost in das obere Drittel des Ofens und heize ihn auf 450F vor. Lege ein Backblech mit Backpapier aus oder fette es leicht mit Butter ein, damit sich die Wolken gut lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Trenne die Eier vorsichtig: Das Eiweiß in eine große, saubere und fettfreie Schüssel geben und jedes Eigelb in ein eigenes kleines Gefäß. Schon ein winziger Eigelbfleck im Eiweiß verhindert, dass es steif wird; nimm dir also Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Salz zum Eiweiß und schlage es kräftig mit dem Schneebesen (oder Handmixer) 2-3 Minuten, bis glänzender, steifer Eischnee entsteht. Wenn du den Schneebesen hochhebst, sollten die Spitzen aufrecht stehen und nicht in der Schüssel verrutschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe den Parmesan mit einem Teigschaber vorsichtig unter und drehe dabei die Schüssel, bis alles gerade vermengt ist. Nicht zu lange rühren, sonst fällt der Eischnee zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze 4 fluffige Häufchen Eiweiß mit genügend Abstand auf das Backblech. Drücke mit dem Löffelrücken eine tiefe Mulde in die Mitte jedes Häufchens, wie ein kleines Nest für das Eigelb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Wolken 3 Minuten, bis die Oberfläche gestockt ist und die Spitzen gerade anfangen, goldbraun zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ziehe das Blech heraus, gib vorsichtig je ein Eigelb in jede Mulde und würze mit Pfeffer. Schiebe es für weitere 3-4 Minuten zurück in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie heraus, wenn das Eiweiß vollständig gestockt und goldbraun und das Eigelb warm, glänzend und noch leicht wackelig ist – diese flüssige Mitte ist beabsichtigt. Für festes Eigelb 2-3 Minuten länger backen. Schneide Schnittlauch darüber und iss sie sofort warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spoonforkbacon.com/wp-content/uploads/2021/12/egg_clouds.jpg",
+          "sourcePageUrl": "https://www.spoonforkbacon.com/cloud-eggs/",
+          "sourceName": "Spoon Fork Bacon",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": "Spoon Fork Bacon",
+          "verifiedMatch": true,
+          "altText": "Foto von Wolken-Eiern (gebackenen Eiweißnestern mit flüssigem Eigelb)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-overnight-breakfast-strata",
+      "slug": "egg-overnight-breakfast-strata",
+      "title": "Übernacht-Frühstücksauflauf mit Ei und Brot",
+      "instructions": "Ein herzhaftes Brotpuddinggericht zum Vorbereiten: Brotwürfel saugen über Nacht einen cremigen Eier-Milch-Guss mit Käse auf und backen am Morgen zu einem fluffigen, goldenen Auflauf mit Wurst, Paprika und geschmolzenem Cheddar. Das perfekte Brunchgericht, das du nach dem Unterricht zusammenstellst und morgens für den ganzen Wohntrakt backst.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Gericht verwertet altbackenes Brot, die Endstücke eines Laibs oder die vergessene halbe Tüte Brötchen. Verwende, was schon hart wird, statt frisches Brot zu kaufen.",
+        "Lass die Wurst weg, damit das Gericht vegetarisch und noch günstiger wird, oder strecke eine Wurst mit mehr Käse und Gemüse, die Geschmack liefern.",
+        "Verwende Gemüse, das im Kühlschrank welk wird: Pilze, Tomaten, übriges Ofengemüse oder Tiefkühlspinat eignen sich alle, sodass nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Normale Milch, 2% Milch oder Half-and-half für einen reichhaltigeren Eierguss verwenden",
+          "savings": "milk is a few cents günstiger than whole-milk pro Tasse"
+        },
+        {
+          "forIngredientId": "breakfast-links",
+          "swap": "Gewürfelten Schinken, zerbröselten Speck oder für eine vegetarische Variante gar kein Fleisch verwenden",
+          "savings": "going meatless spart the full sausage cost"
+        },
+        {
+          "forIngredientId": "sharp-cheddar",
+          "swap": "Jeder schmelzende Käse wie Mozzarella, günstiger geriebener Käse oder Schweizer Käse",
+          "savings": "shredded mozzarella or the 1/4-cup cheese can run günstiger pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "amerikanisch",
+        "Ei",
+        "Frühstück",
+        "Auflauf",
+        "vorab zubereiten",
+        "günstig",
+        "vegetarische Variante",
+        "altbackenes Brot verwerten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 279,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-overnight-breakfast-strata/",
+      "components": [
+        {
+          "key": "99ef763c-8054-57f4-bd72-ba5f0e185c3d",
+          "name": "Zutaten",
+          "servingGrams": 396.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "3cf91720-af64-5cb4-8a48-6a379454d85c",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "slightly stale is ideal; geschnitten in 1-inch cubes"
+            },
+            {
+              "key": "1da23776-cb04-5c67-91c8-0b73485eee80",
+              "ingredientName": "Ei",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52722c6c-b296-5730-b51b-b9c16263a05e",
+              "ingredientName": "Milch",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für custard"
+            },
+            {
+              "key": "91abd807-9e4b-56a7-9531-9db82338c5db",
+              "ingredientName": "Reifer Cheddar",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geraspelt; about 1.5 cups"
+            },
+            {
+              "key": "abc095df-6117-5f17-9e9f-f335a015f79c",
+              "ingredientName": "Frühstückswürstchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "casing removed und crumbled, oder verwenden any breakfast sausage"
+            },
+            {
+              "key": "16022d66-0533-5343-bbb6-b2a9f498a927",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gewürfelt small"
+            },
+            {
+              "key": "2457f3c8-f03f-56d3-8cb0-ce53a7f3eb0c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "fbc26d92-c06a-57b7-a152-c7234b7550ac",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "frisch; fällt beim Garen stark zusammen"
+            },
+            {
+              "key": "909d34ec-a02e-50e0-bef0-5022b3d68224",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "für greasing dish"
+            },
+            {
+              "key": "323c7554-52a1-58ea-977f-2c3e0300054e",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "whisked into custard für depth"
+            },
+            {
+              "key": "fcabf3d9-eec4-5e61-ad66-02cada10a723",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7595cc6f-8b9f-55ce-8f30-209c362d032c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d19114a7-86ad-5b0b-8a4e-52cf72c74ff4",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b57241ae-c973-595d-8adb-1ef8fc333c50",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in Scheiben zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette eine Auflaufform mit den Maßen 9x13 inches mit Butter ein. Schneide das Brot in etwa 1-inch-Würfel (altbackenes Brot saugt den Eierguss am besten auf) und verteile es in der Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne bei mittlerer Hitze und brate die zerbröselte Wurst 5-6 Minuten, bis kein Rosa mehr zu sehen und sie leicht gebräunt ist. Zerteile sie dabei weiter. Verteile sie auf dem Brot und lass das ausgelassene Fett in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate in derselben Pfanne bei mittlerer Hitze die gewürfelte Zwiebel und Paprika 4-5 Minuten an, bis sie weich sind. Gib dann den Spinat dazu und wende ihn etwa 1 Minute, bis er zusammenfällt. Verteile das Gemüse mit etwa zwei Dritteln des geriebenen Cheddars über dem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eier, Vollmilch, Dijon-Senf, Salz, Pfeffer und Knoblauchpulver in einer Schüssel, bis alles verbunden ist und keine Eigelbstreifen mehr zu sehen sind. Gieße die Mischung gleichmäßig darüber, damit alle Brotwürfel sie aufsaugen, und drücke das Brot mit einem Pfannenwender leicht nach unten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue den restlichen Cheddar darüber, decke die Form fest mit Folie oder Frischhaltefolie ab und stelle sie mindestens 1 Stunde und bis über Nacht in den Kühlschrank, damit das Brot den Eierguss vollständig aufsaugt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn du backen möchtest, heize den Ofen auf 350F vor und lass die Form währenddessen auf der Arbeitsfläche stehen. Entferne die Abdeckung und backe den Auflauf 55-70 Minuten, bis er oben aufgegangen und goldbraun und in der Mitte vollständig gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Prüfe den Gargrad, indem du ein Messer in die Mitte steckst: Es sollte sauber herauskommen und kein flüssiges Ei daran haften (aus Gründen der Lebensmittelsicherheit muss der Eierguss vollständig gegart und darf nicht flüssig sein). Wenn die Oberseite zu schnell bräunt, decke sie locker mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Auflauf 10 Minuten ruhen, damit er fester wird und sich sauber schneiden lässt. Streue geschnittene Frühlingszwiebel darüber und teile ihn in 6 Portionen. Reste im Kühlschrank aufbewahren und einzelne Stücke 60-90 Sekunden in der Mikrowelle erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Finished_sausage_breakfast_casserole.jpg/1280px-Finished_sausage_breakfast_casserole.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Finished_sausage_breakfast_casserole.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 1.0",
+          "attributionRequired": true,
+          "attributionText": "User:MarkTraceur, CC BY-SA 1.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einem über Nacht vorbereiteten Frühstücksauflauf mit Ei und Brot",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

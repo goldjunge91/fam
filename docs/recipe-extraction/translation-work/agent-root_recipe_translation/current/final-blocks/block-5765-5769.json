@@ -1,0 +1,938 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kimchi",
+      "slug": "gen-kimchi",
+      "title": "Kimchi",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chinakohl im Angebot kaufen und größere Mengen zubereiten, die sich einfrieren lassen.",
+        "Die Fischsauce weglassen, um vegetarisches Kimchi zuzubereiten und 10 % zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "koreanisch",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5765,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kimchi/",
+      "components": [
+        {
+          "key": "699431fd-7dd2-544b-8fc9-ef8dc6a1c2a4",
+          "name": "Zutaten",
+          "servingGrams": 38,
+          "position": 0,
+          "items": [
+            {
+              "key": "09ba0c48-aa77-5e50-be4f-ac5ee9009469",
+              "ingredientName": "Chinakohl",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7a7cde7e-4210-5ce4-b769-da6dc7fd6436",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "54b201b6-1d90-5cb3-9084-8c5f65205c7f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae7896c4-cea7-58cd-8802-bedc4fd30fab",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4f9ef62a-dacb-5f2e-b710-4351d665da40",
+              "ingredientName": "Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5089b7fe-0b9e-50fd-b561-362146c96e19",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "810dd7fd-b496-5452-aae3-ea4612a4e18c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4976f610-2d14-5038-ad5b-d1ef03c7b000",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70b79d33-eea3-5da3-b9cc-14c8db33b1b0",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gehackten Chinakohl in einer großen Schüssel mit koscherem Salz vermengen und 30 Minuten stehen lassen. Gelegentlich umrühren, bis der Kohl weich wird und Flüssigkeit abgibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den gesalzenen Kohl 2–3 Mal unter kaltem Wasser abspülen und überschüssiges Wasser ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch, Ingwer, Gochugaru, Fischsauce und Zucker in einer kleinen Schüssel zu einer Paste verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Paste zusammen mit den gehackten Frühlingszwiebeln und Sesamsamen zum abgetropften Kohl geben und alles gründlich vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Kimchi in ein sauberes Glas geben und fest nach unten drücken, damit das Gemüse von eigener Flüssigkeit bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Glas locker abdecken und 2–7 Tage bei Zimmertemperatur fermentieren lassen. Täglich probieren, bis die gewünschte Schärfe erreicht ist, dann kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/dl6MiZYqkGye44Q2qn4LkP_IgCA=/4368x2912/filters:fill(auto,1)/kimchi-dish-served-on-a-white-plate-173021127-588b8a945f9b5874ee55f535.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/dl6MiZYqkGye44Q2qn4LkP_IgCA=/4368x2912/filters:fill(auto,1)/kimchi-dish-served-on-a-white-plate-173021127-588b8a945f9b5874ee55f535.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-takuan",
+      "slug": "gen-takuan",
+      "title": "Takuan",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Daikon-Rettich im Angebot in größeren Mengen kaufen und größere Ansätze zubereiten.",
+        "Weißweinessig statt Reisessig verwenden, um zusätzlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "japanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5766,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-takuan/",
+      "components": [
+        {
+          "key": "663307f7-7f4d-5623-a19d-9a5a318562c3",
+          "name": "Zutaten",
+          "servingGrams": 56.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb9e86a3-b618-561a-b99a-7188ff238d70",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 große (etwa 1.5 Pfund)"
+            },
+            {
+              "key": "de43082f-57f3-5c10-b87b-77a2f1f45e35",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1020e4c7-1c89-5396-83b5-098430b5f218",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2d53e8b5-b987-55ca-bb66-0775c4f26fb9",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "db3135cc-e2db-5ce0-9444-530a8c181967",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4d732939-9051-5dfa-bd3e-f8b1863041d5",
+              "ingredientName": "Kombu-Alge",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "f70dff8a-c154-5be6-8579-d486137d3791",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Daikon-Rettich schälen und in 1/4-inch dicke Stifte oder dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Rettich mit Salz vermengen und 30 Minuten stehen lassen. Anschließend abspülen und überschüssige Flüssigkeit ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reisessig, Zucker, Kurkuma und Kombu in einem Topf verrühren und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen und Chiliflocken hinzufügen. Vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Rettich in ein sauberes Glas füllen und mit der abgekühlten Lake übergießen, sodass alle Stücke bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und vor dem Servieren mindestens 3 Tage kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Takuan hält sich gekühlt bis zu 2 Monate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2026/02/Takuan_1631-1636-1024x717.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2026/02/Takuan_1631-1636-1024x717.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rejuvelac",
+      "slug": "gen-rejuvelac",
+      "title": "Rejuvelac",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weizenkörner in größeren Mengen im Naturkostladen kaufen.",
+        "Eine größere Menge zubereiten und bis zu einer Woche einfrieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "roh-vegan",
+        "frühstück",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5767,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rejuvelac/",
+      "components": [
+        {
+          "key": "cd943753-64bb-5600-b20d-12a62add5530",
+          "name": "Zutaten",
+          "servingGrams": 375,
+          "position": 0,
+          "items": [
+            {
+              "key": "be717c9a-b21d-5d45-8e97-21df6810fefd",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e4c9707c-6bf2-5b0a-b0e4-d938c757318a",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "892a4d6e-78ca-5929-9eaf-bceee594a653",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "83fb9a0c-e0eb-5105-9d77-8fb52ed45add",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Weizenkörner 8–12 Stunden in Wasser einweichen, dann gründlich abgießen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf einem feuchten Tuch verteilen und 3–5 Tage keimen lassen. Zweimal täglich spülen, bis kleine Keimlinge erscheinen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die gekeimten Körner durch einen Kaltentsafter geben oder mit 2 cups gefiltertem Wasser sehr fein pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Mischung durch ein feines Sieb abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zitronensaft und Agavendicksaft nach Geschmack hinzufügen und sofort auf Eis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/58f676170b8aa427e91c6d3b/16:9/w_2560%2Cc_limit/_H1A2594_FINAL.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/58f676170b8aa427e91c6d3b/16:9/w_2560%2Cc_limit/_H1A2594_FINAL.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kombucha",
+      "slug": "gen-kombucha",
+      "title": "Kombucha",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die SCOBY-Kultur kann unbegrenzt wiederverwendet werden, sodass weitere Ansätze sehr günstig sind.",
+        "Tee in größeren Mengen kaufen, um die Kosten pro Ansatz zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "international",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5768,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kombucha/",
+      "components": [
+        {
+          "key": "6d836edd-eff8-5cf6-9400-20ac9c0e2819",
+          "name": "Zutaten",
+          "servingGrams": 806.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4f1596d-8df3-5f5d-8f3a-30235aa5fd27",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e84eb3c7-6929-513a-bd41-52046074982b",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "937caff8-bb38-5d43-99d3-8ff8379fada2",
+              "ingredientName": "Teebeutel",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Beutel"
+            },
+            {
+              "key": "c8a91a90-a90b-52a9-ab60-0d7c176f1e08",
+              "ingredientName": "Kombucha-Kultur (SCOBY)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2459ba1-7d84-591e-ad5e-e30d200140d9",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "29ec8be2-e8ca-53d8-a3a3-22383674405d",
+              "ingredientName": "Glasnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große (2 Quart)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gefiltertes Wasser aufkochen und die Schwarzteebeutel 5–7 Minuten darin ziehen lassen. Dann die Beutel herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucker einrühren, bis er sich vollständig aufgelöst hat. Den Tee auf Zimmertemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den abgekühlten gesüßten Tee in ein sauberes Glas gießen. SCOBY und Ansatzflüssigkeit hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Glas mit einem Kaffeefilter oder Tuch abdecken und mit einem Gummiband befestigen. So kann Luft zirkulieren, während Staub ferngehalten wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "An einem warmen, dunklen Ort (68-85°F) ohne direkte Sonneneinstrahlung 7–30 Tage stehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nach 7 Tagen probieren und weiter fermentieren lassen, bis der gewünschte säuerliche Geschmack erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Kombucha in Flaschen abseihen und bis zu 2 Wochen im Kühlschrank lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/jyOW2XhtW7HppmFJWUmosAiR7xQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__04__How-to-Make-Kombucha-LEAD-17-2629da1913de40109cda9d716b4b7ccf.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/jyOW2XhtW7HppmFJWUmosAiR7xQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__04__How-to-Make-Kombucha-LEAD-17-2629da1913de40109cda9d716b4b7ccf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carpaccio",
+      "slug": "gen-carpaccio",
+      "title": "Carpaccio",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderfilet im Angebot kaufen und bis zur Verwendung einfrieren.",
+        "Mit einem Sparschäler Parmesan in dünne Späne hobeln, damit er sich gleichmäßig verteilt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "eiweißreich",
+        "italienisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5769,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carpaccio/",
+      "components": [
+        {
+          "key": "efc01ca9-478e-590b-bf2f-45a23bb1c516",
+          "name": "Zutaten",
+          "servingGrams": 535.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "10115bae-3d9e-5f66-a378-04b4ef5e93bc",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a06835b2-9476-53f7-b78a-86401f921480",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7e6a6505-35eb-53b8-8d1e-1b9571f4b4f9",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c27d507a-36da-50ee-b6a7-2f159537ab99",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0e68f68d-e8f5-53cb-877e-fdc017b0e1de",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "26f5120d-7fc8-5b91-9f99-68c8b2cd8620",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e85cd31a-cc90-579b-88c7-a184730f5fba",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "5b341399-fa2f-541a-8753-b9c747335cec",
+              "ingredientName": "Rucola",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Äußeres Fett vom Rinderfilet entfernen und das Fleisch fest in Frischhaltefolie wickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "30–45 Minuten einfrieren, bis das Fleisch fest, aber nicht vollständig gefroren ist. So lässt es sich leichter schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Rindfleisch mit einem scharfen Messer oder einer Aufschnittmaschine hauchdünn schneiden und auf einem gekühlten Teller anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl und Zitronensaft gleichmäßig über die Rindfleischscheiben träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und frisch gemahlenem schwarzem Pfeffer nach Geschmack würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kapern über dem Fleisch verteilen und mit dünnen Spänen frischen Parmesans belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort auf einem Bett aus frischem Rucola servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/CJuEYGtk5yeqs8JoDrFKohSZSRU=/4048x2696/filters:fill(auto,1)/carpaccio-a-recipe-for-italian-sophistication-912524-hero-01-062ee5d3db5944c08066608998f77858.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/CJuEYGtk5yeqs8JoDrFKohSZSRU=/4048x2696/filters:fill(auto,1)/carpaccio-a-recipe-for-italian-sophistication-912524-hero-01-062ee5d3db5944c08066608998f77858.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

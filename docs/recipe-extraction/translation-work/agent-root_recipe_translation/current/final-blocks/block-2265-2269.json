@@ -1,0 +1,984 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52929",
+      "slug": "tmdb-52929",
+      "title": "Timbits",
+      "instructions": "Kanadisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kanadisch",
+        "dessert",
+        "snack",
+        "nascherei"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2265,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52929/",
+      "components": [
+        {
+          "key": "4ef85bd1-d961-549f-9826-08b166b8bf41",
+          "name": "Zutaten",
+          "servingGrams": 214.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "caa58ca2-716d-596f-9f02-1c817b5e6b69",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67afccb0-e2b3-5f12-8786-b3deb0c207c5",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8e7866c-b8aa-5c5a-8a21-3157efe1ca79",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7b63f2c-25b3-54da-ac45-56ea89070733",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "681839a2-0afb-598c-96e4-243ad1e9797f",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c30b119-2681-544d-a6d5-c0d0c4dc2f87",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd70e607-1ec4-5903-b66a-f64a19e04394",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1447c39-5e00-5cbd-a624-d76587d348e8",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Siebe die trockenen Zutaten zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die flüssigen Zutaten und rühre sie unter die trockenen. Verrühre alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib mit einem Teelöffel kleine Portionen (nicht größer) in heißes Öl (365 Grad, nicht heißer). Wende sie nach wenigen Augenblicken, bis alle Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm sie heraus und lasse sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wälze sie noch warm in Zimtzucker und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53444",
+      "slug": "tmdb-53444",
+      "title": "Tiroler Knödel",
+      "instructions": "Schweinefleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2266,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53444/",
+      "components": [
+        {
+          "key": "716a09e8-e57e-524a-bf74-5a8e01055898",
+          "name": "Zutaten",
+          "servingGrams": 276.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b41a819-b85f-5c3a-ad1e-45db7a8cc682",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32fbc384-a2aa-5c15-8cf5-2ec9d48e058f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b171261f-f972-56ee-87d6-55ce0c45b5fd",
+              "ingredientName": "geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e70c7ab5-9b2d-5c68-97ef-3b1c8441ae9c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47d4f226-6f85-5594-8c33-9e49b076ab07",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51d980b6-e1cb-5133-b0e1-21a1926ccfe4",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36e70427-fb16-5904-b929-9aaa8590b8c9",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c19ef134-a2ab-5a3a-a0ea-080b65370727",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "056b6732-644e-57ec-a780-317ae42903af",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42599452-2964-5ee1-a273-85a11f2ba19f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f03fcff7-63ac-550e-ba42-8d0b5ec2ab33",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die Schalotten fein und schneide geräucherten Schinken oder Wurst in kleine Würfel. Erhitze Butter oder Butterschmalz in einer Pfanne und dünste die Zwiebeln darin glasig. Gib Fleisch und Petersilie dazu und brate alles kurz zusammen an. Vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Brot in eine Schüssel. Verquirle Milch und Eier und würze kräftig mit Salz, Pfeffer und Muskatnuss. Gieße die Mischung über das Brot. Rühre Wurst-Zwiebel-Mischung und Mehl ein. Vermische alles zu einer relativ festen Masse (bei Bedarf mehr Brot oder Mehl hinzufügen) und schmecke erneut ab. Streiche die Oberfläche glatt und lasse die Masse etwa 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze reichlich Salzwasser in einem großen Topf. Forme aus der Masse kleine Knödel als Suppeneinlage oder mittelgroße Knödel nach Wunsch. Befeuchte währenddessen regelmäßig die Hände mit kaltem Wasser, damit die Knödel glatt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Knödel in kochendes Wasser, bringe es erneut zum Kochen, reduziere die Hitze und lasse sie je nach Größe 8-20 Minuten sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Knödel aus dem Wasser, lasse sie gut abtropfen und serviere sie mit gehackter Petersilie und geschmolzener, nussbraun gebräunter Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/jbw8m11780155348.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/jbw8m11780155348.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52822",
+      "slug": "tmdb-52822",
+      "title": "Kröte im Loch (Toad in the Hole)",
+      "instructions": "Britisches Schweinefleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2267,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52822/",
+      "components": [
+        {
+          "key": "27766517-4fff-5f99-a9d6-489a38b5d469",
+          "name": "Zutaten",
+          "servingGrams": 246.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd5b5c34-9654-5924-a3d5-fa7e39fb89f6",
+              "ingredientName": "Würstchen",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8991898a-3cb2-5846-bb73-7d36d6709e22",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d399c126-b240-5f35-8506-4f7415396814",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "543adb81-02fa-5eb2-93a9-79da06da154d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67756b54-4ca2-5aaa-af43-535f253f0c55",
+              "ingredientName": "Meerrettich aus dem Glas",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15c4e543-a6cf-53fb-82ff-f2bfa8387126",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08ae0183-a49b-5f49-b750-5bf88301de0a",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 200°C/Umluft 180°C/Gasstufe 6 vor. Brate die Würstchen in einer beschichteten Pfanne, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Träufle Pflanzenöl in einen Bräter von 30cm x 25cm x 6cm und erhitze ihn 5 Minuten im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Weizenmehl in eine Schüssel, schlage die mittelgroßen Eier hinein und rühre geriebenen Meerrettich ein. Schlage die Vollmilch nach und nach unter. Würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Würstchen in den heißen Bräter und gieße den Teig darüber. Belege ihn mit Cherrytomaten am Rispenzweig und backe alles 30 Minuten, bis es aufgegangen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ytuvwr1503070420.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ytuvwr1503070420.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53240",
+      "slug": "tmdb-53240",
+      "title": "Wokgericht mit Tofu, Blattgemüse und Cashewkernen",
+      "instructions": "Vietnamesisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "vietnamesisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2268,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53240/",
+      "components": [
+        {
+          "key": "1a194916-d784-583a-8700-a892229b28b0",
+          "name": "Zutaten",
+          "servingGrams": 163.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "5bc66aef-7c3a-5be9-b893-7967d174d6a6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28ccbff3-7a62-5e39-8cc1-391eb3f43185",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2d0ed6d-86c7-57b8-aff3-ee353ca46fb8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f120c412-b617-52d4-8cd1-0ced95186b2c",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb6c92c0-d5fb-5432-9cd8-5993049c67b9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00c33250-3a1e-5e19-9d4f-b31e18d3fcc6",
+              "ingredientName": "chinesische schwarze-Bohnen-Soße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c02db757-fa20-5793-804b-0e5574115a25",
+              "ingredientName": "Pak Choi",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abb4ed04-a8ac-545b-90f4-073c6e8811b8",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd3456ca-25be-5159-befc-015dffc91361",
+              "ingredientName": "Hoisinsoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c8b7a45-67e6-505a-9310-87e0ab92a153",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dd33bbf-401e-5fa0-b179-88d62a803a9e",
+              "ingredientName": "Pinienkerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schritt 1\nErhitze das Öl in einem beschichteten Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Brokkoli hinzu und brate ihn bei hoher Hitze 5 mins oder bis er gerade weich ist. Falls er anzusetzen beginnt, gib etwas Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Chili dazu und brate alles 1 min. Hebe dann Frühlingszwiebeln, Sojabohnen, Pak Choi und Tofu unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate alles 2-3 mins unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Hoisinsoße, Sojasoße und Nüsse hinzu und erwärme alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/minfsc1763766806.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/minfsc1763766806.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53207",
+      "slug": "tmdb-53207",
+      "title": "Tom Kha Gai",
+      "instructions": "Thailändisches Hähnchengericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2269,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53207/",
+      "components": [
+        {
+          "key": "f07c0417-0cc8-5e5c-b486-d1d4fd29272d",
+          "name": "Zutaten",
+          "servingGrams": 392.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ced810b-7733-5e7d-a2d2-8b976b557ded",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97255fd0-ba0a-5900-a795-b035ad35fb31",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57a71de4-7ac0-5393-a88d-125f3a78ff65",
+              "ingredientName": "Galgant",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b665a697-d5c8-5591-9a45-4273a6de40b7",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a39208a6-be28-5026-8ba6-3c8a02756693",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 8,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93bcb27f-5af0-5076-96da-d289f5e56b06",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4458cc4-8087-5a7b-8b59-6fce8cfdbd38",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "008281ec-555a-57ff-9091-8bbcb9f0679d",
+              "ingredientName": "Chilipulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "109a82fa-a3cd-5e28-b959-b86ffcc58d85",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d24f3db3-e3e4-594a-ae88-90eed176b196",
+              "ingredientName": "Fischsoße",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bc2fd1d-b8cc-5a80-9c14-555156398fac",
+              "ingredientName": "Limette",
+              "grams": 201,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84e6672a-a780-559e-9233-4f6ef8e91134",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c3eff4c-3615-550c-b59a-da1bf0447923",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße Hühnerbrühe und Kokosmilch in einen großen Topf und stelle ihn bei mittlerer Hitze auf den Herd. Gib Galgant, Zitronengras und Limettenblätter hinein und lasse alles etwa 6-8 mins sanft köcheln. Gib das Hähnchen dazu und gare es bei sanftem Köcheln 8-10 mins, bis es zart und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Pilze und Chilis ein und lasse alles weitere 3-5 mins köcheln, bis alles gar ist. Gib Zucker sowie jeweils 3 tbsp Fischsoße und Limettensaft hinzu. Probiere und füge bei Bedarf mehr davon hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entferne Galgant, Zitronengras und Limettenblätter vor dem Servieren mit einem Schaumlöffel. Schöpfe die Suppe in Schüsseln und bestreue sie mit Korianderblättern. Dazu gedämpften Reis servieren. Gekühlt hält sie sich bis zu drei Tage. Vor dem Kühlen abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ol2xxt1763582263.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ol2xxt1763582263.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

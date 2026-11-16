@@ -1,0 +1,1076 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tigrillo",
+      "slug": "gen-tigrillo",
+      "title": "Tigrillo",
+      "instructions": "Ecuadorianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kochbananen im Angebot und frieren Sie überschüssige ein.",
+        "Verwenden Sie einen beliebigen schmelzenden Käse, den Sie zur Hand haben."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ecuadorianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4245,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tigrillo/",
+      "components": [
+        {
+          "key": "2acc4a41-b38d-5c2e-a3bc-f07e49eaa66a",
+          "name": "Zutaten",
+          "servingGrams": 181.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3da897b9-865d-574c-b090-1e6572cb940b",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "9e083818-223a-55d6-8383-18932239fdcd",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "19840a11-d389-51ad-bd46-233a93c75127",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edab8b51-bffc-5f66-8656-4f94f36f2132",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "06ac1a19-730f-5571-8a6d-c71e36193e22",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "38e1a103-89ba-5021-9604-700fcdf393c5",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "30a68888-7ec6-55b7-90c1-8add00d32a6e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grüne Kochbananen schälen und 12–15 Minuten in Salzwasser kochen, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kochbananen gründlich abgießen und glatt zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer Pfanne erhitzen und gewürfelte Zwiebel weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrückte Kochbananen unter die Zwiebelmischung rühren und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen und geriebenen Käse unterheben, bis er schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Mischung zu Bratlingen formen und in einer gebutterten Pfanne auf beiden Seiten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Eier nach Wunsch braten und zu den Tigrillo-Bratlingen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/b3/f6/85/b3f6856f9bc614a324e9abb34b688d3f.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/b3/f6/85/b3f6856f9bc614a324e9abb34b688d3f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-moro-de-queso",
+      "slug": "gen-moro-de-queso",
+      "title": "Moro de Queso",
+      "instructions": "Ecuadorianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Bohnen aus der Dose, um Vorbereitungszeit und Kosten zu sparen.",
+        "Kaufen Sie Reis in größeren Mengen auf ethnischen Märkten zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ecuadorianisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4246,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-moro-de-queso/",
+      "components": [
+        {
+          "key": "0ca4f073-d6ef-5672-888f-8f7f9ca7554c",
+          "name": "Zutaten",
+          "servingGrams": 383.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "c5ae433d-742f-5157-8215-077f483751a1",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen, ungegart"
+            },
+            {
+              "key": "04f134ae-e5c3-5dff-aa1b-dc940d71ba4c",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 Unzen)"
+            },
+            {
+              "key": "d3aab31c-fe2c-591b-8a4b-b6f016994a0d",
+              "ingredientName": "Queso Fresco",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen, gewürfelt"
+            },
+            {
+              "key": "b7896c38-c165-54e2-b918-90b7fa03ae91",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "a801c39c-db98-5a08-bd8c-f07bdd5adadc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "bc793f35-1fb5-54cf-a8ee-55d7951244d3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3adb8441-adae-5db6-b4c3-f204f5d83a4c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "34eeeec7-8f2f-50d8-9944-210c6b6f8e07",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "dfd81ef6-7c22-539d-adc5-2679e52adae6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und Zwiebel sowie Knoblauch anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ungekochten Reis hinzufügen und 2 Minuten unter ständigem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe zugießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren, abdecken und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schwarze Bohnen abgießen, abspülen und unter den Reis rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kreuzkümmel und Salz hinzufügen und zugedeckt weitere 5 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen und Käsewürfel vorsichtig unterheben, damit sie in der Restwärme weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einer Gabel auflockern und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/be/bb/8e/bebb8e69c4810580d326f2526bc2eb32.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/be/bb/8e/bebb8e69c4810580d326f2526bc2eb32.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yahuarlocro",
+      "slug": "gen-yahuarlocro",
+      "title": "Yahuarlocro",
+      "instructions": "Ecuadorianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rufen Sie Metzgereien vorher an, um nach der Verfügbarkeit von Rinderblut zu fragen.",
+        "Kaufen Sie Rinderschulter im Angebot und frieren Sie sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "ecuadorianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4247,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yahuarlocro/",
+      "components": [
+        {
+          "key": "4fb7fdcb-3975-5ca3-a150-0b5fbb390504",
+          "name": "Zutaten",
+          "servingGrams": 510.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "40aeb336-0bba-5ea6-9336-ad876d4df325",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund (beim Metzger nachfragen)"
+            },
+            {
+              "key": "d8278ffd-b3db-5c82-b8d1-c25a4331b4c2",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "32cd6aef-2535-57a8-b1cc-8955b3317af6",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "14e4ffd4-7bed-56cf-889c-a3711020f526",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "f3d3d37a-9f26-51b6-a017-100539d8e366",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "5be77080-8e2a-525b-8557-959ce4d4ca10",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "ba9313d2-1777-5fe9-ac05-42ad580e4120",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ea74d44a-459c-5730-a2af-ff75f04cc03f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4dedfe9c-989a-5d26-a078-9bb33ef17d35",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7b8da2e8-3cc5-51f2-8731-d1cb5c0a4522",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und gewürfeltes Rindfleisch von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Knoblauch hinzufügen und weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe zugießen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln und Kreuzkümmel hinzufügen, abdecken und 20 Minuten kochen, bis die Kartoffeln fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Rinderblut vorsichtig in den Topf geben. Es wird möglicherweise in tiefgekühlten Packungen verkauft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vorsichtig umrühren und 10–15 Minuten köcheln lassen, damit das Blut durchgart und die Brühe eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schalen servieren und mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gastronomiaenecuador.home.blog/wp-content/uploads/2018/12/yahuarlocro_34646604.png",
+          "sourcePageUrl": "https://gastronomiaenecuador.home.blog/wp-content/uploads/2018/12/yahuarlocro_34646604.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chitlins",
+      "slug": "gen-chitlins",
+      "title": "Chitlins",
+      "instructions": "Soul-Food-Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Chitterlings in Geschäften mit hohem Warenumschlag in der Soul-Food-Abteilung.",
+        "Vorgereinigte Varianten sparen Zeit, kosten aber etwas mehr."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Soul Food",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4248,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chitlins/",
+      "components": [
+        {
+          "key": "75cb8acf-04b0-5998-b866-f572376ed4f7",
+          "name": "Zutaten",
+          "servingGrams": 670.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f495c60-c2fe-56de-93a9-ace7b9febf0e",
+              "ingredientName": "Schweinswurst",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "dcc01b89-8038-560b-9d48-046f9dc26029",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "e1529730-a123-533c-a0ec-7be00cdd2366",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Stück, fein gehackt"
+            },
+            {
+              "key": "c282bb96-2301-5ccc-a55c-24b0729d11c0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08701454-c6f7-54a4-900d-c280a0ce0bd9",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a5ccedf5-0653-5e75-96bb-a61c0b03e8e5",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "ea153512-4506-5231-85e6-28dc744be897",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ed9b0e5c-dd2e-5204-bbc9-290f82755092",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "763a173e-c978-5c1f-92bb-ac81050fc51c",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chitterlings mehrmals gründlich unter kaltem Wasser abspülen und Verunreinigungen entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Chitterlings mit 8 Tassen Wasser und Lorbeerblättern in einen großen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Kochen bringen und 45 Minuten garen, dabei aufsteigenden Schaum abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgießen, erneut abspülen und mit frischem Wasser zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zwiebel, Knoblauch, Salz und schwarzen Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 45 Minuten köcheln lassen, bis die Chitterlings sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abgießen und etwa 1 Tasse Kochflüssigkeit aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit scharfer Sauce und Cayennepfeffer würzen. Falls nötig, etwas von der aufbewahrten Flüssigkeit für die gewünschte Konsistenz hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/WLnIc3pGefZGdBW7yyBsF_chQVQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4884086-dd395f3f72944b17bd6ceac38a9293d5.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/WLnIc3pGefZGdBW7yyBsF_chQVQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4884086-dd395f3f72944b17bd6ceac38a9293d5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-okra",
+      "slug": "gen-okra",
+      "title": "Okra",
+      "instructions": "Soul-Food-Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühlte Okra für ganzjährige Verfügbarkeit zu geringeren Kosten.",
+        "Tomaten aus der Dose sind günstiger als frische und eignen sich bestens."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "Soul Food",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4249,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-okra/",
+      "components": [
+        {
+          "key": "cf31771e-3081-547a-8b50-e7ef242ab11e",
+          "name": "Zutaten",
+          "servingGrams": 281.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "4726e41c-94b3-502a-bb48-8cf8af21b74e",
+              "ingredientName": "Okra",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, geputzt"
+            },
+            {
+              "key": "4ee2cfce-f9fa-5d0c-8ec4-0b0e26b4fcc8",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben, gehackt"
+            },
+            {
+              "key": "5c14feb8-104e-5faa-bca2-f2b52379e1b4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "c48a8709-c094-5a73-8a34-632a22a85c7e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "9bffbb56-0775-5d0d-8188-a159e1ce9894",
+              "ingredientName": "Passierte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen), gewürfelt"
+            },
+            {
+              "key": "f02ff6e5-3d53-5492-90f9-2e8f02e2109d",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "9be3b584-d891-5b57-be35-7d26ef6570d0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "82e85adf-daad-5240-b9f2-f16b0b62ee74",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5b70e3f9-8106-53d5-bba5-34ec6979a688",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck in einer großen Pfanne knusprig braten, herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Knoblauch im selben Topf im Speckfett weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geputzte Okra hinzufügen und 5 Minuten unter gelegentlichem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenwürfel aus der Dose samt Saft und Mais hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz, schwarzem Pfeffer und Cayenne würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "10–15 Minuten köcheln lassen, bis die Okra weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gegarten Speck darüber zerkrümeln und vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und vor dem Servieren nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/dJcc0_b6vYTOHiUbbOhm_2hvkvk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/35965-grandma-omas-pickled-okra-ddmfs-4x3-3135-f0173f3305034d949506308b69089963.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/dJcc0_b6vYTOHiUbbOhm_2hvkvk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/35965-grandma-omas-pickled-okra-ddmfs-4x3-3135-f0173f3305034d949506308b69089963.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

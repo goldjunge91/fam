@@ -1,0 +1,1128 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tea-leaf-salad",
+      "slug": "gen-tea-leaf-salad",
+      "title": "Teeblattsalat",
+      "instructions": "Burmesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe abgepackten gemischten Salat im Angebot.",
+        "Zerstoße Erdnüsse aus dem Großgebinde selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "burmesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3540,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tea-leaf-salad/",
+      "components": [
+        {
+          "key": "30dbf7f1-d0e9-5238-9240-4fd147c89798",
+          "name": "Zutaten",
+          "servingGrams": 535.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2c1caf1-4023-5017-9b7c-b8432b9f00bd",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "865ee3e5-bfcc-50e4-b4fe-7449d43b75f5",
+              "ingredientName": "Gemischtes Gemüse (tiefgekühlt)",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "b325b685-769f-558a-96a4-597ba4f1bcd5",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "b6a7b741-2983-527d-a10b-21d8f997f09e",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "02f8e74c-8c43-56d3-865d-61cbad1cd8ea",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "f1042491-f12d-5f12-8985-ffc423b0862f",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "878f0e16-38d7-5038-83f7-cfe73fc66f01",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ff03ffba-2e74-5757-88db-e7220fd06cd0",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3ae0e1a7-3d12-5343-93af-62efc7256be5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c25112a0-5bb9-5cae-9da9-6deec4cfedbe",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zehe"
+            },
+            {
+              "key": "e40db1d1-3242-5283-a6e6-55a859d7cbf1",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle fermentierte Teeblätter mit kaltem Wasser ab, um überschüssige Lake zu entfernen, und drücke sie vorsichtig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Blattsalat, gehackte Tomate und gewürfelte Gurke in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Limettensaft, Fischsauce, gehackten Knoblauch und Chiliflocken in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Pflanzenöl in einer kleinen Pfanne und röste Sesam 1 Minute leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib fermentierte Teeblätter zur Salatmischung und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle den Salat mit Limettendressing und vermische alles, bis es gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue ihn mit zerstoßenen Erdnüssen und geröstetem Sesam und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Laphet-Thoke-Fermented-Tea-Leaf-Salad.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Laphet-Thoke-Fermented-Tea-Leaf-Salad.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mandalay-shan-noodles",
+      "slug": "gen-mandalay-shan-noodles",
+      "title": "Mandalay-Shan-Nudeln",
+      "instructions": "Burmesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schalotten im Angebot und lagere sie kühl und trocken.",
+        "Röste Sesam selbst, statt bereits gerösteten zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "burmesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3541,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mandalay-shan-noodles/",
+      "components": [
+        {
+          "key": "296b12eb-3348-554f-9386-7e3b51b3b225",
+          "name": "Zutaten",
+          "servingGrams": 147.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "06475131-4d76-57db-be40-1df635fa68f5",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "26a2907e-1d17-5276-af7b-672e7390d422",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "7e70e673-f9e0-5255-84bc-1144c35fcfc6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "8e5deffe-bde6-543b-ad61-30b2871e30f1",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "88ea04d6-6090-5a86-9e56-f3c9a09479d4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "45cb4308-2f5a-5e39-be38-6e5309d17e10",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a51ee990-9ace-5e97-998a-30f5b53e2d46",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d8275f3b-da41-560e-8962-0367d87627ce",
+              "ingredientName": "Sesam",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4854a97e-bd37-5e99-99ff-44742cdf97b3",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "08c6e7a2-ae13-598e-b009-0f9791f4472d",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c0c15d1e-35b0-5946-a431-33f712477212",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Reisnudeln nach Packungsanweisung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 tbsp Öl in einem Wok oder einer großen Pfanne und brate geschnittene Schalotten etwa 5 Minuten knusprig und goldbraun. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl in den Wok und dünste gehackten Knoblauch 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Schweinehackfleisch dazu und brate es bei starker Hitze etwa 6 Minuten krümelig, bis es gebräunt und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Sojasauce, Fischsauce, Sesam und Chiliflocken ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die gekochten Nudeln auf Schalen und belege sie mit der Schweinefleischmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere sie mit knusprigen Röstschalotten und zerstoßenen Erdnüssen und presse vor dem Servieren Limettensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/ShanKhaoSwe-681x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/ShanKhaoSwe-681x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ngapi-kyaw",
+      "slug": "gen-ngapi-kyaw",
+      "title": "Ngapi Kyaw",
+      "instructions": "Burmesischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Garnelenpaste in größeren Mengen auf asiatischen Märkten.",
+        "Bereite mehr zu und bewahre sie bis zu 2 Wochen im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "burmesisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3542,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ngapi-kyaw/",
+      "components": [
+        {
+          "key": "021f14aa-1a0d-598e-b448-077c98856775",
+          "name": "Zutaten",
+          "servingGrams": 87.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2808a26e-3045-5576-814a-0efddf9e5c0b",
+              "ingredientName": "Garnelenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "92729091-309e-549b-b2a1-92e5f39a3acf",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3e53c339-f1ee-59fb-b360-27c5c4c29574",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "8c18d1c8-dcde-5e6d-9af4-a61e317dce75",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "e3f6d893-df8b-5987-b238-d14aa4b40354",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6a9f3bfc-3e0f-5170-8f90-fca197f85521",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d493411a-6692-599c-80ae-3929839b91ae",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ced1c542-7afa-5db4-9655-29128f934fe4",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 EL"
+            },
+            {
+              "key": "a08b0c9c-190e-5bc0-99a6-94cc2464416c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pflanzenöl in einer Pfanne bei mittlerer Hitze und gib dünn geschnittene Schalotten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Schalotten etwa 5 Minuten goldbraun und knusprig. Nimm sie mit einer Schaumkelle heraus und lasse das Öl in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch ins verbliebene Öl und gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Garnelenpaste dazu und gare sie 3 Minuten unter ständigem Rühren und Zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Chiliflocken, Limettensaft, Zucker und Fischsauce ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle Ngapi Kyaw in eine Servierschüssel und garniere es mit knusprigen Röstschalotten und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es warm als Dip zu Crackern, Reis oder Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/03/Ngapi-Yay-Fish-Paste-Dip-with-Vegetables.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/03/Ngapi-Yay-Fish-Paste-Dip-with-Vegetables.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-burmese-fish-curry",
+      "slug": "gen-burmese-fish-curry",
+      "title": "Burmesisches Fischcurry",
+      "instructions": "Burmesisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fisch im Angebot und friere ihn für später ein.",
+        "Verwende Tilapia statt teurerer Fischsorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "burmesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3543,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burmese-fish-curry/",
+      "components": [
+        {
+          "key": "5fbf0fbe-d3ef-525d-b04d-3d7575ddf860",
+          "name": "Zutaten",
+          "servingGrams": 375.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "b016899c-6abc-51a7-a495-c52fbc858c26",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8a442292-4728-59f3-a0a2-8bb21051efa0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "094e5f15-fe40-5071-8f2c-c5f9fcb27a07",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "ee59c1d0-53d9-5848-9b2e-c26b876f4149",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "efe2d2a9-ad3d-59e1-b9d6-b6716f568f97",
+              "ingredientName": "Kurkuma",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "338598c7-2763-55b9-b02b-92624ad906b3",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9533fc74-ab68-5594-9403-089d903e642e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "61798de2-51ef-57e9-b820-52e6aebc0d1f",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "051cecb8-1610-54e9-9604-cd9aaae43848",
+              "ingredientName": "Fischbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6db552c9-598a-555a-8357-a207d6a418d0",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "5582ed2b-ed06-50a5-ae05-e89780bd8642",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e06b6431-e89f-5c3f-92ef-b852a7719891",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Fischfilets in 2-inch große Stücke und würze sie leicht mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einem großen Topf und dünste gewürfelte Zwiebel, Knoblauch und Ingwer etwa 4 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Kurkuma und Currypulver ein und gare alles unter ständigem Rühren 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomaten aus der Dose samt Saft und Fischbrühe dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelte Kartoffel dazu und gare sie 10 Minuten, bis sie teilweise zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Fischstücke vorsichtig zum Curry und lasse alles 10 Minuten köcheln, bis der Fisch gar ist und leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht, passe die Würzung nach Bedarf an und serviere es heiß mit frischem Koriander auf gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/6d2umuj7y9c21.jpg",
+          "sourcePageUrl": "https://i.redd.it/6d2umuj7y9c21.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-coconut-curry",
+      "slug": "gen-chicken-coconut-curry",
+      "title": "Hähnchen-Kokos-Curry",
+      "instructions": "Burmesisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brust; sie sind aromatischer und günstiger.",
+        "Kaufe normales Currypulver aus dem Großgebinde statt spezieller Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "burmesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3544,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-coconut-curry/",
+      "components": [
+        {
+          "key": "5d8a7ddd-0bad-5483-8e34-c3ebb3e5fcb8",
+          "name": "Zutaten",
+          "servingGrams": 260.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae9762af-6e9a-5108-a7d6-31845c50d43d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "11c0c89d-a4ee-551d-b7ee-8b56dec76c7d",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "ff73d0cb-34e1-5916-bb96-1606cb886de8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "86b91536-975e-51c6-ae49-7f4e5c115231",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46d1c5fb-f5e4-5ca0-b2c6-969540bb21bc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "77e71aa6-5bdb-52fe-9eec-1190fc99e6f0",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1c152602-0be9-5b74-ba25-4fd54800adcb",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5f0a36f8-71e6-5086-a46e-a2650030b402",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7580cded-65e1-5c27-a95d-2e962a64ba39",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "112ad1af-e380-57c2-80ab-937fb708f3ca",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebel, hacke den Knoblauch und schneide das Hähnchen in 1-inch große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher bis hoher Hitze und dünste Zwiebel, Knoblauch und Ingwer etwa 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Currypulver ein und gare es 1 Minute, bis sich sein Aroma entfaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Hähnchenstücke dazu und bräune sie etwa 5 Minuten von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch und Wasser dazu und gib Fischsauce und gewürfelte Kartoffeln hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze und lasse es 25-30 Minuten köcheln, bis die Kartoffeln zart und das Hähnchen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und würze es bei Bedarf mit zusätzlicher Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es heiß auf gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/07/Simple-Coconut-Chicken-Curry-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/07/Simple-Coconut-Chicken-Curry-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

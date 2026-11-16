@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bugale",
+      "slug": "gen-bugale",
+      "title": "Bugale",
+      "instructions": "Bretonisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Äpfel der Saison, die deutlich günstiger sind als Sorten außerhalb der Saison",
+        "Kaufen Sie Buchweizenmehl günstiger in Großbehältern in Reformhäusern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bretonisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6450,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bugale/",
+      "components": [
+        {
+          "key": "949b516f-3c83-5784-8961-63fc81abae7b",
+          "name": "Zutaten",
+          "servingGrams": 213.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ec3be46-b4ee-5b27-8384-8c53cec079af",
+              "ingredientName": "Allzweckmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "bbeca95a-31e3-5844-a5b1-a9937f0ed990",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3e6619d6-ac3d-59e5-8f49-aeb6b1b07407",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "95db8bff-e892-5916-9cb0-73621e44db0c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel geschmolzen"
+            },
+            {
+              "key": "eb77b095-06c5-5cae-91d0-78c55529edd5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8ea971c-6edb-5fe4-a959-0f3d016484a8",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dc0e9727-d66f-5ad8-aaf9-1a6354e6cb24",
+              "ingredientName": "Apfelmus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "6e87ebaf-431d-5038-b531-b292b199f972",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Buchweizenmehl, Allzweckmehl, Zucker und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschmolzene Butter, Eier und Milch unterrühren, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Äpfel schälen, entkernen und in dünne Scheiben von 1/8 Zoll schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine 8-Zoll-Auflaufform einfetten und eine dünne Teigschicht auf dem Boden verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Apfelscheiben gleichmäßig auf dem Teig verteilen und mit Zimt bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den restlichen Teig über die Äpfel gießen, bis er vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375 °F 35 Minuten backen, bis die Mitte fest und die Oberseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "10 Minuten abkühlen lassen, in Spalten schneiden und warm mit Puderzucker servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps11396_THCA153054D08_11_7b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps11396_THCA153054D08_11_7b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-g-teau-breton",
+      "slug": "gen-g-teau-breton",
+      "title": "Bretonischer Kuchen",
+      "instructions": "Bretonischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Eier in großen Mengen, wenn sie im Angebot sind, um bei diesem Rezept Eigelb zu sparen",
+        "Verwenden Sie Butter und Mehl von Handelsmarken, die weniger kosten als Markenmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bretonisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6451,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-g-teau-breton/",
+      "components": [
+        {
+          "key": "7876ff38-8930-5c6d-a0f8-dcfbde5d1a07",
+          "name": "Zutaten",
+          "servingGrams": 135.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "3349bd6f-7cb2-5e25-b0b8-ceb5a14164d9",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse weich"
+            },
+            {
+              "key": "9da01ec6-1d3f-5097-b5cf-3b21bad58b2a",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "42b263e8-d72b-50ab-96e6-c3d54ffd8368",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea572297-2ead-5acb-ad95-0dede994e37e",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "914b59b8-1406-5d55-87d4-e842bc57bcb9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "badc4d06-96cb-584a-8a7f-de6abb2912f8",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter und Zucker etwa 3 Minuten lang mit dem Elektromixer schaumig rühren, bis eine leichte, lockere Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "4 Eigelb nacheinander unterrühren, dann Vanilleextrakt unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl und Salz unterheben, bis alles gut vermischt ist. Dabei darauf achten, dass nicht zu viel vermischt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig gleichmäßig in eine runde 9-Zoll-Kuchenform oder eine Tarteform drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Restliches Eiweiß mit 1 Esslöffel Wasser verrühren und über die Teigoberfläche streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ritzen Sie die Oberfläche mit einem Messer leicht kreuzweise ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350 °F 25–30 Minuten backen, bis der Kuchen goldbraun und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "10 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter stürzen, um es vor dem Schneiden vollständig abzukühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/XCayYCerRxHbsO-4iFEtQKOGQHk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6472114-gateau-breton-Yoly-4x3-1-0be7064c2f834d9f8f2728a901463cff.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/XCayYCerRxHbsO-4iFEtQKOGQHk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6472114-gateau-breton-Yoly-4x3-1-0be7064c2f834d9f8f2728a901463cff.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-falscher-hase",
+      "slug": "gen-falscher-hase",
+      "title": "Falscher Hase",
+      "instructions": "Sächsisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch im Sonderangebot und frieren Sie es für später ein",
+        "Machen Sie Ihre eigenen Semmelbrösel aus altbackenem Brot"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sächsisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6452,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-falscher-hase/",
+      "components": [
+        {
+          "key": "4b52f462-06de-5c0a-b5d6-b85e2f10bf0a",
+          "name": "Zutaten",
+          "servingGrams": 194.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a8b12c8-9fb9-54b6-873a-ac48062ac5e3",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d5b19ad7-03b6-584d-9749-8d83ecd246ca",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "6a9abc13-0169-58ab-9f3e-ad590bb90c20",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee9e8997-827a-5206-af8a-3694b0f69f59",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3b16551b-3b05-58fd-8dc5-3c4cf229e305",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e9e0d434-1e26-55f3-9ee2-9a7f59a99921",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5012cd24-ee16-5399-9b2d-f066e18c83d8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0fab61fa-eb47-5923-b4f1-503d2cb7199a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3da8477f-a5f0-59f7-adb5-7f2fbeaf2433",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ee4f5fec-2fa4-5db6-a596-7d0ba6566253",
+              "ingredientName": "Sardellenpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Zwiebel fein würfeln und in Butter anbraten, bis sie weich ist, dann abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hackfleisch, sautierte Zwiebeln, Eier, Semmelbrösel, Milch, Salz und Pfeffer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aus der Masse einen Laib formen und in eine gebutterte Auflaufform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe um den Hackbraten gießen und ihn bei 375 °F 40–45 Minuten backen, bis er gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Aus dem Ofen nehmen und die Sardellenfilets kreuzförmig darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für 2 Minuten wieder in den Ofen geben und dann heiß servieren, mit Bratenfett als Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/aKeAcSVMbu2W7VPe9v-_KjJG8wY=/3000x2000/filters:fill(auto,1)/falscher-hase-false-hare-german-meatloaf-1447070-7b45a7aadf4443019a5d59ab887a8f65.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/aKeAcSVMbu2W7VPe9v-_KjJG8wY=/3000x2000/filters:fill(auto,1)/falscher-hase-false-hare-german-meatloaf-1447070-7b45a7aadf4443019a5d59ab887a8f65.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-s-chsisches-rehragout",
+      "slug": "gen-s-chsisches-rehragout",
+      "title": "Sächsisches Rehragout",
+      "instructions": "Sächsisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn kein Wildbret verfügbar ist, ersetzen Sie es durch Rinderfutter",
+        "Kaufen Sie Gewürze in großen Mengen, um deutlich zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sächsisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6453,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-s-chsisches-rehragout/",
+      "components": [
+        {
+          "key": "09b6a879-0282-5a33-9dc3-be971cd56422",
+          "name": "Zutaten",
+          "servingGrams": 820.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4650972-9d76-5005-be61-1df42782a83e",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "f9a48b51-bd82-5f98-bd50-a06cf7ef3c24",
+              "ingredientName": "Rotweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "276e6304-d32d-56c1-9095-8778a045eadb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "42bd362d-3682-58ca-ba1e-252b5899a40c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "848e01d7-ea4b-53e7-9d51-ca596ac103ea",
+              "ingredientName": "Gefrorene Beeren",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7c67d3c-054b-5d5f-a93c-063d37ed5e26",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4d79279-66a9-58dc-833a-a8e73d71be38",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "900588ce-a259-533e-b46a-1e93231b324c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a8a2644f-7b85-5d30-883c-9c0799ca1410",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cbc516a4-af6b-5739-b2b0-73a2a2753241",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e4215eaf-6756-5ab3-bea9-e3c697b82661",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Wildbret in 1.5 Zoll große Würfel schneiden und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Topf erhitzen und das Wildbret von allen Seiten anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die gewürfelten Zwiebeln goldbraun anbraten, dann mit Mehl bestäuben und 1 Minute lang umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie Rotwein und Rinderbrühe hinzu und kratzen Sie die gebräunten Stücke vom Boden ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Wildbret mit Wacholderbeeren, Lorbeerblättern und Thymian in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zugedeckt 90 Minuten köcheln lassen, bis das Wild weich ist, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sauerrahm einrühren und mit Salz und Pfeffer würzen, dann weitere 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Eiernudeln oder Rotkohl servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipeimages.migros.ch/crop/v-w-4000-h-4000-a-center_center/b8deabb32f5a8dd245a0487b63fb2a133b9fac82/hirschragout-an-wacholder-preiselbeer-sauce-0-1-1.jpg",
+          "sourcePageUrl": "https://recipeimages.migros.ch/crop/v-w-4000-h-4000-a-center_center/b8deabb32f5a8dd245a0487b63fb2a133b9fac82/hirschragout-an-wacholder-preiselbeer-sauce-0-1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zwiebelkuchen",
+      "slug": "gen-zwiebelkuchen",
+      "title": "Zwiebelkuchen",
+      "instructions": "Sächsisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Sauerrahm von Handelsmarken anstelle von Markensahne",
+        "Kaufen Sie Zwiebeln in großen Mengen, wenn sie Saison haben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "sächsisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6454,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zwiebelkuchen/",
+      "components": [
+        {
+          "key": "6daace28-2184-553a-ad51-b713711916df",
+          "name": "Zutaten",
+          "servingGrams": 474.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "985b8245-d9ae-5d0f-939b-075e50a0c0f5",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0f6a65bd-635a-5948-838a-24107c7d35d3",
+              "ingredientName": "Instant-Hefe",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4757fb32-1e27-59d3-a8a1-9bd3dd5d471c",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e928675a-03d8-5846-b8d8-ed13be7c5934",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "2eb5df32-c782-5fc1-b8e5-c449d33e3c44",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "29b757d8-2b67-5e7a-bfff-543d47509422",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "2ebe20f0-adea-5210-9d8a-7b9aeda4727e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1cb1f19-7401-5c7a-b7b5-e0b8546166a9",
+              "ingredientName": "Sauerrahm",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "69a74b4a-1fa7-553b-bcbc-e0193beca325",
+              "ingredientName": "Kümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1de90a08-5171-597a-9f73-55f583b111db",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Hefe, Salz und warmes Wasser zu einem Teig vermischen und 8 Minuten kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lassen Sie den Teig in einer geölten Schüssel 45 Minuten lang gehen, bis er sich verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Speck würfeln und in einer Pfanne knusprig braten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebeln in dünne Scheiben schneiden und im Speckfett anbraten, bis sie weich und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier und Sauerrahm verquirlen, dann mit Zwiebeln, Speck und Kümmel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig auf eine geölte 9-Zoll-Kuchenform streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Zwiebelmischung gleichmäßig auf dem Teig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 400 °F 25–30 Minuten backen, bis die Kruste goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Zwiebelkuchen-Onion-Tart.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Zwiebelkuchen-Onion-Tart.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

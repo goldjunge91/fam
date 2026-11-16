@@ -1,0 +1,1077 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sichuan-preserved-vegetables-with-pork",
+      "slug": "gen-sichuan-preserved-vegetables-with-pork",
+      "title": "Sichuan-Gemüse mit Schweinefleisch",
+      "instructions": "Sichuan-Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sichuan-eingelegtes Gemüse ist auf asiatischen Märkten günstig und sorgt für viel Geschmack",
+        "Schweinehackfleisch ist meist günstiger als ganze Fleischstücke und braucht kaum Vorbereitung"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sichuanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3370,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sichuan-preserved-vegetables-with-pork/",
+      "components": [
+        {
+          "key": "8faefff6-571e-5126-89b4-4db414b18f3f",
+          "name": "Zutaten",
+          "servingGrams": 163.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "be21ab6b-6fdf-566c-9386-b5b7084222f3",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "08019209-c9aa-5e5a-aa92-a0263446e5c6",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d1405d2f-af4d-5b6f-911d-92303d4dc2e6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bd92c06f-f2e4-5c6e-a328-0aacbace5280",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b793681a-9e2b-54f2-ac7c-974170841e1d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3d12d26d-bdeb-5b59-98e8-1a97a8ca6bb6",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ddee8470-546c-5b33-aa92-8671ad532ed7",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c55226b3-7cac-52de-ab1a-65b40877145c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6435eaa3-ec65-5978-b7fa-61d48bbcde47",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6177b53a-5ecc-565d-aa62-d60230dc0533",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Schweinehackfleisch hinzu und zerteile es mit einem Pfannenwender. Brate es etwa 5 Minuten, bis es gebräunt und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer hinzu und brate alles 30 Sekunden unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehacktes eingelegtes Gemüse hinzu und brate es 2 Minuten unter Rühren, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Sojasauce, Zucker und Wasser hinzu und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle das Gericht mit Sesamöl und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib es auf eine Servierplatte und garniere es vor dem Servieren mit gehackten Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tasteasianfood.com/wp-content/uploads/2021/08/tianjin-preserved-vegetable-4-1.jpeg",
+          "sourcePageUrl": "https://tasteasianfood.com/wp-content/uploads/2021/08/tianjin-preserved-vegetable-4-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-makki-di-roti",
+      "slug": "gen-makki-di-roti",
+      "title": "Makki di Roti",
+      "instructions": "Punjabi-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maismehl ist im Vergleich zu Weizenmehl sehr preiswert",
+        "Bereite mehrere Rotis vor und wärme sie vor dem Essen auf einer Tawa oder in einer Pfanne auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "punjabisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3371,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-makki-di-roti/",
+      "components": [
+        {
+          "key": "8b56e493-f12f-54cd-bbd8-6284f812c26a",
+          "name": "Zutaten",
+          "servingGrams": 267.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "e890aeff-3223-54f6-a00e-870a751146b0",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f71f1a1c-45bf-5373-bf82-78d77567eb67",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "709e351b-250b-5909-98a1-2a3514e497c9",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1ae60812-c263-5235-a79e-5d66bd5a4065",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1f0d47d2-29e5-510c-a917-1131139ef0f3",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6985d55-9008-5327-9401-18d35d87b5f3",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Maismehl, Weizenmehl, Salz, grüne Chilis und Kreuzkümmelsamen in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ghee hinzu und verreibe es mit der Mehlmischung, bis sie an Semmelbrösel erinnert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib nach und nach warmes Wasser hinzu und knete einen weichen Teig. Füge bei Bedarf mehr Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 6-8 gleich große Portionen und forme Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine gusseiserne Pfanne oder Grillplatte bei mittelhoher Hitze, bis sie sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege eine Teigkugel zwischen zwei Stücke Frischhaltefolie und drücke sie zu einer dünnen Scheibe von etwa 8 Zoll Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie in die heiße Pfanne und gare sie 1-2 Minuten, bis goldene Flecken entstehen. Wende sie und gare die andere Seite knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche sie direkt nach dem Garen mit Ghee und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/www.spicezone.com/wp-content/uploads/2014/02/Makki-Ki-Roti-n-Sarson-PicMonkey-Collage.jpg?w=2000&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/www.spicezone.com/wp-content/uploads/2014/02/Makki-Ki-Roti-n-Sarson-PicMonkey-Collage.jpg?w=2000&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sarson-da-saag",
+      "slug": "gen-sarson-da-saag",
+      "title": "Sarson da Saag",
+      "instructions": "Punjabi-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe frisches Blattgemüse in größeren Mengen auf Bauernmärkten oder in internationalen Lebensmittelgeschäften deutlich günstiger",
+        "Tiefgekühlter Spinat eignet sich als Ersatz, wenn frischer nicht verfügbar oder zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "punjabisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3372,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sarson-da-saag/",
+      "components": [
+        {
+          "key": "7d129c4a-5e50-5dd7-8a35-bfd0fd9fecf7",
+          "name": "Zutaten",
+          "servingGrams": 286.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f9aa06d-0251-5b28-959f-c38ee821da45",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "3d03cba8-f8b5-5408-9ee7-3a22a368492f",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "d59c4942-1472-5cee-962f-083bbc383545",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "7dbcb857-3c71-547d-94bf-555e45d6a84f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "af8c0260-995a-5d7e-9719-d3b679412fd8",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cf8797c-7a3d-5bf8-a9e6-990a296a6278",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8dd1c519-495b-5579-baa2-db2b445e02d9",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a8c213e-2c71-51ff-9b21-0ae1c8c1d013",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d1014cea-fbac-5ee0-b447-71dac2d5102b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "515bc170-3721-59f1-bf4d-f0cd5f1e2148",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Ghee in einem großen Topf bei mittlerer Hitze, gib gewürfelte Zwiebel hinzu und gare sie etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch, Ingwer und grüne Chilis hinzu und brate alles 1 Minute unter Rühren, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Spinat, Senfblätter und Bockshornkleeblätter portionsweise hinzu und rühre, während sie zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Wasser und Salz hinzu, bringe alles zum Kochen und lasse es 20-25 Minuten köcheln, bis das Blattgemüse sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Püriere alles mit einem Stabmixer, bis es größtenteils glatt ist und noch etwas Struktur hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse es weitere 5-10 Minuten köcheln und schmecke es mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in Schalen servieren, mit einem Klecks Ghee darauf und knusprigem Brot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Ma7OdkBOh5OgQjd3mYlGo8EdGJk=/5883x3927/filters:fill(auto,1)/sarson-ka-saag-1957985-hero-01-7bb3c7be6bec456da4407eda0ef95707.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Ma7OdkBOh5OgQjd3mYlGo8EdGJk=/5883x3927/filters:fill(auto,1)/sarson-ka-saag-1957985-hero-01-7bb3c7be6bec456da4407eda0ef95707.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paneer-tikka",
+      "slug": "gen-paneer-tikka",
+      "title": "Paneer Tikka",
+      "instructions": "Punjabi-Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Paneer in indischen Lebensmittelgeschäften statt in großen Supermärkten, dort ist er günstiger",
+        "Bereite die Marinade mit einfachem Joghurt zu, den du bereits zu Hause hast, statt eine teure Sorte zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "punjabisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3373,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paneer-tikka/",
+      "components": [
+        {
+          "key": "8270f171-9890-5bf1-9ba6-ee2b23f5224b",
+          "name": "Zutaten",
+          "servingGrams": 232.87,
+          "position": 0,
+          "items": [
+            {
+              "key": "72f3b847-f92f-5156-9cba-121fb12fa61e",
+              "ingredientName": "Paneer",
+              "grams": 170.1,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "031fd3d0-dfed-5c9d-b4a8-f37140d2e152",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "61a5c618-4079-54c5-9457-a0c52a8e7ee4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c06d5508-bd23-5ee3-988b-b6b3c41092a0",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ba36b73a-58f7-5c47-a782-86585daedd57",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "a8032bec-40af-5704-b402-6f9cddba5e8e",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4f2930c0-ad5e-5adb-831e-cad16d531830",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f82da29f-8e53-5df4-9bd5-58f22db5866a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1bbcd96a-c3cc-5d0d-832f-b7dd7ac9b223",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bf02b423-e002-5b5c-a268-037ff807b3a7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "316df57e-13f1-578d-ae22-2609de1391cd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Joghurt, Ingwer-Knoblauch-Paste, rotes Chilipulver, Kurkuma, Garam Masala, Zitronensaft und Salz in einer Schüssel zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Paneer in 1 Zoll große Würfel, gib sie zur Marinade und vermische alles gut. Stelle es mindestens 15 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Paprika und rote Zwiebel in 1 Zoll große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stecke marinierten Paneer, Paprika und Zwiebel abwechselnd auf Metallspieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer großen gusseisernen Pfanne oder Grillpfanne bei mittelhoher Hitze, bis sie sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Spieße in die heiße Pfanne und gare sie 8-10 Minuten. Wende sie alle 2 Minuten, bis Paneer goldbraune Röststellen bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie auf eine Servierplatte und serviere sie heiß mit Zitronenspalten und Minz-Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/08/paneer-tikka.jpg",
+          "sourcePageUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/08/paneer-tikka.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-amritsari-kulcha",
+      "slug": "gen-amritsari-kulcha",
+      "title": "Amritsari Kulcha",
+      "instructions": "Punjabi-Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zwiebeln und Koriander in größeren Mengen auf internationalen Märkten",
+        "Mache Joghurt selbst oder verwende eine günstige Hausmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "punjabisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3374,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-amritsari-kulcha/",
+      "components": [
+        {
+          "key": "086aaa14-1f5f-5b44-808b-608fba1c40ef",
+          "name": "Zutaten",
+          "servingGrams": 271.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "d907d831-7ae0-573d-9a9c-b2d3acf8e1c2",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "234342ab-e9ac-5ddb-a35f-f5705bf9c81e",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cf8ee07c-2e99-539b-820c-1b1510f97624",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "313fbd77-7cf8-585e-9372-12a4c34c2ad9",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "d8eba776-5de2-5e7f-9bd3-b87f28d4b126",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "051c56a3-53c7-582b-add0-86766995280e",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "c7c66d4d-759f-52bc-bbfc-40016678da93",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "9cdc61d4-44ec-5446-af58-22363fa1f1d7",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "6b8843c7-23a1-5477-bd48-dcad1a982285",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Joghurt, Salz, Natron und 2 Esslöffel Öl in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach warmes Wasser hinzu und knete einen glatten, weichen Teig. Lasse ihn abgedeckt 45 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische gehackte Zwiebel, grüne Chili, Koriander und Amchur-Pulver in einer kleinen Schüssel zur Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 4 gleich große Portionen und rolle jede zu einem dünnen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 2 Esslöffel Füllung in die Mitte jedes Kreises, klappe die Ränder ein und drücke den Fladen vorsichtig flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze 1 Esslöffel Öl in einer gusseisernen Pfanne oder auf einer Grillplatte bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare den Kulcha je Seite 3-4 Minuten goldbraun und aufgegangen; drücke ihn dabei leicht mit dem Pfannenwender an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Butter, Pickles und Chole (Kichererbsen) servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.flavouroffood.com/wp-content/uploads/2020/12/Aloo-Kulcha-Recipe-1-1536x1300.jpg",
+          "sourcePageUrl": "https://www.flavouroffood.com/wp-content/uploads/2020/12/Aloo-Kulcha-Recipe-1-1536x1300.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

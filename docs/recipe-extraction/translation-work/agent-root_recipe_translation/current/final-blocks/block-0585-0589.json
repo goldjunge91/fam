@@ -1,0 +1,911 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:combo-mw-mac-af-breadcrumb",
+      "slug": "combo-mw-mac-af-breadcrumb",
+      "title": "Mac and Cheese mit knusprigen Semmelbröseln",
+      "instructions": "Mac and Cheese aus der Mikrowelle mit knusprigen Knoblauch-Semmelbröseln aus der Heißluftfritteuse: die Textur von überbackenen Nudeln in 10 Minuten.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 9,
+      "storageInstructions": "Am besten frisch genießen; die Brösel verlieren ihre Knusprigkeit.",
+      "reheatingInstructions": "Mac and Cheese 60 Sekunden in der Mikrowelle erhitzen; die Brösel 2 Minuten in der Heißluftfritteuse wieder knusprig machen.",
+      "cheapTips": [
+        "Brotenden eignen sich bestens für Semmelbrösel",
+        "Butter und Knoblauch sorgen für Restaurantgeschmack"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bread",
+          "swap": "Zerdrückte Cracker",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Scheibe Schmelzkäse nach amerikanischer Art",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 4,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Pasta (~$0.20), ein Brotende (~$0.15), Käse und Milch kosten zusammen etwa ~$1.50 und ergeben den Crunch von überbackenen Nudeln.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 585,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-mac-af-breadcrumb/",
+      "components": [
+        {
+          "key": "39f8ff17-b09a-5e99-82b3-3547bcf89f9a",
+          "name": "Zutaten",
+          "servingGrams": 241.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d077b10-82a9-56bc-9adf-a7bca4f8cd28",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e02cdb8-2c96-573b-bc6c-95a94c339c2d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c093af5-a98a-5598-a242-582cb0d0a422",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "964eeb22-5093-5dbe-b8cb-23e51cfed8b8",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7701b57e-bcd0-5366-a25f-737ec71abc67",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in Brösel gerissen"
+            },
+            {
+              "key": "50672869-deba-543a-b130-f006fba950ec",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerreiße das Brot in kleine Brösel und vermische sie mit geschmolzener Butter und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Heißluftfritteuse auf 380F ein und gare die Brösel 4 Minuten. Schüttle sie einmal, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen die Pasta mit 1 Tasse Wasser 7 Minuten in der Mikrowelle und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Pasta vorsichtig ab, da heißer Dampf aufsteigt. Rühre Milch und Käse ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue das Mac and Cheese mit den knusprigen Semmelbröseln und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1543339531-242d0bc29010?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1543339531-242d0bc29010",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Mac and Cheese mit Semmelbröseln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-burrito-af-tortilla-shell",
+      "slug": "combo-mw-burrito-af-tortilla-shell",
+      "title": "Knuspriger Burrito aus der Heißluftfritteuse",
+      "instructions": "Füllung aus Bohnen und Reis aus der Mikrowelle in eine Tortilla gerollt und dann in der Heißluftfritteuse knusprig gebacken: ein Chimichanga.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Einwickeln und bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "4 Minuten in der Heißluftfritteuse bei 350F wieder knusprig backen.",
+      "cheapTips": [
+        "Tortillas sind im 10er-Pack günstig",
+        "Eine halbe Dose Bohnen reicht für 2 Burritos"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "taco-seasoning",
+          "swap": "Kreuzkümmel und Chilipulver",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Tortilla (~$0.20), eine halbe Dose Bohnen (~$0.50) und Reis ergeben einen knusprigen Burrito für $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 586,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-burrito-af-tortilla-shell/",
+      "components": [
+        {
+          "key": "75b087e6-3525-59af-9d1a-285bfc347edb",
+          "name": "Zutaten",
+          "servingGrams": 457.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6cc92f88-bd05-5ac3-ba69-5c42494d1130",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf66a988-1e5a-50f2-a928-a42e2b26eae7",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8693dae4-f3a0-54d4-bda2-b479a7826dfa",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac03ca58-9ac7-5014-a983-78379dad00cf",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a1d6efc-d9e6-5d8e-a38f-489837b33604",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc318f44-ef05-590e-a4d4-7db368c49542",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bafe51a-154c-5f10-bcd0-b4e34495ce57",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Reis, Bohnen und Gewürz abgedeckt 90 Sekunden in einer Schüssel in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle die Tortilla mit der Reis-Bohnen-Mischung, Käse und Salsa. Rolle sie fest zusammen und klappe die Enden ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche den Burrito mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Heißluftfritteuse auf 400F ein und gare den Burrito 6 Minuten. Wende ihn nach der Hälfte der Zeit, bis er goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1711488735428-27c6757beb5c?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1711488735428-27c6757beb5c",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einem knusprigen Burrito in einer Tortilla",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-ramen-af-crispy-tofu",
+      "slug": "combo-mw-ramen-af-crispy-tofu",
+      "title": "Ramen mit knusprigem Tofu aus der Heißluftfritteuse",
+      "instructions": "Ramen-Brühe aus der Mikrowelle mit knusprigen Tofuwürfeln aus der Heißluftfritteuse: Instant-Ramen aufgewertet.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Am besten frisch genießen; der Tofu verliert seine Knusprigkeit.",
+      "reheatingInstructions": "Tofu 2 Minuten bei 350F in der Heißluftfritteuse erwärmen; Brühe 60 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Ein halber Block Tofu verdoppelt den Eiweißgehalt der Ramen",
+        "Tiefgekühlter Spinat ist die günstigste Blattgemüse-Zugabe"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Kichererbsen aus der Heißluftfritteuse",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "frozen-spinach",
+          "swap": "Beliebiges Tiefkühlgemüse",
+          "savings": "~$0.00"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ramen ($0.50) und ein halber Block Tofu ($1.10) ergeben Ramen für $2, die besser schmecken als im Restaurant.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 587,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-ramen-af-crispy-tofu/",
+      "components": [
+        {
+          "key": "a7115fc2-4361-58e0-b526-398368a0e682",
+          "name": "Zutaten",
+          "servingGrams": 237.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "db54135b-a586-540e-987d-36f922e73fcb",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8c11f52-31e9-52b9-acac-8484f00a5833",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee72db81-8875-506d-a940-ec725085b1eb",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a088ff48-bc16-5257-9285-bbf7fc1182e2",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3aa383a8-5ae1-5913-8560-db68e8945867",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cd7aeb7-1bad-569b-a4fc-081606348969",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "6c24a629-7331-51e7-bec2-9025f20e7d8e",
+              "ingredientName": "Chiliöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tofu in Würfel, vermische ihn mit Sojasoße, stelle die Heißluftfritteuse auf 390F ein und gare ihn 12 Minuten. Schüttle den Korb nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze währenddessen Ramen mit Gewürz, tiefgekühltem Spinat und 1.5 Tassen Wasser 5 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Nudeln um und lass sie 1 Minute ruhen, während der Dampf entweicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib knusprigen Tofu, Sesamöl, Frühlingszwiebel und Chiliöl darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fried_Tofu_Cup_Ramyeon.jpg/960px-Fried_Tofu_Cup_Ramyeon.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fried_Tofu_Cup_Ramyeon.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: The Pancake of Heaven! — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ramen mit knusprigem Tofu aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-chili-af-tortilla-chips",
+      "slug": "combo-mw-chili-af-tortilla-chips",
+      "title": "Chili mit Tortillachips aus der Heißluftfritteuse",
+      "instructions": "Chili aus der Dose aus der Mikrowelle mit frischen Tortillastreifen aus der Heißluftfritteuse: schnelle Chili-Nachos.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Chili bis zu 4 Tage im Kühlschrank aufbewahren; Chips frisch zubereiten.",
+      "reheatingInstructions": "Chili 90 Sekunden in der Mikrowelle erhitzen; Chips 2 Minuten bei 350F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "Eine Tortilla kostet $1.50 weniger als eine Tüte Chips",
+        "Kaufe Chili in 19oz-Dosen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-chili",
+          "swap": "Schwarze Bohnen mit Chilipulver",
+          "savings": "~$0.80"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 4,
+      "airFryerTemperatureF": 375,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Chili für $1.50 und eine Tortilla für $0.20 ergeben ein Chili-Nacho-Abendessen für $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "mexikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 588,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-chili-af-tortilla-chips/",
+      "components": [
+        {
+          "key": "daea0f16-76c8-5396-a05d-0132b5990d38",
+          "name": "Zutaten",
+          "servingGrams": 478.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "085a29d8-9739-5aac-88fb-f84f2ece7c63",
+              "ingredientName": "Chili aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05ace844-90fd-529a-ac21-162a38e5b602",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01bd6764-e4dc-5f85-a4c9-f3729b0726cc",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e4e2a12-9c70-53b0-9c55-c141b754b51c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd2080de-346c-5ae8-9799-75898eabb2be",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c317281e-4875-5f37-9251-a26f390f423d",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Tortilla in 8 Dreiecke, bestreiche sie mit Olivenöl und bestreue sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Heißluftfritteuse auf 375F ein und gare die Tortillastücke 4 Minuten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Chili 2 Minuten abgedeckt in der Mikrowelle, rühre um und erhitze es eine weitere 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Käse auf das Chili, damit er durch die Wärme schmilzt. Ergänze saure Sahne und serviere die Chips daneben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Mack%27s_Slammin%27_Nachos_%282897106905%29.jpg/960px-Mack%27s_Slammin%27_Nachos_%282897106905%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mack%27s_Slammin%27_Nachos_(2897106905).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Mack Male from Edmonton, AB, Canada — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Chili mit Tortillachips aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-curry-rice-af-chickpeas",
+      "slug": "combo-mw-curry-rice-af-chickpeas",
+      "title": "Kokos-Curry-Reis mit knusprigen Kichererbsen",
+      "instructions": "Kokos-Curry-Reis aus der Mikrowelle mit knusprigen Kichererbsen aus der Heißluftfritteuse: ein veganes Abendessen mit viel Biss.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Kichererbsen separat bis zu 3 Tage im Kühlschrank aufbewahren, damit sie knusprig bleiben.",
+      "reheatingInstructions": "Reis 90 Sekunden in der Mikrowelle erhitzen; Kichererbsen 2 Minuten bei 350F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "Ein Viertel Tasse Kokosmilch reicht für viel Geschmack",
+        "Knusprige Kichererbsen eignen sich auch als Snack"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Milch mit 1 TL Öl",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Gewürfelter Tofu",
+          "savings": "Variiert"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Dose Kichererbsen (~$0.55), Reis (~$0.18) und Curry aus dem Vorrat ergeben ein Abendessen für etwa ~$1.80.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 589,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-curry-rice-af-chickpeas/",
+      "components": [
+        {
+          "key": "4099df98-1f36-54df-80f4-1d57216dc281",
+          "name": "Zutaten",
+          "servingGrams": 638.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc94303c-4102-5639-abe7-05ff6e563c84",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "519f94c5-7e35-51cb-bd6c-f0e907066558",
+              "ingredientName": "Kokosmilch",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c54c0984-2edb-537c-aaf2-bcebfabeada3",
+              "ingredientName": "Currypulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f9664d4-c483-5a34-8644-6abdbf0981fa",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09ecf7e2-f847-581b-b412-0694e9476272",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1ca90c3-5f9d-5391-a0c8-eee27ea64234",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46e5c6bd-a963-535d-8647-2e7e11bde0da",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Kichererbsen ab, tupfe sie trocken und vermische sie mit Olivenöl und einer Prise Currypulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Heißluftfritteuse auf 390F ein und gare die Kichererbsen 12 Minuten. Schüttle den Korb zweimal, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische währenddessen Reis, Kokosmilch, das übrige Currypulver und Spinat in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Schüssel mit einem Deckel mit Dampföffnung ab und erhitze alles 3 Minuten in der Mikrowelle. Rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib knusprige Kichererbsen darauf und presse etwas Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1707322571124-9d3a47cce941?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1707322571124-9d3a47cce941",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Curry-Reis mit Kichererbsen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

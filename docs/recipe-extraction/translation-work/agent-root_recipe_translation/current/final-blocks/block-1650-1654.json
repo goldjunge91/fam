@@ -1,0 +1,1273 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-bowl4-harvest-bowl",
+      "slug": "mfr-bowl4-harvest-bowl",
+      "title": "Herbstliche Getreideschale",
+      "instructions": "Eine saisonale Getreideschale mit herbstlichem Geschmack: gerösteter Butternusskürbis und Rote Bete auf Farro, dazu knusprige Kichererbsen, Ziegenkäse, getrocknete Cranberrys und Kürbiskerne in Ahorn-Dijon-Vinaigrette. Warm, süß-herzhaft und sättigend genug als vollständige Mahlzeit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Butternusskürbis und Rote Bete sind im Herbst sehr günstig.",
+        "Farro ist nahrhafter als weißer Reis und kostet weniger als Quinoa.",
+        "Lass den Ziegenkäse für eine vegane Variante weg. Der Salat schmeckt trotzdem ausgezeichnet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "farro",
+          "swap": "Gerste oder Naturreis"
+        },
+        {
+          "forIngredientId": "butternut-squash",
+          "swap": "Süßkartoffel oder beliebiger Winterkürbis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-harvest-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Ernteschale",
+        "Herbst",
+        "Butternusskürbis",
+        "Farro",
+        "Rote-Bete",
+        "Getreideschale"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1650,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-harvest-bowl/",
+      "components": [
+        {
+          "key": "61841bce-a29c-553f-b171-72a64bd400e2",
+          "name": "Zutaten",
+          "servingGrams": 546.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "d440c389-ba52-5753-9d95-26459d0b0adf",
+              "ingredientName": "Farro",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c015716-89f1-5a6d-bc83-ca8bc4377e31",
+              "ingredientName": "Butternusskürbis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36261138-d3c2-5d74-bf8a-6b1d1eaa76bb",
+              "ingredientName": "Rote Bete",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52ae7ca7-1204-502f-b3bf-d272719281b6",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e8508df-16db-5d0c-afd5-e21e28afe8dd",
+              "ingredientName": "Ziegenkäse",
+              "grams": 113.4,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51432526-5df6-52a3-b619-7a0af2dbc808",
+              "ingredientName": "Getrocknete Cranberrys",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "daff45ed-4458-516c-b07f-10b10a0d88fc",
+              "ingredientName": "Kürbiskerne",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45498795-979c-5258-82d4-e2ce644b14a0",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "760480a1-a68d-508d-ad67-beb26a75a499",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b89d93a4-007e-580e-9305-53ccc77d75f6",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dab1c654-09b9-54d5-a236-59cffb9bbf4c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f39e88d8-859a-5ed4-a7cf-e966335f173e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b06bf251-0ba2-5136-adb1-21eaf6a0af1b",
+              "ingredientName": "Rucola",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Farro nach Packungsanweisung (15 Minuten) und lass ihn etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle den Kürbis, schneide die Rote Bete in Scheiben und vermenge beides mit Öl und Salz. Röste alles bei 400°F 25 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Kichererbsen mit Öl und Salz und röste sie gleichzeitig bei 400°F 20 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle für die Vinaigrette Ahornsirup, Dijon-Senf, Apfelessig und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte in einer Schale Farro, Rucola, Kürbis, Rote Bete und Kichererbsen. Gib Ziegenkäse, Cranberrys und Kürbiskerne darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle alles großzügig mit der Vinaigrette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://caitsplate.com/wp-core/wp-content/uploads/2020/02/IMG_8942-scaled.jpg",
+          "sourcePageUrl": "https://caitsplate.com/wp-core/wp-content/uploads/2020/02/IMG_8942-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bowl4-mediterranean-power",
+      "slug": "mfr-bowl4-mediterranean-power",
+      "title": "Mediterrane Powerschale",
+      "instructions": "Eine üppig gefüllte mediterrane Getreideschale: Warme Quinoa mit Hummus aus gerösteter roter Paprika als Basis, darauf gegrilltes Hähnchen, Gurken-Tomaten-Salat, Kalamata-Oliven, Feta und Zitronen-Kräuter-Dressing. Alle Aromen des Mittelmeers in einer sättigenden Schale.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hummus aus dem Laden eignet sich hier perfekt.",
+        "Kichererbsen aus der Dose mit Zitrone, Knoblauch und Olivenöl püriert ergeben selbstgemachten Hummus zum halben Preis.",
+        "Die Zutaten halten sich gut. Bereite sie vor und stelle die Schalen frisch zusammen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Farro oder Naturreis"
+        },
+        {
+          "forIngredientId": "hummus",
+          "swap": "Baba Ganoush oder Tzatziki"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-mediterranean-power",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "mediterran",
+        "Powerschale",
+        "Hummus",
+        "Hähnchen",
+        "Feta",
+        "Quinoa"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1651,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-mediterranean-power/",
+      "components": [
+        {
+          "key": "7e2c08b5-214e-5ab9-9d0a-0ee4d0a286d7",
+          "name": "Zutaten",
+          "servingGrams": 455.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f47033f3-7424-506b-b065-935c53f2913e",
+              "ingredientName": "Quinoa",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d9e8d03-5308-51d5-b7c3-d9489d014558",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce2ca290-faf8-56b5-99cb-fd43dcfb14eb",
+              "ingredientName": "Hummus",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eea2bdd0-aff6-5070-af3d-88246741a4f1",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7a90323-4be7-5746-b1c6-a7d20917632e",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ece11af-e6fd-5f32-97b7-4834f78e7a22",
+              "ingredientName": "Kalamata-Oliven aus dem Glas",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dfd48ca-e2a4-5d00-b4c8-0478fe8c9698",
+              "ingredientName": "Feta",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e242abb3-7051-5de3-9cbb-126958e43a7f",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f46247c-e834-5dc9-8542-eb54c9a06c10",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "266607a0-428f-5edb-b59d-7ff513fa1d78",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97371845-9f35-58bf-9eba-f2c90d93e736",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8b6c644-e8d1-5115-a67d-d58a4b5614da",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26671624-15ae-5436-a9f6-2e0f5e25a7ac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa. Würze das Hähnchen und brate es 6 Minuten pro Seite in der Pfanne. Schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Viertle die Kirschtomaten, würfle die Gurke und schneide die rote Zwiebel in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische das Gemüse mit Zitronensaft, Olivenöl, Oregano und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte in einer Schale Quinoa, einen Klecks Hummus, Hähnchen, Gemüsesalat, Oliven und Feta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit Petersilie und zusätzlicher Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/07/The-ULTIMATE-Mediterranean-Bowl-with-hummus-falafel-tahini-sauce-olives-and-pita-vegan-glutenfree-falafel-recipe-healthy-minimalistbaker.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/07/The-ULTIMATE-Mediterranean-Bowl-with-hummus-falafel-tahini-sauce-olives-and-pita-vegan-glutenfree-falafel-recipe-healthy-minimalistbaker.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bowl4-taco-salad-bowl",
+      "slug": "mfr-bowl4-taco-salad-bowl",
+      "title": "Tex-Mex-Taco-Salat-Bowl",
+      "instructions": "Alle Aromen eines Tacos, als sättigende Salatschale angerichtet: gewürztes Rinderhackfleisch auf Römersalat mit Mais, schwarzen Bohnen, Avocado, Pico de Gallo, geriebenem Cheddar und Limettencreme. Zerbröselte Tortillachips sorgen für Knusprigkeit. Besser als Fast Food.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Taco-Salat mit Rinderhackfleisch ist eine der günstigsten vollständigen Mahlzeiten.",
+        "Lass Käse und Creme weg, um das Gericht milchfrei zu machen, ohne dass die übrigen Zutaten an Geschmack verlieren.",
+        "Übriges Taco-Fleisch macht die Schale am nächsten Tag in 10 Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Puten- oder Hähnchenhackfleisch für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "tortilla-chips",
+          "swap": "Gebackene Maistortilla-Streifen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-taco-salad-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Taco-Salat",
+        "Tex-Mex",
+        "Rinderhackfleisch",
+        "Avocado",
+        "Bohnen",
+        "Bowl"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1652,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-taco-salad-bowl/",
+      "components": [
+        {
+          "key": "a66a26b7-bd39-5f62-b905-a5ec56ba141b",
+          "name": "Zutaten",
+          "servingGrams": 452.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e34dc44-6f38-5c96-841b-542528c809b4",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e2ef1c3-86f9-5c48-89a8-4082db39852b",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fc4204b-8d95-5d3e-a1c0-220ccbc27e60",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffec4cdc-91fb-5302-be6e-9a6f956c7e27",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31d9cad8-ed3b-522b-b6e2-149116a9d8d3",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e36f00cf-e585-5a3e-9c32-ef8665973465",
+              "ingredientName": "Geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c5122f5-3e50-5d9b-9917-ca1906fde1d7",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "511896a5-a7a9-5ebe-8ac3-49a665ac5c84",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abd17dcb-3f89-509b-9f1a-a67ee19ecb98",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d37202a7-0a9b-5f92-a16a-228578e5ddfd",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28970796-2b51-5e86-8c28-dbba0f716150",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13b8c4f6-5301-5f91-b149-203c76e69100",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9f32c2f-c235-533c-88b1-9bb23a09e78d",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4373f477-f3dd-5ca4-9e68-a1eaf0c51239",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2aba6401-ec21-5cff-bdb3-1d8be8e00a54",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Rindfleisch mit Kreuzkümmel, Chilipulver und Salz und brate es krümelig braun. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite Pico de Gallo zu: Vermische gewürfelte Tomate und rote Zwiebel mit Koriander, Limette und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre für die Limettencreme saure Sahne mit Limettensaft glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte in einer Schale Römersalat, Rindfleisch, Bohnen, Mais, Avocado, Pico de Gallo, Käse und Limettencreme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerbrösele die Chips kurz vor dem Servieren darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/2988348.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/2988348.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bowl4-salmon-kale-caesar",
+      "slug": "mfr-bowl4-salmon-kale-caesar",
+      "title": "Caesar-Bowl mit Lachs und Grünkohl",
+      "instructions": "Eine eiweißreichere Caesar-Variante: Grünkohl wird weich massiert und hält warmen Getreidekörnern besser stand als Römersalat. Darauf kommen angebratener Lachs, ein leichteres Caesar-Dressing mit Sardelle und Zitrone, Parmesan und Vollkorn-Croûtons. Dieser Caesar-Salat macht länger als eine Stunde satt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Grünkohl nimmt Dressing besser auf als Römersalat und kostet pro Kopf weniger.",
+        "Caesar-Dressing mit griechischem Joghurt spart Fett und liefert mehr Eiweiß als die traditionelle Mayonnaise-Version.",
+        "Tiefgekühlter Lachs, aufgetaut und angebraten, schmeckt ausgezeichnet. Kaufe ihn in größeren Packungen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Hähnchenbrust oder Thunfisch aus der Dose als günstigere Variante"
+        },
+        {
+          "forIngredientId": "anchovy-paste",
+          "swap": "Worcestershiresauce, Kapern und zusätzlich Dijon-Senf als sardellenfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-salmon-kale-caesar",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Caesar",
+        "Grünkohl",
+        "Lachs",
+        "Powersalat",
+        "Vollkorn",
+        "aufgewertet"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1653,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-salmon-kale-caesar/",
+      "components": [
+        {
+          "key": "f35f64b2-1c1f-5ffb-af2a-78fdd91c3fb2",
+          "name": "Zutaten",
+          "servingGrams": 552.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "89ffe8bb-c7c8-548c-b09f-fdabe055e39f",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "591de44f-ef8d-5c40-af6e-f949049d0e6a",
+              "ingredientName": "Grünkohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3abba3e2-b533-533f-ba56-08088c23a4d9",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4648179a-3283-5765-829b-2c759107f4e6",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e66313a2-c4ec-5be9-b2da-f15f14fdfb82",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77935ca0-85f5-5bfd-b36a-58504a521603",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4995735b-b7e0-5f82-9ec0-06a6b2c00c8f",
+              "ingredientName": "Sardellenpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37701931-0a6e-584f-81dd-072ef0528bb0",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3e25354-fcfd-5856-932a-cd9a08103d8d",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b78815f9-4d2a-585e-b587-ee9f19183004",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab2b4de8-74bd-5336-8983-d2bf68d60988",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e3142e4-5f40-5356-b5a5-b0e4cc26946d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2d90177-b67e-563e-8ab1-1b6fd67a55e5",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa. Bereite die Croûtons zu: Würfle das Brot, vermenge es mit Öl und Knoblauch und backe es bei 375°F 12 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für das Caesar-Dressing Knoblauch, Sardellenpaste, Dijon-Senf, Zitrone, griechischen Joghurt, Olivenöl und Parmesan verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Massiere den Grünkohl 2 Minuten mit der Hälfte des Dressings, bis er weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze den Lachs und brate ihn 4 Minuten pro Seite scharf an. Zerpflücke ihn in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte Grünkohl, Quinoa, Lachs, Croûtons und Parmesan in einer Schale und gib zusätzliches Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/t2sk-Sc-BGD2QeEeSNZEaj3jyIQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20251015-SEA-20250922-SEA-PomegranateGlazedSalmon-MorganHuntWard-00-da4f91fcb8204ee2af75c140443c0875.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/t2sk-Sc-BGD2QeEeSNZEaj3jyIQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20251015-SEA-20250922-SEA-PomegranateGlazedSalmon-MorganHuntWard-00-da4f91fcb8204ee2af75c140443c0875.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bowl4-winter-farro-bowl",
+      "slug": "mfr-bowl4-winter-farro-bowl",
+      "title": "Winterliche Farro-Bowl mit Wurst und Grünkohl",
+      "instructions": "Herzhafter Farro mit Krümeln italienischer Wurst, sautiertem Grünkohl und Zwiebel, weißen Bohnen und geröstetem Knoblauch. Abgerundet mit Parmesan und einem Schuss gutem Olivenöl. Eine sättigende Winter-Bowl, die durch Ziehen noch besser wird.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Farro enthält mehr Eiweiß und Ballaststoffe als weißer Reis und kostet ähnlich viel.",
+        "Italienische Wurst bringt so viel Geschmack, dass du pro Schale nur wenig brauchst.",
+        "Weiße Bohnen gehen im Gericht beinahe unter und liefern Eiweiß und Cremigkeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "farro",
+          "swap": "Gerste oder Freekeh"
+        },
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Putenwurst als magerere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-winter-farro-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Farro",
+        "Wurst",
+        "Grünkohl",
+        "Winter",
+        "weiße-Bohnen",
+        "italienisch-amerikanisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1654,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-winter-farro-bowl/",
+      "components": [
+        {
+          "key": "a85a3c41-6e50-58e6-af2b-b548a7cc8979",
+          "name": "Zutaten",
+          "servingGrams": 603.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d834d1f-ff44-5e3a-86a5-43da8f85ed60",
+              "ingredientName": "Farro",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5822c284-8eed-5950-8577-a57c46419647",
+              "ingredientName": "Italienische Wurst",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16bc5d96-5b18-59ab-8f56-a31cdcef673a",
+              "ingredientName": "Grünkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "166e9bd4-e805-5910-a8c1-aef773c4c450",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a45fa4c6-207f-5c5d-a03e-dda3c8b4f28b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2312228b-f882-5025-a3c1-b41622fe0380",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94b69ca6-8223-53d7-8953-eb67a5278bcb",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b84271a0-d031-5229-9384-e89e18d97484",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1425bf1e-ff10-53ac-9eb6-695b45d2a877",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8c874ec-c330-512c-8f89-5f2c981b9400",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9d4e47e-08be-5ebc-b775-cb577b13e0c0",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e76b1e64-e2b5-5b04-bd01-ca3206f6090d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Farro in Brühe etwa 20 Minuten, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die Wurst und zerkleinere sie dabei. Nimm sie heraus und brate die Zwiebel 4 Minuten im selben Fett an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und rote Chiliflocken dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Grünkohl dazu und gare ihn 3 Minuten, bis er zusammengefallen ist. Gib die Wurst zurück und füge weiße Bohnen hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische alles mit Farro und vollende das Gericht mit Parmesan, Zitrone und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/one-pot-farro-with-chicken-sausage-and-tomatoes-secondary-65bc0b9c6343c.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/one-pot-farro-with-chicken-sausage-and-tomatoes-secondary-65bc0b9c6343c.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

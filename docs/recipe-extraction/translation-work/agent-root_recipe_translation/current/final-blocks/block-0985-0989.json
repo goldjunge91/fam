@@ -1,0 +1,1219 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-quick-chicken-biryani-bowl",
+      "slug": "mfr-quick-chicken-biryani-bowl",
+      "title": "Schnelle Hähnchen-Biryani-Schüssel",
+      "instructions": "Goldgelber, von Safran inspirierter Reis mit gewürztem Hähnchen, karamellisierten Zwiebeln und frischen Kräutern. Die ganze Biryani-Inszenierung in 35 Minuten auf dem Herd.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Karamellisierte Zwiebeln sind der wichtigste Teil von Biryani. Nimm dir Zeit dafür.",
+        "Wenn der Reis direkt in der gewürzten Hühnerbrühe gart, nimmt er den ganzen Geschmack auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust verwenden und etwas weniger Wasser hinzufügen, da sie schneller gart."
+        },
+        {
+          "forIngredientId": "mint-fresh",
+          "swap": "1 TL getrocknete Minze zusammen mit den Gewürzen hinzufügen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-quick-chicken-biryani-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "indisch",
+        "Schüsselgericht",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 985,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-quick-chicken-biryani-bowl/",
+      "components": [
+        {
+          "key": "0508a449-a983-5d91-a33d-1b3c0cf61a33",
+          "name": "Zutaten",
+          "servingGrams": 499,
+          "position": 0,
+          "items": [
+            {
+              "key": "63d68b94-80a7-5b2f-91cb-b24cfec22579",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c440464a-a870-52ce-a79a-18814d41a367",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81e6e277-c477-5590-bf5a-6b08d983004f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b22c9c58-68bb-543f-84f9-1cae9b023a43",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf0498a1-5c06-5d2d-9586-0d11c95823d7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce9ceaf9-61e6-5e96-abfa-6d2cb7a36f54",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f4a2a5b-95b8-5a70-8945-749f4d03f91c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75f96155-0424-5128-9f77-21844bcb9943",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff5551be-8d49-5dfb-a2a9-9435e5fe62f8",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa9d0b91-f006-5a53-96ad-5d6fdd33a65f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34d6796e-fcef-5196-b627-9d8a15418ef8",
+              "ingredientName": "Frische Minze",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7d06717-7f64-5eac-a7ca-892629bdbe03",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1869f103-d51e-5164-8f77-f75b6aa5406e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere Zwiebeln 15 Minuten in Öl, bis sie dunkelgold sind. Nimm die Hälfte heraus und stelle sie als Topping beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Ingwer und alle Gewürze zu den übrigen Zwiebeln und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hähnchenstücke dazu und gare sie 8 Minuten. Füge Reis und 3 Tassen Wasser hinzu. Würze alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe das Gericht zum Kochen, reduziere dann die Hitze, decke den Topf ab und gare es 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass es 5 Minuten ruhen und lockere den Reis auf. Garniere ihn mit den zurückbehaltenen karamellisierten Zwiebeln, Minze und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://production-media.gousto.co.uk/cms/mood-image/526---One-Pot-Easy-Chicken-Biryani-6710-1589216960311.jpg",
+          "sourcePageUrl": "https://production-media.gousto.co.uk/cms/mood-image/526---One-Pot-Easy-Chicken-Biryani-6710-1589216960311.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-aloo-palak-bowl",
+      "slug": "mfr-aloo-palak-bowl",
+      "title": "Aloo Palak (Kartoffel-Spinat-Curry)",
+      "instructions": "Zarte Kartoffelwürfel und zusammengefallener Spinat in einer Ingwer-Knoblauch-Gewürzsauce. Ein besonders sättigendes, veganes Hausmannskostgericht aus Nordindien.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln und Spinat gehören zu den günstigsten Gemüsesorten. Dieses Gericht kostet weniger als $1.50 pro Portion.",
+        "Aloo Palak wird traditionell mit Roti gegessen, passt beim günstigen Kochen aber auch hervorragend zu Reis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel für eine süßere, nährstoffreichere Variante verwenden."
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Grünkohl verwenden und 5 Minuten früher hinzufügen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-aloo-palak-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Curry",
+        "vegan",
+        "preiswert",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 986,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-aloo-palak-bowl/",
+      "components": [
+        {
+          "key": "3e207d42-1e7a-5d66-8cae-75abed1cf90b",
+          "name": "Zutaten",
+          "servingGrams": 1200.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2a555ad5-5c26-5b5f-9c08-4559d9207432",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fa0dd31-13d2-502b-a6eb-03512c78851d",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d7ae81e-0557-5670-a93e-92f0f6ee3e8c",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfdeb471-0cfc-5c17-a853-15d4af332ecd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "815b8ecf-85ce-593c-a38b-69d857da0e31",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "655e910f-9d76-5ffe-b9e3-a5c16c39f3ec",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9b88d37-6317-53dd-94f9-d6225a5d25a4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "248fae30-ee06-5fba-a511-b2b78ce5c592",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e503639-6d90-5a64-bfe9-324a152fa42f",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "125bce6c-fa68-52fc-a2b3-8e4c40649d3b",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f052d08-b30a-5e7f-aa8f-e94e764108b2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d7cf0e2-5729-5a06-be70-467bf0c5ff7d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Kartoffeln und koche oder erhitze sie in der Mikrowelle 8–10 Minuten, bis sie gerade weich sind. Gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel 6 Minuten in Öl an. Gib Knoblauch, Ingwer, Kreuzkümmel, Currypulver und Paprikapulver dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge gewürfelte Tomaten hinzu und gare sie 5 Minuten. Gib Kartoffeln und ½ Tasse Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe den Spinat unter und gare ihn, bis er zusammengefallen ist. Würze mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Curry auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/fatimacooks.net/wp-content/uploads/2020/03/IMG_3203-scaled.jpg?fit=1920%2C2560&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/fatimacooks.net/wp-content/uploads/2020/03/IMG_3203-scaled.jpg?fit=1920%2C2560&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fish-curry-bowl",
+      "slug": "mfr-fish-curry-bowl",
+      "title": "Goanisches Fisch-Curry in der Schüssel",
+      "instructions": "Zarte Fischfilets in einer duftenden Kokos-Tomaten-Currysauce. Ein vereinfachter goanischer Klassiker mit der Wärme der indischen Küstenküche.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dosensalmon eignet sich hier perfekt. Zerpflücke ihn und rühre ihn erst zur Sauce.",
+        "Kokosmilch bringt Fülle ohne Milchprodukte und kostet etwa ~$2.20 pro Dose."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Dosensalmon, Tilapia oder einen beliebigen festen Weißfisch verwenden."
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Tomaten aus der Dose für ein Curry auf Tomatenbasis verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fish-curry-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "indisch",
+        "Curry",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 987,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fish-curry-bowl/",
+      "components": [
+        {
+          "key": "bcb3a0da-6e5c-5991-bc58-796667ea481f",
+          "name": "Zutaten",
+          "servingGrams": 1000.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "be6294b4-85e1-5910-89a1-f0283a75ca80",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09385dd4-0830-5a12-9ea1-677ee507bd8f",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad9b5b7f-79a1-5c1f-afec-6bd5b38a90a9",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e48e652-0103-5c49-89ee-f181ed725536",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df8ff524-8ffe-580e-9368-de17bcd0eb22",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cd57eed-59ea-5cb5-859a-ee76b6442a51",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59fbd539-c0e7-56bd-a92f-a19fda5d8ff5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c3fd406-81d6-5404-93b9-d2a141a04e71",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1e4babd-e3be-52c6-9eed-b6bd75b65cb8",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2016f3b2-edd0-5342-926a-58370af785d1",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11047513-6724-5d69-b8ce-10a605934453",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "295f52fa-5e62-5f45-bb32-fb6c9a37771d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Brate die Zwiebel 5 Minuten in Öl an. Gib Knoblauch, Ingwer, Currypulver und Paprikapulver dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Tomaten dazu und gare sie 4 Minuten. Gieße Kokosmilch hinein und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege Lachsfilets in die Sauce, decke die Pfanne ab und gare sie 8 Minuten, bis sie leicht auseinanderfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Spinat ein und würze mit Salz. Serviere das Curry auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishpotpourri.com/wp-content/uploads/2017/02/goan-style-prawn-and-okra-currysungta-ani-bende-kodi.1024x1024.jpg",
+          "sourcePageUrl": "https://www.delishpotpourri.com/wp-content/uploads/2017/02/goan-style-prawn-and-okra-currysungta-ani-bende-kodi.1024x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chole-curry-bowl",
+      "slug": "mfr-chole-curry-bowl",
+      "title": "Chole (Kichererbsen-Curry in der Schüssel)",
+      "instructions": "Herzhaftes Kichererbsen-Curry nach Punjabi-Art in einer Sauce aus Tomaten, Zwiebeln und Gewürzen. Eines der beliebtesten veganen Gerichte Indiens und besonders sättigend.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chole aus zwei Dosen Kichererbsen kostet etwa ~$2.20 für die Eiweißgrundlage und ist eines der günstigsten indischen Currys.",
+        "Die Zwiebeln kräftig zu bräunen (10 Minuten) ist das ganze Geheimnis für Chole wie im Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "3 gewürfelte frische Tomaten verwenden und einkochen lassen."
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Pitabrot oder Naan aus dem Laden für eine traditionellere Beilage verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chole-curry-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Curry",
+        "vegan",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 988,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chole-curry-bowl/",
+      "components": [
+        {
+          "key": "efd91809-b8b0-5b07-9c70-1093cc3aa042",
+          "name": "Zutaten",
+          "servingGrams": 993.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfd1ae70-1c2d-5ab4-bf27-d7dd8fc0c545",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b7a92f5-a060-53a8-815d-afef93dd6ede",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ff7e023-6cdd-5c6c-9540-a36ecccb7741",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c212de30-38b9-516b-9e29-547673a4d781",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34f50616-4958-557d-916d-6ac107e15a24",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a0d5403-ee09-507e-aa6f-1b43673839a0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff4ebace-2f76-54f4-90ff-b3c7edcb7f54",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e3d75e3-77d9-527f-8dbb-22fd480bdaa0",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eebd227-6958-53fd-9ad5-4befaa0cc514",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d968d024-1c92-50cf-b502-87c7d3d3d9b9",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fb28cb1-3bed-585c-b434-e6f89cb399b4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5083b362-ee32-5b68-9f43-ecd9c825b56f",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ead59c59-419d-5afb-b93e-3da00817c127",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 10 Minuten in Öl an, bis sie dunkelgold ist. Dadurch wird die Sauce kräftig und süßlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Ingwer, Kreuzkümmel, Currypulver, Paprikapulver und Zimt dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerkleinerte Tomaten dazu und gare sie 5 Minuten. Füge Kichererbsen und ½ Tasse Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 10 Minuten köcheln, bis die Sauce dick ist. Presse Zitrone darüber und garniere mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Curry auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/YdVrtgcSnfb12cUtWccpUcvCfRM=/4300x2867/filters:fill(auto,1)/chole-chickpea-curry-1957946-hero-01-cddf957cc78d4032ba29ec2adbc05a97.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/YdVrtgcSnfb12cUtWccpUcvCfRM=/4300x2867/filters:fill(auto,1)/chole-chickpea-curry-1957946-hero-01-cddf957cc78d4032ba29ec2adbc05a97.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-rajasthani-dal-bowl",
+      "slug": "mfr-rajasthani-dal-bowl",
+      "title": "Rajasthanische Linsenschüssel mit Gewürzen",
+      "instructions": "Rauchiges, kräftig gewürztes gelbes Linsen-Dal mit einer Würzung aus Kreuzkümmel und Knoblauch. Eine Schüssel voller Wohlbefinden aus den königlichen Küchen Rajasthans.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen sind das günstigste verfügbare eiweißreiche Lebensmittel. Ein ganzer Topf für 3 Personen kostet weniger als $1 an Linsen.",
+        "Das Tadka, die Würzung in heißem Fett, hebt einfache Linsen auf Restaurantniveau. Lass Gewürze dafür immer in Fett aufblühen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "Butter oder Kokosöl für einen ähnlichen Effekt verwenden."
+        },
+        {
+          "forIngredientId": "lentils",
+          "swap": "Spalterbsen verwenden, die länger garen, oder Linsen aus der Dose für eine schnelle Variante in 5 Minuten."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-rajasthani-dal-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Curry",
+        "vegan",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 989,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-rajasthani-dal-bowl/",
+      "components": [
+        {
+          "key": "0ca39890-cd79-5795-88ae-004dba354286",
+          "name": "Zutaten",
+          "servingGrams": 624.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "606d21d7-3f6c-5ff6-9ca1-1706993c8e71",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2feae20a-f689-5b53-b75b-4324cc6aeb78",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "082b82c3-ec80-5a47-af46-46ac12da03de",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7caa783c-6718-5485-be8a-c5cc3984bb68",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d050e48b-0a36-5d03-9045-745267bae506",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90bc6545-48b9-54f3-be33-b770a836db31",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f205886-a139-5bc2-af14-e9edebc0cb69",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e74f77d-6ef8-5670-8b1d-cbff81c74bdf",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d799f1b-f30c-56ab-b148-d5292001d734",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3845a7f-d49e-5853-b66c-8a1fb1f94068",
+              "ingredientName": "Ghee",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4d7cadc-5f7a-5fb0-81bf-9ef1fb42b4ca",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efb4f42a-735b-5fa4-a477-bb442203e888",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare Linsen mit Kurkuma oder Currypulver in 3 Tassen Wasser 20–22 Minuten, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einer kleinen Pfanne. Gib Kreuzkümmelsamen und Knoblauch dazu und brate sie 30 Sekunden an. Füge die Zwiebel hinzu und gare sie 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomaten und Ingwer dazu und gare alles 5 Minuten. Rühre diese Würzmischung unter die gegarten Linsen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge Paprikapulver und Spinat hinzu und lass alles 3 Minuten köcheln. Würze mit Salz und Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Dal auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/WhDin1W3yuXYNWGNdx5xWuwIIM0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Braised-Black-Lentil-Bowls-1x1-1-1ee6d082032645dea5f9791c29110e6d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/WhDin1W3yuXYNWGNdx5xWuwIIM0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Braised-Black-Lentil-Bowls-1x1-1-1ee6d082032645dea5f9791c29110e6d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1170 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-crimson-chicken",
+      "slug": "gen-crimson-chicken",
+      "title": "Crimson-Hähnchen",
+      "instructions": "Koreanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ketchup macht diese Sauce günstiger als andere koreanische Saucen.",
+        "Lass die Sesamgarnitur bei Bedarf weg, um noch mehr zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5345,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crimson-chicken/",
+      "components": [
+        {
+          "key": "0bae0c22-e359-5113-ba5b-e1a4d71b5c4b",
+          "name": "Zutaten",
+          "servingGrams": 159.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c17d594-c649-5498-93cf-e980713f2a27",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9ce024be-6ede-538a-9937-5ea3a6b2d487",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9fca69ab-2744-54d8-abc9-a9ac79a36883",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c4cf2b07-df76-59b8-877f-e930a8eaa849",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5a846715-2637-5dce-89b6-09e17c62692b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "0514ef66-9ef7-57fe-a61a-df27f5ebe905",
+              "ingredientName": "Honig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "ca5fe041-1b6c-5319-8a39-50477098c4a5",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8e9d96cc-fd1d-52d3-9c76-4e133dfa8889",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f978db79-f8a3-5dc2-a3bb-4eb15958d3d9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "db7e883e-4fe4-55c9-a9a8-3c84ce7627ff",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in 1 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Hähnchen hinein und brate es unter häufigem Rühren etwa 8 Minuten, bis es größtenteils goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gehackten Knoblauch dazu und brate ihn 1 Minute an, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Ketchup, Gochujang, Sesamöl, Honig und Sojasauce in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die crimsonfarbene Sauce über das Hähnchen und vermenge alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze auf mittlere Stufe und gare alles 3–4 Minuten, bis die Sauce eindickt und das Hähnchen vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle das Gericht in eine Servierschüssel und garniere es mit Frühlingszwiebeln und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort auf Reis oder mit Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/09/chicken-stir-fry.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/09/chicken-stir-fry.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-snow-cheese-chicken",
+      "slug": "gen-snow-cheese-chicken",
+      "title": "Snow-Cheese-Hähnchen",
+      "instructions": "Koreanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Frischkäse und Mozzarella der Hausmarke, um Kosten zu senken.",
+        "Verwende als günstigere Sahnesauce Kondensmilch mit Butter statt Frischkäse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5346,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-snow-cheese-chicken/",
+      "components": [
+        {
+          "key": "7f477a68-7e15-5609-990d-1ba633938de0",
+          "name": "Zutaten",
+          "servingGrams": 179.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "bec90422-6261-5bfa-9b3e-0ab69b27f37a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b1886bda-0c7d-5030-8c9a-017da6bd88f3",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "feb842fb-1e31-5820-a8a2-defc178438e9",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "85d046ec-40ab-5956-a04b-b4c07d449a12",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "64d73202-d2a5-5440-baa5-02f000d4ca58",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "2bc4875f-4888-5df0-8248-e6504ab8f3cc",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a6a61206-2992-55fc-a625-7753f9566e2b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f3fd3d9a-4d72-58c4-85f4-95bd31c49bd3",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "befa6ce7-48d7-5de9-88d2-b2252c0a7480",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "8d4094a2-69a9-582f-85a0-8cbcfa3c780b",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in 1 Zoll dicke Medaillons.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 2 EL Butter in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen je Seite 5–6 Minuten, bis es gar ist. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmilz in derselben Pfanne die übrige 1 EL Butter und dünste den Knoblauch 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Frischkäse dazu, zerteile ihn beim Schmelzen und rühre ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Honig, Sojasauce und weißen Pfeffer ein, bis eine glatte, cremige Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Hähnchen zurück in die Pfanne und belege jedes Stück mit geriebenem Mozzarella.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Setze einen Deckel auf und gare alles 3–4 Minuten, bis der Käse geschmolzen ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und Sesam und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/www.teybolforwan.com/wp-content/uploads/2019/10/DSC_0001-2.jpg",
+          "sourcePageUrl": "https://i0.wp.com/www.teybolforwan.com/wp-content/uploads/2019/10/DSC_0001-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-half-half-chicken",
+      "slug": "gen-half-half-chicken",
+      "title": "Half-and-Half-Hähnchen",
+      "instructions": "Koreanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite beide Saucen im Voraus zu, um die Kochzeit zu verkürzen.",
+        "Brate das Hähnchen in einer Pfanne und teile es auf zwei Schalen mit Sauce auf, damit weniger Geschirr anfällt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5347,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-half-half-chicken/",
+      "components": [
+        {
+          "key": "9b9205db-5e89-51e7-948a-f5665e68343d",
+          "name": "Zutaten",
+          "servingGrams": 177.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8283f97-cc20-5e6b-b090-5d0a54e4dde2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8b9b589c-ee4b-534c-9090-b5129ef78cfc",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "63eff118-dd7d-5eb3-8d59-0c559c1e8e67",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "2a3ca6b3-f664-5a73-8902-1a029a3d307d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f4cac079-c6ff-538f-9fc0-f3fca1743e69",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "28106c3e-c17a-5209-b0c8-62ba19788617",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c93d6101-940d-52b3-b47d-8ff474ec103f",
+              "ingredientName": "Honig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "a809e124-6632-5631-8d3c-5b8152e64f9d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7b2e6890-b9bc-56fe-a0c1-af3a0b0ff127",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e83f9d14-1966-5c52-9cb7-a0337d6ba502",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Stücke und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen unter häufigem Rühren etwa 8 Minuten, bis es größtenteils goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Hälfte des Hähnchens heraus und lege sie auf einen separaten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib zum restlichen Hähnchen gehackten Knoblauch und Gochujang in die Pfanne und brate alles 2 Minuten für die scharfe Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmilz in einer zweiten kleinen Pfanne Butter und gib gehackten Knoblauch, Frischkäse, Sojasauce, Honig und Sesamöl für die cremige Hälfte dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das beiseitegestellte Hähnchen zurück in die Pfanne mit der scharfen Sauce und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Richte beide Hähnchenhälften gemeinsam auf einer Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/LFJE3E2erA0KHjTtnKQ2lVqT-KA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simply-recipes-grilled-half-chicken-lead-5-3a83caf8269a4060848b5095081760e1.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/LFJE3E2erA0KHjTtnKQ2lVqT-KA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simply-recipes-grilled-half-chicken-lead-5-3a83caf8269a4060848b5095081760e1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-garlic-soy-chicken",
+      "slug": "gen-garlic-soy-chicken",
+      "title": "Knoblauch-Soja-Hähnchen",
+      "instructions": "Koreanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gehackten Knoblauch lose in der Gemüseabteilung statt im Glas.",
+        "Dieses einfache Rezept nutzt Vorratszutaten und zählt zu den günstigsten koreanischen Hähnchengerichten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5348,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-garlic-soy-chicken/",
+      "components": [
+        {
+          "key": "ceddca1a-616c-5913-a964-3e7bc393d747",
+          "name": "Zutaten",
+          "servingGrams": 212.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "326bdacb-681f-5b63-9d9b-9a4cb56cc1d4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1a6f2a91-eec1-5484-ba4e-f741db778260",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "caae8ef9-e21f-548a-9ae3-2fa3283bc998",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Knoblauchzehen"
+            },
+            {
+              "key": "56680c71-836d-57c2-8724-f2b05ebe2fba",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5c66cf2f-8dd1-5ceb-89ee-e98b7b4d1336",
+              "ingredientName": "Brauner Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "aeb250a9-a01c-5b79-aa4b-aee177a3c6ad",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8d8c25ae-639f-596e-84d7-d7343d3b1a44",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "187a3e22-ae99-5f23-a8bd-048bc145c711",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e7247a38-7a0d-5fdb-9293-937385113731",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "2ae04522-cbf0-5983-ab00-163bb0ab9b3c",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Stücke und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen unter gelegentlichem Rühren etwa 10–12 Minuten, bis es goldbraun und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gehackten Knoblauch dazu und brate ihn 2 Minuten an, bis er duftet und leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Sojasauce, Sesamöl, braunen Zucker, Reisessig und Wasser in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Knoblauch-Soja-Sauce über das Hähnchen und vermenge alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brate alles weitere 2–3 Minuten, bis die Sauce leicht reduziert ist und das Hähnchen überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Richte das Gericht auf einer Servierplatte an und garniere es mit Sesam und geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß auf gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2016/09/Honey-Garlic-Chicken-IMAGE-13.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2016/09/Honey-Garlic-Chicken-IMAGE-13.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-korean-fried-chicken-boneless",
+      "slug": "gen-korean-fried-chicken-boneless",
+      "title": "Koreanisches frittiertes Hähnchen ohne Knochen",
+      "instructions": "Koreanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Filtere abgekühltes Frittieröl durch ein Mulltuch und verwende es wieder, um Öl zu sparen.",
+        "Kaufe Hähnchenschenkel im Angebot und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5349,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korean-fried-chicken-boneless/",
+      "components": [
+        {
+          "key": "8e3c07ab-8911-5187-8245-64953c4ea8fa",
+          "name": "Zutaten",
+          "servingGrams": 166.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac0b8a4c-8f8f-54be-90ea-484926bc1989",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "13069d34-d9c6-5c8d-a31d-07488c3c70fa",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ce3a3046-bebb-57ef-9464-15c67f92f428",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bc8377eb-38d0-51a8-94b5-da748f5c78fc",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ffd3dfd6-f8b1-56cc-ae0d-1a4a3c641b9c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f9f892fa-6b7b-51f0-8dc6-de57b04860c4",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "01a3b5de-e35c-54a7-ae56-2b898f6558cf",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen zum Braten"
+            },
+            {
+              "key": "33e0a762-7a92-569e-98d9-c1a093539d44",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6b8c2d16-c951-5630-8a85-8747dd6e8656",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "09e78e25-7a48-5668-8958-01035d7ade6c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "94c39db4-4476-548b-92ca-dcdf725bfd12",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Hähnchenschenkel ohne Knochen trocken und schneide sie in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Mehl, Maisstärke, Backpulver, Salz und schwarzen Pfeffer in einer flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Hähnchenstück gründlich in der Mehlmischung und schüttle überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Pflanzenöl in einer tiefen Pfanne oder einem Topf auf 350°F (175°C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die mehlierten Hähnchenstücke portionsweise vorsichtig ins heiße Öl und frittiere sie 5–6 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das gegarte Hähnchen zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre Sojasauce, Honig und gehackten Knoblauch in einem kleinen Topf bei niedriger Hitze 1–2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermenge das knusprige Hähnchen mit der Soja-Honig-Glasur, bis es rundum überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Garniere das Gericht mit Sesam und serviere es sofort mit Reis oder Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2019/02/Oven-Fried-Korean-Popcorn-Chicken-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2019/02/Oven-Fried-Korean-Popcorn-Chicken-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

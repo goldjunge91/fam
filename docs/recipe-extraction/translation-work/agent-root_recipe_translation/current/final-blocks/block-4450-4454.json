@@ -1,0 +1,958 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mashed-potato-stamppot",
+      "slug": "gen-mashed-potato-stamppot",
+      "title": "Kartoffelstampf",
+      "instructions": "Niederländisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später in Portionen ein",
+        "Mische Karotten unter die Kartoffeln, um die Portionen zu vergrößern und ohne große Mehrkosten zusätzliche Nährstoffe aufzunehmen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "niederländisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4450,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mashed-potato-stamppot/",
+      "components": [
+        {
+          "key": "92102221-20fe-5b5d-ad1a-b1101cf52753",
+          "name": "Zutaten",
+          "servingGrams": 202,
+          "position": 0,
+          "items": [
+            {
+              "key": "17679941-e015-5b95-b734-b5c5d96d492c",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "28cd46e9-8d3c-5789-8111-3b963e6cf73c",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "9994621a-f657-51dc-a240-6f142fa20d0f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "60109b5a-715c-5156-aa28-8ded2dbc02e0",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "4e1744b7-9fa4-54b4-a9d4-3d046c7490eb",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "22b3e9b0-b371-5704-b11b-dc6741a6eb6c",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "690766ca-e86d-5b39-8c4e-590bf663e9e1",
+              "ingredientName": "Paprika",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "3e02dd97-edf0-5afe-bb75-dfb67cc64b75",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "af35e1f8-a5b6-52bd-8a05-4b078057fe68",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle und schneide Kartoffeln und Karotten in gleich große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Kartoffeln und Karotten gemeinsam 15 Minuten in Salzwasser, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die Zwiebel und brate sie in einer separaten Pfanne etwa 6 Minuten in Butter, bis sie goldbraun und weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Rinderhackfleisch in einer weiteren Pfanne bei mittlerer bis hoher Hitze etwa 8 Minuten krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kartoffeln und Karotten ab und stampfe sie mit Butter, Milch, der angebratenen Zwiebel, Salz, Pfeffer und Muskatnuss.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre das gegarte Rinderhackfleisch unter den Kartoffel-Karotten-Stampf, bis alles gleichmäßig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den Stampf in eine Servierschüssel und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nutriquorum.com/wp-content/uploads/2023/03/20220726_171350-scaled.jpg",
+          "sourcePageUrl": "https://nutriquorum.com/wp-content/uploads/2023/03/20220726_171350-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-broodnodig",
+      "slug": "gen-broodnodig",
+      "title": "Brotzeit-Sandwich",
+      "instructions": "Niederländisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Salami und Käse in größeren Mengen an der Feinkosttheke und schneide beides zu Hause",
+        "Verwende Senf und eingelegte Gurken der Hausmarke, um deutlich zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4451,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-broodnodig/",
+      "components": [
+        {
+          "key": "ad5723a8-b879-5e60-9607-9789d6a55203",
+          "name": "Zutaten",
+          "servingGrams": 483.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "84d49b53-b493-55ae-8bd4-997d68501a34",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "35ed3ce0-24a2-556c-878a-0d5b924eae96",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "fd46e0af-98d6-5dc2-8c2d-33e611613e91",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "543aa983-5a7d-5c03-a19c-e129857dab0c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "59ac105a-fb0d-57ce-8e4c-76b552c50608",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cafe4b13-e7ef-5356-92e2-29d6efa1069c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "bdc88c48-1796-54f1-8579-7e04889ded32",
+              "ingredientName": "Eingelegte Jalapenos",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Zwiebel in dünne Ringe schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Seite jeder Scheibe Roggenbrot mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die andere Seite jeder Scheibe mit Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salami und Käse auf zwei Brotscheiben schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Scheibe mit Zwiebelringen und eingelegten Gewürzgurken belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die übrigen Brotscheiben mit der Butter- und Senfseite nach unten darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Diagonal durchschneiden und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pindakaas-sandwich",
+      "slug": "gen-pindakaas-sandwich",
+      "title": "Erdnussbutter-Sandwich",
+      "instructions": "Niederländisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Erdnussbutter in großen Gläsern statt in Einzelpackungen",
+        "Verwende Honig der Hausmarke oder ersetze ihn durch Ahornsirup, wenn das günstiger ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4452,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pindakaas-sandwich/",
+      "components": [
+        {
+          "key": "b7dd0607-9fb5-5969-b5a1-b7602e13fa38",
+          "name": "Zutaten",
+          "servingGrams": 205.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "39859da8-6c21-55ab-b9a1-e01af98138bf",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "e1e85cb5-efeb-5bdf-beba-472ed1291904",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "61ece396-eb34-5f59-8771-d3186b9988b5",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "cbc97062-1523-5507-b6ae-0fd618e7ccc4",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1c56fcfe-f6c8-590f-ab57-8e64dfaf9034",
+              "ingredientName": "Schatz",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eine Seite jeder Brotscheibe dünn mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die gebutterte Seite von zwei Scheiben großzügig mit Erdnussbutter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Banane schälen und in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Bananenscheiben gleichmäßig auf der Erdnussbutter beider Scheiben verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Honig über die Bananenscheiben auf jedem Sandwich träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit den übrigen Brotscheiben und der gebutterten Seite nach unten abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Diagonal durchschneiden und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/BNc_b2kY0CuThN2HwgqCntWSu8o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chickpea-salad-sandwich-d2d815f3ab95478b82012648ac8cccaf-71ae4f84a6434adb8aa699892a7ee6e5.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/BNc_b2kY0CuThN2HwgqCntWSu8o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chickpea-salad-sandwich-d2d815f3ab95478b82012648ac8cccaf-71ae4f84a6434adb8aa699892a7ee6e5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaas-en-ham-sandwich",
+      "slug": "gen-kaas-en-ham-sandwich",
+      "title": "Käse-Schinken-Sandwich",
+      "instructions": "Niederländisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Käse und Schinken im Angebot und schneide sie selbst in Scheiben",
+        "Verwende Weißbrot der Hausmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "niederländisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4453,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaas-en-ham-sandwich/",
+      "components": [
+        {
+          "key": "3c4c6bdb-e145-5b3a-b723-4fc2178a4c4e",
+          "name": "Zutaten",
+          "servingGrams": 884.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "e38c7090-a70e-50a2-b5ef-32f978e5df11",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "b7c6fe6c-76d6-588c-8d5d-9c6fbe77a3ac",
+              "ingredientName": "Gouda",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "35f7eb0d-46eb-5913-87cc-1bc3a2cab360",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "7b27f02f-059f-5711-9977-f250bed7249a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "12c0a3e3-7a7c-55af-89c1-7a59b87c1124",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "43ab01de-c5e8-5338-9f00-0ebfeca2a0c5",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "d816c0f9-b3ce-5b69-84f8-07edc38b878d",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Beide Seiten der Brotscheiben dünn mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwei Brotscheiben mit Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schinken und Käse auf die mit Senf bestrichenen Scheiben schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenscheiben und Salat darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit den übrigen Brotscheiben belegen und diagonal durchschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://easyfoodheesch.nl/wp-content/uploads/2021/11/img_2373-scaled.jpeg",
+          "sourcePageUrl": "https://easyfoodheesch.nl/wp-content/uploads/2021/11/img_2373-scaled.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-erwtensoep",
+      "slug": "gen-erwtensoep",
+      "title": "Erbsensuppe",
+      "instructions": "Niederländisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schälerbsen aus dem Großgebinde",
+        "Verwende Speck statt einer Schinkenkeule, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "niederländisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4454,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-erwtensoep/",
+      "components": [
+        {
+          "key": "42b2c988-e506-59fe-8aa0-d97f9e5b04c9",
+          "name": "Zutaten",
+          "servingGrams": 778.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1b90128-264e-5930-9b79-047b77d35d76",
+              "ingredientName": "Gespaltene Erbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e39188c3-35bf-57ad-92c7-3b131bc25ce1",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "83c0b20b-24af-52db-a97f-445ed303b4b0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "7ab24688-dfbf-58d1-8df1-a16b097ac77e",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "9a0d3202-8417-555e-87b7-d7e9eba2aea0",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "7a1bdacb-1884-58c4-99c6-4300f4bd0268",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "061a3426-b270-52c4-8f1d-78c1b2ecb374",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "df25cfb1-03f1-54d6-ab59-bda514b23478",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "196e6377-fa30-53c9-9390-175b95c22646",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Schälerbsen 1 Stunde in Wasser einweichen und anschließend abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Schinkenkeule in einem großen Topf in etwas Öl bei mittlerer Hitze 3 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel, Karotten und Sellerie dazugeben und etwa 5 Minuten garen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgegossene Erbsen, Hühnerbrühe und Thymian dazugeben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hitze reduzieren und 45 Minuten köcheln lassen, bis die Erbsen zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gewürfelte Kartoffeln dazugeben und weitere 20 Minuten köcheln lassen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Schinkenkeule herausnehmen, das Fleisch ablösen und zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/coH_yY-Y2hyGgQqz_scnxc9Inn4=/2304x3072/filters:fill(auto,1)/DutchSplitPeaSoup-56a273d43df78cf772760681.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/coH_yY-Y2hyGgQqz_scnxc9Inn4=/2304x3072/filters:fill(auto,1)/DutchSplitPeaSoup-56a273d43df78cf772760681.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1063 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ginisang-langka",
+      "slug": "gen-ginisang-langka",
+      "title": "Ginisang Langka",
+      "instructions": "Bicolano-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jackfrüchte in Dosen sind erschwinglich und lagerstabil",
+        "Verwenden Sie gehackte Schweinefleischreste oder billigere Stücke, sofern verfügbar"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6345,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ginisang-langka/",
+      "components": [
+        {
+          "key": "f77066e1-ff07-5968-9215-03d8e7af3d84",
+          "name": "Zutaten",
+          "servingGrams": 164.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d35c612-0c58-5d4b-ab86-357fc121f77a",
+              "ingredientName": "Jackfrucht aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 20 oz)"
+            },
+            {
+              "key": "6f2150fd-5948-58d3-907e-0a93b71e71a1",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "17a4342a-dc80-5861-8003-b7e19b4e2db9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "a2b3f628-1e04-55ac-a797-7d33d39ee720",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09d10c6b-5913-52f4-a26c-f336e9bd847d",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "49874a0f-eb48-58a2-bed4-742cebd1c14b",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "95c89777-f01b-5c3a-8f02-4bac0c110721",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e4b00b44-b5d9-5fba-917f-dd5fb21094d1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "81aca89a-7e8b-5e04-958c-5db08f6dee03",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl erhitzen und gehackten Knoblauch und Zwiebeln anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinehackfleisch hinzufügen und unter Zerteilen anbraten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jackfruchtdosen abtropfen lassen und Jackfrüchte in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Tomaten und Fischsauce hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "15 Minuten köcheln lassen, bis sich die Aromen vereinen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gegebenenfalls grüne Bohnen hinzufügen und weitere 3 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer würzen und dann mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cupofyum.com/uploads/images/000/001/023/1023-ginataang-langka-with-alimasag-84ba34ef1e49eba77ac4d33927804a78.jpg",
+          "sourcePageUrl": "https://cupofyum.com/uploads/images/000/001/023/1023-ginataang-langka-with-alimasag-84ba34ef1e49eba77ac4d33927804a78.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rellenong-alimasag",
+      "slug": "gen-rellenong-alimasag",
+      "title": "Rellenong Alimasag",
+      "instructions": "Bicolano-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Krabben im Sonderangebot und frieren Sie sie bis zur Verwendung ein",
+        "Verwenden Sie billigeres Schweinehackfleisch, um die Füllung zu dehnen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6346,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rellenong-alimasag/",
+      "components": [
+        {
+          "key": "c16aa8e5-3089-556c-8d67-02c0edc6f829",
+          "name": "Zutaten",
+          "servingGrams": 439.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "f9707ebf-064d-5972-a44f-67e8e7b627ab",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große (etwa 2 Pfund)"
+            },
+            {
+              "key": "a1061d0d-bfce-5cbe-a701-d993edcc265d",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "9b2bbc0e-899d-5674-82e7-c9c35cf42c4a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "6d9fdb62-b398-5b09-8601-de2195d8d31d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4235f921-9cce-5b12-8f5d-9a7ed25c25a4",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42614a3b-1f03-55bb-8e53-1763ce10b464",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "32605fdc-98ec-51b3-9225-b04097297d06",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "637f7dab-09de-5df5-abb6-3123e731adb0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1399bb5a-60a8-5059-8717-f8c62a872258",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f6eae88c-6b77-5c1d-a81a-18b77bc25b09",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Töten Sie Krabben auf humane Weise und entfernen Sie das Fleisch vorsichtig aus den Schalen, sodass die Schalen intakt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch und Zwiebeln in Öl anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinehackfleisch hinzufügen und etwa 5 Minuten braten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das gegarte Schweinehackfleisch mit Krabbenfleisch, Ei, Semmelbröseln und Fischsauce vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füllen Sie die Mischung fest in die Krabbenschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Restliches Öl in einer Pfanne erhitzen und die gefüllten Krabben vorsichtig mit der Schale nach unten hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wasser in die Pfanne geben, abdecken und 15 Minuten dämpfen, bis alles gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Tellern anrichten und heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nutriasia.com/wp-content/uploads/2017/10/rellenong-alimasag.jpg",
+          "sourcePageUrl": "https://nutriasia.com/wp-content/uploads/2017/10/rellenong-alimasag.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-camarones-sa-gata",
+      "slug": "gen-camarones-sa-gata",
+      "title": "Camarones sa Gata",
+      "instructions": "Bicolano-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Garnelen in großen Mengen, um günstigere Preise zu erzielen",
+        "Verwenden Sie Kokosmilch aus der Dose, die günstiger ist als frische"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6347,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-camarones-sa-gata/",
+      "components": [
+        {
+          "key": "e050e744-a972-5543-8066-84cf15b7f4d4",
+          "name": "Zutaten",
+          "servingGrams": 285,
+          "position": 0,
+          "items": [
+            {
+              "key": "375ac9c0-65a7-5ac0-900a-6f983feff6ba",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "832629e0-808a-50bb-b029-f6b54a438ead",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "bc2dd287-33e1-5573-b5a2-72725ddf11ce",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "2a76596f-ee67-570f-85d4-032fb05ca406",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eace4b45-c738-5881-95a7-0e6db051cf10",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "5398292a-687a-51af-a0a2-4f8d76177b99",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "349f5937-362d-5a95-9f88-f1effc836b83",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "caf9b5a9-1d87-5273-aec0-dba4075d75e3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl erhitzen und Knoblauch, Ingwer und Zwiebelscheiben anbraten, bis sie aromatisch sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelen hinzufügen und auf jeder Seite 2 Minuten braten, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Kokosmilch aufgießen und leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fischsauce hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort über gedünstetem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://panlasangpinoy.com/wp-content/uploads/2023/06/pork-binagoongan-sa-gata-recipe.jpg",
+          "sourcePageUrl": "https://panlasangpinoy.com/wp-content/uploads/2023/06/pork-binagoongan-sa-gata-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiyula-ng-bicolano",
+      "slug": "gen-tiyula-ng-bicolano",
+      "title": "Tiyula ng Bicolano",
+      "instructions": "Bicolano-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie aus Spargründen Braten und schneiden Sie es in Würfel",
+        "Kaufen Sie getrocknete Chilis in großen Mengen auf ethnischen Märkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6348,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiyula-ng-bicolano/",
+      "components": [
+        {
+          "key": "7decc738-ca6d-5da3-a2fa-3c33dddf2b2f",
+          "name": "Zutaten",
+          "servingGrams": 323.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "16248956-122d-55dd-a752-58e4e73dd250",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "1e909558-4835-50fe-9ebc-6a9151b3daa8",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f5c85884-a830-5318-b815-d63f25098b94",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b05b5664-02e5-5eed-ab02-01492fad197a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "48c0a4bf-019d-533e-aea7-ea2e4b2ee5de",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL in Scheiben geschnitten"
+            },
+            {
+              "key": "50b9c219-d005-585e-a510-54eebe466a6a",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b46d637-f157-563e-bc8f-a234c84f663e",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c4e2adb7-62a5-563a-810d-6f2b39e33daf",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c75efc29-40d2-5f98-9b66-ef0d09792725",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b963c382-2b6d-5d2a-9470-85ae82403e67",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl erhitzen und Knoblauch, Ingwerscheiben und Zwiebelscheiben goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleischwürfel dazugeben und von allen Seiten etwa 8 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wasser angießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Getrocknete Chilischoten hinzufügen, Hitze reduzieren und zugedeckt 25 Minuten köcheln lassen, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kokosmilch und Fischsauce hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ohne Deckel 10 Minuten köcheln lassen, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer würzen und mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/6a/85/8f/6a858f672776dc1841aa4a58a6dc44a5.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/6a/85/8f/6a858f672776dc1841aa4a58a6dc44a5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-puro-at-timpla",
+      "slug": "gen-puro-at-timpla",
+      "title": "Puro bei Timpla",
+      "instructions": "Bicolano-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Innereien gibt es in Metzgereien sehr günstig",
+        "Kaufen Sie es in großen Mengen und frieren Sie es für die Zubereitung von Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6349,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puro-at-timpla/",
+      "components": [
+        {
+          "key": "40f255e2-a415-5bfc-a94e-b61019c5df05",
+          "name": "Zutaten",
+          "servingGrams": 266.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a37091c9-6498-5194-bda4-44a06e5663bb",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund insgesamt"
+            },
+            {
+              "key": "6cd70d29-91bb-5526-ad50-8ef688e1aaf6",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "570c311d-45b3-5b41-816c-2334a08c7f1b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "a04d75e1-aaf3-5d0d-b70b-d1d4e5d659a9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "612a3c3a-8c22-592a-91be-040a29456981",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "6a63b2f6-3803-5ecd-9395-ed6a7a9da092",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfb56e50-e2d1-5307-ada0-1651786649cc",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7fa3cb7b-bfc0-532d-8709-7bfc46f45f29",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "ebf388dd-c556-5c14-860e-004437ac5a6f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "20f7661d-d249-589c-8c72-74a554b6cff2",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Niere und Leber putzen und in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl erhitzen und Knoblauch, Ingwer und Zwiebelscheiben anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfeltes Innereienfleisch hinzufügen und 3 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser und Fischsauce hinzufügen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kokosmilch und grüne Chilis dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 10 Minuten köcheln lassen, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer würzen und heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/e9xUvkNQU4puro9j4T6cBut9Ktc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Peach-Dumplings-LEAD-544cfea7a0724579904bbbaec78fe7c9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/e9xUvkNQU4puro9j4T6cBut9Ktc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Peach-Dumplings-LEAD-544cfea7a0724579904bbbaec78fe7c9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

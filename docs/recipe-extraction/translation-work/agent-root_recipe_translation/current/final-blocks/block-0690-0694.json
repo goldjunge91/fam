@@ -1,0 +1,1459 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-cheesy-jalapeno-cornbread",
+      "slug": "rice-cooker-cheesy-jalapeno-cornbread",
+      "title": "Käse-Jalapeño-Maisbrot aus dem Reiskocher",
+      "instructions": "Goldbraunes, saftiges Maisbrot mit geschmolzenem Cheddar und einer ordentlichen Schärfe durch frische Jalapeños. Es backt direkt im Reiskocher und wird zart und weich, sodass es sich leicht auseinanderzupfen lässt. Passt perfekt in eine Schüssel Chili oder wird warm direkt aus dem Topf für eine Runde im Wohnheim gegessen. Inspiriert von einem viralen Maisbrot-Trend aus dem Reiskocher auf Instagram Reels.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen ganzen Block Cheddar statt einer Tüte geriebenen Käse. Das ist pro Unze günstiger, schmilzt besser und du bestimmst selbst, wie viel hineinkommt.",
+        "Maismehl und Mehl sind günstige Vorratszutaten. Eine ganze Form Maisbrot kostet nur ein paar Cent und reicht für sechs Personen für deutlich unter zwei Dollar.",
+        "Eine frische Jalapeño reicht weit. Kaufe gleich ein paar und friere die übrigen ein. Für die nächste Portion kannst du sie direkt tiefgekühlt hacken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jalapeno",
+          "swap": "Eingelegte Jalapeños aus dem Glas verwenden, gut abgetropft und gehackt. Sie schmecken säuerlicher, sind milder und ersparen das Hacken frischer Chilis.",
+          "savings": "ungefähr gleich teuer; das Glas hält monatelang, sodass nichts verschwendet wird."
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Mandel- oder Hafermilch für eine leichtere Milchvariante verwenden. Der Teig gelingt genauso.",
+          "savings": "ungefähr gleich teuer; praktisch, wenn du statt Kuhmilch Pflanzenmilch vorrätig hast."
+        },
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "Geriebene Mozzarella für besonders cremigen, milderen Käse verwenden.",
+          "savings": "Spart etwa $0.15 pro Unze gegenüber Cheddar am Stück."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "käsig",
+        "scharf",
+        "vegetarisch",
+        "Snack",
+        "backen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 690,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-cheesy-jalapeno-cornbread/",
+      "components": [
+        {
+          "key": "dc30f30c-7569-5008-9c1e-8a248c561355",
+          "name": "Zutaten",
+          "servingGrams": 226.57,
+          "position": 0,
+          "items": [
+            {
+              "key": "adcfb16f-7c6f-573f-ade2-172781fb9621",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96936796-b132-5332-93f9-3a14ea3a27bf",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9083d164-3566-5188-931a-bcfb6ab3593f",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b3369d3-50cf-5bad-b00c-b3d14728fd65",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bb6a081-188d-551a-9fb3-2c118598a336",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adaaa06e-030a-59e5-a700-93d7c54b2694",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "993a305f-c46c-5e97-82f2-10eefecb1843",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a85cc3e8-3c51-5db9-8034-abb9086b37ce",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "365ee0f5-af32-50b6-9f9a-9287e9cf2f9c",
+              "ingredientName": "Kräftiger Cheddar am Stück",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75997cfa-c12e-5fad-8286-a8505b7e2238",
+              "ingredientName": "Jalapeño",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b541b24d-4f57-5747-9b85-89fe10d29fb2",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ab448ba-e7c4-5272-8733-441612ed3a70",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "aufgetaut; für süße Maisstücke unterheben"
+            },
+            {
+              "key": "29147363-3323-5cc3-84e8-d9a5a8d6975d",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "nach dem Garen darüberträufeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Besprühe den Innentopf des Reiskochers gut mit Kochspray, am Boden und ein paar Zentimeter an den Seiten hoch, damit sich das Maisbrot sauber löst. Gib die Butter hinein und stelle den Kocher 3-4 Minuten auf Keep Warm, damit sie schmilzt. Gieße die geschmolzene Butter in eine große Rührschüssel und wische den Innentopf rasch mit einem Papiertuch aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre in einer separaten Schüssel Maismehl, Mehl, Zucker, Backpulver und Salz, bis alles gleichmäßig vermischt und frei von trockenen Klümpchen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Milch und Eier mit der geschmolzenen Butter und gieße die flüssige Mischung zu den trockenen Zutaten. Rühre nur so lange, bis ein dickflüssiger, klumpiger Teig entsteht. Rühre nicht zu viel, sonst wird das Maisbrot zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke die Jalapeños fein. Entferne für weniger Schärfe die Kerne oder lass sie für ordentlich Schärfe drin. Reibe oder würfle den Cheddar fein. Hebe Jalapeños, den größten Teil des Käses und, falls verwendet, den aufgetauten Mais unter den Teig. Behalte eine kleine Handvoll Käse für die Oberseite zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Teig in den gefetteten Innentopf, streiche die Oberfläche glatt und streue den übrigen Käse darüber. Schließe den Deckel und starte den normalen Weißreis- oder Kochzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus auf Keep Warm umschaltet, lass den Deckel 10 Minuten geschlossen und stich dann mit einem Essstäbchen in die Mitte. Wenn noch feuchter Teig daran haftet, starte einen zweiten Kochzyklus und prüfe erneut. Das Maisbrot ist fertig, wenn die Mitte zurückfedert und ein Teststäbchen sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle den Kocher 5 Minuten auf Keep Warm, damit die Ränder fester werden. Fahre dann mit einem Buttermesser am Rand entlang und stürze den Innentopf auf einen Teller oder hebe das Maisbrot an den Rändern heraus. Beträufle es nach Wunsch mit Honig, schneide es in Stücke und serviere es warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Skillet_cornbread_%28cropped%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Skillet_cornbread_(cropped).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Zankopedia — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Käse-Jalapeño-Maisbrot aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-honey-poached-spiced-pears",
+      "slug": "rice-cooker-honey-poached-spiced-pears",
+      "title": "Honiggewürzte Birnen aus dem Reiskocher",
+      "instructions": "Zarte Birnen in glänzendem Honig-Gewürz-Sirup, sanft pochiert, bis sie wie ein Dessert aus einem schicken Restaurant schimmern. Es duftet nach Zimt und warmer Orange, und der Reiskocher erledigt die Arbeit ganz allein. So gelingt das Dessert auch im Wohnheim ohne Herd. Inspiriert von einem viralen Desserttrend aus dem Reiskocher auf Instagram Reels.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe festere, noch leicht unreife Birnen. Sie sind oft günstiger, behalten beim Pochieren besser ihre Form und werden nicht matschig.",
+        "Apfelsaft macht den Pochiersud besonders raffiniert. Wenn du nur Wasser da hast, funktioniert das mit einem zusätzlichen Esslöffel Honig genauso gut.",
+        "Lass frische Garnitur weg und verwende Gewürze aus dem Vorratsschrank. Schon Zimt für 30 Cent macht bei diesem Dessert mehr aus als Garnierungen für 4 Dollar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple-juice",
+          "swap": "Orangensaft oder einfaches Wasser mit etwas zusätzlichem Honig verwenden.",
+          "savings": "Wasser kostet nichts"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder brauner Zucker lassen sich ebenfalls gut pochieren und sorgen für einen ähnlich gemütlichen Geschmack.",
+          "savings": "brauner Zucker ist pro Portion deutlich günstiger"
+        },
+        {
+          "forIngredientId": "pear",
+          "swap": "Feste Äpfel eignen sich genauso gut und brauchen ungefähr genauso lange zum Pochieren.",
+          "savings": "Äpfel gibt es oft günstiger im Beutel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Dessert",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Obst",
+        "vegetarisch",
+        "ohne-Herd"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 691,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-honey-poached-spiced-pears/",
+      "components": [
+        {
+          "key": "b024bcd0-f1c8-5db5-88dd-d7485d8a4097",
+          "name": "Zutaten",
+          "servingGrams": 365.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "509ffdc4-8ac3-5861-88de-d3a85b04a6f3",
+              "ingredientName": "Birne",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "fest, aber reif; halbiert und entkernt"
+            },
+            {
+              "key": "b01616b8-ee56-5eea-94c1-45a7d5f105be",
+              "ingredientName": "Honig",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a84dda2-3f3b-5468-9b06-080901ee256d",
+              "ingredientName": "Apfelsaft",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e086108d-0bf9-531a-b915-ae162c8a4c26",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e70255dc-bdb2-57b9-a12d-529b4e43c26b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44dcd219-5ce9-50f5-8b08-2bc38358158d",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "28f8529e-b6ef-5f89-9ebc-052e5cfaa0f7",
+              "ingredientName": "Ganze Gewürznelken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa die Menge von 3 ganzen Nelken, wenn gemahlen; ganze Nelken vor dem Servieren herausfischen"
+            },
+            {
+              "key": "36d41ab4-05e1-59d3-8344-0e23bc386cbc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb867240-84b3-55de-9daa-42c8596b454f",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "ausgepresst in die Flüssigkeit geben"
+            },
+            {
+              "key": "f570dd93-ffd3-5eed-af6b-1ada292b27a8",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37519a4e-7241-5f9c-806e-5a45978f205f",
+              "ingredientName": "Walnüsse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt für Biss darüberstreuen"
+            },
+            {
+              "key": "74fec39f-4c06-518a-9d10-d377f12a34eb",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "einen Klecks gekühlt dazugeben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Birnen nach Wunsch. Die Schale kann auch dranbleiben. Halbiere jede Birne längs und kratze Kerngehäuse und Kerne mit einem Löffel heraus. Lege die Hälften mit der Schnittfläche nach unten dicht nebeneinander in einer Schicht in den Innentopf des Reiskochers.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Apfelsaft und Wasser über die Birnen und träufle den Honig darüber. Presse den Saft der Zitronenhälfte dazu. So werden die Birnen nicht braun und die Süße wird ausgeglichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zimt, gemahlenen Ingwer, Nelken, Vanille und, falls verwendet, Sternanis hinzu. Rühre die Flüssigkeit um die Birnen vorsichtig um, damit sich die Gewürze verteilen. Die Birnen sollten etwa bis zur Hälfte in dem gewürzten Honigsud liegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte den normalen Weißreis-Zyklus. Beim Erhitzen bringt der Kocher die Flüssigkeit zum leichten Köcheln und pochiert die Birnen. Ein Herd ist nicht nötig. Wenn dein Kocher eine Einstellung für Brei oder langsames Garen hat, funktioniert sie noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne den Deckel nach etwa 15 Minuten vorsichtig. Löffle etwas Sirup über die Birnen oder drehe sie um, damit beide Seiten Farbe und Aroma aufnehmen. Schließe den Deckel wieder und lass den Zyklus weiterlaufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet und der Kocher auf Keep Warm schaltet, lass die Birnen weitere 15-20 Minuten im Topf. Die sanfte Wärme macht sie ganz zart. Eine Gabel sollte leicht hineingleiten und die Ränder sollten glänzend und leicht durchsichtig aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe die Birnen in Schüsseln. Für dickeren Sirup lässt du die übrige Flüssigkeit bei offenem Deckel weitere 10-15 Minuten auf Keep Warm einkochen und löffelst sie dann über die Birnen. Nimm zuerst ganzen Sternanis und Nelken heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere die Birnen nach Wunsch mit gehackten Walnüssen und einem Klecks griechischem Joghurt und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Pinot_Poached_Pear_%2813590162055%29.jpg/960px-Pinot_Poached_Pear_%2813590162055%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pinot_Poached_Pear_(13590162055).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ralph Daily from Birmingham, United States — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von honiggewürzten Birnen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-cajun-red-beans-and-rice",
+      "slug": "rice-cooker-cajun-red-beans-and-rice",
+      "title": "Cajun-Reis mit roten Bohnen aus dem Reiskocher",
+      "instructions": "Rauchig, cremig und herzhaft: Dieser Cajun-Klassiker aus einem Topf verwandelt ein paar günstige Vorratsdosen in ein wärmendes Abendessen für die ganze WG. Im Reiskocher verschmelzen geräucherte Wurst, rote Bohnen und die Cajun-Dreifaltigkeit aus Zwiebel, Sellerie und Paprika zu purem Wohlfühlessen, ganz ohne Aufwand am Herd. Inspiriert von einem viralen Reiskocher-Trend auf TikTok.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Bohnen aus der Dose gehören zu den günstigsten Konserven. Kaufe ein paar Dosen im Angebot und daraus wird ein Abendessen für unter 1.50 Dollar pro Schüssel.",
+        "Kein Cajun-Gewürz da? Mische es aus Vorratsgewürzen selbst: geräuchertes Paprikapulver, Knoblauchpulver, Zwiebelpulver, Cayennepfeffer, Oregano und Salz. Das ist günstiger und du bestimmst die Schärfe.",
+        "Strecke das Gericht mit mehr Bohnen statt zusätzlicher Wurst. Bohnen sind hier die günstigste Eiweißquelle, und die Reste schmecken am nächsten Tag sogar noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-sausage",
+          "swap": "Geschnittene Kielbasa, Spam oder sogar Speck für denselben rauchigen Geschmack verwenden.",
+          "savings": "Spam ist pro Portion günstiger und im Vorratsschrank lange haltbar"
+        },
+        {
+          "forIngredientId": "red-beans",
+          "swap": "Kidneybohnen oder Pintobohnen eignen sich genauso gut.",
+          "savings": "beide kosten etwa ~$1.10 pro Dose und sind oft leichter zu bekommen"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Einen Brühwürfel in 2.5 Tassen Wasser auflösen und verwenden.",
+          "savings": "eine Packung Brühwürfel kostet pro Tasse nur ein paar Cent, verglichen mit Brühe aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Cajun-Südstaatenküche",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Cajun",
+        "Südstaatenküche",
+        "Bohnen",
+        "Wohlfühlessen",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 692,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-cajun-red-beans-and-rice/",
+      "components": [
+        {
+          "key": "7f259751-5fe2-5aae-9b50-6c9c498ac38a",
+          "name": "Zutaten",
+          "servingGrams": 623.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "105ef57d-9ff1-5ba4-9a14-4cfe40ae618e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "226568ef-0450-55e5-a181-467b3d3a2267",
+              "ingredientName": "Rote Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39393890-47d3-5d16-9054-839c9b90443e",
+              "ingredientName": "Geräucherte Wurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "Andouille, falls erhältlich; in Scheiben geschnitten"
+            },
+            {
+              "key": "86a2c51f-4ba2-59f8-a80f-a3c2480b4209",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f1a2b68-6eec-574b-bc49-8f5571c558da",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "15cad19d-2912-5506-b652-ca79bfc9e5ae",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "e13e66e7-a518-53b6-8a96-a7ee26146a92",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "grün, gewürfelt"
+            },
+            {
+              "key": "2db9e377-2c25-5c17-bb8c-1cef10445413",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "e39967aa-7da2-521a-808c-b4245758661e",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c940cd6-74b7-574e-8f75-59c88ac362bf",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f657f9d-2c78-5bae-8004-aec3c69f088b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de6877ba-f5fa-51e1-b6f6-639f063c6f9f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "564d52ac-d1a5-5e48-b7bd-e02e31119e57",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "683c94ab-63ed-5c15-8428-48830c4221b4",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "am Tisch nach Geschmack hinzufügen"
+            },
+            {
+              "key": "34985017-2cdb-5fba-8623-911761b08024",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wenn dein Kocher eine Anbrat- oder Kochfunktion hat, schalte sie ein, gib Pflanzenöl hinein und bräune die in Scheiben geschnittene Räucherwurst 4-5 Minuten, bis die Ränder knusprig sind. Ohne Anbratfunktion lässt du diesen Schritt aus. Die Wurst ist bereits gar, also gib sie in Schritt 4 einfach roh mit den übrigen Zutaten hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wenn du die Wurst angebraten hast, gib gewürfelte Zwiebel, Sellerie, Paprika und Knoblauch dazu. Brate alles 4-5 Minuten, bis es weich ist, und kratze dabei die gebräunten Reste vom Topfboden. Andernfalls legst du das gewürfelte Gemüse für den nächsten Schritt bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spüle 2 Tassen Reis in einem Sieb ab, bis das Wasser klar abläuft. Lass ihn gut abtropfen und gib ihn dann in den Innentopf des Kochers.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße beide Dosen rote Bohnen ab, spüle sie ab und gib sie zum Reis. Füge gewürfelte Zwiebel, Sellerie, Paprika und Knoblauch hinzu, falls sie noch nicht im Topf sind, sowie Hühnerbrühe, Cajun-Gewürz, geräuchertes Paprikapulver und ein Lorbeerblatt. Rühre um, sodass der Reis gleichmäßig untergetaucht und eben verteilt ist und die Flüssigkeit knapp über dem Reis steht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den normalen Weißreis-Zyklus. Lass den Kocher ungestört fertig garen, damit der Reis dämpft und die Brühe cremig und rauchig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und den Reis 10 Minuten auf Keep Warm ruhen, damit sich die Aromen entfalten und überschüssige Flüssigkeit aufgenommen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öffne den Deckel und prüfe, ob der Reis ganz weich ist und keine harte Mitte mehr hat. Ist er noch bissfest, gib einen Schluck Brühe oder Wasser dazu, rühre um und gare ihn weitere 5-10 Minuten auf Keep Warm. Entferne das Lorbeerblatt, lockere den Reis auf und rühre ihn um. Zerdrücke ein paar Bohnen am Topfrand, damit das Gericht besonders cremig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Gericht und gib bei Bedarf mehr Cajun-Gewürz oder eine Prise Salz dazu. Fülle es in Schüsseln und garniere es mit geschnittenen Frühlingszwiebeln, frischer Petersilie und ein paar Spritzern scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Red_Beans_and_Rice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Red_Beans_and_Rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Arnold Gatilao — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Cajun-Reis mit roten Bohnen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-spanakorizo-greek-spinach-rice",
+      "slug": "rice-cooker-spanakorizo-greek-spinach-rice",
+      "title": "Spanakorizo (griechischer Spinatreis) aus dem Reiskocher",
+      "instructions": "Seidiger, zitronig-frischer Spinatreis, in dem ein ganzer Beutel Blattgemüse zu cremigen, fast risottoartigen Körnern zerfällt. Dieses vegetarische Wohlfühlessen bekommt frischen Dill, gutes Olivenöl und zerbröselten, salzigen Feta obendrauf. Es schmeckt, als hätte die griechische Oma ihn eine Stunde lang auf dem Herd geschmort, doch der Reiskocher erledigt die ganze Arbeit in einem Topf. Inspiriert von einem viralen Spanakorizo-Trend aus dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Spinat kostet weniger als frischer und passt hier hervorragend. Ersetze ihn durch etwa 2 Tassen aufgetauten und gut ausgedrückten Spinat. Den Unterschied merkst du kaum.",
+        "Lass Brühe aus dem Karton weg und löse stattdessen einen Brühwürfel in 3 Tassen Wasser auf. Das kostet nur einen Bruchteil, und Dill und Zitrone bringen das Aroma.",
+        "Feta ist die teure Zutat. Verwende ihn als Topping und nicht als Füllung. Eine kleine Menge zerbröselt darüber reicht weiter, als einen ganzen Block unterzurühren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spinach",
+          "swap": "Etwa 2 Tassen tiefgekühlten Spinat verwenden, aufgetaut und gut ausgedrückt. Das ist günstiger und erspart Vorbereitung.",
+          "savings": "spart etwa $4 im Vergleich zu frischem Spinat"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser mit einem zerbröselten Brühwürfel verwenden.",
+          "savings": "spart etwa $2"
+        },
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "1.5 TL getrockneten Dill vor dem Garen unterrühren.",
+          "savings": "günstiger und im Vorratsschrank haltbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "griechisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "mediterran",
+        "vegetarisch",
+        "Spinat",
+        "Zitrone"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 693,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-spanakorizo-greek-spinach-rice/",
+      "components": [
+        {
+          "key": "56463e49-9fa2-580f-8e07-7eccc85146b3",
+          "name": "Zutaten",
+          "servingGrams": 892.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "2786ba94-29f4-55d7-95d1-70cd8506ee53",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "weißer Mittel- oder Langkornreis, gespült"
+            },
+            {
+              "key": "d34802b1-d7a6-58a8-8e7e-5935a3609c8f",
+              "ingredientName": "Spinat",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "frisch und grob gehackt (etwa eine handelsübliche Packung); fällt beim Garen stark zusammen"
+            },
+            {
+              "key": "9ef0e4a8-799d-5e03-af45-a21c6f37a839",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "9a6e54b2-989f-58a7-843c-f3aeaa4da6c7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "7ee43074-eba9-54d7-b2e2-dee8025355f5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "falls vorhanden, natives Olivenöl extra"
+            },
+            {
+              "key": "f2ad996d-00ef-53af-81f8-9ed5f1bf58df",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "oder Wasser mit einem Brühwürfel; der Spinat gibt beim Zusammenfallen ebenfalls Wasser ab"
+            },
+            {
+              "key": "88650841-db61-5dc9-96b2-54ed8121ec71",
+              "ingredientName": "Frischer Dill",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt; sorgt für den typischen griechischen Geschmack"
+            },
+            {
+              "key": "77037361-2b1f-531a-b326-96a1b6137d19",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Schluss ausgepresst, dazu Spalten zum Servieren"
+            },
+            {
+              "key": "16ae0c8d-a30d-5c35-9371-a26ac9ed8192",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b579b5d2-f444-5d73-9162-f79861c13751",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a5019d7-c836-52f8-8956-54666300c8d3",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "darüberbröseln"
+            },
+            {
+              "key": "7703dbd1-01e5-570e-b33c-536ff5f6f9f5",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "für zusätzliche Frische"
+            },
+            {
+              "key": "f0637128-2c62-59c7-bc7f-13d37cc5802b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Optional, aber empfehlenswert: Stelle den Reiskocher auf die Koch- oder Anbratfunktion, gib Olivenöl, gewürfelte Zwiebel und Knoblauch hinein und brate alles unter gelegentlichem Rühren 4-5 Minuten, bis es weich ist und duftet. Ohne Anbratfunktion lässt du diesen Schritt aus und rührst die rohe Zwiebel, den Knoblauch und das Öl in den nächsten Schritten direkt in den Topf. Das funktioniert ebenfalls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle den Reis unter kaltem Wasser ab, bis es größtenteils klar abläuft, und gib ihn dann in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Spinat dazu. Es sieht erst nach viel zu viel aus, aber beim Garen fällt er fast vollständig zusammen. Füge Dill, Salz und Pfeffer hinzu. Gib jetzt auch rohe Zwiebel, Knoblauch und Öl dazu, falls du den Anbratschritt ausgelassen hast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Gemüsebrühe hinein und rühre um, sodass der Reis gleichmäßig unter der Flüssigkeit und dem Gemüse verteilt ist. Wenn dein Kocher oft zu viel Flüssigkeit zurücklässt, halte etwa 1/4 Tasse Brühe zurück. Der Spinat gibt beim Garen Feuchtigkeit ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den normalen Weißreis-Zyklus. Lass den Deckel geschlossen, damit der Spinat in den Reis dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, lass den Deckel auf und den Reis 8-10 Minuten auf Keep Warm stehen. So nimmt er die restliche Flüssigkeit auf und wird cremig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den Reis vorsichtig mit einer Gabel auf, presse dann frischen Zitronensaft darüber und rühre um. Probiere und gib bei Bedarf mehr Salz oder Zitrone hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle den Reis in Schüsseln, zerbrösele Feta darüber und garniere ihn mit Zitronenschale, geschnittenen Frühlingszwiebeln und einer Zitronenspalte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/%CE%A3%CF%80%CE%B1%CE%BD%CE%B1%CE%BA%CF%8C%CF%81%CF%85%CE%B6%CE%BF_Spanakorizo_%28Las_Siete_Orillas_project%29_%281%29.jpg/1280px-%CE%A3%CF%80%CE%B1%CE%BD%CE%B1%CE%BA%CF%8C%CF%81%CF%85%CE%B6%CE%BF_Spanakorizo_%28Las_Siete_Orillas_project%29_%281%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%CE%A3%CF%80%CE%B1%CE%BD%CE%B1%CE%BA%CF%8C%CF%81%CF%85%CE%B6%CE%BF_Spanakorizo_(Las_Siete_Orillas_project)_(1).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: El Mono Español — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Spanakorizo (griechischem Spinatreis) aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-mediterranean-farro-pilaf",
+      "slug": "rice-cooker-mediterranean-farro-pilaf",
+      "title": "Mediterraner Farro-Pilaw aus dem Reiskocher",
+      "instructions": "Nussiger, bissfester Farro gart direkt im Reiskocher und wird dann mit frischer Zitrone, Kräutern, Kichererbsen und süß-sauren Trockenfrüchten zu einer herzhaften Getreideschüssel vermischt, die ideal für die Essensvorbereitung ist. Er enthält mehr Ballaststoffe und macht deutlich satter als einfacher Reis. Außerdem hält er sich die ganze Woche hervorragend. Inspiriert von einem viralen Reiskocher-Trend auf TikTok.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 58,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Farro lose aus dem Großgebinde und nimm nur so viel mit, wie du brauchst. Das kostet einen Bruchteil von abgepacktem Getreide und hält sich monatelang im Glas.",
+        "Ersetze Gemüsebrühe durch Wasser mit einem Brühwürfel oder einem Teelöffel Hühnerbrühepulver. So bekommst du dieselbe herzhafte Tiefe für wenige Cent.",
+        "Wenn das Geld knapp ist, lass frische Kräuter weg. Eine zusätzliche Prise getrockneter Oregano und mehr Zitrone sorgen schon für den größten Teil der Frische."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "farro",
+          "swap": "Stattdessen Gerste oder Bulgur verwenden. Beides gart im Reiskocher bissfest und kostet pro Tasse noch weniger.",
+          "savings": "~$0.25 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Einfaches Wasser mit einem darin aufgelösten Brühwürfel verwenden.",
+          "savings": "~$1.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "dried-apricots",
+          "swap": "Günstigere Rosinen verwenden. Sie sorgen für eine ähnliche süß-saure Note.",
+          "savings": "~$0.45 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "mediterran",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "vegetarisch",
+        "Vollkorn",
+        "ballaststoffreich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 694,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-mediterranean-farro-pilaf/",
+      "components": [
+        {
+          "key": "61631cf9-dbfa-52f6-983b-ca7f1f16cb08",
+          "name": "Zutaten",
+          "servingGrams": 487.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "71ca6fbe-b98b-5045-8e25-e4a58b52fe92",
+              "ingredientName": "Farro",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fed8d99-6576-5d37-b9b8-c79cf947f76c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d2415e8-addc-5818-b01b-820c5ae50719",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3acbba15-ab57-574e-99a0-4a8aee1699b3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a02c18bd-de21-5369-b19c-89da51819610",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dbfa419-378c-5a23-a3d4-68018c36fb53",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5d02289-5958-5b8a-a272-30fd90049316",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27c6070f-5674-5cf0-bedb-a73c80646c57",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b50c393-aaf1-5ce2-8c9c-f78a8220f249",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "220795fe-e9cc-583e-8b6b-ce8f5a922561",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ef41739-e75f-530c-a5fa-a2c64a2346e5",
+              "ingredientName": "Getrocknete Cranberrys",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9588d795-9ec4-59b9-8167-20c8b707d2a5",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c20bdd68-fb82-560a-9fbf-f4824a5d719b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "987ad14b-805a-5377-8002-6380a3dbea5b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c2332e7-a183-5daa-8e50-55c1aed80419",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt und zum Schluss untergehoben"
+            },
+            {
+              "key": "a32f5512-4aa1-55ec-9e47-210454e1d659",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "gehackt, bringt Frische in die ganze Schüssel"
+            },
+            {
+              "key": "62ae2b00-8846-5656-b18e-545ef36487cb",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "darüberbröseln"
+            },
+            {
+              "key": "299d1a3c-6836-5d62-b3cc-fa7590910871",
+              "ingredientName": "Mandeln",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "in Stifte geschnitten oder gehackt, für Biss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1.5 Tassen Farro etwa 30 Sekunden in einem Sieb unter kaltem Wasser ab und gib ihn dann in den Innentopf des Reiskochers. Durch das Abspülen wird staubige Oberflächenstärke entfernt, sodass die Körner getrennt und bissfest statt klebrig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 2 EL Olivenöl, 3 gehackte Knoblauchzehen und die fein gewürfelte halbe rote Zwiebel auf den Farro. Wenn dein Kocher eine Koch- oder Anbratfunktion hat, gare alles 2-3 Minuten und rühre um, damit die aromatischen Zutaten weich werden. Ohne diese Funktion überspringst du den Schritt. Das Gericht gelingt trotzdem.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 3 Tassen Gemüsebrühe und 3/4 Tasse Wasser dazu. Das entspricht ungefähr dem Flüssigkeitsverhältnis von 2.5 zu 1, das Farro braucht. Rühre dann 1 TL Oregano, 1 TL Salz und 1/2 TL Pfeffer ein. Schließe den Deckel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wähle den Zyklus für braunen Reis oder Vollkorn und lass den Kocher laufen. Kein Herd und kein Backofen nötig, das Gerät übernimmt die ganze Arbeit. Es dauert etwa 45-50 Minuten, bis der Farro mit leichtem Biss gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und den Farro 10 Minuten auf Keep Warm ruhen, damit der Rest der Flüssigkeit aufgenommen wird und die Körner fertig dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lockere den Farro mit einer Gabel auf und hebe die abgetropften Kichererbsen, gehackten getrockneten Aprikosen und Cranberrys unter. Schließe den Deckel und lass alles weitere 5 Minuten auf Keep Warm stehen, damit die Kichererbsen sanft erwärmen und die Früchte aufquellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe Zitronenschale und einen kräftigen Spritzer frischen Zitronensaft unter und schmecke mit Salz ab. Garniere jede Portion nach Wunsch mit gehackter Petersilie und Minze, zerbröseltem Feta und Mandelstiften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass das Gericht abkühlen und verteile es dann auf 4 Behälter. Im Kühlschrank hält es bis zu 5 Tage und schmeckt kalt oder sanft aufgewärmt gut. Es ist ideal für die Essensvorbereitung zum Mitnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Farro_salad_at_Fort_Ross_State_Historic_Park_-_Jenner%2C_California_-_Sarah_Stierch.jpg/1280px-Farro_salad_at_Fort_Ross_State_Historic_Park_-_Jenner%2C_California_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Farro_salad_at_Fort_Ross_State_Historic_Park_-_Jenner,_California_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Sarah Stierch — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von mediterranem Farro-Pilaw aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

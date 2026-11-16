@@ -1,0 +1,1113 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-skillet-sausage-potato",
+      "slug": "mfr-skillet-sausage-potato",
+      "title": "Wurst-Kartoffel-Pfanne",
+      "instructions": "Räucherwurst in Scheiben und goldbraun-knusprige Kartoffelwürfel mit Zwiebeln, Knoblauch und Paprika in einer Pfanne garen. Ein herzhaftes, preiswertes Abendessen in 30 Minuten, so sättigend wie ein komplettes Südstaaten-Frühstück.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Räucherwurst gehört zu den günstigsten Eiweißquellen pro Portion.",
+        "Russet-Kartoffeln sind am günstigsten; du musst sie nicht schälen.",
+        "Eine Pfanne bedeutet fast keinen Abwasch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-sausage",
+          "swap": "Hähnchen- oder Putenwurst für weniger Fett"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel für eine etwas süßere, nährstoffreichere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-sausage-potato",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Wurst",
+        "Kartoffel",
+        "Pfanne",
+        "eine Pfanne",
+        "preiswert",
+        "südstaatlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1550,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-sausage-potato/",
+      "components": [
+        {
+          "key": "faceb361-67be-56c2-9b84-d14396dadda9",
+          "name": "Zutaten",
+          "servingGrams": 551,
+          "position": 0,
+          "items": [
+            {
+              "key": "aca3e608-2ee4-5237-8a4d-6f75de38b6c6",
+              "ingredientName": "Geräucherte Wurst",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81dad026-5e44-5369-b47e-8d373d5bcad1",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3830faad-32a6-53cf-a022-6071ecae1e9f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e399558-39ba-5e67-b8d3-e345dc30f380",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca1546aa-31b1-5318-90fa-c5bef2240f27",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7aba5f0-df1b-528b-bbcb-6b622fa414e2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57c946eb-c6cb-509a-ae76-5d23bb415bc5",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20bea369-88fb-5ec1-84e0-b385c21b6322",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "197a5809-dfcb-5c86-b788-c1f0c8d7075f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28075889-86c5-5c1f-bb65-9a80badd4d90",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln klein (1 cm), damit sie schnell garen. Schneide die Wurst in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Kartoffeln in heißem Öl 5 Minuten ungestört an, wende sie dann und gare sie insgesamt 10 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe die Kartoffeln an den Pfannenrand, gib die Wurst dazu und brate sie pro Seite 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zwiebel, Paprika und Knoblauch dazu und gare alles 5 Minuten, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit geräuchertem Paprikapulver, Salz und Pfeffer. Gib zum Schluss Petersilie dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Sausage-Potato-Skillet_EXPS_TOHcom25_8169_DR_02_05_01b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Sausage-Potato-Skillet_EXPS_TOHcom25_8169_DR_02_05_01b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-skillet-shrimp-corn",
+      "slug": "mfr-skillet-shrimp-corn",
+      "title": "Cajun-Garnelen-Mais-Pfanne",
+      "instructions": "Pralle Garnelen in rauchiger Cajun-Gewürzmischung wenden und mit süßen Sommerkörnern vom Mais, Knoblauch und Butter scharf anbraten. Mit einem Spritzer Limette und frischem Koriander abrunden. Ein Pfannengericht von der Golfküste, fertig in 15 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen und tiefgekühlter Mais eignen sich perfekt; taue die Garnelen in kaltem Wasser auf.",
+        "Cajun-Gewürzmischung: geräuchertes Paprikapulver + Cayenne + Knoblauchpulver + Oregano; eine fertige Mischung brauchst du nicht.",
+        "Abgetropfter und trocken getupfter Dosenmais eignet sich notfalls ebenfalls."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Hähnchenbruststreifen für eine Cajun-Hähnchenpfanne"
+        },
+        {
+          "forIngredientId": "corn",
+          "swap": "Zucchini oder Zuckerschoten für eine kohlenhydratärmere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-shrimp-corn",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Garnelen",
+        "Mais",
+        "cajun",
+        "Pfanne",
+        "schnell",
+        "südstaatlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1551,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-shrimp-corn/",
+      "components": [
+        {
+          "key": "719c1601-e4a9-5e49-9d7d-7fa996ec9a5a",
+          "name": "Zutaten",
+          "servingGrams": 151.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "6193c9bb-c1de-5633-bce3-16bf86bcc268",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b68063b6-a2ef-5dac-8a10-816748a9e929",
+              "ingredientName": "Frischer Mais",
+              "grams": 180,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d76a49b5-37fe-50f8-8d40-22a02fb39fe1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd25fb64-3e67-5312-837a-1229c90cedf6",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24b41e91-7861-57bb-a068-d7cc08c77680",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1ba0fa9-5289-59d3-a5c7-a58e2b3713bf",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff7d331b-44ad-53a9-8786-bc0c0078201c",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5e82ad5-4a4e-5d1a-aecf-0cf50ae3f987",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86d03216-75cf-55a5-8a66-650091641eb8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1037543-533b-5c88-ad8d-4e133f566d88",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Garnelen trocken und vermenge sie mit geräuchertem Paprikapulver, Cayenne und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass Butter in einer Pfanne bei hoher Hitze schmelzen. Gib den Mais dazu und brate ihn 3 Minuten an, bis er leicht angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe den Mais beiseite und brate die Garnelen pro Seite 90 Sekunden, bis sie rosa und leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch dazu und wende alles 30 Sekunden. Presse Limettensaft darüber und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere das Gericht mit Koriander und serviere es mit Reis oder knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/03/Cajun-Shrimp-and-Sausage-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/03/Cajun-Shrimp-and-Sausage-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-skillet-turkey-zucchini",
+      "slug": "mfr-skillet-turkey-zucchini",
+      "title": "Putenhack-Zucchini-Pfanne",
+      "instructions": "Mageres Putenhackfleisch mit italienischen Kräutern anbraten, dazu zerdrückte Tomaten und gewürfelte Zucchini geben. Ein schnelles, kohlenhydratarmes Pfannengericht, das wie gefüllte Paprika ohne Füllung schmeckt: herzhaft, sättigend und in 20 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhackfleisch ist pro Pfund oft günstiger als Rinderhack.",
+        "Zucchini ist das ganze Jahr über günstig; verwende zwei große Stück.",
+        "Lass den Parmesan weg, damit das Gericht milchfrei ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Hähnchenhackfleisch oder besonders mageres Rinderhack"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Aubergine, Spinat oder tiefgekühltes Mischgemüse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-turkey-zucchini",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Truthahn",
+        "Zucchini",
+        "kohlenhydratarm",
+        "Pfanne",
+        "italienisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1552,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-turkey-zucchini/",
+      "components": [
+        {
+          "key": "5b520cf7-5506-54df-b50e-f6d9cea3765a",
+          "name": "Zutaten",
+          "servingGrams": 334.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "50151ff8-9c67-58f5-960c-c42125baa47f",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a9cd20e-5d38-5be1-af42-70f0a4f89525",
+              "ingredientName": "Zucchini",
+              "grams": 588,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ca13c36-574c-51cd-8374-f85f6bd39903",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c77e6e4a-cd17-5adf-b23d-1cf2d3cd05c7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2aeab50-d8ea-5b69-8829-f90e68d60a20",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfcf8370-50e7-5597-bde1-e5adef2c7571",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f81b9b8-eb21-597e-9224-1a750b1b9575",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "302b4ab4-6fff-5101-945e-81727f3c826c",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3b327db-f16e-5ebc-bcf7-1495b1701742",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe54aac9-aaf2-5c60-8a22-2639c5ebe754",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Putenhackfleisch in Öl etwa 6 Minuten an und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel und Zucchini dazu und gare sie 4 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, italienische Kräuter und Chiliflocken dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die gehackten Tomaten dazu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Probiere das Gericht und würze es nach Bedarf. Gib zum Schluss geriebenen Parmesan dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Ground-Turkey-and-Zucchini-Skillet-5-1024x1536.jpg",
+          "sourcePageUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Ground-Turkey-and-Zucchini-Skillet-5-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-skillet-salmon-spinach",
+      "slug": "mfr-skillet-salmon-spinach",
+      "title": "Lachs-Spinat-Pfanne mit gebratenem Lachs",
+      "instructions": "Lachsfilets mit knuspriger Haut perfekt anbraten und anschließend mit einer frischen Zitronen-Knoblauch-Spinat-Pfanne fertig garen. Ein Abendessen wie im Restaurant, in 20 Minuten fertig, mit wenig Abwasch und vielen Nährstoffen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Portionen tiefgekühlten Lachses kosten nur halb so viel wie frischer Lachs; taue sie über Nacht auf.",
+        "Babyspinat aus dem Beutel ist oft günstiger als lose Spinatblätter im Bund.",
+        "Ein Schuss Nudelwasser oder Brühe ergibt auf Wunsch eine leichte Sauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tilapia oder Kabeljau für einen milderen, günstigeren Weißfisch"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Grünkohl, Rucola oder Mangold; 1–2 Minuten länger garen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-salmon-spinach",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Lachs",
+        "Spinat",
+        "Zitrone",
+        "Pfanne",
+        "schnell",
+        "Omega-3"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1553,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-salmon-spinach/",
+      "components": [
+        {
+          "key": "2e1542e8-5d06-581c-a802-5e4d1b9e518d",
+          "name": "Zutaten",
+          "servingGrams": 640.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "94e58e8b-8b44-59c7-a211-37ea3d2d02f9",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c13574a6-76fe-5ed0-8254-3f5343cf4646",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6eefd0b1-1111-563a-9f84-dcb8b864cfc6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2c4b740-504c-51cc-91d1-1545886af28b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef061d10-d4f0-5555-9800-d0fb3ce20027",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7de1c7f5-6788-5281-9495-a8bbcb46bb61",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03cbb8d7-b00a-57ff-a12d-2452792bc502",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4141d5c-a919-5f22-9863-25b8ebbde503",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe den Lachs vollständig trocken und würze ihn großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze, bis es leicht schimmert. Lege den Lachs mit der Hautseite nach oben hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate ihn 4–5 Minuten, ohne ihn zu bewegen. Wende ihn und brate ihn weitere 3 Minuten. Nimm ihn auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere Stufe, gib Knoblauch und Chiliflocken dazu und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Spinat portionsweise dazu und wende ihn 2–3 Minuten, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Presse Zitrone über den Spinat und lege den Lachs darauf zurück. Serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/salmon-and-spinach-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/salmon-and-spinach-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-skillet-chickpea-tomato",
+      "slug": "mfr-skillet-chickpea-tomato",
+      "title": "Würzige Kichererbsen-Tomaten-Pfanne",
+      "instructions": "Ein Gericht aus Vorratszutaten: Kichererbsen aus der Dose in einer gewürzten Tomatenbasis mit Kreuzkümmel, Koriander und geräuchertem Paprikapulver köcheln lassen, bis die Mischung dick und löffelbar ist. Mit Reis essen, auf Toast geben oder für eine Variante nach Shakshuka-Art Eier hineinschlagen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen und eine Dose Tomaten kosten insgesamt etwa $2.",
+        "Friere Reste ein; sie lassen sich perfekt wieder aufwärmen.",
+        "Dosen-Tomaten eignen sich hier immer; frische Tomaten brauchst du nicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen oder Linsen für eine andere Textur"
+        },
+        {
+          "forIngredientId": "crushed-tomatoes",
+          "swap": "Frische, gewürfelte Tomaten, wenn sie Saison haben"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-chickpea-tomato",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Kichererbse",
+        "Tomate",
+        "Speisekammer",
+        "vegan",
+        "Pfanne",
+        "preiswert"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1554,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-chickpea-tomato/",
+      "components": [
+        {
+          "key": "4015445c-b572-5856-8c3c-8479275830b0",
+          "name": "Zutaten",
+          "servingGrams": 652.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c8531be-6390-5535-8639-1f31f43b73f0",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fa9d95b-7d97-56d1-8c9e-cfa903fd1d2c",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47a60c14-5fa3-588e-b6be-b94b5a8385bf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "982782b6-d11b-5c0c-b8d2-49fa9cf91132",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2845ea4a-0255-5191-9a4f-8e1186ddfcf7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8788b3b7-43d0-5e79-971f-be5c5b8dc2b2",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ead7edb-a2bf-524f-9bfb-be7032efa550",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40d3ad65-9d91-53a4-b721-5d86993d62f7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d33f69c-1d47-5fcb-9311-d7f15219bca2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49338516-5195-5eb3-b33a-33b27fc2b31d",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b44ef7a-bdde-5831-bdc2-20ca356712b1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 5 Minuten in Öl an, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Kreuzkümmel, Koriander und geräuchertes Paprikapulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kichererbsen und Tomaten dazu und lass alles 10 Minuten köcheln, bis die Mischung eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den Spinat ein, bis er zusammenfällt. Presse Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht mit Reis oder auf Toast, oder schlage 2–3 Eier hinein und decke die Pfanne ab, damit sie pochieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del109924-chickpeabroccolialfredoskillet-web-172-mh-lead-67231c942f139.jpg?crop=0.9997367728349565xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del109924-chickpeabroccolialfredoskillet-web-172-mh-lead-67231c942f139.jpg?crop=0.9997367728349565xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

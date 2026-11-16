@@ -1,0 +1,1319 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-chocolate-eclairs",
+      "slug": "bake-chocolate-eclairs",
+      "title": "Schokoladen-Eclairs",
+      "instructions": "Knusprige, hohle Brandteigstreifen, gefüllt mit seidiger Vanille-Konditorcreme und mit glänzender dunkler Schokoladenglasur überzogen. Dieses französische Pâtisseriegebäck lässt sich zu Hause leichter zubereiten, als es aussieht.",
+      "prepTimeMinutes": 50,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eclairs bestehen aus Vorratszutaten wie Mehl, Eiern, Milch, Butter und Zucker. Nur gute Schokolade ist etwas teurer. Kaufe eine Tafel im Angebot statt teure Kuvertüre.",
+        "Kein Spritzbeutel da? Verwende einen stabilen Gefrierbeutel mit abgeschnittener Ecke oder spritze runde Windbeutel. Es ist derselbe Teig und keine Tülle nötig.",
+        "Bereite die Konditorcreme vor und spritze den ungebackenen Brandteig schon am Vortag. Eingefroren kann er direkt gebacken werden; verlängere die Backzeit um einige Minuten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "semi-süß oder dark Schokolade chips, geschmolzen mit der Sahne",
+          "savings": "Schokostückchen sind pro Gramm meist günstiger als Backschokolade und schmelzen gut für Glasuren"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "whole Milch plus ein extra Teelöffel von Butter für der glaze",
+          "savings": "Spart eine Packung Sahne, wenn nur ein Schuss benötigt wird"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "imitation vanilla oder ein scraped vanilla bean wenn du have one",
+          "savings": "Vanillearoma kostet nur einen Bruchteil reinen Extrakts"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Nachtisch",
+        "pastry (deutsche Fassung)",
+        "choux (deutsche Fassung)",
+        "Backen",
+        "klassisch",
+        "patisserie (deutsche Fassung)",
+        "Schokolade",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7465,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-chocolate-eclairs/",
+      "components": [
+        {
+          "key": "5fab3dc9-99dd-5861-9f98-7f101d539d5c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 113.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "5378f0de-fab9-51a1-bfcf-b32aaa34c511",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse Wasser für den Brandteig"
+            },
+            {
+              "key": "0519bf92-bb06-5961-a6e5-110d39ea79f0",
+              "ingredientName": "Butter",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "insgesamt 115g ungesalzene Butter: ~85g für den Brandteig, ~30g für die Schokoladenglasur"
+            },
+            {
+              "key": "153c0dc8-9338-567b-a722-524dc34f6451",
+              "ingredientName": "Weizenmehl",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "insgesamt 140g Weizenmehl (125g für den Brandteig, ~15g zum Bestäuben oder Anpassen)"
+            },
+            {
+              "key": "d7430d5b-059c-572d-928b-8e172c3d414e",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Eier für den Brandteig, 4 Eigelbe für die Konditorcreme"
+            },
+            {
+              "key": "f5fa300d-40d1-56df-9ff8-775feee032a3",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen Vollmilch für die Konditorcreme"
+            },
+            {
+              "key": "26f7b1c4-eca4-579e-94ed-c7815d158471",
+              "ingredientName": "weißer Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 130g Zucker für die Konditorcreme"
+            },
+            {
+              "key": "29c13054-236e-587c-b297-f41e6a0a0ee1",
+              "ingredientName": "Speisestärke",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 40g zum Andicken der Konditorcreme"
+            },
+            {
+              "key": "94e37202-bea5-5e64-b794-28ffd6ce9d2d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanille; ideal ist eine aufgeschlitzte Vanilleschote, falls vorhanden"
+            },
+            {
+              "key": "4732bb9c-883a-5645-b8d9-31bdbb4e0d52",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 150g gute dunkle Schokolade mit 60-70% Kakao für die Glasur"
+            },
+            {
+              "key": "2915c2f1-9f6a-527f-b110-9beaa1563041",
+              "ingredientName": "Sahne",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 100ml für eine gießfähige, glänzende Schokoladenglasur"
+            },
+            {
+              "key": "4183be34-1c90-59c2-97ba-2ebe77adf569",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "kleine Prise in Brandteig und Konditorcreme zum geschmacklichen Ausgleich"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite zuerst die Konditorcreme zu: Verquirle 4 Eigelb mit Zucker und Maisstärke, bis die Masse hell ist. Erhitze die Milch bis kurz vor dem Kochen und gieße sie unter ständigem Rühren langsam zu den Eigelben. Gib alles zurück in den Topf und koche es unter kräftigem Schlagen bei mittlerer Hitze, bis die Masse blubbert und etwa 2 Minuten puddingartig eindickt. Nimm sie vom Herd, rühre Vanille und eine Prise Salz ein, fülle die Creme in eine Schüssel, lege Frischhaltefolie direkt auf die Oberfläche und stelle sie mindestens 2 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Brandteig Wasser, den dafür vorgesehenen Butteranteil, eine Prise Salz und eine Prise Zucker sprudelnd aufkochen. Gib das Mehl auf einmal dazu und rühre kräftig mit einem Holzlöffel, bis ein glatter Ball entsteht. Rühre den Teig weitere 1-2 Minuten auf dem Herd, damit er trocknet; ein dünner Film sollte den Topfboden überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den heißen Teig in eine Schüssel und lasse ihn 5 Minuten abkühlen. Schlage die 4 Eier einzeln vollständig unter, bis der Teig glänzt und in einem dicken V-förmigen Band vom Löffel fällt. Eventuell brauchst du nicht das ganze letzte Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 425F (220C) vor. Fülle den Brandteig in einen Spritzbeutel mit großer Stern- oder Lochtülle und spritze zwölf 5-Zoll lange Streifen mit Abstand auf mit Backpapier belegte Bleche. Glätte Spitzen mit einem feuchten Finger, damit sie nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Eclairs bei 425F 15 Minuten. Öffne die Ofentür NICHT, sondern reduziere die Temperatur auf 375F (190C) und backe weitere 18-20 Minuten, bis sie dunkelgolden und fest sind. Stich jedes Ende mit einem Messer ein und stelle die Eclairs weitere 5 Minuten in den ausgeschalteten Ofen, damit das Innere trocknet. Auf einem Gitter vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die kalte Konditorcreme glatt und fülle sie in einen Spritzbeutel mit kleiner Lochtülle. Stich zwei Löcher in die Unterseite jeder Hülle und spritze Creme hinein, bis sie sich schwer anfühlt und Widerstand leistet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für die Glasur die Sahne erhitzen, bis Dampf aufsteigt, und über gehackte dunkle Schokolade und die übrige Butter gießen. 1 Minute stehen lassen, dann glatt und glänzend rühren. Auf eine gut eintauchbare Konsistenz abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Tauche die Oberseite jedes gefüllten Eclairs in die Glasur, lasse den Überschuss abtropfen und lege es mit der glasierten Seite nach oben ab. Lasse die Schokolade 15-20 Minuten fest werden und serviere die Eclairs. Am besten schmecken sie am selben Tag.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Eclairs_with_chocolate_icing_at_Cafe_Blue_Hills.jpg/1280px-Eclairs_with_chocolate_icing_at_Cafe_Blue_Hills.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Eclairs_with_chocolate_icing_at_Cafe_Blue_Hills.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: georgie_grd — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Schokoladen-Eclairs",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-cheese-danish",
+      "slug": "bake-cheese-danish",
+      "title": "Dänisches Plundergebäck mit Frischkäse",
+      "instructions": "Blättriger, buttriger Hefeteig mit einer süß-säuerlichen Vanille-Frischkäsefüllung und glänzendem Eistrich. Dänisches Plundergebäck wie vom Bäcker, mit einem schnell zubereiteten, tourierten Teig.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die ganze Menge zu und friere die geformten, ungebackenen Teilchen ein. Backe sie direkt aus dem Gefrierfach; die Backzeit verlängert sich nur um einige Minuten.",
+        "Frischkäse am Stück und ein Stück Butter kosten pro Teilchen deutlich weniger als ein einzelnes Plunderstück vom Bäcker.",
+        "Lasse den fertigen Blätterteig aus dem Laden weg: Für die schnelle Touriermethode brauchst du nur Mehl und Butter, die du vermutlich bereits hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "verwenden well-drained ricotta verquirlt mit ein extra spoon von Zucker für ein lighter, slightly grainy Füllung",
+          "savings": "~$1.00 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "ein few drops von almond extract oder ein pinch von Orange zest",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Any warm plant Milch oder even Wasser mit ein pinch mehr Zucker",
+          "savings": "vernachlässigbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "danish (deutsche Fassung)",
+        "pastry (deutsche Fassung)",
+        "Frühstück",
+        "Backen",
+        "Sahne-Käse",
+        "laminated-Teig",
+        "brunch (deutsche Fassung)",
+        "aus-scratch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7466,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-cheese-danish/",
+      "components": [
+        {
+          "key": "84ddf4c5-bef7-50f0-ba57-4cf63bce5b83",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 148.22,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e39668c-2691-5fda-b875-a69c55be193f",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, ~2.25 Tassen für den Teig"
+            },
+            {
+              "key": "be543e5d-7d73-59ef-ae74-657c420b91c9",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL (1 Päckchen)"
+            },
+            {
+              "key": "44bd01d0-130a-5d15-b7c9-9862e6de425f",
+              "ingredientName": "Zucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "aufgeteilt: etwas im Teig, den Rest in der Füllung"
+            },
+            {
+              "key": "87506d98-da87-5689-8805-75cda0a35712",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 TL feines Salz"
+            },
+            {
+              "key": "bb5c437c-c8ad-5687-a7c5-a065496ee8de",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse warme Vollmilch"
+            },
+            {
+              "key": "d2424787-5aca-5fbe-83f6-a64b2a01edee",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stück + 2 EL, kalt; den Großteil in den Teig eintourieren, 1 EL geschmolzen zum Bestreichen"
+            },
+            {
+              "key": "3f6de834-6e9a-507a-ad35-0d7c1088471e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 ganzes im Teig, 1 Eigelb in der Füllung + Eiweiß zum Bestreichen aufbewahrt"
+            },
+            {
+              "key": "e0825275-1cc6-52a7-a9a4-9f73e20b78a6",
+              "ingredientName": "Frischkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 oz Block, weich"
+            },
+            {
+              "key": "fddf3f59-676d-556d-8005-d07c2b5eea9e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "d44907b7-c2bb-5494-be98-b53d8e46fd31",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "abgeriebene Schale + ein Spritzer Saft"
+            },
+            {
+              "key": "dbb79fd4-aef7-5021-98d9-4f6be6e52276",
+              "ingredientName": "Puderzucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "für einen dünnen Glasurguss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Milch, bis sie lauwarm ist. Rühre Hefe und 1 EL Zucker ein und lasse die Mischung 5 Minuten schäumen. Verquirle 1 Ei damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, 1 EL Zucker und Salz. Schneide 8 EL (1 stick) kalte Butter in Stücken ein, sodass sichtbare Flocken etwa so groß wie große Erbsen bleiben. Rühre die Hefemischung nur so lange ein, bis ein grober Teig entsteht. Einwickeln und 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle den Teig auf einer bemehlten Fläche rechteckig aus und falte ihn wie einen Brief in drei Teile. Drehe ihn um 90 Grad und rolle ihn erneut aus. Wiederhole das Falten und Ausrollen noch zweimal (insgesamt 3 Faltungen), damit blättrige Schichten entstehen. Wird die Butter weich, 10 Minuten kalt stellen. Einwickeln und 1 Stunde kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage den weichen Frischkäse mit dem restlichen Zucker (etwa 1/4 Tasse) glatt. Rühre 1 Eigelb, Vanille, Zitronenschale und einen kleinen Spritzer Zitronensaft ein, bis die Creme seidig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den kalten Teig etwa 1/4 Zoll dick aus und schneide ihn in 8 Quadrate. Drücke die Mitte mit dem Daumen leicht ein oder falte die Ecken wie ein Windrad zur Mitte. Gib jeweils einen großzügigen Klecks Frischkäsefüllung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Teilchen auf ein mit Backpapier belegtes Blech, decke sie locker ab und lasse sie an einem warmen Ort 30 bis 45 Minuten gehen, bis sie luftig sind. Heize währenddessen den Ofen auf 400F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche die sichtbaren Teigränder mit dem zurückbehaltenen Eiweiß, das mit einem Schuss Wasser verquirlt wurde. Backe die Teilchen 18 bis 22 Minuten, bis sie dunkelgolden und die Füllung gerade fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie 10 Minuten abkühlen. Verrühre Puderzucker mit einigen Tropfen Wasser oder Zitronensaft und träufle eine dünne Glasur über das noch warme Gebäck.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Cheese_danish_-_Massachusetts.jpg/1280px-Cheese_danish_-_Massachusetts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cheese_danish_-_Massachusetts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Daderot — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Dänisches Plundergebäck mit Frischkäse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-sticky-buns",
+      "slug": "bake-sticky-buns",
+      "title": "Klebrige Pekannuss-Schnecken",
+      "instructions": "Luftige, reichhaltige Hefeschnecken, die kopfüber auf blubberndem Braunzucker-Karamell mit gerösteten Pekannüssen gebacken und anschließend gestürzt werden. Die Glasur läuft an den Seiten hinab. Mit Zimtspirale und glänzender, klebriger Oberfläche lässt sich das Gebäck gut über Nacht vorbereiten.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Pekannussstücke oder ganze Nüsse in großen Packungen statt bereits gehackte. Röste sie selbst; das gibt mehr Aroma und kostet weniger.",
+        "Der reichhaltige Teig besteht nur aus Mehl, Hefe, Milch, Eiern, Butter und Zucker. Das sind Vorratszutaten; die Pekannüsse machen den größten Teil der Kosten aus.",
+        "Bereite den Teig und die Form am Vorabend vor, stelle sie kalt und backe die Schnecken morgens frisch. So sparst du am Backtag aktive Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "corn-syrup",
+          "swap": "verwenden ein gleich amount von Honig oder maple syrup für der caramel",
+          "savings": "Spart den Kauf einer ganzen Flasche Maissirup"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Swap in Walnüsse, which behave der same und toast just as well",
+          "savings": "Pro Pfund oft 30-40% günstiger als Pekannüsse"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Warmed oat Milch works in der enriched Teig",
+          "savings": "Bereits vorhandene Zutaten verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "sticky-buns (deutsche Fassung)",
+        "pecan (deutsche Fassung)",
+        "Frühstück",
+        "brunch (deutsche Fassung)",
+        "Backen",
+        "Hefe-Teig",
+        "caramel (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7467,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-sticky-buns/",
+      "components": [
+        {
+          "key": "17a62c1b-3189-5662-aebc-c45574f6250c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 155.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf86f041-1489-52fd-8bf8-d0dcc33187ec",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, ~4 Tassen für den Teig"
+            },
+            {
+              "key": "f57cf14c-ea8b-56d3-bd2d-b86ecc28f60f",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL (1 Päckchen)"
+            },
+            {
+              "key": "fc872a99-174b-5101-bdc2-8c602e97a1de",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, auf 110F erwärmt"
+            },
+            {
+              "key": "ee803de3-11e0-5bef-8537-2a3b84497677",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse für den Teig"
+            },
+            {
+              "key": "fb9bfdd7-021a-5ed4-8300-79a1fc4e1f64",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "zimmerwarm"
+            },
+            {
+              "key": "13864a35-7c24-5def-b61b-db87bdfe533b",
+              "ingredientName": "Butter",
+              "grams": 12.75,
+              "quantity": 12.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "weich für Teig + Karamell + Füllung"
+            },
+            {
+              "key": "97f5e374-9d7b-514e-9ad7-ba2a09bcf646",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL feines Salz"
+            },
+            {
+              "key": "b06a7aef-ccc3-5128-b6b9-f643f45d49f4",
+              "ingredientName": "brauner Zucker",
+              "grams": 10.5,
+              "quantity": 10.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "fest angedrückt, für Karamell + Zimtfüllung"
+            },
+            {
+              "key": "85cd14fd-a409-59d7-9bf3-5c38c2a5dfca",
+              "ingredientName": "Maissirup",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse, hell, hält das Karamell glänzend"
+            },
+            {
+              "key": "9bf427c3-6621-5616-a9f7-69439d0df3d5",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "2 EL ins Karamell"
+            },
+            {
+              "key": "dc670f02-b162-58b1-add8-375126f2c349",
+              "ingredientName": "Pekannüsse",
+              "grams": 340.2,
+              "quantity": 340.2,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 1/2 Tassen, geröstet und gehackt"
+            },
+            {
+              "key": "def97f92-1c85-5ed9-a099-e2a4d8717c95",
+              "ingredientName": "Zimt",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL, gemahlen, für die Marmorierung"
+            },
+            {
+              "key": "63269b45-7cdc-5b2f-9bc5-49c64c619c55",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL im Karamell"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Milch auf etwa 110F, rühre Hefe und eine Prise Zucker ein und lasse die Mischung 5 Minuten schäumen. Vermische Mehl, restlichen Teigzucker und Salz in einer großen Schüssel. Gib Hefemischung, Eier und 4 EL weiche Butter dazu und verrühre alles zu einem groben Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig von Hand 8-10 Minuten oder in der Küchenmaschine 6 Minuten, bis er glatt, elastisch und leicht klebrig, aber nicht nass ist. Decke ihn ab und lasse ihn an einem warmen Ort etwa 1 bis 1.5 Stunden gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für das Karamell 8 EL Butter mit dem Großteil des Braunzuckers, Maissirup, Honig und Vanille glatt und blubbernd schmelzen, etwa 2 Minuten. In eine 9x13 Form gießen und die gerösteten, gehackten Pekannüsse gleichmäßig darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Luft aus dem Teig und rolle ihn auf einer bemehlten Fläche zu einem etwa 12x18 Zoll großen Rechteck. Bestreiche ihn mit den übrigen 4 EL weicher Butter. Vermische restlichen Braunzucker und Zimt, streue die Mischung darüber und lasse am hinteren Rand einen 1 Zoll breiten Streifen frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig von einer langen Seite fest auf und drücke die Naht zusammen. Schneide die Rolle mit ungewachster Zahnseide oder einem scharfen Sägemesser in 12 gleich große Schnecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze die Schnecken mit der Schnittfläche nach oben auf das Karamell und lasse etwas Abstand zwischen ihnen. Decke die Form ab und lasse sie 45-60 Minuten gehen, bis sie luftig sind und sich berühren. Alternativ über Nacht kalt stellen und vor dem Backen auf Raumtemperatur bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Schnecken bei 350F 30-35 Minuten, bis sie dunkelgolden sind und das Karamell an den Seiten blubbert. Decke sie mit Folie ab, falls sie zu schnell bräunen. Die mittleren Schnecken sollten 190F erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie nur 3-5 Minuten in der Form abkühlen und stürze sie dann auf eine Platte mit Rand oder ein Brett, damit Karamell und Pekannüsse über die Schnecken laufen. Verteile übriges Karamell aus der Form darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse die Schnecken 10 Minuten ruhen, damit die Glasur leicht fest wird. Auseinanderzupfen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Sticky_Bun_and_Nuts_Loaf_2300px.jpg/1280px-Sticky_Bun_and_Nuts_Loaf_2300px.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sticky_Bun_and_Nuts_Loaf_2300px.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Photo: Derek Ramsey (Ram-Man) — CC BY-SA 2.5 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klebrige Pekannuss-Schnecken",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-pop-tarts",
+      "slug": "bake-pop-tarts",
+      "title": "Gefüllte Toaster-Taschen",
+      "instructions": "Blättrige, buttrige Teigtaschen mit fruchtiger Konfitürenfüllung und süßer Vanilleglasur. Zarte Teigschichten, zusammengedrückte Ränder und bunte Streusel machen sie viel besser als die gekaufte Variante. Außerdem bestimmst du selbst, wie viel Füllung und Zucker hineinkommt.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine selbst gemachte Menge kostet nur einen Bruchteil einer Markenpackung und ergibt 8 Stück. Übrige Taschen ungeglasiert einwickeln und einfrieren, dann im Toaster oder Ofen aufwärmen.",
+        "Verwende Konfitüre, die schon im Kühlschrank steht. Maisstärke verhindert, dass die Fruchtfüllung beim Backen ausläuft.",
+        "Lasse gekaufte Streusel weg und nimm nur Vanilleglasur oder etwas Zimtzucker für eine noch günstigere Süßigkeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "verwenden chilled vegetable shortening für part von der Butter für ein extra-flaky crust",
+          "savings": "Backfett ist günstiger als Butter und ebenso lange haltbar"
+        },
+        {
+          "forIngredientId": "jam",
+          "swap": "Spread ein brown-Zucker-Zimt Paste (brown Zucker + Mehl + Zimt) anstatt fruit Marmelade",
+          "savings": "Verwendet günstige Vorratszutaten statt eines Glases Konfitüre"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "dünn der glaze mit Wasser oder any plant Milch du have auf hand",
+          "savings": "Kostet praktisch nichts"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "toaster-pastry (deutsche Fassung)",
+        "aus-scratch",
+        "kid-friendly (deutsche Fassung)",
+        "Frühstück-treat",
+        "Backen",
+        "machen-ahead",
+        "freezer-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7468,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-pop-tarts/",
+      "components": [
+        {
+          "key": "4518bc81-b2e1-5632-8c1f-bb7e17425b7f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 174.27,
+          "position": 0,
+          "items": [
+            {
+              "key": "c136cc67-0658-5be1-8549-2aa1ad2832de",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 2 Tassen"
+            },
+            {
+              "key": "f1ebab5c-b81f-50c6-916f-473878bf261c",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke), kalt und gewürfelt"
+            },
+            {
+              "key": "8329a93f-3ca3-5627-abd1-78d9aea01f72",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL im Teig"
+            },
+            {
+              "key": "9e41db16-c9e2-5ec1-80da-b23fb2f4b272",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3595e5f7-d1f6-5480-95ec-847dfa6fde5b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Ei zum Bestreichen"
+            },
+            {
+              "key": "d0f03d9e-b7c0-5c75-8029-8a0dbaf3eae5",
+              "ingredientName": "Marmelade",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "dicke Fruchtmarmelade, etwa Erdbeere oder Himbeere, ungefähr 2/3 Tasse"
+            },
+            {
+              "key": "3f070572-e7fe-5ede-8672-cef6d108ed54",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL in die Marmelade eingerührt, damit die Füllung fest wird"
+            },
+            {
+              "key": "44d278f8-74c1-54cf-bb17-c2eb33b6e6fa",
+              "ingredientName": "Puderzucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "für die Glasur, etwa 1.5 Tassen"
+            },
+            {
+              "key": "c78edeb7-478b-5d53-bb6f-f6ca8774756e",
+              "ingredientName": "Milch",
+              "grams": 45.6,
+              "quantity": 45.6,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2-3 EL zum Verdünnen der Glasur"
+            },
+            {
+              "key": "8e0d0e76-f75d-57f9-a347-a800cee765f2",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL in der Glasur"
+            },
+            {
+              "key": "ef8414a2-5f7b-5e27-a9ea-c9e06ee7e982",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "bunte Streusel zum Verzieren; vorhandene Dekorstreusel verwenden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre 2 Tassen Mehl, 2 EL Zucker und 1 TL Salz. Arbeite die kalte, gewürfelte Butter mit den Fingerspitzen oder einem Teigmischer ein, bis erbsengroße Stücke und einige flache Butterflocken bleiben. Träufle nach und nach 4-6 EL Eiswasser hinein und mische nur so lange, bis der Teig beim Zusammendrücken zusammenhält. Nicht überarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in zwei Hälften, drücke jede zu einem Rechteck, wickle sie ein und stelle sie mindestens 30 Minuten kalt, damit die Butter fest wird und das Mehl quillt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre 1 EL Maisstärke in die Konfitüre, damit die Füllung nicht herausblubbert. Rolle jede Teighälfte auf einer bemehlten Fläche zu einem etwa 9x12 Zoll großen Rechteck aus. Schneide die Ränder gerade und jedes Rechteck in 8 gleich große Stücke (etwa 3x4 Zoll), insgesamt 16 Stück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle das Ei mit einem Schuss Wasser. Bestreiche den Rand von 8 Rechtecken mit Eistrich und gib jeweils etwa 1 EL Konfitüre in die Mitte; lasse einen 1/2 Zoll breiten Rand frei. Lege je ein zweites Rechteck darauf, drücke Luft heraus und verschließe die Ränder fest mit einer Gabel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stich die Oberseite jeder Tasche mehrmals mit einer Gabel ein, damit Dampf entweichen kann und sie beim Backen flach bleiben. Stelle die gefüllten Teigtaschen 20-30 Minuten kalt, damit der Teig blättriger wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 375F (190C) vor. Bestreiche die Oberseiten mit dem restlichen Eistrich und backe sie auf einem mit Backpapier belegten Blech 22-28 Minuten goldbraun. Vor dem Glasieren auf einem Gitter vollständig abkühlen lassen, sonst schmilzt die Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre Puderzucker, Vanille und gerade so viel Milch, dass eine dicke, streichfähige Glasur entsteht. Verteile sie auf den abgekühlten Taschen, lasse einen kleinen Rand frei und streue Streusel darauf, bevor die Glasur fest wird. Vor dem Servieren einige Minuten fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Pop-Tarts-Cherry.jpg/1280px-Pop-Tarts-Cherry.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pop-Tarts-Cherry.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public domain",
+          "attributionRequired": false,
+          "attributionText": "Photo: Evan-Amos — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Gefüllte Toaster-Taschen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-cherry-turnovers",
+      "slug": "bake-cherry-turnovers",
+      "title": "Kirsch-Blätterteigtaschen",
+      "instructions": "Knusprige, goldbraune Blätterteigdreiecke mit glänzender Kirschfüllung, verfeinert mit Zitrone und Mandel und mit einer einfachen Vanilleglasur überzogen. Kleine Gebäcktaschen wie vom Bäcker, die du auch an einem Wochentag zubereiten kannst.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Kirschen sind viel günstiger als frische und werden reif geerntet. Außerhalb der Saison ergeben sie die bessere Füllung; vorheriges Auftauen ist nicht nötig.",
+        "Eine Packung Blätterteig der Hausmarke reicht für zwei Mengen. Bereite daher doppelt so viel Füllung zu und friere die ungebackenen Taschen ein, um sie später direkt tiefgekühlt zu backen.",
+        "Lasse Mandelextrakt weg, falls du keinen hast, und setze auf Zitrone und Vanille. Die Füllung schmeckt trotzdem frisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-cherries",
+          "swap": "frisch pitted cherries in season, oder gefroren mixed berries",
+          "savings": "Saisonobst oder Angebote verwenden und die Füllungskosten um ~40% senken"
+        },
+        {
+          "forIngredientId": "pizza-dough",
+          "swap": "hausgemacht rough puff oder stacked phyllo brushed mit Butter",
+          "savings": "Schneller Blätterteig aus Mehl und Butter kostet etwa halb so viel wie gekaufter"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "ein extra 1/4 tsp vanilla",
+          "savings": "Spart den Kauf einer nur einmal benötigten Flasche"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "pastry (deutsche Fassung)",
+        "cherry (deutsche Fassung)",
+        "puff-pastry (deutsche Fassung)",
+        "gebacken",
+        "hand-pie (deutsche Fassung)",
+        "fruit (deutsche Fassung)",
+        "bakery-style (deutsche Fassung)",
+        "Backen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7469,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-cherry-turnovers/",
+      "components": [
+        {
+          "key": "4cc43022-038b-540e-957f-4a6233ee97e2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 355.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d1deef1-38e3-5296-bdc3-0717b91d93c6",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Blatt aufgetauter Butterblätterteig (Pizzateig ist die ähnlichste Katalog-ID; echten Blätterteig verwenden)"
+            },
+            {
+              "key": "8070219c-575e-57aa-911b-a35787464ad3",
+              "ingredientName": "gefroren cherries",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 2.5 Tassen entsteinte dunkle Süßkirschen, halbiert"
+            },
+            {
+              "key": "82c38cef-250a-5fb0-91c5-39f710135caa",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse, an die Süße der Kirschen anpassen"
+            },
+            {
+              "key": "ae0e2e29-964f-5840-9ba8-03446bc25d71",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL, mit Flüssigkeit angerührt"
+            },
+            {
+              "key": "08cbc160-3c43-5cbc-9249-80400cb0ae1b",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Saft einer Hälfte und 1/2 TL abgeriebene Schale"
+            },
+            {
+              "key": "da4127c3-abf3-5f02-a967-35edc537f768",
+              "ingredientName": "Mandelextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "442696b7-0091-5631-a329-e781a85d5b35",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL, auf Füllung und Glasur verteilt"
+            },
+            {
+              "key": "cee10014-70bd-59f6-b09c-bdb5430fa739",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Ei zum Bestreichen"
+            },
+            {
+              "key": "3a07902a-5d25-59d5-aa03-d63abf6bc4e0",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse für die Glasur"
+            },
+            {
+              "key": "996a6945-b7b8-50d0-a046-b3fd51ad2b46",
+              "ingredientName": "Milch",
+              "grams": 9.6,
+              "quantity": 9.6,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1-2 TL zum Verdünnen der Glasur"
+            },
+            {
+              "key": "e69df942-6f3a-5b8f-b5f8-1afd098bd997",
+              "ingredientName": "Zimt",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "Prise in der Füllung"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Kirschen, Zucker, Zitronensaft, Zitronenschale und eine Prise Zimt in einen Topf. Koche alles bei mittlerer Hitze unter Rühren 5-7 Minuten, bis die Kirschen Saft abgeben und blubbern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Maisstärke mit 1 EL kaltem Wasser zu einer glatten Mischung und rühre sie in die köchelnden Kirschen. Koche 1-2 Minuten, bis die Masse dick und glänzend ist. Nimm den Topf vom Herd und rühre Mandelextrakt und 1/4 TL Vanille ein. Auf einem Teller verstreichen und etwa 20 Minuten kalt stellen, bis die Füllung abgekühlt und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 400F vor und belege ein Blech mit Backpapier. Rolle den aufgetauten Blätterteig auf einer leicht bemehlten Fläche zu einem etwa 10-Zoll großen Quadrat aus und schneide es in 4 gleich große Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle das Ei mit einem Schuss Wasser für den Eistrich. Bestreiche die Ränder jedes Quadrats und gib die abgekühlte Kirschfüllung auf eine Hälfte. Lasse einen 1/2-Zoll breiten Rand frei und fülle nicht zu viel ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falte jedes Quadrat diagonal zu einem Dreieck. Drücke die Ränder fest zusammen und versiegle sie mit den Zinken einer Gabel, damit keine Füllung austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die Oberseiten mit Eistrich und schneide mit einem scharfen Messer 2-3 kleine Dampfschlitze in jede Tasche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Taschen 20-25 Minuten, bis sie aufgegangen und dunkelgolden sind. Lasse sie 10 Minuten auf dem Blech abkühlen, damit die Füllung fest wird und die Unterseiten knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verrühre Puderzucker mit der übrigen Vanille und gerade so viel Milch, dass eine dicke, aber gießfähige Glasur entsteht. Träufle sie über die abgekühlten Taschen und lasse sie vor dem Servieren fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Cherry_Turnovers_split_and_whole_%2836051372664%29.jpg/1280px-Cherry_Turnovers_split_and_whole_%2836051372664%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cherry_Turnovers_split_and_whole_(36051372664).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Willis Lam — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kirsch-Blätterteigtaschen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

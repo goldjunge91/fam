@@ -1,0 +1,1113 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-malatang",
+      "slug": "gen-malatang",
+      "title": "Malatang",
+      "instructions": "Scharfe chinesische Brühe mit Tofu, Chinakohl und Pilzen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Tofu deutlich günstiger auf asiatischen Märkten",
+        "Wenn keine Sichuan-Pfefferkörner verfügbar sind, verwenden Sie normalen schwarzen Pfeffer"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6800,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-malatang/",
+      "components": [
+        {
+          "key": "3927aa3f-0db9-584c-ba2a-9ccfa50d8374",
+          "name": "Zutaten",
+          "servingGrams": 867,
+          "position": 0,
+          "items": [
+            {
+              "key": "1684bdf9-d8d9-5f05-a796-e0d2170ce35c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "b30c310f-23ca-5a6c-b15e-45759dbc2cd8",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a747f471-9a9f-5ecc-b77a-68ce95ddd325",
+              "ingredientName": "Getrocknetes Chili",
+              "grams": 40,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06a1a9b6-d4ad-59df-a781-37329530c751",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "b45cf9c7-81cf-5c18-8d0f-8655c8c59647",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 oz, gewürfelt"
+            },
+            {
+              "key": "f7bfb05b-ccbc-54a4-9712-9bc522a4e9e6",
+              "ingredientName": "Chinakohl",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen, gehackt"
+            },
+            {
+              "key": "73c30fad-5378-5f83-80ba-068a154d2f7c",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse, in Scheiben geschnitten"
+            },
+            {
+              "key": "bac4eafb-b62a-5b8a-8d1e-8ab34be73cad",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c1158774-ae20-5954-a996-653acf5f35ae",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ee565024-f130-5323-98f8-92fe470c2a45",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8d9d0bef-36e5-5905-b1f8-4b078c5c981d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9467975a-c82f-562d-82c6-d14946a4bd1f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sichuan-Pfefferkörner in einer trockenen Pfanne 1 Minute rösten, grob zerstoßen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Topf bei mittlerer Hitze erhitzen. Getrocknete Chilis und Knoblauch dazugeben und 30 Sekunden rühren, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe angießen und zum Kochen bringen. Geröstete Pfefferkörner, Sojasauce und Reisessig einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tofu, Chinakohl und Pilze in die Brühe geben und 8 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abschmecken und nach Wunsch mehr Sojasauce oder Chili hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem heißen Servieren mit Sesamöl beträufeln und mit Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2012/11/boba-26.webp",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2012/11/boba-26.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cold-sesame-noodles",
+      "slug": "gen-cold-sesame-noodles",
+      "title": "Kalte Sesamnudeln",
+      "instructions": "Kalte chinesische Nudeln mit würziger Sesamsauce und Gurke.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie Ihre eigene Sesamsauce aus Tahini anstelle der teuren Sesampaste",
+        "Um zu sparen, verwenden Sie normale Spaghetti anstelle von Ramen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6801,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cold-sesame-noodles/",
+      "components": [
+        {
+          "key": "91a882d5-5d5d-5939-bf52-5cee88928c25",
+          "name": "Zutaten",
+          "servingGrams": 304.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "31a2e34a-c21b-53de-b4b0-e00663edaf70",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "78016ee8-2fbe-5d6c-8ffd-ff9636bede8a",
+              "ingredientName": "Sesampaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6c1ab5b7-c9ef-56e8-9e0c-0f45e296add5",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "aaab0f72-b65d-5d0e-a731-c152d1d9deaf",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "22d38f48-1aef-50cb-9e67-548335ce4de6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "d85c2773-919e-5933-bcfa-14c992bec81c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel, fein gehackt"
+            },
+            {
+              "key": "a83ba81a-b447-53a0-9023-886c14921b09",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ead8260f-4638-5656-97eb-05cb3786fbd7",
+              "ingredientName": "Chiliöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "e262c9f4-8736-5616-8b0d-0174ec3336bc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2, gehackt"
+            },
+            {
+              "key": "f2f026bb-7824-52c7-8f2f-3897814d7dad",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, in feine Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Nudeln 3 Minuten in kochendem Salzwasser garen. Abgießen und unter kaltem Wasser abspülen, bis sie vollständig abgekühlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sesampaste, Sojasauce, Reisessig, gehackten Knoblauch, Ingwer, Sesamöl und Chiliöl in einer Schüssel glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Esslöffel warmes Wasser unter die Sauce rühren, bis sie die gewünschte Konsistenz hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die kalten Nudeln mit der Soße vermengen, bis sie gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Nudeln auf zwei Schüsseln verteilen und mit in feine Streifen geschnittener Gurke sowie gehackten Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/o0gf_Sjsjdt30EG8787pSNy5jgQ=/5569x3712/filters:fill(auto,1)/cold-vegan-chinese-sesame-noodles-recipe-3377147-hero-01-06d18136377c4377ab8221e8a61b769f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/o0gf_Sjsjdt30EG8787pSNy5jgQ=/5569x3712/filters:fill(auto,1)/cold-vegan-chinese-sesame-noodles-recipe-3377147-hero-01-06d18136377c4377ab8221e8a61b769f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-nh-m-l-nh",
+      "slug": "gen-b-nh-m-l-nh",
+      "title": "Bánh mì lạnh",
+      "instructions": "Vietnamesisches kaltes Baguettesandwich mit eingelegtem Gemüse, Aufschnitt und Kräutern.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie anstelle von vietnamesischem Aufschnitt herkömmlichen Truthahn oder Schinken aus dem Delikatessengeschäft",
+        "Überspringen Sie die Pastete, um die Kosten erheblich zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6802,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-nh-m-l-nh/",
+      "components": [
+        {
+          "key": "a4447f7d-f8a7-58ee-942c-41fa46da5de2",
+          "name": "Zutaten",
+          "servingGrams": 325.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "18cb3ee5-3d00-54d8-abdf-9c03734fc750",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93661b3e-e54d-58c0-916b-32c53a9b9d3e",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f13f082c-0a1f-5d34-879a-b319dbe0ec2f",
+              "ingredientName": "Pastete",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "66c7c69f-2f7e-5575-a5f3-6a65ed8259f7",
+              "ingredientName": "Putenaufschnitt",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 oz, in Scheiben geschnitten"
+            },
+            {
+              "key": "cd4a1115-ab71-5e3e-824c-98ab777cb249",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, in feine Streifen geschnitten"
+            },
+            {
+              "key": "ab40a41c-b0df-524b-a229-87ec57cf80e6",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1, in feine Streifen geschnitten"
+            },
+            {
+              "key": "46612f7f-f8e8-5f3a-9212-dd5d8c28f7c6",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "954a368c-f67f-54fe-8efd-5e548048ff74",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "df7d3e13-f3b7-58a3-89c3-a419914129b3",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bd27fff2-15f2-544b-87ae-e8e9f54fa6f5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0afa0512-153d-5dbf-a53b-9d1de84db16b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reisessig, Zucker und Salz vermischen. Gurke und Karotte in feine Streifen schneiden, mit der Essigmischung vermengen und 5 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Baguette der Länge nach aufschneiden und die Schnittflächen nach Belieben leicht rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die untere Baguettehälfte mit Mayonnaise, die obere mit Pastete bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Aufschnitt auf die untere Hälfte legen. Eingelegtes Gemüse, Jalapeño-Scheiben und Koriander darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Sandwich schließen, halbieren und kalt oder bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/02/banh-mi.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/02/banh-mi.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-g-i-cu-n",
+      "slug": "gen-g-i-cu-n",
+      "title": "Gỏi cuốn",
+      "instructions": "Vietnamesische frische Sommerrollen mit Garnelen und Erdnuss-Hoisin-Dip.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene gekochte Garnelen, die normalerweise günstiger sind als frische",
+        "Ersetzen Sie Garnelen durch Tofu für eine kostengünstigere vegetarische Variante"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6803,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-g-i-cu-n/",
+      "components": [
+        {
+          "key": "1812e0ea-f6fb-596a-957c-a8ccff91cc7f",
+          "name": "Zutaten",
+          "servingGrams": 3016.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8ebd370-0179-5f23-9b15-724247ea2c16",
+              "ingredientName": "Reispapierblätter",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "e18b96dd-e2e2-5b1c-aeb2-6f76a7ae8d15",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e1ce16b5-909d-513f-b56c-14ad0fab699e",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "6f873be8-e9b0-5b3c-abcc-3e3f8711a62c",
+              "ingredientName": "Salat",
+              "grams": 4000,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7b331ff-fb03-5c3c-b5b5-a60ffe084cc0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "966dc716-2461-53ff-9b86-b6c8cbfc0107",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2c9420aa-effc-5250-8ead-a8e8c9b6528d",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1, in feine Streifen geschnitten"
+            },
+            {
+              "key": "86ba6bf0-8d92-5573-9c39-1028c4e10850",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4f923595-f2ca-528e-a3c7-e687558ee3db",
+              "ingredientName": "Hoisinsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f7656490-ecab-542e-8fa5-f39d291cb240",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cbdc25d2-55cb-560e-ae17-d88b9fd737ad",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Fadennudeln nach Packungsanweisung kochen, abgießen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine flache Schüssel mit warmem Wasser füllen. Ein Reispapierblatt 10 Sekunden eintauchen, bis es biegsam ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Reispapier auf eine saubere Fläche legen. Salatblatt, Nudeln, Gurke, Garnelen, Minze und Koriander darauf schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Seiten nach innen falten und das Reispapier von sich weg fest aufrollen, ähnlich wie eine Frühlingsrolle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit den übrigen Reispapierblättern und Füllungen ebenso verfahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erdnussbutter, Hoisinsauce, Limettensaft und Wasser zu einer Dip-Sauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Sommerrollen mit der Sauce zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tastykitchen.com/recipes/wp-content/uploads/sites/2/2010/03/salad-rolls.jpg",
+          "sourcePageUrl": "https://tastykitchen.com/recipes/wp-content/uploads/sites/2/2010/03/salad-rolls.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tom-yum-sod",
+      "slug": "gen-tom-yum-sod",
+      "title": "Tom Yum Sod",
+      "instructions": "Scharfe und saure thailändische Suppe mit Hähnchen, Garnelen und Galgant.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Garnelen, um die Kosten zu senken",
+        "Ersetzen Sie Galgant durch Ingwer, falls dieser nicht verfügbar ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6804,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tom-yum-sod/",
+      "components": [
+        {
+          "key": "fb97670d-e142-52eb-88d4-f630c0f4a443",
+          "name": "Zutaten",
+          "servingGrams": 795.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "39a0b4fc-3fcd-55d4-8c73-1befb1f4e035",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9fb847c7-c12a-57cc-8ada-54702cecb350",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 oz, gewürfelt"
+            },
+            {
+              "key": "1c9f5392-3c1c-59ff-a233-611fdbb943ac",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2, in 2 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "9468a49a-e383-5c50-bfd2-62788f32d8ce",
+              "ingredientName": "Galgant",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel, in Scheiben geschnitten"
+            },
+            {
+              "key": "484c02de-eecf-500e-98d7-5ffe5e6d7dd8",
+              "ingredientName": "Kaffernlimettenblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad9f9ff2-7d02-54db-8952-91eff9589c8d",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "57ca2db6-02d1-55b5-878c-71d45560b1f4",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "a06c6f1b-1886-53c6-a6ba-9fabb1816e5f",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse, halbiert"
+            },
+            {
+              "key": "c1f8d25b-7af1-5a6c-b4fd-95c98b23fc6d",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2a08241e-7fc4-552c-8a66-0f446eb1e763",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ce6d9ced-324d-506f-a534-1dbf01f8aac0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hühnerbrühe in einem Topf bei starker Hitze zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zitronengras, Galgant und Limettenblätter dazugeben und 5 Minuten köcheln lassen, damit sie ihr Aroma abgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfeltes Hühnchen und Pilze dazugeben und 5 Minuten kochen lassen, bis das Hühnchen fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen und Thai-Chilis hinzufügen und 2 Minuten kochen lassen, bis die Garnelen rosa werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen, Limettensaft und Fischsauce einrühren und abschmecken. Die Suppe soll scharf, sauer und salzig schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit frischem Koriander garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/zFtJ_mHyuw8Wyw9dQT8ngmv5JFQ=/4096x2730/filters:fill(auto,1)/directly-above-shot-of-tom-yum-soup-served-in-bowl-on-table-673719317-5a34251a13f1290037da39ef.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/zFtJ_mHyuw8Wyw9dQT8ngmv5JFQ=/4096x2730/filters:fill(auto,1)/directly-above-shot-of-tom-yum-soup-served-in-bowl-on-table-673719317-5a34251a13f1290037da39ef.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,981 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:sardine-lemon-pasta",
+      "slug": "sardine-lemon-pasta",
+      "title": "Sardinen-Zitronen-Pasta",
+      "instructions": "Pasta mit zerdrückten Sardinen, Knoblauch, Zitrone und Chili, kräftig würzig, salzig und reich an Omega-3-Fettsäuren.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Bis zu 2 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Am besten frisch essen; falls nötig 60 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Eine Dose Sardinen kostet etwa $1.80 und enthält viel Eiweiß",
+        "Zitronenschale sorgt für besonders viel Aroma"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sardines",
+          "swap": "Dosen-Thunfisch oder Dosenlachs",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "Ein Schuss Essig",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": false,
+      "whyCheap": "Sardinen sind nährstoffreich und sehr günstig.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Zusammengefallenes Blattgemüse dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "für den Alltag"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 25,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/sardine-lemon-pasta/",
+      "components": [
+        {
+          "key": "21686041-fb05-5fcd-9281-43fb77a9d886",
+          "name": "Zutaten",
+          "servingGrams": 370.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "20d3910f-693c-50e1-a755-e67ab8c3d05e",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f98598b9-6031-5d31-bdcf-8d4392b31195",
+              "ingredientName": "Sardinen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbad9dfe-40b5-54ef-b82f-e07c36871cca",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7fd0e1e-f937-5959-b07e-1cfb5ed79060",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2df69761-e154-5f0f-b724-875869c91fc5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf010f27-7a9c-5a89-af9f-2f74f88bfe3a",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fd32cfb-3435-5703-9bbd-9f94fa43c745",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta und hebe 1/4 Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl und gehackten Knoblauch 1 Minute in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke die Sardinen samt Öl in der Pfanne und gib Chiliflocken sowie Zitronenschale dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mische die Pasta und das Nudelwasser unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse Zitronensaft darüber und bestreue das Gericht mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/sardine-lemon-pasta.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/sardine-lemon-pasta.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/sardine-lemon-pasta.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/sardine-lemon-pasta.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:udon-egg-drop-soup",
+      "slug": "udon-egg-drop-soup",
+      "title": "Udon-Suppe mit Eierflocken",
+      "instructions": "Udon-Nudeln in Soja-Ingwer-Brühe mit seidigen Eierstreifen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Am besten frisch essen; im Kühlschrank 1 Tag haltbar.",
+      "reheatingInstructions": "Die Brühe erwärmen und, wenn möglich, die Nudeln frisch dazugeben.",
+      "cheapTips": [
+        "Ein Karton Brühe reicht für 4 Portionen",
+        "Eier sorgen günstig für eine seidige Konsistenz"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "udon",
+          "swap": "Ramen oder Spaghetti",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + etwas mehr Sojasauce",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": false,
+      "whyCheap": "Mit Udon und Brühe gelingt eine Suppe wie im Restaurant für $5 zu Hause.",
+      "healthierTips": [
+        "Brühe und Sojasauce mit weniger Salz verwenden",
+        "Spinat oder Pak Choi dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Seelenfutter",
+        "Suppe"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 26,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/udon-egg-drop-soup/",
+      "components": [
+        {
+          "key": "339df1cc-c6be-51b6-aeef-947f7c44518b",
+          "name": "Zutaten",
+          "servingGrams": 546.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9515b49d-7371-5bec-8965-141e286ede50",
+              "ingredientName": "Udon-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b902b813-590c-5462-b93b-f769fe0fd269",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05e94997-45f2-5bb9-b5c4-a918269c4f45",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b7b1648-9284-5dc8-99e1-02add2219b20",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52e455f4-9a51-5664-8d6d-775c72b000c7",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6adc00df-0a26-5f64-a6d0-a8bdec9e200d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc96ba47-117e-5687-b18e-1820c794a3b6",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7cc309f-9bc5-5a32-b6d5-75f54c44baf2",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Brühe mit Ingwerscheiben und gehacktem Knoblauch zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Sojasauce dazu und koche alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge die Udon-Nudeln hinzu und koche sie nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die verquirlten Eier langsam unter ständigem Rühren dazu, sodass feine Eierstreifen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit Frühlingszwiebel und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/udon-egg-drop-soup.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/udon-egg-drop-soup.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/udon-egg-drop-soup.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/udon-egg-drop-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:sesame-cold-noodles",
+      "slug": "sesame-cold-noodles",
+      "title": "Kalte Sesamnudeln",
+      "instructions": "Gekühlte Nudeln mit cremigem Sesam-Soja-Dressing, Gurke und Frühlingszwiebel.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Kalt direkt aus dem Kühlschrank essen.",
+      "cheapTips": [
+        "Ideal als Lunch zum Mitnehmen",
+        "Erdnussbutter bildet zugleich die Basis für die Sauce"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Tahini",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "cucumber",
+          "swap": "Geraspelte Karotte",
+          "savings": "ca. $0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Die Sauce besteht aus Vorratszutaten und passt zu günstigen Gurken und Nudeln.",
+      "healthierTips": [
+        "Vollkorn- oder Soba-Nudeln verwenden",
+        "Tofu oder gezupftes Hähnchen dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "vegan",
+        "ohne Kochen",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 27,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/sesame-cold-noodles/",
+      "components": [
+        {
+          "key": "044a8f22-14fe-53a5-9fd7-de2286c994fa",
+          "name": "Zutaten",
+          "servingGrams": 224,
+          "position": 0,
+          "items": [
+            {
+              "key": "e655685d-9306-5af2-93e3-4279c97c52ee",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Spaghetti oder Soba-Nudeln"
+            },
+            {
+              "key": "11110089-a6e7-5398-807d-8c885ac077ab",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "oder Tahin"
+            },
+            {
+              "key": "dff0b44f-2a87-5f89-ae8a-80740aba7b12",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0072ab8-b9a1-5a71-abb8-234d7cb46d94",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d8472f0-d061-52dc-b7c3-fef761562811",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "684240d6-16ef-5a9f-9e31-b7d101563ba5",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c651f90e-1ebc-5961-a956-2134f4fa0c1f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b395e19-93ef-5142-95eb-0cade11cb283",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln, spüle sie unter kaltem Wasser ab und lasse sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Erdnussbutter, Sojasauce, Essig, Sesamöl und gehackten Knoblauch mit 2 EL warmem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mische die Nudeln mit dem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle sie 15 Minuten kalt oder serviere sie sofort mit Gurkenscheiben und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/sesame-cold-noodles.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/sesame-cold-noodles.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/sesame-cold-noodles.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/sesame-cold-noodles.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tomato-chickpea-pasta",
+      "slug": "tomato-chickpea-pasta",
+      "title": "Tomaten-Kichererbsen-Pasta",
+      "instructions": "Pasta in Knoblauch-Tomatensauce mit cremig zerdrückten Kichererbsen, mehr Eiweiß ohne zusätzliche Kosten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kichererbsen machen aus der Pastasauce eine sättigende Mahlzeit mit viel Eiweiß",
+        "Eine italienische Kräutermischung aus der Flasche reicht"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefkühlspinat",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Kichererbsen ergänzt die Pasta für insgesamt $1.10 um Eiweiß.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Parmesan weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "vegan",
+        "ballaststoffreich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 28,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tomato-chickpea-pasta/",
+      "components": [
+        {
+          "key": "7eaeb509-7631-5a54-b9d9-1f2d2fb0ca26",
+          "name": "Zutaten",
+          "servingGrams": 466.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "3178ecd8-26d2-5bb7-b9d5-b25f851dcbdc",
+              "ingredientName": "Pasta",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08f3c85e-c4cd-5df2-a430-6fffed466a44",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5db34cdf-bd7f-52a0-b810-117eae82db04",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "521ae771-699a-5027-bda2-2669aa3c4949",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05ed5dde-cda0-5cf5-a606-ebd999d3e962",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04d3b5af-ead7-5d55-bd58-d7dd775cec8a",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe3e11ab-442d-51fd-97bd-7deb3e4c4f4e",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "9ad09462-2911-527d-9e8d-33bc46e37a62",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl und gehackten Knoblauch in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die abgetropften Kichererbsen dazu, zerdrücke sie leicht und brate sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die gehackten Tomaten an, rühre die italienische Kräutermischung unter und lass alles 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mische die Sauce mit Pasta und Spinat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tomato-chickpea-pasta.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tomato-chickpea-pasta.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tomato-chickpea-pasta.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tomato-chickpea-pasta.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cabbage-garlic-noodles",
+      "slug": "cabbage-garlic-noodles",
+      "title": "Kohl-Knoblauch-Nudeln",
+      "instructions": "Buttrige Nudeln mit angebratenem Kohl, Sojasauce und einer kräftigen Knoblauchnote.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein halber Kohlkopf kostet etwa $1",
+        "Butter und Sojasauce passen wunderbar zusammen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Pak Choi",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Etwas mehr Olivenöl",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kohl ist das günstigste Gemüse im Gemüsebereich des Supermarkts.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Butter weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch",
+        "vegetarisch",
+        "für den Alltag"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 29,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cabbage-garlic-noodles/",
+      "components": [
+        {
+          "key": "d1e71c56-ec5c-573d-b877-a9736f302bd7",
+          "name": "Zutaten",
+          "servingGrams": 503.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "485a3c71-7581-53da-a6fb-04b4d7a2055e",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "442bbea4-672e-5251-9dc7-27aecdd39c88",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5a910d0-13ea-521f-9024-f66910b36a3c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6453da39-c450-5842-92ba-21a234617fb6",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0fbcf78-321a-5fbc-a359-9c6dbfcc065b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c090b87-b919-592a-8cfe-ea1367baab4e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e24c0ba-1be0-5a36-968a-d1a4e2329b3e",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Kohl in feine Streifen und brate ihn 4 Minuten in heißem Öl an, bis er leicht angeröstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Butter und gehackten Knoblauch dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mische die Nudeln mit Sojasauce unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Schluss Chiliflocken darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/cabbage-garlic-noodles.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/cabbage-garlic-noodles.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/cabbage-garlic-noodles.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/cabbage-garlic-noodles.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

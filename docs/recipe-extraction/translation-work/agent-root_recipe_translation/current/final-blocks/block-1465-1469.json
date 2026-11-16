@@ -1,0 +1,1119 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-med-tuna-tartare",
+      "slug": "mfr-med-tuna-tartare",
+      "title": "Mediterranes Thunfisch-Avocado-Türmchen",
+      "instructions": "Ohne Kochen: Thunfisch aus der Dose mit Kapern, Zitrone, roten Zwiebeln und Olivenöl vermischt und auf aufgeschnittene Avocado gegeben, mit einer spritzigen Vinaigrette beträufelt und mit feinen Kräutern garniert – eine Vorspeise oder ein leichtes Mittagessen wie im Restaurant, in 10 Minuten aus Vorratszutaten zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Thunfisch aus der Dose in Öl sorgt bei diesem Tatar für das kräftigste Aroma.",
+        "Kapern bringen mit wenig Kosten eine salzige mediterrane Note.",
+        "Dieses Gericht ohne Kochen dauert 10 Minuten und kostet $3 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "capers",
+          "swap": "Fein gewürfelte Oliven für einen ähnlich salzigen Geschmack"
+        },
+        {
+          "forIngredientId": "dijon",
+          "swap": "Vollkornsenf"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-tuna-tartare",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Thunfisch",
+        "Avocado",
+        "ohne-Kochen",
+        "Tatar",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1465,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-tuna-tartare/",
+      "components": [
+        {
+          "key": "4346afc3-d274-54fb-8223-acd6f128f0e7",
+          "name": "Zutaten",
+          "servingGrams": 947,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f6ee520-05ea-5524-a8cc-ac9d8ad04ceb",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49994148-1fe1-5377-9b08-76392016b84f",
+              "ingredientName": "Avocado",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73ba0f88-7e58-5ad3-b468-75fead668fa4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0acb22a4-f5ab-5819-ad02-6348aae1e724",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e863484d-c0a6-5859-910e-614b460b6cc6",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8774c11-7d0a-54f1-9026-2e0b5e5f366e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "870fbe4c-61a0-56ad-aaf5-003ee6868834",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2adf63ca-037d-55e3-804c-a6490d4dd01b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87c61d43-536b-5471-ad27-f26566f5f904",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bce7ba52-8b4a-59a2-9bec-7f9793276efc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a42d0f33-abab-5d8d-b90c-9835ef2cd048",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Thunfisch abtropfen und zerpflücke ihn vorsichtig. Vermische ihn mit fein gewürfelter roter Zwiebel, Kapern, Zitronensaft, Olivenöl und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze mit Salz, Pfeffer und Dijon-Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Avocado auf und richte sie fächerförmig auf Tellern an. Gib die Thunfischmischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle alles mit etwas Olivenöl und Rotweinessig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/igW4-I5Xbsy8914wHkXckFu4Mr0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/avocado-tuna-spinach-salad-f8048f77ff6b45038adca1c06cb178d3.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/igW4-I5Xbsy8914wHkXckFu4Mr0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/avocado-tuna-spinach-salad-f8048f77ff6b45038adca1c06cb178d3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-baked-cod-provencal",
+      "slug": "mfr-med-baked-cod-provencal",
+      "title": "Provenzalischer Ofenkabeljau mit Tomaten und Oliven",
+      "instructions": "Kabeljaufilets in einer Sauce aus gerösteten Tomaten, Oliven, Kapern und Kräutern der Provence – unkomplizierte französisch-mediterrane Küche: Alles kommt in eine Auflaufform, der Ofen erledigt die Arbeit und der Fisch wird zart und blättrig in einer Sauce, die sich mit Brot auftunken lässt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Außerhalb der Saison eignen sich gehackte Tomaten aus der Dose perfekt – gieße etwas Flüssigkeit ab.",
+        "Kabeljau ist oft günstiger als Lachs; jeder feste Weißfisch funktioniert.",
+        "Das Gericht lässt sich gut aufwärmen und die Sauce schmeckt am nächsten Tag noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Kabeljau, Tilapia oder jeder fleischige Weißfisch"
+        },
+        {
+          "forIngredientId": "oregano",
+          "swap": "Kräuter der Provence für ein stärker französisches Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-baked-cod-provencal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "Kabeljau",
+        "provenzalisch",
+        "Oliven",
+        "Tomate",
+        "Ofengericht"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1466,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-baked-cod-provencal/",
+      "components": [
+        {
+          "key": "e599a941-d6e9-50ff-83d4-36c932cf9507",
+          "name": "Zutaten",
+          "servingGrams": 405.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6462008-5e26-5315-97b2-b900bf04182d",
+              "ingredientName": "Lachsfilet",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acbc3bcf-a657-597c-a8a6-966e743f6a2c",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9781a936-efbf-5490-be84-550356f66d37",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c47c8e3-360a-58b7-b170-d1a11ffb9561",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4649a407-9bab-5cb1-844f-b0f7a71d1b8a",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77799a9d-0dec-570b-8765-9fdfee3ee92b",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3020e5ff-6c9f-59c1-96c3-af9b53c54396",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aeca13cb-b996-5e28-9a60-37d327288408",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3e0b9d6-52d2-53c5-8a8f-47b69b69bf10",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00201aab-2acf-5ac4-81a7-befc3751e956",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische halbierte Tomaten, gehackten Knoblauch, Olivenöl und Kräuter in einer Auflaufform. Röste alles bei 400°F 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Fischfilets zwischen die Tomaten. Würze sie mit Salz, Zitronenschale und etwas Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Fisch 12–15 Minuten, bis er sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere das Gericht mit Zitronensaft, frischer Petersilie und etwas hochwertigem Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2025/06/Baked-Cod-with-Tomatoes-SpendWithPennies-5-1024x1536.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2025/06/Baked-Cod-with-Tomatoes-SpendWithPennies-5-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-calamari-bowl",
+      "slug": "mfr-med-calamari-bowl",
+      "title": "Scharf angebratener Calamari mit Zitrone und weißen Bohnen",
+      "instructions": "Zarte Tintenfischringe in sehr heißem Olivenöl kurz angebraten, bis sie leicht gebräunt sind, dann mit weißen Bohnen, Kirschtomaten, Zitrone und frischer Petersilie vermischt – italienische Art, Tintenfisch zuzubereiten: in 5 Minuten fertig, sobald die Pfanne heiß ist, und wie in einer Trattoria am Meer.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tintenfisch ist eines der günstigsten Meeresfrüchteprodukte – kaufe Ringe aus der Tiefkühlabteilung.",
+        "Für zarten Tintenfisch braucht es sehr hohe Hitze und eine sehr kurze Garzeit – höchstens 2–3 Minuten.",
+        "Weiße Bohnen machen das Gericht vollständig und kosten weniger als $1 pro Dose."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Tiefgekühlte Calamari-Ringe für das authentische Gericht"
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen für eine andere Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-calamari-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Calamari",
+        "Tintenfisch",
+        "weiße-Bohnen",
+        "schnell",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1467,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-calamari-bowl/",
+      "components": [
+        {
+          "key": "89a8babf-92af-50e6-b203-3fc729d5aff7",
+          "name": "Zutaten",
+          "servingGrams": 434,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea730662-58f1-5c2b-8915-b3832cc86340",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81696af4-4181-51f0-bba0-83b2a9d01827",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f65b5156-5642-502f-b02e-035364487bd3",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0f14efa-3cae-5f3b-9dc1-fdf7e46b6cb1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6d7cce3-274b-5f9e-a21d-85629e9dfb19",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5706d2f1-986b-5677-a9d6-a6e63e12186d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0490e3ff-30d0-5c52-bfc5-083b7083c50a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89686164-ee23-5f38-9d15-086588725690",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30a3ab6c-1879-5873-91a3-5dfc58c36a10",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine schwere Pfanne sehr stark, bis sie raucht. Tupfe Garnelen oder Tintenfisch vollständig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Olivenöl in die sehr heiße Pfanne und lege die Meeresfrüchte in einer Lage hinein. Bewege sie 90 Sekunden nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende sie und gib Knoblauch und Chiliflocken dazu. Gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib weiße Bohnen und Kirschtomaten dazu und schwenke alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verfeinere das Gericht mit Zitronensaft und Petersilie und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/2133_1_1701392888.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/2133_1_1701392888.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-couscous",
+      "slug": "mfr-med-seafood-couscous",
+      "title": "Mediterraner Meeresfrüchte-Couscous",
+      "instructions": "Lockerer Couscous mit gebratenen Garnelen, Kirschtomaten, Salzzitrone und Harissa, dazu zerbröselter Feta und frische Minze – ein nordafrikanisch-mediterranes Essen aus einer Schale, in 20 Minuten zubereitet und immer beeindruckend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Couscous gehört zu den schnellsten Getreidebeilagen und ist in 5 Minuten fertig.",
+        "Harissa-Paste hält sich monatelang und bringt Aroma in jedes Getreidegericht – eine gute Vorratszutat.",
+        "Tiefgekühlte Garnelen, in 10 Minuten aufgetaut, sind günstiger als frische."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "couscous",
+          "swap": "Beliebige kleine Pasta oder Bulgur"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Thunfisch aus der Dose zum Schluss unterrühren für eine Variante ohne Kochen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-couscous",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Couscous",
+        "Garnelen",
+        "Harissa",
+        "Meeresfrüchte",
+        "nordafrikanisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1468,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-couscous/",
+      "components": [
+        {
+          "key": "d935dcb9-3d58-5f48-b469-91eddcf38139",
+          "name": "Zutaten",
+          "servingGrams": 497.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6596523-c1c8-5104-bfe5-b574cbf36c51",
+              "ingredientName": "Couscous",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9fd73d1-e546-5bef-a11c-7c3d3a46079e",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c11051ed-7bcd-5e50-b4cb-c988b1609768",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "521154d6-6226-5477-92fc-c0e3e95a4021",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a24e362d-820e-5925-b179-4ea94468141b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f734bcac-8a51-5998-96f3-f1c1f25a6d81",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fd9bb2e-3d0d-5805-810a-0e137b4a6c98",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edd940fa-66e2-52b6-9260-3e7594c618f5",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8484261a-309b-51c9-bb38-34c03833267c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96c4c492-b949-5044-b941-fa5826394f08",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a11cf4e-255c-5a3a-8c2a-5de3f529ab24",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdde03ca-d2ca-5d01-a997-5a6b760124d3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Couscous: Bringe Brühe zum Kochen, gieße sie über den Couscous, decke ihn 5 Minuten ab und lockere ihn mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Knoblauch, Kreuzkümmel und Paprika 1 Minute in Olivenöl an. Gib Garnelen dazu und brate sie auf jeder Seite 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib halbierte Kirschtomaten dazu und schwenke alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Garnelen und Tomaten mit Couscous. Verfeinere alles mit Zitronensaft und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib zerbröselten Feta und extra Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2022/09/chickpea-vegetable-couscous-recipe-9.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2022/09/chickpea-vegetable-couscous-recipe-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-salmon-tahini",
+      "slug": "mfr-med-salmon-tahini",
+      "title": "Gebackener Lachs mit Tahini-Zitronensauce",
+      "instructions": "Lachsfilets, schlicht mit Za'atar und Olivenöl gewürzt und im Ofen gebacken, dann mit seidiger Tahini-Zitronensauce beträufelt und auf warmen Kichererbsen mit zusammengefallenem Spinat serviert – ein Gericht aus dem Nahen Osten und dem Mittelmeerraum, das Lachs ganz neu wirken lässt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tahini hält sich monatelang im Kühlschrank und ist die vielseitigste Saucengrundlage.",
+        "Za'atar ist eine Gewürzmischung, die für $3 jedes Eiweißgericht verfeinert.",
+        "Mit Kichererbsen aus der Dose ist die Grundlage in 2 Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "zaatar",
+          "swap": "Mischung aus Oregano, Sesamsamen und Sumach"
+        },
+        {
+          "forIngredientId": "tahini",
+          "swap": "Griechischer Joghurt mit Zitrone verdünnt für eine leichtere Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-salmon-tahini",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "nahöstlich",
+        "Lachs",
+        "Tahini",
+        "Za'atar",
+        "Ofengericht",
+        "Kichererbse"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1469,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-salmon-tahini/",
+      "components": [
+        {
+          "key": "f619f800-4fac-5660-9f3b-9305511552df",
+          "name": "Zutaten",
+          "servingGrams": 669.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b981e397-3793-5ab1-b2bf-6ac19cf04079",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f436615-b6c8-5a28-938e-512c436bedd7",
+              "ingredientName": "Tahini",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8acb50a-36e2-5f08-82f7-76d85ceaa3eb",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "462ed20e-8eff-5877-8ca3-ae111a2079fc",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95598f73-0096-55b7-a602-cd320a47071c",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f350fe01-a4a9-5a0a-a22e-a3968a3ebc4f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cf8ca8f-0df1-51aa-9839-b060ff191a35",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a149340a-8632-59de-8443-ddcf3b17f094",
+              "ingredientName": "Za'atar",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c85ff35-f937-524b-ac83-765ede061909",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1b3f898-60be-5386-8b84-051a050e9871",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze den Lachs mit Za'atar, Olivenöl, Salz und Kreuzkümmel. Backe ihn bei 400°F 12–15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Tahinisauce: Püriere Tahini mit Zitronensaft, Knoblauch und Wasser, bis sie glatt und gießfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Kichererbsen und lass den Spinat in derselben Pfanne zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Kichererbsen und Spinat als Grundlage an, lege den Lachs darauf und beträufle ihn großzügig mit Tahinisauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere das Gericht mit Petersilie und zusätzlicher Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2019/05/AMAZING-Lemon-Baked-Salmon-with-my-go-to-Garlic-Dill-SAUCE-BIG-flavor-super-nourishing-and-SO-easy-to-make-salmon-lemon-dill-grainfree-glutenfree-minimalistbaker-recipe-6.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2019/05/AMAZING-Lemon-Baked-Salmon-with-my-go-to-Garlic-Dill-SAUCE-BIG-flavor-super-nourishing-and-SO-easy-to-make-salmon-lemon-dill-grainfree-glutenfree-minimalistbaker-recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1126 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-karaage",
+      "slug": "gen-karaage",
+      "title": "Karaage",
+      "instructions": "Japanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen im Angebot kaufen und portionsweise einfrieren",
+        "Speiseöl wiederverwenden, indem du es durch ein Seihtuch filterst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2365,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-karaage/",
+      "components": [
+        {
+          "key": "a75113d4-8ee1-55d9-999e-06f323230797",
+          "name": "Zutaten",
+          "servingGrams": 125.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "97f25338-31a2-5553-8bc8-779697c7c7cc",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund, gewürfelt"
+            },
+            {
+              "key": "137a1f78-997e-57f0-aabc-930a04a81736",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6901aff6-6e8a-5f34-99ab-958e4c7b16f7",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0c996015-422e-5b03-9c39-4fea03c8c76d",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3a45fce3-0008-5d71-9408-b02b8a2e8393",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "ac464cf5-b505-5e34-b568-5934719c818c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "32c599a9-d5df-5cdc-8a05-ecef1da06be7",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0ca0c56f-228c-56ad-b957-dd0e8e17e3cc",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bd58eb52-13b7-5fad-9239-99c63a515055",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen zum Braten"
+            },
+            {
+              "key": "65f612ef-bfba-5008-b318-5bb4dd0858f1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sojasauce, Mirin, Sake, Knoblauch und Ingwer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenstücke mindestens 30 Minuten in dieser Mischung marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl und Maisstärke in einer anderen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pflanzenöl in einem tiefen Topf oder einer Fritteuse auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen trocken tupfen und vollständig in der Mehlmischung wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hähnchen portionsweise 5–6 Minuten goldbraun und gar frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/62421844d69f276ff74e6a7a/1:1/w_2560%2Cc_limit/0328-tori-kara-age-lede.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/62421844d69f276ff74e6a7a/1:1/w_2560%2Cc_limit/0328-tori-kara-age-lede.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nikujaga",
+      "slug": "gen-nikujaga",
+      "title": "Nikujaga",
+      "instructions": "Japanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch in größeren Mengen kaufen und in Portionen aufteilen",
+        "Tiefgekühlte statt frische Erbsen verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2366,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nikujaga/",
+      "components": [
+        {
+          "key": "f675b834-4b97-54b3-8a9b-0d3c443754f6",
+          "name": "Zutaten",
+          "servingGrams": 202.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ecc86e86-174a-504a-b615-654b227d6c06",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5c8d7559-a6ec-5deb-a4b4-744b40dc374e",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "2ea60835-8500-5483-bcf7-32cadf496dff",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große, in Scheiben geschnitten"
+            },
+            {
+              "key": "b4c956cb-69cc-50af-ba70-544f7c8e0ae3",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "ff61c54d-4a2d-567c-93c2-ec12fd2b3009",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b4314e78-de29-54ad-acbe-108569337388",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6af980e6-0002-539f-8373-ec7587496dd7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1b87021c-8912-5e8b-9c11-a2e3cf3335c6",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7eda2fbc-96cd-5e7e-9434-e1bf23510bc1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0386ba9e-f887-5d09-9d2b-aec9f1458405",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pflanzenöl in einem großen Topf oder Schmortopf bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch anbräunen und beim Garen in kleine Stücke zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln dazugeben und etwa 3 Minuten weich garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln und Karotten dazugeben und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dashi-Brühe, Sojasauce, Mirin und Zucker angießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Kochen bringen, Hitze reduzieren und 15–20 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Grüne Erbsen in den letzten 2 Minuten der Garzeit dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß als Belag für eine Reisschüssel oder als eigenständiges Gericht servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2018/01/Nikujaga_0146.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2018/01/Nikujaga_0146.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chirashi",
+      "slug": "gen-chirashi",
+      "title": "Chirashi",
+      "instructions": "Japanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Imitatkrebs statt echtem Krebs verwenden, um Kosten zu senken",
+        "Sushireis als Vorrat in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2367,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chirashi/",
+      "components": [
+        {
+          "key": "1035b848-b28f-548c-bac9-8fa86ffee036",
+          "name": "Zutaten",
+          "servingGrams": 523.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "3cbc14d2-cb10-5923-9955-f6dea41463ce",
+              "ingredientName": "Sushireis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "613b7247-78ff-51b8-9f40-69a830e47bbc",
+              "ingredientName": "Reisessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f20cd070-681b-5934-9c07-9a7e30ad83be",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "aebf9eae-3dcc-5b3f-bcf3-7a4d777a5f76",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "56b3f744-4b4c-5353-8764-13dcc2c10798",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0e1c2e4-73e9-5ff2-bf87-1f10b1f50380",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c57e47f7-cce5-514a-b2c3-c938d8d75b7a",
+              "ingredientName": "Krebsfleischimitat",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "d0e5884a-81c6-5e23-872e-feb66fe9c5a6",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "651cc2f3-2fde-5173-accb-cbd1c50618d2",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "18eb7cce-ced3-5c36-b394-56d2d18d399f",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ae1966eb-645b-5c2e-b10f-c577996bcadf",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sushireis nach Packungsanleitung kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reisessig, Zucker und Salz vermischen und dann unter den warmen gekochten Reis heben, bis alles vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier verquirlen und bei mittlerer Hitze in einer Pfanne unter vorsichtigem Rühren zu dünnen Rühreistreifen garen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gurke in dünne Stifte schneiden, Karotte in feine Streichholzstreifen schneiden und Krebsstäbchen in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürzten Reis auf zwei Schalen verteilen und gegartes Ei, Gurke, Karotte und Krebs in Reihen darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nori-Blätter in dünne Streifen schneiden und über die Schüssel streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sojasauce über die ganze Schüssel träufeln und vor dem Servieren mit Sesamsamen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/cf-PhIqgZsrK59L73N8rj7fPv_w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chirashi-Bowl-LEAD-06-95dcc2ccd10840848104e3abe20cab77.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/cf-PhIqgZsrK59L73N8rj7fPv_w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chirashi-Bowl-LEAD-06-95dcc2ccd10840848104e3abe20cab77.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-green-curry",
+      "slug": "gen-green-curry",
+      "title": "Grünes Curry",
+      "instructions": "Thailändisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Currypaste in asiatischen Märkten günstiger kaufen",
+        "Preiswertes Gemüse wie Zucchini oder Paprika verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "thailändisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2368,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-green-curry/",
+      "components": [
+        {
+          "key": "4b7c2a9e-c55a-5397-b3ed-8e15cff4d789",
+          "name": "Zutaten",
+          "servingGrams": 241.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "140dfac0-1726-5fea-8a24-a9f3a90da402",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5bf0aae6-9ad5-5425-ac84-743c55a01970",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "Dose mit 13.5 Unzen"
+            },
+            {
+              "key": "d6f334d4-11dd-5668-85f4-a66a40b66604",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d0f69c1f-ae8f-52ed-8b5c-c0ec3279598e",
+              "ingredientName": "Zucchini",
+              "grams": 98,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f6d6abbb-ba5b-5ea4-b834-28d11620c7af",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f5e75137-785f-593c-91db-bf9728ddfce9",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "6a1d5215-4a0b-59d9-9a6a-fed07de480f7",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "870bc03c-4ecf-55c8-b6f3-dfec6d11a752",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b24a0e95-83d7-5513-bad7-12f4c90ee9f5",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 Esslöffel Kokosmilch in einer großen Pfanne bei mittelhoher Hitze erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Currypaste dazugeben und 2–3 Minuten pfannenrühren, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Übrige Kokosmilch angießen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen in mundgerechte Stücke schneiden und ins Curry geben. 8–10 Minuten garen, bis es durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Aubergine oder Zucchini dazugeben und 5 Minuten garen, bis sie weich, aber noch bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Fischsauce, braunem Zucker und Limettensaft abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frisches Basilikum kurz vor dem Servieren einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Über gekochtem Jasminreis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/-y34quncEKDiDJuPW19Nm65FBPw=/4494x3000/filters:fill(auto,1)/vegetarian-thai-green-coconut-curry-3217757_hero-01-e9f859f45b704c96a9e774607c2df19b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/-y34quncEKDiDJuPW19Nm65FBPw=/4494x3000/filters:fill(auto,1)/vegetarian-thai-green-coconut-curry-3217757_hero-01-e9f859f45b704c96a9e774607c2df19b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tom-yum-goong",
+      "slug": "gen-tom-yum-goong",
+      "title": "Tom Yum Goong",
+      "instructions": "Thailändisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen verwenden, um Geld zu sparen",
+        "Getrocknetes Zitronengras und Limettenblätter in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "thailändisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2369,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tom-yum-goong/",
+      "components": [
+        {
+          "key": "206838da-f8cf-5dcc-ad83-305c641c187c",
+          "name": "Zutaten",
+          "servingGrams": 906.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6948f17f-350b-5f10-9f87-0a9b08642c22",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "55a48add-a446-59dd-bdad-da86a5e62d1e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "0faef3bd-808f-515b-8a8f-97e832be91b7",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4731cfc-547f-5d01-8a58-072459cf682e",
+              "ingredientName": "Galangal",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Zoll"
+            },
+            {
+              "key": "538c344d-d6ee-5c39-9886-69f2e3bfb76f",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1add1c5c-ba76-5f6b-a8d1-2e74fb53af7b",
+              "ingredientName": "Thailändische Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ebbdd43-eff3-5a9f-8aee-990b8502235e",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c30e80b3-9c23-5a33-8ab1-000a25cf9f52",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d7719f2f-4df5-5fe7-858f-35c2655638c1",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "733e61ea-ad67-59a6-a8ea-c8cee1f7e3ae",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zitronengrasstängel andrücken und zusammen mit Galangal und Limettenblättern in die Brühe geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5 Minuten köcheln lassen, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen dazugeben und 3–4 Minuten garen, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geschnittene Pilze und halbierte Kirschtomaten dazugeben und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Fischsauce und Limettensaft abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Wunsch geschnittene Thai-Chilis für mehr Schärfe dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und nachwürzen, dann heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Thai-Tom-Yum-Goong-Spicy-Shrimp-Soup.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Thai-Tom-Yum-Goong-Spicy-Shrimp-Soup.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

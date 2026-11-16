@@ -1,0 +1,1149 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pelau",
+      "slug": "gen-pelau",
+      "title": "Pelau",
+      "instructions": "Ein beliebtes abendessen, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um zu sparen, verwenden Sie getrocknete Taubenerbsen, die über Nacht eingeweicht werden, statt Dosenerbsen",
+        "Kaufen Sie Hähnchenschenkel anstelle von Hähnchenbrüsten, um mehr Geschmack zu geringeren Kosten zu erhalten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Trinidad",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6640,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pelau/",
+      "components": [
+        {
+          "key": "24a3ed6e-4119-593c-bf0d-3e3f981820da",
+          "name": "Zutaten",
+          "servingGrams": 504.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "1706d543-b76a-59ee-b70c-a9c5a4a6cee7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "4f05b3cb-f9d0-5205-a926-b002c973340b",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8e86e7df-cc31-5346-9610-26df4f6e5427",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9a760843-e66e-551c-b244-19d327941a81",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8d6867fd-4d74-5fbe-ae36-4685413a2ff3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "5ccdbf1c-f1f6-5174-bba8-0cc64cb1aec1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "9d5b0a74-39cd-5d47-b251-c2f04e3cf547",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ca4e61cb-b1e7-53a9-8ef3-278766e09e78",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "501b5586-6a24-57ca-ac9c-0bc1625da951",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "53975b97-a051-51b0-9d5c-25b61cc44249",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5c41a077-dc9a-5c4f-83eb-ec67a5e1e0cc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d42a661b-9426-557c-bec7-6f82ea4a5a88",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in mundgerechte Stücke würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Topf erhitzen und braunen Zucker dunkel karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Hähnchen dazugeben und von allen Seiten anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebeln und Knoblauch im selben Topf anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie das Huhn wieder in den Topf und fügen Sie Straucherbsen, Koriander und Thymian hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hühnerbrühe und Wasser angießen, zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 30 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reis einrühren und zugedeckt 20–25 Minuten köcheln lassen, bis der Reis gar ist und die Flüssigkeit aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen, mit einer Gabel auflockern und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/y2z_qhWiUlh4wqKIU1bK4m_IaCY=/4594x0/filters:no_upscale():max_bytes(150000):strip_icc()/trini-pelau-recipe-2138057-step-10-01ef29da230d43b6b78977c155844ad1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/y2z_qhWiUlh4wqKIU1bK4m_IaCY=/4594x0/filters:no_upscale():max_bytes(150000):strip_icc()/trini-pelau-recipe-2138057-step-10-01ef29da230d43b6b78977c155844ad1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-buljol",
+      "slug": "gen-buljol",
+      "title": "Buljol",
+      "instructions": "Ein beliebtes frühstück, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gesalzenen Kabeljau in großen Mengen auf ethnischen Märkten zu günstigeren Preisen",
+        "Verwenden Sie Limettensaftkonzentrat, wenn frische Limetten teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "Trinidad",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6641,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buljol/",
+      "components": [
+        {
+          "key": "1d4ac4ba-2f0d-5181-8e2d-03870e9022d3",
+          "name": "Zutaten",
+          "servingGrams": 601.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "fae12957-1b70-5bbf-84a6-eaef91534d22",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1f3547d3-28c2-5e99-bdf6-e410b64fc49d",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "974f1454-5803-5ed0-b166-a6de0f9e05f5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "2e25201e-d4fd-516a-bc24-7d5905917c56",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6e48b559-b7d1-5e97-a8a4-0e1854069225",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11d28cfe-df51-5ad6-8672-00e381ef2ebf",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Limetten"
+            },
+            {
+              "key": "58a647a6-8292-522f-bc99-f4fe5a06e0f3",
+              "ingredientName": "Avocado",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4aa94634-1318-59d0-9a94-e76c4805c336",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "cb561ff0-4c69-5082-a477-275f5ba8ae20",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gesalzenen Kabeljau mindestens 1 Stunde lang in Wasser einweichen, dabei einmal das Wasser wechseln, um überschüssiges Salz zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weichen Kabeljau 10 Minuten kochen, abgießen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gekochten Kabeljau mit einer Gabel zerkleinern und alle Gräten entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomaten, Zwiebeln und Chili fein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koriander grob hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kabeljauflocken, Gemüsewürfel, Koriander, Limettensaft und Olivenöl in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit schwarzem Pfeffer und Salz abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Avocado kurz vor dem Servieren schälen, in Scheiben schneiden und mit Buljol auf Tellern anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/05/10/multimedia/05Mothersday-blmz/05Mothersday-blmz-videoSixteenByNine3000.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/05/10/multimedia/05Mothersday-blmz/05Mothersday-blmz-videoSixteenByNine3000.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paprika-salad",
+      "slug": "gen-paprika-salad",
+      "title": "Paprikasalat",
+      "instructions": "Ein beliebtes snack, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Paprika, wenn sie Saison haben oder im Angebot sind, und rösten Sie sie extra, um sie für später einzufrieren",
+        "Verwenden Sie einfachen Essig anstelle von Spezial-Rotweinessig, um 50 Cent zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "mazedonisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6642,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paprika-salad/",
+      "components": [
+        {
+          "key": "7dda48be-1a48-53a6-9842-8e8ce4ae77b8",
+          "name": "Zutaten",
+          "servingGrams": 478.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "29c27a74-d9ce-53b0-a13b-2b435b510fc3",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "9097230b-560e-533c-b97c-cc35b381471d",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "5f1a6b80-e9b8-59e1-bd7b-ab4627456774",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "d45c1138-7416-5dfe-a19d-bc0a44a6cc09",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "091ed8f2-8307-53aa-9d34-f3f81e1235d0",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "369ade57-1cc6-5a31-b476-edc54b6bc1c1",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4e5280e4-0c8b-5233-b613-7f39ae2b2b91",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rösten Sie die roten Paprika über offener Flamme oder unter dem Grill, bis die Schale vollständig schwarz wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Legen Sie die verkohlten Paprikaschoten 10 Minuten lang in eine Plastiktüte, um sie zu dämpfen und die Haut zu lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die geschwärzte Haut abziehen und die Kerne von den Paprikaschoten entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die gerösteten Paprika, Tomaten und Zwiebeln in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Gemüsewürfel in eine Schüssel geben und mit Paprikapulver, Salz und Pfeffer bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Olivenöl und Rotweinessig beträufeln und vorsichtig vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lassen Sie den Salat vor dem Servieren 5 Minuten ruhen, damit sich die Aromen vermischen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/18/00de4eaebfda4465b3f1db19f61c542e/paprika-lamb-chops-with-greek-salad.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/18/00de4eaebfda4465b3f1db19f61c542e/paprika-lamb-chops-with-greek-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-macedonian-bean-soup",
+      "slug": "gen-macedonian-bean-soup",
+      "title": "Mazedonische Bohnensuppe",
+      "instructions": "Ein beliebtes mittagessen, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Bohnen in großen Mengen statt in Dosen, um 60 % zu sparen",
+        "Wenn vorhanden, Gemüsereste (Karottenblätter, Sellerieblätter) zur Brühe hinzufügen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mazedonisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6643,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-macedonian-bean-soup/",
+      "components": [
+        {
+          "key": "ff1aea42-5fb7-572a-964a-e38795cbc280",
+          "name": "Zutaten",
+          "servingGrams": 620.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d2bc153-56c6-5e9e-b115-bd708083ef3f",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7bad5a28-23fa-5060-931b-152b15d1aba2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "b00ba41b-81a0-553e-a3b4-a1b530b85670",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "0394f776-47f8-59c1-874b-b6eca6925f44",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "282447e4-6735-5b00-a772-93e2b27fc125",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a4afc2bf-692d-583e-9a1d-ebe1a033b527",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "9c2b9113-83b7-546d-ba26-5530fcebcd9a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2da1f29c-0364-5aec-9ead-c369bc979ee9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "7b4802a2-e41d-50b1-8c75-834eb0b42ec8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ee13a955-ffff-506b-bc96-a0713bddda06",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "68db8b2a-1e87-57ff-ad4e-65fb67ef7bde",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die getrockneten Kidneybohnen über Nacht in Wasser einweichen, dann abtropfen lassen und gründlich abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebeln, Karotten, Sellerie und gehackten Knoblauch etwa 5 Minuten lang anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 1 Minute kochen lassen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die abgetropften Bohnen und die Gemüsebrühe in den Topf geben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und 45–60 Minuten köcheln lassen, bis die Bohnen vollständig weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz, schwarzem Pfeffer und Paprika würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Einige Bohnen am Topfrand zerdrücken, um die Suppe etwas zu verdicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Weitere 5 Minuten köcheln lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/oTASStjDlPOTQWErI_4jO8SCWY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Zuppa-Rustica-0095-93cf12bcedb6426f84f674c2a77aeb31.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/oTASStjDlPOTQWErI_4jO8SCWY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Zuppa-Rustica-0095-93cf12bcedb6426f84f674c2a77aeb31.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cook-up-rice",
+      "slug": "gen-cook-up-rice",
+      "title": "Kochreis",
+      "instructions": "Ein beliebtes mittagessen, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Bohnen aus der Dose und gefrorenes Gemüse anstelle von frischem, um Kosten und Zubereitungszeit zu reduzieren",
+        "Kaufen Sie Kokosmilch in großen Mengen oder verwenden Sie leichte Kokosmilch, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "guyanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6644,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cook-up-rice/",
+      "components": [
+        {
+          "key": "be7513e6-a57c-54a3-ab61-b054edf19f27",
+          "name": "Zutaten",
+          "servingGrams": 639.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bc98465-05b5-5773-b233-bfb471089862",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b247c047-b212-5335-a12a-8deca7db1f6c",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen aus der Dose"
+            },
+            {
+              "key": "f8275892-f1c9-5bec-9bba-0593968f3943",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "1cdf8355-1004-5a8b-91dd-3b6184bc9d2c",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse tiefgekühlt"
+            },
+            {
+              "key": "26bb242b-369b-5e36-894c-b800766d285f",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "c2a1a6cf-6ff7-5154-ba2a-c2b91bf98554",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "b89e0603-321b-52a4-b0ee-4cbe9633c98a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "39d1baaf-4c2f-5fcc-bf9f-117470f795c5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1584053d-1c46-5df9-956a-5e4d162d8239",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "72f252e8-06af-538e-ad6f-7d8aed32fad0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6a2b83cb-08f5-5370-b6f6-011c29839041",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pflanzenöl in einem großen Topf erhitzen und gehackten Knoblauch und gewürfelte Zwiebeln etwa 2 Minuten lang anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Karotten hinzufügen und 3 Minuten kochen lassen, dann den Reis hinzufügen und umrühren, bis er mit Öl bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Reis unter ständigem Rühren 2 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie Kokosmilch und Wasser hinzu und fügen Sie Kurkuma und Salz hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Kidneybohnen und grünen Erbsen hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe, decken Sie den Reis fest ab und lassen Sie ihn 20–25 Minuten köcheln, bis der Reis weich ist und die Flüssigkeit aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Gabel auflockern und abgedeckt 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß als komplettes Eintopfgericht servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/iVBg93rBof8J0-kNlbfl11U5Tmw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-820351112-16ea07be58104dc1b0e1ffe470fab5aa.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/iVBg93rBof8J0-kNlbfl11U5Tmw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-820351112-16ea07be58104dc1b0e1ffe470fab5aa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

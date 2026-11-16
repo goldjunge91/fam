@@ -1,0 +1,1197 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-rabo-encendido",
+      "slug": "gen-rabo-encendido",
+      "title": "Rabo encendido",
+      "instructions": "Kubanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ochsenschwanz im Angebot und friere ihn ein; er ist günstiger als andere Stücke.",
+        "Verwende Tomatensauce aus der Dose statt frischer Tomaten, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kubanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4120,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rabo-encendido/",
+      "components": [
+        {
+          "key": "b25b4b79-0d1f-55c2-8201-068373ea90ae",
+          "name": "Zutaten",
+          "servingGrams": 344.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b426f5df-8a76-5f56-9aef-2f280027dba1",
+              "ingredientName": "Ochsenschwanz",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, in 2-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "4de96e90-4119-51d1-953c-208fd907bffb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2865b50c-81f4-50d0-b06e-68dba4ce96a3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "069e20cf-ba1f-53a5-8c1f-d29ef4fde82c",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "00768a20-1573-575a-9baa-c1f3050be662",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "40e95728-53b4-586f-8060-579ce47f1453",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "61acd8fb-ba80-5dcb-8cd6-c2297b3ce33d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f15fb13f-3abb-5cfa-a1e7-28ab4e6bf79b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eb2c41d-29b9-52e3-a5ef-3cae181eb35a",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1f2dcfb7-e198-5d2d-a5c0-dc3319423b46",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3cfdaf05-6050-50ce-b853-970c01b3fbf1",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe den Ochsenschwanz trocken und würze ihn mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher bis hoher Hitze und bräune den Ochsenschwanz insgesamt 8 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Ochsenschwanz heraus und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste im selben Topf die gewürfelte Zwiebel und den Knoblauch 3 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tomatensauce und Kreuzkümmel hinzu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Ochsenschwanz zurück in den Topf und füge Rinderbrühe und Lorbeerblätter hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze, decke den Topf ab und lasse es 60 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Kartoffeln und Oliven hinzu, decke den Topf ab und lasse alles weitere 20 Minuten köcheln, bis das Fleisch zart und die Kartoffeln gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Schmecke ab, passe die Würzung an und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/X3bokdnpRJJOjds0vUIJUK_oFuQ=/5016x3610/filters:no_upscale():max_bytes(150000):strip_icc()/20220205-rabo-encendido-mariel-delacruz-2-1e54ec1fc6b848b59861a2ed12b7def2.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/X3bokdnpRJJOjds0vUIJUK_oFuQ=/5016x3610/filters:no_upscale():max_bytes(150000):strip_icc()/20220205-rabo-encendido-mariel-delacruz-2-1e54ec1fc6b848b59861a2ed12b7def2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ajiaco-cubano",
+      "slug": "gen-ajiaco-cubano",
+      "title": "Ajiaco Cubano",
+      "instructions": "Kubanisches Mittagessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstigere Rindfleischstücke wie Rinderschulter.",
+        "Kaufe Gemüse in größeren Mengen auf Bauernmärkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kubanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4121,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ajiaco-cubano/",
+      "components": [
+        {
+          "key": "f7ef8d8f-9763-576d-9cf1-e6fdb96e522d",
+          "name": "Zutaten",
+          "servingGrams": 450.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "60a73a25-f307-5a01-ba4c-2cc4c984f30f",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "f35a89ed-a0d9-548b-82a4-08b2cc52e4cc",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "3fd25093-f222-5659-a649-ae75061cfe31",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "92cb7035-398f-5c2b-a682-e6ca96611268",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "37ac8584-be5a-5dcc-a559-27458bb76219",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "73e25562-9deb-5ad2-a0a4-f112397aecf9",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "4133b89a-455b-54ff-a1ac-fa4a75eadec9",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "8d4e5e29-e92e-5e3c-81b3-209ca2adeba0",
+              "ingredientName": "Yam",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "3f9cb05d-8c39-587e-a73a-88111d3b4a53",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 grünes Stück, gewürfelt"
+            },
+            {
+              "key": "fa379d24-42ab-58d8-acf3-8968f71daaaa",
+              "ingredientName": "Popcornkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse, tiefgekühlt oder aus der Dose"
+            },
+            {
+              "key": "dced610d-490e-51d8-aafb-9d85e609ee4e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bd951543-294a-5592-9d43-6a0958e7052e",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fe60558f-db8f-56bc-8f69-9cb99a3c9a6b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dca3686f-a7e2-5480-af0d-b4025158be10",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze Rindfleisch und Hähnchen mit Salz und Pfeffer und bräune sie portionsweise pro Seite 3-4 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Fleisch heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste im selben Topf Zwiebel und Knoblauch 3 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kreuzkümmel und Oregano hinzu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Fleisch zurück in den Topf, gieße Rinderbrühe dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze auf mittlere Stufe und lasse alles 20 Minuten köcheln, bis das Fleisch teilweise gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Kartoffeln, Yamswurzel und Kochbanane hinzu und lasse alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib Maiskörner hinzu und lasse alles weitere 5 Minuten köcheln, bis das Gemüse zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schmecke ab und garniere das Gericht vor dem Servieren mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hispanicfoodnetwork.com/wp-content/uploads/2016/10/Ajiaco-Cubano-recipe-1.jpg",
+          "sourcePageUrl": "https://hispanicfoodnetwork.com/wp-content/uploads/2016/10/Ajiaco-Cubano-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bistec-encebollado",
+      "slug": "gen-bistec-encebollado",
+      "title": "Bistec Encebollado",
+      "instructions": "Kubanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rindersteak aus der Oberschale im Angebot und friere es für später ein.",
+        "Verwende normale statt süße Zwiebeln, um 30% zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kubanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4122,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bistec-encebollado/",
+      "components": [
+        {
+          "key": "c9be2cb7-04db-59c3-bc15-6468a086dc27",
+          "name": "Zutaten",
+          "servingGrams": 246.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "43d20fc0-4ee7-5bd1-8199-80b971e0a40b",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in 4 Steaks geschnitten"
+            },
+            {
+              "key": "c25a94b7-74a3-5c0e-bd85-350383a88b8c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6bd9ad45-ad04-54ee-845a-34286295afb0",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 große Stücke, dünn geschnitten"
+            },
+            {
+              "key": "688eb9f7-bc47-5c64-91f6-0429413a1a54",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "c6199ec5-c501-55b1-bc73-dd6d31cf377d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8b7e8fd4-c835-5202-83be-7233f1293fe6",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "552ad3a6-563f-5482-ab2a-9b96b09ba4cb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f1d39439-546a-5e50-b93f-97e30215f688",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Steaks von beiden Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Steaks pro Seite 3-4 Minuten an, bis sie gebräunt sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere in derselben Pfanne die Hitze auf mittlere Stufe und dünste die geschnittenen Zwiebeln 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackten Knoblauch und Kreuzkümmel hinzu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Rinderbrühe und Essig dazu und löse den Bratensatz vom Pfannenboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Steaks zurück in die Pfanne und lasse sie 5 Minuten köcheln, bis sie den gewünschten Gargrad erreicht haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Steaks mit der Zwiebelsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishdlites.com/wp-content/uploads/2020/05/DSC_0923.jpg",
+          "sourcePageUrl": "https://www.delishdlites.com/wp-content/uploads/2020/05/DSC_0923.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-charquic-n",
+      "slug": "gen-charquic-n",
+      "title": "Charquicán",
+      "instructions": "Chilenisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Mais und Erbsen statt frischer, um 30% zu sparen.",
+        "Verwende preiswertes Rinderhackfleisch oder Hackfleisch aus der Schulter statt hochwertiger Stücke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chilenisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4123,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-charquic-n/",
+      "components": [
+        {
+          "key": "f94f5034-ad7a-5a64-a546-036aa4efb7cf",
+          "name": "Zutaten",
+          "servingGrams": 414,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6770302-0916-5450-88af-9fcb9a77c5a7",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f9afa36f-f11e-5155-aaf7-14d1cc5fbedd",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "b58edb2e-367a-5894-8793-e8d06ef332f3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "5aa18edf-4559-564b-9a25-75f9e0380691",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "3282348b-c3bc-51f9-9d97-4440749852f0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stück, gewürfelt"
+            },
+            {
+              "key": "d1c43d7e-d1c9-5c37-8675-93d1b62e1f19",
+              "ingredientName": "Popcornkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c1fe6a6d-503b-5e90-882e-8e4b934e65c1",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a8a1739b-a8df-5d7c-a281-a498d6eb9915",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9461af5e-f384-5697-b6ba-500369f413b6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e6326a69-fedf-5bb4-acda-c751dab6798d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "83290796-a0d9-519f-b947-4d1e87c8790c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittelhoher bis hoher Hitze und bräune das Rinderhackfleisch an, während du es zerteilst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel, Knoblauch und Paprika in den Topf und gare sie 3 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Kartoffeln dazu und rühre sie unter, damit sie mit Öl überzogen sind. Gare sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Gemüsebrühe hinzu, gib Kreuzkümmel, Salz und Pfeffer dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lasse alles 15 Minuten köcheln, bis die Kartoffeln fast gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Mais und grüne Erbsen unter und gare alles weitere 5 Minuten, bis das Gemüse zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke ab und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/01/Charquican-Beef-and-Vegetable-Stew.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/01/Charquican-Beef-and-Vegetable-Stew.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-humita",
+      "slug": "gen-humita",
+      "title": "Humita",
+      "instructions": "Chilenischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Mais eignet sich genauso gut wie frischer und kostet nur halb so viel.",
+        "Hebe die Maisblätter von frischem Mais auf, den du für andere Gerichte kaufst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chilenisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4124,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-humita/",
+      "components": [
+        {
+          "key": "ba965dde-0cbc-5e81-9550-d7054b4662ba",
+          "name": "Zutaten",
+          "servingGrams": 267.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a92a4de-6698-58cd-8ee2-79bd17693b2a",
+              "ingredientName": "Frischer Mais",
+              "grams": 360,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen, auch tiefgekühlt möglich"
+            },
+            {
+              "key": "faea09cb-b046-5132-bfbb-87392a50ec00",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "dff940a7-d8e5-5982-b015-92f11ff233c8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "1f7d63f4-23af-50fa-ac5f-b0de2d578306",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "27842dcd-ce16-5cc4-ba57-86814afb6d4d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6b5621a1-454e-51b8-ae59-b4add15f784e",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cce7fd6d-0ceb-5992-ae20-71abbc4c456c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a4eabc4-57c7-5423-a920-dcca526baf85",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, frisch, gehackt"
+            },
+            {
+              "key": "c875918e-5c75-5640-8f58-9b5d64844b57",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b146ae0e-43c4-5e6d-839b-1512b85689f6",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "8-10 Stück zum Einwickeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Maisblätter 10 Minuten in warmem Wasser ein, damit sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einer Pfanne und dünste Zwiebel und Knoblauch etwa 3 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Maiskörner mit Milch, bis eine stückig-cremige Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Maismischung in der Pfanne unter die Zwiebel und gib dann Maismehl hinzu. Gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd und lasse die Masse leicht abkühlen. Rühre dann verquirlte Eier, Basilikum, Salz und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege 2 überlappende Maisblätter flach hin und gib einen Löffel der Maismischung in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klappe die Blätter über der Füllung zusammen und schlage die Enden zum Verschließen unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege die Humitas mit der Nahtseite nach unten in einen Dämpfeinsatz über kochendem Wasser und dämpfe sie 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere sie warm, nach Wunsch mit zusätzlicher Butter oder Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/09/Humita.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/09/Humita.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

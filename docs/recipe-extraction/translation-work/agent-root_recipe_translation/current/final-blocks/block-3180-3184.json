@@ -1,0 +1,1085 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-insalata-tricolore",
+      "slug": "gen-insalata-tricolore",
+      "title": "Insalata Tricolore",
+      "instructions": "Italienisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mozzarella in großen Mengen bei Großhändlern wie Costco kaufen",
+        "Roma-Tomaten im Sommer verwenden, wenn sie am günstigsten sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3180,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-insalata-tricolore/",
+      "components": [
+        {
+          "key": "816be34a-76e1-5121-a80e-c53d5856752d",
+          "name": "Zutaten",
+          "servingGrams": 112.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c780b02-9bba-5a95-8770-6e62dd246803",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen in Scheiben geschnitten"
+            },
+            {
+              "key": "40cc6cba-d306-5ff1-870c-6732f78b3703",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund in Scheiben geschnitten"
+            },
+            {
+              "key": "ff186e3c-58bc-56fa-9703-323031f8595e",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen Blätter"
+            },
+            {
+              "key": "d6d246f8-ed21-5cc3-a230-fda07e97b66d",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "6570340d-b56e-50d7-aad5-4744a81b6f67",
+              "ingredientName": "Balsamicoessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e0ce192a-c780-5c1b-a379-d5dd85ceb74e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "1995fff1-916e-5720-9e42-38d950b8ce46",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Frischen Mozzarella und Tomaten in gleich dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mozzarella- und Tomatenscheiben abwechselnd auf einer Servierplatte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frische Basilikumblätter zwischen die Scheiben oder darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Natives Olivenöl gleichmäßig über den Salat träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Balsamicoessig darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Meersalz und frisch gemahlenem schwarzen Pfeffer bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/aOhIpttFjM8_OeezwC29PhKS7Zw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1041464-0c875df98bb64a4d9d45ce0e35690560.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/aOhIpttFjM8_OeezwC29PhKS7Zw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1041464-0c875df98bb64a4d9d45ce0e35690560.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thai-green-salad",
+      "slug": "gen-thai-green-salad",
+      "title": "Thailändischer grüner Salat",
+      "instructions": "Thailändisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganze Erdnüsse kaufen und selbst zerdrücken statt bereits zerkleinerte zu kaufen",
+        "Normale Paprika statt Thai-Chilis verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "thailändisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3181,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thai-green-salad/",
+      "components": [
+        {
+          "key": "eb67596e-defd-5e34-8300-75673998e1cb",
+          "name": "Zutaten",
+          "servingGrams": 532.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab7a7dce-526d-5857-b77d-50888c6c7d22",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen geraspelt"
+            },
+            {
+              "key": "4dab7fa1-a4fb-527b-a2dc-b0a6e9f5099b",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4e93a035-90e8-50b1-9898-e12cf779bf5e",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c087fc74-99c8-533a-a352-3ba77c35539b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "acfad0c2-13ad-5d6f-b64f-0636ffec79ba",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "1f654529-e7b8-5a04-8739-0e5ee0434c49",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "5219d44d-6cde-5b08-ac7c-0572cfadc78e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tassen gehackt"
+            },
+            {
+              "key": "dfe1c2a8-a0c9-58d5-a82e-2ce5762ea185",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "6120f16e-b74b-5a12-a1a5-7a947be5c143",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen zerstoßen"
+            },
+            {
+              "key": "5578e0d6-6042-5a33-9c5c-d3cb38f5cce8",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grünkohl fein schneiden und in eine große Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Limettensaft, Fischsauce, braunen Zucker, gehackte Chilis und Knoblauch in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dressing über den Kohl gießen und 2-3 Minuten sanft einmassieren, damit er weicher wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geschnittene Gurke, Koriander und Minzblätter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Salat vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kurz vor dem Servieren mit zerdrückten Erdnüssen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/yhRUOatVWMb6Unf4fjSL28IsyAM=/4680x3120/filters:fill(auto,1)/som-tam-thai-green-papaya-salad-3217407-hero-01-9e4281d9e4a64b0e8bb4930debcef3a3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/yhRUOatVWMb6Unf4fjSL28IsyAM=/4680x3120/filters:fill(auto,1)/som-tam-thai-green-papaya-salad-3217407-hero-01-9e4281d9e4a64b0e8bb4930debcef3a3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quinoa-salad",
+      "slug": "gen-quinoa-salad",
+      "title": "Quinoa-Salat",
+      "instructions": "Peruanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Quinoa lose bei Costco oder auf internationalen Märkten zu deutlich besseren Preisen kaufen",
+        "Falls frischer Mais teuer ist, tiefgekühlten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "peruanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3182,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quinoa-salad/",
+      "components": [
+        {
+          "key": "dc832a78-c336-55e6-a5a1-6122719d4241",
+          "name": "Zutaten",
+          "servingGrams": 374.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "44b44b23-720c-5dac-8723-403006fef909",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen ungekocht"
+            },
+            {
+              "key": "163becb5-0897-5226-a50f-df133367784b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4c1e3f73-0bcd-5302-b940-d2612c877413",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen halbiert"
+            },
+            {
+              "key": "c00e148b-69b6-5735-9d1c-3fcd6808fad8",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "935e29d6-4131-58ea-89a4-7701941ca304",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 gewürfelt"
+            },
+            {
+              "key": "61b8ded9-4cb0-590c-a97d-b4596240564c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tassen gewürfelt"
+            },
+            {
+              "key": "d8bca5e9-4f21-5011-9b96-8aa9f87dc1fe",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "802f3255-fb98-503a-b88c-ce52551b9f1b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b33c237e-8831-51f4-aa56-bf0a3f7c0b10",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen gehackt"
+            },
+            {
+              "key": "b2f13b6c-bbad-54df-b141-3d0cb67fed91",
+              "ingredientName": "Popcornmais",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "68f20b2e-2b18-5c51-9297-02c87886f04b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Quinoa unter kaltem Wasser abspülen und gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wasser oder Brühe zum Kochen bringen und Quinoa hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze reduzieren, abdecken und 15 Minuten köcheln lassen, bis das Wasser aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Quinoa mit einer Gabel auflockern und 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgekühlte Quinoa in eine große Schüssel geben und mit Tomaten, Gurke, Paprika, Zwiebel und Mais vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Limettensaft und Olivenöl verquirlen und über den Salat gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koriander hinzufügen und vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer abschmecken und bis zum Servieren kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Healthy-Chickpea-Quinoa-Salad-reicpe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Healthy-Chickpea-Quinoa-Salad-reicpe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-corn-salad",
+      "slug": "gen-corn-salad",
+      "title": "Maissalat",
+      "instructions": "Mexikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten Mais und Bohnen aus der Dose im Angebot kaufen und Vorräte anlegen",
+        "Cotija-Käse weglassen, um deutlich Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3183,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-corn-salad/",
+      "components": [
+        {
+          "key": "1b59b3be-74a7-5236-9fec-ec85bd0e3eea",
+          "name": "Zutaten",
+          "servingGrams": 262.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2b8a73f-7536-52e3-8fcd-c1d5513da8a5",
+              "ingredientName": "Popcornmais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen frisch oder tiefgekühlt"
+            },
+            {
+              "key": "7290e153-1fb1-5e9b-b16b-2d1c0beca810",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 gewürfelt"
+            },
+            {
+              "key": "61b339e2-c1f0-5857-9887-e0cfc468adfb",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dosen abgetropft"
+            },
+            {
+              "key": "2af47f62-3171-56d5-bd6b-983f2ce8ed4d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen gewürfelt"
+            },
+            {
+              "key": "490e4063-c8c4-52ea-9edc-dec425bf90cc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen gehackt"
+            },
+            {
+              "key": "ea5611ac-db7f-5a95-976c-21ead66636fd",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "87b9e0ae-bf77-54fe-b25a-217dbe40ecd2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "38ab54a3-1d96-5c6d-be5b-e9af482a6e33",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "1690c259-f1e9-5283-a0c2-925b0a6fb95f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3bbe2e4d-bd49-5fb3-bfbd-6cb37ba5450d",
+              "ingredientName": "Cotija-Käse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tassen zerbröselt optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Falls frischer Mais verwendet wird, Körner vom Kolben schneiden oder aufgetaute tiefgekühlte Maiskörner nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mais, gewürfelte rote Paprika, abgetropfte schwarze Bohnen, rote Zwiebel und gehackte Jalapeño in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Limettensaft, Olivenöl und Salz verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dressing über die Maismischung gießen und vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackten Koriander hinzufügen und nochmals vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und bei Bedarf nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Wunsch mit zerkrümeltem Cotija-Käse bestreuen und bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/healthy-grilled-corn-salad-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/healthy-grilled-corn-salad-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kimchi-salad",
+      "slug": "gen-kimchi-salad",
+      "title": "Kimchi-Salat",
+      "instructions": "Koreanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kimchi auf asiatischen Märkten kaufen, dort ist es oft günstiger als in gewöhnlichen Geschäften",
+        "Große Mengen zubereiten und für schnelle Mittagessen unter der Woche im Kühlschrank aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "koreanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3184,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kimchi-salad/",
+      "components": [
+        {
+          "key": "c50be81c-af6d-5def-82db-c5a75d458508",
+          "name": "Zutaten",
+          "servingGrams": 259.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "4878c4fe-e78b-5758-ad24-2ad52f283982",
+              "ingredientName": "Kimchi",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "c3856bfe-8160-5c10-a141-8483549d8477",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c4bc3a08-1ef1-56d8-a4b1-49820eefb582",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4ce5625b-e8c4-52d3-ad51-daee381ae228",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "60e0a55b-2167-5184-962f-4e77a4bcd33e",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "74b58371-9bac-5b61-b7b6-0b2cfac871bc",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c2692f95-c51e-57fd-a110-e2a1ea930602",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "4adf80d4-380d-5905-8129-51f81ebbc720",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel fein gehackt"
+            },
+            {
+              "key": "cfe6ff32-331e-570e-a256-8bb01011c5ff",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "3ebd27a1-baf2-5fb7-b9a6-19ccd42d0888",
+              "ingredientName": "Chinakohl",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kimchi in mundgerechte Stücke schneiden und etwas Saft zurückbehalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sesamsamen in einer trockenen Pfanne bei mittlerer Hitze 1-2 Minuten rösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sesamöl, Sojasauce, Reisessig, braunen Zucker, gehackten Knoblauch und Ingwer in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chinakohl, gehacktes Kimchi und Frühlingszwiebeln in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dressing über den Salat gießen und vorsichtig untermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit gerösteten Sesamsamen bestreuen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2015/06/186386255485c72af6eeaca36638d19a9d047517.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2015/06/186386255485c72af6eeaca36638d19a9d047517.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

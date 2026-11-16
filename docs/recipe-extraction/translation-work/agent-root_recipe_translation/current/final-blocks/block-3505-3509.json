@@ -1,0 +1,1193 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pathar-ka-gosht",
+      "slug": "gen-pathar-ka-gosht",
+      "title": "Pathar Ka Gosht",
+      "instructions": "Hyderabadi-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ziegenfleisch in internationalen Lebensmittelgeschäften.",
+        "Verwende als günstigeren Ersatz Hähnchenschenkel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Hyderabadi",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3505,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pathar-ka-gosht/",
+      "components": [
+        {
+          "key": "8da0b7bf-b8d8-56d7-8dfd-e52e97babfff",
+          "name": "Zutaten",
+          "servingGrams": 411.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf6757dd-9d7b-503f-8973-a0f680061562",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4b81efec-480c-529c-801a-bc3b94b7dc56",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "c7b20686-3c37-59a0-aa86-17149add9bfc",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "feb7998b-d008-5a4f-8779-1e73b55abbe9",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "44c237b9-2d06-5bd3-9b90-f12fa98ad189",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cb6113fc-e186-5d12-897b-5321cb018787",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "659d6f61-5699-5ca4-ab70-0efbc897fc21",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "e95b1a42-6f1d-5825-93a1-6d4ba116dab3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "42bc6425-7914-5bf5-9645-e2171c7daa60",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d73c34b1-73c0-5fb7-80c8-3f7717c8b57f",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "87b4b9d2-a3b5-54d8-aa3c-c1d57f5eeb25",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fb76fb37-1f1c-5071-a91d-723e315de03e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Fleisch 30 Minuten mit Joghurt, Ingwer-Knoblauch-Paste, der Hälfte des Garam Masala und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Topf mit schwerem Boden und brate Zwiebeln tief goldbraun. Nimm die Hälfte heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das marinierte Fleisch zu den übrigen Zwiebeln und gare es 5 Minuten bei starker Hitze unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomaten dazu und gare sie, bis sie vollständig zu einer Paste zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze, decke den Topf ab und gare alles 45 Minuten, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Korianderpulver, Kreuzkümmelpulver, das restliche Garam Masala und grüne Chilischoten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche alles ohne Deckel weitere 10 Minuten, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht vor dem Servieren mit Röstzwiebeln und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://4.bp.blogspot.com/-Vh4r02It2mg/Vnwb59urI6I/AAAAAAAAJpE/QwbdKcZADrg/s1600/SAM_3380%2B%25282%2529a.jpg",
+          "sourcePageUrl": "https://4.bp.blogspot.com/-Vh4r02It2mg/Vnwb59urI6I/AAAAAAAAJpE/QwbdKcZADrg/s1600/SAM_3380%2B%25282%2529a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dum-pukht-murgh",
+      "slug": "gen-dum-pukht-murgh",
+      "title": "Dum Pukht Murgh",
+      "instructions": "Hyderabadi-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen und zerlege es selbst.",
+        "Verwende Hähnchenkeulen statt Schenkelfleisch."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Hyderabadi",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3506,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dum-pukht-murgh/",
+      "components": [
+        {
+          "key": "e5087ae2-e24f-54be-a5ec-93ffde8e72d3",
+          "name": "Zutaten",
+          "servingGrams": 257.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b80aea9-af8b-58d6-a876-0ddf3219501a",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "1396ed01-09a1-5f87-b131-ff98fa8095d3",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b50f10b7-35a5-556b-803e-f0590596edc6",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "49fc57c4-ae95-521e-a330-280920dc2d58",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "810d059c-4401-5787-b96e-f8ad3ded471e",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2606ef6f-f20a-55e2-a877-e42e317ffc2b",
+              "ingredientName": "Garam Masala",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "0a8ffb1c-de04-500b-8412-3bf1f99cc325",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "144b048f-b3d4-59da-8388-c1acdbe2afd6",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03b49c08-1640-53f6-be3b-0f333062ea9e",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "059b5e98-6987-5602-902b-4490c2948151",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "367cf7da-4445-596c-a027-af85eebfc743",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Hähnchen 30 Minuten mit Joghurt, Ingwer-Knoblauch-Paste, Garam Masala, der Hälfte der grünen Chilischoten und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Zwiebeln und brate sie in Ghee goldbraun. Stelle die Hälfte zum Garnieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte das marinierte Hähnchen mit den Röstzwiebeln in einen Topf mit schwerem Boden und verteile Lorbeerblätter zwischen den Schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege alles mit den übrigen Röstzwiebeln und der Minz-Koriander-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf fest mit Folie ab und stelle eine Tawa (Grillplatte) oder einen schweren Topf darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare alles bei starker Hitze 2 Minuten, bis sich Dampf bildet, und reduziere dann die Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche das Hähnchen 40 Minuten, ohne den Deckel zu öffnen, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Topf vorsichtig vom Herd, öffne ihn und serviere das Gericht nach Wunsch mit gekochten Eiern garniert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.eatopianchronicles.com/wp-content/uploads/2018/07/Nizami-Dum-Ka-Murgh.jpg",
+          "sourcePageUrl": "http://www.eatopianchronicles.com/wp-content/uploads/2018/07/Nizami-Dum-Ka-Murgh.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baghare-baingan",
+      "slug": "gen-baghare-baingan",
+      "title": "Baghare Baingan",
+      "instructions": "Hyderabadi-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen in der Saison.",
+        "Verwende Erdnusspulver statt ganzer Erdnüsse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Hyderabadi",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3507,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baghare-baingan/",
+      "components": [
+        {
+          "key": "f6299dd4-dca1-572a-850c-1d2af593862c",
+          "name": "Zutaten",
+          "servingGrams": 171.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "37438610-8f36-5ca9-a973-5c15946ec12b",
+              "ingredientName": "Aubergine",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "79e90771-8716-58f9-b428-4e8d457e179f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "b2d29ac5-427b-54a4-9377-a9373b6228ce",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "76fab2c6-83e9-5d22-96b0-564ab4e84ab8",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d9eff700-9458-5f36-8ecc-c729d55198d6",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9b306f5-4820-59ee-8d29-1635c6eef648",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a4eee5a1-20af-57a8-9b55-2c3fbcc8d959",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2851321f-ecff-5b2e-892a-e608f6c14325",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4b40e891-8715-548e-be5c-58c25eebb481",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e609ae77-418e-59eb-8123-c70090705e63",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "0b2675be-82e3-5b3b-bbe1-ef6ba7cea353",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Auberginen in dicke Scheiben oder Viertel und schneide sie halb ein, ohne sie ganz durchzuschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Erdnüsse, Sesam, Koriandersamen, Kreuzkümmelsamen und getrocknete Chilischoten 2 Minuten trocken in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mahle die gerösteten Gewürze mit Kokosnuss und Tamarindenpaste zu einer groben Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle jedes Auberginenstück mit der Gewürzpaste und einigen Zwiebelscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer großen Pfanne und lege die gefüllten Auberginen nebeneinander hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare alles bei mittlerer Hitze 25 Minuten. Schüttle die Pfanne gelegentlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Deckel ab und gare weiter, bis die Auberginen zart und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß als Beilage oder mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplyvegetarian777.com/wp-content/uploads/2014/09/img_3521-01.png",
+          "sourcePageUrl": "https://simplyvegetarian777.com/wp-content/uploads/2014/09/img_3521-01.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mirchi-ka-salan",
+      "slug": "gen-mirchi-ka-salan",
+      "title": "Mirchi Ka Salan",
+      "instructions": "Hyderabadi-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe grüne Chilischoten auf indischen Märkten.",
+        "Bereite Kokospaste selbst zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Hyderabadi",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3508,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mirchi-ka-salan/",
+      "components": [
+        {
+          "key": "f98fb715-0d50-5cb6-9c5d-8af46d162a09",
+          "name": "Zutaten",
+          "servingGrams": 396.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa9bc44d-9156-58e4-92f2-47ca3b7b0c67",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 große Stücke"
+            },
+            {
+              "key": "b13726fd-8e2a-5135-af67-e0d577ba27a6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "1292c198-644d-52e7-854c-212a3b54303d",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2297fcec-aec8-5155-b693-6175213745ee",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "370baf9d-8a51-5824-bdd5-185e26c1d07c",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b9151903-d7ab-571c-a847-3f09708b968c",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "3b605a1e-a0b2-5652-8e27-2d00c35a25f0",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "0feaafa0-e97e-56aa-a82c-a898aa8b37ae",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f92ccf2a-8ae1-57cd-b871-3e6c55b496fb",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7debf39b-bb9b-5ca3-9d9c-1b9b978cf3bf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "40b103e3-1dc3-51d4-a683-629580f351a1",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Erdnüsse, Sesam und Kokosnuss zusammen, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mahle die geröstete Mischung mit Tamarindenpaste zu einer groben Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide grüne Chilischoten längs ein und entferne vorsichtig die Kerne, lasse den Stiel dran.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle jede Chilischote mit der Erdnuss-Kokos-Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer Pfanne, gib Kreuzkümmelsamen dazu und brate dann geschnittene Zwiebeln weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Tomaten, Kurkuma und Salz dazu und gare alles, bis die Tomaten zu einer Paste zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die gefüllten Chilischoten vorsichtig in die Sauce und gare sie zugedeckt bei niedriger Hitze 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß als Beilage zu Biryani oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1582619613757-6KIPSJ9M1MV3XT4SEIRB/chhayas+food+Mirch+Ka+Salan+ingredients",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1582619613757-6KIPSJ9M1MV3XT4SEIRB/chhayas+food+Mirch+Ka+Salan+ingredients",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-biryani-shorba",
+      "slug": "gen-biryani-shorba",
+      "title": "Biryani Shorba",
+      "instructions": "Hyderabadi-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Basmati-Reis in größeren Mengen.",
+        "Verwende normale Zwiebeln statt Schalotten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Hyderabadi",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3509,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-biryani-shorba/",
+      "components": [
+        {
+          "key": "41ba7e83-79f3-585f-993a-dea89cc9b13f",
+          "name": "Zutaten",
+          "servingGrams": 278.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "64519bae-efba-51d2-bc4d-1982752abaae",
+              "ingredientName": "Basmati-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "49e9c821-e690-5f68-821b-6476556571ae",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "40bcbd7b-8904-5955-8e5a-d96466cc0451",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "037ed6b6-c50b-5a03-a26b-cd151059f954",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "ceca22f1-a747-56cf-bda0-a8dedfe63b28",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "f2a97205-2881-53c1-a37a-610184718a01",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f08e049f-dd03-53c8-b212-5192f7fd5809",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d1c89bab-4dbc-5623-802a-4d21cfe61d8c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ea8444b-e9e6-5059-a59d-22c3ad3355fb",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "28344881-5ba8-53e1-9c44-b63f9563f8f0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "b8fadd9b-7af3-575f-a073-856abbb6b046",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Hähnchen 20 Minuten mit Joghurt, Ingwer-Knoblauch-Paste, der Hälfte des Garam Masala und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Wasser mit Lorbeerblättern und Salz in einem großen Topf zum Kochen und gib dann den abgespülten Basmati-Reis dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche den Reis, bis er zu 70% gar ist, und gieße ihn sofort ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Ghee in einem schweren Topf, gib Kreuzkümmelsamen dazu und brate dann geschnittene Zwiebeln goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das marinierte Hähnchen zu den Zwiebeln und gare es 5 Minuten bei starker Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte den gekochten Reis über das Hähnchen und bestreue ihn mit dem restlichen Garam Masala und Kräutern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Topf fest mit Folie ab und gare alles bei niedriger Hitze 15 Minuten, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermische alles vorsichtig mit einer Gabel und serviere es heiß mit Shorba als Suppenbeilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/tomato-shorba-recipe-tamatar-shorba-tamatar-dhania-ka-shorba-2.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/tomato-shorba-recipe-tamatar-shorba-tamatar-dhania-ka-shorba-2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

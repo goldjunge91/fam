@@ -1,0 +1,1048 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hutspot",
+      "slug": "gen-hutspot",
+      "title": "Hutspot",
+      "instructions": "Belgisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kielbasa im Angebot und frieren Sie sie für später ein.",
+        "Verwenden Sie normale Kartoffeln statt spezieller Sorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4430,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hutspot/",
+      "components": [
+        {
+          "key": "ebafe32a-8460-5927-9835-c810587b3aa5",
+          "name": "Zutaten",
+          "servingGrams": 193.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca687eae-c7a6-58f1-ae33-7f9a3358532b",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "1a3a14b4-a436-5abf-8d12-913acde6db82",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6ad440b5-29aa-5073-9b7e-31aed0e8b84f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "13b24721-10a1-5bbb-b177-db26efe2e57b",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "31c2898a-1488-59b7-8e15-53a4dbfb7257",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c779fe77-9545-59fd-8841-a7a4b4092da7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "060e56cd-5fef-564b-9910-402627748343",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e466ad7b-31ba-564e-8a57-409171924951",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "352b7993-f892-59f9-9aa8-7d981a5d43a0",
+              "ingredientName": "Kielbasa",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln und Karotten in 1 Zoll große Würfel und Zwiebeln in kleine Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln, Karotten und Zwiebeln zusammen in Salzwasser 20 Minuten sehr weich kochen und dann gut abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemüse zurück in den Topf geben, Butter und Milch hinzufügen und zu einer stückig-glatten Konsistenz stampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Salz, Pfeffer und Muskatnuss würzen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kielbasa-Scheiben in einer separaten Pfanne 3–4 Minuten bräunen, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hutspot auf vier Teller verteilen und mit warmen Kielbasa-Scheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2024/09/Hutspot-10-1024x1536.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2024/09/Hutspot-10-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mitraillette",
+      "slug": "gen-mitraillette",
+      "title": "Mitraillette",
+      "instructions": "Belgisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Pommes frites aus Kartoffeln selbst zu und sparen Sie 50 %.",
+        "Kaufen Sie Käse und Schinken im Angebot und verwenden Sie tiefgekühlte Pommes frites."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "belgisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4431,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mitraillette/",
+      "components": [
+        {
+          "key": "ba5fd818-36e5-5f35-b428-7d769b15120c",
+          "name": "Zutaten",
+          "servingGrams": 662.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "e56d988d-d0d9-59bc-9a60-1414d8aa5ce7",
+              "ingredientName": "Knusprige Baguettes",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 ganze Stücke"
+            },
+            {
+              "key": "89c08eba-459c-5e3b-bfcf-782e89bb170b",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "e59876df-accc-595a-9132-82f05d12e88d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "cc859e42-bdca-5e37-ab39-aba8bf708937",
+              "ingredientName": "Tiefgekühlte Pommes frites",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen, gegart"
+            },
+            {
+              "key": "0fceb42e-713f-5663-8c41-c0c86815dde4",
+              "ingredientName": "Mayonnaise",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a81dd443-c5b3-503c-a83c-4bb4d0156608",
+              "ingredientName": "Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "81cf3f85-5850-5f24-9aba-14d32b853785",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "34a923fe-aa92-5ece-8ae4-3363bd0fa7c8",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 großes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "b0839fea-35d3-5064-b248-e3ea2bf6361f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pommes frites nach Packungsanweisung goldbraun und knusprig garen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Baguettes längs halbieren, ohne sie ganz durchzuschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die untere Hälfte jedes Baguettes mit Mayonnaise und die obere mit Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salat, Tomate, Zwiebel, Schinken und Käse auf der unteren Hälfte schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gegarte Pommes frites in jedes Sandwich füllen und leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die obere Baguettehälfte über die Pommes legen und das Sandwich schließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jedes Sandwich in Papier wickeln und sofort servieren, solange die Pommes noch warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/A8LwcQE8xykaXFijS-g1fzv50pI=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/perfect-quick-omlet-tips-995517_Step_9-5ba022c3c9e77c0050d8ca46.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/A8LwcQE8xykaXFijS-g1fzv50pI=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/perfect-quick-omlet-tips-995517_Step_9-5ba022c3c9e77c0050d8ca46.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-me-br-l-e-belge",
+      "slug": "gen-cr-me-br-l-e-belge",
+      "title": "Belgische Crème Brûlée",
+      "instructions": "Belgischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schlagsahne im Angebot in größeren Mengen und frieren Sie sie ein.",
+        "Verwenden Sie für das Rezept normalen weißen Zucker und nur für die Oberfläche braunen Zucker."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "belgisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4432,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-me-br-l-e-belge/",
+      "components": [
+        {
+          "key": "2e86ad38-f6ff-5c89-b20b-244cd888df71",
+          "name": "Zutaten",
+          "servingGrams": 240.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "8cd17196-939e-56cb-9f59-a8e198c57d2f",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d76648df-bd81-5530-b4b9-0a1e73ac4641",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "46f0c71e-65e1-5483-b5b2-8bbd8e3da980",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 große Stücke"
+            },
+            {
+              "key": "f64eb314-7120-5f7a-8e41-3e806a9e637b",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "202c9edb-fe35-5af1-b8dc-d087944736f0",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "9dad2245-1be7-5368-b338-db834a530782",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "72c532c0-6997-5373-8ad0-1b523c7f9e8d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 325 °F vorheizen und Sahne sowie Milch in einem Topf erhitzen, bis sie dampfen, aber nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eigelb mit Zucker und Salz 2 Minuten hell aufschlagen, dann Vanilleextrakt langsam hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heiße Sahnemischung unter ständigem Rühren langsam in die Eigelbmischung gießen, um die Eier anzugleichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Creme durch ein feinmaschiges Sieb in eine Schüssel gießen, um Stückchen zu entfernen, und auf vier Förmchen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Förmchen in eine Auflaufform stellen, heißes Wasser bis zur halben Höhe der Förmchen zugießen und 25–30 Minuten backen, bis die Creme gestockt, in der Mitte aber noch leicht wackelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Förmchen aus dem Wasserbad nehmen, auf Raumtemperatur abkühlen lassen und mindestens 2 Stunden im Kühlschrank kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kurz vor dem Servieren jedes Förmchen gleichmäßig mit braunem Zucker bestreuen und mit einem Küchenbrenner goldbraun und blasig karamellisieren. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/9rv9w7mBR50Cjq47NHL0HEcl2_c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__02__Creme-Brulee-LEAD-VERTICAL-c99fa6c67f20441c9430df056b6e9d6a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/9rv9w7mBR50Cjq47NHL0HEcl2_c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__02__Creme-Brulee-LEAD-VERTICAL-c99fa6c67f20441c9430df056b6e9d6a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pralines-belges",
+      "slug": "gen-pralines-belges",
+      "title": "Belgische Pralinen",
+      "instructions": "Belgischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schokoladentropfen statt Tafeln, um Abfälle zu vermeiden.",
+        "Verwenden Sie Kakaopulver von Handelsmarken statt teurer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belgisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4433,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pralines-belges/",
+      "components": [
+        {
+          "key": "ffabd70d-4c73-5048-8290-9b1c6b32aef2",
+          "name": "Zutaten",
+          "servingGrams": 188.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "71c6ca6c-1e34-50ac-af9b-ffc77565298d",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "9e4cb2f9-ad0e-5767-9930-5d3f7bdf9183",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a5a3e17e-c61c-550d-b607-5ce87f8c271c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e32782e9-5e5a-57b9-a4d7-e3ebaaf1cf95",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ecccca70-07fc-563c-a251-6df6c56b0ac4",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b1dc958a-2531-5cb6-ba18-627c9b789526",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1d79dfb8-a51a-5f74-8cde-38910352d37d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "dcc974da-b9ee-59e2-91c7-cb3751d474ac",
+              "ingredientName": "Kokosöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlagsahne erhitzen, bis sie dampft, dann über gehackte Zartbitterschokolade gießen und 2 Minuten stehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schokolade und Sahne glatt verrühren, dann Butter und Vanilleextrakt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ganache 1 Stunde im Kühlschrank kühlen, bis sie fest genug zum Portionieren ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit einem Melonenausstecher oder Teelöffel kleine Ganachekugeln formen und auf Backpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Milchschokolade mit Kokosöl im Wasserbad schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Ganachekugel mit einer Gabel in geschmolzene Milchschokolade tauchen und vollständig überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Überzogene Pralinen zurück auf das Backpapier legen und 30 Minuten kühlen, bis sie fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren mit Kakaopulver oder Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/O2YGl7AjLERZkMoNC-L1pZBYmJc=/3498x2221/filters:no_upscale():max_bytes(150000):strip_icc()/easy-pecan-pralines-3059875-Final-5ba956b7c9e77c00256e68a7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/O2YGl7AjLERZkMoNC-L1pZBYmJc=/3498x2221/filters:no_upscale():max_bytes(150000):strip_icc()/easy-pecan-pralines-3059875-Final-5ba956b7c9e77c00256e68a7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-speculoos",
+      "slug": "gen-speculoos",
+      "title": "Speculoos",
+      "instructions": "Belgisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie die doppelte Teigmenge zu und frieren Sie sie für späteres schnelles Backen ein.",
+        "Kaufen Sie Gewürze in größeren Mengen im Discounter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belgisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4434,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-speculoos/",
+      "components": [
+        {
+          "key": "c1e77acd-016e-547a-8a35-6d6146f8aa85",
+          "name": "Zutaten",
+          "servingGrams": 190.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "646e6a9d-8e0f-509c-ac42-dbbc410973a4",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0d846f40-90a6-5c0a-b497-012b5ffc5edb",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "aa39fb9e-0189-5b99-a8e4-f63b8238cb68",
+              "ingredientName": "Brauner Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "3c734427-723e-53ea-870d-520415f11ee5",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0991e91c-129c-5ddb-853d-4e61210f7dbb",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "37f2c1f4-8f20-5c2d-995a-898255a88ff6",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "02a8619d-1c03-5d6e-b40c-018dd9b86970",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "ea8b2561-7761-55e3-ac8f-55f3dbd148c5",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8925aa47-d6cc-5b86-9326-f1342d15a17f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "6cba9b44-51ba-599b-b9b9-cba49cbae312",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter und braunen Zucker etwa 3 Minuten hell und luftig schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ei und Vanilleextrakt einrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Zimt, Nelken, Ingwer, Backpulver und Salz in einer separaten Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trockene Zutaten unter die Buttermischung rühren, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig zwischen Backpapier 1/4 Zoll dick ausrollen und 20 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Rechtecke oder festliche Formen schneiden und auf Backbleche legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350 °F 12–15 Minuten goldbraun und fest backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech abkühlen lassen und dann auf ein Kuchengitter legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/1BC2gSflTb75ISz8HVW3DoS-6-Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__05__20170414-DIY-biscoff-cookies-vicky-wasik-13-ab081fbdd18b4c6a886933699633aea4.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/1BC2gSflTb75ISz8HVW3DoS-6-Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__05__20170414-DIY-biscoff-cookies-vicky-wasik-13-ab081fbdd18b4c6a886933699633aea4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

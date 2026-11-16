@@ -1,0 +1,1310 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-mex2-red-rice-beans",
+      "slug": "mfr-mex2-red-rice-beans",
+      "title": "Mexikanischer roter Reis mit Pintobohnen und Ei",
+      "instructions": "Lockerer, tomatenroter Reis wird mit Knoblauch und Kreuzkümmel traditionell auf dem Herd gekocht und mit rauchigen Pintobohnen und Spiegelei serviert. Ein einfaches, sehr sättigendes mexikanisches Abendessen, das fast nichts kostet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Den Reis trocken anzurösten ist die traditionelle mexikanische Technik. Nicht auslassen.",
+        "Diese vollständige Mahlzeit kostet etwa 0.80 $ pro Portion.",
+        "Bohnen, Ei und Reis ergeben vollständiges Protein und eine der günstigsten vollwertigen Mahlzeiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pinto-beans",
+          "swap": "Schwarze Bohnen oder Kidneybohnen"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Rührtofu als vegane Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-red-rice-beans",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "mexikanischer-reis",
+        "pintobohnen",
+        "ei",
+        "vegetarisch",
+        "preiswert",
+        "comfort-food"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1600,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-red-rice-beans/",
+      "components": [
+        {
+          "key": "458a644a-91f9-5241-af5c-3cb0d4448a4b",
+          "name": "Zutaten",
+          "servingGrams": 619,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9a05f91-83ee-5a9e-a7a2-3a7e8ce7dd4d",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c516d8a-8b00-5d5a-b5c1-3869e7f03603",
+              "ingredientName": "Pintobohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a68bfa3-0633-52e1-ad60-e8d1acf9cf4c",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a23ad20-2b23-5efe-bf5c-b9ed567c7ea1",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d466a155-0f8d-578a-966a-7440c22c39d4",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "123c78f9-1b3e-5980-96e9-00f844b7cefb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7353d9a6-e2a6-5c83-9e08-a6cc4f567e36",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15d8f9a1-a3ac-5cfc-9f86-2180fe355a79",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ce87bc6-5977-5ac8-ae75-c880ac1c26fd",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7d9ce6c-1116-5bc1-818a-85aa168980ef",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c530bf9-5fef-5808-b920-52cbe8338270",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fa5b7e3-0655-52d4-acc2-996a714c54db",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9af22cf6-a76f-5941-914f-dc2d8d491845",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl erhitzen und den trockenen Reis 3–4 Minuten goldbraun rösten. Das ist wichtig für die Konsistenz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Zwiebel dazugeben und 1 Minute garen. Zerkleinerte Tomaten dazugeben und 2 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brühe, Kreuzkümmel und geräuchertes Paprikapulver dazugeben und aufkochen. Abdecken und bei niedriger Hitze 18 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pintobohnen mit Kreuzkümmel und Salz erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reis, Bohnen und Spiegelei anrichten und mit Koriander und Limette garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/EXPS_TOHD24_18194_EricKleinberg_8.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/EXPS_TOHD24_18194_EricKleinberg_8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai2-massaman-curry",
+      "slug": "mfr-thai2-massaman-curry",
+      "title": "Massaman-Curry mit Hähnchen",
+      "instructions": "Thailands beliebtestes Curry: eine milde, aromatische Mischung persischer Gewürze wie Zimt, Kardamom und Nelken mit thailändischen Aromen. Hähnchen, Kartoffeln und geröstete Erdnüsse köcheln in reichhaltiger Kokosmilch. Wohltuend, mild gewürzt und unverwechselbar.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Massaman-Paste im Glas kostet 3 $ und reicht für mehrere Portionen.",
+        "Im Notfall kann 1 EL Erdnussbutter die Erdnüsse ersetzen.",
+        "Kartoffeln machen das Curry sättigend, ohne viel zusätzliche Kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "massaman-paste",
+          "swap": "Rote Currypaste mit etwas Zimt und Kardamom"
+        },
+        {
+          "forIngredientId": "palm-sugar",
+          "swap": "Brauner Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-massaman-curry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "massaman",
+        "curry",
+        "hähnchen",
+        "kokos",
+        "erdnuss",
+        "mild"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1601,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-massaman-curry/",
+      "components": [
+        {
+          "key": "886555d5-b8d9-522d-9606-98d5c1fc2762",
+          "name": "Zutaten",
+          "servingGrams": 469.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b89d448-8cdf-5b0b-8267-7e4a7a4d6d8c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7df21cbf-94ad-5f34-892c-ebf1ac04c056",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72358bea-efcd-5312-b00d-adb82f2e03b9",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76409bf2-1bdb-5ad0-9e01-50aba7f61abb",
+              "ingredientName": "Massaman-Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99a1df8c-0177-5c14-81d8-07c4e197b178",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c345d73c-0ff6-55b3-bb93-0cd4dbd88765",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0b1be83-5208-5c0c-b36b-cc6df3468969",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0652b44d-2ed7-5b4b-bb2f-8244535c25a7",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56022797-e63a-5f12-b467-c138437a587a",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c3af809-f06a-5b8b-b336-507350a66b99",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a83b7458-5ba3-5b24-9384-a2d3adcd3006",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42c53037-b624-549d-b377-727c348ea04b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc36c867-d4a9-5072-bbfd-de276d94b78c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bb3c475-0b63-5e76-b130-244b43284818",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Massaman-Paste 2 Minuten in Öl anbraten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen dazugeben, mit der Paste überziehen und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kokosmilch angießen und Kartoffel, Zwiebel, Zimt, Kardamom und Lorbeerblätter dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "25 Minuten köcheln lassen, bis Kartoffeln weich und Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Fischsauce, Palmzucker und Tamarinde süß-sauer-salzig abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erdnüsse einrühren und mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fzh6nrS-6VgbbOf_gWJO3idjCsE=/4000x2667/filters:no_upscale():max_bytes(150000):strip_icc()/thai-massaman-chicken-curry-3217276-step-07-45838d1c6adf493492b79514f59c3c3b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fzh6nrS-6VgbbOf_gWJO3idjCsE=/4000x2667/filters:no_upscale():max_bytes(150000):strip_icc()/thai-massaman-chicken-curry-3217276-step-07-45838d1c6adf493492b79514f59c3c3b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai2-pad-thai-tofu",
+      "slug": "mfr-thai2-pad-thai-tofu",
+      "title": "Pad Thai mit Tofu",
+      "instructions": "Pflanzliches Pad Thai, wie es sein soll: fest gepresster Tofu wird mit Reisnudeln, Ei, Sojasprossen und Frühlingszwiebel knusprig gebraten. Dazu kommt die klassische Sauce aus Tamarinde, Fischsauce und Palmzucker, garniert mit Erdnüssen und Limette. Vegetarisch ohne Kompromisse.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tamarindenpaste ist günstig und hält monatelang.",
+        "Tofu ist preiswert. Durch das Pressen wird er besonders gut.",
+        "Sojasprossen sorgen fast kostenlos für Knusprigkeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamarind",
+          "swap": "1 EL Limettensaft, 1 EL Sojasauce und eine Prise brauner Zucker"
+        },
+        {
+          "forIngredientId": "palm-sugar",
+          "swap": "Brauner Zucker oder Ahornsirup"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-pad-thai-tofu",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "thailändisch",
+        "pad-thai",
+        "tofu",
+        "vegetarisch",
+        "nudeln",
+        "tamarinde"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1602,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-pad-thai-tofu/",
+      "components": [
+        {
+          "key": "bb5f31b9-d718-5f39-92ac-aa7185f59279",
+          "name": "Zutaten",
+          "servingGrams": 498.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "8257c892-eb71-568d-adcb-cea3a502ace7",
+              "ingredientName": "Reisnudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c937af5c-71d6-5ec4-ad7e-94ee08999603",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3a8d755-d77d-5caf-8b74-b82746c930c4",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50671896-bfd4-503a-afb2-a04e36d7c875",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff57538d-89ae-5005-bc6d-05ca91a37c4d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b1ef7b3-a7cf-555a-9931-537b37352a67",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "896f1f5c-ce67-5668-a787-6b4e34272b2e",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4275d09-ec8e-569f-9021-21a6587670f3",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce20b514-5a44-5ed0-b5b1-61cb2c274893",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d43fe9a-e6d9-5894-ae7d-a3179f7acf33",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe271c58-e57e-5c0a-9fed-cd7eb77bbe6f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6053dc65-5819-5e21-8429-683d2bea9e6d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b334c946-cbbd-560f-995f-3fe51f7e969c",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nudeln 20 Minuten in warmem Wasser einweichen und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tamarinde, Fischsauce und Palmzucker zur Pad-Thai-Sauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tofu pressen und würfeln. In heißem Öl von allen Seiten goldbraun braten und herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nudeln zur Seite schieben und die Eier in der Mitte als Rührei stocken lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tofu dazugeben, Sauce angießen und alles bei starker Hitze 2 Minuten vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasprossen und Frühlingszwiebel dazugeben und 30 Sekunden schwenken. Mit Erdnüssen und Limette garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_NbhSMvHG4vw08zg3md7NiJ37Vc=/2999x1999/filters:fill(auto,1)/vegetarian-pad-thai-3217746-10-10-5b0da1deeb97de003761334d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_NbhSMvHG4vw08zg3md7NiJ37Vc=/2999x1999/filters:fill(auto,1)/vegetarian-pad-thai-3217746-10-10-5b0da1deeb97de003761334d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai2-nasi-goreng",
+      "slug": "mfr-thai2-nasi-goreng",
+      "title": "Nasi Goreng – indonesischer Bratreis",
+      "instructions": "Indonesiens Nationalgericht: Reis vom Vortag wird mit Garnelenpaste, Kecap Manis (süßer Sojasauce), Hähnchen, Ei und Gemüse gebraten, bis alles duftet und leicht rauchig schmeckt. Für das authentische Warung-Erlebnis mit knusprigem Spiegelei, Krabbenchips und eingelegter Gurke servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kalter Reis vom Vortag ist die Grundlage für guten Bratreis. Plane voraus.",
+        "Kecap Manis (süße Sojasauce) ist in Asialäden günstig.",
+        "Krabbenchips kannst du weglassen. Das Gericht schmeckt genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kecap-manis",
+          "swap": "Normale Sojasauce mit 1 EL braunem Zucker und 1 TL Melasse"
+        },
+        {
+          "forIngredientId": "shrimp-paste",
+          "swap": "Fischsauce. Anders im Geschmack, funktioniert aber."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-nasi-goreng",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "indonesisch",
+        "nasi-goreng",
+        "bratreis",
+        "kecap-manis",
+        "garnele"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1603,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-nasi-goreng/",
+      "components": [
+        {
+          "key": "18d8cfda-2930-5490-ab6a-d0b53e2baf30",
+          "name": "Zutaten",
+          "servingGrams": 436.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "fcc1dbf8-e6e4-5682-894e-8cd17bf82fb6",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce498d8f-6962-5024-90e4-614b8b7a6024",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90348f6a-c649-5f9e-ad0a-18a0605df05d",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4292360c-6dad-5364-8a2d-870183b27299",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf8ffadf-e118-5cab-98fd-58b86b80b3bc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d28c7db-df07-5d06-ab13-e6e15d886148",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41137737-de89-5a47-9b92-8fd86e568a9b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c8e6b19-f851-55c2-b639-c662695ffa2f",
+              "ingredientName": "Kecap Manis (süße Sojasauce)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec4d928a-d8c8-50c7-9ca0-fc7ddb8a3a1b",
+              "ingredientName": "Garnelenpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f7a3803-e425-553f-af60-755cba24b733",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef59ad1f-5106-59ba-bec5-b93270f34cae",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c40d257c-ed9f-5753-8f18-9aac814d1d4e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c001bfd-d7e2-5033-8243-d9ffae33a3ea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kalten Reis vom Vortag verwenden. Frischer Reis wird matschig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Zwiebel 2 Minuten in heißem Öl braten. Garnelenpaste dazugeben und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen dazugeben und 3 Minuten garen. Garnelen hinzufügen und 1 Minute braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis dazugeben, flach ausbreiten und 2 Minuten ungestört braten, dann umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kecap Manis und Sojasauce dazugeben und bei starker Hitze vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eier separat braten, bis die Ränder knusprig sind. Reis damit und mit Gurkenscheiben servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/JaS-BFvVhXXdIEsKzfwtqMgTCS0=/5408x3600/filters:fill(auto,1)/nasi-goreng-recipe-fried-rice-1128810-hero-01-94e405a4f45847c89c2f3994002f8f56.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/JaS-BFvVhXXdIEsKzfwtqMgTCS0=/5408x3600/filters:fill(auto,1)/nasi-goreng-recipe-fried-rice-1128810-hero-01-94e405a4f45847c89c2f3994002f8f56.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai2-red-curry-veg",
+      "slug": "mfr-thai2-red-curry-veg",
+      "title": "Thailändisches rotes Gemüsecurry",
+      "instructions": "Ein thailändisches rotes Curry mit viel Gemüse: Cremige Kokosmilch köchelt mit roter Currypaste, Bambussprossen, Paprika, Zucchini und Thai-Basilikum. Würzig, aromatisch und in 20 Minuten fertig. Ein fleischloses Curry, bei dem nichts fehlt.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Glas rote Currypaste reicht für 6–8 Portionen und kostet 3 $.",
+        "Bambussprossen aus der Dose sind in Asialäden sehr günstig.",
+        "Tiefgekühlter Spinat passt gut. Vor dem Zugeben auftauen und ausdrücken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce mit einem Spritzer Limette als vegane Alternative"
+        },
+        {
+          "forIngredientId": "bamboo-shoots",
+          "swap": "Wasserkastanien oder Babymais"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-red-curry-veg",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch",
+        "rotes-curry",
+        "vegetarisch",
+        "kokos",
+        "schnell",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1604,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-red-curry-veg/",
+      "components": [
+        {
+          "key": "b987b6d1-7c01-5b69-9188-42e43bc9c92b",
+          "name": "Zutaten",
+          "servingGrams": 637.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6914052-3310-5aa9-b51a-fdded5c5a10a",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3200f7c-dd4a-5203-9388-7cb7dff65ac2",
+              "ingredientName": "Rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9bc712d-4a7b-5c66-a752-08f1e38ef55c",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6376a3d8-559d-5d81-ada1-eb920e0276c9",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7af912ef-7337-5607-b449-46112a801f6b",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dc402ee-3bb5-5d25-8f35-a3b116b0e975",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de692db2-a56e-588f-b941-400a31f532d8",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20e849d1-f7a8-563d-bbe3-2b6d27d51880",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cdb5bf3-c63c-5392-8590-de7ea4c74045",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a858bcc6-bbe6-5691-9325-a1560fe9ed54",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45284d95-caae-5ecb-8354-2c091bcfb137",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6362515a-9265-59eb-a74a-e3a9b162c4ae",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bd5a913-2785-5ebf-b58d-2524df66ebfe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Öl erhitzen und Currypaste 2 Minuten anbraten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kokosmilch dazugeben, verrühren und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Paprika, Zucchini und Bambussprossen dazugeben und 8 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Fischsauce und Palmzucker abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spinat und Basilikum einrühren, bis der Spinat zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Limette abschließen und auf Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/12/red-curry-scaled.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/12/red-curry-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

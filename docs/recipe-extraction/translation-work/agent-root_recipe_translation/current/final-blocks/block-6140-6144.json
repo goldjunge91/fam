@@ -1,0 +1,1169 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-steam-pot-chicken",
+      "slug": "gen-steam-pot-chicken",
+      "title": "Yunnan-Dampfhähnchen",
+      "instructions": "Yunnanisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenunterkeulen statt Schenkeln, das ist günstiger.",
+        "Lass den Schinken weg und verwende mehr Pilze, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "yunnanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6140,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steam-pot-chicken/",
+      "components": [
+        {
+          "key": "1decaed4-4092-5b2b-b4cb-8ad80c228d4f",
+          "name": "Zutaten",
+          "servingGrams": 593,
+          "position": 0,
+          "items": [
+            {
+              "key": "21ce6995-3623-570c-b7c1-c87994641aa4",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "b16c824e-52e7-5c25-8e7f-f3712e6961ae",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund in Scheiben geschnitten"
+            },
+            {
+              "key": "aa1ac6d7-0c84-521a-9137-27d66572b761",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b08304af-4fce-5679-9c35-1453c334544e",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "06acd616-9369-5b84-8101-8166247391db",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "3b185248-1531-56c4-9330-7b4611fd2238",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "842c1687-b406-5e19-b26f-35b46966b729",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 oz in Scheiben geschnitten"
+            },
+            {
+              "key": "15449398-b154-5505-862c-d93595f59829",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "423b1651-d482-52f9-a3ba-db0f41a0256d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3fdfa009-9845-5c3a-94b1-6d4f658b7f10",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8c433d1c-76cb-5268-b473-77e2940240e8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "53ddd159-b74a-5f48-94bb-f7b306f79bea",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenschenkel in mundgerechte Stücke und blanchiere sie 3 Minuten in kochendem Wasser, um Verunreinigungen zu entfernen. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Schinken in dünne Scheiben, Karotten und Kartoffeln in mundgerechte Stücke und die Pilze in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte Hähnchenstücke, Schinken, Ingwerscheiben und Gemüse in einen speziellen Yunnan-Dampftopf oder einen abgedeckten Tontopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 4 Tassen Wasser, Sojasauce und Reiswein in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verschließe den Topf fest und stelle ihn in einen größeren Topf mit kochendem Wasser, das bis zur halben Höhe des inneren Topfes reicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dämpfe alles 35–40 Minuten, bis das Hähnchen durchgegart und das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Topf vorsichtig vom Herd und öffne den Deckel, damit der Dampf entweichen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Sesamöl, garniere mit Frühlingszwiebelringen und serviere das Gericht direkt aus dem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/yo1hbITERPCtncGwFrhH28uKj-I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Curried-chicken-and-cabbage-soup-262-8d08a9a18ba54784bdd5ec9feddd8785.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/yo1hbITERPCtncGwFrhH28uKj-I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Curried-chicken-and-cabbage-soup-262-8d08a9a18ba54784bdd5ec9feddd8785.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yunnan-rice-noodle-soup",
+      "slug": "gen-yunnan-rice-noodle-soup",
+      "title": "Yunnanesische Reisnudelsuppe",
+      "instructions": "Yunnanisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche Brühe selbst, indem du Hühner- oder Schweineknochen über Nacht auskochst.",
+        "Kaufe Reisnudeln in größeren Mengen auf asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "yunnanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6141,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yunnan-rice-noodle-soup/",
+      "components": [
+        {
+          "key": "3942f59f-c5fd-547c-bf92-5cb1d21b1e46",
+          "name": "Zutaten",
+          "servingGrams": 952.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "31ccb918-112f-56d3-a836-eed4c6261c52",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "6642aa77-4828-5e3d-8120-784a3926e60a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "6c61b242-151f-5521-ace5-798ddb80ec67",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "ddcbcb5f-6613-5732-952e-6f6bf9ee2739",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8eaa1736-4bc2-5f26-a3c6-dd549993abf1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Unzen"
+            },
+            {
+              "key": "64ebd055-7ad5-519b-b7ab-fce963c96c7a",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "42da1f01-a978-5ee8-9338-9951fcf9a6c7",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "40e3fe37-bbef-5ce1-8858-4b57738e18f4",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "2444d764-1b12-5b61-95b6-6bfee4da61b1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "434fc828-0785-5f37-937b-cfea3b4fc31b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Brühe mit den Ingwerscheiben in einem großen Topf zum Kochen. Gib das dünn geschnittene Fleisch dazu und lasse es 5–7 Minuten köcheln, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche währenddessen die Reisnudeln in einem separaten Topf mit kochendem Wasser nach Packungsanweisung. Gieße sie ab und verteile sie auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sojasauce, weißen Pfeffer und Salz in die heiße Brühe und rühre alles um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die heiße Brühe mit dem gegarten Fleisch in die Schalen über die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide Frühlingszwiebeln in Ringe und streue sie zusammen mit frischem Koriander über die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle jede Schale mit Sesamöl und serviere die Suppe sofort dampfend heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2020/11/rice-noodles-11-640x960.jpg",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2020/11/rice-noodles-11-640x960.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aloo-bhaat",
+      "slug": "gen-aloo-bhaat",
+      "title": "Aloo Bhaat",
+      "instructions": "Maharashtrisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis und Kartoffeln in großen Mengen im Großhandel.",
+        "Verwende einfache, preiswerte Senfkörner und Curryblätter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "maharashtrisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6142,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aloo-bhaat/",
+      "components": [
+        {
+          "key": "2c9c01b1-125d-5eec-afea-e26b25b5867a",
+          "name": "Zutaten",
+          "servingGrams": 577.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "56ea2436-5135-5cd8-b158-64d88a556cf2",
+              "ingredientName": "Basmatireis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f99921d0-97f0-52d0-a933-b330c41b93be",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "899860f3-5501-5da9-a04d-aefd13d69d04",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "e3a67b44-794b-5e88-9250-958623353f50",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ae452ac-98e0-5bae-a370-92855e4d3e99",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "33a58bfd-6aee-5a38-9db4-1bf1f6bcdf4d",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8ca3b74-37b1-52d4-9561-48319b82d716",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3cba65b3-0995-56e5-93f5-1f12a5963ef3",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "a10840e6-decb-58cb-ae75-85a53b4164cb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b9a678af-20f5-561c-87a8-0e5084293846",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche den Basmatireis und weiche ihn 15 Minuten ein. Gieße ihn anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Kartoffeln in kleine Würfel und hacke Zwiebeln und grüne Chilis fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Topf und gib die Senfkörner hinein. Röste sie, bis sie aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Curryblätter, Zwiebeln und grüne Chilis dazu und dünste alles, bis die Zwiebeln goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge Kartoffelwürfel und Kurkuma hinzu, rühre gut um und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den abgetropften Reis in den Topf und rühre 2 Minuten ununterbrochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße Wasser dazu, salze und bringe alles zum Kochen. Reduziere dann die Hitze auf niedrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke den Topf ab und lasse alles 15–18 Minuten köcheln, bis Reis und Kartoffeln gar und das Wasser aufgenommen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.wine4food.com/wp-content/uploads/2021/04/chana-aloo-chaat-upload-1920x1280.jpg",
+          "sourcePageUrl": "https://www.wine4food.com/wp-content/uploads/2021/04/chana-aloo-chaat-upload-1920x1280.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dal-bhaat",
+      "slug": "gen-dal-bhaat",
+      "title": "Dal Bhaat",
+      "instructions": "Maharashtrisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Linsen in größeren Mengen im indischen Lebensmittelgeschäft oder online.",
+        "Kaufe Reis in großen Mengen, das ist günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "maharashtrisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6143,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dal-bhaat/",
+      "components": [
+        {
+          "key": "75d7453e-43d2-5ba1-8560-29d28f09d7a6",
+          "name": "Zutaten",
+          "servingGrams": 642.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c24e1d9f-fa3c-5b88-a202-6a06fa59e9c5",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4d9e7507-ac65-575f-aa98-98b840417545",
+              "ingredientName": "Linsen",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "e92981d9-25ad-56cf-a4f3-b37ea31aa58d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "e43a8d1b-f899-55b0-be65-e2b56c0d374d",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c504386-314f-58e0-84d7-20a1e69206d1",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4320b240-43e6-5108-8c24-a3ea801516e1",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c89d9a39-480b-5772-897f-7bf5bd418be5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7262b06e-7fd5-5eda-9b9f-11d8957723a1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7e79d836-09a0-5ea4-826a-feac880843ce",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cb856d69-0e0c-5a41-bb74-0e31112c6152",
+              "ingredientName": "Curryblätter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "302b4e25-64ea-5c61-a9ef-d46d51a79150",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche Reis und Linsen getrennt unter fließendem Wasser und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und gib die Senfkörner hinein. Röste sie, bis sie aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Curryblätter, gehackte Zwiebeln und grüne Chilis hinzu und dünste alles, bis die Zwiebeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge gewürfelte Tomate, Kurkuma und Salz hinzu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gewaschenen Linsen und den Reis in den Topf und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Wasser dazu und bringe alles zum Kochen. Reduziere dann die Hitze auf niedrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Topf ab und lasse alles 18–20 Minuten köcheln, bis Linsen und Reis weich und das Wasser aufgenommen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lockere die Mischung vorsichtig mit einer Gabel auf und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Spicy-Masoor-Dal-Bhat-with-Cumin-and-Garlic.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Spicy-Masoor-Dal-Bhat-with-Cumin-and-Garlic.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pitla",
+      "slug": "gen-pitla",
+      "title": "Pitla",
+      "instructions": "Maharashtrisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsenmehl ist in indischen Geschäften oder Großpackungsabteilungen günstig.",
+        "Verwende einfache Vorratszutaten wie Zwiebeln und Öl."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "maharashtrisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6144,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pitla/",
+      "components": [
+        {
+          "key": "7ab4b6d8-1200-5903-adb5-e55e657ec5aa",
+          "name": "Zutaten",
+          "servingGrams": 316.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "df776059-409b-58a4-a304-31cc9ca7c69a",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9f1f8acb-477a-53c3-be04-4a80c52e2f2e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "deb15ebb-ebac-5b41-9f44-4691c1517d0e",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25f09d4d-1f3e-5964-ac24-f910dba75ec4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "19f251d0-8745-5a6b-920d-5a5cfcc25543",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "94c32222-e008-5805-9fef-95da72c5256c",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "66573315-2a94-5cec-a35a-8ac709e68c31",
+              "ingredientName": "Asant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "308b0a41-3f6e-5251-912c-98a0cab4ecf4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "690f5662-3cd3-5756-941f-6fa93bc36b91",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "1a0f78e1-db56-5707-9164-fedf38345ec6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf mit schwerem Boden und gib die Senfkörner hinein. Röste sie, bis sie aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebeln und grüne Chilis dazu und dünste alles, bis die Zwiebeln goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Kurkuma und Asant hinzu und rühre kurz um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Kichererbsenmehl nach und nach unter ständigem Rühren hinzu, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße nach und nach Wasser dazu und rühre dabei, bis ein glatter, dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Mischung unter ständigem Rühren 8–10 Minuten, bis sie eindickt und heller wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Salz und gehackten Koriander hinzu und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gare das Pitla weitere 2 Minuten, bis es krümelig und leicht feucht, aber nicht flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://dww3ueizok6z0.cloudfront.net/food/banner/10675-9353f3c17e37bc2fa0b5ebe29c2738d041fb48a4",
+          "sourcePageUrl": "https://dww3ueizok6z0.cloudfront.net/food/banner/10675-9353f3c17e37bc2fa0b5ebe29c2738d041fb48a4",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

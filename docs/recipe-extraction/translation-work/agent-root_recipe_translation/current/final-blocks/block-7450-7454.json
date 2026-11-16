@@ -1,0 +1,1129 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-chocolate-crinkle-cookies",
+      "slug": "bake-chocolate-crinkle-cookies",
+      "title": "Schokoladen-Crinkle-Cookies",
+      "instructions": "Saftige, brownieartige Schokoladenkekse, die in Puderzucker gewälzt werden. Beim Backen reißt die Oberfläche auf und bildet ein schneeflockenartiges Muster. Der gekühlte Teig ergibt dicke, weiche Kekse mit knusprigen, zuckerbestäubten Rändern.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kakaopulver in größeren Packungen. Es ist pro Gramm deutlich günstiger als kleine Backdosen und hält sich ein Jahr.",
+        "Neutrales Öl macht die Kekse saftig, ohne dass Butter nötig ist. Auch eine günstige Eigenmarke eignet sich bestens.",
+        "Wenn der Teig über Nacht kühlt, kannst du ihn am Vortag zubereiten und am nächsten Tag frisch backen. So teilst du die Arbeit auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "geschmolzen Butter für ein richer flavor",
+          "savings": "Kostet etwas mehr, sorgt aber für volleres Aroma"
+        },
+        {
+          "forIngredientId": "cocoa-powder",
+          "swap": "Dutch-process cocoa für ein darker, smoother color",
+          "savings": "Ähnlicher Preis, deutlicherer Kontrast der rissigen Oberfläche"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Light brown Zucker für chewier cookies",
+          "savings": "Gleiche Kosten, zusätzliche Melassenote"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "cookies (deutsche Fassung)",
+        "Schokolade",
+        "Nachtisch",
+        "Backen",
+        "holiday (deutsche Fassung)",
+        "kid-friendly (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7450,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-chocolate-crinkle-cookies/",
+      "components": [
+        {
+          "key": "ed426b4a-2143-5223-a73a-dec85ae55aa0",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 74.27,
+          "position": 0,
+          "items": [
+            {
+              "key": "b546f402-cf2c-587d-b64d-fe684c6a383c",
+              "ingredientName": "Kakaopulver",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse ungesüßtes Kakaopulver"
+            },
+            {
+              "key": "ee8295be-51eb-5824-9432-f02fd5d77233",
+              "ingredientName": "weißer Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker"
+            },
+            {
+              "key": "e377caab-3372-5769-a001-f0d7b3bd78ff",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse neutrales Öl"
+            },
+            {
+              "key": "fefb2b25-9ea1-59c3-a800-bd63eb26ea24",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 große Eier"
+            },
+            {
+              "key": "10f4dc12-2679-56a1-9fe9-94a530a54932",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "060847b3-405c-5188-a7cc-64fed46a28ae",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "8e96874d-1a11-58e8-9051-3fb60b8b8757",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL Backpulver"
+            },
+            {
+              "key": "567720ba-860a-52b9-8b36-ba1b7f509e18",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "46152c0b-fd24-5ac4-92e7-5d7a107d6246",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse Puderzucker zum Wälzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Kakaopulver, Zucker und Öl in einer großen Schüssel, bis eine dicke, sandige Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die Eier einzeln unter. Rühre anschließend die Vanille ein, bis der Teig glatt und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl, Backpulver und Salz in einer zweiten Schüssel. Hebe die trockenen Zutaten unter die feuchten, bis ein weicher, klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Teig ab und stelle ihn mindestens 4 Stunden oder über Nacht kalt. So wird er fest genug zum Formen und behält beim Backen sein typisches Rissmuster.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 350F (175C) vor und belege zwei Backbleche mit Backpapier. Gib den Puderzucker in eine flache Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm jeweils einen Esslöffel kalten Teig ab und forme Kugeln. Wälze sie großzügig im Puderzucker, bis sie rundum dick damit bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Setze die Kugeln mit 2 Zoll Abstand auf die Bleche und backe sie 10 bis 12 Minuten, bis die Oberfläche aufreißt und die Ränder fest sind. Die Mitte darf noch leicht weich aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Kekse 5 Minuten auf dem Blech abkühlen, damit sie fest werden. Lege sie anschließend zum vollständigen Abkühlen auf ein Kuchengitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Chocolate_Crinkle_Cookies_%28home_cooking%29.JPG/1280px-Chocolate_Crinkle_Cookies_%28home_cooking%29.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_Crinkle_Cookies_(home_cooking).JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Alexis Doine — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Schokoladen-Crinkle-Cookies",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-no-knead-dutch-oven-bread",
+      "slug": "bake-no-knead-dutch-oven-bread",
+      "title": "Brot aus dem gusseisernen Topf ohne Kneten",
+      "instructions": "Ein rustikaler Brotlaib wie vom Bäcker, mit rissiger, blasiger Kruste und lockerer, kräftiger Krume. Er besteht nur aus Mehl, Wasser, Hefe und Salz. Kneten und Maschine sind nicht nötig: Die lange Gare über Nacht übernimmt die Arbeit, und ein vorgeheizter schwerer Topf hält den Dampf für die Kruste im Brot.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl, Wasser, Hefe und Salz kosten pro Laib nur wenige Cent. Selbst gebackenes Brot ist viel günstiger als ein Laib vom Bäcker für $5-7.",
+        "Kaufe Hefe im Glas oder als Großpackung statt in einzelnen Tütchen. Im Gefrierfach hält sie sich ein Jahr und ist pro Anwendung deutlich günstiger.",
+        "Weizenmehl funktioniert auch, falls du kein Brotmehl hast. Die Krume wird etwas weniger elastisch, aber trotzdem sehr gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "active-dry-Hefe (verwenden der same amount; der long rise gives it plenty von time zu activate)",
+          "savings": "Oft günstiger und breiter erhältlich"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "swap up zu 1/3 von der Mehl für whole-wheat-Mehl für ein heartier, nuttier loaf",
+          "savings": "Ungefähr gleiche Kosten, mehr Ballaststoffe"
+        },
+        {
+          "forIngredientId": "cornmeal",
+          "swap": "extra Mehl oder ein sheet von natur parchment",
+          "savings": "Den Kauf von Maisgrieß vollständig sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "artisan-european (deutsche Fassung)",
+        "Brot",
+        "no-kneten",
+        "artisan (deutsche Fassung)",
+        "Backen",
+        "vegan (deutsche Fassung)",
+        "overnight (deutsche Fassung)",
+        "dutch-Ofen",
+        "crusty (deutsche Fassung)"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7451,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-no-knead-dutch-oven-bread/",
+      "components": [
+        {
+          "key": "c8b5d358-517f-55dd-884e-ceae1f17e001",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 117.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9e71f80-e3e4-57a0-b74b-34e51ed4e0b6",
+              "ingredientName": "Weizenmehl",
+              "grams": 799.2,
+              "quantity": 799.2,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "430g backstarkes Mehl (oder Weizenmehl); ~3 1/3 Tassen"
+            },
+            {
+              "key": "cc5eaf70-7a2b-590a-8973-e083d4645c6a",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "345g lauwarmes Wasser (~1 1/2 Tassen), etwa 70-75% Hydration"
+            },
+            {
+              "key": "1446eb0d-8c6c-598d-af83-23b0f229c437",
+              "ingredientName": "Instant-Hefe",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Instanthefe; für die lange kalte Gare genügt eine winzige Prise"
+            },
+            {
+              "key": "186bd16c-d170-5041-9cac-e3efff927f67",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 TL feines Salz (~9g)"
+            },
+            {
+              "key": "6adf6673-03cb-5644-a153-96fac8db9a53",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 3.6,
+              "quantity": 3.6,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "zum Bestäuben des Backpapiers, damit sich das Brot gut löst"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Trockenhefe und Salz in einer großen Schüssel. Gib lauwarmes Wasser dazu und rühre mit einem Teigschaber oder der Hand, bis kein trockenes Mehl mehr zu sehen ist. Es entsteht ein klebriger, feuchter, grober Teig. Nicht kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel dicht mit Folie oder einem Deckel ab und lasse den Teig bei Raumtemperatur 12 bis 18 Stunden gehen, bis die Oberfläche Blasen zeigt und sich das Volumen ungefähr verdoppelt hat. Bei längerer Gare entwickelt sich mehr Aroma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestäube die Arbeitsfläche großzügig mit Mehl und stürze den Teig darauf. Falte ihn mit bemehlten Händen 3 or 4 Mal über sich selbst zu einem lockeren Ball. Drehe ihn mit dem Schluss nach unten und schlage die Ränder unter, damit die Oberfläche Spannung bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Teig mit dem Schluss nach unten auf Backpapier, das mit Maisgrieß oder Mehl bestäubt ist. Decke ihn locker mit einem Tuch ab und lasse ihn 1 bis 2 Stunden gehen, bis er luftig ist und bei leichtem Druck langsam zurückfedert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle etwa 30 Minuten vor dem Backen einen schweren gusseisernen Topf mit Deckel auf die mittlere Schiene und heize den Ofen auf 475F (245C), damit der Topf sehr heiß wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den heißen Topf vorsichtig heraus. Schneide mit einer scharfen Klinge einen tiefen Schnitt oder ein Kreuz in die Brotoberfläche. Hebe den Teig am Backpapier in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Setze den Deckel auf und backe das Brot 30 Minuten. Der eingeschlossene Dampf bildet eine dünne, glänzende Kruste und lässt den Laib aufgehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Deckel ab und backe weitere 12 bis 18 Minuten, bis die Kruste dunkelgolden ist und das Brot beim Klopfen hohl klingt (Kerntemperatur etwa 205-210F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Hebe das Brot am Backpapier aus dem Topf und lasse es mindestens 1 hour auf einem Gitter abkühlen, bevor du es anschneidest. Wird es zu früh angeschnitten, wird die Krume klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/No-knead_sourdough_bread_in_Griswold_Dutch_Oven.jpg/1280px-No-knead_sourdough_bread_in_Griswold_Dutch_Oven.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:No-knead_sourdough_bread_in_Griswold_Dutch_Oven.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Nutrition, Food Safety & Health — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Brot aus dem gusseisernen Topf ohne Kneten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-french-baguette",
+      "slug": "bake-french-baguette",
+      "title": "Französisches Baguette",
+      "instructions": "Ein klassisches französisches Baguette aus einfachem Teig mit kräftig karamellisierter, splitternder Kruste und lockerer, saftiger Krume. Es braucht nur vier Zutaten: Mehl, Wasser, Hefe und Salz. Die lange kalte Gare sorgt für echtes Bäckeraroma.",
+      "prepTimeMinutes": 65,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Baguettes sind fast kostenlos selbst zu backen: Aus einem 5 lb Sack Mehl werden mehr als ein Dutzend Laibe, jeder für wenige Cent statt $3-4 beim Bäcker.",
+        "Du brauchst weder Bäckerleinen noch Backstein: Lasse die Laibe in gefaltetem Backpapier gehen und backe sie auf einem umgedrehten, vorgeheizten Blech. So wird die Kruste ebenfalls knusprig.",
+        "Baguette vom Vortag muss nicht weg: Befeuchte es leicht und backe es 5 Minuten auf, oder verwende es für Croûtons, Semmelbrösel oder Arme Ritter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "verwenden active dry Hefe 1:1, bloomed in der warm Wasser für 5 Minuten first",
+          "savings": "In Großgläsern oft günstiger als in einzelnen Päckchen"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "All-purpose Mehl anstatt Brot Mehl (crumb is slightly weniger chewy)",
+          "savings": "Spart ~30% gegenüber besonderem Brotmehl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Französisch",
+        "Brot",
+        "Backen",
+        "artisan (deutsche Fassung)",
+        "vegan (deutsche Fassung)",
+        "4-ingredient (deutsche Fassung)",
+        "aus-scratch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7452,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-french-baguette/",
+      "components": [
+        {
+          "key": "7eb2a234-cea7-525f-ab94-c0260a6396f8",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 60.66,
+          "position": 0,
+          "items": [
+            {
+              "key": "1aad4ae8-8000-5d05-a302-11f990bb4dc4",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "vorzugsweise backstarkes Mehl (~500g); auch Weizenmehl eignet sich"
+            },
+            {
+              "key": "e6442dce-222c-516b-ae93-48750e70ff7f",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "~375g, lauwarm, für ~75% Hydration"
+            },
+            {
+              "key": "e029cfb2-37ce-52fa-b8f1-d021765b3845",
+              "ingredientName": "Instant-Hefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "~1 TL Instant- oder aktive Trockenhefe"
+            },
+            {
+              "key": "9119f953-ffd1-5131-9607-e6dc0c5a3627",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "~10g feines Meersalz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre 500g Mehl mit 1 TL Trockenhefe. Gib 375g lauwarmes Wasser dazu und mische mit einem Teigschaber, bis kein trockenes Mehl mehr übrig ist. Decke den Teig ab und lasse ihn 20 Minuten ruhen, damit das Mehl vollständig quillt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streue 10g Salz über den Teig und arbeite es durch Drücken und Falten ein, bis der Teig glatt und leicht klebrig ist. Decke die Schüssel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Führe in den nächsten 1.5 Stunden 3 Dehn- und Faltvorgänge im Abstand von ~30 Minuten aus: Befeuchte deine Hand, ziehe eine Teigseite hoch und falte sie zur Mitte. Drehe die Schüssel dabei. Der Teig wird glatt und elastisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Schüssel dicht ab und stelle sie 12-24 Stunden in den Kühlschrank. Die kalte Gare entwickelt das kräftige Aroma und macht den Teig leichter formbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stürze den Teig auf eine leicht bemehlte Arbeitsfläche und teile ihn in 3 Stücke. Forme jedes vorsichtig zu einem lockeren Strang und lasse die Stücke abgedeckt mit dem Schluss nach unten 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme jedes Stück zum Baguette: Drücke es leicht flach, klappe das obere Drittel nach unten und drücke die Naht fest. Klappe dann das untere Drittel nach oben und verschließe es ebenfalls. Rolle den Teig zu einem 14-Zoll langen Strang mit spitz zulaufenden Enden. Lege ihn mit dem Schluss nach unten in bemehltes Bäckerleinen oder gefaltetes Backpapier und lasse ihn 45-60 Minuten gehen, bis er luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle eine Stunde vor dem Backen einen Backstein oder ein umgedrehtes Blech sowie ein leeres Metallblech auf die untere Schiene und heize den Ofen auf 475F (245C). Lege die Baguettes auf Backpapier und schneide jedes mit einer scharfen Klinge 3-4 Mal in einem flachen Winkel von 30 Grad ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schiebe die Laibe in den Ofen, gieße 1 Tasse heißes Wasser in das leere Blech und schließe die Tür sofort, damit der Dampf im Ofen bleibt. Backe sie 20-25 Minuten, bis sie dunkelgolden sind und beim Klopfen hohl klingen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse die Baguettes mindestens 30 Minuten auf einem Gitter abkühlen, damit sich die Krume setzt und die Kruste knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Baguettes_-_stonesoup.jpg/1280px-Baguettes_-_stonesoup.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Baguettes_-_stonesoup.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jules / stonesoup — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Französisches Baguette",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-brioche-loaf",
+      "slug": "bake-brioche-loaf",
+      "title": "Brioche-Kastenbrot",
+      "instructions": "Ein klassisches französisches Brioche: ein zartes, goldgelbes, federleichtes Hefebrot, reich an Butter und Eiern. Die lange kalte Gare vertieft das Aroma und macht den weichen Teig formbar. Ein glänzender Eistrich sorgt für die typische dunkelbraune Kruste. Die Krume ist zart und fast kuchenartig.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brioche besteht im Grunde aus Mehl, Eiern und Butter. Kaufe günstiges Brotmehl der Hausmarke; die lange kalte Gare entwickelt das Aroma von selbst.",
+        "Brioche vom Vortag eignet sich hervorragend für Arme Ritter oder Brotpudding. Die reichhaltige Krume saugt die Eiermilch besonders gut auf.",
+        "Nutze die kalte Gare über Nacht, um die Arbeit auf zwei Tage aufzuteilen. So musst du nicht lange am Stück arbeiten, und der Teig wird aromatischer und leichter zu handhaben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "verwenden active dry Hefe at der same amount, but bloom it in der lukewarm Milch für 5-10 Minuten first.",
+          "savings": "Etwa gleich"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Any Milch du have auf hand, oder even Wasser, works since it is ein klein amount.",
+          "savings": "Spart mit Wasser ~$0.30"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "weglassen der Honig und brush mit just Ei plus ein splash von Wasser.",
+          "savings": "Spart ~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "Französisch",
+        "brioche (deutsche Fassung)",
+        "enriched-Brot",
+        "Backen",
+        "Frühstück",
+        "buttery (deutsche Fassung)",
+        "aus-scratch"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7453,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-brioche-loaf/",
+      "components": [
+        {
+          "key": "992d0344-8995-5ba8-8ff0-76c4e9bc8c82",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 106.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "da5244c4-8549-5031-b5da-1f173c3b7cf0",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "vorzugsweise backstarkes Mehl für die Struktur, ~2.5 Tassen / 350g"
+            },
+            {
+              "key": "e09a2f09-c7f3-5d64-b7a2-9a7d8939dedc",
+              "ingredientName": "Instant-Hefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "2c5493d1-37f8-523d-9ed3-b748c780e659",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL / 40g"
+            },
+            {
+              "key": "06c9e048-11cb-5d26-845a-a6754deb86d0",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL feines Meersalz"
+            },
+            {
+              "key": "f6e7bfce-f00d-505e-9f8e-32f8352610b8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 für den Teig + 1 zum Bestreichen, zimmerwarm"
+            },
+            {
+              "key": "b515b634-86c7-57a3-bb7d-08475e4b6acf",
+              "ingredientName": "Milch",
+              "grams": 45.6,
+              "quantity": 45.6,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "lauwarm, ~3 EL / 45ml"
+            },
+            {
+              "key": "bf093a1e-c303-5896-a554-8d402bf34da5",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "ungesalzen, weich, aber kühl, ~10 EL / 140g"
+            },
+            {
+              "key": "901c6631-0635-5bd0-9fee-6a060a30abbc",
+              "ingredientName": "Honig",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 TL für die Eistreiche"
+            },
+            {
+              "key": "d4da4592-bd53-5b94-9015-ecf52da4522e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "0.5 TL, optional für das Aroma"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Mehl, Trockenhefe, Zucker und Salz in die Schüssel einer Küchenmaschine mit Knethaken. Füge 3 Eier, lauwarme Milch und nach Wunsch Vanille hinzu. Verknete alles auf niedriger Stufe zu einem groben Teig, dann auf mittlerer Stufe 8-10 Minuten, bis er glatt und elastisch ist und sich vom Schüsselrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib bei mittlerer bis niedriger Geschwindigkeit die weiche Butter esslöffelweise dazu. Warte jeweils, bis ein Stück vollständig eingearbeitet ist. Zunächst wirkt der Teig fettig und weich. Knete weitere 8-10 Minuten, bis er glänzt, glatt ist und sich dünn ausziehen lässt, ohne zu reißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Teig in eine gebutterte Schüssel, decke ihn ab und lasse ihn bei Raumtemperatur 1 bis 1.5 Stunden gehen, bis er sein Volumen fast verdoppelt hat. Drücke die Luft vorsichtig heraus, decke ihn dicht ab und stelle ihn mindestens 4 Stunden oder über Nacht kalt. Dabei wird die Butter fest und der Teig formbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stürze den kalten Teig auf eine leicht bemehlte Fläche und teile ihn in 4 gleich große Stücke. Schlage die Ränder jeweils nach unten ein, um feste Kugeln zu formen. Setze sie nebeneinander in eine gebutterte Kastenform von 9x5 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Form locker ab und lasse den Teig an einem warmen Ort 1.5 bis 2.5 Stunden gehen, bis er etwas über den Rand aufgegangen und weich wie ein Kissen ist. Heize gegen Ende den Ofen auf 350F (175C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle das übrige Ei mit Honig und einem Schuss Wasser. Bestreiche das Brot vorsichtig dünn und gleichmäßig, damit es eine kräftig glänzende Kruste bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe das Brot 30-38 Minuten, bis es goldbraun ist und eine Kerntemperatur von 190F (88C) erreicht hat. Decke es locker mit Folie ab, falls die Oberfläche zu schnell bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse das Brot 10 Minuten in der Form abkühlen, stürze es dann auf ein Gitter und lasse es vor dem Anschneiden vollständig auskühlen, damit sich die zarte Krume setzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Brioche_Nanterre.jpg/1280px-Brioche_Nanterre.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Brioche_Nanterre.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Msayago10 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Brioche-Kastenbrot",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-challah-bread",
+      "slug": "bake-challah-bread",
+      "title": "Challa (jüdisches Zopfbrot)",
+      "instructions": "Ein klassisches geflochtenes Eierbrot mit glänzender, dunkelbrauner Kruste und einer weichen, leicht süßlichen, luftigen Krume. Eier und Öl machen die Stränge besonders zart. Warm mit Butter schmeckt es ebenso gut wie am nächsten Tag als Arme Ritter.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Challa besteht hauptsächlich aus Mehl, Wasser und Eiern und ist eines der günstigsten Brote zum Selberbacken.",
+        "Verwende statt Honig Zucker, um die Hefe zu aktivieren und den Teig zu süßen, wenn Honig teuer ist. Das Ergebnis ist fast gleich.",
+        "Challa vom Vortag eignet sich bestens für Arme Ritter oder Brotpudding; Reste müssen nicht weggeworfen werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "verwenden ein gleich amount von natur white Zucker oder maple syrup",
+          "savings": "~$0.40 pro Laib"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Any neutral Öl like canola oder geschmolzen Butter (note: Butter makes it non-dairy-free)",
+          "savings": "vernachlässigbar"
+        },
+        {
+          "forIngredientId": "sesame-seeds",
+          "swap": "Poppy seeds oder leave der top natur",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "jüdisch",
+        "Brot",
+        "Backen",
+        "braided (deutsche Fassung)",
+        "Ei-Brot",
+        "shabbat (deutsche Fassung)",
+        "aus-scratch",
+        "Hefe"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7454,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-challah-bread/",
+      "components": [
+        {
+          "key": "22fefa9c-fc93-59a2-90f4-8497dffdd5b1",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 127.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "bca87ad6-3761-598b-abfc-4183648fb9aa",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 4 Tassen backstarkes Mehl oder Weizenmehl"
+            },
+            {
+              "key": "53bdd697-1973-5a63-8548-39d84e6fddc4",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL (1 Päckchen)"
+            },
+            {
+              "key": "8d8d6ca0-3a0a-572e-b9d4-d981db29fc90",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 für den Teig, 1 zum Bestreichen aufbewahrt"
+            },
+            {
+              "key": "636cf5d2-1bc1-55e5-b611-6292c0cda82c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse neutrales Öl"
+            },
+            {
+              "key": "9982999c-d2b3-53e9-a7d6-5700d31dc012",
+              "ingredientName": "Honig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse oder durch Zucker ersetzen"
+            },
+            {
+              "key": "0a9924dc-1ad3-5481-82dc-9291ced4c2b2",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL als Nahrung für die Hefe"
+            },
+            {
+              "key": "841d75a9-1a20-581b-92dc-4e436c4e69d5",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 2 TL"
+            },
+            {
+              "key": "c66d09ce-6238-5cc8-affc-03454f642f12",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse warmes Wasser (100-110F)"
+            },
+            {
+              "key": "af75c396-2eed-5d75-b226-44404ac8b2f3",
+              "ingredientName": "Sesamsamen",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "oder Mohn zum Bestreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre warmes Wasser (100-110F) mit Zucker und Hefe in einer großen Schüssel. Lasse die Mischung 5-10 Minuten stehen, bis sie schäumt. Schäumt sie nicht, ist die Hefe nicht mehr aktiv; beginne mit frischer Hefe von vorn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Honig, Öl und 3 Eier glatt ein. Gib Salz dazu und füge das Mehl portionsweise, etwa eine Tasse nach der anderen, hinzu, bis ein grober Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig auf einer leicht bemehlten Fläche 8-10 Minuten (oder 6-7 Minuten mit dem Knethaken einer Küchenmaschine), bis er glatt, elastisch und leicht klebrig, aber nicht nass ist. Falls nötig, gib Mehl nur esslöffelweise dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Teig in eine geölte Schüssel, wende ihn darin, decke ihn ab und lasse ihn an einem warmen Ort 1.5 bis 2 Stunden gehen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke die Luft aus dem Teig und teile ihn in 3 (oder 6) gleich große Stränge. Rolle jeden Strang etwa 16 Zoll lang und die Enden etwas schmaler. Drücke die oberen Enden zusammen und flechte den Zopf fest. Drücke auch die unteren Enden zusammen und schlage beide Enden unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Zopf auf ein mit Backpapier belegtes Blech, decke ihn locker ab und lasse ihn 45-60 Minuten gehen, bis er luftig ist und fast sein Volumen verdoppelt hat. Heize währenddessen den Ofen auf 350F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle das zurückbehaltene Ei mit einem TL Wasser und bestreiche das Brot gründlich, auch in den Zwischenräumen. Streue nach Wunsch Sesam oder Mohn darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe das Brot 25-32 Minuten, bis es dunkelgolden ist und beim Klopfen hohl klingt (Kerntemperatur 190F). Decke es mit Folie ab, falls es zu schnell bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse das Brot vor dem Anschneiden mindestens 30 Minuten auf einem Gitter abkühlen, damit sich die Krume setzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Challah_Bread_Six_Braid_1.JPG/1280px-Challah_Bread_Six_Braid_1.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Challah_Bread_Six_Braid_1.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Aviv Hod — CC BY 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Challa (jüdisches Zopfbrot)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

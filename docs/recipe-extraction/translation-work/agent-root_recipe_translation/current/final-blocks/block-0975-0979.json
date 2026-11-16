@@ -1,0 +1,1133 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-dan-dan-noodle-bowl",
+      "slug": "mfr-dan-dan-noodle-bowl",
+      "title": "Dan-Dan-Nudeln mit Putenhack",
+      "instructions": "Nudeln mit Putenhack in einer würzig-nussigen Sesam-Chili-Sauce: ein Klassiker des Sichuan-Streetfoods, vereinfacht für die heimische Küche.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Erdnussbutter-Sauce kostet nur wenige Cent und bildet die gesamte Geschmacksgrundlage.",
+        "Soba-Nudeln kosten $4–5 pro Beutel und reichen für 4+ Personen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Schweinehack nach traditioneller Art oder Tofu als vegane Variante"
+        },
+        {
+          "forIngredientId": "soba-noodles",
+          "swap": "Reisnudeln oder Spaghetti"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dan-dan-noodle-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Nudeln",
+        "asiatisch",
+        "scharf",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 975,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dan-dan-noodle-bowl/",
+      "components": [
+        {
+          "key": "f2e4b59a-489d-5e56-8076-1dd1271547a6",
+          "name": "Zutaten",
+          "servingGrams": 524.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "809a7704-7ddf-5d43-8230-6ca3d7b4682c",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb8a788a-af05-5a3f-9cbe-0fcdba4bdf0e",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76dacfd8-a18b-531e-8b41-61c5abde6a26",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07ee04dc-b910-5a9b-bf1a-3a1acc11c2be",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b96a943d-0692-59a6-93c7-c09fd4c30dc8",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be395c24-84a8-558a-bb30-038788262ef1",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfc1933c-d2ba-5b06-becd-8fcb67214c24",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75d50f33-9bb8-5dfa-9f43-053b0864c049",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bebdbf22-d2a3-5533-ab87-2f2c6f17bfc9",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef446b54-d5c8-58cc-9ccb-575ae337ca01",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2759ffa8-37ce-539e-8ce1-8a19fb40cbf5",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Soba-Nudeln nach Packungsanleitung und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune das Putenhack 8 Minuten in einer trockenen Pfanne und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Dan-Dan-Sauce aus Erdnussbutter, Sojasauce, Sesamöl, Chili-Knoblauch-Sauce, Knoblauch, Ingwer und 4 tbsp heißem Wasser an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Blanchiere den Spinat im Nudelwasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Nudeln, Spinat und Fleischsauce in einer Schüssel an. Träufle Dan-Dan-Sauce darüber und garniere mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/DanDanNoodles_9.jpg?w=1200&q=82&auto=format&fit=crop&dm=1707774158&s=831a76e22984aafbbd4b3c37656d6614",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/DanDanNoodles_9.jpg?w=1200&q=82&auto=format&fit=crop&dm=1707774158&s=831a76e22984aafbbd4b3c37656d6614",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-yakisoba",
+      "slug": "mfr-chicken-yakisoba",
+      "title": "Yakisoba mit Hähnchen",
+      "instructions": "Japanische gebratene Nudeln mit Hähnchen, spinatähnlichem Kohl und süßer Sojasauce: ein Klassiker vom Straßenfest, der sich ganz einfach unter der Woche zu Hause zubereiten lässt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Soba-Nudeln sind die authentische Wahl. Ihr erdiger Geschmack passt wunderbar zu Yakisoba.",
+        "Worcestershire-Sauce und Sojasauce sind die klassische Abkürzung für hausgemachte Yakisoba-Sauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "soba-noodles",
+          "swap": "Reisnudeln als glutenfreie Variante"
+        },
+        {
+          "forIngredientId": "worcestershire",
+          "swap": "Zusätzliche Sojasauce mit einem Spritzer Essig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-yakisoba",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Nudeln",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 976,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-yakisoba/",
+      "components": [
+        {
+          "key": "737d3025-1693-50a0-b10b-ea3616f30922",
+          "name": "Zutaten",
+          "servingGrams": 735.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a859f7dc-eed0-585f-a361-f0109e717d34",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e518159-31f0-5d9f-9eac-6bb1bd7cee09",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ad5396c-eb23-5274-a6bf-2aab56840bcd",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71cbdd99-d993-5791-84b9-3cf83583cf3f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a203d4a0-0698-595c-974d-e64bd9047dfa",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f07d64b6-2c1b-55b5-b1bd-f8db0aa76e97",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fb7a13d-8bce-5805-b664-c977cee2a3e2",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f8f6c75-3eeb-53fe-a599-6f9f677eea89",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b775c62-5d57-53ea-b722-95477c1af22d",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "093df8da-4707-5310-8fa6-0c70974eaf1a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "039bcb83-7549-551d-a6e1-75d56b582def",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "967fa30f-09a8-53b6-a48c-8e9b59a19d84",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Soba-Nudeln und gieße sie ab. Schneide das Hähnchen in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Hähnchen 5 Minuten bei hoher Hitze in Pflanzenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebel, Paprika und Knoblauch dazu und gare alles 3 Minuten. Füge Spinat hinzu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Sojasauce, Mirin, Worcestershire-Sauce und Sesamöl zur Yakisoba-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Nudeln und Sauce dazu und brate alles 2 Minuten unter Rühren, bis es glänzt. Bestreue das Gericht mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/66101b50c2cdfb04194c7f95/1:1/w_2560%2Cc_limit/YAKISOBA%2520NOODLES__%252052.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/66101b50c2cdfb04194c7f95/1:1/w_2560%2Cc_limit/YAKISOBA%2520NOODLES__%252052.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sesame-beef-broccoli-bowl",
+      "slug": "mfr-sesame-beef-broccoli-bowl",
+      "title": "Sesam-Rindfleisch-Schale mit Brokkoli",
+      "instructions": "Zartes Rindfleisch aus Hackfleisch und knuspriger Brokkoli in einer kräftigen Sesam-Soja-Sauce: eine Schale wie im Restaurant, in 20 Minuten zu Hause zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Sauce aus Sesam, Sojasauce und Honig ist ideal für unkomplizierte Abendessen unter der Woche: Vorratszutaten, Ergebnis wie im Restaurant.",
+        "Wenn du Brokkoli in einer sehr heißen Pfanne anröstest, bekommt er zu Hause das typische Wok-Aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Steakstreifen oder Putenhack"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Pak Choi, Zuckerschoten oder grüne Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sesame-beef-broccoli-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Pfannengericht",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 977,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sesame-beef-broccoli-bowl/",
+      "components": [
+        {
+          "key": "9cc6f66a-d3c9-53f8-9330-ce71ce2af8e6",
+          "name": "Zutaten",
+          "servingGrams": 779.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3aad1aef-28d9-5ec6-99a7-fe026383c0ed",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91cdc7d1-3b98-5d81-871d-19c11b1116d8",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cdd140e-80ee-5ebb-bca2-62ed99197883",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9312972-f3f8-51f8-b8e3-c277e5f4ccc6",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7df076cc-3cdf-5f1f-a5e3-5605b9e00245",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eeab4fb-5665-55f8-8c5b-f942a303731f",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "451455e8-2e8a-53d8-9399-cf808dba1d32",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f84f093-a950-5d80-8c13-a29f466f6db3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4eeb9529-c1f2-59e4-a88f-6f95ed03e251",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08fcc63a-cce2-59a5-bd2d-15da6471d1e3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55829bea-9781-5bd3-b5a3-39c53aef3f09",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Brate den Brokkoli 4–5 Minuten bei hoher Hitze in Pflanzenöl an, bis die Ränder angeröstet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Rinderhack dazu und gare es 6 Minuten. Füge Knoblauch und Ingwer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, Sesamöl und Honig zu einer Sauce. Gieße sie darüber und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Gericht auf Reis und bestreue es mit Sesamsamen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-miso-soy-ramen-bowl",
+      "slug": "mfr-miso-soy-ramen-bowl",
+      "title": "Ramen-Schale nach Miso-Art",
+      "instructions": "Kräftige, umamireiche Ramen-Brühe aus Sojasauce, Ingwer, Knoblauch und Sesam mit Ramen-Nudeln, weich gekochtem Ei, Spinat und Frühlingszwiebeln.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ramen-Päckchen kosten jeweils $0.55. Wirf das Würzpäckchen weg und bereite deine eigene Brühe zu.",
+        "Weich gekochte Eier machen aus Ramen einen vollwertigen, proteinreichen Snack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ramen",
+          "swap": "Soba-Nudeln für einen komplexeren Geschmack"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Tofu für eine vegane Ramen-Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-miso-soy-ramen-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Suppe",
+        "asiatisch",
+        "Nudeln",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 978,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-miso-soy-ramen-bowl/",
+      "components": [
+        {
+          "key": "6fab8d78-3261-53d9-8830-9012b4af8b1f",
+          "name": "Zutaten",
+          "servingGrams": 524.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "313b7785-bbeb-5655-87d3-227a69e57829",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e855cc8-801b-5eab-b096-8d8dbaee5bbb",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77f65f21-3e90-5b4a-b50a-87186de7232b",
+              "ingredientName": "Hühnerbrühwürfel",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35452eb1-12ef-5e8b-9244-e0fb2b58d6f4",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eeb0e316-4512-5611-870b-eb77b4ce602f",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec31aeb2-22dd-56d6-9ced-3114a4dab3fa",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7f7f7f5-e436-5f81-b59b-414ec2d14f24",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dae02970-a872-5121-bcb8-6aa4f8b7cf11",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80ff87f9-39c2-58af-8071-14bd734e441d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f86a52c7-7627-583e-853b-4100c3612fb9",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd4eb474-965b-5ca1-8ee8-252944d30262",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche 4 cups Wasser mit Brühwürfel, Sojasauce, Knoblauch und Ingwer 8 Minuten für die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Eier 7 Minuten weich, kühle sie im Eiswasser ab und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Ramen-Nudeln 3 Minuten in der Brühe. Gib Spinat dazu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schöpfe die Suppe in Schalen. Gib die Eier dazu, träufle Sesamöl und Sriracha darüber und bestreue sie mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.100daysofrealfood.com/wp-content/uploads/2020/11/ramen-bowl-feature-1.jpg",
+          "sourcePageUrl": "https://www.100daysofrealfood.com/wp-content/uploads/2020/11/ramen-bowl-feature-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-oyakodon-chicken-egg-bowl",
+      "slug": "mfr-oyakodon-chicken-egg-bowl",
+      "title": "Oyakodon: Reisschale mit Hähnchen und Ei",
+      "instructions": "Die beliebte japanische Reisschale aus zart geschmortem Hähnchen und seidigen Eiern in süßer Soja-Dashi-Brühe auf Reis: Wohlfühlessen in seiner reinsten Form.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Oyakodon gehört zu Japans günstigen Wohlfühlgerichten: zwei Portionen für weniger als $4.",
+        "Hähnchenschenkel bleiben beim Schmoren zart, während Brustfleisch trocken werden kann."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 tbsp Zucker und 1 tbsp Wasser"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust (2 Minuten kürzer garen, damit sie nicht trocken wird)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-oyakodon-chicken-egg-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Schüssel",
+        "asiatisch",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 979,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-oyakodon-chicken-egg-bowl/",
+      "components": [
+        {
+          "key": "f1e9e158-e8ba-5184-afe9-f439e2898d89",
+          "name": "Zutaten",
+          "servingGrams": 605,
+          "position": 0,
+          "items": [
+            {
+              "key": "e10e9ce6-aa86-5b98-8bb9-9fc4119d957c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fc0d902-ebe3-5f54-9e82-87370eb1b1d1",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0db987b6-b098-500a-879d-bb6e8f9b289d",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2067cf6-0a3b-5e1c-ac4d-ea0775356c18",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a64a31a-e977-53b6-aef0-87ad97d1e09a",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1115a4c1-d328-52a0-a40a-6797968a1609",
+              "ingredientName": "Mirin",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18af4a94-0beb-518c-a464-5868bff969fa",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9506a032-06b5-5fdf-a99c-8c7b22e180b6",
+              "ingredientName": "Hühnerbrühwürfel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ec6da69-67e0-5c28-8788-36581525f224",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cc1da1b-9dac-5edc-9a6a-1251fd73431c",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Schneide die Hähnchenschenkel in Stücke und die Zwiebel in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass Sojasauce, Mirin, Honig, Brühwürfel und 1 cup Wasser in einer breiten Pfanne köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hähnchen und Zwiebel dazu. Lass alles 8 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle die Eier leicht. Gieße sie über das Hähnchen, decke die Pfanne ab und gare alles 60–90 Sekunden, bis die Eier gerade eben gestockt und noch cremig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Mischung auf Reisschalen. Bestreue sie mit Frühlingszwiebeln und gib einen Tropfen Sesamöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/-_3GOHOIyw0_HSLYZPRZFiQunv4=/1500x1125/filters:fill(auto,1)/oyakodon-japanese-chicken-and-egg-rice-bowl-recipe-hero-f2d42cfe8e8e4436b97d6e79d038d9bc.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/-_3GOHOIyw0_HSLYZPRZFiQunv4=/1500x1125/filters:fill(auto,1)/oyakodon-japanese-chicken-and-egg-rice-bowl-recipe-hero-f2d42cfe8e8e4436b97d6e79d038d9bc.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

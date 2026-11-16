@@ -1,0 +1,1169 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-bulking-chicken-and-rice-meal-prep",
+      "slug": "rice-cooker-bulking-chicken-and-rice-meal-prep",
+      "title": "Hähnchen-Reis zum Muskelaufbau aus dem Reiskocher",
+      "instructions": "Der Geheimtipp fürs Krafttraining: gewürfeltes Hähnchen, lockerer Reis und Gemüse garen gemeinsam in einem Reiskocher-Zyklus. So erhältst du vier eiweißreiche, makrofreundliche Mahlzeiten für die Woche und musst kaum etwas tun. Einstellen, vergessen, portionieren, Muskeln aufbauen. Inspiriert von Animal Paks einfachem Hähnchenreis aus dem Reiskocher (https://www.animalpak.com/blogs/fitness-bodybuilding/bulk-gains-in-a-bowl-evan-s-easy-rice-cooker-chicken-rice).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust in einer Großpackung für Familien und friere sie portionsweise ein. Wenn du eine große Packung auf mehrere Mahlzeiten aufteilst, sinken die Kosten pro Portion deutlich.",
+        "Ersetze Hühnerbrühe durch Wasser mit einem Brühwürfel für 25 Cent. So bleibt die herzhafte Grundlage erhalten, aber es kostet nur einen Bruchteil.",
+        "Tiefgekühltes Mischgemüse ist günstiger als frisches, welkt nicht im Kühlschrank des Wohnheims und kann ohne Schneiden und Abfall direkt in den Topf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel für saftigeres Fleisch verwenden, das sich beim Aufwärmen schwerer austrocknet.",
+          "savings": "pro Portion etwa $0.20 günstiger und bleibt zart"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen Langkorn- oder braunen Reis für mehr Ballaststoffe verwenden. Gib bei braunem Reis einen zusätzlichen Schluck Brühe dazu.",
+          "savings": "normaler Reis ist das günstigste Getreide im Sortiment"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit einem Brühwürfel verwenden.",
+          "savings": "senkt die Kosten für Flüssigkeit auf etwa ein Viertel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "Muskelaufbau",
+        "viral"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 695,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-bulking-chicken-and-rice-meal-prep/",
+      "components": [
+        {
+          "key": "4ff239c4-b9a7-5b3f-be69-6aaec9838eed",
+          "name": "Zutaten",
+          "servingGrams": 520.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b99a801-942a-549d-9019-54bea1ae68bb",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "in gleichmäßige 3/4-inch Würfel schneiden, damit sie gar werden"
+            },
+            {
+              "key": "88204b59-ed7a-56fd-bedd-f8ff86338bc6",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "spülen, bis das Wasser größtenteils klar bleibt"
+            },
+            {
+              "key": "eb14bc1d-bfc2-52be-84ef-9e81592fc4aa",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder 3 cups Wasser plus einen Brühwürfel"
+            },
+            {
+              "key": "49245ad2-e0b9-52ec-8219-b645dd9e22b2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ba274cc-a8af-5563-a5e9-11411b34088e",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Erbsen, Karotten, Mais und grüne Bohnen; Auftauen nicht nötig"
+            },
+            {
+              "key": "4f0144f7-e03d-58b7-a5b3-4e921f1324d6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "e2d6f5b5-4720-58a5-8a95-9b39790880db",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12e663a3-7cb7-5f8e-a6be-2a9f74d768c2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b69e1af2-14d0-5a67-a7ce-e4b76cebc67d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c29a9df8-ce94-5c6b-bf5f-6acd97d988aa",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96e78fc5-5163-55e6-82f0-e6122fbaece1",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c6822fd-db3c-52d3-bb0a-89b5172cf821",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "für mehr Geschmack über die Portionen träufeln; enthält Gluten, daher weglassen (oder Tamari verwenden), damit die Behälter glutenfrei bleiben"
+            },
+            {
+              "key": "91195477-5b53-53c5-808c-f0afa57d0438",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "53c32d97-7497-58bb-827f-fc9cad1a30b3",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "nach Geschmack in jede Box geben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib 2 Tassen Jasminreis in den Innentopf des Reiskochers und spüle ihn mit kaltem Wasser ab. Schwenke ihn dabei und gieße das Wasser ab, bis es größtenteils klar bleibt. Lass ihn gut abtropfen. So wird der Reis für die vorbereiteten Mahlzeiten locker statt klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische in einer Schüssel die Hähnchenwürfel mit einer Kantenlänge von 3/4 Zoll mit Salz, Pfeffer, Knoblauchpulver, Zwiebelpulver, Paprikapulver und gehacktem Knoblauch, bis jedes Stück gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den abgetropften Reis gleichmäßig im Topf, gieße 3 Tassen Hühnerbrühe dazu und träufle 2 EL Olivenöl darüber. Rühre einmal um, damit der Reis eben verteilt und bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die gewürzten Hähnchenwürfel gleichmäßig auf dem Reis und gib dann das tiefgekühlte Gemüse direkt aus dem Beutel darauf. Rühre danach nicht mehr um. So gart der Reis gleichmäßig darunter, während Hähnchen und Gemüse darüber dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte einen vollständigen Weißreis-Zyklus. Der Kocher dämpft Hähnchen und Gemüse, während der Reis die gewürzte Brühe aufnimmt. Alles gart in einem Durchgang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und das Gericht 10 Minuten auf Keep Warm stehen. So gart das Hähnchen vollständig durch und der Reis setzt sich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öffne den Deckel und prüfe das Hähnchen: Schneide ein paar der größten Würfel durch. Sie müssen vollständig undurchsichtig und innen ohne rosa Stellen sein (165F). Sind Stücke noch rosa oder sieht der Reis am Boden feucht aus, schließe den Deckel und starte einen kurzen zweiten Zyklus oder gare weitere 10 Minuten auf Keep Warm. Prüfe dann erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre alles unter, damit sich Gewürze und Fleischsaft im Reis verteilen. Teile das Gericht auf 4 Behälter zur Essensvorbereitung auf, gib nach Wunsch Frühlingszwiebeln, Sojasauce und Sriracha darauf und lass es abkühlen. Im Kühlschrank hält es bis zu 4 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Liat_Portal_for_Foodie_Disorder_-_Healthy_low-fat_chicken%2C_rice%2C_broccoli%2C_and_sweet_potato_plate.jpg/1280px-Liat_Portal_for_Foodie_Disorder_-_Healthy_low-fat_chicken%2C_rice%2C_broccoli%2C_and_sweet_potato_plate.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Healthy_low-fat_chicken,_rice,_broccoli,_and_sweet_potato_plate.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: HaJunkiyada — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Reis zum Muskelaufbau aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-chamchi-deopbap",
+      "slug": "rice-cooker-chamchi-deopbap",
+      "title": "Koreanische Thunfisch-Mayo-Reisschüssel aus dem Reiskocher (Chamchi Deopbap)",
+      "instructions": "Heißer, lockerer Reis direkt aus dem Kocher, belegt mit cremigem Dosenthunfisch, den du mit säuerlich-würziger Kewpie-Mayo verrührst. Dazu kommen ein Schuss nussiges Sesamöl und knusprig zerkrümeltes Gim. In wenigen Minuten erhältst du etwa 30g Eiweiß. Das perfekte Abendessen fürs Wohnheim ganz ohne Herd: Der Reiskocher erledigt die Arbeit, während du den Belag in einer Schüssel zubereitest. Inspiriert von einem viralen Thunfisch-Mayo-Trend aus dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 27,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dosenthunfisch und Jasminreis sind günstige Vorratszutaten. Kaufe Thunfisch im Mehrfachpack, wenn er im Angebot ist, und lege einen Vorrat an.",
+        "Keine Kewpie-Mayo da? Gewöhnliche Mayonnaise mit einem kleinen Schuss Reisessig und einer Prise Zucker ergibt für einen Bruchteil des Preises einen ähnlich süß-säuerlichen Geschmack.",
+        "Wenn das Geld knapp ist, lass Ei und aufwendige Garnitur weg. Die Grundlage aus Thunfisch, Mayo und Reis ist für sich schon eine sättigende Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kewpie-mayo",
+          "swap": "Gewöhnliche Mayonnaise mit ein paar Tropfen Reisessig und einer Prise Zucker verwenden.",
+          "savings": "~$0.05 pro Schüssel"
+        },
+        {
+          "forIngredientId": "tuna",
+          "swap": "Dosensalmon oder Hähnchen aus der Dose als andere Eiweißquelle verwenden.",
+          "savings": "gib etwas mehr für Abwechslung aus"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen weißen Reis oder Sushi-Reis auf dieselbe Weise garen.",
+          "savings": "~$0.03 pro Tasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Belag-ohne-Kochen",
+        "Vorratsküche",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 696,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-chamchi-deopbap/",
+      "components": [
+        {
+          "key": "2875d310-62d0-537e-85c4-8e76202d49d1",
+          "name": "Zutaten",
+          "servingGrams": 953.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "09bdf068-ae0c-5903-97e1-20868f035b21",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "spülen, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "cb4424d6-7f19-50ed-9dcd-adcee50486cb",
+              "ingredientName": "Wasser",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Kochen des Reises"
+            },
+            {
+              "key": "8a5b0264-3454-5113-9604-fc3153db1184",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "gut abgetropft und trocken gedrückt"
+            },
+            {
+              "key": "209dcdc3-0f5b-5332-b7d1-996caa619a89",
+              "ingredientName": "Kewpie-Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Mayonnaise nach japanischer Art, reichhaltiger und säuerlicher als herkömmliche"
+            },
+            {
+              "key": "ec04613a-ff6e-5cfb-995b-a4a6df8a33a7",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für die Thunfischmischung"
+            },
+            {
+              "key": "16d1a1e6-56b3-5daf-8c65-82501309e5fb",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "aufteilen: 1 tsp in den Thunfisch, 1 tsp über den Reis"
+            },
+            {
+              "key": "7103083d-58d1-52e0-a87a-9eb33ee9a0b6",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gleicht die Sojasauce aus"
+            },
+            {
+              "key": "7785e472-c93b-5405-8f27-08845e803002",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "oder für Schärfe Gochujang einrühren"
+            },
+            {
+              "key": "5ea44d21-b3e7-5f8a-b8f7-675a8f42e30a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "432fe498-0818-5938-8338-8971a01107fd",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "Gim/Seetang, zerbröselt oder in dünne Streifen geschnitten"
+            },
+            {
+              "key": "f7cc72d0-2071-51ef-b5f5-82c825c13c4e",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "geröstet, zum Garnieren"
+            },
+            {
+              "key": "180da9ae-c894-54c1-993d-a84b0154966b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "für einen vollständig gestockten gedämpften Eierbelag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib den abgespülten Jasminreis und das Wasser in den Innentopf des Reiskochers. Wenn du das optionale Ei-Topping möchtest, schlage die Eier in eine kleine hitzebeständige Tasse oder Alufolienschale und setze sie jetzt oben auf den Reis, damit sie mitdämpfen. Schließe den Deckel und starte einen normalen Weißreis-Zyklus, bis der Kocher auf Keep Warm umschaltet (etwa 25-30 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite während des Garens den Belag zu: Zerteile den gut abgetropften Thunfisch mit einer Gabel in einer Schüssel und rühre Kewpie-Mayo, Sojasauce, 1 TL Sesamöl, Zucker und bei Bedarf Sriracha ein. Vermische alles zu einer cremigen Masse, probiere und passe die Würzung an. Stelle die Mischung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm am Ende des Zyklus die Tasse mit den Eiern heraus. Eiweiß und Eigelb sollten vollständig gestockt und durchgegart sein. Sieht noch etwas flüssig aus, schließe den Deckel wieder und dämpfe die Eier auf der Kochfunktion ein paar Minuten länger. Lockere anschließend den Reis mit dem Reislöffel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den heißen Reis auf zwei Schüsseln und träufle das übrige 1 TL Sesamöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle reichlich cremigen Thunfisch mit Mayo auf jede Reisschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue geschnittene Frühlingszwiebeln, zerkrümeltes Gim (Nori) und geröstete Sesamsamen darüber. Gib das gedämpfte Ei dazu, falls du eines zubereitet hast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische alles erst kurz vor dem Essen, damit der warme Reis die Mayonnaise zu einer seidigen Sauce macht. Genieße das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:mfr-protein-pancakes",
+      "slug": "mfr-protein-pancakes",
+      "title": "Eiweiß-Pfannkuchen mit griechischem Joghurt",
+      "instructions": "Lockere, sättigende Pfannkuchen aus pürierten Haferflocken und griechischem Joghurt. Sie kommen ganz ohne Mehl aus, enthalten von Natur aus viel Eiweiß und sind in unter 15 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken gehören zu den günstigsten Eiweißgrundlagen pro Gramm.",
+        "Griechischer Joghurt im Angebot kann die Kosten auf unter $0.40 pro Portion senken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder zerdrückte Banane für natürliche Süße verwenden."
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Kochspray verwenden, um pro Portion ungefähr 60 kcal einzusparen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-protein-pancakes",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 697,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-protein-pancakes/",
+      "components": [
+        {
+          "key": "f6f70a1b-7fe8-57d1-b60c-d7f851c11142",
+          "name": "Zutaten",
+          "servingGrams": 251.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d19a1c02-1f93-53ee-9b1f-3e1190f840da",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "248ad641-b430-5981-b3f8-b20cf1231372",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ef33332-23e0-5d1f-9da2-ae46c6c76f23",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5977e97f-1bbd-5e59-bdad-baf0fd344ff7",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1790eb9f-6da7-50e6-9c05-9fba19fe91c9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "783290e2-e639-5057-bfae-95940eb95d26",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f68ee098-8c84-517c-905f-7ec5053e367c",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "485c39ce-d5a1-5207-92e9-02001cb0284a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere die Haferflocken in einem Mixer oder einer Küchenmaschine, bis ein grobes Mehl entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Eier, griechischen Joghurt, Honig, Vanille, Backpulver und Zimt in den Mixer und püriere alles glatt. Lass den Teig 3 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine beschichtete Pfanne bei mittlerer Hitze und bestreiche sie dünn mit Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße pro Pfannkuchen ungefähr ¼ Tasse Teig in die Pfanne und gare ihn 2–3 Minuten, bis sich auf der Oberfläche Bläschen bilden und die Ränder fest aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende die Pfannkuchen und gare sie weitere 1–2 Minuten. Serviere sie warm mit frischem Obst oder einem Schuss Ahornsirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fitmamarealfood.com/wp-content/uploads/2024/10/Greek-Yogurt-Pumpkin-Pancakes-7-1170x936.jpg",
+          "sourcePageUrl": "https://www.fitmamarealfood.com/wp-content/uploads/2024/10/Greek-Yogurt-Pumpkin-Pancakes-7-1170x936.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cottage-power-toast",
+      "slug": "mfr-cottage-power-toast",
+      "title": "Herzhaftes Power-Toast mit Hüttenkäse",
+      "instructions": "Großzügig auf geröstetes Vollkornbrot gestrichener Hüttenkäse, belegt mit Tomatenscheiben, frischem Spinat und etwas frisch gemahlenem schwarzem Pfeffer. Dieses Frühstück ist in 5 Minuten fertig und liefert 36 Gramm Eiweiß.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hüttenkäse ist eine der günstigsten Eiweißquellen pro Gramm und kostet etwa $0.30 pro Portion.",
+        "Spinat aus dem Beutel ist viel günstiger als kleine, bereits gewaschene Packungen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spinach",
+          "swap": "Beliebiges Blattgemüse verwenden, das du da hast. Rucola, Romanasalat oder Grünkohl passen gut."
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Ganz weglassen und stattdessen etwas Zitronensaft darüberpressen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cottage-power-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "ohne-Kochen",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 698,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cottage-power-toast/",
+      "components": [
+        {
+          "key": "5c884a51-d114-5651-bdc9-2dafa61163b0",
+          "name": "Zutaten",
+          "servingGrams": 658.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4f49610-52b8-5b7e-b253-d74288d88eb3",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9579adc-ea96-5c6c-bd1f-f1a9e2008d13",
+              "ingredientName": "Hüttenkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b291f1c-a79b-5bc8-a43c-c2dea38ee077",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7917cde1-7d65-5a24-bc7d-702af21a4672",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "691fd75b-bb30-5f06-a1f1-d48de8ffefe4",
+              "ingredientName": "Olivenöl",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13093d48-addd-539f-a1bb-315decff479c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "35ad1245-3234-55a1-8790-3df035fea674",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c269993-a2f1-5ffd-a5a0-6db8836aef8e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste das Brot so knusprig, wie du es am liebsten magst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile 1 Portion (½ Tasse) Hüttenkäse großzügig auf jeder Scheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege frische Spinatblätter darauf und anschließend dünne Tomatenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle das Toast mit etwas Olivenöl und würze es mit Salz, Pfeffer und nach Wunsch roten Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Iss das Toast sofort, solange es noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/_G_wcOvKcnl7WQ11FnFfpAWejD4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-LWWD-June-Cottage-Cheese-Toast-04-Loose-1x1-d676ac94e7764605b312941b3c672f4b.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/_G_wcOvKcnl7WQ11FnFfpAWejD4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-LWWD-June-Cottage-Cheese-Toast-04-Loose-1x1-d676ac94e7764605b312941b3c672f4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-egg-cups",
+      "slug": "mfr-turkey-egg-cups",
+      "title": "Puten-Ei-Muffins zur Essensvorbereitung",
+      "instructions": "Zwölf herzhafte Eiermuffins mit Putenhack, Paprika, Spinat und einem Hauch Käse. Am Sonntag zubereitet, die ganze Woche griffbereit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 22,
+      "storageInstructions": "Im Kühlschrank bis zu 5 Tage aufbewahren oder bis zu 2 Monate einfrieren.",
+      "reheatingInstructions": "Aus dem Kühlschrank 30–45 s in der Mikrowelle erwärmen; tiefgekühlt 90 s.",
+      "cheapTips": [
+        "Tiefgekühlter Spinat, aufgetaut und ausgedrückt, spart Geld und funktioniert hier perfekt.",
+        "Diese Menge kostet bei mittleren Lebensmittelpreisen etwa $0.50 pro Muffin."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Mageres Putenhack durch mageres Hähnchenhack oder zerbröselten Tofu für eine vegetarische Variante ersetzen."
+        },
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Beliebiges Gemüse verwenden, das hineinpasst, zum Beispiel Pilze, Zucchini oder tiefgekühlten Mais."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-egg-cups",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Essensvorbereitung",
+        "makrofreundlich",
+        "auf-Vorrat-kochen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 699,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-egg-cups/",
+      "components": [
+        {
+          "key": "9e4ac722-6d3d-5d19-8ff5-8101fc244a11",
+          "name": "Zutaten",
+          "servingGrams": 224.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "689d7088-1096-5ae3-8018-2842e95f3dfb",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbaca982-5629-52e9-870b-340b89bce0f0",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c08125d8-e21e-547c-849b-b4a3709a6110",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d994d9d-6b61-5e04-80bc-c67adefda6c8",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a7f0cdf-4fad-5e26-9117-ae3b1644cccf",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8194c0d2-5a1d-5e8a-9d02-cf1a417d7f59",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01720622-1885-598d-9783-cadfca91f999",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4027336c-2ff8-508d-9ee3-4d70f183d3a5",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61e21c84-5946-5938-8698-e9d43946ba76",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "494471e7-5259-581b-b6a5-094768e42a58",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375 °F (190 °C) vor. Besprühe eine Muffinform mit 12 Mulden großzügig mit Kochspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune das Putenhack in einer Pfanne bei mittlerer bis hoher Hitze und zerteile es dabei. Gib Knoblauch, gewürfelte Zwiebel und Paprika hinzu und gare alles 3 Minuten. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den Spinat ein und gare ihn, bis er zusammenfällt. Nimm die Pfanne vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage alle 8 Eier in eine große Schüssel und verquirle sie. Rühre die Puten-Gemüse-Mischung und den geriebenen Käse unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Mischung gleichmäßig auf die 12 Muffinmulden, etwa ⅓ Tasse pro Mulde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Muffins 18–22 Minuten, bis die Mitte vollständig gestockt und die Oberfläche leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Muffins 5 Minuten abkühlen, bevor du sie herausnimmst. Bewahre sie in einem luftdicht verschlossenen Behälter bis zu 5 Tage im Kühlschrank auf. Erwärme sie 30–45 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/c04fkl8mla821.jpg",
+          "sourcePageUrl": "https://i.redd.it/c04fkl8mla821.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

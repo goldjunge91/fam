@@ -1,0 +1,1005 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-crispy-tacos",
+      "slug": "gen-crispy-tacos",
+      "title": "Knusprige Tacos",
+      "instructions": "Ein beliebtes Tex-Mexgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie Ihr eigenes Taco-Gewürz aus Kreuzkümmel, Chilipulver und Paprika zum halben Preis",
+        "Kaufen Sie Rinderhackfleisch, wenn Sie die Spezialität des Managers haben, und frieren Sie es sofort ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6830,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crispy-tacos/",
+      "components": [
+        {
+          "key": "ab1fb141-a804-5963-b932-0eaf51268f4c",
+          "name": "Zutaten",
+          "servingGrams": 607.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4012149-d027-5408-af5e-75cd3882bb42",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "435b39d2-dcc8-570f-8fbf-70d31f022c43",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2fe9ad21-8aeb-5ed4-8d90-ecf992dee14d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "24c60a91-0c69-537f-bf24-c2b29d58b033",
+              "ingredientName": "Tortilla",
+              "grams": 360,
+              "quantity": 9,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7fc773c-b59f-5658-b3c2-ab109e818a47",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6973d53e-a958-59e9-bc18-14e9371d0c0b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a44cff35-fd60-5065-b24b-ad072f931791",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ff9a4ffb-d0b8-5619-a8d7-1d8b148ba233",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c5267994-b3b8-5217-931f-b5b2b0bfe217",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer Pfanne bei mittlerer bis hoher Hitze erhitzen und jede Tortilla kurz erwärmen, bis sie geschmeidig ist, etwa 15 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Falten Sie jede Tortilla in zwei Hälften und braten Sie sie in heißem Öl, bis sie knusprig und goldbraun ist, etwa 1 Minute pro Seite, und lassen Sie sie dann auf Papiertüchern abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch in derselben Pfanne anbraten und mit einem Löffel etwa 5 Minuten lang zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Taco-Gewürz und Wasser zum Rindfleisch geben, gut umrühren und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füllen Sie jede knusprige Taco-Schale mit gewürztem Rindfleisch und belegen Sie sie dann mit Käse, Salat und Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warm mit saurer Sahne als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2023/01/220628_DD_Crispy-Baked-Chx-Tacos_366-1365x2048.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2023/01/220628_DD_Crispy-Baked-Chx-Tacos_366-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sopapillas",
+      "slug": "gen-sopapillas",
+      "title": "Sopapillas",
+      "instructions": "Ein beliebtes Tex-Mexgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie das Frittieröl wieder, indem Sie es durch ein Käsetuch abseihen und im Kühlschrank aufbewahren",
+        "Kaufen Sie Honig in großen Mengen oder verwenden Sie Agavennektar als günstigere Alternative"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "tex-mex",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6831,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopapillas/",
+      "components": [
+        {
+          "key": "55046f2c-1e9a-58cd-8ae0-4c93a3597a53",
+          "name": "Zutaten",
+          "servingGrams": 190,
+          "position": 0,
+          "items": [
+            {
+              "key": "b280449c-26de-54d2-bb17-1d7028e4a3c1",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "88031ab4-b35d-5e51-afc4-900b79439173",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "a5bebf15-ebf3-5d11-a0a4-6f2d49fbb746",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "3370c8eb-80af-5672-96ca-ce8e5c8b4b7d",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "981fa925-077e-5d3b-af5f-5f1b79f234f8",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0d6c3425-89a4-50e9-87c4-fdf56e3d26bc",
+              "ingredientName": "Schatz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "70342064-f295-5e38-bbc1-150658213dac",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "02f0a9e4-0225-5ec1-a072-2acef5d36c2b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in einer Schüssel vermischen, dann warmes Wasser hinzufügen und verrühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig auf einer bemehlten Arbeitsfläche 2 Minuten lang kneten, bis er glatt ist, dann 10 Minuten mit einem feuchten Tuch abgedeckt ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rollen Sie den Teig auf eine Dicke von 1/8 mm aus und schneiden Sie ihn mit einem Messer in 3 cm große Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer tiefen Pfanne auf 375 °F erhitzen und die Teigquadrate vorsichtig etwa 1 Minute pro Seite braten, bis sie goldbraun und aufgebläht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gebratene Sopapillen auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zimt und Zucker in einer flachen Schüssel vermischen und mit den warmen Sopapillen leicht bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm servieren und zum Dippen mit Honig beträufeln oder als Beilage dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/05/Sopapilla-Recipe-4.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/05/Sopapilla-Recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-corned-beef-sandwich",
+      "slug": "gen-corned-beef-sandwich",
+      "title": "Corned-Beef-Sandwich",
+      "instructions": "Ein beliebtes jüdisches Deligericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie eintägiges Roggenbrot mit 30–50 % Rabatt in der Bäckereiabteilung",
+        "Verwenden Sie Corned Beef von Handelsmarken anstelle von Premiummarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jüdisches Feinkostgeschäft",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6832,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-corned-beef-sandwich/",
+      "components": [
+        {
+          "key": "8b05f1b2-e6d3-5859-893b-e01d323e1f96",
+          "name": "Zutaten",
+          "servingGrams": 339.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c1a1a78-ff0e-5206-b3c9-1f129d279a60",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "d4b97026-2024-5710-a4ad-9a334ab01a5e",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "493fa572-7005-5687-917e-2693ee4f97a5",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "66933210-cbc5-5bf5-bd6d-ed03ad3783fd",
+              "ingredientName": "Gurken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "981abb57-8b83-50a3-ac12-3689fa95cc0c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "a9525e7b-da3e-5ee9-9a1e-bca666980467",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6e7d028d-1b26-5027-82ac-2c41fb45bd55",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 dünn Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Corned Beef in 1/8 Zoll dicke Scheiben schneiden, sofern es nicht bereits in Scheiben geschnitten ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwei Scheiben Roggenbrot leicht mit Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf jede mit Senf bestrichene Scheibe die Hälfte des Corned Beefs schichten und mit einer Scheibe Schweizer Käse und Zwiebelscheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit den restlichen Roggenbrotscheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Außenseite jedes Sandwichs auf beiden Seiten leicht einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In einer Pfanne bei mittlerer Hitze rösten, bis das Brot goldbraun ist und der Käse schmilzt, etwa 3 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Diagonal aufschneiden und sofort mit koscheren Gurken als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2025/02/Corned-Beef-Sandwich-2-SpendWithPennies-4.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2025/02/Corned-Beef-Sandwich-2-SpendWithPennies-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-half-sour-pickles",
+      "slug": "gen-half-sour-pickles",
+      "title": "Halbsauer eingelegte Gurken",
+      "instructions": "Ein beliebtes jüdisches Deligericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Gurken in der Hochsaison im Sommer zu den besten Preisen",
+        "Verwenden Sie weißen Essig anstelle von Spezialessig, um 40 % zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "jüdisches Feinkostgeschäft",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6833,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-half-sour-pickles/",
+      "components": [
+        {
+          "key": "f4fc7ab0-7d88-5a00-ae3e-7ed5af92ef83",
+          "name": "Zutaten",
+          "servingGrams": 290.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "92583728-32e9-5416-8baf-948d592e4aaf",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "bed05023-4b3a-52c4-a583-1b80215bd66d",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "22a25151-6be2-592c-881c-c07b6b1d1a0c",
+              "ingredientName": "Frischer Dill",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "8b8ce01b-fa05-5595-8b81-725694f7e68c",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1095e939-7813-5073-a08e-9a4096540caf",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1d483a0e-1fc3-51d4-ba2c-915a44ab1d33",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a6208828-09a6-5978-8760-e915e0fb7dd4",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e6eb5cc8-07a4-5cb0-a58b-39d0c8970f00",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gurken gründlich waschen und die Blütenenden abschneiden, damit sie nicht matschig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Packen Sie die Gurken aufrecht in ein sauberes Quartglas mit Dill, Knoblauch und Pfefferkörnern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wasser, Essig, Salz und rote Pfefferflocken in einen Topf geben und unter Rühren zum Kochen bringen, bis sich das Salz auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie die heiße Salzlösung über die Gurken im Glas, bis sie vollständig bedeckt sind, und lassen Sie dabei einen Freiraum von 1/2 cm frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Locker abdecken und auf Zimmertemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Verzehr mindestens 3 Stunden im Kühlschrank lagern; sie sind 2-3 Wochen haltbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/5k2wlCe7gtF7sJrKwFw8ZVIb3iM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/SES-fermented-deli-style-half-sour-pickles-recipe-7507200-hero-01-684719e36a6449cfa88e606fa779244b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/5k2wlCe7gtF7sJrKwFw8ZVIb3iM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/SES-fermented-deli-style-half-sour-pickles-recipe-7507200-hero-01-684719e36a6449cfa88e606fa779244b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-knish",
+      "slug": "gen-knish",
+      "title": "Knish",
+      "instructions": "Ein beliebtes jüdisches Deligericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie das Füllen vor und stellen Sie es in den Kühlschrank, um die Vorbereitungsarbeiten zu optimieren",
+        "Kaufen Sie während des Sonderangebots Kartoffeln in Großbeuteln, um erhebliche Einsparungen zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisches Feinkostgeschäft",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6834,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-knish/",
+      "components": [
+        {
+          "key": "43bfa614-9e61-53cf-b47c-dede4e24579a",
+          "name": "Zutaten",
+          "servingGrams": 263.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "3e0b857e-5645-5ef7-9a9b-c77a39019978",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "243f64d3-f1d6-5af6-a58c-74d446984df9",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "e7901020-fa2d-5114-9bba-e586740285b4",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1c052552-e756-5d84-9ca2-6c6a6bffd343",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3cdd9a4e-7b91-5521-b31d-ee361fc06253",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "dd373ffe-ae41-5586-bc59-9d1b1c331e55",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "199ceac8-ebe4-584b-ae98-ccf9c31723bf",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e06b37f6-d8b5-5214-b379-326aa6249762",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4b34d8fd-a4e5-5376-9b6f-b59601fc6fc8",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Ei"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, 1 Ei, Öl, Salz und 1/2 Tasse Wasser zu einem weichen Teig vermischen, dann glatt kneten und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln schälen und hacken, dann etwa 12 Minuten kochen, bis sie weich sind, und gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel würfeln und in Butter etwa 5 Minuten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heiße Kartoffeln mit der gekochten Zwiebel, Butter, Salz und Pfeffer zerstampfen, bis eine glatte Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rollen Sie den Teig dünn zwischen Backpapier aus und verteilen Sie dann die Kartoffelfüllung gleichmäßig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rollen Sie den Teig fest zu einer Rolle, wickeln Sie ihn auf und legen Sie ihn dann mit der Nahtseite nach unten auf ein gefettetes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geschlagenem Ei bestreichen und bei 375 °C etwa 25–30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Etwas abkühlen lassen, dann in Scheiben schneiden und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/OzDC8rpv2VY8CxOdjUbUQkldvPo=/0x3024/filters:no_upscale():max_bytes(150000):strip_icc()/jewish-potato-knish-recipe-113632-diana-andrews-2020-Image6-e562a5a735d34bf6b862a9186b8d7dc3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/OzDC8rpv2VY8CxOdjUbUQkldvPo=/0x3024/filters:no_upscale():max_bytes(150000):strip_icc()/jewish-potato-knish-recipe-113632-diana-andrews-2020-Image6-e562a5a735d34bf6b862a9186b8d7dc3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

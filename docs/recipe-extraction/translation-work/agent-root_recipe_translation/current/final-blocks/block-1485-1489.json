@@ -1,0 +1,1267 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-afr2-misir-wot",
+      "slug": "mfr-afr2-misir-wot",
+      "title": "Misir Wot (äthiopischer roter Linseneintopf) als Bowl",
+      "instructions": "Langsam gegarte rote Linsen in einer Berbere-Gewürzgrundlage mit Zwiebeln und Butterschmalz, kräftig ziegelrot, erdig und wärmend: eines der besonders sättigenden vegetarischen Gerichte Äthiopiens. Traditionell wird es auf luftigem Injera serviert, schmeckt aber auch hervorragend mit Reis oder Brot.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Langsam gebräunte Zwiebeln bilden die Grundlage von Wot; nimm dir dafür Zeit.",
+        "Rote Linsen kosten 30 Cent pro Portion und sind besonders eiweißreich.",
+        "Das Gericht schmeckt 3 Tage lang immer besser; bereite einen großen Topf zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Berbere-Gewürzmischung, falls erhältlich, für ein komplexeres Aroma"
+        },
+        {
+          "forIngredientId": "coriander-seed",
+          "swap": "Gemahlener Koriander; nimm die halbe Menge"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-misir-wot",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "äthiopisch",
+        "Misir-Wot",
+        "rote-Linsen",
+        "Berbere",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1485,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-misir-wot/",
+      "components": [
+        {
+          "key": "3344c0ae-35d6-5856-995d-337ad5bc43ec",
+          "name": "Zutaten",
+          "servingGrams": 450.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f61bf3a2-c56a-583d-ad83-f24e174a97fb",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a87fd25e-2636-5672-a7a7-ccbe99987fc6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ef58d37-659d-5637-bf39-8078b64983e1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38f224cd-3414-5584-9bef-51a8cb53f3a5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efdb3111-2464-5f05-89d8-87cac4e7b298",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23fb6ef3-b751-5402-8cad-02ec1046def8",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14af8fda-76ad-525e-a74a-ff3689368713",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bd68b67-fc2f-5eb8-b7c7-982dab2dec5f",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc4a64ea-5ff1-56a4-b486-96f6412384e7",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f11fde76-a1df-55c6-9c4d-73e743090917",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f6e43c8-996f-55d0-b07c-45f1cfab88c2",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6cb6bd5-e95b-5d51-9105-eb75dc5398b9",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bca7c28a-ef9b-5ba6-9418-d2bb89b9204d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fein gewürfelte Zwiebel langsam 20 Minuten in Öl dunkelbraun braten; dieser Schritt ist entscheidend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch, Ingwer und alle Gewürze hinzufügen und 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark hinzufügen und 3 Minuten garen. Abgespülte Linsen und 3 Tassen Wasser hinzugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "20 Minuten köcheln lassen, bis die Linsen weich und der Eintopf dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Zitronensaft abschließen und auf Reis oder mit Fladenbrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/www.earthlysuperfood.com/wp-content/uploads/2021/06/Red-lentils2.jpg?resize=683%2C1025&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/www.earthlysuperfood.com/wp-content/uploads/2021/06/Red-lentils2.jpg?resize=683%2C1025&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-afr2-thieb-bowl",
+      "slug": "mfr-afr2-thieb-bowl",
+      "title": "Reisschale mit Lachs nach Thiéboudienne-Art",
+      "instructions": "Senegals Nationalgericht in vereinfachter Form: In Tomaten geschmortes Gemüse und Lachs auf aromatischem Reis nach Jollof-Art, gewürzt mit fermentiertem Fisch, Kreuzkümmel, Knoblauch, Chili und Tomatenmark. Kräftig, rauchig und besonders herzhaft wie nur wenige westafrikanische Reisgerichte.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs aus der Dose oder tiefgekühlter Lachs eignen sich; die Tomatenbrühe ist so würzig, dass der Fisch weniger im Vordergrund steht.",
+        "Bei dieser One-Pot-Methode nimmt der Reis den gesamten Fisch- und Tomatengeschmack auf.",
+        "Kohl und Karotten gehören zu den günstigsten Gemüsesorten und sind traditionelle Zutaten in Thiéboudienne."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Beliebiger fester Fisch wie Tilapia oder Kabeljau; alternativ Thunfisch aus der Dose zum Schluss einrühren"
+        },
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Zucchini oder tiefgekühltes Mischgemüse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-thieb-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "senegalesisch",
+        "Thiéboudienne",
+        "Jollof",
+        "Lachs",
+        "westafrikanisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1486,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-thieb-bowl/",
+      "components": [
+        {
+          "key": "7477b9ab-a6aa-5ff9-a014-38d0ce9aaf5b",
+          "name": "Zutaten",
+          "servingGrams": 702.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e1d8d32-5cc2-5e36-8f30-9b84a2b0da63",
+              "ingredientName": "Lachsfilet",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ca29d8d-e40d-54c7-b76e-3ea0e43bbc8f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf72632c-bbc8-59fd-b3a9-0cfd324169ae",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0aa0d1f-44c4-57e3-87c3-5b50dc848a82",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b66b0b69-5ddc-5241-846d-e6a86135dfcc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01f5ca8a-f4fa-5b26-89b9-28ecca54a0ed",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43955842-37d6-59a2-8792-d8130236f1cd",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "991a4dfa-d3b4-507a-8289-ec5b17710d8c",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14588622-f290-5e84-a2a4-3cc5aa6c3200",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "360e1381-cef9-5951-982f-b8a685519596",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "162fe51e-77a0-5f7f-819a-a65467667d04",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bc5ce48-1a40-51a5-ae7b-ab03f1149453",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b9e3d58-82e9-535e-ab90-47e6400657fe",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6533eb2-41bb-5c6f-8464-a273a5313e09",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Tomatenmark 10 Minuten in Öl anbraten, bis die Mischung kräftig rot ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch, Kreuzkümmel und Paprika hinzufügen und 1 Minute garen. Tomaten, Karotten und Kohl dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Genug Wasser zum Garen des Reises hinzufügen und aufkochen. Abgespülten Reis und Cayennepfeffer dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lachsfilets darauflegen, abdecken und bei niedriger Hitze 18 Minuten garen, bis der Reis fertig ist und der Fisch sich zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit dem Fisch auf dem Reis servieren und Zitrone über alles auspressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/06/viral-Salmon-Rice-Bowl.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/06/viral-Salmon-Rice-Bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-afr2-shakshuka-north",
+      "slug": "mfr-afr2-shakshuka-north",
+      "title": "Nordafrikanische Shakshuka mit Harissa",
+      "instructions": "Eier in einer rauchigen, mit Harissa gewürzten Tomaten-Paprika-Sauce pochiert, verfeinert mit eingelegter Zitrone und Kreuzkümmel: eine tunesisch-libysche Variante, die der israelischen vorausging. Kräftig rot und würzig, zum Auftunken mit warmem Brot beim Frühstück oder Abendessen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "6 Eier und 2 Dosen Tomaten ergeben ein Abendessen für 3 Personen für weniger als $3.",
+        "Die harissaartige Gewürzmischung aus Cayennepfeffer, Kreuzkümmel und Paprika gibt den Geschmack vor; verwende reichlich davon.",
+        "Shakshuka schmeckt aufgewärmt noch besser; bereite sie im Voraus zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Harissa-Paste; mit 1 EL beginnen und nach Geschmack anpassen"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Pita oder beliebiges Fladenbrot"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-shakshuka-north",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "nordafrikanisch",
+        "Shakshuka",
+        "Harissa",
+        "Eier",
+        "Tomaten"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1487,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-shakshuka-north/",
+      "components": [
+        {
+          "key": "7272f76a-a3bc-5590-9c4e-831d714a2960",
+          "name": "Zutaten",
+          "servingGrams": 582,
+          "position": 0,
+          "items": [
+            {
+              "key": "735f3647-d9b0-5612-b19c-2b59eb3fa39a",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "140f22a4-1499-551f-a839-be4137fb1c27",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "843d12d8-03f4-5691-beb5-33ec808f0498",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c290c39-3598-5c39-b81f-835ad4865647",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "debe8a77-9529-56ee-a2f0-652f5cd7b857",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91abfc3d-9d6e-57fa-a3a9-018694c4c69d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b88091b-624a-570c-adcc-0ebd8aab0fa7",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6553a96b-66fd-5257-b2f4-7a16d45bb387",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46940072-4f3e-59f5-a63d-6c80a3fc1fa6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9090f5b5-8962-5b87-978d-5ded74a1fb0f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0c09bd5-98d1-5db8-9b78-4ffa4b5f8fc7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15e7a263-fc8a-5679-8a6d-22ed88a5df09",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Paprika in Öl weich dünsten. Knoblauch, Kreuzkümmel, geräuchertes Paprika und Cayennepfeffer dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackte Tomaten hinzufügen und 10 Minuten köcheln lassen, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "6 Mulden formen und je ein Ei hineinschlagen. Zugedeckt bei niedriger Hitze 5–7 Minuten garen, bis das Eiweiß gestockt, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Petersilie und Zitronensaft abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Direkt aus der Pfanne mit warmem Brot zum Auftunken servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gradfood.com/wp-content/uploads/2019/05/Moroccan-Shakshuka-scaled.jpg",
+          "sourcePageUrl": "https://gradfood.com/wp-content/uploads/2019/05/Moroccan-Shakshuka-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-afr2-mafe",
+      "slug": "mfr-afr2-mafe",
+      "title": "Mafé (westafrikanischer Erdnusseintopf)",
+      "instructions": "Ein herzhafter Erdnusseintopf aus Westafrika: Hähnchen schmort mit Tomaten, Süßkartoffeln, Kohl und wärmenden Gewürzen in einer cremigen Erdnusssauce. Mit Reis serviert wird daraus ein sättigendes Wohlfühlgericht.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbutter kostet 20 Cent pro Esslöffel und macht die Sauce besonders reichhaltig.",
+        "Süßkartoffel bindet die Sauce und ergänzt die Erdnüsse mit angenehmer Süße.",
+        "Koche eine größere Menge vor: Mafé schmeckt am nächsten Tag noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus als nussfreie Alternative"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Lamm oder Rindfleisch, wie es in verschiedenen Regionen üblich ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-mafe",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "westafrikanisch",
+        "Mafé",
+        "Erdnusseintopf",
+        "Erdnüsse",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1488,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-mafe/",
+      "components": [
+        {
+          "key": "82cf9a84-4ec4-57d8-b930-07ea7b558539",
+          "name": "Zutaten",
+          "servingGrams": 785.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a3806c5-a245-5351-8a91-a0bd420686a9",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baef7d8f-cc8c-5a9c-9a92-fe38f2bcc131",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad1c253d-7d79-5409-9786-217f61385be6",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1554c9d4-a37a-5ebc-8bdc-980d92234cda",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "708ecb2c-1910-504f-a8fc-006401cdc9e9",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "309f785f-beae-588d-ada0-7f56d597eb40",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7db094e9-51a8-5cf0-8414-0a1c6c7e8a7c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd386021-7f00-5761-9e10-592cebab5d95",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1edf7755-adbf-52a2-a828-722b7102865a",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf6f1fd9-460f-5789-8074-4118cbf655f5",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cafb33e-90b9-5325-a46c-086edfc4095f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c92d41c7-954e-530a-919e-34571d22eab8",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6aef29e7-7d53-5288-a2e8-87b6a69715c4",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in Öl anbräunen. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel weich garen. Tomatenmark hinzufügen und 3 Min. braten, bis es dunkler wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erdnussbutter mit warmer Brühe glatt rühren. Zusammen mit Tomaten, Knoblauch, Ingwer und Gewürzen in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen zurück in den Topf geben. Süßkartoffel und Kohl hinzufügen. 30 Min. köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Reis servieren und nach Belieben mit zusätzlichem Cayennepfeffer garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/EXPS_TOHD24_188274_Jena-Carlin_1-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/EXPS_TOHD24_188274_Jena-Carlin_1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-afr2-kofta-bowl",
+      "slug": "mfr-afr2-kofta-bowl",
+      "title": "Marokkanische Kofta-Schale mit Couscous",
+      "instructions": "Würzige Kofta aus Lamm- oder Rinderhack mit Kreuzkümmel, Koriander, Zimt und frischen Kräutern. In der Pfanne rundum gebräunt, kommt sie mit lockerem Couscous, erfrischender Gurken-Joghurt-Sauce und Harissa auf den Tisch. Marokkanisches Grillessen als Bowl.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack eignet sich genauso gut wie Lamm und kostet nur 1/3 so viel.",
+        "Zimt im Fleisch ist typisch für die marokkanische Küche und gehört unbedingt dazu.",
+        "Bereite die doppelte Menge zu. Kofta lässt sich in der Pfanne mit einem Schuss Wasser gut aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "couscous",
+          "swap": "Bulgur oder ein anderes feines Getreide, wie es im Maghreb üblich ist"
+        },
+        {
+          "forIngredientId": "coriander-seed",
+          "swap": "Gemahlener Koriander, 1/2 TL"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-kofta-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "Kofta",
+        "Lamm",
+        "Couscous",
+        "gewürzt"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1489,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-kofta-bowl/",
+      "components": [
+        {
+          "key": "14d7b8b1-3260-5def-9819-c4a1ff95de99",
+          "name": "Zutaten",
+          "servingGrams": 619.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "4910783d-91f9-5413-97e6-d3fcfd7f1838",
+              "ingredientName": "Couscous",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f23d455-307c-529d-bd6b-fa0738e7f2ef",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09e9874f-381c-54e6-941f-6b98fce0847e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c50ebed-cf6e-5991-9ffd-f1db9e030c6a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dabe09f-887e-53d7-8c46-91686d2bf0bf",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96d3cf91-fce9-5e0b-a9cf-d2898f75ec35",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5034becb-f6d5-5e8d-ab26-771bcc124984",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ffa7f58-ddf8-5935-af0d-8a30b16b80ec",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02a1d3a8-debb-5129-bc37-e62660240a8e",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e7fd0d7-f66a-5281-9660-58a68ee26179",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "106ad13f-6884-5a25-99aa-8ca4d913865e",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b33287d7-d553-5488-ac3d-c9b924956a99",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "905e14ac-248b-5eaf-8df3-e3345353f67f",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1272ba4c-7639-5452-a041-e448251cc1ba",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinder- oder Lammhackfleisch mit geriebener Zwiebel, Knoblauch, Kreuzkümmel, Koriander, Zimt, Paprikapulver und Cayennepfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zu kleinen ovalen Bratlingen formen. In Öl pro Seite 3–4 Min. anbraten, bis sie gebräunt und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Couscous zubereiten: Heiße Brühe über den trockenen Couscous gießen, abdecken und 5 Min. ziehen lassen. Mit einer Gabel auflockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gurken-Joghurt-Soße zubereiten: Griechischen Joghurt mit geriebener Gurke, Zitrone und Kreuzkümmel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kofta auf Couscous anrichten, mit Soße beträufeln und mit Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.healthyfood.com/wp-content/uploads/2026/01/HFG010226_5pm_Moroccan-beef-koftas-with-snow-pea-pearl-couscous.jpg",
+          "sourcePageUrl": "https://www.healthyfood.com/wp-content/uploads/2026/01/HFG010226_5pm_Moroccan-beef-koftas-with-snow-pea-pearl-couscous.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,992 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-scampi-thermidor",
+      "slug": "gen-scampi-thermidor",
+      "title": "Scampi Thermidor",
+      "instructions": "Ein beliebtes Gericht der französischen Küche für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen kaufen und vor der Verwendung auftauen, um 25 % zu sparen",
+        "Für eine günstigere Variante Meeresfrüchtefond statt Wein verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5615,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scampi-thermidor/",
+      "components": [
+        {
+          "key": "7fe155d1-e194-5aaf-b1de-c5b0934d9281",
+          "name": "Zutaten",
+          "servingGrams": 164.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d4cfcaf-c39b-5d25-9ff3-e0be7ad634c1",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "e8a928ba-a9c6-5bd8-8696-9ce00e2e44a5",
+              "ingredientName": "Butter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Esslöffel"
+            },
+            {
+              "key": "11e83d57-6c6b-5a4f-8b2c-2459aaf09ef6",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "856273d9-70e3-50b1-b089-529a300b9d33",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db657df0-69d2-5be4-aa9f-8d5e67c34fb4",
+              "ingredientName": "Champignons",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "b377e94a-18cd-5988-b358-807f9975f228",
+              "ingredientName": "Weißweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "8f694bc6-3b7a-5829-8a50-7bec0e9c088b",
+              "ingredientName": "Sahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "8d9368bd-41d3-5f7c-979a-8747bd3ba837",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e61e5a37-d6a3-5db6-81fb-bf5d5af1e83c",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "4e50cf62-6ef9-596f-a494-048cf9dc1246",
+              "ingredientName": "frischer Estragon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3833760f-6fae-51fc-acbb-716a0bef7564",
+              "ingredientName": "weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Garnelen schälen und entdarmen. Knoblauch und Schalotten fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und den Knoblauch etwa 30 Sekunden anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Garnelen dazugeben und je Seite 2 Minuten braten, bis sie rosa werden. Auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In derselben Pfanne 2 Esslöffel Butter schmelzen und Schalotten sowie Champignons etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Weißwein ablöschen, die Bratrückstände lösen und 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sahne einrühren, 2 Minuten köcheln lassen und vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garnelen zurück in die Pfanne geben, Estragon hinzufügen und mit Salz und weißem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Mischung auf 4 feuerfeste Schalen oder Förmchen verteilen und mit Gruyère sowie Paniermehl bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit der restlichen Butter belegen und bei 400°F 10–12 Minuten goldbraun und blubbernd backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/bHqthR85ZSOe6gEXVJbYTHgf1yQ=/4169x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-lobster-thermidor-recipe-1300703-Step-12-35f7109aac8440dbb309b2d74323d89f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/bHqthR85ZSOe6gEXVJbYTHgf1yQ=/4169x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-lobster-thermidor-recipe-1300703-Step-12-35f7109aac8440dbb309b2d74323d89f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-onigiri",
+      "slug": "gen-onigiri",
+      "title": "Onigiri",
+      "instructions": "Ein beliebtes japanisches Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Übrig gebliebenen gekochten Reis verwenden, um Zeit und Geld zu sparen",
+        "Teure Füllungen weglassen und klassische Onigiri nur mit Salz zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Snack",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5616,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-onigiri/",
+      "components": [
+        {
+          "key": "43e40eab-30a0-5369-a3be-1d94c5ed66f6",
+          "name": "Zutaten",
+          "servingGrams": 408.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e65150f8-a132-5e3b-bf95-bd363579ebc0",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "8fca0df1-2951-5ccc-938f-2ed449371f82",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "956623e5-005c-5501-a38b-78ae206cd41a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d3d825ec-6208-5087-9316-a6af6f626e8c",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "af88b864-f237-5dae-9a24-a6055093977b",
+              "ingredientName": "Pflaumensauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 ganzes"
+            },
+            {
+              "key": "316df9a9-a106-5cd3-b11d-a0e27d82d966",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Dose"
+            },
+            {
+              "key": "bc4cfb1e-d357-540e-8bce-6bd97f90ad1d",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Reis nach Packungsanleitung kochen und leicht abkühlen lassen, bis er noch warm, aber gut formbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salz und Wasser in einer kleinen Schüssel verrühren, um eine Salzwasserlösung für die Hände herzustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hände mit Salzwasser befeuchten. Eine Handvoll warmen Reis zwischen den Handflächen vorsichtig zu einem Dreieck formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In die Mitte eine kleine Vertiefung drücken, ein Stück Umeboshi-Pflaume oder Thunfisch-Mayonnaise hineinlegen und mit weiterem Reis bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vorsichtig zu einem festen Dreieck mit etwa 2 Zoll Seitenlänge formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nori in Streifen schneiden und um den unteren Teil jedes Onigiri wickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für die beste Konsistenz innerhalb von 2 Stunden bei Raumtemperatur oder leicht warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/640206e57abe4e8a9a170744/1:1/w_2560%2Cc_limit/TunaMayoOnigiri_RECIPE_030223_48211.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/640206e57abe4e8a9a170744/1:1/w_2560%2Cc_limit/TunaMayoOnigiri_RECIPE_030223_48211.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sandwich-au-jambon-de-paris",
+      "slug": "gen-sandwich-au-jambon-de-paris",
+      "title": "Sandwich mit Pariser Schinken",
+      "instructions": "Ein beliebtes Gericht der französischen Küche für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schinken im Angebot kaufen und für später einfrieren",
+        "Dijon-Senf einer Handelsmarke statt importierter Sorten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5617,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sandwich-au-jambon-de-paris/",
+      "components": [
+        {
+          "key": "c4de9fa9-2d77-5520-9b62-31d7b5b8cfca",
+          "name": "Zutaten",
+          "servingGrams": 112.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5f26db6-220f-5889-855d-e967fd0c3594",
+              "ingredientName": "tiefgekühlte Pommes frites",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "30dcfaff-06c0-516e-aa3f-3bf86f9c194b",
+              "ingredientName": "Schinken in Scheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "738d2a67-0e86-55bc-ba02-7618c53c37bb",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2ac08c5e-f16e-525b-be96-0619e6a6dd75",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9d711a5e-d451-5b92-a9af-38a7fcf39294",
+              "ingredientName": "getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3-4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Baguette längs aufschneiden und beide Schnittflächen leicht mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die untere Baguettehälfte gleichmäßig mit Dijon-Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Schinkenscheiben ordentlich auf dem Senf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Cornichonscheiben auf den Schinken legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Sandwich schließen und schräg halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0675/2763/9308/products/DA20230406_0352-Modifier.jpg?v=1681305652",
+          "sourcePageUrl": "https://cdn.shopify.com/s/files/1/0675/2763/9308/products/DA20230406_0352-Modifier.jpg?v=1681305652",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-apple-crisp",
+      "slug": "gen-apple-crisp",
+      "title": "Apfel-Crumble",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Äpfel saisonal oder im Angebot kaufen; wenn frische Äpfel teuer sind, tiefgekühlte verwenden",
+        "Haferflocken einer Handelsmarke statt Markenprodukte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5618,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-apple-crisp/",
+      "components": [
+        {
+          "key": "58104d64-2fbd-5ebd-a0f9-a8c2a86e6ae5",
+          "name": "Zutaten",
+          "servingGrams": 238.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ccf619f-76ec-55c6-96fe-2d0bd0958b85",
+              "ingredientName": "Apfelmus",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße, geschält und in Scheiben geschnitten"
+            },
+            {
+              "key": "fbf38ac2-5384-56de-ad29-9600dd6dd746",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e6f03347-ce89-5f2f-84f2-e36732b41d3b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "51466c10-dfe8-510f-a3e1-2f8035771d0d",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0d4ad888-6b81-5e00-b537-74c513021dac",
+              "ingredientName": "brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse, fest angedrückt"
+            },
+            {
+              "key": "329ffcf2-1ef5-565d-9122-60d4cddfca2d",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Esslöffel, kalt und gewürfelt"
+            },
+            {
+              "key": "b106fb98-5697-5f87-9e46-8fa2dd53a059",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "dd756c6c-bf93-51bd-8b64-0d4e508a6794",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350°F vorheizen und eine 8 × 8 Zoll große Auflaufform leicht mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Apfelscheiben mit Zucker und Zimt vermengen und gleichmäßig in der Form verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Haferflocken, braunen Zucker, Mehl und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kalte Butter in kleine Stücke schneiden und in die Hafermischung einarbeiten, bis grobe Streusel entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Streusel gleichmäßig über die Äpfel geben und leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "35–40 Minuten backen, bis die Streusel goldbraun und die Äpfel beim Einstechen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren 5 Minuten abkühlen lassen. Nach Wunsch mit Vanilleeis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2016/10/Apple-Crumble-RECIPE-IMAGES-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2016/10/Apple-Crumble-RECIPE-IMAGES-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-butternut-squash-soup",
+      "slug": "gen-butternut-squash-soup",
+      "title": "Butternusskürbissuppe",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einen ganzen Butternusskürbis kaufen und selbst schälen statt vorgeschnittenen",
+        "Kaffeesahne mit geringerem Fettgehalt statt Sahne verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5619,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-butternut-squash-soup/",
+      "components": [
+        {
+          "key": "99c41254-fa2e-56d7-bd74-5a04c238ae0f",
+          "name": "Zutaten",
+          "servingGrams": 343.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "12a9f073-d7fd-533d-acb8-15ae013a63e9",
+              "ingredientName": "Butternusskürbis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße, geschält und gewürfelt"
+            },
+            {
+              "key": "15632458-c6d6-5b1e-ae9c-0e973a6c5fb4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "586fe6d9-55a2-5a30-bd39-ab28ac115a16",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "d12382e8-559d-5da6-b805-8111867fb91b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9f337c6b-07c3-580b-9f51-3fbaec8b38f8",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4327ea0d-2058-59a5-9741-228f4620fc2b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f08c487e-d46b-5a76-bc42-1bffc60b55a6",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "63ff30fd-9173-50ab-b7c2-b7a2299a5bfa",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen und die gewürfelte Zwiebel etwa 4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch hinzufügen und 1 Minute weiterbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelten Butternusskürbis und Gemüsebrühe dazugeben und aufkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hitze reduzieren und 25–30 Minuten köcheln lassen, bis der Kürbis sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Suppe vorsichtig portionsweise mit einem Stabmixer oder Standmixer glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sahne und Muskatnuss einrühren und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 2–3 Minuten köcheln lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2015/09/AMAZING-30-Minute-Curried-Butternut-Squash-Soup-Creamy-flavorful-and-perfect-for-fall-vegan-glutenfree-soup-squash-fall-recipe-healthy.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2015/09/AMAZING-30-Minute-Curried-Butternut-Squash-Soup-Creamy-flavorful-and-perfect-for-fall-vegan-glutenfree-soup-squash-fall-recipe-healthy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

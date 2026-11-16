@@ -1,0 +1,1238 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-tamago-sando",
+      "slug": "egg-tamago-sando",
+      "title": "Tamago Sando (japanisches Ei-Salat-Sandwich aus dem Konbini)",
+      "instructions": "Das Kult-Sandwich aus japanischen Convenience-Stores: reichlich cremiger Eiersalat mit Kewpie-Mayonnaise zwischen weichem, entrindetem Milchbrot – für den fotogenen Anschnitt. Günstig, ohne Kochen außer dem Eierkochen, und als Mittagessen zum Mitnehmen unwiderstehlich lecker.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hier sind Eier und Brot die Hauptzutaten. Kaufe also große Eier der Hausmarke und einen weichen Laib Sandwichbrot – ein Laib und ein Dutzend Eier reichen für viele Mittagessen.",
+        "Keine Kewpie-Mayonnaise da? Rühre einen kleinen Schuss Reisessig und eine Prise Zucker in normale Mayonnaise, um den säuerlich-süßen japanischen Geschmack für ein paar Cent nachzuahmen.",
+        "Hebe die abgeschnittenen Brotränder auf: Röste sie mit etwas Butter und Zimt-Zucker oder zerkleinere sie zu Paniermehl für ein anderes Rezept, statt sie wegzuwerfen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kewpie-mayo",
+          "swap": "Normale Mayonnaise mit einer Prise Zucker und ein paar Tropfen Reisessig",
+          "savings": "spart etwa $0.10 wenn bereits vorhanden plain mayo"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Brioche-Brötchen oder beliebiges weiches Weißbrot für den Milchbrot-Effekt",
+          "savings": "Einfaches Toastbrot ist mit etwa $0.18 pro Scheibe die günstigste Variante"
+        },
+        {
+          "forIngredientId": "white-pepper",
+          "swap": "Normaler schwarzer Pfeffer",
+          "savings": "Black pepper kostet etwa half as much pro TL"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Ei",
+        "Sandwich",
+        "ohne Kochen",
+        "Mittagessen",
+        "zum Mitnehmen",
+        "vegetarisch",
+        "Konbini"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 240,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-tamago-sando/",
+      "components": [
+        {
+          "key": "284e332f-5bda-565e-ba98-c320ff9ef1a5",
+          "name": "Zutaten",
+          "servingGrams": 193.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfa7544f-b60b-528d-8211-de5129bac718",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "149f35c1-3f60-5359-9b5d-7d243428ab4b",
+              "ingredientName": "Kewpie-Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "694374cf-19df-5617-88f7-969b06c5baa4",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0f01f17-e7b0-5adc-bd02-a210afb1c406",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f0fa612-fb97-5fb2-8735-3c205ab75e31",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74cb3bac-cdb5-54b1-8905-fddba0fec1d6",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c00b7cd5-dcce-52f9-abf6-052e3ad31456",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89c8a7a0-80c5-5391-8589-67e26a6d216f",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "für eine leichte säuerliche Note einrühren"
+            },
+            {
+              "key": "553fd413-2312-5674-a1de-55736637340a",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "fein geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib 4 Eier in einen kleinen Topf, bedecke sie mit kaltem Wasser etwa einen inch über den Eiern und bringe alles bei hoher Hitze sprudelnd zum Kochen. Reduziere dann die Hitze und lass die Eier 12 Minuten sanft köcheln, bis das Eigelb vollständig gestockt ist (sicher für ein Mittagessen bei Zimmertemperatur).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle währenddessen eine Schüssel mit kaltem Wasser und Eis. Sobald die 12 Minuten um sind, gib die Eier direkt ins Eisbad und kühle sie mindestens 5 Minuten, um den Garvorgang zu stoppen und die Schalen leichter abzulösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle die abgekühlten Eier unter einem dünnen Wasserstrahl. Trenne 2 Eigelbe in eine Schüssel ab und zerdrücke sie mit 2 EL Kewpie-Mayonnaise, Zucker, Salz und weißem Pfeffer zu einer cremigen Grundlage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke die übrigen 2 ganzen Eier und die 2 restlichen Eiweiße grob in kleine Stücke und hebe sie mit dem letzten EL Kewpie-Mayonnaise (und nach Wunsch Dijon-Senf) unter die Eigelbmasse. Der Salat soll dick und löffelbar sein, nicht suppig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die 4 Brotscheiben bereit und bestreiche jede bis zu den Rändern mit weicher Butter. Die Butter versiegelt die Krume, damit das Brot nicht matschig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Häufle den Eiersalat großzügig auf 2 Scheiben und gib in der Mitte etwas mehr darauf, damit der Anschnitt voll und rund aussieht. Belege sie mit den übrigen Scheiben und drücke sie zum Fixieren leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide mit einem scharfen Messer mit Wellenschliff alle vier Rinden für den typischen Konbini-Look ab und halbiere jedes Sandwich diagonal. Wische die Klinge zwischen den Schnitten ab, damit die Schnittflächen sauber bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere die Schnittflächen nach Wunsch mit geschnittenem Schnittlauch und serviere das Sandwich sofort – oder wickle es fest ein und kühle es bis zu einem Tag für ein Mittagessen zum Mitnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Tamago_Sando_elaborado_en_Argentina.jpg/1280px-Tamago_Sando_elaborado_en_Argentina.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tamago_Sando_elaborado_en_Argentina.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA",
+          "verifiedMatch": true,
+          "altText": "Foto von Tamago Sando (japanisches Ei-Salat-Sandwich aus dem Konbini)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-mayak-gyeran",
+      "slug": "egg-mayak-gyeran",
+      "title": "Mayak Gyeran (koreanische marinierte Soja-Eier)",
+      "instructions": "Weich gekochte Eier mit cremigem Eigelb, eingelegt in einer süß-würzigen Sojabrühe mit Knoblauch, Frühlingszwiebel, Gochugaru und Sesam. Serviere Eier und Brühe auf heißem Reis für eine unwiderstehliche vorbereitete Mahlzeit, die fast nichts kostet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier und Reis gehören zu den günstigsten Zutaten in jeder Studentenküche; eine Portion für 4 Schüsseln kostet ungefähr einen Dollar pro Portion.",
+        "Kaufe eine große Knoblauchknolle und eine Flasche Sojasauce – sie reichen für wochenlange Portionen marinierter Eier und machen kaum einen Unterschied bei den Kosten.",
+        "Kein Gochugaru da? Eine Prise Chiliflocken oder ein Spritzer beliebiger Chilisauce, die du schon hast, sorgt kostenlos für dieselbe Schärfe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gochugaru",
+          "swap": "Chiliflocken oder frisch geschnittene Chili",
+          "savings": "verwendet vorhandene Zutaten instead of a Korean-specific spice"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Beliebiges neutrales Öl plus ein paar zusätzliche Sesamsamen",
+          "savings": "Spart den Kauf eines speziellen Öls, falls der Vorratsschrank leer ist"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Instant-Reis, übrig gebliebener Reis vom Lieferservice oder sogar Toast",
+          "savings": "Stretches the broth über eine beliebige günstige Stärke"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Ei",
+        "Soja",
+        "marinierte Eier",
+        "Reis-Bowl",
+        "günstig",
+        "vorab zubereiten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 241,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-mayak-gyeran/",
+      "components": [
+        {
+          "key": "594d690e-f4c8-59bf-a443-09044d22e480",
+          "name": "Zutaten",
+          "servingGrams": 487,
+          "position": 0,
+          "items": [
+            {
+              "key": "68e1386e-b9d2-5280-b204-978eb029cc17",
+              "ingredientName": "Ei",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "016aee01-df70-52ac-985e-a789417280be",
+              "ingredientName": "Sojasauce",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c16ab5e3-ebdb-5a19-a1d7-3eec4ed92517",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1c89709-e9e3-5d35-b273-ffc069bbe97f",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81884bba-88f6-512b-90b0-f730afad7cd7",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f116705-89ff-5327-8d34-712517f94be8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff66a1b0-32ea-513f-abd1-88177c16224c",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6d216ad-2474-5e23-a16c-5e08d627b873",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6da32d02-2c7a-5906-aaf9-345b323c7e4b",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aee3c20a-773f-58f2-8289-f30955d93d70",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adff53c8-b597-586e-95fe-04fafba9b89f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "extra, in Scheiben geschnitten thin zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf Wasser sprudelnd zum Kochen. Lege 8 Eier direkt aus dem Kühlschrank vorsichtig mit einem Löffel hinein. Bringe das Wasser sofort wieder zum sanften Köcheln (kleine, gleichmäßige Bläschen statt starkem Kochen) und gare die Eier genau 6.5 bis 7 Minuten, damit das Eigelb weich und cremig bleibt. Die Mitte bleibt absichtlich weich; das ist sicher, wenn du frische, gekühlte Eier verwendest und sie anschließend kalt hältst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle währenddessen eine Schüssel mit kaltem Wasser und Eis. Sobald der Timer klingelt, gib die Eier ins Eisbad und kühle sie mindestens 5 Minuten. So wird der Garvorgang gestoppt und das Schälen viel einfacher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Marinade zu: Verrühre in einem Behälter 12 EL Sojasauce, 1 cup Wasser und 4 EL Zucker, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke 6 Knoblauchzehen und schneide 3 Frühlingszwiebeln in dünne Scheiben. Rühre Knoblauch, Frühlingszwiebeln, 2 TL Gochugaru, 2 TL Sesamöl und 2 TL Sesamsamen in die Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schäle die abgekühlten Eier unter einem dünnen Strahl kalten Wassers; beginne am breiten Ende mit der Luftkammer. Arbeite vorsichtig, damit das weiche Eiweiß ganz bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die geschälten Eier in die Marinade. Lege ein Papiertuch direkt auf die Oberfläche, damit die herausragenden Oberseiten in der Sojasauce bleiben, oder wende die Eier alle paar Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Behälter ab und stelle ihn mindestens 6 Stunden, idealerweise über Nacht, in den Kühlschrank, bis die Eier kräftig würzig sind und das Eiweiß bernsteinfarben und glasig wird. Durchgehend gekühlt aufbewahren und innerhalb von 3 bis 4 Tagen essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib zum Servieren 1 cup gekochten heißen Reis in eine Schüssel, belege ihn mit 2 Eiern (halbiere sie, damit das cremige Eigelb sichtbar ist) und löffle reichlich Knoblauch-Sojabrühe darüber. Nach Wunsch mit den übrigen geschnittenen Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Korean_Braised_or_sauna_EggsCNE.jpg/1280px-Korean_Braised_or_sauna_EggsCNE.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Korean_Braised_or_sauna_EggsCNE.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "CNEcija12345, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Mayak Gyeran (koreanischen marinierten Soja-Eiern)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-dhaba-anda-curry",
+      "slug": "egg-dhaba-anda-curry",
+      "title": "Eier-Curry nach Dhaba-Art (Anda Curry)",
+      "instructions": "Hart gekochte Eier goldbraun gebraten und anschließend in einer kräftigen, scharfen Zwiebel-Tomaten-Masala geschmort, die wie aus einem Punjabi-Straßenrestaurant schmeckt. Ohne Sahne und ohne besondere Geräte – nur mit Gewürzen aus dem Vorratsschrank und einer Pfanne zubereitet, zum Servieren auf Reis oder mit Brot zum Auftunken.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten Eiweißquellen im Laden, und diese ganze Pfanne Curry mit Restaurantgeschmack kostet etwa $2.40 pro Portion. Kaufe ein Dutzend und du hast zwei Abendessen.",
+        "Langsam gebräunte Zwiebeln sorgen für kostenlosen Geschmack, sodass du keine Sahne oder Cashews wie bei aufwendigeren Currys brauchst. Hier ersetzt Geduld die teuren Zutaten.",
+        "Strecke das Gericht, indem du eine gewürfelte gekochte Kartoffel oder eine Handvoll Tiefkühlerbsen in die Sauce gibst. So werden aus 4 Portionen 5-6 für ein paar Cent mehr."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "Pflanzenöl oder ein beliebiges neutrales Öl zum Braten und für die Grundlage",
+          "savings": "spart etwa $0.60 across the dish"
+        },
+        {
+          "forIngredientId": "ginger-paste",
+          "swap": "1 TL gemahlener Ingwer oder ein Stück frischer Ingwer in Daumengröße, gerieben",
+          "savings": "Kostet nur wenige Cent und verwendet Vorhandenes"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "1 cup gehackte Tomaten aus der Dose oder Tomatensauce, wenn frische Tomaten teuer oder gerade nicht erhältlich sind"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Ei",
+        "Curry",
+        "Abendessen",
+        "vegetarisch",
+        "günstig",
+        "Dhaba",
+        "Punjabi",
+        "scharf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 242,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-dhaba-anda-curry/",
+      "components": [
+        {
+          "key": "6a4f8463-2fe2-5587-b64f-bccd9b3f3e9f",
+          "name": "Zutaten",
+          "servingGrams": 390.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "38f457fe-effb-5f0c-b588-81284854c4d6",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "hart gekocht und geschält"
+            },
+            {
+              "key": "77684019-65a0-56fc-a9eb-845c00c5deeb",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "geteilt, zum Braten der Eier und für die Masala-Grundlage"
+            },
+            {
+              "key": "ba641531-54b8-5267-a219-9f26cc1f3ff6",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "im heißen Fett anrösten, damit sich das Aroma entfaltet"
+            },
+            {
+              "key": "5e4e27ec-af51-5093-9d04-91761e7235e2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "639ac340-42e1-5e2b-bc33-7c96e7f7ff12",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "3823e054-67dd-5783-bc9e-13a7986fb775",
+              "ingredientName": "Ingwerpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eac17e3-7d61-5ff5-b888-e36181ed6c31",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "fein gehackt oder püriert"
+            },
+            {
+              "key": "a3482f9d-4ddb-53e1-bb73-07fd8aab3811",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "691d9248-e322-5f36-b4c9-d37ead4dc737",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gemahlen"
+            },
+            {
+              "key": "9c689b97-ed18-5103-816f-c201f8d9a4ef",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "bei geringer Schärfetoleranz weniger verwenden"
+            },
+            {
+              "key": "53306305-40fe-5d88-925a-df81e3787d5b",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff66fc8a-3207-5098-ba9e-fb62c8d8016f",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6824d7d4-5b96-5fb1-ace4-666760da0d0a",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "zum Verdünnen der Masala zur Sauce"
+            },
+            {
+              "key": "5aae21c8-006e-5f1b-921e-020992f94407",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier hart: Lege sie in einen Topf, bedecke sie mit kaltem Wasser und bringe alles zum Kochen. Gare sie dann 9-10 Minuten, bis das Eigelb vollständig gestockt ist (am sichersten, da sie anschließend noch geschmort werden). Kühle sie unter fließendem kaltem Wasser ab, schäle sie und stich oder ritze jedes Ei ein paarmal leicht ein, damit die Masala einzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 EL Ghee in einer breiten Pfanne bei mittlerer Hitze. Gib die geschälten Eier mit einer Prise Kurkuma und Salz hinein und brate sie 3-4 Minuten, dabei wenden, bis das Eiweiß Blasen wirft und goldbraun wird. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche 1 EL Ghee mit den Kreuzkümmelsamen in dieselbe Pfanne und lass sie etwa 30 Sekunden duften. Gib Zwiebeln dazu und gare sie bei mittlerer Hitze 8-10 Minuten unter Rühren, bis sie kräftig goldbraun sind (diese Farbe sorgt für den Geschmack, also nicht hetzen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Knoblauch und Ingwerpaste ein und gare alles 1 Minute, bis der rohe Geruch nachlässt. Gib Tomaten und Salz dazu, decke die Pfanne ab und gare alles 6-8 Minuten, bis die Tomaten zu weichem Mus zerfallen und sich das Ghee an den Rändern absetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und gib Kurkuma, gemahlenen Koriander und Chilipulver dazu. Brate die Gewürze 1-2 Minuten in der Masala an. Wenn etwas ansetzt, gib einen Esslöffel Wasser dazu, bis eine dicke, glänzende Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße 2 cups Wasser hinein, rühre um und bringe die Sauce zum sanften Köcheln. Lass sie 5 Minuten blubbern, bis sie leicht eindickt und runder schmeckt. Probiere und passe das Salz an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die gebratenen Eier in die Sauce und lass sie 5-6 Minuten sanft köcheln. Löffle Sauce darüber, damit sie Geschmack aufnehmen. Rühre in der letzten Minute Garam Masala ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schalte die Hitze aus, garniere mit gehacktem Koriander und serviere das Curry heiß auf gedämpftem Reis oder mit Naan oder Roti. Die Eier sollten vollständig gestockt und keinesfalls flüssig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Anda_jhol_or_egg_curry.jpg/1280px-Anda_jhol_or_egg_curry.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Anda_jhol_or_egg_curry.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA",
+          "attributionRequired": true,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Eier-Curry nach Dhaba-Art (Anda Curry)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-tortilla-espanola",
+      "slug": "egg-tortilla-espanola",
+      "title": "Tortilla Española (spanisches Kartoffelomelett)",
+      "instructions": "Spaniens beliebtestes Nationalgericht: ein dickes, cremiges Omelett aus Eiern sowie in Olivenöl pochierten Kartoffeln und Zwiebeln, bei niedriger Hitze langsam gegart und dann goldbraun gewendet. Unglaublich günstig, sättigend und kalt direkt aus dem Kühlschrank genauso lecker wie heiß aus der Pfanne.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 33,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Pochieröl lässt sich wiederverwenden: Gieße das abgeseihte Olivenöl in ein Glas und verwende es für die nächste Portion Kartoffeln, zum Anbraten oder als Salatdressing, damit fast nichts verschwendet wird.",
+        "Kartoffeln, Eier und Zwiebeln gehören zu den günstigsten Grundzutaten im Laden. Eine ganze Tortilla kostet nur ein paar Dollar und reicht für mehrere Tage.",
+        "Eine Tortilla ergibt vier bis sechs Portionen. Schneide sie kalt direkt aus dem Kühlschrank in Stücke und nimm sie statt Essen vom Campus als Mittagessen mit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl",
+          "savings": "Pflanzenöl statt Olivenöl verwenden, um die Ölkosten um etwa 80 Prozent zu senken; etwas Aroma geht verloren, die Kartoffeln garen aber genauso."
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Yukon-Gold-Kartoffel",
+          "savings": "Yukon-Gold-Kartoffeln werden innen cremiger und buttriger, bei ähnlichem Preis pro Kartoffel."
+        },
+        {
+          "forIngredientId": "onion",
+          "swap": "Frühlingszwiebel",
+          "savings": "Keine Zwiebel da? Ein paar geschnittene Frühlingszwiebeln in die Eier rühren, für einen milderen, frischeren Geschmack."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "Ei",
+        "vegetarisch",
+        "günstig",
+        "Kartoffel",
+        "Tapas"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 243,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-tortilla-espanola/",
+      "components": [
+        {
+          "key": "7977ce91-717b-587c-8996-8ada93c45bbd",
+          "name": "Zutaten",
+          "servingGrams": 275,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb1ac365-577f-5216-8101-d699c29341d9",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "geschält und dünn geschnitten"
+            },
+            {
+              "key": "ac31cbfe-a1dc-5c82-bab6-cb201afa8c9d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "halbiert und dünn geschnitten"
+            },
+            {
+              "key": "93a90a53-b05a-56d4-ba78-97d893f4e03c",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "895eb203-5633-5f16-adc9-dc2a726ab01f",
+              "ingredientName": "Olivenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Pochieren der Kartoffeln; der größte Teil wird abgegossen und kann wiederverwendet werden"
+            },
+            {
+              "key": "b10a7aff-4509-5cc8-8e6b-e8e93448d745",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79459dde-764b-578e-bd74-2bed0c1b9cae",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln und schneide sie in dünne Scheiben von etwa 1/8 inch. Halbiere die Zwiebel und schneide sie in dünne Scheiben. Tupfe die Kartoffeln trocken, damit sie im Öl nicht spritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer beschichteten Pfanne bei niedriger bis mittlerer Hitze. Gib Kartoffeln und Zwiebeln mit der Hälfte des Salzes hinein. Lass sie sanft köcheln, ohne zu bräunen, damit sie im Öl pochieren und weich werden, statt knusprig zu braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare alles 18 bis 22 Minuten bei niedriger Hitze und wende es alle paar Minuten vorsichtig, bis sich eine Kartoffelscheibe leicht mit einer Gabel zerdrücken lässt. Nicht bräunen. Gieße alles in ein Sieb über einer Schüssel ab und hebe das aromatische Öl auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage die Eier in eine große Schüssel, gib das restliche Salz dazu und verquirle sie gut. Hebe die warmen, abgetropften Kartoffeln und Zwiebeln unter und lass alles 5 bis 10 Minuten stehen, damit die Kartoffeln das Ei aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische die Pfanne aus und stelle sie bei niedriger bis mittlerer Hitze mit 1 EL des aufgehobenen Öls zurück auf den Herd. Gieße die Ei-Kartoffel-Mischung hinein, verteile sie gleichmäßig und gare sie ohne Rühren 5 bis 7 Minuten, bis die Ränder fest und der Boden goldbraun sind, während die Oberseite noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende die Tortilla: Lege einen flachen Teller über die Pfanne, halte ihn fest und drehe alles um, sodass die Tortilla auf den Teller fällt. Schiebe sie mit der gegarten Seite nach oben zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare die zweite Seite 4 bis 6 Minuten und forme die Ränder mit einem Pfannenwender rund, bis die Mitte fest ist und ein sofort ablesendes Thermometer dort 160F anzeigt, ohne dass rohes Ei zusammenläuft. Für eine klassische, gerade gestockte Mitte bei dieser Temperatur herausnehmen; wenn du sie ganz fest magst, ein oder zwei Minuten länger garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schiebe die Tortilla auf einen Teller und lass sie 5 Minuten ruhen. Nach Wunsch mit gehackter Petersilie garnieren und in Stücke schneiden. Heiß, bei Zimmertemperatur oder gekühlt servieren; für Mittagessen und Tapas hält sie sich 3 bis 4 Tage im Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Tortilla_de_Patatas_%28Corte_transversal%29.jpg/1280px-Tortilla_de_Patatas_%28Corte_transversal%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tortilla_de_Patatas_(Corte_transversal).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Tamorlan, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Tortilla Española (spanischen Kartoffelomeletts)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-wok-hei-fried-rice",
+      "slug": "egg-wok-hei-fried-rice",
+      "title": "Gebratener Eier-Reis mit Wok-Aroma",
+      "instructions": "Glänzender, rauchiger gebratener Eier-Reis, bei dem jedes Korn von Ei überzogen und mit der kräftigen Hitze des Woks aromatisiert ist – fünf Vorratszutaten, zehn Minuten und tatsächlich besser als Essen zum Mitnehmen. Inspiriert von @madewithlau (madewithlau.com).",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche Reis in einer großen Menge vor und bewahre Reste im Kühlschrank auf – Reis vom Vortag kostet pro Portion weniger und eignet sich besser zum Braten als frisch gekochter.",
+        "Jasminreis gehört zu den günstigsten Zutaten im Laden und kostet pro Portion nur ein paar Cent. Kaufe den großen Beutel, dann kostet dieses Gericht deutlich weniger als einen Dollar pro Teller.",
+        "Keine Frühlingszwiebel da? Lass sie weg oder verwende eine Prise getrocknetes Grünzeug, das du hast. Ei, Reis und Sojasauce sorgen für den kräftigen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Reis vom Vortag, Basmati oder schlichter weißer Reis eignen sich genauso gut – jeder kalte, trockene Reisrest.",
+          "savings": "Use whatever rice bereits vorhanden to spend $0 extra."
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Rapsöl, Erdnussöl oder ein beliebiges neutrales, hoch erhitzbares Öl; geröstetes Sesamöl zum Schluss darüberträufeln (bei starker Hitze verbrennt es).",
+          "savings": "Das günstigste neutrale Öl hält die Kosten sehr niedrig."
+        },
+        {
+          "forIngredientId": "light-soy-sauce",
+          "swap": "Normale Sojasauce oder Tamari für eine glutenfreie Variante; mit wenig beginnen und abschmecken, da der Salzgehalt variiert.",
+          "savings": "Vorhandene Sojasauce aus dem Vorratsschrank verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "kantonesisch-chinesisch",
+        "Ei",
+        "kantonesisch",
+        "gebratener Reis",
+        "Wok",
+        "10 Minuten",
+        "Vorratszutaten",
+        "Abendessen",
+        "günstig",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 244,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-wok-hei-fried-rice/",
+      "components": [
+        {
+          "key": "ddb198ab-8772-5a1d-92e1-33527467619c",
+          "name": "Zutaten",
+          "servingGrams": 197.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ad0f571-1ccc-5b7a-87d9-419bc902a017",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "am Vortag gekocht und gekühlt; kalte, trockene Körner sind entscheidend"
+            },
+            {
+              "key": "845d759b-d2c6-568f-8378-d018b1c24ba3",
+              "ingredientName": "Ei",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "mit einer Prise Salz verquirlt"
+            },
+            {
+              "key": "b9a7ca83-0b7e-5d82-a140-996c06a538d9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder any neutral high-smoke-point oil"
+            },
+            {
+              "key": "d59226c1-c703-5715-b515-cd453aeb6e35",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39bb7d22-d3ed-58c6-beac-6d969d1ba58d",
+              "ingredientName": "Zucker",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "eine kleine Prise (etwa 1/2 tsp), um das Aroma abzurunden"
+            },
+            {
+              "key": "a7cfb239-8686-5867-8eb7-294ccdcaeddf",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02fa8c1c-0df0-57d4-b43f-9993f7b4921d",
+              "ingredientName": "Helle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "am Rand des heißen Woks entlangträufeln"
+            },
+            {
+              "key": "beff0bef-9320-5acf-9ce1-85e931b65734",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Am besten am Vortag: Koche 1 cup trockenen Jasminreis, verteile ihn auf einem Teller und kühle ihn unbedeckt im Kühlschrank, damit die Körner trocknen und fester werden. Kalter Reis vom Vortag ist der wichtigste Faktor für guten gebratenen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle 3 Eier mit einer kleinen Prise Salz. Zerdrücke Klümpchen im kalten Reis mit den Fingern, damit die Körner locker sind. Stelle Sojasauce, Salz, Zucker und weißen Pfeffer griffbereit hin – das Gericht gart schnell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze einen Wok oder eine große Pfanne bei hoher Hitze, bis sie gerade zu rauchen beginnt. Gib 2 EL Öl hinein und schwenke es, damit der Boden bedeckt ist. Gieße die verquirlten Eier hinein, lass sie einige Sekunden aufgehen und rühre sie dann rasch zu Rührei, bis sie gerade gestockt, aber noch glänzend sind (etwa 20–30 Sekunden) – das Ei vollständig durchgaren, nicht flüssig lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe das Ei auf eine Seite (oder nimm es vorübergehend heraus) und gib den kalten Reis in das heiße Öl. Drücke und wende ihn, um Klümpchen zu lösen und jedes Korn zu überziehen. Verteile ihn, damit er an der Pfanne röstet statt zu dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende und falte den Reis bei hoher Hitze 2–3 Minuten ohne Unterbrechung. Lass ihn zwischen dem Wenden jeweils ein paar Sekunden liegen, damit er das röstige Wok-Aroma aufnimmt – du hörst es brutzeln und riechst den nussigen Duft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe das Ei wieder unter und zerteile es in kleine Stücke im Reis. Würze mit 1/2 TL Salz, einer Prise Zucker und 1/4 TL weißem Pfeffer und vermenge alles gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Träufle 1 EL helle Sojasauce am heißen Rand des Woks hinunter (nicht direkt auf den Reis), sodass sie eine Sekunde brutzelt und karamellisiert, bevor du sie unterrührst. Probiere und passe das Salz an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schalte die Hitze aus, rühre nach Wunsch geschnittene Frühlingszwiebel unter und serviere sofort, solange der Reis heiß und dampfend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Chinese_egg_fried_rice.jpg/1280px-Chinese_egg_fried_rice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chinese_egg_fried_rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Euniceyeoh07, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von gebratenem Eier-Reis mit Wok-Aroma",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

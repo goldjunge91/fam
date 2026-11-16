@@ -1,0 +1,961 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-colley",
+      "slug": "gen-colley",
+      "title": "Colley",
+      "instructions": "Yorkshire-Frühstück  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Eier in großen Mengen, wenn sie im Angebot sind",
+        "Lassen Sie frischen Schnittlauch weg und verwenden Sie ihn bei Bedarf getrocknet"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Yorkshire",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7150,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-colley/",
+      "components": [
+        {
+          "key": "e1676f97-b95c-5696-a9c1-e7ba639233b9",
+          "name": "Zutaten",
+          "servingGrams": 142.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d65f0b9-de5e-50a5-a212-7c1bee459618",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2299931c-2e26-5633-81f4-56313d9b1ab8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b065836d-1f0b-509f-9e4e-88fd610bc626",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e37bc543-b51e-59c9-8167-3ddc13cc4c10",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "f34742e6-729d-59f0-b5b1-c35cf70a68c7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "1dd2e974-821a-51c8-8f60-675073ff6fde",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier in eine Schüssel geben und mit Milch, Salz und Pfeffer verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer beschichteten Pfanne bei mittlerer Hitze erhitzen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gießen Sie die Eiermischung in die Pfanne und lassen Sie sie 30 Sekunden lang ohne Rühren ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schieben Sie die gekochten Eier vorsichtig vom Rand zur Mitte und kippen Sie dabei die Pfanne, damit das ungekochte Ei an den Rand fließen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn die Eier fast fest, aber oben noch leicht feucht sind, mit Schnittlauch bestreuen und in zwei Hälften falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen Teller gleiten lassen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thecolleyhouse.org/wp-content/uploads/2022/12/IMG_8086-2-scaled.jpg",
+          "sourcePageUrl": "https://thecolleyhouse.org/wp-content/uploads/2022/12/IMG_8086-2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cornish-hen",
+      "slug": "gen-cornish-hen",
+      "title": "Kornische Poularde",
+      "instructions": "cornisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achten Sie auf den Verkauf von Hühnern aus Cornwall und frieren Sie sie ein, bis sie benötigt werden",
+        "Lassen Sie frischen Thymian weg und verwenden Sie ihn zur Not getrocknet"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kornisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7151,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cornish-hen/",
+      "components": [
+        {
+          "key": "7ccf8d26-27ae-5c16-89d2-61b0f1cf9190",
+          "name": "Zutaten",
+          "servingGrams": 126.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "77d261e5-2412-5786-9c56-98d025cba8ad",
+              "ingredientName": "Kornisches Wildhuhn",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 (2 Pfund)"
+            },
+            {
+              "key": "3cc1c2d1-b3d9-5674-a441-2009befb0516",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6f23578f-b00e-56bc-9aab-6104a751c99d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e70af252-5841-5c3d-95c9-a235d0700f69",
+              "ingredientName": "Frischer Thymian",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "7b0d0824-e024-57a7-a8e7-4b97706c612c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5cc90d4c-4de1-52a7-8beb-c910b95be3ec",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "145f09a7-6c65-5ba2-9a4d-155527db6ec1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 425 °F vorheizen und die Henne mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Huhn innen und außen mit 2 EL weicher Butter, Salz und Pfeffer einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Hohlraum mit Zitronenhälften, Thymianzweigen und Knoblauchzehen füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Binden Sie die Beine mit Küchengarn zusammen und legen Sie sie mit der Brust nach oben auf einen Bräter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Außenseite mit der restlichen Butter einreiben und 45–50 Minuten rösten, bis der Saft klar wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Anschneiden und Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/12/Roasted-Cornish-Hens-Recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/12/Roasted-Cornish-Hens-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cornish-cream-tea",
+      "slug": "gen-cornish-cream-tea",
+      "title": "Cornish Cream Tea",
+      "instructions": "cornischer Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie Ihre eigenen Scones, anstatt vorgefertigte zu kaufen",
+        "Verwenden Sie Marmelade und Clotted Cream von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kornisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7152,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cornish-cream-tea/",
+      "components": [
+        {
+          "key": "f8e5a2c2-0c2c-598a-a7c0-62454c6aa2a8",
+          "name": "Zutaten",
+          "servingGrams": 935,
+          "position": 0,
+          "items": [
+            {
+              "key": "523546b1-ee58-5e35-946a-08cea3dd215a",
+              "ingredientName": "Scones",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "500441f9-6334-5810-988b-527fee898867",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "70c35cda-ee45-59fe-8234-d1b50ddcb72e",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5346be94-bddd-5962-8258-fc0c69cb2123",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Beutel"
+            },
+            {
+              "key": "8fef1eea-16dc-53a9-9495-b1513bc854bb",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "34af7627-08aa-526a-a1b6-a0f474dc026d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2e73030c-a9ad-5705-afa0-9b694544189a",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser aufkochen und Teebeutel 3–4 Minuten in einer Teekanne ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Scones im Ofen bei 325 °F 5 Minuten lang erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Warme Scones horizontal in zwei Hälften teilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die unteren Sconeshälften mit Marmelade bestreichen und mit Clotted Cream belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit den restlichen Scone-Hälften belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Tee in Tassen füllen, mit Zucker und Milch abschmecken und zu den Scones servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/YQ0HZFXPC6GL5c18-okw8bxC8wQ=/2121x1414/filters:fill(auto,1)/Cream-tea-GettyImages-183814030-58c5ae3e3df78c353c570344.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/YQ0HZFXPC6GL5c18-okw8bxC8wQ=/2121x1414/filters:fill(auto,1)/Cream-tea-GettyImages-183814030-58c5ae3e3df78c353c570344.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-scones-with-clotted-cream",
+      "slug": "gen-scones-with-clotted-cream",
+      "title": "Scones mit Clotted Cream",
+      "instructions": "cornischer Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lassen Sie die Clotted Cream weg und servieren Sie sie mit normaler Schlagsahne",
+        "Machen Sie eine doppelte Menge und frieren Sie die Reste ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kornisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7153,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scones-with-clotted-cream/",
+      "components": [
+        {
+          "key": "a658a1dc-9389-51ff-a117-7b5b098d2900",
+          "name": "Zutaten",
+          "servingGrams": 255.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "5430355e-cd46-5d83-98e4-4cc3f74a352e",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a6eed9e8-6e3f-54fa-a711-8852f4c94b81",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "afd0cea1-f7df-5450-8707-30ccbcefa9e9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "53b966d5-d778-51c8-b82c-5ba76271b558",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "95901c8e-f950-59b1-a7bf-47d0fc5c9787",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "c04537ff-6073-54bf-94c6-151918ef5663",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a05b5f5e-9a53-5b59-b526-7ba36c581a5a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c21d050b-fb85-5a89-8756-cb7147881f87",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 400 °F vor und legen Sie ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver, Salz und Zucker in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kalte Butter in kleine Würfel schneiden und mit Mehl vermengen, bis eine Semmelbröselstruktur entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Milch vorsichtig einrühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig auf eine bemehlte Arbeitsfläche legen, 0.75 Zoll dick ausklopfen und mit einem Keksausstecher in 6 Runden schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf ein Backblech legen, die Oberfläche mit verquirltem Ei bestreichen und 12–15 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Etwas abkühlen lassen und warm mit Clotted Cream und Marmelade servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Clotted-Cream-and-Honey-Drizzled-Scones.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Clotted-Cream-and-Honey-Drizzled-Scones.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cornish-saffron-bun",
+      "slug": "gen-cornish-saffron-bun",
+      "title": "Cornisches Safranbrötchen",
+      "instructions": "Cornisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen saffron in bulk online für einen günstigeren Preis",
+        "ersetzen getrocknet currants mit Rosinen bei Bedarf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kornisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7154,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cornish-saffron-bun/",
+      "components": [
+        {
+          "key": "ae99779e-a439-588b-9df1-86e13073bf98",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 225,
+          "position": 0,
+          "items": [
+            {
+              "key": "8030b0e4-dbf3-5d27-bf22-c9034e27201d",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "c1bc2846-56d6-56dd-92da-07955f15df1e",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "910a3c00-3796-56c7-ab8b-6ccc8ed8e8ff",
+              "ingredientName": "Instant-Hefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "019e7652-2147-5d3f-b0e7-9c05a86af8ad",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d3d200c7-4439-526e-ad55-b96b0cf18a11",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "a07b24ff-7756-58c6-92fc-746a5131dce6",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "7042ec79-097f-57f4-bc4a-ee01607c6af6",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "00a0d4b0-dab2-5453-a3be-0b41a6ddba96",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "41f7e66b-df9e-58ea-bf8d-612e0b31036d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Steep saffron in warm Milch für 10 Minuten bis goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "mischen Hefe mit warm saffron Milch und lassen sit für 5 Minuten bis foamy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in einer großen Schüssel, vermengen Mehl, Salz, und Zucker, dann rub in Butter bis breadcrumb texture.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen Hefe Mischung und verquirlt Ei in Mehl und kneten bis glatt elastic Teig forms, etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "unterheben in currants, cover mit plastic wrap, und lassen rise in warm legen für 1 Stunde bis doubled.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Punch down Teig und divide in 4 gleich Stücke, formen in round buns, und legen auf greased Backen sheet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und 45 Minuten gehen lassen, bis die Masse geschwollen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "backen at 375°F für 20-25 Minuten bis goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://d29hmqxeker05q.cloudfront.net/eyJidWNrZXQiOiJpbWFnZXMuY2tiay5jb20iLCJrZXkiOiJpbWFnZXMvb2F0czMyNjQxYzA1czAwMXIwMDhnMDFfbGFyZ2UuanBnIiwiZWRpdHMiOnsianBlZyI6eyJxdWFsaXR5Ijo5MCwicHJvZ3Jlc3NpdmUiOnRydWV9fX0=",
+          "sourcePageUrl": "https://d29hmqxeker05q.cloudfront.net/eyJidWNrZXQiOiJpbWFnZXMuY2tiay5jb20iLCJrZXkiOiJpbWFnZXMvb2F0czMyNjQxYzA1czAwMXIwMDhnMDFfbGFyZ2UuanBnIiwiZWRpdHMiOnsianBlZyI6eyJxdWFsaXR5Ijo5MCwicHJvZ3Jlc3NpdmUiOnRydWV9fX0=",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

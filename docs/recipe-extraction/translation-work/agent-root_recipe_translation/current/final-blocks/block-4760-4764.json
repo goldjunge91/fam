@@ -1,0 +1,1031 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-blt",
+      "slug": "gen-blt",
+      "title": "BLT-Sandwich",
+      "instructions": "Ein amerikanischer Klassiker mit knusprigem Speck, Salat und Tomate zwischen gerösteten Brotscheiben.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck im Angebot in Großpackungen und friere einen Teil für später ein.",
+        "Verwende Brot und Mayonnaise der Hausmarke statt teurer Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4760,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blt/",
+      "components": [
+        {
+          "key": "da4b5186-5022-5684-8f21-d4e96e8f9be7",
+          "name": "Zutaten",
+          "servingGrams": 1717.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a5f5cad0-c519-5719-9f18-22eb41d4f4b1",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c387291-cc30-5bb7-be19-d66605805eed",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bee071ac-5b26-5725-8adb-f13b5b0ae336",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "cdec5bb0-f199-56c9-b98f-302de0f342b5",
+              "ingredientName": "Salat",
+              "grams": 3000,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0be97a3-f249-59aa-87ff-cfea61279202",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "79b6e484-f8dc-5292-af2e-66530b676121",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0649dbdc-aca8-59a4-8ac7-3b26bd81cc74",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Speckstreifen in einer Pfanne bei mittlerer Hitze etwa 8-10 Minuten knusprig. Lass sie anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Brotscheiben goldbraun und bestreiche sie, solange sie noch warm sind, leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Innenseite jeder Brotscheibe mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege zwei Brotscheiben mit Salat, Tomatenscheiben und knusprigem Speck. Würze die Tomaten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die übrigen Brotscheiben darauf, schneide die Sandwiches diagonal durch und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/20UYwPU498yeMQCe4wflMnrU2Ak=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-BLT-Wraps-LEAD-03-4bf84a77dfb142108fadd261a939ec3b.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/20UYwPU498yeMQCe4wflMnrU2Ak=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-BLT-Wraps-LEAD-03-4bf84a77dfb142108fadd261a939ec3b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-katsu-sandwich",
+      "slug": "gen-katsu-sandwich",
+      "title": "Katsu-Sandwich",
+      "instructions": "Knusprig paniertes Schweineschnitzel mit fein geschnittenem Kohl und Tonkatsu-Sauce im Sandwichbrot.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschnitzel statt Schweinefleisch und spare $1 pro Portion.",
+        "Bereite Tonkatsu-Sauce selbst aus Ketchup, Sojasauce und Worcestershire-Sauce zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4761,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-katsu-sandwich/",
+      "components": [
+        {
+          "key": "dab8859c-69e8-54bf-ab12-92233bf3321a",
+          "name": "Zutaten",
+          "servingGrams": 873.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "814eb53d-7aab-5090-9c47-ac5729ea6545",
+              "ingredientName": "Schweineschnitzel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffdb1dd6-4a79-587d-916a-9438a671b9b7",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "f69baa81-e633-5c28-aff2-a63e2924cbc4",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c75761f8-8a81-5508-b4a7-e83594c4679b",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c56f7b7f-9bba-572d-a7b1-46996a203f80",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "08622a53-ca56-5b7d-b91b-d1bc5191a08e",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "448db2e8-d4e0-5894-8732-7283f914f358",
+              "ingredientName": "Tomatensauce",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4080972f-821e-56cb-89a5-5c254f3d9560",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "45a67194-1666-58c4-b780-6bcc7c654443",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "42ed7535-ec54-5f4b-adfc-748b4aeea148",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Schweineschnitzel zwischen Frischhaltefolie und klopfe sie mit einem Fleischklopfer auf 1/4-inch Dicke flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Fleisch mit Salz und Pfeffer. Stelle drei flache Schüsseln bereit und fülle Mehl, verquirlte Eier und Panko-Semmelbrösel jeweils in eine davon.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Schnitzel erst in Mehl, dann in Ei und zuletzt in Panko. Drücke die Panade leicht an, damit sie gut haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und brate die panierten Schnitzel 3-4 Minuten pro Seite goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass sie auf Küchenpapier abtropfen und schneide das Katsu in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die Milchbrotscheiben leicht mit Butter und röste sie nach Wunsch. Verteile anschließend Tonkatsu-Sauce auf beiden Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege die untere Scheibe mit geriebenem Kohl und Katsu-Streifen, lege die zweite Scheibe darauf, schneide das Sandwich diagonal durch und serviere es mit zusätzlicher Tonkatsu-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5da0c4302f8c9b00083283d1/1:1/w_2560%2Cc_limit/Pork-Katsu-Sandwich-recipe-BA-101119.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5da0c4302f8c9b00083283d1/1:1/w_2560%2Cc_limit/Pork-Katsu-Sandwich-recipe-BA-101119.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jibaritos",
+      "slug": "gen-jibaritos",
+      "title": "Jibaritos",
+      "instructions": "Puerto-ricanische Sandwiches, bei denen knusprig gebratene Kochbananen das Brot ersetzen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch statt Steak und spare 30% der Proteinkosten.",
+        "Kaufe Kochbananen im Angebot in Großpackungen und friere sie in Scheiben geschnitten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "puerto-ricanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4762,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jibaritos/",
+      "components": [
+        {
+          "key": "27c0bcc6-a29e-50e9-8e80-7c84adcd8da5",
+          "name": "Zutaten",
+          "servingGrams": 1578.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0b5e9a6-ded1-5c48-a652-9a8b15e3a7f4",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "3c3d26ac-cf91-5423-83cd-bc95336a0600",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5711fc6b-888e-53dd-bef0-5fb82bc6c90b",
+              "ingredientName": "Flankensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "2938d42d-6b17-5964-a9b3-4a7ed79adb37",
+              "ingredientName": "Sofrito",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "59279382-7206-5f26-ac63-ddb42b83d622",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "01335c2e-7203-56de-bac0-e880208042e4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "033a8b43-93ba-5d98-94b8-a1cbb099bb7f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e3172249-4181-5b10-8a51-4c782a88522c",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a7ba9ba9-a16f-58e2-9970-7e89d84e737c",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb9f7e59-a820-5b59-97ca-5f36a0ffb76b",
+              "ingredientName": "Tomate",
+              "grams": 720,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4493f8b6-e957-589a-bd56-6665f7d7380f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die grünen Kochbananen und schneide sie längs in 1/4-inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und brate die Kochbananenscheiben pro Seite 3-4 Minuten goldbraun und knusprig. Lass sie anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze das Steak mit Sofrito, Knoblauchpulver, Kreuzkümmel, Salz und Pfeffer. Brate es in einer separaten Pfanne pro Seite 2-3 Minuten, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide das gegarte Steak in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege jeweils zwei noch warme, biegsame Kochbananenscheiben zusammen und drücke sie vorsichtig zu einer flachen Sandwichbasis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche eine Seite jeder Kochbananen-Sandwichbasis mit Mayonnaise und belege sie mit Salat, Tomate, Käse und Steakstreifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klappe die Sandwiches zu und serviere sie sofort, solange die Kochbananen noch warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fH7-9hYqKWlAkJusDG0M1J5crkE=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/plantain-sandwich-recipe-jibarito-2138037-step-01-0bc4ee7eee964df68175bff276e14b8e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fH7-9hYqKWlAkJusDG0M1J5crkE=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/plantain-sandwich-recipe-jibarito-2138037-step-01-0bc4ee7eee964df68175bff276e14b8e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salmon-salad",
+      "slug": "gen-salmon-salad",
+      "title": "Lachssalat",
+      "instructions": "Cremiger Salat aus Dosenlachs, Sellerie, Zwiebel und Dill, serviert auf frischem Blattsalat.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Dosenlachs im Angebot und lege einen Vorrat an; er ist monatelang haltbar.",
+        "Verwende Mayonnaise der Hausmarke und senke die Kosten um 30%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4763,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salmon-salad/",
+      "components": [
+        {
+          "key": "ff20e6ea-4e28-59e1-a312-5b758b652b7c",
+          "name": "Zutaten",
+          "servingGrams": 522.86,
+          "position": 0,
+          "items": [
+            {
+              "key": "e409d072-15b7-5bd7-9cab-82ba50fa3209",
+              "ingredientName": "Lachs aus der Dose",
+              "grams": 210.71,
+              "quantity": 0.53,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "Dose mit 14.75 Unzen"
+            },
+            {
+              "key": "f2bf885e-c850-57e6-825a-602c5fb1563f",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "45d9ca26-ec1f-54ed-838d-2adadfde1c8b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "¼ mittelgroßes Stück"
+            },
+            {
+              "key": "42614e7a-f18c-58eb-9929-ab82ade4fda8",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "73d8b91b-9508-5d6f-899c-3b6037dc376d",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6d03c5fb-7680-5e1a-9ef1-bd041b518121",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f633b2b5-91ce-5700-923b-400686c5536f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e7e237b0-3ef5-5445-b259-7f5db7835491",
+              "ingredientName": "Blattsalat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0b6ef611-7249-5016-bfb2-8c474e475d05",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Dosenlachs abtropfen und zerpflücke ihn mit einer Gabel in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Sellerie und rote Zwiebel fein und gib beides zum Lachs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Mayonnaise, Zitronensaft und Dill unter, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke die Mischung mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Blattsalat auf zwei Tellern und gib den Lachssalat darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere dazu getoastetes Vollkornbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/how-to-make-Salmon-Salad.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/how-to-make-Salmon-Salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tonnato",
+      "slug": "gen-tonnato",
+      "title": "Tonnato",
+      "instructions": "Zarte Scheiben Kalbfleisch oder Hähnchen mit einer cremigen Thunfisch-Kapern-Sauce nach italienischer Art.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenbrust statt Kalbfleisch und spare 40% der Proteinkosten.",
+        "Kaufe Dosen-Thunfisch online in Großpackungen, um bessere Preise zu bekommen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4764,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tonnato/",
+      "components": [
+        {
+          "key": "20444528-c6db-5da7-a7d4-785e90033700",
+          "name": "Zutaten",
+          "servingGrams": 737,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc805c7e-537c-5d6c-b5ee-a59525b02d37",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 5 Unzen)"
+            },
+            {
+              "key": "055696a0-072d-5ca3-83a4-40db5ebf5064",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "4f544be7-9023-5983-8f01-d4026e15548b",
+              "ingredientName": "Sardellen in Olivenöl (aus der Dose)",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Filets"
+            },
+            {
+              "key": "5fd049e5-6311-50fc-9546-bfba878ca4ab",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d27e9b68-4c65-5381-9501-89e4e07eaa95",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0e206264-d8d5-5bc3-a5c7-4139e67da133",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d76c29c4-4d86-5953-90f4-ef3653c99218",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "798506be-1e39-5526-bf25-f95e6d1ae387",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "9c613660-360d-587f-95e1-de12682289d3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "738f0c1d-d7b6-5e3f-af8c-d82433b87681",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Dosen-Thunfisch abtropfen und gib ihn zusammen mit Mayonnaise, Sardellen, Zitronensaft, Kapern, Essig und Knoblauch in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere alles zu einer glatten, cremigen Sauce. Gib bei Bedarf einen Schuss Wasser dazu, falls sie zu dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmecke die Sauce mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile aufgeschnittenes Kalbfleisch oder Hähnchen auf einer Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Tonnato-Sauce über das Fleisch und stelle die Platte mindestens 1 Stunde kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere das Gericht vor dem Servieren mit frischer Petersilie und zusätzlichen Kapern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/lrKcAri1dyyBMCjM74G_h8tLwxs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__10__20151007-pork-tenderloin-vicky-wasik-12-2-04e337af13a64d6fb28fc3560de7ba9e.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/lrKcAri1dyyBMCjM74G_h8tLwxs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__10__20151007-pork-tenderloin-vicky-wasik-12-2-04e337af13a64d6fb28fc3560de7ba9e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

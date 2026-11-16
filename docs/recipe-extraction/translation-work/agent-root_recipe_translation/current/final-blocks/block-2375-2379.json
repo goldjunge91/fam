@@ -1,0 +1,1081 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-som-tam",
+      "slug": "gen-som-tam",
+      "title": "Som Tam",
+      "instructions": "Thailändisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe grüne Papaya auf asiatischen Märkten zu günstigeren Preisen.",
+        "Lass getrocknete Garnelen weg, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2375,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-som-tam/",
+      "components": [
+        {
+          "key": "f30280e7-6b44-5418-a9d1-9adf840fa189",
+          "name": "Zutaten",
+          "servingGrams": 311.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b7ea9149-5f2f-59c4-bf7b-af69ddfd998c",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "77afa48a-3185-5668-8bb4-d382ca4ac392",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c23087dd-fc83-54b9-b625-d0322e288c4d",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5649301f-ec79-5ac3-a11c-4b5d13a151c1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95b726ad-c3ef-5c57-9db6-38dd16e3213a",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe80b342-52fe-5022-96bd-d2778ef9c400",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "08a4378d-8be5-5548-bbdb-24bcdafd48f1",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "fe2a1787-427f-5f4e-93b4-403a032189ea",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5c2113e1-ed05-5c09-84d5-b0efd75e502d",
+              "ingredientName": "Erdnüsse",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4a79f3cf-a95b-5ce9-b8e4-5a392ba2269e",
+              "ingredientName": "Getrocknete Garnelen",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerstoße Knoblauch und Chilis in einem Mörser mit Stößel, bis sie leicht aufgebrochen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib grüne Bohnen und Tomaten dazu und zerdrücke sie leicht, damit Saft austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geraspelte grüne Papaya dazu und vermische alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Limettensaft und Fischsauce über den Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib braunen Zucker dazu und vermische alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte den Salat auf einem Teller an und bestreue ihn mit zerstoßenen Erdnüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib nach Wunsch getrocknete Garnelen dazu und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/yhRUOatVWMb6Unf4fjSL28IsyAM=/4680x3120/filters:fill(auto,1)/som-tam-thai-green-papaya-salad-3217407-hero-01-9e4281d9e4a64b0e8bb4930debcef3a3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/yhRUOatVWMb6Unf4fjSL28IsyAM=/4680x3120/filters:fill(auto,1)/som-tam-thai-green-papaya-salad-3217407-hero-01-9e4281d9e4a64b0e8bb4930debcef3a3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-satay",
+      "slug": "gen-satay",
+      "title": "Satay",
+      "instructions": "Thailändischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und mariniere sie im Voraus.",
+        "Verwende natürliche Erdnussbutter aus dem Großgebinde."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "thailändisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2376,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-satay/",
+      "components": [
+        {
+          "key": "ea4275db-c8b5-52d5-b0da-2a4bbe682c4c",
+          "name": "Zutaten",
+          "servingGrams": 1724.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "313e2c43-6f24-5328-a922-8f8d699efbb4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c025d746-6376-5f5d-a92a-bcddf5882cd1",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 4800,
+              "quantity": 12,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3efaee7-6885-510d-b026-2c2b01f799cb",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0c30b270-049b-50d5-97c5-ead935c49745",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a4040ba2-2a47-56e2-b8a8-8c7401edad75",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dabed6fb-ea5d-5519-bfcb-5a87e9efe7dc",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8377954a-b007-5578-bc80-6b0ecf80cfc0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "831acc14-82ad-5e57-9b11-1706f58c902b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "18de6690-079f-54e5-b800-f881912f310c",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "81d626af-218a-5afc-b7ce-6b9fcccf8921",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Bambusspieße mindestens 30 Minuten in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Hähnchenbrust in etwa 1/2 inch dicke und 4 inches lange Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stecke die Hähnchenstreifen auf Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Spieße mit Öl und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille oder grille im Ofen die Spieße 6-8 Minuten. Wende sie nach der Hälfte der Zeit, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Erdnusssauce püriere Erdnussbutter, Kokosmilch, Sojasauce, Limettensaft, gehackten Knoblauch, braunen Zucker und Cayennepfeffer glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze die Sauce vorsichtig in einem kleinen Topf, aber lass sie nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Spieße heiß mit warmer Erdnusssauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/RNFMlnz7o4mfrTYn2lvMUPROixQ=/4592x3056/filters:fill(auto,1)/thai-chicken-satay-629396348-587d6a853df78c17b63d5c28.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/RNFMlnz7o4mfrTYn2lvMUPROixQ=/4592x3056/filters:fill(auto,1)/thai-chicken-satay-629396348-587d6a853df78c17b63d5c28.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-elote",
+      "slug": "gen-elote",
+      "title": "Elote",
+      "instructions": "Mexikanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Fetakäse, falls du keinen Cotija findest.",
+        "Kaufe Mais in der Saison, wenn er am günstigsten ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2377,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-elote/",
+      "components": [
+        {
+          "key": "d77ef0e6-162d-5b1b-b96a-9295b1c41b78",
+          "name": "Zutaten",
+          "servingGrams": 295.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ab28e40-2a84-57e5-bcf0-4bfb76bd5bc3",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Kolben"
+            },
+            {
+              "key": "8a500894-66a9-5684-90fb-85009e8bfcf2",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6ff11fab-9e55-5caa-bd08-eb48ada84d7e",
+              "ingredientName": "Cotija",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse zerbröselt"
+            },
+            {
+              "key": "47987e18-1e7c-5347-8fd5-bbe612acea9f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "53cf0db5-d737-5ea8-a109-20d77d2a3e09",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b765690-249e-5f98-aa60-e341d79f49bf",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a0e513d8-1535-5192-890e-29decb7476bb",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gare Mais 8-10 Minuten, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Mais heraus und lass ihn leicht abkühlen. Tupfe ihn dann mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mayonnaise, Chilipulver und gehackten Koriander in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche jeden Maiskolben großzügig mit der Mayonnaise-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wälze die bestrichenen Maiskolben in zerbröseltem Cotija, bis sie vollständig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Presse frischen Limettensaft über jeden Maiskolben und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/NPza8fupYuYEKurUeAwzOSbozAM=/5397x3598/filters:fill(auto,1)/elote-mexican-street-corn-4172094-hero-01-5bd6cfe27f2a4c01a3b75253f26b9fbc.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/NPza8fupYuYEKurUeAwzOSbozAM=/5397x3598/filters:fill(auto,1)/elote-mexican-street-corn-4172094-hero-01-5bd6cfe27f2a4c01a3b75253f26b9fbc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-birria",
+      "slug": "gen-birria",
+      "title": "Birria",
+      "instructions": "Mexikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie bis zur Verwendung ein.",
+        "Bereite eine große Menge zu und friere Portionen für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2378,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria/",
+      "components": [
+        {
+          "key": "c72e7a4f-8012-54ae-afab-6be7c7898a84",
+          "name": "Zutaten",
+          "servingGrams": 598.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c62eacd-f1a4-5f33-abbe-5fab1df06db5",
+              "ingredientName": "Rinderschulter",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "6af50270-7d68-5c13-9443-afe768fe5fe4",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cf8f235-6a24-5b21-b25f-688d11b44afb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "704f9f97-b758-5a8d-86fd-15a954183244",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "bf4b1559-76fe-59af-a32d-820cc0d1aaa9",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d2bf8b97-7fd6-5bd9-80ab-79cbeae6bd91",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4103a031-c591-54ba-b39e-91116c2edc8d",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "74ed80ba-77f4-5151-9e43-78121ee227a8",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18a8c8db-906d-5b61-81d4-596e750e53b7",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8b20ffbb-2cf6-529e-8dc9-a3b995dfc251",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e95a7788-020b-5b40-91a2-0572d20152b1",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne der getrockneten Chilis und röste sie 1 Minute in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die gerösteten Chilis 10 Minuten in heißem Wasser ein, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die eingeweichten Chilis mit Knoblauch, Zwiebel, Kreuzkümmel, Oregano, Zimt und Essig glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Chilimischung durch ein feines Sieb in einen Topf und gib Rinderbrühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide Rindfleisch in große Stücke, gib es in die Brühe und bringe sie zum Kochen. Reduziere die Hitze, decke den Topf ab und lass alles 2.5 Stunden köcheln, bis das Fleisch leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerfasere das Fleisch mit zwei Gabeln, gib es zurück in den Topf und lass es weitere 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Tortillas und tauche sie in die heiße Brühe. Fülle sie mit zerkleinertem Fleisch und gewürfelter Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/sHlVVqCEWLg1mUcPRPj-yizO3HU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-LEAD-04-a644b434fda246ce8a937a8dbbf6df9b.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/sHlVVqCEWLg1mUcPRPj-yizO3HU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-LEAD-04-a644b434fda246ce8a937a8dbbf6df9b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mofles",
+      "slug": "gen-mofles",
+      "title": "Mofles",
+      "instructions": "Mexikanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Zucker, falls du keinen Piloncillo findest.",
+        "Bereite den Teig am Vorabend zu und stelle ihn in den Kühlschrank."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2379,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mofles/",
+      "components": [
+        {
+          "key": "8463ddc4-8b28-5786-b0b9-d742291a886b",
+          "name": "Zutaten",
+          "servingGrams": 290,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe8a0d29-1091-572d-a2ec-9292aaa05d17",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f713e213-a2fe-5060-be05-df4d2c3a2f83",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5afbfc4e-07c5-53e2-93dc-d312a423ba9e",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "2f3549bf-3a21-563d-9d4e-c4853b3f4b4c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "38bb9f79-587d-52b3-b988-75b5b10d6197",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d8b0450-6383-5e70-b813-9ec6ac4a1add",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d118fa92-edb6-5492-a15b-1a8c68b9422e",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel geschmolzen"
+            },
+            {
+              "key": "e2e4da95-9ecc-5547-8714-19935a37653f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f7419137-660f-5780-aa7a-d0ed19d759b3",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "65e3a62f-4669-5e4a-9a75-34c4e56572d2",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/3 Tasse zum Beträufeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Zucker, Backpulver, Salz und Anissamen in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Ei, Milch, geschmolzene Butter und Vanille in einer separaten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische feuchte und trockene Zutaten zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize ein Mofle-Eisen oder Waffeleisen vor und bestreiche es mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in das heiße Eisen und backe ihn etwa 4-5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die fertigen Mofles auf einen Teller und beträufle sie großzügig mit Honig oder warmem Piloncillo-Sirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/stir-fry-chicken-recipe-720x1080.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/stir-fry-chicken-recipe-720x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

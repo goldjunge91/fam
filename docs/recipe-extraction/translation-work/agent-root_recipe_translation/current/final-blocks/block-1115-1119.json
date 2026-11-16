@@ -1,0 +1,1030 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-tunisian-brik",
+      "slug": "mfr-tunisian-brik",
+      "title": "Tunesischer Brik-Wrap mit Ei",
+      "instructions": "Ein dünner Crêpe oder ein Fladenbrot, um ein ganzes Ei, Thunfisch und Harissa gewickelt. In Tunesien wird Brik frittiert, hier wird es in der Pfanne knusprig gebraten und das Eigelb bleibt flüssig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brik ist die Streetfood-Variante einer gefüllten Eiertasche. Iss sie schnell, bevor das Eigelb herausläuft.",
+        "Harissapaste hält sich monatelang im Kühlschrank. Ein Esslöffel sorgt bei vielen Gerichten für kräftige Schärfe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "harissa",
+          "swap": "Sriracha oder eine andere scharfe Sauce"
+        },
+        {
+          "forIngredientId": "canned-tuna",
+          "swap": "Lachs aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tunisian-brik",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "tunesisch",
+        "Eier",
+        "Thunfisch",
+        "scharf",
+        "Streetfood"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1115,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tunisian-brik/",
+      "components": [
+        {
+          "key": "46b7e394-7296-5048-ba5d-3ea512c4f63d",
+          "name": "Zutaten",
+          "servingGrams": 604.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba766ad9-2725-58a4-879d-240615ac7e02",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80f3e77a-d63a-573d-8104-dd9d81532548",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25bc296c-6fbb-57df-9235-b327bb552f52",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "726a5002-a204-52a6-a9c0-0b96ea975be6",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59d88055-c390-5bf1-82c7-a36313bc7bfb",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c83f8ead-821e-56a7-b8ae-72b77eec0fd3",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67658048-275f-5be7-8d40-b2c59db90375",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19684937-fc3a-5ed7-86a2-0523305796a4",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Thunfisch, Harissa, Kapern, Petersilie und Zitrone auf einer Hälfte jeder Tortilla vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In die Mitte eine kleine Mulde drücken und ein Ei hineinschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tortilla zusammenklappen und die Ränder andrücken. In Öl pro Seite 2 Minuten knusprig braten, bis das Ei gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sofort mit einer Zitronenspalte servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/06/Tiropitakia-9950.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/06/Tiropitakia-9950.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-egyptian-ful-medames",
+      "slug": "mfr-egyptian-ful-medames",
+      "title": "Ägyptisches Ful Medames",
+      "instructions": "Langsam gegarte Saubohnen, mit Kreuzkümmel, Zitrone, Knoblauch und Olivenöl zerdrückt. Ägyptens Nationalfrühstück, das Millionen jeden Morgen essen, serviert mit Pita und Eiern.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ful Medames gehört zu den günstigsten eiweißreichen Frühstücken der Welt. Eine Dose Saubohnen kostet $1.50.",
+        "Ägyptisches Ful macht besonders satt, weil die Bohnen reich an Ballaststoffen und Eiweiß sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fava-beans",
+          "swap": "Saubohnen aus der Dose oder Cannellini-Bohnen"
+        },
+        {
+          "forIngredientId": "pita-bread",
+          "swap": "Beliebiges Fladenbrot"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egyptian-ful-medames",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "ägyptisch",
+        "Bohnen",
+        "vegan",
+        "preiswert",
+        "Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1116,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egyptian-ful-medames/",
+      "components": [
+        {
+          "key": "287f3ae8-9f1b-5ede-b0fe-90f136f681c9",
+          "name": "Zutaten",
+          "servingGrams": 701.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "177a6237-d17c-564d-ad38-e389a11e864c",
+              "ingredientName": "Saubohnen",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55f5fc84-9a0d-50ec-8ac6-114caa353aec",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e941732-6575-5a38-a8e6-0fcddd178e7b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdd144de-2bdd-5787-9942-7ed394b986e6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1075ff74-4c77-5a7b-a210-83315ea6790d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b18374a-77a2-578f-af5e-bb5558b14d96",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30b82f23-2c99-5176-847c-0e57e96086e2",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "211bd094-ba8a-5f25-b1fc-c097ee40dd72",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07f7eb65-931a-586c-bf9f-2740ef011d76",
+              "ingredientName": "Pita-Brot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f3767cf-6e19-5801-b0a3-02d914ef9283",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Saubohnen aus der Dose in einer Pfanne erhitzen. Mit einer Gabel teilweise zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit Knoblauch, Kreuzkümmel, Zitronensaft und Salz würzen. 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier separat braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ful mit etwas Olivenöl, Petersilie und gewürfelter Tomate anrichten. Mit Pita und Spiegelei servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/U8w8QXOMKOHhIo0rgDpgxu7N8sQ=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/ful-medames-egyptian-fava-beans-recipe-2355699-step-01-086ae95b312a4674b7f1e83a3ffddc89.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/U8w8QXOMKOHhIo0rgDpgxu7N8sQ=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/ful-medames-egyptian-fava-beans-recipe-2355699-step-01-086ae95b312a4674b7f1e83a3ffddc89.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-taco-bowl-prep",
+      "slug": "mfr-turkey-taco-bowl-prep",
+      "title": "Meal-Prep-Taco-Bowls mit Pute für mehrere Tage",
+      "instructions": "Meal-Prep für 5 Tage: gewürztes Putenhack, Koriander-Limetten-Reis, schwarze Bohnen und gerösteter Mais. Zu 10 vorbereiteten Bowls zusammengestellt, in 35 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Meal-Prep kostet $12 für 4 herzhafte Mahlzeiten, also $3 pro Mahlzeit.",
+        "Putenhack ist die beste preiswerte Eiweißquelle fürs Meal-Prep. Brate am Sonntag eine große Menge an."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Hähnchen"
+        },
+        {
+          "forIngredientId": "corn",
+          "swap": "Weglassen oder Mais aus der Dose verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-taco-bowl-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Taco",
+        "Bowl",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1117,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-taco-bowl-prep/",
+      "components": [
+        {
+          "key": "57d85a8b-68d0-551c-a7fe-e13838332f3b",
+          "name": "Zutaten",
+          "servingGrams": 1013.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "80560984-c812-54d0-9980-74a1964baceb",
+              "ingredientName": "Putenhack",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "987b57ab-e07e-55a4-a45b-1752858d4f85",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3143ab1-5c84-5524-b4a7-d5dd3e0b0fc5",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2004cb19-d763-5d10-a47b-618ee64d07ee",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37a8ecd7-7a73-5df2-8b38-7ee51a74568a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fea98d8e-810d-5522-afea-11026ae56b37",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5a90590-6257-5b41-9483-9b4be0a6bf75",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "236fb16f-c49a-546f-a6ee-f1ac59e72319",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23bfbd87-b667-52ac-b8b8-b9ce299d46cb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Währenddessen das Putenhack mit Kreuzkümmel, Chilipulver und Salz anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mais bei 400°F 15 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koriander-Limetten-Reis zubereiten: gekochten Reis mit Limettensaft und Koriander vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf Behälter verteilen: Reis, Putenhack, Bohnen und Mais.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/2jVbt-xRe6oSrlKci05ZqMZyrhc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Turkey-Taco-Bowls-Lead-04-263a8ffab8bf4e9d90a7d63a9e2a926d.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/2jVbt-xRe6oSrlKci05ZqMZyrhc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Turkey-Taco-Bowls-Lead-04-263a8ffab8bf4e9d90a7d63a9e2a926d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-quinoa-prep",
+      "slug": "mfr-salmon-quinoa-prep",
+      "title": "Meal-Prep-Bowls mit Lachs und Quinoa",
+      "instructions": "Gebackener Zitronen-Kräuter-Lachs, Quinoa, gerösteter Brokkoli und Kirschtomaten: 4 Behälter sind in 35 Minuten vorbereitet, mit je 45 g Eiweiß.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Meal-Prep mit Lachs ist das gesündeste Mittagessen für die Arbeitswoche. Omega-3-Fettsäuren für die ganze Woche kosten weniger als $10.",
+        "Kaufe Lachs bei Sonderangeboten in größeren Mengen. Er lässt sich gut einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tilapia oder Hähnchenbrust"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Vollkornreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-quinoa-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Lachs",
+        "Quinoa",
+        "Omega-3"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1118,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-quinoa-prep/",
+      "components": [
+        {
+          "key": "3dc88ad5-f377-51e0-a725-52c5e467adac",
+          "name": "Zutaten",
+          "servingGrams": 690,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc947338-4944-5b35-9c6a-8618411df97c",
+              "ingredientName": "Lachsfilet",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8ce4980-1868-573e-91c7-22e4a3c6e181",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1986f497-3223-50e6-ae9f-22b6320d16cf",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4f4338f-cc84-5c43-9d3f-9c4ada587aa6",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e4039c9-a19d-5867-b2ab-b84cc16ccd2c",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3175f2db-6fda-5ad2-8517-b9a766dc969f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da6047ee-6e39-5f3c-84e5-a1d1c56f6a2f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7de3861-8703-5171-9bd5-e86e5cf91d69",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Quinoa in gewürzter Brühe kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brokkoli und Lachs zusammen auf einem Backblech bei 400°F 20 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf Behälter verteilen: Quinoa, Lachs, Brokkoli und Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/QURT2rUPTiz6noTPcB81xyUf7kY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/salmon-with-roasted-tomatos-balsamic-quinoa-Beauty-005-0e4fde0785a447288e53c8266c614e8e.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/QURT2rUPTiz6noTPcB81xyUf7kY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/salmon-with-roasted-tomatos-balsamic-quinoa-Beauty-005-0e4fde0785a447288e53c8266c614e8e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-greek-chicken-prep",
+      "slug": "mfr-greek-chicken-prep",
+      "title": "Griechische Hähnchen-Meal-Prep-Bowls",
+      "instructions": "Hähnchen mit Zitrone und Oregano, Quinoa, Gurke, Kirschtomaten, Oliven und Tzatziki. Eine Woche mediterranes Mittagessen in 35 Minuten vorbereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechisches Meal-Prep ist das leckerste Mittagessen fürs Büro und hält sich 5 Tage im Kühlschrank.",
+        "Tzatziki hält sich 4 Tage im Kühlschrank. Bereite etwas mehr als Dip für Gemüse zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Reis oder Orzo"
+        },
+        {
+          "forIngredientId": "feta-cheese",
+          "swap": "Für eine milchfreie Variante weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-chicken-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "Hähnchen",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1119,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-chicken-prep/",
+      "components": [
+        {
+          "key": "dde30f4d-327b-53eb-8be3-33c9234aeb1c",
+          "name": "Zutaten",
+          "servingGrams": 902.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d4c5ebb-0258-5a30-82d6-b8ec3fd457b5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a52a91d-e052-5343-a23d-756c2a5a8a4f",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f234747f-3447-5d21-ac8e-c40c1e28ccef",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96e1573e-5388-5951-8c79-d090bcc442ad",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b570ef76-dedb-5bd8-bc30-1b2446315262",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2b84f6a-6386-59bf-b053-7ef5abf89179",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5157201-5bd5-5efc-9b49-91fd354f2b79",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71feacaf-7ebc-5a0b-8014-b84d941750c6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a8bc2fc-67e5-5090-91b5-5c4bf053ef11",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75dd448e-ad68-59d6-8b94-9273933c4e2b",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46d45915-b0a0-5ec1-8691-fe662d459d0a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac4e059a-3baf-5e24-9ffa-37edcb8a9bd7",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen marinieren: Oregano, Zitrone, Knoblauch und Olivenöl vermengen und 5 Minuten ziehen lassen. Bei 400°F 22 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Quinoa kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tzatziki zubereiten: griechischen Joghurt, geriebene Gurke, Dill, Knoblauch und Zitrone verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Behälter befüllen: Quinoa, aufgeschnittenes Hähnchen, Tomaten, Gurke, Oliven und Feta. Tzatziki separat verpacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2017/03/meal-prep-chicken-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2017/03/meal-prep-chicken-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

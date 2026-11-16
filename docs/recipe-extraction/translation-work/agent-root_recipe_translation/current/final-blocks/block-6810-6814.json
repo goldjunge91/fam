@@ -1,0 +1,1116 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mojo-pork",
+      "slug": "gen-mojo-pork",
+      "title": "Mojo-Schweinebraten",
+      "instructions": "Ein beliebtes kubanischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter ist eines der günstigsten Teilstücke; Durch das Marinieren über Nacht wird es zart und aromatisch.",
+        "Verwenden Sie abgefüllten Limetten- und Orangensaft anstelle von frischem, um 1–2 $ pro Portion zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kubanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6810,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mojo-pork/",
+      "components": [
+        {
+          "key": "15075583-4bc8-50fb-b287-30176a418e3d",
+          "name": "Zutaten",
+          "servingGrams": 95.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "77d5407d-c565-5845-a312-39b4a28ce486",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "c74a6c4a-cbb9-57e1-9cdc-e3355f572eaa",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6cef054c-a910-5e89-8881-f242ff158fb2",
+              "ingredientName": "Orangensaft",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ef1008d8-accd-57b0-a049-4c4938a7e7c8",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Zehen"
+            },
+            {
+              "key": "f63e3c57-dec3-570b-9a6a-53ad33a3ad07",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cb60c886-a7f1-5f26-abe9-7dffebd42e1a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "30e44068-de98-5ecc-8056-cfd424e4b820",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "94e55dfe-949d-570b-8c5a-e710919bb3e8",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "35cc303a-0a2a-51a3-867a-0a9642f2ab76",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch zerkleinern und mit Limettensaft, Orangensaft, Salz, Pfeffer, Kreuzkümmel und Olivenöl zu einer Marinade vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Schweinehaut mit einem Messer kreuzweise einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Legen Sie das Schweinefleisch in einen großen Bräter und bedecken Sie es vollständig mit Mojo-Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Folie fest abdecken und mindestens 8 Stunden, am besten über Nacht, im Kühlschrank lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und backen Sie ihn abgedeckt 4 Stunden lang, wobei Sie alle 45 Minuten begießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Folie entfernen, Hitze auf 425 °C erhöhen und ohne Deckel 30 Minuten backen, bis die Haut knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "10 Minuten ruhen lassen, dann das Fleisch mit zwei Gabeln zerkleinern und mit der beiseite gestellten Pfannensoße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/aQapciOI7cq5NhSYt681Wc9pD7U=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__01__Mojo-Pork-Shoulder-Lead-2-e736e151ea724e8a878ad34524f95889.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/aQapciOI7cq5NhSYt681Wc9pD7U=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__01__Mojo-Pork-Shoulder-Lead-2-e736e151ea724e8a878ad34524f95889.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tsipouro-skewers",
+      "slug": "gen-tsipouro-skewers",
+      "title": "Tsipouro-Spieße",
+      "instructions": "Ein beliebtes griechischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Weißfischfilets anstelle von frischem Wolfsbarsch; auftauen und in Würfel schneiden.",
+        "Kaufen Sie Tomaten aus der Dose oder aus dem Glas, wenn frische Tomaten teuer sind, obwohl die Konsistenz leicht abweichen kann."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "griechisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6811,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tsipouro-skewers/",
+      "components": [
+        {
+          "key": "8af3edf1-05e2-53f2-862b-07d4d849d132",
+          "name": "Zutaten",
+          "servingGrams": 451.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "a8c20fe7-0f2f-5c02-b48c-c7f8e39ca11a",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "71a5de23-40bd-5bd0-9f9e-b9e71f704b5f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "724f1958-f7f1-5940-b981-c54865871117",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "9639eecb-c0aa-5190-8716-8b082c811fb3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "27956f13-ef06-55b7-b41d-beca528effcd",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b2bb10b7-07bb-55c6-bb81-59bd2b05016f",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f3b6ebbe-4ab0-5975-a299-ee5d0d0ebc38",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d88aa88f-3ddc-55c6-908e-a6d9a5ad9bd8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "793c8c67-02db-5d2b-829a-29d5087ab50a",
+              "ingredientName": "Metallspieße",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie den Fisch in 1 cm große Würfel und die roten Zwiebeln in dicke Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl, Zitronensaft, Oregano, Salz und Pfeffer in einer kleinen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abwechselnd Fischwürfel, Zwiebelstücke und Kirschtomaten auf Spieße stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spieße von allen Seiten großzügig mit der Olivenölmischung bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitzen Sie einen Grill oder eine Grillpfanne auf hohe Hitze und braten Sie die Spieße 2-3 Minuten pro Seite, bis der Fisch undurchsichtig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß servieren, mit Zitronenschnitzen und knusprigem Brot zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2023/10/garlic-parmesan-chicken-skewers-1-17-768x960.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2023/10/garlic-parmesan-chicken-skewers-1-17-768x960.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-galbi",
+      "slug": "gen-galbi",
+      "title": "Galbi",
+      "instructions": "Ein beliebtes koreanischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kurze Rippchen vom Rind sind in der Regel günstiger als andere Premiumstücke; Durch Marinieren werden sie zart.",
+        "Lassen Sie die Birne weg und verwenden Sie einen zusätzlichen Esslöffel braunen Zucker, um fast die gleiche Süße zu erzielen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "koreanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6812,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galbi/",
+      "components": [
+        {
+          "key": "eb2ac94d-50dd-5c3c-b830-e86579414986",
+          "name": "Zutaten",
+          "servingGrams": 209.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dca3ff7-6d6a-553a-ac0a-cc4e53787d32",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "46760879-65d0-592a-a42b-4ffca2dcbc10",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2d84a44c-88f9-5f5a-a6b6-307eb8b07d1f",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "edc39efb-b44f-531e-856c-dea4c472b3c9",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1032716b-e36a-5136-9296-20e35e7a1dd3",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2ebb1ef1-d835-5b54-ac86-5002990b3b41",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "c1bf62da-124b-5ee0-be6a-4105f2507b1a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "eb72690c-4f27-5b06-9a7d-447681f9bf6b",
+              "ingredientName": "Birne",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4539c42e-b0af-5872-b022-8ca069a85cad",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Stangen"
+            },
+            {
+              "key": "aae33413-bf3a-59dc-a785-e18ee25ac8ac",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die kurzen Rinderrippen zwischen den Knochen in einzelne Rippen schneiden und in eine große Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Birne und Ingwer schälen und reiben, dann Knoblauch hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sojasauce, braunen Zucker, Sesamöl, Reisessig, Birne, Ingwer und Knoblauch zu einer Marinade verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Marinade über die Rippchen gießen, abdecken und mindestens 4 Stunden oder über Nacht im Kühlschrank lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen Grill oder eine gusseiserne Pfanne auf hohe Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Grillen Sie die Rippchen 3–4 Minuten pro Seite, bis sie gebräunt und bis zum gewünschten Gargrad gegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einer Platte anrichten, mit geschnittenen Frühlingszwiebeln und Sesamkörnern garnieren und mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1669650572/k/Edit/2023-01-Galbi-Jjim%20/galbijjim_02_final.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1669650572/k/Edit/2023-01-Galbi-Jjim%20/galbijjim_02_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carne-br-s",
+      "slug": "gen-carne-br-s",
+      "title": "Carne à Brás",
+      "instructions": "Ein beliebtes portugiesischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Anstelle von Roastbeef Rinderbraten verwenden und in dünne Scheiben schneiden; Langes Kochen macht es zart.",
+        "Backen Sie Kartoffeln im Ofen bei 425 °F, anstatt sie zu braten, um die Ölkosten um 0.50–1.00 $ zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6813,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carne-br-s/",
+      "components": [
+        {
+          "key": "1deb6d60-bdda-52dd-baea-b02a2fc82e3a",
+          "name": "Zutaten",
+          "servingGrams": 142,
+          "position": 0,
+          "items": [
+            {
+              "key": "a35a7027-e26e-54e4-acb7-7240d73e76cf",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "dad9669f-ae8c-5c65-a952-a2c9dcc134b1",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c471cfdb-18fe-57d5-ad8e-49e7bc27b28d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "963aa353-f62f-5c26-8bd8-4aed294a978d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "a6ed1f50-95bb-5d65-a02d-0c9889d719c9",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "269da4e2-af72-5549-be24-10413105db0b",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "19a9ce53-2ceb-5289-844b-5863cdd2d9fd",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "6406ac8a-6c95-5506-bd31-86b6f0f052e0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c598eb6a-3b80-534e-b0c5-879f7ab940d8",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "27695e36-bcc9-5e46-9535-ad1e510e32e5",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "1eb7e643-1a7a-5fcc-b29c-f2511d984986",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie das Rindfleisch in dünne Streifen von etwa 2 cm Länge und 0.5 cm Breite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln in dünne Streifen schneiden und 15 Minuten in kaltem Wasser einweichen, dann abtropfen lassen und trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3 Esslöffel Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und die geschnittenen Zwiebeln und den gehackten Knoblauch darin anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rindfleischstreifen hinzufügen und unter gelegentlichem Rühren 3–4 Minuten braten, bis die Ränder gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenmark einrühren und 1 Minute kochen lassen, dann Rinderbrühe und Lorbeerblatt hinzufügen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In der Zwischenzeit das restliche Öl in einer tiefen Pfanne auf 350 °F erhitzen und die Kartoffeln portionsweise 4–5 Minuten braten, bis sie goldbraun und knusprig sind. Auf Küchenpapier abtropfen lassen und mit Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kombinieren Sie die gekochte Rindfleischmischung mit knusprigen Kartoffeln, schwenken Sie sie vorsichtig und servieren Sie sie heiß, garniert mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ooohdelish.com/wp-content/uploads/2025/11/ridamine_01407_bacalhau_a_bras_recipe_-sref_httpss.mj_.runoiw_ad534fc5-3f9e-4fde-b3b9-77de231a5a6d_2-1-780x780.png",
+          "sourcePageUrl": "https://ooohdelish.com/wp-content/uploads/2025/11/ridamine_01407_bacalhau_a_bras_recipe_-sref_httpss.mj_.runoiw_ad534fc5-3f9e-4fde-b3b9-77de231a5a6d_2-1-780x780.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cataplana",
+      "slug": "gen-cataplana",
+      "title": "Cataplana",
+      "instructions": "Ein beliebtes portugiesischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Muscheln und tauen Sie sie über Nacht auf; Sie sind normalerweise 2-3 $ billiger pro Pfund.",
+        "Ersetzen Sie sie durch Muscheln, die oft günstiger sind und ähnlich zubereitet werden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6814,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cataplana/",
+      "components": [
+        {
+          "key": "f9f1468a-0a05-5824-833a-56e20e8bbf26",
+          "name": "Zutaten",
+          "servingGrams": 161.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a786d4c-cb5b-5b4d-90a5-da0633e144be",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "fcc599e5-e142-5732-9040-55373581a895",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "d6c1403b-4455-5928-b853-18bc8d45d512",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "85dec8d8-f1ae-5538-bb92-dcdc5e744655",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "bf7378c1-e064-5f01-9400-e4344954e4d9",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "b09274ce-aa20-599f-a8b2-453b1f7b8684",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "51d5acdf-249e-5d86-99da-8c1e176a93e1",
+              "ingredientName": "Weißweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "404024da-75a3-5856-834c-3b503eb7cd19",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cd875cd5-ce46-5b3b-9724-3e29b0cccf9c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93bd0874-804c-52be-af17-690d7ffd6f57",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1236626b-854f-5fc4-9aec-2ed99f398f9a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d43920da-42f3-5d2c-b7f8-9372252e89df",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schrubben Sie die Muscheln unter kaltem Wasser und entsorgen Sie offene oder rissige Muscheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Chorizo in dünne Scheiben schneiden, Zwiebel würfeln und Knoblauch fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf oder Cataplana bei mittlerer bis hoher Hitze erhitzen und Chorizo 2 Minuten anbraten, bis Fett austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel und Knoblauch hinzufügen und 3 Minuten kochen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wein hinzufügen und 2 Minuten köcheln lassen, um ihn leicht zu reduzieren, dann Tomatenkonserven, Lorbeerblätter, Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Muscheln und Wolfsbarschfilets hinzufügen, abdecken und 12–15 Minuten köcheln lassen, bis sich die Muscheln öffnen und der Fisch gar ist. Alle Muscheln, die sich nicht öffnen, wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in flachen Schüsseln servieren, mit frischer Petersilie garniert und mit knusprigem Brot zum Aufsaugen der Soße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Cataplana-de-Marisco-Seafood-Cataplana-.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Cataplana-de-Marisco-Seafood-Cataplana-.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

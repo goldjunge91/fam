@@ -1,0 +1,1219 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-korma",
+      "slug": "gen-korma",
+      "title": "Korma",
+      "instructions": "Mughlai-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch für mehr Geschmack bei geringeren Kosten.",
+        "Ersetze Mandelpaste durch Erdnussbutter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "Mughlai",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2465,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korma/",
+      "components": [
+        {
+          "key": "2f7b2ff5-db3c-582e-ab1f-d215dbb1845f",
+          "name": "Zutaten",
+          "servingGrams": 214.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1eee8e23-dc29-5c0d-9772-90695e3e00a3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "62edcc3d-2e39-5dfd-a43d-893d7497763b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "73463c24-ac82-5d61-8299-2de766ea0ed8",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "8cd32ea8-7045-5db2-ac1d-d2ec2ade181f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "8951148a-7a9f-5a71-9156-a73e5ae44d78",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "eb689cf2-0ae9-537b-969e-f0e58633c46a",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "a8c60a43-b972-5005-b447-aab7abacd432",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6eeb05a6-4ae5-596a-8b38-4af167ba4c67",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1414e535-d8bd-5cd5-8b88-703f5c703ff8",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f44ccde7-bc8c-50bb-8e45-fbb722f1e293",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "b54f650e-3cca-5a50-9a24-1ffae8a58076",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e9160abc-3a4b-5eb1-a6a6-93017fdbf131",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Mandeln 10 Minuten in heißem Wasser ein und püriere sie dann zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Hähnchen in mundgerechte Stücke und mariniere es mindestens 20 Minuten in Joghurt, Ingwer-Knoblauch-Paste und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl und gib Kreuzkümmelsamen hinein. Lass sie knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Zwiebeln in dünne Scheiben und gare sie im Öl goldbraun. Stelle die Hälfte zum Garnieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das marinierte Hähnchen in die Pfanne und gare es 8-10 Minuten, bis es leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Kokosmilch hinein und gib Mandelpaste dazu. Rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Garam Masala und Kurkuma dazu. Lass das Curry 20 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege das Gericht mit den beiseitegestellten Röstzwiebeln und Koriander. Heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/3EEz-KDmcG-lG_YPDkvohZPpDFg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__05__Chicken-Korma-LEAD-5-eead58ef991d46858eba93ce7a6aedc4.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/3EEz-KDmcG-lG_YPDkvohZPpDFg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__05__Chicken-Korma-LEAD-5-eead58ef991d46858eba93ce7a6aedc4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-malai-kofta",
+      "slug": "gen-malai-kofta",
+      "title": "Malai Kofta",
+      "instructions": "Nordindisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stelle Paneer aus Milch selbst her und spare 50%.",
+        "Verwende gehackte Nüsse statt ganzer Cashews."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "nordindisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2466,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-malai-kofta/",
+      "components": [
+        {
+          "key": "312bb1e9-de65-5093-ba00-56faaf7d98f4",
+          "name": "Zutaten",
+          "servingGrams": 350.32,
+          "position": 0,
+          "items": [
+            {
+              "key": "ef724c74-6b3e-52d1-9ed0-2433d7bd3191",
+              "ingredientName": "Paneer",
+              "grams": 170.1,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "8eba4ed4-0953-57a3-bdce-5759dc01733a",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "07c30153-b60c-5564-a677-9f6f588fac23",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e668aa82-dc3f-5db0-94b4-3034f5396304",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "b5027774-4984-5f3e-84db-969919fe86f3",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "6d4e95e2-eb96-562b-b3e6-d4f1cefc32e5",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "6cf6c317-935d-5170-9389-02ebe9cbecf1",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "ca6ac135-13f2-50ed-bb97-4c1fbdb8b9d2",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "a7628866-03fa-58de-9df0-914272d9b425",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "07e9d311-de2d-5c17-80dd-4f00d675eb7a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8176edd3-c5ce-5583-970a-65d510f3e1cb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fd6011d5-f57f-5ded-8841-94329e18c4f2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe Paneer und zerdrücke gekochte Kartoffel mit Salz. Vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Cashewkerne grob und vermische sie mit Erbsen und Sahne unter die Paneer-Kartoffel-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme 12 Kugeln, wende sie nach Wunsch in Semmelbröseln und stelle sie 15 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl und brate die Koftas vorsichtig hellgolden. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dünste im selben Öl geschnittene Zwiebeln goldbraun und stelle die Hälfte zum Garnieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Ingwer-Knoblauch-Paste dazu und gare sie, bis sie duftet. Füge dann gehackte Tomaten hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare die Tomaten weich. Püriere die Mischung glatt und gib sie zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Garam Masala und Sahne dazu und lass die Sauce 5 Minuten köcheln. Gib die Koftas vorsichtig hinein und gare sie weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Garniere das Gericht mit Röstzwiebeln und Koriander und serviere es mit Reis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/bjDZkBmzAOhEcPSw-kL595GSYjc=/4494x3000/filters:fill(auto,1)/malai-kofta-vege-balls-in-a-thick-sauce-1957964_hero-01-474bc099313944668d3b2c68b88549d5.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/bjDZkBmzAOhEcPSw-kL595GSYjc=/4494x3000/filters:fill(auto,1)/malai-kofta-vege-balls-in-a-thick-sauce-1957964_hero-01-474bc099313944668d3b2c68b88549d5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pho-bo",
+      "slug": "gen-pho-bo",
+      "title": "Phở Bò",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderknochen an der Metzgereitheke; oft sind sie günstiger als abgepackte.",
+        "Verwende getrocknete Gewürze aus Großgebinden statt abgepackte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2467,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pho-bo/",
+      "components": [
+        {
+          "key": "f8525133-1acf-532d-897d-a283f4fe8775",
+          "name": "Zutaten",
+          "servingGrams": 1061,
+          "position": 0,
+          "items": [
+            {
+              "key": "f07a3133-8472-5a34-87a6-52e6672eb3ae",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "2fc1deb4-c962-5426-9e99-97ba235bd1bc",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2778b627-bd91-5e0c-893d-ab293e7e0950",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "1528f0b2-70af-5fe9-88fb-0aa63023914d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zoll großes Stück"
+            },
+            {
+              "key": "8c27bdbb-9d67-56fd-b290-254fc90f5bf9",
+              "ingredientName": "Sternanis",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Schoten"
+            },
+            {
+              "key": "40f40d08-cd33-5ca1-964e-66112590f370",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfc37cbd-d73d-5d0a-b72c-48fb3dc8d5e7",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0caf4783-c2ff-5922-8434-6aeb3cc33bf6",
+              "ingredientName": "Glasnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cfe74ba3-7af8-5316-bbdd-fee23e15cf18",
+              "ingredientName": "Wasser",
+              "grams": 2880,
+              "quantity": 2880,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "12 Tassen"
+            },
+            {
+              "key": "ef557717-8d27-5ab7-ac87-3f3b29d80a7d",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9a991ba7-d3e7-5cc1-a6ac-bfaad380db0b",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Bund"
+            },
+            {
+              "key": "7d95fcb5-aaba-512d-af91-42249811b440",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Zwiebel und Ingwer 3 Minuten direkt über einer Flamme, bis sie schwarz werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere Rinderknochen und Rinderbrust 2 Minuten in kochendem Wasser und spüle sie dann unter kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 12 cups frisches Wasser, die gereinigten Knochen, geröstete Zwiebel, Ingwer, Sternanis und Zimtstange in einen großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze und lass die Brühe 90 Minuten köcheln, bis sie aromatisch und kräftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Rinderbrust heraus, sobald sie zart ist. Schneide sie in dünne Scheiben und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Seihe die Brühe durch ein feines Sieb, gib Fischsauce dazu und stelle sie zurück auf den Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche Phở-Nudeln separat nach Packungsanweisung und verteile sie auf Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße heiße Brühe über die Nudeln, belege sie mit Rinderbrustscheiben und Sojasprossen, gib Basilikum dazu und serviere mit Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DaJHXnXD3csQwt8ASq45OQzMoPA=/3264x2448/filters:fill(auto,1)/close-up-pho-soup-served-on-table-681963691-58330c8c5f9b58d5b11660ec.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DaJHXnXD3csQwt8ASq45OQzMoPA=/3264x2448/filters:fill(auto,1)/close-up-pho-soup-served-on-table-681963691-58330c8c5f9b58d5b11660ec.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pho-ga",
+      "slug": "gen-pho-ga",
+      "title": "Phở Gà",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchen im Angebot und zerlege sie selbst; Schenkel sind günstiger als Brust.",
+        "Bereite Brühe in größeren Mengen zu und friere sie portionsweise für schnelle Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2468,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pho-ga/",
+      "components": [
+        {
+          "key": "133ba8f0-f648-526d-acc7-35884c691aca",
+          "name": "Zutaten",
+          "servingGrams": 898.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "700828b7-a430-5812-9675-1af4fa3d6329",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund Schenkel und Brust mit Knochen"
+            },
+            {
+              "key": "c55f33e1-967c-5ac7-aee6-2932aa815b62",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "605b24be-3b9e-578d-9f8e-c196edf88d29",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zoll großes Stück"
+            },
+            {
+              "key": "c9d58b0f-d824-5f72-abcf-f1443b2c0400",
+              "ingredientName": "Sternanis",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Schoten"
+            },
+            {
+              "key": "fc4c0f64-c972-57ee-a1f0-2525b7187766",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa4fd0ff-fa4a-51ec-8213-e99ea4ec71fa",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9503bd36-2833-5234-9672-479dab932fc4",
+              "ingredientName": "Glasnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c6b8a716-9ba2-599b-ad2b-07294d85639e",
+              "ingredientName": "Wasser",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "96b9e2af-c2fe-5187-80e2-83ae9f6c76e6",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c6db3683-1aa4-571b-a8c1-7658fa4a175f",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Zwiebel und Ingwer 3 Minuten über einer Flamme, bis sie schwarz werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere das Hähnchen 2 Minuten in kochendem Wasser und spüle es dann gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische 10 cups Wasser, das gereinigte Hähnchen, geröstete Zwiebel, Ingwer, Sternanis und Zimtstange in einem großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen und schöpfe den Schaum ab. Reduziere die Hitze und lass die Brühe 60 Minuten köcheln, bis das Hähnchen sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Hähnchen heraus, zerteile das Fleisch in mundgerechte Stücke und wirf die Knochen weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Seihe die Brühe ab, gib Fischsauce und das zerkleinerte Hähnchen dazu und stelle den Topf zurück auf den Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche Phở-Nudeln nach Packungsanweisung und verteile sie auf Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße heiße Brühe mit Hähnchen über die Nudeln. Belege sie mit Sojasprossen und frischen Kräutern und serviere mit Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tasteasianfood.com/wp-content/uploads/2024/06/pho-ga-image-22-square-480x480.jpeg",
+          "sourcePageUrl": "https://tasteasianfood.com/wp-content/uploads/2024/06/pho-ga-image-22-square-480x480.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bun-cha",
+      "slug": "gen-bun-cha",
+      "title": "Bún Chả",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinehackfleisch im Angebot und friere es portionsweise ein.",
+        "Bereite zusätzliche Dip-Sauce zu und bewahre sie 3-4 Tage im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2469,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bun-cha/",
+      "components": [
+        {
+          "key": "beae9464-ebb4-5b9a-aa8d-9369954df580",
+          "name": "Zutaten",
+          "servingGrams": 336.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b7593d8-8c3b-56c5-887c-0dcb6a2b7fe3",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "18f25f02-c431-540a-aa11-d55935824e97",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "731708e7-1c22-579c-9c6d-63d21cd79aba",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "f35f73ee-8e07-5e8c-a5df-1ef11adfda7d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2922f43c-f0c3-5528-8946-1cab2cd563bf",
+              "ingredientName": "Reisfadennudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8720c8a6-2f46-5caf-b8fa-64bf54f9f20c",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6d2b5af6-8ae4-54c8-b1ea-5e3f1bf416ac",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "69442737-b7d5-570c-bda2-1d1b65b11a7a",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Kopf"
+            },
+            {
+              "key": "c325e7c2-1686-53a9-a95a-0108c1bd0d35",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86f8bfd4-50d8-505f-801e-e6a1d07d89d6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Bund Minze und Koriander"
+            },
+            {
+              "key": "99dde23e-6c44-5398-aec0-0bb9599dd9ba",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/3 Tasse zerstoßen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Schweinehackfleisch mit gehacktem Knoblauch, 2 EL Fischsauce und 1 EL braunem Zucker in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus der Mischung kleine Kugeln von etwa 1 inch Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Pfanne bei mittelhoher Hitze und brate die Fleischbällchen rundherum etwa 10 Minuten, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Dip-Sauce vermische 1.5 cups Wasser, 1 EL Fischsauce, 1 EL braunen Zucker, Limettensaft und gehackten Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Reisfadennudeln nach Packungsanweisung, gieße sie ab und lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte Salat, Gurke, frische Kräuter und abgekühlte Nudeln in Schalen an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege alles mit warmen Fleischbällchen und gieße Dip-Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere mit zerstoßenen Erdnüssen und serviere mit zusätzlicher Limette und Kräutern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/10/18/multimedia/bun-cha-lkqj/bun-cha-lkqj-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/10/18/multimedia/bun-cha-lkqj/bun-cha-lkqj-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1107 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ropa-vieja",
+      "slug": "gen-ropa-vieja",
+      "title": "Ropa Vieja",
+      "instructions": "Mexikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flanksteak im Angebot kaufen und für später einfrieren",
+        "Tomatensauce einer günstigen Eigenmarke statt Spezialmarken verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2410,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ropa-vieja/",
+      "components": [
+        {
+          "key": "01f7bbc2-1755-58ec-933b-6ba053b85afb",
+          "name": "Zutaten",
+          "servingGrams": 313.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "41f0b82f-aab1-5a52-a9b2-95dec5f76ad2",
+              "ingredientName": "Flanksteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "6560e438-78ca-584a-b596-bcf54ede6502",
+              "ingredientName": "Paprika",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cd39e52-0986-5cb7-be96-98bb8721e808",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "6cd48b05-a237-52de-a1be-a62b67374410",
+              "ingredientName": "Tomatensauce",
+              "grams": 128.57,
+              "quantity": 128.57,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "15 Unzen"
+            },
+            {
+              "key": "208a3489-0e58-51a0-bb1c-3c10fc05aef8",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "34a8c243-645f-5e9b-adeb-defbcdd29a10",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "97604956-a653-526a-b707-d6469fff891f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "fd2e6dbf-23e4-591e-aec0-70489a52936e",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "653e680c-7281-5fe8-b695-3f48d81cff6a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "49786ac8-5928-589d-90b4-0ca42301dc32",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b077d19e-2c31-5777-b5dc-b7cf684cfe3b",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittelhoher Hitze erhitzen und Flanksteak auf jeder Seite 3 Minuten anbraten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleisch herausnehmen und beiseitestellen. Gehackten Knoblauch und gewürfelte Zwiebel im selben Topf 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kreuzkümmel, Oregano und Lorbeerblätter dazugeben und 1 Minute rösten, damit die Gewürze ihr Aroma entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe und Tomatensauce angießen und gut umrühren. Rindfleisch zurück in den Topf legen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren, abdecken und 1.5 Stunden köcheln lassen, bis das Rindfleisch sehr zart ist und sich leicht mit einer Gabel zerpflücken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rindfleisch aus dem Topf nehmen und mit zwei Gabeln in dünne Streifen zerteilen. Fett entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Paprika in dünne Streifen schneiden und zusammen mit dem zerteilten Rindfleisch in den Topf geben. Weitere 10 Minuten köcheln lassen, bis die Paprika weich, aber noch bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frischen Limettensaft darüberpressen, Salz und Pfeffer abschmecken und bei Bedarf anpassen, dann servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/59c924d03b3bf713cb638086/1:1/w_2560%2Cc_limit/1017%2520WEB%2520WEEK0869.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/59c924d03b3bf713cb638086/1:1/w_2560%2Cc_limit/1017%2520WEB%2520WEEK0869.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arroz-con-pollo",
+      "slug": "gen-arroz-con-pollo",
+      "title": "Arroz con Pollo",
+      "instructions": "Mexikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Safran weglassen und für ähnliche Farbe bei geringeren Kosten eine Prise Kurkuma verwenden",
+        "Hähnchenoberkeulen in großen Mengen kaufen und für die Essensvorbereitung einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2411,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arroz-con-pollo/",
+      "components": [
+        {
+          "key": "3e76c11e-c6ae-54db-8a51-e9ecb61f994d",
+          "name": "Zutaten",
+          "servingGrams": 545.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6281c6d-d6cd-51de-b738-d3c51f1ffe90",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d120d5d5-869a-5a7c-8266-5fac8b6c5cb0",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "28bee011-0a89-59d8-95fc-7d1d743574c9",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "1287face-81e0-5149-89c7-655c40b35d7b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "638a184b-4b64-5fab-89e2-8ebb437754c6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4fed5806-ba79-5a23-b414-3c841398b1e1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "f1d19e20-1556-599f-85c9-19f10381cc53",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2275a3d4-8f24-5da8-87c5-7239a9643001",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "577e467d-18c1-5a7d-b25f-1c75d90f88aa",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6f48d740-eccb-5417-ae8a-efba0d7f0717",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "149d7108-1748-5088-a8e2-e0811e76f616",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittelhoher Hitze erhitzen. Hähnchenoberkeulen mit Salz und Pfeffer würzen und mit der Hautseite nach unten 5 Minuten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen wenden und weitere 3 Minuten garen. Herausnehmen und auf einem Teller beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel und Paprika im selben Topf 3 Minuten weich dünsten. Gehackten Knoblauch und Kreuzkümmel dazugeben und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis in den Topf geben und 2 Minuten ständig rühren, sodass er mit Öl überzogen ist. Hühnerbrühe und Tomatensauce angießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Safranfäden einrühren und Hähnchenoberkeulen mit der Hautseite nach oben zurück in den Topf legen. Zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze reduzieren, abdecken und 25–30 Minuten köcheln lassen, bis der Reis weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tiefgekühlte Erbsen einrühren, wieder abdecken und vor dem Auflockern mit einer Gabel und Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/2WX3I3jqgpoKhpk9Ady_EfoahAI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Arroz-con-Pollo-LEAD-6-1006e220931e4badb09ab3895d0d6176.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/2WX3I3jqgpoKhpk9Ady_EfoahAI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Arroz-con-Pollo-LEAD-6-1006e220931e4badb09ab3895d0d6176.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chuletas-de-puerco",
+      "slug": "gen-chuletas-de-puerco",
+      "title": "Chuletas de Puerco",
+      "instructions": "Mexikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinekoteletts im Angebot kaufen und portionsweise einfrieren",
+        "Limetten- und Orangensaft aus der Flasche verwenden, um Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2412,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chuletas-de-puerco/",
+      "components": [
+        {
+          "key": "e218411e-1623-5294-9118-4802d3229bff",
+          "name": "Zutaten",
+          "servingGrams": 161.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "109423e0-7666-5790-bbf7-65a7fa8ac33d",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08bee4e8-8b32-5492-bd59-64877a1a27ed",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "b87c68cf-26ec-5d03-ae55-4a6b72b286d4",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a64ab708-002b-5555-8d58-31db4515cece",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "cc24562f-3edc-5c13-aad4-486793fbaaac",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6ebee3f8-8ff9-5db3-a7e3-b5ca92e63238",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "11f11fef-ce87-59ce-8a7a-b0da41b6efa8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d9419fe3-4d71-58af-b2d9-25c435ac7665",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b6005de6-a1e5-5f2c-83fa-7fe866804d0c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Limettensaft, Orangensaft, gehackten Knoblauch, Kreuzkümmel und Oregano in einer Schüssel zur Marinade verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinekoteletts mit Küchenpapier trocken tupfen und auf beiden Seiten mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinekoteletts in eine flache Form legen und Marinade darüber gießen. Wenden, sodass sie gleichmäßig bedeckt sind, und 10 Minuten bei Zimmertemperatur ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinekoteletts aus der Marinade nehmen und in die heiße Pfanne legen. Marinade aufbewahren. Auf jeder Seite 5–6 Minuten braten, bis die Kerntemperatur 145°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aufbewahrte Marinade um die Schweinekoteletts in die Pfanne gießen und 2 Minuten köcheln lassen, damit sie etwas einkocht und das Fleisch überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schweinekoteletts auf eine Servierplatte geben und vor dem Servieren mit Bratensauce aus der Pfanne überlöffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f7/99/ba/f799ba1a87981c0cce5449d03e7e2534.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f7/99/ba/f799ba1a87981c0cce5449d03e7e2534.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tostadas",
+      "slug": "gen-tostadas",
+      "title": "Tostadas",
+      "instructions": "Mexikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tostadas im Voraus zubereiten, indem Tortillas frittiert und luftdicht aufbewahrt werden",
+        "Hackfleisch und Bohnen aus der Eigenmarke verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2413,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tostadas/",
+      "components": [
+        {
+          "key": "49744c93-bf33-582b-af2b-a8dbee9a36b0",
+          "name": "Zutaten",
+          "servingGrams": 458.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1777b5a-c82c-5deb-8af3-61d7b61348d9",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "480927a7-f68b-581e-a870-b7b248f00a75",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "77271f76-5e47-53c8-95e8-43e15ca38f9f",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "6b2c5431-66ea-50f2-8d85-1b8f6fe96074",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8cf8038e-c95d-51a7-8f98-ad276e490f48",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7129dcb5-14a7-531e-97c2-238a1416ede6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "24b91b84-d97a-5943-b5f0-20bf83fa3a5d",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "65b39fee-f3f7-5c9e-aa98-9480696133cc",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "062f5b48-f60f-5778-8105-3784da5307f8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Braten"
+            },
+            {
+              "key": "1bc87619-ee19-5b61-a90f-dcdc8be700d2",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pflanzenöl in einer Pfanne bei mittelhoher Hitze erhitzen. Jede Maistortilla auf jeder Seite 30 Sekunden knusprig und goldbraun frittieren und dann auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In derselben Pfanne (ohne zusätzliches Öl) Rinderhackfleisch bei mittlerer Hitze etwa 5 Minuten anbraten und dabei zerteilen, bis kein Rosa mehr zu sehen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Taco-Gewürz und 1/4 Tasse Wasser zum gegarten Rindfleisch geben, gut verrühren und 2 Minuten köcheln lassen, bis die Sauce eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bohnenmus in einem kleinen Topf bei niedriger Hitze erwärmen und gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine dünne Schicht warmes Bohnenmus auf jede knusprige Tortilla streichen und mit gewürztem Rinderhack belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Tostada mit Salat, gewürfelter Tomate und geriebenem Käse belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit saurer Sahne und Salsa als Beilage servieren, damit jede Person nach Geschmack belegen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pF67AejS2YUpZG_J6W5S_AA7KgE=/3710x5565/filters:fill(auto,1)/Simply-Recipes-Mexican-Tostada-LEAD-4-acbcd5e6b81d478fa1e2f0718058de80.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pF67AejS2YUpZG_J6W5S_AA7KgE=/3710x5565/filters:fill(auto,1)/Simply-Recipes-Mexican-Tostada-LEAD-4-acbcd5e6b81d478fa1e2f0718058de80.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-flautas",
+      "slug": "gen-flautas",
+      "title": "Flautas",
+      "instructions": "Mexikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brathähnchen aus dem Supermarkt verwenden, um Vorbereitungszeit zu sparen",
+        "Käse in großen Mengen kaufen und zu Hause reiben statt gerieben zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2414,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flautas/",
+      "components": [
+        {
+          "key": "a7e85125-33a3-5fe4-b928-45591a5d2464",
+          "name": "Zutaten",
+          "servingGrams": 275,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d17611a-6fab-53b3-ad2b-9b403d407975",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6d068cc-18ef-5ad6-ad90-1b6ef06487d5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3c3fd174-5d9d-561b-88f9-9f39c8992ced",
+              "ingredientName": "Bohnenmus",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "2c1f6dcd-f2c4-5890-b16d-741ec413a725",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6389c8f3-7e21-570b-a56d-70cf4c8841f1",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroße"
+            },
+            {
+              "key": "1aabd6b7-5d4f-560d-a8fc-a26aee174a5f",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f2847daf-66fc-56d1-bcbd-af68a30dde40",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "404e0b76-8912-5c91-9a10-063e1b1b14e9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Braten"
+            },
+            {
+              "key": "bd059690-bafd-55e9-9efe-300ebed8fac2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d8d25dae-51e5-51ea-9008-ff40cb036548",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerteiltes Hähnchen mit Bohnenmus, gewürfelter Zwiebel, 1/2 Tasse Käse, Salz und schwarzem Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehltortillas 20 Sekunden pro Seite in einer trockenen Pfanne erwärmen, damit sie biegsam und leichter zu rollen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwa 3 Esslöffel Füllung in die Mitte jeder Tortilla geben und fest aufrollen, die Seiten dabei einschlagen. Mit der Naht nach unten auf einen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pflanzenöl in einer tiefen Pfanne auf 350°F erhitzen (ein Stück Tortilla sollte sofort brutzeln, wenn es hineingegeben wird).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Flautas vorsichtig mit der Naht nach unten in das heiße Öl legen und 2–3 Minuten goldbraun frittieren. Wenden und die andere Seite weitere 2 Minuten knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Flautas mit einer Schaumkelle herausnehmen, auf Küchenpapier abtropfen lassen und noch heiß mit übrigem Käse bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Flautas mit saurer Sahne belegt und Salsa als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2023/06/Chicken-Flautas_EXPS_FT23_273549_ST_4_12_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2023/06/Chicken-Flautas_EXPS_FT23_273549_ST_4_12_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

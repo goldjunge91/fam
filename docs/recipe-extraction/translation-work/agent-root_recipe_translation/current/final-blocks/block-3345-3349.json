@@ -1,0 +1,1165 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pongal",
+      "slug": "gen-pongal",
+      "title": "Pongal",
+      "instructions": "Südindisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Pflanzenöl statt Ghee und halbiere so die Kosten.",
+        "Kaufe Reis und Mung-Dal aus indischen Großgebinden und spare 30-40%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südindisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3345,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pongal/",
+      "components": [
+        {
+          "key": "0479dd41-4711-5c29-808f-fb3595e0c4d6",
+          "name": "Zutaten",
+          "servingGrams": 348.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ed2f2b6-c12c-5929-a92e-0ca92b9df07f",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "701247f4-a889-534d-9c96-6cc13714cdbd",
+              "ingredientName": "Gelbe Schälerbsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6235b5ae-44f6-5da1-8525-89e6a7409fbc",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "c5797939-2225-5d57-9d8e-b9398234e54c",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "19db4c7f-33a7-542d-8ae9-33a6b3a4c529",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "12dbb19a-4f8b-563c-aeca-5c1d11daabfb",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fe7e316e-a566-51a6-b3c9-2fb6750afbca",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "1e9dcff2-c1dd-5b4b-bf51-1a3b242867b3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ac97e1b8-c243-5f83-a971-73b25566fb85",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96314d81-ed3f-5cba-9683-be184ee82ba5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Reis und Schälerbsen getrennt unter kaltem Wasser, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einem großen Topf, gib Kreuzkümmelsamen und Pfefferkörner hinzu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Cashews hinzu und röste sie etwa 1 Minute goldbraun. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib im selben Topf Ingwer und grüne Chili hinzu und dünste alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Reis und Schälerbsen hinein und rühre 2-3 Minuten ständig, damit sie mit Ghee überzogen werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße 4 Tassen Wasser hinzu, salze und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 15-18 Minuten köcheln, bis Reis und Dal weich sind und das Wasser aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre die gerösteten Cashews ein und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://traditionallymodernfood.com/wp-content/uploads/2023/09/ksheerannam-milk-pongal-36-scaled.jpeg",
+          "sourcePageUrl": "https://traditionallymodernfood.com/wp-content/uploads/2023/09/ksheerannam-milk-pongal-36-scaled.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pesarattu",
+      "slug": "gen-pesarattu",
+      "title": "Pesarattu",
+      "instructions": "Südindisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mung-Dal in größeren Mengen in indischen Geschäften; dort ist es 40% günstiger als im Supermarkt.",
+        "Lasse den Reis ganz weg und verwende nur Mung-Dal für eine günstigere Variante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "südindisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3346,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pesarattu/",
+      "components": [
+        {
+          "key": "8563af17-1a87-538f-9dd0-bcfff3dfd7bc",
+          "name": "Zutaten",
+          "servingGrams": 278.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "66d0871c-c37f-59ea-9da6-e899af8d0118",
+              "ingredientName": "Mungbohnen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "de64c5b0-0821-553d-9476-5d97bfdd23a4",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5192dbc1-9783-531f-9da6-46d960f5ab07",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17df07c8-5ace-5b2c-b358-496f4e1bb814",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f82519da-20e4-595f-9716-e5ce451ae3a4",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Zwiebel"
+            },
+            {
+              "key": "bbcf6502-4941-5eb3-af9b-41afacb2a794",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4b472d0a-4055-57f7-abf1-c940f9e18fe8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0530349c-66c9-5eaa-8fc2-b950f0299eaf",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL zum Braten"
+            },
+            {
+              "key": "d1452965-f2ba-5f7b-b5b5-7b1b16cdd190",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Mung-Dal und Reis zusammen 3-4 Stunden in Wasser ein und gieße sie dann vollständig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Dal und Reis mit wenig Wasser im Mixer zu einem leicht groben Teig und gib nach und nach Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Teig in eine Schüssel und rühre grüne Chili, Ingwer, Zwiebel, Kreuzkümmelsamen und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Teig 5-10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer beschichteten Pfanne oder Dosa-Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße 0.5 Tasse Teig in die heiße Pfanne und verstreiche ihn vorsichtig rund, etwa 0.25 Zoll dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Fladen 3-4 Minuten goldbraun, wende ihn vorsichtig und backe die andere Seite weitere 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege ihn auf einen Teller und serviere ihn heiß mit Kokos- oder Tamarinden-Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2017/03/pesarattu-recipe-moong-dal-dosa-recipe-how-to-make-pesarattu-dosa-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2017/03/pesarattu-recipe-moong-dal-dosa-recipe-how-to-make-pesarattu-dosa-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-noodle-soup",
+      "slug": "gen-beef-noodle-soup",
+      "title": "Rindernudelsuppe",
+      "instructions": "Taiwanesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende bereits gewürfeltes Rindergulasch statt Rinderschulter, um Vorbereitungszeit zu sparen.",
+        "Koche die Brühe selbst aus Rinderknochen; das ist viel günstiger als gekaufte Brühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "taiwanesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3347,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-noodle-soup/",
+      "components": [
+        {
+          "key": "dfbe6a88-47c3-5b83-9022-6a3fa8fd0aea",
+          "name": "Zutaten",
+          "servingGrams": 763,
+          "position": 0,
+          "items": [
+            {
+              "key": "b648de2e-5250-5304-8054-a30675034296",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6173189a-ff9a-5183-955b-7c5ad9f45227",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "feffc690-c983-5742-95b7-de44b4965a80",
+              "ingredientName": "Sternanis",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51284847-734e-5468-adc5-01e0e21a7472",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65d8d7cc-6bf9-552f-b5c8-5bd14183e80d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce3673c3-731b-5a6b-a8f4-3001e662aada",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "7c3aedd3-5b47-5639-90e0-29c2964f9884",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "632d75a0-a198-5f23-9fed-63ed5483850e",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "702505e9-f4be-53a9-892c-e57889210492",
+              "ingredientName": "Doubanjiang (Chilibohnenpaste)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8b45af13-7fff-5a21-83b9-74088463388a",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f1ebf1c1-49a8-5b19-bada-8fd3af64ac4f",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0f8a30d-35f3-54d4-b2ae-7f0222a86738",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "c3b27dd4-9be1-5138-af87-29ae1bb08820",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6881a2c1-1f09-5eb2-a011-d2f74aa8308d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere die Rindfleischwürfel 3 Minuten in kochendem Wasser, gieße sie ab und spüle sie unter kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und brate Ingwerscheiben, Knoblauch und getrocknete Chilis 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Doubanjiang hinzu und brate es 1 Minute unter Rühren, gib dann das Rindfleisch dazu und brate weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Rinderbrühe hinzu, gib Sternanis, Zimtstange, Lorbeerblätter und Kandiszucker dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 60 Minuten köcheln, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Sojasauce hinzu, probiere und passe die Würzung nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche die Eiernudeln separat in kochendem Wasser nach Packungsanweisung und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Nudeln auf Schalen, schöpfe Rindfleisch und Brühe darüber und garniere mit Frühlingszwiebeln und etwas Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Chinese-Beef-Noodle-Soup_EXPS_TOHcom24_277604_MD_P2_10_10_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Chinese-Beef-Noodle-Soup_EXPS_TOHcom24_277604_MD_P2_10_10_1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oyster-omelette",
+      "slug": "gen-oyster-omelette",
+      "title": "Austernomelett",
+      "instructions": "Taiwanesisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte statt frische Austern; sie sind 50% günstiger und eignen sich genauso gut.",
+        "Verwende 1 Esslöffel Mehl statt 3 für ein dünneres, preiswerteres Omelett."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "taiwanesisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3348,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oyster-omelette/",
+      "components": [
+        {
+          "key": "b79e077b-6af7-578d-91b7-be649b54cbfe",
+          "name": "Zutaten",
+          "servingGrams": 869.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9fe9a22-1552-5a89-9e5e-6a7ae34afc09",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "efc804f3-0c08-58b8-acfa-70ac308c477e",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "0a1255e9-e2b6-5dbe-bf44-0272b7771772",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6ef37e4d-860f-5a6d-a15f-891ae5b159aa",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a20996e5-0fd5-5c2e-9f4b-9016ab934c2b",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "177c62e2-edfd-5f98-bbd7-4d7960bc18bb",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "123d600f-9a92-52d7-adf6-d098a4476359",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "5f6f4b0c-274f-5d89-b283-1841c30121ba",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9334e4a8-b616-5a8f-9953-7f8952fa0b2e",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a7acd420-0e5f-591c-b108-dd60f78c10f1",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bed98232-9df3-5cd6-80fd-555a840ecc17",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Speisestärke und Wasser in einer kleinen Schüssel zu einer glatten Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Öl in einer großen beschichteten Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Austern hinzu und brate sie 1 Minute an, schiebe sie dann an den Pfannenrand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das restliche Öl in die Pfanne, füge gehackten Knoblauch hinzu und dünste ihn 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Mehlmischung gleichmäßig über Austern und Pfanne und verteile die Austern darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle Eier mit Salz und weißem Pfeffer und gieße sie über die Mischung. Gare sie ohne Rühren 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Boden stockt, schiebe das gegarte Ei zur Mitte und neige die Pfanne, damit flüssiges Ei an die Ränder läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sobald das Omelett größtenteils gestockt ist, klappe es zusammen, gare es 1 weitere Minute und lege es dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Beträufle es mit Sojasauce und Sesamöl, garniere es vor dem Servieren mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/08/Oyster-Omelette.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/08/Oyster-Omelette.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stinky-tofu",
+      "slug": "gen-stinky-tofu",
+      "title": "Stinkender Tofu",
+      "instructions": "Taiwanesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Stinktofu auf asiatischen Märkten statt in Spezialgeschäften und spare 40%.",
+        "Filtere Frittieröl durch ein Mulltuch und verwende es für die nächste Portion erneut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "taiwanesisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3349,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stinky-tofu/",
+      "components": [
+        {
+          "key": "dd84a497-cfed-5b79-bfe9-f2c4591c4670",
+          "name": "Zutaten",
+          "servingGrams": 151.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bf32d4d-e445-51c1-9275-26a6ab4a4d13",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "1d80a001-9933-5c46-b43a-8d9f33bde432",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "ee6c368a-17c1-5656-ba26-07a807f08ac1",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fc732b5e-a00e-5642-b97c-beb69062f773",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "78986f2d-afe2-568b-91de-9f1a848ae579",
+              "ingredientName": "Chiliöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bd0a4759-4ea0-5792-bb76-d289ad537905",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zehe"
+            },
+            {
+              "key": "e0a8f7f6-f1d1-5d8a-a045-39d4807f4b0f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4612b65a-1f74-5a5c-8978-9e5b5c1d91f5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4be75d3b-f3af-5927-9d20-e63d648f7c82",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Stinktofu in 1 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Wok auf 350°F (175°C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Tofuwürfel portionsweise vorsichtig ins heiße Öl und frittiere sie 2-3 Minuten, bis sie von allen Seiten goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Sojasauce, Reisessig, Chiliöl, Knoblauch und Zucker zu einer Dip-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den frittierten Stinktofu auf eine Servierplatte und beträufle ihn mit der Dip-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere ihn mit Frühlingszwiebeln und Koriander und serviere ihn sofort, solange er noch warm und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.simplechinesefood.com/bd/bdde5f3df69e01ed70a7eb34c3a1b90c.jpg",
+          "sourcePageUrl": "https://img.simplechinesefood.com/bd/bdde5f3df69e01ed70a7eb34c3a1b90c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

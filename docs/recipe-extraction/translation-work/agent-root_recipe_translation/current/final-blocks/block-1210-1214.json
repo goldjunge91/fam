@@ -1,0 +1,1176 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-sea-khao-soi",
+      "slug": "mfr-sea-khao-soi",
+      "title": "Thailändische Khao Soi (Kokos-Currynudelsuppe)",
+      "instructions": "Nordthailands berühmte Currynudelsuppe: Eiernudeln in einer kräftigen Kokos-Currybrühe mit Hähnchen, garniert mit knusprigen Nudeln, Schalotten und eingelegtem Senfkohl.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Currypaste aus der Dose kostet $1-2 und sorgt sofort für authentischen Geschmack.",
+        "Die knusprigen Nudeln als Topping gehören unbedingt dazu – sie machen Khao Soi aus.",
+        "Hähnchenschenkel bleiben in der Brühe saftig; verwende hier keine Hähnchenbrust."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-curry-paste",
+          "swap": "Gelbe Currypaste für eine mildere Variante"
+        },
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Ramen-Nudeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-khao-soi",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "Khao-Soi",
+        "Suppe",
+        "Nudeln",
+        "Kokos"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1210,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-khao-soi/",
+      "components": [
+        {
+          "key": "af2a9479-734a-5649-b741-c5867de3a28d",
+          "name": "Zutaten",
+          "servingGrams": 801,
+          "position": 0,
+          "items": [
+            {
+              "key": "5bf5cdf7-0ddc-5405-909d-54c826c10473",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1051803b-1034-52bb-987d-36a34d401968",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22839198-9e0d-5add-bcf0-28e5f2743792",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6ea57c2-ad8d-5c1f-8ad9-cc17656ccb71",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1e90800-6bc9-5e1d-a24b-2ddf5ee919ec",
+              "ingredientName": "Rote Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d28336dc-74f4-5b3d-902b-befbce51e90e",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6113bf74-a9ba-55b1-a427-0810f6367e58",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99917113-6851-51e3-a755-3ef866909853",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6a0633a-8a6b-500a-ad94-108297c268f1",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84c2e1f4-1250-5866-92b0-25b7b567de5b",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29a598c5-6c6d-5fb2-a85a-5877a93a4342",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "978e54e0-f3e8-51b4-8f46-18b385261bce",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Frittiere 1/4 der Nudeln in Öl, bis sie knusprig sind. Stelle sie als Topping beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Currypaste und Kurkuma 2 Minuten in Öl an. Gib Kokosmilch und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Hähnchenschenkel hinein und lass alles 15 Minuten köcheln, bis das Fleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die übrigen Nudeln. Richte Nudeln und Currybrühe mit Hähnchen in Schalen an und gib knusprige Nudeln, frittierte Schalotten, Limette und Koriander darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2021/11/khao-soi-finished_Malina-Syvoravong-for-Taste-of-Home.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2021/11/khao-soi-finished_Malina-Syvoravong-for-Taste-of-Home.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-mee-goreng",
+      "slug": "mfr-sea-mee-goreng",
+      "title": "Malaysisches Mee Goreng (scharfe gebratene Nudeln)",
+      "instructions": "Gelbe Eiernudeln, im Wok mit feurigem Sambal, Garnelen, Tofu, Ei und Tomate gebraten – Malaysias berühmte Streetfood-Nudeln mit ihrer typischen süß-scharf-säuerlichen Balance.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ketchup in Mee Goreng klingt ungewöhnlich, ist aber traditionell und sorgt für süß-säuerlichen Geschmack.",
+        "Sambal-Chilipaste verleiht authentisches malaysisches Aroma und kostet $2-3 pro Glas.",
+        "Das Gericht ist in 12 Minuten fertig und besser als jede Lieferung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sambal",
+          "swap": "Chilipaste oder Sriracha"
+        },
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Spaghetti, al dente gekocht"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-mee-goreng",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "malaysisch",
+        "Mee-Goreng",
+        "Nudeln",
+        "scharf",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1211,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-mee-goreng/",
+      "components": [
+        {
+          "key": "81f6d87f-7433-5efa-bfcc-21ae1b882cd6",
+          "name": "Zutaten",
+          "servingGrams": 566.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfb33cc4-c8b9-509b-a91f-c50c45b0c26c",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "973cd860-a16c-573f-a850-0051c81ea66d",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25ed76fd-be60-5864-84c1-2d3bf4a7f774",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af9004bd-d40c-5a1d-ae80-c8e3347e1d5d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88c5523d-f3a5-556f-b2f5-50b684598213",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d0e953b-bf50-5fa1-8f65-5bb41f376e9f",
+              "ingredientName": "Sambal Oelek",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31cc6fbc-31d5-5d16-b1d3-4d2e978d675a",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c51a1d9e-efb5-5ea2-ae6f-52227ec94cce",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b66ce8e-c206-57a1-aef7-b5f10ad3a4b7",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d41ea20-b3cd-5cd0-9c37-d979edabcb13",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00108bd5-6dbc-5d3d-8be5-c372bb0ff121",
+              "ingredientName": "Mungobohnensprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04eeae2d-e83b-5f14-bfbc-637e0f56a936",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c729338-d403-5a29-890d-38105e941ef7",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Tofuwürfel goldbraun an und nimm sie heraus. Rühre die Eier im Wok und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel und Knoblauch im Wok an. Gib die Garnelen dazu und brate sie 2 Minuten. Füge Sambal, Sojasauce und Ketchup hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Nudeln dazu und schwenke sie in der Sauce. Füge Tomaten, Mungobohnensprossen, Ei und Tofu hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Gericht mit zusätzlichem Sambal und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/04/Mee-Goreng-Mamak-Mamak-Style-Fried-Noodles.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/04/Mee-Goreng-Mamak-Mamak-Style-Fried-Noodles.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-taiwanese-beef-noodles",
+      "slug": "mfr-sea-taiwanese-beef-noodles",
+      "title": "Taiwanesische Rindernudelsuppe",
+      "instructions": "Geschmorte Rinderhaxe in einer kräftigen, mit Sojasauce und Gewürzen verfeinerten Brühe mit elastischen Weizennudeln und Pak Choi – Taiwans berühmte Wohlfühlsuppe, vereinfacht für ein Abendessen unter der Woche in 60 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist das ideale Stück für dieses Gericht – günstig und nach 45 Minuten zart.",
+        "Doubanjiang (Chilibohnenpaste) ist das Herz dieser Suppe und kostet $2-3 in asiatischen Lebensmittelgeschäften.",
+        "Die Brühe schmeckt am nächsten Tag deutlich besser – koche gleich mehr."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "doubanjiang",
+          "swap": "1 EL Chilipaste und 1 TL Misopaste"
+        },
+        {
+          "forIngredientId": "star-anise",
+          "swap": "1/4 TL Fünf-Gewürze-Pulver"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-taiwanese-beef-noodles",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "taiwanesisch",
+        "Rindfleisch",
+        "Nudeln",
+        "Suppe",
+        "geschmort"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1212,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-taiwanese-beef-noodles/",
+      "components": [
+        {
+          "key": "74113c37-d650-5ed5-bcb9-7969b943b19c",
+          "name": "Zutaten",
+          "servingGrams": 494.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3bd63748-81ce-5b7a-a261-19a46d2ba42e",
+              "ingredientName": "Rinderschulter",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bcac9dd-40f3-5872-b456-45de8d79f477",
+              "ingredientName": "Instant-Ramen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdaec630-aad3-55d9-b0a7-adb4d2a5d650",
+              "ingredientName": "Pak Choi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2d9c325-2b2f-5158-938a-bdbb63e8b2bc",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46519c23-b9a1-5b5d-b299-15129823c22a",
+              "ingredientName": "Doubanjiang (Chilibohnenpaste)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c427c2d3-5f23-5b6e-b1cf-9fdc252f387d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8947409-424d-57ed-9182-bd45cc5d23df",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb88cf4b-3397-5af5-abf6-7482a04b25c8",
+              "ingredientName": "Sternanis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef4f6936-d8df-5313-9666-a86bd852036f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8a4f929-686f-521b-8c8d-6b54a276342b",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31c3aed4-d20b-5a3a-ba3e-407e2e7292cb",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0be5c96-c627-53b8-a1b2-5f520d1bfe4e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune die Rindfleischstücke an. Gib Knoblauch, Ingwer und Doubanjiang dazu und brate alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge Sojasauce, Brühe, Sternanis und Zucker hinzu. Lass alles zugedeckt 45-50 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerteile das Rindfleisch. Koche die Nudeln. Blanchiere den Pak Choi 2 Minuten in kochendem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Nudeln und Brühe mit Rindfleisch in einer Schale an. Gib Pak Choi, Frühlingszwiebel und etwas Sesamöl darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Chinese-Beef-Noodle-Soup_EXPS_TOHcom24_277604_MD_P2_10_10_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Chinese-Beef-Noodle-Soup_EXPS_TOHcom24_277604_MD_P2_10_10_1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-yaki-udon",
+      "slug": "mfr-sea-yaki-udon",
+      "title": "Japanisches Yaki Udon (gebratene Udon-Nudeln)",
+      "instructions": "Dicke, elastische Udon-Nudeln, im Wok mit Schweinefleisch, Pilzen und Gemüse in einer würzigen Worcestershire-Sojasauce gebraten – ein Klassiker japanischer Izakaya-Kneipen, in 15 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frische, vakuumverpackte Udon kosten $1.50 pro Packung und müssen nicht gekocht werden – gib sie direkt in den Wok.",
+        "Worcestershiresauce ist die geheime, nicht japanische Zutat, die für Restaurantgeschmack sorgt.",
+        "Kohl für $0.50 pro Kopf macht den größten Teil dieses Gerichts aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-belly",
+          "swap": "Hähnchenbrust oder Garnelen"
+        },
+        {
+          "forIngredientId": "worcestershire",
+          "swap": "A1-Steaksauce oder mehr Sojasauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-yaki-udon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Udon",
+        "Yaki",
+        "Wok",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1213,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-yaki-udon/",
+      "components": [
+        {
+          "key": "82df3422-86b5-5f7b-9db2-86583dd426ed",
+          "name": "Zutaten",
+          "servingGrams": 581,
+          "position": 0,
+          "items": [
+            {
+              "key": "8068b15e-01c1-552b-91e8-db689ac3e96e",
+              "ingredientName": "Udon-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d43e1dae-d91e-5aec-bca3-592328a207ea",
+              "ingredientName": "Schweinebauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdd98258-37cf-5e64-ab08-7804c29b989d",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9ccca8e-c551-552a-9ee4-893ef98fdd0d",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11880bf2-5828-5174-bdc6-271089cfb70a",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72994bc9-5342-576c-a3cd-335b62d58cab",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d47e02e7-5eae-512f-8b74-c15dcce484db",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcf4882c-2bf0-565d-842c-5d835aba1552",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46ce88b9-5330-5393-b9f3-9b91fef4b892",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "104bef6f-98bb-5aad-8dc1-d0c5861585ee",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce654c2a-c415-5ef7-be02-6efa66e2b4b9",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45084a7f-fb26-5c8e-a361-55120c21befb",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Worcestershiresauce und Austernsauce zu einer Yaki-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Schweinefleisch, bis es gar ist. Gib Pilze, Kohl und Karotten dazu und brate alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Udon-Nudeln und Sauce dazu und schwenke alles bei hoher Hitze kräftig 3 Minuten im Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere das Gericht mit Sesamöl, Frühlingszwiebel und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2023/01/Yaki-Udon-Pinterest.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2023/01/Yaki-Udon-Pinterest.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-wonton-noodle-soup",
+      "slug": "mfr-sea-wonton-noodle-soup",
+      "title": "Hongkonger Wan-Tan-Nudelsuppe",
+      "instructions": "Zarte Wan Tan mit Schweinefleisch und Garnelen in klarer Ingwer-Sojabrühe mit Eiernudeln und Pak Choi – der Hongkonger Klassiker für zu Hause, in 25 Minuten mit gekauften Teigblättern zubereitet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Teigblätter für Dumplings kosten $2 pro Packung mit 50 Stück – bereite viele Wan Tan zu und friere die übrigen ein.",
+        "Die klassische Füllung besteht aus Schweinehackfleisch und Garnelen – spare nicht am Sesamöl.",
+        "Tiefgekühlte Wan Tan halten sich 3 Monate – bereite gleich viele auf einmal zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchenhackfleisch für eine leichtere Füllung"
+        },
+        {
+          "forIngredientId": "dumpling-wrappers",
+          "swap": "Wan-Tan-Teigblätter (dünner)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-wonton-noodle-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Wan-Tan",
+        "Nudeln",
+        "Suppe",
+        "Hongkong",
+        "Teigtaschen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1214,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-wonton-noodle-soup/",
+      "components": [
+        {
+          "key": "a1a59ec8-535c-5e1b-a5a1-c95b8c3ff026",
+          "name": "Zutaten",
+          "servingGrams": 711.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9dedf84-b659-5e6a-bab2-a7b5da703b56",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1674eb4-4b16-5956-b460-e537cfa68f53",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "966974f8-ee48-5344-891a-905cce2b165d",
+              "ingredientName": "Teigblätter für Dumplings",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62b01869-4ef9-579a-8cd4-427a45cc20ef",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2417851f-085f-58f7-9e83-b3f638f5146e",
+              "ingredientName": "Pak Choi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41a03b53-96ad-5627-91b3-86c8898bc54e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a250f209-59ab-57a0-ac39-6dff4ab44c97",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8acb5223-ac36-55d9-bcfd-da37b9da1906",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24b9a291-52ab-5016-a812-9e750ea19776",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "695d014b-a02d-5f29-a2d6-99c416f027f1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe287d73-94fb-5c7a-b62a-706db4fcc624",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "103f7627-c21b-56e5-8568-4914495e7df5",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische für die Wan-Tan-Füllung Schweinefleisch und fein gehackte Garnelen mit Sojasauce, Sesamöl, Ingwer und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib je 1 TL Füllung auf ein Teigblatt und verschließe es mit etwas Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze die Brühe mit Sojasauce und Austernsauce, bis sie köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Wan Tan 4-5 Minuten und bereite die Nudeln separat zu. Richte Nudeln und Brühe mit 6 Wan Tan, Pak Choi und Frühlingszwiebel in einer Schale an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tasteasianfood.com/wp-content/uploads/2017/04/WT-square-bowl.jpg",
+          "sourcePageUrl": "https://tasteasianfood.com/wp-content/uploads/2017/04/WT-square-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

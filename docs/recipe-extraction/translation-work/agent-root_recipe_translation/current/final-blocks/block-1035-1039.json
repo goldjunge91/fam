@@ -1,0 +1,1166 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-moroccan-harira",
+      "slug": "mfr-moroccan-harira",
+      "title": "Marokkanische Harira-Suppe",
+      "instructions": "Marokkos National-Suppe mit Linsen, Kichererbsen, Tomaten, Lamm oder Hähnchen und warmen Gewürzen wie Zimt, Ingwer und Kurkuma. Sämig, wärmend und besonders sättigend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Harira ergänzt das Fleisch kostengünstig mit pflanzlichem Eiweiß aus Linsen und Kichererbsen.",
+        "Rinderhack bringt schon in kleiner Menge viel Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Lammhack (traditionell) oder für eine vegetarische Variante weglassen"
+        },
+        {
+          "forIngredientId": "red-lentils",
+          "swap": "Braune Linsen (mit längerer Garzeit)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-moroccan-harira",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "Suppe",
+        "Linsen",
+        "gewürzt",
+        "Wohlfühlküche"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1035,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-moroccan-harira/",
+      "components": [
+        {
+          "key": "b6e6b0ba-de36-56ff-ac4b-13fca7bb4376",
+          "name": "Zutaten",
+          "servingGrams": 1086.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a67944c4-c87f-5787-a976-d7f858467fd2",
+              "ingredientName": "Rinderhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e477b46-eff6-547b-b96d-7f9ce78c1351",
+              "ingredientName": "Rote Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "466b2d75-866a-5f7d-a112-b2cd9660e41d",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d93b1f8-4878-5179-a61c-6486dca0b30a",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94d1fb7c-402a-5d05-b3cf-af85108957fc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a0b35fb-d98c-559f-bbce-ab32bf230338",
+              "ingredientName": "Staudensellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4598b49-f03f-58a0-ae47-52ba2b97c2a9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e69420f4-c0f5-5953-8db1-3de6516eb747",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3538e879-53c8-5c26-af42-6f1557505f38",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c861bc5-f908-58d3-ba11-1de58e44e121",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46826bf8-77df-5cde-8146-5b44f3fef8d0",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc499bb6-9b53-57a6-9c6a-f3d932e934ec",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "629fdbf8-26fc-58fe-ac5a-fb2726a17a62",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a057276-65bb-5e18-a624-5189e8e6ac31",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhack mit Zwiebel, Knoblauch und Gewürzen 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomaten, Linsen, Kichererbsen, Sellerie und Brühe dazugeben. 35 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Zitronensaft und Petersilie abschließen. Abschmecken und nach Bedarf nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/EHwrUo8y6ell4iFbTzEjz9ark2g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-moroccan-harira-soup-2394920-Tara-Omidvar-2022-aa389de3819d42d1ad2354d37ef1c9e1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/EHwrUo8y6ell4iFbTzEjz9ark2g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-moroccan-harira-soup-2394920-Tara-Omidvar-2022-aa389de3819d42d1ad2354d37ef1c9e1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-egyptian-koshari",
+      "slug": "mfr-egyptian-koshari",
+      "title": "Ägyptisches Koshari",
+      "instructions": "Ägyptisches Nationalgericht und beliebtes Streetfood: Schichten aus Reis, Linsen und Pasta mit knusprigen Zwiebeln und würziger Tomatensauce. Vollständig vegan und besonders sättigend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koshari ist Ägyptens ultimatives günstiges Gericht und macht eine ganze Familie für wenig Geld satt.",
+        "Die knusprigen Zwiebeln machen Koshari besonders. Lass ihnen beim Karamellisieren genug Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "small-pasta",
+          "swap": "Jede beliebige kleine Pastasorte"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Augenbohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egyptian-koshari",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "ägyptisch",
+        "Reis",
+        "Linsen",
+        "Pasta",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1036,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egyptian-koshari/",
+      "components": [
+        {
+          "key": "21c22eae-14c3-5c65-a377-4873fc2e4dc9",
+          "name": "Zutaten",
+          "servingGrams": 884.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "dce0c23a-5f1c-58d1-869b-9138a7781081",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e290dca-094c-58a5-b08d-ba25ccb974a1",
+              "ingredientName": "Braune Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f86c4bb1-46c0-50cc-aaa6-7042a269efc0",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c55467b0-d637-57e0-b0e4-f383919be719",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69467ca3-c5af-5603-b5ef-2cd22e7daf21",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e2829b8-2d8a-5bef-9e7c-5aca5234d27c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81fb5925-2a2a-525b-a4d9-29269f33a7d0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afd4e601-8ad5-51f4-8695-abf0c556e694",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41b7e9f8-9654-58c5-b447-41efc34ffbda",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f5af095-c8aa-5cca-b6c6-8397934323b3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "436e4cf2-6581-5d9c-a760-90b24adfb60d",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis und Linsen zusammen kochen. Pasta separat kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln in Olivenöl 20 Minuten dunkelgolden karamellisieren. Sie kommen als Topping darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatensauce zubereiten: Tomatensauce mit Knoblauch, Kreuzkümmel, Koriander und Essig 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis und Linsen schichten, dann Pasta und Kichererbsen daraufgeben. Mit Tomatensauce und knusprigen Zwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gradfood.com/wp-content/uploads/2021/06/Koshari-2048x1536.jpg",
+          "sourcePageUrl": "https://gradfood.com/wp-content/uploads/2021/06/Koshari-2048x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-syrian-freekeh-chicken",
+      "slug": "mfr-syrian-freekeh-chicken",
+      "title": "Syrischer Freekeh mit Hähnchen",
+      "instructions": "Rauchiger grüner Weizen (Freekeh), in würziger Brühe mit Hähnchen gegart und mit gerösteten Mandeln und karamellisierten Zwiebeln serviert. Ein festliches syrisches Getreidegericht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Freekeh hat ein nussiges Raucharoma, das kein anderes Getreide bietet. Es lohnt sich, danach in einem Lebensmittelgeschäft aus dem Nahen Osten zu suchen.",
+        "Die karamellisierte Zwiebel verleiht dem Gericht seine Süße. Nimm dir dafür Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "freekeh",
+          "swap": "Bulgur oder Quinoa (mit kürzerer Garzeit)"
+        },
+        {
+          "forIngredientId": "almonds",
+          "swap": "Pinienkerne oder Walnüsse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-syrian-freekeh-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "syrisch",
+        "Getreide",
+        "Hähnchen",
+        "gewürzt",
+        "festlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1037,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-syrian-freekeh-chicken/",
+      "components": [
+        {
+          "key": "a054c97b-a9ac-5713-a174-2597088cf28f",
+          "name": "Zutaten",
+          "servingGrams": 770.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e04da5c-0cde-576a-b239-50c6105a2eb9",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62b8a1d5-60f6-5887-aff7-5f8caa4b9048",
+              "ingredientName": "Freekeh",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9caf779-91fa-5c0a-b123-3b1d6e102821",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0199b05a-9031-5be2-972e-5172e0c603ec",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ce8e7e1-670e-5fb1-b9fc-a7eaa0735351",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adfae07f-30f5-5717-8aa4-71ae26fc7fa8",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "deec0729-82f4-5e03-8406-65862acea0ac",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd478e34-f3fa-5b5f-a25c-99d6c85e78a3",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af5c5a45-6352-5001-a885-11ee777a6a62",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71e93c05-3993-5642-828a-beb59ff90515",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "654ba905-9659-58c5-9ff7-0ffeb415b402",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenoberkeulen pro Seite 4 Minuten anbraten und herausnehmen. Zwiebel in derselben Pfanne 10 Minuten karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch, Piment, Zimt und Kreuzkümmel dazugeben und 1 Minute rösten. Freekeh und Brühe einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen wieder in die Pfanne legen. Abdecken und 25 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mandeln in einer trockenen Pfanne rösten. Freekeh und Hähnchen mit Mandeln und Petersilie servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2022/03/Freekeh-12.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2022/03/Freekeh-12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-levantine-chicken-yogurt-rice",
+      "slug": "mfr-levantine-chicken-yogurt-rice",
+      "title": "Levantinisches Hähnchen mit Reis und Joghurt",
+      "instructions": "Zartes, würziges Hähnchen auf buttrigem Basmatireis, mit einer Knoblauch-Joghurtsauce übergossen und mit gerösteten Mandeln und Petersilie abgerundet. Eine vereinfachte Variante von Mansaf.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Joghurtsauce ist das Geheimnis der levantinischen Küche. Sie kostet fast nichts und verwandelt das Gericht.",
+        "Dies ist die einfache Variante eines Festmahls aus dem Nahen Osten für den Feierabend unter der Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Labneh oder saure Sahne"
+        },
+        {
+          "forIngredientId": "almonds",
+          "swap": "Pinienkerne oder Walnüsse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-levantine-chicken-yogurt-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "levantinisch",
+        "Hähnchen",
+        "Reis",
+        "Joghurt",
+        "festlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1038,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-levantine-chicken-yogurt-rice/",
+      "components": [
+        {
+          "key": "bab3561e-6f4c-5557-be86-4bea2b0cf48c",
+          "name": "Zutaten",
+          "servingGrams": 1030.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b684dc6-2a17-5744-b17d-43e7a875778f",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "526e41cf-04b6-5932-9500-6d7a9f5b76d3",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae85070c-650d-5ac7-9a60-fa2524c7bde3",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd166a43-b0ae-5937-8ab4-17b73a27a3b6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62b6b854-086d-5c9a-8762-274b6962a0ec",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82b364ae-a535-586f-bcb7-2b86e551b556",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a3298bc-3701-588e-9ea9-3e4d119e380e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fc2eb8a-011a-5a2f-b78d-23f2d505fd42",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b202dd6-5f7e-53e3-944c-0ed8262157c7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1874563c-92b8-5647-bae9-e513d9ad84aa",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13789f3c-652f-5dfe-98b7-1bb2dd3fa181",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00266334-0aea-54c2-b2dd-88df65ab4ecc",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen mit Piment, Zimt und Kreuzkümmel würzen. 5 Minuten anbraten, dann 20 Minuten in Brühe köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis in der Hühnerbrühe kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Joghurtsauce erwärmen: Joghurt, 2 Knoblauchzehen, Zitrone und Salz verrühren und vorsichtig erwärmen. Nicht kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen auf Reis servieren, Joghurtsauce darübergeben und mit Mandeln und Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/56a2955a84b9871f2fa6b333/1:1/w_2560%2Cc_limit/EP_01192016_22minuteChickenShawarma_recips.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/56a2955a84b9871f2fa6b333/1:1/w_2560%2Cc_limit/EP_01192016_22minuteChickenShawarma_recips.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-gulf-chicken-machboos",
+      "slug": "mfr-gulf-chicken-machboos",
+      "title": "Hähnchenreis mit Gewürzen aus der Golfregion (Machboos)",
+      "instructions": "Aromatischer Reis nach Art der Golfregion, in gewürzter Hühnerbrühe mit Tomaten, getrockneten Limetten und Safran gegart. Ein Gericht aus dem Arabischen Golf, das es mit Biryani aufnehmen kann.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machboos wird in einem Topf zubereitet. Das spart Abwasch und sorgt dafür, dass der Reis mehr Geschmack aufnimmt.",
+        "Die getrocknete Limette (Loomi) ist optional, sorgt aber für eine authentische Zitrusnote aus der Golfregion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenteile mit Knochen"
+        },
+        {
+          "forIngredientId": "coriander",
+          "swap": "Zusätzlicher Kreuzkümmel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-gulf-chicken-machboos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "emiratisch",
+        "Reis",
+        "Hähnchen",
+        "gewürzt",
+        "festlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1039,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-gulf-chicken-machboos/",
+      "components": [
+        {
+          "key": "07244d73-abc9-5c5d-82f8-236f3077de80",
+          "name": "Zutaten",
+          "servingGrams": 924.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0428d377-a567-5462-abd7-31f067bbdb02",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f98700da-4264-5320-9124-187d67305c7d",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1631960e-8fd9-504f-a1ff-d31419b8a209",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8de9e40c-97ed-5c12-a917-7609d7364e44",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a956aeb1-39d7-52e5-b7c9-a11652bda353",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8aa1fc1-9875-501c-ae74-dcf09ee7bcdb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "704fc9b7-7959-524b-b518-31c5b01bdfe6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce70cb0f-abb6-5727-9629-c90849227b65",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d88dac69-fdb7-575c-bbd8-d927e13f4638",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e662d330-01f3-5547-a60f-207e70830bcb",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "110fff90-7b9e-5086-b94d-dbee73151da3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39f07645-8f37-5d51-9269-bb2398af1209",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69babd10-1582-5de1-b97d-a9a9a4287cb7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen anbraten und beiseitelegen. Zwiebel, Knoblauch und Ingwer mit den Gewürzen 5 Minuten anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomaten und Brühe dazugeben und 20 Minuten köcheln lassen. Hähnchen wieder hineingeben und weitere 15 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen herausnehmen. Gewaschenen Reis in die gewürzte Brühe geben. Abdecken und bei niedriger Hitze 18 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "5 Minuten ruhen lassen. Reis mit Hähnchen und Koriander servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.savoryandsweetfood.com/wp-content/uploads/2015/10/img_8253-0-1.jpg",
+          "sourcePageUrl": "https://www.savoryandsweetfood.com/wp-content/uploads/2015/10/img_8253-0-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

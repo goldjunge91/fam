@@ -1,0 +1,1173 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tartine-cr-me-de-champignons",
+      "slug": "gen-tartine-cr-me-de-champignons",
+      "title": "Tartine mit Champignoncreme",
+      "instructions": "Ein beliebtes französisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Champignons statt spezieller Pilze, um die Kosten niedrig zu halten.",
+        "Ersetze Schlagsahne durch saure Sahne oder griechischen Joghurt für eine günstigere, leicht säuerliche Sauce."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5535,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tartine-cr-me-de-champignons/",
+      "components": [
+        {
+          "key": "1fbe89c0-0b07-59c4-8f11-1e0280b8b9e5",
+          "name": "Zutaten",
+          "servingGrams": 188.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "95a48a12-833a-5ab0-9dee-4350d86f9f9d",
+              "ingredientName": "Baguette",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Laib"
+            },
+            {
+              "key": "0607a39f-47e4-5f83-a259-3f3438710bce",
+              "ingredientName": "Cremini-Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2d408b0b-8059-5f0d-a5d5-4d536031a427",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8272dbcc-3199-5f08-a7e1-7967b65c8250",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2366ddce-4e7d-58ae-8c18-f83ba03ce7ed",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe"
+            },
+            {
+              "key": "a5efe2a7-0b37-5ee7-948b-9bebdf7100e4",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "b58496c0-6d6e-5c65-a5fb-3df016171f98",
+              "ingredientName": "Frischer Thymian",
+              "grams": 1,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d586c510-76ab-5703-9bfa-33a5c1a5776b",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a494b59e-7d46-5b18-9833-12a21497d9c8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            },
+            {
+              "key": "7005608f-9261-5ebb-ac9b-a045d4295767",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette schräg in 1/2 inch dicke Scheiben und röste sie leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Butter in einer Pfanne bei mittlerer bis hoher Hitze und dünste Schalotten und Knoblauch 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geschnittene Pilze dazu und brate sie unter gelegentlichem Rühren 5-6 Minuten, bis sie Flüssigkeit abgeben und leicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere Stufe. Gib Sahne, Dijon-Senf und Thymian dazu und lasse alles 2-3 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche jede geröstete Brotscheibe mit der übrigen 1 Esslöffel Butter. Gib die Pilzcremesauce darauf und garniere mit frischem Schnittlauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/www.unpetitoiseaudanslacuisine.com/wp-content/uploads/2019/01/IMG_2243.jpg?w=3001&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/www.unpetitoiseaudanslacuisine.com/wp-content/uploads/2019/01/IMG_2243.jpg?w=3001&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-birria-estilo-nayarit",
+      "slug": "gen-birria-estilo-nayarit",
+      "title": "Birria nach Nayarit-Art",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie für später ein.",
+        "Getrocknete Chilis sind in Latin-Märkten oft in größeren Mengen günstiger als im Supermarkt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5536,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria-estilo-nayarit/",
+      "components": [
+        {
+          "key": "6fb2851e-2d2b-55ed-a3e8-c1afb837b71c",
+          "name": "Zutaten",
+          "servingGrams": 708.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "83aea13e-8bb2-59cf-9f5f-2bb6298b9965",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "6a3c1d05-8aa1-5729-b332-5671807be4f3",
+              "ingredientName": "Getrocknete Chilis",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f84b84d8-ceda-5fd6-80e4-50abc694d00c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "1e86112f-6fee-59d1-b728-cddebab57afe",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afabb67a-27a8-5717-a59c-eed36292bdae",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "89305343-7c38-51a9-bd33-b32b284b193a",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "57665396-f51c-5c5c-a5e2-ef4d4f8bdfbf",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "2db12dc8-37a8-58a1-90e1-ec59234331f8",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cd1722b4-d1e5-5410-bdcf-3b7c612d6fc3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7db7e5b0-0acf-5484-ae65-d050326b4ca5",
+              "ingredientName": "Tortillas",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b76cbc11-297c-54a6-9264-05dd1c5e4bdf",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze einen großen Topf bei mittlerer bis hoher Hitze und bräune die Rinderschulter rundum kräftig an, insgesamt etwa 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entferne Stiele und Kerne von Guajillo- und Ancho-Chilis. Weiche sie 10 Minuten in heißem Wasser ein, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die weichen Chilis mit Knoblauch, Zwiebel, Tomatenmark, Essig, Oregano und Kreuzkümmel glatt. Seihe die Sauce durch ein feines Sieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das angebratene Rindfleisch zurück in den Topf und gieße Chilisauce und Rinderbrühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze auf niedrig und lasse das Fleisch zugedeckt 2.5 Stunden köcheln, bis es sich leicht zupfen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zupfe das Rindfleisch mit zwei Gabeln auseinander und gib es zurück in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Birria mit Brühe in Schüsseln, bestreue sie mit gewürfelter Zwiebel und Koriander und reiche warme Tortillas zum Dippen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Für Birria-Tacos tauche Tortillas in die heiße Brühe, fülle sie mit gezupftem Fleisch und brate sie in der Pfanne knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/01lNyKDcz944JzNVRukUOkGJWZI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-LEAD-05-cf8274d9a2384d59acdcc9f152dc3256.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/01lNyKDcz944JzNVRukUOkGJWZI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-LEAD-05-cf8274d9a2384d59acdcc9f152dc3256.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-escudella",
+      "slug": "gen-escudella",
+      "title": "Escudella",
+      "instructions": "Ein beliebtes katalanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch; sie sind aromatischer und günstiger.",
+        "Kaufe Gemüse während der Saison; gefrorenes Gemüse eignet sich für dieses Gericht ebenfalls."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Katalanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5537,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-escudella/",
+      "components": [
+        {
+          "key": "c0a6b881-458a-5a4e-bbeb-b38b47ee768c",
+          "name": "Zutaten",
+          "servingGrams": 1094.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "c428fd1f-954b-5c10-a809-6349213a0cd1",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "082a6484-3580-5b1b-938e-82c61b5693e7",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1ce29d79-4f70-5a08-8866-f3bfb8b6788e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "dd5610b1-cb62-5077-a1ff-d595346c8439",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "c8e74bcf-4d29-5481-b3fa-2b9783d6ec86",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 klein Kopf"
+            },
+            {
+              "key": "8a77d368-1837-58d6-8831-d01efd5cc638",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c193af47-34e0-5855-b157-1b9ede185bc4",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 groß"
+            },
+            {
+              "key": "e2792ce6-9445-5571-873f-3c57d1fef9a8",
+              "ingredientName": "Rübe",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "964e4cea-5911-53d6-bdbd-6dc0cebf9048",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "c42474b6-cfb1-590b-8680-13779acd6cb7",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "d9897b74-8d94-54c2-ad57-f05f681fe9c6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 2880,
+              "quantity": 2880,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "12 Tassen"
+            },
+            {
+              "key": "a07f36f7-f978-5462-bef5-5f2185b2c12c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen. Blanchiere Hähnchenschenkel, Schweineschulter und Rinderhaxe 5 Minuten, gieße sie ab und spüle sie kalt ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das blanchierte Fleisch mit frischer Hühnerbrühe, halbierter Zwiebel und Thymianzweigen zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe die Brühe leicht zum Kochen und schöpfe den Schaum ab. Reduziere die Hitze und lasse das Fleisch 1.5 Stunden köcheln, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Chorizo auf, gib sie in die Brühe und lasse sie 10 Minuten mitkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide den Kohl in Spalten, hacke Karotten, schäle und viertle Kartoffeln und würfle die Rüben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Gemüse in den Topf und lasse es 30-40 Minuten köcheln, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löse das Fleisch nach Wunsch von den Knochen und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere Fleisch und Gemüse in tiefen Schüsseln mit Brühe. Reiche knuspriges Brot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/media/cache/thumb_600/bundles/project/images/recipes/4443_1_1721398898.png",
+          "sourcePageUrl": "https://cookaifood.com/media/cache/thumb_600/bundles/project/images/recipes/4443_1_1721398898.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cassoeula",
+      "slug": "gen-cassoeula",
+      "title": "Cassoeula",
+      "instructions": "Ein beliebtes italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinerippchen im Angebot oder an der Fleischtheke.",
+        "Verwende frischen Kohl statt vorgeschnittenen, das ist günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5538,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cassoeula/",
+      "components": [
+        {
+          "key": "c81a363c-513f-5129-957b-b7ae10fa1153",
+          "name": "Zutaten",
+          "servingGrams": 307.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0aa4715d-01cf-564c-9896-41a22390fcbf",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "88cfd3ea-68cd-56f6-89b8-cd9d22109d0d",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 klein Kopf"
+            },
+            {
+              "key": "e0dc9f9c-5530-5cd3-a773-a84d7d863057",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bc4aeef-43f9-5df8-9c5e-f2ad68e670ad",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "9f544ec2-9788-5ca2-9672-bf8ddae9bbcd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "77fbe291-0291-5952-aeb3-f1b8b3da7f13",
+              "ingredientName": "Tomaten",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen)"
+            },
+            {
+              "key": "ff29bb96-b4da-5a47-98de-b14f01aa5184",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ad7c7290-f040-54cb-bcee-ee9744b8f0b8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da1d7b4b-f464-5db3-828d-6e687014502c",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "89357a2b-a48d-5211-8691-d6bea8f11bed",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0030d003-906e-534f-9948-7e93ed0511f0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Schmortopf bei mittlerer bis hoher Hitze. Bräune Schweinerippchen und Wurst rundum etwa 12 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Fleisch heraus und stelle es beiseite. Dünste gewürfelte Zwiebel, Karotten und Sellerie im selben Topf etwa 8 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Tomatenmark dazu und rühre 2 Minuten ständig, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lösche den Topf mit Weißwein ab, löse die angebratenen Reste vom Boden und lasse die Flüssigkeit auf die Hälfte einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Fleisch zurück in den Topf. Füge Tomaten aus der Dose samt Saft und Rinderbrühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze auf niedrig und lasse es zugedeckt 1 Stunde köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hacke den Kohl grob, rühre ihn unter und lasse den Eintopf ohne Deckel weitere 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere heiß in Schüsseln mit knusprigem Brot zum Auftunken der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.aiafood.com/_next/image/?url=https:%2F%2Fbackoffice.aiafood.com%2Fuploads%2Fxxl_cassoeula_la_ricetta_milanese_f6d73c5331.webp&w=1920&q=80",
+          "sourcePageUrl": "https://www.aiafood.com/_next/image/?url=https:%2F%2Fbackoffice.aiafood.com%2Fuploads%2Fxxl_cassoeula_la_ricetta_milanese_f6d73c5331.webp&w=1920&q=80",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tagine-de-cordero",
+      "slug": "gen-tagine-de-cordero",
+      "title": "Lamm-Tajine",
+      "instructions": "Ein beliebtes marokkanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Aprikosen und Datteln aus dem Großgebinde statt abgepackte Ware.",
+        "Lammschulter ist für dieses Schmorgericht deutlich günstiger als Lammkoteletts oder Lammkeule."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5539,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tagine-de-cordero/",
+      "components": [
+        {
+          "key": "080dc409-2638-59f2-8897-45766cd3247e",
+          "name": "Zutaten",
+          "servingGrams": 334.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a0164801-6149-5622-a657-0d372ca8aa8f",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "cca76419-1604-5d43-b8c7-dc0374b249b4",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "8c3e92a3-a9c0-5e6a-ae29-2a1896e4c5a5",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "93f8054f-8a96-54e1-96f6-23ff41ae5be6",
+              "ingredientName": "Medjool-Datteln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "75f4f5d9-a924-5a7d-9ccf-2c661043bd6b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66997e44-be12-5e3d-8083-e085444dc33d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "6978f36f-1dc4-5f78-ac6e-7fa60f8ccae0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "c92729c2-4f02-51bd-b219-d763c8b32ca6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5eb9e978-c324-5d88-9111-711bba3f000f",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "06aaf0ce-c8c5-5493-aa46-61ca4e282cbe",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "6f034920-5dd1-52c5-8f46-dfcf30967361",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "94913d6d-2252-518a-86a7-c851a151447b",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf oder einer Tajine bei mittlerer bis hoher Hitze. Bräune die Lammwürfel portionsweise rundum etwa 10 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Lamm heraus und stelle es beiseite. Dünste gewürfelte Zwiebeln und Knoblauch im selben Topf etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Ingwer, Kreuzkümmel, Zimt und Kurkuma ein und brate alles 1 Minute an, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Lamm zurück in den Topf und füge Hühnerbrühe hinzu. Bringe alles zum Kochen und schöpfe den Schaum ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf ab und lasse das Lamm 1.5 Stunden köcheln, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib getrocknete Aprikosen, Datteln und Honig dazu und lasse alles ohne Deckel weitere 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke ab und passe Salz und Pfeffer nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Tajine mit Couscous oder knusprigem Brot. Garniere nach Wunsch mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.abc.com.py/resizer/RfFD2aHhtgvt6JHeocJfk7vQQ9k=/fit-in/770xorig/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/abccolor/XTFNXTGAU5GOXNG773E73NOUHI.jpg",
+          "sourcePageUrl": "https://www.abc.com.py/resizer/RfFD2aHhtgvt6JHeocJfk7vQQ9k=/fit-in/770xorig/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/abccolor/XTFNXTGAU5GOXNG773E73NOUHI.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

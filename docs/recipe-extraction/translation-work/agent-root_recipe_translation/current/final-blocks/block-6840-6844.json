@@ -1,0 +1,1018 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-whole-hog-plate",
+      "slug": "gen-whole-hog-plate",
+      "title": "Barbecue-Teller mit ganzem Schwein",
+      "instructions": "Ein beliebtes südstaatliches BBQgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter in großen Mengen zu einem reduzierten Preis",
+        "Verwenden Sie Trockenreibe und Soße von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6840,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whole-hog-plate/",
+      "components": [
+        {
+          "key": "f44fd28d-4465-5712-803e-ffc03e778349",
+          "name": "Zutaten",
+          "servingGrams": 228.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2a7f970-7100-571a-a1ea-471ef5326077",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "04b642ae-686e-5287-973a-07acd6818e76",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "b69eb43e-5604-53b3-b96b-ff195c7eb1cb",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f04edbb2-104b-5a48-9a14-34692134e790",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "85cdadb5-515f-5b9b-9bed-6200c2e7891b",
+              "ingredientName": "Tortillachips",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9e4d1267-8223-5d3e-abc6-5950aa7989c5",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "44591433-5819-542f-9d4f-b53f62a1b82f",
+              "ingredientName": "Gurken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hickory-Chips 30 Minuten in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Alle Schweinefleischstücke großzügig trocken einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Räucherofen auf 225 °F einstellen und Holzspäne hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Legen Sie die Schweineschulter auf den Rost und räuchern Sie sie 3 Stunden lang. Fügen Sie dann die Rippchen und den Bauch hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Räuchern Sie alle Stücke weitere 3 Stunden lang weiter, bis die Schulter eine Innentemperatur von 190 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fleisch herausnehmen und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Schulter zerteilen, die Rippen in Scheiben schneiden und den Bauch in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verschiedene Fleischsorten mit Brot und Gurken auf einem Teller anrichten und mit warmer BBQ-Sauce beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5c004e76037f9b5d60b6ca3d/1:1/w_2560%2Cc_limit/bone-in-pork-loin.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5c004e76037f9b5d60b6ca3d/1:1/w_2560%2Cc_limit/bone-in-pork-loin.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-st-louis-ribs",
+      "slug": "gen-st-louis-ribs",
+      "title": "Rippchen nach St.-Louis-Art",
+      "instructions": "Ein beliebtes südstaatliches BBQgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rippchen in Großmärkten, um große Mengen zu sparen",
+        "Mischen Sie Ihr eigenes Trockenreiben, anstatt vorgefertigte Päckchen zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6841,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-st-louis-ribs/",
+      "components": [
+        {
+          "key": "21564228-45ad-50b4-9704-1638486855a3",
+          "name": "Zutaten",
+          "servingGrams": 191.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "e46666af-9221-5cb0-845c-d498539d5aae",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "923f5690-d0ba-5ca5-9019-f86df17256ab",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fc310529-5c1f-5ee7-a3d4-1efd9a12d8da",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5f9b6c6d-926a-5697-9c79-75ea576a619b",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "08706ea2-e7cf-5567-abfd-6fb5202daf54",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2c488bdf-f72b-569f-bb5f-cb04310f3514",
+              "ingredientName": "Apfel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "01dc8378-a0c9-5e82-a441-ef560b14852d",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d82e75ba-cc74-5328-8ce9-5a5d67a6e71c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entfernen Sie die Membran von der Rückseite der Rippen, indem Sie ein Messer darunter schieben und abziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischen Sie braunen Zucker, Paprika, Knoblauchpulver und Pfeffer zu einer Trockenreibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tragen Sie die Trockenmasse gleichmäßig auf beide Seiten der Rippen auf und lassen Sie sie 30 Minuten einwirken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Holzspäne einweichen und Räucherofen auf 250 °F einstellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie die Rippchen auf den Rost und räuchern Sie sie 4–5 Stunden lang, bis sich das Fleisch von den Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Während der letzten Stunde alle 15 Minuten die Rippchen mit BBQ-Sauce bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rippchen herausnehmen und mit zerlassener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zwischen den Knochen schneiden und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/dV8WHPMOUS4bZBOjXgxDBhD82WI=/3997x2660/filters:fill(auto,1)/st-louis-style-ribs-335847-hero-01-bbd172652588410bb862af1e56e3a52e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/dV8WHPMOUS4bZBOjXgxDBhD82WI=/3997x2660/filters:fill(auto,1)/st-louis-style-ribs-335847-hero-01-bbd172652588410bb862af1e56e3a52e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-memphis-wet-ribs",
+      "slug": "gen-memphis-wet-ribs",
+      "title": "Memphis Wet Ribs",
+      "instructions": "Ein beliebtes Memphis BBQgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie eine Soße aus Ketchup, Essig und Gewürzen selbst zu",
+        "Babyrückenrippen im Sonderangebot kaufen und einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6842,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-memphis-wet-ribs/",
+      "components": [
+        {
+          "key": "b9b90321-0aee-5b91-b721-503d49075613",
+          "name": "Zutaten",
+          "servingGrams": 141.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2bfc3db-e0a5-53cf-a112-99d111596e41",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "b3229f5a-eb81-59cc-9602-95a2d07a020a",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8cbb30f5-65e5-5884-adbb-454c4e6c5421",
+              "ingredientName": "Paprika",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "f0a797ef-dff7-5906-bcce-72f43293f093",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Esslöffel"
+            },
+            {
+              "key": "d6965018-9baf-55f6-b686-7699694b382e",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4fab5bed-b6cf-55ac-8c83-70bba61d5353",
+              "ingredientName": "Tortillachips",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "bc8affe4-f917-527f-9785-9d11d61e2968",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c9dea899-9df4-5180-96ec-60b0489e067f",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entfernen Sie die Membran von den Rippen und reiben Sie sie trocken mit braunem Zucker, Paprika, Cayennepfeffer und Knoblauchpulver ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lassen Sie die Rippchen 30 Minuten lang bei Zimmertemperatur einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stellen Sie den Räucherofen auf 250 °F ein und fügen Sie eingeweichte Hickory-Chips hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Rippchen auf den Rost legen und 4 Stunden lang räuchern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "BBQ-Sauce mit Apfelessig vermischen, um eine dünne, feuchte Sauce zu erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Während der letzten Stunde des Räucherns alle 15 Minuten die Rippchen großzügig mit feuchter Soße bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entfernen Sie die Rippen, wenn sich das Fleisch 1/4 Zoll von den Knochen zurückzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Dippen mit extra feuchter Soße als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5b842b12dd4ec8727d559f1e/1:1/w_2560%2Cc_limit/Air%2520Fry%2520Mephis%2520Ribs%252008272018.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5b842b12dd4ec8727d559f1e/1:1/w_2560%2Cc_limit/Air%2520Fry%2520Mephis%2520Ribs%252008272018.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-chicken-quarters",
+      "slug": "gen-smoked-chicken-quarters",
+      "title": "Geräucherte Hähnchenviertel",
+      "instructions": "Ein beliebtes südstaatliches BBQgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenviertel sind günstiger als Hähnchenbrust",
+        "Kaufen Sie es in großen Mengen und frieren Sie es für mehrere Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6843,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-chicken-quarters/",
+      "components": [
+        {
+          "key": "70fc7e67-dcec-5585-9216-11a61cb5b574",
+          "name": "Zutaten",
+          "servingGrams": 173.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a9e4c74-f991-5b7f-b861-00c56d32ad71",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück"
+            },
+            {
+              "key": "1deae204-2bcb-5d20-9cce-b39ff6e8d006",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2cd18e59-4560-5b1a-8489-7a40ef0bfd1d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "aa067cbc-50d9-559c-9bc8-1bf7c85cb441",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a02ec8f6-fcaa-509b-aabb-9d443c36e846",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Esslöffel"
+            },
+            {
+              "key": "56e2862f-9e05-552d-9262-b397be6dbceb",
+              "ingredientName": "Tortillachips",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bdba260a-655a-5db5-aa95-d885c6f2ce2b",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "def36724-439d-51fc-b8e0-9e38f685fbd6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenviertel mit Papiertüchern trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen mit Olivenöl einreiben und Salz, Pfeffer, Paprika und Knoblauchpulver auftragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stellen Sie den Räucherofen auf 225 °F ein und fügen Sie eingeweichte Eichenholzspäne hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Legen Sie das Hähnchen mit der Haut nach oben auf den Rost und räuchern Sie es 2 Stunden lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit BBQ-Sauce bestreichen und weitere 30 Minuten räuchern, bis die Innentemperatur 165 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Herausnehmen und 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit zusätzlicher Soße als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/65/d2/d7/65d2d73d446083531804cd237c368ac6.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/65/d2/d7/65d2d73d446083531804cd237c368ac6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-short-ribs",
+      "slug": "gen-beef-short-ribs",
+      "title": "Rinderrippchen",
+      "instructions": "Ein beliebtes südstaatliches BBQgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Chuck Short Ribs statt erstklassiger Stücke",
+        "Verwenden Sie hausgemachtes Trockenreiben anstelle von Gewürzpäckchen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6844,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-short-ribs/",
+      "components": [
+        {
+          "key": "1fef65ee-9529-5c3f-bf94-a3a69b80848d",
+          "name": "Zutaten",
+          "servingGrams": 250.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "42199648-6378-50c8-b0d4-8cd42a270c2e",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "e648fd7a-6488-5e95-a02c-0aaab7af8671",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f1724c04-41df-58f1-96b5-d2c9806514a8",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "36f12419-e218-55af-b836-76deb070754b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cb3ec11d-feb1-5c7e-bfb5-866c74d207be",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "29206bed-fbfc-5d0f-b279-132f65128089",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Esslöffel"
+            },
+            {
+              "key": "98ebff12-d377-5abe-8422-a2b7662fe867",
+              "ingredientName": "Tortillachips",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "b9e94442-3f15-565e-8930-c71b64817b65",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f5320a58-aee6-5c26-8ca4-5b86255e8b64",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie überschüssiges Fett von den kurzen Rinderrippen ab und lassen Sie etwa 0.25 Zoll übrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Braunen Zucker, Paprika, schwarzen Pfeffer, Knoblauchpulver und Zwiebelpulver zu einer trockenen Mischung verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tragen Sie den Rub großzügig auf alle Seiten der Rippen auf und lassen Sie ihn 1 Stunde lang einwirken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stellen Sie den Räucherofen auf 225 °F ein und fügen Sie eingeweichte Hickory-Chips hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Rippchen auf den Rost legen und 4 Stunden lang räuchern, dabei alle 30 Minuten Rinderbrühe aufgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Während der letzten Stunde alle 15 Minuten die Rippchen mit BBQ-Sauce bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Rippchen sind gar, wenn sich das Fleisch zurückzieht und ein Zahnstocher leicht durchsticht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Herausnehmen und heiß mit extra Soße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/RbGryEhdRGrnPy7x_J3Bj04c70M=/6016x3919/filters:fill(auto,1)/grilled-beef-short-ribs-recipe-101013-Hero-5bb388604cedfd0026c32d91.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/RbGryEhdRGrnPy7x_J3Bj04c70M=/6016x3919/filters:fill(auto,1)/grilled-beef-short-ribs-recipe-101013-Hero-5bb388604cedfd0026c32d91.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

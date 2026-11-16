@@ -1,0 +1,1031 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53292",
+      "slug": "tmdb-53292",
+      "title": "Piernik (polnischer Lebkuchen)",
+      "instructions": "Polnisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2080,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53292/",
+      "components": [
+        {
+          "key": "f15f4145-72de-57f6-86d2-2d8b6ac304c7",
+          "name": "Zutaten",
+          "servingGrams": 200.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "888090ed-f6e8-51b3-b576-0b0deef8031e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "097c8af3-a206-50e9-8e69-dd41075bd4d8",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d3fcfe1-76a0-557b-b96b-45efa2aaed6e",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9277a2e7-e9f5-5f15-8945-cfb5062f8ad1",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "442363b0-ac60-5b44-9869-fddd6086c9ba",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3820e737-2d69-5a59-af3f-ccda706bbd70",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30eac895-e828-5f02-b801-4bdcd67ee493",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64ec79c7-d3a7-531e-9fab-4dace27e22bf",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38cd4778-11d3-54c5-9a3e-5e55a31d9365",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b9dcec5-b6e1-5a26-992e-161e34077e65",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63958977-aa14-5dc3-afcd-f2f48b17f1f2",
+              "ingredientName": "Marmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb6696c1-d3a4-5463-b0da-182c7b16116b",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a9e83b4-9c73-59df-9398-4a6986c4cc26",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 160C/140C Umluft/Gasstufe 3 erhitzen. Boden und Seiten einer tiefen Kuchenform von 20cm einfetten und mit Backpapier auslegen. Honig, Zucker und Butter in einem mittelgroßen Topf bei mittlerer Hitze schmelzen. Vom Herd nehmen und abkühlen lassen. Mehl und Gewürze in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sobald die flüssigen Zutaten abgekühlt sind, Eier einrühren. Über die trockenen Zutaten gießen und zu einem glatten Teig verquirlen. Nicht zu lange rühren, sonst kann der Kuchen trocken werden. Teig in die vorbereitete Form gießen und 50–55 Minuten backen oder bis er aufgegangen ist und ein in die Mitte gesteckter Spieß sauber herauskommt. Kuchen 20 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter stürzen und vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach dem Abkühlen den Kuchen mit einem großen Sägemesser in 3 Böden schneiden. Marmelade auf den unteren 2 Böden verstreichen, Kuchen wieder zusammensetzen und beiseitestellen, während die Glasur zubereitet wird. Sahne, Schokolade und Honig in einem mittelgroßen Topf bei niedriger bis mittlerer Hitze erwärmen, bis die Schokolade geschmolzen und die Mischung glatt und gießfähig ist. Kuchen auf ein Kuchengitter über einem mit Backpapier ausgelegten Blech stellen und mit Glasur übergießen, sodass der ganze Kuchen bedeckt ist. Mit einem Fischheber vorsichtig auf eine Servierplatte setzen und Glasur fest werden lassen. Nach Wunsch mit etwas essbarem Goldstaub dekorieren. Ohne Glasur hält sich der Kuchen bis zu 5 Tage. Mit Glasur innerhalb von 3 Tagen genießen; im Kühlschrank aufbewahren, vor dem Servieren herausnehmen und bei Zimmertemperatur essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/kwmdk41764120884.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/kwmdk41764120884.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53019",
+      "slug": "tmdb-53019",
+      "title": "Pierogi (polnische Teigtaschen)",
+      "instructions": "Polnische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2081,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53019/",
+      "components": [
+        {
+          "key": "1671fd9d-a5c7-5655-acb9-dcb01e30d3fa",
+          "name": "Zutaten",
+          "servingGrams": 424.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "2032bbb0-9c99-583d-b8bd-cd60df8d5626",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06bf9993-3772-5077-855d-ec0eb5c59052",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "776fb461-9460-5348-8598-eda00a96ad26",
+              "ingredientName": "Sauerkraut",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d43d76b3-3a55-545c-9865-412cbf4f63f3",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5fb6a3f-e9a3-5e8c-b4c2-0cff8cdef0ea",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a12a7f0-034b-5094-892c-9dead7fdcfd2",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96a20abf-30b0-5615-a4e6-37357f1b04b4",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41e8e090-1afd-5ef7-98eb-d8206623ab40",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f428f7b-9c69-50bb-8b0f-b3069830830a",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Sauerkrautfüllung Butter in einer Pfanne bei mittlerer Hitze schmelzen. Zwiebel einrühren und etwa 5 Minuten glasig braten. Abgetropftes Sauerkraut dazugeben und weitere 5 Minuten garen. Mit Salz und Pfeffer abschmecken und zum Abkühlen auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Kartoffelpüreefüllung Butter in einer Pfanne bei mittlerer Hitze schmelzen. Zwiebel einrühren und etwa 5 Minuten glasig braten. Unter das Kartoffelpüree rühren und mit Salz und weißem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für den Teig Eier und saure Sahne glatt schlagen. Mehl, Salz und Backpulver vermischen und unter die Sauerrahmmischung rühren, bis ein Teig entsteht. Auf einer leicht bemehlten Fläche kneten, bis der Teig fest und glatt ist. Halbieren, eine Hälfte 1/8 inch dick ausrollen und mit einem Ausstecher Kreise von 3 inch ausschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeweils einen kleinen Löffel Kartoffelpüreefüllung in die Mitte eines Kreises geben. Ränder mit Wasser befeuchten, zusammenklappen und mit einer Gabel zusammendrücken, um sie zu verschließen. Mit dem übrigen Teig und der Sauerkrautfüllung wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen großen Topf mit leicht gesalzenem Wasser zum Kochen bringen. Pierogi dazugeben und 3 bis 5 Minuten kochen oder bis sie an die Oberfläche steigen. Mit einer Schaumkelle herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/45xxr21593348847.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/45xxr21593348847.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52837",
+      "slug": "tmdb-52837",
+      "title": "Puttanesca mit Sardinen",
+      "instructions": "Italienisches Nudelgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "pasta"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2082,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52837/",
+      "components": [
+        {
+          "key": "0b962a6b-a74e-5b83-88aa-5df83d8ebcbc",
+          "name": "Zutaten",
+          "servingGrams": 124.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca135cb0-c45f-52fa-92a2-627105e6310f",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd29c4b7-1cd6-5e1e-9550-4a9c123e6842",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e56e9975-b412-5b43-8cb8-07550f1079f2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ed42e42-ef19-5d3d-ab23-fc36d2899002",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35080c7e-009a-5e3c-96d1-1c70e103a55f",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b2d5bf7-7f2c-53b4-80a5-5c12f7c61555",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4310051b-bfae-5691-84bf-5adbfa1a9366",
+              "ingredientName": "Sardinen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e304ec2d-828a-545f-b389-e356e964fd9d",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca6087c0-43de-54f4-bdc4-60f11c9c8a3b",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta nach Packungsanleitung kochen. Öl in einer beschichteten Pfanne erhitzen und Zwiebel, Knoblauch und Chili 3–4 Minuten weich braten. Tomatenpüree einrühren und 1 Minute garen, dann Sardinen samt Sauce dazugeben. Unter Zerteilen des Fisches mit einem Holzlöffel garen, Oliven hinzufügen und einige Minuten weitergaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pasta abgießen und mit 2–3 EL Kochwasser in die Pfanne geben. Alles gut vermengen, auf Teller verteilen und mit Parmesan bestreut servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/vvtvtr1511180578.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/vvtvtr1511180578.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53039",
+      "slug": "tmdb-53039",
+      "title": "Piri-Piri-Hähnchen mit Krautsalat",
+      "instructions": "Portugiesisches Hähnchengericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "portugiesisch",
+        "hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2083,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53039/",
+      "components": [
+        {
+          "key": "985c2133-afa7-5abe-bb2c-c79683f9359a",
+          "name": "Zutaten",
+          "servingGrams": 514.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "be2e050c-91dd-5e85-a1f2-92ec3285f0d5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89e0e69e-dd18-53ec-938c-471e4d9f6b66",
+              "ingredientName": "Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "639942a7-855e-531e-8343-c0d4a781e47e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af6d848c-559c-5962-a340-57b4ce73f173",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98ae9ebc-7a58-5eb4-83e1-7a1f46c5535f",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4eb3789a-6007-56fc-83ee-71e484436ba1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb0f4053-45ac-5095-b3da-05c2fc50c8bb",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90341012-4913-5cdb-ac43-e491d4f38e9a",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef578030-ab2f-51b0-8c63-5ed30704223b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98ea24e8-32e4-58d2-8035-8a46bfe7ca92",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a33d4d8f-8880-54e2-87bb-b904ce88515a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90ecd7fe-b0cc-5e54-8558-e3dffd58cd8a",
+              "ingredientName": "Rote Bete",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8e226c0-faf1-5b16-84a9-5e4bd5d5ad06",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27f1d85d-8983-545d-86df-3f3cb90a6298",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73f1e516-0cdc-5d22-86eb-5a0022cbecb5",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3f9e912-907b-5503-845b-f2ea58f75922",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Alle Zutaten für die Marinade in einer kleinen Küchenmaschine pürieren. Marinade auf das Hähnchen reiben und 1 Stunde bei Zimmertemperatur ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backofen auf 190C/Umluft 170C/Gasstufe 5 erhitzen. Hähnchen in einen Bräter legen und 1 Stunde 20 Minuten garen. Locker mit Folie abdecken und 20 Minuten ruhen lassen. Währenddessen die Zutaten für den Krautsalat vermischen und würzen. Hähnchen mit Krautsalat, Pommes und Würzsaucen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/hglsbl1614346998.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/hglsbl1614346998.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53293",
+      "slug": "tmdb-53293",
+      "title": "Pistazienkuchen",
+      "instructions": "Polnisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2084,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53293/",
+      "components": [
+        {
+          "key": "1f1e56b2-725e-511a-8101-fbdc78a93860",
+          "name": "Zutaten",
+          "servingGrams": 308.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "a98f6aa8-abea-5015-b42f-8f2ab91064a1",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bce0e7f6-998f-5302-b26c-cc347754eae2",
+              "ingredientName": "Pistazien",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bf4cee7-e20b-5949-977e-e1484f5b32f9",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36f708b6-8a49-5ccd-9ffd-4d07e2a47044",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "861c2ef5-9ba4-5f24-a60d-6a8ee2f7b305",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7ec39e3-9902-5cdf-a5fe-36d5e0fa4106",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4798a408-5377-57e2-b9aa-222e6e2817b3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1740d81c-4fe6-5451-b5a5-500b57ddbabe",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d1b4d24-4ba5-5624-92c7-e5184215a21a",
+              "ingredientName": "Mascarpone",
+              "grams": 226.8,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e1e7106-eaf7-5a79-8720-916a7eaa410e",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "551b88e5-b175-5a23-8ac5-908c37262247",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e556d55e-e37a-5ccc-817c-33e7f302afbc",
+              "ingredientName": "Himbeeren",
+              "grams": 170.1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0adf16f1-65ed-5525-859f-fa3ff491e00a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 180C/160C Umluft/Gasstufe 4 erhitzen. Springform von 23cm einfetten und auslegen. 150g Pistazien in einer Küchenmaschine fein mahlen. In eine Schüssel geben und Mehl, Backpulver und eine Prise Salz einrühren. Butter und Zucker in einer separaten Schüssel etwa 5 Minuten hell und luftig aufschlagen. Eier einzeln dazugeben und nach jeder Zugabe 1 Minute gut aufschlagen. Vanille einrühren und die Mehlmischung vorsichtig unterheben. Teig in die vorbereitete Form geben und 35–40 Minuten backen, bis ein in die Mitte gesteckter Spieß sauber herauskommt. In der Form auf einem Kuchengitter vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen Puderzucker in eine Schüssel sieben, Mascarpone, Schlagsahne und Pistazienpaste dazugeben und gut verrühren. 20–30 Minuten im Kühlschrank kühlen, bis die Creme dick genug zum Aufstreichen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgekühlten Kuchen mit einem Sägemesser waagerecht halbieren, sodass zwei Böden entstehen. Unteren Boden auf eine Platte oder einen Tortenständer legen und großzügig mit Pistaziencreme bestreichen. Eine großzügige Handvoll Himbeeren darauf verteilen, sodass der Kuchen bedeckt ist. Zweiten Boden aufsetzen und Oberseite sowie Seiten mit der übrigen Creme bestreichen. Mit den restlichen Himbeeren, Pistazien und Limettenabrieb garnieren. In einem luftdichten Behälter gekühlt zwei Tage haltbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/xvgpng1764121726.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/xvgpng1764121726.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

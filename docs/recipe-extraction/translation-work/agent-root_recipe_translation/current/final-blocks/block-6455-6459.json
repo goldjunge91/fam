@@ -1,0 +1,1113 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-rinderzunge-mit-kapernso-e",
+      "slug": "gen-rinderzunge-mit-kapernso-e",
+      "title": "Rinderzunge mit Kapern-Sauce",
+      "instructions": "Sächsisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderzunge, wenn sie bei Spezialmetzgern im Angebot ist",
+        "Bewahren Sie die Kochbrühe auf, um sie als Brühe für andere Gerichte zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sächsisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6455,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rinderzunge-mit-kapernso-e/",
+      "components": [
+        {
+          "key": "0dc59058-dab5-54a4-84bc-66d07b60224f",
+          "name": "Zutaten",
+          "servingGrams": 355.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "005ce7d7-729f-52bd-bc00-5aa74a0d263d",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "c08b6bee-4722-5af6-ac40-d26793834abb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "eac90a75-e0cf-59c3-b8c3-2d2fa3b37c7d",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddecfe0a-54fa-54fa-8266-aefb99587ef8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c164d425-fcaf-5d3a-b718-08a01a501fad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9636f439-f6d3-5217-a31e-eab4434eea1b",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e7e9f362-7788-548e-86e1-b96a6755d174",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6b07b7fc-e478-5286-9438-eac47556d449",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0a6208c7-04cb-5767-a457-56c2a6a90eb5",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ac61fb85-237d-590c-a1f4-9032fe7c4a7b",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5968bd17-1fb9-54d6-a9c0-13e284840f78",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderzunge mit Zwiebeln, Karotten, Lorbeerblatt und Salz in einen großen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit Wasser bedecken und zum Kochen bringen, dann die Hitze reduzieren und 2.5 Stunden köcheln lassen, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Zunge aus der Brühe nehmen, etwas abkühlen lassen und dann die Außenhaut mit einem Messer abziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Zunge in 0.25 Zoll dicke Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Machen Sie Mehlschwitze, indem Sie Butter schmelzen und Mehl 2 Minuten lang einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rinderbrühe langsam einrühren, um Klumpen zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kapern, Senf und Zitronensaft hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die in Scheiben geschnittene Zunge zur Soße geben und vor dem Servieren erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.grillsportverein.de/forum/attachments/20220213_181852-jpg.2756464/",
+          "sourcePageUrl": "https://www.grillsportverein.de/forum/attachments/20220213_181852-jpg.2756464/",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-s-chsischer-erd-pfelsuppe",
+      "slug": "gen-s-chsischer-erd-pfelsuppe",
+      "title": "Sächsische Erdäpfelsuppe",
+      "instructions": "Sächsisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln günstiger in großen Säcken",
+        "Um Geld zu sparen, verwenden Sie selbstgemachte Gemüsebrühe oder Brühwürfel"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sächsisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6456,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-s-chsischer-erd-pfelsuppe/",
+      "components": [
+        {
+          "key": "4be9d2e1-82b7-5f0e-b728-f6398e8116e3",
+          "name": "Zutaten",
+          "servingGrams": 454.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ce34d85-501b-5b72-abcd-f7787d8798ad",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6db3fda1-6392-5ea0-a29f-6d79d0478bac",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "c7eb9046-9bc1-5f7d-b0d3-e8dbc3f91e79",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d70cfe12-5e6a-52ad-bca1-7b084560df76",
+              "ingredientName": "Kümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b57dcf34-092f-5920-9164-49535b1d5f13",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "af347ce1-f00e-5b17-becf-2acb048463e3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d1df2401-fed4-566d-823d-51e44d0d5cac",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "753b3aa5-d8f4-5597-9318-79f72441eab6",
+              "ingredientName": "Frischer Majoran",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "69c2fe1b-5243-5fa1-b90e-5a18a215211a",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "60cb7364-e7ca-57c7-a14d-96209b33fafd",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und in 0.5 Zoll große Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel würfeln und in Butter anbraten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln, Gemüsebrühe, Kümmel, Salz, Pfeffer und Majoran hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 20 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sauerrahm vorsichtig einrühren und erhitzen, ohne zu kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und nach Bedarf würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schüsseln füllen und mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.salzburgschmeckt.at/sites/default/files/styles/header_element_image_high_x2/public/shared-recipes/shared_recipe_1705996420.jpg.webp?itok=jAIg9E67",
+          "sourcePageUrl": "https://www.salzburgschmeckt.at/sites/default/files/styles/header_element_image_high_x2/public/shared-recipes/shared_recipe_1705996420.jpg.webp?itok=jAIg9E67",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quarkkeulchen",
+      "slug": "gen-quarkkeulchen",
+      "title": "Quarkkeulchen",
+      "instructions": "Sächsische Quarkküchlein, die warm mit Zimtzucker serviert werden.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Ricotta im Sonderangebot, wenn kein Quark verfügbar ist",
+        "Zur Abwechslung können Sie anstelle von Rosinen getrocknete Preiselbeeren oder Johannisbeeren verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sächsisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6457,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quarkkeulchen/",
+      "components": [
+        {
+          "key": "ae65edb0-fa58-5772-a750-835f53aaa3ab",
+          "name": "Zutaten",
+          "servingGrams": 111.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "85eb7c54-56cf-5647-b2d8-250e99d8a176",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "df5f2938-07ff-5f97-a9b8-06c580ec6a39",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa81b5e8-dd6f-551a-80d7-57b70e8a3354",
+              "ingredientName": "Allzweckmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "3549b8ca-879d-5ac0-958a-fb94d2303d0d",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9114c99e-d57f-52cf-bdef-72d9dc93e658",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "bddd166a-42c6-56d9-8205-99272460c131",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b69af0d3-5d69-5960-8c18-6439e22a6c67",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "447d333a-d454-5f04-ab89-83ac78e3ac30",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Bedarf"
+            },
+            {
+              "key": "12b2fccc-a250-543a-8c21-282f4a041dda",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "99d7ecae-d8d9-5ccd-92bc-9268ada3752a",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Quark, Eier, Mehl, Zucker, Salz und Vanille in eine Schüssel geben und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rosinen vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer Pfanne auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie einen Löffel Teig in das heiße Öl und braten Sie ihn 2-3 Minuten pro Seite, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Schaumlöffel herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Puderzucker und Zimt vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warme Quarkkeulchen noch warm mit der Zimt-Zucker-Mischung bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/8wVAP2xp2R-P_YEnMAsvm60AsUA=/3840x0/filters:quality(85)/images.kitchenstories.io/communityImages/80652149d0c1bc08a5c22bc150d5cd71_d7f00612-2de7-499f-89a2-93b7bfbeeb79.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/8wVAP2xp2R-P_YEnMAsvm60AsUA=/3840x0/filters:quality(85)/images.kitchenstories.io/communityImages/80652149d0c1bc08a5c22bc150d5cd71_d7f00612-2de7-499f-89a2-93b7bfbeeb79.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-s-chsischer-stollen",
+      "slug": "gen-s-chsischer-stollen",
+      "title": "Sächsischer Stollen",
+      "instructions": "Sächsischer Stollen mit Rosinen, Mandeln und Marzipan.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stellen Sie aus Zitrusresten Ihre eigene kandierte Schale her",
+        "Kaufen Sie Nüsse und Trockenfrüchte aus Großbehältern, um zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sächsisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6458,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-s-chsischer-stollen/",
+      "components": [
+        {
+          "key": "87538084-c50a-5d85-bcf8-d72c2b4d52ff",
+          "name": "Zutaten",
+          "servingGrams": 426.12,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad87839f-baba-5b45-bcde-31122b926fc1",
+              "ingredientName": "Allzweckmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "ba8eee79-c8b1-52be-870d-ece4d9671128",
+              "ingredientName": "Instant-Hefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "c8f2a95a-be1e-5df4-9335-0bcbd914fd93",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "fac94f04-b7ff-5b65-8911-52c2b0ffeb4b",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "38314117-21f0-59f0-ab06-a03886baf917",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f868ab7a-e1d4-5618-a241-f689996149c7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1faa43d4-1333-5fcc-babc-471854bd43b6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3d222003-0145-596f-8785-ca6308cb0c03",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d63ad3ed-4dd2-5ad9-a6fa-7a7f857f3110",
+              "ingredientName": "Mandeln",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4b030929-4776-5b03-8e60-a773753bfe07",
+              "ingredientName": "Kandierte Zitrusschale",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b94ab32d-0c52-59e1-9035-2feaa450c93c",
+              "ingredientName": "Marzipan",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe mit warmer Milch vermischen und 5 Minuten stehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker schaumig rühren, dann die Eier-Hefe-Mischung hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl und Salz unterheben, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "10 Minuten lang kneten, dann 1.5 Stunden gehen lassen, bis sich der Teig verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rosinen, Mandeln und kandierte Zitrusschalen unter den Teig mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Formen Sie den Teig zu einem Rechteck und legen Sie den Marzipanblock in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Teig über das Marzipan falten und zu einem großen ovalen Laib formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Backpapier legen und 1 Stunde gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bei 375 °F 50–60 Minuten backen, bis der Stollen goldbraun ist und beim Klopfen hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2023/12/stollen-1-31-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2023/12/stollen-1-31-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-letscho",
+      "slug": "gen-letscho",
+      "title": "Letscho",
+      "instructions": "Sächsisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Paprika, wenn sie im Angebot sind, und frieren Sie sie für später ein",
+        "Verwenden Sie Tomaten aus der Dose, wenn frische Tomaten teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "sächsisch",
+        "Abendessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6459,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-letscho/",
+      "components": [
+        {
+          "key": "79bbada7-da24-5459-aeb3-b50943d4b122",
+          "name": "Zutaten",
+          "servingGrams": 262.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "94ca5dee-2465-5844-956b-f7352f8be106",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "a2177616-0c22-58fb-bfbb-c9f3c7e65d59",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "3690535e-1a01-57b4-9093-ba3881b2227e",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c30c27ec-3db2-51ea-91d0-bf1b03f9ff14",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c5a8594a-e61d-559a-b59e-45ac38f78023",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bd0c2452-9c8e-5723-8284-082b231726b8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f2bdf6b8-a8e6-5094-9e80-dd4dbc39bb54",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Paprika entkernen und in Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln in Ringe schneiden und Knoblauch fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem großen Topf erhitzen und Zwiebeln und Knoblauch anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Paprika hinzufügen und 5 Minuten kochen lassen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomaten würfeln und mit Paprika, Salz und Pfeffer in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ohne Deckel 20–25 Minuten köcheln lassen, bis die Paprika weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Je nach Geschmack würzen und heiß oder warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://jewishviennesefood.com/wp-content/uploads/2025/07/Viennas-Traditional-Vegan-WFPB-Hungarian-Lecho-served-traditionally-with-parsley.jpg",
+          "sourcePageUrl": "https://jewishviennesefood.com/wp-content/uploads/2025/07/Viennas-Traditional-Vegan-WFPB-Hungarian-Lecho-served-traditionally-with-parsley.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

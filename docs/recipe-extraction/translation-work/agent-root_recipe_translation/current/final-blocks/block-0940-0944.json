@@ -1,0 +1,1093 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-miso-glazed-salmon-bowl",
+      "slug": "mfr-miso-glazed-salmon-bowl",
+      "title": "Reisschüssel mit Miso-Lachs und Reis",
+      "instructions": "Klassischer, japanisch inspirierter Lachs mit Miso-Glasur auf weißem Reis, dazu eingelegte Gurke und Sesamspinat. Eine einfache, schöne Schüssel mit kräftigem Umami-Geschmack.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schnell eingelegte Gurke braucht nur 5 Minuten und verleiht dem Gericht eine Frische wie im Restaurant.",
+        "Die Miso-Glasur besteht aus Sojasauce, Mirin und Honig. Das sind alles Vorratszutaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mirin",
+          "swap": "Reisessig mit 1 TL Zucker verwenden."
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tofu in derselben Glasur marinieren und für eine vegane Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-miso-glazed-salmon-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Schüsselgericht",
+        "Meeresfrüchte",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 940,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-miso-glazed-salmon-bowl/",
+      "components": [
+        {
+          "key": "58f66141-33ef-5fc4-b4f5-db5fa65d4f12",
+          "name": "Zutaten",
+          "servingGrams": 930,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c1fbe30-b8fd-5cc4-a34c-5d37600d17bd",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8f8c9c0-974b-5423-8b0e-db0b8ad27694",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f76fa706-0a5b-55d0-95b5-c333b56af4e6",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58888e31-7d8a-50f6-8ca9-34518a7762da",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68177ef1-2065-54a6-b72f-ee9517d66c34",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32d56276-a871-5609-9161-6719c17aa563",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81f57ffa-fa59-5403-9757-eece3312f94a",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d74dcff0-0423-557b-b2c3-a09c361f9b3b",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91875b6f-c841-5e1a-ad33-8f9ce691fa2f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "138ddee4-28d2-50c5-9dd1-d8ed86d10a0c",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15ea6ec1-a3b8-57ab-b8cc-5ef0df6cc5d5",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d676dac3-d0d1-5dd5-a135-af06f44d0530",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da65be26-4424-5b7d-a28d-aa82915f41c5",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere den Lachs 10 Minuten in Sojasauce, Mirin, Honig und Ingwer. Grille ihn oder backe ihn bei 400°F 12–14 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare den Reis. Bereite schnell eingelegte Gurke zu: Schneide sie dünn und vermische sie mit Essig und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den Spinat in Sesamöl zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Reis, Sesamspinat, Miso-Lachs, eingelegter Gurke, Frühlingszwiebeln und Sesamsamen an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/xUZjbmfIjPonzap9gME4-MdAtaw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Miso-Salmon-LEAD-6-599f7d68d4d0430598e9d0a664329dce.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/xUZjbmfIjPonzap9gME4-MdAtaw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Miso-Salmon-LEAD-6-599f7d68d4d0430598e9d0a664329dce.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-egg-rice-bowl",
+      "slug": "mfr-chicken-egg-rice-bowl",
+      "title": "Kraft-Reisschüssel mit Hähnchen und Ei",
+      "instructions": "Gegrillte Hähnchenscheiben und zwei weich gekochte Eier auf braunem Reis mit zusammengefallenem Spinat und Soja-Sesam-Guss. Die einfachste und verlässlichste eiweißreiche Schüssel im Buch.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen und Eier zusammen sind eine der günstigsten verfügbaren Kombinationen mit viel Eiweiß.",
+        "Brauner Reis aus dem Großgebinde kostet etwa ~$0.27 pro Tasse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Weißen Reis verwenden, der nur halb so lange zum Garen braucht."
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Tofu für eine vegane Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-egg-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüsselgericht",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 941,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-egg-rice-bowl/",
+      "components": [
+        {
+          "key": "3815fcdf-9fd8-5bf8-9b9d-595884cddf3b",
+          "name": "Zutaten",
+          "servingGrams": 733,
+          "position": 0,
+          "items": [
+            {
+              "key": "93066920-9aeb-5758-a453-2cbab8e9f815",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e25fd7fc-9f16-5156-926a-e0e8dbd948f2",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50566390-94f1-59fe-a96b-9c37d3de7799",
+              "ingredientName": "Brauner Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e781b80a-daf0-5dec-85fa-36b4b6fb68b7",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09b618c6-1791-518c-89e9-b3e99a2b7009",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab08ae9a-d3cf-515d-a187-c594dbecc3de",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79f0c86a-aa17-555c-81b3-24e991f1ba8a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72168d5d-86fc-51d2-a0a0-53e014451f4e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fbe3e9e-4bf5-5373-837e-3ca274cc0f9e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e41353e-2e1e-5ab8-9d03-8abbbc010e64",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare braunen Reis. Würze das Hähnchen mit Knoblauch, Salz und Olivenöl und brate es pro Seite 5–6 Minuten. Schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Eier 7 Minuten weich oder brate sie nach Wunsch. Lass den Spinat mit Knoblauch in der Pfanne zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite den Guss zu: Verquirle Sojasauce und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Reis, Spinat, Hähnchen, halbierten Eiern, Frühlingszwiebeln und Sesamsamen an. Träufle den Guss darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Rice-Bowl_EXPS_TOHAM25_25774_P2_MD_04_24_10b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Rice-Bowl_EXPS_TOHAM25_25774_P2_MD_04_24_10b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ground-turkey-quinoa-bowl",
+      "slug": "mfr-ground-turkey-quinoa-bowl",
+      "title": "Power-Schüssel mit Putenhack und Quinoa",
+      "instructions": "Mit Kräutern gewürztes Putenhack auf Quinoa mit gerösteter Paprika und kräftiger Tomatensauce. Eine sättigende, eiweißreiche Schüssel zum Mittag- oder Abendessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhack und Tomatensauce bringen italienisch-amerikanischen Geschmack für unter $3.",
+        "In dieser Tomatensauce gegarte Quinoa ergibt hervorragende Reste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Linsen für eine vegane Variante verwenden."
+        },
+        {
+          "forIngredientId": "tomato-sauce",
+          "swap": "Zerkleinerte Tomaten oder Marinara verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ground-turkey-quinoa-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüsselgericht",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 942,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ground-turkey-quinoa-bowl/",
+      "components": [
+        {
+          "key": "64bc22bf-1133-5eea-b91b-5097bf033e9a",
+          "name": "Zutaten",
+          "servingGrams": 723.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f29f23ff-2256-5d1b-89ac-3b969635d3f2",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83d57282-14f5-5eff-8d1c-a98cf1860e4b",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a50b325-024f-5476-a359-f89b6e1b94c0",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4a614ee-c39d-589b-a6ce-0b58c6863104",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25da3115-45e6-5c60-9657-0b8487c024e9",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d56e913-083e-58df-b3f1-35d9fce87caa",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8057c3d4-f494-52fe-9a53-b379e565da6b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b1ee965-2f0e-5971-bd2d-2004bae3dd4b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc48ec13-21ac-5370-902a-6aa17256c0fe",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17659604-fde3-5f72-b622-4bda523a64d8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Quinoa. Brate Zwiebel und Paprika 5 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, italienische Kräuter und Putenhack dazu. Gare alles 8 Minuten, bis das Fleisch gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatensauce ein und lass alles 5 Minuten köcheln. Hebe den Spinat unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte eine Schüssel mit Quinoa und der Puten-Tomaten-Mischung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/14098_1_1759202639.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/14098_1_1759202639.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuna-lentil-power-bowl",
+      "slug": "mfr-tuna-lentil-power-bowl",
+      "title": "Power-Schüssel mit Thunfisch und Linsen",
+      "instructions": "Dosenthunfisch auf gewürzten Linsen mit gerösteter Tomate und Zitronen-Petersilien-Dressing. Eine der günstigsten eiweißreichen Schüsseln für unter $2 pro Portion.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen und Dosenthunfisch gehören wahrscheinlich zu den besten Eiweißkombinationen pro Dollar im Lebensmittelgeschäft.",
+        "Eine Tasse getrocknete Linsen kostet etwa ~$0.85 und reicht großzügig für 2 Personen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Sardinen oder Dosensalmon verwenden."
+        },
+        {
+          "forIngredientId": "lentils",
+          "swap": "Kichererbsen aus der Dose für eine schnellere Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-lentil-power-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "Schüsselgericht",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 943,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-lentil-power-bowl/",
+      "components": [
+        {
+          "key": "61927057-3752-526f-88ea-6ab5972f428c",
+          "name": "Zutaten",
+          "servingGrams": 937.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0765dfc0-8f41-5b3f-b42e-e8f549c5fb23",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5414192e-de5c-5a4c-b3d8-0f3a51d671d2",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30096b5d-89ce-5961-b32f-cc0627159101",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "570ac0d3-792c-57d5-95d8-f0a7cb36a466",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbaf0623-6232-5ca4-bbff-e2ed27f08910",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3477db2f-b0fb-523c-b369-30cee3173719",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46b97e10-e167-5c91-92c1-c92cc6452eea",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76ebccb2-6f0b-5976-8b6b-a4264216a763",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "737c117a-fcb1-5502-9a66-89624f1230cb",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53fe1df3-1f35-56d5-84f7-d6de7c4e729f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Linsen mit Knoblauch, Kreuzkümmel und Salz in 2.5 Tassen Wasser 22 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Tomaten, gieße den Thunfisch ab und hacke Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Spinat unter die warmen Linsen und würze sie mit Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Linsen und Spinat, abgegossenem Thunfisch und Tomaten an. Träufle Olivenöl darüber und garniere mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/2023/TunaLentilSalad_6.jpg?w=2048&h=3072&auto=compress%2Cformat&fit=crop&dm=1685543911&s=8bcb96d266361943b3ef8f573aafd6da",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/2023/TunaLentilSalad_6.jpg?w=2048&h=3072&auto=compress%2Cformat&fit=crop&dm=1685543911&s=8bcb96d266361943b3ef8f573aafd6da",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cottage-cheese-veggie-power-bowl",
+      "slug": "mfr-cottage-cheese-veggie-power-bowl",
+      "title": "Power-Schüssel mit Hüttenkäse und Gemüse",
+      "instructions": "Cremiger Hüttenkäse auf Quinoa mit geröstetem Gemüse und Kräutervinaigrette. Eine überraschend sättigende, eiweißreiche Schüssel, die warm oder kalt schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hüttenkäse gehört zu den günstigsten eiweißreichen Milchprodukten und kostet etwa ~$0.28 pro Gramm Eiweiß.",
+        "Der Gegensatz von warm und kalt macht das Gericht eleganter, als es die Zutaten vermuten lassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Griechischen Joghurt als dünneres, säuerlicheres Eiweiß-Topping verwenden."
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Braunen Reis verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cottage-cheese-veggie-power-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Schüsselgericht",
+        "vegetarisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 944,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cottage-cheese-veggie-power-bowl/",
+      "components": [
+        {
+          "key": "bcef23d9-aa06-5f94-ab45-11e80d62d75d",
+          "name": "Zutaten",
+          "servingGrams": 873.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1f40388e-3fd2-553e-8b91-365fde5ef281",
+              "ingredientName": "Hüttenkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13306370-a6c2-5342-a306-d2f077eceb80",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dd4b67f-9f93-5b4d-b971-8e6aeacf2233",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b13c1e46-b124-5a3a-96c1-64ed56f711f0",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55fec9e8-756c-5b23-a3e5-5c49eb1cd62e",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb9c38d7-d2b7-5148-a0b2-c30a5529b880",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37f2f4a2-dcf3-5006-b4b3-357585831986",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfad2613-a039-5b53-b0c9-9a146af11414",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65b0d8fd-f3dd-543b-9f11-fdc4b9693c10",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "819177ed-a886-5b51-b3a9-7a7a6cb9171d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Paprika und Brokkoli mit Olivenöl, italienischen Kräutern und Knoblauch bei 425°F 22 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Quinoa und lass den Spinat zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte eine Schüssel mit Quinoa und Spinat als Grundlage an. Gib warmes, geröstetes Gemüse und einen großzügigen Löffel kalten Hüttenkäse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle das Gericht mit Zitronensaft und Salz. Der Kontrast von warmem Gemüse und kaltem Käse ist hier gewollt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/aO59V6_gVstbXan7_NWsxQ9Oxys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/savory-cottage-cheese-bowl-beauty-059_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-a9582eeccd7a4b81beb9fb2f972359b8.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/aO59V6_gVstbXan7_NWsxQ9Oxys=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/savory-cottage-cheese-bowl-beauty-059_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-a9582eeccd7a4b81beb9fb2f972359b8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

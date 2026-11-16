@@ -1,0 +1,1279 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:spicy-vodka-pasta",
+      "slug": "spicy-vodka-pasta",
+      "title": "Würzige Wodka-Pasta (Gigi Hadid)",
+      "instructions": "Gigi Hadids berühmte cremige Penne mit würziger Tomaten-Wodka-Sauce: samtig, herzhaft und in weniger als einer halben Stunde fertig.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 17,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine einzelne Schalotte oder verwende ein Stück normale Zwiebel statt eines ganzen Bundes.",
+        "Eine kleine Flasche Wodka reicht für viele Portionen; pro Portion kostet sie nur wenige Cent.",
+        "Kaufe ein Stück echten Parmesan und reibe ihn selbst oder verwende den günstigeren Parmesan aus der Dose."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Whole Milch thickened mit ein Teelöffel von Butter, oder evaporated Milch",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "vodka",
+          "swap": "weglassen it und hinzufügen ein splash von Wasser plus ein squeeze von Zitrone",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "shallot",
+          "swap": "ein quarter von ein normal yellow Zwiebel",
+          "savings": "~$0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "viral",
+        "TikTok",
+        "Gigi Hadid",
+        "cremig",
+        "scharf",
+        "Ein-Pfannen-Gericht",
+        "Hausmannskost"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7230,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/spicy-vodka-pasta/",
+      "components": [
+        {
+          "key": "be922e74-6473-5f17-a921-4063035796c0",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 177.15,
+          "position": 0,
+          "items": [
+            {
+              "key": "cf9f2b47-1574-5711-9a48-8df9aaf49449",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Penne oder Rigatoni, in Unzen"
+            },
+            {
+              "key": "6d6ea96f-dac1-5b83-bab4-7110e6943536",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "b5f44c98-351a-5155-b5aa-1233265d19b8",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder 1/4 Zwiebel, sehr fein gehackt"
+            },
+            {
+              "key": "a3a41e69-0181-5d22-a6a9-48d3b402af54",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "dcd401f3-5540-5ba2-8c5d-d96fbde77067",
+              "ingredientName": "Tomatenmark",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa ein Viertel einer 6 oz-Dose"
+            },
+            {
+              "key": "474f0843-bf4a-5b49-9041-fc47fc0ba81a",
+              "ingredientName": "Wodka",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "4bf6cbc9-96be-5901-b469-00349a04f4c2",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Tasse"
+            },
+            {
+              "key": "f38ed5b6-19cf-504f-b6d1-e71fff808eef",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel, nach Geschmack anpassen"
+            },
+            {
+              "key": "752edf5c-b484-5f27-b78a-82aad447fb79",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "ed1645a3-b959-58fa-a602-10bd5d346e50",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Tasse, gerieben"
+            },
+            {
+              "key": "d4c6cca7-8185-55b7-a936-7a78ef8c372b",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "Blätter, gezupft, zum Garnieren"
+            },
+            {
+              "key": "1f90accb-8a0b-5aae-8d80-e081a09605e6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Penne in einem großen Topf mit Salzwasser, bis sie knapp bissfest sind. Hebe vor dem Abgießen etwa 1 cup Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze währenddessen Olivenöl in einer tiefen Pfanne bei mittlerer Hitze. Dünste Schalotte und Knoblauch 2-3 Minuten weich und duftend, ohne sie zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark und Chiliflocken ein. Brate alles unter ständigem Rühren 4-5 Minuten, bis das Tomatenmark dunkler und ziegelrot wird und süßlich duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Wodka dazu und lasse ihn etwa 1 Minute sprudeln, damit der Alkohol verkocht. Rühre dann Sahne ein, bis eine glatte, rosé-orange Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die abgetropfte Pasta mit etwas Nudelwasser, Butter und Parmesan dazu. Schwenke alles bei niedriger Hitze kräftig, bis die Sauce glänzt und an der Pasta haftet. Bei Bedarf mehr Nudelwasser hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke mit Salz ab, richte die Pasta an und garniere sie mit zusätzlichem Parmesan und gezupftem frischem Basilikum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/PenneAllaVodka.jpg/1280px-PenneAllaVodka.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:PenneAllaVodka.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Joseph O'Connell — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:smashed-cucumber-salad",
+      "slug": "smashed-cucumber-salad",
+      "title": "Gurkensalat mit angedrückten Gurken",
+      "instructions": "Kühle, knackige Gurken werden angedrückt und mit einem kräftigen Dressing aus Knoblauch, Sojasauce und Chiliöl vermischt, das in jede aufgebrochene Stelle zieht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe saisonale Salatgurken statt teurer Persischer Gurken und kratze die wässrigen Kerne heraus.",
+        "Bereite Chiliöl selbst zu: Erhitze Pflanzenöl und gieße es über Chiliflocken und Knoblauch.",
+        "Durch das Salzen und Abtropfen bleibt der Salat bis zum nächsten Tag knackig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "natur white oder Apfel cider vinegar mit ein pinch mehr Zucker",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "chili-oil",
+          "swap": "sriracha oder red Pfeffer flakes bloomed in heiß Öl",
+          "savings": "~$2.00"
+        },
+        {
+          "forIngredientId": "cucumber",
+          "swap": "smashed zucchini, salted ein bit longer",
+          "savings": "~$0.75"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "viral",
+        "TikTok",
+        "ohne Kochen",
+        "vegan",
+        "scharf",
+        "Beilage"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7231,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/smashed-cucumber-salad/",
+      "components": [
+        {
+          "key": "57ecc891-a4ef-57f4-9a48-3e89e908e3e5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 352,
+          "position": 0,
+          "items": [
+            {
+              "key": "dce97f38-abc1-5fd6-b4ef-6b29a17cc5ab",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Salatgurken oder persische Gurken"
+            },
+            {
+              "key": "b5a85a2f-cb4f-56cf-9bb4-4c1584f1f7d4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL zum Entziehen der Flüssigkeit"
+            },
+            {
+              "key": "aded2dea-437e-5536-bb34-6b06e877beeb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Zehen, sehr fein gehackt"
+            },
+            {
+              "key": "1099016f-5155-5bcd-9515-e2eab7ac1434",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "699db5af-fc7e-5aa8-acf8-1ed27eab8ea3",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "d606abfc-da72-5620-a91a-c6e58b9c6d62",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Esslöffel mit knusprigen Stückchen"
+            },
+            {
+              "key": "22340534-7b31-52dd-8164-b8fb5bd50262",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teelöffel, geröstet"
+            },
+            {
+              "key": "5c38ed30-be57-553d-bb15-00c851d28e26",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "297e4bae-e780-555f-9c3a-7d97d532f9b3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "Teelöffel, geröstet"
+            },
+            {
+              "key": "91e36030-c6dc-57aa-8d73-ac113426c03f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Enden der Gurken ab. Drücke jede Gurke auf einem Brett mit der flachen Messerseite oder einem Nudelholz leicht an, bis sie aufplatzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerteile die angedrückten Gurken in grobe, mundgerechte Stücke und gib sie in ein Sieb oder eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge die Stücke mit Salz und lasse sie 10-15 Minuten ziehen. Gieße das ausgetretene Wasser ab und tupfe die Gurken trocken, damit der Salat knackig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre gehackten Knoblauch, Sojasauce, Reisessig, Chiliöl, Sesamöl und Zucker in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über die abgetropften Gurken und vermische alles gründlich, sodass jede aufgebrochene Stelle bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle den Salat für besten Geschmack mindestens 10 Minuten kalt. Bestreue ihn vor dem Servieren mit geröstetem Sesam und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Pine_and_Crane_DTLA_-_smashed_cucumber_salad.jpg/1280px-Pine_and_Crane_DTLA_-_smashed_cucumber_salad.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pine_and_Crane_DTLA_-_smashed_cucumber_salad.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Benoît Prieur — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:quesabirria-tacos",
+      "slug": "quesabirria-tacos",
+      "title": "Quesabirria-Tacos",
+      "instructions": "Knusprige, mit Käse gebratene Tacos, gefüllt mit in Chili geschmortem Rindfleisch. Dazu gibt es kräftige Consommé zum Dippen.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 170,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist ein günstiges Schmorfleisch und wird bei langem Garen butterzart; teures Premiumfleisch ist nicht nötig.",
+        "Bereite doppelte Menge Rindfleisch und Consommé zu und friere die Hälfte ein. Sie lässt sich gut für Quesabirria, Ramen oder Burritos aufwärmen.",
+        "Kaufe ganze getrocknete Guajillo-Chilis im Lateinamerika-Regal oder im mexikanischen Laden statt fertiger Paste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "verwenden Rindfleisch stew meat oder boneless short rib trimmings",
+          "savings": "~$2.00"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Any niedrig-moisture melting Käse like Monterey Jack oder ein Käse mixen",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "dried-chili",
+          "swap": "2 tbsp chili powder plus 1 tsp smoked Paprika wenn du can't find whole getrocknet chilies",
+          "savings": "~$1.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch",
+        "viral",
+        "TikTok",
+        "Birria",
+        "käsig",
+        "Vorkochen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7232,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/quesabirria-tacos/",
+      "components": [
+        {
+          "key": "40c26b7a-aa46-5885-bc0a-2b0bf147e87c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 605.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c98c459d-472b-56c1-bc90-7dea6038972a",
+              "ingredientName": "Rinderschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rinderschulter, in große Stücke geschnitten"
+            },
+            {
+              "key": "21a04cc7-632b-51b4-9a8d-f661a79348ce",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 50,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Guajillo-Chilis, entstielt und entkernt"
+            },
+            {
+              "key": "e67f8119-63eb-50c7-8daa-0c820701aca1",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": true,
+              "source_note": "Ancho- oder Árbol-Chilis für mehr Schärfe"
+            },
+            {
+              "key": "430cd584-9ddb-54c3-bb59-c1571c970bda",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "weiße Zwiebel, halbiert"
+            },
+            {
+              "key": "c115bd76-388e-534c-979b-1fbdc1afbf0d",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Zehen"
+            },
+            {
+              "key": "cbf4866f-f057-541a-9597-2d8cdc06dd84",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Roma-Tomaten"
+            },
+            {
+              "key": "e8c80364-cf05-59da-ba52-e9db41991d47",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Tassen"
+            },
+            {
+              "key": "a25a2813-b20e-5d4e-bd72-d70fdc29065f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "cd7c89ee-7f78-5a99-9a9b-12db69d13331",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "TL mexikanischer Oregano"
+            },
+            {
+              "key": "79d0f3ef-3dc4-586a-aefc-17b69376aba6",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "TL oder 1 kleine Stange"
+            },
+            {
+              "key": "f50951ad-25ac-50f1-b901-788f78e35a2e",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "380e477f-a793-5ffe-bc59-978b49857862",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8eb31950-f815-5ff4-92e6-81c645ecd0b1",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "EL Apfelessig"
+            },
+            {
+              "key": "2cdf0c1c-a9c1-5911-8244-2a4f0b63f60d",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "TL nach Geschmack"
+            },
+            {
+              "key": "86ef2ca9-8908-534f-8401-e8a51a57cf30",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "0ad97411-ff84-58c7-9367-237ecb3eddb3",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "Maistortillas"
+            },
+            {
+              "key": "6da13686-37d1-504b-b5d0-775c51e151db",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "Tassen, gerieben und mit geringem Feuchtigkeitsgehalt (als Ersatz für Oaxaca-Käse)"
+            },
+            {
+              "key": "49a7edde-84e5-53bf-a5ff-77c22eb0e40b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "Tasse, gehackt, zum Servieren"
+            },
+            {
+              "key": "9bbf2381-5135-53db-b0f6-e46a8ee2b92c",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 18,
+              "optional": false,
+              "source_note": "in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die getrockneten Guajillo-Chilis in einem trockenen Topf je Seite 30 Sekunden. Übergieße sie mit heißem Wasser und weiche sie 10 Minuten ein. Brate die gewürzten Rinderschulterstücke im Topf rundherum an und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere die eingeweichten Chilis mit Tomaten, der Hälfte der Zwiebel, Knoblauch, Kreuzkümmel, Oregano, Zimt, gemahlenen Nelken, Essig und einem Schuss Brühe glatt. Seihe die Sauce über das Rindfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Rinderbrühe, Lorbeerblätter, die restliche Zwiebel und Salz dazu. Decke den Topf ab und schmorte das Fleisch bei niedriger Hitze 2.5 bis 3 Stunden (oder gare es im Drucktopf 45 Minuten), bis es sich leicht zerzupfen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Fleisch heraus, zerzupfe es mit zwei Gabeln und vermenge es mit einigen Kellen Schmorflüssigkeit. Schöpfe das orange-rote Fett von der Oberfläche ab und bewahre es zum Dippen der Tortillas auf. Die übrige Flüssigkeit ist die Consommé.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tauche jede Tortilla in das abgeschöpfte Fett, lege sie auf eine heiße Grillplatte und bestreue sie mit Mozzarella. Sobald der Käse schmilzt, gib gezupftes Fleisch auf eine Hälfte und klappe die Tortilla zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die gefalteten Tacos auf beiden Seiten knusprig und goldbraun, dabei leicht andrücken. Garniere sie mit gehacktem Koriander und gewürfelter Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": [],
+          "text": "Fülle die warme Consommé in kleine Schalen und gib Koriander sowie einen Spritzer Limette dazu. Serviere die Tacos heiß zum Dippen."
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Quesabirria_at_Taqueria_La_Hacienda%2C_Sonoma%2C_California_-_Sarah_Stierch.jpg/1280px-Quesabirria_at_Taqueria_La_Hacienda%2C_Sonoma%2C_California_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Quesabirria_at_Taqueria_La_Hacienda,_Sonoma,_California_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Missvain — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:pesto-eggs-toast",
+      "slug": "pesto-eggs-toast",
+      "title": "Pesto-Eier auf Toast",
+      "instructions": "Der virale TikTok-Trick: Eier braten direkt in brutzelndem Pesto und werden auf knusprigem Toast serviert. In 10 Minuten fertig und voller Geschmack.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Glas Pesto reicht für viele Frühstücke; hier genügen 2 tbsp pro Portion.",
+        "Lass Avocado und Feta weg, um weniger als einen Dollar pro Portion auszugeben; die Pesto-Eier schmecken auch pur.",
+        "Verwende die Endstücke eines Brotlaibs für Toast, statt sie wegzuwerfen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pesto",
+          "swap": "mixen ein handful von basil oder spinach mit Knoblauch, Olivenöl, und parmesan für hausgemacht pesto",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Grate ein little parmesan oder any hard Käse du have",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "verwenden ein English muffin oder bagel instead",
+          "savings": "~$0.15"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch inspiriert",
+        "viral",
+        "TikTok",
+        "schnell",
+        "Brunch",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7233,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/pesto-eggs-toast/",
+      "components": [
+        {
+          "key": "822ac016-1d34-5117-834a-4a4da10ceb9d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 224.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9ba3df8-5224-5d9a-8d51-b1708235c8af",
+              "ingredientName": "Pesto",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 gehäufte EL Basilikumpesto"
+            },
+            {
+              "key": "9b217f20-1907-5623-bdd1-21a7099defec",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e975d78-b30f-58e3-aab2-962c6f9525a8",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "dicke Scheiben, am besten Sauerteigbrot"
+            },
+            {
+              "key": "48340bae-1b60-525b-a415-7e89ec94ef7a",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": true,
+              "source_note": "zerdrückt, zum Garnieren"
+            },
+            {
+              "key": "0db9c57d-da5b-5beb-beba-1e19c7e8fc0a",
+              "ingredientName": "Feta-Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "darüber zerbröselt"
+            },
+            {
+              "key": "a0ed61de-6d8d-54a5-9dac-feb68a45a127",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "Prise nach Geschmack"
+            },
+            {
+              "key": "d1b57242-2830-5b4c-8acb-8f68eea2ba75",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4b47e4f6-dcc1-50af-becb-6a7dd70346b3",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben goldbraun und knusprig. Lege sie auf Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Pesto in eine kalte beschichtete Pfanne und verstreiche es dünn. Erhitze die Pfanne auf mittlerer Stufe und erwärme das Pesto etwa 1 Minute, bis es zu brutzeln beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Eier mit etwas Abstand direkt ins brutzelnde Pesto. Würze leicht mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und brate die Eier 2-3 Minuten, bis das Eigelb noch flüssig und die Pestoränder knusprig sind. Für festere Eigelbe länger garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerdrücke nach Wunsch Avocado auf dem Toast und brösele Feta darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze die Pesto-Eier auf den Toast, kratze alle knusprigen Pestoreste aus der Pfanne dazu und bestreue sie mit Chiliflocken. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:bang-bang-chicken",
+      "slug": "bang-bang-chicken",
+      "title": "Bang-Bang-Hähnchen",
+      "instructions": "Knusprige, goldbraune Hähnchenstücke in cremiger süß-scharfer Mayonnaise-Sauce: süß, säuerlich und angenehm pikant.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust in Familienpackungen und friere Portionen ein; pro Pfund ist das deutlich günstiger.",
+        "Mische süße Chilisauce selbst aus Sriracha, Zucker, Essig und etwas Wasser, wenn du keine Flasche kaufen möchtest.",
+        "Frittiere die panierten Stücke bei 400F 12 Minuten in der Heißluftfritteuse statt in der Pfanne und spare Bratöl."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen thighs für juicier, cheaper meat",
+          "savings": "~$1.50/Pfund"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "zerdrückt cornflakes oder normal breadcrumbs",
+          "savings": "~$1.00"
+        },
+        {
+          "forIngredientId": "sweet-chili-sauce",
+          "swap": "Honig plus ein splash von Reis vinegar und extra sriracha",
+          "savings": "~$2.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "asiatisch-amerikanisch",
+        "viral",
+        "TikTok",
+        "knusprig",
+        "scharf",
+        "Abendessen unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7234,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bang-bang-chicken/",
+      "components": [
+        {
+          "key": "361c7e7e-7e21-5603-ba9e-9edce306aea3",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 177.49,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d4cb179-f84d-514a-89f2-cb5f3443a494",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "f95cceb2-6165-5bd7-8509-1da7640879f8",
+              "ingredientName": "Speisestärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Tasse zum Wenden"
+            },
+            {
+              "key": "302974a4-437f-5318-9b52-b04ce5ef5126",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "verquirlt"
+            },
+            {
+              "key": "8dce427e-149c-596e-8652-386fffb0da8f",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Tassen"
+            },
+            {
+              "key": "5ca02566-f3ef-54d6-b996-455dd9682fff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "b2dd714f-2de1-5d46-9483-b10e66d3e7dd",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "629705ed-6c5a-50bf-8a0d-e43c8c862546",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "2b695997-02c6-5015-86c5-9306cbb1e4b0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Tasse, zum Frittieren"
+            },
+            {
+              "key": "309a1748-2799-50fe-bc8d-c7754ad15501",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Tasse für die Bang-Bang-Sauce"
+            },
+            {
+              "key": "c3d97a70-cfcf-50bf-bc19-26996733e0c6",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Tasse"
+            },
+            {
+              "key": "ce3ab90e-4f81-593b-aa57-e1c1ea4a9a1f",
+              "ingredientName": "Sriracha",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "EL, nach Geschmack anpassen"
+            },
+            {
+              "key": "2bea0008-bd1c-588a-89e9-55cdb311e12c",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "EL"
+            },
+            {
+              "key": "ab470c22-88ff-53aa-9164-ff3be1fab452",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mayonnaise, süße Chilisauce, Sriracha und Honig zur Bang-Bang-Sauce. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Hähnchenstücke trocken und würze sie mit Salz, Pfeffer und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte eine Panierstraße ein: Maisstärke in eine Schüssel, verquirlte Eier in eine zweite und Panko in eine dritte. Wende jedes Stück erst in Maisstärke, dann Ei und drücke es anschließend in Panko.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze etwa 1/2 inch Öl in einer Pfanne bei mittlerer bis hoher Hitze, bis es schimmert (etwa 350F). Frittiere das Hähnchen portionsweise 3-4 Minuten je Seite goldbraun und gar (165F Kerntemperatur).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse das Hähnchen eine Minute auf einem mit Küchenpapier belegten Teller abtropfen, damit es knusprig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge das warme Hähnchen mit der Hälfte der Bang-Bang-Sauce oder träufle sie darüber, damit die Panade knusprig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere mit geschnittenen Frühlingszwiebeln und serviere es auf Reis mit der übrigen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    }
+  ]
+}

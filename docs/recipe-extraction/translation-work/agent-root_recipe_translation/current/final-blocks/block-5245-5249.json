@@ -1,0 +1,984 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-whipped-coffee",
+      "slug": "gen-whipped-coffee",
+      "title": "Aufgeschlagener Kaffee",
+      "instructions": "Italienisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende löslichen Kaffee einer günstigen Marke statt teurer Markenprodukte.",
+        "Verwende normale Milch statt spezieller Milchalternativen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5245,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whipped-coffee/",
+      "components": [
+        {
+          "key": "c3ccade0-6d9d-593b-bc50-2a2597ec8845",
+          "name": "Zutaten",
+          "servingGrams": 383.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "048f46e2-fe0f-5cb7-8a8f-204af12ec0d7",
+              "ingredientName": "Löslicher Kaffee",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "11622968-2e23-551e-8d0a-46cbd9d17417",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "383290a1-5213-5c58-bb01-2987c4bb75e5",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c41af082-79f2-55bb-8947-4c7422684a5a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse, erhitzt"
+            },
+            {
+              "key": "e992befb-146f-59f8-aa04-a8b453e05de5",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib löslichen Kaffee, Zucker und heißes Wasser in eine mittelgroße Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die Mischung 2–3 Minuten kräftig auf, bis sie dick, hell und schaumig ist und an Mousse erinnert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die aufgeschlagene Kaffeemischung auf zwei Tassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße heiße Milch in die Tassen und rühre gut um, damit sich der Kaffee mit der Milch verbindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestäube das Getränk nach Wunsch leicht mit Kakaopulver und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/zl2_Qs4ZKOdHu-2SljoZ6pEsdT8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/whipped-coffee-4801748-05-96ea0a2c8619401bbc551707dba6c395.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/zl2_Qs4ZKOdHu-2SljoZ6pEsdT8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/whipped-coffee-4801748-05-96ea0a2c8619401bbc551707dba6c395.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-birria-tacos",
+      "slug": "gen-birria-tacos",
+      "title": "Birria-Tacos",
+      "instructions": "Mexikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Chilis in größeren Mengen im mexikanischen Lebensmittelgeschäft.",
+        "Kaufe Rinderschulter im Angebot und friere sie bis zur Verwendung ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5246,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria-tacos/",
+      "components": [
+        {
+          "key": "77c31f0b-5045-5fd8-901e-01723801487a",
+          "name": "Zutaten",
+          "servingGrams": 397,
+          "position": 0,
+          "items": [
+            {
+              "key": "2757fe66-2283-5df8-bfa0-17008e10500d",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "7da3338f-2712-5692-9367-ffe7240a87f9",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "953876d7-aa4e-5d22-a415-6fd8372c45d5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "09e4578d-8065-5985-8343-7c1f989c28e0",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "349445cf-ac5a-54be-9135-8cec9ef4bc0b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "fe699048-c002-5637-9796-6700f4373755",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0cdcf68e-711c-53f9-9b1b-a0e4ea9207fe",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "709969ed-634d-518e-b889-72d621d8d1e3",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "2f5706bb-7674-5c35-995a-aca110c905d5",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bedf921d-3eeb-5e67-ba1a-5f658edcc45f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne der getrockneten Chilis und röste sie 1 Minute in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gerösteten Chilis mit Rinderbrühe, der halben Zwiebel, Knoblauchzehen, Kreuzkümmel, Oregano und Essig in einen Topf und lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Chilisauce glatt und streiche sie durch ein feines Sieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Rinderschulter in einen großen Topf und gieße die abgesiebte Chilisauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lass das Fleisch zugedeckt 1.5 Stunden köcheln, bis es sehr zart ist und sich leicht zerpflücken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Fleisch heraus, zerpflücke es mit zwei Gabeln und gib es zurück in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze die Tortillas in einer trockenen Pfanne, tauche jede 2 Sekunden in die warme Brühe und fülle sie dann mit dem gezupften Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Tacos mit gewürfelter Zwiebel, Koriander und einer kleinen Schale Brühe zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/4yySaOKwOqCKnmH8qlsOh67cMMc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-Tacos-LEAD-06-9bfabe33acef4d5eaa8aa24320e24dff.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/4yySaOKwOqCKnmH8qlsOh67cMMc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-Tacos-LEAD-06-9bfabe33acef4d5eaa8aa24320e24dff.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-milk-tea",
+      "slug": "gen-milk-tea",
+      "title": "Milchtee",
+      "instructions": "Thailändischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kondensmilch und Dosenmilch im Angebot.",
+        "Verwende Schwarzteebeutel statt losem Tee."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "thailändisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5247,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-milk-tea/",
+      "components": [
+        {
+          "key": "f9f60374-6372-5872-8e1b-41385846898e",
+          "name": "Zutaten",
+          "servingGrams": 1567.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "04de3057-bf3f-5c15-aa11-5a49585fc34a",
+              "ingredientName": "Teebeutel",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Esslöffel oder 2 Beutel"
+            },
+            {
+              "key": "095b6be2-26a1-582c-9437-c754ea1c9225",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0412368c-db86-53ed-9288-b27a77a8ff5f",
+              "ingredientName": "Ungesüßte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "91eb28c6-9948-574c-874a-33dab1ad4324",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bd2858f3-6a41-58ce-80c5-07f338a1e784",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3bc95363-11ab-5e26-9675-5f83cc5ac249",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Wasser in einem Topf zum Kochen und gib Schwarzteeblätter oder Teebeutel hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Tee 5–7 Minuten ziehen, bis er kräftig und dunkel ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Seihe den Tee in eine Kanne ab und lass ihn etwa 5 Minuten auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Dosenmilch und gezuckerte Kondensmilch zum abgekühlten Tee und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle zwei Gläser mit Eis und gieße den Milchtee darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gut um und serviere den Tee sofort mit einem Strohhalm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/629f98926e3960ec24778116/1:1/w_2560%2Cc_limit/BubbleTea_RECIPE_052522_34811.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/629f98926e3960ec24778116/1:1/w_2560%2Cc_limit/BubbleTea_RECIPE_052522_34811.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-feta-pasta-with-cherry-tomatoes",
+      "slug": "gen-feta-pasta-with-cherry-tomatoes",
+      "title": "Feta-Pasta mit Kirschtomaten",
+      "instructions": "Mediterranes Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Feta in größeren Mengen im Großmarkt oder in internationalen Lebensmittelgeschäften.",
+        "Verwende Dosentomaten, wenn Kirschtomaten zu teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5248,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-feta-pasta-with-cherry-tomatoes/",
+      "components": [
+        {
+          "key": "ec4275b0-0d7d-5afb-88ba-c7bc4cb22543",
+          "name": "Zutaten",
+          "servingGrams": 208.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba52c444-4f53-548f-9bea-f536691771ba",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "b24fa6ae-07b9-5855-bb3d-7fcc4a0a40c2",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "39edbe30-8df5-55d4-bd7b-4e23b51fda2b",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse zerbröselt"
+            },
+            {
+              "key": "e8bf322b-6494-5323-a7fd-f0c61491765c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "abd2622d-8c5d-528e-b1a1-27925ce26257",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "ebd2a536-b168-5263-b36a-49709e2d49bf",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "fa7897b4-9f69-5c31-b629-8aa5e4681aed",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 klein, gewürfelt"
+            },
+            {
+              "key": "bac6be36-b885-553e-9d00-79af4cc7f919",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bf0203f3-4cca-58ba-b0b1-c314cf4ae02f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8b6fade8-73b5-56b3-aaa6-0e1f3a6212e2",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Salzwasser in einem großen Topf zum Kochen und gare die Penne nach Packungsanleitung bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und dünste den Knoblauch etwa 1 Minute an, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kirschtomaten und rote Zwiebel dazu und gare alles 5–7 Minuten. Zerdrücke die Tomaten dabei vorsichtig, sobald sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Pasta ab und gib sie zur Tomatenmischung in die Pfanne. Vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd und hebe zerbröselten Feta, frisches Basilikum und Zitronensaft unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6308dd0746f20d407e26f870/1:1/w_2560%2Cc_limit/IMG_7349.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6308dd0746f20d407e26f870/1:1/w_2560%2Cc_limit/IMG_7349.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiktok-ramen",
+      "slug": "gen-tiktok-ramen",
+      "title": "TikTok-Ramen",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Instant-Ramen in größeren Mengen im Discounter, dort kosten sie weniger als 0.25 $ pro Packung.",
+        "Verwende Pflanzenöl statt Sesamöl, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5249,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiktok-ramen/",
+      "components": [
+        {
+          "key": "011ed20a-45d5-5817-bba6-eb29b430763a",
+          "name": "Zutaten",
+          "servingGrams": 833,
+          "position": 0,
+          "items": [
+            {
+              "key": "1cf8e9b7-8a42-52c1-92b3-a45c7c9cb605",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Packungen"
+            },
+            {
+              "key": "92499fba-b2b5-5037-a260-6581c5c6faf4",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "1406d7a7-2f11-517e-a0ad-494a445690dc",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ab587694-941a-54ef-aad6-7b94b317f1b7",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "d4eada25-a3b5-5a76-acbc-a94e9e050729",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "464ce8b4-14b6-560c-8285-5034864063e8",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "77c0122e-f143-5bf1-b067-a42628f24d0b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "ff9035ab-42b0-5b44-a31c-6f54af8e804f",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "357d1b5a-1bd0-5c37-8fe6-0c7bfc5ff066",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "fab48b1c-a836-58c4-8198-f1406b197d27",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen und gare die Ramen-Nudeln 2–3 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während die Nudeln kochen, schmilz Butter in einer separaten Pfanne bei mittlerer bis hoher Hitze und dünste den gehackten Knoblauch an, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Eier in die gebutterte Pfanne und brate sie als Spiegeleier, bis das Eiweiß gestockt, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Nudeln ab, fange 1 Tasse Kochwasser auf und gib die Nudeln zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Sojasauce, Sriracha, Sesamöl und das aufgefangene Kochwasser unter die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Nudeln auf Servierschalen und belege sie mit Spiegeleiern und Mozzarella.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue alles mit Frühlingszwiebeln und serviere sofort, solange der Käse noch leicht schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/I8D1WAxCPhibT9oeijYx1lTM-Bc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TikTokRamen-1-SaraHaas-4x3-1-dd6367f06dca45e594af033c05f4ba84.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/I8D1WAxCPhibT9oeijYx1lTM-Bc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TikTokRamen-1-SaraHaas-4x3-1-dd6367f06dca45e594af033c05f4ba84.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

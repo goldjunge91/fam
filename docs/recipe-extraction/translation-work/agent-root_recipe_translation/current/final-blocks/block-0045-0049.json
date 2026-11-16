@@ -1,0 +1,876 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tuna-melt-tortilla",
+      "slug": "tuna-melt-tortilla",
+      "title": "Thunfisch-Käse-Tortilla",
+      "instructions": "Thunfischsalat und Käse in eine Tortilla gefüllt und knusprig getoastet, bis der Käse geschmolzen ist.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "1 Dose Thunfisch und 2 Tortillas ergeben ein Mittagessen",
+        "Wenn vorhanden, den Thunfisch mit gehacktem Sellerie strecken"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Dosen-Hähnchenfleisch",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Thunfisch und Tortillas gehören zu den günstigen Vorratszutaten.",
+      "healthierTips": [
+        "Griechischen Joghurt verwenden",
+        "Salat oder Tomate hineinlegen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 45,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tuna-melt-tortilla/",
+      "components": [
+        {
+          "key": "90ac908a-8092-5a9f-8f97-7d4907f1595a",
+          "name": "Zutaten",
+          "servingGrams": 536.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "27c17165-db9e-55d9-a523-64d30780901a",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52a909fb-a62a-5242-bcf3-ba0b0e9ed1a9",
+              "ingredientName": "Dosen-Thunfisch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21b81c55-4eeb-5b44-b306-f728049919ea",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a6dcb1e-d43a-566a-b34f-94ffd7848a8a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c312da3a-2ec5-5218-819a-3f1e1f0e27fa",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "f2325753-b526-5a34-adf5-e515471b7a39",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bafe1c2-8972-5064-b7a3-800f00bb5499",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische abgetropften Thunfisch mit Mayonnaise, Senf und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile den Thunfisch auf einer Tortilla, gib Käse darauf und lege die zweite Tortilla darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Toaste die Quesadilla 2 Minuten pro Seite in einer geölten Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tuna-melt-tortilla.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tuna-melt-tortilla.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-melt-tortilla.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-melt-tortilla.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-salad-sandwich",
+      "slug": "egg-salad-sandwich",
+      "title": "Eiersalat-Sandwich",
+      "instructions": "Gekochte Eier mit Mayonnaise und Senf zerdrückt und zwischen zwei Scheiben Toast serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Der Eiersalat hält sich 3 Tage im Kühlschrank.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Koche Eier für die ganze Woche auf einmal",
+        "Senf sorgt ohne Mehrkosten für mehr Geschmack"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "scallion",
+          "swap": "Gewürzgurke würfeln oder weglassen",
+          "savings": "ca. $0.15"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eier und Brot sind eine der günstigsten Sandwichfüllungen.",
+      "healthierTips": [
+        "Vollkornbrot verwenden",
+        "Weniger Mayonnaise und mehr Senf verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "zum Vorbereiten",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 46,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-salad-sandwich/",
+      "components": [
+        {
+          "key": "17a5f746-f051-5f82-9185-2930e3ab9a9d",
+          "name": "Zutaten",
+          "servingGrams": 175.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b5521c7d-c474-5774-be0f-f678790f99af",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcfefe11-7e20-58a0-8331-ff09f82d70e8",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37e91d72-17f0-5daa-8545-96f52f2f43ba",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf157a5e-cd27-5abd-9d47-bee4122bfa3a",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b4dc4e9-421a-53c3-a20b-761142c9a33d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "8657e867-d201-53c4-8f4f-1c6348a16beb",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 10 Minuten hart, kühle sie in Eiswasser ab und schäle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Eier mit Mayonnaise, Senf, Pfeffer und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Eiersalat auf getoastetem Brot und klappe die Scheiben zum Sandwich zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/egg-salad-sandwich.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/egg-salad-sandwich.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/egg-salad-sandwich.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/egg-salad-sandwich.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:chickpea-salad-sandwich",
+      "slug": "chickpea-salad-sandwich",
+      "title": "Kichererbsensalat-Sandwich",
+      "instructions": "Zerdrückte Kichererbsen wie Thunfischsalat mit Mayonnaise, Zitrone und knackigem Gemüse angemacht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Kichererbsen sind eine der günstigsten pflanzlichen Eiweißquellen",
+        "Ganz ohne Kochen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt oder vegane Mayonnaise",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "celery",
+          "swap": "Gewürzgurke oder Karotte",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kichererbsensalat kostet etwa $2 und hält mehrere Tage.",
+      "healthierTips": [
+        "Vollkornbrot verwenden",
+        "Blattgemüse dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "veganfreundlich",
+        "ohne Kochen",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 47,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/chickpea-salad-sandwich/",
+      "components": [
+        {
+          "key": "9f3028e4-0b64-561f-8686-8872e362c05f",
+          "name": "Zutaten",
+          "servingGrams": 296.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d243b77-0c69-5db8-84ba-64bab0b54cb9",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "077c594b-795e-5b51-b580-f8872643c2e5",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f53a315e-4e0a-5114-8edb-3f6b106fbb10",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38c66842-2614-5b42-a12b-4c7776914ea6",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abb14a55-8f2a-59d1-a723-29e6a20c45e9",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "b062db01-1251-5303-a349-33f2c0d321ce",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea5f00dc-4c8c-5b86-9c5c-65fe7974ac3a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Kichererbsen abtropfen und zerdrücke sie mit einer Gabel. Lass dabei einige Stücke übrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Mayonnaise, Senf, Zitronensaft, gewürfelten Sellerie und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Mischung auf dem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/chickpea-salad-sandwich.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/chickpea-salad-sandwich.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chickpea-salad-sandwich.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chickpea-salad-sandwich.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:hummus-veggie-wrap",
+      "slug": "hummus-veggie-wrap",
+      "title": "Hummus-Gemüse-Wrap",
+      "instructions": "Hummus, knackiges Gemüse und Feta in einer Tortilla eingerollt, ein frisches Mittagessen ohne Kochen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Frisch essen, sonst welkt das Gemüse.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Becher Hummus kosten etwa $3 und reichen für die ganze Woche",
+        "Abgepacktes Gemüse verwenden, wenn es schnell gehen soll"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Weglassen",
+          "savings": "ca. $0.60"
+        },
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Tomate oder Karotte",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein Becher Hummus reicht für das Mittagessen einer ganzen Woche.",
+      "healthierTips": [
+        "Vollkorn-Tortilla verwenden",
+        "Oliven dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "ohne Kochen",
+        "vegetarisch",
+        "frisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 48,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/hummus-veggie-wrap/",
+      "components": [
+        {
+          "key": "87eb819c-0282-5207-827e-e5e2e63a92d7",
+          "name": "Zutaten",
+          "servingGrams": 706,
+          "position": 0,
+          "items": [
+            {
+              "key": "c5c672b6-bf68-564a-bc3d-277971a6543b",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "874a5e5c-e4b4-5407-b284-93ac3bfb20e8",
+              "ingredientName": "Hummus",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af720d70-6556-5613-af01-0719b21a29e4",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a04e5ceb-27a3-558d-b8c8-dbc227509e37",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e45bf2ab-ff95-5a0b-90dd-0accbf23e867",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d601686b-73f7-5ad6-850d-823165b0ace6",
+              "ingredientName": "Feta",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "14a5787b-b641-5cc9-9962-341629fbfbb3",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verstreiche eine großzügige Schicht Hummus auf der Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege sie mit Gurke, Paprika, Spinat und Feta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Presse Zitrone darüber, rolle die Tortilla fest auf und schneide sie in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/hummus-veggie-wrap.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/hummus-veggie-wrap.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/hummus-veggie-wrap.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/hummus-veggie-wrap.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:chicken-salad-wrap",
+      "slug": "chicken-salad-wrap",
+      "title": "Hähnchensalat-Wrap",
+      "instructions": "Gezupftes Hähnchen in cremigem Mayonnaise-Dressing, mit Salat in eine Tortilla eingerollt.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Dosen-Hähnchenfleisch kostet etwa $2.50 und ist vielseitig verwendbar",
+        "Reste vom Grillhähnchen verwenden, falls vorhanden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-chicken",
+          "swap": "Dosen-Thunfisch",
+          "savings": "ca. $1.30"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Dosen-Hähnchenfleisch reicht weiter als frisches Hähnchen.",
+      "healthierTips": [
+        "Mayonnaise durch griechischen Joghurt ersetzen",
+        "Vollkorn-Tortilla verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "ohne Kochen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 49,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/chicken-salad-wrap/",
+      "components": [
+        {
+          "key": "6603d7a0-2f61-5d15-956b-c91fec50b141",
+          "name": "Zutaten",
+          "servingGrams": 515.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa248020-dd67-5ba4-96a3-53d5d183e036",
+              "ingredientName": "Dosen-Hähnchenfleisch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23c43190-a9d9-52ba-bdc6-b7f741b00916",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77d72114-b737-55a4-a1c3-bb8550a87c99",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0bac868-0e62-582e-8f8c-997280f76792",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d9a9c0b-e003-59e3-9cc3-844acb646f61",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b9a2bfa-df45-5eab-a983-f2ab01785f6e",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "cc2cbb7c-f5b0-5345-8f19-c9b3b42d2a88",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass das Dosen-Hähnchenfleisch abtropfen oder zerpflücke übrig gebliebenes Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mische es mit Mayonnaise, Senf, gewürfeltem Sellerie und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Mischung auf Tortillas und gib Salat darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle die Tortillas fest auf und schneide sie in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/chicken-salad-wrap.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/chicken-salad-wrap.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chicken-salad-wrap.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chicken-salad-wrap.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

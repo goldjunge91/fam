@@ -1,0 +1,913 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-matzo",
+      "slug": "gen-matzo",
+      "title": "Matzen",
+      "instructions": "Jüdisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Matzenmehl während der Pessach-Angebote auf Vorrat.",
+        "Serviere dazu günstiges Apfelmus statt spezieller Toppings."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "jüdisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6005,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matzo/",
+      "components": [
+        {
+          "key": "bbe1d0fd-263b-50fe-8bc5-772a0e15f613",
+          "name": "Zutaten",
+          "servingGrams": 205,
+          "position": 0,
+          "items": [
+            {
+              "key": "47374175-84dc-5018-b0d1-7b2be57ecec9",
+              "ingredientName": "Matzenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1d551f5e-21c3-5930-a30d-c1d6c4779efc",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "38da4c55-fa83-51e5-a4a6-f6a852ed17ff",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d8a4462f-8243-5547-89e6-c43ab271b648",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5c01efcb-4494-53c4-936e-83a02f2464b7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "23015a6e-f019-5bec-84d7-da9a3f0699a1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "⅓ Tasse zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Matzenmehl, Salz und Pfeffer in einer mittelgroßen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier und Wasser und gieße die Mischung zum Matzenmehl. Rühre alles zu einem dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig 5-10 Minuten bei Zimmertemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze, bis ein Tropfen Teig sofort brutzelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Löffelportionen des Teigs ins heiße Öl und drücke sie mit dem Löffelrücken leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate sie 3-4 Minuten, bis die Unterseite goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende sie vorsichtig und brate die andere Seite 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie mit einer Schaumkelle heraus, lasse sie auf Küchenpapier abtropfen und serviere sie warm mit Apfelmus oder saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/matzo-ball-soup-lead-655b85a0a1037.jpg?crop=0.6666666666666666xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/matzo-ball-soup-lead-655b85a0a1037.jpg?crop=0.6666666666666666xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tortilla",
+      "slug": "gen-tortilla",
+      "title": "Tortilla",
+      "instructions": "Mexikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl und Öl sind sehr günstige Grundzutaten.",
+        "Bereite die doppelte Menge zu und friere eingewickelte Tortillas für schnelle Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mexikanisch",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6006,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tortilla/",
+      "components": [
+        {
+          "key": "0fded1ca-0b68-5642-add8-e00734e68f55",
+          "name": "Zutaten",
+          "servingGrams": 188.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "67b3a06f-c37d-53b0-b854-c5d1f906fa26",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ef006b39-f51b-5606-ae5b-25a1436eb0a7",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "35bbe997-a88d-5e76-a8f0-7d53eecd8f1c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "2b60416d-95e4-5644-9a75-70394e30d50b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib warmes Wasser und Öl dazu und rühre, bis ein grober Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig auf einer leicht bemehlten Fläche 5-8 Minuten, bis er weich und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile ihn in 8 gleich große Kugeln, decke sie mit einem feuchten Tuch ab und lasse sie 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine ungefettete Pfanne oder gusseiserne Platte bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle oder drücke jeweils eine Kugel zwischen zwei Lagen Frischhaltefolie oder Backpapier sehr dünn aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Tortilla in die heiße Pfanne und gare sie 1-2 Minuten pro Seite. Achte auf kleine Blasen und leichte Bräunung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stapele die fertigen Tortillas in einem Küchentuch, damit sie warm und weich bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/flour-tortilla-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/flour-tortilla-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-parathas",
+      "slug": "gen-parathas",
+      "title": "Parathas",
+      "instructions": "Indisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende zum Braten Pflanzenöl statt teurem Ghee.",
+        "Kaufe Vollkornmehl auf Vorrat und zahle pro Pfund weniger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6007,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-parathas/",
+      "components": [
+        {
+          "key": "0c0beae3-b85f-51ea-9e9f-e8f2c3917deb",
+          "name": "Zutaten",
+          "servingGrams": 206.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "a022fb81-7065-5b2e-9ac9-ddc892841870",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 60,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1½ Tassen"
+            },
+            {
+              "key": "d7a96d2d-7485-54dd-9bf5-ab437751825f",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "67e96227-7e9f-5e84-861c-a89d7a746ac7",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "344f23c3-b724-5691-b431-30afb0a16db1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¾ TL"
+            },
+            {
+              "key": "2173fa0b-970a-526e-81a8-35a68c89be4b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL und mehr zum Frittieren"
+            },
+            {
+              "key": "c7f4787f-7779-5754-bd9c-f05ffdd32e97",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL geschmolzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Vollkornmehl, Weizenmehl und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib warmes Wasser und 1 Esslöffel Öl dazu. Vermische und knete alles zu einem weichen, leicht klebrigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Teig ab und lasse ihn 15-20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 6 gleich große Kugeln und decke sie mit einem feuchten Tuch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle eine Kugel auf einer geölten Fläche zu einem dünnen Kreis von 6 Zoll aus. Bestreiche ihn leicht mit Ghee oder Öl und falte ihn dann zu einem Viertel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle das gefaltete Dreieck zu einem dünnen Dreieck von etwa ¼ Zoll Dicke aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze eine Pfanne bei mittlerer bis hoher Hitze. Lege das Paratha in die trockene Pfanne und gare es 1-2 Minuten, bis helle Stellen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wende es, bestreiche es mit Ghee und gare es 1 Minute. Wende es erneut, bestreiche es wieder mit Ghee und gare es goldbraun und knusprig. Wiederhole den Vorgang mit dem restlichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xNnc7LZcZ-sDeK_3Ox7RI0BXOE0=/5616x3744/filters:fill(auto,1)/GettyImages-676294571-7d58c21598a54c1b813fa12334fee6ad.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xNnc7LZcZ-sDeK_3Ox7RI0BXOE0=/5616x3744/filters:fill(auto,1)/GettyImages-676294571-7d58c21598a54c1b813fa12334fee6ad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-piadina",
+      "slug": "gen-piadina",
+      "title": "Piadina",
+      "instructions": "Italienisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preisgünstiges Pflanzenfett statt Schmalz.",
+        "Fülle die Fladen mit günstigen Zutaten wie einfachem Käse oder Tomaten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6008,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-piadina/",
+      "components": [
+        {
+          "key": "82b9a81b-280d-512a-908d-8c91aeb18152",
+          "name": "Zutaten",
+          "servingGrams": 193.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d31f8f3-b67e-5b60-981e-7c944633b8e2",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f1c988ea-b2c1-562a-a0cb-a6cf6de3c813",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "045b70b3-9161-51d1-bda5-6eb77a81395f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¾ TL"
+            },
+            {
+              "key": "6db93312-ac21-55ba-866b-25519d57d4ee",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c34c9e67-638f-5cf2-aea5-b8966061a011",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Backpulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Schmalz dazu und verreibe es mit den Fingern, bis die Mischung groben Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße nach und nach warmes Wasser dazu und rühre, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knete den Teig 2-3 Minuten glatt und lasse ihn dann zugedeckt 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in 4 Kugeln und rolle jede zu einem dünnen ovalen Fladen von etwa ¼ Zoll Dicke aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze eine ungefettete Pfanne oder Grillplatte bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Piadina auf die heiße Platte und gare sie 2-3 Minuten, bis auf der Unterseite hellbraune Stellen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wende sie und gare die andere Seite 2-3 Minuten leicht gebräunt. Serviere sie warm mit Käse, gepökeltem Fleisch oder Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/2AvCDCRHp1tTw4pDAy-HqSynTSI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240306-SEA-Piadina-KevinWhite-27-745b5e8cb77746d0ab5af2a64929ade0.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/2AvCDCRHp1tTw4pDAy-HqSynTSI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240306-SEA-Piadina-KevinWhite-27-745b5e8cb77746d0ab5af2a64929ade0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-matzah-brei",
+      "slug": "gen-matzah-brei",
+      "title": "Matzebrei",
+      "instructions": "Jüdisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Matzen im Pessach-Angebot und bewahre sie für das ganze Jahr auf.",
+        "Serviere Apfelmus dazu statt teurer Toppings."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "jüdisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6009,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matzah-brei/",
+      "components": [
+        {
+          "key": "4f9ff501-b7f0-58a1-93dd-9e809200bf0e",
+          "name": "Zutaten",
+          "servingGrams": 372.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7eba321b-3170-5d1c-8eea-ed355ed90544",
+              "ingredientName": "Matzen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "3dca88b5-cdee-5c66-ae68-dfcab18360fc",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "0b8a0b79-a941-5e09-a52f-d812e0986bb7",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "0c420883-6a46-5acb-8db1-1b94e02a5b39",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "68e94bcf-d297-51a9-89d6-4765a46540ff",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "7b8039e5-2e9e-541a-b91e-776cb61b3df9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brich die Matzen in mundgerechte Stücke und gib sie in eine flache Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße warmes Wasser über die Matzenstücke, bis sie feucht, aber nicht matschig sind. Gieße überschüssiges Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier mit Salz und Pfeffer in einer weiteren Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die eingeweichten Matzen zu den Eiern und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Butter oder Öl in einer großen Pfanne bei mittlerer Hitze, bis es schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Matzen-Ei-Mischung in die Pfanne und rühre häufig um. Zerteile dabei größere Klumpen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare die Mischung 5-7 Minuten unter gelegentlichem Rühren, bis sie goldbraun und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht sofort mit Apfelmus, saurer Sahne oder Zimtzucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/USNGZNtiqBwU5TSeNU_zqHWo1Vs=/3900x2600/filters:no_upscale():max_bytes(150000):strip_icc()/Matzo-Brei-METHOD-10-32a3dbc03bec44c7afd13bbc4ae7cc14.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/USNGZNtiqBwU5TSeNU_zqHWo1Vs=/3900x2600/filters:no_upscale():max_bytes(150000):strip_icc()/Matzo-Brei-METHOD-10-32a3dbc03bec44c7afd13bbc4ae7cc14.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

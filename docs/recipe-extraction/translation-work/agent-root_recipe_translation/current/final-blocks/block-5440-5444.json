@@ -1,0 +1,978 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-buffalo-chicken-slider",
+      "slug": "gen-buffalo-chicken-slider",
+      "title": "Buffalo-Hähnchen-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie ein.",
+        "Bereite Ranch-Dressing selbst mit griechischem Joghurt zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5440,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buffalo-chicken-slider/",
+      "components": [
+        {
+          "key": "bc136cce-c249-5ad9-b62f-3a62e7061021",
+          "name": "Zutaten",
+          "servingGrams": 240.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "35420a19-9c3d-53ba-a422-c525e7e139bc",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d1cebc7e-e80d-50a9-a33c-dc256553cc05",
+              "ingredientName": "Buffalo-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0524b640-6470-50d8-a41c-0f6cd57f98b7",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Brötchen"
+            },
+            {
+              "key": "315f49d2-8f6c-52e8-9dec-794745f606ea",
+              "ingredientName": "Blauschimmelkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b6ba5d9c-f84d-5916-9ad7-afffdc02683d",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "f7f658b3-195c-5e9c-9d08-d41d6e42eaa1",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "db34fa6e-0547-56e4-bb87-08448cabf98c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Hähnchenbrust in Salzwasser 12–15 Minuten, bis sie vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerpflücke das gegarte Hähnchen mit zwei Gabeln in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge das gezupfte Hähnchen mit Buffalo-Sauce, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Sliderbrötchen mit Butter und röste sie in einer Pfanne je Seite 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Brötchen mit Buffalo-Hähnchen und bestreue es mit zerbröseltem Blauschimmelkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Slider mit Selleriestangen und Ranch-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Buffalo-Chicken-Sliders_EXPS_TOHFM20_186279_E09_20_3b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Buffalo-Chicken-Sliders_EXPS_TOHFM20_186279_E09_20_3b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushroom-swiss-slider",
+      "slug": "gen-mushroom-swiss-slider",
+      "title": "Pilz-Swiss-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot in größeren Mengen.",
+        "Verwende braune Champignons statt teurer Pilzsorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5441,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-swiss-slider/",
+      "components": [
+        {
+          "key": "2cee32f7-517e-5bca-a9bf-c7030e50db3a",
+          "name": "Zutaten",
+          "servingGrams": 413.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9af1a636-c120-5956-b101-60e4f96c4501",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "96f55b59-5a35-5876-84f4-0924547e8b34",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Brötchen"
+            },
+            {
+              "key": "b6847670-69b1-5687-b961-0a947fc6312c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "48aad828-40d0-5879-955c-11692881851e",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0eff6f80-c720-50cd-8d6c-a3d4d53c241f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "cc0c1d2d-cc8d-5d40-8124-a7d23f9f7f6a",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4dabae0f-a2b7-5ea1-a90b-78129aaafc98",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "be54fcca-2ce6-5f31-8e31-cc3acbc0adbd",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Pilze in Scheiben und würfle die Zwiebel fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 2 EL Butter in einer Pfanne und dünste Pilze und Zwiebeln 8 Minuten goldbraun an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme aus dem Rinderhackfleisch 8 kleine Patties und würze sie mit Salz, Pfeffer und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Patties in derselben Pfanne bei mittlerer bis hoher Hitze je Seite 3–4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege jedes Patty mit einer Scheibe Schweizer Käse und decke die Pfanne 1 Minute ab, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Sliderbrötchen mit der restlichen Butter an und belege sie mit Rindfleisch, Käse und Pilzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://iambaker.net/wp-content/uploads/2019/05/mushroom-slider-1.jpg",
+          "sourcePageUrl": "https://iambaker.net/wp-content/uploads/2019/05/mushroom-slider-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-teriyaki-slider",
+      "slug": "gen-teriyaki-slider",
+      "title": "Teriyaki-Slider",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Mirin durch Honig und braunen Zucker, falls kein Mirin erhältlich ist.",
+        "Kaufe Schweinekoteletts im Angebot und schneide sie selbst in Stücke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5442,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-teriyaki-slider/",
+      "components": [
+        {
+          "key": "1853db99-c0c0-50e1-9aa4-6f5751e033b5",
+          "name": "Zutaten",
+          "servingGrams": 302.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee9e2a00-a9af-5755-ba53-3550096e3fc1",
+              "ingredientName": "Schweinekotelett",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "1fa446e1-5078-543b-850b-9cba4dce34ea",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Brötchen"
+            },
+            {
+              "key": "59111378-5e73-5cb1-a0d1-7ac5a0dbbe78",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "daa62666-6202-5e89-8f0a-6bbe8b5a7165",
+              "ingredientName": "Mirin",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "4d13b443-1036-5b94-9903-b51f7c1b00e8",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d419c7a7-8517-597c-a185-8c987c90801c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "a756a024-efa1-5373-af60-2704712937bc",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "f42abf12-1271-5a06-b8f5-c8e0242bc30a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "9e501563-ff81-5f0f-97a5-4d86ee8c6989",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Sojasauce, Mirin, Honig, Ingwer und Knoblauch in einer kleinen Schüssel zu einer Teriyaki-Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Schweinekoteletts in slidergroße Stücke von etwa 0.5 Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Pfanne bei mittlerer bis hoher Hitze und brate das Schweinefleisch je Seite 4 Minuten, bis es fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Teriyaki-Glasur über das Fleisch und lass alles 3–4 Minuten köcheln, bis die Sauce karamellisiert und das Fleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen leicht in der Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Brötchen mit glasiertem Schweinefleisch, garniere mit Frühlingszwiebeln und bestreue sie mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Iz1sKvfjHvOlS_P7XhBHRbrMTxU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11828745-teriyaki-chicken-sliders-recipe-VAT-Beauty-4x3-9d76444842624a9486c1eabfb0bda93b.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Iz1sKvfjHvOlS_P7XhBHRbrMTxU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11828745-teriyaki-chicken-sliders-recipe-VAT-Beauty-4x3-9d76444842624a9486c1eabfb0bda93b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gourmet-beef-slider",
+      "slug": "gen-gourmet-beef-slider",
+      "title": "Gourmet-Rindfleisch-Slider",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Karamellisiere Zwiebeln im Voraus in größeren Mengen.",
+        "Verwende amerikanischen Käse statt Gruyère, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5443,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gourmet-beef-slider/",
+      "components": [
+        {
+          "key": "47abfedc-f384-5a02-8718-4df731385b3f",
+          "name": "Zutaten",
+          "servingGrams": 354.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b8638d3-17e0-5285-9c33-58e488e4656f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "8e671276-9d6a-57b2-88a6-0593aa7b0d0b",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Brötchen"
+            },
+            {
+              "key": "0976d988-7ecd-5856-bb28-c5e6fde2939a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e41c3b13-2298-553a-9c30-26128fdf6f30",
+              "ingredientName": "Gruyère",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "5916ebe8-b9e5-5997-87e7-99636a262663",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "12f929b9-7da4-5557-9bed-a061619c96ef",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e4b957fa-b4c0-5011-83af-6a3f14e547a4",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3395fe5-8a5a-5c62-8c38-bd086e8b5a57",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "b420a919-01cd-5b07-8144-f6f8401d25f5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Rinderhackfleisch, Ei, Paniermehl, Worcestershiresauce, Salz und Pfeffer vorsichtig in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus der Mischung 8 kleine Patties und drücke jeweils eine kleine Mulde in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Patties in einer Pfanne bei mittlerer bis hoher Hitze je Seite 3–4 Minuten, bis sie auf mittlerem Gargrad gegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege jedes Patty mit Gruyère und decke die Pfanne 1 Minute ab, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen an und bestreiche die Innenseiten mit Dijon-Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege die Brötchen vor dem Servieren jeweils mit einem Rindfleisch-Patty, geschmolzenem Käse und karamellisierten Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Roast-Beef-Sliders_EXPS_FT24_275951_EC_032724_1.jpg?w=892",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Roast-Beef-Sliders_EXPS_FT24_275951_EC_032724_1.jpg?w=892",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crab-cake-slider",
+      "slug": "gen-crab-cake-slider",
+      "title": "Krabbenfrikadellen-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Krabbenfleisch tiefgekühlt, um Geld zu sparen.",
+        "Bereite Remoulade selbst mit Mayonnaise und Relish zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5444,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crab-cake-slider/",
+      "components": [
+        {
+          "key": "0441c41c-b899-5bed-b3d0-f2690c9803a3",
+          "name": "Zutaten",
+          "servingGrams": 318.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea6b1e47-bc2f-51a7-8377-245923aced59",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a2b32160-eada-50b6-a6a0-b2c72c419af8",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Brötchen"
+            },
+            {
+              "key": "09786b9a-760d-5c74-802a-7e8080e7f0f4",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "c8b382b8-758e-5b7f-a809-35368265eef7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69994808-a208-591c-ab11-64656441455a",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4ed7453b-0639-5ca3-a337-d044f223d6f3",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8d90029e-ba0e-510a-8724-b3a330e7be07",
+              "ingredientName": "Old-Bay-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8f01a4e9-56b4-52f5-b439-555ab2b7ea4f",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae4d4cbf-e9f3-5ad2-86ae-c1134da8b4a5",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Krabbenfleisch, Mayonnaise, Ei, 0.25 Tasse Paniermehl, Senf, Old Bay und Zitronensaft in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus der Mischung 8 Patties und stelle sie 15 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Paniermehl auf einen Teller und paniere die Krabbenfrikadellen von beiden Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmilz Butter in einer Pfanne bei mittlerer Hitze und brate die Frikadellen je Seite 4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Krabbenfrikadellen auf den Brötchen mit Remoulade oder nach Wunsch zusätzlicher Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del029925-cajun-crab-cake-sliders-0272-rl-index-67b6078a294a8.jpg?crop=0.889xw:1.00xh;0.0561xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del029925-cajun-crab-cake-sliders-0272-rl-index-67b6078a294a8.jpg?crop=0.889xw:1.00xh;0.0561xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

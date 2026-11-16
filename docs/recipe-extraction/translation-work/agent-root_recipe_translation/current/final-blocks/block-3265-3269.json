@@ -1,0 +1,1087 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-baumkuchen",
+      "slug": "gen-baumkuchen",
+      "title": "Baumkuchen",
+      "instructions": "Deutscher Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schokotropfen der Hausmarke verwenden",
+        "Zur Vereinfachung Schokoladenglasur weglassen und mit Puderzucker bestäuben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3265,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baumkuchen/",
+      "components": [
+        {
+          "key": "fc03579e-27de-5132-88f4-5f876ee18730",
+          "name": "Zutaten",
+          "servingGrams": 255.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac82dc9f-eb57-599b-b01d-0a6ab76da870",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9decf9a2-057f-534f-bfcd-3ddcec8f11df",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "37f7e00e-8106-565a-be23-2d2a1b23b7fd",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "005e0b6d-6faa-540d-9bbf-09fc0989a3ab",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "62aa8bdc-fc77-5829-bd09-476222599b8c",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cc618776-32a4-55ac-86f6-56a9aebc6e9b",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e8eafc05-f126-5ee4-a6d0-1ce8439aa0a2",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3830a630-b20c-57c0-8f4d-187f936101d6",
+              "ingredientName": "Schokotropfen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8ec26301-cc4d-5f64-b998-9ba0fef4272d",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "275522fa-5950-5cc4-8a3e-a2ddfc4edd91",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2-3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 350°F vorheizen und eine Gugelhupfform gründlich mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker hell und luftig aufschlagen, dann Eier einzeln einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Maisstärke und Backpulver vermischen und zusammen mit Vanilleextrakt unter die Eiermischung heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in einen Spritzbeutel füllen und konzentrische Kreise auf den Boden der Gugelhupfform spritzen, beginnend in der Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere Schichten aufeinander spritzen, bis die Form vollständig gefüllt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "45-55 Minuten backen, bis ein in die Mitte gesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter stürzen und vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Geschmolzene Schokotropfen mit Puderzucker und Wasser zu einer Glasur verrühren und über den abgekühlten Kuchen gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2021%2F05%2F07%2F7433_Baumkuchen_MFS_01-1-2000.jpg&q=60&c=sc&poi=auto&orient=true&h=512",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2021%2F05%2F07%2F7433_Baumkuchen_MFS_01-1-2000.jpg&q=60&c=sc&poi=auto&orient=true&h=512",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sacher-torte",
+      "slug": "gen-sacher-torte",
+      "title": "Sachertorte",
+      "instructions": "Österreichisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schokolade und Kakaopulver der Hausmarke verwenden",
+        "Eier während Sonderangeboten in großen Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "österreichisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3266,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sacher-torte/",
+      "components": [
+        {
+          "key": "4345ddaa-f21d-5439-ba59-5694e11655a3",
+          "name": "Zutaten",
+          "servingGrams": 276.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "08ad228b-0fbf-5515-a619-9e109c0b83d1",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "35d2ad95-e63a-5e74-b512-cb895642c2e9",
+              "ingredientName": "Kakaopulver",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "bb6ca329-6dfe-5a0a-85fa-abe817072861",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f9b5e262-1835-553e-9ec8-7f41916fac47",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7ff0e839-e374-52e9-b4ba-b1ed439be9fe",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 große Eier"
+            },
+            {
+              "key": "1180b153-045c-546a-be64-608fc9774198",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "eda1a234-cdee-5213-8220-9cb4bfafd514",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "3b52f093-3baa-5e15-b361-ab17c8611f60",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ad75ccef-2ada-52e3-a7e4-770692bca4de",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "bab5b009-bc70-5b40-b6e7-e5f64c6bbb91",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 350°F vorheizen und eine runde Kuchenform von 9-inch einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kakaopulver mit Mehl und Salz in eine mittelgroße Schüssel sieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter und Zucker hell und luftig aufschlagen, dann Eigelb einzeln mit Vanilleextrakt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl-Kakao-Mischung vorsichtig unter die Buttermischung heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einer separaten Schüssel Eiweiß zu steifen Spitzen schlagen und dann in zwei Portionen unter den Teig heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teig in die vorbereitete Form gießen und 40-45 Minuten backen, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kuchen vollständig abkühlen lassen, dann waagerecht in zwei Böden schneiden und Aprikosenmarmelade dazwischen verstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schokolade mit Sahne bei niedriger Hitze schmelzen, über den gesamten Kuchen gießen und 30 Minuten fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/06/Sachertorte_EXPS_THCA18_33208_D09_22_1b.jpg?w=700?fit=360%2C360",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/06/Sachertorte_EXPS_THCA18_33208_D09_22_1b.jpg?w=700?fit=360%2C360",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-basbousa",
+      "slug": "gen-basbousa",
+      "title": "Basbousa",
+      "instructions": "Snack aus dem Nahen Osten, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kokosraspeln in großen Mengen bei Großhändlern kaufen",
+        "Sirup aus einfachen Vorratszutaten Zucker und Wasser kochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "naher-osten",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3267,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-basbousa/",
+      "components": [
+        {
+          "key": "6c8f57a8-1225-547d-8842-0accc79e0371",
+          "name": "Zutaten",
+          "servingGrams": 235.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "efa88187-8f5c-5fd3-ab5f-a40e694e8960",
+              "ingredientName": "Kokosraspeln (ungesüßt)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bb7c0dba-50ec-5fee-87dd-5e991d392f6f",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "10b2a03a-4b4f-53c0-b00b-a04c9140c37a",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b59e8312-b0d7-51f9-9b95-27182e832c0d",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "78a64ad7-3cb5-5272-af28-6fd0eb993117",
+              "ingredientName": "Ganze Nelken",
+              "grams": 100,
+              "quantity": 100,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "181024aa-33a4-5198-84f6-b5f3d045ae81",
+              "ingredientName": "Weißer Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a8506ba6-5469-5245-915f-43013abc6402",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b3633ce4-8f63-59cd-a008-23ac2f4912ae",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosraspeln, Kondensmilch, Vollmilch und 1/2 cup Zucker in einer Schüssel gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischung fest in eine gefettete Backform von 9x13 drücken und Oberfläche glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In Rauten oder Quadrate schneiden und jeweils eine Nelke in die Mitte jedes Stücks setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei 350°F 25-30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während Basbousa bäckt, 1 cup Zucker, 1 cup Wasser und Zitronensaft in einem Topf vermengen und aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sirup 10 Minuten köcheln lassen, dann vom Herd nehmen und leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warmen Sirup über die heiße Basbousa gießen, sobald sie aus dem Ofen kommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vollständig abkühlen lassen und den Sirup aufsaugen lassen, bevor sie serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2025/06/basbousa-recipe.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2025/06/basbousa-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stroopwafel",
+      "slug": "gen-stroopwafel",
+      "title": "Stroopwafel",
+      "instructions": "Niederländischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein normales Waffeleisen verwenden, falls kein Stroopwafel-Eisen vorhanden ist",
+        "Honig in Discountern in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3268,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stroopwafel/",
+      "components": [
+        {
+          "key": "e75a1c85-940e-5b18-b0ce-e61545b85437",
+          "name": "Zutaten",
+          "servingGrams": 207.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "50fae534-736d-5b83-9803-e055b909ec94",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "279f11c4-ff37-57c9-bb60-31da35df78c2",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "fad57dcb-75a1-531e-8aba-696528b39449",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7af9acd1-7ca6-54a5-8b7a-c29626a03ff4",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "47edafa0-70ef-5c46-afa9-44d8566b4e92",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0aa25ed0-60e3-5e41-94a3-adede41ea727",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "09cc1cbd-f541-54b7-af73-29a30d74bc5b",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ef286bb0-7ff5-59e2-8d54-1355d7a07dd8",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "3/4 cup Butter und 1/2 cup braunen Zucker hell und luftig aufschlagen, dann Eier und Vanille einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Backpulver vermengen und unter die flüssigen Zutaten heben, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stroopwafel- oder Waffeleisen auf mittelhohe Hitze vorheizen und leicht einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kleine Portionen Teig in das Eisen drücken und backen, bis beide Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Noch warm die Waffelhälften sofort mit einer Füllung aus 1/4 cup geschmolzener Butter, 1/2 cup dunklem braunem Zucker, Zimt und Honig zusammensetzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gefüllte Waffel zwischen die beiden Hälften legen und leicht andrücken, dann auf einem Gitter abkühlen und fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit dem übrigen Teig und der Füllung wiederholen, bis alle Waffeln fertig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In einem luftdichten Behälter bis zu 5 Tage aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/GoQas3o6W8RQcmvpkRyNefDoHe8=/5908x3939/filters:fill(auto,1)/stroopwafels-recipe-dutch-syrup-waffles-1128535-hero-01-d6b87e6059714590a75ebaf415cf9ba5.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/GoQas3o6W8RQcmvpkRyNefDoHe8=/5908x3939/filters:fill(auto,1)/stroopwafels-recipe-dutch-syrup-waffles-1128535-hero-01-d6b87e6059714590a75ebaf415cf9ba5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-medovik",
+      "slug": "gen-medovik",
+      "title": "Medovik",
+      "instructions": "Russisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Honig in großen Mengen in Großhandelsmärkten kaufen",
+        "Kondensmilch der Hausmarke statt einer Markenvariante verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "russisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3269,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-medovik/",
+      "components": [
+        {
+          "key": "708c278f-a28e-50de-982e-7aa89545e7da",
+          "name": "Zutaten",
+          "servingGrams": 421.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3300fdf-7ab1-5cad-84c0-bb55e7aac167",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "db044972-d262-55de-98de-7185db2264d9",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "dfea6a59-7484-5352-86c1-5a96affdb1cf",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4e4a26bf-9d05-5306-a64c-5cd2d5e229ae",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "320fa8dc-5d0d-51fd-a44f-c9a72fba6612",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "96c260cb-34d6-57c4-a46b-966e0389542c",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "88510b01-fa3f-50cb-bf8f-306ffe9d39e7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "d9f148ca-208e-5bc5-8aec-badb3f336e9e",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "9eaa0491-5345-580d-8b41-f3884d505271",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Honig, 1/2 cup Butter und Zucker in einem Topf erhitzen, bis alles vermischt ist, dann leicht abkühlen lassen und Eier einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl mit Natron und Salz sieben und unter die Honigmischung heben, sodass ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in 8-10 gleiche Portionen teilen und jede dünn zwischen Backpapier ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Schicht auf einem Backblech bei 375°F 5-7 Minuten hellgolden backen, dann auf Gittern abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Creme 1 cup Butter mit Kondensmilch und Puderzucker luftig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgekühlte Honigkuchen mit Creme dazwischen schichten, wie bei einer Torte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Oberseite und Seiten der zusammengesetzten Torte mit der restlichen Creme bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mindestens 4 Stunden kühlen, damit die Schichten weich werden und sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/5c/ed/fc/5cedfc59579aaab138ca6cdcecf5a32f.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/5c/ed/fc/5cedfc59579aaab138ca6cdcecf5a32f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

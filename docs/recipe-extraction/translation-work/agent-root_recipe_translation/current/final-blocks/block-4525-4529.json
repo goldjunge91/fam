@@ -1,0 +1,1050 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ronjeni-krumpirici",
+      "slug": "gen-ronjeni-krumpirici",
+      "title": "Ronjeni Krumpirici",
+      "instructions": "Kroatischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln in größeren Mengen auf Bauernmärkten.",
+        "Verwenden Sie das günstigste verfügbare Öl zum Frittieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "kroatisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4525,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ronjeni-krumpirici/",
+      "components": [
+        {
+          "key": "f055b3fd-c58b-547d-ab5e-e2e195542bb3",
+          "name": "Zutaten",
+          "servingGrams": 52.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d577b00-93c5-5abb-916e-d16337bae5d1",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "72a59514-ad28-58af-b240-7bfb2eae4dfe",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b16e6e10-7ed4-5115-8029-9cc3119115d8",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "2a21785d-c2f3-5bbe-aca1-3335aec2ee59",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "d4ea3c07-d2df-580d-9a07-4f458aa658a3",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "84a54780-c7e3-50b6-bd15-3533d96f8adb",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und mit einem Gemüsehobel oder scharfen Messer in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffelscheiben 10 Minuten in kaltem Wasser einweichen, um Stärke zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln gründlich abgießen und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem tiefen, schweren Topf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffeln portionsweise 3–4 Minuten goldbraun und knusprig frittieren, gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Noch warm mit Salz, Knoblauchpulver und Paprikapulver bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit frisch gehackter Petersilie garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static.jutarnji.hr/images/slike/2022/06/09/25070821.jpg?1654864246",
+          "sourcePageUrl": "https://static.jutarnji.hr/images/slike/2022/06/09/25070821.jpg?1654864246",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gradela-od-liganja",
+      "slug": "gen-gradela-od-liganja",
+      "title": "Gradela od Liganja",
+      "instructions": "Kroatisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie tiefgekühlten Tintenfisch, der günstiger und bereits gereinigt ist.",
+        "Verwenden Sie preiswerten roten Tafelwein statt hochwertigen Wein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4526,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gradela-od-liganja/",
+      "components": [
+        {
+          "key": "519d6edc-63bf-5f05-9c5d-6e6e58ac412a",
+          "name": "Zutaten",
+          "servingGrams": 167.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e6b417a-03bd-5220-9595-81dea4fbc641",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d7f69097-9fb2-5eb7-8dcf-5a1957bdf00d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "fc4589b2-71c3-5a1e-b2e3-8171d341181a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "155d55f3-6c12-5003-a24b-b9d4f6130a39",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "027cef14-4d8d-5ea7-a451-c49343c7a050",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "00eb87e1-925f-5954-9d9e-e4bc6b100114",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ee542a49-5b77-51df-b035-608b7ab18546",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7c5f64cd-965a-5848-b971-2a6119cb6f89",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f81dbc6-b64c-5db5-9d6e-678546d4b789",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d515f053-e1d3-52e0-aa3e-63ddfd707ede",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tintenfisch säubern, Fangarme entfernen und Körper in Ringe schneiden; Fangarme in Stücke hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln hacken und Knoblauchzehen fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einer großen schweren Pfanne erhitzen und Zwiebeln sowie Knoblauch weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark hinzufügen und unter ständigem Rühren 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tintenfischringe und Fangarme hinzufügen und 3 Minuten kochen, bis sie Flüssigkeit abgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rotwein zugießen und etwa 5 Minuten auf die Hälfte reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brühe und Lorbeerblatt hinzufügen, aufkochen, Hitze reduzieren und 45 Minuten köcheln lassen, bis der Tintenfisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen, Petersilie einrühren und heiß mit Polenta oder knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://zlatkogall.com/wp-content/uploads/2025/05/Buzara-od-liganja-i-kozica-ili-skampa-scaled.jpg",
+          "sourcePageUrl": "https://zlatkogall.com/wp-content/uploads/2025/05/Buzara-od-liganja-i-kozica-ili-skampa-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ilbir",
+      "slug": "gen-ilbir",
+      "title": "Çilbir",
+      "instructions": "Türkisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verdünnen Sie normalen Joghurt mit Wasser statt griechischen Joghurt zu verwenden.",
+        "Kaufen Sie Eier im Discounter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "türkisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4527,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ilbir/",
+      "components": [
+        {
+          "key": "44fa51dc-a45f-5b2d-9008-1cf2e23145b4",
+          "name": "Zutaten",
+          "servingGrams": 415.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3ce262d-64c6-5688-b9ee-eb10b2dc1d19",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ba857b8-2c85-5f44-ad35-284bb4fd51d0",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "773d1daf-d732-5614-9d61-73c4903f16ff",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f8937cb4-a7db-5a45-984e-167ec7203828",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6798ea7a-c113-5f4e-90d3-cdc93a02fd30",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b2f9240e-e406-5450-b7d4-e5f472ef36d5",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "22dca58d-a95f-59c3-a53c-fdf0f068974a",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0ab405df-91e2-5a45-a3a2-837712d54a83",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "43d3d48c-2708-5497-a410-28b76da2872f",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Joghurt und Wasser in einer Schüssel verquirlen. Knoblauch fein hacken und zusammen mit Salz und Dill unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Joghurtmischung auf einer Servierplatte oder in flachen Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen kleinen Topf Wasser mit Essig zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier vorsichtig in das köchelnde Wasser gleiten lassen und 3–4 Minuten pochieren, bis das Eiweiß gestockt und das Eigelb flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Butter in einer kleinen Pfanne schmelzen, Chiliflocken hinzufügen und 1 Minute rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pochierte Eier auf die Joghurtsauce legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Chilibutter über die Eier träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit warmem Brot zum Auftunken servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/o8Wh_JUa9kNl7Nmj5rhmF7VTy6U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cilbir-turkish-eggs-noah-velush-rogers-2022-8781a82450ca4d079b9ec43702b886d6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/o8Wh_JUa9kNl7Nmj5rhmF7VTy6U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cilbir-turkish-eggs-noah-velush-rogers-2022-8781a82450ca4d079b9ec43702b886d6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sucuk-ve-yumurta",
+      "slug": "gen-sucuk-ve-yumurta",
+      "title": "Sucuk ve Yumurta",
+      "instructions": "Türkisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie türkische Wurst auf internationalen Märkten zu günstigeren Preisen.",
+        "Verwenden Sie normales Rinder-Pepperoni, falls Sucuk nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "türkisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4528,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sucuk-ve-yumurta/",
+      "components": [
+        {
+          "key": "99cfce03-69bc-57aa-8262-2b06fe90e661",
+          "name": "Zutaten",
+          "servingGrams": 210,
+          "position": 0,
+          "items": [
+            {
+              "key": "aaa71637-6cc6-5fe2-91bd-7d385c5049db",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "4c679d82-4787-5bdf-800c-1439dc0de5aa",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4a16541-9245-5a62-ae02-a90d951985be",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1848dd8c-9ebe-5c70-a25b-c859e05bacfb",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "a95fe479-b043-50e9-89a9-459a08601335",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bedbd7f-a55c-5057-815b-e41ff035e87f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6d0a0909-90c6-52a5-9427-43613d45f1f3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sucuk in dünne Scheiben und Zwiebel sowie Paprika in Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sucuk-Scheiben hinzufügen und 2–3 Minuten braten, bis sich die Ränder wellen und Fett austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebel und Paprika hinzufügen und 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier mit Abstand direkt zwischen die Sucuk-Scheiben in die Pfanne schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Etwa 3–4 Minuten garen, bis das Eiweiß gestockt und das Eigelb noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer würzen und mit frischer Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Direkt aus der Pfanne mit warmem Pitabrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.diyetkolik.com/site_media/media/foodrecipe_images/shutterstock_22427677.jpg",
+          "sourcePageUrl": "https://www.diyetkolik.com/site_media/media/foodrecipe_images/shutterstock_22427677.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-rek",
+      "slug": "gen-b-rek",
+      "title": "Börek",
+      "instructions": "Türkisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Filoteig im Discounter, dort ist er meist günstiger als in Bäckereien.",
+        "Verwenden Sie tiefgekühlten Spinat, der günstiger als frischer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4529,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-rek/",
+      "components": [
+        {
+          "key": "e311234f-c348-5c13-a4f3-47dc925a7858",
+          "name": "Zutaten",
+          "servingGrams": 396.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "10a7031c-8a36-5f03-af7a-b9a5ca926d64",
+              "ingredientName": "Filoteig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "3284fdd9-cea6-5b21-9d7c-a04b6bfda214",
+              "ingredientName": "Feta",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "5ba55a8b-617d-594f-9ba0-184435025c47",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9ea731d-7e4e-5b21-a56c-59a0246e274c",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "82566c97-d53f-5ea0-bc81-c3cea39d5de8",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "80c474c3-ff6a-5d9f-a4f4-4c11d441b82a",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "4ddb1610-ad14-56f2-a0f2-d9a2c7601f9a",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "386fc70c-5d73-5310-895e-8e72c225de3a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spinat und Zwiebel fein hacken und in 1 EL Butter anbraten, bis die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Feta in eine Schüssel bröckeln, Eier einrühren und dann die gegarte Spinatmischung mit Dill unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füllung nach Geschmack mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Restliche Butter schmelzen und ein Filoteigblatt auf ein Backblech legen, leicht mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drei weitere Filoteigblätter darauflegen und jedes mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hälfte der Füllung gleichmäßig auf dem Filoteig verteilen, dann vier weitere gebutterte Blätter darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Restliche Füllung darauf verteilen und mit dem letzten mit Butter bestrichenen Filoteigblatt abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einem scharfen Messer in Quadrate schneiden und bei 375 °F 25–30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/11/TMD-Borek-Leads-01-1024x1536.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/11/TMD-Borek-Leads-01-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

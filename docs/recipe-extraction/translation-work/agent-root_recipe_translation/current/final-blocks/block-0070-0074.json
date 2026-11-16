@@ -1,0 +1,959 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:air-fryer-potato-wedges-beans",
+      "slug": "air-fryer-potato-wedges-beans",
+      "title": "Heißluftfritteusen-Kartoffelspalten mit Bohnen",
+      "instructions": "Knusprig gewürzte Kartoffelspalten mit warmen Bohnen als Beilage – ein einfaches Abendessen für die Studentenküche.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "Die Spalten 4 Minuten in der Heißluftfritteuse erneut knusprig aufbacken.",
+      "cheapTips": [
+        "Kartoffeln kosten pro Pfund nur ein paar Cent",
+        "Mit der Heißluftfritteuse sparst du dir Backofen und Öl"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus oder Pintobohnen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "paprika",
+          "swap": "Chilipulver",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Drei Kartoffeln und eine Dose Bohnen kosten weniger als $4.",
+      "healthierTips": [
+        "Weniger Öl verwenden",
+        "Grünes Gemüse dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "studentenküchengeeignet",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 70,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/air-fryer-potato-wedges-beans/",
+      "components": [
+        {
+          "key": "1e070fe4-cce9-5cf0-88e3-17b09b789105",
+          "name": "Zutaten",
+          "servingGrams": 528.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd3d782d-7838-51cf-b6aa-a5415843231a",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78c020aa-9ca1-59a9-8e43-38da5137d0e3",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74806428-e206-5c5d-9cd9-a9f786ac13f5",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cf20bcd-6c69-52e7-91e6-23ea07d94d6e",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f1f1763-9c5a-5b77-9308-f2a38858557f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d16b2c19-9726-59bf-84ca-325befe225b1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0f59ccb-b9dd-580b-8fdd-3b231304b982",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in Spalten und vermenge sie mit Öl, Paprikapulver, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Heißluftfritteuse auf 400F ein und gare die Spalten 18 Minuten; schüttle den Korb nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Bohnen 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Kartoffelspalten mit Bohnen und Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/air-fryer-potato-wedges-beans.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/air-fryer-potato-wedges-beans.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/air-fryer-potato-wedges-beans.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/air-fryer-potato-wedges-beans.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mashed-potato-bowl",
+      "slug": "mashed-potato-bowl",
+      "title": "Herzhafte Kartoffelpüree-Schüssel",
+      "instructions": "Cremiges Kartoffelpüree mit Bratensoße, Mais und einer beliebigen Eiweißbeilage – wie beim Fast Food.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "Mit einem Schuss Milch 2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Päckchen mit Bratensoßenpulver kosten etwa 50 Cent",
+        "Tiefkühlmais ist günstiger als frischer"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gravy-mix",
+          "swap": "Butter + Mehl + Brühe",
+          "savings": "ca. $0.40"
+        },
+        {
+          "forIngredientId": "canned-chicken",
+          "swap": "Bohnen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kartoffeln aus dem Vorratsschrank und ein Päckchen Bratensoßenpulver ergeben eine üppige Schüssel.",
+      "healthierTips": [
+        "Weniger Butter verwenden",
+        "Gedämpften Brokkoli dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Seelenfutter",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 71,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mashed-potato-bowl/",
+      "components": [
+        {
+          "key": "c4dcf6b1-aac6-5bdb-9cf1-bab878d81381",
+          "name": "Zutaten",
+          "servingGrams": 580,
+          "position": 0,
+          "items": [
+            {
+              "key": "4021d70a-fe82-585e-938f-19285b5573c9",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5527c66-8cc2-5460-8cc8-0cafc5d2a0f8",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13cc89e6-2ffa-54d7-82a0-9097cfbd360c",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "581b6c7c-95e0-54a8-b1f3-94660c99aa76",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18a2c01c-f963-5697-8660-ee09d1000e8f",
+              "ingredientName": "Bratensoßenpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a0f2ab7-eba2-5b14-baf1-b22a0ff333cd",
+              "ingredientName": "Hähnchen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "9b29795c-7459-5e7d-8a31-85c62dd3a839",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche gewürfelte Kartoffeln 12 Minuten, bis sie mit einer Gabel weich sind; gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke sie mit Butter, Milch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme den Mais 2 Minuten in der Mikrowelle und bereite die Soße nach Packungsangabe zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Kartoffelpüree, Mais, Soße, nach Wunsch Hähnchen und Käse in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/mashed-potato-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/mashed-potato-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/mashed-potato-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/mashed-potato-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:sweet-potato-chickpea-curry",
+      "slug": "sweet-potato-chickpea-curry",
+      "title": "Süßkartoffel-Kichererbsen-Curry",
+      "instructions": "Süßkartoffeln und Kichererbsen in Kokos-Currysauce geschmort, bis alles weich und cremig ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": "Im Kühlschrank 5 Tage haltbar.",
+      "reheatingInstructions": "Mit etwas Wasser 2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Süßkartoffeln sind günstig und sättigend",
+        "Eine Dose Kokosmilch reicht für viele Portionen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffel",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Milch + Currypaste",
+          "savings": "ca. $1"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Zwei Süßkartoffeln und eine Dose Kichererbsen reichen für drei Portionen.",
+      "healthierTips": [
+        "Leichte Kokosmilch verwenden",
+        "Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "vegan",
+        "gefriergeeignet"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 72,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/sweet-potato-chickpea-curry/",
+      "components": [
+        {
+          "key": "d6d50685-28df-51e4-8277-0e1411199309",
+          "name": "Zutaten",
+          "servingGrams": 681.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ca2d627-1726-59fb-b4ca-372e2a7cb9f2",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a215a96-27d4-5578-95f7-b37e586c8ffc",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "162b85ff-d4ba-5ea5-bfc7-e1f910f9a779",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f6e9744-b6e0-5039-8302-5636affab177",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c07ab234-8794-5003-bb85-ab5839c853ea",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97f838d1-94dc-5b64-b940-63d29b029c5d",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16a25c48-bd18-55ef-8985-37ee0c59c21f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d70198ff-a3c0-52af-a6f4-f5281c2cafd4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel 5 Minuten an und gib Knoblauch und Currypulver für 1 Minute dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge gewürfelte Süßkartoffel, Kichererbsen, Kokosmilch und 0.5 Tasse Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 18 Minuten köcheln, bis die Süßkartoffel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Curry mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/sweet-potato-chickpea-curry.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/sweet-potato-chickpea-curry.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/sweet-potato-chickpea-curry.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/sweet-potato-chickpea-curry.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:breakfast-potato-skillet",
+      "slug": "breakfast-potato-skillet",
+      "title": "Kartoffelpfanne zum Frühstück",
+      "instructions": "Knusprige Kartoffelwürfel mit Zwiebel und Paprika, darauf gegarte Eier.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "In der Pfanne wieder knusprig braten.",
+      "cheapTips": [
+        "Nur eine Pfanne nötig, kein weiteres Kochgeschirr",
+        "Kartoffeln kosten nur ein paar Cent"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Tiefkühlgemüse",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "paprika",
+          "swap": "Chilipulver",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kartoffeln und Eier ergeben ein besonders günstiges, sättigendes Frühstück.",
+      "healthierTips": [
+        "Weniger Öl verwenden",
+        "Vollkorntoast dazu servieren"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "Wochenende"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 73,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/breakfast-potato-skillet/",
+      "components": [
+        {
+          "key": "0772cc71-57e7-5628-a573-3dea7b407547",
+          "name": "Zutaten",
+          "servingGrams": 345,
+          "position": 0,
+          "items": [
+            {
+              "key": "7114ff12-9bfe-5643-aff1-eb4f189524d5",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7c19eec-8aa7-56ca-89f8-88a607953958",
+              "ingredientName": "Ei",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84ff1b34-7c93-5610-842a-f7462ed1bad3",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28136f06-e7ec-523a-8e81-fdace870ee3f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f76e963-cc0d-5458-948a-3dbf05873eb7",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9556b731-1c90-540b-9f66-594c18a8cc4e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27090eff-42b1-58c4-9dab-8d7c2dc73ed6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in Würfel und gare sie 4 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate sie 8 Minuten mit gewürfelter Zwiebel und Paprika in Öl knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue Paprikapulver darüber, forme 3 Mulden und schlage die Eier hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und gare alles 4 Minuten, bis die Eier gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nach Wunsch mit Käse bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/breakfast-potato-skillet.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/breakfast-potato-skillet.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/breakfast-potato-skillet.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/breakfast-potato-skillet.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:potato-cabbage-skillet",
+      "slug": "potato-cabbage-skillet",
+      "title": "Kartoffel-Kohl-Pfanne",
+      "instructions": "Knusprige Kartoffeln mit angebratenem Kohl, Knoblauch und einem Schuss Essig – einfache Hausmannskost vom Feinsten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 17,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "In der Pfanne wieder knusprig braten oder 90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein Kohlkopf und eine Kartoffel ergeben eine Mahlzeit",
+        "Essig bringt Frische in einfache Vorratsgerichte"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Grünkohl",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "vinegar",
+          "swap": "Zitronensaft",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kohl und Kartoffeln sind die günstigsten Gemüsesorten im Laden.",
+      "healthierTips": [
+        "Weniger Öl verwenden",
+        "Obenauf ein Spiegelei servieren"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "europäisch",
+        "vegan",
+        "aus einer Pfanne"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 74,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/potato-cabbage-skillet/",
+      "components": [
+        {
+          "key": "3c45462d-6f3a-56e6-8843-9529625b5539",
+          "name": "Zutaten",
+          "servingGrams": 720.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b400777-5faa-5c46-a49f-520a175569ec",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b3d36b5-cc2f-537e-aa2f-d9b90d7287aa",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d530bcf8-8b13-5080-8e35-708988005e95",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db48b650-dbfc-537f-afca-8b531b0a50dc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83a326bd-3164-550a-a22c-83c2b7cfa3d4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6cb8e7c-07f2-579f-bfcf-c715c71f0711",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b35726c2-2bce-536e-a762-c82da4514bd9",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae554db9-fea2-59f0-8976-d5560f801a8f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in Würfel und gare sie 5 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate sie 8 Minuten mit der Zwiebel in Öl knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den fein geschnittenen Kohl und Knoblauch dazu und brate alles 5 Minuten scharf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Paprikapulver und Salz darüber, gib den Essig hinzu und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/potato-cabbage-skillet.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/potato-cabbage-skillet.jpg",
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cabbage_with_Potatoes_Curry_-_Kolkata_2011-03-05_1911.JPG/960px-Cabbage_with_Potatoes_Curry_-_Kolkata_2011-03-05_1911.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cabbage_with_Potatoes_Curry_-_Kolkata_2011-03-05_1911.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Biswarup Ganguly — CC BY 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Kartoffel-Kohl-Pfanne",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

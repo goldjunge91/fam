@@ -1,0 +1,979 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53247",
+      "slug": "tmdb-53247",
+      "title": "Wolfsbarsch mit gebratenem Ingwer, Chili und Frühlingszwiebeln",
+      "instructions": "Vietnamesisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2155,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53247/",
+      "components": [
+        {
+          "key": "41e58acd-227e-5f52-94ce-de1ecce24bef",
+          "name": "Zutaten",
+          "servingGrams": 67.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "448c1bc8-cca9-5af8-9f40-ee119d1f62a0",
+              "ingredientName": "Flockiges Meersalz (Maldon-Art)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebc3a7f7-04ec-55e5-991b-c1ce19abdbb5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fb3bd59-514f-5853-9707-664481a3ad15",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cbb906b-5d13-5d1d-9236-689d02d588cb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bcd7c09-9c53-5a4a-83fc-cd120c7d3b5e",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4dd0a1f-8707-5889-b956-3a0b26bd72a6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02d252c4-9135-580f-bcdb-83611b35bc12",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze 6 Wolfsbarschfilets mit Salz und Pfeffer und ritze die Haut 3 Mal ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine schwere Pfanne und gib 1 EL Sonnenblumenöl hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Wolfsbarschfilets mit der Hautseite nach unten 5 mins oder bis die Haut sehr knusprig und goldbraun ist. Der Fisch sollte fast gar sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende die Filets, gare sie weitere 30 seconds - 1 minute und lege sie dann auf eine Servierplatte. Halte sie warm. Brate den Wolfsbarsch in 2 Portionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze 2 EL Sonnenblumenöl und brate ein großes Stück geschälten, in Stifte geschnittenen Ingwer, 3 dünn geschnittene Knoblauchzehen und 3 fein geschnittene rote Chilis etwa 2 mins goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und wende ein Bund zerkleinerte Frühlingszwiebeln darin. Beträufle den Fisch mit 1 EL Sojasauce und löffle den Pfanneninhalt darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/tqd7s21763780609.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/tqd7s21763780609.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52836",
+      "slug": "tmdb-52836",
+      "title": "Fideuà mit Meeresfrüchten",
+      "instructions": "Spanisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2156,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52836/",
+      "components": [
+        {
+          "key": "006cbac6-413e-5232-9824-650a930a1b0e",
+          "name": "Zutaten",
+          "servingGrams": 572.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "8689365c-0b2f-5137-87e6-e348d2e7f923",
+              "ingredientName": "Miesmuscheln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6a3f52b-292d-5871-998e-c228f8c3fea6",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3037a091-522b-58c4-a78f-effd330858d4",
+              "ingredientName": "Safranfäden",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a208e981-849c-5537-bccb-e98e463ad3a3",
+              "ingredientName": "Fadennudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ae5d99a-5633-5da6-a482-9eb7b3241099",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42895028-539a-503c-ae82-2d848993fe7d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5e64b58-8012-55ed-be6b-3270d00286a7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5500ab9a-ee14-59dd-b6ab-c3d7c19af8cd",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d588027-a3ac-5ef4-ba5d-716b9fa43507",
+              "ingredientName": "Seeteufel",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4001ceb9-e0cc-5435-ae16-7437d441f545",
+              "ingredientName": "Baby-Tintenfisch",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8e53fe8-f404-58a0-a950-41c6f8f219d4",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a569bcde-8ae8-53ed-82bf-bd0ae8f4c0fd",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d304018-abc9-5c19-a7f6-65ce6e6dcefc",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26195e08-36e9-547f-a385-23142bd6246d",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Wasser im Wasserkocher auf. Gib die Miesmuscheln in ein Sieb und spüle sie kalt ab. Wirf beschädigte Muscheln weg. Klopfe jede Muschel an der Spülenseite an: Sie sollte geschlossen sein oder sich langsam schließen. Bleibt sie offen, wirf sie weg. Entferne anhaftende Seepocken oder Byssusfäden mit einem Tafelmesser und spüle die Muscheln gründlich. Lass sie bis zum Kochen abgedeckt mit einem kalten, feuchten Tuch im Sieb. Schäle die Garnelen nur am Körper, Kopf und Schwanz bleiben dran. Ritze den Rücken ein und entferne den sandigen Darm. Stelle sie bis zum Kochen kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Safran in eine kleine Tasse, übergieße ihn mit 50ml kochend heißem Wasser aus dem Wasserkocher und lass ihn 10 mins ziehen. Falls du Fadennudeln verwendest, gib sie in eine Schüssel und zerbrich sie mit den Händen in etwa 1cm lange Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne mit mindestens 3cm hohem Rand oder einer 40cm Paellapfanne. Gib die Zwiebel hinein und gare sie unter Rühren 5 mins weich. Gib Knoblauch dazu und gare ihn 1 min weiter. Gib die Fadennudeln hinein und röste sie unter gelegentlichem Rühren 5 mins, bis sie braun sind. Rühre Paprikapulver ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halte die Hitze mäßig und rühre Seeteufel, Tintenfisch und Safran samt Wasser ein. Würze kräftig. Verteile die Zutaten gleichmäßig, gieße heiße Brühe darüber und streue Tomaten darauf. Bringe alles zum Köcheln, decke die ganze Pfanne fest mit einem Deckel oder Folie ab. Stelle die Hitze auf mittlere Stufe und gare alles 6 mins.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Deckel ab und rühre die trockene obere Nudelschicht unter. Drücke die Miesmuscheln so in die Nudeln, dass die Scharniere unten in der Pfanne liegen und die Muscheln aufrecht stehen. Verteile die Garnelen darauf, decke die Pfanne fest ab und gare alles weitere 6 mins oder bis die Muscheln geöffnet, die Garnelen rosa und die Nudeln gar sind. Lass alles weitere 2-3 mins köcheln, damit der Großteil der restlichen Flüssigkeit verdampft; etwas Flüssigkeit soll in der Pfanne bleiben, damit die Nudeln nicht zusammenkleben. Lass das Gericht 2-3 mins ruhen, presse dann Zitronensaft darüber und verteile Zitronenspalten darauf. Vor dem Servieren mit Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53167",
+      "slug": "tmdb-53167",
+      "title": "Reis mit Meeresfrüchten",
+      "instructions": "Spanisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2157,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53167/",
+      "components": [
+        {
+          "key": "2021528c-b27f-5c0f-953b-e101d1a07080",
+          "name": "Zutaten",
+          "servingGrams": 275.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "22d8b287-afee-5bd4-a6ac-31320fcc1bee",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ab6afcd-9f81-5107-bc8d-32265e9459f2",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6aa47790-2add-5ce0-86a7-20bd5dd1f5c2",
+              "ingredientName": "Chorizo",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dbdd23c-2302-59d9-9330-b5c33f0982cd",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ae6fa85-baca-57f0-ac59-a21626d1658d",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "322da999-063c-5823-85ff-c0a3a20db857",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0aeff250-ac24-5aa6-8fff-8815259feacd",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5b8c4ca-92b2-59c6-b5e2-ea4f74e36c86",
+              "ingredientName": "Gefrorene Gemüsepfanne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer tiefen Pfanne und dünste den Lauch 5 mins weich, ohne ihn zu bräunen. Gib Chorizo dazu und brate sie, bis sie ihr Öl abgibt. Rühre Kurkuma und Reis ein, bis die Körner mit Öl bedeckt sind, und gieße dann die Brühe dazu. Bringe alles zum Kochen und lass es unter gelegentlichem Rühren 15 mins köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Erbsen hinein und gare sie 5 mins. Rühre dann Meeresfrüchte ein und erhitze sie weitere 1-2 mins oder bis der Reis gar ist. Schmecke ab und serviere sofort mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/5r5rvx1763287943.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/5r5rvx1763287943.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53054",
+      "slug": "tmdb-53054",
+      "title": "Seri Muka Kuih",
+      "instructions": "Malaysisches Dessert, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "malaysisch",
+        "Dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2158,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53054/",
+      "components": [
+        {
+          "key": "8eb15f8b-001f-5488-ad54-3ea19ed801c2",
+          "name": "Zutaten",
+          "servingGrams": 561.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "282b4fb7-ec34-5acf-bb5b-1cef4b7e6316",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e59973a5-ab5d-5cdd-9aed-dbb9379accc6",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be0b2c25-4262-52d2-a251-61887dfc9ac2",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cc0a582-080d-51a5-a69d-f03fbeb03507",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2cc8bd1-81a1-5522-b219-9e25cd3ab54b",
+              "ingredientName": "Maisstärke",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e4bb506-dfe6-5482-9405-c074318de214",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35e3a690-28a3-5c17-a763-8e8b0cfaf874",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d00f802d-3c61-5afa-9043-2dd3fe18562e",
+              "ingredientName": "Kokoscreme (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1162354e-dd36-585e-a81d-a959baf51f2e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche den Klebreis vor der Verwendung mindestens 1 ½ Stunden in Wasser ein. Gieße ihn ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite eine runde oder quadratische Kuchenform mit 9-inch Durchmesser vor und besprühe sie mit Backspray oder lege sie mit Frischhaltefolie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Kokosmilch, Wasser, Salz und Reis. Gieße die Mischung in die Form und lege Pandanknoten darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe alles 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lockere den Reis nach 30 Minuten auf und entferne die Pandanknoten. Drücke den gedämpften Reis mit einem gefetteten Pfannenwender flach. Achte darauf, dass keine Löcher, Luftblasen oder Lücken im Reis bleiben, besonders an den Rändern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dämpfe alles weitere 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische Pandansaft, Kokosmilch, Weizenmehl, Maismehl und Zucker gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Eier dazu, verquirle alles gut und seihe die Mischung in eine mittelgroße Metallschüssel oder einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Stelle die Pandanmischung über siedendes Wasser (Wasserbad oder Bain-Marie).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Rühre ständig und gare die Mischung, bis die Creme eindickt (15 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Gieße die Pandancreme auf die Klebreisschicht und klopfe leicht gegen die Form, damit Luftblasen entweichen. Dämpfe alles weitere 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Nimm Seri Muka Kuih aus dem Dämpfer und lass es vollständig abkühlen, bevor du es in Rechtecke oder Rauten schneidest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/6ut2og1619790195.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/6ut2og1619790195.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53378",
+      "slug": "tmdb-53378",
+      "title": "Gurkensalat mit Sesam",
+      "instructions": "Chinesische Beilage, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2159,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53378/",
+      "components": [
+        {
+          "key": "a990cac4-9fba-5e61-870c-a339595a8af1",
+          "name": "Zutaten",
+          "servingGrams": 165.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f30a2e21-b126-5fae-aa08-d6ff9177c564",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1ddc274-1966-574a-be9d-073c1d8e74fe",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db4e00e7-1c94-5b25-8726-2a79c5e07294",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f1de0d1-df84-5423-8695-2b0bb6bd1a83",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5373da06-fd25-5f2e-a9d7-8d35b6ca5cef",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31b815ff-1c13-5967-87f3-7efaffc78cff",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a42c4c91-9632-5026-8ffe-1bdf66a2bb6b",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gurken vorbereiten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die Gurken und schneide sie längs in Viertel. (Wenn die Kerne bitter sind, kratze sie heraus und wirf sie weg.) Schneide die Gurken quer in 1/2-inch dicke Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Salat vermengen:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Gurken in eine Servierschüssel und bestreue sie mit Salz. Vermische sie mit Sesamöl, gewürztem Reisessig, Basilikum (falls verwendet) und Chiliflocken. Streue nach Wunsch geröstete Sesamsamen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/93iok31766436070.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/93iok31766436070.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

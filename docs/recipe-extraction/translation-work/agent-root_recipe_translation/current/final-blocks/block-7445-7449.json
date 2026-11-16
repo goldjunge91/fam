@@ -1,0 +1,1166 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-russian-tea-cakes",
+      "slug": "bake-russian-tea-cakes",
+      "title": "Russian Tea Cakes (deutsche Fassung)",
+      "instructions": "Tender, buttery shortbread-style cookies packed mit finely gehackt pecans und rolled twice in powdered Zucker so they look like little snowballs. They melt in dein mouth und come together mit five pantry staples.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen pecans oder Walnüsse in bulk und toast ein big batch at once; finely gehackt nuts go further und taste richer.",
+        "machen dein own powdered Zucker by blitzing granulated Zucker mit ein Teelöffel von cornstarch in ein blender wenn du run out.",
+        "der Teig freezes well rolled in balls; backen straight aus gefroren, adding 1-2 Minuten, so du only dirty one Schüssel per holiday season."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pecans",
+          "swap": "Finely gehackt Walnüsse oder toasted Mandeln",
+          "savings": "Walnüsse sind oft günstiger als Pekannüsse und ebenso traditionell"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Plant Butter (vegan Backen stick)",
+          "savings": "Ergibt bei ähnlichem Preis vegane Kekse"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "1/2 tsp almond extract (deutsche Fassung)",
+          "savings": "Schon wenig genügt, daher reicht eine Flasche für Dutzende Zubereitungen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "osteuropäisch",
+        "cookies (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "shortbread (deutsche Fassung)",
+        "snowball-cookies (deutsche Fassung)",
+        "pecan (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "machen-ahead"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7445,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-russian-tea-cakes/",
+      "components": [
+        {
+          "key": "1d9d9973-9deb-5959-8a21-b98c7d357e8c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 47.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2b077b1-18e3-5303-ac17-fb34721f50bd",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke), ungesalzen und weich"
+            },
+            {
+              "key": "5c96895b-93f2-5d61-86a4-2fcc9d7c7cd7",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse für den Teig und etwa 1 Tasse zum Ausrollen oder Wenden"
+            },
+            {
+              "key": "155a6c10-015e-5151-b354-07c90a63f039",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "42d6ebb8-2fd8-5b4e-b3db-346a75e333c9",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "8387c6a4-4867-5df8-a285-5e26547fcc1c",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "d521f96c-225c-5744-98dd-4cfe2e6506d7",
+              "ingredientName": "Pekannüsse",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, sehr fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 350F (175C) und line two Backen sheets mit parchment paper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, beat der weich Butter mit 1/2 cup powdered Zucker bis light, pale, und fluffy, etwa 2 Minuten. Beat in der vanilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "auf niedrig speed, gradually hinzufügen der Mehl und Salz, mixing just bis ein soft Teig forms, dann unterheben in der finely gehackt pecans bis evenly distributed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Scoop der Teig in 1-inch balls (etwa 1 level Esslöffel je) und ausrollen between dein palms bis glatt; space them 1 inch apart auf der vorbereitet sheets.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "backen für 12 zu 14 Minuten, bis der bottoms are lightly golden but der tops are still pale. lassen der cookies rest auf der sheet für 5 Minuten so they firm up.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "While der cookies are still warm, ausrollen je one in der reserved powdered Zucker zu coat fully, dann transfer zu ein rack zu abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Once completely abkühlen, ausrollen der cookies ein second time in powdered Zucker für der klassisch snowy, fully-coated finish.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Russian_tea_cakes.jpg/1280px-Russian_tea_cakes.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Russian_tea_cakes.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Maryanne Rodriguez — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Russian Tea Cakes",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-blondies",
+      "slug": "bake-blondies",
+      "title": "Brown Butter Blondies (deutsche Fassung)",
+      "instructions": "Dense, chewy, butterscotch-rich blondies built auf browned Butter und dark brown Zucker, studded mit Schokolade chips und toasted Walnüsse. Crackly top, gooey center, und that deep toffee flavor ein real blondie is all etwa — no cocoa, no cake-y crumb.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 27,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Browning Butter costs nothing und is der single biggest flavor upgrade — never weglassen it für ein deeper toffee taste.",
+        "kaufen ein Backen Schokolade bar und chop it anstatt chips; it's usually cheaper per ounce und melts in better pools.",
+        "weglassen der extra yolk wenn du want — verwenden 2 whole Eier. der yolk just adds ein touch mehr chew."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "verwenden pecans oder just leave nuts out und hinzufügen mehr Schokolade",
+          "savings": "Spart etwa $1.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "White Schokolade chips oder gehackt dark Schokolade bar",
+          "savings": "Tafelschokolade ist pro Unze oft 20-30% günstiger"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "White Zucker plus 1 tbsp molasses per cup",
+          "savings": "Spart einen zusätzlichen Einkauf für braunen Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "Backen",
+        "brown-Butter",
+        "chewy (deutsche Fassung)",
+        "bars (deutsche Fassung)",
+        "Schokolade",
+        "machen-ahead"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7446,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-blondies/",
+      "components": [
+        {
+          "key": "70c45390-7f67-542b-aedd-c4fa6232acea",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 95.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "091abe97-9142-5bed-a6be-23fbc56446cc",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse / 2 Stücke, gebräunt"
+            },
+            {
+              "key": "4991e6ac-3720-5627-8a15-967656c2535b",
+              "ingredientName": "brauner Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen dunkelbrauner Zucker, fest angedrückt"
+            },
+            {
+              "key": "31244d75-349a-506a-ad5c-b61cfb88ecd0",
+              "ingredientName": "weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "14bcb889-65cb-5ee0-bff1-f9b19775797f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eier und 1 Eigelb, zimmerwarm"
+            },
+            {
+              "key": "d0af3c43-7d6e-5c1d-bfa3-ac7760a7c703",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "da78ccc3-23f2-5eee-ac82-b988c3ad3700",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "63e3fba9-a7ed-513f-a9e8-c9768930536a",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "234e479b-6938-5f46-86d4-5e6c16aa1dd4",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 TL feines Salz"
+            },
+            {
+              "key": "4f996219-3f82-5a65-b249-b9d7fe9c9810",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f2a93409-776e-5322-8149-f29933cfbb5f",
+              "ingredientName": "Walnüsse",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "3/4 Tasse, geröstet und gehackt"
+            },
+            {
+              "key": "474ed887-54fb-5851-95c1-5188d81e5486",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Verfeinern"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen Ofen zu 350F (175C). Line ein 8x8 oder 9x9 metal Pfanne mit parchment, leaving ein overhang auf two sides, und lightly grease.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Melt der Butter in ein light-colored saucepan bei mittlerer Hitze, swirling often. behalten cooking past der foaming stage bis it smells nutty und der Milch solids turn golden-brown, etwa 5-7 Minuten. gießen in ein groß Schüssel (scrape in all der browned bits) und lassen abkühlen 5-10 Minuten bis just warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "verquirlen der dark brown Zucker und granulated Zucker in der warm Butter bis glatt und glossy. hinzufügen der Eier, extra yolk, und vanilla, dann verquirlen vigorously für etwa 1 Minute bis der Teig lightens slightly und looks emulsified.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "in einer separaten Schüssel, verquirlen together der Mehl, Backpulver, und Salz. hinzufügen zu der wet ingredients und unterheben mit ein spatula just bis no dry streaks remain — do not overmix.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "unterheben in der Schokolade chips und toasted Walnüsse, reserving ein klein handful zu press auf top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Scrape der dick Teig in der Pfanne und smooth in ein even layer. Scatter der reserved chips und nuts über der top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen 24-28 Minuten, bis der top is set und golden mit ein few cracks und ein toothpick in der center comes out mit ein few moist crumbs (not wet Teig). der center should still look slightly underdone — that's der gooey texture.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "bestreuen mit flaky Salz while warm. vollständig abkühlen lassen in der Pfanne, at least 1 Stunde, dann lift out by der parchment und schneiden in 16 squares mit ein sharp knife.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Coconute_lime_blondies_%2834_of_76%29.jpg/1280px-Coconute_lime_blondies_%2834_of_76%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Coconute_lime_blondies_(34_of_76).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Wheeler Cowperthwaite — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Brown Butter Blondies",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-magic-cookie-bars",
+      "slug": "bake-magic-cookie-bars",
+      "title": "Magic Cookie Bars (deutsche Fassung)",
+      "instructions": "der klassisch \"seven layer\" bar: ein buttery graham cracker crust layered mit Schokolade chips, shredded coconut, und toasted nuts, all glued together by ein generous gießen von sweetened condensed Milch that bakes in ein chewy, gooey caramel. No mixing Schüssel required - du just build it in der Pfanne.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen graham crackers, chips, und coconut aus der bulk oder aufbewahren-brand aisle - name brands cost double für ein identical bar.",
+        "Toast der Walnüsse in der Ofen für 5 Minuten while it preheats; it deepens their flavor so du can verwenden weniger.",
+        "One can von sweetened condensed Milch makes ein whole 9x13 Pfanne von 16 bars, so der cost per square is tiny - great für ein crowd."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "verwenden pecans (der klassisch 'Hello Dolly' nut) oder cheaper gehackt peanuts",
+          "savings": "Erdnüsse halbieren ungefähr die Nusskosten"
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "Any Schokolade chips oder gehackt Schokolade bar du have auf hand",
+          "savings": "Schokostückchen einer Eigenmarke sparen ~$1.50 pro Beutel"
+        },
+        {
+          "forIngredientId": "graham-crackers",
+          "swap": "zerdrückt digestive biscuits, vanilla wafers, oder even zerdrückt pretzels für der crust",
+          "savings": "Altbackene Keksreste kosten nichts"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "bars (deutsche Fassung)",
+        "no-mixer (deutsche Fassung)",
+        "potluck (deutsche Fassung)",
+        "Schokolade",
+        "coconut (deutsche Fassung)",
+        "seven-layer (deutsche Fassung)",
+        "hello-dolly (deutsche Fassung)",
+        "machen-ahead",
+        "Backen"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7447,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-magic-cookie-bars/",
+      "components": [
+        {
+          "key": "aa2e0b8b-261f-5fed-8389-f36c895d5648",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 81.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "61f668b3-ab8d-5fb0-abef-932098731d69",
+              "ingredientName": "Graham-Cracker",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen Brösel, ~12 ganze Platten"
+            },
+            {
+              "key": "63e67be6-bbd8-590a-9977-c42ece42d75c",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück), geschmolzen"
+            },
+            {
+              "key": "984290b8-a5d9-5033-911e-e80ef71c763a",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "eine 14 oz-Dose"
+            },
+            {
+              "key": "e6b7b622-9db7-57d7-a555-88a9c117b20e",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0f1c4967-ecdc-53d7-b8b4-0f3eed6c6478",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 319.2,
+              "quantity": 319.2,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.33 Tassen; traditionell gesüßte Kokosraspeln, falls vorhanden"
+            },
+            {
+              "key": "8dd4fcce-d1fc-590d-ac63-c237ca257364",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, grob gehackt"
+            },
+            {
+              "key": "710bce5d-0904-50d3-a7f2-4aaa0c9da240",
+              "ingredientName": "weiße Schokotropfen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/2 Tasse für die Butterscotch- oder weiße Schicht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen Ofen zu 350 F (325 F wenn using ein glass Pfanne). Line ein 9x13-inch Backen Pfanne mit foil oder parchment, leaving ein overhang auf two sides so du can lift der bars out later.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Crush der graham crackers in fine crumbs (ein zip bag und rolling pin works) und umrühren together mit der geschmolzen Butter bis der Mischung looks like wet sand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Press der crumb Mischung firmly und evenly in der bottom von der lined Pfanne zu form ein compact crust; verwenden der flat bottom von ein measuring cup zu pack it down.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Scatter der Schokolade chips evenly über der crust, followed by der optional white Schokolade chips, dann der gehackt Walnüsse, und finally ein even blanket von shredded coconut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Slowly und evenly drizzle der entire can von sweetened condensed Milch über der top so it seeps in all der layers - do not umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen für 25 zu 30 Minuten, bis der coconut auf top is golden brown und der edges are bubbling.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "abkühlen der Pfanne completely auf ein rack, dann chill at least 1 Stunde so der condensed Milch sets - cutting warm gives ein gooey mess.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lift out using der foil overhang und schneiden in 16 squares mit ein sharp knife, wiping der blade between cuts für clean edges.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vegan_Magic_Bars_%285384914673%29.jpg/1280px-Vegan_Magic_Bars_%285384914673%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegan_Magic_Bars_(5384914673).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Veganbaking.net from USA — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Magic Cookie Bars",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-millionaires-shortbread",
+      "slug": "bake-millionaires-shortbread",
+      "title": "Millionaire's Shortbread (deutsche Fassung)",
+      "instructions": "der klassisch British tray backen done right: ein crisp, buttery shortbread base, ein dick layer von proper stovetop caramel made aus condensed Milch und golden syrup gegart zu ein deep amber, und ein snappy dark Schokolade top. schneiden in neat squares für der ultimate süß treat.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "aufbewahren-brand condensed Milch und Schokolade are far cheaper than name brands und taste identical once gebacken.",
+        "Light corn syrup stands in perfectly für pricier imported golden syrup in der caramel.",
+        "One batch makes 16 squares, so der cost per Stück is tiny compared zu buying these aus ein bakery."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "corn-syrup",
+          "swap": "verwenden maple syrup oder Honig für der caramel binder",
+          "savings": "Ein vorhandenes Süßungsmittel verwenden statt hellem Zucker- oder Maissirup"
+        },
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Semi-süß oder Milch Schokolade chips, geschmolzen mit ein Teelöffel von Öl",
+          "savings": "Spart ~$2 gegenüber einer Tafel guter dunkler Schokolade"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "White Zucker plus ein Teelöffel von molasses",
+          "savings": "Den Kauf eines zusätzlichen Beutels braunen Zuckers sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Nachtisch",
+        "Backen",
+        "caramel (deutsche Fassung)",
+        "Schokolade",
+        "tray-backen",
+        "shortbread (deutsche Fassung)",
+        "machen-ahead",
+        "süß"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7448,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-millionaires-shortbread/",
+      "components": [
+        {
+          "key": "fb9409e4-c98c-599e-9cee-c4ce0d7c81e9",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 83.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "39dfacc6-5625-5d4a-91c8-710cf046a61e",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "~1.5 Tassen Weizenmehl für den Mürbeteigboden"
+            },
+            {
+              "key": "7f90adbe-c681-59ca-a3f3-efc7256beb1d",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "ungesalzen; ~1/2 Tasse für den Boden + 1/2 Tasse für das Karamell"
+            },
+            {
+              "key": "a224471e-23ec-5b25-bc45-60f1c04e3262",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "~1/3 Tasse feiner Kristallzucker für den Mürbeteig"
+            },
+            {
+              "key": "ec98f948-eb55-50c5-bae8-ff5b1fa12a75",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "~1/2 Tasse hellbrauner Zucker für das Karamell"
+            },
+            {
+              "key": "5b6b55f5-27aa-5529-b548-ab5ace7d095c",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "eine 14 oz-Dose"
+            },
+            {
+              "key": "ae0b8819-c0a4-575c-91e1-48cac48984de",
+              "ingredientName": "Maissirup",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "~1/4 Tasse heller Zuckersirup (ersatzweise heller Maissirup)"
+            },
+            {
+              "key": "6c86cd6d-1b03-5e68-bc14-6379622db2d0",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 198.45,
+              "quantity": 198.45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "~7 oz mit 50-60% Kakao für den Belag"
+            },
+            {
+              "key": "7441e3cc-202f-5749-9b78-28789f97132f",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise im Boden + Karamell"
+            },
+            {
+              "key": "c9d974ee-c704-5c11-9d76-ec1516bad606",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 TL, optional im Karamell"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen Ofen zu 350F (175C) und line ein 8x8 inch Backen tin mit parchment, leaving ein overhang. für der base, rub oder beat together der Mehl, 1/2 cup weich Butter, der caster Zucker, und ein pinch von Salz bis it clumps in ein soft Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Press der Teig firmly und evenly in der lined tin. Prick all über mit ein fork und backen für 20-25 Minuten bis pale golden. beiseitestellen zu abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "für der caramel, vermengen der übrig 1/2 cup Butter, brown Zucker, golden syrup (corn syrup), der full can von condensed Milch, und ein pinch von Salz in ein heavy saucepan über mittel-niedrig erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "umrühren constantly as it melts, dann bring zu ein gentle köcheln. behalten stirring für 8-12 Minuten bis der Mischung thickens und turns ein deep golden caramel color (etwa 225F auf ein thermometer) und pulls cleanly aus der Pfanne base. umrühren in der vanilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "gießen der heiß caramel über der cooled shortbread, smooth der top, und chill in der fridge für at least 1 Stunde bis fully set und firm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Melt der dark Schokolade gently (microwave in 20-second bursts, stirring, oder über ein bain-marie) bis glatt. gießen über der set caramel und tilt zu cover evenly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Chill just bis der Schokolade is matte und almost set, etwa 15-20 Minuten, so it can be schneiden ohne cracking. Lift out using der parchment overhang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Using ein sharp knife warmed unter heiß Wasser und wiped dry, trim der edges und schneiden in 16 neat squares. in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Millionaire%27s_Shortbread_-_The_Roastery_2024-06-09.jpg/1280px-Millionaire%27s_Shortbread_-_The_Roastery_2024-06-09.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Millionaire%27s_Shortbread_-_The_Roastery_2024-06-09.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Millionaire's Shortbread",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-lemon-crinkle-cookies",
+      "slug": "bake-lemon-crinkle-cookies",
+      "title": "Zitrone Crinkle Cookies",
+      "instructions": "Soft, chewy Zitrone cookies bright mit frisch zest und juice, rolled in granulated dann powdered Zucker so they crack in snowy crinkles as they backen. Tangy, tender, und barely süß at der edges.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "frisch lemons do double duty here: zest für flavor und juice für tang, so two lemons replace any need für bottled extract.",
+        "Chilling der Teig is free und non-negotiable; warm Teig spreads flat und loses der crinkle, wasting dein ingredients.",
+        "ausrollen in granulated Zucker before der powdered Zucker; it keeps der powder aus dissolving in der Teig so der cracks stay bright white."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon",
+          "swap": "verwenden 1 Zitrone plus 1 tbsp bottled Zitronensaft wenn frisch lemons are pricey",
+          "savings": "~$0.60"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Blitz granulated Zucker mit ein pinch von cornstarch in ein blender zu machen dein own",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "weglassen it; der Zitrone carries der flavor auf its own",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "cookies (deutsche Fassung)",
+        "Zitrone",
+        "Nachtisch",
+        "Backen",
+        "crinkle (deutsche Fassung)",
+        "citrus (deutsche Fassung)",
+        "backen-sale"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7449,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-lemon-crinkle-cookies/",
+      "components": [
+        {
+          "key": "10ab1a63-f64b-5754-b692-dd773edbbf09",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 44.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc1dfbfd-8dbf-5619-a84f-ef955beb5629",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück), ungesalzen und weich"
+            },
+            {
+              "key": "b68f3e12-20ac-5c2b-ba36-385f8804d0be",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker und mehr zum Wälzen"
+            },
+            {
+              "key": "05ac5273-cc7c-5472-ae36-fc543fd93acb",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7051cc6f-6ed1-5519-a597-450029f0fa99",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "für ~2 EL abgeriebene Schale und 2 EL Saft"
+            },
+            {
+              "key": "3f7e5813-eada-5440-95f0-c206fd12941a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "2f871a18-ec31-5907-9487-0ba477d2af29",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "b6b34408-4c9b-5b36-b0ff-757db3c87950",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "c489288e-07ca-5c47-9167-0b61e722d41a",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "326adbeb-be5e-5863-a964-20f1b84df752",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "f0c59153-8660-5dac-aa95-0f5198ce84d3",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse zum Wälzen für die rissige Oberfläche"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zest both lemons bis du have etwa 2 tablespoons, dann juice them für 2 tablespoons von juice. in ein klein Schüssel, verquirlen together der Mehl, Backpulver, Natron, und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, beat der weich Butter mit der granulated Zucker und Zitronenschale bis light und fluffy, 2 zu 3 Minuten; rubbing der zest in der Zucker releases its oils für maximum Zitrone flavor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beat in der Ei, Zitronensaft, und vanilla bis glatt. der Teig may look slightly curdled aus der acid; that is fine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der dry ingredients und mischen auf niedrig just bis no streaks von Mehl remain. Do not overmix.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Cover und chill der Teig für at least 1 Stunde (up zu overnight) so it firms up und der cookies hold their formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Preheat der Ofen zu 350F und line two Backen sheets mit parchment. Put granulated Zucker in one shallow Schüssel und powdered Zucker in weitere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Scoop Esslöffel-sized balls von Teig. ausrollen je first in granulated Zucker, dann coat generously in powdered Zucker. der double coat is what gives sharp crinkles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Space der balls 2 inches apart und backen 10 zu 12 Minuten, bis der tops are set und crackled but der centers still look soft. Do not lassen der edges brown.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "abkühlen auf der sheet für 5 Minuten, dann transfer zu ein rack. They firm up as they abkühlen und stay soft und chewy für days.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    }
+  ]
+}

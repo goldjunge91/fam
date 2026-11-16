@@ -1,0 +1,959 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kc-strip-steak",
+      "slug": "gen-kc-strip-steak",
+      "title": "Kansas-City-Rumpsteak",
+      "instructions": "Steakhouse-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Steaks, wenn Ihr Lebensmittelgeschäft einen Ausverkauf hat",
+        "Lassen Sie den frischen Thymian weg und verwenden Sie getrockneten Thymian, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "Steakhaus",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6920,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kc-strip-steak/",
+      "components": [
+        {
+          "key": "299fb0f0-9b5f-56ef-b908-13a48920d94e",
+          "name": "Zutaten",
+          "servingGrams": 114.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "9315a386-8da5-5206-a722-4592c93ce902",
+              "ingredientName": "New Yorker Streifensteaks",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (je 12 oz)"
+            },
+            {
+              "key": "8d830c72-4b12-5bdf-90be-067f592120f2",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "288604f0-84a2-58ca-a24d-211e9eea0ad8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "22db13f0-26d2-5577-85ca-3d36e12daaaa",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "86702339-13c9-5de3-a337-781325da1c01",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52f87d5c-9f72-5b56-8e4a-e5f0848b59db",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "54401f55-2e95-5c48-9587-d0831234da47",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nehmen Sie die Steaks 30 Minuten vor dem Garen aus dem Kühlschrank und tupfen Sie sie mit Papiertüchern trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beide Seiten großzügig mit koscherem Salz und schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer gusseisernen Pfanne bei starker Hitze erhitzen, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Braten Sie die Steaks 4–5 Minuten pro Seite an, um sie mittel-selten zuzubereiten, und reduzieren Sie dann die Hitze auf mittlere Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Butter, Knoblauch und Thymian in die Pfanne geben und die Steaks 2 Minuten lang kontinuierlich damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen Teller geben und vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://preview.redd.it/kc-strip-for-dinner-v0-t3lcxmyo4h7b1.jpg?width=3024&format=pjpg&auto=webp&s=d713a26df34e6ab6febb35ea941bae52cc2a4a95",
+          "sourcePageUrl": "https://preview.redd.it/kc-strip-for-dinner-v0-t3lcxmyo4h7b1.jpg?width=3024&format=pjpg&auto=webp&s=d713a26df34e6ab6febb35ea941bae52cc2a4a95",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rib-tips",
+      "slug": "gen-rib-tips",
+      "title": "Rippchenspitzen",
+      "instructions": "Barbecue-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rippenspitzen (keine ganzen Racks), um einen günstigeren Schnitt zu erzielen",
+        "Machen Sie Ihre eigene Barbecue-Sauce, anstatt Premium-Marken zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Grillen",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6921,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rib-tips/",
+      "components": [
+        {
+          "key": "b6cd03e9-bf63-5702-98ad-891ee9a98eba",
+          "name": "Zutaten",
+          "servingGrams": 123.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "daeed3bd-40a1-5351-b19d-98c321fe5f4a",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "d54cf7ad-1e03-52b8-aaff-55a40cbfbba3",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "075e7019-e610-5860-8f9a-52f4b8158f26",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "121f1bd2-9f76-50a6-9977-74d14c2a7cfe",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e007227e-0994-5a9b-82a4-f418cce65b4a",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b21b6d34-a6f6-5a65-b596-2b0746e13589",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f11dfb45-5221-59b8-ab62-1be8798618a7",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "629178e3-3678-54cf-aab5-40fea97e9565",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Braunen Zucker, Paprika, Knoblauchpulver, Zwiebelpulver, Pfeffer und Salz in einer Schüssel zu einer Gewürzmischung vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entfernen Sie die Membran von der Rückseite der Rippenspitzen und reiben Sie die Gewürzmischung überall ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heizen Sie den Ofen auf 275 °F vor und legen Sie die Rippchenspitzen mit der Knochenseite nach unten auf ein mit Folie ausgelegtes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ohne Deckel 2 Stunden backen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Großzügig mit Barbecuesauce bestreichen und weitere 30 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5 Minuten abkühlen lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/hestZ3xNtR2FZp8KYBxTh5RsjqA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6926436-0904c8392c604ec79d80450097e5e900.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/hestZ3xNtR2FZp8KYBxTh5RsjqA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6926436-0904c8392c604ec79d80450097e5e900.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kansas-city-porterhouse",
+      "slug": "gen-kansas-city-porterhouse",
+      "title": "Kansas-City-Porterhouse-Steak",
+      "instructions": "Steakhouse-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Halten Sie nach Porterhouse-Steaks Ausschau, die zum schnellen Verkauf herabgesetzt sind",
+        "Um die Kosten zu senken, verwenden Sie getrocknete Kräuter statt frischer Kräuter"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "Steakhaus",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6922,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kansas-city-porterhouse/",
+      "components": [
+        {
+          "key": "1682ef2b-dba7-55b5-b032-e976652e6775",
+          "name": "Zutaten",
+          "servingGrams": 156.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "6fc82cfa-2747-5e19-906b-a02eabbb3e74",
+              "ingredientName": "Porterhouse-Steaks",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (je 18-20 oz)"
+            },
+            {
+              "key": "36b1380c-67b2-5849-ad87-e5d30d6977ba",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "0cb69b3d-2406-5dbd-af56-716e615ae745",
+              "ingredientName": "Paprika",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "d4fa604f-cf51-5ca8-9220-cced888db93a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "acf7a5eb-a0b6-56d8-af47-887d1349a830",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "2b66ffe0-fd9d-5439-95e2-55a4b3b99139",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "371c2ee1-5941-5b28-993a-47dca48eb0f7",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lassen Sie die Steaks 30 Minuten bei Zimmertemperatur ruhen und tupfen Sie sie gründlich trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beide Seiten mit koscherem Salz und schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer gusseisernen Pfanne bei starker Hitze erhitzen, bis es gerade zu rauchen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Legen Sie die Steaks in die Pfanne und braten Sie sie 5–6 Minuten lang an, ohne sie zu bewegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drehen Sie die Steaks um und lassen Sie sie weitere 5–6 Minuten auf mittlerer Stufe garen, dann reduzieren Sie die Hitze auf mittlere Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter, Knoblauch und Rosmarin hinzufügen und die Steaks 2 Minuten lang begießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf ein Schneidebrett geben und vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/porterhouse-steak-recipe-1730875858.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/porterhouse-steak-recipe-1730875858.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wet-ribs",
+      "slug": "gen-wet-ribs",
+      "title": "Feuchte Barbecue-Rippchen",
+      "instructions": "Barbecue-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rippchen, wenn in Ihrem Geschäft ein Ausverkauf stattfindet",
+        "Stellen Sie Ihre eigene Barbecue-Sauce-Basis her, anstatt Spezialflaschen zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Grillen",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6923,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wet-ribs/",
+      "components": [
+        {
+          "key": "8f7b8f66-1884-537d-bcd9-3a385796f447",
+          "name": "Zutaten",
+          "servingGrams": 175.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "bba6b4e7-dee7-5379-a032-2fb31d81166f",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Rippchenstränge (etwa 5 Pfund)"
+            },
+            {
+              "key": "1fc32560-e71f-5617-b15c-8a6d034c519c",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9d9cfd7c-2294-52c4-95d5-fe14fb6a5d23",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "74718ab3-e6e0-53bd-adbb-4a64e8393a34",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "57ab035d-05cb-555f-afe6-09653094209d",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d186aef4-82de-548e-8ba6-6d9480a4b000",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e1488ce6-23e3-53df-80fd-60ec135f7a33",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entfernen Sie die Membran von der Rückseite der Rippchen und würzen Sie sie mit Pfeffer und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heizen Sie den Ofen auf 300 °F vor und legen Sie die Rippchen auf zwei mit Folie ausgelegte Backbleche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Barbecue-Sauce, Essig, braunen Zucker und Worcestershire-Sauce in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decken Sie die Rippchen fest mit Folie ab und backen Sie sie 1.5 Stunden lang, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Entfernen Sie die Folie und bestreichen Sie die Rippchen großzügig mit der Saucenmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ohne Deckel weitere 30 Minuten backen, dabei alle 10 Minuten begießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten abkühlen lassen und mit zusätzlicher Soße als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/m0fQOqWsUMOq0KzPU9Nhs3FNSVU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Garlic-Prime-Rib-Gravy-LEAD-1-c6ef2a33dcbe454e9d9dc53c62158e1f.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/m0fQOqWsUMOq0KzPU9Nhs3FNSVU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Garlic-Prime-Rib-Gravy-LEAD-1-c6ef2a33dcbe454e9d9dc53c62158e1f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-brisket",
+      "slug": "gen-beef-brisket",
+      "title": "Geräucherte Rinderbrust",
+      "instructions": "Barbecue-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganze Bruststücke statt bereits zugeschnittener Stücke",
+        "Machen Sie Ihr eigenes Gewürzmischungn, anstatt vorgefertigte Gewürzmischungen zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Grillen",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6924,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-brisket/",
+      "components": [
+        {
+          "key": "fea83de6-53cd-5468-a609-d4c10e394394",
+          "name": "Zutaten",
+          "servingGrams": 140,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fd425e4-c408-58fa-a07d-29a3a4537328",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "15336b6c-f589-5945-af80-255075856305",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c92bb80c-1d5d-5199-bd0e-99d8f48ff69a",
+              "ingredientName": "Paprika",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fced91a6-ace2-5824-bd04-018c9096213c",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "495e3452-68d7-50b2-a3e8-d8501bfa0fa3",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2aec43d5-a754-5063-a398-967fecce0040",
+              "ingredientName": "Paprika",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "3921815c-5c92-5a38-966c-087aa4dc39e3",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dc639c52-339c-5678-9ee5-6e1919b6b3b6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Braunen Zucker, Paprika, Knoblauchpulver, Zwiebelpulver, Pfeffer und Salz zu einer Gewürzmischung vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneiden Sie überschüssiges Fett von der Brust ab und reiben Sie die gesamte Oberfläche großzügig mit der Gewürzmischung ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heizen Sie den Ofen auf 275 °F vor und legen Sie das Bruststück mit der Fettseite nach oben in eine Bratpfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe in die Pfanne geben und fest mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "6–7 Stunden backen, bis das Fleisch zart ist und sich auseinanderziehen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entfernen Sie die Folie und erhöhen Sie die Temperatur in den letzten 400 Minuten auf 30 °F, damit eine Kruste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15 Minuten ruhen lassen, dann gegen die Faser aufschneiden und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps15496_AC2930252C01_15_5bC_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps15496_AC2930252C01_15_5bC_RMS.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

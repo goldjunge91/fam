@@ -1,0 +1,1131 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pipi-n-poblano",
+      "slug": "gen-pipi-n-poblano",
+      "title": "Pipián Poblano",
+      "instructions": "Pueblanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Pepitas in größeren Mengen aus Selbstbedienungsbehältern",
+        "Verwende Hähnchenschenkel statt Brust für kräftigeren Geschmack zu geringeren Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "pueblanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3665,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pipi-n-poblano/",
+      "components": [
+        {
+          "key": "757a3a22-bd3e-5b3f-ae56-a1489dad0594",
+          "name": "Zutaten",
+          "servingGrams": 709.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "50d29a16-7053-569b-9e34-46f7619aaa04",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "df449152-2fef-5258-a259-98999842a6b4",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "845b6f50-83a8-55a4-a14d-4d47c34c9d36",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddfc2614-8945-5e15-91ef-d9334d74dfb7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "8769ade3-6749-5027-9433-6e3b31d4fa53",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f451b893-383e-5a50-a7e0-a8a8445b2c86",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "df28029d-a6f3-5f6f-b432-2d8a3aec7951",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "66aff653-050c-5a84-a51a-1f7cde7d1190",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bfa83e5-56b2-5b1d-a987-12e09c648379",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "01a7b300-3f37-526d-9e2a-580c7a9f0baf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Hähnchen mit der Hälfte der Zwiebel und Salz etwa 20 Minuten, bis es vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Poblano-Chilis direkt über einer Flamme, bis sie verkohlt sind. Lege sie 5 Minuten in eine Plastiktüte und ziehe dann die Haut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere Pepitas, geröstete Poblanos, Knoblauch, Koriander und 1 Tasse Brühe glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem großen Topf und dünste die übrige Zwiebel weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Kernmischung hinzu und gare sie 3 Minuten unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die restliche Brühe und gezupftes Hähnchen hinzu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verfeinere mit Limettensaft, Salz und Pfeffer nach Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Reis oder warmen Tortillas servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a1/02/c1/a102c1ae49b601b40d5e6c9bd9a0ee4b.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a1/02/c1/a102c1ae49b601b40d5e6c9bd9a0ee4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chalupas-poblanas",
+      "slug": "gen-chalupas-poblanas",
+      "title": "Chalupas Poblanas",
+      "instructions": "Pueblanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Brathähnchen, um Kochzeit zu sparen",
+        "Bereite Salsa Verde aus Tomatillos aus der Dose statt frischen zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "pueblanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3666,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chalupas-poblanas/",
+      "components": [
+        {
+          "key": "995a18b6-73aa-502d-865a-c719ac6dc85c",
+          "name": "Zutaten",
+          "servingGrams": 310.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "e686c1bf-1672-525b-82e3-e1ad167d9fd3",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86ca27bd-c543-58d9-86a9-887ebc6a5eb2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5031c526-2caf-5955-a979-c2e5ab1f6a9c",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "d78abdc0-1b83-5b26-a1f7-488ef2c80357",
+              "ingredientName": "Salsa Verde",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "23461443-60d4-571d-bf2a-55e4e9e1e729",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "f81e6f51-6b0f-58d7-88cb-8a95c132edca",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "96fa21db-fb28-5c0c-83dc-7a59a06d5823",
+              "ingredientName": "Queso Fresco",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "150c7fbd-abfd-57eb-9958-cab615f6a548",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2418ee2e-2683-560f-85de-fbbb6081f167",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7cbece8-8d22-579c-8947-07cdcb97d97a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer tiefen Pfanne bei mittelhoher Hitze auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Frittiere jede Tortilla je Seite 1-2 Minuten goldbraun und knusprig und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische gezupftes Hähnchen mit Salsa Verde und erwärme es in einem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verstreiche Bohnenmus auf jeder frittierten Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege sie mit der warmen Hähnchenmischung und saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib geschnittenen Kohl und zerbröselten Queso Fresco darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frische Limette darüber und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230309-chalupas-375-rv-secondary-641d0d00d72ea.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230309-chalupas-375-rv-secondary-641d0d00d72ea.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-barbacoa-poblana",
+      "slug": "gen-barbacoa-poblana",
+      "title": "Barbacoa Poblana",
+      "instructions": "Pueblanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie bis zur Verwendung ein",
+        "Bereite eine große Menge zu und friere Portionen für spätere Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "pueblanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3667,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-barbacoa-poblana/",
+      "components": [
+        {
+          "key": "a5afe52c-adee-51fa-a340-40bafa6b9488",
+          "name": "Zutaten",
+          "servingGrams": 133.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a014cb3d-64dd-5295-b368-a08ce55c01ec",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "91af6f2e-bf24-5aee-b1bc-5035ad91ba96",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6c8c594-7789-5a53-bd6b-3087cdae2827",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "347881bd-e016-573c-b8f7-a5c275027e76",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adda1c4d-7e9b-5f3c-a808-96450590e77b",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "69dd4a4c-2deb-591b-91c0-abf8ab565be6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0d08de06-013d-5008-8415-57916ef2b036",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0f81d48-3697-5bc7-bdb9-48b5cc92978f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9889b430-decb-5718-9785-9dd5e3194bfc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Guajillo- und Ancho-Chilis 15 Minuten in heißem Wasser ein und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere die eingeweichten Chilis mit Knoblauch, Essig, Kreuzkümmel, Salz und Pfeffer zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die Chilipaste von allen Seiten auf den Rinderschulterbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Braten mit Zwiebel, Lorbeerblättern und Rinderbrühe in einen Schongarer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare ihn 8-10 Stunden auf niedriger Stufe, bis sich das Fleisch leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne die Lorbeerblätter und zupfe das Fleisch direkt im Schongarer mit zwei Gabeln auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Seihe die Garflüssigkeit ab, gib sie mit dem gezupften Fleisch zurück in den Schongarer und lasse alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit warmen Tortillas, Limette und eingelegten Zwiebeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/nfPot8zYsQhREawE4POEFVupvrY=/6016x4000/filters:fill(auto,1)/GettyImages-1223444257-f1926e8592214e8c8a7ad2672c2d2139.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/nfPot8zYsQhREawE4POEFVupvrY=/6016x4000/filters:fill(auto,1)/GettyImages-1223444257-f1926e8592214e8c8a7ad2672c2d2139.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poblano-en-escabeche",
+      "slug": "gen-poblano-en-escabeche",
+      "title": "Poblano en Escabeche",
+      "instructions": "Pueblanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine größere Menge zu und bewahre sie bis zu 2 Wochen im Kühlschrank auf",
+        "Kaufe preiswerte Karotten und Zwiebeln in Discountern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "pueblanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3668,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poblano-en-escabeche/",
+      "components": [
+        {
+          "key": "d0078691-d36a-5ab1-8b5c-ee7515fae8ff",
+          "name": "Zutaten",
+          "servingGrams": 899.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "33c6acaa-6d1a-50e9-afb0-db99888478dd",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 3000,
+              "quantity": 6,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d11b737-38f0-55e8-9059-b185bc12fa01",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3614c31b-1a4a-5bb5-8bfb-c50f31e111ff",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c4c60dfe-bb2a-56d2-8b06-24a3499777cb",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "d2ee2bab-7826-5a99-8ab1-834dc6990572",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "a317e242-98c9-5c5e-b83b-e276ca824fa1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c31cf2cb-3905-57f9-93bb-dc654fc67dd9",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cc00cd5-a7ad-5682-af64-389a372598ff",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "66152b68-65b0-5ef5-9bbb-2929c16f2b86",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ad5332c0-abd9-5524-bbff-8c2b39ec686e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Poblano-Chilis direkt über einer Flamme, bis sie vollständig verkohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die verkohlten Chilis 5 Minuten in eine Plastiktüte, damit sie dämpfen, und ziehe dann die schwarze Haut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die geschälten Chilis in Streifen und entferne die Kerne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Karotten in dünne Stifte und Zwiebel in Ringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Olivenöl in einem Topf, gib Knoblauch und Zwiebel hinzu und gare sie 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Essig, Wasser, Lorbeerblätter, Oregano, Salz und Pfeffer hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Karottenstifte hinzu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schichte Poblano-Streifen und gegartes Gemüse in Gläser oder eine Schüssel und gieße die heiße Essigmischung darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse alles auf Raumtemperatur abkühlen und stelle es vor dem Servieren mindestens 2 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/RifGvf-mOploYK1qFFwBVi7zryI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7506656-Grilled-Stuffed-Pablano-GOLDMAN-4x3-4391-e15cf102f0c84961aed15f77454a0ca4.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/RifGvf-mOploYK1qFFwBVi7zryI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7506656-Grilled-Stuffed-Pablano-GOLDMAN-4x3-4391-e15cf102f0c84961aed15f77454a0ca4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-manchamanteles",
+      "slug": "gen-manchamanteles",
+      "title": "Manchamanteles",
+      "instructions": "Pueblanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie portionsweise ein",
+        "Verwende Ananasstücke aus der Dose, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "pueblanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3669,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-manchamanteles/",
+      "components": [
+        {
+          "key": "c69915a6-61f6-5cde-aa23-a6fcfbb3fe7c",
+          "name": "Zutaten",
+          "servingGrams": 321.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "392b51dd-0fea-590b-b45d-c9cfe10e0887",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "650bd4f3-cc3e-5855-98c4-58aeaf10f26a",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8f604fb-8a2c-5390-8b43-e2069b34c05e",
+              "ingredientName": "Ananas",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c37f0e88-5cc9-5e37-929b-aa42821392e8",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "2339544d-15df-591d-9a19-55692f921050",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "7470a808-4818-5d32-b637-e209ab9e6f6f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f41915c1-2179-5f5c-b051-afca1122d23d",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "2c5b12a5-c19b-57c6-b670-5416f7ddd70a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3e6b18dc-815b-5ec7-9915-8f3c2a6b1dde",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Schweineschulter in 2 Zoll große Würfel und bräune sie in Öl bei mittelhoher Hitze je Seite 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Schweinefleisch heraus und stelle es beiseite. Bewahre den Bratensatz im Topf auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiche getrocknete Ancho- und Pasilla-Chilis 15 Minuten in heißem Wasser ein und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere eingeweichte Chilis mit Knoblauch, Zwiebel, Tomate und 1 Tasse Brühe glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Seihe die Sauce durch ein feines Sieb zurück in den Topf zum Bratensatz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Sauce 3 Minuten unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib gebräuntes Schweinefleisch, die restliche Brühe, Ananasstücke und gewürfelten Apfel hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse alles zugedeckt 30-35 Minuten köcheln, bis das Schweinefleisch zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Probiere das Gericht, passe Salz und Pfeffer an und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.lacocinamexicanadepily.com/wp-content/uploads/2017/05/Manchamanteles-6.jpg",
+          "sourcePageUrl": "http://www.lacocinamexicanadepily.com/wp-content/uploads/2017/05/Manchamanteles-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

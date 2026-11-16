@@ -1,0 +1,1026 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pork-and-preserved-vegetable-congee",
+      "slug": "gen-pork-and-preserved-vegetable-congee",
+      "title": "Reisbrei mit Schweinefleisch und eingelegtem Gemüse",
+      "instructions": "Chinesisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eingelegtes Senfgemüse in Großpackungen auf asiatischen Märkten.",
+        "Verwende das günstigste verfügbare Schweinehackfleisch. Der Fettanteil spielt hier keine Rolle."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4845,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-and-preserved-vegetable-congee/",
+      "components": [
+        {
+          "key": "ec2a8072-b4c9-5ad6-adf1-121c8c59f89f",
+          "name": "Zutaten",
+          "servingGrams": 881.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c36ca4d-4706-528f-8199-41e74e9657ad",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "82c766b4-2fb3-5d3d-a47d-9da89b164b4e",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "0915d3dc-d371-5171-91e8-853dc3afb393",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "b941e9f1-f771-591e-9692-5316fc20867a",
+              "ingredientName": "Senf",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse, gehackt"
+            },
+            {
+              "key": "f4f08cdb-c092-5caa-aabe-2c9775a4080b",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad093721-f429-5086-89d1-627ad94952ed",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "f3c9e682-5743-5fc8-aced-c93147c318cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4cbb9eb7-84d1-5940-a29d-6cd021a41cd9",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6b641ccf-af8b-5a63-ba6b-32ebb7c62061",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe das Wasser zum Kochen und gib den Reis dazu. Rühre um, damit er nicht am Topfboden klebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf mittelniedrige Stufe und lasse den Reis 35-40 Minuten unter gelegentlichem Rühren köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spüle das eingelegte Senfgemüse ab und hacke es fein, um überschüssiges Salz zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate das Schweinehackfleisch in einer separaten Pfanne bei mittlerer Hitze krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Ingwer und eingelegtes Senfgemüse zum Schweinefleisch und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre die Schweinefleischmischung unter den Reisbrei und lasse alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und weißem Pfeffer, beträufle den Brei mit Sesamöl und garniere ihn mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5e2219b7202c70000841731f/1:1/w_2560%2Cc_limit/Basically-Congee-A.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5e2219b7202c70000841731f/1:1/w_2560%2Cc_limit/Basically-Congee-A.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-congee-with-youtiao",
+      "slug": "gen-congee-with-youtiao",
+      "title": "Congee mit Youtiao",
+      "instructions": "Chinesisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Youtiao selbst zu, denn gekaufte sind teuer.",
+        "Übrig gebliebene Youtiao halten sich in einem luftdichten Behälter 2-3 Tage."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4846,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-congee-with-youtiao/",
+      "components": [
+        {
+          "key": "db39757a-ce35-5355-9019-0c97791d5e1a",
+          "name": "Zutaten",
+          "servingGrams": 414.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "21b1f597-a78d-5c82-a636-2dbf89d9ce31",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bf532689-84ce-53c9-9949-5d5def8591bc",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "a06f9442-ff23-5016-be44-14c7980a887c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "aa3f52af-a5d7-5c8b-9d13-399ef706182f",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0f471770-ab08-5b4f-a26d-885534af7bf7",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8b430044-6fac-5277-88f5-1e9f548f96e7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d05212d5-06dc-57ad-abb2-0f78cec2c572",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ef83b69e-66ed-5fc2-ba18-ccab1b240711",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "da87d702-8a93-54b5-b708-4ef87d16af97",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz und Backpulver. Gib nach und nach Wasser dazu und knete alles zu einem weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig 5 Minuten, decke ihn mit Frischhaltefolie ab und lasse ihn 30 Minuten bei Zimmertemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spüle währenddessen den Reis ab. Bringe 8 Tassen Wasser zum Kochen, gib den Reis dazu und lasse ihn 40 Minuten köcheln, bis er cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig auf einer geölten Fläche zu einem dünnen Rechteck von etwa 1/4 Zoll Dicke aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide den Teig der Länge nach in Streifen von etwa 1 Zoll Breite und 8 Zoll Länge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F. Frittiere die Teigstreifen vorsichtig 2-3 Minuten pro Seite, bis sie goldbraun und aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die frittierten Youtiao auf Küchenpapier abtropfen und schneide sie schräg in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze den Reisbrei mit weißem Pfeffer, Salz und Sesamöl. Belege ihn mit Youtiao-Stücken und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1642611362/k/Photo/Recipe%20Ramp%20Up/2022-01-Youtiao/IMG_8059.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1642611362/k/Photo/Recipe%20Ramp%20Up/2022-01-Youtiao/IMG_8059.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-okayu",
+      "slug": "gen-okayu",
+      "title": "Okayu",
+      "instructions": "Japanisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Dashi aus Kombu-Algen und Bonitoflocken zu, statt Dashi-Pulver zu verwenden.",
+        "Lass Umeboshi für eine einfachere und günstigere Variante weg."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4847,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-okayu/",
+      "components": [
+        {
+          "key": "a4657abc-2df6-51ab-b935-eeca622dc189",
+          "name": "Zutaten",
+          "servingGrams": 793.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "675cb6ee-3f1e-5b85-8fd3-138c7af32166",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "778d8e45-c806-5d66-a8e0-1ec1e8da64f4",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9ce237dc-1b28-5ddb-9f85-12da9dd3e598",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "48e203e0-5e9b-50cb-b681-14143493b33a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "29fc6ee0-cdb1-58ac-af6a-bb55317f6408",
+              "ingredientName": "Pflaumensauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "853a8e71-9a50-5e52-9891-2ce4f3f537f0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df22ec5d-b0fa-5ae6-9613-222bfd55cca3",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Blatt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Reis und Wasser in einen Topf und bringe alles bei starker Hitze zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf niedrige Stufe, decke den Topf ab und lasse den Reis 20 Minuten köcheln. Rühre gelegentlich um, damit nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Dashi-Brühe und Salz dazu. Lasse den Reis ohne Deckel weitere 10 Minuten köcheln, bis er sehr weich und breiig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege je eine Umeboshi-Pflaume in die Mitte jeder Schale Okayu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide Nori in Streifen und hacke die Frühlingszwiebel fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle das heiße Okayu in Schalen und garniere es mit Nori-Streifen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/lH4exAZq-hHgOCbcME9LyRXHYZQ=/2738x1825/filters:fill(auto,1)/okayu-2031328-hero-images-01-9853624720e84eba8e5ef6c6d75660ab.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/lH4exAZq-hHgOCbcME9LyRXHYZQ=/2738x1825/filters:fill(auto,1)/okayu-2031328-hero-images-01-9853624720e84eba8e5ef6c6d75660ab.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-okayu",
+      "slug": "gen-chicken-okayu",
+      "title": "Hähnchen-Okayu",
+      "instructions": "Japanisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Hähnchenbrust. Sie schmecken kräftiger und sind günstiger.",
+        "Pochiere das Hähnchen direkt in der Okayu-Brühe, um Aroma zu gewinnen und einen weiteren Topf zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4848,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-okayu/",
+      "components": [
+        {
+          "key": "d11b1944-4b65-54d5-8c30-06015de604cb",
+          "name": "Zutaten",
+          "servingGrams": 771.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "80c071e8-6a48-53b8-b76d-538305912e2d",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6a698c42-928e-54b1-8b9b-f1aaecdce2cd",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "ad0ebdb3-9848-547e-ab9a-a8eb10fdc3e0",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "df216d3d-1f9b-5b85-9c1d-153e49c682cb",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "da6961dd-4981-5faf-91be-f7c4f4213566",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "2d585303-b573-5117-93f2-a09df6fcbf28",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d642834f-372e-582f-8993-5f060f199c47",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "733fd79a-5808-5fc6-8e9d-44b8967d66cb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL, gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe 4 Tassen Wasser zum Kochen, gib den Reis dazu und reduziere die Hitze auf niedrige Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Reis 20 Minuten unter gelegentlichem Rühren köcheln, bis er zu zerfallen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Hähnchenbrust in kleine Würfel und gib sie zusammen mit dem Ingwer in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles 5 Minuten köcheln und gib dann die Dashi-Brühe und Salz dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles weitere 10 Minuten köcheln, bis der Reis sehr weich und das Hähnchen vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Sojasauce ein und schmecke den Brei ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle ihn in Schalen und garniere ihn mit gehackten Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Lx22czhS7CKOOXyWU6XM_-uEB94=/2121x1414/filters:fill(auto,1)/GettyImages-172597432-5c4ab07f46e0fb0001673f34.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Lx22czhS7CKOOXyWU6XM_-uEB94=/2121x1414/filters:fill(auto,1)/GettyImages-172597432-5c4ab07f46e0fb0001673f34.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-umeboshi-okayu",
+      "slug": "gen-umeboshi-okayu",
+      "title": "Umeboshi Okayu",
+      "instructions": "Japanisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Umeboshi in Großpackungen auf asiatischen Märkten.",
+        "Eine Umeboshi-Pflaume aromatisiert den ganzen Topf. Verwende sie daher sparsam."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4849,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-umeboshi-okayu/",
+      "components": [
+        {
+          "key": "5bad80df-37fe-5997-a8d8-70d32db550d0",
+          "name": "Zutaten",
+          "servingGrams": 838.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe79d224-ad52-558d-acc2-c33e0bf73339",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e485ec9e-fd33-5dfe-9bc1-334ebafe0ecd",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "34ff18c8-e0d7-5994-8274-2213099b9115",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "cd289617-7261-553c-a175-c416f401404a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "1807211b-21f1-5959-bcb9-09714e558317",
+              "ingredientName": "Umeboshi (eingelegte Pflaume)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbce0218-b446-510b-a5e0-a64ffa9dea6b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2552ba67-5bb1-5a10-9d3d-146ce91aba46",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis gründlich unter kaltem Wasser ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe das Wasser in einem Topf zum Kochen und gib den Reis dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf niedrige Stufe, decke den Topf ab und lasse den Reis 20 Minuten köcheln. Rühre gelegentlich um, damit nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Dashi-Brühe und Salz dazu und lasse den Reis weitere 10 Minuten ohne Deckel köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Entferne die Kerne der Umeboshi-Pflaumen und zerdrücke sie leicht mit einer Gabel oder einem Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die zerdrückten Umeboshi in den Reisbrei und gare ihn 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle den Brei in Schalen und garniere ihn mit gehackten Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/japanese-products.blog/wp-content/uploads/2020/07/Ume-Gayu-Okayu-with-Umeboshi-Plum-scaled.jpg?fit=2560%2C1920&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/japanese-products.blog/wp-content/uploads/2020/07/Ume-Gayu-Okayu-with-Umeboshi-Plum-scaled.jpg?fit=2560%2C1920&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

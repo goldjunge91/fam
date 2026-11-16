@@ -1,0 +1,1004 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53117",
+      "slug": "tmdb-53117",
+      "title": "Nordisches Smørrebrød mit Spargel und Meerrettichcreme",
+      "instructions": "Norwegisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Norwegen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2055,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53117/",
+      "components": [
+        {
+          "key": "c00784cc-1df7-55a0-b815-a5efcf341c6b",
+          "name": "Zutaten",
+          "servingGrams": 1108.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8d876ab-e548-52b9-b5d2-46736fadda32",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "762055c8-c9b4-523d-81c4-05cc6f80928a",
+              "ingredientName": "Tafelmeerrettich",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8189ab0a-7d52-5bed-9dbf-ee7c919114c9",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33fd636c-2d6a-5772-bb4f-54a42e3f2060",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "407c4831-b34c-5abb-9706-f6a371a4e56f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e99d2d2-830f-533f-81d3-38460491a365",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dacb0b2f-31e9-5579-99ee-d155c28410d3",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39160ae7-d438-5356-b3df-e2e1d545be5f",
+              "ingredientName": "Spargel",
+              "grams": 4000,
+              "quantity": 8,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a53a89d1-51b2-5d0a-becb-419b8de624f6",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79a5feb4-09d4-5535-835e-29b50129cef4",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc4c89c6-eca5-5a9b-958c-a965b497982b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "228635d1-534d-5eeb-8d03-30e9d15b6b8d",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9eca5c2e-ad80-58e4-8892-120bd43d0c36",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Meerrettichcreme verrühre Crème fraîche, geriebenen Meerrettich, Zitronensaft, Salz und weißen Pfeffer in einer Schüssel. Stelle die Creme bis zum Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die knusprigen Schalotten erhitze etwas Pflanzenöl in einer Pfanne bei mittlerer Hitze. Gib die geschnittenen Schalotten dazu und brate sie goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lass sie auf einem mit Küchenpapier ausgelegten Teller abtropfen. Würze sie mit einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für das offene Sandwich bringe einen großen Topf Salzwasser zum Kochen und blanchiere die Hälfte des Spargels (vier weiße und vier grüne Stangen), bis er bissfest ist, etwa 2–3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Eis in eine Schüssel mit kaltem Wasser. Nimm den Spargel mit einer Schaumkelle aus dem kochenden Wasser und lege ihn sofort in das Eiswasser, damit der Garprozess stoppt. Schneide den restlichen Spargel längs in dünne Scheiben und serviere ihn roh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Grill vor, bis er heiß ist. Bestreiche das Roggenbrot mit Butter und grille es goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege zum Servieren die gegrillten Brotscheiben auf Teller. Verteile blanchierten und rohen Spargel darauf. Beträufle ihn mit Meerrettichcreme und bestreue alles mit geriebenem Käse. Garniere das Smørrebrød mit knusprigen Schalotten und frischem Dill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/8a8fu01762772651.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/8a8fu01762772651.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53129",
+      "slug": "tmdb-53129",
+      "title": "Norwegische Krumkake",
+      "instructions": "Norwegisches Dessert, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Norwegen",
+        "Dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2056,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53129/",
+      "components": [
+        {
+          "key": "9d23b4d0-1cd8-56a5-a0e7-5cc813bb0e02",
+          "name": "Zutaten",
+          "servingGrams": 180.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "f95a2a3d-c6b4-51ce-a196-e7fa6cf6543b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "669f9729-09af-52f7-9983-5a8d6ad834d6",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47177741-578e-5ec2-b7ba-235ccf02303f",
+              "ingredientName": "Butter",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d38c0021-a571-50cb-9e9c-423dc6989e7b",
+              "ingredientName": "Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03d70d16-9b21-5b34-8f67-df0d65178ac1",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a86866ae-474b-5958-bc76-fe50ca093226",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb1d0ac6-c712-50f2-9ad5-28c4d8e9ce17",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "373f11ae-2476-5d42-89c4-fb2dbc948eca",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage Ei und Zucker, bis die Mischung eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter und lass sie leicht abkühlen. Gib sie dann zur Eiermischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Gewürze ein und gib anschließend langsam unter Rühren das Mehl dazu, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass den Teig mindestens 30 Minuten ruhen. Dadurch verbessert sich die Konsistenz der Krumkaker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib etwa one gehäuften Esslöffel Teig auf das Eisen und backe ihn. Falls der Teig zu dick ist, gib etwas Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme die Krumkake noch heiß mit einer hölzernen Krumkake-Rolle oder über einem Becher (bei einem Becher sollten sie etwas dicker sein). Die Krumkaker werden schnell fest. Lass sie daher auf der Rolle oder dem Becher liegen, bis die nächste Krumkake geformt werden kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Krumkaker vollständig abkühlen und bewahre sie in einer Metall- oder Glasdose auf, die am Boden mit Küchenpapier ausgelegt ist. Du kannst sie auch einfrieren!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/z9g8011763075640.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/z9g8011763075640.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53121",
+      "slug": "tmdb-53121",
+      "title": "Norwegisches Kartoffel-Lefse",
+      "instructions": "Norwegische Beilage, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Norwegen",
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2057,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53121/",
+      "components": [
+        {
+          "key": "7309dad7-5f57-5a4b-8607-abbfe69b40aa",
+          "name": "Zutaten",
+          "servingGrams": 254.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "e237da4e-dd12-5798-9e1e-6d6f4945e022",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f32fa778-4e85-53d4-8155-d5765d59e4da",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4880420-075f-5cfb-a8d9-b8241e61c290",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68401f8b-0709-5638-bf04-56a343df7ada",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6bf0709-a021-5cf6-9c81-cedc648809dd",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6bba195-5d6b-5bba-8fb5-871c6ddf7e40",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln. Schäle sie, solange sie noch warm sind, und drücke sie zweimal durch eine Kartoffelpresse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Kartoffeln in einer unbedeckten Schüssel im Kühlschrank abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Salz, Zucker, geschmolzene Butter und Sahne unter die gepressten Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib langsam Mehl dazu und knete den Teig mit der Hand, bis er die richtige Konsistenz hat. Verwende nicht mehr Mehl als nötig! Rolle den Teig zu einer langen Wurst und teile ihn in etwa 7 or 8 Stücke, wenn du eine 18 inch große Grillplatte verwendest. Bei einer kleineren Grillplatte oder Bratpfanne teile den Teig in 10 – 12 Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme jedes Stück zu einer Kugel und drücke es zu einem flachen Kreis. Forme den Teig mit den Handkanten rund und achte darauf, dass keine Risse entstehen. Das ist wichtig, damit die Lefser rund werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze die Grillplatte bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bemehle die Arbeitsfläche und rolle den Lefse-Teig zu einem großen Kreis aus, der etwas kleiner als die Grillplatte oder Bratpfanne ist. Rolle zunächst mit einem glatten Nudelholz und wechsle dann zu einem geriffelten Nudelholz, wenn der Teig dünner wird. Verwende nicht zu viel Mehl, da die Ränder sonst hart werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rolle das Lefse auf den Lefse-Wender und lege es vorsichtig auf die Grillplatte. Prüfe nach ein oder zwei Minuten, ob die Unterseite braune Flecken hat. Wende das Lefse dann mit dem Wender und gare es auf der anderen Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm das Lefse mit dem Wender von der Grillplatte und lege es in ein gefaltetes, feuchtes Tuch oder eine Tischdecke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/hxcuj01762772827.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/hxcuj01762772827.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53422",
+      "slug": "tmdb-53422",
+      "title": "Num E (klebrige Reisbällchen in Zuckersirup und Kokoscreme)",
+      "instructions": "Beilage, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2058,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53422/",
+      "components": [
+        {
+          "key": "3c2e5c2a-5ef0-5f21-b278-29e721817b94",
+          "name": "Zutaten",
+          "servingGrams": 580.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f9fc743-511f-5596-b73d-a21c26c1e934",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05421c03-d2b3-5749-928f-d77412d91670",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 7,
+              "quantity": 7,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bbff7bb-ae62-5b39-8f78-ef6e19fbedd0",
+              "ingredientName": "Rote Bete",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb61fb29-899a-59b6-8f8a-aee1dd7f33a3",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9a353b4-905d-59bc-8123-90de1e8fc055",
+              "ingredientName": "Taro",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cafd6e6d-086b-5cd8-aa20-f23ff124b2ce",
+              "ingredientName": "Longan",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89d4d85f-b76b-5ba7-b996-16e7708c3ad5",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31cfe591-641a-54f2-8b0a-919fcf55dc98",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98b567d6-762c-50e0-af10-53ebf6eda3f4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "250ab2d1-53cf-5b20-ae98-1b40c60dfa58",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c933bcfc-37bf-5143-a424-95064a14a67d",
+              "ingredientName": "Kokoscreme (aus der Dose)",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die Kokoscreme in einen kleinen Topf bei niedriger Hitze. Schneide 3 Pandanblätter in breite Streifen und gib sie mit braunem Zucker, Salz und Ingwer in den Topf. Bringe alles zum Kochen und gare es weitere 2 Minuten. Schalte die Hitze aus, entferne die Pandanblätter und lass die Mischung abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke die übrigen 4 Pandanblätter und püriere sie mit ¼ cup Wasser, bis die Mischung kräftig grün ist. Seihe sie gut ab. Gib 200 g Klebreismehl in eine Schüssel, füge etwas Pandanflüssigkeit dazu und knete alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle und hacke die Rote Bete, püriere sie mit ¼ cup Wasser, bis die Mischung rot ist, und seihe sie gut ab. Gib 200 g Klebreismehl in eine Schüssel, füge etwas Rote-Bete-Flüssigkeit dazu und knete alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe 3 litres Wasser in einem mittelgroßen bis großen Topf zum Kochen. Teile jeden Teig in kleine Stücke und rolle sie zu Kugeln von etwa ⅓ der Größe eines Pingpongballs. Gib sie dann in das kochende Wasser. Sobald sie an die Oberfläche steigen, nimm sie heraus und lege sie in frisches Eiswasser, damit sie nicht zusammenkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die bunten Kugeln gut abtropfen, gib sie in den abgekühlten Kokos-Zuckersirup und rühre um. Serviere sie in kleinen Schalen und gib nach Wunsch Longan und Kokosraspeln dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Färbeflüssigkeiten nach und nach dazu, da jedes Mehl unterschiedlich viel aufnimmt. Der Teig soll glatt und geschmeidig, aber nicht klebrig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/5572yt1779739329.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/5572yt1779739329.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52851",
+      "slug": "tmdb-52851",
+      "title": "Nussiges Hähnchencurry",
+      "instructions": "Indisches Hähnchengericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Indien",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2059,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52851/",
+      "components": [
+        {
+          "key": "464d9ef6-c176-54b9-abe2-2993c2e1c1bf",
+          "name": "Zutaten",
+          "servingGrams": 188.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "e5755041-bd9c-55f9-a477-25f69e413309",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0104e986-3ba1-51dd-9365-98255b9c8be4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2db4ce0e-658f-52ae-bbf7-2694804294a6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aad7f69c-d9c1-52ad-b319-43490453e1c2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38b10adf-d731-5d02-9fdb-7c7527bf3b9d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2d29138-873a-5879-bfa5-a23b3cc1b321",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11afc528-a84f-5871-9e94-c24943325220",
+              "ingredientName": "Erdnussbutter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cc43ff2-af77-5ba2-8e0d-d92d2671d91f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide one quarter der Chili fein. Gib den Rest mit Ingwer, Knoblauch, Korianderstängeln und one-third der Blätter in eine Küchenmaschine. Püriere alles mit einem Schuss Wasser zu einer groben Paste, falls nötig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einer Pfanne und bräune die Hähnchenstücke 1 Minute rasch an. Rühre die Paste ein und gare sie eine weitere Minute. Gib Erdnussbutter, Brühe und Joghurt dazu. Sobald die Sauce leicht blubbert, gare alles 10 Minuten, bis das Hähnchen gerade durch und die Sauce eingedickt ist. Rühre den Großteil des restlichen Korianders ein und streue den übrigen Koriander sowie nach Wunsch Chili darüber. Mit Reis oder Süßkartoffelpüree servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yxsurp1511304301.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yxsurp1511304301.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

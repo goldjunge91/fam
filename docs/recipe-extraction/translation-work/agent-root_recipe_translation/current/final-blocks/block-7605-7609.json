@@ -1,0 +1,1185 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-castagnaccio",
+      "slug": "bake2-castagnaccio",
+      "title": "Castagnaccio (toskanischer Kastanienkuchen)",
+      "instructions": "Ein echter toskanischer Herbstklassiker: ein dünner, rustikaler, ungesäuerter Kuchen, der fast nur aus süßem Kastanienmehl, Wasser und gutem Olivenöl besteht. Ohne zugesetzten Zucker; die natürliche Süße kommt aus Kastanienmehl und saftigen Rosinen. Pinienkerne, Rosmarin und eine aufgerissene Kruste runden ihn ab. Dicht, saftig, leicht herb-süß und unverkennbar toskanisch.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kastanienmehl ist die besondere Zutat. Kaufe es einmal online in größerer Packung oder im italienischen Laden. Es lässt sich monatelang einfrieren und reicht für mehrere Kuchen im Herbst.",
+        "Pinienkerne sind teuer. Streck sie mit günstigeren gehackten Walnüssen und streue nur wenige Pinienkerne obenauf.",
+        "Lasse frische Orangenschale weg, falls du keine hast. Eine Prise getrockneter Rosmarin und die Rosinen geben genug Aroma; du musst keine Früchte kaufen, die sonst übrig bleiben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "Walnüsse oder slivered Mandeln",
+          "savings": "spart etwa ~$4 gegenüber Pinienkernen"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "getrocknet cranberries oder gehackt getrocknet figs",
+          "savings": "keine Mehrkosten, da Vorratszutaten verwendet werden"
+        },
+        {
+          "forIngredientId": "evoo",
+          "swap": "any Olivenöl oder mild Pflanzenöl",
+          "savings": "spart etwa ~$2 gegenüber nativem Olivenöl extra der Premiumklasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "italian-tuscan (deutsche Fassung)",
+        "Backen",
+        "italienisch",
+        "tuscan (deutsche Fassung)",
+        "vegan (deutsche Fassung)",
+        "no-added-Zucker",
+        "autumn (deutsche Fassung)",
+        "traditional (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7605,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-castagnaccio/",
+      "components": [
+        {
+          "key": "16e74b15-5d75-542a-b8dc-7d6002864091",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 181.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "e06cc7cc-fe54-5194-a3e6-264ba2b8bd1e",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Kastanienmehl (farina di castagne), die prägende Zutat; da Kastanienmehl im Katalog fehlt, unter Mehl erfasst"
+            },
+            {
+              "key": "6abfbbd5-e1dc-5187-967d-94af57f58c5b",
+              "ingredientName": "Wasser",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 2 1/4 Tassen lauwarmes Wasser nach und nach zugeben, bis ein glatter, gießfähiger Teig entsteht"
+            },
+            {
+              "key": "c38b9248-0d6c-5d13-8a59-501d78455e6e",
+              "ingredientName": "Natives Olivenöl extra",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 EL natives Olivenöl extra (etwa 1/3 Tasse): 3 EL in den Teig, 2 EL zum Ölen der Form und zum Beträufeln"
+            },
+            {
+              "key": "87299569-894c-546c-be33-e380c06babd4",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse Rosinen, 15 min in warmem Wasser einweichen und anschließend abtropfen lassen"
+            },
+            {
+              "key": "ada48a21-9f5a-5b8c-81fb-1cc67478d5b3",
+              "ingredientName": "Pinienkerne",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 oz Pinienkerne (etwa 1/3 Tasse)"
+            },
+            {
+              "key": "fb26bf96-672e-5d29-9bf9-17bb14d19df4",
+              "ingredientName": "Walnüsse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1/4 Tasse Walnüsse, grob gehackt (optional; in manchen Varianten traditionell)"
+            },
+            {
+              "key": "207b7c66-4f81-575d-a6e2-8ea1a0963057",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zweig frischer Rosmarin, Blätter abgezupft"
+            },
+            {
+              "key": "eb4e8ade-764b-5f9a-aead-38e4efa16c0d",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "abgeriebene Schale von 1 Orange (optional; in Florentiner Varianten üblich)"
+            },
+            {
+              "key": "b2b38b43-60c4-52c7-9eb4-9f9800689721",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL feines Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375F (190C) vor. Weiche Rosinen 15 Minuten in einer kleinen Schüssel mit warmem Wasser ein, gieße sie ab und tupfe sie trocken. Bestreiche eine runde oder rechteckige Form von etwa 10-Zoll großzügig mit ungefähr 1 EL Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Siebe Kastanienmehl und Salz in eine große Schüssel, um natürliche Klümpchen aufzulösen. Kastanienmehl verklumpt leicht; Sieben ist wichtig für einen glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre nach und nach lauwarmes Wasser ein und löse alle Klümpchen, bis ein glatter, dünnflüssiger Teig wie für Pfannkuchen oder Sahne entsteht. Er soll leicht fließen und in Bändern vom Schneebesen laufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre 3 EL Olivenöl und nach Wunsch Orangenschale ein. Etwa zwei Drittel der eingeweichten Rosinen und die Hälfte der Pinienkerne unterheben. Den Rest für die Oberfläche aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die geölte Form; er soll nur etwa 1/2 bis 3/4 Zoll tief stehen, denn Castagnaccio ist dünn. Verteile übrige Rosinen, Pinienkerne, gehackte Walnüsse und Rosmarinblätter darauf. Träufle das letzte 1 EL Olivenöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe 30 bis 40 Minuten, bis die Oberfläche trocken und überall tief rissig wie trockene Erde ist und sich die Ränder leicht von der Form lösen. Die Oberfläche soll fest und charakteristisch rissig sein; innen bleibt der Kuchen saftig und dicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse ihn mindestens 15 Minuten in der Form abkühlen. Beim Abkühlen wird er fester. Traditionell bei Raumtemperatur in Quadrate oder Stücke geschnitten servieren. Zugedeckt hält er sich 2 bis 3 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Castagnaccio_with_pine_nuts.jpg/1280px-Castagnaccio_with_pine_nuts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Castagnaccio_with_pine_nuts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Gordon Joly, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Castagnaccio (toskanischer Kastanienkuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-ensa-mada",
+      "slug": "bake2-ensa-mada",
+      "title": "Ensaïmada de Mallorca",
+      "instructions": "Klassisches mallorquinisches Frühstücksgebäck: ein lange gegangenes, reichhaltiges Hefeteiggebäck, hauchdünn ausgezogen, mit Schweineschmalz bestrichen, zu einem Strang gerollt und zur typischen Spirale gewunden. Nach der Gare über Nacht goldbraun backen und mit Puderzucker bestäuben. Luftig, leicht zäh und zart blättrig, wie aus einer Bäckerei in Palma.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schmalz ist viel günstiger als Butter und das traditionelle Fett. Kaufe eine Packung an der Fleischtheke; Reste reichen für weitere Portionen.",
+        "Brotmehl kostet nur wenig mehr als Weizenmehl und gibt die nötige Dehnbarkeit. Teures Tipo-00-Mehl ist hier nicht traditionell.",
+        "Eine große Ensaïmada verwendet denselben Teig wie vier kleine und lässt sich von Anfängern leichter rollen, weil weniger Oberfläche reißen kann."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Traditional Schweinefleisch lard (saïm) — der namesake fat und der authentic choice",
+          "savings": "pro Zubereitung etwa $1.50 günstiger als mit Butter"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Active dry Hefe — proof it first in der lukewarm Wasser mit ein pinch von Zucker",
+          "savings": "ungefähr gleich teuer"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Any neutral Öl für stretching und greasing der surface",
+          "savings": "etwa $0.30 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanish-mallorcan (deutsche Fassung)",
+        "Backen",
+        "spanisch",
+        "mallorcan (deutsche Fassung)",
+        "Frühstück-pastry",
+        "enriched-Teig",
+        "laminated (deutsche Fassung)",
+        "overnight (deutsche Fassung)",
+        "Hefe"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7606,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-ensa-mada/",
+      "components": [
+        {
+          "key": "5986af17-b0d0-54af-a433-fc4941b0a4ac",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 234.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "64909c49-8fc7-566b-a334-e9a83ba7b10c",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 1/2 Tassen backstarkes Brotmehl, plus etwas zum Bestäuben"
+            },
+            {
+              "key": "10e16dc0-087d-5308-8e01-556ea61983a8",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse plus 2 EL Kristallzucker (7 EL)"
+            },
+            {
+              "key": "1432e36c-d420-56bc-9869-a38dc50f45ee",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "1df841d2-ac47-50c2-9461-90c55fa0d5a0",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse lauwarmes Wasser"
+            },
+            {
+              "key": "f91cb90e-ab5e-5b1d-acd4-d7b72fceac7f",
+              "ingredientName": "Instanthefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL Trockenhefe"
+            },
+            {
+              "key": "f6f9e445-8dab-5966-b357-cb0b09824611",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL mildes Olivenöl, damit sich der Teig leichter ausziehen lässt"
+            },
+            {
+              "key": "7bb3d753-e8d7-5b58-8426-37249b757a0b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL feines Salz"
+            },
+            {
+              "key": "d604e8a2-42dd-5682-bf80-85fa444582ff",
+              "ingredientName": "Butter",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse weiches Schweineschmalz zum Bestreichen; falls nicht erhältlich, durch 10 tbsp weiche Butter ersetzen"
+            },
+            {
+              "key": "56b743b3-b45f-5cc7-9edf-2e92906f8b9d",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse Puderzucker zum Bestäuben (4 EL)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Kristallzucker, Hefe und Salz in einer großen Schüssel. Drücke eine Mulde hinein und gib Eier, lauwarmes Wasser und Olivenöl dazu. Verrühre alles zu einem groben Teig und knete ihn auf einer sauberen Fläche 12-15 Minuten, bis er sehr glatt, elastisch und glänzend ist. Der Teig ist fest und reichhaltig; kein zusätzliches Mehl einarbeiten. Zu einer Kugel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fette den Teig leicht ein, decke ihn ab und lasse ihn bei warmer Raumtemperatur etwa 1 Stunde ruhen, bis er entspannt und leicht aufgegangen ist. Er muss sich noch nicht verdoppeln; durch diese Ruhe wird er dehnbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke die Luft vorsichtig heraus und teile den Teig in 4 gleich große Stücke für 4 kleine Ensaïmadas oder lasse ihn ganz für eine große. Forme feste Kugeln, decke sie ab und lasse sie 15 Minuten ruhen, damit sich das Klebergerüst entspannt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke und ziehe auf einer großzügig geölten Arbeitsfläche eine Kugel mit geölten Händen zu einem dünnen Rechteck. Ziehe den Teig vorsichtig von unten weiter, bis er fast durchscheinend und hauchdünn wie Strudelteig ist. Bestreiche die gesamte Oberfläche bis an die Ränder gleichmäßig mit weichem Schmalz oder Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig von einer langen Seite her zu einem dünnen Strang auf und verschließe dabei die Naht. Ziehe den Strang vorsichtig länger und winde ihn auf einem mit Backpapier belegten Blech zu einer lockeren, flachen Spirale. Lasse kleine Zwischenräume zum Aufgehen und schlage das Ende unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Teig locker ab und lasse ihn an einem warmen Ort 6-12 Stunden gehen (traditionell über Nacht), bis er sichtbar luftig und fast doppelt so groß ist. Die lange Gare sorgt für die charakteristische leichte, blättrige Krume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heize den Ofen auf 350F (175C) vor. Besprühe die Spiralen leicht mit Wasser oder bestreiche sie damit. Backe kleine Stücke 18-22 Minuten oder ein großes 25-30 Minuten, bis sie dunkelgolden und die Spiralen fest sind. Decke sie mit Folie ab, falls sie zu schnell bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse das Gebäck mindestens 15 Minuten auf einem Gitter abkühlen. Kurz vor dem Servieren durch ein feines Sieb dick und gleichmäßig mit Puderzucker bestäuben. Am besten am selben Tag, leicht warm und mit Kaffee genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Ensa%C3%AFmada.jpg/1280px-Ensa%C3%AFmada.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ensa%C3%AFmada.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Ensaïmada de Mallorca",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-magdalenas",
+      "slug": "bake2-magdalenas",
+      "title": "Magdalenas (spanische Zitronen-Madeleines)",
+      "instructions": "Traditionelle spanische Magdalenas: kleine hohe Küchlein mit gewölbter, aufgerissener Spitze, knuspriger Zuckerkruste und zarter Krume mit Zitrone und Olivenöl. Der Teig wird hell und dick aufgeschlagen, kalt gestellt und heiß gebacken, damit er hoch aufgeht und aufreißt. Anders als französische Madeleines sind sie fluffig und duften herrlich; perfekt zum Eintunken in Kaffee oder heiße Schokolade.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Olivenöl ist das traditionelle und preiswerte Fett. Butter ist nicht nötig; eine einfache Flasche aus dem Supermarkt eignet sich gut für den milden Geschmack.",
+        "Eine Zitrone reicht weit. Reibe zuerst die Schale ab und friere Reste für die nächste Portion ein.",
+        "Verwende normale Muffinförmchen, falls du keine hohen Magdalena-Förmchen findest. Fülle sie etwas weniger und sie wölben sich trotzdem schön."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Mild vegetable oder sunflower Öl für ein mehr neutral flavor",
+          "savings": "oft günstiger als natives Olivenöl extra"
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "Orange zest für ein sweeter, rounder citrus note",
+          "savings": "verwende eine Orange zum Auspressen, die bereits da ist"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Any plant Milch such as oat oder soy Milch",
+          "savings": "keine Milchprodukte extra kaufen, wenn Pflanzenmilch vorrätig ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "Backen",
+        "Frühstück-treat",
+        "Zitrone",
+        "olive-Öl",
+        "dunking (deutsche Fassung)",
+        "machen-ahead",
+        "kid-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7607,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-magdalenas/",
+      "components": [
+        {
+          "key": "d2f988f0-c21b-561c-9f3e-48c783662d7c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 74.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e4cba01-9486-5a8c-a105-999d7a30b839",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Eier, zimmerwarm"
+            },
+            {
+              "key": "c5c61604-9397-5076-9b07-c4b7686ab562",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker, plus etwas zum Bestreuen"
+            },
+            {
+              "key": "18867782-db0f-5529-ac5b-16b0b26d1792",
+              "ingredientName": "Olivenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse mildes natives Olivenöl extra (oder leichtes Olivenöl)"
+            },
+            {
+              "key": "931040bc-3db9-5ad3-bbbe-c1550d296af3",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse Vollmilch, zimmerwarm"
+            },
+            {
+              "key": "affca1bb-e726-54b8-8d5e-1e165efca698",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "f4100ee1-0eb4-56d8-a617-7eb195fa9a88",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL Backpulver"
+            },
+            {
+              "key": "6c04b236-efa6-5a3d-8594-1e3e513c0013",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "fein abgeriebene Schale von 1 Zitrone (etwa 2 TL)"
+            },
+            {
+              "key": "2c1fe8df-2d4e-53b6-83df-c1587b0c6997",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "e50807c5-81d5-5563-84ed-bdb12e45c9a8",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "b9788f28-4ba9-58fb-b6f7-42a06e80cfcc",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/4 TL gemahlener Zimt (optional, traditionell)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage Eier und 3/4 Tasse Zucker mit dem Handrührgerät 5-8 Minuten auf hoher Stufe sehr hell, dick und auf das Dreifache auf. Das lange Aufschlagen gibt den Magdalenas ihre Höhe. Die Masse soll in einem Band vom Rührbesen fallen und einige Sekunden sichtbar bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Träufle bei niedriger Geschwindigkeit langsam Olivenöl ein, dann Milch, Vanille und Zitronenschale. Nur kurz verrühren. Ab jetzt vorsichtig mischen, damit die Eiermasse nicht zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Siebe Mehl, Backpulver, Salz und nach Wunsch Zimt zusammen. Hebe die Mischung in zwei Portionen mit einem Teigschaber unter, bis sie gerade vermengt ist und keine trockenen Stellen mehr sichtbar sind. Der Teig ist dick und luftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Schüssel ab und stelle sie mindestens 1 Stunde oder über Nacht kalt. Durch das Kühlen wird der Teig fester und es entsteht die hohe, aufgerissene Kuppel. Ohne diesen Schritt werden die Magdalenas flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze Papierförmchen für Magdalenas oder Muffins in eine Muffinform mit 12 Mulden. Die feste Form hilft beim Aufgehen. Heize den Ofen auf 425F (220C) vor und setze das Gitter mittig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jedes Förmchen etwa zu drei Vierteln mit kaltem Teig. Streue eine großzügige Prise Kristallzucker darauf; so entsteht die typische knusprige Zuckerkruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe bei 425F 5 Minuten. Öffne den Ofen nicht, sondern reduziere die Temperatur auf 375F (190C) und backe weitere 10-13 Minuten, bis die Magdalenas dunkelgolden, gewölbt und oben aufgerissen sind. Ein Zahnstocher soll sauber herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie 5 Minuten in der Form abkühlen und lege sie dann auf ein Gitter. Leicht warm oder bei Raumtemperatur servieren, perfekt zu Kaffee, Milch oder heißer Schokolade. Luftdicht bis zu 4 Tage aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Magdalenas_de_vainilla.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Magdalenas_de_vainilla.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Horacio Cambeiro, CC BY 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Magdalenas (spanische Zitronen-Madeleines)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-quesada-pasiega",
+      "slug": "bake2-quesada-pasiega",
+      "title": "Quesada Pasiega (kantabrischer Quarkkuchen)",
+      "instructions": "Das echte klassische Dessert aus dem Pas-Tal in Kantabrien im Norden Spaniens: ein dichter, goldener gebackener Quarkkuchen zwischen Pudding und Käsekuchen. Frischer Quark wird mit gebräunter Butter, Eiern, Zucker, etwas Mehl, Milch, Zitronenschale und Zimt verrührt und heiß gebacken, bis die Oberfläche aufreißt und karamellisiert. Innen zart und leicht säuerlich, mit intensivem Butteraroma. Am besten am Vortag backen und bei Raumtemperatur in dünnen Stücken servieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse teuren frischen Quark weg. Eine Mischung aus Ricotta und vollfettem Hüttenkäse, glatt püriert, ergibt für viel weniger Geld die lockere Quarkstruktur der Pasiega.",
+        "Butter zu bräunen dauert 4 Minuten und macht den ganzen Kuchen ohne Mehrkosten aromatischer. Überspringe diesen Schritt nicht.",
+        "Eine Zitrone reicht für beides: Die Schale kommt in den Teig; den Saft kannst du für ein anderes Rezept aufheben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ricotta",
+          "swap": "verwenden all cottage Käse (1.5 cups) blended very smooth, oder full-fat Greek Joghurt strained für ein Stunde",
+          "savings": "Hüttenkäse ist pro Unze meist günstiger als Ricotta"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Evaporated Milch thinned mit ein splash von Wasser, oder half-und-half für ein even richer custard",
+          "savings": "verwende die Milch, die bereits vorrätig ist"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "normal geschmolzen (un-browned) Butter works in ein pinch, oder ein neutral Öl — du lose der nutty depth but der texture holds",
+          "savings": "Öl ist günstiger und erspart das Bräunen der Butter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "Backen",
+        "Nachtisch",
+        "cheesecake (deutsche Fassung)",
+        "custard (deutsche Fassung)",
+        "machen-ahead",
+        "Vegetarier",
+        "cantabrian (deutsche Fassung)"
+      ],
+      "defaultServings": 9,
+      "status": "published",
+      "sortOrder": 7608,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-quesada-pasiega/",
+      "components": [
+        {
+          "key": "8c12ccac-4797-5b1f-9f71-6fb77622af2f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 115.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc419fda-dfab-5c9f-b519-832b630624b5",
+              "ingredientName": "Ricotta",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (etwa 250 g) frischer Ricotta als beste Alternative zum traditionellen Pasiega-Frischkäse (cuajada/requesón); bei viel Flüssigkeit abtropfen lassen"
+            },
+            {
+              "key": "2669382a-be29-5982-95c0-8e6768d03f8a",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (etwa 125 g) vollfetter Hüttenkäse, glatt püriert, für die lockere Konsistenz von frischem Quark"
+            },
+            {
+              "key": "d35b4715-c29f-519c-a4a8-5bf8005869d6",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große Eier"
+            },
+            {
+              "key": "9a415b21-9266-5a73-b9b0-38016ddbe244",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse (150 g) Kristallzucker"
+            },
+            {
+              "key": "285c196e-f7ce-51b7-a9f9-44f6d432f484",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 EL (85 g) ungesalzene Butter, gebräunt und leicht abgekühlt"
+            },
+            {
+              "key": "c65bea87-5a5e-5f93-8d8b-9a020db0d1ea",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse (65 g) Weizenmehl"
+            },
+            {
+              "key": "c6131c36-de78-5a6e-ac2d-1f821edd90c8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse (120 ml) Vollmilch"
+            },
+            {
+              "key": "1d396a96-43ea-5d37-8276-763a3122828e",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "fein abgeriebene Schale von 1 Zitrone (etwa 2 TL)"
+            },
+            {
+              "key": "672be2c8-327f-5e4f-b556-cd77ac19edea",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt, plus etwas zum Bestäuben"
+            },
+            {
+              "key": "7db40d46-54cf-52da-90f7-c82651e63679",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "35aecca8-d906-568d-be53-bd83c664044d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1/2 TL Vanilleextrakt (optional; rundet den Geschmack ab)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 220C / 425F vor. Fette eine quadratische Backform von 8-Zoll (20 cm) oder eine ähnlich große Keramikform großzügig mit Butter ein und bestäube sie leicht mit Mehl. Überschuss abklopfen. Die hohe Anfangshitze erzeugt die typische aufgerissene, gebräunte Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die 6 EL Butter in einem kleinen Topf bei mittlerer Hitze unter Schwenken, bis sie schäumt, die Milchbestandteile goldbraun werden und nussig duften (3-4 Minuten). In eine Schüssel gießen und 5 Minuten abkühlen lassen. Das geröstete Butteraroma ist typisch für dieses Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere Ricotta und Hüttenkäse in einer großen Schüssel so glatt wie möglich, mit Mixer, Küchenmaschine oder durch ein Sieb gestrichen. Traditioneller Cuajada-Quark ist locker und leicht körnig; glatter Teig backt aber gleichmäßiger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage die Eier einzeln unter, dann Zucker, Salz, Zitronenschale, Zimt und Vanille, bis alles vermengt ist und sich der Zucker langsam auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Milch und dann die abgekühlte braune Butter ein. Siebe Mehl dazu und verrühre nur, bis ein glatter, gießfähiger Teig ohne Klümpchen entsteht. Nicht überschlagen. Der Teig soll dünn wie Pfannkuchenteig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den Teig in die vorbereitete Form; er sollte etwa etwa 3 cm tief stehen hoch stehen. Bestäube die Oberfläche leicht mit zusätzlichem Zimt. Backe bei 220C / 425F 10 Minuten, damit die Oberfläche fest wird und Farbe bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere den Ofen auf 180C / 350F und backe weitere 30-35 Minuten, bis die Oberfläche dunkelgolden und aufgerissen, die Ränder fest und die Mitte nur leicht wackelig ist. Ein Holzspieß aus der Mitte soll einige feuchte Krümel, aber keinen nassen Teig zeigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schalte den Ofen aus, öffne die Tür einen Spalt und lasse den Kuchen 15 Minuten darin abkühlen, damit er nicht zusammenfällt. Auf einem Gitter vollständig abkühlen lassen und mehrere Stunden, idealerweise über Nacht, kalt stellen. Bei Raumtemperatur in Quadrate geschnitten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Quesada_pasiega.jpg/1280px-Quesada_pasiega.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Quesada_pasiega.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Juan Emilio Prades Bel, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Quesada Pasiega (kantabrischer Quarkkuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-p-o-de-l",
+      "slug": "bake2-p-o-de-l",
+      "title": "Pão de Ló (portugiesischer Biskuit)",
+      "instructions": "Klassischer portugiesischer Biskuit: ein besonders eiiger, goldener Kuchen, dessen Lockerung ausschließlich aus ganzen Eiern und zusätzlichen Eigelben kommt, die zu einer dicken Masse aufgeschlagen werden. In Backpapier ausgelegt und heiß gebacken, bleibt er herrlich saftig und in der Mitte leicht cremig – wie der berühmte Pão de Ló de Ovar. Nur vier Zutaten, ohne Butter, Triebmittel und Aufwand.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 32,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier sind hier die Hauptzutat, daher reichen normale große Eier aus dem Supermarkt. Friere die 4 übrigen Eiweiße in einer Eiswürfelform für Omeletts oder Baiser ein.",
+        "Lasse Zitrone weg und verwende vorhandene Zitrusschale oder gar keine. Pur ist der Kuchen traditionell und köstlich.",
+        "Keine Küchenmaschine? Ein günstiger Handmixer reicht aus; schlage einfach volle 10-plus Minuten. Eine Rolle Backpapier kostet wenig und ersetzt eine spezielle Antihaftform."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "1 tsp Limette oder Orange zest, oder omit",
+          "savings": "verwende Zitrusfrüchte, die bereits da sind"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "gleich weight superfine/caster Zucker für ein even silkier crumb",
+          "savings": "normalen Zucker im Mixer fein mahlen, statt feinen Zucker zu kaufen"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "swap 2 tbsp von der Mehl für cornstarch für ein mehr tender, melt-in-mouth sponge",
+          "savings": "Vorratszutat, keine Mehrkosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "portugiesisch",
+        "Backen",
+        "Nachtisch",
+        "sponge-cake (deutsche Fassung)",
+        "Ei",
+        "traditional (deutsche Fassung)"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7609,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-p-o-de-l/",
+      "components": [
+        {
+          "key": "5244ca30-34cc-56a0-a41e-98d331228ac2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 98.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "e089b8cd-6dc4-50a9-9ec8-a10b0d197996",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 große Eier, zimmerwarm"
+            },
+            {
+              "key": "5164f726-25f9-5579-ab13-ffd15a21e2cc",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Eigelb (Eiweiß anderweitig verwenden)"
+            },
+            {
+              "key": "64f5f305-a05a-556d-ade2-d6e78e0c39b2",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "a0f90e98-b6a0-5853-bf83-79a35dff874b",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse Weizenmehl, gesiebt"
+            },
+            {
+              "key": "06988dc3-4bb6-5e63-8b2b-b073b8c73771",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "daca34e7-40c6-5b81-89f1-93fc7cde2dee",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1 TL fein abgeriebene Zitronenschale (optional, traditionell)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (180C) vor. Lege eine tiefe runde Form von 8-Zoll oder eine ähnliche Rohr- oder Tonform mit Backpapier aus. Das Papier soll ein paar Zoll über den Rand ragen; der Teig ist weich und der hohe Kragen gehört zum traditionellen Aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage 6 ganze Eier in eine große Schüssel auf und gib 4 zusätzliche Eigelbe, Zucker und Salz dazu. Schlage mit dem elektrischen Mixer auf hoher Stufe volle 10 bis 12 Minuten, bis die Mischung sehr hell ist, sich ihr Volumen verdreifacht hat und sie als dickes, langsam verlaufendes Band vom Rührbesen fällt. Das lange Schlagen ist das einzige Triebmittel, also nicht abkürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage nach Wunsch in den letzten 30 Sekunden Zitronenschale ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Siebe das Mehl in drei Portionen über den Eischaum. Hebe es vorsichtig mit einem großen Teigschaber unter: durch die Mitte schneiden und seitlich wieder hochheben, bis alles gerade vermengt ist und keine trockenen Mehlstreifen bleiben. Sobald die Masse glatt ist, aufhören, sonst fällt die Luft heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die ausgelegte Form. Nicht klopfen oder aufschlagen, damit die Luft erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe auf der mittleren Schiene 28 bis 35 Minuten. Für die traditionelle saftige Ovar-Art bei 28 bis 30 Minuten herausnehmen, solange die Mitte noch leicht wackelt und ein Holzspieß etwas feucht herauskommt. Für einen vollständig festen, federnden Biskuit näher an 35 Minuten backen, bis der Spieß sauber herauskommt und die Oberfläche dunkelgolden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Kuchen 15 Minuten in der Form abkühlen und hebe ihn dann am Backpapier auf ein Gitter. Bei Raumtemperatur servieren und den Papierkragen für die rustikale Präsentation dranlassen. Gut verpackt hält er sich 3 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/P%C3%A3o-de-l%C3%B3.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:P%C3%A3o-de-l%C3%B3.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Adriao, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pão de Ló (portugiesischer Biskuit)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

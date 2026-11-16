@@ -1,0 +1,1118 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52843",
+      "slug": "tmdb-52843",
+      "title": "Lamm-Tajine",
+      "instructions": "Marokkanisches Lammgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "marokkanisch",
+        "lamm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2005,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52843/",
+      "components": [
+        {
+          "key": "f3f8cedf-8994-51b2-be14-da0a0cf3ffb1",
+          "name": "Zutaten",
+          "servingGrams": 200.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "98b08146-77f8-529c-8643-3dc198ddb9c8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6602057-154b-5675-8bb3-609172c7bad7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9679485-60d9-5d00-a9dc-f54fd96b2360",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a014f4e-a111-50aa-99e3-c012db17221c",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ffc0065-8399-57b8-8a2a-9d77848f126f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58aaac35-5eec-5931-8690-1919516f5ede",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d88e4f8-2aa2-57f1-9527-4e6b3733d90c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "966bebac-77e2-5f12-81a9-6a5ebeb0ad32",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24ef98cd-0b60-54e1-be9a-f4dcc3e95433",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edcf7c8b-20a6-57c9-8ddd-5eea6f8f0c06",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3260258-4c32-508f-af18-d2653d6ade09",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a36dbaa-c3e3-5b16-a558-42d3012df586",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6519742-c7c7-5479-a4ee-67defb367776",
+              "ingredientName": "Butternusskürbis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88aeb8bb-ed78-583d-b4dd-f0ac6fc48cd8",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5e428dc-dc79-5670-abb5-15c4315663b3",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem Topf mit schwerem Boden erhitzen und Zwiebel sowie Karotte dazugeben. 3–4 Minuten garen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfeltes Lamm dazugeben und rundherum anbräunen. Knoblauch und alle Gewürze einrühren und einige Minuten weitergaren, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Honig und Aprikosen dazugeben, den Brühwürfel hineinbröseln und etwa 500 ml kochendes Wasser oder so viel, dass das Fleisch bedeckt ist, angießen. Gut umrühren und zum Kochen bringen. Hitze reduzieren, Deckel auflegen und 1 Stunde garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Deckel abnehmen und weitere 30 Minuten garen, dann Kürbis einrühren. Weitere 20–30 Minuten garen, bis der Kürbis weich und das Lamm zart ist. Mit Reis oder Couscous servieren und nach Wunsch mit Petersilie und Pinienkernen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yuwtuu1511295751.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yuwtuu1511295751.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52782",
+      "slug": "tmdb-52782",
+      "title": "Lamm mit Tomaten und süßen Gewürzen",
+      "instructions": "Marokkanisches Lammgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "marokkanisch",
+        "lamm",
+        "süß"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2006,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52782/",
+      "components": [
+        {
+          "key": "7bc37e9d-a876-59d3-8312-cb7f02fb1fe0",
+          "name": "Zutaten",
+          "servingGrams": 354.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "92010115-7a91-510f-bc5b-667ec1a3d89c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f519b66-7993-5c83-9ad4-78a8d9b11868",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73eabb36-c8cc-57a4-8465-8030c8e92dd8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f39b152-c70b-54c8-8b02-8a82718fc142",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d05d8ed-c958-5a1b-8de9-b8a3738f33c8",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c08d2f98-5d3f-5a60-91a5-4b218f4160a1",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "582b29d3-d895-5c0a-b30d-d45680c4befb",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1.79,
+              "quantity": 1.79,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a83081fb-df3a-556c-acde-bb7e9c2db11b",
+              "ingredientName": "Fenchelknolle",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b0ce554-f03d-5b0b-8635-21aa22b8615d",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c122ecfe-8480-5eaf-8239-22e9473ecd08",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d30dcee-e8d7-537b-8ffc-94779b960472",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a64ec4e-0053-5bf0-8fbb-aaf8e954f66e",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea507847-be01-59af-8b40-6be19a504d78",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3297149-1fa7-56f3-83c8-65ff59df456a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce8f5917-f4c3-56f6-a2d5-8ad644d8439e",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74c30eaf-07e8-5834-a0d1-6ec78db3c4e0",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hier eingelegte Weinblätter verwenden, die in Salzlake konserviert wurden. Kleine, zarte Blätter sind besser als große, grobe. Wenn nur große Blätter zur Verfügung stehen, schneide sie auf etwa 12 mal 12 cm zu, damit sich nicht zu viele Blattschichten um die Füllung legen. Stiele entfernen. Konservierte Blätter abgießen, 10 Minuten in kochendes Wasser tauchen und anschließend auf einem Geschirrtuch trocknen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Basmatireis mit Butter und Pinienkernen passt ideal dazu. Couscous schmeckt ebenfalls gut. Ergibt vier Portionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zuerst die Füllung zubereiten. Alle Zutaten außer den Tomaten in eine Schüssel geben. Tomaten halbieren, grob in die Schüssel reiben und die Schalen entsorgen. Einen halben Teelöffel Salz und etwas schwarzen Pfeffer dazugeben und umrühren. Bis zu einem Tag beiseitestellen oder im Kühlschrank aufbewahren. Vor der Verwendung mit den Händen vorsichtig ausdrücken und austretende Flüssigkeit abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Sauce Öl in einem mittelgroßen Topf erhitzen. Ingwer und Knoblauch dazugeben und ein oder zwei Minuten garen, dabei darauf achten, dass sie nicht anbrennen. Dann Tomate, Zitronensaft und Zucker dazugeben. Würzen und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während die Sauce köchelt, die Weinblätter vorbereiten. Zerrissene oder beschädigte Blätter zum Auslegen des Bodens eines breiten, schweren Topfes verwenden. Blätter vom Fenchel entfernen, ihn längs in 0.5 cm dicke Scheiben schneiden und so auf dem Topfboden verteilen, dass dieser vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ein vorbereitetes Weinblatt (siehe Einleitung) mit der geäderten Seite nach oben auf die Arbeitsfläche legen. Zwei Teelöffel Füllung in einem 2 cm langen und 1 cm breiten Streifen am Blattansatz platzieren. Blattseiten über die Füllung klappen und von unten nach oben fest zu einer Zigarrenform aufrollen. Mit der Naht nach unten in den Topf legen. Mit den übrigen Blättern wiederholen und sie dicht nebeneinander in Reihen oder Kreisen anordnen (bei Bedarf in zwei Lagen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sauce über die Blätter gießen und bei Bedarf Wasser hinzufügen, bis sie gerade bedeckt sind. Einen Teller darauflegen, um die Blätter zu beschweren, und mit einem Deckel abdecken. Zum Kochen bringen, Hitze reduzieren und 70 Minuten ganz sanft köcheln lassen. Die meiste Flüssigkeit sollte verdampfen. Vom Herd nehmen und etwas abkühlen lassen; warm schmecken sie am besten. Zum Servieren den Topf auf den Tisch stellen – das sieht toll aus. Einige Weinblätter und Fenchelscheiben mit warmem Reis servieren. Schmorflüssigkeit darüberlöffeln und mit Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qtwtss1468572261.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qtwtss1468572261.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53010",
+      "slug": "tmdb-53010",
+      "title": "Lamm-Tzatziki-Burger",
+      "instructions": "Griechisches Lammgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "griechisch",
+        "lamm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2007,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53010/",
+      "components": [
+        {
+          "key": "f6b0ff9b-36f5-5fad-b079-921d392a5588",
+          "name": "Zutaten",
+          "servingGrams": 323.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6205e7a9-1722-51f5-abc8-8813e41d5b0c",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2f0d5f1-bd7e-591f-8016-05bf2275fc7f",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e122b15b-3dee-585e-adf3-b159be3afac6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89cce4ba-4dd3-5d62-ad4b-b85f268d0aa3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8b65d0e-a860-5078-aae6-898d90d7061d",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6b48812-578c-5c56-b334-941741c417c1",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18c3b91f-7db2-501b-a155-cd9090318e44",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22129e39-92c0-5e57-9127-90389c9b37b8",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71e2672a-6574-5dd1-bc8f-a6712b07e76d",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02021555-b090-552b-ac93-539beafb71a6",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4c1d254-8e21-501d-aa74-ad23ad9c8e2e",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bulgur in einen Topf geben, mit Wasser bedecken und 10 Minuten kochen. In einem Sieb sehr gut abtropfen lassen und überschüssiges Wasser herausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für das Tzatziki den Gurkensaft ausdrücken und wegschütten. Gurke mit gehackter Minze, etwas Salz und Joghurt vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bulgur mit Gewürzen, Knoblauch (falls verwendet) und Würzung unter das Lammfleisch kneten und zu 4 Burgern formen. Mit etwas Öl bestreichen und etwa 5 Minuten pro Seite braten oder grillen, bis sie vollständig durchgegart sind. Nach Wunsch getoastet in den Brötchen mit Tzatziki, Tomaten, Zwiebeln und einigen Minzblättern servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/k420tj1585565244.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/k420tj1585565244.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53104",
+      "slug": "tmdb-53104",
+      "title": "Lamingtons",
+      "instructions": "Australisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "australisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2008,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53104/",
+      "components": [
+        {
+          "key": "e9e0297f-4392-5955-8fcb-5e2f8edff59b",
+          "name": "Zutaten",
+          "servingGrams": 460.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a88c20c-90a5-544f-b191-4536e83e603a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e90955e-f415-503d-8396-7eddaee24261",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b99ec879-ff67-55ea-ae97-d2076f2e4922",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fda11952-b409-50b0-80be-4a7f08f03dd7",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0aca0bc3-bea1-52ae-9e7f-7790456a5357",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65da4240-3038-5373-9dd5-84f34902c289",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd95766f-8a39-50b4-bc37-28c1fb6af33d",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f349583-fadc-5d54-80cb-c83ea43a76e0",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ea02c46-f90f-59ba-ae60-3020e18cda1d",
+              "ingredientName": "Marmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4056bc5d-9bb2-5f0f-bf4d-4c5423d4fedf",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d90f1896-f89e-5454-bec1-a97ccd774316",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 200C/180C Umluft/Gasstufe 6 erhitzen. Eine rechteckige Form von 20 x 30 cm einfetten und mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker in einer Küchenmaschine mit Standfuß hell und luftig aufschlagen. Eier einzeln dazugeben und jeweils gut aufschlagen. Mehl, Milch und Salz einrühren, bis alles gut vermengt ist, dann den Teig in die Form geben. 25 Minuten backen oder bis der Kuchen goldbraun und fest ist. Vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Biskuit waagerecht halbieren. Ränder abschneiden, sodass gleichmäßige Ecken entstehen. Biskuit in 18 Quadrate schneiden. Sahne mit Puderzucker leicht aufschlagen, bis weiche Spitzen entstehen. Etwas Marmelade auf der Hälfte der Biskuitquadrate verstreichen und darauf etwas Sahne spritzen oder streichen. Jeweils ein zweites Quadrat daraufsetzen und zum Kühlen in den Kühlschrank stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Glasur geschmolzene Butter und Milch in einer Schüssel verquirlen. Kakaopulver und Puderzucker in einer separaten Schüssel sieben. Kakao und Zucker nach und nach unter ständigem Rühren zur Butter-Milch-Mischung geben, damit keine Klümpchen entstehen. Wenn Klümpchen entstehen, mit einem Stabmixer glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kokosraspeln auf drei flache Schüsseln verteilen (so werden sie beim Eintauchen nicht mit zu viel Schokolade überzogen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeden Lamington vollständig in die Glasur tauchen. In Kokosraspeln wälzen und auf ein Kuchengitter legen. Mit den übrigen Biskuitstücken wiederholen. Mindestens 1 Stunde kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/j2n7vg1761848636.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/j2n7vg1761848636.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52884",
+      "slug": "tmdb-52884",
+      "title": "Lancashire-Hotpot",
+      "instructions": "Britisches Lammgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "lamm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2009,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52884/",
+      "components": [
+        {
+          "key": "9b631ad7-8855-5f43-bc97-27bcda0bdfc1",
+          "name": "Zutaten",
+          "servingGrams": 595.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "85dee483-952a-559b-b6ee-40b7cbd8067d",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3948c9f-5021-5fb6-9e78-f54b9c6f5969",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d19de8f-30f3-5206-a088-e6b9458da0f8",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b639cca-65e7-5057-b782-aa00671d4b9b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cddbdf89-9264-54a6-85ad-2480d3133ca6",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "395835c7-8f96-53a6-ac04-5efbe940c22a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8e01720-abff-5d74-b18e-912114303108",
+              "ingredientName": "Worcestersauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9d08101-538a-55f3-8419-ba0f3c67ecd9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36f5f3e0-50a5-5531-ad47-9fc466aed555",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3b72bfd-5cf7-5c80-92ad-fabb160c469f",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 160C/Umluft 140C/Gasstufe 3 erhitzen. Etwas Bratfett oder Butter in einer großen flachen Auflaufform erhitzen. Lamm portionsweise anbräunen und auf einen Teller geben; anschließend die Nieren ebenso anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln und Karotten mit etwas zusätzlichem Bratfett in der Pfanne goldbraun braten. Mehl darüberstreuen und einige Minuten garen. Worcestersauce darüberträufeln, Brühe angießen und zum Kochen bringen. Fleisch und Lorbeerblätter einrühren und dann die Hitze ausschalten. Kartoffelscheiben auf dem Fleisch anordnen und mit etwas mehr Bratfett beträufeln. Abdecken und etwa 1½ Stunden in den Ofen stellen, bis die Kartoffeln gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Deckel abnehmen, Kartoffeln mit etwas mehr Bratfett bestreichen und die Ofentemperatur erhöhen, damit sie bräunen, oder 5–8 Minuten unter dem Grill fertig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/uttrxw1511637813.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/uttrxw1511637813.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

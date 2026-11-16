@@ -1,0 +1,964 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-harissa-pasta",
+      "slug": "gen-harissa-pasta",
+      "title": "Harissa-Nudeln",
+      "instructions": "Tunesisches Nudelgericht mit würziger Harissa-Sauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Harissa in größeren Mengen oder auf Märkten für Lebensmittel aus dem Nahen Osten kaufen; dort kostet sie nur halb so viel wie im Supermarkt.",
+        "Getrockneten Koriander statt frischen verwenden und so Geld sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "tunesisch",
+        "dinner",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5790,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-harissa-pasta/",
+      "components": [
+        {
+          "key": "1b3113f4-5f22-5a46-9468-4cfca78fd21b",
+          "name": "Zutaten",
+          "servingGrams": 520.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e7d3ae5e-8635-53f1-93aa-e611c6e12da5",
+              "ingredientName": "Nudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a079b28b-a2bd-5c06-b04f-5aeba8eed6c3",
+              "ingredientName": "Harissa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "89dd6f05-1302-58d2-b126-8623396e25fb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82e5f367-a2c3-5f9b-86c0-4e30379f02e3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3ff83f01-4f90-564d-a48c-13bd9946a234",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "0fee1bf7-ea14-590b-8a92-cf8e689fcf14",
+              "ingredientName": "Kümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "22954e4a-b408-53d6-8971-0a909740e55e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a4a11392-09c9-5d43-bba5-f7bec6121ab7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf Salzwasser zum Kochen bringen und die Spaghetti nach Packungsanweisung bissfest kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während die Pasta kocht, Knoblauch fein hacken und in Olivenöl bei mittlerer Hitze 1 Minute anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Harissa-Paste und Kümmelsamen einrühren und 30 Sekunden mitbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomaten aus der Dose samt Saft hinzufügen und 8-10 Minuten köcheln lassen, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Pasta abgießen und mit der Sauce vermengen. Mit frischem Koriander bestreut servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/12/EASY-Harissa-Recipe-with-simple-ingredients-and-methods-ready-in-30-minutes-Perfect-for-adding-smoky-heat-to-sauces-dressings-soups-and-more-vegan-glutenfree-recipe-sauce-harissa-minimalistbaker-14.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/12/EASY-Harissa-Recipe-with-simple-ingredients-and-methods-ready-in-30-minutes-Perfect-for-adding-smoky-heat-to-sauces-dressings-soups-and-more-vegan-glutenfree-recipe-sauce-harissa-minimalistbaker-14.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sriracha-shakshuka",
+      "slug": "gen-sriracha-shakshuka",
+      "title": "Shakshuka mit Sriracha",
+      "instructions": "Würzige Shakshuka mit Sriracha zum Frühstück.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier im Angebot in größeren Packungen kaufen.",
+        "Sriracha der Hausmarke statt der Marke Huy Fong verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "nahöstlich",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5791,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sriracha-shakshuka/",
+      "components": [
+        {
+          "key": "9af729fa-c908-5c50-b1a5-97a0d074d5b4",
+          "name": "Zutaten",
+          "servingGrams": 293.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "581818d1-07f9-516f-9522-0de76af353aa",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "661859b2-f32a-5117-9254-e91ac90efb23",
+              "ingredientName": "Sriracha-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c0b204a9-b82d-5124-995f-8d850b3e0c4c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d24cfa6-8644-5632-a572-2f5431e72baf",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "901d39ca-ee84-5631-980c-e75ddf6e38ba",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "640a89d8-1b2a-5787-9444-a57d701b8173",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 mittelgroße"
+            },
+            {
+              "key": "baf8d530-6b60-5bea-9ac1-13838b643a01",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "71068c60-5836-5f32-b2ff-b9f9faa9b8ad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "91e62840-17d0-5dea-8361-d7bd4e2d1627",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b6bc6f83-d9bb-54b3-bc82-c9650ffcf930",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen und gewürfelte Zwiebel und Knoblauch 2 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sriracha-Sauce und Kreuzkümmel hinzufügen und 30 Sekunden braten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten aus der Dose samt Saft zugießen und 5-7 Minuten köcheln lassen, bis die Sauce etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "4 kleine Mulden in die Sauce drücken und jeweils ein Ei hineinschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Pfanne abdecken und 5-7 Minuten garen, bis das Eiweiß gestockt, das Eigelb aber noch flüssig ist. Mit Salz, Pfeffer und Petersilie würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://assets.epicurious.com/photos/54b3fcf4d5e8c3e1070abf4c/master/pass/51220220_shakshuka_1x1.jpg",
+          "sourcePageUrl": "http://assets.epicurious.com/photos/54b3fcf4d5e8c3e1070abf4c/master/pass/51220220_shakshuka_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-korean-tteokbokki",
+      "slug": "gen-korean-tteokbokki",
+      "title": "Koreanisches Tteokbokki",
+      "instructions": "Scharfe koreanische Reiskuchen in würziger Gochujang-Sauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reiskuchen auf asiatischen Märkten für 2-3 $ statt in Spezialgeschäften kaufen.",
+        "Gochujang hält sich monatelang im Kühlschrank; einmal kaufen und mehrfach verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5792,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korean-tteokbokki/",
+      "components": [
+        {
+          "key": "d721799d-a2f4-57ca-a5da-c308771162e8",
+          "name": "Zutaten",
+          "servingGrams": 298,
+          "position": 0,
+          "items": [
+            {
+              "key": "77550e63-4544-5d48-8795-1a4aacea53ff",
+              "ingredientName": "Reiskuchen",
+              "grams": 100,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "c64b5845-60cf-5c15-a0d2-f0598d1d6903",
+              "ingredientName": "Gochujang",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f1946621-c8c4-59d6-b19f-85f7e74b8351",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "282e12c9-e3f9-5657-beba-570bf16792d5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a520820b-5d76-5c1a-8ae6-baf0b7c219d5",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2ed583fc-3670-56d8-afd0-9f17881cb7ca",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "32bb57e3-236b-5692-b8b3-45517ad49586",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55587b98-1706-5196-84c5-90e88f000c82",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reiskuchen 5 Minuten in warmem Wasser einweichen, bis sie weich sind, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch fein hacken und mit Gochujang, Zucker und Wasser zu einer Sauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sesamöl in einer großen Pfanne oder einem Wok bei mittlerer bis hoher Hitze erhitzen und die Gochujang-Sauce hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Sauce zum Köcheln bringen und die Reiskuchen hinzufügen. Behutsam 5-7 Minuten rühren, bis sie rundum mit Sauce überzogen und durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frühlingszwiebel in Scheiben schneiden und mit den Reiskuchen vermengen. In eine Servierschüssel geben und mit Sesamsamen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/tteokbokki-horizontal-1-jpg-1595262656.jpg",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/tteokbokki-horizontal-1-jpg-1595262656.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-suicide-wings",
+      "slug": "gen-suicide-wings",
+      "title": "Suicide Wings",
+      "instructions": "Besonders scharfe Hähnchenflügel mit würziger Chilisauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenflügel im Angebot kaufen und für später einfrieren.",
+        "Die scharfe Sauce aus getrockneten Paprikaschoten selbst zubereiten, statt teure Markenware zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "eiweißreich",
+        "amerikanisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5793,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-suicide-wings/",
+      "components": [
+        {
+          "key": "b18f7869-5014-5277-827e-b953e47ecf5c",
+          "name": "Zutaten",
+          "servingGrams": 102.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5740d2d1-728d-50d5-84cf-2d47631ee4fe",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "4a38c18e-1dcf-5560-9a9e-8933277627cd",
+              "ingredientName": "Chilisauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0b720947-ad4f-51be-a1e1-2779b579cc81",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0d8f4e8b-58a1-5339-8b14-d05e9c28e4e4",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "58e9ee67-d9e4-5c25-bd6a-45dab4d1e893",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8e9b1c93-13ee-5b47-a81f-0d2984b81cd8",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9ea97349-f7ba-593b-9183-be4b3d8e3efb",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2a175735-f15f-5854-b116-d63f4eb2326b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenflügel mit Küchenpapier trocken tupfen und auf ein Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Backofen auf 425°F vorheizen und die Flügel 25-30 Minuten backen, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während die Flügel backen, Ghost-Pepper-Sauce, Butter, Knoblauchpulver, Cayennepfeffer, Honig und Limettensaft in einem kleinen Topf bei niedriger Hitze verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Flügel aus dem Ofen nehmen und in eine große Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die heiße Saucenmischung über die Flügel gießen und gründlich vermengen. Auf einer Servierplatte anrichten und mit Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2023-01-brined-chicken-wings/brined-chicken-wings-210",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2023-01-brined-chicken-wings/brined-chicken-wings-210",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ceviche-with-aji",
+      "slug": "gen-ceviche-with-aji",
+      "title": "Ceviche mit Aji",
+      "instructions": "Peruanische Ceviche mit Limette, Aji Amarillo und Koriander.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fisch auf Großmärkten kaufen oder am Tagesende nach Preisnachlässen fragen.",
+        "Tiefgekühlten Mais statt frischen verwenden und 30-40 cents sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "eiweißreich",
+        "peruanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5794,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ceviche-with-aji/",
+      "components": [
+        {
+          "key": "d0621787-8573-559a-b510-9960b27d5538",
+          "name": "Zutaten",
+          "servingGrams": 324.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "68972b4c-62c8-5d24-8546-c4c00f61b6d2",
+              "ingredientName": "Weißer Fisch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3af23dd5-cc5c-5746-89f3-685ed099a695",
+              "ingredientName": "Limette",
+              "grams": 402,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eac9d557-60e3-515b-896f-2c1e3d88be7a",
+              "ingredientName": "Aji-Amarillo-Paste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a0328ac-34f5-5296-a0d9-89b3ca9cd820",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "42183c8a-64f7-5689-b8b0-fd862ae953b5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ca10dba6-896b-5d22-b43b-702623e6f899",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5fd2a3ee-5213-5bd1-80f6-9da94c720876",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "1662a3b6-d566-559d-b718-28fafeac0cdd",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weißen Fisch in 1/2-inch große Würfel schneiden und in eine Glasschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Saft von 6 Limetten über den Fisch pressen und vorsichtig umrühren, sodass der Fisch vollständig mit Saft bedeckt ist. 15-20 Minuten kalt stellen, bis der Fisch undurchsichtig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während der Fisch zieht, Aji-Amarillo-Schoten mit 1/4 cup Limettensaft zu einer Aji-Sauce pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rote Zwiebel fein würfeln und Koriander hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Überschüssigen Limettensaft vom Fisch abgießen. Aji-Sauce, gewürfelte Zwiebel, Koriander, Mais, Salz und schwarzen Pfeffer unterheben und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230508-peruviancevicheclasico-03-de-copy-647eb6f9eb5c4.jpg?crop=1.00xw:0.704xh;0,0.296xh&resize=2048:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230508-peruviancevicheclasico-03-de-copy-647eb6f9eb5c4.jpg?crop=1.00xw:0.704xh;0,0.296xh&resize=2048:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

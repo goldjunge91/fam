@@ -1,0 +1,1295 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:ba-duck-confit-with-spicy-pickled-raisins",
+      "slug": "ba-duck-confit-with-spicy-pickled-raisins",
+      "title": "Entenconfit mit scharf eingelegten Rosinen",
+      "instructions": "Zart schmelzende Entenkeulen, langsam im eigenen ausgelassenen Fett gegart, bis sich das Fleisch vom Knochen löst, danach knusprig gebraten und mit süß-säuerlichen, chili-scharfen eingelegten goldenen Rosinen serviert. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/duck-confit-with-spicy-pickled-raisins",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 310,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bewahre jeden Tropfen ausgelassenen Entenfetts auf – im Kühlschrank hält es sich wochenlang und ergibt die besten Bratkartoffeln überhaupt, also praktisch ein zweites Gericht umsonst.",
+        "Ersetze getrocknete Árbol-Chilis durch zerdrückte rote Chiliflocken, die du wahrscheinlich schon hast und die nur einen Bruchteil spezieller getrockneter Chilis kosten.",
+        "Kaufe eine ganze Ente und zerlege sie selbst statt vorgeschnittene Keulen zu kaufen; so bekommst du Keulen, Brust, Karkasse für Brühe und zusätzliches Fett für weniger Geld pro Pfund."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chile-de-arbol",
+          "swap": "Rote Chiliflocken (insgesamt 1.5 TL verwenden und aufteilen)",
+          "savings": "Kauf vermeiden Spezial- dried chiles"
+        },
+        {
+          "forIngredientId": "white-wine-vinegar",
+          "swap": "Apfelessig oder Champagneressig",
+          "savings": "vorhundene Zutaten's im Vorratsschrank"
+        },
+        {
+          "forIngredientId": "golden-raisins",
+          "swap": "Normale Rosinen oder getrocknete Johannisbeeren",
+          "savings": "About $0.05 per 1/4 Tasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "Ente",
+        "Confit",
+        "langsam gegart",
+        "knusprige Haut",
+        "eingelegt",
+        "Abendessen mit Gästen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 315,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-duck-confit-with-spicy-pickled-raisins/",
+      "components": [
+        {
+          "key": "ef0aa015-6044-5657-8a67-fdd1b39f0f57",
+          "name": "Zutaten",
+          "servingGrams": 221.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "af4e09bd-f7f5-5b5a-871b-fd2b862da27b",
+              "ingredientName": "Entenbrust",
+              "grams": 1134,
+              "quantity": 1134,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 mit Haut, mit Knochen duck legs"
+            },
+            {
+              "key": "aaaf818b-d9c3-50a2-849d-c1fdf527fee0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Zehen, dünn in Scheiben geschnitten"
+            },
+            {
+              "key": "8bbafe20-4f25-51fe-90c1-0d59d4e0b171",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL gemahlen plus weitere frisch gemahlen"
+            },
+            {
+              "key": "d333ad9d-c079-565d-b98d-7ec68b6d44bb",
+              "ingredientName": "Salz",
+              "grams": 35,
+              "quantity": 35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL plus 1 TL"
+            },
+            {
+              "key": "bcc49bcf-4246-5bb1-b709-d24cdebe714e",
+              "ingredientName": "Frischer Thymian",
+              "grams": 18,
+              "quantity": 9,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "9 Zweige, aufgeteilt"
+            },
+            {
+              "key": "0ac038ab-2c79-52c6-9712-167b0c8a25af",
+              "ingredientName": "Árbol-Chili",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 dried chiles de arbol, zerstoßen, aufgeteilt (oder 1.5 TL zerstoßen Chiliflocken)"
+            },
+            {
+              "key": "a61cbfd4-dd51-529f-bfeb-5b619a2cea47",
+              "ingredientName": "Weißweinessig",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "8317323d-944b-5215-aa50-b436b9169b45",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "cebdf2c2-d68a-5cd0-a301-4a582cf8517d",
+              "ingredientName": "Senfkörner",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL brown mustard seeds"
+            },
+            {
+              "key": "3c8b06f4-4899-51a0-a025-9b1ce6acb445",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "536b05a4-d814-54ad-9d6d-d4b399bb09a9",
+              "ingredientName": "Goldene Rosinen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Haut der Entenkeulen überall mit der Spitze eines Messers oder einer scharfen Gabel ein. Reibe sie mit den geschnittenen Knoblauchscheiben ein (sie sollten an der Haut haften bleiben) und würze sie mit 1 TL gemahlenem schwarzem Pfeffer und 2 EL Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 250 Grad F vor. Lege die Ente mit der Hautseite nach unten in einen Bräter oder großen Schmortopf und gib 8 Thymianzweige, 4 zerdrückte Chilis (oder 1 TL Chiliflocken) und 1/2 cup Wasser dazu. Mit Folie oder Deckel abdecken und etwa 2 Stunden garen, bis das Fett ausgelassen ist (es wird reichlich Fett entstehen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende die Ente mit der Hautseite nach oben und bette sie ins ausgelassene Fett. Abdecken und weitere 2 bis 2 1/2 Stunden garen, bis das Fleisch sehr zart ist und sich die Knochen leicht bewegen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite währenddessen die eingelegten Rosinen zu: Bringe Weißweinessig, Zucker, Senfkörner, Rosmarinzweig, den übrigen Thymianzweig, 2 zerdrückte Chilis (oder 1/2 TL Chiliflocken), 1 TL Salz und 1 cup Wasser in einem mittelgroßen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lass alles unter gelegentlichem Rühren etwa 3 Minuten köcheln, bis sich der Zucker aufgelöst hat. Rühre die goldenen Rosinen ein, nimm den Topf vom Herd und lass alles mindestens 1 Stunde abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhöhe die Ofentemperatur auf 400 Grad F. Nimm die Ente aus dem Fett und lege sie mit der Hautseite nach oben auf ein Backblech mit Rand. Hebe das Fett für eine andere Verwendung auf (gekühlt hält es sich 3 Wochen oder tiefgekühlt 3 Monate; vor Verwendung erwärmen und abseihen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze die Ente mit frisch gemahlenem schwarzem Pfeffer und brate sie 30 bis 35 Minuten, bis die Haut braun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die knusprige Ente mit den scharfen eingelegten Rosinen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5c7ec2040e14053d377dc617/16:9/w_2512,h_1413,c_limit/duck-confit-with-spicy-pickled-raisins.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/duck-confit-with-spicy-pickled-raisins",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Entenconfit mit scharf eingelegten Rosinen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-fallen-chocolate-cake",
+      "slug": "ba-fallen-chocolate-cake",
+      "title": "Zusammengefallener Schokoladenkuchen",
+      "instructions": "Ein sehr reichhaltiger Kuchen im Stil eines mehlfreien Schokoladenkuchens, der erst aufgeht und dann zu einem saftigen Meisterwerk mit knuspriger Oberfläche zusammensinkt, gekrönt mit luftiger Mascarpone-Schlagsahne. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/fallen-chocolate-cake",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine einzelne Tafel Back- oder Zartbitterschokolade und hacke sie selbst, statt teurere Kuvertüre-Drops zu verwenden.",
+        "Lass den Mascarpone-Belag weg und schlage die Sahne mit etwas Puderzucker allein auf; der Kuchen schmeckt auch so wunderbar.",
+        "Verwende hier Butter und Eier der Hausmarke, denn die Schokolade steht im Mittelpunkt und Qualitätsunterschiede verschwinden im Teig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mascarpone",
+          "swap": "Frischkäse, weich gerührt mit einem Schuss Sahne",
+          "savings": "ca. $4 günstiger than mascarpone"
+        },
+        {
+          "forIngredientId": "chocolate",
+          "swap": "Geschmolzene Zartbitterschokolade in Tropfenform",
+          "savings": "oft günstiger pro Unze"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Geschmolzenes Kokosöl oder beliebiges neutrales Öl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Dessert",
+        "Schokolade",
+        "mehlfrei",
+        "Kuchen",
+        "vorab zubereiten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 316,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-fallen-chocolate-cake/",
+      "components": [
+        {
+          "key": "f5355aa8-ba93-5057-85ae-c0411a9467f1",
+          "name": "Zutaten",
+          "servingGrams": 172.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "21df35d7-dad0-5d86-9373-6f22dbeb691c",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 stick), geschnitten in 1in pieces, plus weitere für pan"
+            },
+            {
+              "key": "7d969cfa-2f80-52bf-b8ff-83bf0a06bc5c",
+              "ingredientName": "Zucker",
+              "grams": 210,
+              "quantity": 210,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse plus 2 EL, aufgeteilt, plus weitere für pan"
+            },
+            {
+              "key": "7695ad28-0e5f-5446-8c4e-70be0bd87351",
+              "ingredientName": "Dunkle Schokolade",
+              "grams": 283.5,
+              "quantity": 283.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "10 oz semisweet oder bittersweet (61-72% cacao), coarsely gehackt"
+            },
+            {
+              "key": "9c0f32d1-b420-5286-a192-6807c4111ce2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3816189d-3c15-5bcf-92f0-b6dbebed36e6",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 groß"
+            },
+            {
+              "key": "6d0c51f8-d548-5eb0-bc77-c8a36eda5e68",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL natural unsweetened"
+            },
+            {
+              "key": "735e34e7-759d-5397-b658-03209247a62b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a5644e96-f18a-52e9-99cb-ccd78aed01ab",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "fa6ff9ba-4477-5bf9-a4e2-d67368adadd7",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse, chilled"
+            },
+            {
+              "key": "f9400a91-6ac6-587e-8e6e-52f7831e0365",
+              "ingredientName": "Mascarpone",
+              "grams": 113.4,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse (~4 oz)"
+            },
+            {
+              "key": "a3171747-ae14-56bb-9329-a4bdb3a78481",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F vor. Fette eine Springform mit 9in Durchmesser leicht mit Butter ein und bestäube sie mit Zucker; überschüssigen Zucker ausklopfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Schokolade, Öl und 1/2 cup (8 EL) Butter in einer großen hitzebeständigen Schüssel. Stelle sie über einen Topf mit leicht köchelndem Wasser und erhitze alles unter häufigem Rühren, bis es geschmolzen ist. Nimm die Schüssel vom Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Trenne 4 Eier und gib Eiweiß und Eigelb in zwei mittelgroße Schüsseln. Gib Kakaopulver, Vanille, Salz, 1/4 cup Zucker und die 2 übrigen ganzen Eier zum Eigelb und verquirle alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Eigelbmischung nach und nach unter die Schokoladenmischung und vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage das Eiweiß mit einem elektrischen Mixer auf hoher Stufe schaumig. Während der Mixer weiterläuft, gib nach und nach 1/2 cup Zucker dazu und schlage, bis feste Spitzen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe das Eiweiß in 2 Portionen vorsichtig unter die Schokoladenmischung und falte es nach jeder Zugabe nur so lange ein, bis es gerade vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schabe den Teig in die vorbereitete Form, streiche die Oberfläche glatt und streue die übrigen 2 EL Zucker darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Kuchen 35-45 Minuten, bis die Oberfläche aufgegangen ist und Risse bekommt und der Kuchen sich vom Rand der Form löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Stelle die Form auf ein Kuchengitter und lass den Kuchen vollständig darin abkühlen; die Mitte sinkt zusammen und bekommt beim Abkühlen weitere Risse. (Lässt sich 1 Tag vorher zubereiten, abgedeckt und luftdicht bei Zimmertemperatur.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schlage Schlagsahne, Mascarpone und Puderzucker mit einem elektrischen Mixer auf mittlerer bis hoher Stufe, bis weiche Spitzen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Löse den Rand der Springform und häufe die Schlagsahnemischung zum Servieren in der Mitte des Kuchens auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57adf4eef1c801a1038bcd81/master/w_940,h_550,c_limit/fallen-chocolate-cake.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/fallen-chocolate-cake",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von zusammengefallenem Schokoladenkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-kuku-sabzi",
+      "slug": "ba-kuku-sabzi",
+      "title": "Kuku Sabzi",
+      "instructions": "Ein farbenfrohes persisches Kräuter-Frittata-Gericht voller Koriander, Dill und Petersilie, mit Eiern und einem Hauch Kurkuma gestockt, bis es üppig und leuchtend grün ist. Traditionell zu Nowruz serviert, schmeckt es warm oder bei Zimmertemperatur genauso gut. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/kuku-sabzi",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Bund Koriander, Dill und Petersilie statt abgepackter Kräuter in Kunststoffschalen – für dieses kräuterreiche Gericht bekommst du viel mehr Kräuter pro Dollar.",
+        "Übriger Kuku hält sich bis zu 4 Tage gut im Kühlschrank und schmeckt kalt in Sandwiches oder Wraps; das ist gleich eine vorbereitete Mahlzeit.",
+        "Frische Bockshornkleeblätter sind nicht nötig – das günstige getrocknete Bockshornklee (nur ein Esslöffel) liefert den typischen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "leek",
+          "swap": "2 zusätzliche Frühlingszwiebeln oder etwas mehr Zwiebel verwenden, wenn Lauch teuer oder nicht erhältlich ist",
+          "savings": "ca. $1.50"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Beliebiges neutrales Öl wie Raps- oder Sonnenblumenöl oder Olivenöl für einen reichhaltigeren Geschmack"
+        },
+        {
+          "forIngredientId": "fenugreek",
+          "swap": "Weglassen, falls du es nicht findest, oder eine Prise gemahlenen Bockshornklee dazugeben; das Gericht schmeckt trotzdem köstlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "persisch",
+        "Kräuter-Frittata",
+        "vegetarisch",
+        "Nowruz",
+        "Kuku",
+        "Eier",
+        "vorab zubereiten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 317,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-kuku-sabzi/",
+      "components": [
+        {
+          "key": "8bc88d77-8242-568d-8db7-42d6bb7df0f8",
+          "name": "Zutaten",
+          "servingGrams": 211.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a63502df-55f8-5275-a478-0123ec45feb6",
+              "ingredientName": "Pflanzenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 EL., aufgeteilt"
+            },
+            {
+              "key": "c3762ed4-7751-545f-95ef-2cf13dd2921b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroß, fein gehackt"
+            },
+            {
+              "key": "26c3d961-e8ef-50ec-b035-a4f45ec7b13b",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß, white und pale-green parts only, fein gehackt"
+            },
+            {
+              "key": "9598af82-aca7-5b34-8a94-92ce813b97d2",
+              "ingredientName": "Ei",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 groß"
+            },
+            {
+              "key": "2862baa8-6b9c-5bcc-b695-52530fc0bab5",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1½ TL. Diamond Crystal oder 1 TL. Morton"
+            },
+            {
+              "key": "d3904df7-f9b8-54ff-9a58-903dc257e886",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL., frisch gemahlen"
+            },
+            {
+              "key": "bd15a946-b3db-50cb-80fc-8dcce1e24cc5",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL."
+            },
+            {
+              "key": "ec63aaff-dba3-549a-9bea-2830db6734c0",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ TL. gemahlen"
+            },
+            {
+              "key": "c5c69256-4a7d-554a-935c-ce68f87441cc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1½ Tassen fein gehackt"
+            },
+            {
+              "key": "c09d74a7-6ff0-53f1-ba23-117c3616df12",
+              "ingredientName": "Frischer Dill",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1½ Tassen fein gehackt"
+            },
+            {
+              "key": "d182ea29-1b6e-5c03-b6ca-d0fa25c409fb",
+              "ingredientName": "Frische Petersilie",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1½ Tassen fein gehackt flat-leaf"
+            },
+            {
+              "key": "472805a9-f9df-55e7-bc2a-c1c554b4042d",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL. dried fenugreek Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 EL Pflanzenöl in einer 10-inch-Pfanne bei mittlerer Hitze. Gare fein gehackte Zwiebel und Lauch unter gelegentlichem Rühren 10-12 Minuten, bis sie sehr weich, aber nicht gebräunt sind. Auf einen Teller geben und abkühlen lassen. Wische die Pfanne aus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier, Salz, schwarzen Pfeffer, Backpulver und Kurkuma in einer großen Schüssel gut miteinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die abgekühlte Zwiebel-Lauch-Mischung, Koriander, Dill, Petersilie und getrocknete Bockshornkleeblätter mit einem Gummispatel ein. Die Masse sollte dick und sehr grün aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Grill des Ofens vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze die restlichen 3 EL Pflanzenöl in derselben Pfanne bei mittlerer Hitze. Gieße die Eiermasse hinein und verteile sie mit dem Spatel gleichmäßig in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare alles 8-10 Minuten, bis die Unterseite gerade gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Deckel ab und grille die Oberfläche unter genauer Beobachtung etwa 1 Minute, bis sie gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass das Kuku leicht abkühlen und schiebe es dann auf eine Platte. In Stücke schneiden und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/589cc2508eefeee4031531fc/16:9/w_3775,h_2123,c_limit/persian-herb-and-leek-frittata.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/kuku-sabzi",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Kuku Sabzi",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-no-fail-roast-chicken-with-lemon-and-garlic",
+      "slug": "ba-no-fail-roast-chicken-with-lemon-and-garlic",
+      "title": "Gelingsicheres Brathähnchen",
+      "instructions": "Ein ganzes Brathähnchen mit goldener, knuspriger Haut, das nach karamellisierter Zitrone und Knoblauch duftet und mit buttrigem Bratensaft über jedes Stück serviert wird. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/no-fail-roast-chicken-with-lemon-and-garlic",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein ganzes Hähnchen gehört zu den günstigsten Eiweißquellen pro Pfund – im Angebot kaufen und einfrieren.",
+        "Hebe die Karkasse und den Bratensaft auf und koche daraus eine Portion selbst gemachte Brühe, die nichts kostet.",
+        "Ersetze Butter durch Olivenöl, um Kosten zu sparen, ohne die knusprige goldene Haut zu verlieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "unsalted-butter",
+          "swap": "Olivenöl für ebenso knusprige Haut verwenden (milchfrei)",
+          "savings": "etwa gleich teuer Kosten"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "Meyer-Zitrone für eine süßere, blumige Note verwenden",
+          "savings": "etwas teurer"
+        },
+        {
+          "forIngredientId": "kosher-salt",
+          "swap": "Feines Meersalz eignet sich ebenfalls – wegen der höheren Dichte etwa die Hälfte der Menge verwenden",
+          "savings": "ungefähr gleich teuer"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Brathähnchen",
+        "ganzes Hähnchen",
+        "Abendessen unter der Woche",
+        "eine Pfanne",
+        "Zitrone",
+        "Knoblauch",
+        "Wohlfühlgericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 318,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-no-fail-roast-chicken-with-lemon-and-garlic/",
+      "components": [
+        {
+          "key": "ec909882-f43d-573c-9de1-1e8b6cdff906",
+          "name": "Zutaten",
+          "servingGrams": 149.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d1d793f-39f9-57ac-b729-50fbdbdde0d3",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 lemon, halbiert crosswise"
+            },
+            {
+              "key": "122fb3de-fbc7-5d25-b2c5-b7f160767304",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 head, halbiert crosswise"
+            },
+            {
+              "key": "7979e9d3-0560-5dbc-ac7d-686efa713768",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse (1/2 stick), geschmolzen; oder Olivenöl"
+            },
+            {
+              "key": "263bd92f-c468-528a-a9ac-36ba76a845f6",
+              "ingredientName": "Ganzes Hähnchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 ganz chicken, 3.5-4 lb."
+            },
+            {
+              "key": "c3ddc712-af03-50cb-8831-e4e2728e8975",
+              "ingredientName": "Salz",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "zum season every surface"
+            },
+            {
+              "key": "5456c0a8-eb51-511d-b7bb-02cafe8082ff",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "frisch gemahlen, zum season"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle einen Rost in die Mitte des Ofens und heize ihn auf 425°F vor. Halbiere die Zitrone quer und entferne sichtbare Kerne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere den Knoblauchkopf quer (es ist in Ordnung, wenn er etwas auseinanderfällt).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz die Butter in einem kleinen Topf oder in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das ganze Hähnchen auf ein Schneidebrett und tupfe es mit Papiertüchern vollständig trocken – Trockenheit ist entscheidend für gute Bräunung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Hähnchen mit der Brust nach oben und den Keulen zu dir. Schneide durch die lose Haut, die jede Keule mit der Brust verbindet, und mache einen etwa 3-inch langen Einschnitt bis zum Keulengelenk. So liegt das Gelenk frei und lässt sich leicht auf Gargrad prüfen. Auf der anderen Seite wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze alle Flächen großzügig mit Salz und Pfeffer – Haut, Bauchhöhle, unter den Flügeln und die freigelegten Keulengelenke. Rechne insgesamt mit etwa 4 TL Koschersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege das Hähnchen mit der Brustseite nach oben in eine große ofenfeste Pfanne. Lege Zitrone und Knoblauch mit der Schnittseite nach unten um das Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle das Hähnchen überall mit der geschmolzenen Butter und stelle es in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Brate es, bis es schön gebräunt und durchgegart ist, und prüfe den Gargrad nach 45 Minuten. Steche ein Messer in ein Keulengelenk: Läuft klarer Saft heraus, ist es fertig; ist der Saft rosa, weitere 5 Minuten braten und erneut prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Lass das Hähnchen mindestens 15 Minuten in der Pfanne ruhen. Lege es auf eine Platte, gieße den buttrigen Bratensaft darüber und serviere es mit gerösteter Zitrone und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/62f5674caf9bae430097be0f/16:9/w_2992,h_1683,c_limit/0810-no-fail-roast-chicken-v2.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/no-fail-roast-chicken-with-lemon-and-garlic",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von gelingsicherem Brathähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-no-nut-granola",
+      "slug": "ba-no-nut-granola",
+      "title": "Müsli ohne Nüsse",
+      "instructions": "Knuspriges Müsli ohne Nüsse, voll mit gerösteten Samen, Kakaonibs, Kokos und zähen Trockenfrüchten, gesüßt mit reinem Ahornsirup und einer Prise Flockensalz. Perfekt auf Joghurt oder zum Knabbern direkt aus der Hand. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/no-nut-granola",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Haferflocken und Samen lose, um die Kosten pro Portion deutlich zu senken.",
+        "Ersetze teurere Kakaonibs und getrocknete Aprikosen durch beliebige Trockenfrüchte und Schokostückchen im Angebot; die Mengenverhältnisse sind flexibel.",
+        "Bereite die doppelte Menge zu und friere sie bis zu 3 Monate ein, damit du den Ofen nur einmal anheizen musst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Neutrales Pflanzenöl oder Kokosöl für einen milderen Geschmack",
+          "savings": "Vegetable oil is günstiger at about $0.05/EL vs $0.27"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig funktioniert im Verhältnis 1:1 (Hinweis: dann nicht mehr vegan)",
+          "savings": "Honey runs slightly günstiger pro EL"
+        },
+        {
+          "forIngredientId": "cacao-nibs",
+          "swap": "Zartbitterschokotropfen für einen süßeren, weniger bitteren Knusper",
+          "savings": "Chocolate chips oft Kosten weniger pro Unze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "Müsli",
+        "nussfrei",
+        "Mahlzeitenvorbereitung",
+        "Frühstück",
+        "Snack",
+        "vegan",
+        "vorab zubereiten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 319,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-no-nut-granola/",
+      "components": [
+        {
+          "key": "0de7bfde-c875-5f91-a7f1-31340a353cb5",
+          "name": "Zutaten",
+          "servingGrams": 224.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "1367126f-d66b-5718-bb6e-1ca059fae46e",
+              "ingredientName": "Haferflocken",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen old-fashioned oats und/oder kamut flakes"
+            },
+            {
+              "key": "95b1b17c-56a8-57f2-8b5e-93c844ac2b44",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 141.75,
+              "quantity": 141.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "part von 2 Tassen mixed seeds (pepitas)"
+            },
+            {
+              "key": "e224ad46-4e1b-5808-9760-786e1c63e870",
+              "ingredientName": "Sonnenblumenkerne",
+              "grams": 141.75,
+              "quantity": 141.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "part von 2 Tassen mixed seeds"
+            },
+            {
+              "key": "dace0ea1-58e5-5109-a712-8ef7f24e10c6",
+              "ingredientName": "Kakaonibs",
+              "grams": 70.88,
+              "quantity": 70.88,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse cacao nibs"
+            },
+            {
+              "key": "edde61f8-d1c2-5bf6-82f7-67ede1a1d398",
+              "ingredientName": "Kokosflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse coconut flakes"
+            },
+            {
+              "key": "16dd6baa-732b-526c-bddd-02e7f30fac46",
+              "ingredientName": "Olivenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse Olivenöl"
+            },
+            {
+              "key": "7606cb30-6920-5a01-ac5c-3497aebc173d",
+              "ingredientName": "Ahornsirup",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse pure maple syrup"
+            },
+            {
+              "key": "bc88f29b-7782-5da1-b003-9117450cd1cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL (oder more) Salz"
+            },
+            {
+              "key": "92d07ff0-7baa-5c76-905d-c4a8682c2456",
+              "ingredientName": "Rosinen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "part von 1.5 Tassen mixed dried fruits"
+            },
+            {
+              "key": "7909b381-5cd6-542d-9ef2-2b5bccd678af",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "part von 1.5 Tassen mixed dried fruits (dates, figs, apricots, etc.)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor. Lege ein Backblech mit Rand mit Backpapier oder Folie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Haferflocken, Kürbiskerne, Sonnenblumenkerne, Kakaonibs und Kokosflocken in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Olivenöl und Ahornsirup dazu und rühre alles durch, bis es gut überzogen ist. Würze mit 1 TL Koschersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Mischung auf das vorbereitete Blech und lass die Schüssel beiseite. Verteile sie in einer gleichmäßigen Schicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre das Müsli alle 10-15 Minuten um und drehe dabei das Blech von vorne nach hinten. Backe es insgesamt 25-35 Minuten, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide währenddessen die Trockenfrüchte in kleine Stücke (eine Küchenschere eignet sich gut für klebrige Datteln und Aprikosen) und gib sie in die beiseitegestellte Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Müsli 5 Minuten abkühlen und gib es dann vorsichtig in die Schüssel mit den Trockenfrüchten. Hebe das Backblech auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermenge alles gut, verteile die Mischung wieder auf dem Blech und lass sie vollständig abkühlen; beim Abkühlen wird das Müsli knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Probiere es und würze nach Wunsch mit mehr Salz. Luftdicht verschlossen bei Zimmertemperatur bis zu 2 Wochen oder tiefgekühlt bis zu 3 Monate aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/587904350d1bcb166daea5be/16:9/w_4991,h_2807,c_limit/no-nut-granola.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/no-nut-granola",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Müsli ohne Nüsse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

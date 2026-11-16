@@ -1,0 +1,1161 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-quinoa-bowl",
+      "slug": "gen-quinoa-bowl",
+      "title": "Quinoa-Bowl",
+      "instructions": "Ein beliebtes modernes Mittagessen mit hohem Proteingehalt, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Quinoa in Großpackungen in der Naturkostabteilung.",
+        "Verwende Kichererbsen aus der Dose. Sie sind günstiger als getrocknete und bereits gegart."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "gesundheitsbewusst",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4930,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quinoa-bowl/",
+      "components": [
+        {
+          "key": "68bd0ad5-fb75-57bf-9c10-986d93704797",
+          "name": "Zutaten",
+          "servingGrams": 821.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "421e3259-311b-5138-a8b3-e47f59cb1b68",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "82dbaeb8-dc44-5303-818a-a682b2f8c0e6",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a3b1f4f9-93e4-5b9d-ad73-dc5aa87651ec",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "3933cade-609b-52d2-bc37-86eedcf56e8e",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a3d1e59d-dc38-5955-b014-d781e5113a5b",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "ffcb205a-021b-5788-8492-c082b8a9a21c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "29b2e814-247a-57d1-9b77-13370888236d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse, gewürfelt"
+            },
+            {
+              "key": "cda92926-9d0e-513e-83dc-2c7bfc649444",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8bd96219-e2b5-5b0b-b51f-5310c91dbd8c",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c7be0944-8097-5316-b444-cd3d871add53",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zehe"
+            },
+            {
+              "key": "6b26921d-2856-5c71-996a-1b563eff36b5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Quinoa ab und koche sie nach Packungsanweisung in Wasser. Lasse sie anschließend abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Kichererbsen ab, spüle sie ab und vermische sie mit der Hälfte des Olivenöls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Kirschtomaten, Gurke und Paprika in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle das restliche Olivenöl mit Zitronensaft, gehacktem Knoblauch und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die abgekühlte Quinoa, Kichererbsen und das gesamte geschnittene Gemüse in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das Dressing darüber und vermische alles, bis die Zutaten gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz und Pfeffer ab, verteile den Salat auf zwei Schüsseln und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/12/30-minute-Roasted-Vegetable-and-Quinoa-HARVEST-BOWLS-Hearty-wholesome-and-SO-satisfying-vegan-glutenfree-recipe-easy-healthy-dinner-minimalistbaker.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/12/30-minute-Roasted-Vegetable-and-Quinoa-HARVEST-BOWLS-Hearty-wholesome-and-SO-satisfying-vegan-glutenfree-recipe-easy-healthy-dinner-minimalistbaker.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panda-bowl",
+      "slug": "gen-panda-bowl",
+      "title": "Panda-Bowl",
+      "instructions": "Ein beliebtes modernes Mittagessen mit hohem Proteingehalt, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Hähnchenbrust. Sie schmecken kräftiger und sind günstiger.",
+        "Verwende tiefgekühlten Brokkoli, um Geld und Vorbereitungszeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "gesundheitsbewusst",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4931,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panda-bowl/",
+      "components": [
+        {
+          "key": "3ce1d4df-4a3b-5736-97d9-a323be60572e",
+          "name": "Zutaten",
+          "servingGrams": 830.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "aab59717-c4ba-554f-8f12-0ca5a9e1eb9f",
+              "ingredientName": "Vollkornreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "aa366b8c-c077-5d42-bb48-58b500a9cde3",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "25cd468c-d77e-5751-a45a-d6ada3ae13bd",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "de6d90a7-ef4d-562a-a0cf-d8f1d35a4474",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5b4c87dc-f0af-5cc1-bd03-7f89d214cd8d",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f1a04af2-1fad-5a67-8b6f-e5f8c8667307",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8f51ca7a-927e-5064-a80e-d77249ceba08",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "02d7ebda-ad52-509e-a957-8bffb66a5ea6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "5519e664-1474-5f5b-845f-6d9dd58ead9a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ea6532f7-f0f8-5b19-8b74-d78d3019e220",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "edbf28d7-81af-5baa-8cb6-c174d6703723",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "50fa6bd4-1f32-5aa3-9aaa-0b3cf29aa80c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Vollkornreis in Wasser nach Packungsanweisung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide währenddessen die Hähnchenbrust in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einem Wok oder einer großen Pfanne bei starker Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und rühre 30 Sekunden, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Hähnchenstücke dazu und gare sie etwa 7 Minuten, bis sie goldbraun und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Brokkoliröschen dazu und brate sie 3-4 Minuten, bis sie bissfest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre Sojasauce, Sriracha, Honig und Sesamöl und gieße die Sauce über Hähnchen und Brokkoli.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermische alles, bis es gleichmäßig überzogen ist. Serviere es auf dem Vollkornreis und garniere es mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/wKVJqGIzb_OOrqNdAWHth87JcFk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/panda-express-hot-orange-chicken-4x3-6d698adcb11341b7ab7cdfcfb449c660.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/wKVJqGIzb_OOrqNdAWHth87JcFk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/panda-express-hot-orange-chicken-4x3-6d698adcb11341b7ab7cdfcfb449c660.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fruit-bowlwith-honey-and-nuts",
+      "slug": "gen-fruit-bowlwith-honey-and-nuts",
+      "title": "Obstschale mit Honig und Nüssen",
+      "instructions": "Ein beliebter mediterraner Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Nüsse in der Großpackungsabteilung statt bereits abgepackte Portionen zu nehmen.",
+        "Verwende Honig der Hausmarke und spare pro Glas ein oder zwei Dollar."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "mediterran",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4932,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fruit-bowlwith-honey-and-nuts/",
+      "components": [
+        {
+          "key": "8bee016b-58a7-5f8d-9eb4-dfd4e4fa6457",
+          "name": "Zutaten",
+          "servingGrams": 276.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b9b9e9c-ea70-5f64-ba15-7339dc340f2e",
+              "ingredientName": "Apfelmus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "b5a3adf9-27e2-5f37-b429-4fa6ab11c389",
+              "ingredientName": "Birne",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "b5af26b3-dd39-52b3-b6a4-edb8cf3896db",
+              "ingredientName": "Weintrauben",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a1b8d7f7-d3b5-52a2-9e4f-31d2d3ae1913",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8fe2d4b2-0722-5fdf-ba8a-f42f81283c9e",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "f110f357-746d-59dd-90b5-087d80151ef4",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "dbb74555-ffb2-5986-97a5-5daa74ff4cd0",
+              "ingredientName": "Pistazien",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "44b6b1bf-d099-51fc-aa83-cfd7f5d012e3",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6f8b6385-931e-5350-8f76-df4473d43b98",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Kerngehäuse und Kerne der Äpfel und schneide sie in mundgerechte Stücke. Bereite die Birnen genauso vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Apfel- und Birnenstücke mit Zitronensaft, damit sie nicht braun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Weintrauben in eine große Schüssel zum Obst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mische Mandeln, Walnüsse und Pistazien in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle das Obst mit Honig und mische es vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Nussmischung und frische Minzblätter darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren oder bis zum Servieren kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/07/yogurt-bowl-with-granola-and-berries.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/07/yogurt-bowl-with-granola-and-berries.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fruit-tart",
+      "slug": "gen-fruit-tart",
+      "title": "Obsttarte",
+      "instructions": "Eine beliebte französische Tarte, die du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte statt frischer Beeren und spare 40 % der Obstkosten.",
+        "Bereite die Konditorcreme als preiswerte Variante mit Kondensmilch statt frischer Milch zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4933,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fruit-tart/",
+      "components": [
+        {
+          "key": "8015f950-e0d7-5ec0-acb3-94ef8c4f8098",
+          "name": "Zutaten",
+          "servingGrams": 166.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc20f9c6-f19c-5dc3-b5c6-2bd659cfcef2",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "fe62bfe2-4bbb-585f-acd9-299228a31564",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b9736d66-952e-5e88-a8a4-7ba91c516d8e",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "481f7bbd-a9c8-5a71-a35b-86798a57ff7d",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eaf4852-7023-5c1e-8049-8716ac88c447",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d0134dd0-4c45-5796-abb5-bf2322792939",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7b40550b-b1e0-5867-af74-05fa5fe2663e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4caa7852-87ad-5acf-a4a6-8d9970a01e71",
+              "ingredientName": "Erdbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4eed271b-25e4-51aa-90a1-b50a929d1e43",
+              "ingredientName": "Heidelbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2af97942-f3b7-56a9-b72e-e55e72d56379",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "51f7bc4c-08f0-584a-9768-6f400bccb6fd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, 0.25 Tasse Zucker und Salz. Arbeite kalte Butter ein, bis eine krümelige Masse entsteht, und knete das Eigelb ein, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücke den Teig in eine 9-Zoll-Tarteform und backe ihn bei 375°F 12-15 Minuten, bis er hellgolden ist. Lasse den Boden vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze die Milch mit glatt gerührter Maisstärke unter ständigem Rühren, bis die Creme eindickt. Nimm sie vom Herd und rühre Vanille und 1 Esslöffel Zucker ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die warme Konditorcreme in den abgekühlten Tarteboden und stelle ihn 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege Erdbeeren und Heidelbeeren dekorativ auf die Creme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Aprikosenkonfitüre mit 1 Esslöffel Wasser und bestreiche das Obst vorsichtig damit, damit es glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Tarte vor dem Servieren mindestens 1 Stunde kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/pdcYL6BFOUDealpkfkr9Sj55yYg=/5685x3790/filters:fill(auto,1)/fruit-tart-with-pastry-cream-filling-995161-hero-01-a6387da992cf4465953df05ff867e4c7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/pdcYL6BFOUDealpkfkr9Sj55yYg=/5685x3790/filters:fill(auto,1)/fruit-tart-with-pastry-cream-filling-995161-hero-01-a6387da992cf4465953df05ff867e4c7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-plum-pudding",
+      "slug": "gen-plum-pudding",
+      "title": "Englischer Plumpudding",
+      "instructions": "Ein beliebtes britisches Dessert, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Trockenfrüchte in Großpackungen auf internationalen Märkten und spare 30 %.",
+        "Ersetze für eine alkoholfreie, günstigere Variante den Brandy durch Orangensaft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4934,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-plum-pudding/",
+      "components": [
+        {
+          "key": "c743ce29-c414-5690-8ecf-961f5822c324",
+          "name": "Zutaten",
+          "servingGrams": 175.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "90eac2f3-05f5-527f-815f-f8352fb6f570",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "efa8e2aa-5958-5050-8851-b4e53210f524",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c26f0bf4-cc5e-51ad-8d21-43e1455046d9",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "98dc5fbe-ab9a-5512-ae98-fd59268ddb9f",
+              "ingredientName": "Brauner Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e4f4dd79-b322-5ce1-91f7-cf2886a2698d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7abb3ba-9040-5cbd-86bc-624c8905d341",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1d5a6f7b-a471-53be-88f5-6e02ffb40144",
+              "ingredientName": "Korinthen",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ca92b8b6-d1ca-5f30-8056-9c1357e55c41",
+              "ingredientName": "Gemüsemischung (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "08971001-0691-5f1b-93b2-5b08a2eb66b6",
+              "ingredientName": "Brandy oder Rum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "198330c0-631e-5054-b19a-6b35206d64a7",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4e2f6fba-3ca7-5084-a54e-29dd8ac9182d",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Trockenfrüchte 2 Stunden oder über Nacht in Brandy ein, damit sie aufquellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Semmelbrösel, Natron, gemischte Gewürze und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Butter und braunen Zucker cremig und rühre die Eier einzeln unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Buttermischung abwechselnd mit der Milch unter die trockenen Zutaten. Hebe anschließend die eingeweichten Früchte samt Flüssigkeit unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fette eine 2-Quart-Puddingform ein und fülle sie zu drei Vierteln mit Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Form mit Folie ab und stelle sie in einen Dämpftopf mit 2 Zoll kochendem Wasser. Dämpfe den Pudding 3-4 Stunden und fülle bei Bedarf Wasser nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Pudding 10 Minuten abkühlen und stürze ihn dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/EXPS_TOHD24_50344_LauraScherb_10.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/EXPS_TOHD24_50344_LauraScherb_10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

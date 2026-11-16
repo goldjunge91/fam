@@ -1,0 +1,1155 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hallaca",
+      "slug": "gen-hallaca",
+      "title": "Hallaca",
+      "instructions": "Venezolanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Hallacas vor und friere sie für Feiertagsmahlzeiten ein.",
+        "Kaufe Kochbananenblätter in größeren Mengen auf lateinamerikanischen Märkten; so bekommst du bessere Preise."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "venezolanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4190,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hallaca/",
+      "components": [
+        {
+          "key": "13ae39a3-8881-5d96-ba51-8c2fb5b1ffe3",
+          "name": "Zutaten",
+          "servingGrams": 199.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "779a0a0f-9f34-5dbc-90f3-bf741cb5c221",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "4ceca6f7-45bd-5331-a53d-a0374c4cd732",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "ed7d5ef2-35b3-578f-8d97-32f9fb283b2d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            },
+            {
+              "key": "68448ac3-0116-5701-bace-0ba05b7620f5",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "1e578510-e568-5904-8b91-aea35dc417da",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "532e2491-d2e4-5273-bbbd-a0892226bb06",
+              "ingredientName": "Sofrito",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "035426e9-bd60-5c92-b289-6fdb22b6f101",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "21fc0de0-85a5-5c9d-85c8-cb9931ecbdfb",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9e8124bd-49dd-572f-9102-9a0ddf7b772b",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "16-20 Blätter"
+            },
+            {
+              "key": "196db66f-0cac-5c8a-a41e-d615a6990f12",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3a6bcd2f-0586-5d45-bc0a-1e96bcc8401c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "05a86c92-691c-5a68-97e8-7d472acc92c6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und bräune die Rindfleischwürfel von allen Seiten an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste im selben Topf Zwiebel und Knoblauch weich. Gib Sofrito hinzu und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rindfleisch zurück in den Topf. Füge Tomatensauce, Salz, Kreuzkümmel und 1 Tasse Wasser hinzu. Lasse alles 45 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Oliven und Rosinen unter und gare alles weitere 5 Minuten. Lasse die Füllung vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erweiche die Kochbananenblätter, indem du sie kurz über eine Flamme hältst oder in heißes Wasser tauchst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege ein Kochbananenblatt flach hin, gib 2 Esslöffel Teig in die Mitte und darauf 2 Esslöffel Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klappe die Ränder des Blatts über die Füllung zu einem Päckchen und wickle es anschließend in ein zweites Blatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Binde die Päckchen mit Küchengarn oder dünnen Streifen von Kochbananenblättern zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Koche die Hallacas 40 Minuten in einem großen Topf mit Salzwasser und halte sie dabei unter Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Nimm sie mit einer Schaumkelle heraus, lasse sie abtropfen und serviere sie heiß mit zusätzlicher Brühe oder Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/F7rlNZ1So4spLtB73ZSks9hsnEM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Hallacassquare-d3f1d907fc2647d5a025818d64111439.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/F7rlNZ1So4spLtB73ZSks9hsnEM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Hallacassquare-d3f1d907fc2647d5a025818d64111439.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-teque-os",
+      "slug": "gen-teque-os",
+      "title": "Tequeños",
+      "instructions": "Venezolanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gekaufte Empanada-Teigblätter, statt den Teig selbst zuzubereiten.",
+        "Friere ungebratene Tequeños ein und frittiere sie bei Bedarf direkt aus dem Gefrierfach."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "venezolanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4191,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-teque-os/",
+      "components": [
+        {
+          "key": "abfedd4f-a2cc-5d74-93b4-92e71026c279",
+          "name": "Zutaten",
+          "servingGrams": 275.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b370d10-828e-54c0-9d90-9ea15c64fb38",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c95670f6-1df6-5d6e-bed8-f6b69717803f",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "3e7c1368-6096-50a3-a57c-4c5aae9750fa",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0acb8f65-c61b-5078-8113-54c599c0c984",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0abfde71-9ece-59b0-90f8-e7afa9e9b935",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "afd88afc-f528-5852-a217-6ae8c73b454f",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Pfund, in Stifte geschnitten"
+            },
+            {
+              "key": "ff804dba-0b77-5ce8-8476-56222bd60937",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Butter in kleine Würfel und arbeite sie in das Mehl ein, bis die Mischung Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eigelb und Wasser, gib sie zur Mehlmischung und verrühre alles zu einem weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knete den Teig 2 Minuten, wickle ihn in Folie und stelle ihn 15 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig zwischen Folien sehr dünn, etwa 1/16-inch dick, aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide den Teig in 2-inch by 4-inch große Rechtecke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege einen Käsestick an den Rand jedes Rechtecks und rolle ihn fest ein. Versiegle den Rand mit etwas Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erhitze Öl auf 350°F und frittiere die Tequeños pro Seite etwa 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit Pfeffersauce oder scharfer Sauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1642179763/k/Photo/Recipes/2022-01_scotch-egg/2022-01-05_ATK-0996.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1642179763/k/Photo/Recipes/2022-01_scotch-egg/2022-01-05_ATK-0996.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastel-de-carne",
+      "slug": "gen-pastel-de-carne",
+      "title": "Pastel de Carne",
+      "instructions": "Venezolanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein.",
+        "Bereite größere Mengen zu und stelle Portionen für einfaches Aufwärmen kalt oder friere sie ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "venezolanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4192,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastel-de-carne/",
+      "components": [
+        {
+          "key": "753dfa14-515e-5e4c-9a8d-5cad596b5fd7",
+          "name": "Zutaten",
+          "servingGrams": 288,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba6e2a44-3b6e-5c2a-84b9-4370bb234f86",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "bb00001c-6983-5a9f-8d26-73c5f923cb0d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Stück, gewürfelt"
+            },
+            {
+              "key": "4df83eb4-9bfd-52f8-9d4f-ff2233cabd8c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "b4b1e649-891b-5c09-bb6c-667d903dc94a",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7fad6926-3a8d-5b6c-9565-45bbf38bf7ff",
+              "ingredientName": "Sofrito",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "67f9b6ba-483b-55b0-ac2e-5efd44aeaf9d",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "129b39bc-033c-5df3-bf4e-d49937526bff",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "b84960bb-de2f-5fe9-bd1b-0d34c0b0bfaa",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb3dc7c7-6e46-5bed-a22a-694451cbdf42",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3fbfb015-00bb-5aaa-81ba-b38477accb26",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "7a9a2561-fac2-59e7-8774-c08df0be0373",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a6675114-0fde-5fe9-a059-8779a71fb634",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ca0b2877-b346-5ab5-8cdd-cfb2be90a7f9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "8c7dcbb7-d705-58d6-8330-1fb3ab14f388",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor und fette eine 9x13-inch Auflaufform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einer Pfanne und brate Rinderhackfleisch mit Zwiebel und Knoblauch an. Rühre häufig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sofrito, Tomatensauce, Oliven und Rosinen hinzu. Lasse alles 10 Minuten köcheln und dann leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Fleischmischung gleichmäßig in der vorbereiteten Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Eier, Milch, Mehl, Salz und schwarzen Pfeffer zu einer glatten Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Eiermischung über die Fleischschicht und verteile sie gleichmäßig bis zum Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue geriebenen Käse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe das Gericht 25-30 Minuten, bis die Eierschicht gestockt und der Käse geschmolzen und leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse es 5 Minuten abkühlen, schneide es in Quadrate und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://galletasparamatilde.com/wp-content/uploads/2015/06/Cottage-pie-34.jpg",
+          "sourcePageUrl": "https://galletasparamatilde.com/wp-content/uploads/2015/06/Cottage-pie-34.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arroz-con-gandules",
+      "slug": "gen-arroz-con-gandules",
+      "title": "Arroz con Gandules",
+      "instructions": "Puerto-ricanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis in größeren Mengen, um Kosten zu senken.",
+        "Verwende Erbsen aus der Dose von einer Handelsmarke statt einer teuren Marke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "puerto-ricanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4193,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arroz-con-gandules/",
+      "components": [
+        {
+          "key": "5dc73026-466c-5ff3-a2de-68e84a3b90ab",
+          "name": "Zutaten",
+          "servingGrams": 442.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4562d984-8e8e-5362-8ae9-c8e2fd4d45ce",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "02844914-ecb6-5ee8-8ce0-c713f90ea241",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "4cfdf3cb-cc52-5201-9a2a-b094f79db1ac",
+              "ingredientName": "Sofrito",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7a10dc58-5815-5a2b-9a0e-e6b7256a069d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "331eb3a1-e92e-58f5-8656-22d35855cf75",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "be264233-d0e1-5ad0-a6fa-de0888fd0d3b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e0b4191f-7086-50b1-abad-ba12f84ee3af",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "eff78dca-41a8-522e-87e5-788d34e6360b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7b4b0902-7bcf-54e1-9f94-c2d11b2cfef2",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "3eb4edd1-843d-514d-826d-aa02efdea6d9",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste Zwiebel, Knoblauch und rote Paprika 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Sofrito hinzu und gare es 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den Reis ein und gare ihn unter häufigem Rühren 2 Minuten, damit er mit Öl überzogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Hühnerbrühe hinzu und gib abgetropfte Taubenerbsen, Oliven, Salz und Pfeffer dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze auf niedrig, decke den Topf ab und lasse es 18-20 Minuten köcheln, bis der Reis gar und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lockere den Reis mit einer Gabel auf und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5deac94925a1c90009bda8ef/1:1/w_2560%2Cc_limit/GoLive-Pernil-Arroz-Lede.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5deac94925a1c90009bda8ef/1:1/w_2560%2Cc_limit/GoLive-Pernil-Arroz-Lede.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bacala-tos",
+      "slug": "gen-bacala-tos",
+      "title": "Bacalaítos",
+      "instructions": "Puerto-ricanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gesalzenen Kabeljau auf Märkten mit internationalen Lebensmitteln im Angebot.",
+        "Verwende das Frittieröl für mehrere Durchgänge, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "puerto-ricanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4194,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bacala-tos/",
+      "components": [
+        {
+          "key": "8f8151e2-d27e-53b1-a7e3-e5c0177a62e8",
+          "name": "Zutaten",
+          "servingGrams": 212,
+          "position": 0,
+          "items": [
+            {
+              "key": "e096fde8-2abb-5286-bf92-ad4f84665f24",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "28c3b432-e7e5-5e21-8556-ca00700b0af6",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d683c3a4-10c5-598b-bea5-1fc480e67e81",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "deac4298-1b0e-5dc1-b330-33dcb9e4ae2e",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7eb7c7de-89d3-52f3-8aa4-545bc3ca5875",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "7f80ac45-019a-5444-b504-c9db5d03a034",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "460f9484-50de-536b-9258-eae482864aa6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cad9f06a-fff4-553e-96b8-e6f63244c6c3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9d8a8be9-c4aa-5d28-bed6-acfa866bf546",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche den gesalzenen Kabeljau 4 Stunden in Wasser ein. Wechsle das Wasser zweimal und zerpflücke den Fisch anschließend fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Backpulver, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische in einer weiteren Schüssel Wasser, Knoblauch, Zwiebel, Koriander und den zerpflückten Kabeljau.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die feuchten Zutaten unter die trockenen, bis ein dicker Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib löffelweise Teig in das heiße Öl und frittiere ihn pro Seite 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Bacalaítos auf Küchenpapier abtropfen und serviere sie sofort mit scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/15/66/43/piciz5csF.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/15/66/43/piciz5csF.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

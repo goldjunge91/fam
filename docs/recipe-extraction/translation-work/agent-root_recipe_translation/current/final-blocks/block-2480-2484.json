@@ -1,0 +1,1159 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-idli",
+      "slug": "gen-idli",
+      "title": "Idli (gedämpfte südindische Reisküchlein)",
+      "instructions": "Südindisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis und Dal in größeren Mengen auf indischen Märkten und spare 40%",
+        "Nutze die Fermentationszeit, um am selben Tag Sambar zuzubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "südindisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2480,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-idli/",
+      "components": [
+        {
+          "key": "f588db48-1ae8-5fc0-9e15-a0d18ec3b908",
+          "name": "Zutaten",
+          "servingGrams": 197.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "1121c2aa-905b-5467-a049-90f55ef928b1",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e07fc4c4-b197-5553-9f40-ae9ae3cc35f7",
+              "ingredientName": "Urad Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "18cbf3f5-0528-582a-bc9e-0e6ef1d5e872",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "47b59e41-462b-5111-8ad3-331fb670331b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "72f3e442-4c70-54a9-ae90-45d08ee1ea2c",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "754e035d-fde7-5a1e-aabb-299a51e85cfe",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reis, Urad Dal und Bockshornkleesamen 4-6 Stunden getrennt in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mahle den Reis mit möglichst wenig Wasser zu einer glatten, aber dickflüssigen Paste und fülle sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mahle Urad Dal mit Bockshornklee und etwas Wasser vollständig glatt und luftig, etwa 10-15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Reis- und Dal-Paste mit Salz und lasse den Teig 8-12 Stunden bei Raumtemperatur fermentieren, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Wasser in einem Dämpftopf und fette Idli-Förmchen oder Tassen leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den fermentierten Teig vorsichtig in die gefetteten Förmchen und fülle sie etwa zu drei Vierteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Förmchen in den Dämpfeinsatz und dämpfe die Idli 5-7 Minuten, bis ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie 1 Minute abkühlen und löse die Idli vorsichtig durch Klopfen auf einen Teller. Warm mit Sambar und Chutney servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/6j6Ne_4F62_uigRCvTZYVykcHhc=/2122x1415/filters:fill(auto,1)/idli-56a510b63df78cf772862c34.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/6j6Ne_4F62_uigRCvTZYVykcHhc=/2122x1415/filters:fill(auto,1)/idli-56a510b63df78cf772862c34.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-uttapam",
+      "slug": "gen-uttapam",
+      "title": "Uttapam (südindische Reis-Linsen-Pfannkuchen)",
+      "instructions": "Südindisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Dosa-Teig für Uttapam und spare Zeit und Zutaten",
+        "Kaufe gewürfelte tiefgekühlte Tomaten in größeren Mengen, um Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "südindisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2481,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-uttapam/",
+      "components": [
+        {
+          "key": "cd7c392c-783e-5b2e-9414-0bf2aa7898ff",
+          "name": "Zutaten",
+          "servingGrams": 312.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "a086b091-f1ef-5ee8-bcb2-433519b209f2",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ac68b6a8-2909-57e7-8055-cf048507174b",
+              "ingredientName": "Urad Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6dc7e8c3-d7ee-5749-aa53-8d2173d48623",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "ffe9ddad-3732-51cb-9cfa-9c3b9dbe4b96",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0ec0558a-2cd7-538f-8f3a-227aa267093c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a6ee1afa-15df-573b-9646-822cba18a428",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "ef84aca2-0cbf-53c1-8cb3-660738d4035e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "1abd4bd3-9b3a-59dc-8a27-ddf973495d5b",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5dc52ea6-f3f3-5f33-b64e-6c88383f5a4d",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1d28fc0d-669f-5998-87a8-1bbc5dbfeb1e",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reis und Urad Dal 4 Stunden in Wasser ein und mahle sie dann getrennt zu glatten Pasten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Reis- und Dal-Paste mit Salz und Wasser und lasse sie anschließend 8-12 Stunden bei Raumtemperatur fermentieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine beschichtete Pfanne bei mittlerer bis hoher Hitze und fette sie leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße 0.5 Tasse fermentierten Teig in die Pfanne und verstreiche ihn vorsichtig zu einem dicken Pfannkuchen von etwa 0.5 Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege den noch feuchten Teig mit gewürfelter Zwiebel, Tomate, grüner Chili, Koriander und Curryblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Träufle Öl an den Rand und gare den Pfannkuchen 3-4 Minuten, bis die Unterseite goldbraun ist. Dann vorsichtig wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare die andere Seite 2 Minuten, bis sie leicht gebräunt und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einen Teller geben und heiß mit Sambar und Kokos-Chutney servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/90f3436f-8a51-4ba5-8aad-ff39aa071ae5/chhayas+food+onion+uttapam+-+on+the+tawa",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/90f3436f-8a51-4ba5-8aad-ff39aa071ae5/chhayas+food+onion+uttapam+-+on+the+tawa",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chole-bhature",
+      "slug": "gen-chole-bhature",
+      "title": "Chole Bhature (Kichererbsencurry mit frittiertem Brot)",
+      "instructions": "Punjabi-Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kichererbsen aus der Dose statt getrockneter, um das Einweichen über Nacht zu sparen",
+        "Bereite zusätzlichen Bhature-Teig zu und friere ihn für schnelle Mahlzeiten unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "punjabi",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2482,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chole-bhature/",
+      "components": [
+        {
+          "key": "aae7acfa-85a2-57ff-b7a3-00b883221d69",
+          "name": "Zutaten",
+          "servingGrams": 507.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4b971c1-4cfa-5a64-95fe-84668ed3530a",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6e876a30-58e8-542e-b6a6-97405505474e",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e3589bce-637e-5292-8fa8-bc2253f45981",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2eec9b92-bd50-5295-b107-3e688cddcf6c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "9aa06edd-709b-5362-abee-09448b649d71",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "35207cf6-55d2-5933-9e71-3f007d928cb8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "01cce862-1ed9-5c00-8b45-c0428d3bfc4d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "99f91b40-11cf-5ac9-940b-529fff4f825d",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e879f9d1-5524-5395-a091-0ef1253e104f",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0773ca54-c768-57b0-aab9-4b96eea5c20b",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "36523313-40da-54fb-b56d-14d105552a47",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cb83225b-ea93-55f9-b21b-1fdc8b007820",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Backpulver, Salz und Joghurt mit ausreichend Wasser zu einem weichen Teig. Decke ihn ab und lasse ihn 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Öl in einem Topf und gib Kreuzkümmelsamen hinein. Füge gewürfelte Zwiebeln hinzu und gare sie etwa 5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Ingwer-Knoblauch-Paste und Tomaten hinzu und gare alles 3 Minuten, bis die Tomaten weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge abgetropfte Kichererbsen, Kurkuma, Garam Masala und Salz hinzu. Lasse alles mit 0.5 Tasse Wasser 10 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze 0.5 Tasse Öl in einer tiefen Pfanne auf 350°F, um die Bhature auszubacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teile den Teig in 8 Portionen und rolle jede zu einem dünnen Kreis von etwa 6 Zoll Durchmesser aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse eine Bhatura vorsichtig ins heiße Öl gleiten. Sie bläht sich innerhalb von 30 Sekunden auf. Wende sie und frittiere die andere Seite etwa 1 Minute, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit gewürztem Kichererbsencurry (Chole) und eingelegten Zwiebeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2016/10/chole-bhature-recipe-chole-bhatura-recipe-chana-bhatura-recipe-16.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2016/10/chole-bhature-recipe-chole-bhatura-recipe-chana-bhatura-recipe-16.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rajma-chawal",
+      "slug": "gen-rajma-chawal",
+      "title": "Rajma Chawal (Kidneybohnen mit Reis)",
+      "instructions": "Nordindisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Rajma-Bohnen in größeren Mengen auf indischen Märkten; sie sind viel günstiger als Bohnen aus der Dose",
+        "Weiche Bohnen über Nacht ein, um Kochzeit und Brennstoffkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "nordindisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2483,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rajma-chawal/",
+      "components": [
+        {
+          "key": "49da71f2-2dad-5373-9d68-26209af8f718",
+          "name": "Zutaten",
+          "servingGrams": 611.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "f36cf90e-7f7b-5cdb-8991-bd41e67c7b1c",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9b1137ca-67d4-51dc-bf37-76a48de1f588",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c2cacf20-ed32-52b7-bc3c-c81f699123d2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "ac321448-7e35-5230-924c-535383d18a17",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "555e7567-b10a-5215-8063-9cb3ec0ed986",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b48e0366-ca33-5da8-93d8-60158336ae8a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "aa36ff8b-c43e-5bf2-b0da-bad455f4f628",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "19a7653e-7ab3-5221-a400-d80c68484718",
+              "ingredientName": "Garam Masala",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "0097f607-2ddc-5457-a52b-c2be40e1e065",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "a3a27e26-33e9-566c-8218-e1ca170f8938",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "f21a2e75-f07e-5b7c-94e1-8db6f6067fd5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ca46783e-483d-51e0-8acc-652704f9edaa",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Rajma-Bohnen über Nacht in Wasser ein. Gieße sie ab und koche sie 45 Minuten in frischem Wasser, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wasche währenddessen den Reis gründlich und koche ihn in 4 Tassen kochendem Salzwasser etwa 18 Minuten, bis er locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und gib Kreuzkümmelsamen hinzu. Lasse sie 10 Sekunden aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Zwiebeln hinzu und gare sie etwa 4 Minuten weich. Füge dann Ingwer-Knoblauch-Paste hinzu und brate sie 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelte Tomaten dazu und gare sie 3 Minuten, bis sie zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Füge gegarte Rajma-Bohnen, Kurkuma, Garam Masala und Chilipulver hinzu und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse das Rajma-Curry 10 Minuten köcheln, damit sich die Aromen verbinden. Dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Curry und passe Salz und Gewürze an. Serviere das Rajma auf gedämpftem Reis mit geschnittenen Zwiebeln und Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.flavouroffood.com/wp-content/uploads/2020/07/Rajma-Masala-Recipe0.jpg",
+          "sourcePageUrl": "https://www.flavouroffood.com/wp-content/uploads/2020/07/Rajma-Masala-Recipe0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dal-makhani",
+      "slug": "gen-dal-makhani",
+      "title": "Dal Makhani (cremiges Linsencurry)",
+      "instructions": "Punjabi-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische griechischen Joghurt mit Milch statt Schlagsahne und spare 40%",
+        "Kaufe Urad Dal in größeren Mengen und friere gekochte Portionen für schnelle Mahlzeiten unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "punjabi",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2484,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dal-makhani/",
+      "components": [
+        {
+          "key": "8c42098d-e26d-5e5e-9377-863496b11b38",
+          "name": "Zutaten",
+          "servingGrams": 422.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e96ead7-38a9-523a-9c40-f30cbd1e9e31",
+              "ingredientName": "Urad Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "689e3c6f-f653-5b2d-ab6d-ffea23759da8",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "432ffb09-d5d1-56c5-9978-db84b797005b",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4b5de055-cce3-52da-8b9f-74b10b848e08",
+              "ingredientName": "Schlagsahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "17940063-9514-5635-a030-d60d125f931c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "68fe3eec-808d-59f2-a2a5-107590a57e37",
+              "ingredientName": "Tomate",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4708dd00-19e7-5e6f-bb1f-70ca6c6e8f6a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e576b2f4-96f8-5e7d-a86f-74504f30d065",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9dcfeae5-336f-5ae2-ae06-15fd0e4ee4d5",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f97a68e8-b092-5df9-8b32-98d26575f45b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "fe085192-fb85-5fb7-bc77-388bc350e78c",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Urad Dal 2 Stunden ein und koche sie dann in 3 Tassen Wasser etwa 45 Minuten, bis sie ganz weich ist und zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die gekochte Dal mit einem Löffel, bis sie glatt und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Butter in einem Topf mit schwerem Boden und gib Kreuzkümmelsamen hinein. Lasse sie aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Zwiebel hinzu und gare sie etwa 3 Minuten weich. Füge dann Ingwer-Knoblauch-Paste hinzu und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tomatenpüree und Garam Masala hinzu und gare alles 3 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die zerdrückte Dal und Kidneybohnen in den Topf und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles 10 Minuten köcheln. Rühre dann Schlagsahne und Salz ein und koche weitere 5 Minuten, bis das Curry cremig und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Gericht und passe die Gewürze an. Heiß mit Naan oder Reis servieren und obenauf einen Klecks Sahne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.flavouroffood.com/wp-content/uploads/2021/02/Dal-Makhani-Recipe-1-768x768.jpg",
+          "sourcePageUrl": "https://www.flavouroffood.com/wp-content/uploads/2021/02/Dal-Makhani-Recipe-1-768x768.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

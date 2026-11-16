@@ -1,0 +1,1094 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-baked-cod-with-parsley-sauce",
+      "slug": "gen-baked-cod-with-parsley-sauce",
+      "title": "Gebackener Kabeljau mit Petersiliensoße",
+      "instructions": "Portugiesisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gefrorene Kabeljaufilets, spare 25% und erhalte trotzdem gute Qualität.",
+        "Lass den Wein weg und verwende stattdessen mehr Zitronensaft und Brühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "portugiesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5815,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-cod-with-parsley-sauce/",
+      "components": [
+        {
+          "key": "72091b2c-f409-5eb4-a9c3-8d7759883bfa",
+          "name": "Zutaten",
+          "servingGrams": 153.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "680709a7-2ccb-52fd-a447-bda4a05f5a45",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (je 6 oz)"
+            },
+            {
+              "key": "8d8879e7-ae72-5f91-b1ac-38847f629b85",
+              "ingredientName": "Frische Petersilie",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4dbf9158-dda3-550f-b3b3-ea2076180ffe",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "a2d5143c-7908-5470-b9ef-0c2b628e13c6",
+              "ingredientName": "Olivenöl",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "cff04ddc-e58d-59e3-b87a-cddf6091379d",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83d75bff-9107-5a83-85f5-c57e12cde22f",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "70962f18-f4ea-5725-af4f-61b8c2e7b6de",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "ff8efdbc-33be-5e6f-b7a9-0b7d3859f2e2",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6c07dc3a-a875-5eeb-a0b8-3905a9fe165e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "603fa654-5948-5cf3-9158-cc92f7bf6ef8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor. Schäle die Kartoffeln und schneide sie in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Petersilie und Knoblauch fein und vermische beides zu einer Art Gremolata.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege Kartoffel- und Zwiebelscheiben in eine Auflaufform. Beträufle sie mit 2 Esslöffeln Olivenöl und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Kartoffeln 15 Minuten, bis sie weich zu werden beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Kabeljaufilets auf die Kartoffeln, würze sie mit Salz und Pfeffer und gieße den Weißwein neben (nicht über) den Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische die übrigen 4 Esslöffel Olivenöl mit Petersilie und Knoblauch. Beträufle den Fisch damit und streue etwas Petersilie auf die Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Kabeljau 12-15 Minuten, bis er undurchsichtig ist und sich leicht zerteilen lässt. Presse frischen Zitronensaft darüber und serviere alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/09/baked-cod-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/09/baked-cod-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-calamari-fritti",
+      "slug": "gen-calamari-fritti",
+      "title": "Frittierte Calamari",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorene Tintenfischkörper auf Vorrat und taue sie auf; das ist viel günstiger als frischer Tintenfisch.",
+        "Bereite die Paniermischung selbst zu, statt eine fertige zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5816,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-calamari-fritti/",
+      "components": [
+        {
+          "key": "3e18a92c-fc54-5ebb-9844-73484d1f6447",
+          "name": "Zutaten",
+          "servingGrams": 223.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "28ab904e-0120-5be4-8ae4-4a905dde2f03",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "29d03f74-7d50-52b7-ac77-2792f8f8fb19",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "746a2433-6f5c-555a-ba53-3c44de1cc242",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdd3758b-b6b1-5ad3-9e86-2f176fe41bd8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7ed148cb-b0f4-520d-baac-51b86562d5c6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ecefb71f-d4cb-505f-9441-0df009fac154",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5a00c49e-14af-5472-9ec7-ca8373fe8902",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "4ab5ceb7-8952-504a-afbc-2dae6111f38c",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcda5552-4639-55e8-8265-35bfab1b0b01",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinige den Tintenfisch, indem du Kopf und Tintenbeutel entfernst. Schneide die Körper dann in 0.5-inch breite Ringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier und Milch in einer flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl, Salz und Pfeffer in einer weiteren flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende die Tintenfischringe erst in der Eiermischung und dann in der Mehlmischung. Schüttle überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere die Tintenfischringe portionsweise 1-2 Minuten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie zum Abtropfen auf Küchenpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie sofort mit Zitronenspalten und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/GT8nRuZNhCc3rQY1MWk-aeYbFC0=/2000x1332/filters:fill(auto,1)/fried-calamari-2019531-hero-01-e294f265d7e84c0f89d4b5759759ffbf.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/GT8nRuZNhCc3rQY1MWk-aeYbFC0=/2000x1332/filters:fill(auto,1)/fried-calamari-2019531-hero-01-e294f265d7e84c0f89d4b5759759ffbf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-thai-with-shrimp",
+      "slug": "gen-pad-thai-with-shrimp",
+      "title": "Pad Thai mit Garnelen",
+      "instructions": "Thailändisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Garnelenpaste statt Tamarindenpaste als günstigere Soßengrundlage.",
+        "Kaufe Erdnüsse auf Vorrat und zerkleinere sie selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5817,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-thai-with-shrimp/",
+      "components": [
+        {
+          "key": "7f45fa44-1823-5417-9c82-ef532a183054",
+          "name": "Zutaten",
+          "servingGrams": 315.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "20875f68-ed32-5328-a52a-56f446997e54",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f632b938-9185-57a7-bb95-d303abb65b88",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "88309169-c681-5bf1-8639-bc2543e56add",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "72381e03-2282-57e4-9c0a-555ca0f6e62c",
+              "ingredientName": "Fischsoße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4f27904c-e976-5fa0-886a-cfcf27f020aa",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "979d3711-da41-5cbb-9084-f1e090e38a63",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "83191333-8c18-5acb-b440-42f45b769244",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15691a7e-c429-5491-98c7-c5cb538db128",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05e9514d-ba1e-5573-b4eb-cdc2bed06575",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9213a763-b4ae-5416-b151-38269f40b22c",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "0c309b05-ead2-5808-8e44-834c105b6bdd",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6829d45-3f77-5e52-b281-a3a5c8ceec7c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Reisnudeln 30 Minuten in warmem Wasser ein, bis sie biegsam sind, und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze und brate gehackten Knoblauch unter Rühren 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Garnelen hinzu und gare sie 2 Minuten, bis sie sich rosa zu färben beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die Zutaten an den Rand, schlage die Eier in die Pfanne und verrühre sie kurz. Vermenge sie dann mit den Garnelen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib abgetropfte Nudeln, Tamarindenpaste, Fischsoße und Palmzucker dazu. Wende alles unter ständigem Rühren 3-4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die Hälfte der Sojasprossen und Frühlingszwiebeln ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile das Pad Thai auf Tellern und garniere es mit zerstoßenen Erdnüssen, den übrigen Sojasprossen und Frühlingszwiebeln sowie Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/rg749DYEr4d8ANOxqy5BpxJO-Dg=/5408x3600/filters:no_upscale():max_bytes(150000):strip_icc()/pad-thai-with-shrimp-3217145-step-09-ce44edc209ff4b48aab53154a6dd2bae.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/rg749DYEr4d8ANOxqy5BpxJO-Dg=/5408x3600/filters:no_upscale():max_bytes(150000):strip_icc()/pad-thai-with-shrimp-3217145-step-09-ce44edc209ff4b48aab53154a6dd2bae.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-char-siu",
+      "slug": "gen-char-siu",
+      "title": "Char Siu",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie ein; sie ist oft günstiger als andere Stücke.",
+        "Lass die rote Lebensmittelfarbe weg; ohne sie schmeckt das Gericht genauso."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5818,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-char-siu/",
+      "components": [
+        {
+          "key": "61d4c52c-c55f-5e15-b8b6-a8ce17e6f997",
+          "name": "Zutaten",
+          "servingGrams": 35.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7cbad3b-2202-516e-9bf2-01ead192aac5",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "50af96f2-05d3-5817-9a8d-e77ba36b937b",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "06f244f6-3f40-5115-b93e-4be9933ec9ec",
+              "ingredientName": "Hoisinsoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "20a003cb-523d-5afb-ab11-66967c2a0f39",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e72af86b-919b-54b4-a76e-4653dca8c0ad",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "10eaeb48-824d-5bf1-aa10-a8b0cd6214a5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b44d6917-1560-5951-ab4e-6c6914ed17f8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL fein gehackt"
+            },
+            {
+              "key": "360638d8-e184-5250-ac6e-266625f0cfd8",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b3ffd20b-7c48-5cf2-805e-fed59557516d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Schweineschulter in 2-inch dicke und etwa 8 inches lange Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasoße, Hoisinsoße, Honig, Reisessig, gehackten Knoblauch und Ingwer sowie Lebensmittelfarbe in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse das Schweinefleisch mindestens 2 Stunden, am besten über Nacht im Kühlschrank, in der Soße marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 400°F vor und lege ein Backblech mit Folie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das marinierte Schweinefleisch auf das vorbereitete Blech und stelle die Marinade beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate es 40-50 Minuten und bestreiche es alle 15 Minuten mit der beiseitegestellten Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende das Fleisch nach der Hälfte der Garzeit, damit es gleichmäßig bräunt und karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse es 5 Minuten ruhen und schneide es dann quer zur Faser in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/624b29dae7a334cf525ed81a/1:1/w_2560%2Cc_limit/CharSiu_RECIPE_033022_30817.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/624b29dae7a334cf525ed81a/1:1/w_2560%2Cc_limit/CharSiu_RECIPE_033022_30817.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crispy-pata",
+      "slug": "gen-crispy-pata",
+      "title": "Knusprige Crispy Pata",
+      "instructions": "Philippinisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinshaxe an der Fleischtheke; sie ist oft günstiger als abgepackte Ware.",
+        "Verwende die Kochbrühe für Suppen oder Fond weiter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5819,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crispy-pata/",
+      "components": [
+        {
+          "key": "4d4d9a32-9832-527a-8c9a-c8e36f1115fa",
+          "name": "Zutaten",
+          "servingGrams": 225.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "27fe3202-93a1-55ec-b081-7ed868567288",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "d81f2b5c-5b11-5b68-95b8-6dacd0eeda6e",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Quart"
+            },
+            {
+              "key": "779cd8eb-c754-588d-9da9-da1db9ce8035",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fff9146a-5047-5ae4-9168-d7d099577750",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d767e97d-316c-533f-8d2c-5c392c374705",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a058a808-8b68-5fad-9730-2bb6f0521e82",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c393770-1870-5eb7-b6e6-a7e9cbabbc06",
+              "ingredientName": "Pflanzenöl",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "7306d600-7d68-5308-b167-297802166ba4",
+              "ingredientName": "Speisestärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die Schweinshaxe mit Wasser, Salz, Knoblauch, Pfefferkörnern und Lorbeerblättern in einen großen Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und lasse das Fleisch 1.5 Stunden köcheln, bis es sehr zart und die Schwarte weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Fleisch heraus, lasse es vollständig abkühlen und tupfe die Schwarte gründlich mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reibe die Schwarte mit Speisestärke ein, damit sie knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einem tiefen Topf oder Wok auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Schweinshaxe vorsichtig ins heiße Öl gleiten und frittiere sie 10-15 Minuten. Wende sie gelegentlich, bis die Schwarte goldbraun und blasig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie heiß mit Essig-Dip und gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kusinaniteds.com/wp-content/uploads/2020/11/Crispy-Pata-1-scaled.jpg",
+          "sourcePageUrl": "https://kusinaniteds.com/wp-content/uploads/2020/11/Crispy-Pata-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

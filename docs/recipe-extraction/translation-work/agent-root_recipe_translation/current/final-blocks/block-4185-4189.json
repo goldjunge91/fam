@@ -1,0 +1,1117 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-alcapurrias",
+      "slug": "gen-alcapurrias",
+      "title": "Alcapurrias",
+      "instructions": "Dominikanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Füllung im Voraus zubereiten und im Kühlschrank aufbewahren",
+        "Portionsweise frittieren und Öl wiederverwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "dominikanisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4185,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-alcapurrias/",
+      "components": [
+        {
+          "key": "744c661b-a3fb-5ac7-920c-33c1c6514083",
+          "name": "Zutaten",
+          "servingGrams": 148.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "a452a785-1473-5128-8594-6a840f71e7d7",
+              "ingredientName": "Kochbanane",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "127de7b7-51d4-5e52-82ac-78cbfc0d0a80",
+              "ingredientName": "Yuca-Wurzel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "87c66272-274b-5a50-bf73-a7072d69b797",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "b3b6015a-5fe4-55b6-b6a7-bb6a1e92c67c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "8f21a125-fb4f-51b6-92e6-fdf9dd806c64",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "94bcb200-6a22-5beb-bd7a-7e0bffeee407",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "004b61ed-da7a-5409-8e90-6f013efadf59",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "b80c0385-a0bc-5c7d-92b0-2b7e9cfa97a2",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e58ccabd-bec7-523e-a283-3d6a85d9d206",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5e2f3a07-9fcf-5003-bce8-36f008b41f3d",
+              "ingredientName": "Sofrito",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kochbananen und Yuca schälen und separat etwa 20 Minuten weich kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beides abgießen und zusammen glatt zerstampfen, mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer Pfanne erhitzen und Rinderhack mit Zwiebel, Knoblauch und Sofrito gar braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Oliven einrühren und weitere 2 Minuten garen, dann Füllung herausnehmen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit feuchten Händen einen Löffel Kochbananen-Yuca-Mischung nehmen und auf einem Plastikbeutel zu einer Scheibe flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Einen Löffel Fleischfüllung in die Mitte geben, Ränder hochklappen und zu einer ovalen Kugel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl auf 350°F erhitzen und Alcapurrias portionsweise insgesamt etwa 5-6 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit Essig oder scharfer Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/hswIFXmtSozciZIp_y61qg9koRY=/5184x3456/filters:no_upscale():max_bytes(150000):strip_icc()/alcapurrias-recipe-2137752-hero-02-d73b1da4264e4d5b88138a669ea8a59a.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/hswIFXmtSozciZIp_y61qg9koRY=/5184x3456/filters:no_upscale():max_bytes(150000):strip_icc()/alcapurrias-recipe-2137752-hero-02-d73b1da4264e4d5b88138a669ea8a59a.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastelitos",
+      "slug": "gen-pastelitos",
+      "title": "Pastelitos",
+      "instructions": "Dominikanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fertige Empanada-Teigblätter verwenden, um Zeit und Aufwand zu sparen",
+        "Große Mengen Fleischfüllung anbraten und für schnelle spätere Portionen einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "dominikanisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4186,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastelitos/",
+      "components": [
+        {
+          "key": "db85ef3f-0c43-5366-9cb4-7a35f8d24243",
+          "name": "Zutaten",
+          "servingGrams": 292.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "3cab3f0b-ca28-5361-9f40-a9c1494cf939",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7fe1d408-b62e-584e-a7c8-a11feafc732f",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "176890da-e8c3-5a92-816e-f713d709fa62",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "af00c362-dad6-596f-8b72-2e42de245f58",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "72c3d27b-865e-5b18-8566-c490ff6cfeb4",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "03d33527-32fb-5893-bd34-b26f0ea76ecc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "e59df1ce-3ee2-599b-8d1e-bfa2ebf734c2",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "434abf31-5be5-564f-94af-48f28b872499",
+              "ingredientName": "Sofrito",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e462b6ef-2b12-5fdb-a704-fe8e69fdc6b6",
+              "ingredientName": "Oliven",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL, gehackt"
+            },
+            {
+              "key": "ba6780ff-b0c9-5fd0-bfb1-2fe4bdc026fa",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz vermengen und Butter mit den Fingerspitzen einarbeiten, bis die Mischung wie Semmelbrösel aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach und nach Wasser hinzufügen, bis ein weicher Teig entsteht, kurz kneten und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhack mit Zwiebel, Knoblauch und Sofrito in einer Pfanne gar braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Oliven einrühren, 2 Minuten garen, dann vom Herd nehmen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig zwischen Folien zu dünnen Platten ausrollen und in 3-inch große Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeweils einen Löffel Fleischfüllung auf jedes Quadrat geben, zu einem Dreieck falten und die Ränder mit einer Gabel verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl auf 350°F erhitzen und Pastelitos etwa 2-3 Minuten pro Seite goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und warm mit Essig oder scharfer Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/sYgV7_GQutxx-28amPbZisvzOXw=/4494x3000/filters:fill(auto,1)/pastelitos-de-dulce-de-leche-3029772-hero-01-a9754c509ae244d79c33f6d08f0ac9a1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/sYgV7_GQutxx-28amPbZisvzOXw=/4494x3000/filters:fill(auto,1)/pastelitos-de-dulce-de-leche-3029772-hero-01-a9754c509ae244d79c33f6d08f0ac9a1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quipes",
+      "slug": "gen-quipes",
+      "title": "Quipes",
+      "instructions": "Dominikanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bulgur ist in Großgebinden günstiger als viele andere Getreidealternativen",
+        "Füllung und Bulgur im Voraus getrennt zubereiten, damit sich die Quipes schnell formen lassen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "dominikanisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4187,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quipes/",
+      "components": [
+        {
+          "key": "85e48db5-e4d7-5de3-861a-4441c4d8d2bc",
+          "name": "Zutaten",
+          "servingGrams": 375.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "afff4db2-4730-5926-ae23-507574ce6d08",
+              "ingredientName": "Bulgur",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "2487f96c-af62-5640-a00a-f6ccdc295230",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "cff34a4f-0e3f-5e71-a25a-e72dd3858c15",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "4902b249-ba89-519d-a77b-938944fb4685",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "1336e4d8-f467-56f5-8dda-cea9eebb6260",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "885acacd-309f-5055-a1ab-1222f3336b88",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "055f028c-a12c-5d14-8813-cfafcc74e78b",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "dcc18ba9-b70b-5fac-9c73-a4879dca24b2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "446f1490-2f8a-540e-8908-cd27a201cbb3",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6962ccc4-9c50-5f0f-ac0a-a8b6d97c4944",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heißes Wasser über Bulgur gießen, abdecken und 20 Minuten einweichen lassen, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer Pfanne erhitzen und Rinderhack mit Zwiebel sowie Knoblauch anbraten, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rosinen, Oliven, Salz und Pfeffer zum Fleisch geben und weitere 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bulgur mit einer Gabel auflockern und etwas abkühlen lassen, dann überschüssige Feuchtigkeit ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgekühlten Bulgur mit der Fleischfüllung gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit feuchten Händen die Mischung zu ovalen oder torpedoförmigen Rollen von etwa 2.5 inches Länge formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl auf 350°F erhitzen und Quipes insgesamt etwa 5-6 Minuten von allen Seiten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://onesweetharmony.com/wp-content/uploads/2025/07/quipes-instructions-1.jpg",
+          "sourcePageUrl": "https://onesweetharmony.com/wp-content/uploads/2025/07/quipes-instructions-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cachapa",
+      "slug": "gen-cachapa",
+      "title": "Cachapa",
+      "instructions": "Venezolanisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten Mais verwenden, falls frischer Mais nicht verfügbar oder teuer ist",
+        "Eine größere Menge zubereiten und für schnelles Aufwärmen kühlen oder einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "venezolanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4188,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cachapa/",
+      "components": [
+        {
+          "key": "e8e812dd-248e-5f3d-a76e-180294b4dccf",
+          "name": "Zutaten",
+          "servingGrams": 246.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7dd4385-7d84-50ed-ac9e-0a1bd0dabcbe",
+              "ingredientName": "Frischer Mais",
+              "grams": 180,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b70a7b9f-48a5-59ac-ae72-db60e9e4673f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "198dcfe0-2b40-557b-b3f1-9d7b265c7199",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "851a8fff-e71a-5e90-b95b-ce2faa289ee7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fc77ef0c-fa97-57a2-994a-8c8cfd83da57",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b8e27ea9-6111-5efe-a4e4-40d3f3b615bc",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2138eda1-3b77-5328-8153-7637033e1c4a",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse, in Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maiskörner mit Milch pürieren, bis die Masse größtenteils glatt ist, aber noch kleine Maisstücke enthält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischung durch ein feines Sieb passieren und grobe Stücke vorsichtig herausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier mit Zucker und Salz verquirlen und dann unter die Maismischung heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter auf einer Grillplatte oder in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Je Cachapa 0.25 cup Teig auf die heiße Grillplatte geben und 3-4 Minuten garen, bis die Ränder fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Einen Streifen Käse in die Mitte legen und Cachapa wie einen Pfannkuchen halb zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 1-2 Minuten garen, bis beide Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm servieren und nach Wunsch zusätzlichen Käse oder Avocado dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/gG-AdUiIe2jZ80xMPNsOv_CyG-w=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/cachapas-fresh-corn-pancakes-3029660-step-01-5d1e0c042bc64e80b5c2ec7a72c944af.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/gG-AdUiIe2jZ80xMPNsOv_CyG-w=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/cachapas-fresh-corn-pancakes-3029660-step-01-5d1e0c042bc64e80b5c2ec7a72c944af.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pabell-n-criollo",
+      "slug": "gen-pabell-n-criollo",
+      "title": "Pabellón Criollo",
+      "instructions": "Venezolanisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Günstigere Rindfleischstücke verwenden, die sich beim langsamen Garen leicht zerpflücken lassen",
+        "Kochbananen im Angebot kaufen und für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "venezolanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4189,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pabell-n-criollo/",
+      "components": [
+        {
+          "key": "be8ff850-61bc-572a-a465-5a19eaa76b45",
+          "name": "Zutaten",
+          "servingGrams": 494.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "44f92a8d-7def-5ce2-9914-92f2d9539f6a",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            },
+            {
+              "key": "da73fa34-d0b0-5f00-8410-bd02d8eae916",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            },
+            {
+              "key": "2ffc1573-207a-5ee4-9ae9-306bf3d5ee1a",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9be7bf50-7e6b-502d-8ea3-fc0f309ea83b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "a7d59048-0526-5a07-ac7f-f74990d59b84",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "f127f663-65fa-5e68-a1f1-ce9f85e68836",
+              "ingredientName": "Tomatensauce",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d5634e62-15f5-5e00-996c-5d4023f4405d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f3e722be-9853-5ca4-8714-54b428926269",
+              "ingredientName": "Sofrito",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7e991a45-9068-54da-a348-72478c519b45",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4b77f3a0-82d1-5d73-9a4e-d19a3c4b6b3d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "de96afec-7cda-5964-93cb-43dcc5ba144c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b49da2c4-7707-53bd-8aea-ec63dee3176c",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 reife Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis und schwarze Bohnen jeweils nach Packungsanleitung kochen oder zubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen und Zwiebeln sowie Knoblauch weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerpflücktes Rindfleisch, Sofrito, Kreuzkümmel und Salz hinzufügen und unter Rühren 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatensauce und Rinderbrühe angießen und 15-20 Minuten köcheln lassen, bis sich die Aromen verbinden und Flüssigkeit reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reife Kochbananen schälen und schräg in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öl in einer separaten Pfanne erhitzen und Kochbananenscheiben insgesamt etwa 3-4 Minuten von beiden Seiten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schwarze Bohnen in einem separaten Topf mit etwas Wasser erwärmen, falls nötig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reis als Grundlage servieren, die Rindfleischmischung daraufgeben und gebratene Kochbananen sowie schwarze Bohnen dazu anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/v00YdkWMdDtDfPCftxUKJKP9C0k=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/venezuelan-steak-with-black-beans-rice-3029474-HERO-01-00cbdc36c7154a2faf1c4f5376f926e1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/v00YdkWMdDtDfPCftxUKJKP9C0k=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/venezuelan-steak-with-black-beans-rice-3029474-HERO-01-00cbdc36c7154a2faf1c4f5376f926e1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1196 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-melonpan",
+      "slug": "bake-melonpan",
+      "title": "Melonpan",
+      "instructions": "Japanische Milchbrötchen wie aus der Bäckerei: luftige, leicht süße Hefebrötchen mit knuspriger Zuckerkekskruste, dem typischen Rautenmuster und grobem Zucker. Außen mürbe, innen weich und fluffig.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weizenmehl eignet sich sowohl für den Teig als auch für die Kruste. Falls du kein Brotmehl kaufen möchtest, knete den Teig einfach ein paar Minuten länger, damit sich das Klebergerüst entwickelt.",
+        "Verzichte auf gekauften groben Zucker: Zerkleinere normalen Kristallzucker kurz oder verwende ihn direkt zum Bestreuen.",
+        "Die Brötchen lassen sich gut einfrieren. Friere sie nach dem Abkühlen ein und backe sie 5 Minuten bei 300F auf, damit die Kruste wieder knusprig wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "verwenden any Milch du have, oder Wasser plus ein extra Teelöffel von Butter",
+          "savings": "Spart den Milchkauf bei leerem Kühlschrank"
+        },
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "natur granulated Zucker, oder weglassen der bestreuen entirely",
+          "savings": "~$3 gegenüber einem Beutel besonderem groben Zucker"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "ein pinch von Zimt oder just omit it",
+          "savings": "Spart die Kosten von Vanilleextrakt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "melonpan (deutsche Fassung)",
+        "Brot",
+        "süß",
+        "Backen",
+        "cookie-crust (deutsche Fassung)",
+        "enriched-Teig",
+        "bakery (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7500,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-melonpan/",
+      "components": [
+        {
+          "key": "ac4cecad-a6d6-5a2a-a652-1eb75729f99f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 49.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "51bc7125-a3b7-5744-85e1-70a5fa0837e2",
+              "ingredientName": "Weizenmehl",
+              "grams": 204,
+              "quantity": 204,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "backstarkes Mehl für den Teig + Weizenmehl für die Kekskruste, insgesamt ~400g"
+            },
+            {
+              "key": "f0f3bd66-142e-5a75-925e-cb5301044c74",
+              "ingredientName": "Instant-Hefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL / ~6g"
+            },
+            {
+              "key": "935421e4-8e73-5f83-8685-90c4ae73b9bd",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "warm, ~140ml für den Teig"
+            },
+            {
+              "key": "389378d8-3fdf-5a13-82c3-2add57ca3bd1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 für den Teig, 1 für die Kekskruste"
+            },
+            {
+              "key": "26d980fe-530c-500d-9d05-7435f7f1dce3",
+              "ingredientName": "Butter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "30g weich im Teig + 50g weich in der Kruste"
+            },
+            {
+              "key": "c064272b-4b09-5194-94ca-53d939ee33d7",
+              "ingredientName": "weißer Zucker",
+              "grams": 6.75,
+              "quantity": 6.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "40g im Teig + 70g in der Kekskruste"
+            },
+            {
+              "key": "ed24746c-158b-53ba-9ecc-212c5f2eb83a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "1fd7cb80-c01e-58ef-8ba9-aea4e0cf50ee",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL in der Kekskruste"
+            },
+            {
+              "key": "40ffddd9-e97e-531c-8224-1b5145cf3754",
+              "ingredientName": "Turbinado Zucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "grober Zucker zum Bestreuen der Kruste"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre Trockenhefe in warme Milch und lasse sie 5 Minuten schäumen. Gib dann 1 verquirltes Ei, 40g Zucker und Salz dazu. Arbeite etwa 250g Brotmehl ein, bis ein grober Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig 8-10 Minuten, bis er glatt und elastisch ist. Arbeite nach der halben Zeit 30g weiche Butter ein. Der Teig sollte sich dünn ausziehen lassen, ohne zu reißen. Decke ihn ab und lasse ihn an einem warmen Ort 60-90 Minuten gehen, bis er doppelt so groß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Kekskruste 50g weiche Butter mit 70g Zucker hell und cremig schlagen. 1 Ei und Vanille einrühren, dann etwa 150g Mehl unterheben. Den weichen Keksteig 20-30 Minuten kalt stellen, bis er formbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Luft aus dem gegangenen Teig und teile ihn in 8 gleich große Stücke. Forme glatte, feste Kugeln und lasse sie 10 Minuten unter einem Tuch ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den kalten Keksteig in 8 Stücke. Drücke jedes Stück zwischen Frischhaltefolie zu einer dünnen Scheibe und lege eine Scheibe auf jedes Brötchen. Drücke sie leicht an, sodass sie die oberen zwei Drittel bedeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wälze die Brötchen mit Kekskruste in grobem Zucker. Ritze mit einem Teigschaber oder Messer ein Rautenmuster ein, das an eine Melonenschale erinnert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Setze die Brötchen mit genügend Abstand auf mit Backpapier belegte Bleche. Lasse sie unbedeckt 40-50 Minuten gehen, bis sie luftig sind. Ohne Abdeckung bleibt die Kruste knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe die Brötchen im auf 340F (170C) vorgeheizten Ofen 13-15 Minuten, bis die Kekskruste fest und blassgolden ist. Nicht zu stark bräunen, damit sie zart bleiben. Vor dem Essen mindestens 15 Minuten auf einem Gitter abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Melonpan.jpg/1280px-Melonpan.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Melonpan.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Sakurai Midori — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Melonpan",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-mooncakes",
+      "slug": "bake-mooncakes",
+      "title": "Kantonische Mondkuchen mit roter Bohnenpaste und gesalzenem Eigelb",
+      "instructions": "Klassische gebackene Mondkuchen aus Kanton mit zarter, glänzender Sirupkruste, süßer roter Bohnenpaste und einem herzhaften Kern aus gesalzenem Eigelb. In einer dekorativen Form geprägt und einige Tage gelagert, bis die Kruste weich und durchscheinend wird – wie beim Bäcker.",
+      "prepTimeMinutes": 120,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe fertige Lotus- oder rote Bohnenpaste aus der Dose, statt getrocknete Bohnen lange zu kochen. Das spart Zeit, Energie und Geld.",
+        "Goldsirup hält sich monatelang; eine Flasche reicht für mehrere Backrunden, da pro Mondkuchen nur wenig gebraucht wird.",
+        "Gesalzene Enteneigelbeutel gibt es in asiatischen Lebensmittelgeschäften günstiger als ganze gesalzene Eier. Kaufe nur die benötigte Anzahl Eigelbe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "corn-syrup",
+          "swap": "hausgemacht invert syrup (Zucker + Wasser + ein squeeze von Zitrone, simmered) oder Honig",
+          "savings": "Spart ~$3 gegenüber einer besonderen Flasche hellem Zuckersirup"
+        },
+        {
+          "forIngredientId": "red-beans",
+          "swap": "süß white lotus oder mung bean Paste, oder aufbewahren-bought canned Paste",
+          "savings": "Fertige Paste spart getrocknete Bohnen und eine Stunde Kochzeit"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "weglassen der salted yolk für natur Paste mooncakes",
+          "savings": "Spart ~$2 für gesalzene Enteneigelbe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "mooncake (deutsche Fassung)",
+        "mid-autumn-festival (deutsche Fassung)",
+        "Kantonesisch",
+        "gebacken",
+        "Nachtisch",
+        "red-bean (deutsche Fassung)",
+        "salted-Ei-yolk",
+        "traditional (deutsche Fassung)",
+        "Backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7501,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-mooncakes/",
+      "components": [
+        {
+          "key": "3420cda3-af66-5dfb-bc82-d4982b2b092a",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 48.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0fbadb3-62bc-54b1-a75c-b7d6b4a4de8f",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizen- oder Kuchenmehl, ~200g für die Siruphülle"
+            },
+            {
+              "key": "7a26869a-088b-51db-b236-9f8f6a3c6e43",
+              "ingredientName": "Maissirup",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "heller Zucker- oder Invertsirup, ~140g, als typischer Sirup für die Mondkuchenhülle"
+            },
+            {
+              "key": "73975719-69ab-5bae-bdb8-a78f9af245a9",
+              "ingredientName": "Peanut Öl (deutsche Fassung)",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "~50g neutrales Erdnussöl für den Teig"
+            },
+            {
+              "key": "eb9a1ab0-160a-5841-86fa-ffb5c4b945cd",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "alkalisches Wasser (Lauge/Kansui): winzige Prise in 1 TL Wasser aufgelöst, für Farbe und eine zarte Hülle"
+            },
+            {
+              "key": "39249242-2a28-509d-afc4-dc120bfb6c6e",
+              "ingredientName": "rote Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "zu ~600g süßer roter Bohnen- oder Lotussamenpaste verarbeitet; alternativ fertige Paste kaufen"
+            },
+            {
+              "key": "479b5d9f-386d-5281-be18-cff9316b4bce",
+              "ingredientName": "weißer Zucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "~120g zum Einkochen der Bohnenpaste"
+            },
+            {
+              "key": "3f1ae57c-5c13-5943-b6f0-84fe6252561a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 gesalzene Enteneigelbe auf die Kuchen verteilt und 1 Eigelb zum Bestreichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Füllung gekochte rote Bohnen mit Zucker und etwas Erdnussöl bei niedriger Hitze unter ständigem Rühren und Zerdrücken köcheln, bis eine formbare Paste entsteht, die sich vom Topfboden löst. Vollständig abkühlen lassen und in zwölf ~50g-Kugeln teilen. Alternativ fertige Paste verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle die gesalzenen Enteneigelbe ab, tupfe sie trocken und backe oder dämpfe sie, bis sie gerade fest sind. Halbiere jedes Eigelb, sodass zwölf Stücke entstehen. Drücke je eines in die Mitte jeder Pastenkugel und verschließe es durch erneutes Rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für den Sirupteig Gold- oder Invertsirup, Erdnussöl und alkalisches Wasser verrühren (eine Prise Natron in 1 TL Wasser auflösen). Mehl hineinsieben und nur so lange unterheben, bis ein weicher, leicht klebriger Teig entsteht. Nicht kneten. Abgedeckt 1 Stunde ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in zwölf ~25g-Stücke. Drücke jeweils ein Stück dünn rund aus, lege eine Füllungskugel darauf und ziehe den Teig vorsichtig rundherum, bis die Füllung vollständig eingeschlossen ist. Naht verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestäube die Mondkuchenform leicht mit Mehl, lege eine umhüllte Kugel mit der Naht nach oben hinein und drücke fest, damit sich das Muster einprägt. Löse den Kuchen auf einem mit Backpapier belegten Blech aus der Form. Mit den übrigen wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Besprühe die Oberseite leicht mit Wasser und backe bei 375F (190C) 5-6 Minuten, damit das Muster fest wird. Herausnehmen, 10 Minuten abkühlen lassen und die erhöhten Stellen sehr dünn nur mit verquirltem Eigelb bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 10-12 Minuten backen, bis die Mondkuchen goldbraun und die Seiten fest sind. Auf dem Blech vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bewahre die Mondkuchen 2-3 Tage in einem luftdichten Behälter bei Raumtemperatur auf (回油). Dabei nimmt die Kruste Öl aus der Füllung auf, wird weich, glänzend und leicht durchscheinend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mooncake.jpg/1280px-Mooncake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mooncake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Lybil BER — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kantonische Mondkuchen mit roter Bohnenpaste und gesalzenem Eigelb",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-kunafa",
+      "slug": "bake-kunafa",
+      "title": "Kunafa",
+      "instructions": "Klassische levantinische Käse-Kunafa: Unter einer knusprigen, goldenen Schicht aus buttrigem Kataifi-Teig verbirgt sich geschmolzener, ziehender Käse. Dazu kommen duftender Zitronen-Kardamom-Sirup und gehackte Pistazien. Warm servieren, damit der Käse Fäden zieht.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kataifi-Teig lässt sich gut einfrieren. Kaufe eine Packung im Geschäft für Lebensmittel aus dem Nahen Osten und friere die Hälfte für die nächste Portion ein, statt Dessertpreise zu zahlen.",
+        "Frischer Akkawi kann teuer sein. Mozzarella mit wenig Feuchtigkeit und etwas Ricotta ergibt den gleichen Käsezug für weniger Geld.",
+        "Koche den Sirup aus Zucker und Wasser und lasse Rosenwasser aus der Flasche weg. Einige Kardamomkapseln und Zitrone sorgen günstig für das Aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "geschmolzen unsalted Butter (clarify by skimming der foam)",
+          "savings": "Spart etwa $3-4 pro Zubereitung gegenüber Ghee aus dem Glas"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Soaked-und-rinsed frisch akkawi oder ein süß ricotta/ashta Füllung",
+          "savings": "Mozzarella einer Eigenmarke kostet ungefähr halb so viel wie importierter Akkawi"
+        },
+        {
+          "forIngredientId": "pistachios",
+          "swap": "zerdrückt Walnüsse oder slivered Mandeln",
+          "savings": "Spart etwa $4-5 gegenüber geschälten Pistazien"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "middle-eastern-levantine (deutsche Fassung)",
+        "Nachtisch",
+        "Naher Osten",
+        "Käse",
+        "syrup (deutsche Fassung)",
+        "pistachio (deutsche Fassung)",
+        "kataifi (deutsche Fassung)",
+        "süß",
+        "Vegetarier",
+        "Backen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7502,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-kunafa/",
+      "components": [
+        {
+          "key": "4e7ca66b-c74c-5ab3-a1c0-34794a8324d4",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 46.49,
+          "position": 0,
+          "items": [
+            {
+              "key": "19b36a7f-68cc-5d55-bc57-98bb751ec418",
+              "ingredientName": "Phyllo-Teig",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund Kataifi-Teigfäden (Knafeh), aufgetaut"
+            },
+            {
+              "key": "05742503-e719-5b8f-a503-72b20e2cdb53",
+              "ingredientName": "Ghee (deutsche Fassung)",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "geschmolzenes Butterschmalz oder Ghee zum Tränken des Gebäcks"
+            },
+            {
+              "key": "111021b2-3ee1-570b-b77e-5a9574527dd6",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "frischer Mozzarella mit geringem Feuchtigkeitsgehalt als Ersatz für Akkawi oder Nabulsi; Akkawi zum Entsalzen einweichen"
+            },
+            {
+              "key": "855e99b6-8e77-5a34-a1e1-328684f3c4c4",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "macht die Käseschicht weicher und ergiebiger, ähnlich süßer Ashta"
+            },
+            {
+              "key": "d5e9fd7d-319d-5f0a-ab68-66ce88409340",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für den Attar-Sirup und etwas für den Käse"
+            },
+            {
+              "key": "af3219ef-6ea3-5c6d-bc3e-7d48657775b2",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Saft verhindert das Kristallisieren des Sirups"
+            },
+            {
+              "key": "6fff522a-c0de-5934-9ae1-325d754d6590",
+              "ingredientName": "Green cardamom (deutsche Fassung)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "leicht angedrückte Kapseln zum Aromatisieren des Sirups (traditionell Rosen- oder Orangenblütenwasser)"
+            },
+            {
+              "key": "1e858ee3-4457-56b5-ad5c-1cda1f2cb452",
+              "ingredientName": "Pistazien",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "roh, zum Garnieren fein zerstoßen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Sirup, damit er abkühlen kann: Zucker mit derselben Menge Wasser und zerdrücktem Kardamom in einem kleinen Topf aufkochen. Etwas Zitronensaft dazugeben und 8-10 Minuten leicht sirupartig einkochen. Vom Herd nehmen und vollständig abkühlen lassen. Kalter Sirup auf heißer Kunafa sorgt für Knusprigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 400F (200C) vor. Zupfe den Kataifi-Teig in einer großen Schüssel auseinander und lockere die Fäden, damit sie die Butter gleichmäßig aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das geschmolzene Ghee über den Teig und arbeite es mit den Fingern ein, bis alle Fäden glänzen. So werden sie goldbraun und splitterknusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zupfe den Mozzarella in kleine Stücke und vermische ihn mit Ricotta und einem Löffel Zucker zu einer weichen, streichfähigen Käsefüllung. Falls du salzigen Akkawi verwendest, weiche ihn zuerst in Wasser ein und tupfe ihn trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke etwas mehr als die Hälfte des gebutterten Kataifi-Teigs fest auf den Boden und etwas an den Rand einer gebutterten runden oder gusseisernen Form. Die Schicht soll gleichmäßig und kompakt sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Käsemischung gleichmäßig auf dem Boden und lasse einen kleinen Rand frei. Bedecke sie vollständig mit dem übrigen gebutterten Kataifi und drücke alles fest an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Kunafa 30-40 Minuten, bis die Oberfläche dunkelgolden ist und sich die Ränder von der Form lösen. Für einen besonders knusprigen Boden die letzten Minuten auf dem Herd erhitzen oder kurz grillen und dabei genau beobachten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stürze die Kunafa sofort, solange sie sehr heiß ist, auf eine Servierplatte. Gieße den abgekühlten Sirup gleichmäßig darüber; er zischt und zieht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Großzügig mit gehackten Pistazien bestreuen und sofort warm servieren. In Stücke schneiden, sodass der Käse Fäden zieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kunafa%2C_Bangalore_%282025%29_03.jpg/1280px-Kunafa%2C_Bangalore_%282025%29_03.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kunafa,_Bangalore_(2025)_03.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Gpkp — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kunafa",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-maamoul",
+      "slug": "bake-maamoul",
+      "title": "Ma’amoul mit Dattelfüllung",
+      "instructions": "Zarte, im Mund schmelzende levantinische Mürbeteigkekse aus Hartweizengrieß und Mehl, reich an Ghee und aromatisiert mit Orangenblüte und Kardamom. Gefüllt mit gewürzter Medjool-Dattelpaste, traditionell in Holzformen geprägt, hell gebacken und mit Puderzucker bestäubt. Ein typisches Festgebäck zu Eid und Ostern in Syrien, Libanon und Palästina.",
+      "prepTimeMinutes": 55,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hartweizengrieß in größeren Mengen in einem Geschäft für Lebensmittel aus dem Nahen Osten oder Südasien. Er ist dort viel günstiger und bildet die Grundlage des Gebäcks.",
+        "Keine Ma’amoul-Form? Mit einer Gabel, dem Ende eines Teelöffels oder einer Küchenpinzette lassen sich traditionelle Muster von Hand kostenlos gestalten.",
+        "Datteln kurz vor dem Mindesthaltbarkeitsdatum sind oft stark reduziert und weicher, sodass sie sich leichter zu einer Füllung zerdrücken lassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "Melt normal unsalted Butter und skim der foam, oder verwenden plant Butter für ein dairy-free version",
+          "savings": "Butter ist pro Unze meist günstiger als Ghee aus dem Glas"
+        },
+        {
+          "forIngredientId": "medjool-dates",
+          "swap": "Cheaper Deglet Noor dates oder ein ready-made date Paste block",
+          "savings": "Spart 40-50% gegenüber hochwertigen Medjool-Datteln"
+        },
+        {
+          "forIngredientId": "orange-juice",
+          "swap": "ein few drops von Vanilleextrakt plus ein little Wasser wenn du have no blossom Wasser oder juice",
+          "savings": "Verwendet Vorratszutaten statt einer besonderen Flasche"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "levantine-lebanese-syrian-palestinian (deutsche Fassung)",
+        "Nachtisch",
+        "cookies (deutsche Fassung)",
+        "date-filled (deutsche Fassung)",
+        "eid (deutsche Fassung)",
+        "easter (deutsche Fassung)",
+        "Naher Osten",
+        "shortbread (deutsche Fassung)",
+        "machen-ahead",
+        "Vegetarier",
+        "holiday (deutsche Fassung)",
+        "Backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7503,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-maamoul/",
+      "components": [
+        {
+          "key": "85e783ac-765d-5bdd-8a58-be36cf884105",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 29.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fbaa8a1-59a7-5508-89e4-5d3e398e9771",
+              "ingredientName": "Grieß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "feiner Grieß (Smeed) als Grundlage des Teigs"
+            },
+            {
+              "key": "65b7a2f5-922c-5cff-99d9-f5d445580bf0",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl für die Struktur"
+            },
+            {
+              "key": "66780f73-ca0a-5f0a-9794-80809c416e06",
+              "ingredientName": "Ghee (deutsche Fassung)",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder Butterschmalz (Samneh), warm geschmolzen"
+            },
+            {
+              "key": "f6a91d90-8845-5a0b-9b59-2d18a2c2a8f5",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nur wenig im Teig, die meiste Süße liefern die Datteln"
+            },
+            {
+              "key": "6fe19c8e-e298-519b-a2b8-b2ef31f64021",
+              "ingredientName": "Kardamom",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "gemahlen, als Ersatz für Mahleb"
+            },
+            {
+              "key": "fa630e98-098a-52de-8ee3-8ad3088816eb",
+              "ingredientName": "Orangensaft",
+              "grams": 14.4,
+              "quantity": 14.4,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "als Ersatz für Orangenblütenwasser; falls vorhanden 1 EL Blütenwasser verwenden"
+            },
+            {
+              "key": "4300ba46-1ffa-59f7-a365-8fb72c61dc11",
+              "ingredientName": "Instant-Hefe",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "winzige Prise, traditionell für eine leichtere Krume"
+            },
+            {
+              "key": "e50b3ea3-b3fa-55b2-a4ce-8bc1375b9990",
+              "ingredientName": "Milch",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "warm, zum Binden des Teigs"
+            },
+            {
+              "key": "995fd9e6-d64f-5120-9d4d-1f82a63ecd4c",
+              "ingredientName": "Medjool-Datteln",
+              "grams": 120,
+              "quantity": 1.2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "entsteint, für die Füllpaste"
+            },
+            {
+              "key": "8beb050a-fcec-59ed-95ee-378b84d80263",
+              "ingredientName": "Zimt",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "gemahlen, für die Dattelfüllung"
+            },
+            {
+              "key": "e252f7a0-7c68-5b57-a383-6b474bfb387f",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "eine Prise in der Dattelpaste"
+            },
+            {
+              "key": "73d787e8-c7b0-553f-a118-c000771e0849",
+              "ingredientName": "Puderzucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Bestäuben der gebackenen Kekse"
+            },
+            {
+              "key": "4d78938c-7c48-593e-846f-7d4add8c40b9",
+              "ingredientName": "Walnüsse",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "optional für Abwechslung unter einen Teil gehackte Walnüsse heben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische 1.5 Tassen feinen Hartweizengrieß, 1/2 Tasse Mehl, 2 EL Zucker, gemahlenen Kardamom und eine kleine Prise Trockenhefe in einer großen Schüssel. Gieße warmes, geschmolzenes Ghee darüber und verreibe es gründlich mit den Fingerspitzen, bis alle Körner überzogen sind und die Mischung feuchtem Sand ähnelt. Abgedeckt mindestens 4 Stunden oder über Nacht bei Raumtemperatur ruhen lassen. So quillt der Grieß und die Kekse werden zart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib am nächsten Tag Orangensaft (oder Orangenblütenwasser) und gerade so viel warme Milch zum Grieß, dass ein weicher, formbarer Teig entsteht. NICHT kneten; nur so lange bearbeiten, bis der Teig zusammenhält, sonst werden die Kekse zäh. Abdecken und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entferne die Kerne der Medjool-Datteln. Zerkleinere oder zerdrücke sie mit Zimt und einer Prise Muskatnuss zu einer glatten, klebrigen Paste. Falls sie zu fest ist, kurz erwärmen und einen TL Ghee einarbeiten. Zu kleinen Kugeln in Murmelgröße rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm ein walnussgroßes Stück Teig ab und drücke es in der Handfläche zu einer Mulde. Setze eine Dattelkugel hinein und ziehe den Teig darüber, bis die Füllung vollständig umschlossen ist. Verschließe die Stelle und rolle den Teig glatt, ohne Risse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke jede Kugel fest in eine bemehlte Ma’amoul-Form. Alternativ von Hand zu einer leicht abgeflachten Kuppel formen und die Oberseite mit einer Gabel oder Pinzette verzieren. Klopfe die Form einmal auf die Arbeitsfläche, löse den Keks und lege ihn mit dem Muster nach oben auf ein mit Backpapier belegtes Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 350F (175C) vor. Backe die Kekse auf der mittleren Schiene 15-20 Minuten, NUR bis die Unterseiten leicht goldgelb und die Oberseiten noch blass sind. Ma’amoul darf oben nicht bräunen, sonst wird es trocken. Drehe das Blech nach der Hälfte der Backzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Kekse vollständig auf dem Blech abkühlen. Warm sind sie zerbrechlich und werden erst beim Abkühlen fest. Danach großzügig mit Puderzucker bestäuben. Luftdicht aufbewahren; sie halten sich bis zu two Wochen und schmecken am zweiten Tag noch aromatischer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ma%27amoul_Filled_with_Dates_and_Nuts.jpg/1280px-Ma%27amoul_Filled_with_Dates_and_Nuts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ma%27amoul_Filled_with_Dates_and_Nuts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: روتانا — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ma’amoul mit Dattelfüllung",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-coconut-macaroons",
+      "slug": "bake-coconut-macaroons",
+      "title": "Kokosmakronen",
+      "instructions": "Zähe, goldbraune Kokosmakronen, gebunden mit gezuckerter Kondensmilch und aufgelockertem Eiweiß. Außen knusprig, innen saftig und dicht; nach Wunsch in dunkle Schokolade getaucht. Ein unkompliziertes Gebäck, für das keine Küchenmaschine nötig ist.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kokosraspeln lose oder in einer großen Packung statt in kleinen Backtütchen, um die Kosten pro Portion deutlich zu senken.",
+        "Lasse den Schokoladenüberzug weg, wenn du eine günstigere Variante möchtest. Die Makronen schmecken auch pur sehr gut.",
+        "Friere übrig gebliebenes Eigelb in einem abgedeckten Becher mit einer Prise Zucker ein und verwende es später für Pudding oder reichhaltigen Brotteig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "liquid-egg-whites",
+          "swap": "verwenden der whites aus 2 frisch whole Eier und save der yolks für weitere verwenden",
+          "savings": "Bei vorhandenen Eiern oft günstiger als eine Packung Flüssigeiweiß"
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "Any gehackt dark oder Milch Schokolade bar du already have",
+          "savings": "Spart einen zusätzlichen Beutel Schokostückchen"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "Just verwenden ein little extra Vanilleextrakt",
+          "savings": "Spart eine nur einmal benötigte Flasche Mandelextrakt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Nachtisch",
+        "cookies (deutsche Fassung)",
+        "coconut (deutsche Fassung)",
+        "no-mixer (deutsche Fassung)",
+        "machen-ahead",
+        "holiday (deutsche Fassung)",
+        "Backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7504,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-coconut-macaroons/",
+      "components": [
+        {
+          "key": "c0ec02a9-35d9-5802-890d-94db069d3de7",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 73.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "73361725-08af-520c-badd-f61f189f0663",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 14 oz / 5 Tassen Kokosraspeln"
+            },
+            {
+              "key": "5fb89552-645f-54f2-9d96-229ae481636a",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 280,
+              "quantity": 0.7,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "knapp 1 Dose (etwa 10-11 oz) als Bindemittel"
+            },
+            {
+              "key": "28e2ea8d-6f92-5d97-9734-1c32e3a0a4b8",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Eiweiße, weich aufgeschlagen"
+            },
+            {
+              "key": "fe5ba2b0-abee-50a8-90f6-dbaa588770bc",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL Vanilleextrakt"
+            },
+            {
+              "key": "2f3d3ddf-934b-5116-a620-1774cb7449af",
+              "ingredientName": "Mandelextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "1/4 TL für kräftigeres Aroma"
+            },
+            {
+              "key": "0e80b31f-8f08-5d12-9c1f-9eaf37bae709",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "86f4febb-fa41-5adf-9c66-0f1e7b01847a",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "etwa 2/3 Tasse, zum Eintauchen geschmolzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325F (160C) vor und belege zwei Backbleche mit Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Kokosraspeln, gezuckerte Kondensmilch, Vanille, Mandelextrakt und Salz in einer großen Schüssel, bis alle Kokosraspeln überzogen und die Masse dick und klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eiweiß in einer sauberen, fettfreien Schüssel zu weichen, glänzenden Spitzen. Dadurch wird die dichte Kokosmasse lockerer und die Makronen bekommen ein zartes Inneres.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe den Eischnee in zwei Portionen vorsichtig unter die Kokosmischung. Dabei möglichst viel Luft erhalten und trotzdem gleichmäßig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze mit einem Esslöffel oder kleinen Keksausstecher gut gefüllte Portionen von 1.5-Zoll auf das Backpapier, jeweils etwa 1 Zoll voneinander entfernt. Forme sie mit feuchten Fingern vorsichtig zu spitzen Pyramiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Makronen 18-22 Minuten, bis Spitzen und Ränder dunkelgolden sind und die Mitte blass bleibt. Drehe die Bleche nach der Hälfte der Backzeit für gleichmäßige Bräunung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Makronen 10 Minuten auf dem Blech abkühlen und fest werden. Lege sie dann zum vollständigen Abkühlen auf ein Gitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Überziehen Schokolade vorsichtig schmelzen, die Unterseite jeder abgekühlten Makrone eintauchen und auf Backpapier setzen. 10 Minuten kalt stellen, bis die Schokolade fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Coconut_Macaroons_%285940136052%29.jpg/1280px-Coconut_Macaroons_%285940136052%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Coconut_Macaroons_(5940136052).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: NGI197 — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kokosmakronen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

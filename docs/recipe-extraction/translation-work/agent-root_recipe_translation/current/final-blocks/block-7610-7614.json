@@ -1,0 +1,1404 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-bolo-de-arroz",
+      "slug": "bake2-bolo-de-arroz",
+      "title": "Bolo de Arroz (portugiesische Reismehl-Muffins)",
+      "instructions": "Klassische portugiesische Küchlein aus feinem Reismehl und Weizenmehl, aromatisiert mit Zitronenschale und einem Hauch Vanille. Die Krume ist dicht und dennoch zart, irgendwo zwischen Rührkuchen und Muffin, mit gewölbter Oberfläche aus grobem Zucker, der beim Backen fein knusprig wird. Traditionell in hohen Papierförmchen gebacken, damit sie nach oben aufgehen. Am besten am Backtag mit Kaffee.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reismehl aus der Backabteilung ist teuer. Schau im Asialaden oder internationalen Lebensmittelmarkt nach; dort kostet das gleiche feine weiße Reismehl oft nur ein Drittel.",
+        "Eine Zitrone liefert die nötige Schale. Presse den Rest in ein Glas Wasser oder hebe ihn für ein anderes Rezept auf.",
+        "Keine besonderen Papierförmchen nötig: Rolle Backpapier zu hohen Zylindern und setze sie in die Muffinmulden. So erhältst du den hohen Rand ohne Zusatzkosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "normal granulated Zucker (white-Zucker) sprinkled auf top — it won't crackle quite as much but still gives ein süß crust.",
+          "savings": "Spart den Kauf einer separaten Tüte groben Zuckers"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenöl (verwenden etwa 9 tbsp) für ein lighter, longer-keeping crumb — common in many zu Hause versions; beat it mit der Zucker und Eier anstatt creaming.",
+          "savings": "Öl ist pro Zubereitung günstiger als Butter"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Whole Milch thinned aus any Milch du have, oder natur Joghurt loosened mit ein splash von Wasser für ein slightly tangier, moister cake.",
+          "savings": "verwendet Milch, die bereits vorrätig ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "portugiesisch",
+        "Backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7610,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-bolo-de-arroz/",
+      "components": [
+        {
+          "key": "0ef11cf4-9675-513e-be4e-f69dbe9c01d2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 126.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "7df81c44-fe41-5b81-9148-fb773b765537",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen feines weißes Reismehl"
+            },
+            {
+              "key": "78f80376-4ac0-54b2-b049-90ea42875254",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "0069bd36-9f1e-56e0-b31d-351fa0cbc40f",
+              "ingredientName": "Backpulver",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 TL Backpulver"
+            },
+            {
+              "key": "8c50f5cc-78bf-5e23-b678-d445c924ed82",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "3edb61b6-2051-51dc-b6b9-00e0631d3858",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "10 EL (1 1/4 Stangen) ungesalzene Butter, weich"
+            },
+            {
+              "key": "2cd59ea0-4b4f-50ee-af70-ed918366d91c",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "39ef5ba3-f209-5673-9d6a-195da6cec5d6",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 große Eier, zimmerwarm"
+            },
+            {
+              "key": "1cb8e7d9-787d-55a5-b176-ea3ba71d675c",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL fein abgeriebene Zitronenschale (von etwa 1 Zitrone)"
+            },
+            {
+              "key": "69061e05-4016-5f17-8295-049ed87305bd",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "0b3c440a-e85c-56d5-aa44-d01163ef4abe",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 Tasse Vollmilch, zimmerwarm"
+            },
+            {
+              "key": "717d7bf9-6a61-51c9-bd67-b393aea79f9d",
+              "ingredientName": "Turbinado-Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL grober Turbinadozucker zum Bestreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter mittig in den Ofen und heize auf 350F (175C) vor. Lege eine Muffinform mit 12 Mulden mit Papierförmchen aus. Verwende für die traditionelle hohe Form Förmchen, die über den Rand der Form hinausragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Reismehl, Weizenmehl, Backpulver und Salz gleichmäßig in einer Schüssel. Die Mischung beider Mehle ergibt die charakteristisch leicht sandige, zarte Krume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage weiche Butter und Kristallzucker bei mittelhoher Stufe 3 bis 4 Minuten hell und luftig. Nicht abkürzen: Die eingeschlagene Luft sorgt zusammen mit dem Backpulver für den Großteil des Aufgehens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Eier einzeln dazu und schlage nach jeder Zugabe gut. Schabe die Schüsselränder ab und rühre dann Zitronenschale und Vanille ein. Der Teig soll glatt und leicht glänzend aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib bei niedriger Stufe die Mehlmischung in drei Portionen abwechselnd mit Milch in zwei Portionen dazu, beginne und ende mit Mehl. Rühre nur, bis die jeweilige Portion gerade eingearbeitet ist. Nicht überrühren, sonst wird die Krume zäh. Der Teig ist dick und löffelbar, nicht gießfähig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Teig gleichmäßig auf die 12 Förmchen und fülle jedes etwa zu drei Vierteln. Eine gehäufte Kugelportion pro Förmchen passt gut. Großzügig mit grobem Turbinadozucker bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe 22 bis 26 Minuten, bis die Oberfläche gewölbt und goldbraun ist und ein Zahnstocher aus der Mitte sauber herauskommt. Der Zucker soll fest und leicht knusprig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Muffins 5 Minuten in der Form abkühlen und lege sie dann auf ein Gitter. Noch leicht warm oder bei Raumtemperatur am selben Tag servieren, am besten zu kräftigem Kaffee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Bolo_de_Arroz_%28Lisbon%29_%28460849845%29_%282%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bolo_de_Arroz_(Lisbon)_(460849845)_(2).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Sergio Calleja (Life is a trip) from Barcelona, Spain, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Bolo de Arroz (portugiesische Reismehl-Muffins)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-szarlotka",
+      "slug": "bake2-szarlotka",
+      "title": "Szarlotka (polnischer Apfelkuchen)",
+      "instructions": "Der echte polnische Szarlotka: buttriger, zarter Mürbeteig unten und oben, mit einer dicken, duftenden Schicht zimtiger Äpfel, die beim Kochen ihre Form behalten. Die Hälfte des Teigs wird gefroren über die Füllung gerieben und goldgelb gebacken; Puderzucker kommt zum Schluss darüber. Gemütlich, nicht zu süß und am nächsten Tag noch besser.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe die günstigsten festen Äpfel. Eine Tüte Äpfel zum Backen eignet sich bestens, da sie ohnehin gekocht und gewürzt werden.",
+        "Keine Küchenmaschine nötig: Kalte Butter von Hand oder mit zwei Gabeln einarbeiten. So wird der Mürbeteig genauso zart und kostet nichts extra.",
+        "Bereite den Kuchen einen Tag vorher zu. Szarlotka hält sich 3-4 Tage und schmeckt nach dem Durchziehen sogar besser. Ein Backen reicht für eine Woche Naschereien."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "natur Greek Joghurt works one-für-one in der Teig",
+          "savings": "verwende, was bereits da ist, statt einen Becher zu kaufen"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Kartoffel starch (very traditional in Poland) oder ein extra few Minuten von cooking zu reduce der juices",
+          "savings": "kostet nichts extra, wenn du die Äpfel länger einkochst"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Blitz granulated Zucker in ein blender, oder just verwenden granulated in der Teig",
+          "savings": "erspart den Kauf einer separaten Tüte Puderzucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polish (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "Apfel",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7611,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-szarlotka/",
+      "components": [
+        {
+          "key": "b9ce3b03-c22d-5960-b754-ed3fcf0579d7",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 173.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "51216d88-279f-5511-98cb-83a204965b5c",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "65e8f4ee-249e-5ecc-a39b-c1c44b3eb4a3",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stangen) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "99adecbf-da06-5939-8f89-2a4b2c0b6de1",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse Puderzucker, plus etwas mehr zum Bestäuben"
+            },
+            {
+              "key": "25cfd4ec-c8c6-5c90-86d3-ee31d0561cb7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eier (1 ganzes Ei und 1 Eigelb für den Teig; 1 Eiweiß zurückbehalten)"
+            },
+            {
+              "key": "e7bdc290-949e-531b-ae2f-930c0b9c0043",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL Sauerrahm"
+            },
+            {
+              "key": "2e72913b-6246-582f-afe2-b93c4099e080",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "a35bf75b-bdfc-5710-83fc-a1111d977a43",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "dde92f27-f2c7-540c-b2bf-7c7c93f3b0ba",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "187d86a1-b15b-5ae1-bbec-1cb70e642cf0",
+              "ingredientName": "Apfel",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 große säuerliche Äpfel (etwa 3 1/2 lb), geschält und grob gerieben oder dünn geschnitten"
+            },
+            {
+              "key": "13710ca5-42c6-5609-b5f2-57f6a717d4f2",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker für die Äpfel"
+            },
+            {
+              "key": "b6424c6d-740b-5e53-bcb2-44c7d2060160",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 TL gemahlener Zimt"
+            },
+            {
+              "key": "5ba350ec-be28-583c-bfd2-17a514ff0fe9",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL Zitronensaft"
+            },
+            {
+              "key": "c57fc0ae-e4cf-59ec-8c2d-fe691a8c08f1",
+              "ingredientName": "Speisestärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL Speisestärke zum Binden des Apfelsafts"
+            },
+            {
+              "key": "2019899a-fc71-5870-8e81-39beede4fd12",
+              "ingredientName": "Ganze Nelken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/4 TL gemahlene Nelken (optional, traditionelle Note)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Puderzucker, Backpulver und Salz in einer großen Schüssel. Kalte Butterwürfel mit den Fingerspitzen oder in der Küchenmaschine einarbeiten, bis grobe Streusel entstehen. 1 ganzes Ei, 1 Eigelb (Eiweiß aufbewahren), saure Sahne und Vanille dazugeben und nur so lange vermengen, bis ein Teig entsteht. In ein etwas größeres und ein kleineres Stück teilen, zu Scheiben drücken, einwickeln und mindestens 30 Minuten kalt stellen; das kleinere Stück kommt ins Gefrierfach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Füllung Äpfel schälen und grob reiben oder dünn schneiden. Mit Zitronensaft vermischen und mit Kristallzucker in einem weiten Topf oder einer Pfanne bei mittelhoher Hitze 10-15 Minuten unter häufigem Rühren kochen, bis die Äpfel weich sind und die meiste Flüssigkeit verdampft ist. Zimt und Nelken einrühren. Maisstärke darüberstreuen und 1 Minute kochen, bis der Saft eindickt. Auf einem Teller vollständig abkühlen lassen; die Füllung soll dick, nicht wässrig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 350F (175C) vor. Lege eine Form von 9x13-Zoll mit Backpapier aus und lasse es an zwei Seiten überstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle das größere kalte Teigstück auf einer bemehlten Fläche passend aus oder drücke es mit den Fingern gleichmäßig auf den Boden und etwa 1/2 Zoll an den Seiten hoch. Stich den Boden mit einer Gabel ein. Backe ihn allein 12-15 Minuten, bis er gerade fest und kaum gebräunt ist. Herausnehmen und kurz abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die abgekühlte Apfelfüllung gleichmäßig und dick bis an die Ränder auf dem vorgebackenen Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reibe das gefrorene kleinere Teigstück grob direkt über die Äpfel, sodass lockere rustikale Raspeln die Oberfläche bedecken. Einige Lücken für den Dampf lassen. Bestreiche die Raspeln leicht mit dem aufbewahrten Eiweiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Kuchen 40-50 Minuten, bis der obere Teig fest und hellgolden ist. Falls er zu schnell bräunt, locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse den Kuchen vollständig in der Form abkühlen, damit die Füllung fest wird und sich sauber schneiden lässt. Am Backpapier herausheben, großzügig mit Puderzucker bestäuben und in 12 Quadrate schneiden. Am nächsten Tag noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/POL_szarlotka.JPG/1280px-POL_szarlotka.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:POL_szarlotka.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public domain",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Szarlotka (polnischer Apfelkuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-makowiec",
+      "slug": "bake2-makowiec",
+      "title": "Makowiec (polnischer Mohnstrudel)",
+      "instructions": "Der echte polnische Mohnstrudel zu Weihnachten und Ostern: zarter, buttriger Hefeteig, fest gerollt um eine aromatische Mohnfüllung mit Honig, Butter, Walnüssen, Rosinen und Orangenschale. Der Spiralschnitt ist entscheidend, also fest aufrollen. Mit einfacher Puderzuckerglasur vollenden.",
+      "prepTimeMinutes": 60,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mohn lose im Gewürzladen oder internationalen Lebensmittelgeschäft statt in kleinen Supermarktgläsern. Nach Gewicht ist er viel günstiger; du brauchst volle zwei Tassen.",
+        "Kein Fleischwolf? Eine saubere Kaffee- oder Gewürzmühle oder ein Stabmixer eignet sich zum Mahlen der überbrühten Körner. In kleinen Portionen arbeiten.",
+        "Lasse Walnüsse weg und gib zusätzlich 1/4 Tasse Rosinen hinein, falls Nüsse zu teuer sind. Der Strudel bleibt traditionell und die Füllung durch Honig und Butter reichhaltig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "verwenden Mandeln oder pecans, finely gehackt, in der same amount",
+          "savings": "ungefähr gleich teuer; nimm die jeweils günstigste Nuss"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "ersetzen ein gleich amount von maple syrup oder ein dick Zucker syrup",
+          "savings": "spart ein paar Dollar, wenn Honig teuer ist"
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "verwenden Zitronenschale, oder 1/2 tsp Orange oder Zitrone extract",
+          "savings": "verwende eine Zitrusfrucht, die bereits da ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polish (deutsche Fassung)",
+        "Backen",
+        "christmas (deutsche Fassung)",
+        "easter (deutsche Fassung)",
+        "yeasted (deutsche Fassung)",
+        "Nachtisch",
+        "poppy-seed (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "rolled-cake (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7612,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-makowiec/",
+      "components": [
+        {
+          "key": "238198fe-8afb-521d-a368-70c6e21a9662",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 195.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6515948-43ed-5879-8781-0085e61e0c66",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Weizenmehl, plus etwas mehr zum Bestäuben"
+            },
+            {
+              "key": "5610159c-18ed-5421-a215-2b7a7d80ef4c",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch, lauwarm erwärmt"
+            },
+            {
+              "key": "37a96d2a-6888-56b2-88ff-9dc33465e2be",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen (2 1/4 TL) Trockenhefe"
+            },
+            {
+              "key": "8cd7e467-5d5e-592e-94a0-b6d61d3ce54a",
+              "ingredientName": "Zucker",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 EL Kristallzucker für den Teig"
+            },
+            {
+              "key": "6b0b834c-d20d-519e-ac7b-ef4506719dcf",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stange) ungesalzene Butter, weich, für den Teig"
+            },
+            {
+              "key": "aa1f57aa-3309-59f4-9618-91f18f213df8",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 große Eier (2 ganze für den Teig, 1 getrennt: Eiweiß für die Füllung, Eigelb zum Bestreichen)"
+            },
+            {
+              "key": "d6f984bb-8da9-5293-93cb-468cfc007fd4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "8bb58ee7-2592-56df-81b3-a6678a11d83c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "717433a5-dc1f-5162-8675-d3e25bcf34d4",
+              "ingredientName": "Mohnsamen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen (laut Katalog etwa 16 TL) Mohnsamen, das Herzstück der Füllung"
+            },
+            {
+              "key": "9c8f6e3d-b554-51fb-861e-1e70f15212d2",
+              "ingredientName": "Honig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse Honig"
+            },
+            {
+              "key": "646abea1-b5a7-54a3-9558-5169036051fd",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesalzene Butter für die Füllung"
+            },
+            {
+              "key": "598c690c-d22c-5b00-9f43-471b570ac6ef",
+              "ingredientName": "Zucker",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "6 EL Kristallzucker für die Füllung"
+            },
+            {
+              "key": "da6fcfc9-8613-5870-84f3-18d6ee55ab00",
+              "ingredientName": "Walnüsse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3/4 Tasse Walnüsse, fein gehackt"
+            },
+            {
+              "key": "d4d52787-96bb-5674-be42-ff01fd5a1614",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/2 Tasse Rosinen"
+            },
+            {
+              "key": "6a7fb0cb-bb07-5d8a-9cdc-fb1cdce97033",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Orange"
+            },
+            {
+              "key": "79af0db5-7938-5040-b8ba-6d66832b1aab",
+              "ingredientName": "Mandelextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1/2 TL Mandelextrakt"
+            },
+            {
+              "key": "84da4b65-d7db-5a8b-b3a3-b2f2123659e6",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "3/4 Tasse Puderzucker für die Glasur"
+            },
+            {
+              "key": "bea9c20c-bb15-549d-9ab3-682598aa070a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "2 EL Zitronensaft für die Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Milch auf lauwarm (etwa 110F), rühre Hefe und 1 TL Teigzucker ein und lasse sie 10 Minuten schäumen. Vermische Mehl, restlichen Teigzucker und Salz in einer großen Schüssel. Gib Hefemischung, 2 ganze Eier, weiche Butter und Vanille dazu. Knete 8-10 Minuten glatt, weich und elastisch. Abdecken und an einem warmen Ort etwa 1 bis 1.5 Stunden gehen lassen, bis der Teig doppelt so groß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Mohn in einen Topf, bedecke ihn mit Wasser, bringe alles zum Kochen und lasse es 5 Minuten köcheln. Sehr gut abtropfen lassen und zweimal durch einen Fleischwolf oder mit Gewürzmühle oder Stabmixer mahlen, bis die Körner ihr Öl abgeben und eine dicke graue Paste bilden. Mahlen ist wichtig, sonst schmecken die ganzen Körner fade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz 1/4 Tasse Butter mit Honig und Zucker für die Füllung im selben Topf. Gemahlenen Mohn einrühren und bei niedriger Hitze 5-8 Minuten dick und glänzend kochen. Vom Herd nehmen, Walnüsse, Rosinen, Orangenschale und Mandelextrakt einrühren. Auf lauwarm abkühlen lassen. Aufbewahrtes Eiweiß zu weichen Spitzen schlagen und unterheben, damit die Füllung leichter wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Luft aus dem Teig und rolle ihn auf einer bemehlten Fläche zu einem Rechteck von etwa 12 by 16 Zoll und 1/4 Zoll dick aus. Verteile die abgekühlte Mohnfüllung gleichmäßig darauf und lasse an allen Seiten einen 1-Zoll-Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig von einer langen Seite fest zu einem Strang auf. Drücke die Naht zu und schlage die Enden unter, damit die Füllung eingeschlossen bleibt. Mit der Naht nach unten auf ein mit Backpapier belegtes Blech legen. Locker abdecken und 30-40 Minuten gehen lassen, bis der Strang luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 350F (175C) vor. Verquirle das zurückbehaltene Eigelb mit einem Schuss Wasser und bestreiche den Strudel damit. Backe ihn 40-45 Minuten dunkelgolden, bis er beim Klopfen hohl klingt. Falls er zu schnell bräunt, locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Makowiec vollständig auf einem Gitter abkühlen; warm geschnitten reißt die Spirale. Verrühre Puderzucker und Zitronensaft zu einer dicken, aber gießfähigen Glasur und träufle sie darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide den Strudel mit einem Sägemesser in 3/4-Zoll dicke Scheiben, damit die Mohnspirale sichtbar ist. Gut eingewickelt hält er sich bei Raumtemperatur 3-4 Tage; am zweiten Tag wird das Aroma intensiver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Makowiec.jpg/1280px-Makowiec.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Makowiec.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Bartekbas, CC BY-SA 2.5, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Makowiec (polnischer Mohnstrudel)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-mazurek",
+      "slug": "bake2-mazurek",
+      "title": "Mazurek (polnische Oster-Mürbeteigtarte)",
+      "instructions": "Klassische polnische Ostertarte mit reichhaltigem, buttrigem Mürbeteig (kruche ciasto), goldbraun gebacken und mit säuerlicher Aprikosenkonfitüre bestrichen. Darauf kommen seidiges Dulce de Leche (Kajmak), geröstete Mandeln, getrocknete Aprikosen und Cranberrys. Dünn, süß und festlich, wie von einer polnischen Großmutter zu Wielkanoc gebacken.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche Kajmak selbst: Eine ungeöffnete Dose gezuckerte Kondensmilch etwa 2.5-3 Stunden vollständig mit Wasser bedeckt köcheln lassen. Das ist viel günstiger als Dulce de Leche zu kaufen.",
+        "Kaufe eine Tüte gemischte Trockenfrüchte und gehobelte Mandeln statt einzelne Packungen. Für die Dekoration brauchst du jeweils nur eine kleine Handvoll.",
+        "Verwende Konfitüre im Angebot, etwa Pflaume, Kirsche oder Orangenmarmelade. Diese Sorten sind ebenfalls traditionelle Böden für Mazurek; Aprikose muss nicht eigens gekauft werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dulce-de-leche",
+          "swap": "dick caramel Sauce oder hausgemacht condensed-Milch kajmak",
+          "savings": "Karamell aus Vorratszutaten ist oft günstiger als ein Glas Dulce de Leche"
+        },
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Plum Marmelade (powidla) oder Orange marmalade — both deeply traditional für mazurek",
+          "savings": "verwende die Konfitüre, die bereits im Kühlschrank steht"
+        },
+        {
+          "forIngredientId": "slivered-almonds",
+          "swap": "gehackt Walnüsse oder pecans",
+          "savings": "Walnüsse sind meist die günstigere Backnuss"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polish (deutsche Fassung)",
+        "Backen",
+        "easter (deutsche Fassung)",
+        "Nachtisch",
+        "shortcrust (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7613,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-mazurek/",
+      "components": [
+        {
+          "key": "36df990d-b3f3-508b-8b4c-418dac4474ff",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 78.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "1dc70e96-56ef-59f9-943f-e4bd0b7dc65b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl (plus etwas zum Ausrollen)"
+            },
+            {
+              "key": "6a406673-2f33-5f74-9262-16c324afe502",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse (1.5 Stangen) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "a51b5190-660e-57e3-b725-39262ea3e1a5",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Puderzucker"
+            },
+            {
+              "key": "29df9443-32a9-5b9e-9a9b-f3274d03143a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eigelb (Eiweiß für eine andere Verwendung aufbewahren)"
+            },
+            {
+              "key": "a74a6001-f3bb-5883-80b8-3c0ae786e181",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL Sauerrahm zum Binden des Teigs"
+            },
+            {
+              "key": "d1f73e0a-df5d-5f19-be0c-cda9fbee7e1c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "848d477c-c3dc-5887-8690-0c1831478673",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL fein abgeriebene Zitronenschale"
+            },
+            {
+              "key": "a6022c17-0322-5a81-a9d0-0303b180b3da",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "517b18c2-e0c0-5ac2-939e-4519c1be0e4a",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "8c2cf4a9-2264-56ef-8cb3-eb24ab8e05f4",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "6 EL Aprikosenkonfitüre für die Grundschicht"
+            },
+            {
+              "key": "00a806e7-f608-5a1d-ae68-ee7981e1aecb",
+              "ingredientName": "Dulce de leche",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 Tasse Dulce de Leche (Kajmak)"
+            },
+            {
+              "key": "a0b0e53b-62ba-5bfd-b802-393d331f408c",
+              "ingredientName": "Mandelstifte",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse Mandelblättchen, leicht geröstet"
+            },
+            {
+              "key": "3edf634e-db38-532c-bd2f-1c068e29d9f3",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/4 Tasse getrocknete Aprikosen, in Scheiben geschnitten"
+            },
+            {
+              "key": "cf4be2d8-617d-51ec-967c-2ffa6b978fbb",
+              "ingredientName": "getrocknete Cranberrys",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/4 Tasse getrocknete Cranberrys"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Puderzucker, Salz und Backpulver in einer Schüssel. Kalte Butterwürfel mit den Fingerspitzen oder in der Küchenmaschine zu groben Streuseln einarbeiten. Eigelb, saure Sahne, Vanille und Zitronenschale dazugeben und rasch zu einem glatten Teig zusammenfügen, ohne ihn zu überarbeiten. Zu einer Scheibe drücken, einwickeln und mindestens 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 350F (175C) vor. Lege ein Backblech oder eine rechteckige Tarteform von etwa 9x13 Zoll mit Backpapier aus. Rolle den kalten Teig auf einer bemehlten Fläche gleichmäßig 1/4-Zoll dick aus und lege ihn in die Form. Forme einen sauberen Rand und einen kleinen 1/2-Zoll hohen Rand, der die Füllung hält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stich den Boden überall mit einer Gabel ein, damit er sich nicht aufbläht. Backe ihn 18-22 Minuten, bis der Teig fest und blassgolden ist, mit etwas dunkleren Rändern. In der Form vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Aprikosenkonfitüre leicht, damit sie streichfähig wird. Verteile sie dünn und gleichmäßig auf dem abgekühlten Boden innerhalb des erhöhten Randes. Die säuerliche Schicht verhindert, dass der Mazurek zu süß wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Dulce de Leche (Kajmak) mit einer Winkelpalette glatt über der Konfitüre. Falls die Masse sehr fest ist, 10-15 Sekunden in der Mikrowelle erwärmen oder über einem warmen Wasserbad rühren, damit sie sich verstreichen lässt, ohne die Konfitüre mitzuziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dekoriere, solange der Belag noch klebrig ist: Verteile geröstete gehobelte Mandeln, getrocknete Aprikosenscheiben und getrocknete Cranberrys darüber. Traditionelle Mazurki werden üppig dekoriert, oft in Streifen, Gittermustern oder mit einem Ostergruß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Tarte etwa 30 Minuten bei Raumtemperatur oder kurz im Kühlschrank fest werden. Hebe sie am Backpapier heraus, schneide nach Wunsch die Ränder sauber und teile sie in kleine Quadrate oder Rechtecke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei Raumtemperatur mit Kaffee oder Tee servieren. Zugedeckt an einem kühlen Ort bis zu 4 Tage lagern. Der Teig bleibt zart und die Aromen entwickeln sich über Nacht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Mazurek_wielkanocny.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mazurek_wielkanocny.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Anwar2, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Mazurek (polnische Oster-Mürbeteigtarte)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-krem-wka",
+      "slug": "bake2-krem-wka",
+      "title": "Kremówka (polnischer Vanilleschnittenkuchen)",
+      "instructions": "Beliebter polnischer Cremekuchen: Zwei Schichten goldbraun gebackener Blätterteig umschließen eine dicke, glänzende Vanillecreme und werden mit Puderzucker bestäubt. Bekannt als „kremówka papieska“, nachdem Johannes Paul II. sie in Wadowice gern aß. Ein Dessert, auf das polnische Hobbybäcker stolz sind.",
+      "prepTimeMinutes": 60,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine 1 lb Packung Blätterteig der Hausmarke statt einfachen Plunderteig selbst herzustellen. Das kostet weniger als ein Stück gute Butter und geht im Kuchen genauso schön auf.",
+        "Verwende nur Eigelb und friere die 5 Eiweiße in einer Eiswürfelform ein. Aufgetaut ergeben sie später kostenlos Baiser oder ein Eiweißomelett.",
+        "Vollmilch sorgt für die reichhaltigste Creme. Falls du nur normale Milch hast, rühre einen zusätzlichen Esslöffel Butter in die fertige Creme; Sahne muss nicht extra gekauft werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "verwenden thawed aufbewahren-bought puff pastry für der two sheets anstatt der rough-puff Mehl-und-Butter Teig",
+          "savings": "spart etwa $1.50 und 90 Minuten Ausrollen und Kühlen"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "ein gleich amount von extra Mehl (verwenden 3/4 cup Mehl total in der custard) sets der Sahne just as firmly",
+          "savings": "erspart den Kauf von Speisestärke, etwa $0.40"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Scrape in half ein real vanilla bean, oder verwenden 2 tsp von der seeds-und-extract du have — even ein strip von Zitronenschale steeped in der Milch is traditional in some regions",
+          "savings": "ungefähr kostenneutral; Zitronenschale kostet praktisch nichts"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polish (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "custard (deutsche Fassung)",
+        "puff-pastry (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 9,
+      "status": "published",
+      "sortOrder": 7614,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-krem-wka/",
+      "components": [
+        {
+          "key": "d5ae0964-29b3-51b2-be7c-fd5320b4256d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 252.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6d09534-13c5-58fa-bae0-f7878ec6be3c",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl (2 Tassen für den groben Blätterteig, 1/2 Tasse für die Creme)"
+            },
+            {
+              "key": "ad71ea8d-6a91-5835-979b-e3bde525916e",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse kalte ungesalzene Butter (12 EL sehr kalt für den Teig; 4 EL weich unter die Creme rühren)"
+            },
+            {
+              "key": "9821aaf4-e32e-527c-904e-692be24a4489",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse eiskaltes Wasser zum Zusammenfügen des Teigs"
+            },
+            {
+              "key": "6a38e6a7-7b3c-55f7-b8b3-348eeec7ec37",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Salz (3/4 TL für den Teig, 1/4 TL für die Creme)"
+            },
+            {
+              "key": "5caebd45-d6cf-51e0-8cfa-2c7467307dd8",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen Vollmilch für die Creme"
+            },
+            {
+              "key": "85b4ed10-1893-5499-b07c-b223120ac7ef",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "5 große Eier (nur das Eigelb für die Creme; Eiweiß anderweitig verwenden)"
+            },
+            {
+              "key": "2a34f8b2-558d-5e10-937b-20af7f2a90a8",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker für die Creme"
+            },
+            {
+              "key": "ef2e73cb-44ab-5fab-90cb-65fd983b7d01",
+              "ingredientName": "Speisestärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse Speisestärke zum Festigen der Creme"
+            },
+            {
+              "key": "6284dee5-11bd-513b-ae8e-70b87b448b66",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL Vanille (echte Schote oder guter Extrakt; Vanille ist das Herzstück der Kremówka)"
+            },
+            {
+              "key": "24f415a1-25fb-5a60-b448-2f2672be9929",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL Puderzucker zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für einen schnellen Blätterteig 2 Tassen Mehl und 3/4 TL Salz verquirlen. 12 EL kalte Butter in kleine Würfel schneiden, zum Mehl geben und jedes Stück mit den Fingern flach drücken, bis unregelmäßige blättrige Stücke entstehen. Eiswasser nach und nach einträufeln und mischen, bis ein grober Teig gerade zusammenhält. Nicht kneten. Zu einem Rechteck drücken, einwickeln und 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den Teig auf einer bemehlten Fläche zu einem langen Rechteck aus, falte ihn wie einen Brief in drei Teile, drehe ihn um eine Vierteldrehung und rolle ihn erneut aus. Wiederhole das Falten und Ausrollen noch dreimal (insgesamt vier Faltungen). Wenn die Butter weich wird, 15 Minuten kalt stellen. So entstehen die Schichten. Einwickeln und weitere 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 400°F (200°C) vor. Teile den Teig in zwei Hälften und rolle jede zu einem Rechteck von etwa 9x9 Zoll und 1/8 Zoll Dicke. Auf mit Backpapier belegte Bleche legen und überall mit einer Gabel einstechen, damit sich der Teig nicht wölbt. Mit je einem zweiten Backpapier und einem leichten zweiten Blech belegen, damit die untere Schicht flach bleibt. Nacheinander 18-22 Minuten dunkelgolden und knusprig backen. Auf einem Gitter vollständig abkühlen lassen. Den schöneren Boden für die Oberseite aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Creme Milch mit Vanilleschote erwärmen, bis Dampf aufsteigt, aber nicht kochen; Extrakt später einrühren. Die 5 Eigelb mit 1 Tasse Zucker hell schlagen. 1/2 Tasse Mehl, Maisstärke und 1/4 TL Salz glatt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße zum Temperaturausgleich unter ständigem Rühren langsam etwa ein Drittel der heißen Milch zu den Eigelben. Alles zurück in den Topf geben und bei mittlerer Hitze unter kräftigem, ununterbrochenem Rühren 3-5 Minuten zu einem festen Pudding kochen, bis Blasen aufsteigen. Noch 1 Minute weiterrühren, damit der Stärke-Geschmack verschwindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen und 4 EL weiche Butter sowie Vanilleextrakt glänzend einrühren. Frischhaltefolie direkt auf die Oberfläche drücken und abkühlen lassen, bis die Creme nur noch lauwarm ist und einen aufrecht stehenden Löffel hält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege einen Blätterteigboden in eine mit Backpapier ausgelegte quadratische Form von 8x8 oder 9x9 Zoll. Verteile die gesamte Creme gleichmäßig darauf; sie sollte großzügig 1 bis 1.5 Zoll hoch sein. Das ist typisch für den Kuchen. Lege den zweiten Boden mit der flachen Seite nach oben vorsichtig darauf und drücke nur ganz leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle die zusammengesetzte Kremówka mindestens 4 Stunden, idealerweise über Nacht, kalt, bis die Creme fest und schneidbar ist. Kurz vor dem Servieren die Oberseite dick mit Puderzucker bestäuben. Mit einem scharfen Sägemesser in 9 Quadrate schneiden und die Klinge zwischen den Schnitten abwischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/020210904_145008_Papal_krem%C3%B3wka_from_Wadowice.jpg/1280px-020210904_145008_Papal_krem%C3%B3wka_from_Wadowice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:020210904_145008_Papal_krem%C3%B3wka_from_Wadowice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Silar, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kremówka (polnischer Vanilleschnittenkuchen)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

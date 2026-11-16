@@ -1,0 +1,1134 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bento-box",
+      "slug": "gen-bento-box",
+      "title": "Bento-Box",
+      "instructions": "Eine praktische japanische Lunchbox mit Reis, Hähnchen, Gemüse und kleinen Beilagen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nutze fertig gegrilltes Hähnchen aus der Feinkostabteilung des Supermarkts, statt selbst eines zuzubereiten.",
+        "Kaufe tiefgekühlte Edamame statt frischer. Sie sind günstiger und genauso nahrhaft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 4770,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bento-box/",
+      "components": [
+        {
+          "key": "6250d843-c2fa-5795-a291-64b5cbc1bb1e",
+          "name": "Zutaten",
+          "servingGrams": 1493.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "29ef5fe2-1a73-5308-a308-9b7d6567d7ee",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "7655828f-0319-5747-b520-232324dff9f1",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Blatt"
+            },
+            {
+              "key": "ead77ccb-50a1-5272-984f-34547286f59b",
+              "ingredientName": "Gegrilltes Hähnchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "086ed0c9-390e-506d-aa7e-8465354d2a27",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ mittelgroßes Stück"
+            },
+            {
+              "key": "7f3f5d91-0144-5556-b4ba-29f8e67a983f",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "ab839996-19f2-5f8e-bf09-b08b3081fa19",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "0aece117-a8c3-560c-9e5d-0eea4f7bcdde",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cda60073-1a7a-5c2f-b7ca-da3e5cb65e76",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e6cdf3ed-c382-54b8-855c-4c0d9348b5f5",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "31c20426-a12a-57da-b89f-3d0b5e9ccb31",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Unze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib den gekochten Reis in ein Fach der Bento-Box.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das gegrillte Hähnchen in mundgerechte Stücke und lege sie in ein weiteres Fach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Gurke in Scheiben und die Karotte in feine Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Gurke, Karotte, Edamame und Kirschtomaten in getrennten Fächern an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide das Nori-Blatt in Streifen und lege sie in die Box.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Sojasauce, Wasabi und eingelegten Ingwer in kleine Schälchen und stelle sie dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/RyzQXv6VawM5NVRC91eCJo6jnBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4539426-d4ab2a9422114093a6e7521c8a79d6b3.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/RyzQXv6VawM5NVRC91eCJo6jnBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4539426-d4ab2a9422114093a6e7521c8a79d6b3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fajita-bowl",
+      "slug": "gen-fajita-bowl",
+      "title": "Fajita-Bowl",
+      "instructions": "Mexikanische Bowl mit würzig gebratenem Hähnchen, Paprika, Bohnen und Reis.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und portioniere sie vor dem Einfrieren.",
+        "Verwende schwarze Bohnen aus der Dose statt getrockneter Bohnen. Das spart Zeit und Geld."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4771,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fajita-bowl/",
+      "components": [
+        {
+          "key": "267d4717-b899-5c22-81a1-1faf04bbfecc",
+          "name": "Zutaten",
+          "servingGrams": 547.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "63b9242f-8cef-5ebf-a506-525c70eeb635",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "¾ Pfund"
+            },
+            {
+              "key": "95e5777c-da05-5a98-a784-51d6e6cd850a",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "e8920cd4-8f9e-5e62-bb64-45829ba5692d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "48a77080-0b62-51d5-bd73-6c9fbf05615c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "53902a6c-522f-5c47-95ad-85855095bbab",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4d474845-9890-56ef-b10a-edc29f9ccf3e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "faaed8bb-32b9-5bd8-8370-7a7a425e9e2b",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1e32cd15-ea91-50c8-825a-7fe9b16005fb",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "40716ccc-14d2-55b8-bcee-2199cc7d9605",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "2d7d466a-d476-5a38-ac1e-5c7aba249219",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "809f000d-a9f8-5c2d-9cb1-1f91b318d7e3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6d2fbf21-bddc-5056-b657-abe34dc4ec5f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in dünne Streifen und hacke Paprika und Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittlerer bis hoher Hitze. Brate das Hähnchen darin etwa 6 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprika und Zwiebel in die Pfanne und brate sie 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Chilipulver und Kreuzkümmel über das Gemüse, rühre gut um und brate alles 1 Minute weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die schwarzen Bohnen abtropfen und erwärme sie. Verteile Reis und Bohnen auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Hähnchen-Paprika-Mischung darauf, bestreue sie mit Käse und Koriander und presse etwas Limettensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/07/Chicken-Avocado-Burrito-Bowl-IMAGE-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/07/Chicken-Avocado-Burrito-Bowl-IMAGE-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sushi-roll",
+      "slug": "gen-sushi-roll",
+      "title": "Sushi-Rolle",
+      "instructions": "Hausgemachte Sushi-Rolle mit gewürztem Reis, Gurke, Avocado und Krabbenfleisch.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Surimi statt echtem Krabbenfleisch, um deutlich zu sparen.",
+        "Kaufe Noriblätter und Sushireis in Großpackungen in einem asiatischen Lebensmittelgeschäft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4772,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sushi-roll/",
+      "components": [
+        {
+          "key": "a2590a71-2212-55c0-8f95-45ec5f382f47",
+          "name": "Zutaten",
+          "servingGrams": 555,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c9028d7-abfa-5ecc-b299-ea0112febf85",
+              "ingredientName": "Sushireis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "cb938b37-adf6-5612-afd9-46eb92b4152c",
+              "ingredientName": "Reisessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "9a5d3e19-b224-5694-b1fa-d9518c3da831",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ EL"
+            },
+            {
+              "key": "1dfdecdd-f412-5524-8c0b-b657f26fc16e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "1ea16dae-c760-5ea4-a66d-e528e5bdaca5",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e77368c7-6b80-554b-b569-0add1c8eec99",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ mittelgroßes Stück"
+            },
+            {
+              "key": "47aa14f4-b059-5ca5-8edf-46098194f3b9",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84139afa-0585-5c79-8adf-a582601e8591",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "2b9dff79-ba92-582a-be33-8688e5707042",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7d2deeef-f786-51e1-bada-c68b82042276",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1840bb15-5544-5600-89a3-a5ed96c55778",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Unze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Sushireis nach Packungsanleitung und lass ihn auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Reisessig, Zucker und Salz und rühre die Mischung unter den abgekühlten Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege ein Noriblatt mit der glänzenden Seite nach unten auf eine Bambusmatte zum Sush Rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile eine dünne Schicht gewürzten Reis gleichmäßig auf dem Noriblatt und lass am oberen Rand einen ½-inch breiten Streifen frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege Gurke, Avocado und Krabbenfleisch waagerecht in einer Linie in die Mitte des Reises.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle das Sushi mithilfe der Matte fest von dir weg auf und befeuchte den freien Rand mit Wasser, damit die Rolle geschlossen bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Rolle mit einem scharfen, feuchten Messer in 6-8 Stücke und richte sie auf einem Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie mit Sojasauce, Wasabi und eingelegtem Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/sushi-roll-recipe-1747841537.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/sushi-roll-recipe-1747841537.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanadilla",
+      "slug": "gen-empanadilla",
+      "title": "Empanadilla",
+      "instructions": "Spanische Teigtaschen mit würziger Rindfleischfüllung, Oliven und Rosinen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot oder ersetze es durch Hähnchenhackfleisch.",
+        "Bereite eine größere Menge zu und friere ungebackene Empanadillas für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4773,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanadilla/",
+      "components": [
+        {
+          "key": "17764d0f-0072-57af-ac72-87b3c79b3422",
+          "name": "Zutaten",
+          "servingGrams": 367,
+          "position": 0,
+          "items": [
+            {
+              "key": "07c9d359-70e9-51b8-8188-52d59dea0cff",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c7c4bda3-999b-5e71-829f-1def1d7c9bf4",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "58633dd7-883a-538e-bfd5-d2835a0b4155",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "c75d1c5b-93c0-5aa9-99b3-6350fe888684",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b49fdb3e-00f4-5220-ada7-925e0469e04e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "1539a3bc-cd40-558e-bcd8-462c06bde4c3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "840524fc-c55b-5be9-921e-6bba19d1a6be",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62d5f425-2bab-570e-aa5a-ac3b37e85af3",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "8b94397e-34a6-5418-be97-12fe22168d74",
+              "ingredientName": "Rosinen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bb95b429-1c7b-5706-add6-bd14507e9215",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "9300b238-8a33-5836-bf69-c5fb05aa7dbc",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Mehl, Salz und 6 tablespoons Butter, bis eine krümelige Masse entsteht. Gib warmes Wasser dazu, bis sich ein Teig bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig 5 Minuten. Decke ihn ab und lass ihn 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate gehackte Zwiebel und Knoblauch weich an. Gib das Rinderhackfleisch dazu und brate es, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gehackte Oliven, Rosinen, Paprikapulver und Salz ein. Lass die Füllung vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in 6 Stücke und rolle jedes Stück dünn zu einem Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 2 tablespoons Füllung auf jeden Kreis, klappe ihn in der Mitte zusammen und drücke die Ränder mit einer Gabel fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche die Teigtaschen mit verquirltem Ei und backe sie bei 375°F 20 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass sie vor dem Servieren 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/cxDL8YLb5Eb2Jx3c_8i5ks-1eaA=/5927x3941/filters:fill(auto,1)/chicken-empanadas-de-pollo-3029662-hero-01-b9c7760ffda1421cabd946b9ab74ebc8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/cxDL8YLb5Eb2Jx3c_8i5ks-1eaA=/5927x3941/filters:fill(auto,1)/chicken-empanadas-de-pollo-3029662-hero-01-b9c7760ffda1421cabd946b9ab74ebc8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-noodle-soup",
+      "slug": "gen-chicken-noodle-soup",
+      "title": "Hühnernudelsuppe",
+      "instructions": "Wärmende Hühnernudelsuppe mit zartem Hähnchen, Eiernudeln und Gemüse in kräftiger Brühe.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchen im Angebot und verwende sie sowohl für die Brühe als auch für das Fleisch.",
+        "Verwende Brühe und Nudeln der Hausmarke, um 30% zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4774,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-noodle-soup/",
+      "components": [
+        {
+          "key": "9adc087a-0e34-55b2-a20a-dadbf9073945",
+          "name": "Zutaten",
+          "servingGrams": 517,
+          "position": 0,
+          "items": [
+            {
+              "key": "df32ca79-38f6-511e-8503-b31483afc08a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cf301cb0-1c0a-5187-b643-dc26733495db",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "8f1ed911-0d53-54e0-961e-fd76f3f9e3c7",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a398d77f-f2f2-51cf-ba56-5be87b2c7766",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "3a80951a-45cc-536f-82bf-12f6853a0edf",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5ccfa98-0c6c-536d-a373-3361d719b891",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "1caac1c3-11d1-5c35-822a-e44b6137cb92",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea017e99-2e4c-5b9e-8e86-203c53d7387a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c208603c-feed-56bd-bf19-516b583fc55c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6293fadb-5327-5b2b-8308-fc391a57b68b",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Hühnerbrühe in einem großen Topf mit gewürfelter Zwiebel, Karotten, Sellerie und Knoblauch zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die ganzen Hähnchenbrüste dazu und lass sie 15 Minuten köcheln, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen aus dem Topf, zerpflücke es mit zwei Gabeln und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Eiernudeln in die Brühe und koche sie 8 Minuten, bis sie bissfest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das zerpflückte Hähnchen zurück in den Topf und rühre Salz, Pfeffer und Thymian ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Suppe 2 Minuten köcheln, probiere sie und passe die Würzung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Suppe heiß in Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipes-secure-graphics.grocerywebsite.com/0_GraphicsRecipes/5923_4k.jpg",
+          "sourcePageUrl": "https://recipes-secure-graphics.grocerywebsite.com/0_GraphicsRecipes/5923_4k.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

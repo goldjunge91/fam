@@ -1,0 +1,1171 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-bbq-smash-burger",
+      "slug": "mfr-bbq-smash-burger",
+      "title": "Smash-Burger mit Spezialsoße",
+      "instructions": "Der virale Burger mit dünnem Patty: Eine Kugel Rinderhackfleisch wird auf einer glühend heißen gusseisernen Platte fest angedrückt, bis die Ränder Spitzen bilden und die Oberfläche karamellisiert und knusprig wird. Belegt mit amerikanischem Käse, gewürfelter Zwiebel, Gewürzgurken und einer würzigen Spezialsoße.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch mit 80/20-Fettanteil ist traditionell. Das Fett hält Smash-Burger saftig.",
+        "Das Andrücken ist unverzichtbar: So karamellisiert das Fleisch, anders als bei normalen Burgern.",
+        "Zwei dünne Patties pro Burger sind besser als ein dickes."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheese",
+          "swap": "Amerikanischer Käse ist die traditionelle Wahl und schmilzt am schnellsten"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Kartoffelbrötchen von Martin's sind die klassischen Smash-Burger-Brötchen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-smash-burger",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Smash-Burger",
+        "Burger",
+        "Gusseisen",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1540,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-smash-burger/",
+      "components": [
+        {
+          "key": "72fe5eff-06f8-5f4f-9955-227db57fe6e1",
+          "name": "Zutaten",
+          "servingGrams": 470,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c9d9ae7-6002-5397-9352-408dc0d0cdd8",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39602efa-504a-508a-a4d9-2c9483203cc7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bda921d-42b1-5a2f-8132-15147c7dc7fa",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1070a8f3-9aa4-53a5-821b-3b885edaa40b",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2c06022-ac18-5ee6-b9ac-18be8e219401",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f3f809c-9e2b-587d-b844-96d425f61469",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f965a48c-bf6e-54cc-8f24-628d42dff6fe",
+              "ingredientName": "Gewürzgurken",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1b946be-fafb-5828-9b14-c89e7e998433",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e90bf235-193b-5f02-95ab-e6798584074f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45ba27f0-f837-517c-9eb7-26de47b7553f",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91d4ceb6-7748-5a56-8ff3-3c2ea36f7ae6",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Forme das Rinderhackfleisch zu lockeren Kugeln von 2 oz und drücke sie nicht fest zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine gusseiserne Pfanne, bis sie raucht, und gib etwas Öl hinein. Lege eine Fleischkugel hinein und drücke sie sofort 10 Sekunden lang mit einem Pfannenwender flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Fleisch 2 Minuten, ohne es zu bewegen, bis die Ränder spitz und dunkel sind. Salze es direkt nach dem Andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende das Patty, gib Käse darauf und decke die Pfanne 30 Sekunden ab, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre für die Spezialsoße Mayonnaise, Ketchup, Senf und einen Schuss Gurkenlake zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Brötchen in Butter und belege sie mit Zwiebel, Gewürzgurken und Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/i5sb5exkwq801.jpg",
+          "sourcePageUrl": "https://i.redd.it/i5sb5exkwq801.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-dry-rub-ribs",
+      "slug": "mfr-bbq-dry-rub-ribs",
+      "title": "Hähnchenrippchen mit Memphis-Trockenwürzung",
+      "instructions": "Der Zauber der Memphis-Trockenwürzung: Geräuchertes Paprikapulver, brauner Zucker, Kreuzkümmel und schwarzer Pfeffer werden auf Hähnchenoberkeulen verteilt, die im Ofen backen, bis die Kruste karamellisiert, und anschließend unter dem Grill kräftig gebräunt werden. Der ganze Geschmack einer Memphis-Rippchen-Bar, ganz ohne Räucherofen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Gewürze für die Trockenwürzung kosten pro Portion nur wenige Cent. Mische ein großes Glas für mehr als 10 Anwendungen.",
+        "Hähnchenoberkeulen ergeben die saftigste Variante nach Rippchenart.",
+        "Die Glasur aus Apfelessig ist der typische Abschluss nach Memphis-Art. Lass sie nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mustard-powder",
+          "swap": "Zusätzliches geräuchertes Paprikapulver, falls kein Senfpulver verfügbar ist"
+        },
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Mehr schwarzer Pfeffer für Schärfe ohne die Spitze von Cayennepfeffer"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-dry-rub-ribs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Memphis",
+        "Trockenwürzung",
+        "BBQ",
+        "Rippchen",
+        "Südstaaten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1541,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-dry-rub-ribs/",
+      "components": [
+        {
+          "key": "b89b0501-5966-511c-b84e-9612ffbedde2",
+          "name": "Zutaten",
+          "servingGrams": 168.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "42ec26f1-b5a9-5a96-a754-cbea7e217418",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1982c10f-c11e-5bb5-af63-882077c84d90",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aef3cac7-eaa3-59f8-a8d0-0d26890eed20",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dde0cfb6-9bca-53ad-a1ad-3c18c5090507",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf4cdeb6-107e-5536-a5ba-74e1576e39fd",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7c2957d-c885-5ab0-9675-5468d028b1d1",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a2aacf4-47bb-54e9-8d1a-d8df7957cddf",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65971cd7-ce39-5299-9894-28c051fb9421",
+              "ingredientName": "Senfpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14c32672-b986-583c-946f-6893e42fc69c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "149958a4-d51e-566b-a95a-3d396eae0489",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c7020eb-ea40-5abf-ac83-d6ff2d11e366",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische für die Trockenwürzung geräuchertes Paprikapulver, braunen Zucker, Kreuzkümmel, Knoblauchpulver, Zwiebelpulver, Cayennepfeffer, Senfpulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe das Hähnchen trocken und reibe es großzügig von allen Seiten mit der Würzmischung ein. Lass es, wenn möglich, 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe es auf einem Rost bei 375°F 35 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche es mit Apfelessig und grille es 5 Minuten, bis die Kruste karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/hPYbJ0F_L6Yl0PIl-wz-QmxEqcY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__07__20140612-295211-memphis-dry-ribs-e676b778d0ba4d0c952f0ad7cd07abe6.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/hPYbJ0F_L6Yl0PIl-wz-QmxEqcY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__07__20140612-295211-memphis-dry-ribs-e676b778d0ba4d0c952f0ad7cd07abe6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-grilled-corn-chicken",
+      "slug": "mfr-bbq-grilled-corn-chicken",
+      "title": "Grillplatte mit Hähnchen und Mais",
+      "instructions": "Mit Kräutern mariniertes Hähnchen und ganze Maiskolben werden nebeneinander gegrillt, bis sie Röstspuren haben. Die typische amerikanische Sommer-Grillplatte wird mit Kräuterbutter, Krautsalat und einer Limettenspalte mit einem Hauch Lagerbier serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Maiskolben sind am günstigsten: 1 Dollar für 2 Kolben.",
+        "Mariniere das Hähnchen 30 Minuten für deutlich mehr Geschmack. Über Nacht ist noch besser.",
+        "Die ganze Mahlzeit kostet 4 Dollar und ist in 35 Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-corn",
+          "swap": "Frischer Maiskolben im Sommer für ein intensiveres Aroma"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl mit Knoblauch als milchfreie Kräutersauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-grilled-corn-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "gegrillt",
+        "Hähnchen",
+        "Mais",
+        "Sommer",
+        "Grillplatte"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1542,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-grilled-corn-chicken/",
+      "components": [
+        {
+          "key": "dcc24ed6-ad80-5b56-ace1-979a593b3d3b",
+          "name": "Zutaten",
+          "servingGrams": 373.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "873ed357-d0f8-51f8-a1c8-267ce6e65af7",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22940fbc-c4d4-5434-9871-78848dbf6075",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83513d18-30a6-5252-96fe-1316486e2009",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53a49c44-c8ac-5e4b-8c4e-6096c0e5aed6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b271412-e283-5c06-8835-0d19840da0f8",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7cbdab6-dfe2-5565-b653-efe5a9f050dd",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1faa2c4-bdbc-56b4-974f-ff87a2c1a983",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcfb2bc3-20be-58df-bfef-f6f350ea59fe",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77a1c3f6-0f99-58c8-8688-0b8d11b9a2ff",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bab3d52d-18c1-5247-98a6-afcd631963e8",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93307067-790b-50a2-be01-044265c3d2ce",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ede160db-fa4e-532c-ac31-c65ee683520a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Hähnchen mit Olivenöl, Knoblauch, Zitrone, Oregano, geräuchertem Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grille oder brate das Hähnchen bei starker Hitze 5–6 Minuten pro Seite, bis es Röstspuren hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste den Mais in einer heißen, trockenen Pfanne oder auf dem Grill, bis er geschwärzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmilz Butter mit Knoblauch und Petersilie zu einer schnellen Kräuterbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Hähnchen und Mais an, bestreiche sie mit Kräuterbutter und presse Limettensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/06/Skillet-Creamed-Street-Corn-Chicken-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/06/Skillet-Creamed-Street-Corn-Chicken-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-nashville-hot",
+      "slug": "mfr-bbq-nashville-hot",
+      "title": "Nashville-Hot-Chicken-Sandwich",
+      "instructions": "Die feurige Spezialität aus Tennessee: Frittiertes Hähnchen wird mit einer Paste aus Cayennepfeffer und Schmalz überzogen, die die Kruste leuchtend rot-orange färbt. Auf Weißbrot mit Gewürzgurken und Krautsalat gestapelt, die die Schärfe mildern. Ein Sandwich, bei dem man gleichzeitig schwitzt und lächelt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Cayennepaste macht dieses Gericht zu Nashville Hot. Sei damit nicht zu sparsam.",
+        "Dünn geklopfte Hähnchenbrust frittiert schneller und bleibt saftig.",
+        "Gewürzgurken und Krautsalat gleichen die Schärfe aus. Lass sie nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Koreanisches Gochugaru für eine andere Art von Schärfe"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Brioche-Brötchen für eine gehobenere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-nashville-hot",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Nashville-Hot",
+        "frittiertes-Hähnchen",
+        "Sandwich",
+        "scharf",
+        "Tennessee"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1543,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-nashville-hot/",
+      "components": [
+        {
+          "key": "15d56d8c-dd94-5d3c-92f0-7440987cc0bc",
+          "name": "Zutaten",
+          "servingGrams": 445,
+          "position": 0,
+          "items": [
+            {
+              "key": "605ec211-f125-5a53-9d32-7f350d61cb6a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8967cbc-a956-57bf-8bbc-95b633f236b9",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2e830ad-667e-5c7f-b3db-7694840b7660",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2db4d863-014a-58c8-84e7-6db6c522899a",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0b32d0b-6552-5708-8b68-5efdcfbd08c1",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffe1113a-aad0-5a6b-bde9-8169a40aea2b",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9da846df-0603-58eb-9123-46b1c3e61b3b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "697b22be-45d3-5e83-875c-dfbbc52494aa",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f64d0f1-4dda-5bcc-a4d4-60f24a8cd794",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93db7cb0-8d7d-5045-bec8-78709541b65f",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca576273-cd74-5c2a-854d-fc4a1a821f38",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d963264a-9561-5765-ac8a-0843d1e14a54",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Hähnchen dünn. Vermische für die Panade Mehl, die Hälfte des Cayennepfeffers, Paprikapulver, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tauche das Hähnchen in Ei und wende es in der gewürzten Mehlmischung. Frittiere es in 1/2 Zoll Öl 4–5 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre für die scharfe Paste 2 EL heißes Öl mit Cayennepfeffer, geräuchertem Paprikapulver und Zucker zusammen und bestreiche damit das frittierte Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite einen schnellen Krautsalat aus Kohl, Mayonnaise und Essig zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte das Hähnchen mit Gewürzgurken und Krautsalat auf Weißbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/oMPOahltjg3aaVRZZa97DMmIGFs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8988769-nashville-hot-chicken-and-waffle-sandwich-AllrecipesPhoto-1x1-1-ad580bf0c862437a9940568792430ed0.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/oMPOahltjg3aaVRZZa97DMmIGFs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8988769-nashville-hot-chicken-and-waffle-sandwich-AllrecipesPhoto-1x1-1-ad580bf0c862437a9940568792430ed0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-portobello-burger",
+      "slug": "mfr-bbq-portobello-burger",
+      "title": "Gegrillter Portobello-Pilzburger",
+      "instructions": "Ein ganzer Portobello-Pilzhut wird in Balsamico, Knoblauch und Kräutern mariniert und dann gegrillt, bis er saftig und leicht geröstet ist. Dazu kommen geröstete rote Paprika, frischer Mozzarella und Pesto auf einem getoasteten Brioche-Brötchen. Ein vegetarischer Burger, bei dem auch Fleischesser gern Nachschlag nehmen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Portobello-Pilze kosten 3 Dollar pro Stück und sind jeden Cent wert für einen sättigenden fleischlosen Burger.",
+        "Die Balsamico-Marinade verleiht dem Pilz den herzhaften Geschmack von Fleisch.",
+        "Eine Paprika unter dem Grill zu rösten dauert 10 Minuten und kostet nur wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Ziegenkäse oder Provolone für eine andere Geschmacksrichtung"
+        },
+        {
+          "forIngredientId": "pesto",
+          "swap": "Tomatenaufstrich oder einfach ein Schuss Olivenöl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-portobello-burger",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Portobello",
+        "Pilzburger",
+        "vegetarisch",
+        "gegrillt",
+        "italienisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1544,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-portobello-burger/",
+      "components": [
+        {
+          "key": "0b7c5e67-d7fd-563f-ad45-dca539da44fc",
+          "name": "Zutaten",
+          "servingGrams": 693,
+          "position": 0,
+          "items": [
+            {
+              "key": "99633757-43e8-5464-8427-481120eea324",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fdc85f4-6797-5892-ba87-34c71ecc3f35",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8125af67-4334-5bb8-96fc-fbedd56d0a76",
+              "ingredientName": "Pesto",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c90068b3-b716-540f-b051-1dd16fa911bc",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8af96c5d-2c04-5769-bfe3-c25817d57b87",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc868149-68d9-540e-844c-2c02f31f283d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a721a28b-a577-59fe-8a0f-74f87d8cad17",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fefa55a-df0d-5c7e-a9ad-b1cf1dcddb17",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a49a367-1aa6-53cf-a461-525afac36ef5",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dbeb67f-7f79-5028-b2fb-9117ec099ff1",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e23b15a3-936b-518f-a6a6-a6ced5a8d168",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere die Portobello-Pilze 15 Minuten in Balsamico, Knoblauch, Olivenöl und Oregano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grille oder brate die Pilzhüte in einer heißen Pfanne 4–5 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib in der letzten Minute Mozzarella darauf und decke die Pfanne zum Schmelzen ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Toaste die Brötchen und bestreiche die Unterseiten mit Pesto.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege die Brötchen mit Portobello, gerösteter roter Paprika, Tomate und Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/57211f2ae3c948b60a813168/1:1/w_2560%2Cc_limit/IMG_2052-1.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/57211f2ae3c948b60a813168/1:1/w_2560%2Cc_limit/IMG_2052-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

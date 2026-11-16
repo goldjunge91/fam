@@ -1,0 +1,1073 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hakka-flower-rolls",
+      "slug": "gen-hakka-flower-rolls",
+      "title": "Hakka-Blumenbrötchen",
+      "instructions": "Hakka-Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mehl auf Vorrat.",
+        "Verwende frische Frühlingszwiebeln vom Bauernmarkt, wenn sie Saison haben."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hakka",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6025,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hakka-flower-rolls/",
+      "components": [
+        {
+          "key": "49eb05ec-7cae-5669-b4e1-8f64aeb74e3e",
+          "name": "Zutaten",
+          "servingGrams": 266.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ccc4343-ad6b-550d-ba14-823d3143a203",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "2e67bc14-7994-5f59-b1f0-dc4599e86384",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3b69b87a-4928-54e4-b313-d5803aacc5cb",
+              "ingredientName": "Trockenhefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "43ec2266-94dd-5010-bf61-c94187a0b32f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "71b9ab69-63fd-5066-8590-4541af3fd03d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "690b481e-134f-5fd1-9634-8fb14eb92fe2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8cb3378e-d794-5112-b00c-eaf10b40ad27",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "bb0d22b1-f231-5fff-87be-12714b019bca",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Hefe, Salz und Zucker in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib warmes Wasser und Öl dazu und knete den Teig 10 Minuten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Teig ab und lasse ihn bei Zimmertemperatur 1 Stunde gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 8 gleich große Portionen und rolle jede zu einem dünnen Rechteck aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jedes Rechteck mit Sesamöl und streue gehackte Frühlingszwiebeln und Salz gleichmäßig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle jedes Rechteck fest zu einem langen Strang auf. Wickle ihn spiralförmig ein und stecke das Ende darunter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Spiralen auf Backpapier und lasse sie 30 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Dämpfe sie in einem Dämpfeinsatz 12-15 Minuten, bis sie gar sind, und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Hakka-Noodles.webp",
+          "sourcePageUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Hakka-Noodles.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wind-dried-sausage-and-chestnut-rice",
+      "slug": "gen-wind-dried-sausage-and-chestnut-rice",
+      "title": "Gedämpfter Reis mit luftgetrockneter Wurst und Kastanien",
+      "instructions": "Hakka-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lap-Cheong-Wurst in asiatischen Lebensmittelgeschäften; sie ist deutlich günstiger als westliche Wurstsorten.",
+        "Geröstete Kastanien aus dem Großhandel sind günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "hakka",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6026,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wind-dried-sausage-and-chestnut-rice/",
+      "components": [
+        {
+          "key": "fae876a4-baad-5a0a-861e-28a1620d9676",
+          "name": "Zutaten",
+          "servingGrams": 361.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea935ed3-4175-514b-b736-8c8606b94aa1",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "be01bd25-f5b4-5681-b038-476e3e3c0304",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "36bda59a-08b8-5862-b766-600b9bde4c7a",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 37.5,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "3a398b33-e5f4-5aa5-b33f-86594b7319a0",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 375,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "6d328d1f-4fda-5a92-bac8-2c441b1094c0",
+              "ingredientName": "Sojasoße",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "0a7eb7f9-c884-518e-823d-b6f6eae66056",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f204f3da-831c-5572-b8d9-f179d350bb7f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "64a1d3f6-7377-5a9e-8d33-e7931a20847e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Scheibe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser ab, bis das Wasser klar bleibt, und gieße ihn ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Reis, Wasser, Sojasoße und Öl im Reiskocher oder in einem schweren Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Ingwerscheiben dazu und verteile Lap-Cheong-Scheiben und Kastanien darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Starte den Reiskocher. Wenn du einen Topf verwendest, bringe den Inhalt zum Kochen, decke ihn ab und lasse ihn bei niedriger Hitze 15-18 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Reis gar und das Wasser aufgenommen ist, lasse ihn zugedeckt 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lockere den Reis mit einer Gabel auf und gib vor dem Servieren gehackte Frühlingszwiebeln darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/27390/conversions/chinese-sausage-original.webp",
+          "sourcePageUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/27390/conversions/chinese-sausage-original.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ambot-tik",
+      "slug": "gen-ambot-tik",
+      "title": "Ambot Tik",
+      "instructions": "Goanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preisgünstige Makrele statt teurem Fisch.",
+        "Kaufe Tamarindenpaste auf Vorrat in indischen oder asiatischen Lebensmittelgeschäften."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "goanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6027,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ambot-tik/",
+      "components": [
+        {
+          "key": "ec524b7f-a5bc-5529-b320-66edad31642d",
+          "name": "Zutaten",
+          "servingGrams": 289.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "890941af-a78c-5bbb-8543-d3a0409e5089",
+              "ingredientName": "Sardinen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d54d474d-1bf6-5464-bd28-f34b1df3bbac",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "a6ae726d-beee-5313-9438-f8e4d3458f92",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "7f1b0bcb-db7b-5e7e-a435-064d3ad235a3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d9282d77-7b0f-545a-b103-cc9928b55d82",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fb32b53-05fc-5660-9a7d-0ed606d913e3",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "77f844ed-d703-5b3f-91a4-b73a2c590821",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "59ae4ead-f253-58cd-a7a1-830fd3e3d96c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0e002b94-f58c-5456-ae93-47e170e614e8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "53d6f96c-34d4-5eb0-9847-5bd0a424ad93",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne und brate Zwiebeln etwa 5 Minuten goldbraun und weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ingwer, Knoblauch und grüne Chilis dazu und brate alles eine weitere Minute an, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Fischstücke dazu und brate sie 2-3 Minuten pro Seite an, ohne sie zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löse Tamarindenpaste in Wasser auf und gieße sie zusammen mit Salz und Pfeffer in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles aufkochen und gare es 10-12 Minuten, bis der Fisch durchgegart ist und sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Korianderblätter darüber und serviere das Gericht heiß mit Reis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://chrizzosgrubscene.com/wp-content/uploads/2023/08/InShot_20230822_234634614-scaled.jpg",
+          "sourcePageUrl": "https://chrizzosgrubscene.com/wp-content/uploads/2023/08/InShot_20230822_234634614-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sorpotel",
+      "slug": "gen-sorpotel",
+      "title": "Sorpotel",
+      "instructions": "Goanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter, sie ist deutlich günstiger als andere Stücke.",
+        "Getrocknete rote Chilis sind lange haltbar."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "goanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6028,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sorpotel/",
+      "components": [
+        {
+          "key": "23e4ba2a-60a5-5cb6-af1f-ee1ce8168a43",
+          "name": "Zutaten",
+          "servingGrams": 242.11,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b0a8a60-fae2-5bd5-8301-2d0ddf09d36e",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "fcc216a1-f06d-5093-921f-e2e260a53afd",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "6f122b25-838a-5622-8c8a-90d8aedf0bc1",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "7f5a47b2-5639-55bb-b642-1a8452796688",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "e1a69a30-1df5-50ec-b584-57ed9a7497bc",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2adead31-884d-5801-af64-7dccaca63fde",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8fc40799-fc8d-5b2b-9f55-3a9fb24700f3",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "daee1b6c-10e1-55dc-b83a-a9437abdf40b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bc7a054f-7535-5f24-95d3-0971390fc417",
+              "ingredientName": "Kurkuma",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "53cc895e-63a9-5a69-bb7f-0090bc283c6f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2a0276f8-b304-52ef-92b1-e24052c9c796",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete rote Chilis 10 Minuten in warmem Wasser ein und püriere sie dann mit Knoblauch und Ingwer zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und bräune die Schweinefleischstücke von allen Seiten an. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate im selben Topf Zwiebeln goldbraun an, gib dann die Chilipaste dazu und gare sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Schweinefleisch zurück in den Topf und rühre Kurkumapulver ein, bis das Fleisch damit überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tamarindenpaste, Essig, Salz und Wasser dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 40 Minuten köcheln, bis das Schweinefleisch sehr zart und die Soße eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und schmecke es bei Bedarf mit Salz oder Essig ab. Serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/12/65/52/picTGGliw.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/12/65/52/picTGGliw.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldinho-de-sapateira",
+      "slug": "gen-caldinho-de-sapateira",
+      "title": "Caldinho de Sapateira",
+      "instructions": "Goanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Krabbenfleisch aus der Dose, das günstiger als frisches ist.",
+        "Kaufe Kokosmilch auf Vorrat."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "goanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6029,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldinho-de-sapateira/",
+      "components": [
+        {
+          "key": "b5866ab7-b1b4-5be7-9bf0-65f9090b42dc",
+          "name": "Zutaten",
+          "servingGrams": 377,
+          "position": 0,
+          "items": [
+            {
+              "key": "0030a71a-6910-5bb5-a411-72b5503962d2",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a001b260-4c1d-55ea-9929-4dd56251fb73",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 mittelgroße"
+            },
+            {
+              "key": "0b7b0f03-e060-54ed-bf75-e570dfad1077",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "3102746c-0ce1-530a-ae61-0f04adf94f88",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "f4c4b25d-cb6d-5fd3-b31a-7f3e0e3aee09",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6baee338-eaa3-548b-8b01-d2178465db7f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5181a0a8-2691-5005-a1aa-cc32ff556061",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "90f286fe-a101-5fc5-a20e-ce8ca6f88ea7",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "dc6dc9aa-2981-50fb-b81f-76eb8c2ae017",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fa75751-ff0e-58c7-878b-250a9729413d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b4aec8e1-7682-5c22-b94c-ee5279c51f30",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf und lasse die Kreuzkümmelsamen etwa 30 Sekunden knistern, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebeln hinzu und brate sie etwa 3 Minuten, bis sie weich und glasig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Knoblauch, Kurkuma und gehackte grüne Chilis ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Tomaten dazu und gare sie etwa 5 Minuten, bis sie weich sind und zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch hinein und bringe alles unter vorsichtigem Rühren zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Krabbenfleisch und Salz dazu und lasse alles 10-12 Minuten köcheln, bis sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib frische Korianderblätter dazu und serviere die Suppe heiß in Schüsseln oder mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.planta.pt/-/media/Project/Upfield/Brands/Flora/Flora-Global-PT/Assets/Recipes/Sync-Images/342e44b3-dbc3-497d-b2f5-570061a2b1d1.jpg?rev=1ce5deadbabc46a1b3d7cf1704b729c8",
+          "sourcePageUrl": "https://www.planta.pt/-/media/Project/Upfield/Brands/Flora/Flora-Global-PT/Assets/Recipes/Sync-Images/342e44b3-dbc3-497d-b2f5-570061a2b1d1.jpg?rev=1ce5deadbabc46a1b3d7cf1704b729c8",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

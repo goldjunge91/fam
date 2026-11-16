@@ -1,0 +1,1143 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bhel-puri",
+      "slug": "gen-bhel-puri",
+      "title": "Bhel Puri",
+      "instructions": "Indischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Puffreis in indischen Lebensmittelgeschäften statt im Reformhaus.",
+        "Bereite Chutneys zu Hause aus frischer Minze und Tamarindenpaste zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5900,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bhel-puri/",
+      "components": [
+        {
+          "key": "7e77f822-e0b8-534b-89ab-5119c594c9d5",
+          "name": "Zutaten",
+          "servingGrams": 558.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1b25e06-7424-53cf-a4e4-457880769703",
+              "ingredientName": "Puffreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b1da1b0d-29d2-53f7-958f-05f3b1a2f63d",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6dbca02f-6e3e-54b6-a122-d7025afdde6d",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "b8c0bba6-cf29-5d69-8b87-f353fbda41a1",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "3dd6c203-ae9f-5599-abea-5272a6418a88",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "d58a3b6a-38f2-5724-9a91-a0344394c6a8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e00fc003-9b03-533e-a0f1-c051ea3a79d3",
+              "ingredientName": "Tamari",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "cd390ed7-795e-5567-a42e-d63d7ba4bf93",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5ef6a6c6-1369-54d5-bcb8-e37f73fe624a",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "3e882212-e8b4-51d1-a235-ed26978b0f0e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide gekochte Kartoffeln, Zwiebel und Tomate in kleine Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke frischen Koriander fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Puffreis, Sev und das gewürfelte Gemüse in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tamarinden- und Minz-Chutney dazu und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue Chaat Masala und Salz darüber und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere den Snack sofort in kleinen Schüsseln oder Papiertüten, wie es traditionell üblich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/oSxOMu2wcRaMbFj2wZQBgjjmVLg=/6240x4160/filters:fill(auto,1)/bhel-puri-puffed-rice-snack-1958033.Hero-5b61c5f046e0fb0050474bd0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/oSxOMu2wcRaMbFj2wZQBgjjmVLg=/6240x4160/filters:fill(auto,1)/bhel-puri-puffed-rice-snack-1958033.Hero-5b61c5f046e0fb0050474bd0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aloo-chaat",
+      "slug": "gen-aloo-chaat",
+      "title": "Aloo Chaat",
+      "instructions": "Indischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln auf Vorrat und koche mehrere Portionen im Voraus.",
+        "Verwende selbst gemachte Chutneys statt Varianten aus der Flasche."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5901,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aloo-chaat/",
+      "components": [
+        {
+          "key": "78a84487-384c-5abd-8892-27f03ff8e5de",
+          "name": "Zutaten",
+          "servingGrams": 380.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "0422c1ab-b2f4-54c9-a577-6a7653b79e31",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "fdd47d48-fcb2-5c1a-88b0-c2ae45c85f0c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e1c970fc-b665-5083-b4dc-0cc9829c2c42",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "b8416af7-a4f6-5a25-9571-018acc9f0afe",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "f1e9441b-a74b-5865-8ce8-c7a59bd58fa1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b1eade60-135b-58af-8c62-fdb358a2c032",
+              "ingredientName": "Tamari",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "9971faeb-2804-521c-9539-b1bf3f1e28f5",
+              "ingredientName": "Frische Minze",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "34be1618-194a-5f43-bb8c-90f0fdf0cb9c",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e728df18-a075-532b-bc51-7c4df8947756",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "5fcb4a68-45f9-5220-9824-a1a6f46b854c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die gekochten Kartoffeln in kleine Würfel und lasse für mehr Biss etwas Schale daran.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne und brate die Kartoffelwürfel etwa 8 Minuten, bis die Ränder goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gebratenen Kartoffeln in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle Zwiebel und Tomate fein und gib sie mit frischem Koriander zu den Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle die Kartoffeln mit Tamarinden- und Minz-Chutney und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Chaat Masala, Kreuzkümmelpulver, Salz und Pfeffer nach Geschmack darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht sofort, solange die Kartoffeln noch warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/60f09a34681fcf8f32cabd02/16:9/w_2560%2Cc_limit/ChickpeaPotatoChaat_HERO_071321_19150.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/60f09a34681fcf8f32cabd02/16:9/w_2560%2Cc_limit/ChickpeaPotatoChaat_HERO_071321_19150.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chana-dal",
+      "slug": "gen-chana-dal",
+      "title": "Chana Dal",
+      "instructions": "Indisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Chana Dal in größeren Mengen in indischen Lebensmittelgeschäften und spare deutlich.",
+        "Koche eine große Menge und friere Portionen zum schnellen Aufwärmen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5902,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chana-dal/",
+      "components": [
+        {
+          "key": "77f42fda-fd27-566b-8303-2d3ea02127be",
+          "name": "Zutaten",
+          "servingGrams": 370,
+          "position": 0,
+          "items": [
+            {
+              "key": "f81288c3-6f0b-59aa-842f-fdf00dff5235",
+              "ingredientName": "Chana Dal",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a17e1d75-ffa2-58b1-a21f-047b9f1a115d",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "7323cd79-48b1-52be-97c7-7927e031e864",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "63974f78-026d-57a7-95fd-ee18967edba8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7e75f8c0-3d2b-5bcf-a4c5-f38810eff6d6",
+              "ingredientName": "Senfsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "82752e69-6317-598b-b69c-025badf95371",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "54172501-cd94-5772-81e3-2d51d6cce5ab",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a2427fe-b1d3-5892-89a2-f0ce87177e98",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bd7be09-3180-582e-90fe-d45d40eb30c0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "6eb75bd1-5c27-55c8-8f95-b53d083f98c7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fedc3bd5-d181-57ff-9165-3716c2c3d967",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Chana Dal gründlich unter fließendem Wasser ab und gieße es gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Wasser in einem Topf zum Kochen und gib Chana Dal sowie Kurkumapulver hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lasse alles 30-35 Minuten köcheln, bis das Dal ganz weich ist und zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze währenddessen Öl in einer separaten Pfanne und gib die Senfsamen hinein. Warte, bis sie aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kreuzkümmelsamen, getrocknete rote Chilis und Curryblätter zum Gewürzöl und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die dünn geschnittene Zwiebel zum Gewürzöl und brate sie etwa 4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Gewürzmischung zum gegarten Dal und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke mit Salz ab und lasse alles weitere 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Garniere das Dal mit frischem Koriander und serviere es heiß mit Reis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2016/11/chana-dal-recipe-chana-dal-fry-recipe-chana-dal-masala-recipe-11.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2016/11/chana-dal-recipe-chana-dal-fry-recipe-chana-dal-masala-recipe-11.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-loukoumades-with-chickpea-flour",
+      "slug": "gen-loukoumades-with-chickpea-flour",
+      "title": "Loukoumades mit Kichererbsenmehl",
+      "instructions": "Griechischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsenmehl auf Vorrat in mediterranen oder indischen Lebensmittelgeschäften.",
+        "Verwende normalen Honig statt teurem rohem Premiumhonig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "griechisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5903,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loukoumades-with-chickpea-flour/",
+      "components": [
+        {
+          "key": "97ea7168-9b62-540e-a5a0-788182bd628a",
+          "name": "Zutaten",
+          "servingGrams": 171.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b26fe2c-425e-55bd-9be7-e264c9fd5941",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9778cd35-15cd-5887-8702-3d42cd5e22b6",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ed9c1444-516c-5952-8db5-f75bafc54c7a",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f7c392a5-fe05-5ff2-b7f1-30d395e725db",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "8e593c6d-a782-527b-8ac4-249016ecb2ec",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4ea0728f-85f6-5379-950d-53924a09371c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "0a7ef98a-f109-5d65-8d56-70bedd28e35c",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b19331f8-ee57-5464-8c6f-31afc72ea77d",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kichererbsenmehl, Weizenmehl, Backpulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße nach und nach Wasser dazu und rühre, bis ein dickflüssiger, klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib mit zwei Löffeln vorsichtig walnussgroße Teigportionen ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Teigbällchen 2-3 Minuten und wende sie einmal, bis beide Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Loukoumades mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle sie noch warm mit Honig und bestreue sie mit Zimt und gehackten Walnüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie sofort, solange sie warm und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/t9mlzfDgIylXLjh9eGHF5sw6wx4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/212392_Loukomades_MFS73-2000-2f48dbe9e32a4a11ab27b09ee73bced4.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/t9mlzfDgIylXLjh9eGHF5sw6wx4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/212392_Loukomades_MFS73-2000-2f48dbe9e32a4a11ab27b09ee73bced4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chickpea-salad",
+      "slug": "gen-chickpea-salad",
+      "title": "Kichererbsensalat",
+      "instructions": "Mediterranes Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe saisonales Gemüse auf Bauernmärkten zu günstigeren Preisen.",
+        "Verwende Kichererbsen aus der Hausmarke statt teurer Premiumprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5904,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chickpea-salad/",
+      "components": [
+        {
+          "key": "8fa511f1-e2d7-57cd-aeaa-08d571ff684f",
+          "name": "Zutaten",
+          "servingGrams": 263.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c58cf86d-5146-5f87-b501-a684f9b89e7c",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 oz)"
+            },
+            {
+              "key": "a26b69ea-43f1-58c4-9f43-486c9a3d5e66",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "78948ca7-44e0-5c18-9930-ef235fc0b9e0",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "4270bdf8-8dcd-5080-aa73-c9ff38cd4795",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15b374e6-a414-56ef-b2a2-4abd2026de18",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "02fd21da-b5d2-53ca-bbe2-fa247ed6bec9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "53e26244-e34b-5bd8-85c4-4941ebf60539",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse zerbröselt"
+            },
+            {
+              "key": "f57d119c-79fa-5005-8846-ca8bf9f8bc05",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6031937a-2f87-54c3-b2f8-0255b206d835",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fd37eb9b-c67b-5368-ab7c-d2f4064cd3d5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0a59373-5610-5379-b329-d74204ebb87a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Kichererbsen ab und spüle sie gründlich mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Gurke, Tomaten und Paprika in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke rote Zwiebel und frische Petersilie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Kichererbsen, das vorbereitete Gemüse und Petersilie in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Olivenöl, Zitronensaft, gehackten Knoblauch, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das Dressing über den Salat und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe den zerbröselten Feta kurz vor dem Servieren unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle den Salat 15 Minuten kalt, damit sich die Aromen verbinden, und serviere ihn dann gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Healthy-Chickpea-Quinoa-Salad-reicpe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Healthy-Chickpea-Quinoa-Salad-reicpe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1116 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tahdig-tahdig",
+      "slug": "gen-tahdig-tahdig",
+      "title": "Tahdig",
+      "instructions": "Persisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Safran weg und verwende Kurkuma als günstigere Alternative.",
+        "Verwende gewöhnlichen weißen Reis statt Basmatireis, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "persisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3050,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tahdig-tahdig/",
+      "components": [
+        {
+          "key": "5b8619fd-d7d8-56cd-b945-bfcb4cb45b18",
+          "name": "Zutaten",
+          "servingGrams": 579.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "d32d27db-e3d2-52c2-94af-07ab2a4cd267",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d7191f6f-c6d2-5d6d-8136-44799a3e9f60",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "cee0e661-b54d-52c3-ab26-8da862983592",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "87d7bac9-31e5-5551-b86c-5b079e26ab4d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7cea0524-e9ad-5aff-b3c9-904517681af2",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "5f4e3c1f-6422-51fb-aec4-e52dc3810923",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "3b52eef4-7d51-5026-b434-e906d0ae5a3c",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21a46f13-7602-559c-aedd-c7687720d513",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reis 30 Minuten in Salzwasser ein und gieße ihn dann gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe 4 cups Salzwasser in einem großen Topf zum Kochen, gib Reis dazu und gare ihn ohne Deckel 8 Minuten, bis er teilweise weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den Reis in einem Sieb ab und hebe 1 cup Kochwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Safranfäden mit heißem Wasser und lasse sie 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Joghurt und Eigelb glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche Boden und Seiten des Topfs mit 2 tbsp Butter und lege dünne Kartoffelscheiben als Boden hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schichte die Hälfte des Reises auf die Kartoffeln, beträufle ihn mit Safranwasser, gib den übrigen Reis darauf, gieße die Joghurtmischung darüber und verteile 2 tbsp Butter in kleinen Stücken darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke den Topf mit Folie und Deckel ab, reduziere die Hitze auf niedrig und dämpfe den Reis 25 Minuten, bis sich am Boden eine goldene Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Fahre mit einem Messer am Rand entlang und stürze den Reis auf eine Servierplatte, sodass die goldene Tahdig-Kruste sichtbar wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/t6_6ejy_3RhNiDwOyMe7Wfe9YFg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tahdig-LEAD-26-e958b381106e4bdbba3231cc8ec204e5.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/t6_6ejy_3RhNiDwOyMe7Wfe9YFg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tahdig-LEAD-26-e958b381106e4bdbba3231cc8ec204e5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zereshk-polo-ba-morgh",
+      "slug": "gen-zereshk-polo-ba-morgh",
+      "title": "Zereshk Polo ba Morgh",
+      "instructions": "Persisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Berberitzen durch getrocknete Cranberrys.",
+        "Kaufe Berberitzen online in größeren Mengen und günstiger als in Spezialgeschäften."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3051,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zereshk-polo-ba-morgh/",
+      "components": [
+        {
+          "key": "2da23bfc-4cbf-5d17-8143-8f7457ace7d5",
+          "name": "Zutaten",
+          "servingGrams": 541.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c231b7fc-181b-5e6b-be42-e8edee2a66cb",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "74b77aff-4d2a-5959-bac0-67ed2c892e86",
+              "ingredientName": "Basmatireis",
+              "grams": 450,
+              "quantity": 450,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "a98256c1-dc06-5e07-a538-2801a5169067",
+              "ingredientName": "Berberitzen (Zereshk)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "180c909a-90d9-5bce-a3a2-1c51a9f4133f",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "4a1009a6-7140-5868-96ee-5676a597132d",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "c20d6704-a336-5216-a992-02bf2cfeb30c",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "c6edd4b7-f2e2-538f-91e4-7b15931c0c56",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "fe2d55da-02de-5ebe-a4f8-bdafdf71f108",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "f1818203-af59-5da6-bec9-a3d3d7061b1c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "74a67e06-d9c5-5d6d-a994-4c8386df3a5b",
+              "ingredientName": "Mandelstifte",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze Hähnchenbrustfilets mit Salz und Pfeffer und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 tbsp Butter in einem großen Topf und gare geschnittene Zwiebeln etwa 7 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe die Zwiebeln zur Seite, gib das Hähnchen dazu und bräune es insgesamt 5 Minuten auf beiden Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 2 cups Wasser dazu, decke den Topf ab und lasse alles 25 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe 5 cups Salzwasser zum Kochen und koche Reis 10 Minuten, bis er teilweise weich ist. Gieße ihn gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse Safran 5 Minuten in heißem Wasser ziehen und vermische ihn dann mit 0.5 cup abgetropftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schichte den restlichen Reis mit Berberitzen und Safranreis im Topf und verteile die übrige Butter darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke den Topf fest ab und dämpfe den Reis bei niedriger Hitze 25 Minuten, bis sich am Boden eine Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Röste Mandeln 2 Minuten in einer trockenen Pfanne und garniere damit Reis und Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://bestmiddleeasternrecipes.com/wp-content/uploads/2022/02/persian-rice-with-zereshk.jpg",
+          "sourcePageUrl": "https://bestmiddleeasternrecipes.com/wp-content/uploads/2022/02/persian-rice-with-zereshk.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tahchin",
+      "slug": "gen-tahchin",
+      "title": "Tahchin",
+      "instructions": "Persisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenes Hähnchen, um Kosten zu sparen.",
+        "Ersetze Berberitzen durch Rosinen oder getrocknete Cranberrys."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3052,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tahchin/",
+      "components": [
+        {
+          "key": "ca8a11f7-8b4e-50aa-a06a-fb51cb21aaf6",
+          "name": "Zutaten",
+          "servingGrams": 248.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "10f1b4c8-ba66-5801-acd9-1ed303a35a10",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a41e24b1-a350-5f2c-a1ae-f2c22ed60d54",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0511d152-5684-5f92-a081-42e6f804623e",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "134a2d94-81e9-59c2-8342-f9c359f00d7b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdd05f1b-cc6d-5c87-8165-64b5d544adea",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d778d60e-7f9e-5114-95ff-aa48e8d6a6ad",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "1913af46-b003-52bb-820b-e83814a616ed",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "9b0de899-e15f-5ba2-8ad5-79d736847b24",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "7b56e9d8-40d7-5d1b-bf12-a5c95d6d9e36",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "f70ec13a-9f42-5ba1-9bc2-74abf965ad99",
+              "ingredientName": "Berberitzen oder Korinthen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare gewürfeltes Hähnchen in 1 tbsp Butter bei mittlerer Hitze etwa 10 Minuten, bis es nicht mehr rosa ist. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Reis 12 Minuten in Salzwasser, bis er teilweise gar ist, und gieße ihn gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse Safran in heißem Wasser ziehen und 5 Minuten stehen, bis das Wasser Farbe angenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Joghurt, Eier, Salz und Pfeffer glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische gegartes Hähnchen, den Großteil des gekochten Reises, Safranwasser und Berberitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche eine runde Auflaufform oder einen ofenfesten Topf mit 1 tbsp Butter und drücke eine dünne Schicht weißen Reis auf Boden und Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Hähnchen-Reis-Mischung in die Mitte und klappe den übrigen weißen Reis darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile 1 tbsp Butter in kleinen Stücken darauf, decke die Form mit Folie ab und backe sie bei 350°F 35 Minuten, bis die Masse fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse das Gericht 5 Minuten abkühlen, fahre mit einem Messer am Rand entlang und stürze es auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=960&h=480&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2019%2F08%2F27044916%2F5678312.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=960&h=480&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2019%2F08%2F27044916%2F5678312.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khorovatz-mahi",
+      "slug": "gen-khorovatz-mahi",
+      "title": "Khorovatz Mahi",
+      "instructions": "Persisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Weißfischfilets und taue sie vor dem Kochen auf, um deutlich zu sparen.",
+        "Verwende Limettensaft statt Zitronensaft, falls er in deinem Geschäft günstiger ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "persisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3053,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khorovatz-mahi/",
+      "components": [
+        {
+          "key": "2713c67d-8e36-5637-a3d4-defe4fe92579",
+          "name": "Zutaten",
+          "servingGrams": 291.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "07397284-57eb-5e2c-96ba-2873479caa51",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "163dd3ec-86d6-57c5-aa55-1516cff1f373",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98938ca7-ebac-5e20-9a04-aa461f2f9085",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "54e8b900-5164-5671-af8f-e48f4c4da700",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "0a13a7e7-ce03-5103-a217-973f1ee5a03f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "e8acbdf9-f355-5c13-97e6-289daffc5531",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "16cdd3e4-889a-5d18-b15c-aca009e5b422",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ce655d6b-05c2-5a19-8a55-879ade2b506f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "caf50546-b324-5a9a-9daf-01b4db830e27",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "45437c87-11e4-5d0f-8134-5620d3e32b65",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe Fischfilets trocken und würze sie mit Salz, Pfeffer und Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stecke Fischfilets und Tomatenscheiben abwechselnd mit Zwiebelringen auf Metallspieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Olivenöl, frischen Zitronensaft, gehackten Knoblauch, Petersilie, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Spieße großzügig mit der Zitronen-Kräuter-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze einen Grill oder eine Grillpfanne auf mittelhohe Hitze und grille die Spieße 4-5 Minuten pro Seite, bis der Fisch undurchsichtig ist und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie sofort mit gegrillten Zitronenspalten und zusätzlicher frischer Petersilie dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/wh5DzEJUND6ddd2qYdjGK1J6NFc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Baked-Mahi-Mahi-1x1-098-f258b526e06f48a089e005e565c76f2d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/wh5DzEJUND6ddd2qYdjGK1J6NFc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Baked-Mahi-Mahi-1x1-098-f258b526e06f48a089e005e565c76f2d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ash-reshteh",
+      "slug": "gen-ash-reshteh",
+      "title": "Ash Reshteh",
+      "instructions": "Persisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Erbsen auf internationalen Märkten in größeren Mengen zum besten Preis.",
+        "Verwende getrocknete Kräuter statt frischer, wenn das günstiger ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "persisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3054,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ash-reshteh/",
+      "components": [
+        {
+          "key": "fb8df7d8-7b36-53c5-9be3-321ad76e1cbf",
+          "name": "Zutaten",
+          "servingGrams": 683.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "05d62c3c-a178-5df8-ad72-1437e09ccf4b",
+              "ingredientName": "Spalterbsen",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "0a33f9b6-bb07-5d21-a61c-3bd17c23f487",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose, abgetropft"
+            },
+            {
+              "key": "313ed61c-d347-5d64-bbf3-d46044d374dc",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8ee9f390-6b11-5f7a-9e7d-e04f5a654b0e",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "fe9d7c66-c509-599d-94e3-105775733d5f",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "92fbfd7c-3362-537d-909c-8456a1e29227",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "3a0ecbe4-3baa-5029-816d-7e7b03acaed9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "57b271c9-3c1b-5035-8191-0427b0a1089f",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "98d946b2-a14d-5f7d-aafe-8f844e619c31",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ec98bbbf-3cfc-5f18-825f-f2762a9cbc5a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle getrocknete Spalterbsen ab und gib sie mit 6 cups Gemüsebrühe in einen großen Topf. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und lasse die Erbsen 20 Minuten köcheln, bis sie teilweise weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer separaten Pfanne und brate gewürfelte Zwiebel etwa 5 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die angebratene Zwiebel zusammen mit Kidneybohnen, Petersilie, Dill und Spinat in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles ohne Deckel 25 Minuten köcheln und rühre gelegentlich um, bis Erbsen und Gemüse weich und die Suppe dick sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer und lasse alles weitere 5 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Suppe dick in Schalen, nach Wunsch mit etwas Olivenöl beträufelt und frischen Kräutern garniert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1646426723/k/Photo/Recipes/2022-03-ash-reshteh/2022-03-01_ATK6043.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1646426723/k/Photo/Recipes/2022-03-ash-reshteh/2022-03-01_ATK6043.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

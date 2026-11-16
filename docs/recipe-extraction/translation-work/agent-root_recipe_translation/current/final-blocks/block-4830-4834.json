@@ -1,0 +1,1051 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chawan-mushi",
+      "slug": "gen-chawan-mushi",
+      "title": "Chawan-Mushi",
+      "instructions": "Japanisches Mittagessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Dashi aus Algen und Bonitoflocken selbst zu und spare so 60 %.",
+        "Verwende Hähnchenschenkel statt Hähnchenbrust. Sie schmecken kräftiger und sind günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4830,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chawan-mushi/",
+      "components": [
+        {
+          "key": "671e352d-a465-5360-a4d7-797ad111feb8",
+          "name": "Zutaten",
+          "servingGrams": 570,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a7bec76-0799-5e77-ba61-620c5d3ce9f3",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a99a487-abde-58e9-a7cc-eb8c7e57ad30",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "ceb740ee-61a7-54c1-af4a-582f518de602",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "4c11d529-e3e7-57aa-917e-669738925fca",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cd3a4740-82fd-5c79-83d7-729a22c8cd9d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "ea91e28c-cdb2-5457-aa86-e89e4d13ab3d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.33 Pfund, gewürfelt"
+            },
+            {
+              "key": "6567c893-6ee2-541b-a779-c97249e3e656",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse, in Scheiben geschnitten"
+            },
+            {
+              "key": "bdca18cf-da2c-5a2d-8a07-0e166eba7225",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "7e0e4585-153d-5182-8cf5-c2f40f202a21",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Dashi, Sojasauce, Mirin und Salz in einer Schüssel und lasse die Mischung auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle 3 Eier in einer separaten Schüssel leicht, ohne Schaum zu schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die abgekühlte Dashi-Mischung langsam unter vorsichtigem Rühren zu den Eiern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung durch ein feines Sieb, um Klümpchen und Luftblasen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Hähnchen, Pilze und Frühlingszwiebeln auf zwei hitzebeständige Schalen oder Teetassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Ei-Dashi-Mischung vorsichtig darüber, bis die Schalen zu drei Vierteln gefüllt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Schalen in einen Dämpfeinsatz über kochendes Wasser, decke sie ab und dämpfe sie 12-15 Minuten, bis das Ei gerade gestockt, in der Mitte aber noch leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort heiß in den Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2017/06/Chawanmushi_0216-e1496538093701.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2017/06/Chawanmushi_0216-e1496538093701.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tzatziki-with-fried-eggs",
+      "slug": "gen-tzatziki-with-fried-eggs",
+      "title": "Tzatziki mit Spiegeleiern",
+      "instructions": "Griechisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Fladenbrot zu Hause zu, statt es zu kaufen, und spare so 70 %.",
+        "Verwende normalen Joghurt mit etwas saurer Sahne statt griechischem Joghurt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4831,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tzatziki-with-fried-eggs/",
+      "components": [
+        {
+          "key": "d9ad96b8-74a6-5072-8be6-7a3f702fcc51",
+          "name": "Zutaten",
+          "servingGrams": 425.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5db02fa5-b8ec-5eeb-983e-5564a83e3ef5",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ede2e051-33da-57b2-8a91-8f6fe77eebf3",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "d7b672f6-a07a-5022-bd56-b5598bae2b88",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e9becdf-9576-583d-9216-e2f29fa4a8d4",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3fb5c21e-ab3d-5418-80c8-08339b520760",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, gehackt"
+            },
+            {
+              "key": "66744526-23d9-5a61-b4dc-3a46df7daf7c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "16caf6a3-1548-5f19-b495-2885c52e706b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "00c0f9f3-48ab-58bb-ae0d-b53fd3a69492",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebaf9341-0172-52c6-a8a0-67291e8e8e18",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6ccb5470-5af4-5681-9426-0ae91dcfc7ce",
+              "ingredientName": "Fladenbrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Raspel die Gurke und drücke die überschüssige Flüssigkeit mit einem sauberen Küchentuch aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke die Knoblauchzehe fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre griechischen Joghurt, geraspelte Gurke, Knoblauch, Zitronensaft, Dill, Salz und Pfeffer in einer Schüssel. Stelle den Tzatziki bis zum Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage 4 Eier in das heiße Öl und brate sie etwa 4 Minuten, bis das Eiweiß gestockt und die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze die Spiegeleier mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme das Fladenbrot in einer trockenen Pfanne oder über einer offenen Flamme, jeweils 30 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile den Tzatziki auf zwei Tellern, lege je 2 Spiegeleier darauf und serviere das warme Fladenbrot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/eyq1kd4pyje41.jpg",
+          "sourcePageUrl": "https://i.redd.it/eyq1kd4pyje41.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pigs-in-a-blanket",
+      "slug": "gen-pigs-in-a-blanket",
+      "title": "Würstchen im Schlafrock",
+      "instructions": "Amerikanischer Snack — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mini-Hotdogs in Großpackungen und zahle pro Stück 40 % weniger.",
+        "Verwende gekühlten Hörnchenteig der Hausmarke statt Markenware."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4832,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pigs-in-a-blanket/",
+      "components": [
+        {
+          "key": "271a4839-01dd-5e7e-9c38-a269320aa0db",
+          "name": "Zutaten",
+          "servingGrams": 270,
+          "position": 0,
+          "items": [
+            {
+              "key": "385bcf9a-a5ed-514e-97b0-fa0ab8e0f583",
+              "ingredientName": "Hotdog",
+              "grams": 800,
+              "quantity": 16,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa5ad0b1-b35c-5e66-a627-75d99b90174b",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Rolle (8 Unzen)"
+            },
+            {
+              "key": "5cfd2650-f3ab-5e6c-986f-da48f36c609b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL, geschmolzen"
+            },
+            {
+              "key": "880fe15d-dfb6-5a81-a417-b89fc1f2ed1c",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "266e3eb2-668a-5cec-a114-5eaae3cfcc6a",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "1c586c65-1887-5cd0-9cb6-e0073aa435ff",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Hörnchenteig aus der Packung und rolle ihn entlang der Perforation auseinander, sodass 8 Dreiecke entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide jedes Dreieck der Länge nach in zwei schmale Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wickle je einen Teigstreifen leicht überlappend um einen Hotdog. Lasse ein kleines Stück des Würstchens frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die umwickelten Würstchen mit der Teignaht nach unten auf das vorbereitete Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche sie leicht mit geschmolzener Butter und bestreue sie mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie 12-15 Minuten, bis der Teig goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermische Senf und Ketchup als Dip und serviere die Würstchen im Schlafrock heiß damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mm-7cHsfNKNwUSBVoM-E8dHAibM=/4680x3120/filters:fill(auto,1)/easy-traditional-pigs-in-a-blanket-recipe-435109-hero-01-5c560b39c9e77c000132a0eb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mm-7cHsfNKNwUSBVoM-E8dHAibM=/4680x3120/filters:fill(auto,1)/easy-traditional-pigs-in-a-blanket-recipe-435109-hero-01-5c560b39c9e77c000132a0eb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khao-tom",
+      "slug": "gen-khao-tom",
+      "title": "Khao Tom",
+      "instructions": "Thailändisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen gekochten Reis, um Zeit und Energie beim Reiskochen zu sparen.",
+        "Kaufe Knoblauch und Ingwer in Großpackungen und friere sie portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "thailändisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4833,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khao-tom/",
+      "components": [
+        {
+          "key": "855a5c03-835c-5c30-87fc-b1053d75ccdf",
+          "name": "Zutaten",
+          "servingGrams": 707.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f9c986df-b6f3-59f4-914c-88807e59678c",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "3605fdb5-5fbf-5b3c-8387-6d4f691fd8d5",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "b5b58528-ec75-5450-b5b9-319c7747cce3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "835681ea-66bb-5966-a158-e467a93d2f82",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "c4c549cf-8437-5213-a02b-51da3d8adf5d",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "409629d5-b65d-53e9-acb2-9db17ce3d6e4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "a43efe46-577a-56fd-9c2f-20ce1c348066",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1ee6f064-17f0-5ab7-8b79-f5efbd36c086",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "c48ea274-13aa-55ec-9bf0-93d230840fe3",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Stück, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Hühnerbrühe in einem Topf bei mittelhoher Hitze zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ingwerscheiben und Knoblauch dazu und lasse alles 2 Minuten köcheln, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gekochten Jasminreis und Fischsauce ein und löse dabei eventuelle Reisklumpen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Suppe 5 Minuten köcheln, bis der Reis weich wird und eine breiige Konsistenz entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit weißem Pfeffer und schmecke mit Fischsauce ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den Reisbrei in Schalen und garniere ihn mit Frühlingszwiebeln und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere ihn heiß mit Limettenspalten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Thai-Khao-Tom-Thai-Rice-Soup.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Thai-Khao-Tom-Thai-Rice-Soup.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khao-tom-goong",
+      "slug": "gen-khao-tom-goong",
+      "title": "Khao Tom Goong",
+      "instructions": "Thailändisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen im Angebot und taue sie vor dem Kochen auf.",
+        "Koche aus den Garnelenschalen Brühe, falls du welche hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "thailändisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4834,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khao-tom-goong/",
+      "components": [
+        {
+          "key": "a2c113f8-a415-5317-b42b-d5cc55e7c3aa",
+          "name": "Zutaten",
+          "servingGrams": 699.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "923682c8-707f-5a21-ba40-fca5cf377c12",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "8c03c81b-e2f3-5aff-954d-e57942c52d55",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen, geschält und entdarmt"
+            },
+            {
+              "key": "74f256ca-c6c5-5e3b-b042-5875140d03e1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "b1f59b70-e8e7-5e8b-bd99-19c90bebbe75",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "f2635ec4-7a4d-5113-97e9-282cf9fe4514",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "f06394f6-7a32-5103-b07e-268d54885837",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fde5137a-a115-525a-b44b-9f22ee1937e3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "2e0655e4-fa81-5cbd-bd6c-b1dd7ac2680e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5916abf6-ce25-5838-82e6-64f86ec0f01e",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Hühnerbrühe zusammen mit Ingwer und Knoblauch in einem Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Garnelen dazu und gare sie 2 Minuten, bis sie gerade rosa werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gekochten Jasminreis und Fischsauce ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse alles 5 Minuten köcheln, bis der Reis weich wird und eine breiige Konsistenz entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit weißem Pfeffer und schmecke mit Fischsauce ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Reisbrei auf Schalen und garniere ihn mit Frühlingszwiebeln und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://delishar.com/wp-content/uploads/2015/09/3-thai-rice-soup.jpg",
+          "sourcePageUrl": "http://delishar.com/wp-content/uploads/2015/09/3-thai-rice-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1063 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-jp-miso-butter-udon",
+      "slug": "mfr-jp-miso-butter-udon",
+      "title": "Udon mit Miso-Butter und Pilzen",
+      "instructions": "Dicke Udon-Nudeln in einer glänzenden Sauce aus hellem Miso, Butter und Sojasauce mit angebratenen Pilzen, zusammengefallenem Spinat und einem weich gekochten Ei: ein 15-Minuten-Abendessen aus Vorratszutaten, das wunderbar würzig und erstaunlich reichhaltig schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Shiitake-Pilze sind nach dem Einweichen günstiger als frische und besonders aromatisch.",
+        "Miso hält sich monatelang im Kühlschrank und gehört zu den besten Vorratszutaten.",
+        "Dieses Gericht kostet insgesamt weniger als $3 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Beliebige Pilze; auch Champignons eignen sich gut"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Kokosöl für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-miso-butter-udon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Udon",
+        "Miso",
+        "Pilze",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1430,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-miso-butter-udon/",
+      "components": [
+        {
+          "key": "26d5561d-4422-5b56-836d-1fc1102d7bae",
+          "name": "Zutaten",
+          "servingGrams": 675.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c90394ac-1b9e-5a59-8fc3-62c205180e3c",
+              "ingredientName": "Udon-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a402ff4b-5c7c-5514-b170-f2ab0477ab84",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13d7dcd5-94bd-520f-a677-db79b560f90f",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dff0cc8-064b-5d29-9ad3-201ac310f0d9",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9fbe72e-59b1-5d63-9fbd-424f1de44fac",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d68e0e2-7820-5d4b-bf70-37486b24aa8e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2e5acb9-07be-5cba-ba4c-87cafaa8d792",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6135abd9-de6d-53c0-8c16-19186de54e76",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3602bb9-437d-5b4b-8bd2-f77da1c4ea5f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cb02673-710e-53bb-8fa2-00bb88c94653",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69f3b7f7-ecb8-5612-ac3d-1d9466dfa172",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Udon nach Packungsanleitung garen und 1/4 Tasse Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pilze in Butter bei hoher Hitze 4–5 Minuten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch hinzufügen und 30 Sekunden garen. Spinat dazugeben und vermengen, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Miso und Sojasauce in das aufgefangene Nudelwasser rühren und über Nudeln und Pilze gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit den abgetropften Udon vermengen. Mit einem weich gekochten Ei, Sesamöl, Frühlingszwiebeln und Sesam garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://homecookjournal.com/wp-content/uploads/2025/04/Miso-butter-udon-feature.jpg",
+          "sourcePageUrl": "https://homecookjournal.com/wp-content/uploads/2025/04/Miso-butter-udon-feature.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-salmon-teriyaki-don",
+      "slug": "mfr-jp-salmon-teriyaki-don",
+      "title": "Lachs-Teriyaki-Don",
+      "instructions": "Ein Lachsfilet mit hausgemachter Teriyaki-Sauce aus Mirin, Sojasauce und Honig glasiert, bei starker Hitze karamellisiert, bis die Oberfläche glänzt und leicht klebrig ist; mit gedämpftem Reis, Avocado, Gurke und Sesam serviert: japanische Schlichtheit in ihrer besten Form.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Lachsfilets kosten halb so viel wie frische und tauen in kaltem Wasser in 20 Minuten auf.",
+        "Teriyaki-Sauce aus dem Laden ist eine praktische Vorratszutat und spart beim Abendessen 5 Minuten.",
+        "Knusprige Lachshaut schmeckt köstlich; lass sie dran."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Hähnchenoberkeulen für eine günstigere Teriyaki-Don-Variante"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig oder brauner Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-salmon-teriyaki-don",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "japanisch",
+        "Lachs",
+        "Teriyaki",
+        "Reis",
+        "Donburi"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1431,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-salmon-teriyaki-don/",
+      "components": [
+        {
+          "key": "1e42ab67-51ba-5a80-9946-3c3432ec3a93",
+          "name": "Zutaten",
+          "servingGrams": 612.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "aa498b66-5ca4-56d8-a25b-83380e2c9e18",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c1beb3b-93cd-5414-b842-ff364ace065c",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe428234-5798-50d5-b382-6d2f396aa9d7",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0adb70d-4d10-578a-a06c-960ef9366ac2",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b2ff882-2283-57e2-81ed-85b71da64d6e",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05dfa135-fc13-528a-be2b-ccd18920d5ab",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24fe7575-b68d-5cf5-b2bf-dce7a92d1f24",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "564a67bc-139f-51aa-976d-ed83d002d26f",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34a92bb0-b7b5-5084-b10b-d07b69e96886",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a5cb682-1f33-59ed-9afa-5badc1448048",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis garen. Teriyaki-Sauce, Mirin und Ahornsirup in einer Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Falls vorhanden, die Haut des Lachses einschneiden. Großzügig mit der Teriyaki-Glasur bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer heißen, trockenen Pfanne mit der Hautseite nach unten 4 Minuten braten, wenden, die Oberseite glasieren und unter häufigem Übergießen weitere 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2 Minuten ruhen lassen. Schräg in Scheiben schneiden und auf dem Reis anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Avocado und Gurke fächerförmig um den Lachs legen und mit Sesam und Frühlingszwiebeln bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Teriyaki-Salmon-Sushi-Bowl-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Teriyaki-Salmon-Sushi-Bowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-hiyashi-chuka",
+      "slug": "mfr-jp-hiyashi-chuka",
+      "title": "Hiyashi Chuka (kalte Ramen mit Sesam-Soja-Dressing)",
+      "instructions": "Gekühlte Ramen-Nudeln, belegt mit Streifen aus Omelett, Gurkenstiften, zerpflücktem Hähnchen und geriebener Karotte und angemacht mit einer säuerlichen Sesam-Soja-Vinaigrette: Japans sommerliches Nudelgericht ist so schön wie erfrischend.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ramen-Päckchen (nur die Nudeln) sind dafür am günstigsten; wirf das Gewürzpäckchen weg.",
+        "Mit Hähnchen vom Grillhähnchenstand ist die Vorbereitung des Hähnchens in 2 Minuten erledigt.",
+        "Bereite die doppelte Menge Dressing zu: Es hält sich eine Woche und passt zu jedem Salat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Thunfisch aus der Dose oder Krebsstäbchen für eine authentischere Izakaya-Variante"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Weißweinessig als Ersatz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-hiyashi-chuka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Hiyashi-Chuka",
+        "kalte-Ramen",
+        "Sommer",
+        "Hähnchen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1432,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-hiyashi-chuka/",
+      "components": [
+        {
+          "key": "598fe696-2130-5975-af14-77961c7f2ce3",
+          "name": "Zutaten",
+          "servingGrams": 428,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd6f784e-c499-512b-a646-d8523d1ccf69",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "394ec1ed-b457-5090-8e7a-f286f9f70d45",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74bf00bd-4559-5438-8965-7037ccd5916d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "972c4026-4748-59f0-99eb-f869fb64fd3a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5772131e-567a-5324-959d-928905f29bc4",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97f2a487-3bd1-5015-81ae-0b906bf12cfa",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65e6069f-3875-5b36-bf84-67f7c938b3f1",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e21b8982-ed02-5a0a-9952-208cd87ba21b",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80fa5c24-219c-504f-b0ff-7bbef77402af",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adbae889-4f3b-59a7-8ef5-2f5f7454b4a5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d64b1d2-dabb-5f54-a32a-f3b050a3f9df",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust pochieren, abkühlen lassen und zerpflücken. Ein dünnes Omelett zubereiten und in Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ramen 2–3 Minuten kochen, abgießen und unter kaltem Wasser abspülen, bis sie eiskalt sind. Gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dressing zubereiten: Sojasauce, Reisessig, Sesamöl, Zucker und geriebenen Ingwer verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nudeln in einer Schüssel anrichten. Hähnchen, Omelettstreifen, Gurkenstifte und Karottenraspel jeweils nebeneinander darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Dressing darübergeben und mit Sesam bestreuen. Sofort essen oder bis zu 2 Stunden kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/bLULeUCLpIQqdULWbjmxuG3oWeI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__06__20150529-cold-ramen-hiyashi-chuka-shao-zhong-4-899b239879484c05bff9139b0f1cd88c.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/bLULeUCLpIQqdULWbjmxuG3oWeI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__06__20150529-cold-ramen-hiyashi-chuka-shao-zhong-4-899b239879484c05bff9139b0f1cd88c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-ochazuke-salmon",
+      "slug": "mfr-jp-ochazuke-salmon",
+      "title": "Lachs-Ochazuke (japanischer Teereis)",
+      "instructions": "Übrig gebliebener Reis mit zerzupftem Lachs, Furikake und Nori, anschließend mit heißem Grüntee oder Dashi-Brühe übergossen: Japans nächtliches Wohlfühlessen und eine besonders gute Verwendung für Reis vom Vortag. In weniger als 5 Minuten entsteht ein lockerer, herzhafter Brei.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs aus der Dose macht daraus ein Abendessen für $1.50 mit 28g Eiweiß.",
+        "Reis vom Vortag eignet sich am besten; frisch gekochter Reis wird zu weich.",
+        "Übrig gebliebener Lachs vom Teriyaki-Don-Rezept passt perfekt als Topping."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Beliebiger Fisch vom Vortag, zerpflücktes Hähnchen oder sogar Thunfisch aus der Dose"
+        },
+        {
+          "forIngredientId": "furikake",
+          "swap": "Sesamsamen und in Stücke gerissene Nori-Blätter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-ochazuke-salmon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "japanisch",
+        "Ochazuke",
+        "Teereis",
+        "Lachs",
+        "schnell",
+        "Reste"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1433,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-ochazuke-salmon/",
+      "components": [
+        {
+          "key": "054ea81c-e1f3-530d-a68c-706ba837d944",
+          "name": "Zutaten",
+          "servingGrams": 322.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad281eeb-1118-5a6e-b3bf-570f21817664",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "795295db-1127-5a14-ba31-613c069312ca",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "896f73db-d0e3-5e86-aede-6cb7f706a40a",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "224b9a87-edda-551d-843a-593d97e7e6eb",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4537f0d2-7103-5e03-a864-826779378376",
+              "ingredientName": "Misopaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce91d1d1-4282-5af3-b9aa-ae42d3c3c9ed",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c71cc191-33e5-50c7-b0b9-e9c9a695ec04",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e88f91e-d8d3-54ca-aca3-e0ef64868218",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fe51f1a-7924-5ad1-8428-91667ee99fbc",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lachs zerzupfen; gegrillter Lachs vom Vortag, Lachs aus der Dose oder kurz in der Pfanne gebratener Lachs eignen sich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Warmen oder wieder aufgewärmten Reis in eine Schüssel geben und mit Lachs, Furikake und Frühlingszwiebeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Miso in 1 Tasse heißem Wasser auflösen (oder heißen Grüntee eingießen) und einen Schuss Sojasauce hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Brühe über Reis und Toppings gießen und mit Sesamöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort essen, solange die Brühe dampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/0Md-NByiLMcF0SITjjBHtg1JwXg=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/salmon-ochazuke-rice-with-tea-2030906-Step_04-ed57461f0ecb438aa0e425e858975718.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/0Md-NByiLMcF0SITjjBHtg1JwXg=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/salmon-ochazuke-rice-with-tea-2030906-Step_04-ed57461f0ecb438aa0e425e858975718.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-it2-cacio-e-pepe",
+      "slug": "mfr-it2-cacio-e-pepe",
+      "title": "Cacio e Pepe",
+      "instructions": "Nur Pasta, Pecorino Romano, Parmesan und eine ungeheure Menge schwarzen Pfeffers: Diese römische Pasta lebt ganz von der Technik, mit der eine glänzende Sauce entsteht, die an den Nudeln haftet, ganz ohne Sahne. Drei Zutaten, zehn Minuten, keine Abkürzungen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das ist eines der günstigsten Pasta-Abendessen überhaupt. Kauf dafür guten Parmesan, denn auf ihn kommt es an.",
+        "Der Käse muss sehr fein gerieben werden; mit einer Microplane schmilzt er besser.",
+        "Gib das Nudelwasser nach und nach dazu: Die Stärke sorgt dafür, dass die Sauce haftet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Nur Parmesan, falls kein Pecorino erhältlich ist; schmeckt trotzdem hervorragend"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Spaghetti oder Tonnarelli: Dicke Nudeln halten die Sauce am besten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-cacio-e-pepe",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Cacio-e-Pepe",
+        "Pasta",
+        "römisch",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1434,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-cacio-e-pepe/",
+      "components": [
+        {
+          "key": "1815eb02-a377-5bc7-a170-82db9fc21d9a",
+          "name": "Zutaten",
+          "servingGrams": 130,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2fedf13-3cc7-5a90-9563-8d5d639f567d",
+              "ingredientName": "Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "161b8e14-c23a-5ade-b031-701dfc8c0d32",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e9e4325-889d-5a2e-91e3-7811c5c98cf0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23468068-75b3-5125-82a0-5d8329e995a1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ad0abb4-03ba-5a0e-bf44-9220b5528220",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta in leicht gesalzenem Wasser kochen (weniger Salz als üblich, denn der Käse ist sehr salzig). 1 Tasse Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen grob gemahlenen schwarzen Pfeffer 1 Minute in einer trockenen Pfanne rösten. Eine Kelle Nudelwasser hinzugeben und köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pasta abgießen und mit dem größten Teil des Nudelwassers in die Pfefferpfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pfanne vom Herd nehmen und den fein geriebenen Parmesan portionsweise dazugeben. Kräftig schwenken und bei Bedarf Nudelwasser hinzufügen, bis eine cremige Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort mit zusätzlichem Pfeffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/65f995a6bb3f09a2cbbdbd01/1:1/w_2560%2Cc_limit/20240312_WEB_SOY_051_ret2.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/65f995a6bb3f09a2cbbdbd01/1:1/w_2560%2Cc_limit/20240312_WEB_SOY_051_ret2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

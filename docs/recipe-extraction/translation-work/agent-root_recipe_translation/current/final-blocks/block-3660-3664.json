@@ -1,0 +1,1092 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cendol",
+      "slug": "gen-cendol",
+      "title": "Cendol",
+      "instructions": "Malaiischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Cendol-Nudeln tiefgekühlt in größeren Mengen auf asiatischen Märkten",
+        "Bereite zerstoßenes Eis selbst mit Wasser und einem Mixer zu, statt es fertig zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "malaiisch",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3660,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cendol/",
+      "components": [
+        {
+          "key": "f80a5140-9776-591f-9875-e073983cfd71",
+          "name": "Zutaten",
+          "servingGrams": 215.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "74d3f5c2-22c0-58bb-83f4-82d77996e752",
+              "ingredientName": "Glasnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "e115a579-5ea9-53d3-b68f-dd7c1382ef88",
+              "ingredientName": "Eiscreme",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "91f42c7e-9577-5a67-81a9-00836612903b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "eaa9bb1a-723c-534e-8252-d905a9e3c011",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bd9bf50d-998b-5584-9544-8483df1e36b0",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "012c4194-10a9-5786-90fa-122f0a55d238",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/8 TL"
+            },
+            {
+              "key": "13d5bd21-a493-5573-bc3a-61cb564e8f25",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Wasser und Palmzucker in einem kleinen Topf bei niedriger Hitze und rühre, bis sich der Zucker vollständig aufgelöst hat. Nimm den Topf vom Herd und lasse alles vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche frische Cendol-Nudeln 1-2 Minuten in kochendem Wasser und gieße sie ab; gefrorene Nudeln taue unter kaltem Wasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle Kokosmilch in ein separates Gefäß und rühre Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle vier hohe Gläser zur Hälfte mit zerstoßenem Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Cendol-Nudeln gleichmäßig auf die Gläser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den abgekühlten Palmzuckersirup über Nudeln und Eis in jedem Glas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib reichlich Kokosmilch darauf und rühre vor dem Servieren vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren, solange das Eis noch kalt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://akakacendol.com/wp-content/uploads/2024/08/Gula-Melaka.jpg",
+          "sourcePageUrl": "https://akakacendol.com/wp-content/uploads/2024/08/Gula-Melaka.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ketupat",
+      "slug": "gen-ketupat",
+      "title": "Ketupat",
+      "instructions": "Malaiisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Alufolie statt Palmblätter; sie ist leichter zu finden und genauso wirksam",
+        "Kaufe Klebreis in größeren Mengen auf asiatischen Märkten zum halben Preis"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "malaiisch",
+        "mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3661,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ketupat/",
+      "components": [
+        {
+          "key": "e3966c4e-890b-5ae0-9e72-92e21bc67b62",
+          "name": "Zutaten",
+          "servingGrams": 373,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc426ad4-a131-5b95-b469-0c5b79d43f94",
+              "ingredientName": "Klebreismehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "cbf3172a-8396-5375-8543-be3c3d5759a9",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "fc69026e-d894-53d1-9c57-e404fc16faed",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "a5978b21-ebc3-5dcd-816f-2a14fddb6594",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7209019d-c058-5015-89d3-79a9deff76ed",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "zum Einwickeln"
+            },
+            {
+              "key": "a0ee2f2b-1ad9-5715-87c5-097658ca69a5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "c77f7a25-40e5-5656-9b1a-9b08ca0e172c",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "d0f842ec-f753-5270-98c4-b1b0d7b759a4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Klebreis gründlich unter kaltem Wasser, bis es klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Kokosmilch mit 3 Tassen Wasser und Salz in einem großen Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgespülten Reis, Ingwer und Knoblauch in den Topf und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittel-niedrig und lasse alles zugedeckt 15 Minuten köcheln. Rühre gelegentlich um, bis der Reis fast gar ist und die Flüssigkeit größtenteils aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide Palmblätter oder Folie in 4 Zoll große Quadrate und forme sie zu Kegeln oder Rauten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jede Tasche zu drei Vierteln mit der gekochten Reismischung, falte das Blatt zu und befestige es bei Bedarf mit einem Zahnstocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die eingewickelten Ketupat in einen Topf mit kochendem Wasser und koche sie 45 Minuten, bis der Reis vollständig gar und sehr fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie aus dem Wasser, lasse sie leicht abkühlen, wickle sie vorsichtig aus und serviere sie warm oder bei Raumtemperatur mit Curry oder Sambal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://qlkitchen.com.my/wp-content/uploads/2021/07/BK067-scaled.jpg",
+          "sourcePageUrl": "https://qlkitchen.com.my/wp-content/uploads/2021/07/BK067-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-putu-mayam",
+      "slug": "gen-putu-mayam",
+      "title": "Putu Mayam",
+      "instructions": "Indisch-malaiisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende eine Kartoffelpresse statt eines Putu-Mayum-Geräts; sie funktioniert genauso gut und kostet weniger",
+        "Kaufe geriebene Kokosnuss tiefgekühlt auf asiatischen Märkten statt frische"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch-malaiisch",
+        "frühstück",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3662,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-putu-mayam/",
+      "components": [
+        {
+          "key": "d18102e2-5ede-566b-ba5b-2265a1a984d1",
+          "name": "Zutaten",
+          "servingGrams": 345.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "47578ebd-72b8-5bfc-b340-09c639db0525",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3c749e46-58c7-5b3b-a249-f775e364d46d",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4c3fb44c-6454-54e9-9a9b-5918250e64c2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "06733666-d950-5145-80a0-478a49892fde",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "d7be5792-3cc1-58ba-a609-36b2b175878f",
+              "ingredientName": "Wasser",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 3/4 Tassen"
+            },
+            {
+              "key": "1971c2fd-ad15-5a5c-8796-e445b8474da0",
+              "ingredientName": "Kokosöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cb2463a2-80af-5105-95bc-5ce0eff9a654",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "58e36fd8-816a-5ea1-814f-b2cbb19bf75e",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "80773a08-40e0-5447-9eb3-a5180e0a16ab",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Dämpfen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl, Tapiokamehl, Salz und Kurkuma in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Wasser bis zum Kochen, gieße es dann unter ständigem Rühren zur Mehlmischung, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre 1 Esslöffel Kokosöl ein, bis der Teig glatt und gießfähig wie Pfannkuchenteig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fette ein Bambusgerät für Putu Mayam (oder eine Kartoffelpresse) leicht mit dem restlichen Kokosöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse den Teig in spiralförmigen Strängen von etwa 3-4 Zoll Durchmesser auf Bananenblätter oder Frischhaltefolie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue jede Spirale leicht mit geriebener Kokosnuss und kleinen Jaggery-Stückchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie vorsichtig auf einen Dämpfeinsatz über kochendem Wasser und dämpfe sie 5-7 Minuten, bis sie gar und fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm pur oder mit Currysauce und zusätzlicher geriebener Kokosnuss servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://2.bp.blogspot.com/-HJMU4rTka1E/Uj85BJvAteI/AAAAAAAAMLE/QPas2bMIymw/s1600/SSWF-PutuPiring.jpg",
+          "sourcePageUrl": "http://2.bp.blogspot.com/-HJMU4rTka1E/Uj85BJvAteI/AAAAAAAAMLE/QPas2bMIymw/s1600/SSWF-PutuPiring.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bak-kut-teh",
+      "slug": "gen-bak-kut-teh",
+      "title": "Bak Kut Teh",
+      "instructions": "Chinesisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinerippchen im Angebot und friere sie ein; die Qualität des fertigen Gerichts bleibt gleich",
+        "Lasse getrocknete Shiitake weg und verwende günstigere getrocknete Pilze oder frische Champignons"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3663,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bak-kut-teh/",
+      "components": [
+        {
+          "key": "a2e62412-8c45-5f91-9cb4-2c60b877e52f",
+          "name": "Zutaten",
+          "servingGrams": 992.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b037688d-0301-5126-bca6-78e9a53c2ce0",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "e4254dd3-6cdf-5034-8361-6b4226a27af7",
+              "ingredientName": "Pilze",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d20f94f-00aa-5201-af5d-39f3a72d24ee",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02b313a1-abf0-5a04-a95d-81426eb09177",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed836ff4-1b41-5206-a561-0eba3638dab9",
+              "ingredientName": "Sternanis",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Stück"
+            },
+            {
+              "key": "43677f2e-370f-5643-8ded-1100e4b44afe",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1a413bc-55ee-5dc5-bef0-34046efd6ad0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "318a9f92-1243-5042-b291-17f8cc8cca2b",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "297fe5c3-55e1-5a6c-b8fa-6b00c29827fa",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e7f9aeaa-cd6b-5dc3-b126-821abc7ec4fe",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "13ed5c66-1c5c-5814-bf85-3adda3985816",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "fad61fee-6b8c-5983-bdbd-3ae23e785430",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Schweinerippchen 2 Minuten in kochendem Wasser, gieße sie ab, spüle sie kalt ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche getrocknete Pilze in 1/2 Tasse heißem Wasser 10 Minuten ein. Bewahre das Einweichwasser auf und hacke die Pilze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Topf bei mittlerer Hitze und brate zerdrückte Knoblauchzehen und Ingwerscheiben 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zimtstange, Sternanis und Nelken hinzu und röste sie 30 Sekunden, bis sie aromatisch duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße 8 Tassen Wasser und das aufbewahrte Pilzeinweichwasser hinzu und gib die blanchierten Rippchen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen und gib dann Sojasauce, dunkle Sojasauce, Fischsauce und gehackte Pilze hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze auf niedrig und lasse alles zugedeckt 1 bis 1.5 Stunden köcheln, bis die Rippchen sehr zart und aromatisch sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Gericht und passe es nach Bedarf mit Sojasauce oder Fischsauce an. Heiß mit der aromatischen Brühe in Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/0c5q1PNehHFg8wyZqlc-HV-jlwo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240129-BakKutTeh-MichelleYip-Hero3-SEA-17cadff450524ba28ceb7f0ee2136b90.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/0c5q1PNehHFg8wyZqlc-HV-jlwo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240129-BakKutTeh-MichelleYip-Hero3-SEA-17cadff450524ba28ceb7f0ee2136b90.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cemita-poblana",
+      "slug": "gen-cemita-poblana",
+      "title": "Cemita Poblana",
+      "instructions": "Pueblanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Truthahnaufschnitt statt spezieller Fleischsorten",
+        "Ersetze den Käse durch teilentrahmten Mozzarella, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "pueblanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3664,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cemita-poblana/",
+      "components": [
+        {
+          "key": "6355ddeb-bebc-5b36-bf19-b0696748b2bd",
+          "name": "Zutaten",
+          "servingGrams": 348,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd15cbc4-f202-5bda-b012-8192dfb3dad3",
+              "ingredientName": "Tiefgekühlte Frühlingsrollen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f30c1561-9865-517c-a270-633174b55736",
+              "ingredientName": "Truthahnaufschnitt",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "57fbab90-3f8c-5041-8129-65d1dd605ee3",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "060d5a7d-cecb-5a21-8dca-89d311a891c3",
+              "ingredientName": "Avocado",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "23e2d672-39bc-5a21-99ca-b3186e9200ae",
+              "ingredientName": "Jalapeño",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f76d2200-08b6-52d6-974f-c8bfd35912fb",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "c4f1f222-3482-5a18-a889-4c1ad633490b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "52ffe638-b544-51d1-947d-352e254da859",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ mittelgroßes Stück"
+            },
+            {
+              "key": "d46aa1e5-4ab8-5cd8-bc03-e68fa0f3a6de",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d16023f-bbe3-5522-9d8b-56d094270913",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Chipotle-Chilis mit Mayonnaise, Koriander und Limettensaft zu einem Aufstrich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide jedes Cemita-Brötchen waagerecht durch und röste es nach Wunsch leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche beide Seiten jedes Brötchens mit Chipotle-Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege die untere Hälfte mit Truthahn, Käse, Avocadoscheiben und dünnen Zwiebelringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze die obere Brötchenhälfte darauf und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide das Brötchen nach Wunsch diagonal durch und reiche Servietten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1654289611/k/Edit/2022-06-Steak-Tacos/IMG_8389.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1654289611/k/Edit/2022-06-Steak-Tacos/IMG_8389.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

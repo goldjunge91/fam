@@ -1,0 +1,1002 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pork-and-broccoli-rabe-sandwich",
+      "slug": "gen-pork-and-broccoli-rabe-sandwich",
+      "title": "Schweinefleisch-Sandwich mit Stängelkohl",
+      "instructions": "Italienisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweinekoteletts im Sonderangebot und frieren Sie sie zur späteren Verwendung ein.",
+        "Suchen Sie nach Broccoli Rabe auf italienischen Märkten oder auf Spezialmärkten, die oft bessere Preise haben."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6955,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-and-broccoli-rabe-sandwich/",
+      "components": [
+        {
+          "key": "94b9f473-0af4-50d5-9487-a973c1612d7b",
+          "name": "Zutaten",
+          "servingGrams": 145.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fc319b1-eb74-543d-aae0-b02e33e017ad",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "30f19a9a-54bf-5375-aea3-af6afcdfe44f",
+              "ingredientName": "Brokkoli",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Bund (etwa 1 Pfund)"
+            },
+            {
+              "key": "79d0a65f-4b53-5af3-acf0-2c5b2299791b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 (fein gehackt)"
+            },
+            {
+              "key": "653bd455-5b72-5623-aa07-7f747a23fd1d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "09a0101f-6360-563b-b91e-71ff3301135a",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc2c00b0-45da-5866-ac08-78ee5c6b42df",
+              "ingredientName": "Provolone",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "7d5462ec-7259-5add-a66d-c99d904d4cd3",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "cb357de1-ad2a-58ca-af90-390a63b77876",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Stängelkohl putzen und waschen, dann in 2 Zoll große Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Broccoli Rabe in Salzwasser 3-4 Minuten kochen, bis es leicht weich ist, dann abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitzen Sie 2 EL Olivenöl in einer Pfanne bei mittlerer bis hoher Hitze und braten Sie die Schweinekoteletts 3–4 Minuten pro Seite, bis sie gar sind. Mit Salz und Pfeffer würzen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In derselben Pfanne das restliche Olivenöl erhitzen und den gehackten Knoblauch 30 Sekunden lang anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Broccoli Rabe zurück in die Pfanne geben und 2 Minuten kochen lassen, dabei gelegentlich umrühren; Mit roten Paprikaflocken, Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Italienische Brötchen aufteilen und leicht toasten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf jedes Brötchen eine Scheibe Provolone schichten, Schweinekotelett und dann Broccoli Rabe darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5a56492a28c23f7102b7a834/master/w_1600%2Cc_limit/slow-cooker-pork-sandwich-a.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5a56492a28c23f7102b7a834/master/w_1600%2Cc_limit/slow-cooker-pork-sandwich-a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sardine-sandwich",
+      "slug": "gen-sardine-sandwich",
+      "title": "Sardinen-Sandwich",
+      "instructions": "Italienisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Sardinen in Dosen in großen Mengen bei Warehouse Clubs, um erhebliche Einsparungen zu erzielen.",
+        "Wählen Sie Sardinen von Eigenmarken gegenüber Premiummarken, um die gleiche Qualität zu geringeren Kosten zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6956,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sardine-sandwich/",
+      "components": [
+        {
+          "key": "87fc5b1c-12c9-5b10-a3e3-db237f7dc268",
+          "name": "Zutaten",
+          "servingGrams": 241,
+          "position": 0,
+          "items": [
+            {
+              "key": "50fefaeb-af10-5537-887e-958014207e08",
+              "ingredientName": "Sardinen in Dosen",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 3.75 oz)"
+            },
+            {
+              "key": "880990c8-d40e-50fc-b762-3b0acbebbb84",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd55e883-1c6f-51e1-8589-d7accd40faf7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße (in Scheiben geschnitten)"
+            },
+            {
+              "key": "e0f66f2e-3759-56ba-9b26-61365668b88e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 (in dünne Scheiben geschnitten)"
+            },
+            {
+              "key": "17bfa016-617e-54dd-99ca-fdf5fdbaefc1",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36692dc8-a51b-51af-9bcb-29162f9fb327",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9744731d-15cb-50ec-a299-4de22e6026c6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie das Ciabatta-Brot der Länge nach in zwei Hälften, sodass zwei Sandwichhälften entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sardinen abtropfen lassen und auf der unteren Hälfte des Brotes anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenscheiben und rote Zwiebeln über die Sardinen legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Olivenöl beträufeln und Zitronensaft über die Füllung pressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Sandwich mit der oberen Brothälfte verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Diagonal schneiden und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fannetasticfood.com/wp-content/uploads/2017/02/scandinavian-sardine-sandwiches_thumb.jpg",
+          "sourcePageUrl": "https://www.fannetasticfood.com/wp-content/uploads/2017/02/scandinavian-sardine-sandwiches_thumb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mozzarella-stick-sandwich",
+      "slug": "gen-mozzarella-stick-sandwich",
+      "title": "Mozzarella-Stick-Sandwich",
+      "instructions": "Italienisch-amerikanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Mozzarella-Sticks von Handelsmarken anstelle von Markenartikeln, um 20–30 % zu sparen.",
+        "Kaufen Sie Marinara-Sauce in größeren Gläsern, die weniger pro Unze kosten als kleinere Behälter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6957,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mozzarella-stick-sandwich/",
+      "components": [
+        {
+          "key": "9c75e1bd-f380-5464-ba0a-17f3eb6d9f3a",
+          "name": "Zutaten",
+          "servingGrams": 372.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "674faba5-533d-5da0-954a-0846800b9e65",
+              "ingredientName": "Mozzarella",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Stangen"
+            },
+            {
+              "key": "600a6832-44e1-55db-b98c-e19eb537a670",
+              "ingredientName": "Gefrorene Frühlingsrollen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acd16443-d78a-59f9-9080-be6d6ee7e5c2",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e58d3a36-0a0d-5f9d-b6ac-cd70a15924f9",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a25b35d0-b5e8-5a76-a54d-29d2b052ae22",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "90a9222b-5724-5f9a-b2ba-ba1f659111a7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen (zum Frittieren)"
+            },
+            {
+              "key": "4291d9fd-6648-5486-aac7-25b053db7fac",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Blätter (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pflanzenöl in einem tiefen Topf oder einer Fritteuse auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gefrorene Mozzarellastangen vorsichtig in das heiße Öl geben und 1-2 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit einem Schaumlöffel herausnehmen und zum Abtropfen auf Papiertücher legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Marinara-Sauce in einem Topf erwärmen und Knoblauchpulver und italienische Gewürze unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teilen Sie die Unterbrötchen auf und rösten Sie sie bei Bedarf leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeweils 3 Mozzarella-Stäbchen auf der unteren Hälfte jeder Rolle anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Marinara-Sauce über die Mozzarella-Sticks geben und bei Bedarf mit frischem Basilikum belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit der oberen Brötchenhälfte verschließen und sofort servieren, solange der Käse noch heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/hEyncXGSYXoytL0IwFdI_ogiNlc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/veggie-mozzarella-sandwich-beauty-05-066-16e0528265d8454aad3846607dce4f33.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/hEyncXGSYXoytL0IwFdI_ogiNlc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/veggie-mozzarella-sandwich-beauty-05-066-16e0528265d8454aad3846607dce4f33.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-creamed-chipped-beef-on-toast",
+      "slug": "gen-creamed-chipped-beef-on-toast",
+      "title": "Gehacktes Rindfleisch auf Toast",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie zerkleinertes Rindfleisch im Glas aus der Fleischkonservenabteilung statt in der Feinkosttheke, um bessere Preise zu erzielen.",
+        "Verwenden Sie Weißbrot und Milch von Handelsmarken, um die Kosten niedrig zu halten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6958,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-creamed-chipped-beef-on-toast/",
+      "components": [
+        {
+          "key": "469c0056-81a5-5178-ae02-faf3f0e48947",
+          "name": "Zutaten",
+          "servingGrams": 481.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "49e1cbe5-bf9e-52b0-98bd-72a0cfc0f2ba",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/4 Pfund (oder ein Glas mit 2.5 oz)"
+            },
+            {
+              "key": "849d980e-b3c6-5527-bd0d-94bfb88543e1",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bcc4526d-e615-5b9b-bf0f-1b5a41ec4122",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8ab966ab-9808-5d2f-a985-6ca8bf64324e",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9004cf8d-efce-5e4f-99ca-5b7d6e82f7a8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "e7463a1a-c1fc-570c-90f7-76d44e145e0e",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "b24168ca-0673-588f-82cb-4d0cd5793216",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Brotscheiben goldbraun rösten und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer Pfanne bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das gehackte Rindfleisch in mundgerechte Stücke reißen oder hacken und in die Pfanne geben; 1 Minute kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streuen Sie Mehl über das Rindfleisch und rühren Sie es 1 Minute lang ständig um, bis eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie die Milch langsam unter ständigem Rühren in die Pfanne, um Klumpen zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "3-4 Minuten kochen lassen, bis die Soße eindickt und die Rückseite eines Löffels bedeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Belieben mit schwarzem Pfeffer und Paprika würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Rindfleischcreme über den Toast gießen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chipped-Beef-on-Toast_EXPS_FT22_12076_F_0315_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chipped-Beef-on-Toast_EXPS_FT22_12076_F_0315_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soft-shell-crab",
+      "slug": "gen-soft-shell-crab",
+      "title": "Weichschalenkrabbe",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Krabben zu günstigeren Preisen direkt auf Fischmärkten und nicht in Restaurants",
+        "Verzichten Sie auf hochwertige Beilagen und verwenden Sie einfachen Zitronensaft für den Geschmack"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6959,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soft-shell-crab/",
+      "components": [
+        {
+          "key": "b9139593-4e71-5933-a5c8-3bf55ff8a4a6",
+          "name": "Zutaten",
+          "servingGrams": 348.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ced9273-a529-5de2-a53b-c4ed95d97fdc",
+              "ingredientName": "Weichschalenkrabben",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 ganze"
+            },
+            {
+              "key": "f2e4594a-c8b9-5897-b917-a8177465ffc7",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9cb38137-e0bd-57fa-b874-b45639d7f424",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9e73b52e-c9d6-5a18-8df2-0aa2b9ed7c8b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "32638fe7-20ef-558b-8c27-5cdf8e6d70f0",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "be49dfa3-8f84-5c19-940d-5c90eecf6b9f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0f80c9e0-4e0c-50b1-bc9f-56430cd2a39d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "684cc88e-774f-5c59-bcf5-fb21da1bc5ed",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 ganze"
+            },
+            {
+              "key": "010fb314-5160-5bb8-b654-6079f704f41c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spülen Sie die Weichschalenkrabben unter kaltem Wasser ab und tupfen Sie sie mit Papiertüchern trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Salz, schwarzen Pfeffer und Cayennepfeffer in einer flachen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauchen Sie jede Krabbe in die Mehlmischung und bestreichen Sie beide Seiten gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl und Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis sie schimmern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie die Krabben vorsichtig mit der Schale nach unten in die heiße Pfanne und kochen Sie sie 3-4 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Krabben umdrehen und weitere 3-4 Minuten kochen, bis die Schale leuchtend rot-orange wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Servierteller geben und frischen Zitronensaft darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit gehackter Petersilie garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/hFQlpbakRHKmH76sNVptr7-H98o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__05__20190426-soft-shell-crab-butter-capers-vicky-wasik-16-8f0b3f98f3ba4722b09e23834cedcb39.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/hFQlpbakRHKmH76sNVptr7-H98o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__05__20190426-soft-shell-crab-butter-capers-vicky-wasik-16-8f0b3f98f3ba4722b09e23834cedcb39.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

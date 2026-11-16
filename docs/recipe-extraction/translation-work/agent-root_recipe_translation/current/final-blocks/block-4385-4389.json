@@ -1,0 +1,1133 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-past-is-de-bacalhau",
+      "slug": "gen-past-is-de-bacalhau",
+      "title": "Pastéis de Bacalhau",
+      "instructions": "Portugiesischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die doppelte Menge zubereiten und ungebackene Bällchen für spätere schnelle Snacks einfrieren.",
+        "Panade aus Weizenmehl statt doppelter Panade verwenden, um Mehl zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "portugiesisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4385,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-past-is-de-bacalhau/",
+      "components": [
+        {
+          "key": "2cd6baa0-771f-5a3f-8d24-c6fe567ffaf0",
+          "name": "Zutaten",
+          "servingGrams": 235,
+          "position": 0,
+          "items": [
+            {
+              "key": "66065509-cc2a-54e3-81d6-e13df49814aa",
+              "ingredientName": "Gesalzener Kabeljau",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "e6bdb2d3-e195-5d39-85a8-2f5a36520b36",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "393c0b46-7e98-5b11-8c2e-b30289716d1b",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fd9b0172-1005-56b1-ae76-2b5a8c7fbb74",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d99f7837-4faf-5ff6-8da3-5144ce40d616",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "c8a12e05-bb32-58c0-8a35-8ade2a6c7075",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2f64524c-c614-5165-965b-c16e17d7d7f0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "45c7b88d-b7ff-5525-90c4-68677c45f90b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "c4f4840f-6ec2-5f5d-a35f-b8fcad971d4c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gesalzenen Kabeljau 24 Stunden in kaltem Wasser einweichen und das Wasser alle 8 Stunden wechseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den entsalzten Kabeljau 10 Minuten kochen, bis er zart ist, dann fein zupfen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln weich kochen, schälen und glatt stampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffelstampf mit gezupftem Kabeljau, gehackter Zwiebel, Petersilie, Salz und Pfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Mischung zu ovalen Bällchen von etwa 3 Zoll Länge und 1 Zoll Dicke formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eier in einer Schüssel verquirlen, dann jedes Bällchen mit Mehl bestäuben, in Ei tauchen und erneut mit Mehl bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl auf 350°F erhitzen und die Bällchen 2-3 Minuten pro Seite goldbraun frittieren, dann auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/c5/cc/cd/c5cccdcbca277382e2f37ffc330fa882.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/c5/cc/cd/c5cccdcbca277382e2f37ffc330fa882.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arroz-de-polvo",
+      "slug": "gen-arroz-de-polvo",
+      "title": "Arroz de Polvo",
+      "instructions": "Portugiesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten Oktopus statt frischen kaufen, er ist günstiger und bereits zart gemacht.",
+        "Die Hälfte der Hühnerbrühe durch Kochwasser vom Oktopus ersetzen, um ohne zusätzliche Kosten mehr Geschmack zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4386,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arroz-de-polvo/",
+      "components": [
+        {
+          "key": "24b2ffba-fa94-5e00-8fbb-74ef4703b88a",
+          "name": "Zutaten",
+          "servingGrams": 408.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6651061-2dca-5d9b-90f3-69065c5ad7bd",
+              "ingredientName": "Oktopus",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "51644f20-925a-5248-a8da-d65b9a4f4bc2",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "bcbae6df-31d5-5fee-a759-32c62fc58e1e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "0f6b37bb-9d48-5920-80b8-4a992c65968a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0962558b-7239-58d2-a170-41e532da1a92",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "da6d8d45-0016-5b7d-8f4c-7879ecc4d36b",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "87368a6a-1f8a-5817-af6b-59d38ed7a461",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "3d095b66-2407-5a2a-9add-0cc5cc1570ea",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "00d8c030-ea81-5390-ae42-ef9cadf994f1",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "774fe906-ebee-5fa6-9905-5584491de0bf",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "62412367-6a6b-5818-8a12-4d25400cb78e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6ab277a4-cbf4-53a4-9ff7-223e12bfca72",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Oktopus 45 Minuten in Salzwasser kochen, bis er zart ist, dann abgießen und in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebeln und Knoblauch anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 2 Minuten braten, dann die gegarten Oktopusstücke hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weißwein angießen und 2 Minuten kochen lassen, damit er leicht einkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reis hinzufügen und 2 Minuten unterrühren, damit er leicht anröstet, dann Hühnerbrühe und Lorbeerblatt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren, abdecken und 20 Minuten köcheln lassen, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen, Petersilie einrühren, mit Salz und Pfeffer würzen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Arroz-de-Polvo-Octopus-Rice.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Arroz-de-Polvo-Octopus-Rice.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-de-carne",
+      "slug": "gen-caldo-de-carne",
+      "title": "Caldo de Carne",
+      "instructions": "Portugiesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderknochen vom Hals oder Beinscheiben statt Rinderschulter verwenden, sie sind deutlich günstiger und ebenso aromatisch.",
+        "Reis oder Gerste hinzufügen, damit die Suppe sättigender wird und das Fleisch weiter reicht."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4387,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-de-carne/",
+      "components": [
+        {
+          "key": "5c589f9e-313c-5977-a625-1072a369b6bb",
+          "name": "Zutaten",
+          "servingGrams": 769.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "60da32f4-2c0c-56ba-a1e2-0b0b770e9943",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6029ce63-e5b8-54b7-ae22-1195f91e661f",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "91a0f6f2-98b2-517d-9a15-07e12bdd87c4",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64b0b412-2233-5cfe-8c8b-5719324b5e45",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "c538371e-bd2f-5b24-9894-7102420610ed",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "b73e0c73-f51f-5462-af80-41d5a14b08f1",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Kopf"
+            },
+            {
+              "key": "725f2cb9-858c-53c0-89bf-1018ea933b71",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "2c11dabb-0e01-5545-9615-27674c62316c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f007485a-fd6b-58be-a900-83c53b4596e6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "702190c3-3650-5419-b87f-35bdf2f4917b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "516f305b-6a8d-5087-afc4-f2f78bd8c5c2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fett von der Rinderschulter entfernen und das Fleisch in große Stücke schneiden, dann mit kalter Rinderbrühe in einen großen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 45 Minuten köcheln lassen, dabei aufsteigenden Schaum abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte Zwiebeln, Karotten, Sellerie und Lorbeerblätter hinzufügen und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Kartoffeln und gehackten Kohl hinzufügen und 15-20 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer abschmecken, dann frische Petersilie unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Schüsseln schöpfen und heiß mit knusprigem Brot dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.730sagestreet.com/wp-content/uploads/2022/08/caldo-de-res-Featured-image-2.jpg",
+          "sourcePageUrl": "https://www.730sagestreet.com/wp-content/uploads/2022/08/caldo-de-res-Featured-image-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-espetada",
+      "slug": "gen-espetada",
+      "title": "Espetada",
+      "instructions": "Portugiesisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderlenden-Abschnitte oder Rinderschulter im Angebot kaufen und einfrieren, bis sie gebraucht werden.",
+        "Die Marinade weglassen und das Fleisch direkt vor dem Grillen einfach mit Salz, Knoblauch und Olivenöl würzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4388,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-espetada/",
+      "components": [
+        {
+          "key": "c2e22e56-4fa9-5f29-b896-c278053d9fcb",
+          "name": "Zutaten",
+          "servingGrams": 137,
+          "position": 0,
+          "items": [
+            {
+              "key": "4fceea31-bf9e-5439-ab24-a95a63ce3b60",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "bea8eecb-9c71-5662-b1c5-063882eed834",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "818ac92e-bd52-5856-81cc-a176b408aa7f",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "15bbf66b-c131-5d5c-b01c-80dbe62965dd",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "9911c270-5fe7-5d92-806c-9ba0aca8b27e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e2d8fe8-8357-5b20-bd4c-c962f4e3e810",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1a0cf300-7a3d-5f9c-872f-ec094cd60f00",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "919bd093-71a7-5a54-8a95-9e26272d1863",
+              "ingredientName": "Metallspieße",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58d8f25e-a9e1-5304-8c4b-3b4b5d2b847c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderlende in 1.5 Zoll große Würfel schneiden und in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl, Essig, gehackten Knoblauch, Lorbeerblätter und Pfefferkörner in einer Schüssel zu einer Marinade verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Marinade über das Rindfleisch gießen, vermengen und mindestens 2 Stunden oder über Nacht im Kühlschrank marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das marinierte Rindfleisch auf Metallspieße stecken und dabei Lorbeerblätter aus der Marinade abwechseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen Grill oder eine Grillpfanne auf hohe Hitze erhitzen und die Spieße 3-4 Minuten pro Seite für ein englisch-rosa Ergebnis garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen, mit Salz würzen und 2 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß auf den Spießen servieren, mit frischer Petersilie garnieren und knuspriges Brot dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2023/04/Caprese-Skewers-06-1024x1536.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2023/04/Caprese-Skewers-06-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-peixada-transmontana",
+      "slug": "gen-peixada-transmontana",
+      "title": "Peixada à Transmontana",
+      "instructions": "Portugiesisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Fischfilets statt frischer verwenden, der Geschmack bleibt gleich und sie sind günstiger.",
+        "Gesalzenen Kabeljau in Läden für internationale Lebensmittel kaufen, dort sind die Preise niedriger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4389,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-peixada-transmontana/",
+      "components": [
+        {
+          "key": "d8ef5db0-650b-58bf-9e57-835a45d821ef",
+          "name": "Zutaten",
+          "servingGrams": 224.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "4b552124-1a5c-5ef5-90e3-9c3fada2be92",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f05c856f-15f1-5355-8744-d99da95dad6d",
+              "ingredientName": "Gesalzener Kabeljau",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "5914e103-2773-561c-ba66-b3272bfb787c",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "a6214864-9633-5c1d-b70d-5858690fbba4",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f554afc6-98ed-5930-b3e4-abfe9fdbab07",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d7763d2e-4f67-540f-8d77-fa53538fb529",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b6d432ac-b07c-5275-a5a2-c044215231c4",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "25603681-fa6e-59d4-a674-981857358eb9",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f58eb33-8568-5ec6-a28c-fa511b48af03",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1e34b652-aa89-5133-b66f-e0d998e26406",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7d284010-e22e-5ab7-869f-9a5953c50223",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d196d9f2-8038-5170-982d-93dd83091e0b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gesalzenen Kabeljau 24 Stunden einweichen, dabei das Wasser alle 8 Stunden wechseln, dann 15 Minuten kochen, bis er zart ist, und zupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln schälen und würfeln, dann 15 Minuten in Salzwasser kochen, bis sie halb gar sind, und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf erhitzen und geschnittene Zwiebeln und gehackten Knoblauch anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark einrühren und 2 Minuten braten, dann Weißwein und Lorbeerblatt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gezupften gesalzenen Kabeljau und die halb gegarten Kartoffeln hinzufügen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frische Fischfilets hinzufügen und 8-10 Minuten sanft köcheln lassen, bis der Fisch vollständig gegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer würzen, mit frischer Petersilie garnieren und in tiefen Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Feijoada-a-Transmontana-Bean-Stew-1024x749.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Feijoada-a-Transmontana-Bean-Stew-1024x749.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,955 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tofu-vegetable-rice-bowl",
+      "slug": "tofu-vegetable-rice-bowl",
+      "title": "Reis-Bowl mit knusprigem Tofu und Gemüse",
+      "instructions": "Knusprig in der Pfanne gebratener Tofu und Tiefkühlgemüse mit Soja-Knoblauch-Sauce auf Reis.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen und umrühren. Der Tofu wird weniger knusprig, schmeckt aber weiterhin gut.",
+      "cheapTips": [
+        "Tofu im Angebot kaufen und Blöcke einfrieren",
+        "Tiefkühlgemüse ist besser als welk gewordenes Frischgemüse"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Eier (zum Schluss als Rührei einrühren)",
+          "savings": "ca. $0.60"
+        },
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Beliebiges frisches Gemüse, das noch übrig ist",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein Block Tofu für $2.50 reicht für zwei Personen und ergibt noch Reste fürs Abendessen.",
+      "healthierTips": [
+        "Vollkornreis für mehr Ballaststoffe verwenden",
+        "Tofu mit weniger Öl in der Heißluftfritteuse zubereiten"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "vegan",
+        "für den Alltag"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tofu-vegetable-rice-bowl/",
+      "components": [
+        {
+          "key": "7f2231d0-94ee-555a-816e-88b164b1216a",
+          "name": "Zutaten",
+          "servingGrams": 608,
+          "position": 0,
+          "items": [
+            {
+              "key": "cddeb455-07a5-599a-90f6-588bf4f9bfc1",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31dfff52-2dc2-57bc-9be6-d9e4915a835e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7026b99-32bb-5203-b55c-53d03ffc469d",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0995140-1b4e-565b-86e9-9d53a34482d4",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9d0334e-4b57-5b13-86ee-20fb1ee4e91b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "604fe9e7-8016-5319-9169-ae482f9acf21",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21c8c21c-f790-529c-b140-6196e1d3a4b7",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 10 Minuten, dann schneide ihn in Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Tofu in Pflanzenöl etwa 8 Minuten, bis er von allen Seiten goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Tiefkühlgemüse dazu und brate alles 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Sojasauce und einen Schuss Sesamöl unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tofu-vegetable-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tofu-vegetable-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tofu-vegetable-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tofu-vegetable-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:teriyaki-chicken-rice-bowl",
+      "slug": "teriyaki-chicken-rice-bowl",
+      "title": "Teriyaki-Hähnchen-Bowl mit Reis",
+      "instructions": "Klebrig-glänzende Hähnchenoberkeulen mit Teriyaki-Glasur auf Reis, dazu gedämpfter Brokkoli.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen und etwas Wasser zum Reis geben.",
+      "cheapTips": [
+        "Hähnchenoberkeulen sind günstiger und saftiger als Hähnchenbrust",
+        "Mit einer Flasche Teriyaki-Sauce kommst du lange aus"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust oder Tofu",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "teriyaki-sauce",
+          "swap": "Sojasauce + 1 EL brauner Zucker + Ingwer",
+          "savings": "ca. $0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Hähnchenoberkeulen kosten im Angebot etwa $2.50 pro Pfund.",
+      "healthierTips": [
+        "Teriyaki-Sauce mit weniger Salz verwenden",
+        "Für mehr Volumen zusätzlichen Brokkoli dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "für den Alltag"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/teriyaki-chicken-rice-bowl/",
+      "components": [
+        {
+          "key": "bc30bb06-dbc6-5af1-a726-7682d9920998",
+          "name": "Zutaten",
+          "servingGrams": 620.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3f502ca-26ae-5664-b736-a402219ed0c8",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31bf3848-ef00-5f7f-8df5-59937cfd82f2",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c949732f-2ede-594b-b9cd-43fed8870a64",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2319a44-68e3-563f-bcb5-40e78a45bb16",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c93a647-95a7-5624-88ca-6bb237fd9413",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca2674e3-c78e-5183-a162-d06534e8603e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da990066-86e9-5da0-9571-929b5c1a6b00",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Hähnchenoberkeulen in Würfel und brate sie etwa 6 Minuten in Öl bei mittlerer bis hoher Hitze, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch dazu und brate ihn 30 Sekunden. Gieße dann die Teriyaki-Sauce an und lass sie zu einer Glasur einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe den Brokkoli 3 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Reis auf die Teller, verteile Hähnchen und Brokkoli darauf und garniere mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/teriyaki-chicken-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/teriyaki-chicken-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/teriyaki-chicken-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/teriyaki-chicken-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:kimchi-egg-rice-bowl",
+      "slug": "kimchi-egg-rice-bowl",
+      "title": "Kimchi-Ei-Bowl mit Reis",
+      "instructions": "In der Pfanne brutzelndes Kimchi mit Reis, darüber ein weich gebratenes Ei. Würzig-säuerlich und in 10 Minuten fertig.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Am besten frisch essen; die Reisbasis hält sich 2 Tage.",
+      "reheatingInstructions": "Den Reis 90 Sekunden erwärmen und ein frisches Ei braten.",
+      "cheapTips": [
+        "Kimchi wird mit der Zeit aromatischer. Kaufe ein Glas und verwende es nach und nach",
+        "Eier sind eine besonders günstige Eiweißquelle"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kimchi",
+          "swap": "Sauerkraut + Chiliflocken",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Weglassen oder Chiliöl verwenden",
+          "savings": "ca. $0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Kimchi, Eier und Reis kosten zusammen weniger als $2.50 und bringen viel Geschmack.",
+      "healthierTips": [
+        "Ein ganzes Ei und zusätzliches Eiweiß verwenden",
+        "Vollkornreis für mehr Ballaststoffe verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "wohnheimgeeignet",
+        "schnell",
+        "scharf"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/kimchi-egg-rice-bowl/",
+      "components": [
+        {
+          "key": "cb3cc8ff-715e-5af6-8d44-b43412f45859",
+          "name": "Zutaten",
+          "servingGrams": 420,
+          "position": 0,
+          "items": [
+            {
+              "key": "3e339856-7008-5446-868b-a0c8a00cd69c",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34459fc5-f41c-5117-90d7-3d932291f1b2",
+              "ingredientName": "Kimchi",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5345191e-6e4d-58b5-ad13-d7daf68dc9dc",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5234c0e-bedb-5fc0-9915-e27ae411349d",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e73635bc-6041-5862-995f-c1bffec81702",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b5d3aa7-be6a-5a10-80f4-24ea8c06c1df",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "262383f1-7748-54b7-b155-735963e020b5",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Sesamöl und Pflanzenöl in einer kleinen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehacktes Kimchi hinein und brate es 2 Minuten, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Reis und Sojasauce unter und brate alles weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe den Reis zur Seite, schlage die Eier in die Pfanne und brate sie nach Wunsch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Eier auf den Reis und garniere mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/kimchi-egg-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/kimchi-egg-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/kimchi-egg-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/kimchi-egg-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:soy-garlic-cabbage-rice-bowl",
+      "slug": "soy-garlic-cabbage-rice-bowl",
+      "title": "Reis-Bowl mit karamellisiertem Soja-Knoblauch-Kohl",
+      "instructions": "Mit Sojasauce und Knoblauch karamellisierter Kohl auf Reis: günstig, vegan und überraschend lecker.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen. Der Kohl schmeckt auch aufgewärmt gut.",
+      "cheapTips": [
+        "Ein ganzer Kopf Kohl kostet $2 und hält sich wochenlang",
+        "Die Sauce besteht aus Vorratszutaten; frisches Gemüse musst du dafür nicht einkaufen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Pak Choi oder Grünkohl",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Chiliöl verwenden oder weglassen",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kohl gehört zu den günstigsten Gemüsesorten im Laden und kostet pro Tasse nur ein paar Cent.",
+      "healthierTips": [
+        "Sojasauce mit weniger Salz verwenden",
+        "Für mehr Eiweiß Tofu dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "vegan",
+        "günstig",
+        "eine Pfanne"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 8,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/soy-garlic-cabbage-rice-bowl/",
+      "components": [
+        {
+          "key": "62f1ed51-a919-568a-bf49-427dad931ff9",
+          "name": "Zutaten",
+          "servingGrams": 638.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "fbb1f207-2e3c-5907-911e-3ccdadf39d09",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6bfcc40-d87a-581d-b012-07efc7e96306",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4a90033-e8ca-593f-874a-ec5c6173f667",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2a3bccf-a816-574c-97b4-8c8d69fadd63",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9ff440b-4e7b-53ac-aedc-1f78aca0ed8c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a4efecc-4084-5c85-b5c5-aa995e716e3c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5e5e8ddb-e26b-58f7-89c9-d55baefcf5cf",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Kohl in feine Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei starker Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Kohl in einer Lage in der Pfanne und brate ihn 3 Minuten an, bevor du umrührst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und Sojasauce dazu und brate alles unter Rühren weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Sesamöl und Chiliflocken unter und serviere den Kohl auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/soy-garlic-cabbage-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/soy-garlic-cabbage-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/soy-garlic-cabbage-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/soy-garlic-cabbage-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-congee",
+      "slug": "rice-cooker-congee",
+      "title": "Congee aus dem Reiskocher",
+      "instructions": "Ein Porridge aus Reis, Wasser und Ingwer, das sich ohne Aufsicht kocht. Mild, wohltuend und ausgesprochen günstig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 55,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank aufbewahren. Beim Lagern dickt der Brei nach; gib beim Aufwärmen Wasser dazu.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 2 Minuten in der Mikrowelle erwärmen und gut umrühren.",
+      "cheapTips": [
+        "1 Tasse Reis reicht für 4 Personen",
+        "Beim Topping bist du flexibel: Verwende einfach, was du da hast"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ginger",
+          "swap": "Ingwerpaste oder weglassen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Übrig gebliebenes Fleisch oder Tofu",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Mit nur einer Tasse Reis und Wasser reicht es für das Frühstück der ganzen Woche.",
+      "healthierTips": [
+        "Vollkornreis verwenden (längere Kochzeit)",
+        "Mit gedünstetem Blattgemüse servieren"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "asiatisch",
+        "wohnheimgeeignet",
+        "wohltuend",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 9,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-congee/",
+      "components": [
+        {
+          "key": "f36c557b-b685-5cf4-b11a-5536227d79ea",
+          "name": "Zutaten",
+          "servingGrams": 98.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9e46be5-4a96-5df9-b6e2-b2ebc86811b7",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4fd2ddb-dbe6-5c0f-b0b3-50d0978dc262",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a159fd7c-d3e8-5c1a-a627-e9e41e84d9dc",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a7f0dbc-2207-5d2f-9f1b-0d9e2a82fe3b",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33db5f42-d8e2-5ca1-a4c3-6b8f84d49b8c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "6fb48847-cf8e-5f61-b18c-f7d3b35e826b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis ab und gib ihn mit 7 Tassen Wasser in den Reiskocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge den in Scheiben geschnittenen Ingwer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Starte das Porridge-Programm. Alternativ kannst du das normale Programm verwenden und den Reis anschließend 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre kräftig, damit der Reis zu einem Brei zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere die Schüsseln mit Frühlingszwiebel, Sojasauce, Sesamöl und einem weich gekochten Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/rice-cooker-congee.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/rice-cooker-congee.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/rice-cooker-congee.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/rice-cooker-congee.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

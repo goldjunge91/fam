@@ -1,0 +1,1231 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52964",
+      "slug": "tmdb-52964",
+      "title": "Kedgeree mit geräuchertem Schellfisch",
+      "instructions": "Indisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Indien",
+        "Frühstück",
+        "Brunch",
+        "Fisch",
+        "Fusion"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2180,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52964/",
+      "components": [
+        {
+          "key": "3242af98-8e08-56bf-9613-1f5c59fe8ea9",
+          "name": "Zutaten",
+          "servingGrams": 191.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "7354553b-b628-5b9f-914e-215db1949ba1",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eed533c0-d542-5924-b0fe-dec1e812c182",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "286a9748-fcaa-5eae-ad4f-173edd5a2566",
+              "ingredientName": "Kardamom",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ab6b1c2-93f1-533f-9f2b-34e22e389974",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0f7c03f-e905-52fc-bd95-7f6cfbd7e5ec",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "816e1233-96a5-550b-b95e-641f1b7f1b23",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa7b5fee-f3dc-5121-a5f4-9433ab11efca",
+              "ingredientName": "Basmatireis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a2ccebf-7940-566b-be02-99320e096649",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea8ac331-4508-581a-a26e-971d2f6e997e",
+              "ingredientName": "Geräucherter Schellfisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d93c5394-460c-587e-b7e0-33e23f96b86a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e96b0169-dcaf-5d4f-adca-747d6c2137c4",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "239ccaf2-54e1-58a5-87c8-86212004efbd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz 50g Butter in einem großen Topf (etwa 20cm breit). Gib 1 fein gehackte mittelgroße Zwiebel dazu und gare sie bei mittlerer Hitze 5 Minuten weich, ohne sie zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre 3 aufgebrochene Kardamomkapseln, ¼ tsp Kurkuma, 1 kleine Zimtstange und 2 Lorbeerblätter ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 450g Basmatireis dazu und rühre, bis alle Körner mit der gewürzten Butter überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße 1 litre Hühner- oder Fischbrühe dazu, gib ½ Teelöffel Salz hinein und bringe alles zum Kochen. Rühre einmal um, damit kein Reis am Topfboden klebt. Decke den Topf mit einem dicht schließenden Deckel ab, reduziere die Hitze auf niedrig und gare alles 12 Minuten sanft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe währenddessen Wasser in einer großen flachen Pfanne zum Kochen. Gib 750g ungefärbtes geräuchertes Schellfischfilet hinein und lass es 4 Minuten köcheln, bis der Fisch gerade gar ist. Hebe ihn auf einen Teller und lass ihn abkühlen, bis du ihn anfassen kannst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche 3 Eier 8 Minuten hart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zerteile den Fisch und entferne Haut und Gräten. Gieße die Eier ab, lass sie leicht abkühlen, schäle und hacke sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Deckel vom Reis und entferne nach Wunsch Lorbeerblätter, Zimtstange und Kardamomkapseln. Hebe Fisch und gehackte Eier vorsichtig unter, decke den Topf wieder ab und erhitze alles 2-3 Minuten, bis der Fisch heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Rühre vorsichtig fast die gesamten 3 EL gehackte frische Petersilie ein und würze nach Geschmack mit etwas Salz und schwarzem Pfeffer. Serviere das Gericht mit der restlichen Petersilie bestreut und garniere es mit 1 in Spalten geschnittenen Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1550441275.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1550441275.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53264",
+      "slug": "tmdb-53264",
+      "title": "Rauchige Hähnchenspieße",
+      "instructions": "Türkisches Hähnchengericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2181,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53264/",
+      "components": [
+        {
+          "key": "61c2cae3-4cbc-5b35-89c8-040b32197315",
+          "name": "Zutaten",
+          "servingGrams": 169.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "99db3418-e2ea-5ecc-bfbe-a62a1d9b984e",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c8eecfd-612f-5bab-9db1-6a4ba910338e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "330ede7d-f2af-5757-8abd-80d44beea0c6",
+              "ingredientName": "Fenchelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "389cd2f7-c8fc-5e0e-9e9f-af6161dc2e2a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3c51e69-e776-5b7b-8a39-5fd2ca591f9c",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34c4a1ed-30f6-568a-8793-19bc6604f426",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b47cc14-241c-548e-a2b6-b456430e38f2",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e176671-07a1-5d6d-a014-1feded2a44ee",
+              "ingredientName": "Rauchige Aioli",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Du brauchst 15 Spieße. Weiche Holzspieße 10 mins in Wasser ein. Schneide das Hähnchen in 3cm große Stücke und gib sie in eine Schüssel. Füge 1 tbsp Olivenöl, Gewürze, Knoblauch und Essig hinzu, vermische alles gründlich und würze. Du kannst dies bis zu einem Tag im Voraus vorbereiten und kühl stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stecke jeweils 2-3 Stücke auf jeden Spieß. Gieße das restliche Öl in eine Pfanne oder bestreiche damit eine Grillpfanne. Erhitze die Pfanne und brate das Hähnchen 3-4 mins pro Seite scharf an. Möglicherweise musst du portionsweise arbeiten und fertige Spieße im niedrigen Ofen warm halten. Nach Wunsch mit rauchiger Aioli servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/3um6il1763794322.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/3um6il1763794322.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52784",
+      "slug": "tmdb-52784",
+      "title": "Rauchiges Linsen-Chili mit Kürbis",
+      "instructions": "Britisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "vegetarisch",
+        "Hülsenfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2182,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52784/",
+      "components": [
+        {
+          "key": "deefb910-91a7-5b85-b3c2-f5240701e6c2",
+          "name": "Zutaten",
+          "servingGrams": 456.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f2dcd84-f244-555a-8521-c47f37eddb73",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "401ca328-a477-5aae-8ba3-e5dca359e875",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc00fe0c-2351-5c99-9abc-8943cd36fa1b",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77fe66d4-e538-5d88-ab81-29de8ec82a6e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "150388d7-1cb8-5359-91ae-102267d3e098",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09930e00-ac55-55c9-a827-d3c450f25d4f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ad680c6-2d18-5ada-8bc1-f79c356cb830",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f83c40f7-3f57-5866-a19d-1a21089e8da0",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fca647a7-361c-5276-b840-3e6ccb51eb18",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60a1c96c-b619-5a0e-b296-745c02f8baa4",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81cebf77-3bd3-5d12-8cf0-4aa3e677f59d",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca385057-0feb-5897-9de8-e2220c9e0041",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "129a3be7-025c-51d5-8522-0a80a4abf2d6",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b82fe2c-b6a0-54a3-8088-73a6dae68d2d",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96ee7028-25fa-5c6f-b0db-d1bc61b3a3ae",
+              "ingredientName": "Braune Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42cd3542-2fc8-59ac-94a2-80b19dc218db",
+              "ingredientName": "Flockiges Meersalz (Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "502c3439-4265-5206-a9b4-bbe108e4123c",
+              "ingredientName": "Butternusskürbis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8d23abb-92b7-5826-ae9e-a43311bb7934",
+              "ingredientName": "Cashewkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baede9ec-caea-59c8-8c1d-fd1fd2d0b12c",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste zuerst den Kürbis. Schneide ihn in dünne Halbmonde, beträufle ihn mit etwas Öl und streue Meersalz darüber. Ich habe etwas frischen Salbei aus dem Kühlschrank dazugegeben, nötig ist er aber nicht. Röste den Kürbis bei 205 C (400 F) 20-30 Minuten und wende ihn nach der Hälfte der Zeit, bis er weich und goldbraun ist. Lass ihn abkühlen und schneide ihn in Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle währenddessen die Linsen ab und bedecke sie mit Wasser. Bringe sie zum Kochen, reduziere dann die Hitze und lass sie ohne Deckel 20-30 Minuten köcheln, bis sie weich sind. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze während die Linsen garen 1 Tbsp. Öl bei niedriger Hitze in einem mittelgroßen Topf. Gib Zwiebeln und Lauch dazu und dünste sie etwa 5 Minuten, bis sie weich werden. Füge Knoblauch, Kreuzkümmel und Koriander hinzu und gare alles einige Minuten weiter. Gib die übrigen Gewürze dazu: Paprikapulver, Zimt, Chili, Kakao, Worcestershire-Sauce, Salz und Oregano. Füge Dosentomaten, Wasser oder Brühe und Karotten hinzu. Decke den Topf ab und lass alles 20 Minuten köcheln, bis das Gemüse weich und die Mischung eingedickt ist. Rühre gelegentlich um und gib bei Bedarf etwas Flüssigkeit dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Linsen und gewürfelten gerösteten Kürbis dazu. Gare alles weitere 10 Minuten, damit es heiß wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Chili mit geschnittener Jalapeño, Limettenspalten, Koriander, Frühlingszwiebeln und Cashew-Sauerrahm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "EINFACHER CASHEW-SAUERRAHM",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "1 Cup rohe, ungesalzene Cashewkerne",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Prise Meersalz",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "1 tsp. Apfelessig",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Wasser",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Bringe Wasser zum Kochen und weiche die Cashewkerne mindestens vier Stunden darin ein. Alternativ kannst du kaltes Wasser verwenden und sie über Nacht einweichen lassen. Ich vergesse das oft oder bin zu faul, daher nutze ich meist die schnellere Methode mit kochendem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Gieße die eingeweichten Cashews ab und gib sie in einen Hochleistungsmixer. Püriere sie und gib langsam etwa 1/2 cup frisches Wasser dazu, bis eine cremige Konsistenz entsteht. Je nach gewünschter Konsistenz brauchst du eventuell weniger oder mehr Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Gib eine Prise Meersalz und Essig (oder Zitronensaft) dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/uwxqwy1483389553.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/uwxqwy1483389553.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52981",
+      "slug": "tmdb-52981",
+      "title": "Snert (holländische Erbsensuppe)",
+      "instructions": "Niederländische Beilage, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Niederlande",
+        "Beilage",
+        "Suppe",
+        "Kuchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2183,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52981/",
+      "components": [
+        {
+          "key": "969b7ed6-9b0a-5d40-beb2-d98cf60ab615",
+          "name": "Zutaten",
+          "servingGrams": 363.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "c81dc4ac-6e73-5be1-a95a-9a746475f303",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb890fac-eecc-551e-946c-2a5fff952603",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8977f93b-d74b-51ba-8c96-16d6b8b64d5b",
+              "ingredientName": "Schweinewurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9da17660-7747-55e2-b96f-4ed26defd991",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cf3f267-8e71-542b-8060-65517cd2c131",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1999932-6135-5691-b451-7195f70b3a6a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37e2ad3b-76c8-536f-8e19-3e084b94eb49",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "caf704b5-107f-50c0-ba7d-736cc60bda4a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba73acdc-b77f-5636-8aa4-8eff14c8c074",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1ac8554-84c6-535b-a146-b0d34490efe2",
+              "ingredientName": "Knollensellerie",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab809dc0-fdd4-5568-b07e-c96f50a4b85a",
+              "ingredientName": "Würstchen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle die Zutaten bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Wasser, Schälerbsen, Schweinebauch oder Speck, Schweinekotelett und Brühwürfel in einem großen Suppentopf zum Kochen. Reduziere die Hitze, decke den Topf ab und lass alles 45 Minuten köcheln. Rühre gelegentlich um und schöpfe aufsteigenden Schaum ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Schweinekotelett heraus, löse das Fleisch vom Knochen und schneide es in dünne Scheiben. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sellerie, Karotten, Kartoffel, Zwiebel, Lauch und Knollensellerie in die Suppe. Bringe sie erneut zum Kochen, reduziere dann die Hitze und lass sie ohne Deckel weitere 30 Minuten köcheln. Gib etwas Wasser dazu, falls Zutaten am Topfboden ansetzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die geräucherte Wurst für die letzten 15 Minuten der Garzeit dazu. Wenn das Gemüse weich ist, nimm Speck und Wurst heraus, schneide sie dünn und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Püriere die Suppe nach Wunsch mit einem Stabmixer. Schmecke sie mit Salz und Pfeffer ab. Gib das Fleisch zurück in die Suppe und stelle einige Scheiben Rookworst zum Garnieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Suppe in vorgewärmten Schalen oder tiefen Tellern, garniert mit Rookworstscheiben und gehacktem Selleriegrün.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Guten Appetit!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/9ptx0a1565090843.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/9ptx0a1565090843.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52992",
+      "slug": "tmdb-52992",
+      "title": "Soja-glasierte Hackbraten mit Wasabi-Kartoffelpüree und Ofenkarotten",
+      "instructions": "Rindfleischgericht aus den Vereinigten Staaten, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Vereinigte-Staaten",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2184,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52992/",
+      "components": [
+        {
+          "key": "35076be5-4653-5419-94fe-75809dbdeded",
+          "name": "Zutaten",
+          "servingGrams": 459.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc146d2e-9e2e-5bcd-869d-72a3d8e01d54",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98766ae0-8364-5afc-acb5-2b1e1c738b4d",
+              "ingredientName": "Karotte",
+              "grams": 732,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2444e445-392a-5415-a674-9f901b2b3fb3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4a60e33-da76-56dd-ad79-e61b80200764",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46c233d2-4543-52ce-93c8-ffcb734a4383",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc1530c7-058e-5eb1-9552-518dc99bc988",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d70c7d21-4833-5562-8b80-62b5d9204ed1",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76707716-d893-565b-91c3-0d15f1783142",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e2b3d57-c59e-50f1-a1f4-6ecd7b5d5885",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb356410-8bb1-5ef6-b514-29893004fd5b",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a2d0576-23aa-5a4d-b64b-bc7a8ba29747",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1. Heize den Ofen auf 425 Grad vor. Wasche und trockne alle Zutaten. Schneide Kartoffeln in 1/2-inch große Stücke. Schneide die Enden der Karotten ab, schäle sie und schneide sie diagonal in 1/2-inch dicke Stücke. Schneide Frühlingszwiebeln dünn und trenne weiße und grüne Teile; hacke die weißen fein. Schäle und hacke den Knoblauch fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2. Weiche Brot mit 2 TBSP Wasser (4 TBSP für 4 Portionen) in einer mittelgroßen Schüssel ein und zerdrücke es mit den Händen zu einer Paste. Rühre Rindfleisch, Sriracha, weiße Frühlingszwiebelteile, die Hälfte des Knoblauchs, Salz (wir verwendeten 3/4 tsp koscheres Salz; 11/2 tsp für 4) und Pfeffer ein. Forme zwei 1-inch hohe Hackbraten (vier Hackbraten für 4). Lege sie auf eine Seite eines Backblechs. Vermische Karotten auf der freien Seite desselben Blechs mit etwas Öl, Salz und Pfeffer. (Für 4 Portionen verteile die Hackbraten über das ganze Blech und gib die Karotten auf ein zweites Blech.) Backe alles 20 Minuten (danach werden die Hackbraten glasiert).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3. Gib währenddessen Kartoffeln in einen mittelgroßen Topf und bedecke sie mit Salzwasser, das 2 inches darüber steht. Bringe das Wasser zum Kochen und gare die Kartoffeln, bis sie sehr",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "tender, 12-15 Minuten. Bewahre 1/2 cup Kartoffelkochwasser auf und gieße die Kartoffeln ab. Vermische währenddessen in einer kleinen Schüssel Sojasauce, Knoblauchpulver, 1/4 cup Ketchup (1/2 cup für 4 Portionen) und 2 tsp Zucker (4 tsp für 4 Portionen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "4. Sobald Hackbraten und Karotten 20 Minuten gebacken haben, nimm sie aus dem Ofen. Löffle die Hälfte der Ketchupglasur über die Hackbraten (bewahre",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "den Rest zum Servieren auf); stelle sie zurück in den Ofen, bis die Karotten gebräunt und weich, die Hackbraten gar und die Glasur klebrig sind, weitere 4-5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5. Währenddessen schmilz 2 TBSP Butter (4 TBSP für 4 Portionen) im zuvor für die Kartoffeln verwendeten Topf bei mittlerer Hitze. Gib den restlichen Knoblauch dazu und gare",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "bis er duftet, 30 Sekunden. Gib Kartoffeln und 1/4 tsp Wasabi dazu und stampfe sie. Füge nach Bedarf etwas vom aufbewahrten Kartoffelkochwasser hinzu, bis das Püree glatt ist. Würze mit Salz und Pfeffer. (Wenn du es scharf magst, rühre mehr Wasabi ein!)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "6. Verteile Hackbraten, Kartoffelpüree und Ofenkarotten auf Tellern. Bestreue sie mit Frühlingszwiebelgrün und serviere die restliche Ketchupglasur als Dip dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/o2wb6p1581005243.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/o2wb6p1581005243.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

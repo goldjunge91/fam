@@ -1,0 +1,966 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-spaghetti-al-nero-di-seppia",
+      "slug": "gen-spaghetti-al-nero-di-seppia",
+      "title": "Spaghetti mit Tintenfischtinte",
+      "instructions": "Neapolitanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tintenfischtinte lose in größeren Mengen in einem italienischen Spezialgeschäft oder online statt im gehobenen Supermarkt.",
+        "Verwende preiswerten Weißwein zum Kochen oder lasse ihn weg und nimm mehr Brühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "neapolitanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3725,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spaghetti-al-nero-di-seppia/",
+      "components": [
+        {
+          "key": "467a3f7b-e469-5fcb-8d66-6a8858b99af8",
+          "name": "Zutaten",
+          "servingGrams": 626.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1209017b-ce17-57ce-8df4-7cc1eb338559",
+              "ingredientName": "Pasta",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "5a542309-c447-5d24-9b3e-326304d7118e",
+              "ingredientName": "Haferflocken-Instantportionen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Päckchen (je 4 g)"
+            },
+            {
+              "key": "4a08aa74-8088-58c3-97f3-6cf13c531344",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5eebf0b5-3fb7-50d8-93f4-0ca582b20fd2",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f9a69eaa-4252-5631-a417-516892d7d6ea",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "476a5f28-d690-5cc9-ab71-79224562bac2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ab8d24bf-0c6c-5c66-9d45-b127843d3761",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0fb71aa5-1561-5127-8f1a-fb8bf6681e8f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0c34ddfb-2ee5-5b82-bad8-a9854f412dcd",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL, frisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und koche Spaghetti al dente. Gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und dünste gehackten Knoblauch etwa 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Weißwein hinzu und lasse ihn etwa 2 Minuten einkochen, bis sich die Menge halbiert hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Dosentomaten und Tintenfischtinten-Portionen hinzu und rühre gut um, damit sich die Tinte gleichmäßig in der Sauce verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Sauce 8-10 Minuten köcheln, bis sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische gekochte Spaghetti mit der Sauce, würze mit Salz und Pfeffer und garniere mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a0/25/9e/a0259ec7b80173d1dde500d35d0f5b8b.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a0/25/9e/a0259ec7b80173d1dde500d35d0f5b8b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pani-e-panelle",
+      "slug": "gen-pani-e-panelle",
+      "title": "Pani e Panelle",
+      "instructions": "Neapolitanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsenmehl in größeren Mengen in internationalen oder indischen Lebensmittelgeschäften.",
+        "Verwende das günstigste verfügbare Brot; Brötchen vom Vortag eignen sich bestens."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "neapolitanisch",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3726,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pani-e-panelle/",
+      "components": [
+        {
+          "key": "e1e63fc2-cc57-5331-a4e5-88403897d130",
+          "name": "Zutaten",
+          "servingGrams": 429.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "8bbd82f0-47fb-5d0a-91df-713ba53de715",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "899552f0-3a8a-5f41-aaea-3f4ebc7268b0",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7e2ab585-3f8b-5f23-9005-ba92b730b1a7",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/2 TL"
+            },
+            {
+              "key": "f5457e84-638f-5720-a62f-769bedc20c56",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d268ea79-ed94-50e5-95fd-9c474480bc36",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "33366866-6023-543c-a577-c250ecb84b72",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cb1f917-3f43-5999-93ed-ede3726239d6",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, frisch"
+            },
+            {
+              "key": "7f5cdb2e-fb3f-5ada-8495-db579a9c20f4",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Kichererbsenmehl langsam mit Wasser, damit keine Klümpchen entstehen. Gib Salz hinzu und lasse die Mischung 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 3 Esslöffel Olivenöl in einem großen flachen Topf und gieße den Kichererbsenteig hinein. Rühre ständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre bei mittlerer Hitze 15-20 Minuten weiter, bis die Masse eindickt und sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den heißen Teig dünn auf ein geöltes Backblech und lasse ihn etwa 10 Minuten vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die abgekühlten Panelle in Rechtecke von etwa 3 Zoll mal 2 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Pflanzenöl in einer tiefen Pfanne auf 350°F und frittiere die Panelle etwa 2 Minuten insgesamt, bis sie auf beiden Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen, lege die warmen Panelle in das Brot, beträufle sie mit Zitronensaft und garniere sie mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/J5h4zXc72fcpxmGtEGZkrI5frN0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9143983-472cef6edef14188a5b70bf6e1dd1039.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/J5h4zXc72fcpxmGtEGZkrI5frN0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9143983-472cef6edef14188a5b70bf6e1dd1039.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-torta-caprese",
+      "slug": "gen-torta-caprese",
+      "title": "Torta Caprese",
+      "instructions": "Neapolitanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gemahlene Mandeln bei Costco oder auf internationalen Märkten deutlich günstiger.",
+        "Verwende normale Schokoladenstückchen, falls Zartbitterschokolade zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "neapolitanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3727,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-torta-caprese/",
+      "components": [
+        {
+          "key": "ea6ae911-3e5d-5bca-9b26-eff7cea6592c",
+          "name": "Zutaten",
+          "servingGrams": 140,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fac0d47-d962-5a9d-95a7-830d456848b9",
+              "ingredientName": "Mandeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ff82d146-9ad2-569b-b135-bb6af296dc01",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2af92931-46f7-5279-9f6d-ba73bda6cd11",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 große Stücke"
+            },
+            {
+              "key": "b4bac0ff-8ef9-5a6b-a843-1b61e1fcab80",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "f725eb6b-f4a7-50bc-bb1f-4f0237c4e405",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d88ec7e2-3f48-5a89-a6df-68967343c644",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "473e7449-0c26-59b6-aa6f-bd053eb39859",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "584368aa-1f29-5055-84f3-37909feb1d66",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine runde Kuchenform mit 9 Zoll Durchmesser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Schokolade und Butter zusammen in einer Schüssel über siedendem Wasser und rühre dann Vanilleextrakt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eier und Zucker mit einem elektrischen Mixer etwa 5 Minuten hell und schaumig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die Schokoladenmischung vorsichtig unter die Eier und anschließend gemahlene Mandeln und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die vorbereitete Form und backe ihn 25-30 Minuten, bis ein hineingesteckter Zahnstocher mit einigen feuchten Krümeln herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse den Kuchen vollständig abkühlen, bestäube ihn mit Puderzucker und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://virfood.com/wp-content/uploads/2025/01/Italian_Torta_Caprese_Recipe__Flourless_Chocolate_Almond_Cake_-2.jpg",
+          "sourcePageUrl": "https://virfood.com/wp-content/uploads/2025/01/Italian_Torta_Caprese_Recipe__Flourless_Chocolate_Almond_Cake_-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-amatriciana",
+      "slug": "gen-amatriciana",
+      "title": "Amatriciana",
+      "instructions": "Römisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Guanciale durch Pancetta oder Speck, falls es nicht verfügbar oder zu teuer ist.",
+        "Kaufe Pecorino Romano in einem Geschäft mit guter Käseauswahl günstiger als in Spezialgeschäften."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "römisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3728,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-amatriciana/",
+      "components": [
+        {
+          "key": "3272ddab-e701-5a39-bed0-b0660c447c08",
+          "name": "Zutaten",
+          "servingGrams": 535.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5782186-e032-54d3-a326-628a0d03a3cd",
+              "ingredientName": "Pasta",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "cc9ae66a-d8b1-5375-99bf-af371879a5a0",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "53583ecf-0b41-5d61-9a71-4d4743ce5327",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "a2f985ce-a298-5dbe-a7fa-ec30624d0bef",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "0b3b75fa-7e9c-5029-baaf-951c066ac012",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "3cce0d2b-9626-521c-9813-d42289ba1e0e",
+              "ingredientName": "Pecorino Romano",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "ef69f618-fe94-52b9-9ec3-9b327875c51a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "45449c14-9581-55b4-9907-48798a9fc824",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und koche Spaghetti al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide währenddessen Guanciale in kleine Würfel und lasse das Fett 3 Minuten bei mittlerer Hitze in einer Pfanne aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel und Chiliflocken hinzu und dünste sie etwa 3 Minuten, bis die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße zerdrückte Tomaten hinzu und lasse die Sauce 8-10 Minuten köcheln, bis sie eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Pasta ab, bewahre 1 Tasse Nudelwasser auf und vermische die Pasta dann mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib bei Bedarf Nudelwasser hinzu, um die Sauce zu verdünnen. Nimm die Pfanne vom Herd und rühre 1/2 Tasse geriebenen Pecorino Romano ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte die Pasta an und bestreue jede Portion mit zusätzlichem geriebenem Pecorino Romano und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Fdo35DjxxWglhOcjJ6zUg8C4vss=/4000x3002/filters:fill(auto,1)/AmatricianaPastaRecipeSpruce2-b9248a63aef24a8fa5e5406ee84b991b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Fdo35DjxxWglhOcjJ6zUg8C4vss=/4000x3002/filters:fill(auto,1)/AmatricianaPastaRecipeSpruce2-b9248a63aef24a8fa5e5406ee84b991b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gricia",
+      "slug": "gen-gricia",
+      "title": "Gricia",
+      "instructions": "Römisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Speck, falls Guanciale nicht erhältlich ist; er ist viel günstiger und schmeckt trotzdem gut.",
+        "Kaufe ein Stück Pecorino Romano und reibe ihn selbst, statt fertig geriebenen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "römisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3729,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gricia/",
+      "components": [
+        {
+          "key": "48079588-83ea-59f3-a251-7d703c96e3bc",
+          "name": "Zutaten",
+          "servingGrams": 543.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "8dc74cca-4d75-55e6-adc6-9fb752495dcb",
+              "ingredientName": "Pasta",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "92f0841d-c59d-5b9a-9f28-edd8c2dc3ddc",
+              "ingredientName": "Speck",
+              "grams": 125,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Unzen"
+            },
+            {
+              "key": "e2c4de56-af7d-5c6b-86a1-f5903d463f43",
+              "ingredientName": "Pecorino Romano",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0af50fcd-fc26-53f8-9d0c-7675071d8718",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "9133cd7e-3cba-57ce-a462-c4b40219b57e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und koche Pasta al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Guanciale und gare ihn etwa 5 Minuten langsam in einer großen Pfanne bei mittlerer Hitze, bis das Fett austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pfanne vom Herd und lasse sie leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Pasta ab und bewahre 1 1/2 Tassen Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die heiße Pasta zum Guanciale in die Pfanne, ohne sie zu erhitzen, und gib schwarzen Pfeffer hinzu. Schwenke alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib langsam geriebenen Pecorino Romano hinzu und schwenke ständig. Gieße nach und nach Nudelwasser an, bis eine cremige Konsistenz entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit zusätzlichem schwarzem Pfeffer und Pecorino Romano dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57aced6df1c801a1038bc90d/1:1/w_2560%2Cc_limit/pasta-alla-gricia1.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57aced6df1c801a1038bc90d/1:1/w_2560%2Cc_limit/pasta-alla-gricia1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

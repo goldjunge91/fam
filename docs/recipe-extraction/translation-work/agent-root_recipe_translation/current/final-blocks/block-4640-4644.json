@@ -1,0 +1,1129 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tomates-farcies",
+      "slug": "gen-tomates-farcies",
+      "title": "Gefüllte Tomaten",
+      "instructions": "Französisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch aus der Schulter statt hochwertigem Rinderhackfleisch",
+        "Ersetze Gruyère durch Cheddar oder sogar Mozzarella"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4640,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tomates-farcies/",
+      "components": [
+        {
+          "key": "f680e88c-f95b-5f58-8bf2-95999e23a87c",
+          "name": "Zutaten",
+          "servingGrams": 249,
+          "position": 0,
+          "items": [
+            {
+              "key": "e35d8a0f-305e-5c34-bff7-bbd60ba48488",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87358b21-2047-5d00-929b-4d28c418bc00",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "bf8a7172-5749-58a6-8524-1a958b64d07f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "8726a7b8-b4bb-567b-a1e0-2634b2c29376",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "086a81d2-6e75-5a7d-bc21-16d2c4c7f3c5",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e3f77c30-57dd-5781-8b27-a8e82dfe4ea4",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1eccdad3-c80d-502d-8289-a5a321d2268d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9eec5160-0610-5f7f-af27-552d6fccd56e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e3bd6cfb-1cc5-5b7b-a846-02b5ff520719",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aaf8fe65-184a-5a2f-ac8e-4e51a383db02",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Tomaten oben ab und höhle sie mit einem Löffel aus. Stelle das Fruchtfleisch beiseite und streue Salz in die Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die Zwiebel und hacke den Knoblauch. Dünste beides im Olivenöl, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Rinderhackfleisch dazu und brate es, bis es gebräunt ist. Zerteile es dabei in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mische Paniermehl, Käse, Ei, das beiseitegestellte Tomatenfruchtfleisch, Salz und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Füllung gleichmäßig auf die ausgehöhlten Tomaten und setze sie in eine gefettete Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie 25-30 Minuten, bis die Tomaten weich und die Füllung durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie warm und garniere sie nach Belieben mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2015/08/05/dining/TOMATO-slide-F5FI/TOMATO-slide-F5FI-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2015/08/05/dining/TOMATO-slide-F5FI/TOMATO-slide-F5FI-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poivrons-farcis",
+      "slug": "gen-poivrons-farcis",
+      "title": "Gefüllte Paprika",
+      "instructions": "Französisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch oder Putenhackfleisch statt Schweinefleisch",
+        "Lass den Käsebelag weg oder verwende günstigen Cheddar statt Emmentaler"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4641,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poivrons-farcis/",
+      "components": [
+        {
+          "key": "bdda1b00-7fdd-5c6b-b754-f0d65ab0316b",
+          "name": "Zutaten",
+          "servingGrams": 333.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ce735f3-9469-55d8-942f-6510563a1b43",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "3961d900-3bed-57ed-9b45-9e309608d014",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8f0b8d76-89f1-5c5e-aac8-083fcced75d6",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6c722bf1-1628-5938-b3b5-370e965d8168",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "e5ca6396-d01f-5100-bd22-bf33520ae85f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "441fc33b-5903-5143-b134-7369b060a2a1",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b1d98191-4f89-53f7-856e-da18a67e6d02",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e691ac00-026f-5fc0-80ab-2edb82b703fa",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b377bfad-966d-5a8f-8e14-0c719181bf05",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Backofen auf 375°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Deckel der Paprikaschoten abschneiden, Kerne und Trennwände entfernen und die Deckel beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Zwiebel würfeln und den Knoblauch fein hacken, dann beides in Olivenöl anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Schweinehackfleisch dazugeben und unter Zerkrümeln anbraten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gekochten Reis, die Tomatensoße, Salz und Pfeffer einrühren und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Paprikaschote mit der Fleisch-Reis-Mischung füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Paprikaschoten aufrecht in eine Auflaufform stellen, jeweils mit Käse bestreuen und locker mit Alufolie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "30-35 Minuten backen, bis die Paprikaschoten weich und die Deckel goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://sorosebonbons.fr/wp-content/uploads/2015/05/DSC01360.jpg",
+          "sourcePageUrl": "http://sorosebonbons.fr/wp-content/uploads/2015/05/DSC01360.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-melanzane-alla-siciliana",
+      "slug": "gen-melanzane-alla-siciliana",
+      "title": "Auberginen nach sizilianischer Art",
+      "instructions": "Italienisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen im Angebot und friere portionierte Scheiben ein",
+        "Verwende Dosentomatensoße der Hausmarke statt teurer Spezialmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4642,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-melanzane-alla-siciliana/",
+      "components": [
+        {
+          "key": "03651331-c894-5328-abc0-efbf861091cb",
+          "name": "Zutaten",
+          "servingGrams": 552.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "60605dbe-e41a-5f7f-98f4-8ec85b325e73",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cbe6f8a-a4d7-539c-b4f9-6eb81ae30547",
+              "ingredientName": "Tomatensauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "23547ecf-f47b-5d07-b738-2b62760c0d05",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b206b911-0c51-5385-8042-ac29aac6d257",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1b1db1f9-0b6e-5140-8514-eb241cf9cbdf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "ad33693d-bd70-5d61-abb3-ad941e1d6f97",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1a672160-6f18-506c-a2c6-e22132c93df8",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "627d6baa-c312-52bd-845e-1ee14af10548",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9c30c756-939b-54ff-9588-3808ebfa01cc",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "096eaf49-3cdb-584e-a77e-de2a83c65942",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Auberginen in 0.5 Zoll dicke Scheiben schneiden, großzügig salzen und 15 Minuten ruhen lassen, damit sie Feuchtigkeit verlieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Auberginenscheiben mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Auberginenscheiben portionsweise 3-4 Minuten pro Seite goldbraun braten und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Knoblauch fein hacken sowie Oliven und Kapern grob hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In derselben Pfanne den Knoblauch anbraten, bis er duftet, dann Tomatensoße, Oliven, Kapern und Rotweinessig dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Soße 5 Minuten köcheln lassen, dann die Auberginenscheiben wieder in die Soße schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Noch 5 Minuten gemeinsam garen und anschließend mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Warm oder auf Zimmertemperatur abgekühlt mit frischem Basilikum garniert servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://blog.giallozafferano.it/ricettepanedolci/wp-content/uploads/2024/08/DSC_6643-edited-1-scaled.jpg",
+          "sourcePageUrl": "https://blog.giallozafferano.it/ricettepanedolci/wp-content/uploads/2024/08/DSC_6643-edited-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tomatoes-stuffed-with-rice-and-meat",
+      "slug": "gen-tomatoes-stuffed-with-rice-and-meat",
+      "title": "Mit Reis und Fleisch gefüllte Tomaten",
+      "instructions": "Palästinensisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Putenhackfleisch statt Rindfleisch, um die Kosten zu senken",
+        "Kaufe Tomaten in der Saison oder im Angebot und friere das Fruchtfleisch für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "palästinensisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4643,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tomatoes-stuffed-with-rice-and-meat/",
+      "components": [
+        {
+          "key": "fdfeed5c-5bd1-5252-967b-619712398d98",
+          "name": "Zutaten",
+          "servingGrams": 384.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7cb2f207-449d-5cfc-86a9-e661d87a77c0",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be628e6d-44a8-57c1-82b3-b79dc711097a",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "52c7968b-25f2-5790-8d29-fa72860b1ea1",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "16ec6e41-779c-5d7e-808e-71dd6170dce7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "b4b172a9-e874-5a6d-95b0-eb7ede6966e2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bc7405c-7620-5649-afd9-8349bc921fee",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c435bed7-e0bd-5dea-9b02-8399201e70f4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9bdc607b-7d53-5ce8-b257-14b43eda8c43",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5954a7d2-278e-53bb-9ee2-002345ba373b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f6ac17ee-0da7-57ad-9eb9-e22ce7d7e687",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4ea96bf9-c7b7-59b4-85ec-a45b2cced4dc",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Von jeder Tomate den Deckel abschneiden, das Innere mit einem Löffel herauslösen, das Fruchtfleisch aufbewahren und die ausgehöhlten Tomaten beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen Pfanne erhitzen und die gewürfelte Zwiebel sowie den fein gehackten Knoblauch anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Rinderhackfleisch in die Pfanne geben, beim Anbraten zerkrümeln, dann Tomatenmark und Kreuzkümmel einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den ungekochten Reis und das beiseitegelegte Tomatenfruchtfleisch unter ständigem Rühren 2 Minuten vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Tomate großzügig mit der Fleisch-Reis-Mischung füllen und aufrecht in eine Auflaufform stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gemüsebrühe um die Tomaten gießen, mit Salz und Pfeffer würzen, mit Alufolie abdecken und bei 375°F 35-40 Minuten backen, bis die Tomaten weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit frischer Petersilie garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.shortpixel.ai/client/q_lossy,ret_img,w_2070,h_2898/https://tatyanaseverydayfood.com/wp-content/uploads/2018/01/Easy-Meat-Rice-Stuffed-Peppers-5.jpg",
+          "sourcePageUrl": "https://cdn.shortpixel.ai/client/q_lossy,ret_img,w_2070,h_2898/https://tatyanaseverydayfood.com/wp-content/uploads/2018/01/Easy-Meat-Rice-Stuffed-Peppers-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-meat-pie",
+      "slug": "gen-meat-pie",
+      "title": "Australische Fleischpastete",
+      "instructions": "Australisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe fertigen Pastetenteig, um Zeit und Geld zu sparen",
+        "Verwende Rinderhackfleisch aus der Schulter statt hochwertiger Rindfleischstücke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "australisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4644,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-meat-pie/",
+      "components": [
+        {
+          "key": "762ad631-ee94-5913-ae4e-789bee4a03c5",
+          "name": "Zutaten",
+          "servingGrams": 296.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "edb7033f-3616-51af-84e4-c1333a8aa91a",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "575d3bfb-08dd-5ab9-a18e-ba70fc3bd294",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "db8375b0-a105-58c8-a667-c7c495c4c116",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0ae5b1da-a8b3-530a-aac6-64b39e5e7f93",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bc5b17a5-abd1-54da-bc50-3ba1372aab5f",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b094cd3b-3fdd-5130-808b-cfd434ff4d9b",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d41d59fc-923d-5e1a-97a1-a2a2bd42d795",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7233cd44-314c-5490-973a-e97d70af88de",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "49689ced-9231-50e1-ab49-dbfd24caf72c",
+              "ingredientName": "Tortenkruste",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stück, gekauft oder selbst gemacht"
+            },
+            {
+              "key": "628fe6b7-7a44-518a-866d-5700802c8fd6",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer großen Pfanne erhitzen und die gewürfelte Zwiebel anbraten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Rinderhackfleisch dazugeben, beim Garen zerkrümeln und braten, bis es gebräunt ist, dann mit Mehl bestäuben und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe und Tomatensoße angießen, Worcestershiresauce dazugeben und 15 Minuten köcheln lassen, bis die Masse eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Salz und Pfeffer würzen, die Füllung in eine Pastetenform geben und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Füllung mit dem oberen Teigboden bedecken, die Ränder zum Verschließen andrücken und oben Dampfschlitze einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Ei verquirlen und den Teig damit bestreichen, damit er goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 400°F 25-30 Minuten backen, bis der Teig goldbraun ist und die Füllung an den Rändern blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2023/11/1200-Tourtiere-Meat-Pie-SpendWithPennies.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2023/11/1200-Tourtiere-Meat-Pie-SpendWithPennies.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

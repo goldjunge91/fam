@@ -1,0 +1,1121 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chickpea-grain-prep-bowls",
+      "slug": "mfr-chickpea-grain-prep-bowls",
+      "title": "Meal-Prep-Bowl mit gerösteten Kichererbsen und Getreide",
+      "instructions": "Knusprige geröstete Kichererbsen auf Farro oder Quinoa mit geröstetem Gemüse und Zitronen-Tahini-Dressing. Eine vegane Meal-Prep-Bowl, die lange satt macht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen werden richtig knusprig, wenn sie vor dem Rösten vollständig trocken sind. Das ist der entscheidende Schritt.",
+        "Zwei Dosen Kichererbsen, Quinoa und Gemüse kosten etwa $8 für 4 Behälter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Vollkornreis oder Farro als andere Getreidegrundlage"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Gewöhnliche Kartoffel oder Butternusskürbis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chickpea-grain-prep-bowls",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 850,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chickpea-grain-prep-bowls/",
+      "components": [
+        {
+          "key": "bfa1c891-af45-5ff6-8377-c930c34d22c4",
+          "name": "Zutaten",
+          "servingGrams": 559.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e712aeb-cfa4-53cd-8a09-f5cdc4e30cb8",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6056077b-b4f7-53bb-bec1-20f8d016608f",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cad74e0a-03d2-55d9-b624-504ec5c2f1e3",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a06e4a1-0232-5b03-9912-c7161001a751",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d6b8d15-bc6e-52ab-96c8-00690d2999da",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69ce8847-7a34-54df-82cb-400f65858266",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37a582bc-928e-5603-a7e5-8fa490cbeea3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bf77753-77f1-597a-a40a-bcf269551572",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "010dbe93-68ac-5d2d-86fc-83f802241eef",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38599899-8aa5-5292-9165-431fdd3b09df",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40110ba1-359a-5bd3-b7aa-8f6a2dd20e8e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor. Lass die Kichererbsen abtropfen, spüle sie ab und tupfe sie sehr gründlich trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Kichererbsen mit Olivenöl, geräuchertem Paprikapulver, Kreuzkümmel und Salz. Verteile sie auf einer Hälfte des Backblechs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge gewürfelte Süßkartoffel und Brokkoli mit Olivenöl und Salz auf der anderen Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste alles 25–28 Minuten, bis die Kichererbsen knusprig und das Gemüse goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Quinoa. Verrühre für das Tahini-Dressing Tahini, Zitrone, Knoblauch, Wasser und Salz. Fülle 4 Behälter mit Getreide, Gemüse und Kichererbsen. Gib das Dressing separat dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/peanut-chickpea-protein-bowls-lead-67f030f6e4172.jpeg?crop=0.9996004794246903xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/peanut-chickpea-protein-bowls-lead-67f030f6e4172.jpeg?crop=0.9996004794246903xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-overnight-protein-oats-variety",
+      "slug": "mfr-overnight-protein-oats-variety",
+      "title": "Übernacht-Haferflocken in 4 Geschmacksrichtungen",
+      "instructions": "Vier verschiedene Gläser mit Overnight Oats werden am Sonntag vorbereitet: Erdnussbutter-Banane, Blaubeere, Apfel-Zimt und Schokolade. Morgens sind sie ohne Kochen fertig.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken gehören zu den günstigsten Zutaten pro Portion.",
+        "Wenn du 4 Gläser gleichzeitig zubereitest, ist eine Woche Frühstück in 15 Minuten erledigt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Naturjoghurt oder Skyr für leicht andere Makronährwerte"
+        },
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Zusätzlicher griechischer Joghurt für mehr Eiweiß ohne Pulver"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-overnight-protein-oats-variety",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 851,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-overnight-protein-oats-variety/",
+      "components": [
+        {
+          "key": "a07c0b6c-61c2-5ab9-910b-900784522d69",
+          "name": "Zutaten",
+          "servingGrams": 477.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "13238456-cf3e-51fc-8e33-4126b25f73b0",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19863450-94ee-5d57-aa5f-227c532319a4",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f2400f9-ed27-51dc-a474-52fe6751f80c",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3aa946b5-03b0-585f-98f4-2e058e6c84e5",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a498aa95-7a97-596f-87eb-2836082fd8fe",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "439ab16e-64e7-530e-94b6-53938322fed2",
+              "ingredientName": "Blaubeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4b58fe5-8088-51d2-ae64-40892fa78e68",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d9b0cd1-c6c1-5145-a8f7-ba4e0178d991",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ee5e070-0958-58fd-956a-e83bd460ca12",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "691a0c97-d1a5-5344-ba53-f4b5c0fcf85e",
+              "ingredientName": "Eiweißpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "866b5bc8-edab-56bc-a366-00e08ab24e63",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grundmischung für alle 4 Gläser: ½ Tasse Haferflocken + ½ Tasse griechischer Joghurt + ½ Tasse Milch + 1 Messlöffel Eiweißpulver (aufgeteilt) + etwas Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Glas 1 (Erdnussbutter-Banane): 1 EL Erdnussbutter und eine halbe geschnittene Banane dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Glas 2 (Blaubeere): ¼ Tasse Blaubeeren und eine Prise Vanille dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Glas 3 (Apfel-Zimt): ¼ Tasse gewürfelten Apfel und ½ TL Zimt dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Glas 4 (Schokolade): 1 EL Kakaopulver, 1 EL Erdnussbutter und etwas Honig dazugeben. Alle 4 Gläser verschließen und über Nacht in den Kühlschrank stellen. Morgens sind sie fertig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Es1R4qsD-VPmT8c8PWlGG5N1B0s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-high-protien-overnight-oats-hero-2153-156e0560a81d447b920f19f3e7498e4d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Es1R4qsD-VPmT8c8PWlGG5N1B0s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-high-protien-overnight-oats-hero-2153-156e0560a81d447b920f19f3e7498e4d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-greek-chicken-salad-prep",
+      "slug": "mfr-greek-chicken-salad-prep",
+      "title": "Meal-Prep-Behälter mit griechischem Hähnchensalat",
+      "instructions": "Geschnittenes Hähnchen mit Gurke, Tomate, Oliven, Feta und Zitronen-Kräuter-Vinaigrette. Griechischer Salat mit zusätzlichem Eiweiß, fertig zum Mitnehmen aus dem Kühlschrank.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Hähnchenbrüste ergeben 4 großzügige, eiweißreiche Salate für weniger als $5.",
+        "Bewahre das Dressing in einem kleinen, verschlossenen Behälter im großen Behälter auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse für einen cremigeren Belag"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen aus der Dose für eine Variante ohne Kochen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-chicken-salad-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 852,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-chicken-salad-prep/",
+      "components": [
+        {
+          "key": "bb63d3ee-a9b3-59b8-a041-d655faae00d1",
+          "name": "Zutaten",
+          "servingGrams": 626.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f888d46-9154-506d-9604-51aef8af4d06",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c18dd15c-5e97-5aa1-a513-669fd4e15b79",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bd0f399-7d63-50e9-b584-a010aec16754",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "598449cc-80ee-5bdb-ab67-08714c022556",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f0fe077-a5d7-5076-84d8-6a239625ef41",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fb705ed-61f0-5591-aa54-f096514d44f7",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18d0f832-0d03-5485-8200-5e87126b5d62",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e35293a6-53f9-554a-8d82-6e392a9c3e33",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e40e8407-cf63-5c12-81fe-2baef7f77759",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "787b15ff-b307-5ee6-92ce-7c8253ec6ef1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f223442-4c09-537a-be36-21ed93d72c28",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "314d1b2e-f82e-5d58-8496-1e9030523d6e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchenbrüste mit Oregano, Knoblauchpulver, Salz und Pfeffer. Gare sie in Olivenöl 6–7 Minuten pro Seite. Lass sie abkühlen und schneide sie in Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Vinaigrette Zitronensaft, Olivenöl, Oregano, Knoblauch und Salz verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle Gurke, Tomate und rote Zwiebel. Zerbrösele den Feta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Salat auf 4 Behälter. Gib Gemüse, Hähnchen und Feta darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bewahre das Dressing separat auf und gib es erst kurz vor dem Essen dazu. Hält sich 4 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/01/Greek-Chicken-with-Orzo-Salad-and-Lemon_EXPS_RC25_280219_DR_07_29_03b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/01/Greek-Chicken-with-Orzo-Salad-and-Lemon_EXPS_RC25_280219_DR_07_29_03b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuna-pasta-salad-prep",
+      "slug": "mfr-tuna-pasta-salad-prep",
+      "title": "Eiweißreicher Thunfisch-Nudelsalat zum Vorbereiten",
+      "instructions": "Kalter Nudelsalat mit Thunfisch, Staudensellerie, roter Zwiebel, Erbsen und einem leichten Dressing aus griechischem Joghurt. Ein eiweißreiches Mittagessen für 5 Tage, dessen Geschmack beim Durchziehen noch besser wird.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "4 Dosen Thunfisch für 5 Portionen kosten etwa $5 und liefern insgesamt 100 g Eiweiß.",
+        "Dressing aus griechischem Joghurt ist günstiger und enthält mehr Eiweiß als ein Dressing auf Mayonnaisebasis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Leichte Mayonnaise für einen traditionelleren Nudelsalatgeschmack"
+        },
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Gewürfelte Gurke oder Kirschtomaten für mehr Knusprigkeit"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-pasta-salad-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 853,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-pasta-salad-prep/",
+      "components": [
+        {
+          "key": "9a937df1-c329-548d-bf4f-4561c80b9795",
+          "name": "Zutaten",
+          "servingGrams": 637.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f8536b5-0123-581a-a22d-876e2a883d26",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75096f32-6b50-5268-8c0a-06743390effa",
+              "ingredientName": "Pasta",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba2d8ab1-8065-547c-83fb-065abb100a45",
+              "ingredientName": "Staudensellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f4ba8d9-61b9-508e-b558-e1a4a1058e69",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3e14267-ddb5-5d23-b13e-9dadf685faab",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c6bd849-39e0-5e82-acca-018eacd97a99",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ffeb168-b3f6-597b-9e75-fa69c59a863c",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f3b5a0e-d77a-544e-996b-038ee8a1e12d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2307f7e-31dc-5744-828e-679a733b7803",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90671b65-cb37-594c-82ee-59d47d92395f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta und spüle sie mit kaltem Wasser ab, bis sie vollständig abgekühlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre griechischen Joghurt, Dijon-Senf, Zitronensaft, Rotweinessig, Salz und Pfeffer zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass 4 Dosen Thunfisch abtropfen und zerpflücke ihn. Würfle Staudensellerie und rote Zwiebel. Taue die Erbsen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Pasta, Thunfisch, Staudensellerie, Zwiebel und Erbsen. Gieße das Dressing darüber und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Salat auf 5 Behälter. Im Kühlschrank bis zu 5 Tage aufbewahren. Währenddessen wird der Geschmack intensiver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/04/TMD-Protein-Packed-Tuna-Salad-Edited-1.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/04/TMD-Protein-Packed-Tuna-Salad-Edited-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-beef-sweet-potato-prep",
+      "slug": "mfr-beef-sweet-potato-prep",
+      "title": "Meal-Prep-Boxen mit Rinderhack und Süßkartoffel",
+      "instructions": "Gewürztes mageres Rinderhack mit gerösteter Süßkartoffel und grünen Bohnen. Eine herzhafte, eiweißreiche Meal-Prep-Box ganz ohne raffinierte Kohlenhydrate.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack in Familienpackungen kostet etwa $4–5 pro lb.",
+        "Süßkartoffeln liefern nährstoffreiche Kohlenhydrate und machen satt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere und etwas günstigere Variante"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Grüne Bohnen, Spargel oder beliebiges Gemüse, das sich gut rösten lässt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-sweet-potato-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 854,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-sweet-potato-prep/",
+      "components": [
+        {
+          "key": "4a7010eb-ecb7-5fd6-b257-7e49488add1f",
+          "name": "Zutaten",
+          "servingGrams": 283.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8d580d4-b996-5d74-afea-e353c5808892",
+              "ingredientName": "Rinderhack",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fbd0669-87dc-551a-bae9-a95b0e493fad",
+              "ingredientName": "Süßkartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ebf77c5-511b-590d-8ce2-c25bddca708b",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fd7a1b8-e851-5eb9-8b8c-b7bdba16ae9f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "025b9283-0eb9-555d-a551-84765a1baf54",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6442548-fac1-5c95-bf64-4a79851d28b4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecdd8986-d9bf-5ace-bee9-22656a9c13eb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbfbb96d-2b2b-5f8a-b3dc-413a3a606f55",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17dc4616-72e6-57c0-bbf4-45d18e7d2fe0",
+              "ingredientName": "Worcestersauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor. Würfle die Süßkartoffeln. Vermenge sie mit Olivenöl, geräuchertem Paprikapulver und Salz. Röste sie 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Brokkoliröschen für die letzten 10 Minuten mit auf das Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Rinderhack in einer Pfanne mit Knoblauch, Kreuzkümmel, Worcestersauce, Salz und Pfeffer an. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles vollständig abkühlen, bevor du es in Behälter füllst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle 5 Behälter mit Süßkartoffel, Brokkoli und gewürztem Rinderhack. Im Kühlschrank bis zu 5 Tage aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/13502_1_1757232810.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/13502_1_1757232810.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,935 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-stovies",
+      "slug": "gen-stovies",
+      "title": "Stovies",
+      "instructions": "Schottisches Mittagessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Corned Beef aus der Dose, das günstiger ist als die Feinkostversion",
+        "Kaufen Sie Kartoffeln und Zwiebeln im Angebot in großen Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schottisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7095,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stovies/",
+      "components": [
+        {
+          "key": "8ab93a1f-df9a-5d1b-ab60-2f2d3f065210",
+          "name": "Zutaten",
+          "servingGrams": 586,
+          "position": 0,
+          "items": [
+            {
+              "key": "16f45c5c-9a1d-5d4f-bdd0-c4f885fe262a",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5fa48c3d-57b2-54ed-922d-b88722576363",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "b3b36201-cc1b-50ec-9225-3947105a6d38",
+              "ingredientName": "Hackfleisch",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "aae070cc-6c77-5b8b-a268-533ab32ee9b6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2c15641e-824d-549f-bdff-f10da491317c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b1cefefd-6ce9-5349-b329-e1db1ce4f853",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e0f96da8-e86f-59b6-a2a0-67675b05ad25",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "52463e50-f253-5d12-a5b2-3547aec6ed42",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und in 0.25 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln in dünne Ringe schneiden und Corned Beef in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einem großen Topf mit starkem Boden bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hälfte der Kartoffeln in den Topf schichten, dann das gesamte Corned Beef und die geschnittenen Zwiebeln hinzufügen und mit den restlichen Kartoffeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Alles mit Rinderbrühe übergießen, Salz, Pfeffer und Thymianzweige hinzufügen und leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Topf mit einem Deckel abdecken und 30–35 Minuten kochen lassen, dabei gelegentlich umrühren, bis die Kartoffeln sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Thymianzweige entfernen, nach Geschmack würzen und heiß in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/jc-sGQsILA4fYQ2M0_TXEzWNg28=/1500x1004/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-scottish-stovies-recipe-435577-Final-5bae6883c9e77c0026c7518c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/jc-sGQsILA4fYQ2M0_TXEzWNg28=/1500x1004/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-scottish-stovies-recipe-435577-Final-5bae6883c9e77c0026c7518c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tablet",
+      "slug": "gen-tablet",
+      "title": "Schottisches Karamell (Tablet)",
+      "instructions": "Schottischer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kondensmilch im Sonderangebot und füllen Sie Ihren Vorrat auf",
+        "Verwenden Sie Butter und Zucker von Handelsmarken, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schottisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7096,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tablet/",
+      "components": [
+        {
+          "key": "466cd75c-2f4e-5c73-b179-bbf7e7213cf9",
+          "name": "Zutaten",
+          "servingGrams": 74.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "ecaf3cdb-2978-54e7-9533-ef5f62ac0a8b",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "efbb069c-e212-5193-b330-a71a643d6fd5",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cc192498-352f-5256-b9a9-2e4a40492afd",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "24b73529-83ac-53a7-9bd9-76a3f0f4f314",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "14f7df43-0bb0-5ebe-a57c-ea56d090c3fa",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kondensmilch, Butter und braunen Zucker in einem Topf mit dickem Boden vermischen und bei mittlerer Hitze ständig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühren Sie weiter, um ein Anbrennen zu verhindern, während die Mischung etwa 10–12 Minuten lang erhitzt und dicker wird, bis sie das Stadium einer weichen Kugel erreicht (240 °F auf einem Zuckerthermometer).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vom Herd nehmen und Vanilleextrakt und Salz einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lassen Sie die Mischung 2-3 Minuten lang abkühlen und schlagen Sie sie dann 5-7 Minuten lang kräftig mit einem Holzlöffel, bis sie körnig wird und eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Masse zügig auf ein gebuttertes Backblech gießen und zu einer 0.5 Zoll dicken Schicht verstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei Raumtemperatur 30 Minuten vollständig abkühlen lassen, dann mit einem gebutterten Messer in 1 Zoll große Quadrate schneiden und luftdicht aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/nvFKQwodXZ7xxYqfEAblYdDkHHo=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-home-made-scottish-tablet-435825-Final-5b9be71546e0fb005040f90d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/nvFKQwodXZ7xxYqfEAblYdDkHHo=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-home-made-scottish-tablet-435825-Final-5b9be71546e0fb005040f90d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shortbread",
+      "slug": "gen-shortbread",
+      "title": "Shortbread",
+      "instructions": "Schottischer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie große Mengen und frieren Sie Reste für wochenlange Snacks ein",
+        "Verwenden Sie bei Bedarf gesalzene Butter, um die Salzzugabe zu reduzieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schottisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7097,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shortbread/",
+      "components": [
+        {
+          "key": "406e0596-469b-568d-8eb4-85d33738e4ea",
+          "name": "Zutaten",
+          "servingGrams": 84.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "e63b84d2-7d75-58ce-b753-81fb1c19545c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "563e0da3-ef1b-5f10-9de5-765c489b4fb0",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b1e37c35-8f05-56f7-bbd0-1e63159a12a1",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b725d30a-9946-5fb2-bfa9-8476aea53fd4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 325 °F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker in einer Schüssel etwa 3 Minuten lang schaumig rühren, bis eine leichte, lockere Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl und Salz untermischen, bis ein fester Teig entsteht und kein Mehl mehr sichtbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig gleichmäßig in eine ungefettete 8 x 8 Zoll große Backform drücken und die Oberfläche mit den Händen glätten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einer Gabel rundherum die Oberfläche dekorativ einstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "20–25 Minuten backen, bis die Ränder goldbraun, in der Mitte aber noch blass sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Aus dem Ofen nehmen und noch warm in 12 Quadrate schneiden, dann vor dem Servieren in der Pfanne vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2019/11/Grandma-s-Scottish-Shortbread_EXPS_TOHFM20_244389_E09_27_4b-5.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2019/11/Grandma-s-Scottish-Shortbread_EXPS_TOHFM20_244389_E09_27_4b-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-edinburgh-rock",
+      "slug": "gen-edinburgh-rock",
+      "title": "Edinburgh-Felsen",
+      "instructions": "Schottischer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie einfache Lebensmittelfarben und preiswerte Aromaextrakte",
+        "Machen Sie große Mengen, um die Massenkosten der Zutaten zu nutzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "schottisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7098,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-edinburgh-rock/",
+      "components": [
+        {
+          "key": "5bcbb0f4-ff3a-5f85-97d2-ff29c305ed9b",
+          "name": "Zutaten",
+          "servingGrams": 57.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b83f34b-2257-5a02-8cba-9e46a51127ce",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2a40c6ec-35a9-5853-b722-872b4bc29efd",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2533c2d3-c44e-5306-9e8c-6aba10d26467",
+              "ingredientName": "Weinstein",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "09a926eb-dc60-5dae-a697-ad855abbd36c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4b16db86-a43f-5869-8ef0-b138a1c64851",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "952c807e-a2c4-5c2e-8b5e-246abd37ed85",
+              "ingredientName": "Lebensmittelfarbe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tropfen"
+            },
+            {
+              "key": "6f18da15-dd2c-5ddd-a90e-bddcc16f20d9",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "e65d4fba-1b1e-5e14-a460-c564dec930a7",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zucker, Wasser und Weinstein in einem schweren Topf vermischen und bei mittlerer Hitze unter Rühren erhitzen, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hören Sie auf zu rühren, sobald es kocht, befestigen Sie ein Zuckerthermometer an der Pfanne und kochen Sie es etwa 250 bis 15 Minuten lang, bis es 20 °F (Hartkugelstadium) erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vom Herd nehmen und Butter, Lebensmittelfarbe und Aromaextrakt einrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf ein mit Butter bestrichenes Backblech gießen und 10–15 Minuten abkühlen lassen, bis es verarbeitet werden kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brechen Sie die abgekühlten Bonbons in kleine Stücke und geben Sie sie zusammen mit Puderzucker und Maisstärke in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pulsieren, bis die Mischung fein und pudrig wird und an Kandiszucker erinnert, dann durch ein feinmaschiges Sieb sieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In einem luftdichten Behälter mehrere Wochen aufbewahren, überschüssiges Pulver vor dem Verzehr abstäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.shopscottish.com/media/logo/stores/4/logo_long_1_.png",
+          "sourcePageUrl": "https://www.shopscottish.com/media/logo/stores/4/logo_long_1_.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-hot-chicken",
+      "slug": "gen-poutine-hot-chicken",
+      "title": "Heißes Poutine-Hähnchen",
+      "instructions": "Mittagessen in Quebec  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen im Sonderangebot kaufen und einfrieren; Verwenden Sie Pommes und Soße von Handelsmarken, um 30 % zu sparen",
+        "Machen Sie die Soße selbst mit Rinderbrühe, anstatt sie fertig zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7099,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-hot-chicken/",
+      "components": [
+        {
+          "key": "524dbdd9-c9c7-5d44-ab9a-bbe22b3f20db",
+          "name": "Zutaten",
+          "servingGrams": 247.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "43f3499b-f44e-5236-a874-e182cd19695d",
+              "ingredientName": "Gefrorene Pommes Frites",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e8828d03-0926-5584-9f3e-53f8f410287b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f8f0d195-f820-56a5-89aa-87360004c133",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "33d4d08b-f111-5dcc-b8e5-c020160aa9a0",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "530b3a03-bd3a-5466-8507-fc4c8ef4f873",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "23f46c85-276e-56b4-acc3-ab3c36644d81",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "534fd2e8-fc06-503f-9378-e905722bff7e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "865a1740-8e96-5381-a43d-93d45bd87a45",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust in Streifen schneiden und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Cayennepfeffer, Paprika, Salz und schwarzen Pfeffer in einer flachen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem tiefen Topf oder Schmortopf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchenstreifen mit gewürztem Mehl bestreichen und 6-7 Minuten braten, bis sie goldbraun sind und die Innentemperatur 165 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen herausnehmen und auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gefrorene Pommes Frites nach Packungsanweisung knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Soße in einem Topf bei mittlerer Hitze erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Pommes auf einen Teller schichten und mit gebratenen Hähnchenstreifen, Käsebruch und heißer Soße belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort servieren, solange alles heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/01/Poutine-SpendWithPennies-2-5-1024x1536.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/01/Poutine-SpendWithPennies-2-5-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

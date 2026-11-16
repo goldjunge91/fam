@@ -1,0 +1,1018 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-canelones",
+      "slug": "gen-canelones",
+      "title": "Canelones",
+      "instructions": "Uruguayisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Béchamelsauce mit Butter, Mehl und Milch selbst zu, statt fertige Sauce zu kaufen.",
+        "Verwenden Sie Rinderhackfleisch im Angebot oder Hack aus der Schulter statt teurer Stücke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "uruguayisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4305,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-canelones/",
+      "components": [
+        {
+          "key": "21ab718a-2974-5158-9b66-b296016d150a",
+          "name": "Zutaten",
+          "servingGrams": 384,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a485fbe-26c9-5775-abe6-9fbd49e900f5",
+              "ingredientName": "Nudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "f953aac9-829e-5915-bd78-f7819b629747",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f98e0f12-6379-5235-8a10-3a959373a086",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "9ddf3e7e-ebe9-5257-af92-36216c63705d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "29d02466-2572-5a03-a6cf-a66aaf4e4a98",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8a0219b5-efb6-51e9-938b-0dc7464e5051",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0082a6fd-c802-59f7-91cb-96f1b6ec711c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cbad76fb-bb7b-5255-8c98-40df7e94ebd1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer Pfanne erhitzen und gewürfelte Zwiebel sowie Knoblauch weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch hinzufügen und unter Zerteilen braten, bis es gebräunt ist, dann mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Crêpes flach auslegen und die Rindfleischmischung gleichmäßig darauf verteilen, dabei die Füllung an einem Ende platzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Crêpe fest aufrollen und mit der Naht nach unten in eine gebutterte Auflaufform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Béchamelsauce über die Canelones gießen und anschließend Tomatensauce darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das ganze Gericht großzügig mit Parmesan bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375 °F 25–30 Minuten backen, bis die Oberfläche goldbraun ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aus dem Ofen nehmen und vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/8e/54/fb/8e54fba3330750aa955ac0546676a89e.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/8e/54/fb/8e54fba3330750aa955ac0546676a89e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-flan-con-dulce-de-leche",
+      "slug": "gen-flan-con-dulce-de-leche",
+      "title": "Flan con Dulce de Leche",
+      "instructions": "Uruguayisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Dulce de Leche in größeren Mengen oder kochen Sie gesüßte Kondensmilch langsam selbst ein.",
+        "Verwenden Sie Kondensmilch und Eier von Handelsmarken, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "uruguayisch",
+        "Abendessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4306,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flan-con-dulce-de-leche/",
+      "components": [
+        {
+          "key": "5ba583b4-1ca8-5534-9a9f-29a859dff617",
+          "name": "Zutaten",
+          "servingGrams": 259.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "0805b6e0-8ea4-5604-98b9-4364b9fdb6f2",
+              "ingredientName": "Dulce de Leche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f6404c27-a8c9-520f-af00-550e611b0fd2",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9d0c3bef-0e2c-551d-8f79-c50826a19aba",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "ba277d5d-9bf5-5d6e-9f6f-4cf1b22b0e0b",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 große Stücke"
+            },
+            {
+              "key": "6dd7cc1f-dab6-53a9-aa37-1155a17a32a3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "343da8ba-c2ae-5bf7-a701-7ae5f0ce8c5b",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f427f265-5df3-5262-8a16-c6055fa3fb55",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350 °F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucker und Wasser in einem kleinen Topf bei mittlerer Hitze unter Rühren erwärmen, bis sich der Zucker auflöst und ein hell bernsteinfarbenes Karamell entsteht. Schnell in eine runde Auflaufform gießen und den Boden bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vollmilch, Kondensmilch, Eier und Vanilleextrakt glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Milchmischung über das Dulce de Leche in der karamellisierten Form gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Auflaufform in eine größere Bratform stellen, die bis zur halben Höhe der Form mit heißem Wasser gefüllt ist (Wasserbad).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "35–40 Minuten backen, bis der Flan fest, in der Mitte aber noch leicht wackelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vollständig abkühlen lassen und mindestens 4 Stunden kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einem dünnen Messer am Rand entlangfahren und zum Stürzen auf eine Servierplatte wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Argentinian-Flan-con-Dulce-de-Leche.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Argentinian-Flan-con-Dulce-de-Leche.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-alfajor",
+      "slug": "gen-alfajor",
+      "title": "Alfajor",
+      "instructions": "Uruguayischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Dulce de Leche selbst zu, indem Sie gesüßte Kondensmilch 2–3 Stunden im Wasserbad kochen.",
+        "Verwenden Sie ungesüßte Kokosraspeln aus Großgebinden statt abgepackter Ware."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "uruguayisch",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4307,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-alfajor/",
+      "components": [
+        {
+          "key": "eeb0d163-a5f2-5556-8e11-008841b92758",
+          "name": "Zutaten",
+          "servingGrams": 120.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "a13b9460-9011-51fb-aa04-630296f539fd",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1abc3790-79e2-588c-8bcf-c507c8163c3f",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "29d92923-5410-517a-92a0-6f9cd40711a0",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4aed1c00-cdc6-5781-90da-14e88da38c70",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cd1647b-c54e-59bc-a585-cce80dd7d25b",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "c71b5179-28f3-5e03-8fd7-77a53daaf160",
+              "ingredientName": "Dulce de Leche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "41c447cb-4c8e-5213-9f79-45494ca0ec10",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a4cba298-ddbe-51a5-bc2c-850245e5342c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "693815d2-33f4-5794-a958-e226dacf8c17",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter und Zucker cremig und luftig schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eigelb nacheinander einrühren und dann Vanilleextrakt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Maisstärke und Backpulver sieben und unter die Buttermischung heben, bis alles vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig zwischen Backpapier 1/8 Zoll dick ausrollen und Kreise von 2 Zoll Durchmesser ausstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 350 °F 12–15 Minuten hellgolden backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kekse vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Dulce de Leche auf die flache Seite eines Kekses streichen und mit einem zweiten Keks zu einem Sandwich zusammensetzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Ränder in Kokosraspeln rollen und vor dem Servieren 30 Minuten fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2016/03/01/dining/01ALFAJORES/01ALFAJORES-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2016/03/01/dining/01ALFAJORES/01ALFAJORES-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chaj",
+      "slug": "gen-chaj",
+      "title": "Chajá",
+      "instructions": "Uruguayisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie einen fertigen Biskuitkuchen, um Zeit und Geld zu sparen.",
+        "Kaufen Sie Pfirsiche aus der Dose im Angebot oder verwenden Sie aufgetaute und abgetropfte Tiefkühlpfirsiche."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "uruguayisch",
+        "Abendessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4308,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chaj/",
+      "components": [
+        {
+          "key": "c9351d5f-b566-5bfc-a0df-0b5c63f8e71f",
+          "name": "Zutaten",
+          "servingGrams": 135.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "e3c225c4-fff5-5178-a13a-d807ad002da0",
+              "ingredientName": "Biskuitkuchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück, gekauft oder selbst gemacht"
+            },
+            {
+              "key": "5e1f8930-ac93-52c0-96a0-857be37b87e6",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4bdbc25e-a323-5428-963a-485f950947fa",
+              "ingredientName": "Pfirsich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "5355edbd-2451-59f8-b48b-b6b11fec956e",
+              "ingredientName": "Dulce de Leche",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "ba8a860e-be6f-5629-9c3a-c752405fb74f",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e19fdde9-2606-5759-8cc9-84477acc4da9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "13f0341f-9894-59d1-ac64-af63a994189e",
+              "ingredientName": "Frische Kirschen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Biskuitkuchen waagerecht in zwei Schichten schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlagsahne mit Puderzucker und Vanille steif schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pfirsiche abgießen und den Sirup zum Bestreichen aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die untere Kuchenschicht auf eine Servierplatte legen und mit Pfirsichsirup bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dulce de Leche auf dem Kuchen verstreichen und anschließend eine dicke Schicht Schlagsahne daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pfirsichscheiben auf der Sahne verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die zweite Kuchenschicht darauflegen und mit Pfirsichsirup bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den ganzen Kuchen mit der restlichen Schlagsahne bedecken und mit Pfirsichscheiben sowie Maraschinokirschen dekorieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Vor dem Servieren mindestens 2 Stunden kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/52/66/05/R2p5dtiERrmT46KV3Alp_IMG_8854.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/52/66/05/R2p5dtiERrmT46KV3Alp_IMG_8854.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bizcochos-de-grasa",
+      "slug": "gen-bizcochos-de-grasa",
+      "title": "Bizcochos de Grasa",
+      "instructions": "Uruguayisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie für Authentizität und geringere Kosten Schmalz oder Pflanzenfett statt Butter.",
+        "Kaufen Sie Anissamen in größeren Mengen in der Gewürzabteilung oder auf ethnischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "uruguayisch",
+        "Frühstück"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4309,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bizcochos-de-grasa/",
+      "components": [
+        {
+          "key": "2f1b79b5-e706-5c41-ab45-ac2ab6e179c0",
+          "name": "Zutaten",
+          "servingGrams": 122.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ca18fed-8ced-5f75-aab4-cbcf6bb7439c",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3d042add-08d5-56e5-bced-e3bb1f0b6fc0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "afea60a5-8dad-5329-a673-a47f6877f6a7",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e14b8645-e0a9-50b5-88e6-f1995ad9e0d8",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c7aef24-2af0-577a-bb0f-9e44e04521f9",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "9f97f2e9-f08f-5919-8854-f80e7070b3db",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "8f5562e5-8649-5014-a3f5-c7f01b1e7964",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "de6f003d-4db8-5518-93b4-5963befe6b0d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350 °F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmalz und Zucker hell und cremig schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier nacheinander einrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl, Backpulver, Salz und Anissamen zusammen sieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mehlmischung und Milch abwechselnd zur Schmalzmischung geben und rühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffelweise Teig mit 2 Zoll Abstand auf ein gefettetes Backblech setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15–20 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Kuchengitter abkühlen lassen und warm mit Kaffee oder Milch servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cocina-argentina.com/wp-content/uploads/bizcochitos-de-grasa-argentinos-recien-horneados-scaled.jpg",
+          "sourcePageUrl": "https://cocina-argentina.com/wp-content/uploads/bizcochitos-de-grasa-argentinos-recien-horneados-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

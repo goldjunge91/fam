@@ -1,0 +1,1070 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-beet-and-goat-cheese-bowl",
+      "slug": "gen-beet-and-goat-cheese-bowl",
+      "title": "Bowl mit Roter Bete und Ziegenkäse",
+      "instructions": "Bunte Bowl mit gerösteter Roter Bete, Ziegenkäse, Walnüssen und frischem Thymian.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rote Bete im Angebot und röste mehrere Knollen auf einmal, damit du sie später aufbewahren kannst.",
+        "Verwende fertig gemischten Blattsalat aus Großpackungen, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "moderne Gesundheit",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4975,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beet-and-goat-cheese-bowl/",
+      "components": [
+        {
+          "key": "741bd37e-bb94-58fb-8f74-ca443dc3f052",
+          "name": "Zutaten",
+          "servingGrams": 782.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "5c6709a9-3f0e-5bae-aa09-caf5cb6be71c",
+              "ingredientName": "Rote Bete",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "2a89f1a0-7a2c-5e79-94a0-5e521c8f788d",
+              "ingredientName": "Gemüsemischung (tiefgekühlt)",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "74d46928-b8b8-5796-ad10-3b3cc119facc",
+              "ingredientName": "Ziegenkäse",
+              "grams": 56.7,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen, zerbröselt"
+            },
+            {
+              "key": "7cb5045a-babf-5247-8c6b-7386f2417690",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "9907de7d-d42b-59b1-a046-f719c27bf513",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "772f0e7f-17ed-54c2-88d1-1cca6d3bc6f7",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8a663526-6d6f-5e03-bcca-de46b18ba053",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "23a95322-99dc-5b8e-9515-752c0ff58047",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f3471f82-627c-5601-aa72-6f677510f21b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e8667552-b1ec-5770-b381-0272327b359f",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und wickle die Rote Bete in Alufolie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste sie 35-40 Minuten, bis sie sich leicht mit einer Gabel einstechen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Rote Bete aus dem Ofen und lass sie leicht abkühlen. Schäle sie dann und schneide sie in Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre währenddessen Olivenöl, Apfelessig, Senf, Honig, Salz und Pfeffer zu einer Vinaigrette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste gehackte Walnüsse 3 Minuten in einer trockenen Pfanne bei mittlerer Hitze, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Blattsalat auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege die Bowls mit gerösteter Roter Bete, Walnüssen, zerbröseltem Ziegenkäse und frischem Thymian.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle alles mit der Vinaigrette und serviere die Bowls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2023/01/beets-and-goat-cheese-pasta-1-14-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2023/01/beets-and-goat-cheese-pasta-1-14-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kale-caesar-bowl",
+      "slug": "gen-kale-caesar-bowl",
+      "title": "Grünkohl-Caesar-Bowl",
+      "instructions": "Herzhafte Caesar-Bowl mit Grünkohl, Parmesan, Croutons und cremigem Sardellen-Dressing.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Croutons aus altbackenem Brot selbst zu, statt fertige zu kaufen.",
+        "Kaufe fertig geriebenen Parmesan in Großpackungen, um die Kosten pro Portion zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "moderne Gesundheit",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4976,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kale-caesar-bowl/",
+      "components": [
+        {
+          "key": "ac2273cd-cbf2-595e-b6ea-d4bcdae4158f",
+          "name": "Zutaten",
+          "servingGrams": 819,
+          "position": 0,
+          "items": [
+            {
+              "key": "344487e5-00c8-54b7-90a9-96d531fa627b",
+              "ingredientName": "Grünkohl",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen, gehackt"
+            },
+            {
+              "key": "2597a8d4-b93e-55e2-bf48-817af086b2f5",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0ab58127-7396-5f9c-bee9-ff383b23b6da",
+              "ingredientName": "Croutons",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b7a803c3-b644-540d-9bd1-22b266ada3a0",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d8cb6479-b832-5a93-bb2c-ddfeb052c5a0",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e2f96127-54db-5c58-aa82-58ded8b315ea",
+              "ingredientName": "Sardellenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f4f71208-4295-5281-a3f6-287a900bc963",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0ba239d-5713-5991-98e2-3fb3a632d688",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a88ef2b5-5ce2-5933-8058-c31e23add40e",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a65b01cc-f23c-5dad-b3f4-0fffdd5fcc63",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche den Grünkohl und trockne ihn gründlich ab. Schneide ihn dann in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mayonnaise, Zitronensaft, Sardellenpaste, gehackten Knoblauch, Worcestershire-Sauce, Dijon-Senf, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Grünkohl in eine große Schüssel und beträufle ihn mit der Hälfte des Dressings.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Massiere das Dressing 2 Minuten mit den Händen in den Grünkohl ein, damit er weicher wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das übrige Dressing dazu und vermenge alles, bis der Grünkohl gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Salat auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jede Bowl mit geriebenem Parmesan und Croutons.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere den Salat sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/bunbop7rapea1.jpg",
+          "sourcePageUrl": "https://i.redd.it/bunbop7rapea1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chocolate-mousse",
+      "slug": "gen-chocolate-mousse",
+      "title": "Schokoladenmousse",
+      "instructions": "Luftige französische Mousse aus dunkler Schokolade, Sahne und Vanille.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schokoladenstückchen statt gehackter Schokolade, um Zeit zu sparen.",
+        "Verwende Kakaopulver der Hausmarke zum Bestäuben statt einer Spezialmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4977,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chocolate-mousse/",
+      "components": [
+        {
+          "key": "69c3b225-fb26-5343-be2e-fcb99e5eb453",
+          "name": "Zutaten",
+          "servingGrams": 148.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "49d956a4-360c-57bd-9c59-d6c9ad0c73cb",
+              "ingredientName": "Dunkle Schokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen (70% Kakao)"
+            },
+            {
+              "key": "023152eb-88b0-55ea-8799-41611400133a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "74dd0e3a-3c6e-5422-b845-80c027d8c678",
+              "ingredientName": "Sahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a0e72a0f-2277-5980-96f2-0f0a9fb7dc5d",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "e2a02f78-8907-5362-81eb-abc20819ec5c",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b59596d4-599b-518b-bdf1-5b3d43cf2b1e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1107cf80-af09-59b8-986b-5c882b070427",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "344cbde4-ab32-56b8-906f-5db0b9975210",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL zum Belegen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die dunkle Schokolade in kleine Stücke und gib sie mit Butter in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Schokolade in 30-Sekunden-Intervallen und rühre zwischendurch um, bis sie geschmolzen und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Schokolade 5 Minuten abkühlen und rühre dann die Eigelbe einzeln ein, bis alles gut vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Vanilleextrakt und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Sahne in einer separaten Schüssel mit einem elektrischen Mixer zu mittelfesten Spitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die Schlagsahne vorsichtig in zwei Portionen unter die Schokoladenmischung, bis keine Streifen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Mousse auf Dessertgläser oder Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle sie mindestens 1 Stunde kalt und bestäube sie vor dem Servieren mit Kakaopulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5c93f0c46e97fa60b6605811/1:1/w_2560%2Cc_limit/Chocolate-Mousse-recipe-19032019.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5c93f0c46e97fa60b6605811/1:1/w_2560%2Cc_limit/Chocolate-Mousse-recipe-19032019.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banoffee-pie",
+      "slug": "gen-banoffee-pie",
+      "title": "Banoffee Pie",
+      "instructions": "Britischer Kuchen mit knusprigem Keksboden, Dulce de Leche, Bananen und Schlagsahne.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Dulce de Leche selbst zu, indem du gezuckerte Kondensmilch kochst, statt fertige zu kaufen.",
+        "Verwende Graham-Cracker der Hausmarke, um bei den Kosten für den Boden zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4978,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banoffee-pie/",
+      "components": [
+        {
+          "key": "9557e75d-64ef-502e-a601-3cfdae20b254",
+          "name": "Zutaten",
+          "servingGrams": 199.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fffa992-c93c-5bf1-81a2-4647419ccb3d",
+              "ingredientName": "Graham-Cracker",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "032a21d5-0f79-5c96-9f1f-c8a6631592ac",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "149b612b-f00a-554e-9377-7ec0d6a82f28",
+              "ingredientName": "Dulce de Leche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "7ac87f77-c496-56e2-830b-7fd140337d16",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "37efae8f-4937-5c7d-9845-3f658965bec7",
+              "ingredientName": "Sahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "657b8b92-55f8-50bd-9c11-d06645e42438",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7277c83c-05e6-5b81-8178-2fd03727f85c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e2774e54-56ff-5704-a5b4-cab52fdcc20a",
+              "ingredientName": "Dunkle Schokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Unze"
+            },
+            {
+              "key": "7609cb09-1c83-559b-81f0-3b60b99a1991",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und lege eine 9-inch Kuchenform mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Graham-Cracker-Brösel mit geschmolzener Butter und Salz und drücke die Mischung fest auf den Boden der Kuchenform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Boden 8 Minuten leicht goldbraun. Nimm ihn heraus und lass ihn vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Dulce de Leche gleichmäßig auf dem abgekühlten Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Bananen in Scheiben und lege sie in einer Lage auf die Dulce de Leche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage Sahne mit Puderzucker und Vanilleextrakt steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Schlagsahne auf der Bananenschicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reibe dunkle Schokolade mit einer feinen Reibe darüber und stelle den Kuchen bis zum Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/6G0QPg_NT6-TMH0yGOp0RbEYzHY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Banoffee-Pie-LEAD-04-bf313e5f0fe8454ebd3ba8cff5aa72b0.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/6G0QPg_NT6-TMH0yGOp0RbEYzHY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Banoffee-Pie-LEAD-04-bf313e5f0fe8454ebd3ba8cff5aa72b0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baked-feta",
+      "slug": "gen-baked-feta",
+      "title": "Gebackener Feta",
+      "instructions": "Mediterraner Feta, im Ofen mit Kirschtomaten, Knoblauch und Oregano gebacken und mit Brot serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Feta in Großpackungen bei Großmärkten zu günstigeren Preisen.",
+        "Verwende Dosentomaten, wenn frische Tomaten teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4979,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-feta/",
+      "components": [
+        {
+          "key": "8ff1a727-3982-5c88-9f6e-d76a69144965",
+          "name": "Zutaten",
+          "servingGrams": 81.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd800b28-8126-52f9-b3d4-4cddc8c79d82",
+              "ingredientName": "Feta-Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "451f6ef6-0e98-5765-8293-50288144c538",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "2b73746c-9ac7-550c-8fcb-c3aae32079a7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9dd344fc-6563-54de-b80c-47fd5859a686",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e87e766d-34eb-5ceb-89e8-cf59fba0d50b",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "819b8819-3b6b-5231-8538-2d65ab3e0e06",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "6e0d34a4-9119-5d5e-a3a2-622ea4a5d274",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ee479b47-69dc-50c8-81d9-95ce7785b3e2",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Laib"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege den Feta-Block in eine kleine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Kirschtomaten mit Olivenöl, gehacktem Knoblauch, Oregano und Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Tomatenmischung um den Feta herum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe alles 15-18 Minuten, bis die Tomaten aufplatzen und der Feta weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue den Feta mit frischem Basilikum und serviere ihn warm mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del019925-bakedfetachickpeas-web-025-rv-lead-67941e3a1145e.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del019925-bakedfetachickpeas-web-025-rv-lead-67941e3a1145e.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

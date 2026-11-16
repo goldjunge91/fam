@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kandhari-chicken",
+      "slug": "gen-kandhari-chicken",
+      "title": "Kandhari-Hähnchen",
+      "instructions": "Ein beliebtes Chettinad-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen in größeren Mengen und friere die Portionen ein.",
+        "Bereite die doppelte Menge zu und friere die Hälfte für die Essensplanung ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chettinad",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6160,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kandhari-chicken/",
+      "components": [
+        {
+          "key": "aa56ce57-6135-53f6-84c8-54c889d1802d",
+          "name": "Zutaten",
+          "servingGrams": 299.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "89237f65-ba70-50e9-af37-12d897cdbb86",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "40dcc9a5-e914-551b-b938-5dce4ecda90d",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "863c5a8c-6da1-5a56-8462-e1861f1db4d9",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09006874-382a-5268-936d-9f81d2fb3927",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL fein gehackt"
+            },
+            {
+              "key": "b846c367-925f-53e0-a274-2df346404b8c",
+              "ingredientName": "Chiliflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38520bf1-826b-55dc-bc05-956c4b04200e",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "ccaec37c-833b-584b-adc7-760063e9627a",
+              "ingredientName": "Kokosöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "2c17fc00-1c7c-5a36-a0e2-e403514dbb5b",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "d57432bb-6317-5cab-817d-8640e0001bbe",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "64fb4fb0-c9f2-56d0-b922-14c81c3b3b9e",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "f23cb810-1038-5ffe-a176-ad456795b451",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9a2851ca-e1a7-5be0-8957-8ad40933c529",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Koriandersamen 1 Minute in einer trockenen Pfanne an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche getrocknete rote Chilischoten 5 Minuten in warmem Wasser ein und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere geröstete Koriandersamen, eingeweichte Chilischoten, Knoblauch und Ingwer zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Kokosöl in einer Pfanne und dünste gehackte Zwiebeln goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Gewürzpaste dazu und gare sie unter ständigem Rühren 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Kurkumapulver und Chilipulver ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Hähnchenstücke und Curryblätter dazu und brate alles bei hoher Hitze 5 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gieße Wasser dazu, reduziere die Hitze auf mittlere Stufe, decke die Pfanne ab und lass alles 12-15 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Würze mit Salz und serviere das Gericht heiß mit Reis oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.saymedia-content.com/.image/t_share/MTg0Mzg1ODQ2OTk5OTE4MDU4/7-coloured-chicken-tikka-kebabs.jpg",
+          "sourcePageUrl": "https://images.saymedia-content.com/.image/t_share/MTg0Mzg1ODQ2OTk5OTE4MDU4/7-coloured-chicken-tikka-kebabs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chettinad-parotta",
+      "slug": "gen-chettinad-parotta",
+      "title": "Chettinad-Parotta",
+      "instructions": "Ein beliebtes Chettinad-Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Butter statt Ghee und senke die Kosten um 40%.",
+        "Bereite den Teig im Voraus zu und bewahre ihn bis zu 3 Tage im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chettinad",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6161,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chettinad-parotta/",
+      "components": [
+        {
+          "key": "fb405132-082d-5aea-a16d-51d41f0ff471",
+          "name": "Zutaten",
+          "servingGrams": 211.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "db625bdd-5a23-5306-b940-e1b91ea6725a",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8c284f18-2104-5744-95e5-aa9c20482e48",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "164fa6f0-3416-57d0-a9f4-64d94bb9fc70",
+              "ingredientName": "Ghee",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "02e8df3e-a5d6-5673-8c32-5efe81f45402",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e5cd827f-983b-51d9-8136-a5f15312c4df",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "98240cda-0d3a-5121-b228-3550963cc3d0",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "995c04d7-bd41-5d27-aeeb-d05babe79680",
+              "ingredientName": "Curryblätter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Zweig"
+            },
+            {
+              "key": "729e12e1-9072-58f7-a294-6884e9e280b3",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz in einer Schüssel. Gib nach und nach Wasser dazu, bis ein weicher Teig entsteht, und knete ihn 5 Minuten glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke den Teig mit einem feuchten Tuch ab und lass ihn 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in 8 gleich große Portionen und forme Kugeln daraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ziehe eine Teigkugel auf einer geölten Fläche zu einem sehr dünnen Rechteck von etwa 12x8 Zoll auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche den Teig großzügig mit Ghee und bestreue ihn mit fein gehackter Zwiebel, grüner Chili, Curryblättern und schwarzen Kreuzkümmelsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den Teig von einer langen Seite aus fest zu einer langen Rolle auf. Wickle diese zu einer Spirale und drücke sie leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wiederhole den Vorgang mit den übrigen Teigportionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erhitze eine gusseiserne Platte oder Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lege eine Parotta auf die Platte und gare sie 2-3 Minuten, bis goldene Stellen entstehen. Bestreiche sie mit Ghee und wende sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Gare die andere Seite 2-3 Minuten, bis sie goldbraun und knusprig ist. Drücke sie dabei leicht mit einem Pfannenwender an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Serviere sie heiß mit Curry, Sambar oder Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.idfreshfood.com/wp-content/uploads/2021/01/gbdvssdv.jpg",
+          "sourcePageUrl": "https://www.idfreshfood.com/wp-content/uploads/2021/01/gbdvssdv.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-akhoi",
+      "slug": "gen-akhoi",
+      "title": "Akhoi",
+      "instructions": "Ein beliebter assamesischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Palmzucker in größeren Mengen in indischen Lebensmittelgeschäften.",
+        "Verwende Puffreis einer Hausmarke statt einer Premiumsorte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "assamesisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6162,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-akhoi/",
+      "components": [
+        {
+          "key": "09397c75-cbf0-571d-b7ad-9cb7c0e1269b",
+          "name": "Zutaten",
+          "servingGrams": 269.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "de86d112-5484-5c78-a7ff-7b65e42e349a",
+              "ingredientName": "Puffreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7ec30fd5-1730-5901-aeb6-2ee715ffae94",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fff42f14-0e6d-5f00-b590-2469fe2077e9",
+              "ingredientName": "Sesam",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "86b826df-49c8-5e86-90f6-3a7631ce3db6",
+              "ingredientName": "Palmzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4640e57c-1b71-55b0-b5c6-f68d8a940f94",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b3f43c6a-ad41-532b-9125-3bce43708a18",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "fb7d4085-215c-588d-8623-51405a5308bf",
+              "ingredientName": "Getrocknetes Pilzpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Ghee in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Palmzucker dazu und rühre ständig, bis er vollständig geschmolzen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Puffreis, Erdnüsse und Sesam zum geschmolzenen Palmzucker und vermenge alles rasch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Salz und Ingwerpulver darüber und rühre ständig um, damit alles gleichmäßig überzogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Mischung auf eine gefettete Fläche oder Backpapier und drücke sie mit einem gefetteten Pfannenwender leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie 10 Minuten abkühlen, bis sie fest genug zum Anfassen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide sie in Quadrate oder Rauten und serviere sie, sobald sie vollständig abgekühlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nhymbe.net/wp-content/uploads/2011/09/092020112106.jpg",
+          "sourcePageUrl": "https://nhymbe.net/wp-content/uploads/2011/09/092020112106.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-til-pitha",
+      "slug": "gen-til-pitha",
+      "title": "Til Pitha",
+      "instructions": "Ein beliebter assamesischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die Füllung in größerer Menge zu und bewahre sie im Kühlschrank auf.",
+        "Verwende Pflanzenöl statt Kokosöl, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "assamesisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6163,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-til-pitha/",
+      "components": [
+        {
+          "key": "9ef2cddc-d956-5c59-aa59-3cc6883c1261",
+          "name": "Zutaten",
+          "servingGrams": 144.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "aee4207b-a26f-5e8a-bf90-e5599d0f3450",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "08a3c458-6cee-537b-bf81-d0233a852a13",
+              "ingredientName": "Sesam",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "20acd9a1-16d3-5328-807a-f65612b283f0",
+              "ingredientName": "Palmzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "88d67402-5cc9-5db1-ae60-170397ab9066",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8487725d-0f14-52a3-ba1a-5028fc7dab2b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "439da315-9ef0-5659-9502-34bd045a1761",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "049848b4-3b9c-5275-8876-6c4f26e530f3",
+              "ingredientName": "Kokosöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 Esslöffel Ghee in einer Pfanne und röste den Sesam 2-3 Minuten an, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Palmzucker zum gerösteten Sesam und vermenge alles gut. Lass die Füllung anschließend abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Reismehl mit Salz und 1 Esslöffel Ghee. Gib nach und nach Wasser dazu, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 8-10 Kugeln und drücke jede mit der Handfläche flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib einen Löffel Sesam-Palmzucker-Füllung in die Mitte, schlage die Ränder ein und verschließe den Fladen zu einer Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Kokosöl in einem tiefen Topf auf 350°F und frittiere die Pithas rundherum goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm sie mit einer Schaumkelle heraus, lass sie auf Küchenpapier abtropfen und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://rootsandleisure.com/wp-content/uploads/2017/05/015-WM.jpg",
+          "sourcePageUrl": "http://rootsandleisure.com/wp-content/uploads/2017/05/015-WM.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ghila-pitha",
+      "slug": "gen-ghila-pitha",
+      "title": "Ghila Pitha",
+      "instructions": "Ein beliebter assamesischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende ungesüßte Kokosraspeln aus der Großpackung.",
+        "Kaufe Palmzucker in indischen Geschäften zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "assamesisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6164,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ghila-pitha/",
+      "components": [
+        {
+          "key": "051148fb-3839-58a6-8a1a-c249afc79ec0",
+          "name": "Zutaten",
+          "servingGrams": 448,
+          "position": 0,
+          "items": [
+            {
+              "key": "9674ed84-1110-5994-8d0a-85101f90cf3c",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b8879fce-8d92-5d0b-9ed8-fc0feba234a9",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a5a41a3a-c86a-59bc-a76b-098123ecffd2",
+              "ingredientName": "Palmzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "ea0cda6c-4c0e-5031-94c7-ad6857447cf4",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "096b5b1c-e2f7-5adc-941c-80807bfb9961",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "ef0fb7db-d3c7-5f83-ac08-97195730610c",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "aa8b8446-cf87-588b-8764-f3369e1c647c",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl und Salz in einer Schüssel. Gib langsam warmes Wasser dazu und verquirle alles klümpchenfrei zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einer beschichteten Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 1/4 Tasse Teig in die Mitte und verstreiche ihn vorsichtig mit der Rückseite eines Löffels zu einem dünnen Kreis von 6 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare den Fladen 2-3 Minuten, bis die Unterseite goldbraun ist. Wende ihn vorsichtig und gare die andere Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib etwas geraspelte Kokosnuss und einen Teelöffel Palmzucker auf eine Hälfte des gebackenen Pitha.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe das Pitha über der Füllung zusammen und drücke es leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es warm und wiederhole den Vorgang mit dem restlichen Teig und der Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://1.bp.blogspot.com/-mOckgWhkfNY/YHOgcsuFKcI/AAAAAAACtok/dG3AQWrmI7cc0mmWlKPGJu6Z8cKMlGKtACLcBGAsYHQ/s2048/IMG_0762.JPG",
+          "sourcePageUrl": "https://1.bp.blogspot.com/-mOckgWhkfNY/YHOgcsuFKcI/AAAAAAACtok/dG3AQWrmI7cc0mmWlKPGJu6Z8cKMlGKtACLcBGAsYHQ/s2048/IMG_0762.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

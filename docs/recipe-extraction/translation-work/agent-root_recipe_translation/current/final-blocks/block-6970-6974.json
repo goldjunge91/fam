@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chile-rellenos",
+      "slug": "gen-chile-rellenos",
+      "title": "Chile Rellenos",
+      "instructions": "Mexikanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie teuren Oaxaca-Käse durch Mozzarella-Käse",
+        "Verwenden Sie das ganze Jahr über frische Tomaten der Saison oder Tomatensauce aus der Dose"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6970,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chile-rellenos/",
+      "components": [
+        {
+          "key": "a3259d69-a5fd-517f-9802-bc43f3692a6f",
+          "name": "Zutaten",
+          "servingGrams": 798.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9057c570-212b-5896-8f01-ba2c94bb5e0a",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ed4407a-7e39-596d-ad2d-00693f52b9a0",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "8819ec52-72df-57be-8c23-914bc3f92861",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be35f620-9b01-5ac8-a2aa-b370e9d82870",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "402081cf-72fd-5c96-97de-e0534185778a",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "22fecd81-be12-5c2f-9f4f-676437e445fe",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b68f783-d5e3-532d-92c5-40acb0c282b3",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "0b1158b6-9ba6-5f22-b274-4c56abe113e6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5eadd2da-1a73-5024-bb14-40f522c4f228",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cfdaadb5-2dd9-5420-89ba-16d1009055e9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Poblanos direkt über einer Gasflamme oder unter dem Grill ca. 5 Minuten rösten, bis sie überall verkohlt sind, und dann zum Dämpfen 5 Minuten in eine Plastiktüte legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ziehen Sie vorsichtig die verkohlte Haut ab, machen Sie einen Längsschlitz und entfernen Sie vorsichtig die Kerne, sodass die Paprika ganz bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füllen Sie jede Paprika mit etwa 1/3 Tasse geriebenem Käse und legen Sie sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einem Topf 1 Esslöffel Öl bei mittlerer Hitze erhitzen, gehackten Knoblauch und gewürfelte Zwiebeln 2 Minuten anbraten, dann Tomatensauce und Brühe hinzufügen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier trennen; Schlagen Sie das Eiweiß, bis sich steife Spitzen bilden, und heben Sie dann vorsichtig das Eigelb unter. Gefüllte Paprika leicht mit Mehl bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitzen Sie 2 Esslöffel Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und tauchen Sie jede Paprika vorsichtig in die Eimischung, um sie vollständig zu bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Paprika auf jeder Seite 2–3 Minuten goldbraun braten und dann in eine Auflaufform geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gießen Sie warme rote Soße über die Paprika und backen Sie sie 350 Minuten lang bei 10 °F, bis sie durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/66970536239e2dd9269c3100/1:1/w_2560%2Cc_limit/chiles-rellenos_RECIPE_V3_071124_8525_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/66970536239e2dd9269c3100/1:1/w_2560%2Cc_limit/chiles-rellenos_RECIPE_V3_071124_8525_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-esquites",
+      "slug": "gen-esquites",
+      "title": "Esquites",
+      "instructions": "Mexikanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie das ganze Jahr über gefrorenen Mais statt frischem Mais, um eine einheitliche Preisgestaltung zu gewährleisten",
+        "Überspringen Sie Cotija und ersetzen Sie Feta oder sogar Parmesan, um zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6971,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-esquites/",
+      "components": [
+        {
+          "key": "26bd6375-9b32-566c-a652-bdb9fa8542fe",
+          "name": "Zutaten",
+          "servingGrams": 280.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7640a76-62e1-5c36-8ecd-8eaefb850ffb",
+              "ingredientName": "Gefrorene Maiskörner",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "127547ba-15b9-5718-a285-9edaa4960079",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "434ff43d-550a-564e-aa9c-224803cf754b",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a35f1ed9-2e6c-5889-922f-2c592c856734",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Zehe"
+            },
+            {
+              "key": "7fa5615f-70ad-59d4-8df0-6206cee5880b",
+              "ingredientName": "Cotija",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "140edec4-2077-583c-9618-b8b2a3751660",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e64bdd8b-d7cf-57e6-a268-1abe2e3231b3",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c97606fa-922a-5d65-88fd-652e24a922a8",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "55997d52-5c73-5983-838f-3dc334a76571",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c7211328-fc45-56b5-bd9f-a92c9008c112",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Jalapeños und gehackten Knoblauch hinzufügen und 1 Minute kochen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maiskörner hinzufügen und 4–5 Minuten unter gelegentlichem Rühren kochen, bis sie durchgewärmt und stellenweise leicht verkohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen und Mayonnaise und Chilipulver einrühren, bis der Mais bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In eine Servierschüssel geben und mit zerbröseltem Cotija-Käse und frischem Koriander belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Limettensaft darüberpressen, mit Salz und Pfeffer würzen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ILfqEPArg8WCpPN7IVwxwQU2SOQ=/3000x2001/filters:fill(auto,1)/EsquitesHERO-61555c861fc7450ab7412ed0e74cc3b0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ILfqEPArg8WCpPN7IVwxwQU2SOQ=/3000x2001/filters:fill(auto,1)/EsquitesHERO-61555c861fc7450ab7412ed0e74cc3b0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cheesesteak",
+      "slug": "gen-cheesesteak",
+      "title": "Philly-Cheesesteak",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Lendenstück anstelle von Rib-Eye-Rindfleisch, um 30 % der Fleischkosten zu sparen",
+        "Kaufen Sie Hoagie-Brötchen von Handelsmarken anstelle von Backbrötchen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6972,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cheesesteak/",
+      "components": [
+        {
+          "key": "4d94cc2a-6fce-527f-a4ec-519d82ab2ff9",
+          "name": "Zutaten",
+          "servingGrams": 185.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "024f5dad-a44c-5e38-8793-646b6f0450b7",
+              "ingredientName": "Lendensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "d2391e31-d96f-593c-9c33-709d4390f981",
+              "ingredientName": "Hoagie-Brötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36f28949-b788-5c49-9cda-65e4b0df4dd4",
+              "ingredientName": "Provolone",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c33c249-0b61-57a7-9ba5-f7f1b71f695f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "409e4d9a-f7d6-5ead-a6e4-ae8af176e146",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ca3c4c00-3ffb-5458-b86a-df883af4ef07",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "50760562-87b9-5ca4-8455-25871775e23f",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie das Steak dünn gegen die Faserrichtung (ein teilweises Einfrieren für 30 Minuten erleichtert dies).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei starker Hitze erhitzen, bis es rauchend heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In Scheiben geschnittene Zwiebeln dazugeben und 3-4 Minuten kochen, bis sie weich und goldbraun sind, dann auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In derselben Pfanne das Steak in einer einzigen Schicht hinzufügen und 2 Minuten lang braten, dabei mit einem Spatel zerkleinern und dann mit Salz, Pfeffer und Knoblauchpulver würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zwiebeln wieder in die Pfanne geben und mit dem Fleisch vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Provolone-Käse belegen und die Pfanne zugedeckt 1 Minute lang schmelzen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rösten Sie die Hoagie-Brötchen leicht in der Pfanne oder unter dem Grill, geben Sie dann die Cheesesteak-Mischung auf die Brötchen und servieren Sie sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/1Hco9L9JmGNZ1SEAsyxKYNW9Lb4=/6720x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Philly-Cheesesteak-METHOD-6-c6621d7eb9264c04b80bfbd827541687.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/1Hco9L9JmGNZ1SEAsyxKYNW9Lb4=/6720x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Philly-Cheesesteak-METHOD-6-c6621d7eb9264c04b80bfbd827541687.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-roast-pork-sandwich",
+      "slug": "gen-roast-pork-sandwich",
+      "title": "Schweinebraten-Sandwich",
+      "instructions": "Italienisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter im Sonderangebot und frieren Sie sie ein, bis Sie sie brauchen",
+        "Verzichten Sie auf teure frische Kräuter und verwenden Sie stattdessen 1.5 TL getrocknete italienische Gewürze"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6973,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roast-pork-sandwich/",
+      "components": [
+        {
+          "key": "5fdc540c-ae3e-53df-b8d3-b910e6f03298",
+          "name": "Zutaten",
+          "servingGrams": 156.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fec0d37-2a3f-58d3-8696-6d0bda43c919",
+              "ingredientName": "Schweineschulter",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2965f224-cf67-5b0f-a4b0-6acc15000e3c",
+              "ingredientName": "Hoagie-Brötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d69e6e79-7a5e-5cb9-b148-a115f4975739",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89a1027a-3da8-5d2d-890b-4668268afe01",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "158160c8-2ec7-58b8-8d24-55f9d6e72fcd",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28d31c1f-36e4-5994-9973-ace6f6a4edbd",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "265daaac-c4e4-54a9-aca2-8fe22f203dd1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1781f937-21b7-5d87-9823-2c4afe3f52de",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "41c56cea-e90f-5432-8b5e-3fd84e16cc7f",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und tupfen Sie die Schweineschulter mit Papiertüchern trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Machen Sie kleine Schlitze in das Schweinefleisch und stecken Sie darin Knoblauchzehen und Kräuterzweige hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Alles mit Olivenöl, Salz und Pfeffer einreiben und in einen Bräter geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie Hühnerbrühe auf den Boden der Pfanne und braten Sie es 1.5 bis 2 Stunden lang, bis das Fleisch eine Innentemperatur von 190 °F erreicht und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Aus dem Ofen nehmen und 10 Minuten ruhen lassen, dann das Schweinefleisch mit zwei Gabeln zerkleinern und mit dem Bratenfett vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rotweinessig einrühren und mit zusätzlichem Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rösten Sie die Hoagie-Brötchen leicht an, füllen Sie sie großzügig mit zerkleinertem Schweinefleisch und dem Bratensaft und servieren Sie sie dann mit zusätzlicher Soße zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5a56492aa27b5d24c9ebabd2/1:1/w_2560%2Cc_limit/slow-cooker-pork-sandwich-b.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5a56492aa27b5d24c9ebabd2/1:1/w_2560%2Cc_limit/slow-cooker-pork-sandwich-b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-italian-hoagie",
+      "slug": "gen-italian-hoagie",
+      "title": "Italienischer Hoagie",
+      "instructions": "Italienisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Feinkostfleisch im Angebot und portionieren Sie es für später in Gefrierbeutel",
+        "Verwenden Sie geröstete Paprika aus dem Glas, anstatt frische zu rösten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6974,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-italian-hoagie/",
+      "components": [
+        {
+          "key": "3d0f9d41-0b40-549b-8d93-307f5e1f4a37",
+          "name": "Zutaten",
+          "servingGrams": 1821.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "06090016-f3a9-5af1-a128-4c35ce6b3422",
+              "ingredientName": "Hoagie-Brötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64d68d0e-8187-54ad-8d05-d626b1ddf15c",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "2e994d4d-b731-5ecd-8493-ff4e2d63a6fe",
+              "ingredientName": "Provolone",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "9dd0771d-3fca-5eb0-bc39-4c77e4a4c7bc",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c92a5328-4961-5109-9f36-d8421332db62",
+              "ingredientName": "Salat",
+              "grams": 3000,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15e014f8-0b82-5345-a65a-708b0a62ffb3",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große Tomate"
+            },
+            {
+              "key": "d7101355-9b4f-5c73-ac2b-530ba99de284",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 mittelgroße"
+            },
+            {
+              "key": "04c82526-919e-5886-8967-2d7f5019c513",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f79b9fcd-994d-5fb6-b7a1-000a53497653",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "457b07d7-e7f5-5410-a5df-2d29b15150e7",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "beb7b709-17af-55e6-83a3-7fc7499662b3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hoagie-Brötchen der Länge nach halbieren und bei Bedarf leicht unter dem Grill rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf die untere Hälfte jedes Brötchens Capicola, Mortadella und Provolone-Käse schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie Salat, Tomatenscheiben, rote Zwiebeln und geröstete rote Paprika darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer kleinen Schüssel Olivenöl, Essig, Oregano, Salz und Pfeffer verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Vinaigrette über das Gemüse und das Fleisch träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hoagie-Brötchen verschließen und 5 Minuten lang fest in Folie oder Pergamentpapier einwickeln, damit sich die Aromen vermischen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auspacken, bei Bedarf halbieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/MxkW6GfKHNmKMALwrloQuBDqWCM=/4048x2696/filters:fill(auto,1)/classic-italian-sub-recipe-4107022-hero-01-f60a35ab24594a6dbe1147d53dee3405.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/MxkW6GfKHNmKMALwrloQuBDqWCM=/4048x2696/filters:fill(auto,1)/classic-italian-sub-recipe-4107022-hero-01-f60a35ab24594a6dbe1147d53dee3405.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1090 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cassoulet",
+      "slug": "gen-cassoulet",
+      "title": "Cassoulet",
+      "instructions": "Französisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Entenconfit weg und verwende normale gebratene Ente oder zusätzliche Wurst.",
+        "Kaufe getrocknete Bohnen in größeren Mengen im Discountladen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2525,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cassoulet/",
+      "components": [
+        {
+          "key": "bec89130-4f19-5d4f-82b3-da3c9acaaff6",
+          "name": "Zutaten",
+          "servingGrams": 499.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d710790-83ad-5a4d-9e65-b97cfcc097b7",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4784b89f-4b36-5507-b911-fab7db7a8862",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38cbc316-22a4-5710-9ccd-f1a696ae46d0",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4a9fa76f-03af-5372-915f-c9c8c693d0c1",
+              "ingredientName": "Schweinewurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2b637d1-f7e5-5735-aa99-63c4940701ec",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "478fe91a-d09d-5b0c-9949-31f9de0e12fd",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "7dbac3a8-dd98-54e6-98cf-4fdbdb260ca2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "b0fdf9b8-5ab2-5ab5-846b-a5ec535423ea",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3a783b4f-abf2-5177-b3fa-95f7476f8dcf",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e051cd2a-6b7c-5bf5-a5af-03fdc47ea9ba",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Bohnen über Nacht in kaltem Wasser ein. Gieße sie ab und spüle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Schweineschulter in 2-inch große Stücke und bräune sie in einem großen Schmortopf bei mittelhoher Hitze. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bräune Wurststücke im selben Topf 5 Minuten. Nimm sie heraus und schneide sie in dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste gewürfelte Zwiebel und gehackten Knoblauch im restlichen Fett 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Schweinefleisch zurück in den Topf, füge Bohnen, Hühnerbrühe, Tomatenmark und Lorbeerblätter hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und gare ihn im auf 325°F vorgeheizten Ofen 2 Stunden. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege Entenconfit-Schenkel und Wurstscheiben in das Cassoulet. Bestreue alles mit Semmelbröseln, die mit geschmolzenem Fett vermischt sind, und backe es ohne Deckel 30 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/nQSY8SHQO_oSOVYqtoj7s8DnqiY=/5616x3744/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Easy-Cassoulet-LEAD-08-da8500f77620450986711d7748827dde.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/nQSY8SHQO_oSOVYqtoj7s8DnqiY=/5616x3744/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Easy-Cassoulet-LEAD-08-da8500f77620450986711d7748827dde.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bouillabaisse",
+      "slug": "gen-bouillabaisse",
+      "title": "Bouillabaisse",
+      "instructions": "Französisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gekaufte Fischbrühe statt sie selbst zu kochen.",
+        "Kaufe gefrorene Muscheln und Garnelen, um Kosten und Vorbereitungszeit zu reduzieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2526,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bouillabaisse/",
+      "components": [
+        {
+          "key": "05f1a807-a306-551b-9033-e59f2b4727b8",
+          "name": "Zutaten",
+          "servingGrams": 158.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fc5f5a7-e585-5e12-9aa0-4fefffe91e94",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "fe0b2a60-3340-5f77-95d2-0d8accea336d",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "18e217c7-6b5a-514e-8bee-1ca146519a75",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "658060a7-0cf8-5bb2-875f-3610516c8ea8",
+              "ingredientName": "Fenchelknolle",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b93b5b0b-2ce4-5fe3-8977-a48ba9f3789d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "574d4d29-5e61-5235-8bca-c7dfdf6b0c5e",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "d325e33e-1313-5634-9ecc-aee962ea7681",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "135bcdef-c7f8-5379-851f-6171243016a3",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7ceba95e-f9ee-5e30-aa11-535c16364300",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "dc10e8c0-e40a-56ba-99f4-58ae0a588610",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste gewürfelten Fenchel, Zwiebel und gehackten Knoblauch 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Gib dann Safran und Fischbrühe dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Brühe 15 Minuten köcheln, damit sich die Aromen entfalten. Gib dann Fischfilets und Miesmuscheln in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles 5 Minuten, gib dann Garnelen dazu und lass die Suppe weitere 3 Minuten köcheln, bis alle Meeresfrüchte gar und die Muscheln geöffnet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wirf alle ungeöffneten Muscheln weg und würze die Brühe nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste Brotscheiben goldbraun. Schöpfe die Suppe in Servierschalen und reiche das geröstete Brot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/QZpy39Vy0TpZhzAxKeQ2YlzGAD0=/5214x3476/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Bouillabaisse-LEAD-5-b2153bf6e82d42deb4a5a007231738c3.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/QZpy39Vy0TpZhzAxKeQ2YlzGAD0=/5214x3476/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Bouillabaisse-LEAD-5-b2153bf6e82d42deb4a5a007231738c3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-goi-cuon",
+      "slug": "gen-goi-cuon",
+      "title": "Gỏi Cuốn (Sommerrollen)",
+      "instructions": "Vietnamesischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorene Garnelen im Angebot in größeren Mengen und taue sie vor der Verwendung auf.",
+        "Verwende getrocknete Reisfadennudeln, sie sind sehr günstig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2527,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-goi-cuon/",
+      "components": [
+        {
+          "key": "e571bfbc-cd8e-5d29-b5a7-f3f699926302",
+          "name": "Zutaten",
+          "servingGrams": 1488.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "3d345060-b5a4-52f2-8dc7-80d58c2312c1",
+              "ingredientName": "Reispapierblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "128ffdaa-e448-5566-b9e4-93f8c6c3af79",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "b4614eca-ba04-5cf1-ab58-c5285c41d9f4",
+              "ingredientName": "Reisfadennudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "22191366-5d15-5128-a00d-5cde69d657f5",
+              "ingredientName": "Salat",
+              "grams": 4000,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "49b61122-2805-501e-ad5c-b983ca05332e",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "cab2aa3c-14a5-5fec-a154-39da58dcb81a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0ef8443e-48e2-5b2a-81b6-3764885b5c79",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "9f97aa4a-c0d5-529c-8a73-875bc5be8704",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c72179b1-22ff-50b6-be69-d811e6d908d6",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ea81fe86-696d-5138-a01a-fbcd39cb45aa",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "68bda042-f4b2-5e6d-8723-e7c5aef5eaba",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ec9dcef5-cb6e-5a83-ae52-753f62a28b42",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tauche jedes Reispapierblatt 5 Sekunden in warmes Wasser, bis es biegsam ist, und lege es auf ein feuchtes Tuch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Gurke in dünne Stifte und lege Salat, Nudeln, Gurke, Minze und Koriander auf jedes Blatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege 2-3 Garnelen auf die Füllung, klappe die Seiten ein und rolle das Blatt fest wie einen Burrito auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Fischsauce, Limettensaft, Zucker, Wasser und gehackten Knoblauch in einer Schüssel zu einer Dip-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Rollen sofort mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.authenticworldfood.com/data/r8/00000028-00000037.jpg",
+          "sourcePageUrl": "http://www.authenticworldfood.com/data/r8/00000028-00000037.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cha-gio",
+      "slug": "gen-cha-gio",
+      "title": "Chả Giò",
+      "instructions": "Vietnamesischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinehackfleisch im Angebot und friere es portionsweise ein.",
+        "Verwende Krabbenfleisch aus der Dose, das günstiger als frisches ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2528,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cha-gio/",
+      "components": [
+        {
+          "key": "620f7678-8a55-5792-ab04-532fb55bd97c",
+          "name": "Zutaten",
+          "servingGrams": 454.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1a2fd89-6333-513d-a53a-95150041980e",
+              "ingredientName": "Reispapierblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "e76de260-43a1-53c2-90e4-a96d24efdebc",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "10ceed4b-b676-552d-88b8-c8a58dfe2ccd",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "6023f6ec-2426-5032-a543-868920e38886",
+              "ingredientName": "Reisfadennudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            },
+            {
+              "key": "abcf3160-97f9-5b18-91d2-860d92c3a8cd",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroß geraspelt"
+            },
+            {
+              "key": "f18d9936-df2e-58c4-8ff6-5501bbdef115",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Unzen eingeweicht"
+            },
+            {
+              "key": "49f7bfdf-4b34-5d82-ac05-d9d922fd144c",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9112cf61-b69c-5d1b-9777-e3ac4cb0c73e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "e5fe5827-a072-5062-9db1-081fb1432116",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "1b14e15d-a22b-5f6b-a976-587d2de2cfaf",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare Schweinehackfleisch in einer Pfanne bei mittlerer Hitze etwa 5 Minuten, bis es gebräunt ist. Zerteile es während des Garens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 1 Minute. Rühre dann Krabbenfleisch, gekochte Nudeln, geraspelte Karotte, Pilze, Fischsauce und schwarzen Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauche Reispapierblätter 3 Sekunden in warmes Wasser und lege sie auf eine feuchte Fläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 2 Esslöffel Füllung auf das untere Drittel jedes Blatts. Klappe die Seiten ein und rolle es fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einem schweren Topf auf 350°F und frittiere die Rollen portionsweise 2-3 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie auf Küchenpapier abtropfen und serviere sie heiß mit süß-saurer Sauce oder Fischsauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/2898454.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/2898454.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tom-yum",
+      "slug": "gen-tom-yum",
+      "title": "Tom Yum",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorene Garnelen, die günstiger als frische sind.",
+        "Lass Galgant weg, falls du keinen findest, und verwende stattdessen mehr Ingwer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2529,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tom-yum/",
+      "components": [
+        {
+          "key": "aed83e6e-5293-5ade-b305-fbe4cbacf33b",
+          "name": "Zutaten",
+          "servingGrams": 560.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "5923a817-7fa1-58ae-aec8-fbbd1b7a7129",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7061b637-8797-50f5-a968-166f857a4528",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "baf82fed-1bb8-5f5b-9686-ba1689e82f2b",
+              "ingredientName": "Zitronengras",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 zerdrückt"
+            },
+            {
+              "key": "9b027e48-069d-5117-92c4-51a39722262c",
+              "ingredientName": "Galgant",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "e0ff0529-2623-5361-a2ab-8d5a8bf800cd",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4d5120b-b878-542b-8a1d-477d9af026fa",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "561a86c6-8d46-537a-8813-ebdd7b14220d",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1ecf5133-1b71-501e-825f-6243b5e70af7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse halbiert"
+            },
+            {
+              "key": "7d6b524a-75c4-52d8-a8b5-c885ec5d5a3a",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 oz in Scheiben geschnitten"
+            },
+            {
+              "key": "018724c5-5e7a-5c53-9e30-a6d1d6b0f1a3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "11c47107-54df-58f6-8517-8ea28882f458",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Hühnerbrühe in einem großen Topf zum Kochen und gib zerdrücktes Zitronengras, Galgantscheiben und ganze Chilis dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles 5 Minuten köcheln, damit sich die Aromen entfalten. Gib dann gehackten Knoblauch und Pilze hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Garnelen dazu und lass sie 3-4 Minuten köcheln, bis sie rosa und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Fischsauce und Limettensaft ein. Gib dann Kirschtomaten dazu und erhitze alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Topf vom Herd, entferne Zitronengras und Galgantstücke, garniere die Suppe mit Koriander und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/zFtJ_mHyuw8Wyw9dQT8ngmv5JFQ=/4096x2730/filters:fill(auto,1)/directly-above-shot-of-tom-yum-soup-served-in-bowl-on-table-673719317-5a34251a13f1290037da39ef.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/zFtJ_mHyuw8Wyw9dQT8ngmv5JFQ=/4096x2730/filters:fill(auto,1)/directly-above-shot-of-tom-yum-soup-served-in-bowl-on-table-673719317-5a34251a13f1290037da39ef.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

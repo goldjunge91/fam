@@ -1,0 +1,865 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-almased-wellness-shake",
+      "slug": "gen-almased-wellness-shake",
+      "title": "Almased-Wellness-Shake",
+      "instructions": "Deutsches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Honig in großen Behältern, um Kosten zu sparen.",
+        "Kaufe Leinsamen lose im Naturkostladen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5300,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-almased-wellness-shake/",
+      "components": [
+        {
+          "key": "c43b8342-e9a0-5093-ae67-7db36c7953aa",
+          "name": "Zutaten",
+          "servingGrams": 242.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b654b68-5766-5d99-b0bd-5cec661e1480",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "4146f829-872d-579b-807f-0a35ce2496a3",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "64ddda69-b321-514e-b1be-cfde24ce2cd3",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3e1040d0-0f0d-5797-a6c2-a68d9677ea55",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme das Wasser, ohne es zum Kochen zu bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße das warme Wasser in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Almased-Pulver und Honig dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zur zusätzlichen Nährstoffversorgung gemahlene Leinsamen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mix alles 45 Sekunden bei mittlerer Stufe, bis der Shake glatt und schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße ihn in eine Tasse und trinke ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://media.almased.com/fileadmin/Almased_com/Products/Seller_Product_Images/2025-08_Vanilla-Single-Can.png",
+          "sourcePageUrl": "https://media.almased.com/fileadmin/Almased_com/Products/Seller_Product_Images/2025-08_Vanilla-Single-Can.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-herbalife-nutrition-shake",
+      "slug": "gen-herbalife-nutrition-shake",
+      "title": "Herbalife-Nährstoffshake",
+      "instructions": "Amerikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 6,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Erdbeeren in der Saison, wenn sie günstiger sind, und friere sie für später ein.",
+        "Kaufe die größte erhältliche Packung Shakepulver, um beim Preis pro Portion zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5301,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-herbalife-nutrition-shake/",
+      "components": [
+        {
+          "key": "9c70a3af-1520-590c-9dce-eab05bc492ea",
+          "name": "Zutaten",
+          "servingGrams": 320,
+          "position": 0,
+          "items": [
+            {
+              "key": "4e52b99d-55d0-5b5f-97cd-28d9b2497b7a",
+              "ingredientName": "Soßenpulver-Päckchen",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Messlöffel (26g)"
+            },
+            {
+              "key": "eece3e1b-f40f-5bdf-96f0-a6bc72b8f5b7",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "5bf66536-9748-5a9b-9a5f-d0317bc23c13",
+              "ingredientName": "Eiscreme",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a13601d6-9f8f-58fd-ace2-457d3466fb18",
+              "ingredientName": "Erdbeere",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse frisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Milch und Eiswürfel in den Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Miss zwei Messlöffel Herbalife Formula 1 Pulver ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib frische Erdbeerstücke dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mix alles 60 Sekunden auf höchster Stufe, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Shake in ein Glas und trinke ihn sofort kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.relishgoodfood.com/wp-content/uploads/2025/03/herbalife-shake-recipes.webp",
+          "sourcePageUrl": "https://www.relishgoodfood.com/wp-content/uploads/2025/03/herbalife-shake-recipes.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lobster-roll-melt",
+      "slug": "gen-lobster-roll-melt",
+      "title": "Überbackener Lobster Roll",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Dosenhummer statt frischem Hummer, um deutlich zu sparen.",
+        "Kaufe Mayonnaise und Butter der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5302,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobster-roll-melt/",
+      "components": [
+        {
+          "key": "d2bbceca-37a7-592f-b82d-f027e503f95e",
+          "name": "Zutaten",
+          "servingGrams": 292.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cdfb751a-6e30-5ccb-96e3-24e4f1c0d9aa",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f0210ada-9114-53aa-8426-ed581730897f",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "26123318-d08c-5372-8a54-156f1e5807c8",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse gewürfelt"
+            },
+            {
+              "key": "fdb8f681-f130-5b2b-967b-e6e1801577e0",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "712c44b1-50fc-5434-bc4a-3d147d9a3a90",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6e55b362-995b-56a8-a86b-cf02ae7a5efa",
+              "ingredientName": "Hot-Dog-Brötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Brötchen"
+            },
+            {
+              "key": "3f822957-f85c-547a-8de5-41e5e2135756",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "4db3418f-121f-564c-a345-a384954d785d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße das Hummerfleisch aus der Dose ab und zerpflücke es in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge es mit Mayonnaise, gewürfeltem Sellerie, Zitronensaft, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Außenseiten der Brötchen mit Butter und lege sie in eine Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Brötchen 2–3 Minuten, bis sie außen goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne die gerösteten Brötchen und verteile die Hummermischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jedes Brötchen mit einer Scheibe Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schließe die Brötchen und lege sie für 2 Minuten zurück in die Pfanne, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/We7-ygR2xc3aeLQXbm7uDTmH4kE=/2000x1334/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__07__New-England-Lobster-Rolls-LEAD-3c-2625865134294539b4460f6155f90ce3.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/We7-ygR2xc3aeLQXbm7uDTmH4kE=/2000x1334/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__07__New-England-Lobster-Rolls-LEAD-3c-2625865134294539b4460f6155f90ce3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bacon-and-cheddar-melt",
+      "slug": "gen-bacon-and-cheddar-melt",
+      "title": "Toast mit Speck und Cheddar",
+      "instructions": "Amerikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck im Angebot und friere ihn für später ein.",
+        "Verwende Cheddar der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5303,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bacon-and-cheddar-melt/",
+      "components": [
+        {
+          "key": "145795a9-50fb-548d-8b93-9832dfcc5698",
+          "name": "Zutaten",
+          "servingGrams": 202.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cec40b4b-4a0c-5edd-ada2-cdf0d348de6a",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "06f67bfe-66c3-5add-95ca-7fe1b58c274c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "76a9381d-1cf4-5733-b813-256982fffc4a",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "c7268996-5ad0-50ef-9b7e-457cd4bd77d4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7522df45-1fb9-51cc-b080-34e384d7c1b2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck bei mittlerer Hitze in einer Pfanne etwa 8 Minuten knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege den Speck zum Abtropfen auf Küchenpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche eine Seite jeder Brotscheibe mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze die Pfanne bei mittlerer Hitze und lege zwei Brotscheiben mit der Butterseite nach unten hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege jede Brotscheibe mit einer Scheibe Cheddar und 3 Speckstücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die übrigen Brotscheiben mit der Butterseite nach oben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brate die Sandwiches 3 Minuten goldbraun, wende sie und brate sie weitere 2 Minuten, bis der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.lovethatfood.com/images/bacon-cheddar-melt/bacon-cheddar-melt-lg.jpg",
+          "sourcePageUrl": "http://www.lovethatfood.com/images/bacon-cheddar-melt/bacon-cheddar-melt-lg.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-broccoli-cheddar-melt",
+      "slug": "gen-broccoli-cheddar-melt",
+      "title": "Brokkoli-Cheddar-Toast",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Brokkoli, er ist günstiger und länger haltbar.",
+        "Verwende Käsescheiben der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5304,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-broccoli-cheddar-melt/",
+      "components": [
+        {
+          "key": "ece99a0a-dd83-51a2-9b05-f3289f15d276",
+          "name": "Zutaten",
+          "servingGrams": 435,
+          "position": 0,
+          "items": [
+            {
+              "key": "f1e9e667-6fa6-59d0-846d-80ad713c23f2",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "738edd73-2d8c-5ebd-bb85-c09deae8372a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "b16ae86f-d030-5784-8e47-4605c9b6b357",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "7799ad49-b680-5e93-94e0-5c211cff2025",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7eac6bba-c086-52c4-92f1-f9aaef1a813e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse gewürfelt"
+            },
+            {
+              "key": "049e93a9-bc0e-5a69-bfef-c922b3c5acc3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die Brokkoliröschen in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dämpfe den Brokkoli in einem Topf mit 1 Zoll Wasser 5 Minuten, bis er bissfest und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den Brokkoli ab und vermenge ihn mit gewürfelter Zwiebel, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche eine Seite jeder Brotscheibe mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine Pfanne bei mittlerer Hitze und lege zwei Brotscheiben mit der Butterseite nach unten hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Brokkolimischung auf den beiden Brotscheiben und belege jede mit 1.5 Käsescheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die restlichen Brotscheiben mit der Butterseite nach oben darauf und brate alles 3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wende die Sandwiches und brate sie weitere 2 Minuten, bis der Käse schmilzt und das Brot goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2022/12/211129_DAMN-DELICIOUS_Broccoli-Cheddar-Soup_301.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2022/12/211129_DAMN-DELICIOUS_Broccoli-Cheddar-Soup_301.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

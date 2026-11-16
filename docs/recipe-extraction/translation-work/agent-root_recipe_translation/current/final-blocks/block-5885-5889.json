@@ -1,0 +1,1092 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-karniyarik",
+      "slug": "gen-karniyarik",
+      "title": "Karniyarik",
+      "instructions": "Türkisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhack statt Lammhack und senke die Kosten deutlich.",
+        "Kaufe Auberginen im Discounter oder auf Bauernmärkten zu günstigeren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "türkisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5885,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-karniyarik/",
+      "components": [
+        {
+          "key": "0a24ae89-4e10-5650-ab8a-d02b0ecf98ed",
+          "name": "Zutaten",
+          "servingGrams": 264.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "61868c39-8a9d-5a7d-b535-d06f79999a0e",
+              "ingredientName": "Aubergine",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "c379815b-8a11-5d01-8ffc-37a2b537be9c",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "0d14beb7-7aee-5ebf-ab7a-020ff699422b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "bd3ac9cd-1bbf-515b-b745-b02e564e928c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de3da842-c1c3-5caa-9f83-d91d45f5c197",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "292e54b5-0564-5e18-86a5-9cc06aa0cc7b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af996276-8fef-5a7c-ae84-476454588523",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7bf14df9-6a7e-5ae2-8612-00f251c1fdf4",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b55a3216-2a98-5137-bc61-34e6bb26a958",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "10e0af28-01d6-560e-9d96-8bf5aaec0e37",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2519a998-5be8-5603-9fc5-6ef9b5a87065",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Auberginen längs und höhle das weiche Innere aus. Lasse dabei eine 0.25-inch dicke Schale stehen und hacke das Fruchtfleisch fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Zwiebel, Knoblauch, Tomate und grüne Paprika und hacke die Petersilie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 3 tbsp Olivenöl in einer Pfanne bei mittlerer Hitze und brate das Hackfleisch 4-5 Minuten krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zwiebel und Knoblauch dazu und gare sie 3 Minuten. Rühre dann Tomatenmark, gewürfelte Paprika und Tomate ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe das gehackte Auberginenfleisch, Petersilie, Salz und Pfeffer unter und gare alles 5 Minuten, bis die Mischung verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die Auberginenschalen mit dem restlichen Olivenöl, lege sie mit der Schnittseite nach oben in eine Auflaufform und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Auberginenschalen mit der Fleischmischung und gieße Wasser um die Auberginen herum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe die Form zugedeckt bei 375°F 25-30 Minuten, bis die Auberginen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/media/cache/thumb_600/bundles/project/images/recipes/3295_1_1714930314.png",
+          "sourcePageUrl": "https://cookaifood.com/media/cache/thumb_600/bundles/project/images/recipes/3295_1_1714930314.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hunkar-begendi",
+      "slug": "gen-hunkar-begendi",
+      "title": "Hünkar Beğendi",
+      "instructions": "Türkisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen während der Saison (Spätsommer), wenn sie günstiger sind.",
+        "Verwende Lammhack statt gewürfeltem Fleisch und spare 15-20%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5886,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hunkar-begendi/",
+      "components": [
+        {
+          "key": "a794d3a6-b4b0-5417-a8d0-a0e0cc28658f",
+          "name": "Zutaten",
+          "servingGrams": 366.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "e0959973-aa8f-5c04-9ed5-b45d0e5e5346",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "bbfe7f2c-11a2-5597-9c68-d73d68a35c82",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3fcf85a9-6f03-5aeb-bc2d-a603fa60a101",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2890499a-e8f5-5866-8c54-dcd41af5cd12",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f65c4dc5-22d1-54fe-940e-9bbf4349f65f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse gerieben"
+            },
+            {
+              "key": "231aa37b-e33b-5d46-bd4b-af4a61cd550a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "190912b2-26ef-5caa-b605-9986fe1ea903",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8260ab09-fc4a-56d2-8ed2-337718d72798",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund gewürfelt"
+            },
+            {
+              "key": "5b692dfd-c322-5b3f-817f-fbe5c5a69588",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroße gewürfelt"
+            },
+            {
+              "key": "f2318d35-aeae-5bfc-810f-ec13fbac3aab",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1194c33a-5dfd-542e-9d90-a97d28df57a4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Auberginen 8-10 Minuten direkt über einer Gasflamme oder unter dem Backofengrill, bis sie rundum geschwärzt sind. Wickle sie dann 5 Minuten in Folie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ziehe die verkohlte Haut ab, gib das Fruchtfleisch in eine Schüssel, zerdrücke es glatt und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate die Fleischwürfel mit der gewürfelten Zwiebel etwa 8 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Gib dann 1.5 cups Wasser, Salz und Pfeffer dazu und lasse alles 25 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmilz währenddessen Butter in einem Topf und rühre Mehl ein, bis eine Mehlschwitze entsteht. Gieße nach und nach Milch unter ständigem Rühren dazu, bis die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Topf vom Herd und rühre zerdrückte Aubergine und Käse glatt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den Fleischeintopf auf Servierschüsseln und gib reichlich Auberginenpüree darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Turkish-Hunkar-Begendi-Sultans-Delight.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Turkish-Hunkar-Begendi-Sultans-Delight.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nasu-dengaku",
+      "slug": "gen-nasu-dengaku",
+      "title": "Nasu Dengaku",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Mirin selbst zu, indem du gleiche Teile Honig und Reisessig mischst, falls du keinen hast.",
+        "Weißes Miso hält sich monatelang im Kühlschrank; kaufe es einmal für mehrere Rezepte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5887,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nasu-dengaku/",
+      "components": [
+        {
+          "key": "84a4f1b1-5a82-598f-b5c9-c2ac67f0af0c",
+          "name": "Zutaten",
+          "servingGrams": 169.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "88ad91d3-4361-5e62-84ae-feb02b538d8e",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "49b4a96b-3752-59f8-b6d3-d95e62873f5b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ded98bbe-7f75-5ae5-ae20-a69b50f1c60f",
+              "ingredientName": "Misopaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6d3a5037-5af7-5b74-ab93-8db95b9fa8b2",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "acab9fe6-2a1a-51d3-aadd-d55982a29d1e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "73ce7be7-8618-5382-8475-0b7d8d3db8dc",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "461533ca-5428-5274-b729-1df552c3890c",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6f4e9c0d-8c79-557c-b8fb-6924782446fb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stange gehackt"
+            },
+            {
+              "key": "18931249-3e9a-5747-9932-87a023843c6c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Zehe fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Auberginen längs und ritze das Fruchtfleisch rautenförmig ein, ohne die Schale zu durchschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze. Brate die Auberginenhälften mit der Schnittseite nach unten 5 Minuten goldbraun, wende sie und gare sie weitere 3-4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Miso, Mirin, Zucker, Sojasoße und gehackten Knoblauch in einer kleinen Schüssel glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Misomischung gleichmäßig auf dem gegarten Fruchtfleisch jeder Auberginenhälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Auberginen mit der Schnittseite nach oben zurück in die Pfanne und gare sie weitere 2-3 Minuten, bis der Belag leicht karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie auf eine Servierplatte, bestreue sie mit Sesamsamen und gehackter Frühlingszwiebel und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2018/01/Miso_Glazed_Eggplant_0072.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2018/01/Miso_Glazed_Eggplant_0072.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-agedashi-nasu",
+      "slug": "gen-agedashi-nasu",
+      "title": "Agedashi Nasu",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hühnerbrühe statt Dashi und spare $1-2 pro Portion.",
+        "Verwende Frittieröl 2-3 Mal erneut, wenn du es vorher abseihst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5888,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-agedashi-nasu/",
+      "components": [
+        {
+          "key": "05002dd2-668e-5b23-be27-f4d561012a51",
+          "name": "Zutaten",
+          "servingGrams": 297.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1ce5588-f979-51b4-be0d-8b5dca043259",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "b61c8f99-5b7a-5bc6-9933-410825aea95a",
+              "ingredientName": "Speisestärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fdfbf96a-266e-51e3-bd1a-0f09a89fab74",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen for frying"
+            },
+            {
+              "key": "8c77ae95-5c8c-5590-88fb-da1d1623d11f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "77326d5c-eb3a-55da-9924-ad2df2890e5c",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "799b7f43-6561-5221-9a70-0fa0545e7e15",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "11c2b424-c10b-5b11-8a69-0e227c198ccc",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "eaebc913-5e63-5f65-92dd-a9c8108f4495",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "843d08d2-b65d-5479-96a0-77412b6dc688",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "70449f8c-3371-5d87-8dad-d3cfd93dbe97",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen gehackt"
+            },
+            {
+              "key": "24f7bb36-123a-5a58-8c8d-811fdca43797",
+              "ingredientName": "Bonitoflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Auberginen in 3-inch große Stücke und wende sie gründlich in Speisestärke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und frittiere die Auberginen portionsweise 3-4 Minuten goldbraun und weich. Lasse sie anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Dashi, Sojasoße, Mirin, Zucker, gehackten Knoblauch und Ingwer in einem Topf und lasse alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die frittierte Aubergine auf einer Servierplatte an und gieße die heiße Dipsoße darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere das Gericht sofort mit Bonitoflocken und gehackter Frühlingszwiebel und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ypdhvpQoNciNzMYAuwKLrouC6Hg=/3000x2000/filters:fill(auto,1)/agedashi-dofu-recipe-2031576-hero-02-ca470482346642d991166b98237412c0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ypdhvpQoNciNzMYAuwKLrouC6Hg=/3000x2000/filters:fill(auto,1)/agedashi-dofu-recipe-2031576-hero-02-ca470482346642d991166b98237412c0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eggplant-steak",
+      "slug": "gen-eggplant-steak",
+      "title": "Auberginensteak",
+      "instructions": "Mediterranes Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Feta weg und verwende für eine vegane Variante Hefeflocken zum halben Preis.",
+        "Kaufe Auberginen kurz vor Ladenschluss auf Bauernmärkten und spare 20-30%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5889,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eggplant-steak/",
+      "components": [
+        {
+          "key": "41449d50-d0c3-5dbd-8881-a8ff37edf544",
+          "name": "Zutaten",
+          "servingGrams": 194.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d240eaa-5de8-5d4d-b5bd-a87ddc59f729",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "cf0a4b5c-1214-5883-a4b8-6946430e836c",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "06fe2cb0-b7a5-5b1c-887a-12d309ef9da3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen fein gehackt"
+            },
+            {
+              "key": "4a722a6e-bded-5049-963d-df1721d6a69f",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bdb34bae-03ff-5be5-8cb9-8e7d2240f784",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "532509dd-a446-57cf-9fc0-19eebbf2f253",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "327c3b5c-3062-5455-a6e4-c59d92d3f073",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "aa58527a-8173-59f3-84ed-7a56d0ae7525",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "fcc86f8c-918e-59c5-9abc-1a650ae468f2",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse zerbröselt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Aubergine längs in 0.75-inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Olivenöl, gehackten Knoblauch, Zitronensaft, Oregano, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche beide Seiten der Auberginensteaks großzügig mit der Ölmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze einen Grill oder eine Grillpfanne auf mittlere bis hohe Hitze und gare die Steaks 4-5 Minuten pro Seite, bis sie gebräunt und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege sie auf eine Servierplatte, gib zerkrümelten Feta und frische Petersilie darauf und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://everydfood.com/wp-content/uploads/2023/08/eggplant-steak-step-7.jpg",
+          "sourcePageUrl": "https://everydfood.com/wp-content/uploads/2023/08/eggplant-steak-step-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

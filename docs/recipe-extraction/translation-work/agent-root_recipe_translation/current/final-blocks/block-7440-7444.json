@@ -1,0 +1,1250 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-linzer-cookies",
+      "slug": "bake-linzer-cookies",
+      "title": "Linzer Cookies (deutsche Fassung)",
+      "instructions": "Buttery almond shortbread sandwich cookies scented mit Zimt und Zitronenschale, filled mit raspberry Marmelade und finished mit ein snowfall von powdered Zucker around ein peekaboo window. ein klassisch Austrian holiday cookie that tastes like ein tiny Linzer torte.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen whole raw Mandeln und grind them in ein blender mit ein spoonful von der Rezept's Mehl zu machen dein own almond Mehl für ein fraction von der bagged price.",
+        "machen ein double batch von Teig und freeze der extra disks für up zu 3 months; Scheibe-und-backen holiday cookies anytime.",
+        "Re-ausrollen every scrap von Teig in natur rounds und backen them as garen's-treat shortbread so nothing goes zu waste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-flour",
+          "swap": "Grind 1 cup whole Mandeln (oder verwenden walnut/hazelnut Mehl) zu ein fine meal",
+          "savings": "~$2 gegenüber abgepacktem Mandelmehl"
+        },
+        {
+          "forIngredientId": "jam",
+          "swap": "Any seedless preserves du have auf hand (apricot oder blackcurrant are traditional too)",
+          "savings": "~$1 mit vorhandener Marmelade"
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "1/4 tsp almond extract für ein deeper marzipan note",
+          "savings": "den Kauf einer frischen Zitrone sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "austrian (deutsche Fassung)",
+        "cookies (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "Backen",
+        "sandwich-cookie (deutsche Fassung)",
+        "raspberry (deutsche Fassung)",
+        "almond (deutsche Fassung)",
+        "Nachtisch",
+        "christmas (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7440,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-linzer-cookies/",
+      "components": [
+        {
+          "key": "fb7db150-5b6e-51a8-9775-4cb64bcadc98",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 114.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "a7c28ac9-594a-5b43-be1d-ce1ecde01870",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke), ungesalzen und weich"
+            },
+            {
+              "key": "116ed026-397f-5a7e-acde-f4e55e411254",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "730c1049-87b9-507d-b7d6-93339fc2638b",
+              "ingredientName": "Mandelmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse fein gemahlenes Mandelmehl"
+            },
+            {
+              "key": "75845328-af55-5508-92dd-0d61999107cf",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "e355b691-54dc-5aad-a8e3-cf7cb44382a5",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Ei, zimmerwarm"
+            },
+            {
+              "key": "df89a319-24b6-5258-92a4-e12eb39b5b87",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "d1beb7b0-a1fa-5645-b040-f0c84afbedc5",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Zitrone"
+            },
+            {
+              "key": "d03df2b5-9476-548c-80ac-3fa0c553ca68",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Zimt"
+            },
+            {
+              "key": "3315c092-6092-55e6-9464-e0d90d748074",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "98aee41e-f2ec-5b05-abd8-5ce81db3c35c",
+              "ingredientName": "Marmelade",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse kernlose Himbeermarmelade für die Füllung"
+            },
+            {
+              "key": "40d0574b-49bb-50c5-8f7a-b0ad09506b53",
+              "ingredientName": "Puderzucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Bestäuben der Oberseiten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sahne der weich Butter und granulated Zucker mit ein mixer auf mittel bis pale und fluffy, 3 zu 4 Minuten. Beat in der Ei, vanilla, und Zitronenschale bis glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "verquirlen der all-purpose Mehl, almond Mehl, Zimt, und Salz together in ein Schüssel, dann hinzufügen zu der Butter Mischung in two additions, mixing auf niedrig just bis ein soft Teig comes together. Do not overwork it.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Divide der Teig in half, flatten je in ein disk, wrap in plastic, und chill at least 1 Stunde (oder up zu 2 days) bis firm enough zu ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "ausrollen one disk between two sheets von parchment zu etwa 1/8 inch dick. schneiden out rounds mit ein 2-inch fluted oder round cutter; these are der bottoms. Re-ausrollen scraps as needed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "ausrollen und schneiden der second disk der same way, dann verwenden ein klein cutter zu stamp ein window out von der center von je von these tops. Transfer all cookies zu parchment-lined sheets und chill 15 Minuten so they hold their formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen at 350F (175C) für 10 zu 12 Minuten, bis der edges are just barely golden. der schneiden-out tops will backen ein Minute oder two faster, so watch them. vollständig abkühlen lassen auf der pans.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Dust only der window tops generously mit powdered Zucker while they sit auf ein rack (dusting first keeps Zucker off der Marmelade).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Spread etwa 1 Teelöffel raspberry Marmelade über je solid bottom cookie, dann gently press ein sugared top onto je so der Marmelade shows through der window.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "lassen der assembled cookies set für 30 Minuten so der Marmelade firms up; they behalten in ein airtight tin für up zu 5 days und der flavor deepens overnight.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Linzer_cookies_%285234191379%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Linzer_cookies_(5234191379).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simon S — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Linzer Cookies",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-french-madeleines",
+      "slug": "bake-french-madeleines",
+      "title": "French Madeleines (deutsche Fassung)",
+      "instructions": "Delicate shell-shaped French Butter cakes mit ein golden crisp edge, ein tender Zitrone-scented crumb, und der iconic plump hump that comes aus chilling der Teig. Made der proper way mit beurre noisette (browned Butter) für ein deep, nutty richness.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "ein madeleine Pfanne is der only special tool du need und lasts forever — but in ein pinch ein mini-muffin tin makes great 'madeleine bites,' just backen 1-2 Minuten weniger.",
+        "Browning der Butter is free und transforms cheap basic ingredients in ein bakery-quality flavor, so never weglassen it.",
+        "verwenden der leftover juiced Zitrone (after zesting) für tea oder dressing so nothing goes zu waste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "verwenden Orange zest, oder 1/4 tsp almond extract anstatt citrus",
+          "savings": "Die Schale einer bereits vorhandenen Zitrusfrucht verwenden"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "ersetzen ein gleich amount von granulated Zucker oder weglassen entirely",
+          "savings": "Spart den Kauf von Honig für nur 1 EL"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "natur granulated cane Zucker works identically",
+          "savings": "Bereits vorhandenen normalen Zucker verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Nachtisch",
+        "Backen",
+        "pastry (deutsche Fassung)",
+        "tea-cake (deutsche Fassung)",
+        "Butter-cake",
+        "klassisch"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7441,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-french-madeleines/",
+      "components": [
+        {
+          "key": "271bf5d0-74a6-5ed5-b5ca-6d1416b9114b",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 50.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "5686ad5a-8192-53a7-b3a4-ece444215fbd",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "große, zimmerwarm"
+            },
+            {
+              "key": "f0f7001b-1137-5102-a78c-6094e4ffa228",
+              "ingredientName": "weißer Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker"
+            },
+            {
+              "key": "0befa055-86f4-5358-84ae-0db2904ac3ed",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse (125g) Weizenmehl"
+            },
+            {
+              "key": "16483a77-d89b-5af9-bd10-549c20c2860a",
+              "ingredientName": "Backpulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "60539f58-2a1c-5b0f-a722-ef83cc331032",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse (113g), zu Nussbutter gebräunt"
+            },
+            {
+              "key": "d64b89d6-cc2f-5050-9b16-a133aea9e469",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Zitrone"
+            },
+            {
+              "key": "374b8b06-e704-5d13-99d3-0df37ba4de4a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2714bc78-787e-5146-91ef-469a89606ef0",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 EL für eine zarte Krume und Farbe"
+            },
+            {
+              "key": "2bef92ca-c16d-5af6-80b5-024dab8732a0",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "49e3952d-cee1-547e-a5d7-f862f3b0f5d6",
+              "ingredientName": "Puderzucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "machen der beurre noisette: melt der Butter in ein light-colored saucepan bei mittlerer Hitze, swirling, bis it foams, turns golden, und smells nutty mit browned Milch solids at der bottom, etwa 5-6 Minuten. gießen in ein Schüssel (scraping der brown bits) und lassen abkühlen zu just warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "verquirlen der Mehl, Backpulver, und Salz together in ein klein Schüssel und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in ein larger Schüssel, verquirlen der Eier und granulated Zucker vigorously für 2-3 Minuten bis pale, dick, und slightly foamy. verquirlen in der Zitronenschale, vanilla, und Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gently unterheben der dry ingredients in der Ei Mischung mit ein spatula just bis no streaks remain, dann unterheben in der cooled browned Butter in two additions bis der Teig is smooth und glossy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Cover der Schüssel und refrigerate der Teig für at least 1 Stunde (up zu overnight) — this kalt rest is what creates der signature hump.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brush ein madeleine Pfanne generously mit weich Butter und dust lightly mit Mehl, tapping out der excess; chill der Pfanne while der Ofen heats zu 410F (210C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Spoon oder pipe etwa 1 Esslöffel von kalt Teig in der center von je mold (do not spread it — lassen it spread auf its own) und backen für 9-11 Minuten, bis der edges are golden und der centers have puffed in ein domed hump.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Immediately unmold by tapping der Pfanne against der counter, dann abkühlen shell-side up auf ein rack. Dust mit powdered Zucker und servieren der same day, ideally still slightly warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Homemade_French_madeleines.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_French_madeleines.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: FredRbl — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von French Madeleines",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-almond-biscotti",
+      "slug": "bake-almond-biscotti",
+      "title": "Almond Biscotti (deutsche Fassung)",
+      "instructions": "klassisch twice-gebacken Italian almond cookies — crisp, dry, und made für dunking in coffee oder vin santo. ein einfach Ei-und-Mehl Teig studded mit toasted whole Mandeln, scented mit vanilla und almond extract, dann gebacken as ein log und in Scheiben geschnitten.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen Mandeln in bulk und toast them yourself — pre-in Scheiben geschnitten oder pre-toasted nuts cost far mehr per ounce.",
+        "Biscotti behalten crisp für 2+ weeks in ein airtight tin, so one batch is ein long-lasting Snack — backen ein double batch zu halve dein effort per cookie.",
+        "weglassen pricey vin santo; these dunk perfectly in cheap drip coffee oder tea."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almonds",
+          "swap": "verwenden slivered-Mandeln oder any nut du have auf hand (hazelnuts are traditional too)",
+          "savings": "~$1.50 beim Ersetzen durch günstigere Nüsse aus der Großpackung"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "Double der Vanilleextrakt wenn du don't behalten almond extract",
+          "savings": "~$0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "Omit entirely oder verwenden Orange zest aus ein frisch Orange du already have",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "biscotti (deutsche Fassung)",
+        "cookies (deutsche Fassung)",
+        "twice-gebacken",
+        "coffee (deutsche Fassung)",
+        "machen-ahead",
+        "Nachtisch",
+        "Backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7442,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-almond-biscotti/",
+      "components": [
+        {
+          "key": "ea0343a3-f36e-5984-9d82-ce5bf23661b2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 76.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0a01a4e-b072-5155-85ae-11e2533bdc26",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, ~2 Tassen"
+            },
+            {
+              "key": "0a19c3e4-7c2b-53c9-8eed-edc913a026c9",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "~1 Tasse Kristallzucker"
+            },
+            {
+              "key": "830c046e-67c8-5401-84b5-38ae3fddf7e6",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, ganz und geröstet"
+            },
+            {
+              "key": "386afb6a-5d6c-5caa-a12b-62be1a76a150",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a187e214-c33f-5d40-9e88-dc77977956bd",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "cd33aa04-3f39-5c4e-9785-9a82cb921499",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "c3ae19e4-8695-5364-86dc-9821366f0515",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "17da95a5-ddff-598e-984a-d7b439dff071",
+              "ingredientName": "Mandelextrakt",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 TL als prägendes Aroma"
+            },
+            {
+              "key": "e2a62531-4a6d-5d32-a247-654ef2b28c77",
+              "ingredientName": "Zitronenschale",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "abgeriebene Schale von 1 Zitrone für Frische im Teig"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen Ofen zu 350F (175C) und line ein Backen sheet mit parchment. Spread der whole Mandeln auf ein separate tray und toast 8-10 Minuten bis es duftet, dann lassen abkühlen und roughly chop etwa half, leaving der rest whole.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in ein Schüssel, verquirlen together Mehl, Zucker, Backpulver, und Salz. umrühren in der toasted Mandeln so they are evenly distributed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in einer separaten Schüssel, beat der Eier mit der vanilla, almond extract, und Zitronenschale. Reserve etwa 1 Esslöffel von verquirlt Ei für ein Ei wash.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen der Ei Mischung in der dry ingredients und mischen mit ein spatula, dann dein hands, bis ein stiff, slightly sticky Teig forms. Do not hinzufügen extra Mehl unless it is unworkable.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Turn Teig onto der parchment und formen in 2 logs etwa 3 inches wide und 3/4 inch tall, spaced apart. Brush der tops mit der reserved Ei wash für shine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen 25-30 Minuten bis firm, pale gold, und dry auf top. entfernen und lower der Ofen zu 300F (150C). lassen der logs abkühlen 10-15 Minuten — slicing heiß causes crumbling.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Transfer logs zu ein cutting board und, using ein serrated knife, Scheibe auf ein slight diagonal in 1/2-inch dick Stücke mit ein firm sawing motion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lay der Scheiben schneiden-side down auf der sheet und backen 10 Minuten, dann flip je one und backen 8-10 mehr Minuten bis knusprig und dry. vollständig abkühlen lassen auf ein rack — they harden as they abkühlen. aufbewahren airtight up zu 2 weeks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/I_cantuccini.jpg/1280px-I_cantuccini.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:I_cantuccini.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Matteo Bertini — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Almond Biscotti",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-french-macarons",
+      "slug": "bake-french-macarons",
+      "title": "French Macarons (deutsche Fassung)",
+      "instructions": "Delicate almond meringue shells mit smooth feet und ein glossy Schokolade ganache Füllung. Made der klassisch French-meringue way: sifted almond Mehl und powdered Zucker folded in ein stiff meringue, piped, rested bis skinned über, dann gebacken niedrig und slow für that signature ruffled foot.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen almond Mehl in bulk und aufbewahren it in der freezer; it is der single biggest cost und stays frisch für months.",
+        "Aged Ei whites separated der day before und left covered in der fridge geben ein mehr stable meringue und fewer cracked shells, saving wasted batches.",
+        "verwenden ein reusable silicone mat mit ein printed template anstatt buying special macaron sheets so every shell is der same size."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Fill mit ein einfach buttercream (Butter + powdered Zucker) oder aufbewahren-bought Marmelade anstatt ganache",
+          "savings": "Spart etwa $1.50 pro Zubereitung gegenüber guter dunkler Schokolade"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "verwenden coconut Sahne für der ganache",
+          "savings": "Spart ungefähr $0.40 und eignet sich für eine milchfreie Ernährung"
+        },
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "ein few drops von Zitronensaft stabilize der meringue just as well",
+          "savings": "Spart den Kauf eines ganzen Glases, das selten gebraucht wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Französisch",
+        "Nachtisch",
+        "Backen",
+        "macarons (deutsche Fassung)",
+        "patisserie (deutsche Fassung)",
+        "machen-ahead",
+        "almond (deutsche Fassung)",
+        "Schokolade-ganache"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7443,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-french-macarons/",
+      "components": [
+        {
+          "key": "16e62497-633e-54be-96e6-eab37769dbf5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 31.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "8145318b-c0de-56e0-9fa1-f32cfc2aa623",
+              "ingredientName": "Mandelmehl",
+              "grams": 264,
+              "quantity": 264,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "100g fein gemahlene blanchierte Mandeln"
+            },
+            {
+              "key": "74da92a8-b7a6-57b5-9a69-ef0ba830396b",
+              "ingredientName": "Puderzucker",
+              "grams": 6.75,
+              "quantity": 6.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "100g Puderzucker für die Schalen"
+            },
+            {
+              "key": "0aa58268-6e57-59d5-a79d-d5ed5195a851",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 21,
+              "quantity": 21,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "75g Eiweiß (etwa 2-3 große), über Nacht gelagert und zimmerwarm"
+            },
+            {
+              "key": "6bee0f0f-10c9-5d71-b06b-2571dc24184b",
+              "ingredientName": "weißer Zucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "75g Kristallzucker für das Baiser"
+            },
+            {
+              "key": "2cdda3a1-aa7e-5e10-8e22-2e38c16e752c",
+              "ingredientName": "Weinstein",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL zum Stabilisieren des Eischnees"
+            },
+            {
+              "key": "a115a170-f884-5638-8038-2fb7428348fa",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "winzige Prise"
+            },
+            {
+              "key": "bd80db77-38bf-5baf-836a-3459fc71b9d5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "3b5c5aef-e872-571f-8d1b-887f98e8fd66",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 19.85,
+              "quantity": 19.85,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "100g gute dunkle Schokolade, fein gehackt, für die Ganache"
+            },
+            {
+              "key": "cbafab64-9154-547e-9c0a-78684acae7ed",
+              "ingredientName": "Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "80ml Schlagsahne für die Ganache"
+            },
+            {
+              "key": "fa60f7e7-faa3-538b-80e6-196c8c70e783",
+              "ingredientName": "Butter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "15g weiche Butter für eine glänzende Ganache"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "machen der ganache first so it can set: erhitzen der heavy Sahne bis just steaming, gießen über der finely gehackt dark Schokolade, lassen sit 1 Minute, dann umrühren aus der center bis glatt. umrühren in der weich Butter, cover, und chill bis pipeable (etwa 1 Stunde).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sift der almond Mehl und powdered Zucker together twice in ein Schüssel, discarding any coarse bits. This is essential für smooth shells.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Whip der room-temperature Ei whites mit der Sahne von tartar und ein pinch von Salz auf mittel bis foamy, dann hinzufügen der granulated Zucker ein spoonful at ein time. Increase speed und whip zu ein stiff, glossy meringue that holds ein firm peak; beat in der vanilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der sifted dry mischen zu der meringue und unterheben (macaronage): press der Teig against der Schüssel und unterheben über, deflating just bis it flows like slow lava und ein ribbon dropped aus der spatula sinks back in etwa 10-15 seconds. Do not overmix.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Transfer zu ein piping bag mit ein round tip und pipe 1.5-inch rounds onto parchment-lined sheets, spacing them apart. Rap je sheet firmly auf der counter ein few times und pop any air bubbles mit ein toothpick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "lassen der piped shells rest bei Raumtemperatur 30-60 Minuten bis ein dry skin forms und they no longer feel tacky zu ein light touch. Meanwhile erhitzen der Ofen zu 300F (150C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen one sheet at ein time für 16-18 Minuten, bis der shells have risen mit ruffled feet und lift cleanly off der parchment. vollständig abkühlen lassen before peeling them off.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Pipe ein dab von set ganache onto half der shells, top mit matching shells, und twist gently zu sandwich. für best texture, refrigerate in ein airtight container 24 Stunden zu mature, dann bring zu room temperature before serving.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Des_macarons_de_chez_Bouillet_%28mars_2023%29.jpg/1280px-Des_macarons_de_chez_Bouillet_%28mars_2023%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Des_macarons_de_chez_Bouillet_(mars_2023).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Benoît Prieur — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von French Macarons",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-florentine-cookies",
+      "slug": "bake-florentine-cookies",
+      "title": "Florentine Cookies (deutsche Fassung)",
+      "instructions": "Crisp, lacy almond cookies set mit ein buttery caramel von Honig, Zucker, und Sahne, dann finished mit ein swipe von dark Schokolade. Delicate, golden, und elegant — der klassisch Italian-French tea cookie.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen whole Mandeln und chop them yourself — they're far cheaper than pre-in Scheiben geschnitten und du control der texture.",
+        "weglassen der Schokolade coating zu Geld sparen; der lacy cookies are delicious natur mit tea oder coffee.",
+        "verwenden Schokolade chips du already have anstatt ein bar von dark Schokolade für der coating."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "verwenden whole Milch plus ein extra Teelöffel von Butter",
+          "savings": "Spart ~$1.50 beim Verzicht auf eine zusätzliche Packung Sahne"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Light corn syrup oder maple syrup",
+          "savings": "Maissirup ist pro Unze günstiger als Honig"
+        },
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Zutat: Semi-sweet chocolate chips",
+          "savings": "Oft $1-2 günstiger als Backschokolade"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italian-french (deutsche Fassung)",
+        "cookies (deutsche Fassung)",
+        "almond (deutsche Fassung)",
+        "lacy (deutsche Fassung)",
+        "caramel (deutsche Fassung)",
+        "Schokolade",
+        "Nachtisch",
+        "tea-time (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "Backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7444,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-florentine-cookies/",
+      "components": [
+        {
+          "key": "7f22043c-ccb2-5067-b151-92c38802653d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 11.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "e98e2d97-949e-578d-a93e-ecbdb0a51909",
+              "ingredientName": "Mandelstifte",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "fein gehackte Mandeln oder Mandelblättchen"
+            },
+            {
+              "key": "9d539530-78d9-5a0e-aeee-c0f602b5fd38",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40db57b4-0d59-5b78-b5d1-e420398ce049",
+              "ingredientName": "weißer Zucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32c8e1ea-cf4d-5f1d-a742-c29fef7a59b3",
+              "ingredientName": "Honig",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbe991ea-1f7e-5de1-83c1-802ebad2414a",
+              "ingredientName": "Sahne",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d3fb9a6-deb1-51ef-ba0d-8b9e0779e650",
+              "ingredientName": "Weizenmehl",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "985468c6-8778-56d1-9473-e4575b6bfc04",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f76ed1d8-0ac9-5325-8aff-7f531529c796",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "fa538190-043d-55a0-ad13-d0acceadffc0",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Bestreichen der Rückseiten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Preheat der Ofen zu 350F (175C) und line two Backen sheets mit parchment paper oder silicone mats. vermengen der gehackt Mandeln mit der Mehl und ein pinch von Salz in ein Schüssel und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in ein klein saucepan, vermengen der Butter, Zucker, Honig, und heavy Sahne. Bring zu ein gentle boil bei mittlerer Hitze, stirring, bis der Mischung reaches 238F (soft-ball stage) oder coats der back von ein spoon, etwa 2 zu 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "entfernen aus der erhitzen und umrühren in der vanilla, dann unterheben in der almond-Mehl Mischung bis evenly coated. lassen der Teig rest 2 zu 3 Minuten zu eindicken slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drop level teaspoons von Teig onto der lined sheets, spacing them at least 3 inches apart since they spread ein lot. Flatten je slightly mit der back von ein spoon.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "backen one sheet at ein time für 8 zu 10 Minuten, bis der cookies are bubbling, lacy, und deep golden-brown at der edges. Watch closely near der end zu avoid burning.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "lassen der cookies abkühlen auf der sheet für 5 Minuten zu firm up, dann slide der parchment onto ein rack und vollständig abkühlen lassen before peeling them off.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Melt der dark Schokolade gently (microwave in 20-second bursts, stirring). Spread ein dünn layer auf der flat back von je cooled cookie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Drag ein fork through der Schokolade zu machen wavy lines, oder sandwich two cookies back-zu-back. Set Schokolade-side up bis firm, etwa 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Florentines.jpg/1280px-Florentines.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Florentines.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tympan — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Florentine Cookies",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

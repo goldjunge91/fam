@@ -1,0 +1,1179 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-orecchiette-con-cime-di-rapa",
+      "slug": "gen-orecchiette-con-cime-di-rapa",
+      "title": "Orecchiette mit Cime di Rapa",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Stängelkohl in der Saison oder achte auf Angebote in internationalen Lebensmittelgeschäften",
+        "Normaler Brokkoli kann Stängelkohl ersetzen, falls dieser nicht erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2350,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-orecchiette-con-cime-di-rapa/",
+      "components": [
+        {
+          "key": "9bef8ecf-f594-5013-89c7-d2806c703244",
+          "name": "Zutaten",
+          "servingGrams": 84.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "3842528f-6efa-5510-8421-b0f1678d997b",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "250ed26b-b661-5b2c-a3bd-64d70434c0f2",
+              "ingredientName": "Stängelkohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Bund (etwa 1 Pfund)"
+            },
+            {
+              "key": "d8fe649a-e55d-5227-8149-4e925b8a6b48",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f3aeeea-7378-5449-b352-515b55dca811",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "dc2c0b53-1ef6-5a6c-9dbf-f6e87b57b703",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "00dd37b5-8fb9-57ae-b683-7902ab8e364a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a1f5584e-274e-5505-8e96-9ae5b767a46e",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "965259dc-ae7d-50e8-9c4c-ac2c31ff04b9",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ddd7ad79-91b2-5521-852a-84984567675a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gib den Stängelkohl hinein. Koche ihn 3 Minuten, bis er gerade weich ist. Nimm ihn mit einem Schaumlöffel heraus und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Orecchiette im selben Topf nach Packungsanweisung al dente. Gieße sie ab und bewahre 1 cup Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und dünste gehackten Knoblauch und Chiliflocken 30 seconds an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gegarten Stängelkohl und Hühnerbrühe in die Pfanne. Rühre um und erhitze alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gegarten Nudeln in die Pfanne und vermenge alles. Füge nach Bedarf Nudelwasser hinzu, bis eine leichte Soße entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und rühre Parmesan und Zitronensaft ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und schmecke es mit Salz und schwarzem Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren und zusätzlich Parmesan dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/wYgxtRcR02vDQ1RyykssHezYvv4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__03__20210226-cime-di-rapa-sasha-marx-14-decf6d730b6f4d639c4ac1dfd949e3d0.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/wYgxtRcR02vDQ1RyykssHezYvv4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__03__20210226-cime-di-rapa-sasha-marx-14-decf6d730b6f4d639c4ac1dfd949e3d0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cannelloni-ricotta-e-spinaci",
+      "slug": "gen-cannelloni-ricotta-e-spinaci",
+      "title": "Cannelloni mit Ricotta und Spinat",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Marinarasoße selbst aus Dosentomaten zu und spare deutlich",
+        "Kaufe Ricotta und Käse von Hausmarken, um die Zutatenkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2351,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cannelloni-ricotta-e-spinaci/",
+      "components": [
+        {
+          "key": "97684d5d-1398-54ca-865d-834b7169e4ab",
+          "name": "Zutaten",
+          "servingGrams": 498.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "cde6f8b3-bb48-52ab-9ea0-e4d5a84af9ef",
+              "ingredientName": "Cannelloni-Röhren",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Tuben"
+            },
+            {
+              "key": "5591f5c1-d69c-5409-87f0-806edd7ccfa9",
+              "ingredientName": "Ricotta",
+              "grams": 64.29,
+              "quantity": 64.29,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "15 Unzen"
+            },
+            {
+              "key": "421d3f63-ad99-583e-a2c9-db97c330ed80",
+              "ingredientName": "tiefgekühlter Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "2cb9041e-d9f5-5bcf-956f-f1f65622ff20",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "5640a056-a25f-5469-8137-e43e1dff2080",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0e67d466-901c-5f08-983d-3bdad57ee7f8",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "f852aff4-3331-5cc5-b8d1-764517ada2a5",
+              "ingredientName": "Marinarasoße",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "37e49e38-0cb6-5252-93fc-e49500b0a082",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9924c5a-7120-52d8-a76a-f751ce2f5db3",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor und verteile 0.5 cup Marinarasoße auf dem Boden einer Auflaufform von 9x13 inch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Ricotta, Spinat, Ei, 0.5 cup Parmesan, gehackten Knoblauch, Salz, Pfeffer und eine Prise Muskatnuss in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Cannelloni-Röhren mithilfe eines Spritzbeutels oder kleinen Löffels mit der Ricottamischung und lege sie mit der Nahtseite nach unten in die vorbereitete Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die restliche Marinarasoße über die Cannelloni, sodass sie vollständig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische den restlichen Parmesan mit Mozzarella und verteile alles gleichmäßig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Form mit Folie ab und backe sie 25 Minuten. Entferne dann die Folie und backe weitere 15 Minuten, bis der Käse geschmolzen ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse das Gericht vor dem Servieren 5 Minuten abkühlen, damit die Füllung nicht herausläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/p9CHD2czeXl0ePcfxZYFNaYMYcM=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/cannelloni-ricotta-e-spinaci-2019584-step-11-935ca6b00bc8447e8d1e88be2ed51a21.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/p9CHD2czeXl0ePcfxZYFNaYMYcM=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/cannelloni-ricotta-e-spinaci-2019584-step-11-935ca6b00bc8447e8d1e88be2ed51a21.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-risotto-al-barolo",
+      "slug": "gen-risotto-al-barolo",
+      "title": "Risotto al Barolo",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende, falls Barolo nicht erhältlich ist, einen günstigeren Rotwein",
+        "Kaufe Arborio-Reis in größeren Mengen in asiatischen Lebensmittelgeschäften"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2352,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-al-barolo/",
+      "components": [
+        {
+          "key": "a9e70705-068a-5ec6-8711-45e89f6ad858",
+          "name": "Zutaten",
+          "servingGrams": 353.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "a98d2d74-d2e4-5abc-8fcf-2e8b2e472a36",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c8ba1e66-8058-592d-be03-fe6ba50a0088",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a79d7fb5-8f44-5af9-ac22-be450b7299e0",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "480c5c9b-40ca-5104-8216-83d6e86f5770",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "b9977e58-004b-5ab6-b060-bd7762680328",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29c06287-64a0-509c-ae23-28fe0d14d63c",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "e587c226-a73c-54c5-9835-d04b19f4da6c",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "7d2ed7ab-439b-528f-ab0a-245b1983907c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8d1de28f-2fc6-59fa-a124-7ef5f05518b3",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Brühe in einem separaten Topf und halte sie während des Kochens bei niedriger Hitze warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl und 1 Esslöffel Butter in einer großen Pfanne bei mittlerer Hitze. Dünste gewürfelte Zwiebel und Knoblauch etwa 2 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Reis hinzu und rühre ihn 1 Minute ständig, bis die Körner an den Rändern glasig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Barolo-Wein dazu und rühre häufig, bis er fast vollständig aufgenommen ist, etwa 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die warme Brühe schöpflöffelweise hinzu und rühre häufig. Warte, bis jede Zugabe größtenteils aufgenommen wurde, bevor du die nächste hinzufügst. Das dauert insgesamt etwa 18-20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere ein Reiskorn: Es sollte cremig sein und in der Mitte noch einen leichten Biss haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd und rühre kräftig restliche Butter und Parmesan ein, bis das Risotto cremig und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/ninalovesfood.com/wp-content/uploads/2018/07/MG_4311.jpg?fit=3744%2C5616&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/ninalovesfood.com/wp-content/uploads/2018/07/MG_4311.jpg?fit=3744%2C5616&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-enchiladas-verdes",
+      "slug": "gen-enchiladas-verdes",
+      "title": "Enchiladas Verdes",
+      "instructions": "Mexikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende ein fertiges Brathähnchen aus dem Supermarkt, um Zeit und Geld zu sparen",
+        "Kaufe Salsa Verde von Hausmarken statt Markenware"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2353,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-enchiladas-verdes/",
+      "components": [
+        {
+          "key": "4018ba1d-2619-56c8-9fb9-49411679da2c",
+          "name": "Zutaten",
+          "servingGrams": 294,
+          "position": 0,
+          "items": [
+            {
+              "key": "24effb34-3398-51f3-8e4e-e4acba567f86",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f80ca119-df8b-589b-99c0-e7c54270546e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1c974db4-650b-5589-aed7-fd9d6857584d",
+              "ingredientName": "Salsa Verde",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "8c41e828-10eb-54c4-a749-4653ab24da64",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b800b392-3e97-5f80-968c-571268ed2ed9",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "66720777-d9ec-50d5-9f4f-1522269cf6ed",
+              "ingredientName": "weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "dc764ac9-2cbc-5587-b76d-a4228e7f1564",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74ac016e-65ee-53d1-b94e-bdf1be2479dd",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "50e49699-ad0f-55d6-bfc9-a4710493477e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "056a4afc-befa-5f12-b17e-d58bd946ce73",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9d1fe9f2-25c9-5a6b-9a86-ee787f0fa206",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine Auflaufform von 9x13 inch leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer Pfanne bei mittlerer Hitze und erwärme jede Tortilla kurz, etwa 10 seconds pro Seite, damit sie biegsam wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Salsa Verde, Crema und Hühnerbrühe in einer Schüssel und gieße 1 cup dieser Mischung auf den Boden der vorbereiteten Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische in einer separaten Schüssel gezupftes Hähnchen mit 1 cup Käse, gehacktem Knoblauch, der Hälfte des Korianders sowie Salz und Pfeffer nach Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tauche jede warme Tortilla in die restliche Salsa-Mischung und lege sie auf einen Teller. Fülle sie mit 2-3 tablespoons der Hähnchenmischung, streue Zwiebelscheiben darüber und rolle sie fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege jede gerollte Enchilada mit der Nahtseite nach unten in die Auflaufform über die Salsa-Schicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die übrige Salsa-Mischung über die Enchiladas und streue den restlichen Käse gleichmäßig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke die Form mit Folie ab und backe sie 25 Minuten. Entferne die Folie und backe weitere 10 Minuten, bis der Käse geschmolzen ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit dem restlichen Koriander garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/gCHNx_4er0afq6FHZ_N2QVPTlbY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__08__chicken-enchiladas-verdes-vertical-a-1600-5d11f4ce95214456a80d685fd0099628.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/gCHNx_4er0afq6FHZ_N2QVPTlbY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__08__chicken-enchiladas-verdes-vertical-a-1600-5d11f4ce95214456a80d685fd0099628.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chiles-en-nogada",
+      "slug": "gen-chiles-en-nogada",
+      "title": "Chiles en Nogada",
+      "instructions": "Mexikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Pekannüsse durch Sonnenblumenkerne oder Erdnüsse, um Kosten zu senken",
+        "Verwende Granatapfelsaft statt frischem Granatapfel, falls dieser teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2354,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chiles-en-nogada/",
+      "components": [
+        {
+          "key": "456aed47-5893-5fab-9903-fcce2c1d2b91",
+          "name": "Zutaten",
+          "servingGrams": 694.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6170624-b3bf-5150-b79f-22862633dea6",
+              "ingredientName": "geröstete rote Paprika (aus dem Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "9cc42aa4-25ef-5656-9c27-668f5937c572",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "95c2ee9e-cdb8-5185-97a6-8d917eabec6f",
+              "ingredientName": "weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "dfdb8376-c0a2-5f40-9bea-57322c455555",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e395091-8a59-5f59-88cb-55992d6a1909",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4897e6b0-53a0-52c9-89a8-894232cc1919",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "d4301ce8-75a1-5e82-bf2c-b0af993a857c",
+              "ingredientName": "getrockneter Salbei",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "38a9e1d6-5f75-5eb2-a5d1-b2fde5cd4204",
+              "ingredientName": "Pekannüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "8358174d-5570-5c72-8056-5e0e52e30b09",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "9836d22b-292b-5be4-8dbe-b8a3a33d2f3b",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "efca1888-2fc8-5d44-9079-9aa128008955",
+              "ingredientName": "Queso Fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "782c7371-07de-5857-9f67-eae88bdf8b21",
+              "ingredientName": "Granatapfel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "56167aec-238d-5de9-a41c-a4769b65507e",
+              "ingredientName": "frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bb9d5792-cee1-5f4f-aa75-6dfa84b678f8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9558c21a-e856-5186-8314-a2cab13e0fcc",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e35a8194-07de-510b-82d7-fdb7027bfc0f",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege Poblano-Chilis direkt über eine Gasflamme oder unter den Grill, bis die Haut rundum verkohlt ist. Gib sie dann 5 Minuten in einen Plastikbeutel, damit sie im Dampf ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ziehe die verkohlte Haut unter kaltem fließendem Wasser von jeder Chili ab. Schneide vorsichtig einen Schlitz hinein und entferne die Kerne, ohne die Chili aufzutrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und dünste gewürfelte Zwiebel und Knoblauch etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Rinderhackfleisch dazu und brate es unter Zerteilen mit einem Löffel braun. Gieße überschüssiges Fett ab und gib gewürfelten Apfel, Rosinen und gehackte Backpflaumen hinzu. Gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre gehackte Pekannüsse und Mandeln ein, würze mit Salz und Pfeffer, nimm die Pfanne vom Herd und lasse die Füllung etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jede geröstete Poblano-Chili vorsichtig mit der Fleischmischung, etwa 3-4 tablespoons pro Chili.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für die Walnusssoße püriere zerdrückte Walnüsse mit mexikanischer Crema, Knoblauch, Salz und etwas Wasser, bis die Soße glatt und gießfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Richte die gefüllten Poblanos auf einer Servierplatte an und gieße großzügig Walnusssoße über jede Chili.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit zerbröseltem Queso Fresco, Granatapfelkernen und frischem Koriander garnieren und bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/4543290.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/4543290.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

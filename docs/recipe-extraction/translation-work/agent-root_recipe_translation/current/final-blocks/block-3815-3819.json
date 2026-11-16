@@ -1,0 +1,1070 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-obatzda",
+      "slug": "gen-obatzda",
+      "title": "Obatzda",
+      "instructions": "Bayerischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Camembert im Angebot und bewahre ihn bis zur Verwendung im Kühlschrank auf",
+        "Backe deine eigenen Brezelbrötchen oder verwende eine Hausmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bayerisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3815,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-obatzda/",
+      "components": [
+        {
+          "key": "138d95e8-31a1-52c2-aaf0-07c6f8f0f75b",
+          "name": "Zutaten",
+          "servingGrams": 60.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "e906a08e-b807-568b-923f-8fe9d4a70c67",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Laibe (8 Unzen)"
+            },
+            {
+              "key": "64b628c3-dcdd-5999-b4df-dd967a502b74",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "209823f0-c91f-5670-894d-6c64d6f2675c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "d06b8269-ad83-52c3-b1ca-21f1432f85d1",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "675a830a-fb25-52ce-b019-369d8ef771ab",
+              "ingredientName": "Kümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "93b64fe1-d0f3-5b92-a77b-9590c63ab57d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "dc76bdd2-dbad-5da3-aa7a-65a59d688c6b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "0e412110-d352-5b96-bf79-aba7b97ccaf7",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Laib zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nimm Camembert aus dem Kühlschrank und lasse ihn 5 Minuten weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebel fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische weichen Camembert und Butter in einer Schüssel zu einer cremigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe gewürfelte Zwiebel, Paprikapulver, Kümmelsamen, Salz und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Obatzda in eine Servierschüssel und beträufle ihn nach Wunsch mit etwas Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei Raumtemperatur mit geschnittenem Brezelbrot und Crackern servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Wff3prRvZ7m-QdPKuPG9w_tNfBo=/2122x1412/filters:fill(auto,1)/GettyImages-984115730-c97f20f2a77e440d87b0489e37f14ae3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Wff3prRvZ7m-QdPKuPG9w_tNfBo=/2122x1412/filters:fill(auto,1)/GettyImages-984115730-c97f20f2a77e440d87b0489e37f14ae3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fl-dlesuppe",
+      "slug": "gen-fl-dlesuppe",
+      "title": "Flädlesuppe",
+      "instructions": "Bayerisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderbrühe einer Hausmarke, um Geld zu sparen",
+        "Lasse frischen Schnittlauch weg und verwende bei Bedarf getrockneten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "bayerisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3816,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fl-dlesuppe/",
+      "components": [
+        {
+          "key": "451586c4-c3e1-597b-a9af-f2f940eac114",
+          "name": "Zutaten",
+          "servingGrams": 474.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "6472be9d-c331-52fe-b99d-2948ed660044",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "8eae3f17-192c-5a43-ad9d-804ed550128b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "85b9b682-87b2-5137-8e88-a50c7406f1a7",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "11ac1680-b884-5b57-887d-f5551f89e358",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9e94c5af-e80a-5499-85a8-0d4ba8b1ac1a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e0658cf6-04e5-5410-ad00-5a40be3c7d19",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e7bbc23b-7be2-55a0-830b-24539a77512c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "b4283aa8-a7c8-5c05-a452-0cfaee1dbca8",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, frisch gehackt"
+            },
+            {
+              "key": "4d214830-7f29-530a-a864-b9643ab03428",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL, frisch gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier, Mehl, Milch, Salz und Pfeffer zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter in einer beschichteten Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße eine dünne Teigschicht in die Pfanne und neige sie, damit sich der Teig gleichmäßig verteilt. Gare ihn je Seite 1-2 Minuten hellgolden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wiederhole den Vorgang, bis der gesamte Teig aufgebraucht ist. Staple die fertigen Crêpes auf einem Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Crêpes leicht abkühlen, rolle sie auf und schneide sie in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe Rinderbrühe in einem großen Topf zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Crêpestreifen und Petersilie in die heiße Brühe und erwärme alles 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren und mit frischem Schnittlauch garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.indebergen.nl/media/wpmd0kgj/fritattensuppe.jpg",
+          "sourcePageUrl": "https://cdn.indebergen.nl/media/wpmd0kgj/fritattensuppe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-k-sesp-tzle",
+      "slug": "gen-k-sesp-tzle",
+      "title": "Käsespätzle",
+      "instructions": "Bayerisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende geriebenen Cheddar oder Gouda statt Gruyère",
+        "Lasse den Schritt im Ofen weg und vermische warme Spätzle einfach mit Käse und Zwiebeln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bayerisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3817,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-k-sesp-tzle/",
+      "components": [
+        {
+          "key": "00a48503-db6d-5d59-a1df-2f59ec95e7ba",
+          "name": "Zutaten",
+          "servingGrams": 272.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "2458eda3-956d-5fa4-9743-ad9a43675830",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8278aad1-edd5-587f-9756-cfe491118218",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "26844c58-923b-521f-a077-f724894112e2",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "2a805b42-644e-5362-a1d6-712dec7dffd2",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4998114d-cf32-509e-9269-9ff1564f3d1d",
+              "ingredientName": "Gruyère",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen, geraspelt"
+            },
+            {
+              "key": "e4a4de6a-272f-5ed2-81f1-89aa667dfacb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "74c5e6e7-8462-5882-a5b9-b91a28c6bb13",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "cfcee568-f554-57cb-a2d6-8990fcfa7ee0",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "88503011-6680-59de-907f-2347a3629cb7",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL, frisch gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Eier, Salz und Wasser zu einem dickflüssigen, klebrigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe einen großen Topf Salzwasser sprudelnd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke den Teig mithilfe eines Spätzlehobels oder einer durchlöcherten Kelle durch die Öffnungen ins kochende Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Spätzle, bis sie aufschwimmen, dann weitere 2 Minuten. Gieße sie anschließend in einem Sieb ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide währenddessen die Zwiebel und gare sie etwa 10 Minuten in Butter bei mittlerer Hitze goldbraun und karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte in einer Auflaufform die Hälfte der Spätzle, dann die Hälfte des Käses und anschließend die restlichen Spätzle und den restlichen Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue schwarzen Pfeffer darüber und gieße karamellisierte Zwiebeln samt Butter darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erhitze den Auflauf im Ofen bei 375°F 10 Minuten, bis der Käse geschmolzen und die Oberfläche goldbraun ist. Garniere dann mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ksAoBj-VUY5PnUHc3mYcIUUpKKE=/5315x3543/filters:fill(auto,1)/-typical-german-pasta-with-cheese-and-roasted-onions-on-plate--close-up--79558947-5b7f9fd246e0fb002ccf2270.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ksAoBj-VUY5PnUHc3mYcIUUpKKE=/5315x3543/filters:fill(auto,1)/-typical-german-pasta-with-cheese-and-roasted-onions-on-plate--close-up--79558947-5b7f9fd246e0fb002ccf2270.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-erd-pfelsuppe",
+      "slug": "gen-erd-pfelsuppe",
+      "title": "Erdäpfelsuppe",
+      "instructions": "Bayerisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in größeren Mengen bei günstigen Lebensmittelgeschäften",
+        "Verwende getrocknete Petersilie, wenn frische Kräuter teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "bayerisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3818,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-erd-pfelsuppe/",
+      "components": [
+        {
+          "key": "5103a7d3-5d8e-5ab2-a77a-99e9c1bdd98f",
+          "name": "Zutaten",
+          "servingGrams": 465.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "420b3889-6b46-59b9-bd6d-a61186b51729",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "503c303c-ed1d-5594-affd-455cefb77e06",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "f788321c-d172-58ba-aff2-1f74cdeaf9b9",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "e4f26034-25cb-5a99-bee0-2d58e56555c7",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "0e9c9cd8-f402-576b-9a81-7cba1b943719",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "9d533027-520b-54e0-8832-c4c58254ff68",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "62b20783-4a7c-5bd7-830f-9af5563a2670",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "54e76407-1082-5eff-8fbf-54890c0906d7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0a12213b-81db-5e9f-83d0-a743bc1bfc17",
+              "ingredientName": "Frischer Majoran",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL, getrocknet"
+            },
+            {
+              "key": "3c23e806-399b-563a-86a0-79f1553ffeda",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, frisch gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle Kartoffeln und schneide sie in 0.5 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Zwiebel, Sellerie und Karotte klein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz Butter in einem großen Topf bei mittlerer Hitze und dünste Zwiebel, Sellerie und Karotte 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kartoffelwürfel und Gemüsebrühe hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lasse die Suppe 15-20 Minuten köcheln, bis die Kartoffeln sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerdrücke die Suppe teilweise mit einem Kartoffelstampfer, damit sie cremig bleibt, aber noch Stücke enthält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz, Pfeffer und Majoran.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren und mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.salzburgschmeckt.at/sites/default/files/styles/header_element_image_high_x2/public/shared-recipes/shared_recipe_1705996420.jpg.webp?itok=jAIg9E67",
+          "sourcePageUrl": "https://www.salzburgschmeckt.at/sites/default/files/styles/header_element_image_high_x2/public/shared-recipes/shared_recipe_1705996420.jpg.webp?itok=jAIg9E67",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-leberkn-delsuppe",
+      "slug": "gen-leberkn-delsuppe",
+      "title": "Leberknödelsuppe",
+      "instructions": "Bayerisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Leber im Angebot und friere sie zur späteren Verwendung ein",
+        "Verwende Brot einer Hausmarke statt Brot aus der Bäckerei"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bayerisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3819,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-leberkn-delsuppe/",
+      "components": [
+        {
+          "key": "19e08868-8e59-5fa5-808e-0f0cb5f02bcf",
+          "name": "Zutaten",
+          "servingGrams": 434.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "7775c021-edaa-5027-a2e5-6a8e3dc01c70",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "c969cfa7-7e90-5f8d-9328-436e096a8ee4",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "7dd62a9b-7660-5957-81a0-aa5de242fccd",
+              "ingredientName": "Brot",
+              "grams": 37.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen, gewürfelt"
+            },
+            {
+              "key": "49b75053-5010-5706-8356-1bf589eece96",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "a8b284d3-92dc-5bec-a954-1325cc252c4c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "9d361e18-6fb5-5eca-b1ad-4f0c061effe4",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, frisch gehackt"
+            },
+            {
+              "key": "652a887b-4b3a-5581-834f-054fd1474de7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "13dd8cf3-deb5-5bf0-8f74-70ffb4ec8678",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "c4eaec15-2740-5939-9318-eea0e8cb91ff",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Rinderleber und Zwiebel fein zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische gehackte Leber und Zwiebel mit Schweinehackfleisch, Brotwürfeln, Ei, Petersilie, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme die Masse zu 8-10 Kugeln von etwa 1.5 Zoll Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe Rinderbrühe in einem großen Topf sanft zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Leberknödel vorsichtig in die Brühe und reduziere die Hitze auf Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche sie 15-20 Minuten, bis die Knödel durch und zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Prüfe den Garzustand, indem du einen Knödel aufschneidest und kontrollierst, dass das Innere nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schalen mit Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/fzmcsihcLhgh_Diks6E4jB2x-zA=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1401-photo-final.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/fzmcsihcLhgh_Diks6E4jB2x-zA=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1401-photo-final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1086 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sheet-pan-chicken-parmesan",
+      "slug": "gen-sheet-pan-chicken-parmesan",
+      "title": "Hähnchen-Parmesan vom Blech",
+      "instructions": "Ein beliebtes italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie ein.",
+        "Verwende Marinara-Soße einer günstigen Eigenmarke, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4680,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-chicken-parmesan/",
+      "components": [
+        {
+          "key": "ef737888-ab77-5a03-ace8-3776b7b8b669",
+          "name": "Zutaten",
+          "servingGrams": 356.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "9eb12aae-0e56-565a-a5d5-a7ff7b3a5b1d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98de0ace-b63c-5945-9be1-445b2c91aab1",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a1794b9a-b1fb-55ba-a047-a93df14865c0",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34a92729-f3b9-571d-8d2e-4e97a42d2291",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6c69c55b-cee7-57ea-9419-34c36dd2dee7",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "9c315733-19bd-53f7-88e1-fd28716b21ea",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "2a30af60-5cbe-5929-8b87-4142b2a7ffa8",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen, geraspelt"
+            },
+            {
+              "key": "2d4dedca-6c24-5dff-9786-72fda07bf5bc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "056f5a76-190b-580f-88e7-8b7c79ff7c3a",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "be001e1a-a8d7-58f1-819f-2429e5bbf0fc",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrüste auf 1/2-inch Dicke klopfen und eine Panierstation mit Mehl, verquirlten Eiern und mit Parmesan vermischtem Panko einrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jede Hähnchenbrust zuerst in Mehl, dann in Ei und anschließend in der Panko-Mischung wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einer Pfanne erhitzen und das panierte Hähnchen pro Seite 2-3 Minuten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Hähnchen auf ein Blech legen und jedes Stück mit Marinara-Soße und Mozzarella belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 375°F 12-15 Minuten backen, bis der Käse geschmolzen ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren 2 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Sheet-Pan-Chicken-Parmesan_EXPS_TOHD24_206935_AbbeyLittlejohn_06.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Sheet-Pan-Chicken-Parmesan_EXPS_TOHD24_206935_AbbeyLittlejohn_06.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-beef-and-broccoli",
+      "slug": "gen-sheet-pan-beef-and-broccoli",
+      "title": "Rindfleisch mit Brokkoli vom Blech",
+      "instructions": "Chinesisches Abendessen: ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Flanksteak im Angebot und friere es für später ein",
+        "Verwende tiefgekühlten Brokkoli, um Geld und Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4681,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-beef-and-broccoli/",
+      "components": [
+        {
+          "key": "5a61faba-b5b8-52c1-998c-ffa92e864810",
+          "name": "Zutaten",
+          "servingGrams": 478.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "4eff3587-6d93-5015-af5f-8a35f9575d2c",
+              "ingredientName": "Flankensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "61a4664a-a6ff-5549-b6e1-935320c418d7",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3d035c57-2a27-544b-9385-a3547417cd18",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "589a60c4-364e-53f7-b3d6-9b02005b05f0",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d7e3b22e-67e0-5051-813e-b36677b2c333",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a1bf9564-4ec0-5af2-9af4-b28548e83e5b",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d5cfdef-d56c-57b2-80a9-2f07bc8c9817",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL, fein gehackt"
+            },
+            {
+              "key": "60c2925a-9aa8-524f-9a2f-8594332cdac3",
+              "ingredientName": "Maisstärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "299a73d4-2786-5911-bf2a-ac15e93ccc04",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d5ef4b01-85b4-5618-a1a7-9cb88b55a8ee",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Flanksteak quer zur Faser in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mische Sojasauce, Sesamöl, Maisstärke, braunen Zucker, gehackten Knoblauch und Ingwer in einer Schüssel. Wende die Rindfleischstreifen darin und lasse sie 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Brokkoliröschen auf einem Blech und beträufle sie mit Pflanzenöl. Röste sie dann bei 425°F 8 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe den Brokkoli an die Seiten und gib das marinierte Rindfleisch in die Mitte des Blechs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste alles weitere 8-10 Minuten, bis das Rindfleisch gar und der Brokkoli zart ist und knusprige Ränder hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren mit gehackten Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Sheet-Pan-Beef-and-Broccoli-1.jpg",
+          "sourcePageUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Sheet-Pan-Beef-and-Broccoli-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chettinad-chicken",
+      "slug": "gen-chettinad-chicken",
+      "title": "Chettinad-Hähnchen",
+      "instructions": "Indisches Abendessen: ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel statt Hähnchenbrust, um Kosten zu sparen",
+        "Verwende tiefgekühlte Kokosraspeln statt frischer"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4682,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chettinad-chicken/",
+      "components": [
+        {
+          "key": "b62f8377-ae60-51a2-89d4-09c3421deaa8",
+          "name": "Zutaten",
+          "servingGrams": 408.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f357116e-9076-5b6f-908d-2b497b0629fb",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a36c3d71-1832-50e9-be98-d7551d1b0160",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e11ae13-d0b4-5c12-be02-65e95417dbff",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96884ae8-652b-5c4e-9cc5-3426cc31fb7c",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "7885fbe8-f961-5abb-8b47-8c0cdf8f68d8",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "d28d3ede-8dd3-504c-a114-85b40ab53686",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a9aab379-22fb-5b71-a17d-11895b4d1857",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f4de6908-03cf-5489-bc18-72c0b64d70cf",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d48c7c88-c39e-5e62-a63d-4e5397f082e5",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95c0ce52-93aa-50e1-b570-551b231a83f6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Koriandersamen und schwarze Pfefferkörner in einer Pfanne 2 Minuten trocken an, bis sie duften, und mahle sie anschließend zu Pulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Zwiebeln, Tomaten und Knoblauch klein und püriere sie mit Kokosraspeln, gemahlenen Gewürzen, Chilipulver und Kurkuma zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einem großen Topf und brate die Hähnchenschenkel an, bis sie leicht gebräunt sind, dann stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate im selben Topf die gehackten Zwiebeln goldbraun an, gib dann die Kokos-Gewürzpaste dazu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in den Topf und wende es in der Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles bei mittlerer Hitze 25-30 Minuten köcheln, bis das Hähnchen vollständig gar ist und die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre gelegentlich um, damit nichts ansetzt, und schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://1.bp.blogspot.com/-6ayooAN2fYU/WaF-DEFicGI/AAAAAAAAflc/c4XqQQ-BZ-wMT_SOZvKsEndb8A22GV5fACKgBGAs/s2000/001",
+          "sourcePageUrl": "https://1.bp.blogspot.com/-6ayooAN2fYU/WaF-DEFicGI/AAAAAAAAflc/c4XqQQ-BZ-wMT_SOZvKsEndb8A22GV5fACKgBGAs/s2000/001",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carnitas",
+      "slug": "gen-carnitas",
+      "title": "Carnitas",
+      "instructions": "Mexikanisches Mittagessen: ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie für später ein.",
+        "Schmelze dein eigenes Schmalz aus Schweineabschnitten, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4683,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carnitas/",
+      "components": [
+        {
+          "key": "33b030c0-cd5d-5d00-ab9d-f9004c2b096b",
+          "name": "Zutaten",
+          "servingGrams": 179.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "eadbbb33-c07d-5235-89df-85b7449be551",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "624e1c9e-c29e-5e2c-86c9-2337450ddcdb",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "795431b9-425a-5b60-a5b5-ba0058ef5f60",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "837f60de-0f29-5ba7-b76a-40726db80e08",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dbf1d76-e731-599f-b5ab-07c6c254f641",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "dc5ea785-26c1-5a4c-b7a7-399bc7959baa",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b4107d98-8cdc-580a-8230-951ac020828c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d0ac710-5abf-5608-b53a-99b46d515920",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "a5844300-357f-56c9-bb86-0d02c40d2ac3",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67891e11-4155-51c9-b93e-968bf13386c9",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Schweineschulter in 2-Zoll-Würfel und würze sie großzügig mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Schmalz in einem großen, schweren Topf bei mittlerer Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Schweinefleischwürfel, Knoblauch, Oregano, Kreuzkümmel, Lorbeerblätter und Zwiebel in das heiße Schmalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf niedrig und lasse alles zugedeckt 2 bis 2.5 Stunden köcheln, bis das Fleisch sehr zart ist und sich leicht zupfen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Deckel ab und erhöhe die Hitze auf mittelhoch. Rühre gelegentlich um, bis das Schweinefleisch bräunt und das Fett austritt (etwa 30 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße überschüssiges Fett ab, zupfe das Fleisch mit zwei Gabeln auseinander und rühre Limettensaft unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme die Tortillas und serviere die Carnitas mit gewürfelter Zwiebel, Koriander und Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/IgF8lRmqTcvzRuAVIxaQSfMXLlo=/3000x2000/filters:fill(auto,1)/homemade-carnitas-recipe-2342790-hero-01-0019e9d1406247aca2cac416fee06fd3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/IgF8lRmqTcvzRuAVIxaQSfMXLlo=/3000x2000/filters:fill(auto,1)/homemade-carnitas-recipe-2342790-hero-01-0019e9d1406247aca2cac416fee06fd3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lengua",
+      "slug": "gen-lengua",
+      "title": "Rinderzunge",
+      "instructions": "Mexikanisches Mittagessen: ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderzunge ist an Fleischtheken oft günstig.",
+        "Bewahre die Brühe für Suppen und andere Gerichte auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4684,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lengua/",
+      "components": [
+        {
+          "key": "9f682c20-356f-5197-b2c1-36596fb6553d",
+          "name": "Zutaten",
+          "servingGrams": 428,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4545ebc-c1c0-5e2f-a6f3-2e35b2d2d18b",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "46c2813e-1894-5b54-83e7-8d0dd5bd6ee1",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "4dbbc975-bbfc-58a0-b624-643463e349a0",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dc44559-ac44-538e-b21f-e940f72c7233",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "cb02e4f6-563a-5238-8016-55f7890fcf29",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ebe1d266-f494-5e34-b045-abf72081c145",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab984e74-aa8a-505f-a44b-1819439e7a6e",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Quart"
+            },
+            {
+              "key": "774409e8-f449-58aa-865a-62a84fb53270",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3484ce0-43f1-5ee0-86c3-d3609c7b73a6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3eccd4c8-109c-5748-b8f1-839d79717e72",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Rinderzunge ab und gib sie mit Wasser, der Hälfte der Zwiebel, Knoblauch, Salz, Pfefferkörnern und Lorbeerblättern in einen großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze und lasse die Zunge zugedeckt 3 Stunden köcheln, bis sie sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Zunge heraus und lasse sie kurz abkühlen. Ziehe dann die äußere Haut mit einem Messer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die geschälte Zunge in dünne Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die restliche Zwiebel und die Jalapeños in einer Pfanne an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die geschnittene Zunge in die Pfanne und brate sie etwa 5 Minuten, bis sie leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie auf warmen Tortillas mit Koriander, gewürfelter Zwiebel und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/8yCdYbNwFO_Ovs_A0UB7sb2XuTA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__01__beef-tacos-de-lengua-vertical-a-1600-7515d1bd02c54ca3801a9c8142f392f4.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/8yCdYbNwFO_Ovs_A0UB7sb2XuTA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__01__beef-tacos-de-lengua-vertical-a-1600-7515d1bd02c54ca3801a9c8142f392f4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

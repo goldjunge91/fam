@@ -1,0 +1,1331 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:blender-tomato-soup",
+      "slug": "blender-tomato-soup",
+      "title": "Cremige Tomatensuppe aus dem Mixer",
+      "instructions": "Sämige Tomatensuppe, die vollständig im Mixer zubereitet wird: Heiße Brühe erwärmt und emulgiert Tomaten, Knoblauch und Sahne beim Mixen. In wenigen Minuten servierfertig und köstlich zu Käsetoast.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine einzelne 28-Unzen-Dose passierte Tomaten reicht für den ganzen Topf und ergibt ein günstiges Mittagessen.",
+        "Frisches Basilikum weglassen oder durch etwas getrocknete italienische Kräuter ersetzen, um Kosten zu sparen.",
+        "Brühwürfel in heißem Wasser auflösen statt fertige Brühe zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "verwenden whole Milch oder ein splash von coconut Milch für ein lighter, dairy-free-friendly soup",
+          "savings": "~$0.60/Portion"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "heiß Wasser plus ein bouillon cube",
+          "savings": "~$0.40/Portion"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Two cans von whole peeled tomatoes, blended longer",
+          "savings": "~$0.30/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Mixer",
+        "Suppe",
+        "ohne Kochen auf dem Herd",
+        "vegetarisch",
+        "Mittagessen",
+        "Hausmannskost",
+        "Tomate"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7285,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/blender-tomato-soup/",
+      "components": [
+        {
+          "key": "1da7af01-8c43-5cdd-82dc-bd8c9d469764",
+          "name": "Zutaten",
+          "servingGrams": 281.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab3d7beb-4c78-5ba9-8e6b-f03cca5c8ea7",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "eine 28 oz-Dose, möglichst feuergeröstet"
+            },
+            {
+              "key": "6e86355f-749b-5b32-89b2-4504df14415e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "bis zum Dampfen oder Kochen erhitzt"
+            },
+            {
+              "key": "67e5c67b-5f6b-5786-8754-0dd1da610e65",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder eine Milch-Sahne-Mischung für eine leichtere Suppe"
+            },
+            {
+              "key": "ab6d4802-5c99-53a3-bdff-3d34e386b06b",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "verstärkt das Tomatenaroma"
+            },
+            {
+              "key": "805a89f1-b0d5-58be-9274-d14da5e899d1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Zehen"
+            },
+            {
+              "key": "50ee1fd3-3b7c-580a-baab-b1448c7a237b",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "klein, roh; lässt sich glatt mixen"
+            },
+            {
+              "key": "ba6428c8-173d-545c-9741-2f8c7e3cfd0d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c8f87fc-66cc-5874-99d7-e8c4236c2a34",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "gleicht die Säure aus"
+            },
+            {
+              "key": "1e6baa43-e8bc-59ea-bbac-fb2a37ee57d1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "152ff047-53c2-50f3-8cf3-2a162913e367",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "und mehr zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Gemüsebrühe erhitzen, bis sie dampft (3–4 Minuten in der Mikrowelle oder mit kochendem Wasser und Brühwürfel). Die heiße Brühe erwärmt später die Suppe und sollte deshalb nicht ausgelassen werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinerte Tomaten, heiße Brühe, Tomatenmark, Knoblauch, rohe Zwiebel, Olivenöl, Zucker und Salz in den Mixer geben. Nach Wunsch frisches Basilikum hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Deckel sicher verschließen. Bei heißer Flüssigkeit die Öffnung im Deckel freilassen und mit einem Tuch abdecken. Erst auf niedriger, dann auf hoher Stufe 3–4 Minuten mixen, bis die Suppe glatt und dampfend heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei niedriger Stufe die Schlagsahne zugießen und 15–20 Sekunden mixen, bis sie eingearbeitet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abschmecken und bei Bedarf Salz oder Zucker ergänzen. In Schüsseln füllen und mit gezupftem Basilikum sowie etwas Olivenöl garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vegan_Creamy_Tomato_Soup_at_J._Selby%27s_Restaurant%2C_St._Paul_%2846484947895%29.jpg/1280px-Vegan_Creamy_Tomato_Soup_at_J._Selby%27s_Restaurant%2C_St._Paul_%2846484947895%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegan_Creamy_Tomato_Soup_at_J._Selby%27s_Restaurant,_St._Paul_(46484947895).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tony Webster from Minneapolis, Minnesota, United States — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Blender Tomate Soup",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:blender-banana-nice-cream",
+      "slug": "blender-banana-nice-cream",
+      "title": "Bananen-Nicecream",
+      "instructions": "Cremiges Softeis aus gefrorenen Bananen mit etwas Milch und Vanille. Es schmeckt wie Bananeneis, kommt ohne zugesetzten Zucker aus und ist mit wenigen Zutaten schnell zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sehr reife, braun gepunktete Bananen einfrieren, die sonst bald zu weich würden; sie sind besonders süß und oft reduziert.",
+        "Schokostückchen und Erdnussbutter weglassen für ein besonders günstiges Dessert; die Bananen sorgen allein für Geschmack und Süße.",
+        "Eine größere Menge Bananen in Scheiben schneiden und einfrieren, damit sie jederzeit bereitstehen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-milk",
+          "swap": "verwenden any Milch du have, oder ein splash von Wasser",
+          "savings": "Spart ~$0.50, wenn keine zusätzliche Packung gekauft wird"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Swap für any nut Butter oder ein spoon von Kakaopulver",
+          "savings": "Kakao ist pro Portion günstiger als Nussmus"
+        },
+        {
+          "forIngredientId": "dark-chocolate-chips",
+          "swap": "Chop ein square von any Schokolade bar instead",
+          "savings": "Verbraucht Reste statt eines neuen Beutels (~$2)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Mixer",
+        "ohne Kochen",
+        "Dessert",
+        "vegan",
+        "gesunde Süßigkeit",
+        "gefroren",
+        "aus zwei Zutaten",
+        "Eis"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7286,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/blender-banana-nice-cream/",
+      "components": [
+        {
+          "key": "293587e7-9f37-5635-86fd-07ad786e662e",
+          "name": "Zutaten",
+          "servingGrams": 149.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "e764d551-166d-57b0-8956-5e1d55983e96",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "sehr reif, geschält, in Scheiben geschnitten und mindestens 2 Stunden eingefroren"
+            },
+            {
+              "key": "f5a0e83c-0c41-5d80-8cca-e3dcc235384a",
+              "ingredientName": "Mandelmilch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "ein Schuss zum leichteren Mixen; nur bei Bedarf mehr zugeben"
+            },
+            {
+              "key": "f01ec29f-50a8-53d0-b172-d99c2ab4935a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "472e0ee8-7e27-5cb9-8a56-e36f33d15316",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "2 EL für mehr Cremigkeit einrühren oder als Wirbel einziehen"
+            },
+            {
+              "key": "7ca3c9e1-a3af-5ff4-aa7e-d0e50aa5a1fb",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "Prise"
+            },
+            {
+              "key": "827e723d-f106-50fc-b77b-84b292f4167b",
+              "ingredientName": "Zartbitterschokolade in Stückchen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "2 EL, nach dem Mixen unterheben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "4 sehr reife Bananen schälen, in Scheiben schneiden und auf einem Blech mindestens 2 Stunden oder über Nacht einfrieren, bis sie fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die gefrorenen Bananenscheiben, Vanille und einen kleinen Schuss Mandelmilch in einen Mixer oder eine Küchenmaschine geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf hoher Stufe mixen und alle 20–30 Sekunden die Seitenwände abschaben. Zunächst wirkt die Masse krümelig, wird dann aber cremig wie Softeis. Nur wenn sie sich nicht verbindet, etwas mehr Milch zugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach Wunsch Erdnussbutter und Zimt untermixen. Die Schokostückchen zum Schluss kurz unterheben, damit sie ganz bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für eine Softeiskonsistenz sofort servieren oder 1–2 Stunden einfrieren, damit das Eis fester wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Bananas_Foster_Ice_Cream_at_Little_Giant_Ice_Cream.jpg/1280px-Bananas_Foster_Ice_Cream_at_Little_Giant_Ice_Cream.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bananas_Foster_Ice_Cream_at_Little_Giant_Ice_Cream.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: uıɐɾ ʞ ʇɐɯɐs — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Banane Nice Sahne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:blender-pancake-batter",
+      "slug": "blender-pancake-batter",
+      "title": "Pfannkuchenteig aus dem Mixer",
+      "instructions": "Glatter, luftiger Pfannkuchenteig ohne Klümpchen, direkt im Mixbehälter zubereitet. Milch, Eier, Mehl und etwas Zucker 20 Sekunden mixen und anschließend direkt in die heiße Pfanne gießen.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Buttermilch-Ersatz selbst herstellen: 1 Esslöffel Essig oder Zitronensaft in die Milch rühren, bevor sie gemixt wird.",
+        "Die doppelte Menge zubereiten und fertige Pfannkuchen einzeln einfrieren. Im Toaster lassen sie sich schnell aufwärmen.",
+        "Auf fertige Pfannkuchenmischung verzichten: Mehl, Backpulver, Zucker und Eier sind pro Portion deutlich günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden oat-Milch oder almond-Milch 1:1 zu machen it dairy-free.",
+          "savings": "Vergleichbare Kosten; haltbare Großpackungen sind günstiger."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Swap in vegetable-Öl oder geschmolzen coconut-Öl at der same amount.",
+          "savings": "Spart etwa 30% gegenüber Butter."
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "verwenden Honig oder maple-syrup (reduce Milch slightly zu compensate).",
+          "savings": "Ungefähr gleiche Kosten; verwendet eine vermutlich bereits vorhandene Grundzutat."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mixer",
+        "Frühstück",
+        "Pfannkuchen",
+        "schnell",
+        "kinderfreundlich",
+        "vegetarisch",
+        "schnell zubereitet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7287,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/blender-pancake-batter/",
+      "components": [
+        {
+          "key": "3b4a6e5c-4811-5081-9ec3-0c7c7c76ce13",
+          "name": "Zutaten",
+          "servingGrams": 212.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4c7c6a87-e1f3-5302-97ce-9908d437db6f",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, locker eingefüllt und glatt abgestrichen (etwa 1.5 Tassen)"
+            },
+            {
+              "key": "7da8d5cc-2aba-5008-9724-309f9c60255e",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1.25 Tassen; bei Bedarf mit einem weiteren Schuss verdünnen"
+            },
+            {
+              "key": "ef78a295-0c0e-5744-a078-8292da9435c5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a0c6921-3264-5ffb-9f02-ebed6757c2b7",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b103ccf4-2db9-5276-a9f8-7e41a1a51a95",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL für die Lockerung"
+            },
+            {
+              "key": "f1fc24fc-0951-5b13-97c7-4671daf0dc67",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL, geschmolzen, und mehr für die Pfanne"
+            },
+            {
+              "key": "25e7f3cf-f925-5904-9d4a-8f6343f456c4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c549c5d7-7de7-5d52-8351-ddf4b0145cbf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch, Eier, geschmolzene Butter, Vanille, Zucker und Salz zuerst in den Mixbehälter geben, damit die flüssigen Zutaten nahe an den Messern sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Backpulver daraufgeben. Den Deckel schließen und etwa 15–20 Sekunden auf niedriger Stufe mixen, bis der Teig glatt ist. Nicht zu lange mixen, sonst werden die Pfannkuchen zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig 5 Minuten im Behälter ruhen lassen, damit das Mehl quellen kann und Luftbläschen entweichen. Er sollte dickflüssig vom Löffel laufen; bei Bedarf etwas Milch ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine beschichtete Pfanne oder Grillplatte bei mittlerer Hitze erwärmen und leicht buttern. Etwa 1/4 Tasse Teig pro Pfannkuchen direkt aus dem Mixer hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2–3 Minuten backen, bis sich an der Oberfläche Bläschen bilden und die Ränder fest aussehen. Wenden und weitere 1–2 Minuten goldbraun backen. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Pancake_stack_with_honey.jpg/1280px-Pancake_stack_with_honey.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pancake_stack_with_honey.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shisma — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Blender Pancake Teig",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-classic-beef-chili",
+      "slug": "cur-classic-beef-chili",
+      "title": "Klassisches Rindfleisch-Chili",
+      "instructions": "Kräftiges, würziges Rindfleisch-Chili mit kräftig angebratenem Hackfleisch, aromatischem Gemüse, Tomaten und zwei Bohnensorten. Durch langes Köcheln wird es dick und aromatisch; am nächsten Tag schmeckt es noch besser.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chili eignet sich gut zum Vorkochen: Die Aromen werden über Nacht intensiver. Eine doppelte Menge kochen und einen Teil portionsweise einfrieren.",
+        "Ein Teil des Hackfleischs lässt sich durch eine zusätzliche Dose Bohnen ersetzen, um Kosten zu senken.",
+        "Ganze Gewürze aus Großgebinden kaufen; Chilipulver und Kreuzkümmel werden in diesem Rezept reichlich verwendet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "verwenden gemahlen turkey oder plant-based gemahlen für ein leaner, cheaper Topf",
+          "savings": "Spart etwa $1.50 pro Portion"
+        },
+        {
+          "forIngredientId": "ancho-chili-powder",
+          "swap": "Just verwenden extra normal chili powder plus ein pinch von cocoa für depth",
+          "savings": "Spart ~$0.40 pro Portion"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Wasser mit ein crumbled bouillon cube works fine",
+          "savings": "Spart ~$0.30 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch-texanisch-mexikanisch",
+        "Chili",
+        "Rindfleisch",
+        "Hausmannskost",
+        "Eintopf aus einem Topf",
+        "zum Vorkochen",
+        "zum Einfrieren",
+        "für den Spieleabend"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7288,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-classic-beef-chili/",
+      "components": [
+        {
+          "key": "01225add-2d36-5a19-b457-bf8a3fca8b9a",
+          "name": "Zutaten",
+          "servingGrams": 426,
+          "position": 0,
+          "items": [
+            {
+              "key": "f953a607-1a18-5b31-9ca8-63e36803e4e2",
+              "ingredientName": "Hackfleisch",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "80/20 Hackfleisch aus der Rinderschulter für mehr Geschmack"
+            },
+            {
+              "key": "7e855c67-d7a6-59c9-9e5e-c1b8256d0dd4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "große gelbe Zwiebel, gewürfelt"
+            },
+            {
+              "key": "9112615f-36ab-5a02-b754-2fe5343480b9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "a954a42f-8e47-51c9-aa79-9880511dc9af",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "entkernt und fein gehackt"
+            },
+            {
+              "key": "e427eb8e-3e9a-5a4f-b9ba-7c1891f7bcfe",
+              "ingredientName": "Tomatenmark",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 3 EL"
+            },
+            {
+              "key": "9fd172bb-4997-59bb-bcef-d2651932f85c",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "28 oz Dose"
+            },
+            {
+              "key": "1236ce6a-d710-5689-84bc-7f32a1c338c1",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen"
+            },
+            {
+              "key": "1d23783b-c8d0-554d-ad13-571fc5ce6f01",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "abgetropft und abgespült"
+            },
+            {
+              "key": "60c37780-b162-5f09-857f-782d7d519904",
+              "ingredientName": "Pintobohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "abgetropft und abgespült"
+            },
+            {
+              "key": "7350c956-a2f6-5954-8fa5-c0506592c8f4",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "EL als Grundlage"
+            },
+            {
+              "key": "0b60c8bf-05dc-5276-b6d4-14f38716de5c",
+              "ingredientName": "Ancho-Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "EL für fruchtiges Aroma"
+            },
+            {
+              "key": "f17b7d58-acde-56ec-82ae-dcf9edd1edf0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "EL, gemahlen"
+            },
+            {
+              "key": "22cddf7e-a656-5447-b986-15228d21416d",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "dd0135eb-cf53-53ff-92fc-fde4c9283494",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "TL, getrocknet, möglichst mexikanisch"
+            },
+            {
+              "key": "36844678-4eaa-523c-b186-78407dd353bc",
+              "ingredientName": "Jalapeño",
+              "grams": 30,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "1 Chili, fein gehackt, + 1 TL Sauce, optional"
+            },
+            {
+              "key": "1e299a52-6911-5452-89cf-1652486ffabf",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "EL"
+            },
+            {
+              "key": "c9da28d6-7661-56ef-886b-901db71c13ae",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e0182a55-a20e-5687-8904-e552926c0019",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2e2f8a2d-df4c-5f5c-8d77-d77c6325d06d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 18,
+              "optional": true,
+              "source_note": "geriebener Cheddar zum Servieren"
+            },
+            {
+              "key": "52788170-cb4b-5d4a-8acd-a181d0eec096",
+              "ingredientName": "Sauerrahm",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 19,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "505d8e7a-37ca-523a-997d-1d2152a2418e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 4.5,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 20,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem schweren Schmortopf oder breiten Topf bei mittelhoher Hitze erwärmen. Hackfleisch in einer Lage hineingeben und 3–4 Minuten ungestört bräunen lassen. Dann zerteilen und fertig anbraten. Mit Salz und Pfeffer würzen. Bis auf etwa einen Esslöffel Fett abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hitze auf mittlere Stufe reduzieren. Zwiebel und Jalapeño zum Fleisch geben und 5–6 Minuten weich dünsten. Knoblauch einrühren und 1 Minute weitergaren, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Fleisch zur Seite schieben. Tomatenmark, Chilipulver, Ancho-Chilipulver, Kreuzkümmel, geräuchertes Paprikapulver und Oregano direkt im heißen Fett 60–90 Sekunden unter ständigem Rühren anrösten, bis die Gewürze dunkler werden und duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerkleinerte Tomaten und Rinderbrühe einrühren und alle Bratrückstände vom Topfboden lösen. Nach Wunsch Chipotle in Adobo hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sanft aufkochen, dann die Hitze auf niedrige Stufe reduzieren. Teilweise zugedeckt 45 Minuten köcheln lassen und gelegentlich umrühren, damit sich die Aromen verbinden und Flüssigkeit verdampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgetropfte Kidney- und Pintobohnen einrühren. Ohne Deckel weitere 20–30 Minuten köcheln lassen, bis das Chili dick genug ist, um auf einem Löffel zu bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und nach Wunsch Salz, Chilipulver oder einen Schuss Brühe ergänzen. Vor dem Servieren 10 Minuten vom Herd nehmen und ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schüsseln füllen und mit geriebenem Cheddar, einem Klecks Sauerrahm und Frühlingszwiebelringen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Chili_with_fried_ground_beef_and_roasted_cherry_tomatoes_-_Massachusetts.jpg/1280px-Chili_with_fried_ground_beef_and_roasted_cherry_tomatoes_-_Massachusetts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chili_with_fried_ground_beef_and_roasted_cherry_tomatoes_-_Massachusetts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Daderot — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch Rindfleisch Chili",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-hearty-beef-stew",
+      "slug": "cur-hearty-beef-stew",
+      "title": "Herzhafter Rindfleischeintopf",
+      "instructions": "Langsam geschmorter Rindfleischeintopf mit zartem Fleisch, süßen Karotten und Kartoffeln in einer kräftigen Rotwein-Tomatensoße. Das Anbraten des Fleisches und das Einkochen des Weins sorgen für ein besonders aromatisches Gericht.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 150,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein ganzes Stück Rinderschulter kaufen und selbst würfeln; das ist meist günstiger als fertiges Gulaschfleisch und oft besser marmoriert.",
+        "Für den Wein muss keine teure Flasche verwendet werden; ein trockener Rotwein, der auch zum Trinken schmeckt, genügt.",
+        "Der Eintopf schmeckt am nächsten Tag noch besser. Eine doppelte Menge kochen und einen Teil portionsweise einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-wine",
+          "swap": "verwenden extra Rindfleisch Brühe plus ein splash von balsamic vinegar",
+          "savings": "Spart durch Weglassen der Flasche etwa $4"
+        },
+        {
+          "forIngredientId": "beef-stew-meat",
+          "swap": "Rindfleisch chuck roast cubed at zu Hause",
+          "savings": "Spart ungefähr $2/Pfund gegenüber bereits geschnittenem Gulaschfleisch"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Bouillon cube dissolved in Wasser",
+          "savings": "Spart etwa $2 gegenüber fertig abgepackter Brühe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Hausmannskost",
+        "Eintopf aus einem Topf",
+        "geschmort",
+        "Wintergericht",
+        "Mahlzeit zum Vorbereiten",
+        "zum Einfrieren",
+        "sättigend"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7289,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-hearty-beef-stew/",
+      "components": [
+        {
+          "key": "17ac1678-41e2-5752-bc17-1798b6fcd85f",
+          "name": "Zutaten",
+          "servingGrams": 292.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "3204e0d5-12ba-5d8e-97f1-1e6c07a5b030",
+              "ingredientName": "Rindfleisch zum Schmoren",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rinderschulter, in 1.5 Zoll große Würfel geschnitten"
+            },
+            {
+              "key": "5229ce2d-fa1b-5307-903a-a1405bf5bbfa",
+              "ingredientName": "Weizenmehl",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse zum Wenden"
+            },
+            {
+              "key": "3fd4daac-1d91-5a61-a7d5-bd630edf1f37",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3 EL zum scharfen Anbraten"
+            },
+            {
+              "key": "ebcac6a0-2ca6-503d-8918-1401e5e011cb",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "490c3225-c772-597c-a012-bd174b0ea288",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8499137d-64c6-5d98-91b7-7ff3bf3d9ca8",
+              "ingredientName": "Sellerie",
+              "grams": 6,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 3 Stangen"
+            },
+            {
+              "key": "5af1d3a8-e95c-5577-9bbe-1ec74468bbab",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 4 Zehen, fein gehackt"
+            },
+            {
+              "key": "31ff2ce3-14da-57e6-9532-162ea95ed323",
+              "ingredientName": "Tomatenmark",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 2 EL"
+            },
+            {
+              "key": "9132937a-ea49-5584-b6a8-04c4f5b18c16",
+              "ingredientName": "Rotwein (deutsche Fassung)",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen trockener Rotwein"
+            },
+            {
+              "key": "951bc5cb-438d-5e56-9b8e-f69fb3f76eac",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 4 Tassen"
+            },
+            {
+              "key": "d787714c-ddcb-544e-8963-2a5f5ea3f6d9",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "Yukon Gold, in grobe Stücke geschnitten"
+            },
+            {
+              "key": "41342718-bde0-51fd-8b67-901d080714f3",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "etwa 1 EL"
+            },
+            {
+              "key": "8ed44c01-4ec3-527b-aead-977a9ba4acaf",
+              "ingredientName": "Thymian",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "etwa 1 TL getrocknet"
+            },
+            {
+              "key": "170fd27c-d1a0-543e-a7a2-03ef7cfc511e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "c9d54f96-314c-5011-99b9-9e9770e8d444",
+              "ingredientName": "TK-Erbsen",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, zum Schluss eingerührt"
+            },
+            {
+              "key": "2413656d-fd8a-529a-8b61-16373ee2bcce",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70df727d-e27e-5fee-9e2d-db691311a9bd",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65d493f1-5b7a-5e20-870b-a96c0bce3458",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Rindfleischwürfel sehr trocken tupfen, großzügig salzen und pfeffern und in Mehl wenden. Überschüssiges Mehl abschütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem schweren Schmortopf bei mittelhoher Hitze erhitzen. Das Fleisch portionsweise mit etwas Abstand 3–4 Minuten pro Seite kräftig anbraten. Auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere Stufe reduzieren. Zwiebel, Karotte und Sellerie 6–8 Minuten weich und leicht karamellisiert dünsten, dabei die Bratrückstände lösen. Knoblauch und Tomatenmark einrühren und 1–2 Minuten kochen, bis das Tomatenmark dunkler wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rotwein zugießen und 3–4 Minuten kräftig köcheln lassen, bis sich die Flüssigkeit etwa halbiert hat; dabei den Topfboden abschaben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fleisch samt Fleischsaft zurück in den Topf geben. Rinderbrühe, Worcestershiresoße, Thymian und Lorbeerblätter hinzufügen. Sanft aufkochen, zudecken und bei niedriger Hitze 1.5 Stunden köcheln lassen. Gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kartoffeln hinzufügen, den Topf teilweise zudecken und weitere 35–45 Minuten köcheln lassen, bis das Fleisch zart und die Kartoffeln gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für eine dickere Soße den Eintopf ohne Deckel weitere 10 Minuten einkochen lassen oder einige Kartoffelstücke am Topfrand zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gefrorene Erbsen einrühren und 3–4 Minuten erhitzen. Lorbeerblätter entfernen, abschmecken und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Den Eintopf 5 Minuten vom Herd nehmen und ruhen lassen. In Schüsseln füllen und mit frisch gehackter Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Beef_stew_2.jpg/1280px-Beef_stew_2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beef_stew_2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: 3steph14 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hearty Rindfleisch Stew",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

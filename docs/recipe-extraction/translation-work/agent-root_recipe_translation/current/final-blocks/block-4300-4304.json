@@ -1,0 +1,968 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chivito",
+      "slug": "gen-chivito",
+      "title": "Chivito",
+      "instructions": "Uruguayisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rinderhackfleisch statt Steak und formen Sie dünne Bratlinge.",
+        "Lassen Sie eine der Käsesorten weg, um $0.75 pro Sandwich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "uruguayisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4300,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chivito/",
+      "components": [
+        {
+          "key": "6543dcd0-d19f-5ff6-b6bb-7d564cfc58f1",
+          "name": "Zutaten",
+          "servingGrams": 839.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "85b08d4a-e83b-505e-b159-7352f49f5272",
+              "ingredientName": "Rinderlendensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "d0036e19-ec7a-5f44-9066-e6f2c77a6149",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81d9d14c-5b0b-5400-889c-522177077d31",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "439da3bb-dd72-5856-b1b9-40816f012792",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "b14bcf46-db41-50ed-a76e-40d25c5808d5",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "dedefd67-cf0d-5cbf-b25c-e587f276d6b8",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "fc5ae422-07f8-566e-9093-f662b8a19f25",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "b7c08fa7-edfd-5d8d-acbb-7147325c1205",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c6018a47-40c6-5a07-a2b6-c756ae3c0429",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ed84f69-5f56-5916-8c19-f6524ae884b1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck in einer Pfanne knusprig braten, herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In derselben Pfanne Spiegeleier braten und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindersteak trocken tupfen und großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Steak in der heißen Pfanne pro Seite 3–4 Minuten braten, bis es innen rosa ist, und anschließend dünn aufschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brötchen halbieren und nach Wunsch leicht toasten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beide Innenseiten jedes Brötchens mit Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Käse, Steak, Tomate, Salat, Speck und Spiegelei auf jedem Sandwich schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://assets.epicurious.com/photos/5609a6056a59cdb91b5ff608/master/pass/354712_hires.jpg",
+          "sourcePageUrl": "http://assets.epicurious.com/photos/5609a6056a59cdb91b5ff608/master/pass/354712_hires.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanada-criolla",
+      "slug": "gen-empanada-criolla",
+      "title": "Empanada Criolla",
+      "instructions": "Uruguayischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie die doppelte Menge zu und frieren Sie übrige Empanadas bis zu 3 Monate ein.",
+        "Verwenden Sie günstigeres Rinderhackfleisch und lassen Sie Oliven weg, um $0.50 pro Empanada zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "uruguayisch",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4301,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanada-criolla/",
+      "components": [
+        {
+          "key": "c8f8bfa5-9ad5-564b-80e5-7407b9477162",
+          "name": "Zutaten",
+          "servingGrams": 161.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "26f55571-c732-554e-8b05-df49d0629808",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f6ccc939-1ab8-5296-a5fc-7dcd7a3e6241",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6ff7695a-7b80-554c-bb5b-659665888523",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c9219444-b234-52ec-a5f0-ac7c1a269aed",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "dea03e9d-ab4e-55f5-8115-ddd70d08a266",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "a6c2cd99-7865-562a-96fe-a34efe0789f8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3267cd95-65ce-534d-9973-cede017fdf49",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc3222f9-2e5e-5e91-a345-a5936c0cfe39",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f174901e-3e67-58c0-a27d-710ea20e38bf",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "53517ddf-5e97-58eb-aa16-c61072c89c53",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz vermischen, kalte Butter einarbeiten, bis die Mischung krümelig ist, dann Wasser hinzufügen und zu einem glatten Teig kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig in Frischhaltefolie wickeln und 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Währenddessen gewürfelte Zwiebel und Knoblauch in Öl weich dünsten. Rinderhackfleisch hinzufügen und braten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kreuzkümmel, Salz und Pfeffer einrühren, vom Herd nehmen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hart gekochte Eier und Oliven hacken und unter die Rindfleischmischung heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teig dünn ausrollen und 12 Kreise mit einem 3 Zoll großen Ausstecher ausstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jeweils einen Löffel Füllung auf einen Kreis geben, halbieren und die Ränder mit einer Gabel verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf ein gefettetes Backblech legen, mit Eigelb bestreichen und bei 400 °F 25–30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Rztzvl7j_KMHftMREhR6--ERk1o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9438457-33894b7af6d94f1ca063aba02a0b5356.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Rztzvl7j_KMHftMREhR6--ERk1o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9438457-33894b7af6d94f1ca063aba02a0b5356.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chopp",
+      "slug": "gen-chopp",
+      "title": "Chopp",
+      "instructions": "Uruguayischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie normalen Mozzarella statt frischem und zahlen Sie etwa die Hälfte.",
+        "Kaufen Sie Tomaten im Angebot und verbrauchen Sie sie innerhalb von 2 Tagen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "uruguayisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4302,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chopp/",
+      "components": [
+        {
+          "key": "aa5b8c7b-456c-5b80-bf23-b8a6488e82e8",
+          "name": "Zutaten",
+          "servingGrams": 180,
+          "position": 0,
+          "items": [
+            {
+              "key": "72d62eb3-5197-5ca3-97ba-7516bb83f31f",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2bf74600-a266-51f9-8dd0-f0aa90bf1cd8",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62ae6df7-f315-5f7c-91a3-1bea4fe699b8",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "10 Blätter"
+            },
+            {
+              "key": "493eeed1-b381-5e18-9189-e93c8c59ad29",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "6ce332af-f9e7-576d-8af6-d31a0b097c1d",
+              "ingredientName": "Balsamicoessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "178eb2c8-f496-5cfe-a790-a3dfe0ea9d6d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "8bdd91c8-5fe0-5a1c-b25f-0577935d8516",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "b459c420-48a2-5fc4-8d79-647989ad81d5",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Frischen Mozzarella in 0.5 Zoll dicke Scheiben schneiden und auf einer Servierplatte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reife Tomaten in dünne Scheiben schneiden und zwischen den Mozzarella legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frische Basilikumblätter über Käse und Tomaten verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl und Balsamicoessig in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ölmischung über den Chopp träufeln und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5 Minuten ziehen lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit knusprigem, aufgeschnittenem Brot zum Auftunken servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2018/12/american-chop-suey-recipe-veg-american-chopsuey-veg-chopsuey-recipe-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2018/12/american-chop-suey-recipe-veg-american-chopsuey-veg-chopsuey-recipe-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-terer",
+      "slug": "gen-terer",
+      "title": "Tereré",
+      "instructions": "Uruguayischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Yerba Mate in größeren Mengen auf lateinamerikanischen Märkten.",
+        "Verwenden Sie Leitungswasser und selbst angebaute Minze, um Kosten zu minimieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "uruguayisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4303,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-terer/",
+      "components": [
+        {
+          "key": "889b1419-f7a0-58dd-a91e-7947f0133cd9",
+          "name": "Zutaten",
+          "servingGrams": 435,
+          "position": 0,
+          "items": [
+            {
+              "key": "e64ce402-25ae-5880-a6f8-a35db28d7b64",
+              "ingredientName": "Yerba Mate",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "da7d538d-3bc7-5bf7-a747-bf717f733c5f",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "47875c05-5bab-5c28-b55a-10999dd1fc28",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dce8831a-cf85-5d29-8fcb-2327c0caadc1",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3-4 Blätter"
+            },
+            {
+              "key": "63296110-0d6a-5bb4-b460-ad991774e503",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eine Glaskalebasse oder Tasse halb mit Eiswürfeln füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Yerba Mate in die Kalebasse geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kaltes Wasser über die Yerba Mate gießen, bis das Gefäß fast voll ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frische Minzblätter und Zitronensaft nach Geschmack hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gefilterten Metallstrohhalm (Bombilla) einsetzen und direkt aus der Kalebasse trinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/79/4b/17/794b17112de0b7ff05ad7f8ab48e514f.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/79/4b/17/794b17112de0b7ff05ad7f8ab48e514f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mate",
+      "slug": "gen-mate",
+      "title": "Mate",
+      "instructions": "Uruguayischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Yerba Mate bei günstigen lateinamerikanischen Lebensmittelhändlern.",
+        "Verwenden Sie lose Yerba Mate 2–3 Mal für weitere Aufgüsse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "uruguayisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4304,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mate/",
+      "components": [
+        {
+          "key": "1b5454a7-3d82-5989-8f78-33e2ddda45b0",
+          "name": "Zutaten",
+          "servingGrams": 528.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb771d3f-1fff-5a44-9696-d90d79230694",
+              "ingredientName": "Yerba Mate",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c576ee4d-45b8-56a8-b565-7609f3567592",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0cb029d3-e2c2-5b1f-aaf7-9278b4a84457",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f1b18a96-d701-5de2-be52-c3da677e00c0",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stück (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser auf 160–180 °F erhitzen, aber nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Keramik- oder Metallkalebasse halb mit Yerba Mate füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine kleine Menge heißes Wasser zugießen, um die Yerba Mate anzufeuchten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach Wunsch Zucker hinzufügen und vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Kalebasse mit dem restlichen heißen Wasser auffüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bombilla (Metallstrohhalm mit Filter) einsetzen und trinken. Die Kalebasse zum Teilen weiterreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/lZvjoo4-yJ7QhTXpJeg9NyPVG8E=/3000x2000/filters:fill(auto,1)/cold-brewed-mate-recipe-766127-Hero_03-4dd56a06168e4c8c8a16aad2318e628d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/lZvjoo4-yJ7QhTXpJeg9NyPVG8E=/3000x2000/filters:fill(auto,1)/cold-brewed-mate-recipe-766127-Hero_03-4dd56a06168e4c8c8a16aad2318e628d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

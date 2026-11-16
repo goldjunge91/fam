@@ -1,0 +1,1061 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-asian-breakfast-nasi-lemak",
+      "slug": "mfr-asian-breakfast-nasi-lemak",
+      "title": "Malaysische Nasi-Lemak-Bowl",
+      "instructions": "Duftender Kokosreis mit Spiegelei, Sambal, Gurke und Sardellen – Malaysias Nationalfrühstück und zugleich das aromatischste, wohltuendste Frühstück am Morgen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Sardellen (Ikan Bilis) kosten $2-3 in asiatischen Lebensmittelgeschäften. Brate sie für ein besonders intensives Aroma knusprig an.",
+        "Sambal kostet $2-3 pro Glas und hält sich monatelang im Kühlschrank.",
+        "Kokosreis gelingt in jedem Reiskocher, wenn du das Wasser teilweise durch Kokosmilch ersetzt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dried-anchovies",
+          "swap": "Knusprig frittierte Schalotten, falls du keine Sardellen findest"
+        },
+        {
+          "forIngredientId": "sambal",
+          "swap": "Sriracha oder eine andere Chilisauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-nasi-lemak",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "malaysisch",
+        "Nasi-Lemak",
+        "Kokosreis",
+        "Frühstück",
+        "Sambal"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1280,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-nasi-lemak/",
+      "components": [
+        {
+          "key": "78016a8c-d5fe-56e6-82e1-eeb12840d30a",
+          "name": "Zutaten",
+          "servingGrams": 733.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b21d4e7-48dd-5e00-b490-d453b4adf9cd",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f940a30-0b18-5270-9903-f11f2a30e1cc",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c2b722a-0592-596a-b153-d304c16dcc67",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5efc565-59e5-5965-835a-77e22810621a",
+              "ingredientName": "Getrocknete Sardellen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa282057-84a0-50fc-b582-9a72a2e885a8",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a77d0fef-5754-51fe-af48-d356d5d26abc",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36cb7fba-e2ce-59e6-b974-817ac43b64d9",
+              "ingredientName": "Sambal Oelek",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75327fbd-ac46-5f2c-a321-50d5dd929a39",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce973c4e-be1d-5f13-b802-1b81416281f9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67c59a5c-d5de-5b74-b465-1ad104ac4b5f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56296b48-1255-5fed-96b4-332f42a1c307",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis mit Kokosmilch, Zitronengras, Ingwer und Salz oder bereite ihn im Reiskocher zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die getrockneten Sardellen 2 Minuten in Öl knusprig und nimm sie heraus. Brate die Erdnüsse im selben Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Eier als Spiegeleier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Kokosreis und Spiegelei auf einem Teller an. Gib Sambal, Gurke, knusprige Sardellen und Erdnüsse dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_ffKFPk6Vbi2atqbc3uFGh_xCOo=/5408x3600/filters:fill(auto,1)/nasi-lemak-coconut-pandan-rice-3030254-hero-01-af85709c5e4349ee87a10a295a111c77.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_ffKFPk6Vbi2atqbc3uFGh_xCOo=/5408x3600/filters:fill(auto,1)/nasi-lemak-coconut-pandan-rice-3030254-hero-01-af85709c5e4349ee87a10a295a111c77.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-breakfast-shaobing-bowl",
+      "slug": "mfr-asian-breakfast-shaobing-bowl",
+      "title": "Taiwanesische Frühstücksschale",
+      "instructions": "Inspiriert von Taiwans berühmten Frühstückslokalen: eine Schale mit lockerem Ei, Sojamilch, herzhaften Streifen aus Frühlingszwiebel-Pfannkuchen, eingelegtem Gemüse und einem weich gekochten Ei, in 15 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Frühstück in Taiwan kostet im Restaurant $15 – diese Variante zu Hause nur $2.",
+        "Eine Tortilla ersetzt den Pfannkuchen mit Frühlingszwiebel, braucht 2 Minuten und funktioniert überraschend gut.",
+        "Das eingelegte Gemüse lässt sich am Vorabend zubereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-wheat-tortilla",
+          "swap": "Gekaufter Pfannkuchen mit Frühlingszwiebel aus der Tiefkühlabteilung asiatischer Lebensmittelgeschäfte"
+        },
+        {
+          "forIngredientId": "carrots",
+          "swap": "Rettich für ein traditionelleres Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-shaobing-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "taiwanesisch",
+        "Frühstück",
+        "Ei",
+        "Frühlingszwiebel",
+        "Morgen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1281,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-shaobing-bowl/",
+      "components": [
+        {
+          "key": "ded1998f-c418-5cec-9dda-c99df6ae1973",
+          "name": "Zutaten",
+          "servingGrams": 600.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e807cb70-9252-5b0d-b6ba-ef3c4bd630be",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b846ffb-be6d-5d3c-ba0e-89932ddb18d5",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37d130c4-74d3-5c98-aae9-afe2a035d239",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c6c987c-f2a8-52f0-8a1a-6ed607f20de5",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4e01b4b-992f-5d5a-95b3-3a84c7dc4484",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d5b2665-a1d1-5d6f-acbf-c92317ad8070",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bac181c3-962e-5adc-8e2c-0b0d79eb134d",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3942d5a8-b674-56e3-8923-7fc46d959358",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30301685-ed23-5edd-a158-bdefdfbacc34",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da04ceb8-2d6e-5e80-b094-97831dc300f8",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für schnell eingelegtes Gemüse: Schneide Gurke und Karotte in feine Streifen und vermische sie mit Reisessig, Zucker und Salz. Lass alles 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile Frühlingszwiebel auf der Tortilla und brate sie in einer trockenen Pfanne knusprig. Reiße sie anschließend in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Eier nach Wunsch. Erwärme den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Reis und Spiegeleier in einer Schale an. Gib Tortillastreifen mit Frühlingszwiebel, eingelegtes Gemüse und einen Schuss Sojasauce und Sesamöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2015/04/8cb15b56edb2ce326350d0e7a6f427044752f9cb.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2015/04/8cb15b56edb2ce326350d0e7a6f427044752f9cb.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-breakfast-nasi-goreng",
+      "slug": "mfr-asian-breakfast-nasi-goreng",
+      "title": "Indonesisches Nasi Goreng zum Frühstück",
+      "instructions": "Gebratener Reis mit süßer Sojasauce, Hähnchen, Eiern und Knoblauch – Indonesiens beliebter Bratreis, zum Frühstück mit einem Spiegelei und Krabbenchips serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für guten Bratreis brauchst du Reis vom Vortag – frischer Reis wird klebrig.",
+        "Süße Sojasauce (Kecap Manis) ist das entscheidende Aroma und kostet $2-3 in asiatischen Lebensmittelgeschäften.",
+        "Krabbenpaste kostet $2 und hält sich praktisch unbegrenzt – schon eine kleine Menge verfeinert das Gericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-soy-sauce",
+          "swap": "Normale Sojasauce und 1 TL brauner Zucker"
+        },
+        {
+          "forIngredientId": "shrimp-paste",
+          "swap": "Fischsauce: 1 TL sorgt für ein ähnlich kräftiges Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-nasi-goreng",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indonesisch",
+        "Nasi-Goreng",
+        "Bratreis",
+        "Frühstück",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1282,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-nasi-goreng/",
+      "components": [
+        {
+          "key": "a83debe2-6c2c-5bdf-a6ba-a27e9f234e6c",
+          "name": "Zutaten",
+          "servingGrams": 534.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f8efde8-4688-5c8f-b542-a932571a88fa",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ec54fac-8854-561c-a5e0-12810a8a4ca9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68b5f49e-3e1b-5e92-adbe-a0b323928e43",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03b31cf0-a53b-5ad4-a61b-d770c6939048",
+              "ingredientName": "Süße Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8c671cc-ba02-5a77-9125-f5afa68f2b3a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd9c7242-53c4-5aeb-8e4c-fe753da4fe83",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "449563c5-a1f6-5f08-82ef-5fa74283c163",
+              "ingredientName": "Krabbenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8059f16c-7d23-5fc1-b50e-58dab3b8f695",
+              "ingredientName": "Mungobohnensprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ce26487-f2f3-5bd4-ad26-56a8dc381fd1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8602110-ec15-5ba2-9c52-dd60f05fa082",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verwende kalten Reis vom Vortag. Brate Schalotten und Knoblauch 2 Minuten in Öl an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchen, Krabbenpaste und Mungobohnensprossen dazu. Brate alles 3 Minuten im Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Reis dazu und brate ihn 3 Minuten, bis er durchgewärmt ist. Rühre die süße Sojasauce unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Eier separat als Spiegeleier und serviere sie auf dem Bratreis. Garniere das Gericht mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/JaS-BFvVhXXdIEsKzfwtqMgTCS0=/5408x3600/filters:fill(auto,1)/nasi-goreng-recipe-fried-rice-1128810-hero-01-94e405a4f45847c89c2f3994002f8f56.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/JaS-BFvVhXXdIEsKzfwtqMgTCS0=/5408x3600/filters:fill(auto,1)/nasi-goreng-recipe-fried-rice-1128810-hero-01-94e405a4f45847c89c2f3994002f8f56.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-breakfast-hk-french-toast",
+      "slug": "mfr-asian-breakfast-hk-french-toast",
+      "title": "Eiweißreicher French Toast nach Hongkonger Art",
+      "instructions": "Erdnussbutter zwischen dicken Brotscheiben, in Ei getaucht und goldbraun gebraten – Hongkongs berühmtestes Frühstück aus dem Cha Chaan Teng, verfeinert mit einer leichteren Sauce aus griechischem Joghurt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "French Toast nach Hongkonger Art kostet im Restaurant $12-15 – zu Hause kostet er nur $2.",
+        "Dicke Brioche oder normales Brot funktionieren gleichermaßen gut.",
+        "Die Erdnussbutter schmilzt im Inneren und wird zu einer cremigen Füllung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Nutella"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne für eine klassischere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-hk-french-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "French-Toast",
+        "Hongkong",
+        "Frühstück",
+        "Erdnussbutter",
+        "Ei"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1283,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-hk-french-toast/",
+      "components": [
+        {
+          "key": "61e8fcf5-d185-5277-96dd-57296b53070e",
+          "name": "Zutaten",
+          "servingGrams": 397.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "39f14c47-f949-58dd-a43c-83b628639279",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f01071fb-8b54-58e4-8b1b-f228932e41ba",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74617580-4a11-5957-add0-f8c63dffc59e",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39b996e4-6e4f-5d1b-b17f-adf8ba717fc5",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edde5682-faec-5093-bc22-e826232869ec",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a90f1f4b-243d-519a-a1d9-626f762f2849",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e2917e7-51e9-51fd-bf7d-5e4f6116793a",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7e09a79-082d-5365-945d-8558e809b07b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche 2 Scheiben Brot mit Erdnussbutter und lege sie zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier mit Milch und Vanille. Tauche das Sandwich hinein und bedecke alle Seiten damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate es auf jeder Seite 3 Minuten in Butter goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere es mit etwas Honig und einem Klecks griechischem Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2022-09-hong-kong-french-toast/Hong_Kong_French_Toast_030_90ba23-crop",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2022-09-hong-kong-french-toast/Hong_Kong_French_Toast_030_90ba23-crop",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-breakfast-okayu",
+      "slug": "mfr-asian-breakfast-okayu",
+      "title": "Japanischer Okayu (Reisbrei mit Lachs)",
+      "instructions": "Sanft gekochter japanischer Reisbrei mit zerpflücktem Lachs, eingelegter Pflaume und Nori – milder und feiner als Congee, typisch für die schlichte japanische Frühstücksküche.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus 1/4 Tasse Reis entstehen 2 Portionen Reisbrei – besonders preiswert.",
+        "Lachs aus der Dose funktioniert gut und kostet $2 für zwei Portionen.",
+        "Okayu ist in Japan ein traditionelles Gericht für Krankheitstage und das tägliche Wohlbefinden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "umeboshi",
+          "swap": "Weglassen oder durch eingelegtes Gemüse ersetzen"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Beliebige Eiweißquelle: Hähnchen, Tofu oder Ei"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-okayu",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Okayu",
+        "Reisbrei",
+        "Lachs",
+        "wohltuend"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1284,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-okayu/",
+      "components": [
+        {
+          "key": "f3ab278f-29c8-5b2e-9ae2-ef966c769e0c",
+          "name": "Zutaten",
+          "servingGrams": 892.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c80ca7e-082b-5ea7-b09c-26301e6e3b01",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8eb15a2-4c63-56bd-96f2-b29e1bdcf110",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5bdf02a-ae5d-5352-96a0-992ef4b47bd8",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f4b469b-3501-5728-a3d0-bcf7173c8976",
+              "ingredientName": "Umeboshi (eingelegte Pflaume)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2b87bd1-3f44-5766-83de-78aeb1403c61",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5079ef61-4ddd-56aa-991e-b6e1a3a85ea2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b742f61-10b7-536f-95ba-455cabab2a52",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ee82c7a-a84d-5e10-ad44-f321ce069403",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bd82d51-6f78-59e8-a079-4e36878fbc78",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8985e6cf-e41b-58d8-8fba-f1915d7f3643",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis ab. Gib ihn in 5 Tassen Wasser und bringe alles zum Kochen. Reduziere die Hitze auf ein Minimum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ingwerscheiben dazu und lass alles 25-30 Minuten köcheln, bis der Reis vollständig zerfallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerpflücke den gekochten Lachs und gib ihn darüber oder brate ihn separat in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Reisbrei mit Umeboshi, zerrissenem Nori, Sesamsamen und etwas Sojasauce und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Lx22czhS7CKOOXyWU6XM_-uEB94=/2121x1414/filters:fill(auto,1)/GettyImages-172597432-5c4ab07f46e0fb0001673f34.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Lx22czhS7CKOOXyWU6XM_-uEB94=/2121x1414/filters:fill(auto,1)/GettyImages-172597432-5c4ab07f46e0fb0001673f34.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

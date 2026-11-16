@@ -1,0 +1,922 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-huevos-rancheros-burrito",
+      "slug": "gen-huevos-rancheros-burrito",
+      "title": "Huevos-Rancheros-Burrito",
+      "instructions": "Mexikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Dosentomaten im Angebot in größeren Mengen.",
+        "Koche getrocknete Bohnen selbst statt Bohnen aus der Dose zu verwenden, so halbierst du die Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5420,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huevos-rancheros-burrito/",
+      "components": [
+        {
+          "key": "aeef01e2-1789-554a-a147-28a26b1359a2",
+          "name": "Zutaten",
+          "servingGrams": 423,
+          "position": 0,
+          "items": [
+            {
+              "key": "45a4544b-ce6a-5d4c-af29-a51edc185614",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "a0386ab9-940a-562e-8c50-0642f3661a7d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e55b67f-3c0a-5342-bf25-8939ff5e2c1c",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "1827eaa8-7a69-5509-92fe-675f34bd761b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroß"
+            },
+            {
+              "key": "3360f23f-f4e0-5212-b759-289fee48e067",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38864c5c-d5c1-50a9-9c44-e3eee4dde855",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26fd15e9-199e-5527-9b3e-92b05a5e450f",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "b5d58d08-e811-56bb-9adb-c3dc1add5a5b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "36746de4-26f9-5510-b702-79891505b65d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "187772af-bd90-534b-83ec-84e149620bff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "478022bd-376c-5519-894e-683a38a1f2fe",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebel, hacke Jalapeño und Knoblauch und dünste alles in Öl bei mittlerer Hitze in einer Pfanne an, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Dosentomaten samt Saft in die Pfanne und lass alles 5 Minuten köcheln. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die schwarzen Bohnen separat in einem Topf und die Tortillas in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Eier in einer separaten Pfanne als Spiegeleier, bis das Eiweiß gestockt, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile schwarze Bohnen mittig auf den Tortillas und belege sie mit je einem Spiegelei und der Hälfte des Käses.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Ranchero-Sauce über die Eier und bestreue alles mit dem restlichen Käse und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Falte die Tortillas wie Burritos und serviere sie sofort mit zusätzlicher Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/66661022165c84db0a2d7542/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/66661022165c84db0a2d7542/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chilaquiles-burrito",
+      "slug": "gen-chilaquiles-burrito",
+      "title": "Chilaquiles-Burrito",
+      "instructions": "Mexikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tortillachips der Hausmarke, sie sind genauso gut wie Markenprodukte.",
+        "Bereite Salsa Verde selbst aus Tomatillos, Zwiebeln und Jalapeños in der Saison zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5421,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chilaquiles-burrito/",
+      "components": [
+        {
+          "key": "93baf7d8-6dd4-5721-b614-0f88ef369d4e",
+          "name": "Zutaten",
+          "servingGrams": 365.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "283f577b-f81c-5817-982d-beffba4a6414",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "31e31843-4f35-521b-abe2-03648056b787",
+              "ingredientName": "Tortillachips",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b1a3a5e4-5cbf-53bb-aefc-dc6f933ac5cd",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b01a4077-484e-57a7-a9ec-c5ecb68fa18c",
+              "ingredientName": "Salsa Verde",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e40414b2-68a8-5571-a824-751dcfb91651",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 mittelgroß"
+            },
+            {
+              "key": "4056e677-1d60-5b98-b7bb-6121152379f8",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "22537732-1465-57b0-91a4-0da1737c1211",
+              "ingredientName": "Queso fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d04b99ed-2525-5267-af91-6d149c01f767",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "276079ea-1223-53d6-8bec-7c3b7bafc548",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "defbf2ba-78da-5a6c-8c42-92a8dc91f847",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 EL Öl in einer Pfanne bei mittlerer bis hoher Hitze, gib die Tortillachips dazu und rühre 1–2 Minuten um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Salsa Verde über die Chips und vermenge alles vorsichtig, bis die Chips überzogen und leicht weich, aber noch knusprig sind, etwa 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Chilaquiles aus der Pfanne und halte sie auf einem Teller warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das restliche Öl in die Pfanne, schlage die Eier hinein und brate sie nach Wunsch. Würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Weizentortillas in einer trockenen Pfanne je Seite 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Chilaquiles auf den Tortillas und gib je 2 Spiegeleier und einen Klecks saure Sahne darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue alles mit Queso fresco und Koriander, rolle die Tortillas wie Burritos auf und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2014/09/Tofu-Chilaquiles-with-DIY-Baked-Tortilla-Chips-30-minutes-SO-flavorful-and-seriously-healthy-vegan-glutenfree2.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2014/09/Tofu-Chilaquiles-with-DIY-Baked-Tortilla-Chips-30-minutes-SO-flavorful-and-seriously-healthy-vegan-glutenfree2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-montreal-bagel-with-lox-and-cream-cheese",
+      "slug": "gen-montreal-bagel-with-lox-and-cream-cheese",
+      "title": "Montreal-Bagel mit Räucherlachs und Frischkäse",
+      "instructions": "Jüdisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Räucherlachs in größeren Mengen und friere Portionen für den Monat ein.",
+        "Verwende normale Bagels aus dem Supermarkt, falls keine Montreal-Bagels erhältlich sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jüdisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5422,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-montreal-bagel-with-lox-and-cream-cheese/",
+      "components": [
+        {
+          "key": "cacc6f5b-9380-53a9-9453-0dadf0886c74",
+          "name": "Zutaten",
+          "servingGrams": 676.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "62710cc7-2ae2-518f-93be-855691ea3c49",
+              "ingredientName": "Bagel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35ae3238-b411-5ab3-a08e-941b2856fc29",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "1822108b-a650-58c1-b695-0f982022e99a",
+              "ingredientName": "Räucherlachs",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "9ffab534-e4fa-54b4-8df5-06520fa7534b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroß"
+            },
+            {
+              "key": "41577c5c-6405-5bac-b4b9-ccf06c59bdc0",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e1b476e9-85fd-5755-900d-9d0cf73f5c98",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49958f5d-b78f-5f63-93c6-7c27241d3264",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Montreal-Bagels auf und röste sie im Toaster oder Minibackofen leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Schnittflächen jeder Bagelhälfte mit 2 oz weichem Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege auf jede Hälfte 2 oz Räucherlachs und drapiere ihn leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die rote Zwiebel dünn und verteile sie auf dem Räucherlachs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib auf jeden Bagel etwas Kapern und frischen Dill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit einer Zitronenspalte zum Beträufeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Unpdpv3edxW6EfRE3qHqoHHIdjg=/6483x4322/filters:fill(auto,1)/classic-lox-recipe-4171995-hero-01-000a08343f6d4b85a93ad23e859259dc.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Unpdpv3edxW6EfRE3qHqoHHIdjg=/6483x4322/filters:fill(auto,1)/classic-lox-recipe-4171995-hero-01-000a08343f6d4b85a93ad23e859259dc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bagel-and-schmear",
+      "slug": "gen-bagel-and-schmear",
+      "title": "Bagel mit Frischkäse",
+      "instructions": "Amerikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bagels im Angebot und friere sie für später ein.",
+        "Frischkäse der Hausmarke ist deutlich günstiger als Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5423,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bagel-and-schmear/",
+      "components": [
+        {
+          "key": "b161f522-5627-5422-aa2f-4e627e879547",
+          "name": "Zutaten",
+          "servingGrams": 107.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "32a8d6bb-c930-5065-b27b-7fef99a97af8",
+              "ingredientName": "Bagel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6ac62a0-ff82-5139-a32d-c20543920d59",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Bagel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Bagelhälften goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche jede warme Hälfte mit 1 oz Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sofort servieren, solange der Bagel noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/9a/9d/52/9a9d527bb71660976d3a681788fed601.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/9a/9d/52/9a9d527bb71660976d3a681788fed601.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lox-bagel-sandwich",
+      "slug": "gen-lox-bagel-sandwich",
+      "title": "Bagel-Sandwich mit Räucherlachs",
+      "instructions": "Jüdisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achte auf Angebote für Räucherlachs und kaufe ihn reduziert.",
+        "Verwende einen Sparschäler, um die Zwiebel dünn zu schneiden, falls du keinen Gemüsehobel hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jüdisch",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5424,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lox-bagel-sandwich/",
+      "components": [
+        {
+          "key": "200f8235-e34b-518f-806f-83790e56e573",
+          "name": "Zutaten",
+          "servingGrams": 1086.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "09740f80-9bea-58c8-9fb5-077f81449104",
+              "ingredientName": "Bagel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9c3f3df-b801-5911-8799-9af12f315c3e",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Unzen"
+            },
+            {
+              "key": "a66ec479-100d-5ee6-b81a-2f47f79648d2",
+              "ingredientName": "Räucherlachs",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Unzen"
+            },
+            {
+              "key": "98990a39-653e-5bf0-a5f8-4f3e904ffeff",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 dünn Scheiben"
+            },
+            {
+              "key": "a29e1650-b3b0-52cb-a9a8-c6b83c3f4f20",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6169e152-1fc4-5108-98e6-b47fc1a5647c",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Bagel auf und röste ihn leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede geröstete Bagelhälfte mit 1.25 oz Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Räucherlachs gleichmäßig auf beiden Hälften, etwa 1.25 oz pro Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege rote Zwiebelscheiben auf den Räucherlachs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue das Sandwich mit Kapern und frischem Dill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücke beide Hälften vorsichtig zusammen und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/v78LxFHZbhzMeWSBjMFHXFm9XdY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-chopped-lox-and-veggie-bagel-step-05-2507-b3f885567c4e4867afe5c7587509bbd3.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/v78LxFHZbhzMeWSBjMFHXFm9XdY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-chopped-lox-and-veggie-bagel-step-05-2507-b3f885567c4e4867afe5c7587509bbd3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

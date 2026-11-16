@@ -1,0 +1,1242 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-nafr2-kefta-tomato",
+      "slug": "mfr-nafr2-kefta-tomato",
+      "title": "Marokkanische Kefta in gewürzter Tomatensauce",
+      "instructions": "Gewürzte Lammhackbällchen, Kefta genannt, köcheln in einer kräftigen, mit Kreuzkümmel gewürzten Tomatensauce. Obenauf pochieren Eier. Dieses Wohlfühlgericht nach Tajine-Art wird direkt aus der Pfanne mit Brot zum Auftunken serviert. Schon der Duft der Gewürzmischung macht die Zubereitung lohnenswert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammhackfleisch ist viel günstiger als Lammkoteletts.",
+        "Geriebene Zwiebel in der Kefta-Mischung hält die Bällchen saftig und ist die authentische Zubereitungsart.",
+        "Serviere das Gericht mit Couscous oder knusprigem Brot zum Dippen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-lamb",
+          "swap": "Rinderhackfleisch, ein klassischer Ersatz in ganz Nordafrika"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Eier weglassen für eine einfache Kefta in Tomatensauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-kefta-tomato",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "Kefta",
+        "Lamm",
+        "Fleischbällchen",
+        "Tomate",
+        "gewürzt"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1625,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-kefta-tomato/",
+      "components": [
+        {
+          "key": "e1fe84ca-1d87-57a2-a1f7-8b8021f76cff",
+          "name": "Zutaten",
+          "servingGrams": 241.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4fa0b7d8-b4a2-5f72-916a-60df3ebb780e",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7057d96c-efa5-5a0e-a6e3-7178942f6ef4",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8f8415c-2bc2-5d93-867d-fbfcd5207b22",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "331ca0e9-266d-5134-9e9e-556b44fc87cc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6e09fa8-ead5-5db1-9d22-bc648b3837d9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0629ea50-a858-5e1b-b118-ca2114325093",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "026dc01c-ee6c-5958-a654-8563bf7a4e3f",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27f71d21-5aef-540e-9237-929037d0ba83",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d314dbf-59e5-58a3-a267-d26282097d21",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d549fb06-6032-518b-8926-c97ead37ca40",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bd41151-2026-50c3-b1c8-50a2e632fd73",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63c00100-4f18-5fea-8022-457e2c8c0d16",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4f6e551-a75d-5a7f-a81a-7d97f89646a4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Lammfleisch mit der Hälfte der Gewürze, geriebener Zwiebel und Petersilie. Forme kleine Bällchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Fleischbällchen 5 Minuten von allen Seiten in Öl an und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die restliche Zwiebel an. Gib Knoblauch und die übrigen Gewürze dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Tomaten hinzu und lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Fleischbällchen zurück in die Sauce und lass sie 10 Minuten köcheln. Drücke Mulden hinein, schlage Eier hinein, decke die Pfanne ab und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/54d4153ce4b00c0e483c13a6/1631812268637-2FL4NXHHEZTLSV9L74NX/Kefta%2Bmeatballs%2Band%2Btomato%2Bsauce%2Btagine%2B2.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/54d4153ce4b00c0e483c13a6/1631812268637-2FL4NXHHEZTLSV9L74NX/Kefta%2Bmeatballs%2Band%2Btomato%2Bsauce%2Btagine%2B2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nafr2-couscous-royale",
+      "slug": "mfr-nafr2-couscous-royale",
+      "title": "Couscous Royale (marokkanischer Festtags-Couscous)",
+      "instructions": "Die Königin der marokkanischen Küche: Lockerer, gedämpfter Couscous wird hoch aufgeschichtet und mit langsam geschmortem Hähnchen und Merguez-Wurst, geröstetem Gemüse, einer kräftigen Ras-el-Hanout-Brühe und Harissa als Beilage serviert. Das ultimative Freitagsgericht, das viele satt macht und den ganzen Raum mit seinem Duft erfüllt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Merguez vom Halal-Metzger ist sehr erschwinglich und authentisch.",
+        "Bereite die Brühe besonders aromatisch zu. Sie kommt über alle Zutaten, und die Brühe ist das Herzstück des Gerichts.",
+        "Reste von Couscous Royale ergeben für 3 Tage ausgezeichnete Mittagessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "merguez",
+          "swap": "Italienische Wurst mit geräuchertem Paprikapulver und Kreuzkümmel"
+        },
+        {
+          "forIngredientId": "ras-el-hanout",
+          "swap": "Mischung aus Kreuzkümmel, Koriander, Zimt, Ingwer, Paprika und Piment"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-couscous-royale",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "Couscous",
+        "Royale",
+        "Festlich",
+        "Merguez",
+        "Hähnchen",
+        "Ras-el-Hanout"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1626,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-couscous-royale/",
+      "components": [
+        {
+          "key": "fb5a5f2d-6fc9-5a6c-90f0-743708ab8f12",
+          "name": "Zutaten",
+          "servingGrams": 611.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "cf0bfc63-3ae9-5232-ab7a-958aa222336b",
+              "ingredientName": "Couscous",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8a46502-97d7-590f-9595-6a2289b42bbb",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9594083-4a92-5e94-89b3-728a7c5ad1c3",
+              "ingredientName": "Merguez-Wurst",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab9db504-a34d-503e-af30-0c237eb26b64",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "842de98a-7cd5-5c29-8b2d-c24d9fa5dc3a",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63357363-699d-5e70-8fcb-32ccf55eccc4",
+              "ingredientName": "Rübe",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b81557b0-83ae-52d7-87a8-aa6188a12986",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c3196a5-8e57-549c-b04b-064986e7a185",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a795b4dc-0b24-5a50-8f60-0b7a09220c84",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2f7559d-66e8-54bb-a2a0-2f4b9b7c1e78",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af0d2c0e-a963-513b-8784-ea6e4544a544",
+              "ingredientName": "Ras el Hanout",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12a3d6d2-1ee9-5595-8063-8af14030009c",
+              "ingredientName": "Safranfäden",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79f18891-4673-553f-81e2-f14480612c6f",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfac0fb2-e59c-5616-b293-402d307a11fe",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbf17af8-863b-56ce-a589-76148a9597ee",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c216bca-d9a9-5ed6-84c9-16859322050f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen mit Ras el Hanout, bräune es von allen Seiten und nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel an. Gib Knoblauch und die restlichen Gewürze dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Hähnchen zurück in den Topf. Gib Brühe, Safran, Karotten und Rüben dazu und schmoren alles 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zucchini und Kichererbsen hinzu und gare alles weitere 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Merguez-Würste 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dämpfe den Couscous und lockere ihn mit Butter auf. Serviere die Brühe in einem Krug dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://originalmoroccanfood.com/assets/images/originalmoroccanfood57-1400x928-70.jpg",
+          "sourcePageUrl": "https://originalmoroccanfood.com/assets/images/originalmoroccanfood57-1400x928-70.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nafr2-matbucha",
+      "slug": "mfr-nafr2-matbucha",
+      "title": "Matbucha (marokkanischer Tomaten-Paprika-Salat)",
+      "instructions": "Marokkos beliebter Salat aus gekochten Tomaten und gerösteter Paprika: Tomaten und rote Paprika köcheln langsam mit Knoblauch, Olivenöl, Kreuzkümmel und Paprikapulver, bis die Mischung konzentriert und marmeladig ist. Bei Zimmertemperatur als Dip, Beilage oder Grundlage für Shakshuka serviert, verwandelt er einfache Zutaten in etwas Besonderes.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Matbucha besteht nur aus günstigen Zutaten, entwickelt durch das lange Garen aber ein unglaubliches Aroma.",
+        "Bereite eine große Menge zu. Im Kühlschrank hält sie sich 1 Woche und lässt sich perfekt einfrieren.",
+        "Verwende Matbucha als Grundlage für Eier, als Brotaufstrich oder serviere sie mit Brot."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Paprika jeder Farbe, auch geröstete Paprika aus der Dose als Abkürzung"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Ganze geschälte Tomaten aus der Dose, so entfällt das Blanchieren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-matbucha",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "marokkanisch",
+        "Matbucha",
+        "Tomate",
+        "Paprika",
+        "Salat",
+        "Dip",
+        "gekocht"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1627,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-matbucha/",
+      "components": [
+        {
+          "key": "45a97dba-f6ff-5380-b896-da11594f7022",
+          "name": "Zutaten",
+          "servingGrams": 196.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "e90d2b3a-2a34-51bb-b0ad-2d038c636d7e",
+              "ingredientName": "Tomate",
+              "grams": 720,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e5882c0-4e84-5c3f-bfd3-4264fc648938",
+              "ingredientName": "Paprika",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a0571f0-20b5-5f1e-91b0-d7fbaf2032d3",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a55d10c9-0d14-5a74-9bf7-c8b237b1dcd1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "763c8310-9058-5038-b60f-db045d37f406",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc1ca0b0-667f-58fb-80ad-a3f9bcf5cc80",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f65f02b4-9d87-509c-851d-ea28370bd51a",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac1a8de9-0ecd-5ffb-9ee1-f4a2c5389a9b",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c370499c-1f8d-5fbf-af07-1886639356ec",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2e0a3ec-5fba-5266-b12c-46405b2059fd",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Paprika über einer Flamme oder unter dem Grill, bis sie geschwärzt ist. Häute und würfle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere, häute und hacke die Tomaten oder verwende eine Passiermühle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomaten, Paprika, Knoblauch, Öl und Gewürze in einen schweren Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche alles ohne Deckel bei mittlerer bis niedriger Hitze 40–50 Minuten und rühre alle 10 Minuten um, bis es dick und marmeladig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Zucker, Salz und zusätzlichen Gewürzen. Serviere den Salat bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/10/taktouka-recipe-2.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/10/taktouka-recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nafr2-merguez-couscous",
+      "slug": "mfr-nafr2-merguez-couscous",
+      "title": "Merguez mit Couscous und Trockenfrüchten",
+      "instructions": "Würzige, paprika-rote nordafrikanische Lammwürste werden in der Pfanne gebraten und auf Couscous mit getrockneten Aprikosen, Pistazien und Kräutern serviert. Eine warme Glasur aus Harissa und Honig rundet das Gericht ab. Ein Abendessen für den Feierabend in 30 Minuten, das besonders schmeckt.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Merguez ist beim Halal- oder nordafrikanischen Metzger günstiger als im Feinkostgeschäft.",
+        "Couscous ist die Getreidebeilage mit der kürzesten Garzeit und in 5 Minuten mit kochendem Wasser fertig.",
+        "Getrocknete Aprikosen sorgen für Süße, ohne dass frisches Obst gekauft werden muss."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "merguez",
+          "swap": "Beliebige gewürzte Wurst, zum Beispiel Chorizo oder italienische Wurst"
+        },
+        {
+          "forIngredientId": "pistachios",
+          "swap": "Mandeln oder für eine günstigere Variante weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-merguez-couscous",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "marokkanisch",
+        "Merguez",
+        "Wurst",
+        "Couscous",
+        "nordafrikanisch",
+        "Harissa",
+        "Aprikose"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1628,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-merguez-couscous/",
+      "components": [
+        {
+          "key": "f8f4fbce-fb13-5f05-8911-0ac3512aaa3d",
+          "name": "Zutaten",
+          "servingGrams": 478.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "9cc1433f-9177-5b0f-9ed1-0436d823da21",
+              "ingredientName": "Merguez-Wurst",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0394bdfb-848f-54f1-b767-8bc6523bec8d",
+              "ingredientName": "Couscous",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "316d2634-a9ae-5cfb-aa3a-d843134146ff",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ca81e3f-fe9e-5d99-a556-c3e61da8f2d7",
+              "ingredientName": "Pistazien",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d40540db-6022-5202-b5ba-cf3e04948d42",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41347b1f-4d3b-5967-a11e-fc0c50cd0499",
+              "ingredientName": "Harissa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49a8fc5f-0ec3-5c85-bd2d-f2cb9e0c28a3",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f57378b2-4fb5-5b26-a270-28d2512240d9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88a5d51b-442d-51f9-a45b-3ef43ce3c61b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44d4be9a-780a-5ea9-9914-f15f3b3d32bd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c6d4336-9471-5dc2-bf53-839d213ea0f8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37ec22cd-6c2a-5f55-8c2f-f5f464e4a8d0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7d6e655-85a6-50b3-a1f7-bd22922483da",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße heiße Brühe über den Couscous, decke ihn 5 Minuten ab und lockere ihn mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre gewürfelte Aprikosen, Pistazien und Kreuzkümmel unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Merguez 4 Minuten pro Seite in der Pfanne, bis sie gebräunt und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre für die Glasur Harissa, Honig und einen Schuss heißes Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Couscous mit Merguez obendrauf, beträufle alles mit Glasur und garniere mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2024/06/Summer-sausage-stew-with-couscous-2912a33.jpg",
+          "sourcePageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2024/06/Summer-sausage-stew-with-couscous-2912a33.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nafr2-tunisian-brik",
+      "slug": "mfr-nafr2-tunisian-brik",
+      "title": "Tunesischer Brik (knusprige Teigtasche mit Ei und Thunfisch)",
+      "instructions": "Tunesiens berühmter Straßensnack: Ein ganzes Ei, Thunfisch, Kapern und Harissa werden in hauchdünnen Brikteig gewickelt und frittiert, bis der Teig goldbraun und splitterknusprig ist, während das Ei innen noch flüssig bleibt. Mit einem Spritzer Zitrone in zwei Bissen gegessen. Unwiderstehlich ist noch untertrieben.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Thunfisch aus der Dose macht diesen Straßensnack besonders günstig.",
+        "Filoteig, auch Brikteig genannt, ist günstig und hält sich im Tiefkühler lange.",
+        "Der Trick: Frittiere die Teigtaschen direkt nach dem Füllen, damit das Ei nicht durchweicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "phyllo",
+          "swap": "Frühlingsrollenblätter, nicht traditionell, aber mit einem sehr ähnlichen Ergebnis"
+        },
+        {
+          "forIngredientId": "tuna-canned",
+          "swap": "Sardinen aus der Dose oder gegartes Hähnchen vom Vortag"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nafr2-tunisian-brik",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "tunesisch",
+        "Brik",
+        "Ei",
+        "Thunfisch",
+        "knusprig",
+        "Streetfood",
+        "Teigtasche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1629,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nafr2-tunisian-brik/",
+      "components": [
+        {
+          "key": "3261d0dc-8114-5584-92cc-857e64d01bea",
+          "name": "Zutaten",
+          "servingGrams": 553.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "3908d5ec-7b36-5cbb-8190-2913a4470760",
+              "ingredientName": "Filoteig",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09c0b30e-a511-5a5d-9391-954a2e315cf6",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30e1e907-40bc-573f-8caf-3b9539fee53d",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60c99997-61ff-5152-b93e-242ae812ca78",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df5769a8-8763-5c9b-9d5e-c4ca462d9ae8",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6aa520ca-39b6-5630-aac8-fc0b32695fcd",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d5c581d-5af6-5725-ac4e-06f5a5c4a788",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "920cd829-1f86-58af-97be-ea9770e7ac25",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5285ff09-a955-56da-9fc5-016329d89e61",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29857532-2efe-5429-809b-94fdd1613226",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Thunfisch mit Kapern, Harissa, Petersilie und gewürfelter Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ein Filoteigblatt flach hin und gib die Thunfischmischung mit einer Mulde in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage das Ei in die Mulde und falte den Teig fest, aber vorsichtig zu einem Päckchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frittiere das Päckchen in 2 cm Öl bei mittelhoher bis hoher Hitze 2 Minuten pro Seite, bis es goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass es abtropfen und serviere es sofort mit Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/06/Tiropitakia-9950.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/06/Tiropitakia-9950.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

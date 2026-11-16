@@ -1,0 +1,868 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:microwave-nachos",
+      "slug": "microwave-nachos",
+      "title": "Mikrowellen-Nachos",
+      "instructions": "Tortillachips mit Bohnenmus, Käse und Salsa, in nur 60 Sekunden geschmolzen.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 1,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Bei Bedarf 30 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Eine Tüte Chips reicht für viele Portionen",
+        "Nur Zutaten aus dem Vorratsschrank"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Zerdrückte schwarze Bohnen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine halbe Dose Bohnen, Chips und Käse ergeben einen Snack als Mahlzeit für $2.25.",
+      "healthierTips": [
+        "Im Ofen backen statt in der Mikrowelle erwärmen",
+        "Vollkornchips verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "studentenküchengeeignet",
+        "Snack",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 75,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/microwave-nachos/",
+      "components": [
+        {
+          "key": "b5cda6fe-c0cb-5549-9769-d9426e778d14",
+          "name": "Zutaten",
+          "servingGrams": 555,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f9a57b2-c4dc-545f-865a-f38d00980068",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99617cd2-cef5-58b5-9ae6-8a821de78e0d",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51b6e538-325c-594f-824d-7fbde31abe7f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0115b00b-d9b9-59da-b0a4-d64598ab8614",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c969f2e4-f7ce-57a6-8a68-1a14994a0d97",
+              "ingredientName": "Jalapeño",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "c90ce9e0-4020-54c2-bf92-f669182a7151",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile die Chips auf einem mikrowellengeeigneten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Bohnenmus auf die Chips und streue Käse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme alles 60 Sekunden in der Mikrowelle, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Salsa, Jalapeño und saure Sahne darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/microwave-nachos.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/microwave-nachos.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-nachos.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-nachos.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:microwave-bean-burrito",
+      "slug": "microwave-bean-burrito",
+      "title": "Bohnen-Burrito aus der Mikrowelle",
+      "instructions": "Tortilla mit Bohnenmus, Käse und Salsa gefüllt, in 90 Sekunden erwärmt.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 1,
+      "storageInstructions": "Eingewickelt im Kühlschrank 2 Tage haltbar.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein besonders günstiges Mittagessen für die Studentenküche",
+        "Tortillas aus der Packung verwenden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Schwarze Bohnen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Weglassen",
+          "savings": "ca. $0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Zwei Zutaten aus dem Vorratsschrank und Käse ergeben eine komplette Mahlzeit für weniger als $1.75.",
+      "healthierTips": [
+        "Vollkorntortilla verwenden",
+        "Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "studentenküchengeeignet",
+        "schnell",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 76,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/microwave-bean-burrito/",
+      "components": [
+        {
+          "key": "2de9989c-52ca-5543-8001-7ea6b031f363",
+          "name": "Zutaten",
+          "servingGrams": 395,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b103f2c-9d59-545b-960d-9dee19de5af8",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "209a1dd7-9262-5072-b8b7-da7badd012a1",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "723fa542-1968-5d5e-ba4e-93e801e328aa",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d34d5bd-9034-5427-85d6-b590a0cb6d06",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d3ace33-b711-5eb1-b5ff-d0a9226fdc77",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "e1b60fc0-c9fe-59f6-ac44-d45fadf5b270",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile Bohnenmus und Käse auf der Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Salsa, Kreuzkümmel und scharfe Sauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle die Tortilla fest auf und wickle sie in ein Papiertuch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme sie 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/microwave-bean-burrito.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/microwave-bean-burrito.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-bean-burrito.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-bean-burrito.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:instant-couscous-chickpea-salad",
+      "slug": "instant-couscous-chickpea-salad",
+      "title": "Schneller Couscous-Kichererbsen-Salat",
+      "instructions": "Lockerer Couscous mit Kichererbsen, Gurke, Zitrone und Olivenöl – ein mediterranes Mittagessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 3,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "Kalt essen oder 60 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Couscous braucht nur kochendes Wasser",
+        "Gurken bleiben das ganze Jahr über günstig"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "couscous",
+          "swap": "Quinoa oder Reis",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Weglassen",
+          "savings": "ca. $0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Couscous und Kichererbsen sind preiswerte Zutaten aus dem Vorratsschrank.",
+      "healthierTips": [
+        "Vollkorncouscous verwenden",
+        "Mehr Gemüse dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "zum Vorbereiten",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 77,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/instant-couscous-chickpea-salad/",
+      "components": [
+        {
+          "key": "8143e153-942b-5f83-8222-720e32ae25ff",
+          "name": "Zutaten",
+          "servingGrams": 409.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "97af089f-3d79-5d4b-8207-dabea8dedb25",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdb3ec78-c651-51e9-b4f4-4d52295caa03",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f16eb777-c0ee-5041-94e7-edb816fdee69",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e24ee7db-53c6-5aef-a927-84314ea56a50",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82ae0009-0cf7-573b-a23c-c5e00a84c85e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67956b99-9d6b-5815-99be-90372913c193",
+              "ingredientName": "Feta",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5937ad13-819e-51c0-b355-6a425b582f32",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Übergieße den Couscous in einer Schüssel mit kochendem Wasser und decke ihn 5 Minuten ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lockere den Couscous mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge ihn mit Kichererbsen, gewürfelter Gurke, Zitronensaft, Olivenöl, Oregano und Feta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/instant-couscous-chickpea-salad.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/instant-couscous-chickpea-salad.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/instant-couscous-chickpea-salad.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/instant-couscous-chickpea-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:no-cook-tuna-white-bean-salad",
+      "slug": "no-cook-tuna-white-bean-salad",
+      "title": "Thunfischsalat mit weißen Bohnen ohne Kochen",
+      "instructions": "Thunfisch, weiße Bohnen, rote Zwiebel und Zitrone mit Olivenöl angemacht – ein italienisches Mittagessen in 5 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Zwei Dosen und Zutaten aus dem Vorratsschrank ergeben ein ganzes Mittagessen",
+        "Kein Kochen nötig"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "Essig",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Zwei Dosen und eine Zitrone reichen für zwei Mittagessen.",
+      "healthierTips": [
+        "Kirschtomaten oder Rucola dazugeben",
+        "Weniger Öl verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "ohne Kochen",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 78,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/no-cook-tuna-white-bean-salad/",
+      "components": [
+        {
+          "key": "c0d807a1-595c-53af-a6cb-b028f98d9f26",
+          "name": "Zutaten",
+          "servingGrams": 456.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "212ce371-1397-53b5-ac65-aee6755fe016",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80c6483c-0a63-549e-a3c0-c231d0612d42",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "985556af-4740-530f-8c97-bd75685c01a2",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c65e0336-2a8a-5761-9b8d-50785200d525",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93406495-ea48-5b8f-a5b4-b12244967e7d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af5fbec0-adc7-54e8-85ba-1a24c92d8416",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b01ec81-b212-510f-8dc5-6b5a3ac7ef78",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Thunfisch und Bohnen abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge beides mit dünn geschnittener Zwiebel, Zitronensaft, Olivenöl, Oregano und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mische alles und lasse den Salat 5 Minuten ziehen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/no-cook-tuna-white-bean-salad.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/no-cook-tuna-white-bean-salad.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/no-cook-tuna-white-bean-salad.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/no-cook-tuna-white-bean-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:hummus-snack-plate",
+      "slug": "hummus-snack-plate",
+      "title": "Hummus-Snackplatte",
+      "instructions": "Hummus mit Pita, Gurke, Karotten und Crackern als mediterrane Snackplatte.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Frisch essen; Hummus ist eine Woche haltbar.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Ein Becher Hummus für $3 reicht für viele Portionen",
+        "Nimm beliebiges knackiges Gemüse, das du vorrätig hast"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pita",
+          "swap": "Tortilla oder Brot",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "crackers",
+          "swap": "Weglassen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein Becher Hummus reicht für viele Snacks.",
+      "healthierTips": [
+        "Vollkornpita verwenden",
+        "Öl weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "ohne Kochen",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 79,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/hummus-snack-plate/",
+      "components": [
+        {
+          "key": "ce38afc0-75c1-57a4-99e1-c42fbb3ba524",
+          "name": "Zutaten",
+          "servingGrams": 373.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff2846e7-76f3-5bf8-acf1-8211851c3c95",
+              "ingredientName": "Hummus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc1986b5-0bad-561f-ae35-5ca28aec3eea",
+              "ingredientName": "Pitatasche",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fc7959f-fe1e-5a70-b56c-23394b8afe10",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "676f4dca-a676-5936-b269-50dad5c2d655",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1cef014-b0b3-5dca-a73c-bf1bdf0e1465",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "ed748419-6e1d-5da0-8147-03b9cb4a9738",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile den Hummus auf einem Teller und beträufle ihn mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Pita in Spalten und Gurke sowie Karotte in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte sie zusammen mit den Crackern um den Hummus herum an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/hummus-snack-plate.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/hummus-snack-plate.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/hummus-snack-plate.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/hummus-snack-plate.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

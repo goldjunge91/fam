@@ -1,0 +1,1076 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-merluza-a-la-kaixo",
+      "slug": "gen-merluza-a-la-kaixo",
+      "title": "Merluza a la Kaixo",
+      "instructions": "Baskisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Weißwein durch Weißweinessig",
+        "Verwende tiefgekühlte Erbsen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "baskisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3775,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-merluza-a-la-kaixo/",
+      "components": [
+        {
+          "key": "994aae60-9a22-5fb2-9684-971cd77f302f",
+          "name": "Zutaten",
+          "servingGrams": 272.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "678d975c-eebe-50f3-b4fb-ebc5ebb5244a",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d149d810-e2c7-573f-b120-73cf7364edea",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "790b1e9c-8113-54e5-aef0-ead3616a3067",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f377c754-0683-5d23-bd48-171a7063287c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "4463123e-a531-5562-9d27-a581e9b68e9a",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "88b23aae-9257-591b-82f8-f68ac38a2dfb",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1e60bfaa-5843-5d27-88f4-7457e4e185df",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6da164be-fae2-54be-b680-72e079fe2681",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "9f7119eb-3f3e-5f3e-8c94-a8481f5c3a18",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e9e16b9e-d127-5ea3-933c-688470836a17",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Kartoffeln in kleine Würfel und koche sie separat, bis sie gerade weich sind. Gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und dünste gehackten Knoblauch und gewürfelte Zwiebel weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Weißwein und Gemüsebrühe hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Fischfilets vorsichtig mit der Hautseite nach unten in die Brühe und gare sie 6-8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gekochte Kartoffeln und Erbsen hinzu und rühre vorsichtig, damit der Fisch nicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer und gare alles weitere 3-4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Gericht auf Servierteller und garniere es mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.annarecetasfaciles.com/files/merluza-marinera-1.jpg",
+          "sourcePageUrl": "https://www.annarecetasfaciles.com/files/merluza-marinera-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oreja-a-la-plancha",
+      "slug": "gen-oreja-a-la-plancha",
+      "title": "Oreja a la Plancha",
+      "instructions": "Baskisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineohren beim örtlichen Metzger im Sonderangebot",
+        "Kaufe sie in größeren Mengen und friere sie für die Essensvorbereitung ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "baskisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3776,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oreja-a-la-plancha/",
+      "components": [
+        {
+          "key": "3587cc9c-20c4-5c30-8be2-53bd2cee9695",
+          "name": "Zutaten",
+          "servingGrams": 324,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8c207b7-50c2-538c-a754-a939124e2e3c",
+              "ingredientName": "Schweinewurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "c4baa8bc-5be2-5da3-baa3-930cdf3f2c31",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "939909e2-2b6e-53eb-9a8e-3a3d90745d0d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27e9a233-4e11-582d-b9ba-dd2f821fddc6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "80130b8d-d68a-50e9-89dc-52fe7af182ff",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b645d03d-3a74-5462-9c21-118db3e4d164",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "c1074438-f055-5a98-ba38-1f1f807e7eaa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a82aba4a-2219-562f-b2e7-26d45129f74a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d3451621-febf-5fcd-96c6-0c6be6e39e38",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere Schweineohren gründlich und koche sie 20 Minuten weich. Gieße sie ab und lasse sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Ohren in dünne Scheiben oder Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittelhoher Hitze und gib gehackten Knoblauch hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geschnittene Zwiebel hinzu und gare sie etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Ohrenstreifen auf die Grillplatte und gare sie je Seite 3-4 Minuten knusprig und gebräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz, Pfeffer und Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib zum Schluss frische Petersilie und einen Spritzer Zitronensaft darüber und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.losmadrilestaberna.es/wp-content/uploads/2024/07/oreja-con-salsa-de-pochas-scaled.jpg",
+          "sourcePageUrl": "https://www.losmadrilestaberna.es/wp-content/uploads/2024/07/oreja-con-salsa-de-pochas-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bonito-del-norte-en-escabeche",
+      "slug": "gen-bonito-del-norte-en-escabeche",
+      "title": "Nordthunfisch in Escabeche",
+      "instructions": "Baskisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Thunfisch aus der Dose statt frischer Steaks",
+        "Bereite das Gericht vorab zu, um später Zeit bei der Zubereitung zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "baskisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3777,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bonito-del-norte-en-escabeche/",
+      "components": [
+        {
+          "key": "e1847df5-d12b-5924-9f10-7baee750a4ae",
+          "name": "Zutaten",
+          "servingGrams": 139.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "05c2dff4-00d1-5b0e-8617-faa35425d1b1",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4a506635-88f4-5b2a-a9ac-67518877fa6c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "20ca9fbd-ec2f-5cdd-a6c5-4a925daf5609",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "44c93397-c89b-537f-85cb-3bb7cda6a62c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "59f8cfcb-5309-50ec-bc2a-cc4b1b7943e4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c562f3d-a458-56dc-a3f5-5955c28992ff",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb47d674-b43b-5b20-9b95-cbba4567350d",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "44cab0c1-0e31-589e-87b5-813c3a3d9e92",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8e1d63c5-cd8c-5e81-b5d4-591cc37b1989",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze Thunfischsteaks auf beiden Seiten mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Olivenöl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Thunfischsteaks je Seite 3-4 Minuten leicht goldbraun und stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das restliche Olivenöl in einem Topf und dünste geschnittene Zwiebel und Knoblauch weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Essig, Lorbeerblätter, Thymian und Pfefferkörner hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte gegarten Thunfisch und Zwiebelmischung abwechselnd in einen Glasbehälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Einlegeflüssigkeit über alles, lasse es auf Raumtemperatur abkühlen, decke den Behälter ab und stelle ihn vor dem Servieren mindestens 8 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn0.recetasgratis.net/es/posts/1/1/2/bonito_en_escabeche_73211_orig.jpg",
+          "sourcePageUrl": "https://cdn0.recetasgratis.net/es/posts/1/1/2/bonito_en_escabeche_73211_orig.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-callos-a-la-vizca-na",
+      "slug": "gen-callos-a-la-vizca-na",
+      "title": "Callos a la Vizcaína",
+      "instructions": "Baskisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kutteln an der Metzgereitheke mit deutlichem Preisnachlass",
+        "Ersetze Morcilla bei Bedarf durch Chorizo"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "baskisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3778,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-callos-a-la-vizca-na/",
+      "components": [
+        {
+          "key": "bb543ea7-9dac-5b61-9d32-cf0e28fd3549",
+          "name": "Zutaten",
+          "servingGrams": 748,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a199622-4388-51aa-8da5-97c802aab95d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "54cafd26-1e5b-54f6-90ee-05da2c4ec829",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "60440379-131d-54c0-b027-ec32fddbd995",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "7694008b-362b-5863-ab99-d28384edce60",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "7d94210d-358c-587b-a8dd-4898eb4ab0eb",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d19c2a6-3902-59ea-93c8-1ca2e923402f",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c473e5fb-ce88-55ef-ac48-1ae89cf259e2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a59aa93b-7917-5718-b58c-56e591d7ae8b",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8915aba7-c974-5589-abfb-a103e059d621",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "8dc2789d-fa66-5033-9368-6decb61698e6",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e0c814ab-698b-54f0-a9ea-a53b57f455f8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere Kutteln gründlich, koche sie 1 Stunde weich und schneide sie dann in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche getrocknete rote Paprika 10 Minuten in heißem Wasser ein, entferne die Kerne und püriere sie zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl und dünste gewürfelte Zwiebel und Knoblauch weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geschnittene Chorizo hinzu und gare sie 3 Minuten, damit Fett austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Paprikapulver und Paprikapaste ein und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gegarte Kutteln, Weißwein und Rinderbrühe hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche alles 30 Minuten, gib dann Morcilla-Stücke hinzu und lasse es weitere 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer und serviere das Gericht heiß in Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/1108527.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/1108527.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chorizo-a-la-sidra",
+      "slug": "gen-chorizo-a-la-sidra",
+      "title": "Chorizo a la Sidra",
+      "instructions": "Baskisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Chorizo einer Hausmarke statt importierter",
+        "Ersetze Apfelwein durch Apfelessig, falls kein Apfelwein erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "baskisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3779,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chorizo-a-la-sidra/",
+      "components": [
+        {
+          "key": "61d4d3fe-8962-51ec-9922-8e8ad67d14fb",
+          "name": "Zutaten",
+          "servingGrams": 65.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c49237d5-b2aa-58dd-9a24-42640ae88e42",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "28d12e44-3ebb-5a88-bebf-391470b5bc80",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2f768606-fcec-55b6-b81b-5787e91e7d15",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "685435d4-6b20-5cbb-96f6-2bfa87529a3b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19344ed5-cfe2-56bd-8288-16f6249caf62",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "86309818-f0ab-5de7-877b-35d91bbb1fd8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cabe298-39ad-5fb0-8e11-ed801c69485f",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "76ff9010-b49f-5729-b30b-48fa72b8b644",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Chorizo-Würste in dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste geschnittene Zwiebel und gehackten Knoblauch etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Chorizo-Scheiben hinzu und gare sie 5 Minuten, bis die Ränder gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Apfelwein hinzu und gib Lorbeerblatt und Thymian dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 15-20 Minuten köcheln, bis sich der Apfelwein um die Hälfte reduziert hat und die Chorizo gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer, entferne Lorbeerblatt und Thymian und serviere heiß mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://magnolia.com/cdn/shop/articles/article_chorizo-a-la-sidra_2abbfffb-ebd4-4ac6-8b33-547eac79b51b.jpg?v=1750266488",
+          "sourcePageUrl": "http://magnolia.com/cdn/shop/articles/article_chorizo-a-la-sidra_2abbfffb-ebd4-4ac6-8b33-547eac79b51b.jpg?v=1750266488",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

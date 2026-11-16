@@ -1,0 +1,1151 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-miso-ramen",
+      "slug": "gen-miso-ramen",
+      "title": "Miso-Ramen",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Instant-Ramen und verfeinere sie mit fertiger Brühe, um Geld zu sparen.",
+        "Verwende Eier und Bambussprossen aus der Dose statt teurer Einlagen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5350,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-miso-ramen/",
+      "components": [
+        {
+          "key": "22060283-6251-5f48-b587-8721a403b667",
+          "name": "Zutaten",
+          "servingGrams": 1099.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bcae6877-8b43-503c-b920-9d5d4f269db2",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "9046efb8-075f-5afb-b288-e610c9df410f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "deadd495-51d9-5e3b-9141-893c542cd22d",
+              "ingredientName": "Misopaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ce1d8e94-f2ac-50fa-8be5-2c396926a09e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d093f46b-276d-59c3-a4fb-dccc0776ea96",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "506a7818-5ef1-559e-8d04-9d09133a6803",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83a7dc8c-a97f-58b9-a73c-efee5ef142f5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "7330992a-c20f-5ebc-ad18-8ad142b8617a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e410b487-2590-511c-a67b-da540537d3e3",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13f27051-b926-5bd6-ae2e-e8a9ffdde2e6",
+              "ingredientName": "Bambussprossen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "99323258-66d5-518b-9792-2cff67fab454",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5463a32a-9846-5c46-9892-09dc002785d0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Ramen-Nudeln in einem großen Topf mit Wasser bissfest und gieße sie anschließend ab. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Hühnerbrühe in einem zweiten Topf bei mittlerer Hitze. Gib gehackten Knoblauch und Ingwer dazu und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Misopaste mit einer kleinen Menge heißer Brühe in einer Schöpfkelle glatt und gib sie zusammen mit Sojasauce und Mirin in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Butter und Sesamöl in die Brühe und lasse sie 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die gekochten Nudeln auf zwei Schüsseln und gieße die heiße Misobrühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib halbierte weich gekochte Eier, geschnittene Frühlingszwiebeln, Bambussprossen und nach Wunsch weitere Proteine oder Gemüse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/GWSe_txv02FrIl6qpDhVnGRH9Pc=/6192x4128/filters:fill(auto,1)/miso-ramen-2031286-hero-5c05646046e0fb0001e797e8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/GWSe_txv02FrIl6qpDhVnGRH9Pc=/6192x4128/filters:fill(auto,1)/miso-ramen-2031286-hero-5c05646046e0fb0001e797e8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shio-ramen",
+      "slug": "gen-shio-ramen",
+      "title": "Shio-Ramen",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Gemüse- oder Hühnerbrühe aus dem Karton, statt Brühe selbst zu kochen.",
+        "Kaufe Nori-Blätter online in größeren Mengen, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5351,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shio-ramen/",
+      "components": [
+        {
+          "key": "d1fbf236-0f4c-50f4-bb1b-a33e9c45529b",
+          "name": "Zutaten",
+          "servingGrams": 1066.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5df9545-11ac-52c9-a918-9c81711e8a65",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "3dae1b05-0584-56ae-b3a7-6cd73c6218c8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "ef689470-38c8-5d73-8106-08b3130483b5",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "c584aeef-0432-5ac0-ba95-56bca6a1fc2e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "85cf1b78-b49b-5b76-83f4-622f9e721e7e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7510596b-3106-5b87-9d6a-263c4d12d60f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "e8f1587f-aaa1-5a34-a9c8-a6ca3afc1215",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc2161c2-9ab1-52fb-ae4f-67a5dc69de18",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44310365-cd48-5238-ac52-b3dd4038a12b",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6d7c56e-2e98-5b43-b56d-89b2cb65c04f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d8420a32-efea-5821-8b71-40d39f688530",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe in einem großen Topf Wasser zum Kochen. Koche die Ramen-Nudeln nach Packungsanleitung bissfest und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Hühnerbrühe mit zerdrückten Knoblauchzehen und gehacktem Ingwer in einem separaten Topf bei mittlerer Hitze 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Brühe durch ein feines Sieb, um Knoblauch und Ingwer zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke die klare Brühe mit Salz, Sojasauce und weißem Pfeffer ab und passe die Würzung nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Nudeln auf zwei Schüsseln und gieße die heiße Shio-Brühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib halbierte weich gekochte Eier, geschnittene Frühlingszwiebeln und Nori-Streifen darauf und bestreue alles mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/QT6RDZx7A11sdlRtBi3AmMxo9ME=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__03__20190313-shio-ramen-vicky-wasik-35-86b1cb798e0941ae9aa473c232a3e0b9.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/QT6RDZx7A11sdlRtBi3AmMxo9ME=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__03__20190313-shio-ramen-vicky-wasik-35-86b1cb798e0941ae9aa473c232a3e0b9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tsukemen",
+      "slug": "gen-tsukemen",
+      "title": "Tsukemen",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende statt Schweinehack mageres und oft günstigeres Putenhackfleisch.",
+        "Bereite mehr Dip-Brühe zu, damit sie für mehrere Portionen reicht."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5352,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tsukemen/",
+      "components": [
+        {
+          "key": "b085ec0d-8a71-543f-9b38-aad6d7858770",
+          "name": "Zutaten",
+          "servingGrams": 777.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "643325b5-3499-5b73-b8ba-c47737a5af3b",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "52caefa3-7866-57e7-abad-8e389578ea56",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "0d4bdbe1-1125-53bb-b9c6-330eeb1b98e1",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "dd586bda-49df-5f07-84ea-ced51dac6ea5",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5e60d5c8-5b1a-59af-b174-3e4d4b675dbf",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "74b9cdd0-e6af-5000-a5f8-16c09a2aa9ae",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "990744bd-280d-5256-8fe5-ed0cdff2177c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Esslöffel fein gehackt"
+            },
+            {
+              "key": "98fec7e0-941c-5bf9-8a2a-5d157810d8b6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44b365fe-f750-51bb-a8b2-834955b6e4f0",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5400e79b-285f-52a4-8a95-53fe17faea3c",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "5e21b3e8-33d3-5717-93a0-f365a80aa83a",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "31fc3f3e-c2a4-5cac-bbaf-56fd1cc4ae9d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pflanzenöl in einem kleinen Topf und dünste gehackten Knoblauch und Ingwer etwa 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Schweinehackfleisch dazu und brate es etwa 5 Minuten, bis es gebräunt ist. Zerteile es dabei mit einem Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe dazu und rühre Sojasauce, Mirin und Zucker ein. Lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Sesamöl ein und schmecke die Brühe ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe in einem großen Topf Wasser zum Kochen. Koche die Ramen-Nudeln bissfest, gieße sie ab und spüle sie mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Nudeln auf zwei Schüsseln und lege halbierte weich gekochte Eier darauf. Stelle daneben jeweils eine Schale mit heißer Dip-Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tauche die Nudeln vor dem Essen in die warme Brühe und garniere sie mit geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2023/05/Tsukemen_Ramen_8940sq.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2023/05/Tsukemen_Ramen_8940sq.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tantanmen",
+      "slug": "gen-tantanmen",
+      "title": "Tantanmen",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Tahini durch Erdnussbutter mit einem Schuss Öl, das sorgt für ein ähnliches Aroma und ist günstiger.",
+        "Verwende scharfe Sauce statt speziellem Chiliöl, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5353,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tantanmen/",
+      "components": [
+        {
+          "key": "5999f75c-eb2a-52e7-ba14-e5480dba891e",
+          "name": "Zutaten",
+          "servingGrams": 884.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "7fc67111-e486-54c4-84c8-49ffd77b0eba",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "be8bd65f-1645-50b6-9477-ad9c8ad4117d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "95a073bd-4e02-566f-bf03-d6ebec04d76e",
+              "ingredientName": "Sesampaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7f78b6c1-5ad1-53dc-9856-bf35fbe5d360",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5ab41fb6-978b-5505-ad81-6da29f54e3cf",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "eda688f9-a2b7-5d89-b77c-26c2cb028377",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "58bd4fde-7542-5753-9866-ded8e3f04678",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "c6061400-119f-552b-b262-062eb12374dc",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "b78b355e-a6d0-5d56-af58-82684002273f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1404b9b-1b67-5705-9584-ae6fe601eecb",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e915d85-454d-5417-87e4-c952501ae0a7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5dcdc177-4082-5386-98c5-8f49c868bcb7",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pflanzenöl in einem Topf und brate gehackten Knoblauch und Ingwer 30 Sekunden an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Schweinehackfleisch dazu und brate es etwa 5 Minuten vollständig an. Zerteile es dabei in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Hühnerbrühe dazu und bringe sie zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Tahini und Chiliöl in einer kleinen Schüssel und rühre die Mischung nach und nach in die köchelnde Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Sojasauce dazu und lasse die Brühe unter gelegentlichem Rühren 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche währenddessen die Ramen-Nudeln nach Packungsanleitung bissfest und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die gekochten Nudeln auf zwei Schüsseln und gieße die scharfe Sesambrühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib halbierte weich gekochte Eier und geschnittene Frühlingszwiebeln darauf und bestreue alles mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2022/11/Japanese-style_Dan_Dan_Noodles_8381.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2022/11/Japanese-style_Dan_Dan_Noodles_8381.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ramen-carbonara",
+      "slug": "gen-ramen-carbonara",
+      "title": "Ramen Carbonara",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck im Angebot und friere ihn für später ein.",
+        "Verwende einen preiswerteren Hartkäse oder geriebenen Parmesan aus der Packung statt frisch geriebenem Käse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5354,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ramen-carbonara/",
+      "components": [
+        {
+          "key": "ec9680ed-cd2c-5501-b2de-186563bf2ad6",
+          "name": "Zutaten",
+          "servingGrams": 380.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fa54937-eb34-550e-ad6a-944a91c924b5",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "086a1390-255c-5c43-a9af-ea9b59bece75",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "73a50504-cb46-5354-9bd3-5759f99e93f3",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 ganz"
+            },
+            {
+              "key": "8f9c18b8-7618-515c-b47f-03236d7a7a5c",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse gerieben"
+            },
+            {
+              "key": "59e265b4-559b-51c6-8a45-825c032bb9e5",
+              "ingredientName": "Paprikapulver",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "67b47a06-0eba-53ea-bcd4-fb698b4e9792",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "059266e2-19b7-52ce-beb3-d04e6b64d292",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e7e0f5e-4a94-5c7a-9e53-3762d63d5476",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7d9666a-440a-586a-bbb6-881f15085022",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "96f073eb-e715-5bb4-b301-4e2fd494ec43",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Speck klein und brate ihn in einer großen Pfanne bei mittlerer Hitze etwa 5 Minuten knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Speck heraus und stelle ihn beiseite. Lasse etwa 1 Esslöffel Speckfett in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die Eier mit geriebenem Parmesan und schwarzem Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe einen großen Topf mit Salzwasser zum Kochen. Koche die Ramen-Nudeln bissfest und gieße sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gekochten Nudeln und Gemüsebrühe in die Speckpfanne bei mittlerer bis niedriger Hitze und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und gieße die Ei-Käse-Mischung unter ständigem Rühren rasch hinein, damit die Eier nicht stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile alles auf Schüsseln und gib den gebratenen Speck, geschnittene Frühlingszwiebeln und zusätzlichen schwarzen Pfeffer darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/ramen-carbonara-secondary-657a1aa1bcda3.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/ramen-carbonara-secondary-657a1aa1bcda3.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

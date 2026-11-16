@@ -1,0 +1,1062 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-barbacoa-tacos",
+      "slug": "gen-barbacoa-tacos",
+      "title": "Barbacoa-Tacos",
+      "instructions": "Tex-Mex-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie bis zur Verwendung ein.",
+        "Verwende einen Schongarer und gare das Fleisch über Nacht statt auf dem Herd."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2965,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-barbacoa-tacos/",
+      "components": [
+        {
+          "key": "7750fcb7-df67-510b-ad49-35e1b9b60934",
+          "name": "Zutaten",
+          "servingGrams": 324.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "47abdfd7-326e-510a-8262-388e9d76ef95",
+              "ingredientName": "Rinderschulter",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "63deec74-0e2a-56c2-8682-7aba2fa7a609",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fee65ea4-ae9c-5810-87fc-64e58622ea74",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "cdabdd9d-ae94-505e-b570-f1ab39af0316",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13bced80-6d7e-5171-8b48-4d0ade1d72e6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "75fcb36e-e547-59d4-ad06-466882e7aa7d",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "015a657c-ace6-5dbe-9bad-07fc8fade147",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0cb2dd7a-b316-5ed9-890f-3595ec1935af",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1702f61c-a78b-545c-9eaf-b5c5da9b3e07",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Tortillas"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne der getrockneten Chilischoten und röste sie 1 Minute in einer trockenen Pfanne, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die gerösteten Chilischoten in 1 cup heißem Wasser 10 Minuten ein. Püriere sie dann mit Knoblauch, Essig, Kreuzkümmel und Oregano glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe den Rinderbraten mit Salz und Pfeffer ein und brate ihn in einem großen Topf bei hoher Hitze 3 Minuten pro Seite an, bis er gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Chilimischung ab und gieße sie über das Rindfleisch. Gib Rinderbrühe, geviertelte Zwiebel und zusätzlichen Knoblauch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und lasse das Fleisch bei niedriger Hitze 2.5 Stunden köcheln, bis es sehr zart ist und sich leicht zerpflücken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Rindfleisch aus der Flüssigkeit, zerpflücke es mit zwei Gabeln, gib es zurück in den Topf und lasse es weitere 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Maistortillas in einer Pfanne 30 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle die warmen Tortillas mit zerpflücktem Barbacoa und serviere sie mit Zwiebel und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/04/Instant-Pot-Barbacoa-Beef-Recipe-2.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/04/Instant-Pot-Barbacoa-Beef-Recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nachos-supreme",
+      "slug": "gen-nachos-supreme",
+      "title": "Nachos Supreme",
+      "instructions": "Tex-Mex-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Jalapeños aus der Dose statt frischer, um Geld zu sparen.",
+        "Verwende Chips und Beläge von der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2966,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nachos-supreme/",
+      "components": [
+        {
+          "key": "ffd4030e-a93c-567d-a8a8-74be7c9b7af0",
+          "name": "Zutaten",
+          "servingGrams": 335.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec145254-60b7-52dc-9f76-39dffa4ddb7a",
+              "ingredientName": "Tortillachips",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "af5e48dd-0551-5b67-89ba-6fa15ccb1e75",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "41a9e129-c5f5-5cb5-aaef-c90fef21d573",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Päckchen"
+            },
+            {
+              "key": "76dda5c2-1076-5db0-9e33-a14a813d306d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9af5d7ab-55fb-5360-8513-4ac27cddb4cb",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "623f435b-42af-5c63-bd17-5b717fba9dc3",
+              "ingredientName": "Saure Sahne",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "82990f24-20c9-5122-9054-5bc3324ec725",
+              "ingredientName": "Salsa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "5e9b64c0-4f51-510a-a4f6-6efcee033c26",
+              "ingredientName": "Tomate",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "3408b13f-b774-5ddd-b2e7-dc4c163c2aab",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "2674a988-6df4-5f35-874f-1b162e8c571d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Rinderhackfleisch etwa 8 Minuten in einer Pfanne bei mittelhoher Hitze krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Taco-Gewürz und 2 tablespoons Wasser ein und lasse alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile Tortillachips auf einer großen ofenfesten Platte oder einem Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege die Chips mit gewürztem Rinderhackfleisch, Jalapeños und Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie bei 350°F 8-10 Minuten, bis der Käse vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Nachos aus dem Ofen und träufle saure Sahne und Salsa im Zickzack darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib gewürfelte Tomaten, schwarze Oliven und Frühlingszwiebeln darauf und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://irepo.primecp.com/2015/07/228552/Layered-Nachos-Supreme_ExtraLarge1000_ID-1092702.jpg?v=1092702",
+          "sourcePageUrl": "https://irepo.primecp.com/2015/07/228552/Layered-Nachos-Supreme_ExtraLarge1000_ID-1092702.jpg?v=1092702",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jollof-rice",
+      "slug": "gen-jollof-rice",
+      "title": "Jollof-Reis",
+      "instructions": "Nigerianisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tomaten in großen Dosen.",
+        "Verwende gewöhnliche Zwiebeln statt Schalotten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "nigerianisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2967,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jollof-rice/",
+      "components": [
+        {
+          "key": "180849d1-ed97-503f-8e47-582302d2e5de",
+          "name": "Zutaten",
+          "servingGrams": 494.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f03edd88-c255-562b-958c-dedfa5f49b29",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f4a348e4-d0f6-5537-af16-838d90cc9465",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dosen (14 Unzen)"
+            },
+            {
+              "key": "a23707c6-4ca5-5e03-ab13-f34b5a108351",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "70b9eb7f-0cf9-5593-b2b4-9a7dccf7f0aa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "1b5c4de1-218d-55bb-bbd6-2343cb09dff1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "08acf469-4f12-5d5e-8419-bcd11202c56e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "36438fec-440e-5b25-8aee-99ee2dfdea34",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "71254bdd-1d1d-5f6a-94eb-8a63cabe439d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32a05a1f-55a8-54de-b27a-66a0e7b8faac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Tomaten, rote Paprika, Zwiebel, Knoblauch und Scotch-Bonnet-Chili glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und gib Tomatenmark hinein. Gare es 2 Minuten, bis es dunkler wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die pürierte Mischung in den Topf und gare sie 10 Minuten, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Brühe, Salz und schwarzen Pfeffer dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spüle den Reis ab, gib ihn in den Topf, rühre gut um und bringe alles erneut zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf fest ab und gare den Reis 25 Minuten, bis er weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den Reis mit einer Gabel auf und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/S_UeKT6C_VXYk9HzoX78I_31xOc=/5000x3333/filters:fill(auto,1)/NigerianJollofwithBeef_17-01-6d2e6477a95a4ab28ebd14f50d71c7fb.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/S_UeKT6C_VXYk9HzoX78I_31xOc=/5000x3333/filters:fill(auto,1)/NigerianJollofwithBeef_17-01-6d2e6477a95a4ab28ebd14f50d71c7fb.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fufu",
+      "slug": "gen-fufu",
+      "title": "Fufu",
+      "instructions": "Westafrikanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kochbananen in der Saison auf afrikanischen Märkten.",
+        "Maniok ist günstiger als Kochbananen; verwende überwiegend Maniok, wenn das Budget knapp ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "westafrikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2968,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fufu/",
+      "components": [
+        {
+          "key": "e2ec072f-a45c-563c-a83f-80f0374d135c",
+          "name": "Zutaten",
+          "servingGrams": 562.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "1dfab137-8a23-5ff3-b077-9b66c58d5a62",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Stücke, grün"
+            },
+            {
+              "key": "642718be-fff4-571e-ad30-8b8c64d728a4",
+              "ingredientName": "Maniokwurzel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "93dc8918-da2b-5d2c-9d4a-c1ee1e1f4bb3",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "83063039-73ec-536a-9974-5efabbba1aeb",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "93244258-a96c-5815-bd90-52cdf6b056f7",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle Kochbananen und Maniok und schneide sie in Stücke. Entferne faserige Kerne aus dem Maniok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Wasser mit Salz in einem großen Topf auf und gib Kochbananen- und Maniokstücke hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche alles 20-25 Minuten, bis es sehr weich ist und sich leicht mit einer Gabel einstechen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße alles gut ab und hebe 1 cup Kochwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerstampfe die Zutaten mit einem Holzstößel oder Kartoffelstampfer sehr glatt und klebrig. Gib bei Bedarf nach und nach das aufgehobene Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Butter ein und stampfe weiter, bis das Fufu eine dicke, teigähnliche Konsistenz hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es warm mit Suppe oder Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/PMwRNzn-UDc25LdWaDE2DYZZuEI=/4503x3002/filters:fill(auto,1)/yam-fufu-2138088-hero-01-3366d155060e480abaf33cc67031dc9d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/PMwRNzn-UDc25LdWaDE2DYZZuEI=/4503x3002/filters:fill(auto,1)/yam-fufu-2138088-hero-01-3366d155060e480abaf33cc67031dc9d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-egusi-soup",
+      "slug": "gen-egusi-soup",
+      "title": "Egusi-Suppe",
+      "instructions": "Nigerianisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Gemüsebrühe statt Fleischbrühe.",
+        "Kaufe Egusi-Samen auf afrikanischen Märkten in größeren Mengen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "nigerianisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2969,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-egusi-soup/",
+      "components": [
+        {
+          "key": "30e2d9be-17f5-5778-a807-dad13e485019",
+          "name": "Zutaten",
+          "servingGrams": 615.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "603c6bdc-13db-56d1-be84-a8b183ee69b1",
+              "ingredientName": "Egusi (gemahlene Melonenkerne)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "057a7e66-bbdb-5222-a089-5109ef6dad1a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "b904b2e6-1f97-5391-b1a1-a05b8be30e50",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "aeed4dbd-38f5-5569-8e82-71ca11e9e28f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "60b22deb-ea02-5ab0-89e7-81a7deaf696e",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "78b07287-5482-5b0f-9b63-5331135125a5",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dosen (14 Unzen)"
+            },
+            {
+              "key": "109d2b2b-34cd-5b80-b1f6-a475ffb2f5d7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6e40c3c1-e80e-5b1d-a534-87e445cacac9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "2b28ecf7-3cbb-5b2d-9640-422543ed7f49",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "649ba016-2bd9-5118-bc9d-357c281e222a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b8b690d0-31d4-5893-a10f-aa44105e19b4",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "45296a15-3742-5f92-975b-f3a43a05c9f7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Egusi-Samen mit 1 cup Wasser zu einer pastenartigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und bräune Hackfleisch mit gewürfelter Zwiebel 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomatenmark dazu und gare es 2 Minuten. Füge dann Dosentomaten hinzu und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Brühe dazu, gib zerdrückten Knoblauch und Scotch-Bonnet-Chili hinein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und rühre die Egusi-Paste langsam ein, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Suppe 15 Minuten köcheln, gib dann Spinat hinzu und gare ihn weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Chiliflocken und serviere die Suppe heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Meihql139Bs6gmSUb9UftoofaHo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220425-Egusi-Maureen-Celestine-Step5-a39236591db1453f99fb63d0144f7d90.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Meihql139Bs6gmSUb9UftoofaHo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220425-Egusi-Maureen-Celestine-Step5-a39236591db1453f99fb63d0144f7d90.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

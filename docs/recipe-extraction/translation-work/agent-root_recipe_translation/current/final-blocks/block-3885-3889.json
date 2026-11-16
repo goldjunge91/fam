@@ -1,0 +1,1038 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-megruli-khachapuri",
+      "slug": "gen-megruli-khachapuri",
+      "title": "Megruli Khachapuri",
+      "instructions": "Georgisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achte auf Angebote für gereiften Käse auf internationalen Märkten",
+        "Bereite den Teig vorab zu und stelle ihn über Nacht kalt, um aktive Kochzeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "georgisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3885,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-megruli-khachapuri/",
+      "components": [
+        {
+          "key": "171309df-00ee-54e5-a15c-95a0a6085f68",
+          "name": "Zutaten",
+          "servingGrams": 405,
+          "position": 0,
+          "items": [
+            {
+              "key": "e484e796-bb27-574b-b8a3-0441047f4177",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "71a5079e-dda6-57b5-b33f-024e5763b7bc",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "948886d3-99cb-59f9-9c70-f3ad48293811",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "063862ec-8e46-5a3e-ac8b-423c721d3730",
+              "ingredientName": "Geriebener Käse",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2.5 Tassen, geraspelt"
+            },
+            {
+              "key": "473d994d-69d7-5ea2-9207-7a9fd8a53629",
+              "ingredientName": "Feta",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen, zerbröselt"
+            },
+            {
+              "key": "53fdf2b9-8679-5d70-8ce7-60fe948fe108",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "fb10c023-ac72-5e95-a762-d60e7f66f771",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bf256b8-1564-5f24-973b-18834edf9714",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig zu, indem du Mehl, Wasser und Salz vermischst. Knete ihn 8 Minuten und lasse ihn zugedeckt 45 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische beide Käsesorten in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle den Teig zu einem großen dünnen Kreis von etwa 14 Zoll Durchmesser aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Teig auf ein geöltes Backblech und verteile die Käsemischung gleichmäßig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe die Ränder rundherum etwa 2 Zoll nach innen, sodass ein Rand mit sichtbarem Käse in der Mitte entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe das Brot bei 400°F 25-30 Minuten, bis die Kruste goldbraun ist und der Käse zu blubbern beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm es aus dem Ofen, forme 2 kleine Mulden im Käse, schlage je ein Ei hinein und backe es weitere 3-4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche die Kruste mit geschmolzener Butter und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/IM6Emt5kCCS4_qAu24s7DKc4gSU=/5295x3530/filters:no_upscale():max_bytes(150000):strip_icc()/georgian-cheese-bread-recipe-acharuli-khachapuri-1135515-step-04-02-38a4d89dcdec438c8d300789c608d532.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/IM6Emt5kCCS4_qAu24s7DKc4gSU=/5295x3530/filters:no_upscale():max_bytes(150000):strip_icc()/georgian-cheese-bread-recipe-acharuli-khachapuri-1135515-step-04-02-38a4d89dcdec438c8d300789c608d532.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spinach-pkhali",
+      "slug": "gen-spinach-pkhali",
+      "title": "Spinat-Pkhali",
+      "instructions": "Georgischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten statt frischen Spinat, um Kosten und Vorbereitungszeit zu sparen",
+        "Verwende normalen Essig, falls Granatapfelkerne nicht verfügbar sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "georgisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3886,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spinach-pkhali/",
+      "components": [
+        {
+          "key": "ce6b5569-9b2e-5faa-812f-92002b893ca5",
+          "name": "Zutaten",
+          "servingGrams": 702.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed6fe344-2f48-570c-9f62-6937c2be6f3c",
+              "ingredientName": "Spinat",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Tassen, fest eingedrückt"
+            },
+            {
+              "key": "4a2b2bd5-71aa-581e-902a-37ec7d7d313e",
+              "ingredientName": "Walnüsse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "259b4c68-06d6-5af8-89a6-cdebb8eb1d97",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "2db5090d-b9c9-5171-b309-71374afa6440",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "4baca069-940e-53c8-8363-61e7d1ef7cbe",
+              "ingredientName": "Granatapfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2e48033d-1ab2-57c9-95a5-db913dca2e4a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "adde4892-c1fb-5e25-9026-75f2491405ed",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "42384677-eedf-5c91-acc7-144757b70447",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Spinat 2 Minuten in kochendem Salzwasser und drücke dann überschüssige Feuchtigkeit heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Walnüsse 3 Minuten in einer trockenen Pfanne, bis sie duften, und hacke sie dann fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste gehackte Zwiebel 3 Minuten in einer Pfanne weich, gib Knoblauch hinzu und gare ihn 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke den blanchierten Spinat fein und vermische ihn mit Walnüssen, Zwiebelmischung und allen Gewürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Granatapfelkerne oder Essig ein und passe die Würzung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Häufe die Mischung auf einer Servierplatte an und forme sie zu einem Hügel oder zu Bratlingen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren bei Raumtemperatur 10 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mas-nb.ca/wp-content/uploads/2025/12/591737262_10172986893445301_8893852272197070154_n.jpg",
+          "sourcePageUrl": "https://mas-nb.ca/wp-content/uploads/2025/12/591737262_10172986893445301_8893852272197070154_n.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kharcho",
+      "slug": "gen-kharcho",
+      "title": "Kharcho",
+      "instructions": "Georgisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderbraten im Angebot und friere ihn für später ein",
+        "Ersetze Walnüsse durch Erdnussbutter, wenn das Budget knapp ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "georgisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3887,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kharcho/",
+      "components": [
+        {
+          "key": "171fef8c-3b6e-5341-bb51-2ea4c5206abb",
+          "name": "Zutaten",
+          "servingGrams": 467.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0a546a4-82d4-55bb-b7ba-fa4a4118137e",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "e9831d57-640d-5658-bb23-fd7c67d92d17",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "8f97dcc4-8378-5fc8-9405-fc25348cd0a5",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1a1bcaa2-80e0-56b7-b067-3833a009f1b8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "544a098d-eef7-5280-8e29-3568e63a64f1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "8d3e0f67-614a-5203-bda9-ff10e176b369",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "99570deb-ec93-55fe-a327-e969685ccbf4",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse, fein gemahlen"
+            },
+            {
+              "key": "dc21d34a-0faa-56f9-b6f0-6daff2f18d07",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b7699faa-e7b1-573d-b6cb-1d924638d28b",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "05776dea-93a1-5c09-9763-33474e939d90",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher Hitze und bräune Rindfleisch portionsweise 3-4 Minuten. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste gewürfelte Zwiebel im selben Topf 5 Minuten weich, gib Knoblauch hinzu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Rindfleisch zurück in den Topf, gieße Brühe hinzu und bringe alles zum Kochen. Reduziere dann die Hitze und lasse es 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Reis und alle Gewürze ein und lasse die Suppe 20 Minuten köcheln, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische gemahlene Walnüsse mit 1/4 Tasse warmer Brühe zu einer Paste und rühre sie in die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles weitere 5 Minuten köcheln, passe die Würzung mit Salz und Pfeffer an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe die Suppe in Schalen und serviere sie heiß mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/F5V_-nUHFo3H_v6wKS1RcJZJQSI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kharcho-56f9eb9c3df78c7841944390.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/F5V_-nUHFo3H_v6wKS1RcJZJQSI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kharcho-56f9eb9c3df78c7841944390.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kutab",
+      "slug": "gen-kutab",
+      "title": "Kutab",
+      "instructions": "Ukrainisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleischreste oder das günstigste verfügbare Hackfleisch",
+        "Bereite eine doppelte Menge zu und friere übrige Portionen für schnelle Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ukrainisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3888,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kutab/",
+      "components": [
+        {
+          "key": "089633d9-1f42-573c-a692-8d0ad7bc2480",
+          "name": "Zutaten",
+          "servingGrams": 320.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "46e4d063-f13c-5369-a0b2-d2ecd5036c52",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ca78d992-e967-57ba-b05f-024f49c67552",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "e580dfc2-2f3c-52db-877b-178e0349d21c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4ba1f927-d8ff-525e-8411-2e6554b65441",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6bd0c041-babc-5701-a960-59a604450d6d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "749a0bf4-09c4-569f-a045-0da2d385270c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gewürfelt"
+            },
+            {
+              "key": "899f9b9c-1222-59de-bd65-b90faa386949",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "aad3b971-95e7-5633-878d-69b08279bea5",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Wasser, Salz und Öl zu einem weichen Teig, knete ihn 5 Minuten, decke ihn ab und lasse ihn 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Hackfleisch in einer Pfanne bei mittelhoher Hitze und zerteile es während des Garens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebel und Knoblauch zum Fleisch und dünste sie 5 Minuten weich. Würze mit Pfeffer und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 6 gleich große Stücke und rolle jedes dünn oval aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 2-3 Esslöffel Fleischfüllung auf eine Hälfte jedes Teigovals, klappe den Teig zu einem Halbmond zusammen und drücke die Ränder fest zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer Hitze und brate Kutabs je Seite 3-4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sweervywine.com/wp-content/uploads/2014/10/photo-1.jpg",
+          "sourcePageUrl": "https://sweervywine.com/wp-content/uploads/2014/10/photo-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mlyntsi",
+      "slug": "gen-mlyntsi",
+      "title": "Mlyntsi",
+      "instructions": "Ukrainisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Milch statt Vollmilch, um den Fettgehalt zu reduzieren",
+        "Bereite eine große Menge zu und stelle sie kalt oder friere sie ein, damit du sie schnell aufwärmen kannst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3889,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mlyntsi/",
+      "components": [
+        {
+          "key": "3a70f120-8b39-5995-843f-1bb37e04ee00",
+          "name": "Zutaten",
+          "servingGrams": 425,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff086635-2122-556d-a74e-39c98718e97e",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "074d885e-1493-533b-8ab6-e542128bc028",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51d60e8f-e479-5be5-90b4-3fafe796d98b",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c9ebb837-9231-5b64-8f1e-97dd1b4dac3f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "9133068e-3060-500b-9792-1bec43f0b132",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1ce20c31-51c2-5863-b1f7-6df1b720c5ab",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6552319e-8ba0-58d8-a832-fc11b11d595c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e682968c-5f33-513f-a03a-8398b169ac88",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier, Milch, Mehl, Salz und Zucker zu einem glatten, dünnflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl und Butter in einer 10 Zoll großen beschichteten Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 1/4 Tasse Teig in die Mitte und neige die Pfanne sofort, damit sich der Teig dünn kreisförmig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Pfannkuchen etwa 1 Minute, bis die Unterseite goldbraun ist. Wende ihn und backe die andere Seite weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ihn auf einen Teller und wiederhole den Vorgang mit dem restlichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jeden Mlyntsi mit Marmelade, Schokoladenaufstrich oder saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rolle die Pfannkuchen auf und serviere sie warm mit einem Klecks saurer Sahne und nach Wunsch mit Puderzucker bestäubt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlmeetsfood.com/wp-content/uploads/2023/12/Mlyntsi-Crepes.jpg.webp",
+          "sourcePageUrl": "https://girlmeetsfood.com/wp-content/uploads/2023/12/Mlyntsi-Crepes.jpg.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

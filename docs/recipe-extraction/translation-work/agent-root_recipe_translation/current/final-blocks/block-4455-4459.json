@@ -1,0 +1,939 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tompoes",
+      "slug": "gen-tompoes",
+      "title": "Tompoes",
+      "instructions": "Niederländischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Blätterteig statt frischem",
+        "Verwende fertige Glasur und färbe sie selbst ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "niederländisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4455,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tompoes/",
+      "components": [
+        {
+          "key": "10dd6855-dc09-5b4e-b52f-fd0f9af4a14c",
+          "name": "Zutaten",
+          "servingGrams": 330.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "211b38f6-7fde-5c7f-87f3-eb4525f8fdc3",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "1c73d4ee-2465-54a4-bf1b-9f0b82b0862f",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c276bf8b-7eab-5f6f-b2cf-33d1fbed4a95",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e434a0b-9036-569d-bcaa-48a13315e316",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1c365dea-fde8-58ac-9621-1f6c02e369f5",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0eddc7f9-54b3-53d4-b3ea-745f2abff526",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c799d183-af53-5ec2-b33d-5a4949cbcd50",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "98d381e5-57e7-5df1-96e3-8edadcc8a5ce",
+              "ingredientName": "Rosa Lebensmittelfarbe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "einige Tropfen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Blätterteigplatten bei 400°F 12 Minuten backen, bis sie goldbraun sind, dann abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Milch in einem Topf erhitzen, bis sie dampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eigelb mit Zucker und Maisstärke verquirlen, bis die Masse hell ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die heiße Milch langsam unter ständigem Rühren in die Eiermasse gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Masse zurück in den Topf geben und bei mittlerer Hitze unter Rühren garen, bis sie eindickt (etwa 3 Minuten); Vanille dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Creme vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weiße Glasur mit rosa Lebensmittelfarbe vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Blätterteigplatten halbieren, die unteren Schichten mit Creme bestreichen, mit dem restlichen Blätterteig bedecken und mit rosa Glasur überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2023/03/Tompouce-Dutch-Mille-Feuille-Pastry-29-1024x1536.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2023/03/Tompouce-Dutch-Mille-Feuille-Pastry-29-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-advocaat",
+      "slug": "gen-advocaat",
+      "title": "Eierlikör",
+      "instructions": "Niederländischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Großgebinde",
+        "Verwende günstigeren Brandy statt einer Premium-Marke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "niederländisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4456,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-advocaat/",
+      "components": [
+        {
+          "key": "4b4a3ebd-7703-5f64-91aa-b31f6481495a",
+          "name": "Zutaten",
+          "servingGrams": 143.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c926d62-ef83-5238-be5d-d07e38012f4c",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c30cd73-4bbd-5dab-b1eb-b4c6a50d2186",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "693b5d39-1705-5997-bb00-2f37dc08cbfa",
+              "ingredientName": "Brandy oder Rum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "18cef8c2-deb8-51e5-b6da-78c448fed3f4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "98f44cce-381a-5b3f-b77b-4fa04694d630",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Eigelbe in einer hitzebeständigen Schüssel über köchelndem Wasser verquirlen, bis sie 160°F erreichen (etwa 10 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vom Herd nehmen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kondensmilch einrühren, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brandy und Vanilleextrakt dazugeben und alles verrühren, bis es gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Serviergläser gießen, mit Muskat bestäuben und gekühlt oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ThaDc5-FgbXnX--alUh1wx2Rwpw=/4682x3239/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-dutch-advocaat-liqueur-recipe-1128594-step-01-3191b605726142fb97be1526ba7f8958.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ThaDc5-FgbXnX--alUh1wx2Rwpw=/4682x3239/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-dutch-advocaat-liqueur-recipe-1128594-step-01-3191b605726142fb97be1526ba7f8958.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-goulash-suppe",
+      "slug": "gen-goulash-suppe",
+      "title": "Gulaschsuppe",
+      "instructions": "Österreichisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie ein",
+        "Verwende Paprikapulver der Hausmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "österreichisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4457,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-goulash-suppe/",
+      "components": [
+        {
+          "key": "7a80cc3b-bd11-56bd-ba24-bc3d54ea1839",
+          "name": "Zutaten",
+          "servingGrams": 626.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ecf67db-c102-50c4-aa10-757d42424c0d",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "300eb79e-2db1-5a09-8cd4-293eeb8d2ce6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "6db20115-e653-54d7-8f3f-e63c7bcbadfd",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e14fa7db-e990-5200-8299-fd03e649c515",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "ab46cddb-26f2-50eb-aa5a-5a66d8b48d84",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "c8eef906-2d0f-5a4b-b152-ffa2819c0231",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "c8fae507-0923-5ca4-9f30-7bc27e69e765",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "53d4d3d2-5399-5072-8210-6daf50eb8bdd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c28c67a-953f-5e93-bf93-b4479090f86e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "af7d12af-2ae8-5f3c-819e-4eb8bc0056a0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Rindfleisch in 1-Zoll-Würfel schneiden und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen und das Rindfleisch portionsweise etwa 3 Minuten pro Seite anbraten; beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Im selben Topf gewürfelte Zwiebeln und gehackten Knoblauch etwa 4 Minuten anbraten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Paprikapulver und Tomatenmark einrühren und 1 Minute mitgaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Rindfleisch zurück in den Topf geben, Rinderbrühe hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hitze reduzieren und zugedeckt 40 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gewürfelte Kartoffeln und Karotten dazugeben und weitere 20 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und mit Salz und Pfeffer nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipetineats.de/wp-content/uploads/2026/02/4-1.webp",
+          "sourcePageUrl": "https://recipetineats.de/wp-content/uploads/2026/02/4-1.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-erd-pfelpuffer",
+      "slug": "gen-erd-pfelpuffer",
+      "title": "Erdäpfelpuffer",
+      "instructions": "Österreichisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln im Großgebinde",
+        "Verwende Öl der Hausmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "österreichisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4458,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-erd-pfelpuffer/",
+      "components": [
+        {
+          "key": "ea49798b-da12-57a7-89a4-c33916bbc6f9",
+          "name": "Zutaten",
+          "servingGrams": 175.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "750eda7e-8bbb-5d04-8060-f268e728753b",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "f4305d3b-b89a-5eeb-b733-a30cc8aa1546",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "61f863b9-39c5-5abb-abe2-54a7b11cc223",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1435e2c-64bc-5ce9-a036-dfd052d94998",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1adeaebc-6357-53f9-8622-ca919c351db2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "67f74530-7c56-543c-b089-a5cf5d9eeec0",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "65fe9755-f05c-5845-9e55-a00a9c108fcd",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln und Zwiebel schälen und in ein sauberes Küchentuch reiben; überschüssige Flüssigkeit ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In eine Schüssel geben und sofort Eier, Mehl, Salz und Pfeffer unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Portionsweise Löffel der Masse in das heiße Öl geben und mit der Rückseite eines Pfannenwenders flach drücken, sodass Puffer entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3-4 Minuten braten, bis die Unterseite goldbraun und knusprig ist, dann wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 3 Minuten braten, bis die andere Seite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://jewishviennesefood.com/wp-content/uploads/2017/01/Perfect-Potato-Latkes-Yiddish-vs.-Hebrew-Schmaltz--800x1000.jpg",
+          "sourcePageUrl": "https://jewishviennesefood.com/wp-content/uploads/2017/01/Perfect-Potato-Latkes-Yiddish-vs.-Hebrew-Schmaltz--800x1000.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wiener-w-rstl",
+      "slug": "gen-wiener-w-rstl",
+      "title": "Wiener Würstl",
+      "instructions": "Österreichisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Würstchen im Angebot und friere sie ein",
+        "Verwende Sauerkraut aus der Dose"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "österreichisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4459,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wiener-w-rstl/",
+      "components": [
+        {
+          "key": "e2052e37-f0a7-5d08-9b50-bc9ea80ed151",
+          "name": "Zutaten",
+          "servingGrams": 457.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e4ae57b5-67e7-5cf5-baa5-263f8064794e",
+              "ingredientName": "Wiener Würstchen oder Bratwurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dddf0553-fcbc-512d-bf23-0826b48e7cda",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6ca0052-3667-5c01-8b57-7fc32942b9a1",
+              "ingredientName": "Sauerkraut",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "505c61f5-8e27-5dbc-a5da-61c60decef3d",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e131efcd-2ff4-5933-95f8-ae664de1d9de",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "1b44f24c-1e75-54a7-a92a-320abe38c1cf",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eine Pfanne oder Grillpfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Würstchen in die Pfanne geben und unter gelegentlichem Wenden rundum bräunen (etwa 8 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer zweiten Pfanne Butter schmelzen und die dünn geschnittene Zwiebel darin weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Sauerkraut in einem kleinen Topf erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Brötchen aufschneiden und beide Seiten mit Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Je ein Würstchen in jedes Brötchen legen und mit warmem Sauerkraut und gedünsteten Zwiebeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://get.pxhere.com/photo/dish-meal-food-cooking-produce-fast-food-meat-cuisine-sausage-street-food-hot-dog-bratwurst-flavor-wienerle-vienna-sausage-frankfurter-w-rstchen-589231.jpg",
+          "sourcePageUrl": "https://get.pxhere.com/photo/dish-meal-food-cooking-produce-fast-food-meat-cuisine-sausage-street-food-hot-dog-bratwurst-flavor-wienerle-vienna-sausage-frankfurter-w-rstchen-589231.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

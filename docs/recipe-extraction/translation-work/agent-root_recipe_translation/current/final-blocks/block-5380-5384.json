@@ -1,0 +1,1114 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-unagidon",
+      "slug": "gen-unagidon",
+      "title": "Unagidon",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze teuren Aal durch Wels oder Makrele und spare so 3 $ pro Portion.",
+        "Bereite eine Glasur aus Sojasauce und braunem Zucker zu, falls du keinen Mirin hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5380,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-unagidon/",
+      "components": [
+        {
+          "key": "2d15f09c-adb5-5f10-81a4-0b18adb42a36",
+          "name": "Zutaten",
+          "servingGrams": 467.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "eb43c271-a71c-5b14-b3a9-54cf92b967de",
+              "ingredientName": "Aalfilets (oder Wels)",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d075e444-08e0-58be-a027-e5d2cedd4c03",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "201d204a-4b35-5726-a892-d8cce5086442",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c16bc2d3-3c60-512e-85ba-5e711ce5ad00",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "fa72097f-1388-5219-83ae-aa2090af298a",
+              "ingredientName": "Sake zum Kochen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2808a3a5-958f-57af-ac45-f984e939e014",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "22ef4c74-c9ac-5ee3-bd37-4438ba10156b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "96da95a3-ab54-54fd-89a9-81e2d4857708",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cebacb2e-ced2-52ba-b7e8-34b9eb7f7eea",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "a81e6f4c-50c3-52a4-8831-dd6616a5d7f1",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis nach Packungsanleitung und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sojasauce, Mirin, Zucker, Sake und Wasser in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tupfe die Aalf Filets trocken und brate sie mit der Hautseite nach unten 3 Minuten knusprig. Wende sie und brate sie weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Sauce über den Aal und lasse alles 3-4 Minuten köcheln. Übergieße den Fisch gelegentlich mit Sauce, bis diese eingekocht ist und ihn überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den gekochten Reis auf zwei Schüsseln und gib jeweils ein Aalfilet samt Sauce darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue das Gericht vor dem Servieren mit Sesam und geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.checkyourfood.com/content/blob/Meals/Unagi-grilled-eel-recipe-calories-nutrition-facts.jpg",
+          "sourcePageUrl": "https://www.checkyourfood.com/content/blob/Meals/Unagi-grilled-eel-recipe-calories-nutrition-facts.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-karaage-don",
+      "slug": "gen-karaage-don",
+      "title": "Karaage-Don",
+      "instructions": "Ein beliebtes japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen statt Hähnchenschenkeln; das spart $0.50 pro Portion.",
+        "Verwende Frittieröl bis zu 3-mal wieder, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5381,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-karaage-don/",
+      "components": [
+        {
+          "key": "9afe679b-8309-55c8-bfff-5f570699b8e8",
+          "name": "Zutaten",
+          "servingGrams": 495.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "874bc0ce-e341-5e63-b113-cd536c01c0c7",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3a18b8ed-dd0a-511e-a628-dc07ce3281f7",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e75a2976-2db6-53e2-b8b6-dc45eb93d859",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "b87a6d20-5a89-58f9-8b28-300003de054e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "29560719-3d50-500b-b2f9-16f81c50c8d0",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1b486016-2a70-5017-aa84-54eb8d5d31f9",
+              "ingredientName": "Kartoffelstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "590d987a-3eaf-527e-bc91-416c4b8ee4f9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen zum Braten"
+            },
+            {
+              "key": "36929bce-07d2-59ac-b77c-5e4cca004d76",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "a0c3feb3-57c7-5274-bf91-20d6bfb36d60",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e4f210a8-04d7-57a4-9119-64d3b703e07c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenschenkel in mundgerechte Stücke und vermenge sie in einer Schüssel mit Sojasauce, Ingwer und Knoblauch. Lasse alles 10 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Kartoffelstärke in einer flachen Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Öl in einem schweren Topf oder einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tupfe das Hähnchen trocken und wende jedes Stück in der Mehlmischung. Schüttle überschüssige Panade ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere das Hähnchen portionsweise 4-5 Minuten goldbraun und gar. Lasse es auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche den Reis nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den Reis auf zwei Schüsseln und gib die frittierten Hähnchenstücke darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Träufle Mayonnaise darüber, die du mit etwas Sojasauce verrührt hast, und bestreue das Gericht mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2016/09/Karaage-Japanese-Fried-Chicken_4.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2016/09/Karaage-Japanese-Fried-Chicken_4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poke-burrito-bowl",
+      "slug": "gen-poke-burrito-bowl",
+      "title": "Poke-Burrito-Bowl",
+      "instructions": "Ein beliebtes hawaiianisch-mexikanisches Fusionsgericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sushi-Thunfisch im Angebot und friere ihn bis zu 3 Monate ein.",
+        "Verwende Bohnen aus der Dose und gefrorenen Mais zu gleichbleibend niedrigen Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hawaiianisch-mexikanische Fusion",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5382,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poke-burrito-bowl/",
+      "components": [
+        {
+          "key": "726ed02b-56e8-5dcd-bcc2-aaa6a4b8eb9a",
+          "name": "Zutaten",
+          "servingGrams": 787.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4e77adfb-b05a-5a09-9ae1-713022e774fa",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen gewürfelt"
+            },
+            {
+              "key": "0014deb2-4265-5b97-97f5-0730708f9902",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bb3fe6c1-08d7-57e4-b917-944b8b3c3670",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c82bfc19-6cca-5572-978d-51afc707d589",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "f2bce20d-b638-53b8-8f5b-d4848d50d6c8",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose, abgetropft"
+            },
+            {
+              "key": "c9f3857a-b8a1-5663-9340-71a2f3990473",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse tiefgekühlt"
+            },
+            {
+              "key": "07bc542d-4326-5246-9927-b927751edeb1",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 reif"
+            },
+            {
+              "key": "a8e2bda8-b9c4-5075-ad9d-2de6190face9",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "b12d9515-b6ff-57ee-8afd-85cbe6aa04d7",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3908daea-dced-547e-a7c3-4547ff941faf",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce und Sesamöl mit gehackter Jalapeño in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge gewürfelten Thunfisch mit der Sojasaucenmischung und lasse ihn 5 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche den Reis nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze schwarze Bohnen und Mais zusammen 3 Minuten in einem kleinen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Reis auf zwei Schüsseln und richte Bohnen, Mais und marinierten Thunfisch darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide die Avocado in Scheiben und lege sie zu den übrigen Toppings.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frischen Limettensaft über alles und bestreue das Gericht vor dem Servieren mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://joytothefood.com/wp-content/uploads/2021/05/chicken-poke-bowl-4.jpg",
+          "sourcePageUrl": "https://joytothefood.com/wp-content/uploads/2021/05/chicken-poke-bowl-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-korean-beef-bowl",
+      "slug": "gen-korean-beef-bowl",
+      "title": "Koreanische Rindfleisch-Bowl",
+      "instructions": "Ein beliebtes koreanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es portionsweise für schnelle Abendessen unter der Woche ein.",
+        "Lasse das Ei als Topping weg und spare $0.30 pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5383,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korean-beef-bowl/",
+      "components": [
+        {
+          "key": "18c0bb8c-5a0d-5650-997f-bd798bbfffc7",
+          "name": "Zutaten",
+          "servingGrams": 687,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a257b2c-dada-5f69-a018-aa128bcac3f3",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "5f5bcebc-1913-5a32-95ae-4450e151cd74",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0f0b95b8-b7d2-5107-86c0-d6d55d8287e5",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ae30556f-71e7-5c5a-9fdb-b3a6ef752831",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "f4faa432-17c2-5e57-8346-318dd8fa6fd8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "9be3c3bf-49fd-512e-9ea2-60c8de40eed3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9112b8fc-4f72-5c96-96de-dc6da3429c00",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "d0d81414-76ec-50e5-a7b4-e7de8af638d4",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "84ca0280-e732-5ad6-adc0-4b5b492c0fa5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65645b46-7e55-5366-aa7d-174bb3e6a8d4",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "624357f3-835d-5784-9e37-511667d11624",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhackfleisch in einer großen Pfanne bei mittlerer bis hoher Hitze etwa 5 Minuten an. Zerteile es dabei und gieße anschließend überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, Ingwer, Sojasauce, braunen Zucker und Sesamöl zum Fleisch und rühre 1 Minute um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Spinat in einer weiteren Pfanne bei mittlerer Hitze 2 Minuten zusammenfallen und würze ihn leicht mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die Eier in einer kleinen Pfanne als Spiegeleier oder teile den Reis auf Schüsseln auf und gib rohe Eigelbe darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den gekochten Reis auf zwei Schüsseln und gib die Fleischmischung sowie den zusammengefallenen Spinat darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege je ein Spiegelei auf die Bowls und garniere mit Sesam und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2019/07/Korean-Beef-Power-BowlsIMG_0172-760x1140.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2019/07/Korean-Beef-Power-BowlsIMG_0172-760x1140.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-teriyaki-grain-bowl",
+      "slug": "gen-chicken-teriyaki-grain-bowl",
+      "title": "Teriyaki-Hähnchen-Bowl mit Getreide",
+      "instructions": "Ein beliebtes japanisch-amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende weißen statt braunen Reis, um $0.50 pro Portion zu sparen.",
+        "Kaufe Hähnchen im Angebot, mariniere es und friere es für die spätere Essensvorbereitung ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5384,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-teriyaki-grain-bowl/",
+      "components": [
+        {
+          "key": "a778ffa4-9039-5f68-97b3-b7ad1574cbad",
+          "name": "Zutaten",
+          "servingGrams": 505.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "65d45088-bf66-54e0-943d-c24944792a7b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen gewürfelt"
+            },
+            {
+              "key": "b2bf1fa4-7bfd-595a-94a7-c83d85f9eaec",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a07f6af9-1b82-562c-9765-c5a4fb5d7513",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "95a82006-aa7f-50b9-be28-2898d2c455f6",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "51168654-e2e6-5761-a47d-097d9b8161fe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "0102db2c-ea4e-54e7-a180-4e5e63fca077",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "3620cb7c-c172-5973-ad38-a8096ecc4a90",
+              "ingredientName": "Naturreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "7e8f6442-1e11-54c2-abd6-914f4de7b552",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "acaecdaa-ef89-52ca-b13c-84268a977a68",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1e3c8c87-f485-5dd3-935d-7e479b222ec1",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Naturreis nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sojasauce, Mirin, braunen Zucker, Knoblauch und Ingwer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne oder einem Wok bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Hähnchenwürfel unter gelegentlichem Rühren 6-7 Minuten, bis sie durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Brokkoliröschen dazu und brate sie unter Rühren 3 Minuten, bis sie bissfest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Teriyaki-Sauce über Hähnchen und Brokkoli. Rühre 1-2 Minuten, bis alles überzogen ist und die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den Naturreis auf zwei Schüsseln und gib die Hähnchen-Brokkoli-Mischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue alles mit Sesam und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2017/02/chicken-teriyaki-bowl-07.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2017/02/chicken-teriyaki-bowl-07.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

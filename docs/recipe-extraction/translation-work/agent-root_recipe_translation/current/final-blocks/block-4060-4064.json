@@ -1,0 +1,1131 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-yassa-poulet",
+      "slug": "gen-yassa-poulet",
+      "title": "Yassa Poulet",
+      "instructions": "Senegalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Günstige Hähnchenteile wie Schenkel statt Brust verwenden",
+        "Hähnchen über Nacht marinieren, damit es besonders aromatisch und zart wird"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "senegalesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4060,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yassa-poulet/",
+      "components": [
+        {
+          "key": "70c9e34e-27a3-52ca-b932-5fdb27f8e264",
+          "name": "Zutaten",
+          "servingGrams": 273,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae8274ee-3922-59f5-8f13-2ebe16e2224d",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a389d277-df05-5fb1-8566-d8bb31268d8f",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "4b152407-971d-5809-afd9-0609e277e1c1",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fdaeaba3-0f58-57c0-b5ce-c2ba2529347e",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "af02a8c6-49e8-5956-a471-2369715bc805",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0f5ad649-13e9-5c4e-a5ef-16c9f56e744b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "4ad69821-6857-5993-82e7-6560d6ad52ba",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1-2 Stück, gehackt"
+            },
+            {
+              "key": "6260bc85-6607-531c-85df-b40af2bb69a6",
+              "ingredientName": "Senfpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0e58850e-4ddc-5b9c-bca0-3bd79ec00e98",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "93853fc9-fc48-536a-8716-8e969d90dba1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zitronensaft, Essig, Öl, Knoblauch, scharfe Chili und Senfpulver in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen in eine große Form legen, Marinade darüber gießen und mindestens 30 Minuten oder bis über Nacht im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine große Pfanne bei mittelhoher Hitze erhitzen, Hähnchen aus der Marinade nehmen und die Flüssigkeit aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen in der Pfanne insgesamt etwa 8 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geschnittene Zwiebeln in die Pfanne geben und 5 Minuten garen, bis sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aufbewahrte Marinade und Brühe in die Pfanne gießen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze reduzieren, abdecken und 20-25 Minuten köcheln lassen, bis das Hähnchen gar und die Zwiebeln sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/GHg8K9Fc_Vny2QBTCCLILvo-Oio=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Yassa-Chicken-Stew-Process-Hero_2-c86c59eccd6a4e559fc706314a1e90cd.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/GHg8K9Fc_Vny2QBTCCLILvo-Oio=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Yassa-Chicken-Stew-Process-Hero_2-c86c59eccd6a4e559fc706314a1e90cd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-maafe",
+      "slug": "gen-maafe",
+      "title": "Maafe",
+      "instructions": "Senegalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter im Angebot kaufen und portionsweise einfrieren",
+        "Erdnussbutter von Eigenmarken verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "senegalesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4061,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-maafe/",
+      "components": [
+        {
+          "key": "cf3fe36d-c20c-507a-b455-05a9a5a7d903",
+          "name": "Zutaten",
+          "servingGrams": 439.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "d3bdb195-3642-539d-a75f-b96ed636486b",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "e3c49e52-9ecf-5690-9ca4-b884d73c7a6c",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "76586924-8121-5949-875d-99e37da29c1c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "ce154c5d-66cb-51d6-b6e6-ddbc7c04949a",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "c6b2562c-afdb-585d-b801-f6aa6834277d",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "2427b9a1-4544-51a5-9851-c66faec06be2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gehackt"
+            },
+            {
+              "key": "5cc18351-4053-52c1-80fb-6a3492bfb0a3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "78b39c47-772a-5d5a-81dd-7974ae3eddc9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "6d79b7c3-7c8e-521a-84a1-bb5171ac7cc4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "696fadfd-cac1-5544-93e5-90db2b19959f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 ganze Scotch-Bonnet-Chili"
+            },
+            {
+              "key": "8642abc8-841b-5741-bc62-6888ca3c7dad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittelhoher bis hoher Hitze erhitzen und Rindfleisch etwa 8 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln, Knoblauch und Ingwer hinzufügen und 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brühe angießen und zum Kochen bringen, dann Hitze reduzieren und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erdnussbutter mit 1/2 cup heißer Brühe glatt verrühren und dann in den Topf rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Süßkartoffeln, Karotten und eine ganze scharfe Chili hinzufügen und 20-25 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Scharfe Chili herausnehmen und mit Salz sowie Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Reis oder Couscous servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2016/11/peanut-soup-1068x808.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2016/11/peanut-soup-1068x808.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ceebu-jen",
+      "slug": "gen-ceebu-jen",
+      "title": "Ceebu Jen",
+      "instructions": "Senegalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frischen Fisch im Angebot kaufen und sofort einfrieren",
+        "Tomatenmark aus der Dose für gleichbleibende Qualität und niedrigere Kosten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "senegalesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4062,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ceebu-jen/",
+      "components": [
+        {
+          "key": "9151ec59-da72-5c8d-ac64-4c767cf08d99",
+          "name": "Zutaten",
+          "servingGrams": 770,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c5a3db8-f461-5941-b220-e8da168e428e",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "fac17fda-bebc-5982-97ef-a5b8fc67e4bb",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "cc85ad20-1394-51d7-ba3a-b97079e40668",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "73dd1234-fbb8-5efe-bb21-04fd4413502e",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gehackt"
+            },
+            {
+              "key": "6f125014-1a3b-5b5a-b035-c1d0bbb2aca4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "bc30043e-8431-559f-9e8c-ef6bef1be394",
+              "ingredientName": "Tomatenmark",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "15670a2c-7f65-57cc-8ad5-d5e6f0c5d1bd",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "c113af7b-3b39-586c-b327-e2bb7425c150",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Stücke geschnitten"
+            },
+            {
+              "key": "d8e58068-d2dc-5d67-8b55-c8664684f31b",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "0ae82cd3-7e87-53bc-9501-56f23fd7f2d3",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "d94b19e3-ad99-5063-a62a-9fa61addffa8",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Habanero- oder Scotch-Bonnet-Chilis"
+            },
+            {
+              "key": "6e5adeb2-ff74-5dd2-9229-f12aeae5880b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 tbsp Öl in einem großen Topf erhitzen und Fischfilets je Seite 2 Minuten anbräunen, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Übriges Öl in den Topf geben und Zwiebeln sowie Knoblauch 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und unter ständigem Rühren 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brühe angießen und zum Kochen bringen, dann Karotten, Kartoffeln, Aubergine und ganze scharfe Chilis hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "15 Minuten köcheln lassen, bis das Gemüse langsam weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reis hinzufügen und gut umrühren, sodass er vollständig untergetaucht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fisch auf den Reis legen, Hitze reduzieren, abdecken und 20-25 Minuten garen, bis der Reis weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Scharfe Chilis herausnehmen, Reis mit einer Gabel auflockern, mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2016/11/Thieboudienne-2.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2016/11/Thieboudienne-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carbonada",
+      "slug": "gen-carbonada",
+      "title": "Carbonada",
+      "instructions": "Argentinisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pfirsiche aus der Dose statt frischer verwenden, um Kosten zu senken",
+        "Rinderschulter im Angebot kaufen und für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "argentinisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4063,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carbonada/",
+      "components": [
+        {
+          "key": "3561e88a-a6f6-5b74-bb1f-9bbda1083a51",
+          "name": "Zutaten",
+          "servingGrams": 587.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "12812fd3-83e5-5bdb-b4f0-ec9cca74f114",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "1deb158d-3538-5cba-a9ca-633342eb5116",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "ab429fd4-e647-5bf4-b5c5-c2dfa8cae1b8",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "453e1246-9dc6-5eb0-b786-9e093bcf7041",
+              "ingredientName": "Popcornmais",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7a23e4c9-cec5-5a63-acf3-61f640b7887e",
+              "ingredientName": "Pfirsich",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, frisch oder aus der Dose"
+            },
+            {
+              "key": "b4f7a5eb-1bc0-583b-a9e2-a56351f1d536",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "446b2819-5dce-5646-96e1-af2eccc7cfc8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6a5ed94-c845-56dc-bced-4fc3148f0e4c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "eeff78b3-7f64-57da-991d-28e5efb37403",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3614e734-c9f4-5a0e-b40f-e3d50df2cd06",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ba17548f-6635-57b5-92c7-fa4e95629740",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und Rindfleischwürfel von allen Seiten anbräunen, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und gehackten Knoblauch weich und aromatisch anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch zurück in den Topf geben und Rinderbrühe, Kreuzkümmel, Salz sowie Pfeffer hinzufügen; abgedeckt 45 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Kartoffeln und Süßkartoffeln hinzufügen und weitere 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Maiskörner und gewürfelte Pfirsiche einrühren und weitere 10 Minuten ohne Deckel köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und heiß in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Carbonada-Beef-and-Vegetable-Stew.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Carbonada-Beef-and-Vegetable-Stew.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-matambre",
+      "slug": "gen-matambre",
+      "title": "Matambre",
+      "instructions": "Argentinisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flankensteak im Angebot kaufen und bis zur Verwendung einfrieren",
+        "Rinderbrühe von Eigenmarken verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "argentinisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4064,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matambre/",
+      "components": [
+        {
+          "key": "fbb27be4-e3ba-5e4c-8165-f801b8a6929c",
+          "name": "Zutaten",
+          "servingGrams": 265.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3978d9c-1951-5e7d-8957-255069baa635",
+              "ingredientName": "Flankensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "113c8142-bfba-522a-b655-77e9e3d4ca20",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ba52e37-696a-59b4-8990-0f3466ac9f88",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cc47dad-c92a-517d-bb32-06fcb261fd2b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "048bd313-ed4d-55ec-8b7e-3e868d9e430d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "32d3032a-221f-5d72-b42b-0cdc177ae496",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4a97e11b-02e6-5631-9376-d152bd68b0c2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0e7be6f2-3526-538b-93f0-96f73742ecb2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3fa700d3-2c54-54f7-805d-443a3a5bc759",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Flankensteak waagerecht einschneiden, ohne es ganz durchzuschneiden, aufklappen und gleichmäßig flach klopfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Innenseite des Steaks mit Salz und Pfeffer würzen, dann Eier in Scheiben, Karottenstreifen, Paprika und Petersilie mittig darauf anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Steak fest aufrollen und in Abständen von 2 inches mit Küchengarn binden, damit die Füllung hält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einem großen Topf erhitzen und die Matambre-Rolle von allen Seiten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geschnittene Zwiebel und Rinderbrühe hinzufügen, abdecken und 60-70 Minuten köcheln lassen, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen und 10 Minuten ruhen lassen, dann in Scheiben schneiden und mit dem Bratensaft servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2015/09/matambre-1.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2015/09/matambre-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

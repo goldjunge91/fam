@@ -1,0 +1,1141 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fasolada",
+      "slug": "gen-fasolada",
+      "title": "Fasolada",
+      "instructions": "Griechisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Bohnen in größeren Mengen; sie sind deutlich günstiger als Bohnen aus der Dose.",
+        "Verwende selbst gemachte Gemüsebrühe oder Wasser mit Brühwürfeln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2560,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fasolada/",
+      "components": [
+        {
+          "key": "39ce918e-1fea-5e8e-9c9c-dca58cc595a0",
+          "name": "Zutaten",
+          "servingGrams": 662.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "d78b4655-d558-57db-82f9-f807060e877a",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a492e4cc-60d0-5cc9-8e14-aca7be65ec5e",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "61b3fa81-f920-56b2-9465-e52ca771caad",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "822ea93b-621c-504a-950a-b6a4ae1cae03",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d33aeda2-1524-563d-8e73-10949198f57a",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed96c511-ea34-5abf-89a6-7d98a6fab155",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07b966ea-fe93-587e-999c-79287ab1832d",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8bbef05f-52d2-5273-b604-30c2c497be02",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "8421bb21-30ff-51e2-95a5-f92b7234a816",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd7ba646-2a7b-5b14-9ae3-856d169ca8c8",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "023bdff1-fc29-542b-95fa-a0b4e4a8fc40",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "859e968c-012c-5be7-b291-1b371ec6899a",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle getrocknete Bohnen ab und gib sie mit 6 cups Wasser in einen Topf. Bringe alles zum Kochen und schöpfe Schaum ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Bohnen ab und gib sie mit frischer Gemüsebrühe zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle Zwiebel, Knoblauch, Karotte und Sellerie. Gib alles mit Lorbeerblatt in den Topf und bringe die Suppe zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Suppe 45 Minuten köcheln, bis die Bohnen fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Tomatenmark mit Olivenöl und 1/4 cup heißer Brühe in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die Tomatenmarkmischung zusammen mit Salz und Pfeffer in die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass alles weitere 15 Minuten köcheln, bis die Bohnen vollständig weich und cremig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre Essig ein, passe die Würze an und serviere die Suppe heiß mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2017/03/Easy-Greek-Bean-Soup-Recipe-The-Mediterranean-Dish-2.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2017/03/Easy-Greek-Bean-Soup-Recipe-The-Mediterranean-Dish-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-horta",
+      "slug": "gen-horta",
+      "title": "Horta",
+      "instructions": "Griechisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende das günstigste Blattgemüse, etwa Spinat, Grünkohl oder Blattkohl.",
+        "Kaufe Kartoffeln im Sack zum besten Preis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "griechisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2561,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-horta/",
+      "components": [
+        {
+          "key": "ff3ee289-0eb6-5443-87ac-df464f0ec3b8",
+          "name": "Zutaten",
+          "servingGrams": 385,
+          "position": 0,
+          "items": [
+            {
+              "key": "2fd9c288-4bd0-51d4-ac2e-9270999673ae",
+              "ingredientName": "Gefrorenes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "575374e3-ef4c-53ba-99f7-e0d5bb881116",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "a6a1684e-749b-546f-9a18-d910411734eb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2a06621b-ad07-5165-9310-1279af625a0d",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "83d57662-ab69-5f2c-bbcb-f76a31079f3f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ac9f5816-e08c-5a3f-b459-babae332a333",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Kartoffeln in große Stücke und koche sie 15 Minuten in Salzwasser, bis sie gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Putze und spüle währenddessen das Blattgemüse ab und entferne dicke Stiele.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Blattgemüse zu den Kartoffeln in den Topf und lass es 3-5 Minuten köcheln, bis es zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße alles in einem Sieb ab und drücke vorsichtig überschüssiges Wasser heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Gemüse auf eine Servierplatte und beträufle es mit Olivenöl und Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere warm oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://thegreekfood.com/wp-content/uploads/2018/09/horta-e1537362380226.jpg",
+          "sourcePageUrl": "http://thegreekfood.com/wp-content/uploads/2018/09/horta-e1537362380226.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salade-horiatiki",
+      "slug": "gen-salade-horiatiki",
+      "title": "Salade Horiatiki",
+      "instructions": "Griechisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Feta in größeren Mengen oder an der Käsetheke zu einem besseren Preis.",
+        "Verwende entsteinte Oliven, um Zeit bei der Vorbereitung zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "griechisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2562,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salade-horiatiki/",
+      "components": [
+        {
+          "key": "7b07e826-3b58-522d-9ca7-8abf3edf1021",
+          "name": "Zutaten",
+          "servingGrams": 774.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "04606fe2-e69d-5eb5-a349-7f4d93fb4e27",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "6f98f49d-8da0-5daa-98f0-371484b6326e",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "ff11d554-e91c-567a-8637-d0a152b8e9ad",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "dfbd90c5-b1fc-5fcf-8ec7-76c6a8f956f1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f6665d2-a41d-523f-8ab6-bb39f81d9245",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d8e3ef04-0e52-5105-a880-7a9b732dd1ea",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "31c28fd2-2461-5241-9309-a11eff1780cc",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "082e139a-9042-5628-82cd-31734db90aaf",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "99dabcec-39a2-5d0e-82b9-ded334b74e21",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f636a01b-7915-56d2-a10b-3eb4eee838cd",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Tomaten in große Stücke und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Gurke, rote Zwiebel und Paprika in Stücke und gib sie in die Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kalamata-Oliven dazu und würfle den Feta über das Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Olivenöl, Rotweinessig und Oregano in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über den Salat und vermische alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/snej3Ib6cSrdjm_HgXQ9qt-C-2Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__08__20170814-greek-salad-vicky-wasik-8-84d7b60421bc47df8f5292ca3ffddd6f.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/snej3Ib6cSrdjm_HgXQ9qt-C-2Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__08__20170814-greek-salad-vicky-wasik-8-84d7b60421bc47df8f5292ca3ffddd6f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stifado",
+      "slug": "gen-stifado",
+      "title": "Stifado",
+      "instructions": "Griechisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie für später ein.",
+        "Gefrorene Perlzwiebeln sind günstiger als frische und bereits geschält."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2563,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stifado/",
+      "components": [
+        {
+          "key": "9bb5a0bf-951e-564b-a180-34477258a961",
+          "name": "Zutaten",
+          "servingGrams": 157.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8296eb3-eb16-5a37-8629-7d050946a9c6",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "31addd41-2a43-522a-9030-dd10c3197eb9",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9d7d3a4b-6056-5c46-906a-8a234f4fd332",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "54a2005d-8536-56dc-8c4f-d876e972a6af",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ebf5f7f-bb56-5ac3-b8dc-46358768e1dd",
+              "ingredientName": "Rotweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "2e2fa0d2-467d-57a5-86f1-713fad454fa7",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e3f69d8e-9e56-5f64-93db-f86fca9c2835",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3efdee39-2f2e-5aa9-a76c-a13bc5e83e38",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "375d4f40-9993-52b3-ac9d-594b6f5d98a1",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca239ba2-8bba-5ca0-927e-49913bf8258f",
+              "ingredientName": "Ganze Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4191b24a-727d-513d-8b00-cbfc0734f69d",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "3e54d4ea-e389-5dda-81b4-f12405cea3a3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Rindfleisch in 2-inch große Würfel und erhitze Olivenöl in einem großen Topf bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune das Rindfleisch portionsweise 8 Minuten pro Portion und stelle es dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle Perlzwiebeln und Knoblauchzehen und dünste sie im Topf 5 Minuten, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Lösche dann mit Rotwein ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Rindfleisch zurück in den Topf und füge Brühe, Lorbeerblätter, Zimtstange, Nelken, Salz und Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Köcheln, decke den Topf ab und gare das Gericht bei niedriger Hitze 1.5-2 Stunden, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm Lorbeerblätter und Zimtstange heraus und wirf sie weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren. Verteile Rindfleisch und Zwiebeln gleichmäßig auf Schalen und gieße Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2024/05/beef-stifado-1-16-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2024/05/beef-stifado-1-16-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastitsada-corfou",
+      "slug": "gen-pastitsada-corfou",
+      "title": "Pastitsada Corfou",
+      "instructions": "Griechisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen und -schenkel statt eines ganzen Hähnchens.",
+        "Kaufe geriebenen Parmesan statt eines ganzen Stücks, um Zeit und Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2564,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastitsada-corfou/",
+      "components": [
+        {
+          "key": "457087e7-6199-59ca-9dd9-424972e11488",
+          "name": "Zutaten",
+          "servingGrams": 210.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "dcf450e8-31c9-573a-98c4-01890c27ee78",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "2ef80e0a-c7d8-58d0-8d67-7ec00c43c1cc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "56ad143c-9bc8-56d6-9b43-e076429750ab",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "9a140689-fb39-593a-949b-e39054c5ecfa",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6458399b-6a3d-5ae3-9752-d4f77c4d4ca6",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a125510e-42ab-5d19-9634-0736514b7be6",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e068b766-a1ce-5525-80ec-03310b951e1e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2ccd55bb-5538-58f2-8e0e-ef1829b6e89c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f1da268-4d27-5202-b8be-2e170bde381f",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d31553d9-4510-5e32-8b3a-a5f2a8f416bf",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7ff377e-e34e-5b81-b860-3d21c112f6d6",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "a0ed5c61-b0e2-5a52-9b34-10c419513670",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "83c580d7-0b5f-57c2-8e71-ba0167d66fe2",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in große Stücke und erhitze Olivenöl in einem großen Topf bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune das Hähnchen rundherum 10 Minuten. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste gewürfelte Zwiebeln und gehackten Knoblauch etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatenmark dazu und gare es 2 Minuten. Lösche dann mit Rotwein ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Hähnchen mit Brühe, Lorbeerblättern, Zimtstange, Pfefferkörnern und Salz zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und lass alles 60-75 Minuten köcheln, bis das Hähnchen sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche Pasta separat in kochendem Salzwasser bissfest und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile Pasta auf Schalen, gib Hähnchen und Sauce darüber und bestreue das Gericht mit geriebenem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thegreekfood.com/wp-content/uploads/2012/09/greek-moussaka-1024x768.jpg",
+          "sourcePageUrl": "https://thegreekfood.com/wp-content/uploads/2012/09/greek-moussaka-1024x768.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1090 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fattoush",
+      "slug": "gen-fattoush",
+      "title": "Fattoush",
+      "instructions": "Libanesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pita-Chips früher am Tag zubereiten und luftdicht aufbewahren",
+        "Gemüse der Saison zum günstigsten Preis kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "libanesisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2630,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fattoush/",
+      "components": [
+        {
+          "key": "743f2965-a244-5553-bf81-63c2cbc2eb05",
+          "name": "Zutaten",
+          "servingGrams": 467,
+          "position": 0,
+          "items": [
+            {
+              "key": "969f32e4-54dd-549d-8091-651a5604a68d",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 head, gehackt"
+            },
+            {
+              "key": "ec4f1416-ba2f-5aff-9945-fc6f6925e419",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "eaa55c4f-288e-5d6f-99ec-e5d09ad7e2d6",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke, gewürfelt"
+            },
+            {
+              "key": "a12aa5c8-9452-52fc-9b11-387f943f8669",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, gewürfelt"
+            },
+            {
+              "key": "c35f1206-39f5-598c-9289-500b4103e410",
+              "ingredientName": "Radieschen",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "4, dünn geschnitten"
+            },
+            {
+              "key": "ad63feac-74f1-569a-bffb-56426d762cdb",
+              "ingredientName": "Pitabrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c2c7d3c-562b-5746-907b-33d099ea3185",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "66a7ebc2-a1c5-5ae1-be0d-7a58cb1257b0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b584e4a3-7171-5622-8ff2-2fa44680cc77",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "7b961769-d9d3-5bcd-8326-db9f75c23649",
+              "ingredientName": "Sumach",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "06786a1d-0bec-59dc-a926-79dedc0b2759",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 375°F vorheizen und Pitabrot in 1-inch-Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pitabrotstücke mit 1 tbsp Olivenöl, Salz und Pfeffer vermengen, auf einem Backblech verteilen und 8-10 Minuten goldbraun und knusprig rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Salat, Tomate, Gurke, Paprika und Radieschen schneiden und in einer großen Salatschüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zitronensaft, restliches Olivenöl, gehackten Knoblauch, Sumach, Salz und Pfeffer in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dressing über den Salat geben und alles gut vermengen, sodass das Gemüse überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kurz vor dem Servieren die warmen, knusprigen Pitachips daraufgeben und vorsichtig erneut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/u2Eo3zzQHYLhjgWl_kqLjWo4Dc0=/3000x2000/filters:fill(auto,1)/fattoush-recipe-2355947-Hero_01-0a9952605ed34eec9f540ae14a27d91d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/u2Eo3zzQHYLhjgWl_kqLjWo4Dc0=/3000x2000/filters:fill(auto,1)/fattoush-recipe-2355947-Hero_01-0a9952605ed34eec9f540ae14a27d91d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mansaf",
+      "slug": "gen-mansaf",
+      "title": "Mansaf",
+      "instructions": "Essen aus dem Nahen Osten, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammkeule statt Lammschulter verwenden und die Garzeit um 15 Minuten verkürzen",
+        "Pinienkerne auf Märkten mit internationalen Waren kaufen, dort kosten sie 40% weniger als im normalen Supermarkt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "naher-osten",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2631,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mansaf/",
+      "components": [
+        {
+          "key": "ce57893a-f159-591b-a604-4d9df3e3299a",
+          "name": "Zutaten",
+          "servingGrams": 413.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "5daedcc4-2597-539d-9c8e-287fb23f85c6",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "a3d7ee9f-6da6-597c-abd8-5d6f4c63d345",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3da8f8ee-975e-5e5e-8352-478c578ea6cd",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "82ca7e24-0407-5075-860e-ff293a1214ce",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "d6defc7c-48b6-583c-ad15-784e0c3e11ee",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4, fein gehackt"
+            },
+            {
+              "key": "de6ffdc0-6158-5aa0-83a9-260fc321f6a8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6cd3bf0c-75d7-5ea2-b5f4-6de016d252dc",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "b77ce82d-8d4a-5cc5-9b5f-e1914e5ab81d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "693e98b2-e288-5ecc-954d-83ea9a89b391",
+              "ingredientName": "Pitabrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69f44329-13ba-5173-9f70-860d68765aea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f4082337-deb3-5757-a7be-4b7c4bcc39f4",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ghee in einem großen Topf erhitzen und die Lammwürfel portionsweise von allen Seiten anbraten, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf Zwiebeln weich dünsten, Knoblauch und Piment hinzufügen und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lamm zurück in den Topf geben, Hühnerbrühe hinzufügen und aufkochen. Dann die Hitze reduzieren und zugedeckt 45 Minuten köcheln lassen, bis das Lamm zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Joghurt und Maisstärke in einer Schüssel glatt verrühren, dann unter ständigem Rühren langsam 1 cup heiße Brühe aus dem Topf hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Joghurtmischung unter ständigem Rühren langsam zurück in den Topf gießen und 10 Minuten sanft köcheln lassen, ohne sie aufzukochen, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pinienkerne in einer trockenen Pfanne rösten, bis sie duften, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Pitabrot auf eine Platte legen, Lamm und Joghurtsauce darübergeben und mit gerösteten Pinienkernen und frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/48/45/62/picp0Lnee.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/48/45/62/picp0Lnee.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kafta",
+      "slug": "gen-kafta",
+      "title": "Kafta",
+      "instructions": "Libanesisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kafta vorab formen und bis zu 24 Stunden vor dem Garen im Kühlschrank aufbewahren",
+        "Für authentischen Geschmack bei ähnlichen Kosten Lammhackfleisch verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "libanesisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2632,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kafta/",
+      "components": [
+        {
+          "key": "eed124a2-739a-5f45-affd-c4c0ce8bb4f9",
+          "name": "Zutaten",
+          "servingGrams": 141.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "f9a32fdd-a3ba-5cae-8d4a-f63f9726b168",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c25ec6fb-cd5f-53a7-a68f-adaef517604d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große Stücke, fein gehackt"
+            },
+            {
+              "key": "78d71914-d7a0-5146-b992-87aea5fe6ce6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen gehackt"
+            },
+            {
+              "key": "9afed2ec-d6cf-50ff-9e1c-b3ff33e4038a",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "99589b17-a5e7-5759-aa92-6696c3101ad9",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "d80fdeda-d7fd-59b6-8535-b28008d80531",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "44ac7579-73c5-5da6-841f-3bffc7b38363",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "fef8dace-1633-5659-8aa0-7a048751ff04",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ed0b3fac-8400-5b9a-92eb-3221e14c1c02",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "8868a6da-2ca0-55a2-971b-0df08c85af18",
+              "ingredientName": "Pitabrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch, gehackte Zwiebel, Petersilie, Minze, Pinienkerne, Piment, Cayennepfeffer, Salz und schwarzen Pfeffer in einer großen Schüssel vermengen, bis alles gerade vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Mischung in 8 gleiche Portionen teilen und jede zu einem länglichen, etwa 4 inches langen Patty formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Grill oder Grillpfanne auf mittelhohe Hitze erhitzen und den Rost leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kafta 4-5 Minuten pro Seite grillen, bis sie gebräunt und durchgegart ist; dabei möglichst selten wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pitabrot auf dem Grill 30 Sekunden pro Seite erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kafta im warmen Pitabrot mit Tahinisauce, Tomate, Gurke und eingelegter Zwiebel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://yumrecipesfood.com/wp-content/uploads/2025/10/8_gcajo8-1761866962423.jpg",
+          "sourcePageUrl": "https://yumrecipesfood.com/wp-content/uploads/2025/10/8_gcajo8-1761866962423.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-hammour",
+      "slug": "gen-grilled-hammour",
+      "title": "Gegrillter Hamour",
+      "instructions": "Essen aus dem Nahen Osten, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Als günstigere Alternative heimischen Weißfisch wie Wolfsbarsch oder Heilbutt verwenden; die Zubereitung bleibt gleich",
+        "Tiefgekühlte Hamourfilets kaufen und im Kühlschrank auftauen lassen, das spart 30% der Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "naher-osten",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2633,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-hammour/",
+      "components": [
+        {
+          "key": "1e86dd53-efdd-5c20-ab9f-45b4550d3b76",
+          "name": "Zutaten",
+          "servingGrams": 51.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "02cf3a38-8e53-5166-b30b-8c7651dadae3",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Filets, 6 Unzen je"
+            },
+            {
+              "key": "4b52fbb2-386c-57f8-850b-0be17675e6d3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c1e462cf-b375-5723-80d0-38a14653b735",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ae2ef73d-cb6c-5834-8992-ae4be0e88c53",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4, fein gehackt"
+            },
+            {
+              "key": "63c688a7-fff3-5de1-bc00-5494f6a0f2ad",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "8fa22326-13e4-50d9-a17e-f856ce8f28fa",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "4e44e1c2-47c7-5033-8f4c-eb7e79bd6403",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c86f0c24-0e52-54dc-aa4d-7ab7a563b981",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f1b58fae-7893-5f0b-a805-4aeee73433f0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "3176adb5-fcac-5694-a7da-9d73d6e5650b",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl, Zitronensaft, gehackten Knoblauch, Koriander, Petersilie, Salz, Pfeffer, Kreuzkümmel und Paprikapulver in einer Schüssel zu einer Marinade vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fischfilets auf einen Teller legen, beide Seiten mit Marinade bestreichen und 15 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Grill auf mittelhohe Hitze vorheizen und den Rost leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fischfilets mit der Hautseite nach unten auf den Grill legen und 4-5 Minuten garen, ohne sie zu bewegen, bis die Haut goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Filets vorsichtig wenden und weitere 3-4 Minuten garen, bis der Fisch undurchsichtig ist und sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit gegrillten Zitronenspalten, Reis und frischem Salat servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://save.io.vn/uploads/images/recipeiseasy.com/2025/01/04/cider-brined-grilled-stuffed-pork-chops-recipe.jpg",
+          "sourcePageUrl": "https://save.io.vn/uploads/images/recipeiseasy.com/2025/01/04/cider-brined-grilled-stuffed-pork-chops-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-majadra",
+      "slug": "gen-majadra",
+      "title": "Majadra",
+      "instructions": "Libanesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen und Bulgur in großen Mengen auf Märkten des Nahen Ostens kaufen und 50% sparen",
+        "Große Mengen zubereiten und Portionen für einfache Mahlzeiten unter der Woche einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "libanesisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2634,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-majadra/",
+      "components": [
+        {
+          "key": "2d5a40fe-6167-5ace-8694-d11117d9b243",
+          "name": "Zutaten",
+          "servingGrams": 409.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c7860d0-459b-5dc5-8def-2ee7487aec48",
+              "ingredientName": "Braune Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "c410e94a-5521-52e0-a5f1-39d549fcd839",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "aff26cde-f495-5e46-9bbd-3ae6ca8402f9",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "5fb2c5b1-ba1a-5569-9a3a-163f138db810",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "3972e86d-7961-5ce5-81c2-10840db2f4cc",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "8bdf83cc-804e-5c73-a861-6d42410c8e8b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d001d054-3ce0-50e5-a512-95170a974339",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "825a9719-d93d-56b3-966c-85bf650b1a4e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "1e481acd-7987-5e93-84ff-b7763e25fcd8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Linsen unter kaltem Wasser abspülen und durchsehen, um Verunreinigungen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 tbsp Olivenöl in einem großen Topf erhitzen und 2 geschnittene Zwiebeln bei mittlerer Hitze etwa 15 Minuten goldbraun und knusprig braten; herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Im selben Topf das restliche Olivenöl erhitzen und die übrige Zwiebel etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Linsen, Bulgur, Gemüsebrühe, Kreuzkümmel, Salz und Pfeffer in den Topf geben und aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren, abdecken und 20-25 Minuten köcheln lassen, bis die Linsen weich sind und die Flüssigkeit aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit knusprig gebratenen Zwiebeln und frischer Petersilie garnieren, zusätzliches Olivenöl darüberträufeln und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5ddd7f2c0aca3a000a24ce7f/1:1/w_2560,c_limit/Basically-Mujadara-Platter.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5ddd7f2c0aca3a000a24ce7f/1:1/w_2560,c_limit/Basically-Mujadara-Platter.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

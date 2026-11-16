@@ -1,0 +1,1163 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-refried-beans",
+      "slug": "gen-refried-beans",
+      "title": "Bohnenmus",
+      "instructions": "Mexikanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Bohnen aus der Dose von Handelsmarken statt Markenprodukten und spare 20 %",
+        "Lass Jalapeño und Koriander als Garnitur weg, um noch mehr zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "lunch",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5910,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-refried-beans/",
+      "components": [
+        {
+          "key": "84c2f718-ce1d-5477-991e-3cb100d8d53c",
+          "name": "Zutaten",
+          "servingGrams": 140.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8ce6568-471e-5a01-8c40-c6059955b2cc",
+              "ingredientName": "Pinto-Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 oz)"
+            },
+            {
+              "key": "dd880dc8-1c6c-5698-81c5-5d3e59170ed4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "92287ca6-d514-55e5-aa91-fe03965617cf",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "604a1388-5c5d-549c-adba-71708ce0e603",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bf1beda4-dfa9-552f-ba9a-74863a28284c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0cfe8b2f-e870-5cb7-9616-835c6f6fd40a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "9884dcc8-4f35-510b-894b-7853e262b864",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "72430883-62b2-59e4-a8aa-48e55e7dae88",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 (optional)"
+            },
+            {
+              "key": "bb06f469-2275-598b-8349-856712fa94cb",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a9996725-855d-5c92-84c7-4866c2c622a4",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Pinto-Bohnen aus der Dose gründlich unter kaltem Wasser ab und lass sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebel fein und hacke die Knoblauchzehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittlerer Hitze und gib die gewürfelte Zwiebel hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Zwiebel 3-4 Minuten weich, gib dann den gehackten Knoblauch dazu und brate ihn 1 Minute mit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die abgetropften Bohnen, Kreuzkümmel, Chilipulver und Salz in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerdrücke die Bohnen während des Garens 8-10 Minuten mit einem Kartoffelstampfer; lass einige Stücke ganz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Limettensaft und nach Belieben gewürfelte Jalapeño ein und schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gare alles weitere 2 Minuten, bis es vollständig erhitzt ist. Garniere das Gericht mit Koriander und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/-pT_-OHLa4aYfBH7juVN2R1j6ww=/5290x3527/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Refried-Beans-LEAD-1-Horizontal-v2-7587cf956ece4f66985d6a0b4a689001.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/-pT_-OHLa4aYfBH7juVN2R1j6ww=/5290x3527/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Refried-Beans-LEAD-1-Horizontal-v2-7587cf956ece4f66985d6a0b4a689001.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dhal-puri",
+      "slug": "gen-dhal-puri",
+      "title": "Dhal Puri",
+      "instructions": "Frühstück aus Trinidad und Tobago: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gelbe Schälerbsen lose auf karibischen Märkten und spare 50 %",
+        "Verwende das Frittieröl für mehrere Durchgänge wieder, um weniger zu verschwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "trinidadisch",
+        "breakfast",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5911,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dhal-puri/",
+      "components": [
+        {
+          "key": "2bcf09c1-ec8d-5bc5-afff-1056299d9580",
+          "name": "Zutaten",
+          "servingGrams": 363.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "8468be16-23d2-556b-8707-87020ea9b36d",
+              "ingredientName": "gelbe Schälerbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "923833b3-db19-5b35-99a5-c02f6b67092c",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4e177d7d-94b6-55d7-b2d7-921e13320427",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "e9875fbd-49c1-5ebf-911a-a03a36289af6",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "68b72675-91ee-5083-abec-8d91af8edca1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b8d73496-14ec-5955-aa6a-823f4fbeae63",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "2a242476-0b62-55ec-bad5-6b467001b281",
+              "ingredientName": "Kreuzkümmel seeds",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "dc2b9776-ef0e-56b2-b2db-bcc8ae14afb6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f4879c8-26c0-5f23-b70d-655fff8e2004",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ kleine"
+            },
+            {
+              "key": "8544ab08-7dae-5fc6-9c34-d9cd01748efd",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die gelben Schälerbsen 30 Minuten in Wasser ein, lass sie abtropfen und mahle sie grob zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Öl in einer Pfanne und gib die Kreuzkümmelsamen hinein. Lass sie 20 Sekunden rösten, bis sie brutzeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch, gewürfelte Zwiebel und gewürfelte grüne Chili dazu und brate alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die gemahlene Dhal-Paste ein und gare sie unter häufigem Rühren 5-7 Minuten trocken. Stelle sie zum Abkühlen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge Mehl, Backpulver und Salz in einer Schüssel. Gib ½ cup Wasser dazu und knete alles zu einem weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teile den Teig in 6 Portionen und rolle jede auf einer bemehlten Fläche zu einem dünnen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die abgekühlte Dhal-Mischung auf einer Hälfte jedes Kreises. Klappe den Teig zusammen und drücke die Ränder vorsichtig fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erhitze das restliche Öl in einer Pfanne und brate jedes Dhal Puri 2-3 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qYJIEUSMdHX01BoTxeC00tvK6cA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/dhal-puri-56cca0f63df78cfb37a1cced.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qYJIEUSMdHX01BoTxeC00tvK6cA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/dhal-puri-56cca0f63df78cfb37a1cced.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-loukoumades-with-lentils",
+      "slug": "gen-loukoumades-with-lentils",
+      "title": "Linsen-Loukoumades",
+      "instructions": "Griechischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe rote Linsen und Honig in großen Mengen und spare 35 %",
+        "Verwende Speiseöl, das du bereits zum Kochen genutzt hast, um die Ölkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "griechisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5912,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loukoumades-with-lentils/",
+      "components": [
+        {
+          "key": "af972833-23a3-5ee8-b758-663e8cb6f0b6",
+          "name": "Zutaten",
+          "servingGrams": 263.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2685b7a-6605-58ec-b4de-e1248eefa524",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1½ Tassen"
+            },
+            {
+              "key": "ae4ae945-e094-5bfd-b4ff-540a1457a6ee",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "dbd23b63-116c-5616-b204-53ba03266a4b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "46887027-a5c0-5fb8-91a6-0d6da10f0a12",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "7dbab5cd-1698-599e-a623-aa89f4b0e8cc",
+              "ingredientName": "rote Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "344b197b-2288-5832-9da6-68ec4d6fa895",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "7f305c79-58b1-55eb-a12e-9c6de15bc133",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a89deb22-e56d-515b-bc5d-4e6ebbd842ab",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen (zum Frittieren)"
+            },
+            {
+              "key": "bfc41081-142b-5fc0-8ef7-354792ed3f4c",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "024adc7e-0b2d-5479-980e-adb27a1228cd",
+              "ingredientName": "Zitrone zest",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die roten Linsen 15-20 Minuten in Wasser, bis sie sehr weich sind. Gieße sie vollständig ab und zerdrücke sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Mehl, Backpulver und Salz in einer Schüssel. Rühre die zerdrückten Linsen und Wasser ein, bis ein dickflüssiger, klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F (teste die Temperatur mit einem kleinen Teigstück).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib mit einem Löffel vorsichtig walnussgroße Teigportionen ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Loukoumades 2-3 Minuten, wende sie einmal, bis sie rundum goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Loukoumades mit einer Schaumkelle heraus und lege sie auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Honig mit Zimt und Zitronenschale 2 Minuten in einem kleinen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle die heißen Loukoumades mit der warmen Honigmischung und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/10/loukoumades-recipe-6.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/10/loukoumades-recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dal-baati-churma",
+      "slug": "gen-dal-baati-churma",
+      "title": "Dal Baati Churma",
+      "instructions": "Indisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Ghee durch gewöhnliches Öl und spare 40 %",
+        "Lass den Jaggery weg oder verwende normalen Zucker; du kannst die Süße auch ganz weglassen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "dinner",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5913,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dal-baati-churma/",
+      "components": [
+        {
+          "key": "41a45d2a-c2ba-5a6e-93d7-c2e6dec35e1f",
+          "name": "Zutaten",
+          "servingGrams": 844.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b7f5bc5-46d2-5a91-9462-ee7370a30d7d",
+              "ingredientName": "Toor Dal",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f4e6fbda-dfcf-5e8f-8dfe-47a231efab29",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "715e0c34-5376-5357-be75-ef0e18d3eaac",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b4acaf26-537f-5f42-b1be-4ffe444ae9c7",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 60,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "116a3ae1-7e95-5618-bf8c-3793cac4e4d5",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "f8bcc956-d7de-5ccd-83ef-79fc6f1bc7ac",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "018c610a-ddd4-5a68-aae7-5afdc82e5957",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "985cf52a-4f0d-5f77-a5d1-6545b8e98f96",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b9430a3-26cc-5de3-a7c6-b228186c4386",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8327236c-3115-5392-a4fc-7c151b5cfa9e",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "aa863515-4c99-5c8e-b0e0-d15a2a8b26ef",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c68dcd29-3e86-577b-8e2e-e949ad125450",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6a392d25-b99d-5720-9911-04239b7cf0c1",
+              "ingredientName": "brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Toor Dal in 5 cups Wasser mit einer Prise Kurkuma. Nach 35-40 Minuten ist es weich; stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Mehlsorten mit 3 Esslöffeln Ghee, Salz und Wasser zu einem festen Teig. Knete ihn gut durch und teile ihn in 3 Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe die Baati-Kugeln im vorgeheizten Ofen bei 400°F direkt auf dem Rost 20-25 Minuten, bis sie goldbraun und fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze währenddessen das restliche Ghee in einer Pfanne und brate die fein geschnittenen Zwiebeln dunkelgolden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und brate alles 1 Minute. Füge dann gehackte Tomaten und Gewürze hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das Dal in die gewürzte Tomatenmischung, gib Jaggery dazu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Baati aus dem Ofen und wälze sie im gekochten Dal, bis sie rundum überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Baati sofort, mit zusätzlichem Ghee beträufelt und zusammen mit dem übrigen Dal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2018/06/dal-baati-recipe-rajasthani-dal-bati-churma-dal-baati-in-appe-pan-32.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2018/06/dal-baati-recipe-rajasthani-dal-bati-churma-dal-baati-in-appe-pan-32.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-red-lentil-kibbeh",
+      "slug": "gen-red-lentil-kibbeh",
+      "title": "Kibbeh aus roten Linsen",
+      "instructions": "Libanesischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe rote Linsen und Bulgur lose auf Märkten des Nahen Ostens und spare 50 %",
+        "Verwende Frittieröl für mehrere Durchgänge wieder, um weniger zu verschwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "libanesisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5914,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-red-lentil-kibbeh/",
+      "components": [
+        {
+          "key": "8b150a24-1c17-5da4-9f12-c3ada7710053",
+          "name": "Zutaten",
+          "servingGrams": 340,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee539e33-7af5-5df9-ab56-7be2513b1bb7",
+              "ingredientName": "rote Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6d8d73cc-2c9a-53e9-9213-c27bf9eeaa25",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "cb79abb3-c302-5b9f-b4c1-9c77e9045457",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "025760fc-7544-5086-95c4-33ef60f766f1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "422a833a-1d6c-53c5-8111-e8363c7773ab",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "7ae74c79-8313-51e3-9aec-e9f5f14b8207",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "49d23653-b145-5024-943e-4057be206b95",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1596ba25-d5bb-557d-9f1a-9e1e2fda08a4",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¼ Teelöffel"
+            },
+            {
+              "key": "3e188fef-520d-5fd9-8576-605c5d9a1445",
+              "ingredientName": "frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die roten Linsen 12-15 Minuten in Wasser, bis sie sehr weich sind. Gieße überschüssiges Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die gekochten Linsen mit Bulgur, fein gehackten Zwiebeln, 4 Esslöffeln Olivenöl, Salz, Pfeffer und Cayennepfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete die Mischung 2-3 Minuten, bis sie wie ein Teig zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Befeuchte deine Hände und forme aus der Masse ovale oder spitz zulaufende Röllchen von etwa 3 inches Länge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze 2 cups Olivenöl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Kibbeh vorsichtig ins heiße Öl und frittiere sie 2-3 Minuten. Wende sie einmal, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lass sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Kibbeh warm und garniere sie mit frischen Minzblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/GMtFcGxjy_wqQs8uO2GTZoply48=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/3.AssembleKibbehandFryeasy-beginner-kibbeh-recipe-2355367-Final-5bb0c56c4cedfd00260f0053.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/GMtFcGxjy_wqQs8uO2GTZoply48=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/3.AssembleKibbehandFryeasy-beginner-kibbeh-recipe-2355367-Final-5bb0c56c4cedfd00260f0053.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

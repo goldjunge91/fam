@@ -1,0 +1,868 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-pesto-pea-pasta",
+      "slug": "mw-pesto-pea-pasta",
+      "title": "Pesto-Erbsen-Pasta aus der Mikrowelle",
+      "instructions": "Tassenpasta mit Pesto und tiefgekühlten Erbsen – fünf Zutaten aus dem Vorrat, in 9 Minuten fertig.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren; zum Auffrischen zusätzliches Olivenöl unterrühren.",
+      "reheatingInstructions": "45s in der Mikrowelle mit einem Schuss Wasser erwärmen.",
+      "cheapTips": [
+        "Ein Glas Pesto reicht für mehr als 6 Mahlzeiten.",
+        "Tiefgekühlte Erbsen halten sich sehr lange."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pesto",
+          "swap": "Olivenöl, Knoblauchpulver und Basilikum",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger geriebener Käse",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein Löffel Pesto (~$0.40 pro Verwendung) macht Pasta ohne Herd zu einem Gericht wie im Restaurant.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 545,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-pesto-pea-pasta/",
+      "components": [
+        {
+          "key": "6d7c7320-63b2-51aa-8d4a-63bbf7b59e3b",
+          "name": "Zutaten",
+          "servingGrams": 236,
+          "position": 0,
+          "items": [
+            {
+              "key": "52c37dca-3b8f-5535-9979-cc9f785704a6",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1e9f7a7-1f92-5cd4-bd53-2d19f02acb6a",
+              "ingredientName": "Pesto",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e0fc158-a92e-5d00-8b37-b2ccd487004b",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6af37330-d088-5ec0-afd1-41e38311d413",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c25ca4fc-3dcc-5c83-a1f9-bc362f3c60d9",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pasta mit 1 cup Wasser 7 Minuten in einer hohen Schüssel in der Mikrowelle und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die tiefgekühlten Erbsen für die letzten 90 Sekunden dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Wasser vorsichtig ab und achte auf den heißen Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Pesto und Parmesan ein und gib nach Wunsch zum Schluss etwas Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Green_Pesto_Pasta.jpg/960px-Green_Pesto_Pasta.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Green_Pesto_Pasta.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Allen Marx 12 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pesto-Erbsen-Pasta aus der Mikrowelle – grüne Pestopasta mit Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-udon-egg-drop-soup",
+      "slug": "mw-udon-egg-drop-soup",
+      "title": "Udon-Eierstichsuppe aus der Mikrowelle",
+      "instructions": "Vorgegarte Udon-Nudeln in einer schnellen Miso-Ei-Brühe – schlürzbares Wohlfühlessen in weniger als 6 Minuten.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Am besten frisch servieren; die Nudeln quellen beim Aufbewahren auf.",
+      "reheatingInstructions": "60s in der Mikrowelle mit einem zusätzlichen Schuss Wasser erwärmen.",
+      "cheapTips": [
+        "Vakuumverpackte Udon sind günstig und lange haltbar.",
+        "Miso ist eine der besten Zutaten, wenn man Geschmack pro Dollar betrachtet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "udon",
+          "swap": "Soba- oder Reisnudeln",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "miso",
+          "swap": "Gemüsebrühe und zusätzliche Sojasauce",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Vakuumpackung Udon (~$0.80), ein Ei und Miso aus dem Vorrat kosten zusammen etwa $1.60.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 546,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-udon-egg-drop-soup/",
+      "components": [
+        {
+          "key": "8686d4da-a119-5661-9cba-970dfe0271b1",
+          "name": "Zutaten",
+          "servingGrams": 247.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "42cc710c-ec10-55bb-bbf8-18d097483568",
+              "ingredientName": "Udon-Nudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9ff635a-be4d-5f75-8b40-88b3e6dbc011",
+              "ingredientName": "Misopaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b90d7e2-8101-5f3e-b741-40797db86c7d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "860455f0-85e8-5eff-8cbe-44084a21b1d0",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40964abc-bd9f-5c86-8cf2-eb92d9bfcd49",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47107dd3-97df-5ca0-85b4-bfd62ab09718",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Miso mit 1.5 cups Wasser in einer tiefen, mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Udon und tiefgekühlten Spinat dazu und erhitze alles 3 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle das Ei in einer Tasse und träufle es unter Rühren mit einer Gabel in die heiße Brühe, sodass feine Eierfäden entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze alles weitere 60 Sekunden in der Mikrowelle. Gib Frühlingszwiebel und Sojasauce darüber. Vorsicht, heißer Dampf!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Miso_nikomi_udon_by_shibainu_in_Suginami.jpg/960px-Miso_nikomi_udon_by_shibainu_in_Suginami.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Miso_nikomi_udon_by_shibainu_in_Suginami.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: shibainu — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Udon-Eierstichsuppe aus der Mikrowelle – Udon-Nudeln in einer warmen Misobrühe, serviert in einer Keramikschüssel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-tomato-chickpea-pasta",
+      "slug": "mw-tomato-chickpea-pasta",
+      "title": "Tomaten-Kichererbsen-Pasta aus der Mikrowelle",
+      "instructions": "Pasta mit gehackten Tomaten und Kichererbsen – eine vegane Eiweißquelle aus dem Vorratsschrank.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 9,
+      "storageInstructions": "In einem luftdichten Behälter bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "90s abgedeckt mit einem Schuss Wasser in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kichererbsen aus der Dose sind pro Gramm günstiger als Tofu.",
+        "Eine kleine Dose gehackte Tomaten reicht aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen oder Linsen",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Einfache Tomatensoße",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Dose Kichererbsen (~$0.55) und Soße aus dem Vorrat kosten zusammen mit Pasta etwa $1.80.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan",
+        "proteinreich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 547,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-tomato-chickpea-pasta/",
+      "components": [
+        {
+          "key": "f429acee-27ab-56f2-97e6-0458b5b2050f",
+          "name": "Zutaten",
+          "servingGrams": 482.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5da5705-ac13-57c4-9905-ec346bb7f18b",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e84546b0-f177-5c8c-8163-8d076e26c7be",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67e1ce31-ef7f-5f20-a4c1-90a278ed392b",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79e6d9c5-b62a-5fbf-9278-286e0842f699",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "748f0953-4571-5199-a810-4dcebad62fc5",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7da7ce40-dcfb-56db-bbb2-6785662b6a79",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "cef5d2f0-622a-50f3-8360-fdec01857bde",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pasta mit 1 cup Wasser 7 Minuten in einer tiefen Schüssel in der Mikrowelle und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße überschüssiges Wasser vorsichtig ab und achte auf den heißen Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre abgetropfte Kichererbsen, gehackte Tomaten, Knoblauchpulver und italienische Gewürzmischung ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze alles weitere 90 Sekunden, bis es durchgewärmt ist. Träufle Olivenöl darüber und bestreue die Pasta mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pasta_e_ceci_%28Anelli%29_2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pasta_e_ceci_(Anelli)_2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo by Alice Wiegand (Wikimedia user Lyzzy) — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pasta e ceci (Pasta mit gehackten Tomaten und Kichererbsen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-cheesy-bean-pasta",
+      "slug": "mw-cheesy-bean-pasta",
+      "title": "Käsige Bohnen-Pasta aus der Mikrowelle",
+      "instructions": "Pasta, schwarze Bohnen und Käse zu einer käsigen Bohnenpfanne verschmolzen – nur eben in einer Schüssel.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "In einem luftdichten Behälter bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "90s abgedeckt mit einem Schuss Wasser in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Pasta, Bohnen und Käse vom Hauslabel ergeben die günstigste sättigende Mahlzeit.",
+        "Salsa ersetzt 5 andere Würzsoßen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Frischkäse",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Dose Bohnen (~$0.50), Pasta und Käsereste kosten zusammen weniger als $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 548,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-cheesy-bean-pasta/",
+      "components": [
+        {
+          "key": "7439ec89-fc1c-5573-ae58-263ac912ecd4",
+          "name": "Zutaten",
+          "servingGrams": 403.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d63ac260-b832-5cf8-8e2c-afaf2a8be460",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e96e1493-1b1f-5a81-a08e-67fc0ed85523",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8635a9fb-819b-596e-8f92-97f1de8f47ab",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8558ef38-d9ae-5cb1-9d12-c1c8daea0d71",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dfd412e-cdb2-5682-9a22-4762ed6ee8fb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60a74592-b07a-52aa-9133-8ef390145104",
+              "ingredientName": "Chilisauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pasta mit 1 cup Wasser 7 Minuten in der Mikrowelle und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße überschüssiges Wasser vorsichtig ab und achte auf den heißen Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre abgetropfte Bohnen, Salsa und Kreuzkümmel ein und erhitze alles 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Käse darüber und erhitze alles weitere 30 Sekunden, bis er geschmolzen ist. Zum Schluss scharfe Soße darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1701484185547-a71576b65e1a?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1701484185547-a71576b65e1a",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von käsiger Bohnen-Pasta",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-curry-noodles",
+      "slug": "mw-curry-noodles",
+      "title": "Curry-Nudeln aus der Mikrowelle",
+      "instructions": "Reisnudeln in Kokos-Curry-Brühe mit tiefgekühltem Gemüse – eine cremige Schüssel mit dem Geschmack von Essen zum Mitnehmen.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Am besten frisch servieren; die Nudeln quellen über Nacht auf.",
+      "reheatingInstructions": "60s in der Mikrowelle mit einem Schuss Wasser oder zusätzlicher Kokosmilch erwärmen.",
+      "cheapTips": [
+        "Eine kleine Dose Kokosmilch reicht für 4 Portionen.",
+        "Currypaste hält sich monatelang im Kühlschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-noodles",
+          "swap": "Ramen-Nudeln, ohne Gewürzpäckchen",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "curry-paste",
+          "swap": "1 tsp Currypulver und eine Prise Salz",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Reisnudeln (~$0.50), eine viertel Tasse Kokosmilch und Currypaste aus dem Vorrat kosten zusammen etwa $1.70.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "thailändisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 549,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-curry-noodles/",
+      "components": [
+        {
+          "key": "2e844b44-c5cd-510e-bcc7-aa4d6704c71c",
+          "name": "Zutaten",
+          "servingGrams": 363.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6641793-98b4-5782-b8ae-75eb52706d55",
+              "ingredientName": "Reisnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48ef177d-d806-5875-912c-9b6a6c64b3c9",
+              "ingredientName": "Kokosmilch",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "693d807c-16fb-5829-9d70-a5559ecf8626",
+              "ingredientName": "Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f1c5d01-cdeb-5d84-aae9-d2a71d9a69e2",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1f4a740-ba8f-5118-9c69-cc8b3f8d7ef0",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8c81640-ec4a-50c7-8cdd-eca71d7dbc3a",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kokosmilch, Currypaste und 1 cup Wasser in einer tiefen, mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Reisnudeln und tiefgekühltes Gemüse dazu. Erhitze alles 4 Minuten in der Mikrowelle und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 2 Minuten stehen, damit die Nudeln vollständig weich werden. Vorsicht, heißer Dampf!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre vor dem Servieren Sojasauce und einen Spritzer Zitrone ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Curry_Mee_at_Sister_Curry_Mee_in_Penang.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Curry_Mee_at_Sister_Curry_Mee_in_Penang.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: JB Macatulad — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Curry-Nudeln aus der Mikrowelle",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

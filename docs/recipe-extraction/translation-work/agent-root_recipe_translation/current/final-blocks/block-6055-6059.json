@@ -1,0 +1,1023 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ker-sangri",
+      "slug": "gen-ker-sangri",
+      "title": "Ker Sangri",
+      "instructions": "Rajasthanisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bestelle getrocknete Ker-Beeren und Sangri-Schoten online in größeren Mengen.",
+        "Dieses Gericht wird mit saisonalem Wüstengemüse zubereitet."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "rajasthanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6055,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ker-sangri/",
+      "components": [
+        {
+          "key": "c74eebc9-b608-52db-b14e-742862940971",
+          "name": "Zutaten",
+          "servingGrams": 216.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "78f81331-045e-5592-803a-ed3aa099c5c3",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ec6035d3-0b29-5e30-a0e6-7730f3c33d79",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d6f580d0-cba0-5982-b1ae-a048c77c124d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "b68c3d50-1695-5565-88ac-4637aa7e8c45",
+              "ingredientName": "Passierte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "cf9b4d81-fbcd-5e3a-aec9-d16b34a1f8f4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a308ee5d-5c90-5ba3-b960-d3d8cf7cadc7",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "5b37e47a-34dd-5e05-855b-832674c0c670",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "947b432c-9a67-5f4b-8f9a-78f59f365941",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "4d68c689-988d-5d5d-89ad-98496e691c06",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d35c0e1f-4749-5559-8b88-2a3c4f277a6b",
+              "ingredientName": "Getrocknete Mango",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Ker-Beeren und Sangri-Schoten 30 Minuten in warmem Wasser ein und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne, gib Kreuzkümmelsamen hinein und röste sie, bis sie aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Zwiebeln dazu und brate sie etwa 4 Minuten hellgolden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge eingeweichte Ker-Beeren und Sangri hinzu, rühre gut um und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackte Tomaten, Kurkuma und Chilipulver dazu und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare das Gemüse bei mittlerer Hitze 10-12 Minuten unter gelegentlichem Rühren, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Füge Amchur-Pulver und Salz hinzu, rühre um und gare alles 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß als Beilage zu Brot oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.foodie-trail.com/wp-content/uploads/2021/11/20211104_174813448_iOS-scaled.jpg",
+          "sourcePageUrl": "https://www.foodie-trail.com/wp-content/uploads/2021/11/20211104_174813448_iOS-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bajra-roti",
+      "slug": "gen-bajra-roti",
+      "title": "Bajra Roti",
+      "instructions": "Rajasthanisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bajra-Mehl in größeren Mengen in indischen Lebensmittelgeschäften.",
+        "Eine Portion ergibt mehrere Rotis, die länger frisch bleiben."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "rajasthanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6056,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bajra-roti/",
+      "components": [
+        {
+          "key": "bd40c735-1724-5c54-a3ea-962c029f04b4",
+          "name": "Zutaten",
+          "servingGrams": 185.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "54c5e6e5-1a32-5bb5-9aaf-282a7debea42",
+              "ingredientName": "Hirse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0f812682-38f7-5c84-afe0-a688d8ce9c1e",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "eb2bf92f-58d6-53bc-9b1c-d72ba9f7e8b2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "14e5419f-eeec-5b21-b071-0a256a9556bd",
+              "ingredientName": "Ghee",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Bajra-Mehl und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach warmes Wasser hinzu und knete einen weichen Teig. Verwende bei Bedarf mehr Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in 6-8 gleich große Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine gusseiserne Platte oder Tawa bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege eine Teigkugel zwischen zwei Stücke Frischhaltefolie und drücke sie mit der Handfläche zu einem dünnen Kreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Roti auf die heiße Platte und backe sie 1-2 Minuten, bis hellbraune Flecken entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende sie und backe die andere Seite 1-2 Minuten. Drücke sie vorsichtig mit einem Tuch an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche beide Seiten mit Ghee, falte die Roti und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/5f6f8fdd-5f9f-4ae5-a422-408e07199ec3/Chhayas+food+bajra+roti+-+ready+to+eat",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/5f6f8fdd-5f9f-4ae5-a422-408e07199ec3/Chhayas+food+bajra+roti+-+ready+to+eat",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pyaaz-ki-kachumbari",
+      "slug": "gen-pyaaz-ki-kachumbari",
+      "title": "Pyaaz ki Kachumbari",
+      "instructions": "Rajasthanisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Zwiebeln, die gerade im Angebot sind.",
+        "Diese schnelle Beilage muss nicht gekocht werden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "rajasthanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6057,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pyaaz-ki-kachumbari/",
+      "components": [
+        {
+          "key": "cccdfb1d-ab0d-5201-8711-2962518d49da",
+          "name": "Zutaten",
+          "servingGrams": 166.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a0dc0b1-979a-5bce-9c9d-1183b34392da",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "de8fd509-2234-51c2-bc03-027f69ddea73",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a652c9bd-ac69-5079-95ce-e41b904f3349",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "bf564229-2a3b-545b-9c02-c403618045e0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "7a68631a-7dab-5eeb-9046-1c821b067b83",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e45d965f-ec31-5251-8573-1451c9bd366b",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide rote Zwiebeln in dünne Scheiben und gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streue Salz über die Zwiebeln und lasse sie 2-3 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib frischen Zitronensaft hinzu und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Chilipulver, geröstete Kreuzkümmelsamen und gehackten Koriander über die Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere den Salat sofort als frische Beilage zu einer beliebigen Mahlzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/UOCM27z2_T4E0gexv3LUlbOuz6U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240808-SEA-KachumbariKenyanTomatoSalad-AmandaSuarez-05-44fa04a01f1943d5851ac3da2e801a7f.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/UOCM27z2_T4E0gexv3LUlbOuz6U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240808-SEA-KachumbariKenyanTomatoSalad-AmandaSuarez-05-44fa04a01f1943d5851ac3da2e801a7f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-missi-roti",
+      "slug": "gen-missi-roti",
+      "title": "Missi Roti",
+      "instructions": "Rajasthanisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsenmehl in größeren Mengen.",
+        "Bereite mehrere Fladen vor und bewahre sie für ein schnelles Frühstück im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "rajasthanisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6058,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-missi-roti/",
+      "components": [
+        {
+          "key": "16d90f43-9576-55f3-9107-155a9c1ee6e3",
+          "name": "Zutaten",
+          "servingGrams": 238.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "861b5d94-6f34-596b-a584-fcc07626796c",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d9e02796-6612-5dbe-8c51-1ce47f07d135",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e59fb205-2b47-5a53-ab0c-22f03da9bcf5",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "f0347207-d035-5ff1-b01b-a242f6487a4d",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e136925-a06e-553c-8ef7-1fa1d2ca5e29",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9a735436-2edc-5cfc-a2ea-a0bf6a9954fa",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "dd243787-503c-54f2-b99c-907d9e123b8c",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "f38ed373-7a2a-5cc9-ab7d-1727d3f8f3c2",
+              "ingredientName": "Sesam",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "89090213-0587-5c6b-aab1-657a0bdd1cfb",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kichererbsenmehl, Weizenmehl, Zwiebel, grüne Chili, Koriander, Salz und Ajowan in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach Wasser hinzu und knete einen weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile ihn in 6-8 gleich große Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine Tawa oder Grillplatte bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücke jede Kugel zwischen Frischhaltefolie zu einem dünnen Kreis und lege ihn auf die heiße Platte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe ihn 1-2 Minuten, bis hellbraune Flecken entstehen. Wende ihn und backe die andere Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche beide Seiten mit Öl und serviere die Roti heiß mit Pickles oder Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/masalachilli.com/wp-content/uploads/2019/01/Methi-Missi-Roti-2.jpg?fit=2212%2C3238&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/masalachilli.com/wp-content/uploads/2019/01/Methi-Missi-Roti-2.jpg?fit=2212%2C3238&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mangodi",
+      "slug": "gen-mangodi",
+      "title": "Mangodi",
+      "instructions": "Rajasthanisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mung-Dal in größeren Mengen in indischen Geschäften.",
+        "Bereite eine große Menge zu und bewahre sie für verschiedene Gerichte auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "rajasthanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6059,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mangodi/",
+      "components": [
+        {
+          "key": "d8248326-0318-528a-9450-03435f7d2d80",
+          "name": "Zutaten",
+          "servingGrams": 278.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "678486a6-dcad-5027-a483-2915d0747fd2",
+              "ingredientName": "Schälerbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c0ed9946-3a9b-5232-a031-cf15a0daff80",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "2854f0b2-6aa9-5ae1-a7a8-49f5b79dbfb5",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "63edbaf3-7595-5187-888c-1c7e29ffede8",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ef63a18-badd-5255-bd67-496c64da0965",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "912dee17-4a2c-57e5-9ac4-add63e2597cd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3139b5e4-5e95-5b5a-8c03-aca9a1054e9d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7f067064-2bb1-5cf5-971d-e1b06dd202ad",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Mung-Dal 30 Minuten in Wasser ein und gieße ihn vollständig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mahle den eingeweichten Dal zu einer dicken Paste. Sie sollte nicht zu glatt sein und noch etwas Struktur haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerstoßene schwarze Pfefferkörner, Kreuzkümmelsamen, grüne Chili, Ingwer und Salz zur Paste und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Mischung in einen Spritzbeutel mit kleiner runder Tülle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spritze kleine, etwa murmelgroße Kugeln direkt ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frittiere sie 3-4 Minuten goldbraun und knusprig. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse die Mangodi vollständig abkühlen; dabei werden sie knusprig. Bewahre sie bis zu 2 Wochen in einem luftdichten Behälter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Verwende sie in Currys oder serviere sie als Snack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/f20ce720-56aa-4d7a-b295-86f548feebe0/4A03A21D-79DB-4AA4-96A8-074ADE8DC700.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/f20ce720-56aa-4d7a-b295-86f548feebe0/4A03A21D-79DB-4AA4-96A8-074ADE8DC700.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

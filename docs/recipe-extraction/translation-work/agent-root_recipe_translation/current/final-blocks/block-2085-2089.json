@@ -1,0 +1,1153 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53224",
+      "slug": "tmdb-53224",
+      "title": "Pistazien-Kunafa-Schokoladenkuchen und Cupcakes",
+      "instructions": "Saudi-arabisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "saudi-arabisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2085,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53224/",
+      "components": [
+        {
+          "key": "47694d88-3eef-5722-9d64-3a03b40a57b3",
+          "name": "Zutaten",
+          "servingGrams": 734.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "dcabc629-3571-5421-9064-33b69f316664",
+              "ingredientName": "Weiße Schokotropfen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbe75c9d-0600-5d32-ad96-604de2e31b29",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4481997b-bd46-5443-bb07-f327997c0cf9",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f10aa464-79a8-5fdd-ade5-2d3ef77ef441",
+              "ingredientName": "Milch",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3073acd-ce9c-5bc4-9fc7-7d65a952e4af",
+              "ingredientName": "Frischkäse",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "701f27a8-e401-5975-b9f4-20e43c455e2b",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "944351b2-4db3-5219-bf59-1743cfb8f0b0",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe242d72-cc2a-5845-bf53-b0f53af8e008",
+              "ingredientName": "Vermicelli (Sevaiiya)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e518581a-47cd-598b-8fad-969b04aef390",
+              "ingredientName": "Ghee",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eacfccda-50ea-58bf-98c5-568bd4ef0b3b",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35c2087a-2b01-5754-be3d-fea3c6e12e6a",
+              "ingredientName": "Malai (Rahm)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Schokoladenkuchen: Alle Zutaten bereitstellen. Oreo-Kekse fein mahlen, eine Prise Salz dazugeben und nach Bedarf warme Milch einrühren, bis ein Kuchenteig entsteht. Backpulver und Essig dazugeben und vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Springform einfetten. Eine 1cm dicke Teigschicht hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Im vorgeheizten Ofen bei 160°C 7–8 Minuten backen oder bis ein hineingestecktes Messer sauber herauskommt. Auf einem Kuchengitter abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die hausgemachte Pistazienpaste: Alle Zutaten bereitstellen. Weiße Schokolade im Wasserbad leicht schmelzen (sonst kann das Mixermesser brechen). Pistazien im Mixer grob mahlen. Kondensmilch dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Leicht erwärmte und leicht geschmolzene weiße Schokolade sowie nach Bedarf Milch dazugeben und zu einer glatten Paste zerkleinern. (Grüne Lebensmittelfarbe kann hinzugefügt werden; ich habe keine verwendet.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Kunafa: Ghee in einer Karahi erhitzen und die Vermicelli bei niedriger Hitze rösten. Rühren, bis ein angenehmer Röstduft entsteht. Abkühlen lassen. Hausgemachte Pistazienpaste dazugeben und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die köstliche Kunafa ist fertig. Eine 2 cm dicke Schicht auf dem abgekühlten Schokoladenkuchen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zartbitterschokolade und passierte Malai schmelzen und zu einer Schokoladenganache verrühren. Abkühlen lassen und über die Kunafa-Schicht gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Pistazien-Kunafa-Schokoladenkuchen mit gehackten Pistazien und silbernen Zuckerperlen garnieren. 2–3 Stunden im Kühlschrank kühlen. Dann den Kunafa-Kuchen aus der Form lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Ich habe auch Kunafa-Cupcakes zubereitet. Anschneiden und genießen. Der Kuchen sah so hübsch aus, dass man ihn entweder aufheben oder gleich essen konnte! ☺",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Ansicht des aufgeschnittenen Pistazien-Kunafa-Schokoladenkuchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Genieße diese neue süße Köstlichkeit in der Festzeit mit Familie und Freunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yh3sg71763741307.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yh3sg71763741307.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53160",
+      "slug": "tmdb-53160",
+      "title": "Pisto mit Eiern",
+      "instructions": "Spanisches vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2086,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53160/",
+      "components": [
+        {
+          "key": "03b9daa4-4984-57a1-a3e3-a7c4b59b0509",
+          "name": "Zutaten",
+          "servingGrams": 683.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f89e1f2c-3ead-51cb-b2ed-512446f3cce9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f77bdef-f277-5c6b-9536-bded2c53d6fe",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a00c785e-413a-5676-ba9e-e0912299bbe3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1f0eb90-dbd6-59cb-8916-6ef76fc200a3",
+              "ingredientName": "Gemischtes Gemüse (tiefgekühlt)",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f692e9f-93b3-592d-9e2e-6f130d2ebfe8",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b05485ca-89e0-52bc-912b-283f06c2b9cc",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "349055dd-c076-5d61-985f-2df595cdfa0f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5c6d92e-91fd-58d8-ba57-a81898419354",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bccfc89-6f40-5517-8675-5f170c4027a7",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8471f28b-c671-5fe7-bc83-a57e614c0050",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c3b4914-84f4-590c-a11c-a879745970a8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "761991b4-84a7-5ee8-aa01-3db69ff787b2",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer großen feuerfesten Auflaufform oder gusseisernen Pfanne bei niedriger Hitze erhitzen. Zwiebeln und eine Prise Salz dazugeben, abdecken und 15 Minuten sanft garen; gelegentlich umrühren. Knoblauch dazugeben und weitere 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paprika dazugeben und zugedeckt bei mittlerer Hitze etwa 5 Minuten garen; gelegentlich umrühren, bis sie gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Oregano, Thymian, Lorbeerblätter, etwas schwarzen Pfeffer und bei Bedarf etwas Salz einrühren. Zucchini und Aubergine dazugeben, gut vermengen und zugedeckt bei mittlerer Hitze 10 Minuten garen. Tomaten einrühren, abdecken und 20 Minuten garen; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier vorsichtig über dem Pisto aufschlagen und versuchen, das Eigelb nicht zu beschädigen. Bei mittlerer Hitze 5–6 Minuten in der Sauce garen, bis die Eier durch, aber noch leicht weich sind. Vor dem Servieren mit Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/0nswfe1763279040.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/0nswfe1763279040.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53014",
+      "slug": "tmdb-53014",
+      "title": "Pizza Express Margherita",
+      "instructions": "Italienisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "verschiedenes"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2087,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53014/",
+      "components": [
+        {
+          "key": "1a021dc6-5996-5670-9bc8-03747cfd53c5",
+          "name": "Zutaten",
+          "servingGrams": 214.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fec56c5-7c94-597d-84e5-187d2a6cff19",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fce9263-aee2-579e-b734-57b7a8805723",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96e6bcaa-05f1-591a-a87b-d8fd896ae032",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adc8d777-01b7-59cb-a96d-03d2009dc649",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "189902dd-e92c-5188-853c-909f469f5fa5",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0746c1c7-9cc6-5cba-8c3e-c26f60e86a29",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d37c53d-2f96-506c-8a57-3b7ec76160e3",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "160cebc4-b047-5c35-b87b-e27a8b4e0c39",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc2132e4-fb6e-525f-8c20-2a82f770d31d",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34041df0-fdf3-56b2-9bfc-3b7e15942e5f",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29f951b3-710c-54a7-ba00-c8cd98c41985",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 Backofen auf 230°C vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Zucker und frische Hefe in das warme Wasser bröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3 Die Mischung 10–15 Minuten an einem warmen Ort stehen lassen (wir finden eine sonnige Fensterbank am besten), bis sich Schaum an der Oberfläche bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "4 Mehl und Salz in eine große Rührschüssel sieben, in der Mitte eine Mulde formen und Hefemischung sowie Olivenöl hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5 Hände leicht bemehlen und die Zutaten langsam vermischen, bis sie sich verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "6 Arbeitsfläche großzügig mit Mehl bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "7 Teig auf die Fläche geben und 10 Minuten kneten, bis er glatt, seidig und weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "8 Auf ein leicht geöltes, antihaftbeschichtetes Backblech legen (wir verwenden ein rundes, aber jede Form ist geeignet!).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "9 Passata darauf verstreichen und bis zum Rand verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "10 Mozzarella (oder einen anderen Käse) gleichmäßig darauf verteilen, mit Oregano und schwarzem Pfeffer würzen und mit etwas Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "11 Im Ofen 10–12 Minuten backen, bis der Käse leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "12 Nach dem Backen Basilikumblatt darauflegen und zugreifen!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/x0lk931587671540.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/x0lk931587671540.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53295",
+      "slug": "tmdb-53295",
+      "title": "Polnischer Schokoladen-Walnuss-Kuchen",
+      "instructions": "Polnisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2088,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53295/",
+      "components": [
+        {
+          "key": "c2e7a25a-8fcf-54d1-b058-308388594be9",
+          "name": "Zutaten",
+          "servingGrams": 332.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f91e7af-06e2-5455-ab86-05c570accd9f",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5e04bd2-ee02-59e5-bf4e-e2da6218ccdc",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8658419-e49f-576b-aede-92d5f2f83d67",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9f98428-51e1-5d8a-9cb0-c6f21c1e5bd3",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e2b90d7-cbff-5f72-8486-1bd86845a82d",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f804830-b32e-5466-b6e9-138557ad539f",
+              "ingredientName": "Kartoffelstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7a0c70c-ec99-54ce-a33d-be84737dbeee",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04ee0c61-f007-5502-9dca-b88a13fffa00",
+              "ingredientName": "Schokotropfen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 170C/150C Umluft/Gasstufe 3½ erhitzen. Flaches Backblech von 30 x 22cm mit Backpapier auslegen. Mehl sieben und mit Kakao vermischen, dann beiseitestellen. Eiweiß steif schlagen und den Zucker portionsweise dazugeben. Eigelb einzeln dazugeben und dabei ständig weiterschlagen. Mehlmischung hineingeben und mit einem Teigschaber vorsichtig unterheben. Teig auf das vorbereitete Blech gießen und 35 Minuten backen. 5 Minuten abkühlen lassen, aus der Form nehmen und die Form erneut mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Baisermasse Eiweiß steif schlagen, dann Zucker nach und nach esslöffelweise einrühren. Sobald ein steifes, glänzendes Baiser entstanden ist, fein gehackte Walnüsse, Mehl und Stärke unterheben. Mischung in die erneut ausgelegte Form geben und bei gleicher Temperatur 40 Minuten backen. Aus dem Ofen nehmen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Schokoladenglasur Sahne bei niedriger Hitze erwärmen, vom Herd nehmen, gehackte Schokolade hineingeben und rühren, bis sie geschmolzen und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgekühlten Schokoladenbiskuit und Baiser jeweils in zwei Schichten schneiden. Nussbaiser auf den unteren Biskuitboden legen und mit einigen der beiseitegestellten Walnüsse bestreuen. Eine weitere Baiserschicht und dann den oberen Schokoladenbiskuitboden darauflegen. Oberseite mit Schokoladenglasur überziehen und mit Walnüssen dekorieren. Fertigen Kuchen vor dem Servieren 1–2 Stunden im Kühlschrank kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/e8ihjp1764123021.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/e8ihjp1764123021.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53298",
+      "slug": "tmdb-53298",
+      "title": "Polnische Krapfen (Pączki)",
+      "instructions": "Polnisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2089,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53298/",
+      "components": [
+        {
+          "key": "774bede3-8e75-55bc-8852-323739b30f5d",
+          "name": "Zutaten",
+          "servingGrams": 394.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f93a2933-dcd8-53d5-b7bf-6d5ef455ccf2",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc2c47f2-6baa-5f30-8396-8d373ab6f22f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5efb93b5-c242-5d01-a79c-64ddb732f4fd",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f746656-ebbd-5bb0-8fbc-34c20323f8d3",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bde6ccc-907e-54a9-bd1d-79689a8c7aea",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f162692-869e-514f-95ef-b31efc812826",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66fe6db6-31a3-52f3-8f69-b177e20b68da",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6191eca-ca65-5bb5-b80c-175e80837238",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40b162a3-34a5-5be9-8e3f-c174b385cc99",
+              "ingredientName": "Marmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b772e6af-3673-536e-a68d-dbed902bf558",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e893c40f-413d-5817-9113-7881d8bb3ee3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3152687-7a8d-5c40-8564-9ca247881d0d",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "692265a7-2cde-50d2-8003-215260f05557",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0930ce5a-4571-54a1-80f5-393b819b4041",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Vorteig Hefe mit Zucker und Mehl vermengen und warme Milch einrühren. An einem warmen Ort 30 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Teig Eigelb in eine hitzebeständige Schüssel geben und Zucker sowie Vanillezucker hinzufügen. Schüssel über einen Topf mit leicht siedendem Wasser stellen und die Masse glatt und dick aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl in die Schüssel einer Küchenmaschine mit Standfuß sieben. Aufgeschlagenes Eigelb und warme Sahne dazugeben und gründlich vermischen. Eine Prise Salz und den Vorteig hinzufügen. Zu einem Teig verkneten und 10 Minuten kneten (oder 15–20 Minuten von Hand).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sobald der Teig nicht mehr an den Händen klebt, abgekühlte geschmolzene Butter hineingießen und einige Minuten weiterkneten. Mit einem Tuch abdecken und mindestens 1 Stunde bis 1 Stunde 30 Minuten an einem warmen Ort gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Marmelade mit gemahlenen Mandeln vermengen und in einen Spritzbeutel oder eine Marmeladenspritze füllen. Teig in 16 Stücke teilen und zu Krapfen formen. Abdecken und 30 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Einen tiefen Topf oder eine Fritteuse zu einem Drittel mit Öl oder geschmolzenem Schmalz füllen und auf 180C erhitzen. Falls kein Thermometer vorhanden ist, ein kleines Stück Brot hineingeben. Das Öl ist bereit, wenn das Brot in etwa 30 Sekunden bräunt. Krapfen hineingeben und unter einmaligem Wenden etwa 1–2 Minuten pro Seite frittieren (in der Mitte sollte ein schmaler heller Ring entstehen). Herausnehmen und überschüssiges Fett auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/x6jqog1764359857.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/x6jqog1764359857.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

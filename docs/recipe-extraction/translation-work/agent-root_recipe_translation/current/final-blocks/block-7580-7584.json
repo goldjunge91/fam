@@ -1,0 +1,1381 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-mississippi-mud-pie",
+      "slug": "bake2-mississippi-mud-pie",
+      "title": "Mississippi-Mud-Pie",
+      "instructions": "Ein Klassiker aus dem Süden der USA: ein knuspriger Oreo-Keksboden mit dichter, fudgy gebackener Schokoladenfüllung, in der Mitte fast wie ein Brownie und am Rand leicht knusprig. Dazu kommen lockere, leicht gesüßte Schlagsahne und Schokoladenraspel. Reichhaltig, intensiv schokoladig und jeden Bissen wert.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Marken-Oreos weg: Kekse mit Schokoladenfüllung der Hausmarke kosten halb so viel und ergeben einen genauso guten Boden.",
+        "Verwende eine einfache Schokoladentafel aus der Backabteilung statt teurer Kuvertüre. Eine 4 Unzen-Tafel und Schokoladenstückchen, die du ohnehin hast, ergeben zusammen 6 Unzen.",
+        "Schlagsahne ist zu teuer? Eine Packung aufgetaute Schlagsahne reicht für den Kuchen, kostet nur ein paar Dollar und muss nicht aufgeschlagen werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chocolate",
+          "swap": "insgesamt 1 Tasse halbherbe Schokoladenstückchen statt der gehackten Tafel verwenden (sie schmelzen genauso in der Schokoladenmasse)",
+          "savings": "So musst du keine separate Backschokolade kaufen."
+        },
+        {
+          "forIngredientId": "instant-coffee",
+          "swap": "weglassen oder 1/2 TL mehr Vanille verwenden. Der Kaffee verstärkt nur das Aroma und schmeckt nicht nach Kaffee.",
+          "savings": "~$4, falls Instantkaffee nicht im Vorrat ist."
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Walnüsse verwenden oder ganz weglassen und stattdessen zusätzliche Schokolade über den Kuchen raspeln",
+          "savings": "~$3 pro Backladung."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch-südstaatlich",
+        "Backen",
+        "Nachtisch",
+        "Schokolade",
+        "Pie",
+        "Südstaaten",
+        "machen-ahead",
+        "Publikumsliebling",
+        "Boden ohne Mixer"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7580,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-mississippi-mud-pie/",
+      "components": [
+        {
+          "key": "f45de5d2-aff3-523f-bc5a-fea40a70f8b6",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 172.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "bdd90c69-69fd-5cd3-89e2-f5637729a45f",
+              "ingredientName": "Oreo-Kekse",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "24 Oreo-Kekse (etwa 1 normale Packung), mit Füllung, für den Boden"
+            },
+            {
+              "key": "3374d1c3-c723-5f96-b57a-5395eb05b071",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse + 2 EL ungesalzene Butter (5 EL geschmolzen für den Boden, 13 EL für die Füllung)"
+            },
+            {
+              "key": "78d6b380-21d1-5164-8086-75961441b292",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 oz halbbittere oder zartbittere Schokolade, gehackt (für die Füllung)"
+            },
+            {
+              "key": "a8e33e19-6d27-5697-92a1-fed411116a25",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse halbbittere Schokostückchen, unter die Füllung gehoben, damit sie darin schmelzen"
+            },
+            {
+              "key": "4ead9c8d-84de-5e9e-bf5d-99422f88c65b",
+              "ingredientName": "Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Kristallzucker"
+            },
+            {
+              "key": "756a1e25-68b3-58ed-864f-67efc1629c94",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "5ef86b08-e6c2-5efc-af3e-c179d83641dc",
+              "ingredientName": "Kakaopulver",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesüßtes Kakaopulver"
+            },
+            {
+              "key": "0a3e14a8-030d-50a4-b964-557a3147d589",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse Weizenmehl"
+            },
+            {
+              "key": "c901e5f3-e0dc-5d14-b59f-d00699b7ecc9",
+              "ingredientName": "Instantkaffee",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Instantkaffee oder Espressopulver, für kräftigeres Schokoladenaroma"
+            },
+            {
+              "key": "35e3b281-57e1-59e8-9e33-30ed3389cb7c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "f80323af-902c-5470-b89c-d44ea24f1ebc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "c05b956f-81cf-56c5-a71a-3aaacc67769d",
+              "ingredientName": "Sahne",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 1/4 Tassen kalte Schlagsahne (für die Sahnehaube)"
+            },
+            {
+              "key": "6a3d6edf-416c-50dc-82df-2e5a6425d174",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 EL Puderzucker für die Schlagsahne"
+            },
+            {
+              "key": "c989fb3d-60f2-5262-881d-18e0abf750c2",
+              "ingredientName": "Pekannüsse",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "2 oz Pekannüsse, geröstet und gehackt, zum Garnieren (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Zerkleinere die Oreos samt Füllung in der Küchenmaschine zu feinen Krümeln oder zerdrücke sie in einem Beutel mit einem Nudelholz. Rühre 5 EL geschmolzene Butter ein, bis die Krümel wie feuchter Sand aussehen. Drücke sie fest und gleichmäßig an Boden und Rand einer 9-Zoll-Pieform oder Springform. Backe den Boden 10 Minuten und lass ihn abkühlen, während du die Füllung zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Schokoladenmasse zu: Gib die gehackten 6 Unzen Schokolade und die übrigen 13 EL Butter in eine hitzebeständige Schüssel über einem Topf mit leicht siedendem Wasser (oder erwärme alles in der Mikrowelle in 30-Sekunden-Schritten). Rühre, bis die Masse geschmolzen und glänzend ist. Nimm sie vom Herd und rühre Instantkaffee und Salz ein. Lass sie etwa 5 Minuten abkühlen, damit sie die Eier nicht gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Kristallzucker und Eier in einer separaten großen Schüssel eine volle Minute kräftig, bis die Masse hell, dick und leicht schaumig ist. Das sorgt für die typische knusprige Oberfläche des Kuchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die warme (nicht heiße) Schokoladenmasse zur Eiermischung und verrühre sie glatt. Rühre Vanille ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Siebe Kakaopulver und Mehl über den Teig und hebe beides vorsichtig unter, bis keine trockenen Stellen mehr zu sehen sind. Nicht zu lange rühren. Hebe 1/4 Tasse Schokoladenstückchen unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Füllung in den abgekühlten Boden und streiche die Oberfläche glatt. Backe den Kuchen bei 350F 38 bis 45 Minuten, bis der Rand fest und aufgegangen ist, die Mitte aber noch leicht wackelt und ein Zahnstocher feuchte, fudgy Krümel (keinen flüssigen Teig) aufnimmt. Die Mitte wird beim Abkühlen fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Kuchen etwa 1 Stunde bei Raumtemperatur vollständig abkühlen und stelle ihn dann mindestens 3 Stunden (oder über Nacht) in den Kühlschrank, damit die Füllung fest und gut schneidbar wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Kurz vor dem Servieren die kalte Schlagsahne mit Puderzucker zu weichen bis mittelfesten Spitzen aufschlagen. Auf dem Kuchen verteilen oder aufspritzen, dann mit Schokoladenraspeln und nach Wunsch gerösteten Pekannüssen bestreuen. Für saubere Stücke mit einem heißen, sauberen Messer schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Mississippi_mud_pie_%287963392610%29.jpg/1280px-Mississippi_mud_pie_%287963392610%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mississippi_mud_pie_(7963392610).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "cyclonebill, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Mississippi-Mud-Pie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-derby-pie",
+      "slug": "bake2-derby-pie",
+      "title": "Klassischer Kentucky-Derby-Pie",
+      "instructions": "Der echte Kentucky-Derby-Pie: ein Kuchen mit knusprigem Mürbeteigboden und klebriger Füllung nach Art eines Chess Pies. Eier, brauner Zucker, geschmolzene Butter und ein Hauch Mehl werden mit Bourbon und Vanille verfeinert und mit gerösteten englischen Walnüssen und Zartbitterschokoladenstückchen vermischt. Der Kuchen wird gebacken, bis die Oberfläche aufreißt und die Mitte gerade eben gestockt, aber noch weich und fudgy ist. Lauwarm mit ungesüßter Schlagsahne servieren.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende einen gekühlten oder gefrorenen fertigen Pie-Boden statt einen selbst zu machen. Die Füllung ist der Star und das spart Geld und 40 Minuten.",
+        "Kaufe Walnüsse und Schokoladenstückchen aus der Backabteilung nach Gewicht und nimm nur die benötigte Tasse, statt ganze Packungen zu kaufen.",
+        "Kein Geld für Bourbon? Lass ihn weg und erhöhe die Vanille auf 1 1/2 TL. Der Pie bleibt authentisch und köstlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Pekannüsse für eine reichhaltigere, buttrigere Variante aus dem Süden der USA",
+          "savings": "Ähnlicher Preis."
+        },
+        {
+          "forIngredientId": "bourbon",
+          "swap": "1 TL zusätzliches Vanilleextrakt für einen alkoholfreien Pie",
+          "savings": "Spart den Kauf von Likör."
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "Zartbitterschokoladenstückchen für einen kräftigeren und weniger süßen Schokoladengeschmack",
+          "savings": "Ähnlicher Preis."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch-südstaatlich",
+        "Backen",
+        "Nachtisch",
+        "Pie",
+        "Südstaaten",
+        "Schokolade",
+        "Walnuss",
+        "Bourbon",
+        "Festtag"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7581,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-derby-pie/",
+      "components": [
+        {
+          "key": "bef74055-b99d-5e55-9e8b-168458ba3161",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 189.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc9b351d-8822-53f5-83fb-05b0fe1788e4",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Weizenmehl (für den Boden)"
+            },
+            {
+              "key": "b5e1b6fc-619f-52d1-a126-73bdb1231b1e",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) kalte ungesalzene Butter, gewürfelt (für den Boden)"
+            },
+            {
+              "key": "0e7f84ed-3b7b-5660-959c-73e4436cc88e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Salz (für den Boden)"
+            },
+            {
+              "key": "8430f545-8227-5347-b002-88dcde820038",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL Kristallzucker (für den Boden)"
+            },
+            {
+              "key": "a2feed30-ff3a-5f06-a67b-0b3b0c1ae414",
+              "ingredientName": "Wasser",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL Eiswasser (für den Boden)"
+            },
+            {
+              "key": "2ccf1867-94ee-59c0-ba8d-d3bc759e56b6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "838113c5-3f20-5e26-adb5-179cb4a2805b",
+              "ingredientName": "weißer Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker"
+            },
+            {
+              "key": "ead403b5-82ee-513b-bc86-a8ea2a08fd00",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse fest eingedrückter hellbrauner Zucker"
+            },
+            {
+              "key": "4ea409c6-ceab-5dfc-8965-24ebe08498d0",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, geschmolzen und leicht abgekühlt (für die Füllung)"
+            },
+            {
+              "key": "c8152c15-e7e6-5b9b-b9a5-a31f52c003c7",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse Weizenmehl (für die Füllung)"
+            },
+            {
+              "key": "722a5b2e-b8b3-52c5-a499-9f99b5757e08",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "524a83b5-02bd-5191-8832-cd2c54bd5d00",
+              "ingredientName": "Bourbon",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL (1 oz) Bourbon"
+            },
+            {
+              "key": "46532ae7-86a9-5bed-977f-35f6b5334252",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/4 TL Salz (für die Füllung)"
+            },
+            {
+              "key": "f8fce189-57bd-5597-9871-27d11a00b04f",
+              "ingredientName": "Walnüsse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Tasse englische Walnüsse, geröstet und grob gehackt"
+            },
+            {
+              "key": "9ef48d33-5fee-5f0e-a5e7-a10e779c2bc9",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 Tasse halbbittere Schokostückchen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Boden zu: Verrühre 1 1/4 Tassen Mehl, 1/2 TL Salz und 1 EL Zucker. Arbeite die kalte, gewürfelte Butter mit den Fingern oder einem Teigmischer ein, bis die Mischung groben Krümeln mit einigen erbsengroßen Stücken ähnelt. Träufle esslöffelweise Eiswasser hinein und vermenge alles, bis der Teig beim Zusammendrücken zusammenhält. Forme eine Scheibe, wickle sie ein und kühle sie mindestens 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den gekühlten Teig auf einer bemehlten Fläche zu einem 12-Zoll-Kreis aus. Lege ihn in eine 9-Zoll-Pieform, schneide den Überstand auf etwa 1 Zoll zurück, schlage ihn unter und forme den Rand. Stelle den Boden 15 Minuten in den Gefrierschrank, während du die Füllung zubereitest. Setze ein Rost ins untere Ofendrittel und heize auf 350F (175C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste die Walnüsse auf einem trockenen Backblech 6 bis 8 Minuten, bis sie duften, und hacke sie grob. Lass den Ofen auf 350F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite die Füllung zu: Verquirle die 2 Eier in einer Schüssel, bis sie hell sind. Rühre Kristallzucker, braunen Zucker, 1/4 Tasse Mehl und 1/4 TL Salz glatt ein. Rühre geschmolzene Butter, Vanille und Bourbon ein, bis die Masse glänzt und gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die gerösteten Walnüsse und Schokoladenstückchen gleichmäßig auf dem gekühlten Boden. Gieße die Füllung darüber; sie setzt sich zwischen Nüssen und Schokolade und umhüllt sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe den Pie bei 350F 45 bis 55 Minuten, bis die Oberfläche goldbraun und aufgerissen und die Mitte mit nur leichtem Wackeln gestockt ist. Wenn der Teigrand zu schnell bräunt, decke ihn nach 30 Minuten mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Pie mindestens 1 Stunde auf einem Gitter abkühlen, damit die klebrige Mitte fest wird. Lauwarm oder bei Raumtemperatur lässt er sich am besten schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Stücke schneiden und mit einem Klecks leicht gesüßter oder ungesüßter Schlagsahne servieren. Reste locker abgedeckt bei Raumtemperatur bis zu 2 Tage aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kentucky_Chocolate_walnut_pie.JPG/1024px-Kentucky_Chocolate_walnut_pie.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kentucky_Chocolate_walnut_pie.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Markmark28, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassischer Kentucky-Derby-Pie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-grasshopper-pie",
+      "slug": "bake2-grasshopper-pie",
+      "title": "Klassischer Grasshopper-Pie",
+      "instructions": "Der Retro-Kühlschrankkuchen, richtig gemacht: ein knuspriger gebackener Schokoladenkeksboden mit einer luftigen, blassgrünen Füllung aus Minze, Marshmallow und Sahne, verfeinert mit Crème de menthe und weißem Crème de cacao. Der Boden wird gebacken, damit er fest und aromatisch wird; die ungekochte Füllung wird aufgeschlagen und gekühlt, bis sie sich schneiden lässt. Kühl, minzig und angenehm beschwipst.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schokoladenkekse der Hausmarke kosten nur einen Bruchteil von Marken-Oreos und ergeben einen ebenso guten Boden.",
+        "Du musst nicht beide Liköre kaufen: Eine kleine Flasche grüner Crème de menthe mit 1/2 TL Pfefferminzextrakt und einem Schuss Vanille bringt dich zu 90% ans Original und kostet nur halb so viel.",
+        "Kaufe Schlagsahne am Tag, an dem sie kurz vor dem Mindesthaltbarkeitsdatum reduziert wird. Sie lässt sich perfekt aufschlagen und kostet oft nur die Hälfte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rum",
+          "swap": "weißen Crème de cacao für die authentische Variante, hellen Rum oder für eine alkoholfreie Version 1/2 TL Vanille plus 1 EL Milch",
+          "savings": "So musst du keine zweite Flasche Likör kaufen."
+        },
+        {
+          "forIngredientId": "creme-de-menthe",
+          "swap": "1/2 TL Pfefferminzextrakt plus 1 EL Milch und 1-2 Tropfen grüne Lebensmittelfarbe",
+          "savings": "Spart den Preis einer Likörflasche."
+        },
+        {
+          "forIngredientId": "oreos",
+          "swap": "Schokoladenkekse mit Füllung der Hausmarke oder Schokoladen-Graham-Cracker",
+          "savings": "Der Keksboden ist günstiger."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "Pie",
+        "Minze",
+        "Schokolade",
+        "Kühlschrankkuchen",
+        "machen-ahead",
+        "Retro"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7582,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-grasshopper-pie/",
+      "components": [
+        {
+          "key": "c01152f4-9a6f-58df-b5ac-6d1d8c496d78",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 125.52,
+          "position": 0,
+          "items": [
+            {
+              "key": "73468184-91e3-5f99-95cc-121d9195cde9",
+              "ingredientName": "Oreo-Kekse",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "24 Schoko-Sandwichkekse (Oreos) für den Boden"
+            },
+            {
+              "key": "947eefdb-772b-5873-b7e3-0164a06280e0",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL ungesalzene Butter, geschmolzen"
+            },
+            {
+              "key": "406ddbcb-6043-59bf-8563-2e0951af271a",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "b52ad195-49f3-536e-abb3-312e9fbec63e",
+              "ingredientName": "Gelatine (ohne Geschmack)",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Päckchen (2 1/4 TL) geschmacksneutrale Gelatine"
+            },
+            {
+              "key": "db26c9c4-7128-5120-a1ca-e5bb5adb3601",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse kaltes Wasser zum Einweichen der Gelatine"
+            },
+            {
+              "key": "f1ad9607-3ca0-50da-b90d-0f191249c1f8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch"
+            },
+            {
+              "key": "22481814-8888-5a88-a80d-ac9708880dac",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker"
+            },
+            {
+              "key": "4ff0eca3-beee-56c7-b70d-6d49d07a3d8e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 große Eigelbe"
+            },
+            {
+              "key": "2b5a4688-6aa5-5876-a13f-a8476eeb3de4",
+              "ingredientName": "Grüne Crème de menthe",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL grüne Crème de menthe"
+            },
+            {
+              "key": "c986b578-de52-5124-84fe-2dd27d28ab34",
+              "ingredientName": "Rum",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 1/2 EL weiße Crème de cacao (oder heller Rum als Ersatz)"
+            },
+            {
+              "key": "b85b139b-c469-50a7-9695-5a863a232290",
+              "ingredientName": "Sahne",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 1/4 Tassen kalte Schlagsahne, aufgeschlagen"
+            },
+            {
+              "key": "dc7cf019-ee5e-534a-92d1-24437eebab2a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt"
+            },
+            {
+              "key": "23a111b2-e801-548c-809e-ba3382bfa8d9",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1/2 oz Zartbitterschokolade zum Hobeln und Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Boden zu: Heize den Ofen auf 350F (175C) vor. Zerkleinere die Schokoladenkekse mit Füllung in der Küchenmaschine zu feinen Krümeln oder zerdrücke sie in einem Beutel mit einem Nudelholz. Es sollten etwa 2 Tassen Krümel sein. Rühre Salz ein und träufle dann geschmolzene Butter darüber. Vermenge alles, bis die Krümel wie feuchter Sand aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücke die Krümel mit dem flachen Boden eines Messbechers fest und gleichmäßig an Boden und Rand einer 9-Zoll-Pieform. Backe den Boden 10 Minuten, damit er fest wird. Lass ihn dann auf einem Gitter vollständig abkühlen, während du die Füllung zubereitest. Der Boden muss kalt sein, bevor die Füllung hineinkommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Gelatine quellen: Streue sie über 1/4 Tasse kaltes Wasser in einer kleinen Schüssel und lass sie 5 Minuten stehen, bis sie runzelig aussieht und das Wasser aufgenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite die Cremebasis zu: Verrühre Milch, Zucker und Eigelb in einem Topf. Koche die Mischung bei mittlerer bis niedriger Hitze unter ständigem Rühren mit einem Teigschaber, bis sie leicht eindickt und den Löffelrücken überzieht (etwa 170F), 4 bis 6 Minuten. Nicht kochen lassen, sonst stocken die Eigelbe. Nimm den Topf vom Herd und rühre die gequollene Gelatine ein, bis sie aufgelöst ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Seihe die Creme durch ein feines Sieb in eine große Schüssel. Rühre Crème de menthe, Crème de cacao und Vanille ein. Die Mischung wird blassgrün. Kühle sie unter gelegentlichem Rühren alle 10 Minuten 25 bis 40 Minuten, bis sie abgekühlt und so dick wie rohes Eiweiß, aber noch nicht fest ist. Wenn sie zu fest wird, erwärme die Schüssel kurz und schlage sie glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage die Sahne auf: Schlage die kalte Schlagsahne in einer gekühlten Schüssel zu weichen bis mittelfesten Spitzen. Hebe etwa ein Drittel davon unter die abgekühlte Minzcreme, damit sie leichter wird. Hebe dann den Rest in zwei Portionen vorsichtig unter, ohne die Luftigkeit zu verlieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Füllung in den ausgekühlten Boden und forme die Oberfläche zu einem sanften Hügel. Decke den Pie locker ab und kühle ihn mindestens 4 Stunden, am besten über Nacht, bis die Füllung fest und schneidbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Servieren dunkle Schokolade mit einem Sparschäler über den Pie hobeln. Mit einem in heißes Wasser getauchten Messer schneiden und die Klinge zwischen den Schnitten abwischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Grasshopper_pie_%2814105460720%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Grasshopper_pie_(14105460720).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Julia Payne from Manchester, USA, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassischer Grasshopper-Pie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-hoosier-sugar-cream-pie",
+      "slug": "bake2-hoosier-sugar-cream-pie",
+      "title": "Hoosier-Sahne-Pie",
+      "instructions": "Der offizielle Pie des Bundesstaats Indiana: ein seidiger, puddingartiger „Verzweiflungskuchen“ ganz ohne Eier. Eine Füllung aus Sahne und Zucker wird mit Mehl gebunden, in einen knusprigen Mürbeteigboden gegossen, mit Zimt bestäubt und mit Butterstückchen belegt. Gebacken, bis die Oberfläche goldbraun blubbert und die Mitte kaum noch wackelt. Altmodisch, sparsam und einer der großen amerikanischen Pies.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein gekühlter fertiger Pie-Boden spart Geld und Zeit gegenüber dem Kauf von Butter und Mehl nur für den Boden. Die Füllung ist ohnehin der Star.",
+        "Ersetze bis zur Hälfte der Schlagsahne durch Vollmilch. Der Pie bleibt cremig und preiswert, ganz wie in Indiana, als Bäuerinnen bei knapper Sahne streckten.",
+        "Lass die Backgewichte weg. Lege den Boden mit Folie aus und fülle ihn mit getrockneten Bohnen, Reis oder Zucker, die du ohnehin hast. Bewahre sie im Glas auf und verwende sie beim nächsten Blindbacken wieder."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "Speisestärke in der Füllung (etwa die halbe Menge, ~2 EL) für ein noch seidigeres, durchscheinenderes Ergebnis",
+          "savings": "Kaum ein Unterschied."
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "zur Hälfte Schlagsahne und Vollmilch für eine leichtere, traditionellere Füllung",
+          "savings": "Etwa $2 pro Pie."
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "nur Kristallzucker (insgesamt 1 Tasse) für die klassische helle Sahnevariante ohne Karamellnote",
+          "savings": "Kaum ein Unterschied."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mittelwestamerikanisch",
+        "Backen",
+        "Pie",
+        "Nachtisch",
+        "no-Eier",
+        "Pudding",
+        "midwestern",
+        "altmodisch",
+        "Vegetarier"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7583,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-hoosier-sugar-cream-pie/",
+      "components": [
+        {
+          "key": "ef818356-f0e1-52ab-b134-1c5751489689",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 167.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6572dc4a-1801-58f4-b589-d2ab590bcec7",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl, aufgeteilt (1 1/4 Tassen für den Boden, ~4 EL für die Füllung)"
+            },
+            {
+              "key": "f93ab21d-85fe-5995-86e1-8b7f8673686c",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (8 EL) kalte ungesalzene Butter für den Boden + ~5 EL für Füllung und Belag"
+            },
+            {
+              "key": "5c76beb0-a642-5cd1-9726-7cdb57b3c0f5",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 TL Salz, auf Boden und Füllung verteilt"
+            },
+            {
+              "key": "6ec378d0-bc9b-5083-aec7-ad79f185a266",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3-4 EL Eiswasser für den Boden"
+            },
+            {
+              "key": "a20b75c0-ecb1-56d5-9d28-caef5485be90",
+              "ingredientName": "Sahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen Schlagsahne"
+            },
+            {
+              "key": "639e4b0a-bcb7-5636-aa84-7d4e69dba83e",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "536204dd-2444-5dd8-9d15-d7b680c9abeb",
+              "ingredientName": "brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/4 Tasse fest eingedrückter hellbrauner Zucker (für intensivere Karamellnoten)"
+            },
+            {
+              "key": "cf55e1a1-bcdc-54ae-9764-92ed1f1ca088",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "d38208f7-3d4c-5bf3-bc16-b3f8cfaf2a40",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt zum Bestäuben"
+            },
+            {
+              "key": "92720ce3-2dd6-5d6e-a4f3-2b381b5b49c7",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/4 TL frisch geriebene Muskatnuss zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Boden zu: Verrühre 1 1/4 Tassen Mehl mit 1/2 TL Salz. Arbeite 1/2 Tasse (8 EL) kalte, gewürfelte Butter mit den Fingern oder einem Teigmischer ein, bis die Mischung groben Krümeln mit einigen erbsengroßen Stücken ähnelt. Träufle 3-4 EL Eiswasser hinein und vermenge alles, bis der Teig beim Zusammendrücken zusammenhält. Forme eine Scheibe, wickle sie ein und kühle sie 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den gekühlten Teig auf einer bemehlten Fläche zu einem 12-Zoll-Kreis aus. Lege ihn in eine 9-Zoll-Pieform, schneide den Überstand auf 1 Zoll zurück, schlage ihn unter und forme den Rand. Friere den Boden 15 Minuten ein. Setze währenddessen ein Rost ins untere mittlere Ofendrittel und heize den Ofen auf 375F (190C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blindbacken: Lege den Boden mit Backpapier aus und fülle ihn mit Backgewichten oder getrockneten Bohnen. Backe ihn 15 Minuten. Entferne Papier und Gewichte und backe weitere 5-7 Minuten, bis der Boden trocken und blassgolden aussieht. Beiseitestellen und den Ofen auf 375F lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite die Füllung zu: Verrühre 1 Tasse Zucker, optional 1/4 Tasse braunen Zucker, etwa 4 EL Mehl und 1/4 TL Salz in einem schweren Topf vom Herd genommen, bis keine Klümpchen mehr da sind. Rühre langsam 2 Tassen Schlagsahne glatt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Sahne bei mittlerer Hitze unter ständigem Rühren und Schaben der Ecken, bis sie zu einem dünnflüssigen Pudding eindickt, der den Löffelrücken überzieht; etwa 8-12 Minuten. Nicht stark kochen lassen, sonst gerinnt die Masse. Nur leicht köcheln lassen. Nimm sie vom Herd und rühre 2 EL Butter und 2 TL Vanille glatt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die warme Füllung in den vorgebackenen Boden. Verteile die übrigen 3 EL Butter in kleinen Stücken auf der Oberfläche und bestäube sie gleichmäßig mit 1 TL Zimt und optional Muskatnuss.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Pie bei 375F 25-30 Minuten, bis die Oberfläche gebräunt ist und stellenweise blubbert und die Mitte beim Anstoßen nur leicht wackelt. Sie sieht noch weich aus, wird aber beim Abkühlen fest. Wenn der Teigrand zu schnell bräunt, decke ihn mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Pie auf einem Gitter mindestens 2-3 Stunden vollständig abkühlen, damit die Füllung schnittfest wird. Bei Raumtemperatur oder leicht gekühlt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Sugar_Cream_Pie_in_Indiana_-_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sugar_Cream_Pie_in_Indiana_-_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Sarah Stierch, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Hoosier-Sahne-Pie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-atlantic-beach-pie",
+      "slug": "bake2-atlantic-beach-pie",
+      "title": "Atlantic-Beach-Pie",
+      "instructions": "Der Kult-Pie von Bill Smith aus Crook’s Corner an der Küste North Carolinas: ein buttriger, salziger Saltine-Cracker-Boden mit einer säuerlichen Creme aus Zitrone, Limette und gezuckerter Kondensmilch. Die Füllung stockt im Ofen, wird dann gekühlt und mit leicht gesüßter Schlagsahne und grobem Meersalz serviert. Er schmeckt wie ein herberer, salziger Verwandter des Key-Lime-Pies. Der süß-salzige Kontrast ist entscheidend.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 34,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Salzcracker, Butter und eine Dose gezuckerte Kondensmilch sind preiswerte Vorratszutaten. Dieser echte Pie gehört zu den günstigsten. Cracker der Hausmarke funktionieren einwandfrei.",
+        "Kaufe Zitronen und Limetten im Angebot. Zitronen- und Limettensaft aus der Flasche sind hier ein guter Ersatz und halten die Kosten niedrig, ohne den frischen Geschmack zu verlieren.",
+        "Friere die 4 übrig gebliebenen Eiweiße für ein späteres Omelett oder Baiser ein, damit nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "saltines",
+          "swap": "Graham-Cracker für einen süßeren, weniger salzigen Boden (ähnlicher einem klassischen Key-Lime-Boden); der typische salzige Biss geht dann verloren.",
+          "savings": "Etwa gleich teuer."
+        },
+        {
+          "forIngredientId": "lime-juice-bottled",
+          "swap": "nur Zitronensaft verwenden (insgesamt 1/2 Tasse), wenn du keine Limetten hast. Bill Smiths Original ist zitronenbetont und diese Variante bleibt authentisch.",
+          "savings": "Spart den Kauf von Limetten."
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "mit aufgetauter Schlagsahne aus der Packung garnieren statt frischer Schlagsahne; das spart einen Arbeitsschritt und ein paar Dollar.",
+          "savings": "Ein paar Dollar."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Küstenküche North Carolinas",
+        "Backen",
+        "Pie",
+        "Nachtisch",
+        "Südstaaten",
+        "schlicht",
+        "machen-ahead",
+        "Zitrus",
+        "salty-süß",
+        "Sommer"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7584,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-atlantic-beach-pie/",
+      "components": [
+        {
+          "key": "b442ea4a-9a35-5b2e-87fa-59e7976a4e83",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 163.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "07c500bd-e279-5cd1-8667-449dfcc70f33",
+              "ingredientName": "Salzcracker",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 6 oz / 1.5 Packungen Saltine-Cracker (ungefähr 60 Cracker)"
+            },
+            {
+              "key": "987ba97f-5cbf-5a0f-8c63-3f628428da9f",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL Kristallzucker"
+            },
+            {
+              "key": "39c6fda6-cca5-50d8-ade4-571ed335ac98",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "5ad63e69-60b8-5c5c-84ef-a57e5e9806ef",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "eine Dose (14 oz) gezuckerte Kondensmilch"
+            },
+            {
+              "key": "67cdd5c8-e405-5928-bdc8-1cd5abdc639a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 große Eigelbe (Eiweiß anderweitig verwenden)"
+            },
+            {
+              "key": "27a3ca03-94d1-58c2-801a-31d54492c9d7",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse frischer Zitronensaft (etwa 2 Zitronen)"
+            },
+            {
+              "key": "b24e5fea-96ae-50ae-9392-e83257209b54",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse frischer Limettensaft (etwa 3-4 Limetten) für die klassische Zitronen-Limetten-Mischung"
+            },
+            {
+              "key": "0577c39f-63de-58b8-92b5-dd13c09c1c51",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse kalte Schlagsahne für den Belag"
+            },
+            {
+              "key": "8616d2ed-c34c-585e-88d5-9d8264dec010",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL Puderzucker für die Schlagsahne"
+            },
+            {
+              "key": "933e1f7b-cc60-5e3d-9f5b-1622a8a88611",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt für die Schlagsahne"
+            },
+            {
+              "key": "e5a9da01-d643-58d8-9a4f-8e8f6b42957e",
+              "ingredientName": "Flockiges Meersalz (Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL grobes Meersalz zum Abschluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Zerkleinere die Salzcracker zu groben Krümeln, lass einige erbsengroße Stücke übrig. Verwende eine Küchenmaschine oder zerdrücke sie in einem Beutel. Gewünscht ist eine grobe Struktur, kein feines Pulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre den Zucker in die Crackerkrümel und gib dann die weiche Butter dazu. Verknete und zerdrücke alles mit den Händen, bis die Masse beim Zusammendrücken wie feuchter Sand zusammenhält. Drücke sie fest und gleichmäßig an Boden und Rand einer 9-Zoll-Pieform. Kühle den Boden 15 Minuten, damit er fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Boden 18 Minuten, bis er duftet und leicht goldbraun ist. Lass ihn etwas abkühlen, während du die Füllung zubereitest. Lass den Ofen eingeschaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite die Creme zu: Verquirle das Eigelb glatt und rühre dann gezuckerte Kondensmilch vollständig ein. Rühre Zitronen- und Limettensaft ein. Die Säure dickt die Masse sofort zu einer gießbaren Creme ein; dadurch stockt die Füllung im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Füllung in den warmen Boden und streiche die Oberfläche glatt. Backe den Pie 16 Minuten, bis die Creme am Rand gestockt ist, die Mitte aber noch leicht wackelt. Nicht bräunen oder reißen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den Pie auf Raumtemperatur abkühlen und stelle ihn dann mindestens 4 Stunden oder über Nacht in den Kühlschrank, bis er ganz kalt und fest ist. Gut gekühlt lässt er sich sauber schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kurz vor dem Servieren die kalte Schlagsahne mit Puderzucker und Vanille zu weichen, luftigen Spitzen aufschlagen. Auf dem kalten Pie verteilen oder aufspritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Sahne großzügig mit flockigem Meersalz bestreuen. Mit einem warmen, trockenen Messer schneiden und kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Atlantic_Beach_Pie_finished.jpg/1280px-Atlantic_Beach_Pie_finished.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Atlantic_Beach_Pie_finished.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Joy, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Atlantic-Beach-Pie",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

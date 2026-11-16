@@ -1,0 +1,1065 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ajiaco",
+      "slug": "gen-ajiaco",
+      "title": "Ajiaco",
+      "instructions": "Venezolanisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel statt Brust verwenden, das ist aromatischer und günstiger",
+        "Tiefgekühlten Mais kaufen, falls frischer nicht verfügbar oder teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "venezolanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4165,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ajiaco/",
+      "components": [
+        {
+          "key": "29b26854-9578-569d-a7d2-c7819edd6125",
+          "name": "Zutaten",
+          "servingGrams": 665.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "fed1f803-dd6c-5993-a322-79c1a9bdc6f5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8b96eca8-1cdd-5946-beda-f58ecc17bd1a",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "67eaec4a-ffba-5a4f-93f6-85550663b1fb",
+              "ingredientName": "Maniokwurzel",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "aa1dc2b8-78b4-5814-95a7-b4cd06c5b9b5",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Kolben"
+            },
+            {
+              "key": "3073ce33-dc2f-5c9e-a621-79f76cec69a8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "5b9a58a8-5508-5d01-a2ce-42c3ff76509b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84b46809-b7ec-5a27-8183-d0b6b95b4de1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "f0fb2a12-2a23-5779-8816-ec873a764465",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Bund"
+            },
+            {
+              "key": "d8b3f8b2-7911-5bf1-bbd7-8ab28594b409",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "022ecfb7-de7f-5a36-9d3f-d1bddeda23fc",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebel sowie gehackten Knoblauch anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenbrust hinzufügen und auf beiden Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe angießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln und Maniok schälen, in Stücke schneiden und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mais in 2-inch große Stücke schneiden und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze reduzieren und 35-40 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frischen Koriander einrühren und heiß in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/g4SU8eG5yskqgki0eP_r0UgjpVg=/4494x3000/filters:fill(auto,1)/colombian-chicken-and-potato-stew-4120146_hero-01-c023d01e8a84422c85a32ba0e0b58c22.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/g4SU8eG5yskqgki0eP_r0UgjpVg=/4494x3000/filters:fill(auto,1)/colombian-chicken-and-potato-stew-4120146_hero-01-c023d01e8a84422c85a32ba0e0b58c22.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arepa-de-huevo",
+      "slug": "gen-arepa-de-huevo",
+      "title": "Arepa de Huevo",
+      "instructions": "Venezolanisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Arepa-Mehl in großen Mengen in lateinamerikanischen Lebensmittelgeschäften günstiger kaufen",
+        "Käse weglassen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "venezolanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4166,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arepa-de-huevo/",
+      "components": [
+        {
+          "key": "c293daf5-b8f5-5cec-969b-2fefe353b474",
+          "name": "Zutaten",
+          "servingGrams": 309.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "469a75d9-92ac-51bc-a7f6-06f7a30fa92d",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "66cb0a37-8934-52bd-99dc-befe77eb608e",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e0436a2b-1813-59fb-9698-7a53d9cf598e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9b0a10de-fedc-5b30-b05c-815795e34e48",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "0d860ffb-655f-5cec-bc4c-fa646675d2e4",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6b4327b3-541b-5486-9bc8-8f3e2ab7fa0e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, geraspelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Arepa-Mehl, warmes Wasser und Salz in einer Schüssel zu einem glatten Teig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig zu 3 dicken ovalen Fladen von etwa 1/2-inch Dicke formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer tiefen Pfanne auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Arepas vorsichtig je Seite 3-4 Minuten goldbraun und gar frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kurz auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In jede Arepa eine Tasche schneiden und nach Wunsch ein rohes Ei sowie Käse hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/zmBRibVFJS_Jc1ECxwF8VcfAUGg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250307-Arepas-de-Huevo-AmandaSuarez-step7-dd2a7a83e8f5457d8b4b101afdf83812.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/zmBRibVFJS_Jc1ECxwF8VcfAUGg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250307-Arepas-de-Huevo-AmandaSuarez-step7-dd2a7a83e8f5457d8b4b101afdf83812.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-relleno-de-papas",
+      "slug": "gen-relleno-de-papas",
+      "title": "Relleno de Papas",
+      "instructions": "Venezolanisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhack statt Rinderhack verwenden, um zu sparen",
+        "Eine große Menge Füllung vorbereiten und für schnelle spätere Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "venezolanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4167,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-relleno-de-papas/",
+      "components": [
+        {
+          "key": "7891ed52-df53-5f83-8d80-49545ba92c27",
+          "name": "Zutaten",
+          "servingGrams": 187.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "77745751-dd26-53e1-b897-e9f0c4409380",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0ff82477-a6da-51e5-b725-dc2dde7cf0e8",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7858f6c5-62cb-57fb-93b5-e98583bb95ba",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "1ddda3ec-ae0a-5bfa-a13b-ae15765e2a95",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9238cf95-e091-537e-85c9-d9e4d53bd6a3",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "77d5e2d1-93d6-5222-aadc-2ee21eb5d9c5",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "35c881cf-18d6-513d-a77e-3b6840a4c024",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3d27b77-1231-52a0-9b98-b04378959c13",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4e00f6e6-5a6a-543b-802b-90f9aa1ed073",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "134f6f21-e6fd-5db0-a064-9513e728bd62",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln weich kochen, schälen und mit Salz sowie Pfeffer zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer Pfanne erhitzen und gewürfelte Zwiebel sowie Knoblauch anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhack hinzufügen und unter Zerteilen braten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kreuzkümmel, Oliven und Rosinen einrühren und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffelmischung zu Bratlingen formen und in die Mitte eine Vertiefung drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeden Bratling mit Fleischmischung füllen und die Ränder mit weiterer Kartoffelmasse verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Eier in einer Schüssel verquirlen und Bratlinge darin wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Öl bei 350°F je Seite 3-4 Minuten goldbraun braten und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Series/2021-09-latinx-heritage-month/Rellenos-de-Papa",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Series/2021-09-latinx-heritage-month/Rellenos-de-Papa",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tamale-loco",
+      "slug": "gen-tamale-loco",
+      "title": "Tamale Loco",
+      "instructions": "Venezolanisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Masa Harina in großen Mengen auf lateinamerikanischen Märkten kaufen und deutlich sparen",
+        "Übrig gebliebenes Grillhähnchen verwenden, um Geld und Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "venezolanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4168,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tamale-loco/",
+      "components": [
+        {
+          "key": "9eb85f8d-b059-5ccb-9a77-3376a8fcc5fd",
+          "name": "Zutaten",
+          "servingGrams": 447.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed833115-b4e5-502e-98ee-46e35df367bd",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d96b785e-aea7-5546-bada-d832b501ba9b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "594c691f-d351-546e-9722-e2e21808cacb",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "39978033-e317-5639-b5cb-f3218213d23e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0b543a4a-11b1-5de1-91e3-8fd8b7344cb6",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fc80a86a-48ee-5d2e-95b2-b3c50a875407",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9348c3cf-d751-5aca-8d82-f6702123be02",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "59ed2f99-2c5c-5b47-a06b-341ea37db703",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "024d4479-bbb7-562b-9ebd-2bbb3ff306dc",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcbe3c44-5a79-5795-b757-1191457f289f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maisblätter 30 Minuten in warmem Wasser einweichen, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter mit Masa Harina und Hühnerbrühe luftig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel und Knoblauch anbraten, dann Hähnchen, Oliven und Rosinen hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Je 2 Esslöffel Masa in die Mitte jedes Maisblatts streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2 Esslöffel Füllung in die Mitte geben und die Seiten des Blatts über die Füllung falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Unteres und oberes Ende des Blatts einklappen, sodass es vollständig verschlossen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tamales in einen Dämpftopf mit Wasser unterhalb des Einsatzes legen und 45 Minuten dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vorsichtig auswickeln und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/rgq5jG9oQjGo_9kcDH9ya1T7ZB4=/2000x1333/filters:fill(auto,1)/tamales-5830c7175f9b58d5b1792220.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/rgq5jG9oQjGo_9kcDH9ya1T7ZB4=/2000x1333/filters:fill(auto,1)/tamales-5830c7175f9b58d5b1792220.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dulce-de-lechoza",
+      "slug": "gen-dulce-de-lechoza",
+      "title": "Dulce de Lechoza",
+      "instructions": "Venezolanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Papaya in der Saison kaufen, wenn die Preise am niedrigsten sind",
+        "Fertiges Dulce in Gläsern aufbewahren; es hält sich 2 Wochen im Kühlschrank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "venezolanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4169,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dulce-de-lechoza/",
+      "components": [
+        {
+          "key": "26b00dd8-d6e4-5789-b0b9-e088f27428e3",
+          "name": "Zutaten",
+          "servingGrams": 82.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc72efcd-9daa-527b-8eb0-78060c1e6882",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "2adf294d-f644-5968-a797-f2e2f03dd82e",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "da03415a-c623-5e1c-80e5-14276bd7f876",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9efd4bbc-f718-5dde-a726-66193216b354",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "caafe1ed-90b2-558c-bf68-3a1c35f2688f",
+              "ingredientName": "Ganze Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e22ab7c0-93ab-5b76-9910-5b8fee652288",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Papaya schälen, Kerne entfernen und in 1-inch große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucker und Wasser in einem großen Topf vermengen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zimtstange und Nelken zum Sirup geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Papayawürfel hinzufügen und vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf mittelniedrig reduzieren und 25-30 Minuten köcheln lassen, gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Papaya sollte durchscheinend und der Sirup dickflüssig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen und Vanilleextrakt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm oder gekühlt als Dessert oder süßen Snack servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/aa/00/4f/aa004f3617ad1e004858556f01f842e2.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/aa/00/4f/aa004f3617ad1e004858556f01f842e2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

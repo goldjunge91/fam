@@ -1,0 +1,1336 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53217",
+      "slug": "tmdb-53217",
+      "title": "Shawarma-Wrap mit Rinderschulter",
+      "instructions": "Saudi-arabisches Rindfleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "saudi-arabisch",
+        "rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2165,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53217/",
+      "components": [
+        {
+          "key": "608002b7-b809-55b1-9271-cc84b8617e06",
+          "name": "Zutaten",
+          "servingGrams": 71.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "85f4bdf8-c0cc-5e05-8a35-2d0d565d5a04",
+              "ingredientName": "Rinderschulter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b80c5654-b40e-5c44-aee8-ae8191335dac",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65219aae-8a2a-58f5-b0d0-22da2e2a6706",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "652b1c53-f7df-5eae-b8de-93bd0bd98da7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21356bd1-5148-5634-80ae-56ebd2503d2a",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af190e01-a0d9-5228-9108-9f99279919ef",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "852f28ee-8bce-55c2-b35f-0e7f2db91eb3",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab9d58e2-dd00-5313-8c1a-177ebbc0057e",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2591f338-18ac-5094-8316-fcd5bb042bcd",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64f65f44-2142-5967-8e0e-930aeb865c5b",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19893208-ba53-5d25-b467-8a949f020786",
+              "ingredientName": "gemahlener Koriander",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d26ec283-9fb9-5990-954b-38216f42f282",
+              "ingredientName": "gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib alle Gewürze, Rinderbrühe und Zitronensaft in einen Schmortopf oder Slow Cooker. Verrühre alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Rindfleisch hinzu, wende es darin und löffle etwas Soße darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Topf ab und gare das Fleisch 8-10 hours auf niedriger Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Fleisch nach dem Garen heraus und zerteile es mit zwei Gabeln. Entferne überschüssiges Fett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schöpfe das Fett von der Oberfläche der verbliebenen Flüssigkeit ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische das zerteilte Rindfleisch mit der Soße. Halte es bis zum Servieren warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für den Wrap bestreiche das Pitabrot mit Knoblauchsoße. Belege es mit Rindfleisch und den gewünschten Garnituren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Falte den Wrap wie einen Burrito.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Erhitze eine Grillpfanne und grille den Wrap.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/swo87v1763595282.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/swo87v1763595282.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53409",
+      "slug": "tmdb-53409",
+      "title": "Shendetlie-Honig-Nuss-Kuchen",
+      "instructions": "Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2166,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53409/",
+      "components": [
+        {
+          "key": "2e26d02c-dd36-5ef3-a716-d46f1581a520",
+          "name": "Zutaten",
+          "servingGrams": 196.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "97f46364-dd78-5d95-8e68-0505884784fd",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d46e8b0-661b-5506-b2e5-b12e710091ee",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e405961e-93f1-5a3b-a0cf-86d032e04a47",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "550baf92-a376-5257-b401-334011ebbddf",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c9f5eb5-06da-5589-adc3-59c093265672",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "960259cc-60d7-5fb9-b439-06841eba5881",
+              "ingredientName": "Honig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8264e650-5ed2-564f-9676-ae281e336a9a",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15997551-4439-5ae4-905e-341f2c3e161c",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vorbereitung",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Eier, Zucker und abgekühlte geschmolzene Butter in einer Schüssel cremig. Gib dann Honig und Natron hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Hälfte des Mehls und die Walnüsse dazu (du kannst sie ganz oder gemahlen verwenden) und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das restliche Mehl hinzu und knete die Mischung mit den Händen, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fette ein großes Backblech mit Olivenöl ein (traditionell wird eine runde Form mit etwa 30cm Durchmesser und 2 - 3 inch Höhe verwendet). Gib den Teig hinein und drücke ihn so an, dass er die gesamte Form ausfüllt. Achte darauf, dass er überall gleichmäßig dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Form auf die unterste Schiene in den kalten Ofen und stelle die Temperatur auf 180 Grad. Backe den Kuchen 35 Minuten, bis der Teig dunkelbraun und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Kuchen aus dem Ofen und lasse ihn abkühlen, während du den Sirup zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sirup hinzufügen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Gib Zucker und Wasser in einen Topf und bringe alles zum Kochen. Lasse es 10 Minuten kochen und rühre gelegentlich um. Nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Schneide Shendetlie in Quadrate oder Rauten und gieße den heißen Sirup darüber. Verwende so viel Sirup, dass der Kuchen bedeckt ist und etwa 1 cm überläuft und oben aufliegt. Er zieht in den Kuchen ein, während dieser vor dem Servieren mindestens 1 hour abkühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/fx0exq1779646651.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/fx0exq1779646651.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52953",
+      "slug": "tmdb-52953",
+      "title": "Shrimp Chow Fun",
+      "instructions": "Chinesisches Meeresfrüchtegericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2167,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52953/",
+      "components": [
+        {
+          "key": "74dcbbdc-7357-5d82-bdcd-ae6e3b2089e1",
+          "name": "Zutaten",
+          "servingGrams": 366,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f030b2f-111e-5fe6-a03d-393305dd5ad0",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf40236f-ffe4-5eb2-aa3d-bf62764d653b",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41dc9502-3f7a-57c4-9a1f-79f1a3271bca",
+              "ingredientName": "Eier",
+              "grams": 25,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00c8018f-7075-579f-a69f-a1937c1c8811",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98ac8cd7-3585-56a3-ac0e-76f80b5438c3",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b125365-d38b-5ccc-bd7b-fecb6247250d",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1343278-f7d1-5931-8c33-df9543b993ce",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b40572b0-5024-5a1b-85bd-144440aeeb25",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f808e140-bf37-51b7-8870-fa707b207b62",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cef052d9-0bf9-55dd-93a9-74e088bb22da",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bcf8b8a-f87e-5b94-9886-89bcdbed63ee",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab4a2da4-5615-517f-a9e4-703a3821536b",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f95ba2d-40dc-5078-b699-7813cdafa2ef",
+              "ingredientName": "Austernsoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0131b27-f7ed-58ce-9606-1661134a42b0",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5aaa25a2-1bec-512c-8c79-73c0810eefe9",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6217d27e-8dd2-57b0-ae40-8c12e2f4118c",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "– REISNUDELN EINWEICHEN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die Reisnudeln über Nacht ein, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "– REISNUDELN KOCHEN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Nudeln 10-15 Minuten und spüle sie dann mit kaltem Wasser ab, um den Garvorgang zu stoppen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "– GARNELEN MARINIEREN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Garnelen, Ei, 1 Prise weißen Pfeffer, 1 Teelöffel Sesamöl, 1 Esslöffel Maisstärke und 1 Esslöffel Öl in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "– IM WOK BRATEN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib 2 Esslöffel Öl und die Garnelen in einen Wok und brate sie unter Rühren goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Stelle die Garnelen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Gib 1 Esslöffel Öl in den Wok und anschließend gehackten Knoblauch, Ingwer und das gesamte Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Gib die Nudeln in den Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Gib Sherry zum Kochen, Austernsoße, Zucker, Essig, Sesamöl, 1 Prise weißen Pfeffer und Sojasoße hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "Gib die Garnelen wieder dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1529445434.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1529445434.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53375",
+      "slug": "tmdb-53375",
+      "title": "Garnelen mit Zuckerschoten",
+      "instructions": "Chinesisches Meeresfrüchtegericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2168,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53375/",
+      "components": [
+        {
+          "key": "1195cd9c-b2c4-5bb7-ae03-7939df67e0b0",
+          "name": "Zutaten",
+          "servingGrams": 115.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "232e9044-1d48-5648-b408-1a7266f335b1",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68db3c27-dc9a-58a8-a680-50ba343ed58f",
+              "ingredientName": "Sherryessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27353152-49ad-501b-a1db-4305acc0d9c8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35991b90-ba19-5be9-9331-ef40d3525ffb",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3036a7d7-d82b-5206-9ef6-271b78529f83",
+              "ingredientName": "Erdnussöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2a4d5aa-18b5-56b7-96e6-2bc6c82700ca",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "860310d5-8ee0-55ec-866e-0b27119654d6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9953be05-14d9-55a8-a309-d75d72250354",
+              "ingredientName": "tiefgekühlte Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbf7cf3f-e24e-5980-9a95-e617fc3b8e08",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04e7ae42-06bd-5bb0-8b43-ed25cda648dd",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb37c855-a619-5da7-bdae-174daa6d6050",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76c03bcc-3d7c-5c49-ac60-0bc711db837b",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Du kannst für dieses Rezept auch Zuckerschoten verwenden. Spare Vorbereitungszeit, indem du Erbsen, Ingwer und Knoblauch vorbereitest, während die Garnelen marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelen marinieren:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische alle Zutaten für die Marinade in einer großen Schüssel und gib dann die Garnelen hinzu. Wende sie darin, bis sie überzogen sind. Lasse sie 15 to 20 Minuten ziehen, während du Erbsen, Ingwer und Knoblauch vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ingwer und Knoblauch unter Rühren anbraten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze einen Wok oder eine große Sautépfanne 1 minute bei hoher Hitze. Gib Erdnussöl hinzu und erhitze es etwa 30 seconds. Gib Ingwer und Knoblauch dazu und vermische alles. Brate es unter Rühren etwa 30 seconds.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garnelen, Zuckerschoten, Sojasoße und Brühe hinzufügen:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Garnelen samt Marinade in die Pfanne (kratze die gesamte Marinade mit einem Silikonspatel heraus). Füge Zuckerschoten, Sojasoße und Hühnerbrühe hinzu. Brate alles unter Rühren etwa 2 Minuten, bis die Garnelen rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frühlingszwiebeln dazugeben und mit Sesamöl abschließen:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib Frühlingszwiebeln hinzu und brate alles unter Rühren 1 weitere Minute. Schalte die Hitze aus, gib Sesamöl hinzu und vermische alles nochmals. Mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/fpl3mv1766433431.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/fpl3mv1766433431.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53374",
+      "slug": "tmdb-53374",
+      "title": "Sichuan-Aubergine",
+      "instructions": "Chinesisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2169,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53374/",
+      "components": [
+        {
+          "key": "e5166260-110e-5b3c-8551-0c478599c2a3",
+          "name": "Zutaten",
+          "servingGrams": 91.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "ddcb81ea-394f-52ef-a0ea-0880c88e6c18",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75369b69-325a-583c-bd56-cadbf92ea6bb",
+              "ingredientName": "Erdnussöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22d4cd91-8a8e-5caf-bcda-98df05084685",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98b504e4-b176-5ef1-bf47-88b1200515b6",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "550dbe62-af72-5b79-a143-e635a2ef4e0d",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59106ce4-7501-5faf-8b30-0979b815af21",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d6304ca-8f27-54e5-96e4-8a2c4057c8ff",
+              "ingredientName": "ganze Nelken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa0eab17-05dc-5602-a4a9-0c2d256c1062",
+              "ingredientName": "frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e37b7418-b646-54bb-9ef3-de100352019c",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32549877-4400-5635-844e-9747addf0bc1",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fa8cdb9-0681-50d9-8f9f-46ec2ad6effe",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9038048-fff9-536e-b84b-f54ecb13ab6b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2ae389c-1685-501f-8c45-71a2a11dc9a2",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für dieses Rezept werden asiatische oder japanische Auberginen verwendet. Sie sind im Vergleich zu europäischen oder runden Auberginen länger und dünner und ihr Fruchtfleisch ist zarter. Falls du keine findest, kannst du eine runde Aubergine verwenden; am besten gelingt das Gericht jedoch mit asiatischen Auberginen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "*Viele Lebensmittelgeschäfte haben inzwischen Abteilungen mit asiatischen Zutaten. Chilibohnenpaste, eine Mischung aus eingelegten Chilis und zerdrückten Sojabohnen, findest du dort oder in einem asiatischen Markt. (Nicht mit schwarzer Bohnenpaste oder Chili-Knoblauch-Paste verwechseln.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "**Sichuan-Pfefferkörner sind in manchen Geschäften und online recht günstig erhältlich. Sie sind nicht scharf wie andere Pfeffer, sondern haben ein Zitrusaroma und erzeugen ein prickelndes, leicht betäubendes Gefühl wie ein kohlensäurehaltiges Getränk.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Aubergine, Chilisauce, Stärke-Wasser-Mischung, Essig und Frühlingszwiebeln vorbereiten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beginne mit der Vorbereitung aller Zutaten. Viertle die Aubergine längs, schneide sie in dicke Stifte und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Hühnerbrühe, Zucker und Sojasoße in einer kleinen Schüssel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische Chilibohnenpaste, Knoblauch, Ingwer und Sichuan-Pfefferkörner in einer zweiten Schüssel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verrühre Maisstärke mit einem Esslöffel Wasser in einer dritten Schüssel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Vermische zum Schluss Frühlingszwiebeln und Essig in einer vierten Schüssel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Aubergine anbraten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Erhitze Öl in einem Wok oder einer großen Sautépfanne bei mittlerer bis hoher Hitze, bis es fast raucht. Gib die Aubergine hinzu und brate sie an. Lasse sie nach jedem Umrühren einige Sekunden liegen, damit sie bräunt und Blasen wirft. Falls die Aubergine das gesamte Öl aufnimmt und einige Stücke trocken bleiben, gib etwas mehr Öl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Chilibohnenpaste, Knoblauch, Ingwer und Sichuan-Pfefferkörner hinzugeben und anbraten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Brate alles etwa 30 seconds, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "Hühnerbrühemischung hinzugeben:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1oz4nb1765687990.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1oz4nb1765687990.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

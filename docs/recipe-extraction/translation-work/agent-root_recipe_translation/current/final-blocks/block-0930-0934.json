@@ -1,0 +1,1143 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-harissa-roasted-veg-grain-bowl",
+      "slug": "mfr-harissa-roasted-veg-grain-bowl",
+      "title": "Getreideschale mit Harissa-Ofengemüse",
+      "instructions": "Feurig mit Harissa glasierte Gemüse auf Couscous mit einem kühlenden Joghurt-Dressing: eine nordafrikanische Schale mit viel Geschmack und wenig Aufwand.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Harissa-Paste macht aus schlicht geröstetem Gemüse etwas Besonderes und kostet $0.38/tbsp.",
+        "Eine Dose Kichererbsen macht aus dieser Schale eine vollwertige, proteinreiche Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "harissa",
+          "swap": "Sriracha und Kreuzkümmel als schneller Harissa-Ersatz"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Labneh oder saure Sahne"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-harissa-roasted-veg-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "nordafrikanisch",
+        "Schüssel",
+        "vegetarisch",
+        "scharf",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 930,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-harissa-roasted-veg-grain-bowl/",
+      "components": [
+        {
+          "key": "0240a09b-dc8b-513f-96c7-3003831e3f05",
+          "name": "Zutaten",
+          "servingGrams": 882.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "29beb398-31cb-5b0b-aa24-feff77984c33",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43923bff-69e5-5739-8560-87814cf2e734",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96216d50-99ac-54b6-9df9-15d1c1691eae",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b5be04e-1aa3-5680-98e8-106c63669839",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cbc736e-7944-558f-a152-b166d16d38da",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d86fa2bd-ee9e-58da-b453-132a8f87bc86",
+              "ingredientName": "Harissa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b92c678-3221-594a-8117-547cb9f46df5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f53ddcc-acb2-5ecf-b281-3020472a67ae",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cf0d359-99c0-550d-b5df-511158d8a8aa",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec606c56-1e55-50f6-af4a-f3e3c71861e5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ec4fc07-f66d-55b1-b8e3-976614641a67",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "157c27e6-6b27-5cfb-a5b9-6adf94b51c7e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Paprika, Süßkartoffel und Kichererbsen mit Harissa, Olivenöl, Knoblauch, Honig und Salz. Röste alles bei 425°F 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Couscous zu. Lass den Spinat zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre ein kühles Joghurt-Dressing aus Joghurt, Zitrone und Salz an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Couscous, Spinat und Harissa-Gemüse in einer Schüssel an und träufle das kühle Joghurt-Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5894b1f704296f425204ea1f/1:1/w_2560%2Cc_limit/harissa-roasted-broccoli-tofu-and-quinoa-bowl.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5894b1f704296f425204ea1f/1:1/w_2560%2Cc_limit/harissa-roasted-broccoli-tofu-and-quinoa-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shrimp-corn-avocado-bowl",
+      "slug": "mfr-shrimp-corn-avocado-bowl",
+      "title": "Schüssel mit Garnelen, Mais und Avocado",
+      "instructions": "Angebratene Garnelen mit geröstetem Mais und gewürfelter Avocado auf Naturreis: eine einfache, sommerliche Schale voller Geschmack in weniger als 20 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Mais schmeckt aus der trockenen Pfanne genauso gut wie frischer Mais direkt vom Kolben.",
+        "Tiefgekühlte Garnelen tauen in 10 Minuten unter kaltem Wasser auf. Halte immer einen Beutel im Gefrierfach bereit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl oder Kokosöl"
+        },
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Quinoa für zusätzliches Protein"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-corn-avocado-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüssel",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 931,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-corn-avocado-bowl/",
+      "components": [
+        {
+          "key": "65413f04-a085-5334-bb61-e073d6a34c85",
+          "name": "Zutaten",
+          "servingGrams": 845.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d27a3daa-b496-5390-a005-5b76e07ed084",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31de6839-f8b4-5c21-97a9-f17bec4dce2f",
+              "ingredientName": "Naturreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dff1a07d-8965-5121-87b3-fd4fc5175185",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12327bca-d15c-592e-93a8-e34dab6c9098",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c2bb973-3595-5cc7-8519-ccbd380c4f05",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffcbd413-9bba-5ca3-bc63-3713dbb4ca02",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ba423bb-65a2-58a8-bbc4-31f16f6e17b6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7186b74-2a6f-5643-a0b9-3f6d77ab40e6",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "043fc889-d68e-5a87-b4f6-9138cf9608e5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55de6e98-afde-5670-9d49-745118ad4115",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c917d352-3b23-5244-b684-015379d475b2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Naturreis (20 Minuten). Röste den Mais 4 Minuten in einer trockenen Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in derselben Pfanne. Gib Knoblauch, Chilipulver und Garnelen dazu. Gare sie 2 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Presse Limettensaft über die Garnelen. Würfle die Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Reis, Spinat, Garnelen, gerösteten Mais, Avocado und Koriander in einer Schüssel an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mommyshomecooking.com/wp-content/uploads/2018/04/Grilled-Barbecue-Shrimp-and-Corn-Avocado-Salad-Bowls-1.jpg",
+          "sourcePageUrl": "https://mommyshomecooking.com/wp-content/uploads/2018/04/Grilled-Barbecue-Shrimp-and-Corn-Avocado-Salad-Bowls-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sardine-white-bean-herb-salad",
+      "slug": "mfr-sardine-white-bean-herb-salad",
+      "title": "Kräutersalat mit Sardinen und weißen Bohnen",
+      "instructions": "Sardinen aus der Dose mit weißen Bohnen, Kirschtomaten, frischen Kräutern und einem frischen Zitronen-Dressing: eines der nährstoffreichsten Mittagessen ohne Kochen im Buch für weniger als $3.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Sardinen kosten etwa ~$4 und liefern insgesamt 46 g Protein. Das ist eine der besten Proteinquellen fürs Geld in der Sammlung.",
+        "Sardinen zählen außerdem zu den reichhaltigsten Nahrungsquellen für Omega-3-Fettsäuren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sardines",
+          "swap": "Makrele oder Lachs aus der Dose"
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder Cannellini-Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sardine-white-bean-herb-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "Salat",
+        "Meeresfrüchte",
+        "ohne Kochen",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 932,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sardine-white-bean-herb-salad/",
+      "components": [
+        {
+          "key": "3d0a9fb5-9175-5afc-95e4-9bf2d8cf3053",
+          "name": "Zutaten",
+          "servingGrams": 1061.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d9b77e7-be44-5add-bca9-800fd0d5abea",
+              "ingredientName": "Sardinen aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b79e6119-629e-53f3-b6a2-bbb92d69e9a7",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e79bf815-3a91-5103-b6f6-1f1445ddb04d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0abb96ce-880c-52f0-b0c4-882b94a5bc6c",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10514a3b-330c-5934-b017-a0c653724968",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8efa0136-29c5-5c2c-b2fe-2954bbc0763f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61dd9399-e4a9-5c15-a15e-45d73a6e67e3",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d77db87a-c8eb-573b-a92c-5be0d4f5f81f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe2ac57d-017d-5f54-a7fc-736acc243f0e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "127569c5-a9f4-54ec-9af4-7b5e79dec862",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6217c05-d73a-5a48-8b10-022ec38fe673",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Sardinen ab. Wenn sie in Olivenöl eingelegt sind, bewahre etwas Öl auf. Gieße die weißen Bohnen ab und spüle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Tomaten. Hacke die Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Olivenöl, Zitronensaft, Essig, Dijon-Senf, Knoblauch und Salz zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge alles. Probiere den Salat und schmecke ihn ab. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/19/4ae6896a8ac54b6abb965bb5ef776fce/white-bean-grapefruit-and-herb-salad.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/19/4ae6896a8ac54b6abb965bb5ef776fce/white-bean-grapefruit-and-herb-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-avocado-quinoa-bowl",
+      "slug": "mfr-salmon-avocado-quinoa-bowl",
+      "title": "Quinoa-Schale mit Lachs und Avocado",
+      "instructions": "In der Pfanne gebratener Lachs auf Quinoa mit Avocadoscheiben, Gurke und cremigem Zitronen-Tahini-Dressing: eine Schale wie im Restaurant zum Bruchteil des Preises.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs aus der Dose eignet sich hier ebenfalls. Gut abtropfen lassen, mit Dijon-Senf vermengen und kalt als Proteinbeilage servieren.",
+        "Wenn du den Lachs mit Haut anbrätst, schützt sie ihn vor dem Übergaren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Lachs aus der Dose für eine Variante ohne Kochen"
+        },
+        {
+          "forIngredientId": "tahini",
+          "swap": "Miso und Zitrone für ein Dressing nach japanischer Art"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-avocado-quinoa-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüssel",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 933,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-avocado-quinoa-bowl/",
+      "components": [
+        {
+          "key": "bc57ef9a-8951-5d26-b46e-e70a4f44cc25",
+          "name": "Zutaten",
+          "servingGrams": 726.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0cc226ba-7f4f-5375-94c0-ceacf30112ad",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86e2dbc8-61b7-5031-bd41-a5e36f10f56e",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c319c4c2-a53a-5fc8-9c4d-ce038d4ff720",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebf141ba-f7d9-57d6-b1ac-3254db12e346",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cf9b0b2-231e-52ea-b445-36315a3daa31",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9a0aa24-381a-545a-8031-638cead5c8db",
+              "ingredientName": "Tahini",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35e4b674-6171-51e4-9fac-2a7982ec966b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58824190-f660-556b-bd72-b759d1b76d5f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d6d33e1-1425-5696-845a-60d179b8c7ee",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20320c1d-2f32-59a9-bd2c-b4dd16ed4e5a",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62419a3a-12f3-59da-b0e0-d174b08b6b83",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa (15 Minuten). Würze den Lachs mit Salz, Pfeffer und Dijon-Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Lachs in Olivenöl bei mittelhoher Hitze 4 Minuten auf der Hautseite an. Wende ihn und gare ihn weitere 2–3 Minuten. Lass ihn ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tahini, Zitrone, Knoblauch, Wasser und Salz zu einem Tahini-Zitronen-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Avocado und die Gurke in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Quinoa, Spinat, Lachs, Avocado und Gurke in einer Schüssel an. Träufle das Tahini-Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/f8nLtKqcDmCcg0_UNhT2Z5mVhO8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8110444-fe18d867dddf4b7ca90ac3c05dff42a0.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/f8nLtKqcDmCcg0_UNhT2Z5mVhO8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8110444-fe18d867dddf4b7ca90ac3c05dff42a0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuna-avocado-brown-rice-bowl",
+      "slug": "mfr-tuna-avocado-brown-rice-bowl",
+      "title": "Thunfisch-Avocado-Schale mit Naturreis",
+      "instructions": "Mit Sojasauce gewürzter Dosen-Thunfisch, cremige Avocado und Gurke auf Naturreis mit Sesam-Ingwer-Dressing: eine Poke-Schale mit Thunfisch für weniger als $3.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Thunfisch liefern 52 g Protein für $2.80. Günstiger lässt sich eine Poke-Schale kaum zubereiten.",
+        "Sesamöl ist das Geheimnis, durch das Dosen-Thunfisch besonders schmeckt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs aus der Dose für mehr Abwechslung mit Omega-3-Fettsäuren"
+        },
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Blumenkohlreis für eine kohlenhydratarme Poke-Schale"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-avocado-brown-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüssel",
+        "Meeresfrüchte",
+        "Poke-Art",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 934,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-avocado-brown-rice-bowl/",
+      "components": [
+        {
+          "key": "f3249d91-c5c0-5ce4-80f7-ecee192f1a8f",
+          "name": "Zutaten",
+          "servingGrams": 1163,
+          "position": 0,
+          "items": [
+            {
+              "key": "c61c59ed-d553-51be-a9c0-56653a84ac00",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32ed6c68-f90c-540c-b3af-c951448fc862",
+              "ingredientName": "Naturreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc4e224f-9366-53e9-a1d4-cf6f5d40ee13",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73b83fe3-e4b7-5725-b255-9a5a4a60535e",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ff90ce3-d958-52dc-859b-db631c6d41fc",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60bb9f6d-812b-5192-8326-d1bcf3a7c366",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39c08741-9665-5ce3-b014-ce18b3514e4d",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4d0df47-a40f-50f1-a2e3-00f2904ed667",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ad483fc-4df7-5b40-a9af-b94491e0de83",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e71f215-d8b0-5906-899a-b3c7e49fc898",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28b799c9-c546-5665-a142-60ec01aac5f1",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d86b1ac2-fd56-584f-9959-bc17a04529c0",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Naturreis. Gieße den Thunfisch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze den Thunfisch mit Sojasauce, Sesamöl, Ingwer, Knoblauch und Sriracha.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die Avocado und die Gurke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Reis, Spinat, gewürzten Thunfisch, Avocado, Gurke, Frühlingszwiebeln und Sesamsamen in einer Schüssel an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/2DdV2LFruG8sCdBrdn3X63UAuO4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/canned-tuna-rice-bowl-beauty-075_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-aa429a0bf6ba46ec9ed59ebfebe39087.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/2DdV2LFruG8sCdBrdn3X63UAuO4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/canned-tuna-rice-bowl-beauty-075_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-aa429a0bf6ba46ec9ed59ebfebe39087.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

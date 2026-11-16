@@ -1,0 +1,1069 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-asian-street-onigiri",
+      "slug": "mfr-asian-street-onigiri",
+      "title": "Japanische Onigiri (Reisbällchen mit Thunfisch-Mayonnaise)",
+      "instructions": "Japanische Reisbällchen, mit Essig gewürzt, von Hand geformt und mit scharfer Thunfisch-Mayonnaise gefüllt. In Nori gewickelt als Snack oder leichtes Mittagessen gegessen, ein Klassiker in jedem japanischen Supermarkt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus zwei Dosen Thunfisch werden 8 Onigiri, also etwa $0.50 pro Stück.",
+        "Sushi-Reis ist entscheidend. Rundkornreis eignet sich ebenfalls.",
+        "Onigiri halten sich einen Tag im Kühlschrank. Zum Mitnehmen in Frischhaltefolie wickeln."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-tuna",
+          "swap": "Lachs aus der Dose oder Umeboshi (eingelegte Pflaume) für eine vegane Variante"
+        },
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "Beliebiger weißer Rundkornreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-onigiri",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Onigiri",
+        "Reisbällchen",
+        "Thunfisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1340,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-onigiri/",
+      "components": [
+        {
+          "key": "c3835beb-0a49-5b6d-80c1-591cbdd6c8ca",
+          "name": "Zutaten",
+          "servingGrams": 328.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e5db9a0f-21d8-537b-9a12-cf1f7ef655c9",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2164d6d-30b3-5603-b47e-50a1cbfb118b",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "791fcb70-b188-5f9b-b5dd-edc70621f724",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de5cf007-4c32-52ad-89cc-b43e8b087fe8",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "940880db-def6-5712-b6c2-6121b9d8f067",
+              "ingredientName": "Noriblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8f52f3b-0c8d-5998-9d0f-51346c8347b7",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32a8059c-fd98-5e85-b648-08b02d0dd039",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "451ed5f2-96cc-5e8d-9e8e-a3ad682ee1d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sushi-Reis kochen und im warmen Zustand mit Essig, Zucker und Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Abgetropften Thunfisch mit Mayonnaise und Sriracha vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hände mit Salzwasser befeuchten, ¾ Tasse Reis nehmen, eine Mulde hineindrücken, die Füllung hineingeben und zu einem Dreieck formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die untere Hälfte kurz vor dem Essen in Nori wickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/640206e57abe4e8a9a170744/1:1/w_2560%2Cc_limit/TunaMayoOnigiri_RECIPE_030223_48211.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/640206e57abe4e8a9a170744/1:1/w_2560%2Cc_limit/TunaMayoOnigiri_RECIPE_030223_48211.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-street-pav-bhaji",
+      "slug": "mfr-asian-street-pav-bhaji",
+      "title": "Mumbai Pav Bhaji",
+      "instructions": "Indiens berühmtestes Streetfood: ein würziges Gemüse-Püree aus Kartoffeln, Tomaten, Paprika und Erbsen, mit Butter auf einer Tava gebraten und mit weichen, ebenfalls in Butter gerösteten Brötchen (Pav) serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pav-Bhaji-Masala ist die entscheidende Gewürzmischung und in jedem indischen Lebensmittelgeschäft für $2 erhältlich.",
+        "Alle Gemüsesorten sind preiswerte Grundzutaten. Das Gericht reicht für 4 Personen und kostet etwa $5.",
+        "Übrig gebliebene Bhaji schmeckt am nächsten Tag noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pav-bhaji-masala",
+          "swap": "Eine Mischung aus Kreuzkümmel, Koriander, Garam Masala und Chilipulver"
+        },
+        {
+          "forIngredientId": "bread-rolls",
+          "swap": "Beliebiges weiches Brot oder für eine glutenfreie Variante weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-pav-bhaji",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "Pav Bhaji",
+        "Mumbai",
+        "Streetfood",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1341,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-pav-bhaji/",
+      "components": [
+        {
+          "key": "8e0cc0a7-2059-507d-b832-940f9d25cd81",
+          "name": "Zutaten",
+          "servingGrams": 406.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "809a4bac-9859-545e-a510-89aa5668fdb0",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94d554fa-7439-5e54-9ee4-2cc5f36604ea",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45608a34-c75a-517d-a525-7e25cbf52213",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d5de09c-3e7a-5a36-93eb-3469668a1cc7",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae6ce96f-e87e-5bb5-9afb-4f02ea301b21",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e04df30-7855-5a7b-8ab3-cf759c6e1ab3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ff12e2c-b4be-5837-b554-3bb65933182d",
+              "ingredientName": "Pav-Bhaji-Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb074314-40f4-58b7-9737-bc3be50bb0df",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f476e2d-f1b1-5cce-87ab-b7beb234b791",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81eaef58-6ddd-57dc-9961-fde9c6c6b994",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4cf37a5-bce7-545d-9e85-537b77bbecf7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln und Erbsen weich kochen und grob zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel, Knoblauch, Tomaten und Paprika 8 Minuten in Butter weich garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püree und Pav-Bhaji-Masala dazugeben und 10 Minuten unter weiterem Zerdrücken garen, bis alles gleichmäßig vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brötchen in derselben Pfanne mit Butter rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bhaji mit roher Zwiebel, Koriander und Zitrone garnieren. Das Brot dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vismaifood.com/storage/app/uploads/public/604/709/49e/60470949e2dc9916143233.jpg",
+          "sourcePageUrl": "https://vismaifood.com/storage/app/uploads/public/604/709/49e/60470949e2dc9916143233.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-street-lu-rou-fan",
+      "slug": "mfr-asian-street-lu-rou-fan",
+      "title": "Taiwanesisches Lu Rou Fan (Reis-Bowl mit geschmortem Schweinefleisch)",
+      "instructions": "Langsam geschmortes Schweinehack mit Fünf-Gewürze-Pulver, Sojasauce und Reiswein, bis es glänzt und intensiv duftet. Auf weißem Reis mit einem halbierten Soja-Ei serviert. Eines der berühmtesten und unwiderstehlichsten Gerichte Taiwans.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinehack gehört zu den günstigsten Eiweißquellen.",
+        "Fünf-Gewürze-Pulver ist das Geheimnis. Eine $2-Flasche hält 6 Monate.",
+        "Das Gericht lässt sich perfekt einfrieren. Bereite die dreifache Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-wine",
+          "swap": "Trockener Sherry oder Apfelsaft"
+        },
+        {
+          "forIngredientId": "shallots",
+          "swap": "Normale Zwiebel, dünn geschnitten und länger gebraten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-lu-rou-fan",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "taiwanesisch",
+        "Lu Rou Fan",
+        "Schweinefleisch",
+        "geschmort"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1342,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-lu-rou-fan/",
+      "components": [
+        {
+          "key": "aa27a777-caca-5a36-9dfd-7771da5e6c08",
+          "name": "Zutaten",
+          "servingGrams": 209.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "e95a1ff0-3958-51ce-a2cf-d6676973eeaf",
+              "ingredientName": "Schweinehack",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85500210-3d97-57fc-b24a-c55bb14a5ac4",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bf52867-d575-5c35-87f2-3ddc9cd01257",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52b2c3f4-ceaa-5ae3-9e25-2cfacc431554",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d5af598-9c27-5970-a8ab-b14bbe054b83",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60ea84dd-2102-5f02-82e8-838ed3bed14a",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bb839a4-f9a0-53b6-b246-3b8b9c179abd",
+              "ingredientName": "Chinesisches Fünf-Gewürze-Pulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f62aad9-9d6b-5e85-8042-ca6f3adca576",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bac8b244-fd1e-513d-9364-2c19b41baac6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "550c22f9-20b2-5490-beb5-f0b0b8409bd2",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schalotten in Öl knusprig und goldbraun braten. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinehack anbraten und Knoblauch, Fünf-Gewürze-Pulver, Sojasauce, Reiswein und Zucker dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgedeckt 45 Minuten köcheln lassen, bis die Sauce dick und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In der Zwischenzeit Soja-Eier zubereiten: 6 Minuten hart kochen, schälen und in Sojasauce, Wasser und Zucker marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinefleisch auf Reis servieren und mit halbiertem Soja-Ei und knusprigen Schalotten belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishar.com/wp-content/uploads/2014/11/2014-10-26-16-53-45_deco1.jpg",
+          "sourcePageUrl": "https://delishar.com/wp-content/uploads/2014/11/2014-10-26-16-53-45_deco1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-street-satay",
+      "slug": "mfr-asian-street-satay",
+      "title": "Thailändisches Hähnchen-Satay mit Erdnusssauce",
+      "instructions": "Marinierte Hähnchenspieße gegrillt oder überbacken, bis sie goldbraun sind, mit kräftig aromatischer Erdnusssauce und schnell eingelegtem Gurkensalat serviert. Thailands weltweit beliebtestes Streetfood.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust eignet sich, aber Hähnchenoberkeulen sind saftiger und günstiger.",
+        "Mit natürlicher Erdnussbutter gelingt die Sauce am besten. Verzichte auf gesüßte Sorten.",
+        "Holzspieße 20 Minuten einweichen, damit sie nicht verbrennen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce für eine vollständig vegane Marinade"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus für eine nussfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-satay",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "thailändisch",
+        "Satay",
+        "Hähnchen",
+        "Erdnusssauce"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1343,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-satay/",
+      "components": [
+        {
+          "key": "f8f182fd-0fc3-570e-b603-24c8c0809a6b",
+          "name": "Zutaten",
+          "servingGrams": 352.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e1cd518-436c-5faa-97b2-fb11c5b3de85",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "362af237-e0b3-59d4-a95e-77206954662f",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b38a7c5c-9637-5772-8b3f-dede556bdfce",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4baee13-d8c1-5998-92a8-bd048f51cb69",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54ccc17b-9da0-5fb2-ae04-e3361577837d",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92e2934a-14e7-5d77-b09e-a6b0a2b6a3c4",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecc225b1-e80d-5e46-a033-06e5c9fba985",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5d4b267-fa1c-5080-ac71-35491d6061e4",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fac2a2b6-0787-5156-8c86-8d94e775e80b",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a762ccd3-78e2-525c-b07c-9308ef57b104",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6608b86e-95e7-559c-8a6b-ff6c9896111b",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in dünne Streifen schneiden und 15 Minuten in Sojasauce, Fischsauce, Currypulver und Kurkuma marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf Spieße stecken und bei starker Hitze 6–8 Minuten grillen oder überbacken. Einmal wenden, bis die Ränder gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erdnusssauce zubereiten: Erdnussbutter, Kokosmilch, Limette und Sojasauce pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gurkenscheiben in Reisessig und Zucker schnell einlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spieße mit Erdnusssauce und Gurkensalat servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/RNFMlnz7o4mfrTYn2lvMUPROixQ=/4592x3056/filters:fill(auto,1)/thai-chicken-satay-629396348-587d6a853df78c17b63d5c28.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/RNFMlnz7o4mfrTYn2lvMUPROixQ=/4592x3056/filters:fill(auto,1)/thai-chicken-satay-629396348-587d6a853df78c17b63d5c28.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-street-egg-tart",
+      "slug": "mfr-asian-street-egg-tart",
+      "title": "Hongkonger Eiercreme-Törtchen",
+      "instructions": "Buttrige, blättrige Teigschalen gefüllt mit samtiger gebackener Eiercreme. Das beliebteste süße Dim-Sum-Gebäck und mit einfachen Vorratszutaten überraschend leicht zu Hause zuzubereiten.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kondensmilch ohne Zucker sorgt für die klassische seidige Eiercreme und kostet $1 pro Dose.",
+        "Eine Muffinform funktioniert hervorragend statt spezieller Törtchenformen.",
+        "Diese Törtchen schmecken genau wie aus der Bäckerei und kosten nur einen Bruchteil davon."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "evaporated-milk",
+          "swap": "Sahne mit Milch vermischt"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Backfett für einen traditionelleren, blättrigen Hongkonger Teig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-egg-tart",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "Eiertörtchen",
+        "Dim Sum",
+        "Hongkong",
+        "Eiercreme"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1344,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-egg-tart/",
+      "components": [
+        {
+          "key": "a3d8412d-7711-5ee7-9d5c-df4325aa5b61",
+          "name": "Zutaten",
+          "servingGrams": 149.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfdac9c6-afbc-5782-aaa2-836f2f5c70cf",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75ae7ce2-f3a8-5806-b6c8-ba037dc0d588",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b8ef0f8-e5cc-5f2f-8782-a96187adb34a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a29a49c-d48a-549e-aaaf-8ae42166c4e6",
+              "ingredientName": "Kondensmilch ohne Zucker",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd695520-c758-5fa6-b72d-c51a3fd84ddb",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5044f6c-c048-544f-a4db-93fce05c11f5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7aa3b4ee-59c2-50a6-bd8d-bbdb3eddbf10",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "267430d4-6433-52ac-9df0-c1c163c4bc74",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mürbeteig zubereiten: Mehl, Butter, Puderzucker und Eigelb vermengen. 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In gefettete Törtchenformen drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eiercreme zubereiten: Kondensmilch ohne Zucker mit Zucker und Vanille erwärmen und die verquirlten Eier einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eiercreme durch ein Sieb in die Teigschalen gießen. Bei 350°F 20–22 Minuten backen, bis die Füllung gerade gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vor dem Herauslösen 10 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6239fdf9ebb0382416abaf03/1:1/w_2560%2Cc_limit/HongKongEggTarts_RECIPE_IG_031722_30182.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6239fdf9ebb0382416abaf03/1:1/w_2560%2Cc_limit/HongKongEggTarts_RECIPE_IG_031722_30182.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1414 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52812",
+      "slug": "tmdb-52812",
+      "title": "Geschmorte Rinderbrust aus dem Schmortopf",
+      "instructions": "Ein beliebtes Rindfleischgericht aus den Vereinigten Staaten für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "USA",
+        "Rindfleisch",
+        "Fleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1725,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52812/",
+      "components": [
+        {
+          "key": "3b73624a-c93e-5941-bff7-38e62bc778ff",
+          "name": "Zutaten",
+          "servingGrams": 412.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8434aacc-f93c-5e7b-aef5-33b3c5dcaf24",
+              "ingredientName": "Rinderbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57dfb47d-89dd-5ae2-8e64-251d8355eae2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09235bfc-6ec2-5e4a-ae9c-d0cbc012badc",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22620e3d-ed96-5354-b749-8434e9df8f51",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae45031a-4385-5a7c-a20c-62e8cdade9b3",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d62dfe1-dd2b-5447-b6ba-c70adba05183",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3aa8d617-09fb-51b8-893b-2661cbef2412",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2a65ee6-cf93-53b2-aaf8-0c5730075f82",
+              "ingredientName": "Rinderbrühe",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65e267bd-3eeb-5978-964c-2431b8b295ff",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f3eb697-caa9-570e-b8bc-78df02797275",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32d736da-2486-5bc6-8541-a5fd0b67fe66",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 Rinderbrust vorbereiten: An einer Seite sollte eine Fettschicht bleiben. Schneide große Fettstücke ab und entsorge sie, da sie nicht vollständig auslassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ritze das Fett mit einem scharfen Messer in parallelen Linien im Abstand von etwa 3/4-inch ein. Schneide nur durch das Fett, nicht ins Fleisch. Wiederhole den Schnitt quer, sodass ein Rautenmuster entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Salze die Rinderbrust großzügig und lass sie 30 Minuten bei Raumtemperatur stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2 Rinderbrust anbraten: Verwende einen ofenfesten Topf mit dickem Boden und Deckel oder einen Dutch Oven, der gerade breit genug für das Fleisch und etwas Platz für Zwiebeln ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tupfe die Rinderbrust trocken und lege sie mit der Fettseite nach unten in den Topf. Erhitze sie bei mittelhoher Hitze 5-8 Minuten unter leichtem Brutzeln, bis das Fett schön gebräunt ist. Reduziere bei Bedarf die Hitze auf mittel; es soll gleichmäßig brutzeln, nicht stark anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende die Rinderbrust und gare sie noch ein paar Minuten, bis die andere Seite gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "3 Zwiebeln und Knoblauch dünsten: Nimm die gebräunte Rinderbrust heraus und stelle sie beiseite. Im Topf sollten ein paar Esslöffel ausgelassenes Fett sein; andernfalls gib etwas Olivenöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib die gehackten Zwiebeln hinein und erhöhe die Hitze auf hoch. Salze sie leicht und dünste sie unter häufigem Rühren 5-8 Minuten, bis sie leicht gebräunt sind. Rühre Knoblauch ein und gare alles weitere 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "4 Rinderbrust zurück in den Topf geben, Kräuter und Brühe hinzufügen und im Ofen schmoren: Heize den Ofen auf 300°F vor. Binde Lorbeerblätter, Rosmarin und Thymian mit Küchengarn zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schiebe Zwiebeln und Knoblauch an den Topfrand und lege die Rinderbrust hinein. Gib Rinderbrühe und Kräuterbündel dazu. Bringe die Brühe auf dem Herd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Decke den Topf ab und stelle ihn bei 300°F in den Ofen. Gare das Fleisch 3 hours und wende es vorsichtig jede Stunde, damit es gleichmäßig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "5 Karotten hinzufügen und weitergaren: Gib nach 3 hours die Karotten dazu. Decke den Topf ab und gare alles 1 hour weiter, bis die Karotten gar und die Rinderbrust butterzart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "6 Rinderbrust herausnehmen und mit Folie abdecken: Nimm den Topf aus dem Ofen und lege das zarte Fleisch auf ein Schneidebrett. Decke es mit Folie ab. Entferne und entsorge die Kräuter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "7 Sauce zubereiten (optional): Serviere das Fleisch wie es ist oder bereite aus Bratensaft und Zwiebeln eine Sauce zu. Wenn du es ohne Sauce servierst, überspringe diesen Schritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53070",
+      "slug": "tmdb-53070",
+      "title": "Philippinisches Rindfleisch-Caldereta",
+      "instructions": "Ein beliebtes philippinisches Rindfleischgericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "philippinisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1726,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53070/",
+      "components": [
+        {
+          "key": "36390b70-e6d9-5406-a83b-7591b615429d",
+          "name": "Zutaten",
+          "servingGrams": 547.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b770d45f-8d16-532e-a577-6abf2c08ca77",
+              "ingredientName": "Rindfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7be60a72-41e4-5777-80ce-c573ab14368c",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3e79ddd-c356-5dd2-8068-ca29c02c779d",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a6562e2-c261-5849-bb86-10774ab17b37",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbea5746-5409-5cc3-bdc3-179eda52ba79",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ac48b52-327d-5d7d-b4c5-63fffb4bc226",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6b706f8-b443-57d7-a2c5-67f8c807b8e6",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0400e4de-2102-5cc8-8f4b-bf8968fde009",
+              "ingredientName": "Tomate",
+              "grams": 960,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44ff1ab0-1ad0-5d51-8ca1-af096af3f4cb",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db002871-414c-5d19-8e06-dae05f0cd3e6",
+              "ingredientName": "Chilipulver",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2c5e459-0876-5098-90f9-5523823879c1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54d8bbc1-bba6-5d2a-b935-275e47d2824d",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d475780-d343-55ca-97f3-1e87ac9f1b62",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "0. Erhitze Öl in einem Topf. Dünste Zwiebel und Knoblauch, bis die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1. Gib das Rindfleisch dazu und brate es an, bis die Außenseite hellbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2. Gib Sojasauce dazu. Gieße Tomatensauce und Wasser hinein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3. Gib einen Knorr-Rinderbrühwürfel dazu. Schließe den Schnellkochtopf und gare alles 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "4. Brate Karotte und Kartoffel in der Pfanne an, bis sie gebräunt sind. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5. Gib Chili, Leberaufstrich und Erdnussbutter dazu. Rühre um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "6. Gib Paprika, gebratene Kartoffel und Karotte dazu. Decke den Topf ab und gare alles weitere 5 to 7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "7. Würze mit Salz und gemahlenem schwarzem Pfeffer. Serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/41cxjh1683207682.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/41cxjh1683207682.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52873",
+      "slug": "tmdb-52873",
+      "title": "Britischer Rindfleisch-Dumpling-Eintopf",
+      "instructions": "Ein beliebter britischer Rindfleischeintopf für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "Rindfleisch",
+        "Eintopf",
+        "Backen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1727,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52873/",
+      "components": [
+        {
+          "key": "dd309da6-ad7e-5cdc-88e7-c6f975e7b025",
+          "name": "Zutaten",
+          "servingGrams": 374.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d23d958-ebfe-5873-ad35-59fe0844e0d6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da34de69-f9a6-5c60-be7f-b5bcb0bc17d9",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e97144d3-2525-5d73-bef5-74dfa4182965",
+              "ingredientName": "Rindfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "253f2064-5d9c-5738-b57c-10aaa2b8d48e",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d23f5793-9698-5a40-a4db-adb251f44703",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e1d4ee1-6539-5ba8-ac92-7fb78b69863e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8263be8-8340-56b1-80aa-0e4c735f842c",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9dfe8b1-b6b1-59cf-8224-6c4c367f8970",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "152a0cf1-83ac-5c85-96db-aa5a264203cd",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13711324-3569-5e24-bfa8-7978107558aa",
+              "ingredientName": "Rübe",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20ebe020-c060-5f57-9037-8b81513733b4",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d784020-63b6-5591-bbbc-710909b22faf",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a5d9a47-037e-5e9e-a851-b3ef080fe093",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c30b8bed-7be6-5097-bdda-04bcf78b167e",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1144021-486c-5028-b432-4ebc33b33d01",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9edfc00-b567-53e6-8c33-fabc4e2bddf4",
+              "ingredientName": "Rindertalg",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bacb1974-85af-518d-9481-943e03e91b79",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 180C/350F/Gas 4 vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl und Butter in einem ofenfesten Schmortopf und brate das Rindfleisch rundum braun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue Mehl darüber und gare es weitere 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und das gesamte Gemüse dazu und brate alles 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Wein, Brühe und Kräuter ein. Gib Worcestershiresauce und Balsamicoessig nach Geschmack dazu. Würze mit Salz und frisch gemahlenem schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und gare ihn etwa zwei hours im Ofen, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für die Klöße siebe Mehl, Backpulver und Salz in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Rindertalg und genug Wasser dazu, um einen festen Teig zu formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Forme mit bemehlten Händen aus Löffeln Teig kleine Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Nimm nach zwei hours den Deckel vom Eintopf und lege die Kugeln darauf. Decke den Topf wieder ab und gare alles weitere 20 Minuten, bis die Klöße aufgegangen und weich sind. Für eine goldene Oberfläche kannst du den Deckel beim Zurückstellen weglassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Serviere je einen Löffel Kartoffelstampf auf vier Tellern, gib Eintopf und Klöße darauf und bestreue alles mit gehackter Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/uyqrrv1511553350.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/uyqrrv1511553350.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53317",
+      "slug": "tmdb-53317",
+      "title": "Uruguayische Rindfleisch-Empanadas",
+      "instructions": "Ein beliebtes uruguayisches Rindfleischgericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "uruguayisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1728,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53317/",
+      "components": [
+        {
+          "key": "33ceb9de-e7e3-5553-a6e4-2f25b186768a",
+          "name": "Zutaten",
+          "servingGrams": 445.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "d746d814-2225-5155-a35a-04ebf5327617",
+              "ingredientName": "Grünkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e5fc571-fafb-595d-a984-14ac50b2c4d6",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b52fa3cb-4df9-50c2-8445-85347595535d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39a7a62b-6871-5d42-97a5-cb9a38ab88d1",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e88a0bf8-4a52-504e-8a11-ef9ae96bb56b",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4398590-6357-57e8-bab4-df28c623991a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "751b2e9f-67bd-5adf-823e-a6d90e59d266",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dbfc0a7-f3ba-5817-b18c-05af8d541ac6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d89c2479-6456-5d37-b3b2-3da496c416ca",
+              "ingredientName": "Sirloin-Steak",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e144bdd2-c591-593d-9894-a4af1c3c1e30",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39f73cab-f1b1-5d10-aa3a-1821372f832f",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "352cc4eb-c48a-5ab3-b7f8-af35ebaa9397",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69184fb0-a2fd-5439-911c-124f6af1566d",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cc5bb2c-3827-5aec-b6ca-1b3ea93082f6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea1c8428-c838-56b5-9964-647e680f4ee8",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9f3338f-e52b-5039-b410-7850b65439a8",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c56c071-c07a-5809-b83a-bb04326469c5",
+              "ingredientName": "Chimichurri-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Schmalz, warmes Wasser und Salz in eine große Knetschüssel geben und verrühren. Mehl und Oregano hinzufügen und den Teig fünf miutes von Hand oder mit der Knetfunktion der Maschine kneten. Abgedeckt mindestens half an hour oder über Nacht im Kühlschrank ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Füllung die Tomaten etwa 30 seconds in kochendes Wasser geben, dann mit kaltem Wasser abschrecken, häuten und würfeln. Knoblauch pressen und Zwiebeln würfeln. Knoblauch und Zwiebeln in etwas Olivenöl dünsten, bis sie glasig sind. Herausnehmen und das Fleisch bei hoher Hitze rundum anbraten. Mit Kräutern würzen, Zwiebeln, Knoblauch und Tomaten hinzufügen und einige Minuten köcheln lassen. Mit Salz, Pfeffer und weiteren Gewürzen abschmecken. Die Füllung kann am Vorabend zubereitet und gekühlt werden. Eier kochen, würfeln und unter die Fleischmischung heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere den Teig und rolle eine Hälfte auf bemehlter Fläche dünn aus. Stich Kreise von etwa 12-15cm Durchmesser aus; meine Kreise haben einen Durchmesser von 12.5 cm. Gib etwa 2-4 Teelöffel Füllung auf jeden Kreis, befeuchte die Ränder mit etwas Wasser und klappe den Teig zu Halbmonden zusammen. Drücke die Ränder mit einer Gabel fest. Wiederhole dies, bis Teig und Füllung aufgebraucht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize währenddessen den Ofen auf 200 Grad Celsius vor. Bestreiche die Empanadas mit verquirltem Ei und backe etwa 8 Stück auf einem mit Backpapier belegten Blech etwa 25min, bis sie goldbraun sind. Warm mit Chimichurri-Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/dxpc7j1764370714.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/dxpc7j1764370714.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52952",
+      "slug": "tmdb-52952",
+      "title": "Rindfleisch-Lo-Mein",
+      "instructions": "Ein beliebtes chinesisches Rindfleischgericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1729,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52952/",
+      "components": [
+        {
+          "key": "84ee3e0c-5ebb-5aad-9574-05c0576434fd",
+          "name": "Zutaten",
+          "servingGrams": 307,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a59a374-3bdf-5a2c-8209-c772f90ea8ce",
+              "ingredientName": "Rindfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4411a607-939a-54be-9122-798cede0795f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82c76c1d-2265-5770-b8ea-bf686123d2d9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b183dc78-da7b-5da6-a271-e5704d25e294",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b20e271-d642-5e2d-88bb-4e311549c46e",
+              "ingredientName": "Eier",
+              "grams": 25,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0550d69f-1729-5ff9-acf2-55dd7edf9697",
+              "ingredientName": "Speisestärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ac84254-1db8-5d05-ba66-c7b741d1f5e6",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b56362ee-c77c-5f78-9a54-f3d3a12a7b05",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "378a9420-0993-56e4-895f-c07c7339df7b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bca18a16-9738-5864-9cdc-165a749cda23",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49e0e103-8a8b-5683-895c-8d47967dd79f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f91dd635-3d17-5c43-9a3e-b2f9c4ea909f",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba3ffab0-ea81-503a-a743-debca51eb52d",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62b7039f-3ba0-514a-a130-1427a68f1bf8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a52e4d76-26a5-5ad1-adfb-518a160cc0da",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd0f5fed-cc24-5e95-b0df-73cce054bea9",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0e4e051-87ab-5ad3-a4a9-5a87632dc789",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge in einer Schüssel Rindfleisch, Salz, 1 Prise weißen Pfeffer, 1 Teelöffel Sesamöl, 1/2 Ei, Speisestärke und 1 Esslöffel Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nudeln kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Nudeln in einen 6 qt Topf mit kochendem Wasser, sodass sie bedeckt sind. Koche sie bei hoher Hitze 10 seconds. Gieße sie ab und spüle sie mit kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Im Wok braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 2 Esslöffel Öl und das Rindfleisch in den Wok und brate es bei hoher Hitze, bis es halbgar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das gegarte Rindfleisch aus dem Wok und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib 2 Esslöffel Öl, Zwiebeln, gehackten Knoblauch, gehackten Ingwer, Sojasprossen, Pilze, Zuckerschoten und 1.5 cups Wasser (oder so viel, dass das Gemüse bedeckt ist) in den Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib die Nudeln in den Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Für die Sauce Austernsauce, 1 Prise weißen Pfeffer, 1 Teelöffel Sesamöl, Zucker und 1 Teelöffel Sojasauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Gib das Rindfleisch zurück in den Wok und brate alles unter Rühren weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1529444830.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1529444830.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

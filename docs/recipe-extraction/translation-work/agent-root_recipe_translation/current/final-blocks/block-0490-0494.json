@@ -1,0 +1,1149 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-moo-shu-mushroom-wraps",
+      "slug": "toh-moo-shu-mushroom-wraps",
+      "title": "Moo-Shu-Wraps mit Pilzen",
+      "instructions": "Eine schnelle vegetarische Variante von Moo Shu: locker gerührte Eier und zarte Pilze mit knackigem Brokkoli-Krautsalat in einer säuerlichen Knoblauch-Ingwer-Sojasoße, eingerollt in mit Hoisin bestrichene Tortillas. Frisch, herzhaft und in einer halben Stunde auf dem Tisch. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/moo-shu-mushroom-wraps/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze die Brokkoli-Krautsalatmischung durch fein geschnittenen Weißkohl und eine Handvoll geriebene Karotte. So sparst du, ohne auf Knackigkeit zu verzichten.",
+        "Kaufe ganze Pilze und schneide sie selbst. Bereits geschnittene Pilze sind meist teurer.",
+        "Eier und Kohl machen das Gericht sättigend. So kannst du mit wenigen Tortillas günstig ein vollständiges Abendessen zubereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Rapsöl oder ein beliebiges neutrales Öl; zum Schluss für das Aroma ein paar Tropfen Sesamöl dazugeben",
+          "savings": "~$0.10 pro Rezept"
+        },
+        {
+          "forIngredientId": "hoisin",
+          "swap": "Süße Sojasauce oder eine Mischung aus Sojasauce und etwas braunem Zucker",
+          "savings": "~$1.00, wenn du auf den Kauf eines Glases Hoisin-Sauce verzichtest"
+        },
+        {
+          "forIngredientId": "coleslaw-mix",
+          "swap": "Fein geschnittener Weißkohl mit geriebener Karotte",
+          "savings": "~$0.50 pro Rezept"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch-amerikanisch",
+        "vegetarisch",
+        "Wraps",
+        "Moo Shu",
+        "Pilze",
+        "schnell",
+        "unter der Woche",
+        "Wokgericht",
+        "asiatisch"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 490,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-moo-shu-mushroom-wraps/",
+      "components": [
+        {
+          "key": "1b5f973e-e410-5a21-b87f-27403bfbc7cf",
+          "name": "Zutaten",
+          "servingGrams": 615.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9e544e7-824f-58ac-8706-4fe7c83a856e",
+              "ingredientName": "Sesamöl",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "6ee62391-6088-5dda-b226-3bb182a56ad8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "leicht verquirlt"
+            },
+            {
+              "key": "2b897457-d4c2-5311-aea8-1d442660256a",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten frisch, etwa 1/2 Pfund"
+            },
+            {
+              "key": "cf158f64-4f91-515f-af34-a72ac2971d85",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Brokkoli coleslaw mix, 12 Unzen"
+            },
+            {
+              "key": "93c8bdaa-e6bf-560f-9715-4bb761264cff",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "b7eef55c-abc3-5bd3-8e8a-a3b19de2c1b5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt frisch"
+            },
+            {
+              "key": "65faa27b-925d-53ec-a69e-3d3dde848d5d",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a561741b-8f27-5ab3-9f16-465ef847c4ce",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "c6e90f55-7591-53b0-a816-b67c09f237dd",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98cf0263-66c9-5812-b40c-83947463caa7",
+              "ingredientName": "Mungobohnensprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "270b2e01-3b0b-53af-af9f-9cd529593571",
+              "ingredientName": "Hoisinsoße",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "3bf4eb12-1373-5b4e-84b8-0f11e6773add",
+              "ingredientName": "Tortilla",
+              "grams": 400,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "6-Zoll Mehl, erwärmt"
+            },
+            {
+              "key": "39562bfa-83a1-5296-a284-db1e180a917d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 90,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Teelöffel Sesamöl in einer großen beschichteten Pfanne bei mittlerer Hitze. Gieße die verquirlten Eier hinein und rühre sie, bis sie gestockt sind und keine Flüssigkeit mehr übrig ist. Gib sie dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das restliche Öl in dieselbe Pfanne und erhöhe die Hitze auf mittlere bis hohe Stufe. Brate die geschnittenen Pilze unter Rühren, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den Brokkoli-Krautsalat, Knoblauch und Ingwer ein. Brate alles nur 1 bis 2 Minuten, bis der Kohl bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Reisessig, Sojasauce und Sriracha in einer kleinen Schüssel und gieße die Mischung in die Pfanne. Hebe Mungobohnensprossen und die beiseitegestellten Eier unter und wende alles, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jede erwärmte Tortilla mit etwa 2 Teelöffeln Hoisinsoße und lasse am Rand einen kleinen Streifen frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib ungefähr 1/2 Tasse Füllung auf jede Tortilla, streue geschnittene Frühlingszwiebel darüber und rolle die Tortillas zum Servieren fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Moo-Shu-Mushroom-Wraps_exps84129_SD143205A01_24_5bC_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/moo-shu-mushroom-wraps/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Moo-Shu-Wraps mit Pilzen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-muffin-tin-lasagnas",
+      "slug": "toh-muffin-tin-lasagnas",
+      "title": "Lasagne-Häppchen aus der Muffinform",
+      "instructions": "Diese niedlichen Einzelportionen werden mit knusprigen Wan-Tan-Blättern statt Lasagneplatten zubereitet und mit cremigem Ricotta, zart schmelzendem italienischem Käse und würziger Marinara geschichtet. In der Muffinform werden sie goldbraun und sind eine beliebte Hauptspeise oder ein Partysnack. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/muffin-tin-lasagnas/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wan-Tan-Blätter sind viel günstiger als Lasagneplatten und kommen in großen Packungen. So kostet jede Portion nur wenig.",
+        "Kaufe einen Mozzarellablock und reibe ihn selbst, statt eine fertig geriebene Käsemischung zu verwenden. Das spart Geld und vermeidet Rieselhilfen.",
+        "Verwende eine beliebige Marinara aus dem Angebot. Ein 24 oz Glas reicht für alle 12 Portionen und es bleibt noch etwas Soße übrig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ricotta",
+          "swap": "Hüttenkäse glatt pürieren, damit die Füllung mehr Eiweiß enthält und weniger kostet",
+          "savings": "~$1 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Eine einzelne Packung Mozzarella mit geringem Wassergehalt statt einer italienischen Mischung verwenden",
+          "savings": "~$0.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "marinara",
+          "swap": "Gehackte Tomaten aus der Dose mit Knoblauch und getrockneten Kräutern köcheln lassen",
+          "savings": "~$1 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Lasagne",
+        "Muffinform",
+        "Wan Tan",
+        "vegetarisch",
+        "Partyessen",
+        "Vorspeise",
+        "käsig",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 491,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-muffin-tin-lasagnas/",
+      "components": [
+        {
+          "key": "d8ede06e-b149-5537-86e1-e2f15963f7a1",
+          "name": "Zutaten",
+          "servingGrams": 341.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "53d1fb2f-e804-5dd3-bbff-6e8cfb404656",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "leicht verquirlt"
+            },
+            {
+              "key": "6367044d-4d63-53f1-97c0-82bf50249056",
+              "ingredientName": "Ricotta",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "fettreduziert"
+            },
+            {
+              "key": "66eccefd-ba61-5ae3-9f94-5e46f0fc8ef9",
+              "ingredientName": "Mozzarella",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "gerieben Italian Käse Mischung, aufgeteilt"
+            },
+            {
+              "key": "5876ea44-fc62-5139-aa5a-f8ba8b6cc2eb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Einfetten der Muffinformen"
+            },
+            {
+              "key": "2b8870a5-2838-5cac-adfe-8705b2a2d8e5",
+              "ingredientName": "Wan-Tan-Blätter",
+              "grams": 2400,
+              "quantity": 24,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcbc4836-d8b3-50f2-870e-1c00eb1b5b18",
+              "ingredientName": "Marinarasoße",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Hausmacherart Pastasauce"
+            },
+            {
+              "key": "c7192a12-2023-54d5-9e06-4ae9624a2ebb",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "gehackt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375 F vor. Verrühre in einer Schüssel das verquirlte Ei, Ricotta und etwa 1-1/4 Tassen italienische Käsemischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche 12 Mulden einer Muffinform großzügig mit Olivenöl und drücke dann je ein Wan-Tan-Blatt hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib ungefähr 1 Esslöffel Ricottamischung und 1-1/2 Esslöffel Marinara in jedes Wan-Tan-Blatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege ein zweites Wan-Tan-Blatt auf jede Mulde. Drehe es um 90 Grad zum ersten Blatt und drücke die Mitte nach unten, sodass ein stabiler Becher entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib eine weitere Schicht Ricotta und Marinara in jede Mulde und streue die restliche Käsemischung darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Häppchen 20 bis 25 Minuten, bis der Käse blubbert und geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie ein paar Minuten abkühlen, garniere sie nach Wunsch mit frischer Petersilie und hebe sie aus der Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/04/Muffin-Tin-Lasagnas_EXPS_TOHcom25_144583_DR_03_21_13b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/muffin-tin-lasagnas/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Lasagne-Häppchen aus der Muffinform",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-one-pot-spinach-beef-soup",
+      "slug": "toh-one-pot-spinach-beef-soup",
+      "title": "Spinatsuppe mit Rindfleisch",
+      "instructions": "Eine herzhafte Suppe aus einem Topf: würzig angebratenes Rindfleisch und Knoblauch köcheln in einer kräftigen Brühe mit Tomatenstückchen. Zum Schluss kommen zarte Schleifennudeln und frischer Spinat dazu. Wärmend, sättigend und in einer halben Stunde auf dem Tisch. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/one-pot-spinach-beef-soup/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhack im Verhältnis 80/20 und gieße das Fett gut ab. Du kannst das Fleisch auch mit einer halben Dose Bohnen strecken, um die Kosten pro Schüssel zu senken.",
+        "Ersetze frischen Spinat durch tiefgekühlten Spinat. Er ist viel günstiger und hält sich im Tiefkühler, bis du ihn brauchst.",
+        "Einfache gewürfelte Tomaten aus der Dose mit gehackter Paprika und Zwiebel ersetzen die teurere gewürzte Sorte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack oder pflanzliches Hack",
+          "savings": "Putenhackfleisch spart etwas Geld und Fett; pflanzliches Hackfleisch macht das Gericht vegetarisch"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Penne, Makkaroni oder andere kleine Pasta",
+          "savings": "Penne sind pro Portion günstiger als spezielle Farfalle"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefgekühlter Spinat oder gehackter Grünkohl",
+          "savings": "Tiefgekühltes Blattgemüse ist günstiger und welkt im Kühlschrank nicht"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Suppe",
+        "aus einem Topf",
+        "Rindfleisch",
+        "Pasta",
+        "Spinat",
+        "unter der Woche",
+        "Wohlfühlessen",
+        "30 Minuten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 492,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-one-pot-spinach-beef-soup/",
+      "components": [
+        {
+          "key": "e19625ea-5223-5aa0-900b-a452147e7909",
+          "name": "Zutaten",
+          "servingGrams": 570.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "3eafcbd5-57ed-5c8c-a11d-359481319de7",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e867ee77-a028-5d61-a1b3-bd3b73143cd6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "59320db0-62ba-518e-9239-6d58a3d444d5",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "8a224ccd-89a9-5132-b9d1-6998aa2bafd1",
+              "ingredientName": "Geschmorte Tomaten (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "gewürfelte Tomaten mit grüner Paprika, Sellerie und Zwiebel, nicht abgetropft"
+            },
+            {
+              "key": "5f0957ee-2d90-5581-bf86-7ac10b965f85",
+              "ingredientName": "Getrocknetes Basilikum",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ada471cf-c7e4-5926-9032-6c4fd618e002",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b7edb23-64a5-5b56-8f67-77ce3c4ffa41",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d564c22-5dc0-566d-94be-1084681a2419",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3190859d-22a4-56cb-a318-bbe3922604eb",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "Farfalle, ungekocht"
+            },
+            {
+              "key": "0623ac87-776d-5c44-8fe3-adbc11b38462",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "frisch, grob gehackt"
+            },
+            {
+              "key": "912977a5-9db9-5f78-92dd-b6b03a85e5bb",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Rinderhack mit dem gehackten Knoblauch in einem großen Suppentopf bei mittlerer Hitze an. Zerteile das Fleisch beim Garen und brate es etwa 6 bis 8 Minuten, bis kein Rosa mehr zu sehen ist. Gieße das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Rinderbrühe und die Tomaten samt Flüssigkeit dazu und würze alles mit Basilikum, Oregano, Salz und Pfeffer. Bringe die Suppe zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die trockenen Schleifennudeln dazu, bringe die Suppe erneut zum Kochen und gare sie ohne Deckel etwa 7 bis 9 Minuten, bis die Pasta weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den gehackten Spinat ein und lass ihn in der Suppe zusammenfallen. Schöpfe die Suppe in Schüsseln und bestreue sie mit geriebenem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/05/One-Pot-Spinach-Beef-Soup_EXPS_FT25_159230_EC_0509_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/one-pot-spinach-beef-soup/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Spinatsuppe mit Rindfleisch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-parmesan-chicken-sandwiches",
+      "slug": "toh-parmesan-chicken-sandwiches",
+      "title": "Hähnchen-Parmesan-Sandwich",
+      "instructions": "Knusprige, mit Parmesan panierte Hähnchenschnitzel in getoasteten Brötchen mit zart schmelzendem Provolone und warmer Marinara: italienisch-amerikanisches Wohlfühlessen aus der Hand. In weniger als einer halben Stunde fertig und ideal als sättigendes Mittagessen oder unkompliziertes Abendessen unter der Woche. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/parmesan-chicken-sandwiches/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust in einer Familienpackung und friere jeweils zwei Stück zusammen ein. Wenn du jedes Stück flach klopfst, reicht es für mehr Portionen.",
+        "Bereite gewürzte Semmelbrösel selbst aus altbackenem Brot und getrockneten italienischen Kräutern zu, statt eine Packung zu kaufen.",
+        "Marinarasoße im Glas ist pro Portion günstiger als frische Soße und hält sich nach dem Öffnen wochenlang im Kühlschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "provolone",
+          "swap": "Mozzarella oder ein beliebiger schmelzender Käse, den du gerade da hast",
+          "savings": "~$0.20 pro Sandwich"
+        },
+        {
+          "forIngredientId": "sub-rolls",
+          "swap": "Längliche Sandwichbrötchen oder Hamburgerbrötchen",
+          "savings": "Verwende, was im Angebot ist"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Zerstoßener Panko mit italienischer Würzmischung vermischt",
+          "savings": "vergleichbar, mit knusprigerem Boden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Hähnchen",
+        "Sandwich",
+        "Parmesan",
+        "paniert",
+        "Wohlfühlessen",
+        "schnell",
+        "Mittagessen",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 493,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-parmesan-chicken-sandwiches/",
+      "components": [
+        {
+          "key": "9f53f3e9-ec54-5ecd-9034-63c9cdcd2540",
+          "name": "Zutaten",
+          "servingGrams": 438.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "5724a18b-1745-516d-be78-d49ca3da53bb",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88fbc647-8ab2-5786-b54c-0a364b9843ed",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "leicht verquirlt"
+            },
+            {
+              "key": "4490a8df-b344-518e-86c3-a961d653abb5",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "gewürzt"
+            },
+            {
+              "key": "b7c1eabb-2b65-5653-931a-57bde1441574",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4166d940-db7e-5133-9955-22ca246cbb3a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, ~5 Unzen je Stück, flach geklopft zu 1/2-Zoll"
+            },
+            {
+              "key": "1001d7ee-fd4c-57fb-a6c2-e81cc0175f3a",
+              "ingredientName": "Salz",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37ba2abb-2a9a-5ef3-bfd8-ec2bf29a3a38",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24c36dda-0680-5f50-8b7c-edae7d9c8956",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f4c2e53-d2ed-574d-a3d8-406d23638b7c",
+              "ingredientName": "Sandwichbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "aufgeschnitten, nach italienischer Art"
+            },
+            {
+              "key": "9b5e4099-4fd2-5563-a8b4-9a95cd087b59",
+              "ingredientName": "Provolone",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f90da62-5a44-57ce-bb7a-6afc45b75a0d",
+              "ingredientName": "Marinarasoße",
+              "grams": 79.92,
+              "quantity": 79.92,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "erwärmt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Richte eine Panierstraße ein: Gib Mehl in eine flache Schüssel, das verquirlte Ei in eine zweite und verrühre die Semmelbrösel mit dem geriebenen Parmesan in einer dritten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Klopfe jede Hähnchenbrust auf eine gleichmäßige Dicke von 1/2-inch und würze beide Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Schnitzel in Mehl und schüttle überschüssiges Mehl ab. Tauche es ins Ei und drücke es dann in die Parmesan-Semmelbrösel-Mischung, bis es vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate das Hähnchen etwa 4 bis 5 Minuten pro Seite, bis die Panade goldbraun und das Hähnchen durchgegart ist und innen kein Rosa mehr zeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Toaste die halbierten Brötchen nach Wunsch, damit sie besonders knusprig und aromatisch werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege je ein Schnitzel in ein Brötchen, gib eine Scheibe Provolone darauf und löffle vor dem Servieren warme Marinarasoße darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Chicken-Parm-Sandwich_EXPS_TOHD24_38331_SarahTramonte_5.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/parmesan-chicken-sandwiches/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Hähnchen-Parmesan-Sandwich",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-pork-chops-with-honey-garlic-sauce",
+      "slug": "toh-pork-chops-with-honey-garlic-sauce",
+      "title": "Schweinekoteletts mit Honig und Knoblauch",
+      "instructions": "Saftige Schweinekoteletts mit Knochen werden scharf angebraten und mit einer glänzenden, süß-säuerlichen Honig-Knoblauch-Soße aus einer Pfanne überzogen. Frische Zitrone und herzhafte Sojasauce gleichen den Honig aus. Ein schnelles Abendessen unter der Woche, das aufwendiger schmeckt, als es ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/pork-chops-with-honey-garlic-sauce/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Vorteilspackung Schweinekoteletts mit Knochen und friere den Rest ein. Stücke mit Knochen sind meist günstiger als ausgelöste und bleiben saftiger.",
+        "Ersetze Zitronensaft aus der Flasche durch eine frische Zitrone, wenn du eine da hast. So bekommst du denselben frischen Geschmack.",
+        "Ergänze die Mahlzeit mit Reis oder gedämpftem Gemüse, das die übrige Glasur aufnimmt, und mache so mehr Portionen daraus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "low-sodium-soy",
+          "swap": "Normale Sojasauce oder Tamari, etwas sparsamer dosiert, da sie salziger ist",
+          "savings": "Verwende Vorrätiges statt natriumreduzierte Produkte zu kaufen"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder brauner Zucker, in einem Schuss Wasser aufgelöst",
+          "savings": "Oft günstiger pro Esslöffel als Honig"
+        },
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "Apfelessig oder Reisessig für die Säure",
+          "savings": "Vorratszutat, keine Zitrusfrüchte nötig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Honig-Knoblauch",
+        "aus einer Pfanne",
+        "schnell",
+        "unter der Woche",
+        "glasiert",
+        "Pfannengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 494,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-pork-chops-with-honey-garlic-sauce/",
+      "components": [
+        {
+          "key": "0cc8c384-edf4-5fe8-a927-fc595011863a",
+          "name": "Zutaten",
+          "servingGrams": 138.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "bdbef47e-fce3-5e49-8a1c-45b7a51cb0b7",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "mit Knochen loin, etwa 6 Unzen je Stück"
+            },
+            {
+              "key": "c70e3baa-c81f-566c-942b-b3101e0ca2e7",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6da4b30c-e84e-5c6d-9e4d-a1a4ab7435ab",
+              "ingredientName": "Honig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a2170bc-2c67-5c16-975e-9d820a4a21e0",
+              "ingredientName": "Salzarme Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad099852-2099-5a1c-bf98-1ab7ea0fe89e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Besprühe eine große Pfanne mit Kochspray und erhitze sie bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Schweinekoteletts an, bis ein sofort ablesbares Thermometer 145F anzeigt, etwa 5 bis 6 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Koteletts auf einen Teller und lass sie 5 Minuten ruhen, damit sich der Fleischsaft verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Zitronensaft, Honig, Sojasauce und gehackten Knoblauch und gieße die Mischung in dieselbe heiße Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löse die gebräunten Reste vom Pfannenboden und lasse die Soße bei mittlerer Hitze 3 bis 4 Minuten köcheln. Rühre gelegentlich um, bis sie zu einer Glasur eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verdünne die Soße bei Bedarf mit einem Schuss Wasser und löffle sie über die ruhenden Koteletts. Du kannst die Koteletts auch kurz zurück in die Pfanne geben und darin wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Honey-Garlic-Pork-Chops_-scaled.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/pork-chops-with-honey-garlic-sauce/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweinekoteletts mit Honig und Knoblauch",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

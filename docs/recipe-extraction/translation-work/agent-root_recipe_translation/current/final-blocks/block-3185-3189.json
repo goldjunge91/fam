@@ -1,0 +1,1018 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-seaweed-salad",
+      "slug": "gen-seaweed-salad",
+      "title": "Algen-Salat",
+      "instructions": "Japanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Algen in großen Mengen auf asiatischen Märkten oder online kaufen und deutlich sparen",
+        "Dieser Salat hält sich im Kühlschrank bis zu 3 Tage"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3185,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seaweed-salad/",
+      "components": [
+        {
+          "key": "419034dd-6b78-5dfd-ba7a-6d2f408ab16c",
+          "name": "Zutaten",
+          "servingGrams": 148.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0c32aec-18e1-511b-be17-00581ae5b05b",
+              "ingredientName": "Gemüsemischung (tiefgekühlt)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f2ebdf39-94f1-5674-a523-14560c6743fc",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "beecbad2-30e8-5102-992e-e54a58743fcb",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1b61d05b-695b-5904-8670-65ce566f078f",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0bffe3ab-59c9-5fc7-8fe6-f3e0811c065d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d60ed939-3ac5-582d-882f-1849f339f0e8",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e30f23be-9b8d-5e16-a0f2-b481963bba62",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "aaee59cb-046a-5e8d-9c07-16b2da87878e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel gerieben"
+            },
+            {
+              "key": "14731118-0551-58ad-a68c-014b976cdf3e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Algen 5-10 Minuten in kaltem Wasser einweichen, bis sie weich und aufgequollen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Algen gründlich abgießen und überschüssiges Wasser vorsichtig ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sesamsamen in einer trockenen Pfanne bei mittlerer Hitze 1-2 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sojasauce, Reisessig, Sesamöl, braunen Zucker, gehackten Knoblauch und geriebenen Ingwer in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weiche Algen mit dem Dressing in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vorsichtig wenden, bis alles gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit gerösteten Sesamsamen bestreuen und vor dem Servieren mindestens 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2024/07/seaweed-salad-recipe.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2024/07/seaweed-salad-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kachumbari",
+      "slug": "gen-kachumbari",
+      "title": "Kachumbari",
+      "instructions": "Ostafrikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diesen Salat zubereiten, wenn Tomaten Saison haben und am günstigsten sind",
+        "Eine gute Möglichkeit, leicht überreife Tomaten zu verwerten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "ostafrikanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3186,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kachumbari/",
+      "components": [
+        {
+          "key": "c5869f80-fe8c-5600-88be-4fea712fa356",
+          "name": "Zutaten",
+          "servingGrams": 109.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e99b383-dad7-50ad-959d-3d31d168cdc1",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gehackt"
+            },
+            {
+              "key": "2367108c-c4ca-5b05-be85-d1a54a54b9af",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "2a714e13-5ab9-5a86-80ad-4e06ae784410",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen gehackt"
+            },
+            {
+              "key": "3dd5f7a0-1cec-5ebe-b491-77e64b04d42b",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "39f82563-5fb3-524e-8e51-f239177ef88d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "aca4fe87-b18c-538c-94da-f1b60915c8b4",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "e7d81bd0-8683-513f-aa0e-4c287feacc71",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tomaten in mundgerechte Stücke schneiden und in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rote Zwiebel würfeln und zu den Tomaten geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte grüne Chili und gehackten Koriander hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Limettensaft und Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alles vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren oder bis zum Essen kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1743521910/tk/photo/2025/04-2025/2025-03-israeli-salad/israeli-salad-054.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1743521910/tk/photo/2025/04-2025/2025-03-israeli-salad/israeli-salad-054.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-israeli-salad",
+      "slug": "gen-israeli-salad",
+      "title": "Israelischer Salat",
+      "instructions": "Israelisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tomaten und Gurken in der Saison zu den niedrigsten Preisen kaufen",
+        "Normale statt rote Zwiebel verwenden und 50 cents sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "israelisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3187,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-israeli-salad/",
+      "components": [
+        {
+          "key": "86b49710-7906-5177-8bb2-d824011e8dec",
+          "name": "Zutaten",
+          "servingGrams": 521.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9f4e4d4-af57-5ba1-9d08-2bf13695ccc1",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroßes Stück"
+            },
+            {
+              "key": "84bedb69-5dc2-5328-9be6-aa061a80872a",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "6c1043b6-1bad-50c5-ab24-a4e05ba6eb39",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98787e12-e54a-5824-851c-800eb853ad47",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 kleines Stück"
+            },
+            {
+              "key": "430877e2-653e-559d-9a5e-f1181d1154c3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen gehackt"
+            },
+            {
+              "key": "f674a9e8-26a3-5313-9365-c4134d16a65a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d1f6a04a-11fa-5a7d-a2f2-e904551342bd",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e5b538cb-6dd8-5c34-a7f9-b6cfaf76dbce",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tomaten, Gurken und rote Paprika in kleine 1/4-inch-Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rote Zwiebel fein hacken und frische Petersilie schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Alles Gemüse und Petersilie in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl, Zitronensaft, Salz und Pfeffer in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dressing über den Salat gießen und vorsichtig vermengen, bis alles gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Salat vor dem Servieren 5 Minuten ruhen lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xzXnQoNjFHaRmo0no8dtzxp96Xk=/4048x2696/filters:fill(auto,1)/classic-israeli-salad-2121980-hero-01-5c1d433246e0fb0001889f50.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xzXnQoNjFHaRmo0no8dtzxp96Xk=/4048x2696/filters:fill(auto,1)/classic-israeli-salad-2121980-hero-01-5c1d433246e0fb0001889f50.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-horiatiki",
+      "slug": "gen-horiatiki",
+      "title": "Horiatiki",
+      "instructions": "Griechisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Feta in größeren Mengen kaufen und im Gefrierfach aufbewahren",
+        "Kalamata-Oliven der Hausmarke statt importierter verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "griechisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3188,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-horiatiki/",
+      "components": [
+        {
+          "key": "24a877e5-38fe-5616-8241-93a2bd0c702a",
+          "name": "Zutaten",
+          "servingGrams": 844.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "e467e35a-0569-5c2c-b437-349d44174f45",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroßes Stück"
+            },
+            {
+              "key": "76f89d16-3e0b-5370-95c6-7f9218bb0aa4",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98b14d8d-d748-5d52-a578-7f86b0f3d018",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "a4230070-ad4b-5fae-831b-b32c7551e3a4",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "3301817a-a57f-573d-8473-d2044d9cfb66",
+              "ingredientName": "Fetakäse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e4f95eca-25ea-51d5-984e-f0f6be075bbc",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "20f3ab78-6913-5497-a6eb-813c89e63c0e",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "82f6a270-11e6-5e1f-bd01-237bb030680b",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f3f13e7d-04ed-5829-b410-779ef7da92a7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tomaten vierteln und Gurken in dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rote Zwiebel in dünne Ringe schneiden und kurz unter kaltem Wasser abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten, Gurken und Zwiebel auf einer großen Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kalamata-Oliven über das Gemüse streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fetakäse in große Stücke schneiden und auf den Salat legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Olivenöl, Essig, Oregano, Salz und Pfeffer verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Dressing kurz vor dem Servieren über den Salat träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Traditional-Greek-Salad.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Traditional-Greek-Salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coleslaw",
+      "slug": "gen-coleslaw",
+      "title": "Krautsalat",
+      "instructions": "Amerikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kohl im Angebot kaufen und wochenlang im Gemüsefach aufbewahren",
+        "Große Mengen zubereiten und für schnelle Mahlzeiten luftdicht aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3189,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coleslaw/",
+      "components": [
+        {
+          "key": "abc6c483-3e0c-597f-a647-eb8074f66577",
+          "name": "Zutaten",
+          "servingGrams": 121.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "48214dbe-7103-5339-844e-b85242d82a0f",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleines Stück, Kopf"
+            },
+            {
+              "key": "a562eef3-5c32-5904-be42-c20baededa57",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "d79511d7-4132-5a8e-916c-6218299490ee",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "449ca887-77cc-5e39-8a90-a027ee457939",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e0dd49c0-e922-5a5b-a232-ccf0ca35e516",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2e0ec109-881d-5736-a2be-04c4934a1631",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "1fe40fb6-4a54-54f6-8cc3-c350b15aaf09",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "8c5ec47d-24db-5ea8-9c9e-999d791193ea",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grünkohl mit einem scharfen Messer oder einem Gemüsehobel sehr fein schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Karotten schälen und mit einer Reibe oder Küchenmaschine raspeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittenen Kohl und Karotten in eine große Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mayonnaise, Essig, Zucker, Salz, Pfeffer und Selleriesamen in einer separaten Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dressing über das Gemüse gießen und vermengen, bis alle Stücke gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Krautsalat vor dem Servieren mindestens 30 Minuten im Kühlschrank ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/WW5aUOpV5TDsQ9Gp0hGI00xFbiQ=/5184x3456/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Classic-Coleslaw-LEAD-2-cf660416c9fa4bbb83b40bfcabb1d106.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/WW5aUOpV5TDsQ9Gp0hGI00xFbiQ=/5184x3456/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Classic-Coleslaw-LEAD-2-cf660416c9fa4bbb83b40bfcabb1d106.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

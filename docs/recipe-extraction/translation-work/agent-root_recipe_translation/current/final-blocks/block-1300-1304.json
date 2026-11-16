@@ -1,0 +1,1051 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-onepot-slow-beef-stew",
+      "slug": "mfr-onepot-slow-beef-stew",
+      "title": "Rindereintopf aus dem Slow Cooker",
+      "instructions": "Rinderschulter, Kartoffeln, Karotten und Staudensellerie den ganzen Tag in einer kräftigen Tomaten-Worcestershire-Brühe geschmort. Ein klassisches amerikanisches Wohlfühlessen mit einem unvergleichlich guten Duft in der Küche.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 480,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist das günstigste Rindfleischstück und wird im Slow Cooker zart.",
+        "Wenn du eine ganze Rinderschulter kaufst und selbst schneidest, sparst du $2/lb.",
+        "Das Gericht reicht für 6 Personen und schmeckt am nächsten Tag noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Gulaschfleisch oder Short Ribs"
+        },
+        {
+          "forIngredientId": "worcestershire-sauce",
+          "swap": "Sojasauce und ein Spritzer Balsamico"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-slow-beef-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Rindfleisch",
+        "Eintopf",
+        "Ofengericht",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1300,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-slow-beef-stew/",
+      "components": [
+        {
+          "key": "4a25f3eb-9b3e-5057-8404-f4fb0603e637",
+          "name": "Zutaten",
+          "servingGrams": 289.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "8aca0452-ce87-5c72-8d1d-2f0abfc9f848",
+              "ingredientName": "Rinderschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "285b3fb5-0577-5aa1-92bf-8266d0f55486",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e639ef5-15d4-5ed0-a854-0dea25d75e6a",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f07005d2-6a24-560f-8512-e5948f82b27e",
+              "ingredientName": "Staudensellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c17a8455-4855-58e4-b6dc-c92338f474c1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ae1be7b-4128-5380-88d1-9f15f51685fa",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "519c7bae-1b07-53e4-8c3d-9635bf819bed",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f45269a2-76b3-55e2-b120-3c357edda7b0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71466fbe-9c3a-5e3c-8fd8-662f51bd08d8",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3dd55b2-ab8b-5f32-9344-d28db82fc25d",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch in 1.5-inch-Würfel schneiden und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln, Karotten, Staudensellerie und Zwiebel in den Slow Cooker schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch, Knoblauch, Tomaten, Brühe, Worcestershire-Sauce und Thymian dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf niedriger Stufe 8–10 Stunden garen. Abschmecken und in tiefen Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/RvLUvVC3W_52ui6fyY7LaEJDsRA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8743142-b29d1d0e0e2842a387b65fc9ecf914bf.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/RvLUvVC3W_52ui6fyY7LaEJDsRA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8743142-b29d1d0e0e2842a387b65fc9ecf914bf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-onepot-chicken-orzo",
+      "slug": "mfr-onepot-chicken-orzo",
+      "title": "Zitronen-Hähnchen mit Orzo aus einem Topf",
+      "instructions": "Hähnchenoberkeulen und Orzo zusammen in zitroniger Hühnerbrühe mit Spinat und Feta gegart. Ein helles, sättigendes One-Pot-Gericht nach griechischer Art, fertig in 30 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Orzo nimmt die ganze Brühe auf und bekommt eine risottoähnliche Konsistenz, ganz ohne Rühren.",
+        "Hähnchenoberkeulen bleiben saftig, anders als Hähnchenbrust.",
+        "Feta sorgt für eine salzige Würze. Pro Portion brauchst du nur einen Esslöffel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "orzo-pasta",
+          "swap": "Kleine Nudelsorten oder Reis"
+        },
+        {
+          "forIngredientId": "feta-cheese",
+          "swap": "Parmesan oder Ziegenkäse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-chicken-orzo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Hähnchen",
+        "Orzo",
+        "One-Pot",
+        "Zitrone"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1301,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-chicken-orzo/",
+      "components": [
+        {
+          "key": "3cc16097-cb86-5ceb-98cf-62c926c323c1",
+          "name": "Zutaten",
+          "servingGrams": 430,
+          "position": 0,
+          "items": [
+            {
+              "key": "846d4e20-a676-570a-a1c5-ab2e4d382245",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "225e7c36-974c-5470-b45c-168dc13c8cb4",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c4770f8-8d1e-528c-a777-9eadf645bde9",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09da8553-74bf-5271-8a27-54a9977888e3",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33c8efbf-7e1e-5ad4-8507-68952347bffc",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce37dcf5-16cb-56fa-af5f-dfad33cd095a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19867d99-6db9-51e7-834d-440c20de8778",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9dd1a72-19d7-5aaa-8c2b-98edcd5de136",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed8cc8b3-cc25-5313-b7d6-83155fe44097",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenoberkeulen in Olivenöl pro Seite 4 Minuten anbraten. Herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch 1 Minute anschwitzen. Orzo dazugeben und 2 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brühe und Zitronensaft dazugießen. Hähnchen wieder hineinlegen, abdecken und 18 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat einrühren, bis er zusammenfällt. Mit Feta und Zitronenschale garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2023/08/One-Pot-Lemon-Chicken-and-Orzo_309.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2023/08/One-Pot-Lemon-Chicken-and-Orzo_309.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-onepot-slow-white-bean-soup",
+      "slug": "mfr-onepot-slow-white-bean-soup",
+      "title": "Weiße-Bohnen-Grünkohl-Suppe aus dem Slow Cooker",
+      "instructions": "Cremige weiße Bohnen mit reichlich Grünkohl, Rosmarin und einer Parmesankruste. Diese Suppe nach toskanischer Art braucht kaum Aufwand und liefert 15 g pflanzliches Eiweiß pro Schüssel für etwa $0.70.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 480,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Bohnen sind 5× günstiger als Bohnen aus der Dose. Weiche sie über Nacht ein und gib sie dann trocken in den Slow Cooker.",
+        "Eine Parmesankruste von der Feinkosttheke (oft kostenlos) macht die Brühe außergewöhnlich aromatisch.",
+        "Die Menge reicht für 6 große Schüsseln und kostet insgesamt etwa $4."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat (erst in den letzten 10 Minuten dazugeben)"
+        },
+        {
+          "forIngredientId": "dried-rosemary",
+          "swap": "Frischer Rosmarin oder Thymian"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-slow-white-bean-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "italienisch",
+        "weiße Bohnen",
+        "Grünkohl",
+        "Suppe",
+        "Ofengericht"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1302,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-slow-white-bean-soup/",
+      "components": [
+        {
+          "key": "a18913b9-663a-573c-8de2-854a52bec8f4",
+          "name": "Zutaten",
+          "servingGrams": 413.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "81b535d7-33b3-5eed-afb7-d7196c95d71b",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60f2bf6e-edc0-518f-ba05-821ad67839f2",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5998245c-067f-5bd6-853d-311456de3ec5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6589dc6b-9d96-51da-a62a-05b1a8999cd6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb18a9c4-54d8-5690-b03a-2a47ed1b6a8c",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fef3558-c40c-5d3d-a605-4d93e1286b5c",
+              "ingredientName": "Staudensellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9649706d-f623-5a12-86fe-2e7e0d4d990c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aacc3290-6d03-5bda-93ab-6f775cfdf1ed",
+              "ingredientName": "Getrockneter Rosmarin",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e51c4f4-3dab-5178-9f32-5ba6a4d847f8",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Alle Zutaten außer Grünkohl in den Slow Cooker geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf niedriger Stufe 6–8 Stunden oder auf hoher Stufe 3–4 Stunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einige Bohnen an der Topfwand zerdrücken, damit die Suppe cremig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grünkohl einrühren und weitere 30 Minuten garen, bis er weich ist. Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Tuscan-White-Bean-Soup_1-1524x2286.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Tuscan-White-Bean-Soup_1-1524x2286.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-onepot-salmon-risotto",
+      "slug": "mfr-onepot-salmon-risotto",
+      "title": "Lachs-Spinat-Risotto aus einem Topf",
+      "instructions": "Arborio-Reis in Fischbrühe mit Weißwein, Zitrone und Parmesan gegart und mit in der Pfanne gebratenem Lachs belegt. Der Ruf, Risotto sei aufwendig, ist meist unbegründet, wenn man die Technik kennt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe günstigeren Arborio-Reis aus dem Großgebinde. Risotto-Reis ist im Grunde derselbe.",
+        "Lachs aus der Dose eignet sich, wenn du das Anbraten überspringen möchtest.",
+        "Fischbrühe lässt sich durch Gemüsebrühe und einen Spritzer Zitrone ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon-fillet",
+          "swap": "Garnelen oder Thunfisch aus der Dose"
+        },
+        {
+          "forIngredientId": "arborio-rice",
+          "swap": "Weißer Rundkornreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-salmon-risotto",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Lachs",
+        "Risotto",
+        "Reis",
+        "One-Pot"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1303,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-salmon-risotto/",
+      "components": [
+        {
+          "key": "eb43b3c0-32cf-5728-a468-2a7b8acf5175",
+          "name": "Zutaten",
+          "servingGrams": 630,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4e42b64-d1b6-5a39-ace1-75e06727250c",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "557fce57-bde5-55bc-b934-2dc450b2c62f",
+              "ingredientName": "Arborio-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "657d4721-cd74-5c75-a6a8-8abc74b05f90",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd882af5-4793-5dcd-b940-95af2d835c0c",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4307f185-ab4f-5fac-a0fc-8257073f1341",
+              "ingredientName": "Fischbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3085f8d0-d53c-576c-8f5f-e32322772607",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24cb49bf-c78b-5a02-a4fa-8d0b0248a2f2",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b50b3261-0b78-5121-bafd-406838f1d3e9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37b72b2d-ce12-5878-ab1b-753dc46d5280",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82430b64-2dd3-5fa7-b7e1-fc9781c920f5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einem separaten Topf erwärmen. Schalotte und Knoblauch in Olivenöl anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis dazugeben und 2 Minuten rösten. Wein dazugießen und unter Rühren einkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Brühe schöpflöffelweise unter ständigem Rühren dazugeben und jeweils aufnehmen lassen, etwa 18 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat und Parmesan einrühren. Lachs pro Seite 4 Minuten in der Pfanne braten und auf dem Risotto servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/01/18/multimedia/11Appe1-wlvk/11Appe1-wlvk-videoSixteenByNine3000.jpg?year=2023&h=1687&w=3000&s=79abf0b55f97870ed26d39f6d388fe9df51a8a3b7662318950ccd8dae12a5226&k=ZQJBKqZ0VN&tw=1",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/01/18/multimedia/11Appe1-wlvk/11Appe1-wlvk-videoSixteenByNine3000.jpg?year=2023&h=1687&w=3000&s=79abf0b55f97870ed26d39f6d388fe9df51a8a3b7662318950ccd8dae12a5226&k=ZQJBKqZ0VN&tw=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-onepot-tex-mex-black-bean-soup",
+      "slug": "mfr-onepot-tex-mex-black-bean-soup",
+      "title": "Tex-Mex-Schwarzbohnensuppe aus einem Topf",
+      "instructions": "Schwarze Bohnen, Mais und feuergeröstete Tomaten in rauchiger Chipotle-Brühe, mit Avocado und Koriander garniert. Tex-Mex-Geschmack in 25 Minuten, mit nur einem Topf und vor allem Vorratszutaten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen schwarze Bohnen kosten etwa $2 und reichen für 4 Personen.",
+        "Chipotle in Adobo hält sich monatelang im Kühlschrank.",
+        "Tiefgekühlter Mais ist genauso nahrhaft wie frischer und kostet nur 1/3 so viel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chipotle-peppers",
+          "swap": "Geräuchertes Paprikapulver und ein Spritzer scharfe Sauce"
+        },
+        {
+          "forIngredientId": "frozen-corn",
+          "swap": "Beliebiges Gemüse. Gewürfelte Süßkartoffel eignet sich besonders gut."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-onepot-tex-mex-black-bean-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "Tex-Mex",
+        "schwarze Bohnen",
+        "Suppe",
+        "One-Pot",
+        "Chipotle"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1304,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-onepot-tex-mex-black-bean-soup/",
+      "components": [
+        {
+          "key": "8c590e7c-6240-526b-8af7-32ac99058177",
+          "name": "Zutaten",
+          "servingGrams": 529.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd19899c-15d7-520f-84de-7a0a0ef53df9",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bc1c7a4-94b3-58e4-a9b7-8f74789fa4cb",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b1fbb04-11a7-500a-9124-45d090854ee5",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71a927f4-4b7e-5de6-b623-b290d949b358",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8ac68a0-97af-5b64-8b23-309a69a487f0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b40a4cf3-22fc-58db-b59a-15cb72a366e0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8902457e-21db-5968-8738-8c03d6e8bcf9",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6575d406-11d0-5de7-8036-a2cf4eb53e55",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a2cb8e3-6d0d-5f56-b3c5-d107cb6b23e7",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f91f26f4-7711-581c-8a79-694f797d455b",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Knoblauch 3 Minuten anschwitzen. Gewürze dazugeben und 1 Minute umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bohnen, Mais, Tomaten, Chipotle und Brühe dazugeben. 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Drittel der Suppe pürieren und für eine cremige Konsistenz wieder einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Avocado, Koriander und Limette servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishsides.com/wp-content/uploads/2023/03/4-155-768x1152.jpg",
+          "sourcePageUrl": "https://delishsides.com/wp-content/uploads/2023/03/4-155-768x1152.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

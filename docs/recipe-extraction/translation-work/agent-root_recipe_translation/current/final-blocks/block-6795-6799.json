@@ -1,0 +1,1156 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chowder",
+      "slug": "gen-chowder",
+      "title": "Amerikanischer Chowder",
+      "instructions": "Cremige amerikanische Muschelsuppe mit Kartoffeln und Gemüse.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Muschelkonserven sind günstiger als frische und eignen sich hervorragend für die Suppe",
+        "Machen Sie Ihre eigene Brühe aus Gemüseresten, anstatt sie zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6795,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chowder/",
+      "components": [
+        {
+          "key": "acd87445-13d1-56a1-b58c-aff986e723fe",
+          "name": "Zutaten",
+          "servingGrams": 549.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7066212-c94c-5de8-8023-1874f8d2b622",
+              "ingredientName": "Venusmuscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 6.5 oz)"
+            },
+            {
+              "key": "14bbcb89-e30f-5b73-a70c-b5949fb61bab",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "30b0363a-f669-508e-9314-242a83f0e8f4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "520144d6-4edc-5640-97b8-eca1dde37c85",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "55e4530e-81a0-5077-ac83-0077ced4295e",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f98c5683-c91f-5c79-889c-a26a5fda38eb",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "86534419-8791-5502-8130-af53dbc5e0b0",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "80e156a9-98dc-5463-be61-40367aabd902",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "144ab26d-f1f7-569b-a048-29955e37e838",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "78ef73cc-dbcb-55fd-b9ec-fcdf87b73e9e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23dd556f-33a3-59e0-b2c9-7ff1354898c9",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln, Zwiebeln und Sellerie würfeln und separat beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen und Zwiebel und Sellerie 4 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Gemüse mit Mehl bestäuben und 1 Minute unter ständigem Rühren anschwitzen, bis eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hühnerbrühe nach und nach unter Rühren zugießen, damit sich keine Klümpchen bilden. Kartoffeln, Lorbeerblatt und Thymian dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 15 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Venusmuscheln abgießen und den Saft auffangen. Muscheln und Saft zusammen mit der Sahne in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten köcheln lassen, ohne die Suppe aufzukochen. Mit Salz und Pfeffer abschmecken, das Lorbeerblatt entfernen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/zjRM_pi_0tay3JzX-6wbnaM67a4=/2792x3566/filters:fill(auto,1)/bowl-of-clam-chowder-87987163-5821ee735f9b581c0b26c8b8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/zjRM_pi_0tay3JzX-6wbnaM67a4=/2792x3566/filters:fill(auto,1)/bowl-of-clam-chowder-87987163-5821ee735f9b581c0b26c8b8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nabemono",
+      "slug": "gen-nabemono",
+      "title": "Nabemono",
+      "instructions": "Japanischer Eintopf, bei dem Hähnchen, Gemüse und Tofu direkt im Topf gegart werden.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie normale Pilze anstelle von Shiitake-Pilzen, um die Kosten um 50 % zu senken",
+        "Kaufen Sie Hähnchenschenkel im Sonderangebot und frieren Sie sie zur späteren Verwendung ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6796,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nabemono/",
+      "components": [
+        {
+          "key": "7d06f120-0020-56ef-b9a8-cd20713e9609",
+          "name": "Zutaten",
+          "servingGrams": 575.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "736c133a-4a8e-5c29-8b21-84e3c6c52ea4",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5ed67f14-cf47-56ba-acb3-15be75f95268",
+              "ingredientName": "Chinakohl",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Kopf"
+            },
+            {
+              "key": "28908a9a-82f6-5b4c-9c60-718eb2e40526",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "8330981a-68ac-5254-a789-e95b5345e45c",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "5dce41ea-04af-587b-be79-2e033c106087",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "2aec815e-22f2-5bfc-aebb-7f11ba6b3ad3",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c73c3362-76bd-5383-80b9-b84241de992d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "ef2a9950-f1f4-57fe-853c-b1104ef59db3",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0a21939b-7f7a-5754-a84a-53fdf0f850f3",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "beea5029-352b-5100-b1fd-0ddfd7ccc806",
+              "ingredientName": "Weißweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3a40470c-27c5-54c4-ac27-00cde6b46e51",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in mundgerechte Stücke schneiden, Kohl in Spalten schneiden, Pilze in Scheiben schneiden, Tofu in Würfel schneiden und Karotten in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brühe, Sojasauce, Mirin, Sake und Ingwer in einem großen flachen Topf oder Schmortopf vermischen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenstücke hinzufügen und 5 Minuten köcheln lassen, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gemüse und Tofu übersichtlich rund um den Topf anordnen, damit sich alle nach und nach selbst bedienen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "8–10 Minuten köcheln lassen, damit das Gemüse weich wird und sich die Aromen vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frühlingszwiebeln hacken und darüber streuen, dann direkt aus dem Topf in einzelnen Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/https://storage.googleapis.com/gen-atmedia/3/2010/01/9d00c55f984efd517a51b7ef918b5d92149ebf25.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/https://storage.googleapis.com/gen-atmedia/3/2010/01/9d00c55f984efd517a51b7ef918b5d92149ebf25.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zarzuela",
+      "slug": "gen-zarzuela",
+      "title": "Zarzuela",
+      "instructions": "Spanischer Meeresfrüchteeintopf mit Fisch, Muscheln und Mandeln.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie die Hälfte der Meeresfrüchte durch festen Weißfisch, um die Kosten zu senken",
+        "Lassen Sie Safran weg oder verwenden Sie eine kleine Menge, da er teuer ist; Paprika allein funktioniert gut"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6797,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zarzuela/",
+      "components": [
+        {
+          "key": "1f7fa268-e815-5982-99a0-0552f7831511",
+          "name": "Zutaten",
+          "servingGrams": 155.65,
+          "position": 0,
+          "items": [
+            {
+              "key": "e84049a5-2993-570f-bfb9-aa1a46062097",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "972d991b-7c25-5754-9f9c-d7c0f922ac2c",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "a2b9fb13-d2f1-5167-b8c0-2e71a839b048",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "f1aa8f61-f002-5aaf-9913-f1bc00ddb37d",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "3e5d4784-f067-5734-9b30-7c52a8e1b06d",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "1e80523f-5861-5ef1-a6b5-48379381d3c6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "deb55fc2-c7f9-5ab4-a363-af41d8254500",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a144c42-cddd-51a0-b1d1-4558c2eb930d",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "fea5e61c-d3bb-53dd-9c3b-227871b82c19",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "6155098d-8f3a-51b2-9d79-30b0f5ac2868",
+              "ingredientName": "Weißweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "28807db4-64ba-5c12-b234-998ab5fdf8f5",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "172565b4-0653-511e-bb96-2d1d224ac4e0",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "270b2165-283e-57b2-9723-a63fd4e62abf",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "144405d4-ddf1-56bb-b5d8-7a98a970ce3e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "8543bd5c-50bc-5524-afb9-49679deb7f65",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Pfanne erhitzen und gewürfelte Zwiebeln und gehackten Knoblauch 4 Minuten lang anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paprikapulver und Safran einrühren und 30 Sekunden erhitzen. Mit Weißwein ablöschen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerkleinerte Tomaten und Fischfond dazugeben, zum Köcheln bringen und 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Seeteufel in Stücke und den Tintenfisch in Ringe schneiden. Beides in die Brühe geben und 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen, Jakobsmuscheln und Muscheln hinzufügen und 5–7 Minuten köcheln lassen, bis die Muscheln geöffnet und die Meeresfrüchte gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mandeln in einer trockenen Pfanne rösten und die Hälfte davon mahlen. Unter die Zarzuela rühren, damit der Eintopf sämiger und aromatischer wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer würzen, mit den restlichen ganzen Mandeln garnieren und in flachen Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Spanish-Zarzuela-de-Mariscos.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Spanish-Zarzuela-de-Mariscos.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aqua-e-coze",
+      "slug": "gen-aqua-e-coze",
+      "title": "Aqua e Coze",
+      "instructions": "Italienischer Fischeintopf mit Muscheln und knusprigem Brot.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Muscheln und Fisch aus Discountern, um 25–30 % zu sparen.",
+        "Ersetzen Sie Fischbrühe durch Gemüsebrühe, wenn die Kosten ein Problem darstellen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6798,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aqua-e-coze/",
+      "components": [
+        {
+          "key": "528bb98d-f97b-5122-9a2f-082ae298a967",
+          "name": "Zutaten",
+          "servingGrams": 319.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "701c78e2-37a9-5da2-b339-187f10b02d9a",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2830b1ee-ffe4-535c-906d-2d4cdd2b9e87",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9d0b0757-e6e8-5263-aca4-e49e6e97a3a0",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa0ef1b8-db72-5f42-979f-23781745c8d8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "421cf088-32ae-5bca-9d67-8573ae054242",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a2d2c27a-95c1-51f9-9450-add4fa87a2c6",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "87ebd37f-61e4-5a41-bd28-43cfdf51fd72",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "f95ad1f2-cd92-50e9-af02-d9178a4192de",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "8c762c3f-39db-5aa7-a7df-29fb3ae5e82c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cf045f33-469b-558e-9b7d-63477272b274",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen. Dünn geschnittenen Knoblauch und Chiliflocken 1 Minute darin dünsten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Muscheln und Weißwein dazugeben, den Topf abdecken und 3–4 Minuten köcheln lassen, bis sich die Muscheln zu öffnen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischfond angießen und alles leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Fisch in große Stücke schneiden, dazugeben und 5–7 Minuten ohne Deckel köcheln lassen, bis er gerade gar ist und sich die übrigen Muscheln geöffnet haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geschlossene Muscheln entfernen und abschmecken. Bei Bedarf Salz und Pfeffer ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frische gehackte Petersilie unterrühren und in flachen Schüsseln mit knusprigem Brot zum Auftunken der Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f3/e8/cc/f3e8ccf2c5c04b818efb4037d748c4e5.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f3/e8/cc/f3e8ccf2c5c04b818efb4037d748c4e5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-danzai-noodles",
+      "slug": "gen-danzai-noodles",
+      "title": "Danzai-Nudeln",
+      "instructions": "Chinesische Nudelsuppe mit Schweinehackfleisch und würziger Brühe.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Ramen in Großpackungen für weniger als 0.30 $ pro Portion",
+        "Verwenden Sie gemahlene Schweineschulter anstelle von Premium-Teilstücken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6799,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-danzai-noodles/",
+      "components": [
+        {
+          "key": "658b6328-e687-5440-b14c-83936c608817",
+          "name": "Zutaten",
+          "servingGrams": 626.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d91b075-5114-5a8a-83aa-692350a79b9c",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d0a340ba-8467-5830-a434-32989d417e63",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "533427ea-b046-5fb7-9191-63e277ecd1f3",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b6946590-2d7b-5aeb-aabc-fc9401391845",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b0cfcee9-c906-53fc-be7d-396eaf6cb6e0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "d3403ea3-4eb9-5e98-bab3-c9f971b94657",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel, fein gehackt"
+            },
+            {
+              "key": "7d56097d-89bd-53bb-a4b6-571727a5edce",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2, gehackt"
+            },
+            {
+              "key": "32492ebe-e978-52bf-8bec-8dcb8c87f09e",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f5f22a1d-3b38-57dd-b72a-116c0ac676a0",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "4da32f0c-b685-5c52-9fd2-5d25f7dd99ae",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem Topf bei mittlerer bis hoher Hitze erhitzen. Das Schweinehackfleisch darin 4 Minuten anbraten und dabei zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch und Ingwer dazugeben und 1 Minute anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Hühnerbrühe aufgießen und zum Kochen bringen, dann Sojasauce und Chiliflocken hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Ramen-Nudeln separat 3 Minuten in kochendem Salzwasser garen und anschließend abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die gekochten Nudeln auf zwei Schüsseln verteilen und mit der heißen Schweinebrühe übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren mit Sesamöl beträufeln und mit Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://3.bp.blogspot.com/-g2teAKl4Ho0/VkLMOy4jVyI/AAAAAAAAn6I/fU3Ok481r2E/s1600/IMAG3427.jpg",
+          "sourcePageUrl": "http://3.bp.blogspot.com/-g2teAKl4Ho0/VkLMOy4jVyI/AAAAAAAAn6I/fU3Ok481r2E/s1600/IMAG3427.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1175 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-involtini-di-pesce-spada",
+      "slug": "gen-involtini-di-pesce-spada",
+      "title": "Involtini di Pesce Spada",
+      "instructions": "Sizilianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Schwertfisch durch Heilbutt oder dicke Kabeljaufilets, falls Schwertfisch zu teuer ist.",
+        "Röste Pinienkerne selbst in einer trockenen Pfanne statt sie fertig geröstet zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sizilianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3645,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-involtini-di-pesce-spada/",
+      "components": [
+        {
+          "key": "f72bcf3a-24a2-5a4f-9d68-54ba3d671540",
+          "name": "Zutaten",
+          "servingGrams": 330.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "9eae41ea-cbee-5101-a5e9-eb617f64c175",
+              "ingredientName": "Schwertfischsteaks",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "a9671415-2553-5e74-8c09-7435a04d8658",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b9e73114-5c60-52f6-babe-0bf8dca82cd2",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "887aac49-6b5c-5b64-9312-cfa469f75ac1",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "355f1221-6be2-5d5b-8a8d-7c005950879a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "19dfd08a-843c-5026-9f27-e4b084d2fa5a",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "8a80e170-9e0a-5beb-9366-a1c9715bcbfc",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d7da8745-a5ed-54f9-8720-1cbfba39fcc3",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2e18bd5-48af-5b43-ad52-a5af4d305c7c",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "2a732d9d-9bec-5e46-858f-14c96df7f2e7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Stück, ausgepresst"
+            },
+            {
+              "key": "24b22462-8543-56d6-9312-fdbdeccf034c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4ea218c2-9e14-5467-adca-6d6916570ed3",
+              "ingredientName": "Zahnstocher",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Paniermehl, Parmesan, Petersilie, Knoblauch, Pinienkerne, Rosinen und 1 Ei in einer Schüssel und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege Schwertfischscheiben flach auf ein Schneidebrett und klopfe sie mit einem Fleischklopfer vorsichtig gleichmäßig dünn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 2 Esslöffel Füllung auf jede Schwertfischscheibe, rolle sie fest auf und fixiere sie mit einem Zahnstocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Involtini mit der Naht nach unten in die Pfanne und gare sie je Seite 4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle sie mit Zitronensaft und gare sie 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie auf eine Servierplatte und serviere sie sofort mit frischen Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.sudfood.com/wp-content/uploads/Pesce_spada_ricette_sudfood_abbinamento_vino-2.jpg",
+          "sourcePageUrl": "https://www.sudfood.com/wp-content/uploads/Pesce_spada_ricette_sudfood_abbinamento_vino-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cavolfiore-fritto",
+      "slug": "gen-cavolfiore-fritto",
+      "title": "Cavolfiore Fritto",
+      "instructions": "Sizilianischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Blumenkohlköpfe und teile sie selbst in Röschen statt vorgeschnittene zu kaufen.",
+        "Verwende Frittieröl erneut, wenn es noch sauber ist; seihe es ab und bewahre es in einem verschlossenen Behälter auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sizilianisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3646,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cavolfiore-fritto/",
+      "components": [
+        {
+          "key": "70a872ef-f081-5578-9e73-a1809f434f2a",
+          "name": "Zutaten",
+          "servingGrams": 223,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c7c4e10-7f16-54e3-a470-5970f6a563a9",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Röschen geteilt"
+            },
+            {
+              "key": "040e9eab-97d2-5fc7-81d6-006b6f700884",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "62724e53-7971-54cd-9329-1f2438ca808d",
+              "ingredientName": "Speisestärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e62d97a5-9ec0-5678-b312-3cd2a47bd675",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "701f41a0-8ca0-562f-a48e-9f185579e1d1",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d4a0efad-f650-528d-a93d-50376168d4d5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "d0cbe04f-f589-5320-911f-0840af2c02e0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL und etwas mehr zum Bestreuen"
+            },
+            {
+              "key": "5659f144-686b-5046-aee8-ae76e3603c15",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stück, zum Schneiden in Spalten"
+            },
+            {
+              "key": "351c395b-77d3-5fea-8436-9d93b474285c",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Blumenkohlröschen 5 Minuten in kochendem Salzwasser, gieße sie ab und tupfe sie mit Küchenpapier vollständig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Mehl, Speisestärke, Backpulver, Salz und Knoblauchpulver in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Wasser zu den trockenen Zutaten und rühre, bis ein glatter, dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tauche jedes Blumenkohlröschen vollständig in den Teig und gib es vorsichtig ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere portionsweise 4–5 Minuten und wende einmal, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm sie mit einer Schaumkelle heraus, lasse sie auf Küchenpapier abtropfen und bestreue sie sofort mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2023/08/IMG_9095.jpg",
+          "sourcePageUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2023/08/IMG_9095.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zuppa-di-pesce",
+      "slug": "gen-zuppa-di-pesce",
+      "title": "Zuppa di Pesce",
+      "instructions": "Sizilianisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fisch und Schalentiere im Angebot, friere sie ein und taue sie vor dem Kochen über Nacht auf.",
+        "Verwende Fischfond aus der Dose oder koche ihn aus Fischgräten selbst, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sizilianisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3647,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zuppa-di-pesce/",
+      "components": [
+        {
+          "key": "9be6b5bb-8a40-5d08-bbce-b9e8ec65088c",
+          "name": "Zutaten",
+          "servingGrams": 453.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f96a5cb-5398-50dd-a491-010407335cac",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "f75b4cfb-657c-5eb3-bb2e-49a17ef4a77c",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund, geschält"
+            },
+            {
+              "key": "405009eb-7197-5385-8dcc-5e6a2ac053aa",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund, gesäubert"
+            },
+            {
+              "key": "703ed89d-0823-5737-bd5a-7fcacb216f4c",
+              "ingredientName": "Venusmuscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund, abgebürstet"
+            },
+            {
+              "key": "f3f50ee8-90b2-586a-bbf3-415351488bf7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "d8cf6e2e-85f7-5e64-9091-5153ac977f2f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "ef47c200-09ed-5b8b-bae7-0be775611df7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "cb98d8d6-2368-56fe-b715-d8459414a321",
+              "ingredientName": "Fischfond",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3ff9e658-c623-5a56-b6c1-37f9af223ca9",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1ae226f7-9b61-5737-8b8c-1c43fb08a467",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "6c1401fc-c88a-587b-9be9-fe0847915771",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "31a1e516-0fe5-5c1f-8c1d-af437eef9883",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 EL, gehackt"
+            },
+            {
+              "key": "61c92856-262b-5f12-ada7-6fd3c0577630",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "af059efb-ef40-51dd-9f72-69e68ae9d57b",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste Zwiebel und Knoblauch etwa 3 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Chiliflocken hinzu, gieße Weißwein an und lasse alles 2 Minuten köcheln, damit es etwas einkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Dosentomaten und Fischfond hinzu, bringe alles zum Kochen, reduziere die Hitze und lasse es 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelten Fisch und Garnelen hinzu und lasse sie 5 Minuten teilweise garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Miesmuscheln und Venusmuscheln ein, decke den Topf ab und gare sie 8–10 Minuten, bis sich die Schalen öffnen. Entsorge geschlossene Muscheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere die Suppe, würze mit Salz und Pfeffer und rühre frisches Basilikum ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe die Suppe in Schalen und serviere sie mit Scheiben knusprigem Brot zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/cHYdom6mISepGaMzhiQu-apL4u0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20251218-SEA-ZuppadiPesce-MatejaZviroticAndrijanic-01-697fbfb599d74ef5b06b50a8122318b1.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/cHYdom6mISepGaMzhiQu-apL4u0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20251218-SEA-ZuppadiPesce-MatejaZviroticAndrijanic-01-697fbfb599d74ef5b06b50a8122318b1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-anelletti-al-forno",
+      "slug": "gen-anelletti-al-forno",
+      "title": "Anelletti al Forno",
+      "instructions": "Sizilianisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Anelletti bei Bedarf durch Ditalini oder Hörnchennudeln.",
+        "Bereite die Fleischsauce am Vortag zu und stelle sie kalt, um die Zubereitung zu vereinfachen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sizilianisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3648,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-anelletti-al-forno/",
+      "components": [
+        {
+          "key": "1bbb8ee5-6594-5474-bd60-8f13268e536b",
+          "name": "Zutaten",
+          "servingGrams": 290.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "fcb3185f-0b02-5499-9d26-1c513763d5dc",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "66860d50-9069-5edd-9d77-affc87a07d1f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4fb58529-d85d-5d70-a3d6-b011ed020cc2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "58bd3964-6088-5251-9144-dbec1a526f92",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "84fc40c7-3634-51d2-9e1b-6448231f088c",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "c4a456ac-3f9e-5660-82a7-a2b7e621af09",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e0ac6cf8-7d1e-5d2a-aa7e-f60e2ae35b07",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen, geraspelt"
+            },
+            {
+              "key": "f62590eb-34ec-56da-9708-6a8495f79993",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "847680c0-0c99-5cfe-b957-7536bba85c6b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9d11005-fd10-5c50-94b3-98681d1bcbbf",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f4857ecb-2821-59cd-96f7-eb89c2bf6cee",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "66aaa2e6-f004-566d-bb55-ec50f1265d47",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor und öle eine 9×13 Zoll große Auflaufform leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Hackfleisch in einem großen Topf mit Öl, Zwiebel und Knoblauch etwa 8 Minuten und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatensauce und Brühe ein, lasse alles 15 Minuten köcheln, hebe dann tiefgekühlte Erbsen unter und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche Anelletti al dente, gieße sie ab und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Eier in einer kleinen Schüssel, gieße sie über die Pasta und vermische alles. Gib Mozzarella und die Hälfte des Parmesans hinzu und vermische erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Hälfte der Pasta in der vorbereiteten Auflaufform und gieße die Hälfte der Fleischsauce darüber. Wiederhole die Schichten mit der übrigen Pasta und Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue den restlichen Parmesan gleichmäßig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Auflauf ohne Deckel 20 Minuten, bis die Oberfläche leicht gebräunt und die Pasta durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://frannielovesfood.com/wp-content/uploads/2023/08/IMG_5328-scaled.jpg",
+          "sourcePageUrl": "https://frannielovesfood.com/wp-content/uploads/2023/08/IMG_5328-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pasta-ai-ricci-di-mare",
+      "slug": "gen-pasta-ai-ricci-di-mare",
+      "title": "Pasta ai Ricci di Mare",
+      "instructions": "Sizilianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Seeigel ist teuer; erkundige dich bei lokalen Fischmärkten nach besseren Preisen oder kaufe tiefgekühlten Uni.",
+        "Verwende Muschelsaft aus der Flasche mit Weißwein, falls frischer Uni nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "sizilianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3649,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasta-ai-ricci-di-mare/",
+      "components": [
+        {
+          "key": "f8e011e7-e345-5be2-8a14-25855669c77c",
+          "name": "Zutaten",
+          "servingGrams": 157.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e21874df-28ad-57ba-93e0-9243e171ff54",
+              "ingredientName": "Flockiges Meersalz (Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "c4b8ede6-3f33-5739-a89f-b0f6056faf2b",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "288446f6-ecce-5c9b-9020-84762a104315",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "3a23f06c-a79a-57d8-83ca-978223651fce",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "5e36df25-75ae-5b54-adc4-23e10a1168e7",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6e6d0013-5b2e-5138-a2dc-b212746de641",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Stück, ausgepresst"
+            },
+            {
+              "key": "4b7320c5-66fc-524e-b8bb-e3ce88144137",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "2149068d-685f-5bf0-9f49-63c659d81806",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "2a272f6a-b477-5498-90fd-ec5535dafc66",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "beb60a0a-38ce-5f9a-8623-791ff894b209",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf Salzwasser zum Kochen und koche Spaghetti etwa 10 Minuten al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme währenddessen Olivenöl in einer großen Pfanne bei niedriger Hitze sanft und gib gehackten Knoblauch hinzu. Gare ihn 1 Minute, bis er duftet, aber nicht bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Weißwein hinzu und lasse ihn 2 Minuten köcheln, damit er etwas einkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Pasta ab, bewahre 1/2 Tasse Nudelwasser auf und gib die Pasta mit dem Knoblauchöl in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe Seeigelrogen und 1/4 Tasse Nudelwasser vorsichtig unter, damit der Rogen nicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd, gib Zitronensaft, Petersilie und Chiliflocken hinzu und schwenke alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib bei Bedarf weiteres Nudelwasser hinzu, bis eine seidige Sauce entsteht. Würze mit Meersalz und schwarzem Pfeffer und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.siciliafan.it/wp-content/uploads/sites/3/2022/02/01-1.jpg",
+          "sourcePageUrl": "https://www.siciliafan.it/wp-content/uploads/sites/3/2022/02/01-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

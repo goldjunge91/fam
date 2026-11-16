@@ -1,0 +1,997 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-steak-frites",
+      "slug": "gen-steak-frites",
+      "title": "Steak Frites",
+      "instructions": "Französisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderfilet statt Ribeye kaufen und deutlich sparen",
+        "Rapsöl statt hochwertiger Öle zum Frittieren verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2550,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steak-frites/",
+      "components": [
+        {
+          "key": "ffcd1fa4-e272-514a-8951-f9c2eb6810d7",
+          "name": "Zutaten",
+          "servingGrams": 141,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d1cf0a7-4928-58a0-a3f7-a3d0923566fa",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Steaks (je 8 oz)"
+            },
+            {
+              "key": "4ada2961-519e-5c7a-8e4c-b035590d2f11",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2d756a71-db62-517c-b75b-d7b4ccdb8513",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "13be473d-7c31-50b2-ae5a-b350d43e9ad3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0e8fe88e-b946-507b-9bc0-c58b68d6384b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "17c47efd-d4b0-54c3-bf70-1511ac3191f9",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "d9af3427-67e6-5af6-8e41-7bf8bd42268b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fb968e50-bb84-5535-aa30-a5bfe71905ae",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in 1/4-inch-Pommes schneiden, 15 Minuten in kaltem Wasser einweichen und anschließend gründlich trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Topf auf 325°F erhitzen und Kartoffeln portionsweise 5–7 Minuten frittieren, bis sie weich, aber noch nicht gebräunt sind. Auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Steaks auf beiden Seiten großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine gusseiserne Pfanne bei starker Hitze erhitzen, bis sie raucht. Steaks für medium-rare auf jeder Seite 3–4 Minuten scharf anbraten. Dann mit Butter, Knoblauch und Rosmarin 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öltemperatur auf 375°F erhöhen und Kartoffeln weitere 2–3 Minuten goldbraun und knusprig frittieren. Salzen und mit Steak sowie Zitrone servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/hib0FzzXXHS_Mks8HYEEkv8p6ls=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20241016-SteakFrites-AmandaSuarez-stephero-bb5536231910480faf4676fab1a8ac9a.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/hib0FzzXXHS_Mks8HYEEkv8p6ls=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20241016-SteakFrites-AmandaSuarez-stephero-bb5536231910480faf4676fab1a8ac9a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nicoise-salad",
+      "slug": "gen-nicoise-salad",
+      "title": "Salade Niçoise",
+      "instructions": "Französisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Thunfisch aus der Eigenmarke statt teurer Marken kaufen",
+        "Tiefgekühlte hartgekochte Eier für mehr Komfort und geringere Kosten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2551,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nicoise-salad/",
+      "components": [
+        {
+          "key": "59df8a81-e5ae-5f86-a5dc-c3d584b1b599",
+          "name": "Zutaten",
+          "servingGrams": 1412.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "76073884-c64d-52ef-bc1e-e7d3e6cf7580",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 5 oz)"
+            },
+            {
+              "key": "3f10b230-397e-59cf-908b-6cbbd56e1140",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "fdaf26c1-5805-5fa2-a7b1-a312316f654d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8786d120-7feb-527c-a17c-9ff6d23dac94",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9aac2fba-738b-509a-8558-e9a63a4adf9a",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "343ec5f3-12f2-52c9-a617-17f8a8dc9e3a",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "4ab65c78-f474-56e8-bdf7-b21d0a1c2f15",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "61c1c3f6-06d9-5824-97a5-acfa530a4920",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7da3605f-839f-5926-ad9d-125aff7101b4",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "406fec00-cb12-5c89-af98-bbb159732be4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln etwa 12 Minuten weich kochen, abkühlen lassen und in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Römersalat auf einer Platte anrichten und Thunfisch, Eier, Tomaten, Oliven, Sardellen und Kartoffeln darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl, Rotweinessig, Senf, Salz und Pfeffer in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dressing erst kurz vor dem Servieren über den Salat träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/7n7ahi1yO_ZWZBIvm7Bta9ZVA8I=/5785x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Nicoise-Salad-LEAD-10-142a737d4d3541f28c5bc330355b2f65.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/7n7ahi1yO_ZWZBIvm7Bta9ZVA8I=/5785x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Nicoise-Salad-LEAD-10-142a737d4d3541f28c5bc330355b2f65.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-escargots-de-bourgogne",
+      "slug": "gen-escargots-de-bourgogne",
+      "title": "Burgunderschnecken",
+      "instructions": "Französisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schnecken aus der Dose im Angebot kaufen und für später einfrieren",
+        "Zusätzliche Knoblauchbutter in größeren Mengen zubereiten und im Laufe des Monats verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2552,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-escargots-de-bourgogne/",
+      "components": [
+        {
+          "key": "a45f2c39-c789-52b6-9a8e-df036d520584",
+          "name": "Zutaten",
+          "servingGrams": 2077.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b0474c40-70a7-5864-ac53-f501e19d98ee",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 4800,
+              "quantity": 12,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Stücke"
+            },
+            {
+              "key": "e418ec2a-1981-58a1-af0c-89d4fdada90a",
+              "ingredientName": "Schneckenschalen",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "befbac5a-1fc9-5809-9cf8-4b2c3de5a0cf",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "e05ed276-794c-5849-a0f0-ce7b73c271b6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "5c47b068-c5bf-5192-976d-2cff29f16e9c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c7715a87-c025-53fb-b766-595c1f92f059",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab7a6e48-3ca5-567b-a018-0ced0c99af0d",
+              "ingredientName": "Weißweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c1e0333f-8c3c-5274-81f1-97c484aa1aae",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 400°F vorheizen. Schnecken aus der Dose unter kaltem Wasser abspülen und gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch, Petersilie und Schalotten fein hacken und mit weicher Butter, Wein, Salz und Pfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede Schale zur Hälfte mit Knoblauch-Petersilien-Butter füllen, eine Schnecke hineinlegen und mit übriger Butter bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gefüllte Schalen mit der Öffnung nach oben in eine Auflaufform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "12–15 Minuten backen, bis die Butter blubbert und heiß ist, dann sofort in den Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Escargots-de-Bourgogne.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Escargots-de-Bourgogne.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-blanquette-de-veau",
+      "slug": "gen-blanquette-de-veau",
+      "title": "Blanquette de Veau",
+      "instructions": "Französisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinefleisch oder Hähnchen statt Kalbfleisch verwenden, um deutlich Kosten zu sparen",
+        "Pilze im Angebot kaufen und für spätere Verwendung einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2553,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blanquette-de-veau/",
+      "components": [
+        {
+          "key": "134054b2-cc06-50e8-818b-5d48e9e5baf0",
+          "name": "Zutaten",
+          "servingGrams": 470.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "8de73333-9e99-539e-bf1e-f3a73ccf1cf1",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c362f4ab-ed12-51c2-b600-bfd833d0aeab",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "52a984b7-e1be-52fd-8de7-1bfeaa15c787",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "45821ee7-8527-5e75-9832-a884ecf36089",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "98f93167-2a77-57e2-a38f-35d4109d877a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "e0a4b25c-6c01-5865-89cc-eb1c8094b27b",
+              "ingredientName": "Sahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "7c827956-2dee-58ef-bc97-65162068f62f",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e967bf40-244e-5812-998d-69dcc608d864",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "26896b52-24a4-5312-836d-312e4cf96592",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ebf9405f-2174-5486-9b28-83ffb8126fd1",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a572818-0b34-5b24-ad64-c7b4d85d785e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kalbfleisch in 2-inch-Stücke schneiden, 5 Minuten in kochendem Salzwasser blanchieren, dann abgießen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen. Kalbfleisch, Perlzwiebeln und Karotten dazugeben und 5 Minuten garen, ohne sie zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl über das Fleisch streuen, 1 Minute rühren, dann Brühe und Lorbeerblatt hinzufügen. Zum Köcheln bringen und abgedeckt 35–40 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pilze dazugeben und weitere 5 Minuten köcheln lassen, bis alle Zutaten weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eigelb und Sahne in einer Schüssel verquirlen. Unter Rühren langsam eine Kelle heiße Brühe dazugeben, dann Mischung unter ständigem Rühren vom Herd genommen in den Topf gießen. Abschmecken und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thegoodfoodnetwork.com/wp-content/uploads/2024/01/blanquette-d-oie-du-perigord-aux-petits-legumes-bocal-580g-960x960.jpg",
+          "sourcePageUrl": "https://www.thegoodfoodnetwork.com/wp-content/uploads/2024/01/blanquette-d-oie-du-perigord-aux-petits-legumes-bocal-580g-960x960.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pot-au-feu",
+      "slug": "gen-pot-au-feu",
+      "title": "Pot-au-Feu",
+      "instructions": "Französisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhaxe oder Brust statt Bugstück verwenden, um günstiger einzukaufen",
+        "Tiefgekühltes Gemüse kaufen, um Vorbereitungszeit und Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2554,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pot-au-feu/",
+      "components": [
+        {
+          "key": "6f37bfbf-09b7-5130-99e8-4d413794a902",
+          "name": "Zutaten",
+          "servingGrams": 204.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "255314ca-6ed8-5c1e-89c1-621098c8ad41",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "876eaa76-e48d-53d0-b9f9-443e9dbcb670",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "5f1027a6-0145-5c6b-87dc-c45b322501f9",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "43b54081-2cf0-501a-bca1-fa1231e6ec89",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec80b8dc-6452-558f-932b-949f2baa0dec",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 weiße Teile"
+            },
+            {
+              "key": "3b9cb2c4-505c-5ee2-8746-33a012238a19",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "38bfe700-d5f1-5b0f-af50-4419f9892164",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "c1822a7b-5814-5be8-a338-0bf1e959f19d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afb96e33-a0d4-578e-834a-329baea97758",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "c17d9983-a424-565a-b53f-aae9d051fe5b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch und Markknochen in einen großen Topf legen und mit kaltem Wasser 2 inches bedecken. Zum Kochen bringen und 5 Minuten den Schaum abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbierte Zwiebel, Karotten, Sellerie, Lauch, Lorbeerblatt und Thymian dazugeben. Hitze reduzieren und 60 Minuten sanft köcheln lassen, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemüse und Rindfleisch auf einen Teller geben und Brühe zurück in den Topf abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geschälte Kartoffeln dazugeben und Brühe erneut zum Köcheln bringen. 15–20 Minuten garen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rindfleisch und übriges Gemüse zum Durchwärmen zurück in den Topf geben. Mit Salz und Pfeffer würzen und in Schalen mit Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/yw6gj4TIqd10vLeM02FnMsr2M1U=/4800x0/filters:no_upscale():max_bytes(150000):strip_icc()/pot-au-feu-recipe-1375558-step-08-1352be202dd84a9094f04a516ac4dbcb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/yw6gj4TIqd10vLeM02FnMsr2M1U=/4800x0/filters:no_upscale():max_bytes(150000):strip_icc()/pot-au-feu-recipe-1375558-step-08-1352be202dd84a9094f04a516ac4dbcb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1341 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-red-curry-peanut-noodles",
+      "slug": "she-red-curry-peanut-noodles",
+      "title": "Rote Curry-Erdnussnudeln",
+      "instructions": "Ein Nudelgericht aus einer Pfanne, das in 15 Minuten fertig ist: herzhaftes Schweinehack in cremiger Kokos-Erdnuss-Soße mit einem frischen Spritzer Limette. Wärmend, köstlich zum Schlürfen und voller thailändisch inspirierter Aromen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/red-curry-peanut-noodles/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Schweinehack durch das günstigere Hähnchen- oder Putenhack oder strecke das Fleisch mit mehr Kohl.",
+        "Kaufe eine Tüte vorgeschnittene Krautsalatmischung statt eines ganzen Kohlkopfs. Das spart Geld und Vorbereitungszeit.",
+        "Verwende Limettensaft aus der Flasche oder einen Schuss Essig statt frischer Limetten, um außerhalb der Saison Geld zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchen- oder Putenhack für eine magerere, oft günstigere Variante",
+          "savings": "~20%"
+        },
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Ersetze die Nudeln durch Reisnudeln für eine glutenfreie Variante",
+          "savings": "ähnliche Kosten"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "2 EL Apfelessig oder Reisweinessig",
+          "savings": "~$0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch-inspiriert",
+        "Nudeln",
+        "Curry",
+        "Erdnuss",
+        "Kokos",
+        "aus-einer-Pfanne",
+        "schnell",
+        "Abendessen",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 415,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-red-curry-peanut-noodles/",
+      "components": [
+        {
+          "key": "0d9abeac-d8f5-5a68-a4d6-e141da41fc43",
+          "name": "Zutaten",
+          "servingGrams": 592.57,
+          "position": 0,
+          "items": [
+            {
+              "key": "355c7fbf-10ef-50cc-8b6a-ea649153da57",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "19535f34-cb39-54b6-86b9-e4ac83ea5cfe",
+              "ingredientName": "Schweinehack",
+              "grams": 510.3,
+              "quantity": 510.3,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "500 g Schweine- oder Hähnchenhackfleisch"
+            },
+            {
+              "key": "cd59cf7b-26ae-5d7c-aea6-7452485c931c",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "150 g geraspelter Kohl"
+            },
+            {
+              "key": "33d8a54d-8915-5eec-bebb-40be1afbe051",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel mildes Currypulver"
+            },
+            {
+              "key": "2e0d8bcd-a621-5027-b1c6-81b0726af22b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt Knoblauch"
+            },
+            {
+              "key": "f7b9db38-4ac6-51ba-aade-71117ebd09b1",
+              "ingredientName": "Rote Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel rote Currypaste"
+            },
+            {
+              "key": "d294f19d-a602-57bd-ad84-826c9e27b750",
+              "ingredientName": "Dunkle Sojasoße",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel dunkle Sojasauce"
+            },
+            {
+              "key": "a97d1d93-0ddd-59c8-93ec-e6d8e63bd826",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "360 ml Hühnerbrühe"
+            },
+            {
+              "key": "834ee46d-deb9-5218-a774-bb94c5f0f2ca",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "200 g dünne Eiernudeln"
+            },
+            {
+              "key": "ee10339d-3519-54ef-8a57-ef1dc30006a8",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "375 ml Kokosmilch"
+            },
+            {
+              "key": "5261d656-e3a4-59a4-bd55-8e4dd90b1699",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel natürlich Erdnussbutter"
+            },
+            {
+              "key": "f4141492-4ab4-5216-b347-dc7020046376",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel frischer Limettensaft (oder apple cider / Reisessig)"
+            },
+            {
+              "key": "eb133520-e4f4-55e0-8968-63f10c11bbee",
+              "ingredientName": "Erdnüsse",
+              "grams": 17.01,
+              "quantity": 17.01,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Esslöffel zerstoßen Erdnüsse"
+            },
+            {
+              "key": "4acb58a9-0213-54d7-9607-fe5fdd41217f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "15 g frische Korianderblätter, abgezupft"
+            },
+            {
+              "key": "613292bc-8acc-5f84-a649-87514a4391b0",
+              "ingredientName": "Thailändische Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten frisch chilli"
+            },
+            {
+              "key": "5e82ac95-7aa1-5799-a6d3-a6fa92a4137a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "zusätzlich Limettenspalten, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen, schweren Pfanne bei mittlerer bis hoher Hitze. Brate das Schweinehack oder Hähnchenhack 3-5 Minuten, bis es nicht mehr rosa, sondern braun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den zerkleinerten Kohl, Currypulver und Knoblauch dazu. Brate alles unter Rühren 1 Minute und rühre dann rote Currypaste und dunkle Sojasoße ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme in der Mitte des Fleisch-Gemüse-Gemischs eine freie Fläche und gieße Hühnerbrühe hinein. Sobald sie köchelt, drücke die Eiernudeln möglichst weit in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Nudeln 1 Minute, wende sie, decke die Pfanne ab und gare sie eine weitere 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Trenne die Nudeln mit einer Zange. Gib dann Kokosmilch, Erdnussbutter und Limettensaft dazu. Mische alles und erhitze es gründlich, dann nimm die Pfanne vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, mit gehackten Erdnüssen, Koriander und nach Wunsch frischer Chili bestreut. Limettenspalten dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/06/Red-Curry-Peanut-Noodles.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/red-curry-peanut-noodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von roten Curry-Erdnussnudeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-salmon-green-curry",
+      "slug": "she-salmon-green-curry",
+      "title": "Lachs mit grünem Curry",
+      "instructions": "In der Pfanne angebratene Lachsfilets in einem aromatischen thailändischen grünen Curry mit Kokoscreme, Datteltomaten, Zuckerschoten und Zucchini, in nur 13 Minuten fertig. Frisch und cremig, perfekt für ein schnelles Abendessen mit Jasminreis. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/salmon-green-curry/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Lachsfilets sind meist günstiger als frische und eignen sich nach dem Auftauen bestens.",
+        "Ersetze frische Datteltomaten durch beliebige Kirsch- oder normale Tomaten aus dem Vorrat, um Geld zu sparen.",
+        "Kaufe Currypaste im Glas statt in Portionsbeuteln. So sinken die Kosten pro Löffel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Jeder feste weiße Fisch, Garnelen oder gewürfelte Hähnchenoberkeule",
+          "savings": "Hähnchenschenkel sind oft günstiger als Lachs"
+        },
+        {
+          "forIngredientId": "coconut-cream",
+          "swap": "Vollfette Kokosmilch; die Soße wird etwas dünner",
+          "savings": "Kokosmilch ist meist günstiger als Kokoscreme"
+        },
+        {
+          "forIngredientId": "snap-peas",
+          "swap": "Grüne Bohnen oder tiefgekühlte Erbsen",
+          "savings": "Tiefgekühlte Erbsen sind deutlich günstiger als frische Zuckerschoten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch",
+        "Lachs",
+        "grünes-Curry",
+        "Abendessen",
+        "schnell",
+        "Meeresfrüchte",
+        "aus-einer-Pfanne",
+        "Kokos"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 416,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-salmon-green-curry/",
+      "components": [
+        {
+          "key": "aeacad86-8697-5abf-8150-5d29b2edaa0d",
+          "name": "Zutaten",
+          "servingGrams": 422.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6fa7bdb-b295-51ba-9f5d-404d97e0bf70",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5f98c1c9-ab9d-5fa4-af50-0e4b6b9efb2d",
+              "ingredientName": "Lachsfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Haut-on Filets, seasoned mit sea Salz"
+            },
+            {
+              "key": "bb792c1f-db40-5dad-8824-7063b5ff4c33",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel, zu season Lachs"
+            },
+            {
+              "key": "02f6098c-c86a-5e20-8044-59c4ec279fce",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2358ad80-1f2f-5ce9-9e7f-c801504ad8be",
+              "ingredientName": "Kokoscreme aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "400 ml aus der Dose"
+            },
+            {
+              "key": "d270a6ca-b08d-558f-a8ef-ad110a7b3261",
+              "ingredientName": "Datteltomaten",
+              "grams": 168,
+              "quantity": 168,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "100 g (etwa eine halbe Schale)"
+            },
+            {
+              "key": "8201ca62-8436-55b1-9e76-56ae44ebd63c",
+              "ingredientName": "Zuckerschoten",
+              "grams": 204,
+              "quantity": 204,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "100 g Zuckerschoten"
+            },
+            {
+              "key": "4bba0699-7b30-5486-a630-da3b684a2744",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1, fein geschnitten"
+            },
+            {
+              "key": "d03820b7-64ae-58a1-90f9-bf25f6d34662",
+              "ingredientName": "Fischsoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b49eba2f-975c-5895-923b-421520918664",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e97163f1-5e6c-57d7-b46b-bd9e45147951",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel frischer Limettensaft"
+            },
+            {
+              "key": "92e7729c-cee5-50bc-b0d4-894b713edd81",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "164071ca-c16b-58b0-ab31-8dca18333908",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "frisch Koriander, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Jasminreis nach Packungsanleitung, sodass er zum Servieren bereit ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Lachsfilets mit Meersalz. Erhitze Olivenöl in einer großen, tiefen Pfanne auf hoher Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Lachs 4 Minuten und wende ihn nach der Hälfte der Zeit einmal. Lege ihn dann auf einem Teller beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere Stufe und gib grüne Currypaste, Kokoscreme und Datteltomaten dazu. Lass alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Zuckerschoten und geschnittene Zucchini zusammen mit Fischsoße, Zucker und Limettensaft dazu. Rühre alles um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Lachs zurück in die Pfanne, lege den Deckel auf und gare ihn 2 Minuten oder bis er sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Curry auf Jasminreis und garniere es mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2021/10/Salmon-Green-Curry-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/salmon-green-curry/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Lachs mit grünem Curry",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-shakshuka",
+      "slug": "she-shakshuka",
+      "title": "Shakshuka",
+      "instructions": "Eier pochieren sanft in einer rauchigen, würzigen Soße aus Tomaten und Paprika. Dazu kommen cremige Avocado, salziger Feta und frische Kräuter. Ein klassisches Gericht für den Brunch aus einer Pfanne, das in weniger als 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/shakshuka/",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 11,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gehackte Tomaten aus der Dose bilden die günstige Grundlage. Kaufe die Hausmarke und lege einen Vorrat an, wenn sie im Angebot sind.",
+        "Lass Avocado und Feta als Garnitur weg, um die Kosten fast zu halbieren. Die würzige Tomaten-Ei-Basis schmeckt auch allein köstlich.",
+        "Verwende das günstigste frische Kraut. Petersilie und Koriander sind austauschbar, und auch die Stiele kannst du mitverwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Zerbröselter Ziegenkäse oder ein Löffel Ricotta",
+          "savings": "Oft günstiger pro Portion und genauso cremig"
+        },
+        {
+          "forIngredientId": "red-bell-pepper",
+          "swap": "Paprika in beliebiger Farbe oder gewürfelte Zucchini",
+          "savings": "Grüne Paprika ist meist am günstigsten"
+        },
+        {
+          "forIngredientId": "sweet-paprika",
+          "swap": "Geräuchertes Paprikapulver für ein kräftigeres Raucharoma",
+          "savings": "Verwende, was du bereits im Gewürzregal hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "nahöstlich",
+        "Shakshuka",
+        "Eier",
+        "Brunch",
+        "aus-einer-Pfanne",
+        "vegetarisch",
+        "Tomate",
+        "scharf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 417,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-shakshuka/",
+      "components": [
+        {
+          "key": "6dd5e5d4-8eb3-5ba5-a409-0d7e78a425fc",
+          "name": "Zutaten",
+          "servingGrams": 350.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "8bae7942-c278-5feb-a814-81cc30e4b793",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6aa04408-1b92-58c2-bff8-56d5f28b17ca",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 braune Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "dc7d7a3d-a2d5-56ff-a52f-1eaa01341a40",
+              "ingredientName": "Rote Paprika",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 rote Paprika, fein gewürfelt"
+            },
+            {
+              "key": "8b8d570e-4723-5132-84ec-a374da33ca7c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt Knoblauch (ca. 3 Zehen)"
+            },
+            {
+              "key": "1f196532-7cd4-5b21-9a14-c44e191c2671",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel edelsüßes Paprikapulver"
+            },
+            {
+              "key": "753f1ce6-d8c0-5351-9a03-09582d3d48ff",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel gemahlener Kreuzkümmel"
+            },
+            {
+              "key": "5e98210b-98ad-50ce-86e9-a14d0d627d27",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "400 g zerstoßene Tomaten aus der Dose"
+            },
+            {
+              "key": "8454aae4-b7e2-56e4-b8d0-ba68a7b47dee",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel Meersalzflocken, plus zusätzlich zum Servieren"
+            },
+            {
+              "key": "62d830aa-1cbd-568b-9076-64bcbbf3dcc0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel cracked schwarzer Pfeffer, plus zusätzlich zum Servieren"
+            },
+            {
+              "key": "e6991a58-928a-539c-899b-2be7412307f0",
+              "ingredientName": "Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel Zucker"
+            },
+            {
+              "key": "142efdfe-1ba9-5b0f-a2e8-93bf2c8b4c0a",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "5 Eier, oder more if you prefer"
+            },
+            {
+              "key": "5027099c-cb56-519f-b6d4-8ce8b3af68e2",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "1 Avocado, in Scheiben geschnitten, zum Servieren"
+            },
+            {
+              "key": "283b40d0-e29e-563a-b323-dee1761f0674",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "75 g zerbröselt feta, zum Servieren"
+            },
+            {
+              "key": "2fa176f2-c920-508d-895d-5296f0a7e75b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "25 g gehackter Koriander oder Petersilie zum Servieren"
+            },
+            {
+              "key": "a0799d8f-4330-51cf-9a95-0e600b4ee971",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "crusty Brot, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen, schweren Pfanne bei mittlerer Hitze. Gib Zwiebel, Paprika und Knoblauch dazu und brate sie unter Rühren 3-5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Paprikapulver, Kreuzkümmel, gehackte Tomaten, Salz, Pfeffer und Zucker dazu. Lass die Soße leicht köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme mit einem Holzlöffel kleine Mulden in der Soße. Schlage die Eier einzeln zuerst in ein Glas, um Schalenstücke abzufangen, und lass dann jeweils ein Ei in eine Mulde gleiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und gare alles 5-6 Minuten, bis die Eier so gestockt sind, wie du sie magst. Sie garen nach dem Ausschalten weiter. Nimm sie deshalb etwas früher vom Herd, wenn du flüssiges Eigelb möchtest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit zusätzlichem Salz und Pfeffer und achte besonders darauf, die Eier abzuschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib geschnittene Avocado, zerbröselten Feta und gehackten Koriander oder Petersilie darauf. Serviere das Gericht direkt aus der Pfanne mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/06/Shakshuka.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/shakshuka/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Shakshuka",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-smoked-salmon-bagels",
+      "slug": "she-smoked-salmon-bagels",
+      "title": "Bagels mit Räucherlachs",
+      "instructions": "Getoastete Bagels mit cremigem Aufstrich, Räucherlachs, knackiger Gurke, würzigen Kapern und schnell eingelegter roter Zwiebel: ein frischer Brunch ohne Kochen, der in 15 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/smoked-salmon-bagels/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Räucherlachsabschnitte. Sie kosten viel weniger als aufgeschnittene Scheiben und eignen sich auf einem Bagel genauso gut.",
+        "Bereite die eingelegten Zwiebeln aus einer Zwiebel selbst zu, statt ein Glas zu kaufen. Essig und Zucker kosten nur wenige Cent.",
+        "Verwende Frischkäse natur und rühre etwas geröstete rote Paprika oder gehackte Kräuter ein. Damit erhältst du für weniger Geld einen ähnlich aromatischen Dip."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flavored-cream-cheese",
+          "swap": "Frischkäse natur oder aufgeschlagener Frischkäse",
+          "savings": "Oft günstiger als aromatisierte Becher"
+        },
+        {
+          "forIngredientId": "smoked-salmon",
+          "swap": "Lachs aus der Dose, abgetropft und zerpflückt",
+          "savings": "Ungefähr halb so teuer pro Portion"
+        },
+        {
+          "forIngredientId": "white-wine-vinegar",
+          "swap": "Weißweinessig",
+          "savings": "Etwa $0.08 weniger pro Esslöffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Brunch",
+        "ohne-kochen",
+        "Räucherlachs",
+        "Bagel",
+        "schnell",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 418,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-smoked-salmon-bagels/",
+      "components": [
+        {
+          "key": "7f8b281c-e3d7-5226-b004-0807f0d360e1",
+          "name": "Zutaten",
+          "servingGrams": 414.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce51f0e3-1488-5993-89f5-e2e4d87fcf7d",
+              "ingredientName": "Bagel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Bagels, geröstet"
+            },
+            {
+              "key": "524da81a-0f53-52e9-9fee-f38174f15762",
+              "ingredientName": "Erdbeer-Frischkäseaufstrich",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "125 g gerösteter Paprika-Zwiebel-Dip (oder streichfähiger Frischkäse)"
+            },
+            {
+              "key": "3ef76f81-93b6-5bb0-8068-e316a946ba2e",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 klein Gurken, in Scheiben geschnitten dünn"
+            },
+            {
+              "key": "03efc34e-122c-533d-bc8e-7b8f65e9eae5",
+              "ingredientName": "Räucherlachs",
+              "grams": 198.45,
+              "quantity": 198.45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "200 g Räucherlachs"
+            },
+            {
+              "key": "68966cd4-383c-5d28-8148-653af54f134f",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 100,
+              "quantity": 0.2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel baby Kapern"
+            },
+            {
+              "key": "809550dd-e224-5e2f-9ab9-a05749cc1709",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel eingelegte rote Zwiebeln (1 Zwiebel für das schnelle Einlegen)"
+            },
+            {
+              "key": "13d68689-4e9e-5cbf-a6b6-5ef5cbf601d8",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 Esslöffel frisch Dill"
+            },
+            {
+              "key": "429e7d66-955c-5cca-9eee-11710037f8a9",
+              "ingredientName": "Weißweinessig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse (60 ml) Weißweinessig zum Einlegen"
+            },
+            {
+              "key": "6200a0a7-7773-51ac-aa9c-543d56ce03c8",
+              "ingredientName": "Weißer Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel weißer Zucker, für Einlegen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die schnell eingelegte rote Zwiebel zu: Schneide 1 rote Zwiebel in dünne Scheiben und gib sie in ein kleines Glas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1/4 Tasse Wasser, 1/4 Tasse Weißweinessig und 1 TL weißen Zucker in das Glas. Rühre um, bis sich der Zucker auflöst, und lass die Zwiebeln mindestens 15 Minuten ziehen. Für einen kräftigeren Geschmack kannst du sie länger ziehen lassen. Im Kühlschrank halten sie sich bis zu 1 Woche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Toaste die Bagels und schneide sie in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche jede Bagelhälfte großzügig mit dem Dip aus gerösteter Paprika und Zwiebel oder mit Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege die Bagels mit dünn geschnittener Gurke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Räucherlachs darauf und lege ihn locker in Falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die kleinen Kapern und die eingelegten roten Zwiebeln darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verfeinere die Bagels mit frischem Dill und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/10/Smoked-Salmon-Bagels-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/smoked-salmon-bagels/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Bagels mit Räucherlachs",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-smoked-salmon-with-creamy-chive-spread",
+      "slug": "she-smoked-salmon-with-creamy-chive-spread",
+      "title": "Räucherlachs mit cremigem Schnittlauchaufstrich",
+      "instructions": "Ein luftiger Frischkäseaufstrich mit Schnittlauch und Zwiebel auf getoastetem Sauerteigbrot, belegt mit zartem Räucherlachs, würzigen Kapern und kräftiger roter Zwiebel. In nur fünf Minuten fertig und ideal für einen unkomplizierten Brunch oder als Vorspeise. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/smoked-salmon-with-creamy-chive-spread/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Frischkäse natur und rühre selbst Schnittlauch ein, statt für bereits gewürzte Becher mehr zu bezahlen.",
+        "Räucherlachsabschnitte kosten viel weniger als Filetscheiben und eignen sich auf Toast genauso gut.",
+        "Verwende Zitronensaft aus der Flasche und lass frische Zitronen weg, wenn du nur einen Esslöffel brauchst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt natur für mehr Eiweiß und eine säuerliche Note",
+          "savings": "Etwa gleich teuer und liefert zusätzlich Eiweiß"
+        },
+        {
+          "forIngredientId": "smoked-salmon",
+          "swap": "Lachs aus der Dose, abgetropft und zerpflückt",
+          "savings": "Spart etwa $9 gegenüber geschnittenem Räucherlachs"
+        },
+        {
+          "forIngredientId": "sourdough",
+          "swap": "Normales oder Mehrkornbrot, getoastet",
+          "savings": "Spart etwa $0.20 pro Scheibe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "skandinavisch",
+        "Räucherlachs",
+        "Brunch",
+        "ohne-kochen",
+        "Vorspeise",
+        "Toast",
+        "Frischkäse",
+        "schnell",
+        "5-Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 419,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-smoked-salmon-with-creamy-chive-spread/",
+      "components": [
+        {
+          "key": "4ea285af-586a-599b-aa40-246ea54eb664",
+          "name": "Zutaten",
+          "servingGrams": 194.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "c41df255-e14f-55da-808d-c136ca8e02eb",
+              "ingredientName": "Frischkäse",
+              "grams": 255,
+              "quantity": 255,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "250 g, Zimmertemperatur"
+            },
+            {
+              "key": "e1f6518d-d754-542a-beb5-bf3bb35fe89d",
+              "ingredientName": "Saure Sahne",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "90 g"
+            },
+            {
+              "key": "ba0d2b2a-2e0e-5d63-8402-eb37d4aa30ef",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel grob gehackt, zusätzlich zum Bestreuen"
+            },
+            {
+              "key": "d1800081-610a-55b1-aebe-8c5cb9d0c03a",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5c9595fe-5e9e-50ae-a054-78b40c369d8f",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel Meersalzflocken"
+            },
+            {
+              "key": "59d6f9ab-637d-5e77-bacd-d895124cb8a9",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel frischer Zitronensaft"
+            },
+            {
+              "key": "576244b0-5977-5616-a325-836bfa1e5826",
+              "ingredientName": "Räucherlachs",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "170 g"
+            },
+            {
+              "key": "bc29aab5-b486-58a7-b89b-ec499ce241a5",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 50,
+              "quantity": 0.1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel baby Kapern"
+            },
+            {
+              "key": "8ac2737a-0148-5764-ba84-b4618efe74c9",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "rote Zwiebel rings, zum Servieren"
+            },
+            {
+              "key": "e9c8f9e2-6a35-5bde-9045-abc318e5293b",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "geröstet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Frischkäse Raumtemperatur annehmen, damit er sich glatt und klumpenfrei verrühren lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Frischkäse, saure Sahne, gehackten Schnittlauch, Zwiebelpulver, Meersalzflocken und Zitronensaft in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre alles, bis ein cremiger, gleichmäßiger Aufstrich entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Toaste die Sauerteigbrotscheiben, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die cremige Schnittlauchmischung großzügig auf dem getoasteten Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Räucherlachs darauf und verteile kleine Kapern sowie rote Zwiebelringe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue die Brote mit zusätzlichem Schnittlauch und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/10/Smoked-Salmon-with-Creamy-Chive-Spread-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/smoked-salmon-with-creamy-chive-spread/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Räucherlachs mit cremigem Schnittlauchaufstrich",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

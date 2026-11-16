@@ -1,0 +1,1171 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-edamame-shrimp-fried-rice",
+      "slug": "mfr-edamame-shrimp-fried-rice",
+      "title": "Gebratener Reis mit Edamame und Garnelen",
+      "instructions": "Garnelen und Edamame mit Reis vom Vortag, Ei und einer herzhaften Soja-Sesam-Sauce anbraten. Schmeckt besser als zum Mitnehmen bestelltes Essen und ist in 15 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen und Edamame sind die beiden eiweißreichen Hauptzutaten. Beides gibt es günstig tiefgekühlt.",
+        "Reis vom Vortag eignet sich tatsächlich besser für gebratenen Reis. Plane voraus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Gewürfelten Tofu als vegane Eiweißquelle verwenden."
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Blumenkohlreis für eine kohlenhydratärmere Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-edamame-shrimp-fried-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 785,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-edamame-shrimp-fried-rice/",
+      "components": [
+        {
+          "key": "dab4c3f9-7d9d-5465-8c36-1fd0130a7bda",
+          "name": "Zutaten",
+          "servingGrams": 372.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e1d2789-1272-50df-b5cb-2ce1ba4a85d4",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5b5bc98-891f-5477-b939-8df055fd3ffc",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31420756-8c64-5483-9a05-27a810ed2d39",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f5a6fdd-190f-553c-839e-3147437dfa06",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8220f35f-657a-58f3-81b9-14bcac293ef0",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ef43d7b-3cef-59d2-b9ac-eb6ba266c361",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12aaf65d-3e79-50fe-aae3-3a8b71c72e17",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44ac2211-a2e3-56be-845a-3c128a13b7cd",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06494b50-144f-5a07-b42b-9e6cb9bdc11e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ded61173-98f5-5379-aabc-a0e65b9a5061",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verwende kalten Reis vom Vortag oder verteile frisch gegarten Reis auf einem Teller und trockne ihn kurz in der Mikrowelle. Taue die Edamame auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Sesamöl in einem großen Wok oder einer Pfanne bei hoher Hitze. Gib Knoblauch und Ingwer dazu und brate sie 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Garnelen dazu und gare sie 1–2 Minuten, bis sie rosa sind. Schiebe sie an den Rand und rühre die Eier in der freien Fläche zu Rührei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Reis, Edamame, Erbsen und Sojasauce dazu. Brate alles unter Rühren 3–4 Minuten, bis der Reis leicht knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte den Reis an und streue geschnittene Frühlingszwiebeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Shelled-Edamame-and-Ginger-Fried-Rice.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Shelled-Edamame-and-Ginger-Fried-Rice.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-baked-salmon-lemon-caper",
+      "slug": "mfr-baked-salmon-lemon-caper",
+      "title": "Gebackener Lachs mit Zitronen-Kapern-Sauce",
+      "instructions": "Lachsfilets im Ofen zart und saftig rösten und mit einer frischen Sauce aus Zitrone, Kapern und Butter servieren. Ein elegantes Abendessen, das überraschend einfach gelingt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Lachsfilets kosten halb so viel wie frische und schmecken gebacken genauso gut.",
+        "Zitrone, Dijon-Senf und Butter ergeben die einfachste luxuriöse Sauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Quinoa oder geröstetes Gemüse für andere Nährwerte servieren."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl statt Butter für eine milchfreie Sauce verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-baked-salmon-lemon-caper",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 786,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-baked-salmon-lemon-caper/",
+      "components": [
+        {
+          "key": "84ab2fa1-600c-5a02-a6f7-af2344470565",
+          "name": "Zutaten",
+          "servingGrams": 297.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "75182698-bcbe-511f-b5b9-fee9534eb746",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76be1a2c-09cd-533a-8411-1f5383d70935",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48492aca-48b3-51c0-90e4-20dbad036413",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd6a094e-89be-5173-9952-26851f4b6204",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60c8cc3f-e420-5df3-a03d-869a226ca15e",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06a5f4f7-3ec2-572a-b248-16d10ac571cf",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f72ae842-5488-5a91-b5e8-585d6248c6a5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a1859fc-0448-51f2-a3aa-496382a50c7f",
+              "ingredientName": "Brauner Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "185e2912-6aea-5290-9810-84145995a250",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400°F vor. Würze den Lachs mit Salz, Pfeffer und etwas Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe den Lachs 12–15 Minuten, bis er sich an der dicksten Stelle leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite währenddessen die Sauce zu: Schmelze Butter in einem kleinen Topf bei mittlerer Hitze. Gib gehackten Knoblauch dazu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zitronensaft, Dijon-Senf und eine Prise Kapern oder etwas Zitronenschale dazu. Verquirle alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Lachs auf braunem Reis. Löffle Sauce darüber und garniere ihn mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/PWxqeWLKYyOiUsY2a01shUK6NgI=/981x0/filters:no_upscale():max_bytes(150000):strip_icc()/grilled-salmon-recipe-with-lemon-caper-sauce-2098035-d-centoni-2021-6200ff44b2f74b6e9843813953b6639e.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/PWxqeWLKYyOiUsY2a01shUK6NgI=/981x0/filters:no_upscale():max_bytes(150000):strip_icc()/grilled-salmon-recipe-with-lemon-caper-sauce-2098035-d-centoni-2021-6200ff44b2f74b6e9843813953b6639e.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-chili-cornbread",
+      "slug": "mfr-turkey-chili-cornbread",
+      "title": "Puten-Chili mit Maisbrotkruste",
+      "instructions": "Dickes, rauchiges Chili mit Pute und Bohnen, im Ofen mit einer goldenen Maisbrotkruste gebacken. Dieses gemütliche Ofengericht reicht für viele und kostet weniger als $10.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhack ist mager und günstig. Das ganze Gericht kostet weniger als $2 pro Portion.",
+        "Kidneybohnen aus der Dose liefern zusätzlich Eiweiß. Verwende zwei Dosen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack für einen klassischen Chili-Geschmack verwenden."
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Maismehl oder eine Packung Jiffy-Mischung für authentisches Maisbrot verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-chili-cornbread",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 787,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-chili-cornbread/",
+      "components": [
+        {
+          "key": "61707d13-5b76-5f4d-aceb-26513444945b",
+          "name": "Zutaten",
+          "servingGrams": 411.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "0bf77269-270e-5000-923e-37a0d9154248",
+              "ingredientName": "Putenhack",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cdb3175-134c-5169-aeb1-b11f980144e6",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ff00f3a-f968-5b83-9cfd-cd08f005bda4",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54351875-8c27-5b83-853c-57128dc18fcb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f15698af-2589-58c7-9667-1a2d9790df30",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0caec0f0-48fb-5335-a758-c2d3a983cd41",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c938a5b4-3ed1-5e81-9055-241a46bb9126",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e334d477-2218-59ae-937c-db35c21e219b",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce629788-53c2-549e-b77b-c977cc34af5e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8daa9456-fe1b-572c-a90c-6cd339beb6d4",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ece315a-701b-53f1-a9a9-c7cb4b0761b6",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8445a34f-1f3b-5f6b-a7a9-f5b824d13609",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1702920-281f-55ed-a338-33a6a967f003",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ede33d5d-297c-5b73-94d8-5690b070fa45",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34e7c9f3-1284-5498-b96a-c00a0f650647",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375°F vor. Brate die Zwiebel 4 Minuten in Olivenöl an. Gib Knoblauch, Chilipulver, Kreuzkümmel und Paprikapulver dazu und röste alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Putenhack dazu und gare es 6–8 Minuten. Füge zerkleinerte Tomaten und Bohnen hinzu. Lass das Chili 10 Minuten köcheln und würze es kräftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite einen schnellen Maisbrotteig zu: Vermische Mehl, Mais, Zucker, Backpulver, Salz, Milch und Ei, bis alles gerade verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle das Chili in eine ofenfeste Form und verstreiche den Maisbrotteig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe das Gericht 20–22 Minuten, bis das Maisbrot goldbraun und durchgegart ist. Lass es vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2016/10/cornbread-chili.jpg",
+          "sourcePageUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2016/10/cornbread-chili.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuna-nicoise-bowl",
+      "slug": "mfr-tuna-nicoise-bowl",
+      "title": "Niçoise-Power-Schüssel mit Thunfisch",
+      "instructions": "Dosenthunfisch, hart gekochte Eier, grüne Bohnen, Kirschtomaten und Oliven auf gemischtem Salat mit einer Dijon-Vinaigrette. Dieser französische Klassiker ist schnell und günstig zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dosenthunfisch liefert 25g Eiweiß pro Dose und kostet weniger als $1.50.",
+        "Hart gekochte Eier gehören zu den günstigsten Eiweißquellen pro Gramm."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Dosensalmon für mehr Omega-3-Fettsäuren zu einem ähnlichen Preis verwenden."
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Für eine kohlenhydratärmere Variante weglassen oder durch weiße Bohnen ersetzen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-nicoise-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "französisch",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 788,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-nicoise-bowl/",
+      "components": [
+        {
+          "key": "b521daeb-1df3-5b5b-af80-951589ede2c9",
+          "name": "Zutaten",
+          "servingGrams": 1288.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbd1b26d-b477-580f-bdca-63b176ea770a",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2959b290-7a42-5544-a6f1-0c1e35370514",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0658d10e-6e36-5b4a-814e-95c6e7e54f7d",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "061f2459-17a1-558c-9ae0-6b51b354b198",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50b12d2e-1106-5182-9179-13d78ff91b06",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b944717-d0b0-5ea1-8961-923acdd03d7d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8a42c93-c6f4-5f87-b688-4b77115fe660",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d437a9b-7490-5421-8b8e-52a4bdadc2c4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3da66d46-ea96-583b-9b31-5dc0d8e08241",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45fa3eb5-baf4-52ad-8a77-66b37c1e0ce8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93db85f5-d709-56df-9888-564b1771d9c1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche kleine Kartoffeln 12 Minuten, bis sie weich sind. Lass sie abkühlen und halbiere sie. Koche gleichzeitig Eier 9 Minuten hart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Vinaigrette zu: Verquirle Dijon-Senf, Zitronensaft, Rotweinessig, Olivenöl, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile gemischte Salatblätter auf Tellern. Gib abgegossenen und zerteilten Thunfisch, halbierte Eier, Kartoffeln und Tomaten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle die Schüsseln großzügig mit der Vinaigrette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere alles mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/d9/59/2e/d9592e7d6f7e852f085b8d7153879ae9.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/d9/59/2e/d9592e7d6f7e852f085b8d7153879ae9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dal-tadka",
+      "slug": "mfr-dal-tadka",
+      "title": "Dal Tadka mit Basmatireis",
+      "instructions": "Seidige gelbe Linsen mit Kurkuma köcheln lassen und zum Schluss mit brutzelndem Knoblauch, Kreuzkümmel und Chili würzen. Ein indisches Wohlfühlgericht, das fast nichts kostet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen gehören zu den günstigsten pflanzlichen Eiweißquellen. $2 pro Pfund reicht für eine ganze Familie.",
+        "Dal hält sich 5 Tage und schmeckt aufgewärmt sogar noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Rote Linsen verwenden. Sie garen schneller (15 min) und ergeben ein seidigeres Dal."
+        },
+        {
+          "forIngredientId": "garam-masala",
+          "swap": "Currypulver für eine leicht andere, aber ebenso köstliche Gewürzmischung verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dal-tadka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Essensvorbereitung",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 789,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dal-tadka/",
+      "components": [
+        {
+          "key": "3ccc2ac6-1b44-5eed-86ac-db4fae19578c",
+          "name": "Zutaten",
+          "servingGrams": 303.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c72a20cc-2458-5cbd-9e05-ba618822bdff",
+              "ingredientName": "Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a32e1a21-dc06-5863-8898-fdf5d28ec776",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee6c726d-406f-5729-a615-716c0a5b9cc1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb6b0c7a-a403-53a0-84eb-51e726285c5a",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd76da16-6847-521e-88a0-a1da4e143dfb",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68027fbc-6de7-56c6-a3b2-49e881585e9a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99fb44de-9d5f-51fa-a792-a46b36b3a472",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0e361fe-67a9-58ef-97a8-33c406035e9d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "faed31f5-eb15-536a-9212-7e2a3d48d68b",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d912d7a-83f4-5c6e-97ca-a22f50a110a6",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53a6dac0-afa5-53ba-a300-d30ba8d625a8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccad14bb-01ba-5716-8295-f2879f005769",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "389096a9-42e9-566d-86f1-a15245e11af3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle rote oder gelbe Linsen ab. Lass sie mit 4 Tassen Wasser, Kurkuma und einer Prise Salz 20 Minuten köcheln, bis sie sehr weich sind. Zerdrücke sie leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate gewürfelte Zwiebel in 1 EL Öl 5 Minuten goldbraun an. Gib Knoblauch, Ingwer und gewürfelte Tomaten dazu und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Zwiebel-Tomaten-Mischung unter die gegarten Linsen. Gib Garam Masala dazu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite das Tadka, die Würzbutter, zu: Erhitze das übrige Öl in einer kleinen Pfanne. Gib Kreuzkümmelsamen und rote Chili hinein und brate sie 30 Sekunden an. Gieße die Mischung sofort über das Dal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Dal auf Basmatireis mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/lasooni-dal-tadka-recipe-dal-lasooni-garlic-dal-tadka-recipe-2.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/lasooni-dal-tadka-recipe-dal-lasooni-garlic-dal-tadka-recipe-2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

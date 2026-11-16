@@ -1,0 +1,1133 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-momocha",
+      "slug": "gen-momocha",
+      "title": "Momocha",
+      "instructions": "Tibetisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Füllung und Teig im Voraus zu und friere ungegarte Momos für schnelle Abendessen unter der Woche ein.",
+        "Verwende Schweine- oder Hähnchenhack statt Rind und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tibetisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5990,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-momocha/",
+      "components": [
+        {
+          "key": "ec5d9a1c-4893-5db1-9a15-0f292b9547b5",
+          "name": "Zutaten",
+          "servingGrams": 266,
+          "position": 0,
+          "items": [
+            {
+              "key": "90760509-8ac1-5b5f-b02a-5b979a5696a2",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "7e2395e7-4268-51bb-b301-0a7108bb1575",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "631efd5e-4b0d-591d-b4b4-6bb23065fffc",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "100e7c1a-0505-5539-b7b2-f3eedaea1154",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße, sehr fein gehackt"
+            },
+            {
+              "key": "6b2f19bf-cb6b-54ff-87b7-2fea19ba9a3f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "034f4278-5792-50ef-92bf-ffd966089e3b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "c90d394f-3420-56a2-b072-f06b88afc43e",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "19eeed0f-11fb-57e0-9d7c-7bcf79edd597",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3c8c8972-4407-5f2b-8936-6a9094dbc5e1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "26ef3d30-1007-576b-b743-055815d723e6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Wasser und Salz zu einem Teig. Knete ihn etwa 8 Minuten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke den Teig ab und lasse ihn 30 Minuten ruhen. Teile ihn dann in 16 gleich große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Hackfleisch mit gehackter Zwiebel, Knoblauch, Ingwer, Sojasoße, Sesamöl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle jedes Teigstück zu einem dünnen Kreis aus. Gib 1 tbsp Füllung in die Mitte, klappe den Teig halbmondförmig zusammen und falte die Ränder zum Verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Momos portionsweise mit der flachen Seite nach unten 3-4 Minuten goldbraun an. Wende sie und gare sie weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß mit einer Dipsoße aus Sojasoße, gehacktem Ingwer und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://40thievescoffee.com/cdn/shop/files/MomochaBagHero.webp?v=1764039693&width=2368",
+          "sourcePageUrl": "https://40thievescoffee.com/cdn/shop/files/MomochaBagHero.webp?v=1764039693&width=2368",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shengjianbao",
+      "slug": "gen-shengjianbao",
+      "title": "Shengjianbao",
+      "instructions": "Chinesisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Gelatine weg und verwende stattdessen eingekochten, gelatinehaltigen Schweinefond für ein ähnliches Ergebnis zum niedrigeren Preis.",
+        "Bereite Teig und Füllung im Voraus zu und friere die gefüllten Bao für eine schnelle Zubereitung ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5991,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shengjianbao/",
+      "components": [
+        {
+          "key": "da55f518-0084-5c05-9d1b-7298747ac83a",
+          "name": "Zutaten",
+          "servingGrams": 262.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "233a7e77-75d6-50ff-9c9e-c85beb21a652",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b6ec0c6b-28a2-592f-945f-e84842e60aa2",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "fce1c8b3-c2dd-5534-a54e-1966e2f50c4b",
+              "ingredientName": "Trockenhefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "def155bd-d24e-57c8-8b44-a5159dd7cbb3",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7587f054-df22-5ee4-bf9e-7fcb91df6701",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "ba0e059c-e009-56f5-9e71-b65230308859",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c5e5c109-8380-5e50-9a81-f1a7a9591a40",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "8dda2f27-fd76-5d5f-886d-1adee205cb96",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e1ad9bc4-708d-5f44-b477-7ac500d4b20e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3a6f1698-94da-586a-8388-505ff79a3cc8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "b32e9e94-0ff3-59e8-ad01-0990a0394e28",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Löse Hefe und Zucker in warmem Wasser auf. Lasse die Mischung 5 Minuten stehen, bis sie schäumt, und verknete sie dann mit Mehl und Salz zu einem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig 10 Minuten glatt, decke ihn ab und lasse ihn 45 Minuten gehen, bis er sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Hühnerbrühe und löse die Gelatine darin auf. Vermische sie mit Schweinehack, Sojasoße, Sesamöl und Frühlingszwiebeln. Stelle die Mischung kalt, bis sie geliert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 12 gleich große Stücke und rolle jedes zu einem dünnen Kreis von etwa 3 Zoll Breite aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 1 tbsp Schweinefleisch-Gelee-Füllung in die Mitte jedes Kreises und falte die Ränder zu einem Beutel zusammen. Kräusle den Teig dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Bao mit der Naht nach oben auf Backpapierquadrate und lasse sie 15 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer Hitze. Lege die Bao mit der flachen Seite nach unten hinein und brate sie 3-4 Minuten, bis die Unterseite goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2024/04/shengjianbao-41.webp",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2024/04/shengjianbao-41.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pineapple-fried-rice",
+      "slug": "gen-pineapple-fried-rice",
+      "title": "Gebratener Ananasreis",
+      "instructions": "Thailändisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Ananas aus der Dose im eigenen Saft und spare das ganze Jahr über Geld.",
+        "Verwende übrig gebliebenen Reis für Bratreis und vermeide Abfall und zusätzliche Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "thailändisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5992,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pineapple-fried-rice/",
+      "components": [
+        {
+          "key": "130a9ee0-ae72-5636-a42a-422d1b40e974",
+          "name": "Zutaten",
+          "servingGrams": 433.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "7a415596-2903-5958-9e7f-fd38402c061c",
+              "ingredientName": "Jasminreis",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "d1c4e67a-66c3-5379-bae1-717bb032b4ab",
+              "ingredientName": "Ananas",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen gewürfelt"
+            },
+            {
+              "key": "c1188c9b-1cd8-5845-a84a-8f3f2a615fc0",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96f5d8b7-646d-5e92-ac3b-9730f92b084c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "a0105c1d-c227-53ea-8d87-ed5276c3749a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5, gewürfelt"
+            },
+            {
+              "key": "38ab5ff3-eb31-56e0-ab44-d25d06272642",
+              "ingredientName": "Cashewkerne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse geröstet"
+            },
+            {
+              "key": "b4594175-8a8f-5f14-a495-440ee96ac93b",
+              "ingredientName": "Fischsoße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8deaa836-74f3-5584-a4a4-57adaf42b6f6",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "01d1be87-9cf2-55f3-bbcd-191658babbbb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a1c53af7-8c1d-51cd-8e0c-ee0ec96dc617",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einer großen Pfanne oder einem Wok bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier in der Pfanne, nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate Knoblauch und Zwiebel unter Rühren etwa 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Paprika dazu und gare sie 1 Minute, bis sie etwas weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib kalten gekochten Reis dazu, löse Klumpen und brate ihn 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Ananas, Fischsoße und Sojasoße ein und vermenge alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Eier zurück in die Pfanne und füge Cashewkerne sowie den Großteil der Frühlingszwiebeln hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schwenke alles 1 Minute, bis es heiß ist. Serviere den Reis nach Wunsch in einer ausgehöhlten Ananashälfte und garniere ihn mit den restlichen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/FRQqLHmp_nA0RzP7-TCftNnUKj4=/1500x1001/filters:fill(auto,1)/thai-pineapple-fried-rice-3217754_Hero-5b6b4f76c9e77c00252f832e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/FRQqLHmp_nA0RzP7-TCftNnUKj4=/1500x1001/filters:fill(auto,1)/thai-pineapple-fried-rice-3217754_Hero-5b6b4f76c9e77c00252f832e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-basil-fried-rice",
+      "slug": "gen-basil-fried-rice",
+      "title": "Gebratener Reis mit Basilikum",
+      "instructions": "Thailändisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot und friere es für später ein.",
+        "Normaler Basilikum eignet sich ebenfalls, falls Thai-Basilikum nicht erhältlich oder zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5993,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-basil-fried-rice/",
+      "components": [
+        {
+          "key": "b346c262-a73e-5c99-bba8-b3cd2690c669",
+          "name": "Zutaten",
+          "servingGrams": 409.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "93417fc7-1767-5663-a355-7c07bb3f636e",
+              "ingredientName": "Jasminreis",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "2ab69ae7-3e59-58aa-b382-e8b3419e8ed7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12dd0e73-6afb-51c4-b61d-7eb0a3eb839d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund gewürfelt"
+            },
+            {
+              "key": "9641f559-756a-5253-8007-09d799f861e8",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "88b00a27-a857-5300-b18b-dcd99cf77604",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen fein gehackt"
+            },
+            {
+              "key": "0017e215-1640-54e4-9664-455147fc3c2e",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 375,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse, fest angedrückt"
+            },
+            {
+              "key": "8cd7a44c-bf05-592b-977e-4c5e7632b890",
+              "ingredientName": "Fischsoße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "63be74c8-8027-5b75-92c4-efca88c14519",
+              "ingredientName": "Sojasoße",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "dfcdc184-af42-5493-bd1e-d21721424959",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ccae3dbf-4433-554d-a38b-c366caa1dd5b",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einem Wok oder einer großen Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier, bis sie gar sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate gewürfeltes Hähnchen etwa 4 Minuten unter Rühren durch. Nimm es dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib bei Bedarf mehr Öl dazu und brate Knoblauch und Zwiebel 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Hähnchen und Eier zurück in die Pfanne. Rühre Fischsoße, Sojasoße und Chiliflocken ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schwenke alles 1 Minute, bis es vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Pfanne vom Herd und rühre kurz vor dem Servieren frisches Basilikum ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6697147674b37746b41a39e3/1:1/w_2560%2Cc_limit/0924_DIS_Basil-Fried-Rice_Web.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6697147674b37746b41a39e3/1:1/w_2560%2Cc_limit/0924_DIS_Basil-Fried-Rice_Web.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-omurice",
+      "slug": "gen-omurice",
+      "title": "Omurice",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Reis vom Vortag, damit Bratreis eine bessere Konsistenz bekommt und sich leichter zubereiten lässt.",
+        "Verwende gewürfelte Hähnchenkeulen statt Brustfleisch und spare Geld."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5994,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-omurice/",
+      "components": [
+        {
+          "key": "cc80aff7-48d3-52d9-8034-5e2ca4333867",
+          "name": "Zutaten",
+          "servingGrams": 572.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7231a819-00cd-55ed-aa4a-f7048f6cf0b3",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0078264c-cae2-5093-9440-7007f462ddcd",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund gewürfelt"
+            },
+            {
+              "key": "b6a0c48f-af81-5aba-956f-5594cce76d96",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "8cf74cfa-6397-51f8-a596-05d4d54ace31",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse gewürfelt"
+            },
+            {
+              "key": "a5661977-a1e2-519f-98d8-b007c7a7fa3e",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse tiefgekühlt"
+            },
+            {
+              "key": "e1fbd007-ee10-540c-9e6b-ddb7f402f8b2",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fc9e690-ced9-5a80-8208-3497b8bc0a30",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "762827a6-99ce-526c-b23e-da11e5b2447a",
+              "ingredientName": "Ketchup",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ebb51c77-57b2-5a64-92ce-48bd12d8a8db",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "967922e5-a110-5997-bc0d-e639fd2fd164",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1ceabc05-b444-530e-8aff-ee26b75be837",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer Pfanne und brate gewürfeltes Hähnchen unter Rühren etwa 3 Minuten, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel und Karotten dazu und gare sie 2 Minuten. Füge dann Erbsen hinzu und gare alles 1 Minute weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Reis, Ketchup und Sojasoße ein, löse Klumpen und erhitze alles etwa 2 Minuten. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den Bratreis auf zwei Tellern und forme Hügel daraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze 1 Esslöffel Butter in einer beschichteten Pfanne bei mittlerer Hitze. Verquirle 2 Eier mit einem Schuss Wasser und gieße sie in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald die Eier oben gerade gestockt, aber noch leicht flüssig sind, schiebe sie vorsichtig auf einen Reisberg und klappe sie um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wiederhole Schritt 5-6 mit der restlichen Butter und den Eiern für die zweite Portion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verziere jedes Omurice mit Ketchup und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/D_N6MBBHW6cRuXM7qTC9baMsNNs=/2880x1920/filters:no_upscale():max_bytes(150000):strip_icc()/omelet-rice-2031329-step-11-f1abd6e8dfbe4faea1aa268e4cbc52ec.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/D_N6MBBHW6cRuXM7qTC9baMsNNs=/2880x1920/filters:no_upscale():max_bytes(150000):strip_icc()/omelet-rice-2031329-step-11-f1abd6e8dfbe4faea1aa268e4cbc52ec.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

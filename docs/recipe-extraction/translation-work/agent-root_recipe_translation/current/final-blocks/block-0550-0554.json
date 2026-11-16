@@ -1,0 +1,855 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-cabbage-ramen-stir-bowl",
+      "slug": "mw-cabbage-ramen-stir-bowl",
+      "title": "Mikrowellen-Ramen mit Kohl",
+      "instructions": "Ramen mit gedämpftem Kohl und einer Glasur aus Sojasoße und Sesam: eine große Portion für weniger als einen Dollar.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Am besten frisch genießen.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 60 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Ein halber Kohlkopf kostet etwa ~$0.80 und reicht für die ganze Woche",
+        "Das Gewürzpäckchen der Ramen weglassen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Tiefgekühlte Pfannengemüsemischung",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Olivenöl und eine Prise Sesamsamen",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Tasse Kohl (~$0.15) und eine Packung Ramen für $0.50 ergeben ein Abendessen für unter $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 550,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-cabbage-ramen-stir-bowl/",
+      "components": [
+        {
+          "key": "e6a30938-4540-5728-a862-9de65fc6e8e8",
+          "name": "Zutaten",
+          "servingGrams": 361.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "beb12e87-c3f4-5d85-b117-8a2a98b96e24",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "Gewürzpäckchen entsorgen"
+            },
+            {
+              "key": "df2b031d-cdcc-5087-9825-b939736f9428",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70fd7c06-06e0-5825-a5ac-d00b77e0e102",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7193c4f0-da9b-5315-b118-276ad678c43d",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c2f59e1-4d18-58ab-b139-c815f4442b84",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18616f99-13f5-5d93-aa81-6abedbaa49a6",
+              "ingredientName": "Sriracha",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerkleinere den Kohl und gib ihn mit 1 EL Wasser in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel locker ab und erhitze den Kohl 2 Minuten in der Mikrowelle, bis er zusammengefallen ist. Vorsicht beim Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Ramen und 1.5 Tassen Wasser dazu und erhitze alles weitere 3 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße fast das gesamte Wasser ab, lass aber 2 EL zurück. Mische die Nudeln mit Sojasoße, Sesamöl, Knoblauchpulver und Sriracha.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1569718212165-3a8278d5f624",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Ramen mit Kohl aus der Schüssel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-lemon-tuna-noodles",
+      "slug": "mw-lemon-tuna-noodles",
+      "title": "Mikrowellen-Nudeln mit Zitrone und Thunfisch",
+      "instructions": "Nudeln mit Thunfisch, Olivenöl, Zitrone und Parmesan: eine frische Mahlzeit aus Vorratszutaten, in 9 Minuten fertig.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "In einem luftdichten Behälter im Kühlschrank bis zu 3 Tage haltbar.",
+      "reheatingInstructions": "Kalt wie einen Nudelsalat essen.",
+      "cheapTips": [
+        "Mit Olivenöl und Zitrone schmeckt jede Pasta besonders",
+        "Thunfisch ist die günstigste haltbare Eiweißquelle"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs aus der Dose",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "1 TL Reisessig",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Thunfisch (~$1.20) und eine halbe Tasse Nudeln kosten zusammen etwa $1.80, dazu kommen nur Vorratszutaten.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 551,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-lemon-tuna-noodles/",
+      "components": [
+        {
+          "key": "be0f3223-c24b-5d68-b58c-b30e3d0285f6",
+          "name": "Zutaten",
+          "servingGrams": 523.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f69faca-f2ed-57a2-b696-475684467ea3",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b3d1698-bedc-5a5e-83cc-9573414631a0",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1485b62-35e3-5e27-9864-a9dbe3b83b5f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76a96814-ca73-5217-829b-c34495122f4d",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a303168a-5dd7-563f-8991-9840fb2b8e5f",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef848781-450f-5a2b-aaac-7fe614b7d14c",
+              "ingredientName": "Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Pasta in einer tiefen Schüssel mit 1 Tasse Wasser 7 Minuten in der Mikrowelle und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße fast das gesamte Wasser ab; Vorsicht beim Dampf. Lass 1 EL in der Schüssel zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre abgetropften Thunfisch, Olivenöl, Zitronensaft und Parmesan ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere die Nudeln mit Chiliflocken und lass sie 1 Minute ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Tuna_on_whole_wheat_linguine%2C_with_pesto%2C_olive_oil%2C_and_black_pepper_-_Massachusetts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tuna_on_whole_wheat_linguine,_with_pesto,_olive_oil,_and_black_pepper_-_Massachusetts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 1.0 Universal (Public Domain)",
+          "attributionRequired": false,
+          "attributionText": "Photo: Daderot — Public Domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Thunfisch auf Vollkorn-Linguine mit Pesto, Olivenöl und schwarzem Pfeffer",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-egg-cheese-english-muffin",
+      "slug": "mw-egg-cheese-english-muffin",
+      "title": "Englisches Muffin mit Ei und Käse",
+      "instructions": "Ein in der Mikrowelle pochiertes Ei mit schmelzendem Käse auf einem getoasteten englischen Muffin: Frühstück wie ein McMuffin für $1.20.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 3,
+      "storageInstructions": "Am besten frisch genießen.",
+      "reheatingInstructions": "In ein Papiertuch wickeln und 30 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Eine Packung englische Muffins ergibt 6 Frühstücke",
+        "Auch Käsereste schmelzen wunderbar"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "english-muffin",
+          "swap": "Bagel oder Toast",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Eine Scheibe Schmelzkäse nach amerikanischer Art",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein Muffin (~$0.40), ein Ei (~$0.35) und Käse kosten zusammen etwa $1.20 und schlagen damit den McMuffin-Preis.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "5-Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 552,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-egg-cheese-english-muffin/",
+      "components": [
+        {
+          "key": "26fa23d1-a657-50fa-8b91-377082692d24",
+          "name": "Zutaten",
+          "servingGrams": 130.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfb0566d-567c-5e92-8e43-2425576fbb99",
+              "ingredientName": "Englischer Muffin",
+              "grams": 57,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e313bce9-9898-50d2-80a5-0ed1f9f71af2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b00f9792-ce53-5e39-b5ed-84c5275d91bf",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9772dd2c-d28c-5859-8733-22e601aea9b4",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "abb700b0-9e3f-550a-83f3-156646393bf0",
+              "ingredientName": "Scharfe Soße",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere den englischen Muffin und toaste ihn im Toaster oder 30 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage das Ei in eine kleine ofenfeste Form mit 1 TL Wasser und stich das Eigelb vorsichtig mit einer Gabel an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Form ab und erhitze das Ei 45–60 Sekunden in der Mikrowelle, bis es gerade gestockt ist. Vorsicht beim Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Ei und Käse zwischen die Muffinhälften und erhitze alles 15 Sekunden in der Mikrowelle, bis der Käse geschmolzen ist. Gib scharfe Soße dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/English_muffin_sandwich.jpg/960px-English_muffin_sandwich.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:English_muffin_sandwich.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jwalsh — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einem englischen Muffin mit Ei und Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-breakfast-burrito-filling",
+      "slug": "mw-breakfast-burrito-filling",
+      "title": "Mikrowellen-Frühstücksburrito",
+      "instructions": "Rührei, schwarze Bohnen und Käse in einer warmen Tortilla: ein beliebtes 5-Minuten-Gericht zum Vorbereiten.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "In Folie wickeln und bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Eingewickelt in ein Papiertuch 60 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Tortillas kosten jeweils etwa ~$0.20 im 10er-Pack",
+        "Verwende Bohnenreste vom Vorabend"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "salsa",
+          "swap": "Gewürfelte Tomate mit scharfer Soße",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Zwei Eier (~$0.70), eine Tortilla (~$0.20) sowie Bohnen und Käse kosten zusammen weniger als $1.80.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "5-Minuten",
+        "proteinreich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 553,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-breakfast-burrito-filling/",
+      "components": [
+        {
+          "key": "9cebe47f-f5fb-5f61-90e8-56f9691c7cc0",
+          "name": "Zutaten",
+          "servingGrams": 316.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e0bf9205-02d7-5409-85c2-43c6c78a949b",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2613f70-89f0-565c-98c7-d844a5ffec11",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69bcca8d-747c-567a-9e1e-e69bfce19ae2",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e4be7e5-ad41-527d-8f33-31101693e70a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a59318e-c5f3-5297-8796-c9e3fe189e5d",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f5655e3-14cb-5597-87d4-321af64975e6",
+              "ingredientName": "Scharfe Soße",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in einer gefetteten, mikrowellengeeigneten Schüssel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze sie 45 Sekunden in der Mikrowelle, rühre um und erhitze sie weitere 30–45 Sekunden, bis sie gerade gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Tortilla 15 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Eier, Bohnen, Käse und Salsa auf die Tortilla. Rolle sie fest zusammen und iss den Burrito vorsichtig, da die Füllung heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1626026671041-ee71c3bbf735?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1626026671041-ee71c3bbf735",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von der Füllung eines Frühstücksburritos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-potato-egg-hash",
+      "slug": "mw-potato-egg-hash",
+      "title": "Mikrowellen-Kartoffel-Ei-Pfanne",
+      "instructions": "In der Mikrowelle weich gegarte Kartoffelwürfel mit Rührei und Käse: ein Frühstück wie im Diner zu Hause.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "In einem luftdichten Behälter im Kühlschrank bis zu 3 Tage haltbar.",
+      "reheatingInstructions": "Abgedeckt 60 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "5 Pfund Kartoffeln kosten $3",
+        "Paprikapulver lässt alles wie ein Diner-Frühstück aussehen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Scharfe Soße",
+          "savings": "~$0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine ganze Kartoffel (~$0.40) und zwei Eier ergeben ein sättigendes Frühstück für unter $1.60.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 554,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-potato-egg-hash/",
+      "components": [
+        {
+          "key": "2774f9d3-76cc-50c0-833b-605c3e037566",
+          "name": "Zutaten",
+          "servingGrams": 302.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1949918a-5ce1-5fa8-87ef-38fc2486aebc",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6594830c-80a3-5641-b62f-67dac7c7e386",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cdd9ce2-717a-5ab4-ab33-35f0672f982a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fd9f113-adec-5f92-9cf1-9be7c02d0281",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54545508-5cda-551c-89aa-2732cc9c2eff",
+              "ingredientName": "Paprikapulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dca8d816-c320-536e-bc61-e7e63b2eca7c",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffel in kleine Würfel (1/2 Zoll) und vermische sie mit Olivenöl, Paprikapulver und Salz in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel locker ab und erhitze die Kartoffel 4 Minuten in der Mikrowelle. Rühre nach der Hälfte der Zeit um, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Eier auf und gieße sie über die heißen Kartoffeln. Erhitze alles 60 Sekunden in der Mikrowelle, rühre um und erhitze es weitere 30–45 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue das Gericht mit Käse und erhitze es 15 Sekunden in der Mikrowelle, bis der Käse geschmolzen ist. Lass es 1 Minute ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Full_English_breakfast_at_Sainsbury%27s_Low_Hall%2C_Chingford%2C_London.jpg/960px-Full_English_breakfast_at_Sainsbury%27s_Low_Hall%2C_Chingford%2C_London.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Full_English_breakfast_at_Sainsbury's_Low_Hall,_Chingford,_London.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Acabashi — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von der Mikrowellen-Kartoffel-Ei-Pfanne, einem englischen Frühstück mit Kartoffelrösti und Spiegeleiern",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

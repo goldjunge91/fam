@@ -1,0 +1,1103 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-blackberry-cobbler",
+      "slug": "gen-blackberry-cobbler",
+      "title": "Brombeer-Cobbler",
+      "instructions": "Abendessen aus dem Pazifischen Nordwesten, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Brombeeren ganzjährig verwenden, sie kosten nur die Hälfte frischer Beeren.",
+        "Eine große Menge zubereiten und einzelne Portionen für mehrere Wochen Dessert einfrieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Pazifik-Nordwesten",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4365,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blackberry-cobbler/",
+      "components": [
+        {
+          "key": "ca670aa4-45e9-58bd-8930-635f34166609",
+          "name": "Zutaten",
+          "servingGrams": 230.07,
+          "position": 0,
+          "items": [
+            {
+              "key": "e794d432-5296-5749-9c4b-a01959f58fad",
+              "ingredientName": "Brombeeren",
+              "grams": 680.4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "08936b5d-e31a-5e4f-9a8f-40b39dfd13f0",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "dc9f3c00-4831-5371-b632-b53e0ce8630a",
+              "ingredientName": "Allzweckmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4e238b21-624f-599e-8cbd-8d854b178042",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "b6889d94-cb7e-5bfd-87e2-afd5d0de0f65",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "a7818ef5-ee04-57cf-a47e-d18534c3f446",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "dbaebdbe-eb38-58db-bb9a-f73d39b022c3",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ac71c55c-31e7-5b73-89d7-0e5b69ea0593",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "78fea593-e120-59f6-af17-5b7c06f56d02",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "36d35e58-bce6-5967-b862-b9823b6eb2ac",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350°F vorheizen und 4 Tassen Brombeeren in eine 9x13-Backform geben, mit 0.25 Tasse Zucker und 1 TL Zitronenabrieb bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer Schüssel 1.5 Tassen Mehl, 1.5 TL Backpulver, 0.25 TL Salz und 0.25 Tasse Zucker verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "6 EL Butter schmelzen und 0.75 Tasse Milch und 0.5 TL Vanille unterrühren, bis alles verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die flüssigen Zutaten zu den trockenen geben und nur kurz verrühren, sodass ein dicker Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffelweise Teig auf die Brombeeren geben, vorsichtig verteilen und einige Beeren sichtbar lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "3 EL braunen Zucker gleichmäßig über den Teig streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "35-40 Minuten backen, bis der Belag goldbraun ist und ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem warmen Servieren 10 Minuten abkühlen lassen, optional mit Vanilleeis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/06/blackberry-cobbler-recipe-1.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/06/blackberry-cobbler-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coffee-crusted-beef",
+      "slug": "gen-coffee-crusted-beef",
+      "title": "Rindfleisch mit Kaffeekruste",
+      "instructions": "Abendessen aus dem Pazifischen Nordwesten, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schulterbraten statt Ribeye verwenden, scharf anbraten und dann langsam schmoren, um die Hälfte der Kosten zu sparen.",
+        "Kaffeebohnen oder -pulver bei Costco in großen Mengen kaufen und für besseren Geschmack und mehr Ersparnis frisch mahlen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Pazifik-Nordwesten",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4366,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coffee-crusted-beef/",
+      "components": [
+        {
+          "key": "a5035220-85d6-596d-962d-9a29f79b8ca5",
+          "name": "Zutaten",
+          "servingGrams": 216.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f627b4ed-789b-5784-8528-013295b7f8a0",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "00d4afae-50b2-58d1-9edb-7979e3721f6f",
+              "ingredientName": "Hackfleisch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d2934da3-634f-5234-b746-103bc507df9d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "82e8ff4f-1630-5beb-88a5-5c457dac4724",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "90cc826a-84d6-5f32-b4ed-a964b681b9fd",
+              "ingredientName": "Paprika",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "34b93e42-1125-561c-a111-23112d4f9ad5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e50e3b9d-d07c-5117-ade7-60baaccdc018",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8a939b50-ac5c-5d3f-b8c7-fe64cafde314",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7a3a7747-e9de-59f8-931e-027e21095943",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "e3285d19-844d-5dc3-aede-590e80dc5265",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "3 EL gemahlenen Kaffee, 1 EL braunen Zucker, 1.5 TL Salz, 0.75 TL Pfeffer und 0.5 TL Knoblauchpulver in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Rindfleisch mit Küchenpapier trocken tupfen und die Kaffeemischung gleichmäßig auf allen Seiten einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 EL Olivenöl in einer gusseisernen Pfanne bei mittelhoher Hitze erhitzen, bis es gerade zu rauchen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Steak 3-4 Minuten pro Seite scharf anbraten, bis sich eine Kruste bildet, dann die Hitze auf mittlere Stufe reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2 EL Butter und 2 Rosmarinzweige hinzufügen, die Pfanne neigen und das Steak 2 Minuten mit der aufschäumenden Butter übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Steak auf ein Schneidebrett legen und 5 Minuten ruhen lassen, während 0.5 Tasse Rinderbrühe in die Pfanne gegossen und der Bratensatz gelöst wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Pfannensauce 2 Minuten köcheln lassen, dann über das aufgeschnittene Steak gießen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://external-preview.redd.it/RRtAXr6EUl88lLDrq_9Kq83ss285u0hE2f8PNMtWqfY.jpg?auto=webp&s=e8ea07bcdafaa482d614d04fe7dda793d5ee9c2a",
+          "sourcePageUrl": "https://external-preview.redd.it/RRtAXr6EUl88lLDrq_9Kq83ss285u0hE2f8PNMtWqfY.jpg?auto=webp&s=e8ea07bcdafaa482d614d04fe7dda793d5ee9c2a",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-halibut-and-chips",
+      "slug": "gen-halibut-and-chips",
+      "title": "Heilbutt mit Pommes",
+      "instructions": "Mittagessen aus dem Pazifischen Nordwesten, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kabeljau oder Seelachs statt Heilbutt verwenden und bei ähnlicher Konsistenz 40% der Kosten sparen.",
+        "Tartarsauce mit Mayonnaise, Gurkenrelish und Zitrone für $1 selbst zubereiten statt sie für $3 zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Pazifik-Nordwesten",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4367,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-halibut-and-chips/",
+      "components": [
+        {
+          "key": "59d28d3f-f526-5121-9bd4-8ab0db9f4ff9",
+          "name": "Zutaten",
+          "servingGrams": 409.22,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe692d19-68aa-5ce9-a0ab-4506d297d502",
+              "ingredientName": "Heilbuttfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "03548abc-3852-543d-9e41-cce80067bca4",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8144a965-cdd0-580c-9b62-7a498462fe09",
+              "ingredientName": "Allzweckmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2f2ddcdb-853f-51aa-929f-9b0807f4f782",
+              "ingredientName": "Backpulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "d3860011-239c-5b05-8f16-04fec1057ecd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1d7d6055-0b78-57dd-96fb-32ca0f9d8990",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "5a776496-9f1d-57dd-b0b3-3f65d0b88b66",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "037a396d-3b4e-5901-880b-01dd3c4975d4",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "74fe07e9-a309-5b06-860b-87c64f7816b6",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5ac792b-2875-520b-b55e-0ec3e5ecab84",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 Pfund Kartoffeln in 0.5-Zoll dicke Stifte schneiden und 30 Minuten in kaltem Wasser einweichen, dann abgießen und trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "4 Tassen Öl auf 325°F erhitzen und die Kartoffeln portionsweise 5-6 Minuten frittieren, bis sie blass, aber nicht braun sind, dann auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Öltemperatur auf 350°F erhöhen und den Teig zubereiten: 0.75 Tasse Mehl, 0.75 TL Backpulver, 0.5 TL Salz und 0.25 TL weißen Pfeffer verquirlen, dann 0.75 Tasse kaltes Bier glatt unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "10 Unzen Heilbutt mit 0.5 TL Salz würzen, in den Teig tauchen und 3-4 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Kartoffeln portionsweise bei 375°F nochmals 1-2 Minuten goldbraun frittieren, dann auf Küchenpapier abtropfen lassen und mit Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fisch mit Pommes heiß mit Zitronenspalten und Tartarsauce als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/05/baked-halibut-fillets.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/05/baked-halibut-fillets.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nettle-soup",
+      "slug": "gen-nettle-soup",
+      "title": "Brennnesselsuppe",
+      "instructions": "Mittagessen aus dem Pazifischen Nordwesten, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Im Frühjahr junge Brennnesseln kostenlos auf öffentlichem Grund sammeln und dabei zum Schutz vor Stichen Handschuhe tragen.",
+        "Falls keine Brennnesseln verfügbar sind, Spinat oder Grünkohl verwenden, um bei ähnlichen Kosten dasselbe Ergebnis zu erzielen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Pazifik-Nordwesten",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4368,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nettle-soup/",
+      "components": [
+        {
+          "key": "ea570330-fc0d-5dfd-a1a9-c12a5e81a425",
+          "name": "Zutaten",
+          "servingGrams": 357.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e6a09a3-56f5-5030-8342-0febd8ee5e9f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "eaf902cb-9cfc-55ef-999a-f3aaf5dcc321",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "82a54623-14a7-5ecd-9903-c768e0048697",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "5258ee44-6f1f-515d-a217-8974f7189b2e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9ff266eb-ba1a-59c9-85b2-43ef4957889c",
+              "ingredientName": "Schwere Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e969bf16-8592-5658-adb3-ef6719b248d6",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "204cf9b3-56d8-5059-bc5c-8bf5de033c1b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c67ae7b1-d383-5d50-ade5-97d218373096",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "6fcbd8f9-4e3a-556e-a5f0-ecb05c7be878",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "41f38f1f-634e-54ce-9b6f-b892b624cd50",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Handschuhe tragen, Brennnesseln gründlich abspülen und grob hacken, dicke Stiele entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 EL Butter in einem großen Topf bei mittlerer Hitze schmelzen und gewürfelte Zwiebel etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 gewürfelte mittelgroße Kartoffel und 4 Tassen Gemüsebrühe hinzufügen, zum Kochen bringen und dann 10 Minuten köcheln lassen, bis die Kartoffel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3 Tassen gehackte Brennnesseln unterrühren und 2 Minuten köcheln lassen, bis sie zusammenfallen und leuchtend grün sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Suppe mit einem Stabmixer pürieren oder portionsweise in einen Mixer geben und glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "0.5 Tasse Schlagsahne, 0.5 TL Salz, 0.25 TL Pfeffer und eine Prise Muskatnuss unterrühren und ohne zu kochen erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schüsseln schöpfen und jede Portion mit einem Klecks saurer Sahne und etwas frisch gemahlenem schwarzem Pfeffer garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5548e0606997a6ba1fd2a483/1:1/w_2560%2Cc_limit/56389504_chilled-watercress-spring-nettle-sorrel-soup_1x1.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5548e0606997a6ba1fd2a483/1:1/w_2560%2Cc_limit/56389504_chilled-watercress-spring-nettle-sorrel-soup_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-roasted-beet-salad-with-goat-cheese",
+      "slug": "gen-roasted-beet-salad-with-goat-cheese",
+      "title": "Rote-Bete-Salat mit Ziegenkäse",
+      "instructions": "Mittagessen aus dem Pazifischen Nordwesten, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Bete im Herbst auf Bauernmärkten kaufen, wenn sie 70% günstiger als ganzjährig im Supermarkt ist.",
+        "Zerbröselten Feta statt Ziegenkäse verwenden, um eine günstigere säuerliche Käsevariante zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Pazifik-Nordwesten",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4369,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roasted-beet-salad-with-goat-cheese/",
+      "components": [
+        {
+          "key": "a182d199-c27a-5ae9-8878-dcdb3d6d8cc6",
+          "name": "Zutaten",
+          "servingGrams": 434.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea45f76b-3467-5cf7-9c47-3255f66e3f75",
+              "ingredientName": "Rüben",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d78ace24-0ec8-5318-9864-7ca1040ac05d",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "fd74a81d-bac8-51fb-a8bd-bd0bd005d1a9",
+              "ingredientName": "Ziegenkäse",
+              "grams": 56.7,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "f4e46d18-a492-58cc-86d0-8d21d0b57827",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1a731eb6-2c26-5cb2-9bba-d2871aad69ba",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 mittelgroßes Stück"
+            },
+            {
+              "key": "52d349a9-502e-5f82-adac-184ff63377e0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e1975658-82eb-57e7-9b0d-db2380d097f2",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "46c53178-267b-5d97-bf79-2b829c9ff21a",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "dfa1b3e0-e1b5-5a9d-925a-cf5b7d4310e9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "916346cd-f898-568e-a871-446193e1a55a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400°F vorheizen und ganze Rote Bete in Alufolie wickeln; 35-40 Minuten rösten, bis sie beim Einstechen weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Rote Bete abkühlen lassen, dann unter fließendem Wasser mit den Fingern oder Küchenpapier schälen und in Spalten schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "0.5 Tasse Walnüsse in einer trockenen Pfanne bei mittlerer Hitze 3-4 Minuten rösten, bis sie duften, dann zum Abkühlen beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3 EL Olivenöl, 1.5 EL Balsamico-Essig, 0.5 TL Senf, 0.5 TL Salz und 0.25 TL Pfeffer in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "4 Tassen gemischten Salat mit der Hälfte der Vinaigrette vermengen und auf Servierteller verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rote-Bete-Spalten und geschnittene rote Zwiebel auf dem Salat anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "4 Unzen Ziegenkäse zerbröseln und mit Walnüssen über die Salate verteilen, dann mit der restlichen Vinaigrette beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2021/02/roasted-beet-arugula-salad-recipe-1.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2021/02/roasted-beet-arugula-salad-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

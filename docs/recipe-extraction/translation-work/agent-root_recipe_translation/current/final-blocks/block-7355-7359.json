@@ -1,0 +1,1454 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-beef-barbacoa",
+      "slug": "cur2-beef-barbacoa",
+      "title": "Mexikanisches Barbacoa-Rindfleisch",
+      "instructions": "Mexikanisches, langsam geschmortes Rindfleisch, bis es butterzart zerfällt. Chipotle, getrocknete Chilis, Kreuzkümmel, Nelken und Limette geben eine rauchig-säuerliche Adobosoße. Das Fleisch wird stundenlang geschmort und anschließend in der aromatischen Schmorflüssigkeit serviert. In warme Tortillas füllen und mit Zwiebel und Koriander garnieren.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 195,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist ein günstiges Stück; langsames Schmoren macht das Bindegewebe zart. Teurere Stücke sind nicht nötig.",
+        "Eine doppelte Menge zubereiten und Reste in der Schmorflüssigkeit einfrieren. Aufgewärmt schmeckt das Fleisch noch aromatischer.",
+        "Reste während der Woche in Tacos, Burrito-Schüsseln, Quesadillas oder Nachos verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Boneless Rindfleisch short ribs oder Rindfleisch cheeks für ein even richer, mehr traditional texture",
+          "savings": "Kostet mehr, aber Bäckchen sind traditionell; Rinderschulter ist die günstige Wahl"
+        },
+        {
+          "forIngredientId": "ancho-chili-powder",
+          "swap": "normal chili powder plus ein extra chipotle",
+          "savings": "Spart ~$2 mit einer vermutlich bereits vorhandenen Grundzutat"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Wasser plus ein bouillon cube",
+          "savings": "Spart ~$2 gegenüber fertig abgepackter Brühe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Barbacoa",
+        "gezupftes Rindfleisch",
+        "Tacos",
+        "geschmort",
+        "langsam gegart",
+        "Mahlzeit zum Vorbereiten",
+        "scharf",
+        "Chipotle"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7355,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-beef-barbacoa/",
+      "components": [
+        {
+          "key": "a2b923d0-003e-5872-953d-5bdf0c94459b",
+          "name": "Zutaten",
+          "servingGrams": 224.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9633c48-6d5b-57ef-9119-19d84cdd98ae",
+              "ingredientName": "Rinderschulter",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rinderschulter ohne Knochen, in große 2 Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "f4ee5342-824e-5af4-8a04-5353a3614e5a",
+              "ingredientName": "Jalapeño",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3-4 Chipotles und 2 EL Adobosauce"
+            },
+            {
+              "key": "f685003c-8eee-53ae-87f2-d68a813b4a0e",
+              "ingredientName": "Ancho-Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "als Ersatz für 2 getrocknete Ancho-Chilis"
+            },
+            {
+              "key": "4f338dbe-542a-51fb-ae2b-bba3c64c3e68",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "weiße Zwiebel, für den Schmorsud geviertelt"
+            },
+            {
+              "key": "bfba0346-c151-52de-9dc1-c9e9182d42f1",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "ac711453-1a18-5b0c-8af4-5216fe3d3656",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Saft von 2 Limetten"
+            },
+            {
+              "key": "3aed79db-7c52-5c6c-88fe-c1378aa4410c",
+              "ingredientName": "Apfelessig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "834fda66-8a07-5209-91fd-8b601e9a31af",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen"
+            },
+            {
+              "key": "bdf2061e-7f9a-5504-a4a5-193a98391758",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL, gemahlen"
+            },
+            {
+              "key": "94012b28-69ff-5be1-a180-bbf82363c24e",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "mexikanischer Oregano, 2 TL"
+            },
+            {
+              "key": "7801f01c-7757-5d01-a5ee-9a12c589836a",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "5d1f25f2-fd96-5335-9c6d-de38ca7e441a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "c278f139-8026-5ce0-bc6b-3748c7ffe88b",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72440622-a853-5c4e-a400-a29284742233",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 TL grobes Salz nach Geschmack"
+            },
+            {
+              "key": "3e45b3ee-43f9-57a0-9e6e-aa19fc02d67f",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "188b96b9-2cfe-5ff1-b98d-c7406dfab58d",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "2 EL zum scharfen Anbraten"
+            },
+            {
+              "key": "bb3857c7-7b91-5be9-969f-2f5eeeb2bfa5",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": "warme Maistortillas zum Servieren"
+            },
+            {
+              "key": "f650ac04-98b7-5e2c-b72e-82c46d1e7d3f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "56fdd350-0f18-5983-87c6-e8775e684638",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 18,
+              "optional": true,
+              "source_note": "fein gewürfelt, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleischstücke trocken tupfen und rundum salzen und pfeffern. Olivenöl in einem großen schweren Topf oder Schmortopf bei mittelhoher Hitze erhitzen. Fleisch portionsweise rundherum 8–10 Minuten kräftig anbraten. Auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Adobosoße Chipotles in Adobo, Ancho-Chilipulver, geviertelte Zwiebel, Knoblauch, Limettensaft, Apfelessig, Kreuzkümmel, mexikanischen Oregano, gemahlene Nelken, geräuchertes Paprikapulver und etwa die Hälfte der Rinderbrühe im Mixer glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Angebratenes Rindfleisch samt Fleischsaft zurück in den Topf geben. Adobosoße darübergießen, restliche Brühe und Lorbeerblätter hinzufügen und wenden, bis das Fleisch überzogen ist. Flüssigkeit soll etwa zwei Drittel des Fleisches bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sanft aufkochen, dann zugedeckt bei niedriger Hitze langsam schmoren. Alternativ bei sehr niedriger Hitze auf dem Herd garen oder in einen auf 300 °F vorgeheizten Ofen stellen. 3–3.5 Stunden garen und das Fleisch ein- bis zweimal wenden, bis es vollständig zart ist und auseinanderfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lorbeerblätter entfernen. Rindfleisch herausheben und mit zwei Gabeln zupfen. Größere Fettstücke entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gezupftes Fleisch zurück in den Topf geben und mit der Schmorflüssigkeit vermengen. Ohne Deckel 10–15 Minuten köcheln lassen, damit die Soße eindickt und das Fleisch saftig, aber nicht suppig bleibt. Mit Salz und Limette abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Maistortillas erwärmen. Barbacoa in die Tortillas füllen und mit fein gewürfelter weißer Zwiebel und gehacktem Koriander garnieren. Nach Wunsch zusätzliche Schmorflüssigkeit darüberlöffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Slow_Cooker_Beef_Barbacoa_%2832130811495%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Slow_Cooker_Beef_Barbacoa_(32130811495).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Sharon Chen — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Rindfleisch Barbacoa",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-colombian-bandeja-paisa",
+      "slug": "cur2-colombian-bandeja-paisa",
+      "title": "Kolumbianische Bandeja Paisa",
+      "instructions": "Berühmte üppige Platte aus Antioquia mit langsam gekochten roten Bohnen, lockerem weißem Reis, gewürztem Hackfleisch, knusprigem Chicharrón, gegrillter Chorizo, Spiegelei, süßer Kochbanane, warmer Arepa und cremiger Avocado. Ein Fest der Paisa-Küche.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete rote Bohnen über Nacht einweichen; sie sind günstiger als Bohnen aus der Dose und ergeben einen cremigeren Eintopf.",
+        "Ein ganzes Stück Schweinebauch mit Schwarte kaufen und eigene Chicharrón-Streifen schneiden, statt vorgeschnittene zu kaufen.",
+        "Eine größere Menge Bohnen und Hogao zubereiten; beides lässt sich gut einfrieren und ergibt schnell weitere Mahlzeiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-beans",
+          "swap": "Canned kidney oder pinto beans simmered mit hogao",
+          "savings": "Spart das Einweichen über Nacht; kostet etwas mehr, spart aber ~2 Stunden"
+        },
+        {
+          "forIngredientId": "pork-belly",
+          "swap": "dick-schneiden bacon für ein quicker, leaner chicharron",
+          "savings": "Spart etwa $3 und 20 Minuten Bratzeit"
+        },
+        {
+          "forIngredientId": "masarepa",
+          "swap": "aufbewahren-bought arepas oder weglassen und hinzufügen extra Reis",
+          "savings": "Spart ~$2 und 10 Minuten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kolumbianisch",
+        "antioquianisch",
+        "Paisa",
+        "Platte",
+        "Schweinefleisch",
+        "Bohnen",
+        "Hausmannskost",
+        "Festessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7356,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-colombian-bandeja-paisa/",
+      "components": [
+        {
+          "key": "8cb890b6-74a0-5d59-ae41-05808f65a197",
+          "name": "Zutaten",
+          "servingGrams": 890.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bda80f73-f3e5-558b-8a95-3f1e525534fe",
+              "ingredientName": "rote Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "getrocknete Cargamanto- oder rote Bohnen, über Nacht eingeweicht (etwa 1.5 Tassen)"
+            },
+            {
+              "key": "e7749922-de9e-58bb-b601-4e49433bafb1",
+              "ingredientName": "Schweinebauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "mit Haut, in Chicharrón-Streifen geschnitten"
+            },
+            {
+              "key": "0d8d2050-e410-5831-bcf9-25d29eea802d",
+              "ingredientName": "Hackfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "Hackfleisch"
+            },
+            {
+              "key": "7f99c6e4-3da2-5412-b629-413997418353",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "frische Chorizo nach kolumbianischer Art, 1 Wurst pro Person"
+            },
+            {
+              "key": "ae30d6a2-d19c-5fd4-afeb-f04a60904a85",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Spiegelei pro Teller"
+            },
+            {
+              "key": "f0bb97c0-f48b-5673-9695-22092787b215",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "weißer Reis, gekocht"
+            },
+            {
+              "key": "6e409ed4-cbfe-5d44-b97f-dbab6dd91750",
+              "ingredientName": "Wegerich",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "reif (gelb-schwarz) für süße Tajadas"
+            },
+            {
+              "key": "be02ebf3-e577-5baf-a12d-dcc807b26df7",
+              "ingredientName": "Avocado",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "Hass-Avocado, in Scheiben geschnitten"
+            },
+            {
+              "key": "6c332cf6-0536-5d30-bcd7-914a1c4dddec",
+              "ingredientName": "vorgekochtes Maismehl (Masarepa)",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "vorgekochtes weißes Maismehl für Arepas"
+            },
+            {
+              "key": "fb25ad60-326b-5250-8b7b-cc2e245717bc",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "für das Hogao-Sofrito"
+            },
+            {
+              "key": "c0d2b5dc-a953-528f-a21f-63a9cf8d5c01",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "Frühlingszwiebel, wesentlich für Hogao"
+            },
+            {
+              "key": "db65dd18-aac0-50be-a4ed-fb124647ae42",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c50aa9f-593e-5b32-abc6-ea5a644d36d9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "Zehen"
+            },
+            {
+              "key": "caa26666-cc22-54f9-8fb5-c325deec4adf",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "für mehr Konsistenz in die Bohnen gerieben"
+            },
+            {
+              "key": "2d59a52d-3009-5a61-9631-104d1409b9cf",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26d7c91b-932a-5dce-a6ff-c299a739acc1",
+              "ingredientName": "Sazón-Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "Farbe und Würze für Bohnen und Fleisch (auf Achiote-Basis)"
+            },
+            {
+              "key": "7b0cc02c-b304-59ee-a61c-a874af2621ab",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "zum Frittieren von Chicharrón und Kochbanane"
+            },
+            {
+              "key": "70ad7e7a-fe71-553d-a692-7e7608a7f723",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3a26b67-9c88-5f0a-b4f7-eeaeb23e6d3d",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e084c4d5-7644-581f-a3b1-3712de33b6e5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 19,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eingeweichte rote Bohnen abgießen und mit frischem Wasser, geriebener Karotte, der Hälfte der gehackten Zwiebel, 1 zerdrückten Knoblauchzehe und einer Prise Kreuzkümmel in einen großen Topf geben. 1.5–2 Stunden sanft köcheln lassen (oder 35 Minuten im Schnellkochtopf), bis sie sehr weich sind. Bei Bedarf heißes Wasser ergänzen und gegen Ende salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für Hogao gehackte Tomaten, Frühlingszwiebel, übrige Zwiebel und 2 gehackte Knoblauchzehen mit etwas Öl bei niedriger Hitze 12–15 Minuten weich und marmeladenartig kochen. Die Hälfte mit einem Teelöffel Sazón unter die gekochten Bohnen rühren und weitere 10 Minuten köcheln lassen, damit sie eindicken. Übriges Hogao aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schwarte des Schweinebauchs rautenförmig einschneiden und das Fleisch in dicke Streifen schneiden. Mit einem Schuss Wasser und einer Prise Salz in eine Pfanne geben und garen, bis das Wasser verdampft ist. Dann bei mittlerer Hitze im eigenen ausgelassenen Fett braten, bis die Schwarte Blasen wirft und das Fleisch knusprig ist, etwa 20–25 Minuten. Auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hackfleisch mit Salz, Pfeffer, Kreuzkümmel und etwas Sazón würzen. In einer Pfanne krümelig braten, dann einen Löffel des aufbewahrten Hogao einrühren und garen, bis das Fleisch saftig und gut gewürzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Chorizo bei mittlerer Hitze grillen oder in der Pfanne anbraten. Dabei wenden, bis sie gebräunt und durchgegart ist, 10–12 Minuten. Masarepa mit warmem Salzwasser zu 4 Fladen formen und Arepas auf einer Grillplatte goldbraun mit leicht gerösteten Stellen backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reife Kochbananen schälen, schräg aufschneiden und in heißem Öl karamellisiert und weich braten. Abtropfen lassen. Kurz vor dem Servieren Eier in etwas heißem Öl mit flüssigem Eigelb braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede Bandeja anrichten: weißen Reis, rote Bohnen, Hackfleisch, ein Stück Chicharrón, eine Chorizo, ein Spiegelei, süße Kochbananenstücke, eine Arepa und Avocadoscheiben auf den Teller geben. Mit Koriander garnieren und sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Bandeja_paisa%2C_plato_Colombiano.jpg/1280px-Bandeja_paisa%2C_plato_Colombiano.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bandeja_paisa,_plato_Colombiano.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Wilfredor — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Colombian Bandeja Paisa",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-argentine-milanesa",
+      "slug": "cur2-argentine-milanesa",
+      "title": "Argentinische Milanesa",
+      "instructions": "Klassiker der argentinischen Hausmannskost: dünne Rindfleischschnitzel, in einer Knoblauch-Petersilien-Eimischung mariniert, paniert und in wenig Öl besonders knusprig und goldbraun ausgebacken. Mit Zitronenspalten serviert; innen zart, außen kross.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cube Steak ist bereits zart gemacht und eines der günstigsten Fleischstücke für Milanesa; ein Premiumstück ist nicht nötig.",
+        "Semmelbrösel aus altbackenem Brot oder übrig gebliebenen Endstücken selbst im Mixer herstellen.",
+        "Eine größere Menge panieren und rohe Schnitzel zwischen Backpapier einfrieren. Später direkt gefroren braten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cube-steak",
+          "swap": "verwenden dünn-pounded Hähnchen-breast für milanesa de pollo",
+          "savings": "Pro Portion oft etwas günstiger und ebenso traditionell"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Stale Brot blitzed in ein blender",
+          "savings": "Praktisch kostenlos gegenüber dem Kauf einer Packung"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Air-fry at 400F, spritzing mit cooking spray",
+          "savings": "Verwendet nur einen Bruchteil des Öls"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "argentinisch",
+        "Rindfleisch",
+        "gebraten",
+        "paniert",
+        "Hausmannskost",
+        "lateinamerikanisch",
+        "Abendessen",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7357,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-argentine-milanesa/",
+      "components": [
+        {
+          "key": "7fe5310a-b88c-5751-a368-6afad989fef0",
+          "name": "Zutaten",
+          "servingGrams": 290.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5bf302e1-8ea5-5eb7-bc4f-dd6b6ba939ba",
+              "ingredientName": "zart geklopftes Rindersteak",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "dünne Rinderschnitzel für Milanesa (Nalga/Peceto), auf 1/4 Zoll flach geklopft"
+            },
+            {
+              "key": "306c77a7-4e1b-504c-8119-55011175e18f",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4820ef02-279b-53c3-8e9b-ab64ee64f9a4",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "feine trockene Semmelbrösel (Pan Rallado)"
+            },
+            {
+              "key": "c3ba6554-326c-5dc7-a3ec-b4f05b531632",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, sehr fein gehackt"
+            },
+            {
+              "key": "abc3a49d-9e20-5494-afdc-c713db807294",
+              "ingredientName": "Frische Petersilie",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gehackt und ins Ei gerührt"
+            },
+            {
+              "key": "768e62d0-de56-5da8-a4ca-58af015804be",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in Spalten geschnitten zum Servieren"
+            },
+            {
+              "key": "59622ee1-d7cf-5c7b-afad-dea7d304f863",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Ausbacken"
+            },
+            {
+              "key": "26de8e98-adcb-5f8d-9199-313519e13c53",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ab13f1a-34e3-5f65-b9d9-49b90633e472",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0371c30b-9dcf-5810-a950-7ef829b3e660",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "Prise ins Ei, in argentinischen Haushalten üblich"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderschnitzel trocken tupfen und zwischen Frischhaltefolie gleichmäßig auf 1/4 Zoll Dicke klopfen, damit sie schnell garen und zart bleiben. Beide Seiten leicht salzen und pfeffern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier in einer breiten flachen Schale mit gehacktem Knoblauch, Petersilie, einer Prise Oregano, 1/2 TL Salz und mehreren Umdrehungen schwarzem Pfeffer verquirlen. Für mehr Geschmack Schnitzel darin mindestens 30 Minuten oder bis über Nacht im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Semmelbrösel in eine zweite breite Schale geben. Schnitzel aus der Eimischung heben, überschüssige Flüssigkeit abtropfen lassen und auf beiden Seiten fest in die Brösel drücken. Für eine dicke Kruste ein zweites Mal panieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl etwa 1/4 Zoll hoch in eine große Pfanne gießen und bei mittelhoher Hitze erwärmen, bis es schimmert. Ein Brösel soll sofort brutzeln; das entspricht etwa 350 °F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Milanesas einzeln oder zu zweit mit Abstand etwa 2–3 Minuten pro Seite tief goldbraun und knusprig braten. Nur einmal wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf ein Gitter oder einen mit Küchenpapier belegten Teller geben und abtropfen lassen. Nicht stapeln, damit die Kruste knusprig bleibt. Sofort mit etwas flockigem Salz bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Zitronenspalten zum Darüberpressen und grünem Salat oder Kartoffelpüree servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/Chicken_milanesa_of_Argentina.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_milanesa_of_Argentina.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Federico L. — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Argentine Milanesa",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-brazilian-brigadeiro",
+      "slug": "cur2-brazilian-brigadeiro",
+      "title": "Brasilianische Brigadeiros",
+      "instructions": "Beliebte brasilianische Schokoladentrüffel aus gezuckerter Kondensmilch, die mit Kakao und Butter langsam eingekocht wird, bis sie dick und glänzend ist. Zu mundgerechten Kugeln gerollt und in Schokostreuseln gewälzt. Weich, zäh und reichhaltig; ein Klassiker auf brasilianischen Geburtstagen.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose gezuckerte Kondensmilch ergibt etwa 20–25 Süßigkeiten; die Kosten pro Stück sind gering und sie eignen sich für Feiern.",
+        "Schokostreusel sind traditionell, aber Kakaopulver, fein gehackte Nüsse oder Kokosraspeln funktionieren ebenfalls und sind oft schon im Vorrat.",
+        "Einen beschichteten Topf und Silikonspatel verwenden, damit wenig kleben bleibt und der Topf leicht zu reinigen ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chocolate-chips",
+          "swap": "ausrollen in Kakaopulver oder unsweetened shredded coconut anstatt sprinkles",
+          "savings": "Verwendet eine vermutlich bereits vorhandene Grundzutat"
+        },
+        {
+          "forIngredientId": "cocoa",
+          "swap": "Melt in 2 oz finely gehackt dark Schokolade during cooking",
+          "savings": "Weglassen, wenn nur eine Tafel Schokolade vorhanden ist"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Plant Butter oder ein neutral coconut Öl",
+          "savings": "Reduziert Milchprodukte und verwendet vorhandene Zutaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "brasilianisch",
+        "Dessert",
+        "Schokolade",
+        "ohne Backen",
+        "Party",
+        "Süßigkeit",
+        "Trüffel",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7358,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-brazilian-brigadeiro/",
+      "components": [
+        {
+          "key": "de642cc6-67fb-5fc8-808f-45c467a0c6ad",
+          "name": "Zutaten",
+          "servingGrams": 36.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f169d12-b870-5699-9cdc-46936647a246",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 übliche Dose mit 14 oz / 395 g"
+            },
+            {
+              "key": "91e16a96-7aef-5780-86ca-e045ed7f099f",
+              "ingredientName": "Kakaopulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 3-4 EL ungesüßtes Kakaopulver, gesiebt"
+            },
+            {
+              "key": "8b5bb143-c7af-54df-805b-269e97d50cfd",
+              "ingredientName": "Butter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL ungesalzene Butter und etwas mehr zum Einfetten der Hände"
+            },
+            {
+              "key": "f603683d-54ec-5d6b-af05-f46db2908318",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "als Ersatz für Schokostreusel (Granulado) zum Wälzen; Schokostückchen gegebenenfalls fein hacken"
+            },
+            {
+              "key": "68878348-8805-5a89-8bb5-1aa84feb45c4",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "winzige Prise zum Ausgleichen der Süße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die ganze Dose gezuckerte Kondensmilch in einen kleinen schweren beschichteten Topf geben. Kakaopulver hineinsieben und glatt verquirlen, damit keine Klümpchen bleiben. Butter und eine kleine Prise Salz hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bei mittelniedriger Hitze unter ständigem Rühren mit einem Teigschaber kochen. Boden und Seiten abstreifen, damit nichts anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "8–12 Minuten weiterrühren, während die Masse eindickt. Sie ist fertig, wenn sie sich als zusammenhängende Masse vom Topfboden löst und der Boden kurz sichtbar bleibt, wenn der Teigschaber darübergezogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Masse auf einen leicht gefetteten Teller oder eine flache Schale streichen und auf Zimmertemperatur abkühlen lassen. Dann mindestens 30 Minuten kühlen, bis sie fest genug zum Formen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hände mit etwas Butter einfetten. Etwa 1 TL Masse abstechen und zwischen den Handflächen zu einer glatten, etwa 1 Zoll breiten Kugel rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Kugel in Schokostreuseln oder fein gehackter Schokolade wälzen, bis sie vollständig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jeden Brigadeiro in ein kleines Papierförmchen setzen und servieren oder bis zum Servieren kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Brigadeiro.jpg/1280px-Brigadeiro.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Brigadeiro.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: User Mayra (Maych) on Flickr — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Brazilian Brigadeiro",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-cuban-ropa-vieja",
+      "slug": "cur2-cuban-ropa-vieja",
+      "title": "Kubanische Ropa Vieja",
+      "instructions": "Kubanisches Schmorgericht aus zartem Flankensteak, das in Streifen gezupft und mit Zwiebeln, Paprika, Oliven und Kapern in einer würzigen Tomatensoße geschmort wird. Der Name „alte Kleidung“ bezieht sich auf die faserigen Fleischstreifen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 130,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schulter oder Rindergulasch statt Flankensteak verwenden; es ist günstiger und wird beim Schmoren ebenfalls zart und faserig.",
+        "Eine doppelte Menge kochen. Ropa Vieja schmeckt am nächsten Tag noch besser und lässt sich bis zu 3 Monate einfrieren.",
+        "Schmorflüssigkeit nicht wegschütten; sie enthält viel Aroma. Reste einkochen und zum Aufwärmen des Fleisches verwenden, statt Wasser zuzugeben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Rindfleisch-chuck oder Rindfleisch-stew-meat",
+          "savings": "Spart pro Pfund etwa 40% und ergibt ebenso zarte Fleischfasern"
+        },
+        {
+          "forIngredientId": "white-wine",
+          "swap": "extra Rindfleisch Brühe plus ein splash von red-wine-vinegar",
+          "savings": "Spart den Kauf einer ganzen Flasche und verwendet Vorratszutaten"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Tomate-Sauce thinned mit ein little Wasser",
+          "savings": "Pro Dose oft günstiger und meist bereits vorhanden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kubanisch",
+        "geschmort",
+        "Rindfleisch",
+        "gezupftes Rindfleisch",
+        "lateinamerikanisch",
+        "Hausmannskost",
+        "zum Vorbereiten",
+        "aus einem Topf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7359,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-cuban-ropa-vieja/",
+      "components": [
+        {
+          "key": "9477ca4f-0bab-5d7b-afe6-7993d3403527",
+          "name": "Zutaten",
+          "servingGrams": 309.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f06bf60-5d6f-5804-ad9a-50d316e926f2",
+              "ingredientName": "Flankensteak",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "oder Saumfleisch, das klassische Teilstück für Ropa Vieja"
+            },
+            {
+              "key": "99f10a0a-71a3-5894-8587-98fe841b3521",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "große, halbiert und dann in Scheiben geschnitten"
+            },
+            {
+              "key": "cbcba1b7-52f4-5c3b-98e4-bb7edcd55107",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "je eine rote und grüne, in Streifen geschnitten"
+            },
+            {
+              "key": "5ad54f16-ef30-5d98-911e-a12ccc84246a",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 5-6 Zehen, fein gehackt"
+            },
+            {
+              "key": "cd04c8d2-bc41-5d4a-b6e6-7226f390040f",
+              "ingredientName": "Tomatenmark",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2 EL"
+            },
+            {
+              "key": "f6a03af7-3b86-532a-bdef-74e136890e5e",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "oder eine 14oz-Dose"
+            },
+            {
+              "key": "98851580-31d9-5d00-a15e-f9aa9c597689",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Schmoren des Steaks, etwa 2 Tassen"
+            },
+            {
+              "key": "48a0ae53-0df6-55c6-b0c8-c79b5f22e542",
+              "ingredientName": "Weißwein",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "trockener Weißwein, etwa 1/2 Tasse"
+            },
+            {
+              "key": "d3f63439-455c-50c2-8472-15b51f513235",
+              "ingredientName": "Oliven",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Manzanilla-Oliven, in Scheiben geschnitten, etwa 1/2 Tasse"
+            },
+            {
+              "key": "f8c7590b-46f1-5b82-8ee4-dfd1b2483be8",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "abgetropft, etwa 2 EL"
+            },
+            {
+              "key": "1dd6b1ca-ad30-5d1c-9e9f-1456e2f48060",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "gemahlen"
+            },
+            {
+              "key": "1854a608-d8b2-5c3c-8372-88438e4f4491",
+              "ingredientName": "Oregano",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "getrocknet"
+            },
+            {
+              "key": "66852ca3-897d-5e62-b949-684c89c88b5b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "cbf7d750-d7a0-5687-89dc-2376ed8ebe4e",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "oder edelsüßes Paprikapulver"
+            },
+            {
+              "key": "fbc148db-eea7-5f55-8f74-f84530b1ded3",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6faf0fa-ed0b-542d-a3d3-18982da00da6",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0602387d-9f69-5cd0-8997-55c238b56fce",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b037f6dc-67cc-5b29-ad19-105a3e9ae21b",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 150,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 17,
+              "optional": true,
+              "source_note": "Pimientos zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Flankensteak großzügig salzen und pfeffern. Olivenöl in einem schweren Schmortopf bei mittelhoher Hitze erhitzen und das Steak auf beiden Seiten jeweils etwa 4 Minuten kräftig anbraten. Auf einen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Trockenen Weißwein in den Topf gießen und Bratrückstände lösen. Rinderbrühe und Lorbeerblätter hinzufügen. Steak zurück in den Topf geben, abdecken und bei niedriger Hitze etwa 1.5–2 Stunden sanft köcheln lassen, bis es sehr zart ist und sich leicht zupfen lässt. Steak herausnehmen und Schmorflüssigkeit aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während das Steak schmort, Zwiebeln und Paprika in dünne Streifen schneiden und Knoblauch fein hacken. Wenn das Steak fertig ist, mit zwei Gabeln in dünne Fasern zupfen; so entsteht die „alte Kleidung“, nach der das Gericht benannt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer großen Pfanne oder im gereinigten Schmortopf etwas Olivenöl bei mittlerer Hitze erwärmen. Zwiebeln und Paprika 8–10 Minuten weich und leicht karamellisiert dünsten, dann Knoblauch hinzufügen und 1 Minute weitergaren, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenmark, Kreuzkümmel, getrockneten Oregano und geräuchertes Paprikapulver einrühren und 2 Minuten rösten, damit die Gewürze aufblühen und das Tomatenmark karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerkleinerte Tomaten und etwa 1 Tasse aufbewahrte Schmorflüssigkeit zugießen. Sanft aufkochen und 5 Minuten köcheln lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gezupftes Rindfleisch, geschnittene grüne Oliven und Kapern unterheben. Ohne Deckel 15–20 Minuten köcheln lassen, bei Bedarf mehr Schmorflüssigkeit ergänzen, bis die Soße am Fleisch haftet und glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer abschmecken, dabei vorsichtig salzen, da Oliven und Kapern salzig sind. Lorbeerblätter entfernen, mit Streifen gerösteter roter Paprika garnieren und auf weißem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Ropa_vieja%2C_Cuba_%289419809373%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ropa_vieja,_Cuba_(9419809373).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Rinaldo Wurglitsch — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Cuban Ropa Vieja",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

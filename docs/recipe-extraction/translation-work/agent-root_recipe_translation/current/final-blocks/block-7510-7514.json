@@ -1,0 +1,1268 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-buttermilk-biscochitos",
+      "slug": "bake-buttermilk-biscochitos",
+      "title": "Buttermilch-Biscochitos",
+      "instructions": "New Mexicos offizieller Staatskeks: knuspriges, buttriges Mürbgebäck mit Anis und Zimt. Buttermilch und ein Schuss Brandy halten die Krume zart; Anis und Zimtzucker verleihen den Keksen ihr unverwechselbares Festtagsaroma.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Anissamen sind lose aus dem Gewürzregal viel günstiger als im Markenglas; eine kleine Menge reicht weit.",
+        "Traditionelle Biscochitos werden mit Schmalz zubereitet, das günstiger als Butter ist und die typische blättrige Krume ergibt. Lasse es selbst aus oder kaufe eine Packung.",
+        "Lasse den Brandy weg und verwende etwas mehr Buttermilch sowie Vanille. Die Kekse gelingen trotzdem sehr gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "verwenden lard für der traditional, flakier biscochito",
+          "savings": "Spart etwa $1.50 pro Zubereitung gegenüber Butter"
+        },
+        {
+          "forIngredientId": "white-rum",
+          "swap": "Extra buttermilk oder Orange juice",
+          "savings": "Spart die Spirituosenkosten vollständig"
+        },
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "Milch soured mit 1/2 tsp vinegar",
+          "savings": "Spart ~$1 für eine ganze Packung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "neu-mexikanisch",
+        "cookies (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "shortbread (deutsche Fassung)",
+        "anise (deutsche Fassung)",
+        "Zimt",
+        "Backen",
+        "Nachtisch",
+        "christmas (deutsche Fassung)"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7510,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-buttermilk-biscochitos/",
+      "components": [
+        {
+          "key": "93ce206d-2f13-536b-8301-e3aa3a9a2585",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 56.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "94ff149a-c6ab-5083-bca2-6a80caf42db8",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 3 Tassen Weizenmehl"
+            },
+            {
+              "key": "ee694f3b-524e-5cec-b969-0692ec9d10c2",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse; traditionell Schweineschmalz, Butter für volleres Aroma"
+            },
+            {
+              "key": "616f2cee-8ef3-52c1-ac70-ad5c5a51fc2b",
+              "ingredientName": "weißer Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse für den Teig"
+            },
+            {
+              "key": "91b25b04-2ada-5ff7-b37b-3d7bab72948d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26ef944c-8361-5e40-8f02-54581bd70d39",
+              "ingredientName": "Milch",
+              "grams": 45.6,
+              "quantity": 45.6,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3236821b-0d27-5bc8-954d-4bf469cab0b8",
+              "ingredientName": "weißer Rum",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL Brandy, traditionell"
+            },
+            {
+              "key": "c74e6763-a74f-5f13-846c-5c25a79cfe25",
+              "ingredientName": "Fenchelsamen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL Anissamen, leicht zerstoßen"
+            },
+            {
+              "key": "89c83a03-2dd9-50a4-a889-5c5ca505161d",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "3b1fc4a2-a5bb-5c3b-80b5-a83ed3656147",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "b29b7d12-2ebb-50f0-a499-fb3a5df17c1b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2c5ace74-dda8-53d7-94a7-8da88ffb9100",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "für den Zimtzuckerüberzug"
+            },
+            {
+              "key": "a29b877a-ffd2-5db6-b4ea-7b93f8296353",
+              "ingredientName": "weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse für den Zimtzuckerüberzug"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage Butter oder Schmalz mit 3/4 Tasse Zucker in einer großen Schüssel 3-4 Minuten sehr hell und luftig. Zerdrücke die Anissamen leicht zwischen den Fingern und schlage sie zusammen mit Vanille unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage das Ei vollständig unter und rühre dann Brandy und Buttermilch ein. Die Mischung kann leicht geronnen aussehen; das ist in Ordnung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl, Backpulver und Salz. Gib die Mischung in zwei Portionen zu den feuchten Zutaten und rühre nur so lange, bis ein weicher, glatter Teig entsteht. Nicht überarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme den Teig zu einer Scheibe, wickle ihn ein und stelle ihn mindestens 1 Stunde oder bis über Nacht kalt, damit er fest wird und das Anisaroma sich entfaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 350F (175C) vor. Rolle den Teig auf einer leicht bemehlten Fläche etwa 1/4-Zoll dick aus und schneide traditionelle Lilienformen oder einfache Kreise aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre 1/4 Tasse Zucker und Zimt in einer flachen Schale. Drücke eine Seite jedes Kekses leicht in den Zimtzucker oder wälze ihn nach dem Backen noch warm darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Setze die Kekse mit etwa 1 Zoll Abstand auf mit Backpapier belegte Bleche. Backe sie 10-12 Minuten, bis die Unterseiten goldbraun und die Ränder gerade eben leicht gefärbt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Kekse 2 Minuten auf dem Blech fest werden und lege sie dann auf ein Gitter. Falls du sie vor dem Backen nicht im Zimtzucker gewälzt hast, hole das jetzt nach, solange sie warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Fresh_batch_of_Biscochitos%2C_Albuquerque_NM.jpg/1280px-Fresh_batch_of_Biscochitos%2C_Albuquerque_NM.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fresh_batch_of_Biscochitos,_Albuquerque_NM.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: John Phelan — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Buttermilch-Biscochitos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-lemon-bundt-cake",
+      "slug": "bake2-lemon-bundt-cake",
+      "title": "Klassischer Zitronen-Gugelhupf",
+      "instructions": "Zarter, buttriger Gugelhupf mit saurer Sahne, frischer Zitronenschale und Zitronensaft. Noch warm wird er mit säuerlichem Zitronensirup getränkt und mit kräftiger Zitronenglasur überzogen. Die dichte, saftige Krume ist frisch und nicht zu süß; am zweiten Tag schmeckt der Kuchen noch besser.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zitronen lose im Beutel: Du brauchst etwa 4 Stück. Rolle sie vor dem Auspressen fest über die Arbeitsfläche, damit mehr Saft austritt.",
+        "Keine feine Zestenreibe? Verwende die kleinsten Löcher einer Vierkantreibe und reibe nur das Gelbe, nicht das bittere weiße Mark darunter.",
+        "Vollfette saure Sahne ergibt die saftigste Krume. Naturjoghurt nach griechischer Art aus Vollmilch ist ein günstiger Ersatz im gleichen Verhältnis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "gleich amount von natur full-fat Greek Joghurt",
+          "savings": "Oft günstiger und eine gängige Kühlschrankzutat"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Half Butter, half neutral Pflanzenöl für ein even moister, longer-keeping crumb",
+          "savings": "Öl ist pro Esslöffel günstiger als Butter"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "1/2 tsp almond extract in legen von half der vanilla für ein bakery-style note",
+          "savings": "Lässt eine teure Flasche Vanille länger reichen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "Zitrone",
+        "citrus (deutsche Fassung)",
+        "bundt (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7511,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-lemon-bundt-cake/",
+      "components": [
+        {
+          "key": "740fae83-5e9a-500d-8289-572c659ad2b8",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 230.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "dbb411e9-5d2b-5f7b-8435-52f52071d4c3",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Weizenmehl"
+            },
+            {
+              "key": "df284010-3c1d-58bc-9a96-256721213f03",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "7cc004a4-9c10-5fdf-b463-6261d612014a",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Natron"
+            },
+            {
+              "key": "84df4cd3-e011-5569-830c-e2d051d7585c",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "d6e731fe-da5e-5488-894b-26a7963cc5c8",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke) ungesalzene Butter, weich"
+            },
+            {
+              "key": "894499ae-6728-500a-8d29-6550c134dfde",
+              "ingredientName": "Zucker",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Kristallzucker (2 Tassen für den Teig, 1/2 Tasse für den Sirup)"
+            },
+            {
+              "key": "1ab091e3-b918-5414-856c-85c912e315f0",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "f8f5f49f-0e8c-5a5b-a9f3-9c680a9c07f6",
+              "ingredientName": "Zitronenschale",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 3 Zitronen (etwa 3 EL)"
+            },
+            {
+              "key": "91d0ed3a-6ea7-5fe4-aac4-435e74a5aa6f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "98c01689-3523-5b9a-8d75-f1e04a96c32d",
+              "ingredientName": "Sauerrahm",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse saure Sahne mit vollem Fettgehalt"
+            },
+            {
+              "key": "e494a43a-9fa5-5d65-990e-bb6b85693704",
+              "ingredientName": "Zitrone",
+              "grams": 336,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Zitronen (für ~1/2 Tasse Saft für Teig, Sirup und Glasur)"
+            },
+            {
+              "key": "baab390a-b9b0-57e5-8933-1a66ab915bae",
+              "ingredientName": "Puderzucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Puderzucker (für die Glasur)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter in die untere Mitte des Ofens und heize auf 350F (175C) vor. Bestreiche eine Gugelhupfform für 10- bis 12-Tasse großzügig mit weicher Butter, auch in jeder Rille. Bestäube sie mit Mehl und klopfe den Überschuss heraus. Eine gut gefettete Form lässt den Kuchen sauber herausgleiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Backpulver, Natron und Salz in einer mittelgroßen Schüssel. Reibe in einer kleinen separaten Schüssel Zitronenschale mit 2 Tassen Zucker zwischen den Fingerspitzen, bis der Zucker duftet und feucht ist. So lösen sich die Zitrusöle und der Kuchen schmeckt kräftig nach Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage weiche Butter und Zitronenzucker in einer großen Schüssel bei mittelhoher Stufe 3 bis 4 Minuten hell und luftig. Schlage die Eier einzeln gut unter und anschließend Vanille und 2 EL frischen Zitronensaft. Die Masse kann leicht geronnen aussehen; das ist in Ordnung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib bei niedriger Stufe die trockenen Zutaten in drei Portionen abwechselnd mit der sauren Sahne dazu, beginne und ende mit Mehl. Rühre jede Portion nur ein, bis sie gerade verschwunden ist. Nicht überrühren, sonst wird die Krume zäh. Schabe bei Bedarf die Schüsselränder ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle den dicken Teig in die vorbereitete Form und streiche die Oberfläche glatt. Verteile den Teig am mittleren Rohr etwas höher, damit er gleichmäßig aufgeht. Klopfe die Form zweimal kräftig auf die Arbeitsfläche, um Luftblasen zu lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe den Kuchen 50 bis 60 Minuten, bis die Oberfläche goldbraun ist, auf Druck zurückfedert und ein tief eingesteckter Holzspieß sauber herauskommt. Decke ihn nach 40 Minuten locker mit Folie ab, falls er zu schnell bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme während des Backens für den Tränksirup 1/4 Tasse Zitronensaft mit der übrigen 1/2 Tasse Kristallzucker, bis sich der Zucker auflöst. Lasse den Kuchen nach dem Backen 10 Minuten in der Form abkühlen, stich die Oberfläche rundherum mit einem Holzspieß ein und bestreiche sie mit dem warmen Sirup. Warte weitere 10 Minuten und stürze ihn dann zum vollständigen Abkühlen auf ein Gitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verrühre Puderzucker mit 3 bis 4 EL frischem Zitronensaft zu einer glatten, gießfähigen, aber dickflüssigen Glasur. Löffle sie über den vollständig abgekühlten Kuchen und lasse sie an den Rillen hinunterlaufen. Vor dem Anschneiden 15 Minuten fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Glazed_Lemon_Bundt_Cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Glazed_Lemon_Bundt_Cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Jumping cheese, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassischer Zitronen-Gugelhupf",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-cinnamon-streusel-coffee-cake",
+      "slug": "bake2-cinnamon-streusel-coffee-cake",
+      "title": "Zimt-Streuselkuchen zum Kaffee",
+      "instructions": "Zarter, buttriger Sauerrahm-Kuchen mit einer dicken Schicht Zimt-Braunzucker-Streusel in der Mitte und obendrauf. Saure Sahne macht die Krume saftig; ein großzügiger Zimtstreifen und eine knusprige Streuseldecke sorgen für den Bäckereigeschmack. Am besten leicht warm mit Kaffee servieren.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 42,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Pekannüsse weg oder ersetze sie durch gehackte Walnüsse, die nach Gewicht meist günstiger sind. Der Kuchen schmeckt auch ohne Nüsse hervorragend.",
+        "Saure Sahne ist hier die besondere Zutat, aber eine 16 oz Packung ist günstig und Reste halten sich wochenlang. Vollfetter Naturjoghurt ist ebenfalls ein guter, preiswerter Ersatz.",
+        "Kaufe Butter im Angebot in größeren Mengen und friere sie ein. Eine Portion benötigt etwas mehr als eine Tasse; eine 1 lb Packung (4 sticks) reicht für eine weitere Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "gleich amount von full-fat natur Greek Joghurt für der same tang und moisture",
+          "savings": "Pro Tasse oft einige Cent günstiger und möglicherweise bereits vorhanden"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "gehackt Walnüsse, oder omit entirely für ein nut-free cake",
+          "savings": "Walnüsse sind günstiger als Pekannüsse; Weglassen spart die gesamten Nusskosten"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "verwenden brown Zucker in der Teig too für ein deeper, mehr caramel-like flavor",
+          "savings": "Es genügt ein Beutel Zucker statt zweier"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "coffee-cake (deutsche Fassung)",
+        "Zimt",
+        "streusel (deutsche Fassung)",
+        "Nachtisch",
+        "brunch (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7512,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-cinnamon-streusel-coffee-cake/",
+      "components": [
+        {
+          "key": "1f2e1e4b-4260-52f4-b6fb-ad4ac6e92942",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 153.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "89431a78-a04c-508a-80c6-b5b2d8247bfe",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl (2 Tassen für den Kuchen, 1/2 Tasse für die Streusel)"
+            },
+            {
+              "key": "ccd6eee1-f77d-5d17-9c2c-ee8807b29b38",
+              "ingredientName": "Butter",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/4 Tassen ungesalzene Butter, weich (1/2 Tasse für den Kuchen, 3/4 Tasse kalt und gewürfelt für die Streusel)"
+            },
+            {
+              "key": "4600a946-19b1-5a12-81af-784fe3fa9582",
+              "ingredientName": "weißer Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker (für den Kuchenteig)"
+            },
+            {
+              "key": "ba7bc60c-16d8-5e72-a0a2-ad6d4b8b2a7e",
+              "ingredientName": "brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse hellbrauner Zucker, fest angedrückt (für die Streusel)"
+            },
+            {
+              "key": "57615e49-3429-54b9-87ec-bead0b9ec523",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "3baf9661-5f9b-5dc3-a311-aa573a2dabfd",
+              "ingredientName": "Sauerrahm",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse saure Sahne mit vollem Fettgehalt"
+            },
+            {
+              "key": "07f9ecfb-2da7-5301-b5f3-c9d9b266f3db",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "6099f6d4-8010-577f-84a1-e315bdccc65a",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 1/2 TL Backpulver"
+            },
+            {
+              "key": "22db7224-1feb-5b23-a494-922ca3e32bd0",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Natron"
+            },
+            {
+              "key": "2ab83434-67ad-5c31-bce8-547b3c1e729b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "dae7bb7e-4693-5ddf-b167-3e94043bb0d5",
+              "ingredientName": "Zimt",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 TL gemahlener Zimt (für die Streusel)"
+            },
+            {
+              "key": "8c4e673d-5884-55dd-80f9-ab15698ad44c",
+              "ingredientName": "Pekannüsse",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "3 oz gehackte Pekannüsse, etwa 3/4 Tasse (optional für die Streusel)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Fette eine Backform von 9x13-Zoll ein und belege den Boden mit Backpapier oder fette eine Rohrkuchenform großzügig mit Butter. Nimm Eier und saure Sahne aus dem Kühlschrank, damit sie nicht mehr ganz kalt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite zuerst die Streusel zu: Vermische 1/2 Tasse Mehl, Braunzucker, Zimt und eine Prise Salz. Arbeite 3/4 Tasse kalte, gewürfelte Butter mit den Fingerspitzen ein, bis feuchte Klümpchen von Erbsen- bis Kieselsteingröße entstehen. Walnüsse nach Wunsch einrühren. Bis zur Verwendung kalt stellen, damit die Streusel zusammenhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre die übrigen 2 Tassen Mehl mit Backpulver, Natron und 1/2 TL Salz in einer mittelgroßen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage in einer großen Schüssel 1/2 Tasse weiche Butter mit Kristallzucker bei mittelhoher Stufe etwa 3 Minuten hell und luftig. Schlage die Eier einzeln unter, dann Vanille. Schabe bei Bedarf die Schüsselränder ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib bei niedriger Stufe die Mehlmischung in drei Portionen abwechselnd mit saurer Sahne dazu, beginne und ende mit Mehl. Rühre nur, bis keine trockenen Mehlstreifen mehr sichtbar sind. Der Teig ist dick; nicht überrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Hälfte des Teigs gleichmäßig in der Form. Streue etwas mehr als die Hälfte der Streusel als mittlere Schicht darüber. Verteile den restlichen Teig in Klecksen darauf und streiche ihn vorsichtig glatt. Bedecke alles mit den übrigen Streuseln und drücke sie leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Kuchen 38 bis 45 Minuten in einer Form von 9x13 oder 50 bis 60 Minuten in einer Rohrkuchenform, bis die Oberfläche dunkelgolden und die Streusel fest sind. Ein Zahnstocher aus der Mitte soll sauber oder mit wenigen feuchten Krümeln herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse den Kuchen mindestens 20 Minuten in der Form auf einem Gitter abkühlen, bevor du ihn anschneidest. Warm oder bei Raumtemperatur servieren. Abgedeckt bei Raumtemperatur bis zu 3 Tage aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Pecan_%26_cinnamon_crumb_cake_-_GAIL%27s_2025-03-10.jpg/1280px-Pecan_%26_cinnamon_crumb_cake_-_GAIL%27s_2025-03-10.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pecan_%26_cinnamon_crumb_cake_-_GAIL%27s_2025-03-10.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Zimt-Streuselkuchen zum Kaffee",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-genoise-sponge-cake",
+      "slug": "bake2-genoise-sponge-cake",
+      "title": "Klassischer französischer Biskuit (Génoise)",
+      "instructions": "Der authentische französische Biskuit aus ganzen Eiern: ohne Backpulver und ohne getrenntes Eiweiß. Ganze Eier und Zucker werden über dem Wasserbad erwärmt und zu einer hellen, dicken Masse aufgeschlagen. Mehl und geschmolzene Butter werden von Hand untergehoben. Das Ergebnis ist ein leichter, feinkrümeliger und leicht federnder Kuchen, die Grundlage für Torten und Biskuitrollen. Mit Sirup tränken und mit Creme oder Konfitüre füllen.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weizenmehl eignet sich gut; du brauchst kein Kuchenmehl zu kaufen. Für eine feinere Krume nimm 2 EL pro Tasse Mehl heraus und ersetze sie durch Maisstärke.",
+        "Ein Handmixer und eine Metallschüssel über einem Topf mit leicht siedendem Wasser ersetzen Küchenmaschine und Wasserbadtopf. Geduldig weiterschlagen, bis die Masse eine Spur bildet.",
+        "Koche Sirup selbst: Gleiche Teile Zucker und Wasser 2 Minuten köcheln lassen. So kostet der Tränksirup nur wenige Cent und du kannst aus einem einfachen Biskuit eine gefüllte Torte machen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "verwenden 3 tbsp neutral Pflanzenöl anstatt geschmolzen Butter für ein even mehr tender, longer-keeping crumb (ein common genoise variation).",
+          "savings": "spart einige Cent gegenüber Butter"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Replace vanilla mit 1 tsp Zitronenschale für ein klassisch citrus genoise.",
+          "savings": "verwendet eine vermutlich vorhandene Zitrone"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "ersetzen up zu 3 tbsp von der Mehl mit Kakaopulver für ein Schokolade genoise.",
+          "savings": "keine zusätzlichen Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Backen",
+        "cake (deutsche Fassung)",
+        "sponge (deutsche Fassung)",
+        "aus-scratch",
+        "Nachtisch",
+        "no-leavening (deutsche Fassung)",
+        "layer-cake (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7513,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-genoise-sponge-cake/",
+      "components": [
+        {
+          "key": "85f21e4b-fbfb-519a-b88f-cbd4dac8375b",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 76.41,
+          "position": 0,
+          "items": [
+            {
+              "key": "d28b09f1-e458-58fb-a82d-7c11ecbe8950",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "02da6ed1-5db6-579a-9d98-fe3fe7f3ada3",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker"
+            },
+            {
+              "key": "dbbcc06e-1584-58f9-b0b6-3589bcab707a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse Weizenmehl, gesiebt (ideal ist feines Kuchenmehl)"
+            },
+            {
+              "key": "ed2baf38-1b27-5b8a-9d18-0208d8461576",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL ungesalzene Butter, geschmolzen und abgekühlt"
+            },
+            {
+              "key": "dfae09ec-7d61-5fcf-9a24-ccb7d6995907",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "f1f16f23-f5fa-5cf8-8a81-fb43dbfba12c",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter mittig in den Ofen und heize auf 350F (175C) vor. Fette eine runde Kuchenform von 8-Zoll mit Butter ein, belege den Boden mit Backpapier und bestäube die Seiten leicht mit Mehl. Schmelze die Butter und lasse sie auf lauwarm abkühlen; Vanille einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe in einem Topf wenig Wasser knapp zum Sieden. Verquirle ganze Eier, Zucker und Salz in einer großen hitzefesten Schüssel. Stelle die Schüssel über das Wasser, ohne dass sie es berührt, und schlage ständig, bis die Mischung warm ist und sich der Zucker aufgelöst hat, etwa 2-3 Minuten (ungefähr 110F / 43C). Durch die Wärme lassen sich die Eier maximal aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Schüssel vom Wasserbad. Schlage die Eier mit Küchenmaschine oder Handmixer auf hoher Stufe 5-8 Minuten, bis sich das Volumen verdreifacht hat und die Masse sehr hell und dick ist. Sie soll als langsam verlaufendes Band vom Rührbesen fallen und einige Sekunden eine Spur auf der Oberfläche hinterlassen. Diese Stufe gibt dem Kuchen seine gesamte Lockerung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Siebe das Mehl in drei Portionen über den Eischaum. Hebe jede Portion vorsichtig mit einem großen Teigschaber unter: mittig durchschneiden, Teig vom Boden nach oben heben und die Schüssel dabei drehen. Sobald keine trockenen Mehlstreifen bleiben, aufhören, damit der Schaum nicht zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Angleichen der Butter etwa eine Tasse Teig in die Schüssel mit geschmolzener Butter und Vanille geben und verrühren. Diese leichtere Mischung zurück zum übrigen Teig gießen und zügig unterheben, bis alles gerade vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den Teig in die vorbereitete Form und streiche die Oberfläche vorsichtig glatt. Klopfe die Form einmal auf die Arbeitsfläche, um große Luftblasen zu lösen. Backe den Kuchen 25-30 Minuten, bis er goldbraun ist, bei leichtem Druck zurückfedert und ein Holzspieß sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Kuchen 10 Minuten in der Form abkühlen. Fahre mit einem dünnen Messer am Rand entlang, stürze ihn auf ein Kuchengitter, entferne das Backpapier und drehe ihn zum vollständigen Abkühlen wieder um. Génoise ist bewusst fettarm und etwas trocken; tränke die Schichten vor dem Füllen mit Zuckersirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Genoise_and_Chantilly_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Genoise_and_Chantilly_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Roxanna Salceda, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassischer französischer Biskuit (Génoise)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-orange-chiffon-cake",
+      "slug": "bake2-orange-chiffon-cake",
+      "title": "Orangen-Chiffonkuchen",
+      "instructions": "Ein hoher, federleichter Orangen-Chiffonkuchen: der klassische amerikanische Öl-Eiweiß-Kuchen, frisch mit Orangensaft und -schale aromatisiert. Zart, elastisch und saftig mit feinem Zitrusduft. In einer ungefetteten Rohrform gebacken und kopfüber abgekühlt, behält er seine Höhe. Pur oder mit einfacher Orangenglasur servieren.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen 3 lb Beutel Orangen statt einzelne Früchte. Das ist pro Pfund günstiger, und du verwendest Schale und Saft für den ganzen Kuchen.",
+        "Kein Kuchenmehl? Miss Weizenmehl ab, nimm 2 EL pro Tasse heraus und ersetze sie durch 2 EL Maisstärke. Danach gut sieben.",
+        "Lasse die Glasur weg und bestäube den Kuchen mit Puderzucker. Er schmeckt auch pur aromatisch und du sparst Zutaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "orange-juice",
+          "swap": "Bottled 100% Orange juice plus extra frisch zest für aroma",
+          "savings": "Günstiger und ganzjährig erhältlich; den größten Teil des Aromas liefert ohnehin die Schale"
+        },
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "1 tsp Zitronensaft oder white vinegar (1/2 tsp acid per der Rezept) zu stabilize der whites",
+          "savings": "Verwendet eine Vorratszutat statt eines nur einmal benötigten Gewürzes"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "All-purpose Mehl mit 2 tbsp cornstarch swapped in per cup",
+          "savings": "Spart den Kauf von besonderem Kuchenmehl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "cake (deutsche Fassung)",
+        "chiffon (deutsche Fassung)",
+        "citrus (deutsche Fassung)",
+        "Nachtisch",
+        "Ei-white",
+        "light (deutsche Fassung)",
+        "klassisch",
+        "tube-Pfanne"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7514,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-orange-chiffon-cake/",
+      "components": [
+        {
+          "key": "2fb67067-db83-5bbe-80a5-59785448a305",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 164.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb6adfe5-ed41-5b0e-9e63-c34c960454de",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/4 Tassen feines Kuchenmehl (gesiebt; oder Weizenmehl abzüglich 2 EL pro Tasse)"
+            },
+            {
+              "key": "cc3fd6f2-3643-554f-b54a-ed738d0239d8",
+              "ingredientName": "Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Kristallzucker, aufgeteilt (1 Tasse für den Teig, 1/2 Tasse für das Eiweiß)"
+            },
+            {
+              "key": "3eee393e-ae6c-5db1-b6b9-12e851902bea",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL Backpulver"
+            },
+            {
+              "key": "5d4d13cd-8d5b-5e10-ab36-355659e57a86",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Salz"
+            },
+            {
+              "key": "d3529cb6-163a-5b01-ae76-14ddc247e9e6",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse neutrales Pflanzenöl"
+            },
+            {
+              "key": "c528a5a3-32be-5662-b160-5f930ec555e3",
+              "ingredientName": "Eier",
+              "grams": 350,
+              "quantity": 7,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "7 große Eier, getrennt (Eigelbe für den Teig, Eiweiß zu Eischnee geschlagen)"
+            },
+            {
+              "key": "597ceba1-0775-55bb-8b83-dac4a99061c1",
+              "ingredientName": "Orangensaft",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse frischer Orangensaft (von etwa 3 Orangen)"
+            },
+            {
+              "key": "036924dd-6508-5f83-ab71-b24a73cc72da",
+              "ingredientName": "Orange",
+              "grams": 393,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Orangen, Schale aller 3 abreiben (etwa 2 fest gefüllte EL), Saft für die oben genannten 3/4 Tasse"
+            },
+            {
+              "key": "633cc060-01f7-5c61-a418-f32420aa48f6",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "27f14c24-f3c9-5f33-a7ea-a55992db68f4",
+              "ingredientName": "Weinstein",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL Weinstein (stabilisiert das Eiweiß)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter ins untere Drittel des Ofens und heize auf 325°F (165C) vor. Stelle eine saubere, trockene 10-Zoll (16-Tasse) Angel-Food- oder Rohrkuchenform bereit. NICHT einfetten: Der Teig muss an den Seiten haften, damit er hochklettern kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Orangen ab und presse sie aus, bis du 3/4 Tasse Saft erhältst. Siebe Kuchenmehl, 1 Tasse Zucker, Backpulver und Salz in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke eine Mulde in die trockenen Zutaten und gib Öl, Eigelb, Orangensaft, Vanille und Orangenschale in dieser Reihenfolge hinein. Verquirle alles etwa 1 Minute vollständig glatt und seidig. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage Eiweiß in einer absolut sauberen Schüssel mit Weinstein bei mittlerer Stufe schaumig. Lass nach und nach die übrige 1/2 Tasse Zucker einrieseln, erhöhe die Geschwindigkeit und schlage feste, aber nicht trockene Spitzen. Die Baisermasse soll ihre Spitze halten, die sich leicht krümmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre etwa ein Drittel des Baisers unter den Eigelbteig, um ihn aufzulockern. Gib das übrige Baiser dazu und hebe es vorsichtig mit einem Teigschaber unter, bis keine weißen Streifen mehr zu sehen sind. Nicht entlüften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den Teig in die ungefettete Rohrform. Ziehe ein Messer oder einen dünnen Teigschaber einmal kreisförmig durch den Teig, um große Luftblasen zu entfernen, und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe bei 325°F 55 bis 65 Minuten, bis die Oberfläche goldbraun ist, bei leichtem Druck zurückfedert und ein Holzspieß sauber herauskommt. Der Kuchen sollte gewölbt sein und sich leicht vom Mittelrohr lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stürze die Form sofort auf ihre Füße oder hänge das Mittelrohr über einen Flaschenhals. Lasse den Kuchen etwa 1.5 bis 2 Stunden kopfüber vollständig abkühlen. So setzt sich die Krume und bleibt hoch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Fahre nach dem vollständigen Abkühlen mit einem dünnen Messer am äußeren Rand und Mittelrohr entlang. Hebe den Kuchen heraus und löse den Boden. Pur, mit Puderzucker oder mit schneller Orangenglasur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Homemade_chiffon_cake_from_my_mother_friends.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_chiffon_cake_from_my_mother_friends.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo by Peachyeung316 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Orangen-Chiffonkuchen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1135 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hot-brown-sandwich",
+      "slug": "gen-hot-brown-sandwich",
+      "title": "Hot-Brown-Sandwich",
+      "instructions": "Ein beliebtes Nashville regionalesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Putenscheiben aus der Feinkosttheke oder Brathähnchen anstelle von Fertiggerichten",
+        "Stellen Sie Käsesoße mit Butter und Mehl von Grund auf her, anstatt Soße aus der Dose zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Nashville-Regional",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6855,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hot-brown-sandwich/",
+      "components": [
+        {
+          "key": "ed0bb937-e70d-5633-8c36-765b5c5d727e",
+          "name": "Zutaten",
+          "servingGrams": 863.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1477c469-0ac0-5e34-85bb-47c1f45f9f8b",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "382ea4c2-503a-5d20-ad2d-64c888848a41",
+              "ingredientName": "Putenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "a130733c-c770-5c09-bcd1-14608d66f1ec",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "472b66ad-0b2b-5476-891a-6cc7f6c3a8e3",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0df0302d-4461-5e65-a7e7-03db962e9926",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5d2a75d9-39e9-5084-9e63-6dcdc7657af0",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "55379bbb-b99d-5dd0-878b-935f77c94f13",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse gerieben"
+            },
+            {
+              "key": "c4167d2a-0cef-5b1e-a118-50db65d0a323",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "5f2fe054-befe-529f-bc6c-6ed9f420556d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "9f0bd5ba-bb79-5cec-9d7e-255b2983a9ba",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Speck knusprig braten, dann abtropfen lassen und in Stücke zerbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem Topf bei mittlerer Hitze schmelzen und Mehl unterrühren, sodass eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Unter ständigem Rühren nach und nach Milch zugießen, bis eine glatte Soße entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Käse, Salz und Pfeffer zur Sauce geben und rühren, bis sie geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Toasten Sie die Brotscheiben leicht und legen Sie zwei Scheiben auf jeden Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Putenbrustscheiben auf den Toast legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tomaten in Scheiben schneiden und über dem Truthahn anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gießen Sie die Käsesauce großzügig über das Sandwich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit zerbröckeltem Speck belegen und 2–3 Minuten unter den Grill legen, bis die Soße Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2016/05/2ebd22146cd1159fe74188917faddf4f0ac08259.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2016/05/2ebd22146cd1159fe74188917faddf4f0ac08259.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pimento-cheese-sandwich",
+      "slug": "gen-pimento-cheese-sandwich",
+      "title": "Piment-Käse-Sandwich",
+      "instructions": "Ein beliebtes Nashville-südstaatlichesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Käse aus der Blockabteilung und zerkleinern Sie ihn selbst, um 20–30 % zu sparen.",
+        "Verwenden Sie Mayonnaise und Gewürze von Handelsmarken, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Nashville-Southern",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6856,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pimento-cheese-sandwich/",
+      "components": [
+        {
+          "key": "95c38102-345f-5f37-a3f5-7aa0d97eed49",
+          "name": "Zutaten",
+          "servingGrams": 408.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "8cff2d80-55e1-5c63-9ef1-b807e82efc93",
+              "ingredientName": "Scharfer Cheddar-Block",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen gerieben"
+            },
+            {
+              "key": "3fd3da8d-cf3c-5abe-9c59-c311a21f7dad",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 375,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "bbc3245f-fc2d-53f2-a86a-f897da5f9d4b",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "033d57fa-b5b0-5669-aa62-23cff2c63618",
+              "ingredientName": "Gurken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "8c093406-42b7-53ed-aa96-be8b021a76a5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "7315c6c9-60ab-51e2-af9b-059c5a225149",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "e5f43762-e2ce-5774-b72d-6d180a6cc837",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "f85780e4-9506-5f0d-b9e9-17825945a5cd",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "7396bf9d-67f0-53b1-973b-8e3f92a8c956",
+              "ingredientName": "Cracker",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Geröstete rote Paprika gründlich abtropfen lassen und in kleine Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geriebenen Cheddar-Käse und Mayonnaise in einer Rührschüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte Paprika und Gurken unter die Käse-Mayonnaise-Mischung heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Knoblauchpulver, Cayennepfeffer, Salz und schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mischen, bis alles gut vermischt ist, und wenn es die Zeit erlaubt, mindestens 30 Minuten im Kühlschrank lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Pimentkäse dick auf den Brotscheiben verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sandwiches diagonal aufschneiden und sofort servieren oder in Lunchbehälter verpacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/03/Pimento-Cheese-Sandwich-_EXPS_TOHVP25_263690_MF_02_27_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/03/Pimento-Cheese-Sandwich-_EXPS_TOHVP25_263690_MF_02_27_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sweet-tea",
+      "slug": "gen-sweet-tea",
+      "title": "Süßtee",
+      "instructions": "Ein beliebtes Nashville-südstaatlichergericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Teebeutel in großen Mengen, um deutlich zu sparen",
+        "Verwenden Sie Leitungswasser anstelle von Flaschenwasser"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "Nashville-Southern",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6857,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sweet-tea/",
+      "components": [
+        {
+          "key": "1efda8b4-38a5-52d1-89ea-ade7052b6b5e",
+          "name": "Zutaten",
+          "servingGrams": 1254.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c9c2313c-a584-55e0-b072-15ca51014489",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Quart"
+            },
+            {
+              "key": "d48ad799-af77-5623-90ec-e2cad7cbe9d2",
+              "ingredientName": "Teebeutel",
+              "grams": 4000,
+              "quantity": 8,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Schwarzteebeutel"
+            },
+            {
+              "key": "ba5a8868-8a9a-5b3e-be9f-045bfa18badd",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f5ed6405-e9ed-5396-88bd-adab1ca57b28",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24919e42-b970-5aa9-97cb-ab6ec931ba4c",
+              "ingredientName": "Eis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringen Sie 2 Liter Wasser in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vom Herd nehmen und sofort Teebeutel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5-7 Minuten ziehen lassen, bis das Wasser tief aufgebrüht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Entfernen Sie die Teebeutel, indem Sie sie vorsichtig mit einem Löffel gegen den Topfrand drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während der Tee noch heiß ist, Zucker einrühren, bis er sich vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gießen Sie den Tee in einen Krug und pressen Sie den Zitronensaft hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Eis hinzufügen und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bis zum Erkalten im Kühlschrank aufbewahren und auf frischem Eis in Gläsern servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/sJqixvCXkk8ETplBIEXyams0ek0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-109190-SmothSweetTea-0162-1x1-1-6737e3fd63f24ae2af55ffac895534cc.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/sJqixvCXkk8ETplBIEXyams0ek0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-109190-SmothSweetTea-0162-1x1-1-6737e3fd63f24ae2af55ffac895534cc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-red-velvet-cake",
+      "slug": "gen-red-velvet-cake",
+      "title": "Red-Velvet-Kuchen",
+      "instructions": "Ein beliebtes Nashville-südstaatlichergericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie Ihre eigene Buttermilch, indem Sie Milch mit Essig mischen",
+        "Verwenden Sie Frischkäse und Puderzucker von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Nashville-Southern",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6858,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-red-velvet-cake/",
+      "components": [
+        {
+          "key": "76f1f04a-a0a6-5216-b6f3-5f670533d1cc",
+          "name": "Zutaten",
+          "servingGrams": 207.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "4c950320-e9b5-553d-9f57-dd98f0e00aea",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "71f8e86b-9d1e-52f7-a997-cad9eed25948",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f1b6b15e-2659-5794-af7c-7976bfc6342b",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4b025271-f5b1-5795-9f78-0f53c5ee0b12",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3394fc2c-e9ca-5e96-a5f7-3dd65b4ee90d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "bf61bf3f-1fae-5d4f-900a-a39bf3f3fe44",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "22baca52-aa31-5231-9a7e-ab88efd16ec8",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d6a5732f-4ebf-5f99-822d-a4de954da99f",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "774a6232-e299-5a96-ab12-96ad68471500",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "fdb14433-388b-5285-b11c-4ea02e6ebf62",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Unze"
+            },
+            {
+              "key": "ed1d332d-9a37-52c8-b257-c570ff309831",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b6e78900-43d7-54dc-adfd-25fdd3c120e2",
+              "ingredientName": "Frischkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "92403e0e-1d23-58b2-94a9-e4b7bc1cfed9",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "52a3683e-0dc5-51d1-98f8-928fb89d2ef0",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und fetten Sie zwei runde 9-Zoll-Kuchenformen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Zucker, Kakaopulver, Backpulver und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer anderen Schüssel Eier, Buttermilch, Öl, Essig, rote Lebensmittelfarbe und Vanille verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie die feuchten Zutaten in die trockenen Zutaten und vermischen Sie alles, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig gleichmäßig auf die vorbereiteten Pfannen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "30–35 Minuten backen, bis ein Zahnstocher in der Mitte sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kühlen Sie die Kuchen 10 Minuten lang in der Form ab und stürzen Sie sie dann auf ein Kuchengitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Zuckerguss weichen Frischkäse und Butter glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nach und nach Puderzucker und Vanille hinzufügen und rühren, bis die Masse leicht und schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Sobald die Kuchen abgekühlt sind, verteilen Sie den Zuckerguss zwischen den Schichten und auf der Außenseite des Kuchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2014/03/24/dining/redvelevetcake/redvelevetcake-superJumbo-v3.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2014/03/24/dining/redvelevetcake/redvelevetcake-superJumbo-v3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brisket-plate",
+      "slug": "gen-brisket-plate",
+      "title": "Brisket-Teller",
+      "instructions": "Ein beliebtes südstaatliches BBQgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bruststück im Sonderangebot kaufen und einfrieren; es ist monatelang haltbar.",
+        "Verzichten Sie auf teure BBQ-Sauce und verwenden Sie stattdessen den Bratensaft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6859,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brisket-plate/",
+      "components": [
+        {
+          "key": "832b654d-c7b2-5588-862c-d169deaadcdb",
+          "name": "Zutaten",
+          "servingGrams": 130.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "7cdc76c8-e4cc-53d8-9644-1b192f5596ce",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "2c7f9927-6feb-54da-a205-ac66a237c27d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "010abc95-4776-5f85-bfa6-603c42e4c2b7",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a0d5917a-b30a-5f11-827a-0425f61d8641",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5448906f-2a5e-5775-bab4-c388dd0159d8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "32f90acf-60f3-5570-8513-5625087cb941",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b886073f-71c4-5941-af23-b1639bf66372",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9af56704-8142-5003-8830-2cd855055417",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ff053a14-102f-5516-887c-9e38982e201f",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c39721c0-52d3-5e7d-9617-af44392ae0ab",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Braunen Zucker, Paprika, Knoblauchpulver, schwarzen Pfeffer und Salz in einer Schüssel vermischen, um eine Trockenreibe zu erzeugen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das gesamte Bruststück großzügig mit der Trockenmasse bestreichen und 2 Stunden bei Zimmertemperatur ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heizen Sie den Ofen auf 325 °F vor und legen Sie das Bruststück mit der Fettseite nach oben in eine große Bratpfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe, Worcestershire-Sauce und Apfelessig vermischen und um das Bruststück gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decken Sie die Pfanne fest mit Folie ab und backen Sie sie 5–6 Stunden lang, bis das Fleisch sehr zart ist und sich leicht auseinanderziehen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entfernen Sie die Folie, erhöhen Sie die Hitze auf 400 °F und backen Sie sie 30 Minuten lang ohne Deckel, damit sich eine Rinde bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15 Minuten ruhen lassen, dann gegen die Faserrichtung in 1/4 cm dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Scheiben mit zerlassener Butter bestreichen und mit Bratenfett als Soße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/WZfhRNhSETJaxseW-B1w4o73wpc=/3000x2000/filters:fill(auto,1)/smoked-marinated-mini-brisket-recipe-333940-Hero_01-b8670994177545bab527c1db5f49788a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/WZfhRNhSETJaxseW-B1w4o73wpc=/3000x2000/filters:fill(auto,1)/smoked-marinated-mini-brisket-recipe-333940-Hero_01-b8670994177545bab527c1db5f49788a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

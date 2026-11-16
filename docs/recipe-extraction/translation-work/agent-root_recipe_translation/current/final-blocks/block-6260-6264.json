@@ -1,0 +1,1098 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-b-n-ch-c-hue",
+      "slug": "gen-b-n-ch-c-hue",
+      "title": "Bún Chả Cá aus Huế",
+      "instructions": "Vietnamesisches Mittagessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tilapia oder Wels statt teurer Fischsorten, um Geld zu sparen.",
+        "Kaufe getrocknete Reisnudeln in größeren Mengen auf asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch-aus-hue",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6260,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-n-ch-c-hue/",
+      "components": [
+        {
+          "key": "d7c938e0-5169-5570-834d-31cf23aab954",
+          "name": "Zutaten",
+          "servingGrams": 510.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "1293c92a-04ad-5f47-8a6f-d590dad07a04",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "e1d828cb-26b4-5f8b-90f0-ba25644d0591",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund getrocknet"
+            },
+            {
+              "key": "1b29e02f-4367-5845-8d1c-2387dbacf830",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7bab9548-cd91-58b4-a466-62a758eaae31",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bdc087d9-964d-5dcb-bbb6-b6086fb9e663",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56473169-424a-5884-9aaf-5f94e97fd8de",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3ec64f4-adb2-53aa-9ab4-d18ad6cfdab7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2446401e-ca10-5a6c-9f77-ce5b47d72f0c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f133832-59ac-52ea-832f-15edaef196b4",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "eb2f03f2-f9cf-5b0d-b825-95e06559cedb",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerstoße Schalotten und Knoblauch zusammen mit Kurkuma und Salz zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Fisch in Stücke und überziehe ihn gründlich mit der Gewürzpaste. Lasse ihn 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Topf bei mittelhoher Hitze und gib die panierten Fischstücke vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Wasser um den Fisch herum in den Topf, bringe es zum Kochen und lasse alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche währenddessen die Reisnudeln nach Packungsanweisung, gieße sie ab und verteile sie auf Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze die Brühe mit Fischsauce und schmecke ab. Passe die Würzung bei Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe Fisch und aromatische Brühe über die Reisnudeln in den Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue die Suppe mit gehackten Frühlingszwiebeln und frischem Dill. Serviere sie mit Limettenspalten und Kräutern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/J0g7JWjk9r6CHESo1CIrD1BfGd0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-SEA-VyTran-BunChaHanoi-19-f623913c6ef34a9185bcd6e5680c545f.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/J0g7JWjk9r6CHESo1CIrD1BfGd0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-SEA-VyTran-BunChaHanoi-19-f623913c6ef34a9185bcd6e5680c545f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-n-b-hue",
+      "slug": "gen-b-n-b-hue",
+      "title": "Bún Bò Huế",
+      "instructions": "Vietnamesisches Mittagessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhesse an der Metzger-Frischetheke; sie ist deutlich günstiger als bereits portionierte Stücke.",
+        "Bitte um Schweinenacken- oder Beinknochen mit anhaftendem Fleisch. Sie geben der Brühe viel Geschmack und sind günstig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch-aus-hue",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6261,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-n-b-hue/",
+      "components": [
+        {
+          "key": "11732a40-c8e7-563e-bbf2-f9cdb2eab200",
+          "name": "Zutaten",
+          "servingGrams": 609.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6888813-134b-5cc0-976f-c48925d0e893",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d3026ab9-982b-5926-82f7-ce8ac2c86e67",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "62a1c940-8bd2-59d2-8581-a183558a9651",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund getrocknet"
+            },
+            {
+              "key": "4c24d1e2-017f-56dd-bff3-88933cc695ae",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df6e24ed-5eea-577b-8930-95466b21b2c6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdc7e893-7da4-5039-af5e-aa00841f2239",
+              "ingredientName": "Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87aa841b-7838-53d6-95f6-67eae2a42950",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "de04485f-3351-56bb-ba10-87ba06378984",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9872920b-7685-588d-804c-e84c345391bc",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ad0665b3-c58e-5645-816c-7fa796f7db07",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "dee8f89f-8524-518e-8e7f-98a8ca61fcb1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Rinderhesse und Schweineknochen 3 Minuten in kochendem Wasser. Gieße sie ab und spüle sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Schalotten, Knoblauch, rote Chilis und Zitronengras zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und brate die Gewürzpaste 2 Minuten an, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib blanchiertes Fleisch und Knochen dazu, gieße 8 Tassen frisches Wasser hinein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lasse die Brühe 60 Minuten köcheln, bis das Fleisch zart und die Brühe aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Seihe die Brühe ab und gib sie zurück in den Topf. Würze sie mit Fischsauce und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche die Reisnudeln nach Packungsanweisung und verteile sie auf Servierschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zupfe das zarte Rind- und Schweinefleisch auseinander. Schöpfe heiße Brühe über die Nudeln und belege sie mit dem Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Garniere die Suppe mit frischen Kräutern, roten Chilischeiben und knusprigen Röstschalotten und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/AeLQd8S4Z-X9nMKoeJ8A3XYL6PU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230915-SEA-BunBoHue-Vy-Tran-hero-d3a9082377414ca68f3540ceae84fa61.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/AeLQd8S4Z-X9nMKoeJ8A3XYL6PU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230915-SEA-BunBoHue-Vy-Tran-hero-d3a9082377414ca68f3540ceae84fa61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-n-ri-u-cua-c-chua",
+      "slug": "gen-b-n-ri-u-cua-c-chua",
+      "title": "Bún Riêu Cua Cà Chua",
+      "instructions": "Vietnamesisches Mittagessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Krabbenfleisch aus der Dose statt frischem und spare $3-4 pro Portion.",
+        "Gewöhnliche Tomaten eignen sich gut; teure Sorten sind nicht nötig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch-aus-hue",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6262,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-n-ri-u-cua-c-chua/",
+      "components": [
+        {
+          "key": "04c97a5b-1057-5eda-b35c-836e49b8b0fa",
+          "name": "Zutaten",
+          "servingGrams": 804.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "779d7363-2fe8-5814-be40-e9b5503511ed",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "15948974-9ec0-59d2-999b-c67226dc886c",
+              "ingredientName": "Passierte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße, halbiert"
+            },
+            {
+              "key": "d4424311-6f4c-5525-9c3c-8eeeaa12edd6",
+              "ingredientName": "Garnelenpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "239e0487-9cf0-5260-8bba-ec77d857909c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "6f112208-61a1-5292-a222-48e6aafa41dd",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "7ea1ddbc-9ba5-5d19-88c9-caadc0369c11",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ab93b30-fc02-56c2-b5e7-4bf8c289acf2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "8eb41c8a-171f-517c-9ee6-f0547552a0cb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "fa7898da-fcbe-568c-918b-96785ace9ae6",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9058acbc-fe43-5598-9252-d8367ba0c707",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c0f3871f-fe8c-554b-b266-a794dfbbe3ee",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und dünste Knoblauch und Zwiebel an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Garnelenpaste hinzu und gare sie unter ständigem Rühren 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Brühe hinein und bringe sie zum Kochen. Gib Tomaten und Krabbenfleisch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Suppe 15 Minuten köcheln, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle in einer kleinen Schüssel Eier mit 2 tbsp Wasser. Träufle die Mischung langsam unter Rühren in den Topf, sodass Eierfäden entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Fischsauce, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche die Reisnudeln separat nach Packungsanweisung und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Nudeln auf Schalen und schöpfe die heiße Krabben-Tomatensuppe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vntopfood.com/wp-content/uploads/2023/09/Bun-rieu-phuong-linh-trung-thu-duc.jpg",
+          "sourcePageUrl": "https://vntopfood.com/wp-content/uploads/2023/09/Bun-rieu-phuong-linh-trung-thu-duc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-canh-chua-c",
+      "slug": "gen-canh-chua-c",
+      "title": "Canh Chua Cá",
+      "instructions": "Vietnamesisches Mittagessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen ganzen Fisch und filetiere ihn selbst; so sparst du 40% gegenüber vorgeschnittenen Filets.",
+        "Verwende tiefgekühlte Okra und Ananas, wenn frische zu teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch-aus-hue",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6263,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-canh-chua-c/",
+      "components": [
+        {
+          "key": "f90bbfe4-bac0-54f2-abd4-f79e50c066c1",
+          "name": "Zutaten",
+          "servingGrams": 734.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "72b938f7-5b37-5caa-b907-d49257f3a697",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c3998ff1-91f7-5a3a-8dd7-c2b32fc92992",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f68478df-4a8a-5377-b972-e16872f3689d",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "c9bb23a5-d1ce-59d0-bb72-8f3099b2c0f6",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b1b7b503-bc32-562f-b52e-b443d574c687",
+              "ingredientName": "Okraschoten",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 oz, in Stücke geschnitten"
+            },
+            {
+              "key": "acc68df8-3354-5c27-9541-ae1b3929808d",
+              "ingredientName": "Passierte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße, geviertelt"
+            },
+            {
+              "key": "1c2ebcd7-8967-5094-a47b-4904c057ae8c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "6f8fea9d-2bd7-50be-91c4-b56b3684b4f5",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "3ad0119b-3e5f-5091-ae18-550c443add85",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "dd7d20ba-337d-549d-b765-77fcede3b887",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cfb3313c-18e2-5828-bcec-b8c71c2b0db7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf und dünste Knoblauch und Schalotten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tamarindenpaste, die in 1/4 Tasse Wasser aufgelöst wurde, dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Brühe hinein und bringe sie zum Kochen. Gib die Fischfilets dazu und lasse sie 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge Ananas, Okra und Tomaten hinzu und lasse alles 10 Minuten köcheln, bis die Okra weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Fischsauce, Salz und einer Prise Zucker, um die Aromen auszubalancieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke ab und passe die Würzung bei Bedarf an, bevor du die Suppe in Schalen servierst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Canh-Chua-Ca.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Canh-Chua-Ca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-m-m-t-m",
+      "slug": "gen-m-m-t-m",
+      "title": "Mắm Tôm",
+      "instructions": "Vietnamesischer Snack aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Garnelenpaste auf asiatischen Märkten zum halben Preis westlicher Supermärkte.",
+        "Dieses Würzmittel hält sich gekühlt 2+ Monate und ist dadurch kostengünstig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "vietnamesisch-aus-hue",
+        "snack",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6264,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-m-m-t-m/",
+      "components": [
+        {
+          "key": "f1d38fdb-250d-5177-a73f-ecfc5b612475",
+          "name": "Zutaten",
+          "servingGrams": 186.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "82f6c465-41fa-5346-b91d-b8a81f08ba33",
+              "ingredientName": "Garnelenpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ea96c5ec-06ff-553a-8b4a-2b03a165b757",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2b40f3a2-eb6e-587d-a1f8-144790aee0bb",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8ffab44b-9b0a-5c68-81a6-12f88d1aca3d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "14c46fa6-ab55-5d9e-ae7a-a43b752be45d",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "e8023ca4-3404-5fe8-8eca-93901069d22a",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "eaa3b844-2097-5e8b-9f9b-467438111bfb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Garnelenpaste und Wasser in einer kleinen Schüssel, um sie zu verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Chili hinzu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Limettensaft dazu und gib Zucker hinzu. Vermische alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke ab und passe Salz, Limette und Zucker so an, dass die Mischung salzig, sauer und leicht süßlich ausgewogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ngon1.vn/uploads/stores/8/2023/02/mam-tom-a-truy-dac-san-ba-lang-thanh-hoa-chai-120g-1.jpg",
+          "sourcePageUrl": "https://ngon1.vn/uploads/stores/8/2023/02/mam-tom-a-truy-dac-san-ba-lang-thanh-hoa-chai-120g-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

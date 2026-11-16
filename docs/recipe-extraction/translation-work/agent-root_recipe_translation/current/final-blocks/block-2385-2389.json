@@ -1,0 +1,1045 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mongolian-beef",
+      "slug": "gen-mongolian-beef",
+      "title": "Mongolisches Rindfleisch",
+      "instructions": "Abendessen aus Nordchina, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Günstigeres Rindfleisch wie Rinderoberschale verwenden, wenn Flanksteak zu teuer ist",
+        "Doppelte Menge zubereiten und Reste einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "nordchinesisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2385,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mongolian-beef/",
+      "components": [
+        {
+          "key": "44e049cb-8eb4-5df6-bb58-a864fda952cf",
+          "name": "Zutaten",
+          "servingGrams": 212.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b73772b-d888-5529-ac28-50dcf18f44e8",
+              "ingredientName": "Flanksteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "387a4ff1-5e3a-5514-a07e-98ba9c874952",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "15aacbea-63cb-5d32-9fe3-0818dc4af9f7",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "aaee9bea-e543-5017-8171-b963b89e2129",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "393250a6-055e-5317-bfc3-56c92cea1ec6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen fein gehackt"
+            },
+            {
+              "key": "f7457eca-36db-5ba9-b4ef-d76ef9815885",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "2b0b07cf-d39b-5319-9b09-5ba424473d25",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2afa1032-afee-5bca-a232-62c02a6c093e",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 gehackt"
+            },
+            {
+              "key": "7a0f44e1-115b-5c7f-9f41-5c92ac68cde3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "28b1be41-3def-599b-9a9f-0149ef34edbf",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleischscheiben mit Maisstärke vermengen, bis sie überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch portionsweise jeweils 2–3 Minuten braten, bis es gebräunt ist. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übriges Öl dazugeben und Ingwer sowie Knoblauch 30 Sekunden pfannenrühren, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rindfleisch zurück in den Wok geben und Sojasauce, braunen Zucker und Chiliflocken hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alles 2 Minuten vermengen, bis das Rindfleisch überzogen ist und die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Frühlingszwiebeln und Sesamsamen abschließen und über Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/3kUKhYfUuJ8glgfSeElH4fKiv5s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9112752-5f83b552d7794ee296a8f0c6017ede8a.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/3kUKhYfUuJ8glgfSeElH4fKiv5s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9112752-5f83b552d7794ee296a8f0c6017ede8a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-orange-chicken",
+      "slug": "gen-orange-chicken",
+      "title": "Orangenhähnchen",
+      "instructions": "Hunan-Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Orangensaftkonzentrat aus der Flasche statt frischer Orangen verwenden",
+        "Günstigere Hähnchenoberkeulen nehmen, die saftig bleiben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "hunan",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2386,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-orange-chicken/",
+      "components": [
+        {
+          "key": "1c011bdc-f066-5eea-a9f1-60555cf87106",
+          "name": "Zutaten",
+          "servingGrams": 254.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "d09e151d-01de-538d-aa50-2126cff74436",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund in Stücke geschnitten"
+            },
+            {
+              "key": "d0bfecef-bd19-56f6-ace5-2e4d1ca0f5b5",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse frisch"
+            },
+            {
+              "key": "6171a603-69a9-514c-b4c4-9146a08ca5c9",
+              "ingredientName": "Orange",
+              "grams": 262,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8629a89a-747a-5531-9ce0-6501496230b4",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bf8b9bbe-aeb0-5b96-9f07-e4f8c05bef06",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2f105921-83cf-5105-b366-adf9a26f4e8b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "62d2ba79-2301-5f2e-986b-5caa17218748",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen fein gehackt"
+            },
+            {
+              "key": "9926a495-430c-5fd5-bd7a-fec1f8bc4a0d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "a996f1a6-c4c9-5e37-b86b-d68a6b3ebe15",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "1c9ff17a-b9f6-54a0-8e52-e660fb62d1ef",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d7784470-2bd0-5c1f-adc6-512416092c5f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "75ee7238-69a5-5095-a75d-2043734d8eb1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenstücke mit 1 Esslöffel Maisstärke und Salz vermengen, sodass sie überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Öl in einem Wok oder einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen portionsweise goldbraun und durchgegart braten, etwa 4–5 Minuten pro Portion, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übriges Öl in dieselbe Pfanne geben. Knoblauch, Ingwer und Chiliflocken dazugeben und unter Rühren 30 Sekunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Orangensaft, Orangenabrieb, Sojasauce, Essig, Zucker und übrige Maisstärke verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sauce in die Pfanne gießen und unter ständigem Rühren zum Köcheln bringen, bis sie eindickt, etwa 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hähnchen zurück in die Pfanne geben, mit Sauce überziehen und 1 weitere Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Frühlingszwiebeln garnieren und über gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2018/01/bbd06ed8a69f1df98a23c93d0825679106327799.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2018/01/bbd06ed8a69f1df98a23c93d0825679106327799.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soba",
+      "slug": "gen-soba",
+      "title": "Soba",
+      "instructions": "Japanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Soba-Nudeln in größeren Mengen auf asiatischen Märkten kaufen und deutlich sparen",
+        "Dashi selbst mit Kombu und Bonitoflocken zubereiten statt fertige Brühe zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2387,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soba/",
+      "components": [
+        {
+          "key": "d2825306-7cc8-559d-b358-fcafa10b315a",
+          "name": "Zutaten",
+          "servingGrams": 512.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd6e2961-91ed-5197-9136-e6ff30a63bd3",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a2afa77c-7d65-5ef1-9c7f-f40a672a66f2",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3bc3d47b-6bb1-5da6-8dfd-03b83d1afb4f",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "09c85d0f-6872-5464-99d2-f528477c9f71",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b5e9b451-79dc-5376-a3b4-4988f9cdc803",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c1b49979-9b5f-5018-930c-ac4a7c257da2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "407ae6ad-1a07-598c-b67a-d5fa1c66b9ca",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "c187f0b2-a3a9-5a08-85fe-355dd1dbc632",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf Wasser zum Kochen bringen und Soba-Nudeln nach Packungsanleitung weich kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nudeln abgießen und mit kaltem Wasser abspülen, bis sie vollständig abgekühlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dashi-Brühe, Sojasauce, Mirin und Zucker in einem Topf vermengen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nudeln auf zwei Schalen verteilen und warme Dip-Sauce in separate kleine Schälchen gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nudeln mit geschnittenen Frühlingszwiebeln und Nori-Streifen belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wasabi in die Dip-Sauce einrühren und zum Dippen zusammen mit den Nudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/RXHon3PSLlnRPbf6xdTn-WkdJRM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sesame-Soba-Noodles-LEAD-03-99f90974f08f47709a1b9f64462de183.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/RXHon3PSLlnRPbf6xdTn-WkdJRM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sesame-Soba-Noodles-LEAD-03-99f90974f08f47709a1b9f64462de183.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-donburi",
+      "slug": "gen-donburi",
+      "title": "Donburi",
+      "instructions": "Japanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen statt Brust für mehr Geschmack und geringere Kosten verwenden",
+        "Reis vom Vortag kaufen, das ergibt die beste Konsistenz und ist günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2388,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-donburi/",
+      "components": [
+        {
+          "key": "4aed6aff-eaff-5052-992a-51c8c75ca2e6",
+          "name": "Zutaten",
+          "servingGrams": 675,
+          "position": 0,
+          "items": [
+            {
+              "key": "19003e26-5397-5fa6-b51b-03159608c584",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "027644f3-dce4-5578-8fad-3eb43253fd32",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "034fdf0f-c23f-5daa-9765-cb39b29cd34a",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e1b1f61a-3582-5468-9878-d529e8f52b11",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6ff3e4a1-8110-58a5-b2d7-74c90d8a62f5",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5e16cae1-d702-5f67-918e-a48f3668025c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5b260b6e-c663-5340-ab2b-ec698b24fe66",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44b5c4b1-b1ac-59ff-b4f5-466fef13c582",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust in mundgerechte Stücke und Zwiebel in dünne Spalten schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pfanne bei mittelhoher Hitze erhitzen und geschnittenes Hähnchen dazugeben. Garen, bis es fast durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebelscheiben zum Hähnchen in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dashi-Brühe, Sojasauce, Mirin und Zucker in die Pfanne gießen und 5 Minuten köcheln lassen, bis das Hähnchen durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier in einer Schüssel verquirlen und langsam unter Rühren in die Pfanne gießen, sodass Eierbänder entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reis auf zwei Schalen verteilen und mit der Hähnchen-Ei-Mischung belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geschnittenen Frühlingszwiebeln garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/d2RvhWY6KegmNOnPmyoYJF3NGO0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__01__20191203-donburi-rice-bowl-vicky-wasik-12-f844760e70ec46b79e2bb36de43ca0a2.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/d2RvhWY6KegmNOnPmyoYJF3NGO0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__01__20191203-donburi-rice-bowl-vicky-wasik-12-f844760e70ec46b79e2bb36de43ca0a2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gyudon",
+      "slug": "gen-gyudon",
+      "title": "Gyudon",
+      "instructions": "Japanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch im Angebot kaufen und für später einfrieren",
+        "Normale statt süße Zwiebeln verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2389,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gyudon/",
+      "components": [
+        {
+          "key": "ea843b0b-f427-5668-a55b-97c9c8e619e8",
+          "name": "Zutaten",
+          "servingGrams": 535,
+          "position": 0,
+          "items": [
+            {
+              "key": "804288b0-e963-5cbd-97b4-6a84d18ac31f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "9fb95e27-f09d-5a0d-9ee8-ea4923ed958e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "509f2d12-58af-590f-8a2f-ce557725b8e9",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "facd1c3b-fd13-52bd-8be8-9a886d407c65",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ed378e1e-bb6f-5cdc-98f7-77a2bb4f8cb2",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "8bcda8c5-46fc-5f19-965d-554ab8557fe7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d324b014-b849-5a1e-ab55-4985f8b21166",
+              "ingredientName": "Reis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel in dünne Halbmonde schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pfanne bei mittelhoher Hitze erhitzen und Rinderhackfleisch darin anbräunen, während es zerteilt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittene Zwiebel dazugeben und 2 Minuten weich garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dashi-Brühe, Sojasauce, Mirin und Zucker angießen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reis auf zwei Schalen verteilen und mit Rindfleisch-Zwiebel-Mischung belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit geschnittenen Frühlingszwiebeln garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/O6CMfUBzBrvSfgpED_LHS1He1fU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2016__07__20160711-gyudon-beef-rice-bowl-japanese-recipe-17-73af0ef9812a4c18858cb0151169492e.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/O6CMfUBzBrvSfgpED_LHS1He1fU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2016__07__20160711-gyudon-beef-rice-bowl-japanese-recipe-17-73af0ef9812a4c18858cb0151169492e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

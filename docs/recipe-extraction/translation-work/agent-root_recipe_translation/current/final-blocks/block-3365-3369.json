@@ -1,0 +1,1109 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sichuan-dumplings-in-chili-oil",
+      "slug": "gen-sichuan-dumplings-in-chili-oil",
+      "title": "Sichuan-Teigtaschen in Chiliöl",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Teigtaschen von asiatischen Märkten, um Zubereitungszeit und Kosten zu sparen.",
+        "Bereite Chiliöl auf Vorrat zu und bewahre es für mehrere Mahlzeiten während der Woche in einem Glas auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3365,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sichuan-dumplings-in-chili-oil/",
+      "components": [
+        {
+          "key": "c2d18e46-fb8c-5dc0-853c-a8b4654bb8f1",
+          "name": "Zutaten",
+          "servingGrams": 237.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "2afcce0d-1fc7-5a0c-8dc8-43e49989a5f7",
+              "ingredientName": "Tiefgekühlte Teigtaschen (Potstickers)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4025f16a-5f00-5a3a-81a0-2e0ebb6e6871",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "19b1cde4-101c-520e-91ef-948b8bd64f39",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bd0b7ad-7e84-53a5-afe0-af703673e787",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "032bb804-1412-523f-8846-219c081342c4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f811503-428a-55c5-b14d-d4a4ca632717",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2b2d3abf-d0f2-5c9b-9884-d5578cbdf1e1",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "64d75bff-8f0c-509e-9fe7-d1b7af835c54",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1055b7a3-bf6a-57a7-bce0-247677578f14",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73a96830-0001-5fbf-8a46-01781bd220fa",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen und gib die tiefgekühlten Teigtaschen vorsichtig hinein. Rühre behutsam um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche sie 5-7 Minuten, bis sie an die Oberfläche steigen, und lasse sie dann weitere 2 Minuten garen. Gieße sie anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem kleinen Topf bei mittlerer Hitze und gib getrocknete Chilischoten und Sichuan-Pfefferkörner dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Gewürze 2-3 Minuten, bis sie duften, nimm den Topf vom Herd und rühre gehackten Knoblauch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Sojasauce, Reisessig und Sesamöl zur Chiliölmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die gekochten Teigtaschen in eine Servierschüssel und gieße die warme Chiliölmischung darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit gehackten Frühlingszwiebeln und serviere es sofort heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/APm2bxvhHPw0JF3Z3d6s0wmM54Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__03__20150310-sichuan-wonton-chili-oil-recipe-new-1-b5d267569a64453984160aaa919fe5fc.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/APm2bxvhHPw0JF3Z3d6s0wmM54Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__03__20150310-sichuan-wonton-chili-oil-recipe-new-1-b5d267569a64453984160aaa919fe5fc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-numbing-and-spicy-beef-tendon",
+      "slug": "gen-numbing-and-spicy-beef-tendon",
+      "title": "Betäubend-scharfe Rindersehne",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rindersehne in größeren Mengen bei asiatischen Metzgern, oft zu einem Bruchteil des üblichen Metzgerpreises.",
+        "Dieses Gericht schmeckt aufgewärmt am nächsten Tag sogar noch besser und eignet sich daher gut zum Vorkochen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3366,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-numbing-and-spicy-beef-tendon/",
+      "components": [
+        {
+          "key": "6ee2761c-4f75-544a-abe9-914672e749b3",
+          "name": "Zutaten",
+          "servingGrams": 334.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b18fdd8-ba10-50dc-a8d6-ff36bdceeb9f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "99b53bd2-7e46-513b-a88a-bde388537486",
+              "ingredientName": "Ganze Nelken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "84e639a8-9c97-5795-99cc-f05283388648",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 50,
+              "quantity": 50,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3fe5ef2-f4e0-598e-9fc6-f28e582e64b3",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47fe1947-ff1b-5cc9-82bc-740ab4d648fc",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "844eb4e5-ef89-5ab9-be8e-4f0c8f315d27",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "860f3855-9f3b-5419-aed2-56c86eb53f71",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "26b5b58d-e109-5054-aa6d-3317c491da37",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "910471fe-3534-5091-b360-aae1ce7cb428",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "228c43d5-cb13-5b3a-a724-f7a2dc47e067",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "092974e5-31c5-55bf-9803-ac2e92180e03",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere die Rindersehne 3 Minuten in kochendem Wasser, gieße sie ab und spüle sie gründlich mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf bei starker Hitze und röste Sichuan-Pfefferkörner, getrocknete Chilischoten und Sternanis 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer dazu und brate alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Rindersehnenstücke dazu und gare sie 3 Minuten unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Sojasauce und Hühnerbrühe dazu und bringe alles zum Kochen. Reduziere die Hitze, decke den Topf ab und lasse alles 1.5 hours köcheln, bis die Sehne sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Prüfe mit einer Gabel, ob das Fleisch zart ist; es sollte sich leicht zerzupfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle das Gericht mit Sesamöl, garniere es mit Frühlingszwiebeln und serviere es heiß in Schalen mit Kochsud.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.simplechinesefood.com/7c/7c10d968aec31aee303aacb622eccc48.jpg",
+          "sourcePageUrl": "https://img.simplechinesefood.com/7c/7c10d968aec31aee303aacb622eccc48.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sichuan-wontons-in-chili-oil",
+      "slug": "gen-sichuan-wontons-in-chili-oil",
+      "title": "Sichuan-Wontons in Chiliöl",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Wontons in größeren Mengen in asiatischen Lebensmittelgeschäften, um den besten Preis zu bekommen.",
+        "Bereite das Chiliöl im Voraus zu und erwärme es zum Servieren vorsichtig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3367,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sichuan-wontons-in-chili-oil/",
+      "components": [
+        {
+          "key": "77a45f9c-c210-5e5e-acc3-31d952041f19",
+          "name": "Zutaten",
+          "servingGrams": 353.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e0d9ea1-9f62-54db-9258-064e3825f08e",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "603eb5a2-7b82-5f23-8ce5-56d231b95573",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "70fb24d8-d8c6-531a-a70f-b60f361b27cf",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9408a51a-08e8-5ef5-9ff0-436921fab20d",
+              "ingredientName": "Ganze Nelken",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "d47af566-911b-56e2-997c-8c565017cc73",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eea83f8c-bbe9-5140-ba7c-d4c3df848307",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "dcf911db-0e81-58f2-9d97-fb6f26108963",
+              "ingredientName": "Reisessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "3bc9091d-a142-5052-9e76-cc51d3eb89ca",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "f5dcf8c2-662f-5d73-b690-b98f659f26a5",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddf744a8-b69e-5d36-b4e4-c33828da75a6",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "f283995f-75bd-5e85-bb64-3e173ec66c22",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen und gib die tiefgekühlten Wontons vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre behutsam um und koche sie 4-5 Minuten, bis sie an die Oberfläche steigen. Koche sie dann noch 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Wontons ab und stelle sie in einer Servierschüssel beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem kleinen Topf bei mittlerer Hitze und gib getrocknete Chilischoten und Sichuan-Pfefferkörner dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Gewürze 2 Minuten, bis sie duften. Nimm den Topf vom Herd und rühre gehackten Knoblauch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Sojasauce, Reisessig und Sesamöl zur Chiliölmischung und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße das warme Chiliöl über die Wontons und garniere sie vor dem Servieren mit Frühlingszwiebeln und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/vReNBlHyf_zUvNHvvKvZqmaw9-g=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__03__20150310-sichuan-wonton-chili-oil-recipe-new-1-b5d267569a64453984160aaa919fe5fc.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/vReNBlHyf_zUvNHvvKvZqmaw9-g=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__03__20150310-sichuan-wonton-chili-oil-recipe-new-1-b5d267569a64453984160aaa919fe5fc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spicy-bean-sprouts",
+      "slug": "gen-spicy-bean-sprouts",
+      "title": "Scharfe Sojasprossen",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sojasprossen sind sehr preiswert und schnell gar. Damit ist dies eines der günstigsten Gerichte.",
+        "Das Rezept gelingt mit jeder Sprossenart, die in deinem Lebensmittelgeschäft erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "Sichuan",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3368,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spicy-bean-sprouts/",
+      "components": [
+        {
+          "key": "e62a6809-3097-5803-a935-da9e989b6852",
+          "name": "Zutaten",
+          "servingGrams": 94,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac90edd2-983c-5597-90b6-234e341d6085",
+              "ingredientName": "Sojasprossen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f5b96198-5ae2-52cf-8cf3-1c1b70569259",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4af6dbbf-3bab-5c93-970c-968b0fd349ae",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d6f3625-9edd-54d6-ade3-348badc7da3b",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6b00691a-71c9-59c9-a4ed-1fd71863eb96",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07941176-52f1-548c-9390-e2c51bc5822a",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9439f308-d5f4-53cd-949b-0bd51581cb0b",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "533c1255-0f46-51fe-9234-5d2cc8066ee2",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "01e438ec-88e8-5e5c-a84f-d6d0c5a2c93e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Sojasprossen ab und lasse sie in einem Sieb gründlich abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Wok oder einer Pfanne bei starker Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib getrocknete Chilischoten und Sichuan-Pfefferkörner dazu und röste sie 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch dazu und brate ihn 30 Sekunden unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Sojasprossen dazu und brate sie 3-4 Minuten unter kräftigem Rühren, bis sie durchgewärmt, aber noch knackig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Sojasauce, Reisessig und Sesamöl dazu und schwenke alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte das Gericht auf einer Servierplatte an, garniere es mit Frühlingszwiebeln und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2020/07/Bean-Sprout-Salad-SpendWithPennies-2.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2020/07/Bean-Sprout-Salad-SpendWithPennies-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chongqing-squid",
+      "slug": "gen-chongqing-squid",
+      "title": "Chongqing-Tintenfisch",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Tintenfischringe statt frischer Ware, um Geld und Vorbereitungszeit zu sparen.",
+        "Brate den Tintenfisch bei hoher Hitze kurz, damit er zart bleibt; zu langes Garen macht ihn zäh."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3369,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chongqing-squid/",
+      "components": [
+        {
+          "key": "83ab4a36-199a-55f9-acf0-f9dda8788e11",
+          "name": "Zutaten",
+          "servingGrams": 117.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "4db2f7f9-3d17-5ab5-88b7-eaa78fb76d77",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "79305525-f744-51cf-9b4e-f4fc831f2155",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "102785f0-3b79-575d-b29a-d41183647a41",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52c0fd21-8f5e-5f30-8c9d-a342db915571",
+              "ingredientName": "Ganze Nelken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "66cc889a-22b1-53cb-907f-5e42532e073d",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e86f4c50-fbf2-5863-9f76-16e979e371d0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "da30691a-76ba-52a1-9765-254fba83567b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a8fb7c64-ca9b-55f6-947b-421b5624be11",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1a7c0b3a-42e5-5095-a500-fe5fbf7af627",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67bc4bae-5ade-5b6f-a93e-da50aa416f93",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe tiefgekühlte Tintenfischringe mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Wok bei starker Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib getrocknete Chilischoten und Sichuan-Pfefferkörner dazu und röste sie 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und Ingwer dazu und brate alles 30 Sekunden unter Rühren, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Tintenfischringe portionsweise hinein und gare jede Portion 2-3 Minuten, bis sie undurchsichtig und leicht fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den gesamten Tintenfisch zurück in den Wok, füge Sojasauce und Reisessig hinzu und schwenke alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle das Gericht in eine Servierschüssel, garniere es mit Frühlingszwiebeln und Sesam und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/07/Jianghu-Cai-768x544.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/07/Jianghu-Cai-768x544.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

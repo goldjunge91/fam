@@ -1,0 +1,911 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-loaded-five-guys-fries",
+      "slug": "gen-loaded-five-guys-fries",
+      "title": "Überbackene Five-Guys-Pommes",
+      "instructions": "Amerikanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Hackfleisch in großen Mengen zu und friere es portionsweise ein, um Geld zu sparen.",
+        "Verwende amerikanischen Käse der Hausmarke statt einer Premiummarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "amerikanisch",
+        "snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5295,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loaded-five-guys-fries/",
+      "components": [
+        {
+          "key": "86455991-4eb8-5f42-9664-705c25417ebc",
+          "name": "Zutaten",
+          "servingGrams": 187.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4f6c976-219c-5bdc-891c-fc95d28a10ca",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d470f691-f22b-5770-b4d7-1f5ae9cbecd0",
+              "ingredientName": "Olivenöl",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "4f371f44-2412-574d-99d3-5fb21981930b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "633ff10f-0a7f-59fb-a18e-fd6d9991a734",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6802c58a-7410-5e6c-915b-08c2d8d6a787",
+              "ingredientName": "Amerikanische Käsescheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "583d7b65-56ff-5610-b206-299162c5b88e",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "e83f25ab-8e33-5c18-8bb7-b116b2cada97",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3d388459-11f2-597f-94ba-c5ea551ba89c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e1b3bfb9-8c8a-5c6c-bcf0-3b2a7a243638",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in dicke Steak-Pommes schneiden und 15 Minuten in kaltem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln mit Küchenpapier vollständig trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem tiefen Topf auf 325°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pommes 5 Minuten frittieren, herausnehmen und 5 Minuten abkühlen lassen. Dann weitere 8-10 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf Küchenpapier abtropfen lassen und mit Salz und Cajun-Gewürz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pommes in einer Servierschale anrichten und mit amerikanischen Käsescheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zerbröseltes Hackfleisch, Speckstückchen, gebratene Zwiebeln und einen Klecks Mayonnaise dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit zusätzlichen Servietten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://media.fiveguys.com/uk/2025/12/FIVE_GUYS_Loaded-fries_regular-scaled.jpg",
+          "sourcePageUrl": "https://media.fiveguys.com/uk/2025/12/FIVE_GUYS_Loaded-fries_regular-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-monte-cristo",
+      "slug": "gen-monte-cristo",
+      "title": "Monte Cristo",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Aufschnitt der Hausmarke statt einer Premiummarke.",
+        "Kaufe Brot vom Vortag in der Bäckereiabteilung mit 50% Rabatt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5296,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-monte-cristo/",
+      "components": [
+        {
+          "key": "91bd998e-e702-5ef8-a0ec-41de63b80964",
+          "name": "Zutaten",
+          "servingGrams": 371.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "652a00d5-faad-5056-b6f8-cbd7dc3eaef4",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "6bcccfb3-a695-522a-b332-78697161d953",
+              "ingredientName": "Putenaufschnitt",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "276e8489-1bde-566e-a9df-d1ad76be1bab",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "ee4225fb-22b9-527d-8ebc-8b91f59559c6",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e028f2d-6f35-56fe-a844-047bb21a032f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "b3d866da-416e-5f50-9966-e6b981919696",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "37c57997-c33a-507c-b220-297a44aa1f6b",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6544bbdb-7bf7-5e5a-9f0b-1a27f280b70c",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pute, Schinken und Schweizer Käse zwischen zwei Brotscheiben schichten und so zwei Sandwiches zubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier und Milch in einer flachen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jedes Sandwich in die Eiermischung tauchen und beide Seiten gleichmäßig damit überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sandwiches in die heiße Pfanne legen und 4-5 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sandwiches vorsichtig wenden und die andere Seite weitere 3-4 Minuten goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf ein Schneidebrett legen und mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Diagonal durchschneiden und mit warmer Erdbeermarmelade zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/02/22/multimedia/LH-monte-cristo-zhjg/LH-monte-cristo-zhjg-threeByTwoMediumAt2X.jpg?quality=75&auto=webp",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/02/22/multimedia/LH-monte-cristo-zhjg/LH-monte-cristo-zhjg-threeByTwoMediumAt2X.jpg?quality=75&auto=webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hallumi-saganaki",
+      "slug": "gen-hallumi-saganaki",
+      "title": "Halloumi-Saganaki",
+      "instructions": "Griechischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Halloumi in Großmärkten wie Costco zu einem günstigeren Preis.",
+        "Verwende Zitronensaft aus der Flasche statt frischer Zitronen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "high-protein",
+        "griechisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5297,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hallumi-saganaki/",
+      "components": [
+        {
+          "key": "92aa0cfe-7bb9-5d90-9cb6-b2489d7f0515",
+          "name": "Zutaten",
+          "servingGrams": 209.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f91ee83-84e8-5db6-9d67-53156eec4195",
+              "ingredientName": "Halloumi",
+              "grams": 113.4,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "84754aac-3096-5ead-b730-e8f9ba12f9fc",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "975d9eaa-1a92-5e27-aed0-302222a6f220",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "343c7c8b-8fcc-57f5-b34c-dd1ba0622500",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6589c2b-4055-519c-bb57-881d2560ea90",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ee69add4-1800-52af-bbbb-319b87b6429d",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "919fb578-def9-5d39-80c9-bd943a83c942",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "98020fba-b913-5829-83a0-76460495dea3",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.125 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halloumi in Scheiben von 0.5-inch Dicke schneiden, insgesamt ungefähr 8 Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl in eine flache Schüssel geben und jede Käsescheibe auf beiden Seiten leicht darin wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pflanzenöl in einer Pfanne bei mittlerer bis hoher Hitze auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Käsescheiben vorsichtig in das heiße Öl geben und pro Seite 1-2 Minuten goldbraun braten, bis sie leicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einer Schaumkelle aus dem Öl heben und auf einem mit Küchenpapier ausgelegten Teller ablegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Honig beträufeln und frischen Zitronensaft über den warmen Käse pressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Oregano, Meersalz und schwarzem Pfeffer bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort warm servieren, solange die Außenseite noch leicht knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/05/05/multimedia/-NB-Crispy-Halloumi-Tomatoes-and-White2-hmvk-copy-nl/-NB-Crispy-Halloumi-Tomatoes-and-White2-hmvk-superJumbo.jpg?quality=75&auto=webp",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/05/05/multimedia/-NB-Crispy-Halloumi-Tomatoes-and-White2-hmvk-copy-nl/-NB-Crispy-Halloumi-Tomatoes-and-White2-hmvk-superJumbo.jpg?quality=75&auto=webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fairlife-core-power-shake",
+      "slug": "gen-fairlife-core-power-shake",
+      "title": "Fairlife-Core-Power-Shake",
+      "instructions": "Amerikanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mehrfachpackungen im Großmarkt und spare pro Flasche.",
+        "Lass Zusätze weg und trinke den Shake direkt aus der Flasche, ganz ohne Zubereitungskosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "amerikanisch",
+        "snack"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5298,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fairlife-core-power-shake/",
+      "components": [
+        {
+          "key": "deaf3c56-d86f-57f6-9329-4b3a7cc89894",
+          "name": "Zutaten",
+          "servingGrams": 190,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5d3ff88-2924-5790-8673-8ebb4c614671",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "11.5 Unzen (1 Flasche)"
+            },
+            {
+              "key": "32e38a1e-ce4f-58fb-a896-63a4dec192f0",
+              "ingredientName": "Eiscreme",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b9fdee44-3c83-51f9-8c62-7e692e6e664b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fairlife-Core-Power-Milch in einen Mixer gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eiswürfel dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vanillewaffeln zerbröseln und in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei mittlerer Geschwindigkeit 30 Sekunden mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort in einem Glas servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i5.walmartimages.com/seo/4-pack-Core-Power-Protein-Shake-with-26g-Protein-by-fairlife-Milk-Vanilla-14-fl-oz_79f5a0d2-1754-4cb7-8678-959b090ef4de.51fdf61ac90deefcd0b040c1d0ef4d1b.jpeg",
+          "sourcePageUrl": "https://i5.walmartimages.com/seo/4-pack-Core-Power-Protein-Shake-with-26g-Protein-by-fairlife-Milk-Vanilla-14-fl-oz_79f5a0d2-1754-4cb7-8678-959b090ef4de.51fdf61ac90deefcd0b040c1d0ef4d1b.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eas-advantedge-carb-control-shake",
+      "slug": "gen-eas-advantedge-carb-control-shake",
+      "title": "EAS-AdvantEdge-Carb-Control-Shake",
+      "instructions": "Amerikanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vergleiche die Preise verschiedener Händler, um günstige Großpackungen Pulver zu finden.",
+        "Verwende Leitungswasser statt Wasser in Flaschen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "high-protein",
+        "gluten-free",
+        "dairy-free",
+        "amerikanisch",
+        "snack"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5299,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eas-advantedge-carb-control-shake/",
+      "components": [
+        {
+          "key": "bc71c000-927c-5d6b-b616-ceb050fdc819",
+          "name": "Zutaten",
+          "servingGrams": 252.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bb9bd76-c56f-52d9-b873-60a5a2b08b35",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Messlöffel (35g)"
+            },
+            {
+              "key": "e8a54b6a-57a3-52cb-89de-06110b8521f8",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "eaae619f-fc4f-5d69-8361-52c6e7d65b8c",
+              "ingredientName": "Eiscreme",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "76c71d08-291b-5bb6-8ce9-fce7d3c9c2c4",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser und Eiswürfel in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen Messlöffel EAS-AdvantEdge-Pulver hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kakaopulver für einen intensiveren Schokoladengeschmack darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "45 Sekunden auf hoher Stufe mixen, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In ein Glas gießen und sofort genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/www.freestufftimes.com/whatigot/wp-content/uploads/2017/06/Drink.jpg?w=2000",
+          "sourcePageUrl": "https://i0.wp.com/www.freestufftimes.com/whatigot/wp-content/uploads/2017/06/Drink.jpg?w=2000",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

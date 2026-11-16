@@ -1,0 +1,1132 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chiles-poblanos-rellenos-de-queso",
+      "slug": "gen-chiles-poblanos-rellenos-de-queso",
+      "title": "Mit Käse gefüllte Poblano-Chilis",
+      "instructions": "Mexikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende frischen Mozzarella statt Oaxaca-Käse und spare deutlich",
+        "Bereite Tomatensoße im Voraus zu, um Stress beim Kochen kurz vor dem Essen zu verringern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2425,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chiles-poblanos-rellenos-de-queso/",
+      "components": [
+        {
+          "key": "e395915f-5a8f-5e6d-8fca-47aed8073a0e",
+          "name": "Zutaten",
+          "servingGrams": 778.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf24c64b-28b7-5d9e-8aea-00175f7aad56",
+              "ingredientName": "geröstete rote Paprika (aus dem Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "5e621931-cb42-5303-b2b5-f1ec1d764069",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "a9cef19f-9452-54c5-b4be-b6a6fe00c085",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d16d8801-7e51-594e-9964-bd34eccdea03",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2dbf1fe3-d7a1-53b2-855b-22f67b4409de",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen)"
+            },
+            {
+              "key": "71bd349a-806b-55a6-9554-13902dcee27c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5568145-1a44-5a61-a0cb-aaa3115a7010",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "334d7737-ec65-587f-b623-cc1d3e716344",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7b65423b-3397-5fb3-b475-25459421a3ee",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b89926ea-ca0c-59b9-b4da-343f698427b6",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Poblano-Chilis direkt über einer Gasflamme oder unter dem Ofengrill etwa 8 Minuten, bis sie rundum schwarz sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die gerösteten Chilis 5 Minuten in einen Plastikbeutel, damit sie im Dampf ruhen. Ziehe dann vorsichtig die schwarze Haut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide jede Chili seitlich ein und entferne vorsichtig die Kerne, ohne die Chili einzureißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle jede Chili mit einer Scheibe Oaxaca-Käse und klappe die Öffnung zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage Eiweiß steif und hebe dann vorsichtig das Eigelb unter, sodass ein luftiger Eischnee entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende die gefüllten Chilis in Mehl, tauche sie in den Eischnee und frittiere sie in heißem Öl etwa 4 Minuten insgesamt, bis beide Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse Tomaten mit angeschwitzter Zwiebel und Knoblauch 10 Minuten köcheln, um eine Soße zuzubereiten. Mit Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße warme Soße auf Teller, lege eine frittierte Poblano-Chili darauf und serviere sie mit Koriander und zusätzlicher Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/95/0d/20/950d20b2b1b32588bba84e12aa969f18.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/95/0d/20/950d20b2b1b32588bba84e12aa969f18.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quesadillas",
+      "slug": "gen-quesadillas",
+      "title": "Quesadillas",
+      "instructions": "Mexikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Käse von einer Hausmarke und fertiges Brathähnchen oder Rinderhackfleisch",
+        "Gib gegartes Gemüse vom Vortag hinzu, um die Füllung zu strecken und Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2426,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quesadillas/",
+      "components": [
+        {
+          "key": "2ee4a2e2-3bf8-584e-ba34-fac7e149cdb3",
+          "name": "Zutaten",
+          "servingGrams": 386.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b24bd179-4e2c-5c75-95cc-1194a792d4bf",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "f768ea71-2b07-5043-888f-85e87dde8fb1",
+              "ingredientName": "geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "98016306-3dd1-5896-a70f-0f7e7f7ce851",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "d142fadf-d750-59f0-967a-be0442e2cfbf",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "5507031b-2d2c-5e9d-8d03-4e35c4f7513d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec10d6ac-8ecf-5661-b7b0-b7d4e444239e",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ebf51de-014a-5150-adcd-4d515606f270",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b5b16236-1ee4-5aa8-b76d-4e3340d5f92d",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f007bbbc-0bc0-58d6-846f-88dbe615e029",
+              "ingredientName": "Salsa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d4a49d42-aab3-5feb-a93c-6a1d40607f6e",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 0.5 tbsp Butter in einer großen Pfanne bei mittlerer bis hoher Hitze. Gare gewürfelte Zwiebel und Paprika 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gegartes, gezupftes Hähnchen oder Rinderhackfleisch sowie geschnittene Jalapeños hinzu und erhitze alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine Tortilla flach auf die Arbeitsfläche und verteile Käse auf einer Hälfte. Gib einen Löffel der Fleischmischung darauf und klappe die Tortilla in der Mitte zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wiederhole dies mit den übrigen Tortillas und der Füllung, um 4 Quesadillas zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische die Pfanne aus und gib die restliche Butter bei mittlerer bis hoher Hitze hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Quesadillas einzeln oder zu zweit 2-3 Minuten pro Seite goldbraun, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit saurer Sahne, Salsa und frischem Koriander als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chungking-chicken",
+      "slug": "gen-chungking-chicken",
+      "title": "Chongqing-Hähnchen",
+      "instructions": "Sichuan-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen und schneide es selbst zu, statt vorgeschnittene Brust zu kaufen",
+        "Getrocknete Chilis gibt es in asiatischen Märkten häufig günstiger in Großpackungen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sichuan",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2427,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chungking-chicken/",
+      "components": [
+        {
+          "key": "bcf92bef-059a-5538-b37d-eec886d86910",
+          "name": "Zutaten",
+          "servingGrams": 122.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "5108e345-373a-51f0-bd4b-36a550983374",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3c3ce339-f26a-529f-9a1f-cdb40248880f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "cfa6731a-bf0a-539b-a3ec-2c88187ce7a5",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0aaf0994-0f2a-55dc-805d-027a2bd89a11",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2842b84-f2ef-5fdd-b025-6082a23c9d22",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "258aa3cd-49a3-5320-ae51-87c3f20e8bb1",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0bad462b-3c52-59af-8447-170d002e632b",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e92fa336-20bc-526a-bd80-2da4d6a9b03b",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "533c20b5-e793-5376-a32f-cccfc14c0a3b",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b59bb0f6-a0e7-51fb-b7cc-caf45e6e93d6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6563f669-090f-58be-907d-81cc38c3fdac",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c469c811-78ef-5d25-a29e-6f92b869cc1c",
+              "ingredientName": "ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Würfel und vermenge sie mit 1 Esslöffel Maisstärke und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffels Öl in einem Wok oder einer großen Pfanne bei mittlerer bis hoher Hitze. Brate das Hähnchen unter Rühren etwa 5-7 Minuten goldbraun. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl hinzu und brate getrocknete Chilis, Knoblauch, Ingwer und Sichuan-Pfefferkörner 1-2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Sojasoße, Essig, Zucker, 1 Esslöffel Maisstärke und Wasser in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in den Wok und gieße die Soße darüber. Rühre 2-3 Minuten ständig, bis die Soße eindickt und das Hähnchen überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle das Gericht mit Sesamöl, wende es nochmals und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishar.com/wp-content/uploads/2015/07/2015-07-11-17-49-48_deco-1080x810.jpg",
+          "sourcePageUrl": "https://delishar.com/wp-content/uploads/2015/07/2015-07-11-17-49-48_deco-1080x810.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lanzhou-beef-noodles",
+      "slug": "gen-lanzhou-beef-noodles",
+      "title": "Lanzhou-Rindernudeln",
+      "instructions": "Gansu-Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter aus dem Großpackungsangebot für Fleisch; sie ist oft günstiger pro Pfund",
+        "Bereite zusätzliche Brühe zu und friere sie für spätere Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "gansu",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2428,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lanzhou-beef-noodles/",
+      "components": [
+        {
+          "key": "476fb65c-7d8b-555c-bc3c-3d16dbe4d291",
+          "name": "Zutaten",
+          "servingGrams": 952.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b9cbaef-cd06-57a9-89ca-16b184ebf05a",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9a27a746-24a7-59ee-937d-0f38e7e8e18a",
+              "ingredientName": "getrocknete Chili",
+              "grams": 30,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c98ef67-bc83-57bb-8cd5-e9ff47221b0d",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1da50de9-bbe2-54c8-910c-3534b25dfb90",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd0012dd-b28f-551f-a03c-2a81905cdbee",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "139c2ccd-765d-5b82-8247-bf8db50a1ceb",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "80e47d35-7f5c-545b-a9b7-a79cfd499b6f",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "c509e29e-4370-55c7-9d22-d6dd216bd107",
+              "ingredientName": "frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "3b00a564-accd-5a93-b4a7-cffab8388b7b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab52b2e5-9f4c-5cf7-b5d5-7f30706d59b1",
+              "ingredientName": "Glasnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "6fa0dee7-71e1-50d3-be7e-eb675d8d001d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "243f2b74-964b-5a77-9b95-1808ddc7e1ec",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere das Rindfleisch 2 Minuten in kochendem Wasser. Gieße es ab und spüle es mit kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und röste Sternanis, Zimt, getrocknete Chilis und Lorbeerblatt 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib blanchiertes Rindfleisch, Ingwer und Knoblauch dazu und rühre 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße 6 cups Wasser und 3 Esslöffel Sojasoße dazu. Bringe alles zum Kochen, reduziere die Hitze und lasse es zugedeckt 60 Minuten köcheln, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Weizennudeln nach Packungsanweisung in kochendem Salzwasser und lasse sie gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Nudeln auf Schüsseln, schöpfe heiße Rinderbrühe und Fleisch darüber und garniere mit Frühlingszwiebeln und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2016/12/lanzhou-beef-noodles-34-copy.jpg",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2016/12/lanzhou-beef-noodles-34-copy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mapo-doufu-with-minced-pork",
+      "slug": "gen-mapo-doufu-with-minced-pork",
+      "title": "Mapo Doufu mit Schweinehackfleisch",
+      "instructions": "Sichuan-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu lose oder auf asiatischen Märkten, dort ist er günstiger",
+        "Doubanjiang ist preiswert und hält sich monatelang im Kühlschrank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sichuan",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2429,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mapo-doufu-with-minced-pork/",
+      "components": [
+        {
+          "key": "ac493197-fd95-5d6d-9ef0-802fc3cf5ba8",
+          "name": "Zutaten",
+          "servingGrams": 108.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "e241118c-648a-587d-a3ae-0a85d84528f9",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "e1fbecc5-3f58-5652-b205-5801e3f98930",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "218289ba-c2e8-5d8f-96cd-c39924fe8f1a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e43b8111-c8d7-53ee-a154-e667c74582f0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "45e08df0-36d3-5dc7-bf03-ba438e85b063",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "df00f4c4-3146-5a7e-9425-6ed6e400ffc9",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3148200a-0011-58ca-a04e-e266311cf963",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "92303201-ca28-559f-a399-aa367b2423ba",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "60f3d6a3-e780-5fac-8839-4405529cf8ca",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "629bdb08-473d-5232-9eda-e45eac4676db",
+              "ingredientName": "ganze Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "c67cbf2e-2bf7-5724-9c1b-9d7eb111c41e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide festen Tofu in 3/4-inch große Würfel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze. Bräune das Schweinehackfleisch unter Zerteilen etwa 3-4 Minuten. Gieße bei Bedarf überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, Ingwer und Chilipaste zum Schweinefleisch und brate alles 1 Minute unter Rühren an, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Wasser und Sojasoße hinein. Gib vorsichtig die Tofuwürfel dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Maisstärke mit 2 tablespoons kaltem Wasser und rühre die Mischung zum Andicken in die Soße. Das dauert etwa 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit gemahlenen Sichuan-Pfefferkörnern, bestreue das Gericht mit Frühlingszwiebeln und serviere es sofort auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/FKl5-7RJbqJFS4QOCZlhDqn02Ew=/1365x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mapo-Tofu-LEAD-07-a82396343dcf463ca69cbf03cc39b4f9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/FKl5-7RJbqJFS4QOCZlhDqn02Ew=/1365x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mapo-Tofu-LEAD-07-a82396343dcf463ca69cbf03cc39b4f9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

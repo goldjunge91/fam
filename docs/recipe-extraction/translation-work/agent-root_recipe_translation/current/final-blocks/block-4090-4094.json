@@ -1,0 +1,1027 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chimichurri",
+      "slug": "gen-chimichurri",
+      "title": "Chimichurri",
+      "instructions": "Argentinische Kräutersoße zu Fleisch und Gemüse, frisch und würzig.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende glatte Petersilie, wenn Koriander teuer oder nicht erhältlich ist.",
+        "Kaufe Kräuter in größeren Mengen und friere sie mit Olivenöl in Eiswürfelformen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "argentinisch",
+        "Abendessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4090,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chimichurri/",
+      "components": [
+        {
+          "key": "036175ea-25f2-556b-8de9-d37a8bca44ce",
+          "name": "Zutaten",
+          "servingGrams": 29.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e40961f-137d-5c50-8238-6e08f3babda8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse, fest eingedrückt"
+            },
+            {
+              "key": "b8765f8b-b9be-5d89-8dbb-89d63f019de3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse, fest eingedrückt"
+            },
+            {
+              "key": "2cbf1038-d01d-52ef-acdb-e1cd3266cdf5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "0ce66478-e931-5c75-93a7-a57ca2ecf129",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "985dcfb2-19a2-5763-9e20-db6d735297a5",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "d5eb7b3f-d638-5d5f-b4fd-3507bcb28001",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "30e3b50d-75d5-5cf4-95f7-138779013c21",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bff8a6c5-3edf-5b2d-816d-ed54b3632f9b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "833d421c-e440-5131-bcd6-776910f2b5bb",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Petersilie und Koriander fein oder zerkleinere sie in einer Küchenmaschine grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Kräuter in eine Schüssel und rühre den gehackten Knoblauch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Rotweinessig, Olivenöl, Chiliflocken, Salz, schwarzen Pfeffer und Oregano darunter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Soße mindestens 5 Minuten stehen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Probiere und passe die Würzung nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Soße in eine Schale und träufle nach Wunsch zusätzliches Olivenöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/59cc19e11b059d259a4ffeb1/1:1/w_2560%2Cc_limit/chimichurri-sauce-2.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/59cc19e11b059d259a4ffeb1/1:1/w_2560%2Cc_limit/chimichurri-sauce-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Chimichurri",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-medialunas",
+      "slug": "gen-medialunas",
+      "title": "Medialunas",
+      "instructions": "Argentinische, halbmondförmige Frühstückshörnchen aus touriertem Hefeteig.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die doppelte Menge zu und friere die ungebackenen Hörnchen ein. Backe sie direkt gefroren und verlängere die Backzeit um 5 Minuten.",
+        "Bereite den tourierten Teig am Vortag zu und lasse ihn über Nacht kalt gehen, um die aktive Arbeitszeit zu verkürzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "argentinisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4091,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-medialunas/",
+      "components": [
+        {
+          "key": "272bf25a-f126-5094-9f87-12c58c970c73",
+          "name": "Zutaten",
+          "servingGrams": 208.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f51ba9f-c750-5e61-ad2b-7bab2100f669",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "e5201c3f-34f3-501e-a552-bf62fd5f9309",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "d4812adf-50a3-539c-9e31-a90b218dbfeb",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9fcafbc3-23ea-5d22-93fa-ea3f6c5edfbf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3c923b3e-cb7d-5b3b-997d-b43bbab84eb3",
+              "ingredientName": "Instanthefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "ea4d984c-122a-56f1-b001-69aef8f46755",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund, kalt"
+            },
+            {
+              "key": "b2c910bd-3234-50c2-9113-9bb7b41fc964",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b57b56c-406c-5ac5-9871-79227cb02496",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Zucker und Salz in einer Schüssel. Drücke eine Mulde hinein und gib Hefe und warmes Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre alles zu einem groben Teig und knete ihn 5 Minuten glatt. Lasse ihn 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle den Teig zu einem Rechteck von 12x6 Zoll aus. Schneide die kalte Butter in dünne Scheiben und verteile sie über 2/3 des Teigs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falte den Teig wie einen Brief in drei Teile, drehe ihn um 90 Grad und rolle ihn erneut zu einem Rechteck von 12x6 aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wiederhole das Belegen mit Butter und Falten noch 5 Mal und lasse den Teig zwischen den Faltungen jeweils 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den Teig zum Schluss 1/8 Zoll dick aus und schneide ihn in 3-Zoll-Quadrate. Rolle jede Ecke zur Mitte, sodass Hörnchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Hörnchen auf Backpapier, decke sie ab und lasse sie 1.5 Stunden gehen, bis sie doppelt so groß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verrühre Eigelb und Milch und bestreiche das Gebäck damit. Backe es bei 400°F (200°C) 15-18 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/BY_6d54kGfl2eu3x1AIHGApOkDo=/4125x5500/filters:fill(auto,1)/close-up-of-croissants-on-tray-149317551-5890c9c05f9b5874ee5b4f4a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/BY_6d54kGfl2eu3x1AIHGApOkDo=/4125x5500/filters:fill(auto,1)/close-up-of-croissants-on-tray-149317551-5890c9c05f9b5874ee5b4f4a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Medialunas",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-facturas",
+      "slug": "gen-facturas",
+      "title": "Facturas",
+      "instructions": "Argentinisches süßes Plundergebäck, das in verschiedenen Formen gefüllt oder bestrichen serviert wird.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Dulce de Leche in größeren Mengen online; argentinische Marken sind günstiger als Spezialitätengeschäfte.",
+        "Friere ungebackene Facturas bis zu 2 weeks ein. Backe sie direkt gefroren und gib 5 Minuten zur Backzeit hinzu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "argentinisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4092,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-facturas/",
+      "components": [
+        {
+          "key": "768bcd00-8177-58cc-9fe6-0ec55bde118d",
+          "name": "Zutaten",
+          "servingGrams": 171.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "5471fa50-a1ee-55a8-aadc-9fbd8c1c37cd",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "370789ac-f9ab-5e7f-aa15-935c94c48d76",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "8fe08e09-64b4-5dc7-adac-227058754865",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "892fdcfd-c53b-5971-ab29-d532c122331c",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "2bc383e4-258f-5d9e-9840-461526644c11",
+              "ingredientName": "Instanthefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "e4592f36-e75b-54a5-b1e4-60292f91818e",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "12 Unzen, kalt"
+            },
+            {
+              "key": "916ae234-4b73-5570-b65b-8f7fb8206f46",
+              "ingredientName": "Dulce de leche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "266ac3d5-8df3-5c60-89ca-7d4155f1e86d",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d22632e1-58e4-5a5c-b9e2-ed513ae74721",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Stück, verquirlt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Zucker, Salz und Hefe in einer Schüssel. Gib warmes Wasser hinzu und rühre zu einem groben Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig 5 Minuten, wickle ihn in Frischhaltefolie und stelle ihn 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle den kalten Teig zu einem Rechteck von 10x8 Zoll aus. Schneide kalte Butter in dünne Stücke und verteile sie über 2/3 des Teigs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falte den Teig wie einen Brief in drei Teile, drehe ihn um 90 Grad und rolle ihn zu 10x8 Zoll aus. Wiederhole Falten und Ausrollen noch 4 Mal und lasse ihn zwischen den Faltungen jeweils 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle den Teig nach der letzten Faltung 30 Minuten kalt und rolle ihn dann 1/8 Zoll dick aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide Rechtecke von 4x3 Zoll aus. Gib jeweils 1 EL Dulce de Leche in die Mitte und falte den Teig in drei Teile.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Facturas auf Backpapier, decke sie ab und lasse sie 1.5 Stunden gehen, bis sie luftig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verquirle Ei mit Wasser und bestreiche das Gebäck. Backe es bei 400°F (200°C) 18-20 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bestäube das warme Gebäck mit Puderzucker und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/36/8d/0f/368d0f1a3531fb188218bfdd9a2fc3f6.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/36/8d/0f/368d0f1a3531fb188218bfdd9a2fc3f6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Facturas",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-patacones",
+      "slug": "gen-patacones",
+      "title": "Patacones",
+      "instructions": "Knusprige, doppelt frittierte Kochbananen aus Kolumbien, als Snack oder Beilage serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kochbananen in größeren Mengen auf lateinamerikanischen Märkten, wenn sie im Angebot sind.",
+        "Verwende das Öl für mehrere Portionen wieder, um Abfall zu vermeiden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "kolumbianisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4093,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-patacones/",
+      "components": [
+        {
+          "key": "d3786f1b-6620-5b1a-a87f-b9327f617c1d",
+          "name": "Zutaten",
+          "servingGrams": 125.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "47cda1b9-a687-55a1-bfee-f483a970e4fc",
+              "ingredientName": "Kochbanane",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "01bddcfa-f0a3-564b-90b4-40a0fbfd745c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "256e8d2d-91cd-54c8-b597-6296fe362325",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fc70d6e5-ce5c-594a-a8cc-070c5ed5b513",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "838708ba-9f18-51c3-8ce6-7a0a17505153",
+              "ingredientName": "Limettensaft hinein Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die grünen Kochbananen: Schneide die Enden ab und ritze die Schale längs ein. Lege sie 5 Minuten in Salzwasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Kochbananen in 1-Zoll dicke Scheiben und tupfe sie vollständig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere die Scheiben 3-4 Minuten pro Seite, bis sie leicht goldgelb sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die Scheiben mit einer Schaumkelle heraus und drücke jede zwischen Frischhaltefolie mit einem schweren Teller oder Glas flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die flach gedrückten Patacones weitere 2-3 Minuten pro Seite, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und salze sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß mit Knoblauch-Limetten-Soße aus gehacktem Knoblauch, Limettensaft und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/FY70IgOMdKBcwrW8GBigC7n1zNQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/plantainlg-56a8a5885f9b58b7d0f3e690.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/FY70IgOMdKBcwrW8GBigC7n1zNQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/plantainlg-56a8a5885f9b58b7d0f3e690.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Patacones",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ceviche-colombiano",
+      "slug": "gen-ceviche-colombiano",
+      "title": "Kolumbianisches Ceviche",
+      "instructions": "Frisches kolumbianisches Fischgericht, bei dem der Fisch in Limettensaft mariniert und mit Gemüse serviert wird.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Weißfisch aus dem Angebot, um Geld zu sparen.",
+        "Kaufe Limetten in der Saison in größeren Mengen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kolumbianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4094,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ceviche-colombiano/",
+      "components": [
+        {
+          "key": "fadd358d-e6a5-51e5-bfac-c65f25e54bdc",
+          "name": "Zutaten",
+          "servingGrams": 286.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f09e2d37-62ff-5231-9f50-97881ae3e632",
+              "ingredientName": "Weiße Bohnen (hinein der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "e64cc23b-eb47-54ea-843e-03494388e7fa",
+              "ingredientName": "Limettensaft hinein Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "244b1882-0e42-5753-bdeb-bcce5b47e5e0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "5eb6dfb7-f896-5442-929e-f9997a08da6d",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51495977-a4f5-58b8-83bb-31c5c9825349",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e76c2535-87e9-5669-9ea0-018eb888c759",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "61ca1093-bcb7-510c-9ee4-044c5320e47a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 rotes Stück"
+            },
+            {
+              "key": "0cf88b50-9ccb-59dd-a5ea-2aeb3e191cac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "754b8708-751f-5d2c-8914-fa8352af2467",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Fisch in 1/2-Zoll große Würfel und gib sie in eine Glasschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Limettensaft darüber, bis der Fisch vollständig bedeckt ist. Stelle ihn 15 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während der Fisch mariniert, würfle die Zwiebel fein und lege sie 5 Minuten in kaltes Wasser, damit sie milder wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle Tomate, Paprika und Jalapeño klein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Zwiebel abtropfen und gib sie nach der Marinierzeit zum Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Gemüse, Koriander, Olivenöl und Salz zum Fisch und hebe alles vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle das Ceviche vor dem Servieren in gekühlten Schalen oder Gläsern mindestens weitere 10 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn0.recetasgratis.net/es/posts/5/4/8/img_47845_ceviche-de-camaron-colombiano_attach_634773_orig.jpg",
+          "sourcePageUrl": "https://cdn0.recetasgratis.net/es/posts/5/4/8/img_47845_ceviche-de-camaron-colombiano_attach_634773_orig.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Kolumbianisches Ceviche",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

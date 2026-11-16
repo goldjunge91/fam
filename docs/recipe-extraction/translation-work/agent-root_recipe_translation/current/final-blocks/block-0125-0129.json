@@ -1,0 +1,875 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-hummus-veggie-pita",
+      "slug": "af-hummus-veggie-pita",
+      "title": "Knusprige Hummus-Gemüse-Pita",
+      "instructions": "Mit Hummus und Gemüse gefüllte Pita, in der Heißluftfritteuse knusprig aufgebacken.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "2 Minuten bei 350°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Ein Becher Hummus (~$3) reicht für 8 Pitas – ideal für Snacks zum Vorbereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pita",
+          "swap": "Tortilla"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Käse (beliebiger)"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 5,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "1 Pita (~$0.50) + 3 EL Hummus (~$0.40) + Gemüsereste = insgesamt unter $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Oliven",
+        "Spinat",
+        "Zitrone"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 125,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-hummus-veggie-pita/",
+      "components": [
+        {
+          "key": "5b57a842-c022-5e55-a883-b72b678cbb43",
+          "name": "Zutaten",
+          "servingGrams": 412.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "46609b26-5554-5b91-840d-09110a33b5f1",
+              "ingredientName": "Pitatasche",
+              "grams": 60,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3a58227-8826-578c-8900-25b736a6e6a8",
+              "ingredientName": "Hummus",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "451978e1-6a67-5c0b-a9a7-88fd192c21bf",
+              "ingredientName": "Gurke",
+              "grams": 75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09d9d9e9-6724-5f63-9210-d2aa441dc4d2",
+              "ingredientName": "Tomate",
+              "grams": 30,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c3630a7-970f-51fb-b385-ead4bde27b85",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5dc4682d-821b-5411-90cf-fd470aae02b8",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Pita auf, um die Tasche zu öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verstreiche Hummus darin und gib gewürfelte Gurke, Tomate und Feta dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Außenseite mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Pita bei 380°F 5 Minuten in der Heißluftfritteuse und wende sie nach 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide sie in zwei Hälften und iss sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Falafel_in_a_pita.jpg/500px-Falafel_in_a_pita.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Falafel_in_a_pita.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Dana Friedlander (Israeli Ministry of Tourism) — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Pita-Tasche mit knusprigem Falafel und frischem Gemüse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-bbq-chickpea-wrap",
+      "slug": "af-bbq-chickpea-wrap",
+      "title": "Barbecue-Kichererbsen-Wrap",
+      "instructions": "Knusprige Kichererbsen in Barbecue-Sauce gewendet und mit Krautsalat und Ranch-Dressing in einen Wrap gerollt.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 14,
+      "storageInstructions": "Frisch essen; die Kichererbsen werden weich.",
+      "reheatingInstructions": "Den ganzen Wrap 3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Kichererbsen und Barbecue-Sauce ergeben einen vegetarischen Eiweiß-Wrap für unter $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ranch",
+          "swap": "Griechischer Joghurt + getrocknete Kräuter"
+        },
+        {
+          "forIngredientId": "bbq-sauce",
+          "swap": "Ketchup + ein Schuss Essig + Paprikapulver"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "3/4 Dose Kichererbsen (~$0.85) + 1 Tortilla (~$0.20) + Sauce aus dem Vorratsschrank = unter $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Eingelegte Zwiebeln",
+        "Frühlingszwiebel",
+        "Geriebener Käse"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 126,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-bbq-chickpea-wrap/",
+      "components": [
+        {
+          "key": "a78b347f-d188-51be-baaf-dc4f5c230dc1",
+          "name": "Zutaten",
+          "servingGrams": 515,
+          "position": 0,
+          "items": [
+            {
+              "key": "a949b7f0-d75a-5686-a346-1b93ff402093",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c3a9c42-a712-5b52-b0e9-7533dc5e8a63",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3c266fc-94c9-5562-b638-19f8edd4179b",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f89d2e5e-0886-5a62-a603-4fcf65f1b4f0",
+              "ingredientName": "Barbecue-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69c176a0-5ea4-5cfc-8c93-1fa974ccf3ba",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9210e804-6979-5163-8735-d4164cb33338",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88a7bd01-f199-52bf-ac68-586d8b3766b8",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Kichererbsen abtropfen, trockne sie ab und vermenge sie mit Öl und Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare sie bei 390°F 14 Minuten in der Heißluftfritteuse und schüttle den Korb alle 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende die knusprigen Kichererbsen in Barbecue-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Tortilla flach hin und gib geschnittenen Kohl, Kichererbsen und Ranch-Dressing darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle sie wie einen Burrito fest auf und schneide sie in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1671572579845-52270341950f?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1671572579845-52270341950f",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto eines Barbecue-Kichererbsen-Wraps",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-leftover-rice-burrito",
+      "slug": "af-leftover-rice-burrito",
+      "title": "Burrito mit übrig gebliebenem Reis",
+      "instructions": "Verwerte den Reis vom Vorabend mit Bohnen, Käse und Salsa in einem knusprigen Burrito aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Übrig gebliebener Reis bekommt ein zweites Leben – Gesamtkosten unter $1.50."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus"
+        },
+        {
+          "forIngredientId": "salsa",
+          "swap": "Scharfe Sauce + gewürfelte Tomate"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Verwertet übrig gebliebenen Reis (~$0.09) und 1/2 Dose Bohnen (~$0.50) – der ganze Burrito kostet weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Saure Sahne",
+        "Avocado",
+        "Jalapeño"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Tex-Mex",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Reste",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 127,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-leftover-rice-burrito/",
+      "components": [
+        {
+          "key": "8fdb51d6-74ed-5945-87fa-340f45fa0b3b",
+          "name": "Zutaten",
+          "servingGrams": 498.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a8d1fdb-d0eb-5beb-963a-a8ad9d89c62b",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bd7a510-edc8-5869-8510-08518debee40",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11201d66-1b93-5d7f-b8cd-229271a8ddc2",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adc93f93-2f31-5c68-b75a-654301dd1d54",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa5f5981-b4cb-586a-be42-3247864f96fc",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bed2a1a-b29f-5134-bca4-73a7740665a2",
+              "ingredientName": "Olivenöl",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Reis und Bohnen 60 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Tortilla flach hin und verteile Reis, Bohnen, Käse und Salsa mittig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Seiten ein, rolle sie fest auf und bestreiche die Naht mit Olivenöl, damit sie hält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Burrito mit der Naht nach unten in die Heißluftfritteuse und gare ihn bei 380°F 6 Minuten; wende ihn nach 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide ihn diagonal durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1711488735428-27c6757beb5c?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1711488735428-27c6757beb5c",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto eines Burritos mit übrig gebliebenem Reis",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-freezer-burrito-crispup",
+      "slug": "af-freezer-burrito-crispup",
+      "title": "Tiefgekühlten Burrito in der Heißluftfritteuse knusprig machen",
+      "instructions": "Mach aus einem weichen Burrito aus dem Tiefkühler in der Heißluftfritteuse einen goldbraunen, knusprigen Burrito.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Vorbereitete Burritos in Folie gewickelt bis zu 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "Tiefgekühlt 12 Minuten bei 380°F in der Heißluftfritteuse erwärmen und nach der Hälfte der Zeit wenden.",
+      "cheapTips": [
+        "Bereite 6 Burritos auf einmal vor und friere sie ein; bei Bedarf kostet die Zubereitung in der Heißluftfritteuse etwa ~$1 pro Stück."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Schwarze Bohnen + Kreuzkümmel"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Mozzarella"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Tortilla (~$0.20) + 1/2 Dose Bohnenmus (~$0.50) + Käse = unter $1.50 pro Burrito.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frühlingszwiebel",
+        "Scharfe Sauce",
+        "Saure Sahne"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Tex-Mex",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Tiefkühlgericht",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 128,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-freezer-burrito-crispup/",
+      "components": [
+        {
+          "key": "70918afd-8388-55b8-9ef8-d48753bec757",
+          "name": "Zutaten",
+          "servingGrams": 375,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7fb9278-c536-5397-baaf-f02f546e23e6",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Falls vorhanden, einen fertigen Tiefkühl-Burrito verwenden"
+            },
+            {
+              "key": "719fa470-c7ca-535a-860b-c9aede4b43a1",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9e4daed-659e-5840-aee5-30567ee3e734",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0afe6eca-cc26-586e-a2d9-88fff0e04ddc",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wenn du einen selbst gemachten Burrito aus dem Tiefkühler verwendest, entferne Folie oder Kunststofffolie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wenn du ihn frisch zubereitest, wickle die Füllung (Bohnenmus + Käse) in eine Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege den Burrito mit der Naht nach unten in die Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare ihn bei 380°F 12 Minuten (tiefgekühlt) oder 6 Minuten (frisch) und wende ihn nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere ihn mit Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1574365361850-8e8aec561723?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1574365361850-8e8aec561723",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto eines knusprig aufgebackenen Tiefkühl-Burritos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-grilled-cheese-tomato-soup",
+      "slug": "af-grilled-cheese-tomato-soup",
+      "title": "Grilled Cheese aus der Heißluftfritteuse mit Tomatensuppe",
+      "instructions": "Mit Butter bestrichenes Brot mit Käse in der Heißluftfritteuse goldbraun-knusprig gebacken, dazu Tomatensuppe aus der Mikrowelle.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Frisch essen; das Sandwich lässt sich nicht gut aufwärmen.",
+      "reheatingInstructions": "2 Minuten bei 350°F in der Heißluftfritteuse wieder knusprig machen.",
+      "cheapTips": [
+        "Eine Dose Tomatensuppe (~$1) + Brot + Käse ergeben ein klassisches Wohlfühlgericht für unter $2.50."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl oder Mayonnaise (wirklich!)"
+        },
+        {
+          "forIngredientId": "tomato-soup-can",
+          "swap": "Zerdrückte Tomaten mit Salz in der Mikrowelle erwärmen"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "2 Scheiben Brot (~$0.30) + Käse (~$0.60) + Tomatensuppe aus der Dose (~$1) = insgesamt etwa ~$2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Tomatenscheiben im Sandwich",
+        "Basilikum in der Suppe",
+        "Ein Schuss Olivenöl"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Seelenfutter",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 129,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-grilled-cheese-tomato-soup/",
+      "components": [
+        {
+          "key": "04d738a9-97d7-5f48-8225-e378fcf3293d",
+          "name": "Zutaten",
+          "servingGrams": 495,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6c5adbb-a7c1-5783-964e-72a9c19f70fa",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b183f15d-22f1-5ee6-82f6-a149b35ce2a7",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "655f3f83-9948-5fc5-bbaf-1aecfbc62cb4",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b43db9a-a225-5d6c-be04-b5cfbecfdfd8",
+              "ingredientName": "Tomatensuppe aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die Außenseiten beider Brotscheiben mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schichte Brot (Butterseite nach unten), Käse und Brot (Butterseite nach oben) aufeinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare das Sandwich bei 380°F 6 Minuten in der Heißluftfritteuse und wende es nach 3 Minuten. Fixiere die obere Scheibe bei Bedarf mit Zahnstochern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme währenddessen die Tomatensuppe zugedeckt 2 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide das Sandwich diagonal durch und serviere es mit der Suppe zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1528735602780-2552fd46c7af",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Grilled Cheese mit Tomatensuppe",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

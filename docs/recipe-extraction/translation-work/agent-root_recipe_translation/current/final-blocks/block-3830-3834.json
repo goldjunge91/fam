@@ -1,0 +1,1111 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-halaszle",
+      "slug": "gen-halaszle",
+      "title": "Halaszle",
+      "instructions": "Ungarisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Fischfilets im Angebot statt frischen",
+        "Mische verschiedene preiswerte Weißfischsorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ungarisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3830,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-halaszle/",
+      "components": [
+        {
+          "key": "029285fd-1266-591a-a069-7b5edf877a18",
+          "name": "Zutaten",
+          "servingGrams": 535.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ccd071ea-f361-5974-bc7d-0123fe451a68",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "12f19439-24f0-591e-a85c-28526a3a4d96",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "b29f0f8c-f170-5a58-9c2b-59c900099d77",
+              "ingredientName": "Paprika",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "096b0522-c0eb-5cbb-af98-2df7cf93229a",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "936ea5ca-52a0-562a-8f73-aaa93f6c736d",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "af4ce38b-4261-566a-b40a-71e01b74539a",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c72c20a1-a542-5ba1-ac16-cf3768884714",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "b4d0b46c-51b9-5590-865c-90c2b03209a5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "48e9372d-2f88-5ede-9023-661babe1253d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9dc29dec-d158-5fd0-88e7-d17f6e76729b",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Laib"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste geschnittene Zwiebeln 8 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Paprikapulver hinzu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark und Kümmelsamen ein, gib dann Brühe hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide den Fisch in 2 Zoll große Stücke und gib ihn vorsichtig in die köchelnde Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles 15-20 Minuten köcheln, bis der Fisch gar ist und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schalen mit knusprigem Brot zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/08/214baeccd34cd994ea1109c22af10d72_compress.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/08/214baeccd34cd994ea1109c22af10d72_compress.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-langos",
+      "slug": "gen-langos",
+      "title": "Langos",
+      "instructions": "Ungarischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Frittieröl mehrmals, bevor du es entsorgst",
+        "Bereite den Teig vorab zu und stelle ihn bis zum Frittieren kalt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3831,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-langos/",
+      "components": [
+        {
+          "key": "0fe5c4e8-2b7e-5757-b52c-e2e412e0c315",
+          "name": "Zutaten",
+          "servingGrams": 273.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "157df96f-2287-5579-8636-c5c401903e93",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e1562e49-a476-5910-86b5-b874567369be",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "f4271a2e-3989-5531-8f02-114052d26b14",
+              "ingredientName": "Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "18ebfefe-676c-588a-9263-0bbd72e28ff3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "979a96de-203f-56aa-a65d-db522676939c",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen zum Frittieren"
+            },
+            {
+              "key": "1fc3d4fa-de9b-575a-97a7-72787852deae",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a40c58a0-0e42-58b1-8042-518c06de9da9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "30e31c99-06ef-5477-a70e-1a7fcbaa77d4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische warmes Wasser, Hefe und eine Prise Zucker in einer Schüssel und lasse alles 5 Minuten stehen, bis es schaumig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Salz in einer großen Schüssel, gib die Hefemischung hinzu und knete 5 Minuten glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Teig ab und lasse ihn 20 Minuten gehen, bis er luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke Knoblauch und vermische ihn mit geschmolzener Butter und gehackter Petersilie. Stelle die Mischung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder Fritteuse auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ziehe den Teig zu Streifen und frittiere sie portionsweise vorsichtig je Seite 2-3 Minuten goldbraun und luftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Langos auf Küchenpapier abtropfen und bestreiche sie sofort noch warm mit der Knoblauch-Butter-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/-tOe3izq2RKxBSf7sGHf1bdXOJ0=/3000x1992/filters:no_upscale():max_bytes(150000):strip_icc()/RESIZED-hungarian-fried-bread-recipe-langos-1136590-Final-5bb15d434cedfd0026642f59.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/-tOe3izq2RKxBSf7sGHf1bdXOJ0=/3000x1992/filters:no_upscale():max_bytes(150000):strip_icc()/RESIZED-hungarian-fried-bread-recipe-langos-1136590-Final-5bb15d434cedfd0026642f59.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fl-dni",
+      "slug": "gen-fl-dni",
+      "title": "Flódni",
+      "instructions": "Ungarischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Walnüsse lose bei Discountern oder in internationalen Lebensmittelgeschäften",
+        "Verwende Äpfel der Saison im Angebot"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3832,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fl-dni/",
+      "components": [
+        {
+          "key": "a681a87e-4e6a-538c-bfce-ac2a5026d429",
+          "name": "Zutaten",
+          "servingGrams": 240.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "45f2f309-84d2-5148-a923-3ac31ad9bb83",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "151c3824-76aa-5e7a-a06c-f1288ffae77b",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "53a43037-d59d-53db-89ef-52f201096994",
+              "ingredientName": "Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "92fbd187-a3fd-50ea-b3c8-19536327c1c5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd60193f-0a36-5860-8d90-9e1948b3dfe1",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "cba57294-aeca-570d-be69-0a3acba20c6b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "dbd0ffbc-6bd1-5cbd-aed5-f7a504bc31b9",
+              "ingredientName": "Apfelmus",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "d96b6d57-2440-570a-9375-b5cb9ee650e8",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d7bacf0e-1072-589b-afbe-165abb1208e5",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "252a056f-49b6-5cc1-88fb-8072d5dc34f6",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "90bd97af-685c-5ba1-b154-dc5ad542602c",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ed8056d3-1bec-57a7-a4c8-ffdb69c742f7",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig zu, indem du Hefe mit warmem Wasser vermischst und 5 Minuten stehen lässt. Gib dann Mehl, Eier, 2 Esslöffel Butter und Salz hinzu und knete alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lasse den Teig zugedeckt 45 Minuten gehen, bis er sich verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Füllung zu, indem du gewürfelte Äpfel, gehackte Walnüsse, Rosinen, Zucker und Zimt vermischst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig auf einer bemehlten Fläche sehr dünn zu einem Rechteck aus und bestreiche ihn mit der restlichen geschmolzenen Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Apfel-Walnuss-Mischung auf einer Teighälfte und Pflaumenmarmelade auf der anderen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den Teig von der langen Seite her fest auf, forme eine Spirale und lege sie in eine gefettete 9x13-Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Teig 30 Minuten gehen, bestreiche ihn mit verquirltem Ei und backe ihn bei 350°F 40-45 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse das Gebäck vor dem Anschneiden 15 Minuten in der Form abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://jewishviennesefood.com/wp-content/uploads/2018/10/Raj-Rachels-Flodnija-1-700x875.jpg",
+          "sourcePageUrl": "https://jewishviennesefood.com/wp-content/uploads/2018/10/Raj-Rachels-Flodnija-1-700x875.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-schweinshaxe-mit-kartoffelsalat",
+      "slug": "gen-schweinshaxe-mit-kartoffelsalat",
+      "title": "Knusprige Schweinshaxe mit Kartoffelsalat",
+      "instructions": "Bayerisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinshaxe im Angebot und friere sie ein; sie lässt sich auch gefroren wunderbar schmoren.",
+        "Bereite zusätzlichen Kartoffelsalat zu und serviere ihn als Beilage zu 2-3 Mahlzeiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bayerisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3833,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schweinshaxe-mit-kartoffelsalat/",
+      "components": [
+        {
+          "key": "abee2255-bb55-58c7-a9ac-d3879aee1be8",
+          "name": "Zutaten",
+          "servingGrams": 348,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fb8ad32-8497-5cf5-9ef1-c4b803bddbae",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "b32ed3e6-4e84-53c7-9887-b0fd008ce452",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a18ef050-6a1d-549e-aacf-6b33978054fa",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5747330b-2a16-529d-a667-543092988559",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "2cbcdbf0-762e-52b3-939c-45a982ab61d9",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "87483422-0fd4-5ecd-9d17-66057b286d7f",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "53f6d6c3-e477-57e9-8f40-e68382057aa2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "8a15abf2-6285-5b65-930f-cf37fa3a86f6",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "c48d4414-ed68-55c1-9df8-4e0f3c8ca585",
+              "ingredientName": "Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "703395ae-2ddf-548b-9455-24a23fad8f25",
+              "ingredientName": "Essig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "7cbab985-353b-5c76-80dc-91d0a1dd7421",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Schweinshaxe trocken und würze sie rundherum großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und bräune die Haxe etwa 12 Minuten insgesamt von allen Seiten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Zwiebel, Karotte und Sellerie hinzu und dünste alles 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Rinderbrühe an, decke den Topf ab und lasse alles 2 Stunden köcheln, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Kartoffeln 15 Minuten in Salzwasser, bis sie gerade gar sind. Gieße sie ab und schneide sie noch warm in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge warme Kartoffelscheiben vorsichtig mit Essig, Senf und 6 Esslöffeln Kochbrühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Haxe aus dem Topf und seihe die Brühe ab. Bewahre 1.5 Tassen für die Sauce auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Haxe mit Kartoffelsalat und Bratensaft als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://api.swissmilk.ch/wp-content/uploads/2019/06/kartoffelsalat-klassisch-2560x1920.jpg",
+          "sourcePageUrl": "https://api.swissmilk.ch/wp-content/uploads/2019/06/kartoffelsalat-klassisch-2560x1920.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-leberk-se-mit-kartoffelsalat",
+      "slug": "gen-leberk-se-mit-kartoffelsalat",
+      "title": "Bayerischer Leberkäse mit Kartoffelsalat",
+      "instructions": "Bayerisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Leberkäse ist erschwinglich und an den meisten Metzgereitheken gut haltbar erhältlich.",
+        "Bereite Kartoffelsalat in größerer Menge zu und serviere ihn über 2-3 Tage."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bayerisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3834,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-leberk-se-mit-kartoffelsalat/",
+      "components": [
+        {
+          "key": "f35f3146-b577-5490-82af-23d3ee34e538",
+          "name": "Zutaten",
+          "servingGrams": 168.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "ffe9088b-e4ee-5b4c-978b-6bd0a2afae14",
+              "ingredientName": "Leberkäse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "acfbee6e-e7d0-5280-ba6a-4d325f893d20",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b493de1b-e48b-5313-bed4-97a67e3062ab",
+              "ingredientName": "Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f4366b73-a94c-5558-866e-6bb7102cda40",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9bd630e9-529f-5638-aca9-f76d111f1a98",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "28761469-7f08-5c29-8e7d-7ca282027946",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "629e6fde-7e8f-5ca8-9dba-c3bf1bd9d6db",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4b8dbbed-3a36-5619-9106-d9d0349e9f41",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "41e8ae36-d12a-5820-983c-356b1b9b1cd3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1c9f906f-5d02-517d-81e9-8654c607b59f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln 15 Minuten in Salzwasser, bis sie gerade weich sind. Gieße sie ab und schneide sie noch warm in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Senf, Essig, Brühe und gehackte Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge warme Kartoffelscheiben mit dem Dressing und lasse sie 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Leberkäse in 0.5 Zoll dicke Scheiben und brate sie in Öl je Seite 3 Minuten, bis sie durchgewärmt und leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Leberkäsescheiben mit Kartoffelsalat als Beilage auf einem Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere mit frischer Petersilie und serviere zusätzlichen Senf dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/e9/14/ba/e914baeeac9bf24b114786ec12f2d5d4.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/e9/14/ba/e914baeeac9bf24b114786ec12f2d5d4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1104 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-plov",
+      "slug": "gen-plov",
+      "title": "Plov",
+      "instructions": "Russisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hähnchenschenkel anstelle von Rindfleisch für budgetfreundliches Protein",
+        "Kaufen Sie Reis in großen Mengen, um die Kosten pro Portion auf unter $2 zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3920,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-plov/",
+      "components": [
+        {
+          "key": "d9a9945b-3112-52be-8592-5e771d6a4e3b",
+          "name": "Zutaten",
+          "servingGrams": 462.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f604199-0b15-5558-91d7-b0c4db486834",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8c1d6f8d-c8ea-5608-8fb7-97b50137c742",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ac1281a9-7469-57e2-b518-0adf2a608905",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "11e9510b-c6c2-562c-82bf-6b51bb0ed4de",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "549cb628-0fb6-5623-a721-25d811329ed4",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ba1415b0-a289-5923-b7b5-2ac6b1f6d7eb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "fb86233c-9c5f-571c-ba25-6c4e0d824635",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "b3053d83-dd79-53b1-b1b1-a90ce133bd61",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "aad11166-99a8-56f0-ab3f-08b90d970032",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10741f90-b743-5ffa-9875-b34b697c3cdd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen, schweren Topf bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfeltes Fleisch von allen Seiten anbraten, etwa 5-7 Minuten; herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel- und Karottenscheiben im selben Topf 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch und Kreuzkümmel einrühren und 1 Minuten kochen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie das Fleisch wieder in den Topf und fügen Sie Reis hinzu. umrühren, um es mit Öl zu überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Brühe aufgießen, Lorbeerblatt, Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren, abdecken und 25-30 Minuten köcheln lassen, bis der Reis weich ist und die Flüssigkeit aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zugedeckt 5 Minuten stehen lassen, dann mit einer Gabel auflockern und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2014/04/Plov-Rice-Pilaf.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2014/04/Plov-Rice-Pilaf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shashlik",
+      "slug": "gen-shashlik",
+      "title": "Schaschlik",
+      "instructions": "Russisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Schweinefleisch anstelle von Rindfleisch, um die Kosten zu senken und einen ähnlichen Geschmack zu erzielen",
+        "Kaufen Sie Fleisch im Sonderangebot und frieren Sie es mehrere Wochen lang in Marinade ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3921,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shashlik/",
+      "components": [
+        {
+          "key": "94c6f66b-6921-5af5-9c46-7e4c87387ae0",
+          "name": "Zutaten",
+          "servingGrams": 234.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fe47915-24a2-5475-baf3-d89bed441cfa",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "559ec75e-1472-5f07-982a-00192981377d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, geviertelt"
+            },
+            {
+              "key": "c135c679-6c32-5bb1-b1e9-e043a7356a3c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, in Stücke geschnitten"
+            },
+            {
+              "key": "0a5b6213-dbca-513b-b2f1-6a5caa7dc9e8",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a71e5e44-9edc-54de-8828-43ddc1d74690",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "94416387-1cf2-5985-bde5-bc1fbb563bb3",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "1dc34508-3574-507a-87b3-283a31f8bd73",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03803ff6-d7ae-500f-9ea0-3c08cb057c7e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6862bc50-7a7b-54cc-849e-dc9837c8d689",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "171702b4-4d14-5953-9137-47a643fcff30",
+              "ingredientName": "Holz- oder Metallspieße",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl, Essig, gehackten Knoblauch, Lorbeerblätter, Paprika, Salz und Pfeffer in einer Schüssel zu einer Marinade vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fleischwürfel in die Marinade geben, abdecken und mindestens 2 Stunden oder über Nacht im Kühlschrank lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn Sie Holzspieße verwenden, weichen Sie diese 30 Minuten lang in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mariniertes Fleisch abwechselnd mit Zwiebelvierteln und Paprikastücken auf Spieße stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grill oder Grillpfanne auf mittlere bis hohe Hitze vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spieße 10-15 Minuten grillen und dabei gelegentlich wenden, bis das Fleisch gar ist und leichte Verkohlungsspuren aufweist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "3-5 Minuten ruhen lassen, bevor es heiß serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mYRWRdFvr5he3whZb4wOgKqQCJQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/lamb-shashlik-recipe-2355654-Hero_01-eae5bbb2db2849bf861966647c5a09b8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mYRWRdFvr5he3whZb4wOgKqQCJQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/lamb-shashlik-recipe-2355654-Hero_01-eae5bbb2db2849bf861966647c5a09b8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kholodets",
+      "slug": "gen-kholodets",
+      "title": "Cholodez",
+      "instructions": "Russisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rind- oder Schweineknochen zu einem Bruchteil des Preises beim Metzger",
+        "Verzichten Sie auf Gelatinepulver, wenn die Knochen reich an Kollagen sind; Durch langes Kochen entsteht auf natürliche Weise Gelatine"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3922,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kholodets/",
+      "components": [
+        {
+          "key": "afd63fa3-00ea-5bcf-a721-b2c5c55f78aa",
+          "name": "Zutaten",
+          "servingGrams": 570.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c1aad30-04c0-59d1-8a06-b097a28c0bba",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "b092b5b6-1a0b-53d9-ab33-139935c5b701",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "0c06057c-5a2d-5d02-995f-a8b91a712e8b",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "6d7657de-1081-5382-af7b-f08ab4f26f3c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, halbiert"
+            },
+            {
+              "key": "f0cea70a-16ce-510d-8b71-43126d2037f8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "3b3c114b-6fde-5471-8190-3ff4a8aceeb2",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b81ab816-88ea-5957-b79b-979430f79b5c",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54b4ef6d-cc2a-5bd1-bf27-b7bd1fb9b9a3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "535129bc-60d4-5c12-be02-49ecdf332071",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL (falls für die Gelatine benötigt)"
+            },
+            {
+              "key": "35e6ce61-d258-5746-b20e-e228d1064496",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knochen oder Haxen in einen großen Topf geben und mit Wasser bedecken; zum Kochen bringen und abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knochen abspülen und mit frischem Wasser, Karotten, Zwiebelhälften, Lorbeerblättern und Pfefferkörnern in den Topf zurückgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zugedeckt 2-3 Stunden köcheln lassen, bis das Fleisch sehr zart ist und sich von den Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fleisch aus dem Topf nehmen und zerkleinern; Brühe durch ein Käsetuch abseihen und Feststoffe wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das zerkleinerte Fleisch wieder in die Brühe geben, gehackten Knoblauch und Salz nach Geschmack hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Brühe natürliche Gelatine fehlt, lösen Sie pulverisierte Gelatine in kaltem Wasser und rühren Sie ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gießen Sie die Mischung in eine flache Schüssel und stellen Sie sie ohne Deckel 4-6 Stunden lang in den Kühlschrank, bis sie gelatiniert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Quadrate schneiden, auf einem Teller anrichten und kalt mit Senf und frischen Kräutern servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.momsdish.com/wp-content/uploads/2020/01/Aspic-Recipe-Russian-Kholodets-02-scaled.jpg",
+          "sourcePageUrl": "https://cdn.momsdish.com/wp-content/uploads/2020/01/Aspic-Recipe-Russian-Kholodets-02-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tocan-de-vie",
+      "slug": "gen-tocan-de-vie",
+      "title": "Tocană de vie",
+      "instructions": "Rumänisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rinderschulter, die günstig ist und beim Schmoren zart wird",
+        "Kaufen Sie Wein zum Kochen, anstatt Wein zu trinken, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "rumänisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3923,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tocan-de-vie/",
+      "components": [
+        {
+          "key": "ca7c5f64-48ae-52bc-99c0-06bae3985786",
+          "name": "Zutaten",
+          "servingGrams": 241,
+          "position": 0,
+          "items": [
+            {
+              "key": "793e8071-a2dd-58ef-ae2f-0ffcdff31a72",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "41ede001-c6b5-5d2e-8daa-5b13f6bc4b27",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "9558a16a-05b8-583b-b6e5-21f33f5b3d27",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7d10605-668b-5221-98ea-4a521a5d40ff",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8a0ff30e-2bf4-5b67-9f7b-8d5757ff36c0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "38db132a-88a1-5b37-b258-05529b788d14",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6b8cc47c-8ca6-58dd-bcbc-29ae30c5e83c",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5436ee76-ffbb-50ff-8cc1-028710a261b7",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59d15f4a-d0b3-55f1-acc5-c76e5ce2bc11",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "dcff6589-67dd-5dc3-a29b-dc746120a153",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch in 1.5 Zoll Würfel schneiden und mit Papiertüchern trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und das Rindfleisch portionsweise anbraten, etwa 3 Minuten pro Seite, dann beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Im gleichen Topf gewürfelte Zwiebeln und gehackten Knoblauch anbraten, bis sie weich sind, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark und Paprikapulver einrühren und 2 Minuten kochen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie das Rindfleisch wieder in den Topf und fügen Sie Rotwein, Rinderbrühe und Lorbeerblätter hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren, abdecken und 60-75 Minuten köcheln lassen, bis das Rindfleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß mit knusprigem Brot oder Polenta servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.retetegrecesti.com/wp-content/uploads/2025/05/mosxari-stiffado.jpg",
+          "sourcePageUrl": "https://www.retetegrecesti.com/wp-content/uploads/2025/05/mosxari-stiffado.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ciorb-de-perisoare",
+      "slug": "gen-ciorb-de-perisoare",
+      "title": "Ciorbă de Perisoare",
+      "instructions": "Rumänisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kochen Sie Reis in großen Mengen zu Hause, um Geld für Fleischbällchenfüllungen zu sparen",
+        "Verwenden Sie getrockneten Dill, wenn für einen ähnlich authentischen Geschmack kein frischer Dill verfügbar ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "rumänisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3924,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ciorb-de-perisoare/",
+      "components": [
+        {
+          "key": "5f55e1f8-be9f-5068-9590-fa6192c0d214",
+          "name": "Zutaten",
+          "servingGrams": 476.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9bf50abd-572a-5ced-bcf4-e4ba26d15b0c",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "489246ea-d916-5208-a3a1-fd6c66865d05",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d6d7a85f-0e9e-583f-8664-acfa90df6a7c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "bfc496b0-5f68-5036-9924-9ec24c79d134",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74e9eb7a-d25b-5e0a-adb0-96a2e17af23a",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "237b850d-bf30-5af0-8ba5-f4a5e979449a",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0182c454-99fd-5589-8d06-ace58755314c",
+              "ingredientName": "Frischer Dill",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL, gehackt"
+            },
+            {
+              "key": "33294e26-cf1f-5ba3-81c9-4522817db11c",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0d99d573-c9b4-5d61-b592-d9c4e60dfc5d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4eadb592-3d7b-5f20-869c-7673e6825f78",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch mit gekochtem Reis, gehackten Zwiebeln, gehacktem Knoblauch, Salz und Pfeffer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aus der Mischung kleine Fleischbällchen von der Größe von Walnüssen formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen und die Fleischbällchen portionsweise etwa 2 Minuten anbraten, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Im selben Topf Rinderbrühe mit Tomatenmark vermischen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Fleischbällchen zurück in den Topf geben und 20-25 Minuten köcheln lassen, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kurz vor dem Servieren frischen Dill und Zitronensaft unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit zusätzlichem Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2019/07/romanian-meatball-soup-1-24-730x913.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2019/07/romanian-meatball-soup-1-24-730x913.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

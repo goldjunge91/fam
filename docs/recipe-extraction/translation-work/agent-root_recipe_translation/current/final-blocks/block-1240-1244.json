@@ -1,0 +1,1154 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-bbq-turkey-burger-bowl",
+      "slug": "mfr-bbq-turkey-burger-bowl",
+      "title": "Eiweiß-Bowl mit Truthahnburger",
+      "instructions": "Ein saftiges Truthahnburger-Patty auf einer Getreideschale mit Avocado, Tomate, Gewürzgurken und einer besonderen Sauce aus griechischem Joghurt – voller Burgergeschmack, ganz ohne Brötchen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Patties aus Truthahnhackfleisch kosten weniger als $2 pro Stück und liefern 28 g Eiweiß.",
+        "Die besondere Sauce aus griechischem Joghurt enthält weniger Fett als Mayonnaise und schmeckt sogar besser.",
+        "Diese Bowl ist eine ausgewogene Mahlzeit mit Eiweiß, gesunden Fetten und Ballaststoffen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Hähnchenhackfleisch oder mageres Rinderhackfleisch"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Vollkornreis oder für weniger Kohlenhydrate weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-turkey-burger-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Truthahn",
+        "Burger",
+        "Bowl",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1240,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-turkey-burger-bowl/",
+      "components": [
+        {
+          "key": "9dd52bba-ef51-59dd-9e12-6f3fd2b85a39",
+          "name": "Zutaten",
+          "servingGrams": 815,
+          "position": 0,
+          "items": [
+            {
+              "key": "87668634-54aa-5a23-8830-33494f8aa811",
+              "ingredientName": "Truthahnhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b780aa90-954a-527a-b63b-93097e7574c4",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3332913-69fe-55da-9532-7d22dd732686",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10636af1-c7c6-5e7c-afdf-4b29d670b4c7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5e10100-d5e7-5f82-8d77-84fc31789f9f",
+              "ingredientName": "Gewürzgurken",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "398837c6-f976-5e8f-b0e9-cb1a4166e1fb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80f0bb25-b941-5df2-a5ad-91911409c2a7",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eeb7a953-aa47-5f50-9a56-cf8b22ce2574",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e98577ba-cc98-5c0a-9a34-0c272b2f01ed",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "406228d5-b5dc-5b98-94fd-fd1d4bb3f3bd",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86188a24-b679-5e40-af1f-9a575b132b2f",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "561a7c08-a6f8-5f1e-93fd-5c226dd23396",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa. Verrühre griechischen Joghurt, Ketchup, Senf und Knoblauchpulver zu einer besonderen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Truthahnfleisch mit Knoblauchpulver, Paprika, Salz und Pfeffer. Forme 2 Patties.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Patties auf jeder Seite 5-6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Römersalat und Quinoa in einer Schale an. Zerteile das Truthahn-Patty und gib es mit Avocado, Tomate, Gewürzgurken, Zwiebel und Sauce darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/06/turkey-burgers-1.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/06/turkey-burgers-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-shrimp-skewer",
+      "slug": "mfr-bbq-shrimp-skewer",
+      "title": "Bowl mit gegrillten Garnelenspießen, Mais und Avocado",
+      "instructions": "Würzige Garnelenspieße mit geröstetem Mais, Avocado, Tomate und Koriander-Limetten-Reis – eine sommerliche Bowl im Streetfood-Stil mit 38 g Eiweiß und frischen, kräftigen Aromen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen tauen unter kaltem Wasser in 10 Minuten auf – hab immer einen Beutel im Gefrierfach.",
+        "In einer trockenen Pfanne gerösteter Mais schmeckt besonders süß und rauchig – besser als gekochter Mais.",
+        "Koriander-Limetten-Reis braucht nur 2 Minuten länger und verändert das ganze Gericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Jakobsmuscheln oder Weißfisch"
+        },
+        {
+          "forIngredientId": "corn",
+          "swap": "Gegrillte Zucchini"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-shrimp-skewer",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Garnelen",
+        "gegrillt",
+        "Bowl",
+        "Mais",
+        "Sommer"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1241,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-shrimp-skewer/",
+      "components": [
+        {
+          "key": "614ed03f-4870-5b14-9c91-b5fc7d905740",
+          "name": "Zutaten",
+          "servingGrams": 623.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ed04923-5002-51d3-bdc3-bb0353be8554",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e863782-d762-5fa2-bb30-61e9619915fb",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7003aecb-6b38-5e1e-b36b-585157f15a0f",
+              "ingredientName": "Frischer Mais",
+              "grams": 180,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0768c2f2-7f35-5419-83a0-e504c949e1d3",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d478a6e0-9c1f-5db4-aa74-8ae56c52c22d",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce9b0ead-e6fb-5af9-a6cc-35dbc933b4c4",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5abe068d-87d7-5245-a698-1bf8e02a4723",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea9fe6b8-0fae-5a03-9d0f-e81f63eee891",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89291e50-5ae0-50c7-ad19-b379b13b031b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f2c0f94-782f-5734-87bc-030c22fc2391",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52c8350d-371f-510b-a697-a71150f51d97",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d5b86f1-85d3-517f-8dd0-7090cdfbb071",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Koriander-Limetten-Reis, indem du Limettensaft und Koriander unter den gekochten Reis rührst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Garnelen mit Paprika, Kreuzkümmel, Knoblauchpulver, Chilipulver und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste den Mais 4 Minuten in einer heißen, trockenen Pfanne. Brate die Garnelen auf jeder Seite 2 Minuten, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Korianderreis, gerösteten Mais und Garnelen in einer Schale an. Gib Avocado, Kirschtomaten und Limette dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mommyshomecooking.com/wp-content/uploads/2018/04/Grilled-Barbecue-Shrimp-and-Corn-Avocado-Salad-Bowls-2.jpg",
+          "sourcePageUrl": "https://mommyshomecooking.com/wp-content/uploads/2018/04/Grilled-Barbecue-Shrimp-and-Corn-Avocado-Salad-Bowls-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-pork-tenderloin",
+      "slug": "mfr-bbq-pork-tenderloin",
+      "title": "Bowl mit Kräuter-Schweinefilet",
+      "instructions": "Mit Dijon-Senf und Kräutern mariniertes Schweinefilet, das magerste Stück vom Schwein, auf geröstetem Gemüse und Quinoa – elegant genug für ein Abendessen mit Gästen und schnell genug für einen Dienstag.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinefilet kostet $3-5 pro Pfund und enthält kaum Fett – es ist das magerste Stück vom Schwein.",
+        "Die Kruste aus Dijon-Senf hält den Fleischsaft im Filet – brate es unbedingt vor dem Ofen scharf an.",
+        "Das ganze Gericht ist in 20 Minuten fertig und eignet sich auch für Gäste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "asparagus",
+          "swap": "Broccolini oder grüne Bohnen"
+        },
+        {
+          "forIngredientId": "dijon-mustard",
+          "swap": "Grobkörniger Senf"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-pork-tenderloin",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Filet",
+        "gegrillt",
+        "Kräuter",
+        "Bowl"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1242,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-pork-tenderloin/",
+      "components": [
+        {
+          "key": "717559be-5e18-50f4-8f77-430c2da3135f",
+          "name": "Zutaten",
+          "servingGrams": 421.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "c332541d-cb64-5903-964c-198c5a4d7bbf",
+              "ingredientName": "Schweinefilet",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0759f3d9-9e15-5d85-bc2d-19ea269c22fc",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "205dacb1-07eb-5dfb-97d8-ff8763366999",
+              "ingredientName": "Spargel",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dcdd46b-2695-544b-87ba-f2d415dd9f1c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4aede332-e697-58bb-a4dc-9ab5e8da92ee",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36203831-272f-5219-821e-6c9b52d4b3ac",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df691669-8fde-538d-adc6-a80765a6f5df",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bde547f-d6a5-5f95-929b-c9cf855ca8dd",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fba0d570-7ee7-5cfa-8315-3e38e8dd5571",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b5388d4-a873-5942-ac6d-2af48d01ad0d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58d4180b-58c7-5746-b939-ef48db9eb117",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe das Filet mit Dijon-Senf, gehacktem Rosmarin, Thymian, Knoblauch, Olivenöl und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Filet in einer ofenfesten Pfanne auf jeder Seite 3 Minuten an. Schiebe die Pfanne bei 400°F für 12-14 Minuten in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste währenddessen den Spargel und die Tomaten 12 Minuten im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Schweinefilet 3 Minuten ruhen und schneide es dünn auf. Serviere es mit Quinoa, Ofengemüse und Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/664512e0c7c3e4e1a226b2e9/1:1/w_2560%2Cc_limit/spicy-pork-tenderloin-bowls-with-greens-and-carrots.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/664512e0c7c3e4e1a226b2e9/1:1/w_2560%2Cc_limit/spicy-pork-tenderloin-bowls-with-greens-and-carrots.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-brisket-bowl",
+      "slug": "mfr-bbq-brisket-bowl",
+      "title": "Bowl mit Rinderbrust nach BBQ-Art",
+      "instructions": "Langsam geschmorte Rinderbrust mit rauchiger Trockenwürzung und BBQ-Sauce auf Maisbrot-Reis, dazu eingelegte Zwiebeln und Krautsalat – voller BBQ-Geschmack bei einer alltagstauglichen Zubereitung.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderbrust ist ein großes, festes Stück, das durch langes Schmoren wunderbar zart wird – kaufe das flache Stück für $4-6 pro Pfund.",
+        "Das reicht für 6 Personen und kostet insgesamt weniger als $20 – nur $3 pro Portion für echte BBQ-Rinderbrust.",
+        "Am nächsten Tag schmeckt aufgewärmte Rinderbrust deutlich besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-brisket",
+          "swap": "Rinderschulter für eine schnellere und günstigere Variante"
+        },
+        {
+          "forIngredientId": "bbq-sauce",
+          "swap": "Selbst gemischt: Ketchup, Essig, brauner Zucker und Worcestershiresauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-brisket-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "BBQ",
+        "Rinderbrust",
+        "Rindfleisch",
+        "langsam-gegart",
+        "Bowl"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1243,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-brisket-bowl/",
+      "components": [
+        {
+          "key": "988cdfa5-2848-5c9f-a661-a82416a4c9a4",
+          "name": "Zutaten",
+          "servingGrams": 268.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "871560f1-1d28-5327-b73d-27e235d68ddb",
+              "ingredientName": "Rinderbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f082f2c-6b5c-5e70-b1f3-cda16b913e2a",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf267d08-35ab-5daf-bb33-ffdabb45b510",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cca32040-90b5-5a4d-b049-1604232ef66f",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfb3bd1c-9811-5a70-9cff-b0453ffe6427",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1a114d4-3e67-5a96-a2c5-4d41e4b46020",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdd6e42b-1984-59e1-96a7-dbe24d62974b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1aa2a643-6dca-5d6f-b600-937a00440918",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89d41d6e-9266-5d57-8c42-94c5e6bf2a92",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4da74e3a-aa40-5460-9043-40cae2e511d6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be43714d-638f-5104-a0b0-58d56e8f6e7f",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbef2ddf-65f3-5f8c-8693-d1232a5fdc91",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Paprika, Knoblauchpulver, Zwiebelpulver, braunen Zucker, Kreuzkümmel und Salz zu einer Trockenwürzung. Reibe die Rinderbrust damit ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die Rinderbrust in einem Schmortopf an. Gib BBQ-Sauce und 1/2 Tasse Wasser dazu. Decke den Topf ab und schmore alles bei 300°F 90 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass das Fleisch ruhen und schneide oder zerteile es anschließend. Für schnelle eingelegte Zwiebeln: Schneide sie dünn und vermische sie mit Essig, Honig und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Reis und BBQ-Rinderbrust in einer Schale an und gib eingelegte Zwiebeln und Krautsalat darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Scott-s-Beef-Brisket_EXPS_DIYDAP22_2070_MD_23_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Scott-s-Beef-Brisket_EXPS_DIYDAP22_2070_MD_23_1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-veggie-halloumi",
+      "slug": "mfr-bbq-veggie-halloumi",
+      "title": "Bowl mit gegrilltem Gemüse und Halloumi",
+      "instructions": "Gebratener Halloumi und sommerliches Grillgemüse auf Dinkel mit Zitronen-Kräuter-Dressing – eine vegetarische BBQ-Bowl, die die Lust aufs Grillen ohne Fleisch stillt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Halloumi kostet $4-6 pro Block, ist aber jeden Cent wert – dieser Käse lässt sich grillen, ohne zu schmelzen.",
+        "Röste das Gemüse, bis deutliche Grillspuren entstehen – das bringt ein rauchiges Aroma.",
+        "Dinkel kostet $3 pro Beutel, ist in 25 Minuten gar und schmeckt angenehm nussig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "halloumi",
+          "swap": "Extra-fester Tofu, mariniert und angebraten"
+        },
+        {
+          "forIngredientId": "farro",
+          "swap": "Quinoa oder Vollkornreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-veggie-halloumi",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "Halloumi",
+        "gegrillt",
+        "vegetarisch",
+        "Bowl",
+        "Sommer"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1244,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-veggie-halloumi/",
+      "components": [
+        {
+          "key": "43ea83f1-5529-5e44-8899-697beeb511ca",
+          "name": "Zutaten",
+          "servingGrams": 760.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0beef70-abda-575b-ab84-7cc9a8b7c044",
+              "ingredientName": "Halloumi",
+              "grams": 453.6,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5d0eefe-7990-5728-9251-b594ba592797",
+              "ingredientName": "Dinkel",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "495175ed-10d9-581a-94e1-e84e913a623e",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b32a6af0-f5b6-5d99-8275-af1d64f516c8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2c2e530-1547-5307-bd2d-76939657e3bb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59420052-1789-5b52-807f-2776ce650a65",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4baad9e5-6364-5956-9271-dddd77530716",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4dacabe-0a77-51aa-9555-f837b1004c62",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f00861b5-30ac-5b04-b392-8b1dc6df4048",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fa229d1-280c-5324-bc8a-c40d0050e830",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb3fcd89-673f-529c-8a0e-a2825078f353",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Dinkel. Schneide Zucchini, Paprika und Zwiebel auf und vermische sie mit Olivenöl und Oregano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste das Gemüse auf jeder Seite 4 Minuten in einer heißen Pfanne oder Grillpfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Halloumi 1 cm dick auf und brate ihn in einer trockenen Pfanne auf jeder Seite 2 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Dinkel, Grillgemüse und Halloumi in einer Schale an und beträufle alles mit Zitronen-Kräuter-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2024/02/halloumi-fajita-bowl-close-up.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2024/02/halloumi-fajita-bowl-close-up.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

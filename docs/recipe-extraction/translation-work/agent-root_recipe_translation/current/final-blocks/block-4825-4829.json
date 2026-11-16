@@ -1,0 +1,1033 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-souffl",
+      "slug": "gen-souffl",
+      "title": "Soufflé",
+      "instructions": "Französisches Mittagessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Gruyère durch würzigen Cheddar und spare so 40 %.",
+        "Kaufe Eier im Discounter oder auf einem Bauernmarkt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4825,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-souffl/",
+      "components": [
+        {
+          "key": "74cfc5b3-7735-54ce-ab4f-5f336042da7b",
+          "name": "Zutaten",
+          "servingGrams": 427.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "03d6b929-ece8-5606-826c-6b7036cc0b46",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ca6338f9-fa7c-5223-93c9-91a9a1d05683",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "460cb190-827a-525a-8748-bdce4ad7ee0f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0d802d3a-cdb8-5098-b090-30f2448ecb76",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse, gerieben"
+            },
+            {
+              "key": "ab645ec1-638a-5e26-b774-8a1856d22711",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84e3fee8-987a-5438-94af-e4b22eb5e970",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "26c7fde6-be95-572d-a20e-35a260ff1b1b",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "54b08e53-e5f8-56a8-aca9-6a2be76732f5",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375°F vor und fette eine 2-Tassen-Souffléform oder mehrere kleine Formen mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 2 EL Butter in einem Topf. Rühre das Mehl ein und gare die Mehlschwitze 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße nach und nach die Milch unter ständigem Rühren dazu, damit sich keine Klümpchen bilden. Lasse die Sauce anschließend 2 Minuten köcheln, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd und rühre Käse, Salz, Pfeffer und Muskatnuss ein, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Trenne die Eier und rühre die Eigelbe unter die Käsesauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage das Eiweiß in einer sauberen Schüssel mit einer Prise Salz steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe das Eiweiß in zwei Portionen vorsichtig unter die Käsemischung, bis keine weißen Streifen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle die Masse in die vorbereitete Form und backe das Soufflé 20-25 Minuten, bis es aufgegangen und oben leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort servieren, solange das Soufflé noch aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_Jg-aqe3MC-69buKXkdEuwwzv3E=/4494x3000/filters:fill(auto,1)/no-fear-easy-spinach-souffle-recipe-1375570-hero-01-5343a73c0d8a44d6b9041d4cc458c52d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_Jg-aqe3MC-69buKXkdEuwwzv3E=/4494x3000/filters:fill(auto,1)/no-fear-easy-spinach-souffle-recipe-1375570-hero-01-5343a73c0d8a44d6b9041d4cc458c52d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-huevos-al-nido",
+      "slug": "gen-huevos-al-nido",
+      "title": "Huevos al Nido",
+      "instructions": "Philippinisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Brot vom Vortag oder reduziertes Brot aus der Bäckerei.",
+        "Ersetze Cheddar durch Käse der Hausmarke oder verwende Käsereste."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Filipino",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4826,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huevos-al-nido/",
+      "components": [
+        {
+          "key": "3de7d39a-97f5-52f3-99cb-c50d5ca2b0af",
+          "name": "Zutaten",
+          "servingGrams": 300.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "69deaca7-ce10-5440-a372-ac3663f83fee",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "303c7036-6396-5d85-9a9f-006a5da8d705",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1424510-1a70-5b6a-b918-0986ca9f7ba3",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "151e5801-63e9-576c-be71-468bd2d6a9b8",
+              "ingredientName": "Geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse, geraspelt"
+            },
+            {
+              "key": "90d9a22d-c772-5490-9641-0cb4bd3d5571",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "545090af-d51f-5b9a-9cac-9c4746eaa000",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "e5a793ae-af41-5921-a66f-ed9f18647fa3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375°F vor und fette ein Muffinblech mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle jede Brotscheibe mit einem Nudelholz flach, damit sie biegsam wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke je eine flach gerollte Brotscheibe in jede Muffinmulde und forme sie zu einem Nest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Hälfte des geriebenen Käses gleichmäßig auf die Brotnester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage vorsichtig je ein Ei über dem Käse in die Mitte jedes Nests.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue die Nester mit dem restlichen Käse, Salz, Pfeffer und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie 12-15 Minuten, bis das Eiweiß gestockt, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Nester 2 Minuten abkühlen. Löse sie mit einer Gabel aus dem Blech und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_768/v1/img/recipes/28/83/94/picDizRhr.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_768/v1/img/recipes/28/83/94/picDizRhr.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eggs-en-cocotte",
+      "slug": "gen-eggs-en-cocotte",
+      "title": "Eier en Cocotte",
+      "instructions": "Französisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kaffeesahne statt Schlagsahne und senke die Kosten so um 30 %.",
+        "Kaufe Eier im Angebot in Großpackungen und bewahre sie im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Französisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4827,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eggs-en-cocotte/",
+      "components": [
+        {
+          "key": "51d726ec-fb61-549d-9e66-f503a21f8e5d",
+          "name": "Zutaten",
+          "servingGrams": 220.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "20aad539-d321-5e2c-bf40-c1c8f32f2c39",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6d1d0c67-54ec-5cca-a9ac-62b78dfb3341",
+              "ingredientName": "Schwere Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "68a23c80-b7d3-5e39-8ab8-7a6de0549a04",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb504c04-7f59-539c-8811-f089f9052429",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "8f02250a-f981-54cc-b054-1dec7cfb7239",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "a0bc16dd-1d41-5aa6-8589-952bd76e76a6",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, gehackt"
+            },
+            {
+              "key": "5bac2749-7867-5375-9324-a2d8ff4bbce4",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse, gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 350°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fette zwei Souffléförmchen oder kleine Auflaufformen großzügig mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 2 EL Schlagsahne in jedes Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage vorsichtig je 2 Eier über der Sahne in jedes Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue die Eier mit Salz, Pfeffer und der Hälfte des Käses.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die Förmchen in eine Auflaufform und fülle diese mit heißem Wasser, das bis zur halben Höhe der Förmchen reicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Eier 12-15 Minuten, bis das Eiweiß gestockt und das Eigelb noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue die Eier mit dem restlichen Käse und Schnittlauch. Sofort im Förmchen mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/XKp0UYm9bciKHcKLTYGskoU9uF8=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__12__20151201-egg-en-cocotte-vicky-wasik-017-6d401a75d50a40e896259b54b20fde84.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/XKp0UYm9bciKHcKLTYGskoU9uF8=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__12__20151201-egg-en-cocotte-vicky-wasik-017-6d401a75d50a40e896259b54b20fde84.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tortilla-espa-ola",
+      "slug": "gen-tortilla-espa-ola",
+      "title": "Tortilla Española",
+      "instructions": "Spanisches Mittagessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln im 5-Pfund-Sack und spare so 50 % pro Pfund.",
+        "Verwende Olivenöl der Hausmarke statt einer teuren Sorte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "spanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4828,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tortilla-espa-ola/",
+      "components": [
+        {
+          "key": "da953e1c-1756-51aa-99f0-897b0dd3e4f5",
+          "name": "Zutaten",
+          "servingGrams": 155.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "fdba38ca-74d6-58fa-82b2-89f83486475d",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d0db8d94-b338-5673-bca9-0606607185e3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "1c194370-03a7-51b6-994b-481f95f8c571",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d346981-b40f-59e5-b571-a1ed44be8b1a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "878dc182-f602-5b62-83c1-5c14a0f6e15f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c7422d8f-5adf-552e-acd0-8728a7e5e43e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "99e07d5e-7e65-5973-b97f-fc7d2b09bd09",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln und schneide sie mit einem Gemüsehobel oder Messer in dünne Scheiben von 0.125 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Zwiebel in dünne Halbringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Olivenöl in einer beschichteten 10-Zoll-Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kartoffeln und Zwiebeln in das heiße Öl, würze mit Salz und Pfeffer und gare sie unter gelegentlichem Rühren 10 Minuten, bis die Kartoffeln weich zu werden beginnen, aber noch nicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Währenddessen verquirle 6 Eier mit einer Prise Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Kartoffeln und Zwiebeln durch ein Sieb ab und lasse 2 EL Öl in der Pfanne zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Kartoffeln und Zwiebeln zurück in die Pfanne und gieße die verquirlten Eier darüber. Gare alles bei mittlerer bis niedriger Hitze 5 Minuten ohne Rühren, bis die Ränder gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege einen Teller auf die Pfanne und stürze die Tortilla vorsichtig darauf. Schiebe sie zurück in die Pfanne und gare die andere Seite 2-3 Minuten, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib die Tortilla auf eine Servierplatte, garniere sie mit Petersilie und lasse sie leicht abkühlen. Schneide sie in Stücke und serviere sie warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/uI4MPG4dYgCR2gPgTz1ixnAseBQ=/6000x4000/filters:fill(auto,1)/spanish-omelet-tortilla-espanola-3083734-1430_Hero-5b69b60ac9e77c00500a46ea.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/uI4MPG4dYgCR2gPgTz1ixnAseBQ=/6000x4000/filters:fill(auto,1)/spanish-omelet-tortilla-espanola-3083734-1430_Hero-5b69b60ac9e77c00500a46ea.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ashta-bil-bayd",
+      "slug": "gen-ashta-bil-bayd",
+      "title": "Ashta Bil Bayd",
+      "instructions": "Libanesisches Frühstück — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass das Rosenwasser weg und verwende als günstigeren Ersatz Vanilleextrakt.",
+        "Kaufe gehackte Pistazien in der Großpackungsabteilung und spare so 40 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "libanesisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4829,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ashta-bil-bayd/",
+      "components": [
+        {
+          "key": "c01a02c2-eab8-5f0b-8f81-d510e2867bcf",
+          "name": "Zutaten",
+          "servingGrams": 307.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "d820bd2c-5070-5c7d-9e10-5bf58a7b1fbe",
+              "ingredientName": "Schwere Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "51dba267-cd97-51c4-bdf7-87283a6b69f5",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f08785e2-ec4b-58f9-8281-8e0f0c7b73c9",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "51217af0-7c8c-5e51-8045-14bb6ea71c9f",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "21e00fab-9138-5aa8-b962-0484c3a9abc7",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ca1942cb-6712-5b5b-9136-6c8ad41b3d8f",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c1a3eb2-29a3-5db6-b0c3-02e961233008",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "edd92123-61c2-5a48-a107-1fc16a6145b2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "8313ba45-729d-5456-acc1-6df515dcde38",
+              "ingredientName": "Pistazien",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse, zerdrückt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Milch und Maisstärke in einem Topf, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Schlagsahne, Zucker und Salz dazu. Erhitze die Mischung bei mittlerer Hitze unter ständigem Rühren etwa 5 Minuten, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd und rühre Rosenwasser ein. Gieße die Ashta anschließend zum Abkühlen auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmilz 2 EL Butter in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage vorsichtig alle 4 Eier in die Pfanne und gare sie etwa 4 Minuten, bis das Eiweiß gestockt und das Eigelb noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die abgekühlte Ashta auf drei Servierschalen oder Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Setze auf jede Portion ein Ei und bestreue es mit gehackten Pistazien.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht warm mit Fladenbrot oder Pita zum Auftunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2011/07/Qatayef-Asafiri-Atayef-bil-Ashta-16-1024x1536.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2011/07/Qatayef-Asafiri-Atayef-bil-Ashta-16-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

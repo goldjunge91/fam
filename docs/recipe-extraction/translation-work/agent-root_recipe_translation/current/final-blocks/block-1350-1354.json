@@ -1,0 +1,979 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-am-bkfst-acai-bowl",
+      "slug": "mfr-am-bkfst-acai-bowl",
+      "title": "Açaí-Frühstücks-Bowl",
+      "instructions": "Gefrorenes, dickes Açaí wird mit Banane und Mandelmilch zu einer tiefvioletten Smoothie-Bowl gemixt und mit Granola, frischen Beeren, Bananenscheiben, Honig und Kokos gekrönt. Brasilianische Energie für einen amerikanischen Morgen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefrorene Açaí-Portionen kosten bei Costco oder Trader Joe's jeweils 2–3 Dollar.",
+        "Entscheidend ist möglichst wenig Flüssigkeit. Eine trinkbare Smoothie-Bowl ist traurig.",
+        "Selbst gemachtes Granola kostet pro Portion etwa 3 statt 8 Dollar aus dem Laden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-acai",
+          "swap": "Gefrorene Blaubeeren plus 1 TL Kakaopulver für einen ähnlichen Geschmack"
+        },
+        {
+          "forIngredientId": "almond-milk",
+          "swap": "Beliebige Pflanzenmilch oder normale Milch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-acai-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Açaí",
+        "Smoothie-Bowl",
+        "Frühstück",
+        "Antioxidantien"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1350,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-acai-bowl/",
+      "components": [
+        {
+          "key": "02e04e26-1d6d-5df4-9fcc-cf4bf3ff4292",
+          "name": "Zutaten",
+          "servingGrams": 851.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ed8eb46-e5ad-5af5-9e6f-497e2d3638ba",
+              "ingredientName": "Gefrorene Açaí-Portion",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c17b0158-2f34-5b56-a885-07dcf1546753",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc73dd6c-1765-5aff-8179-3a5568d0d238",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf640aa1-1f41-52ec-94ce-a1e496efe745",
+              "ingredientName": "Granola",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24938780-9620-53ec-a528-46190ce47594",
+              "ingredientName": "Gefrorene Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c906660-324a-560e-b726-1b237ddeaa0e",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8a1034b-0046-5655-996b-1ff4d7ea80d9",
+              "ingredientName": "Kokosraspeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "466bcdff-5c33-5919-9b51-fa3607d989ce",
+              "ingredientName": "Chiasamen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gefrorene Açaí-Portion mit Banane und Mandelmilch dickflüssig mixen, dabei möglichst wenig Flüssigkeit verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In eine Schüssel geben. Die Masse sollte dick genug sein, um sie mit einem Löffel zu essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Granola, Beeren, Bananenscheiben, etwas Honig und Kokos garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2018/03/tropical-acai-bowl-recipe.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2018/03/tropical-acai-bowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Açaí-Frühstücks-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-bkfst-denver-omelette",
+      "slug": "mfr-am-bkfst-denver-omelette",
+      "title": "Denver-Omelett aus der Pfanne",
+      "instructions": "Schinken, Paprika, Zwiebel und Cheddar werden unter fluffige Rühreier in einer gusseisernen Pfanne gehoben. Ein zerlegtes Denver-Omelett als unkomplizierter Brunch am Wochenende zum Teilen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schinken von der Frischetheke kostet pro Unze weniger als abgepackter Schinken.",
+        "Eine Pfanne mit 5 Eiern für zwei Personen kostet weniger als 3 Dollar.",
+        "Verwende einfach den Käse, den du gerade zu Hause hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham",
+          "swap": "Gebratener Speck oder Putenwurst"
+        },
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Beliebiges Gemüse. Pilze oder Tomaten passen besonders gut."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-denver-omelette",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Denver",
+        "Omelett",
+        "Schinken",
+        "Pfanne"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1351,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-denver-omelette/",
+      "components": [
+        {
+          "key": "6ee0ffff-a07f-503e-bf42-c4d456996ecf",
+          "name": "Zutaten",
+          "servingGrams": 315,
+          "position": 0,
+          "items": [
+            {
+              "key": "38d444e4-c287-526b-85fe-ff5254860bdf",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "890a35a0-5ad5-5078-80df-b268971630eb",
+              "ingredientName": "Schinken, in Scheiben",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b18fbea4-971d-54a8-aa11-745d56d0adab",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edbc1f96-b61d-5d6d-a4ab-43a7c0075434",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc0bed94-1838-5f88-a003-37cd01ab37fe",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42b1a5e3-13a9-57a4-9371-037f15eb031c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e59a53b-7064-5ecd-894b-e7c97d87bab4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f72ee5ea-be13-573a-a6ec-ed575c4744e6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gewürfelten Schinken, Paprika und Zwiebel 4 Minuten in Butter anbraten, bis alles weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier mit Salz und Pfeffer verquirlen und über das Gemüse gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei mittlerer bis niedriger Hitze 3 Minuten ohne Rühren garen, bis die Ränder stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Käse darüberstreuen, die Hälfte umklappen oder direkt aus der Pfanne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mKW4JLyajtA2Gmq5eNnmjDqrBKc=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/denver-omelet-4160677-step-07-8add1e16f19c4f82bae1cde238c0ef98.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mKW4JLyajtA2Gmq5eNnmjDqrBKc=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/denver-omelet-4160677-step-07-8add1e16f19c4f82bae1cde238c0ef98.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Denver-Omelett aus der Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-bkfst-pb-banana-oats",
+      "slug": "mfr-am-bkfst-pb-banana-oats",
+      "title": "Overnight Oats mit Erdnussbutter und Banane",
+      "instructions": "Haferflocken werden über Nacht mit Milch, Erdnussbutter, Banane und etwas Honig eingeweicht. Ein Frühstück zum Mitnehmen, das am Vorabend in 5 Minuten vorbereitet ist und den ganzen Morgen Energie liefert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses gesamte Frühstück kostet pro Glas etwa 0.80 Dollar.",
+        "Bereite sonntags 5 Gläser für die ganze Arbeitswoche vor.",
+        "Natürliche Erdnussbutter ist gesünder und meist günstiger als Markenprodukte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Mandel- oder Hafermilch für eine milchfreie Variante"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-pb-banana-oats",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Overnight Oats",
+        "Erdnussbutter",
+        "Banane",
+        "Meal-Prep"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1352,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-pb-banana-oats/",
+      "components": [
+        {
+          "key": "c994d4fd-82ae-5d55-bcea-9433a8331ae9",
+          "name": "Zutaten",
+          "servingGrams": 666.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "20956c30-dc6f-51e6-b14a-8f953b0d8e6f",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23395f8d-02f7-5c0a-b885-e6661b47ba66",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56d0b096-3f4f-5417-96f1-b1c17a0c20fa",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d2734d7-0f8e-55a8-a55b-50ff97fc95da",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95fa221f-b28f-5e2f-aeda-9df8065edf0f",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "012eb88c-ced2-5089-b2f2-9702f8dcf57e",
+              "ingredientName": "Chiasamen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bdcf207-58df-5e07-a338-5dbf2143b598",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1267ca0-002f-5b39-a9a6-2416a67a67ba",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haferflocken, Milch, Chiasamen, Erdnussbutter, Honig und Vanille in einem Glas vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gut umrühren, abdecken und über Nacht, mindestens 6 Stunden, kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Am Morgen mit Bananenscheiben und etwas zusätzlicher Erdnussbutter garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/07/High-Protein-Overnight-Oats-Recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/07/High-Protein-Overnight-Oats-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Overnight Oats mit Erdnussbutter und Banane",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-bkfst-steak-egg-bowl",
+      "slug": "mfr-am-bkfst-steak-egg-bowl",
+      "title": "Frühstücks-Bowl mit Steak und Ei",
+      "instructions": "Dünn geschnittenes Flankensteak wird mit Knoblauch und Kreuzkümmel gewürzt und auf einer Frühstücksbasis aus Rührei, Bratkartoffeln und Avocado serviert. Ein Wochenendfrühstück, mit dem du dich unbesiegbar fühlst.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flankensteak ist ein besonders aromatisches und günstiges Stück Fleisch und oft im Angebot.",
+        "Wenn das Steak vor dem Aufschneiden 5 Minuten ruht, bleibt es saftig.",
+        "Eine halbe Avocado pro Person reicht völlig aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "skirt-steak",
+          "swap": "Flanksteak oder jedes andere dünne Stück Rindfleisch"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Gefrorene Bratkartoffeln, um 10 Minuten zu sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-steak-egg-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Steak",
+        "Eier",
+        "Frühstücks-Bowl",
+        "Wochenende"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1353,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-steak-egg-bowl/",
+      "components": [
+        {
+          "key": "9100f2e7-be52-59b7-8dd8-143590f0d8e9",
+          "name": "Zutaten",
+          "servingGrams": 330.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d108c16e-77c4-59d5-aec8-39a568d6422c",
+              "ingredientName": "Flankensteak",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0aa622e6-3ff0-5741-ae5f-cdb95c207ccd",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02069006-047c-5a61-813e-7235069ad77d",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d33d644b-102d-5471-b5c3-b05ffdc05c8c",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fae4f28-93c0-5e5f-8a68-e7835cd9fa80",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cb02435-7bc4-5181-a4bd-11eb051ec41b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "780ee481-8772-504b-a46a-e90e646d5f8a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3beb54b0-5cbd-5f35-9d16-d0da981c5c75",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccf980cd-1c7c-59a6-a2b1-3f0507869e8a",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c9a7ff6-cad2-58e4-9a2e-19913f3b206f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gewürfelte Kartoffel 10 Minuten in Öl braten, bis sie knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Steak mit Knoblauch, Kreuzkümmel, Paprikapulver und Salz würzen und 3 Minuten pro Seite scharf anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Steak ruhen lassen und dünn aufschneiden. Eier in derselben Pfanne zu Rührei braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bowl schichten: Bratkartoffeln, Eier, Steak, Avocado und scharfe Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://dianasdelishdishes.com/wp-content/uploads/2023/02/6CB83787-DEF2-44A2-80AC-AF1DBF7F81F3-1024x1024.jpeg",
+          "sourcePageUrl": "https://dianasdelishdishes.com/wp-content/uploads/2023/02/6CB83787-DEF2-44A2-80AC-AF1DBF7F81F3-1024x1024.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Frühstücks-Bowl mit Steak und Ei",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-bkfst-green-smoothie-bowl",
+      "slug": "mfr-am-bkfst-green-smoothie-bowl",
+      "title": "Grüne Power-Smoothie-Bowl",
+      "instructions": "Gefrorener Spinat, Banane, Avocado und Mandelmilch werden zu einer dicken grünen Basis gemixt. Darauf kommen Kiwi, Gurke, Hanfsamen und Kokos. Ein nährstoffreiches Frühstück, das nicht nach Salat schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefrorener Spinat ist 3-mal günstiger als frischer und schmeckt in Smoothies neutral.",
+        "Eine Banane und eine Avocado liefern die nötige Süße und das Fett.",
+        "Hanfsamen sind der proteinreichste Belag. Die 6-Dollar-Tüte lohnt sich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-spinach",
+          "swap": "Frischer Babyspinat mit denselben Nährstoffen"
+        },
+        {
+          "forIngredientId": "hemp-seeds",
+          "swap": "Chiasamen oder Leinsamen als günstigere Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-green-smoothie-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Grüner Smoothie",
+        "Bowl",
+        "Spinat",
+        "Antioxidantien"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1354,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-green-smoothie-bowl/",
+      "components": [
+        {
+          "key": "81fcf349-b8f3-59ef-b0e0-f204636f5377",
+          "name": "Zutaten",
+          "servingGrams": 1251.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "d3ecd321-0517-5b96-a095-402ca3465b0c",
+              "ingredientName": "Gefrorener Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "978e9aa3-e967-59b8-8028-c1d49637d2bc",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30ba4196-20ef-5f5f-899a-5748a05b21bf",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2feecb31-fd5a-540e-a547-064ee09c9d7c",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe81abb8-9be3-5b1b-bfb5-1c6aefc2d779",
+              "ingredientName": "Kiwi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "597adcab-bbc9-518a-bbda-433e37302a96",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6c27a2f-663c-5d78-a1fb-8f2a2b95ae1b",
+              "ingredientName": "Hanfsamen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20dd4ecf-c2e2-555a-9adc-78b001f2c603",
+              "ingredientName": "Kokosraspeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea6f3a33-8000-53e0-acc7-a63d3f9774ab",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gefrorenen Spinat, Banane, Avocado und Mandelmilch sehr dickflüssig mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In eine Schüssel geben und Kiwi, Gurke und Kokos darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hanfsamen darüberstreuen und mit Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/04/CREAMY-Refreshing-MATCHA-Green-Smoothie-Bowl-4-ingredients-creamy-naturally-sweet-SO-delicious-veagn-glutenfree-plantbased-greensmoothie-recipe.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/04/CREAMY-Refreshing-MATCHA-Green-Smoothie-Bowl-4-ingredients-creamy-naturally-sweet-SO-delicious-veagn-glutenfree-plantbased-greensmoothie-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Grüne Power-Smoothie-Bowl",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

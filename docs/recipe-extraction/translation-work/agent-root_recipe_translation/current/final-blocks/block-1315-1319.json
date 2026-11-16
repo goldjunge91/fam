@@ -1,0 +1,1030 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-african-bkfst-nsima-bowl",
+      "slug": "mfr-african-bkfst-nsima-bowl",
+      "title": "Malawische Frühstücksschale mit Nsima",
+      "instructions": "Fester Maisbrei (Nsima) mit würzigem Tomaten-Blattgemüse-Relish (Ndiwo): die grundlegende Sättigungsbeilage im südlichen Afrika, wohltuend und nahrhaft, in Malawi und Sambia zu jeder Tageszeit gegessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maismehl gehört zu den günstigsten Kalorienquellen überhaupt: $2 für 10 Portionen.",
+        "Nsima wird mit den Händen gegessen und dient als Werkzeug, um das Relish aufzunehmen.",
+        "Grünkohl ist das nährstoffreichste günstige Blattgemüse. Du kannst jedes Blattgemüse verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Blattkohl, Spinat oder Weißkohl"
+        },
+        {
+          "forIngredientId": "cornmeal",
+          "swap": "Feines Maismehl für eine glattere Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-african-bkfst-nsima-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "malawisch",
+        "Nsima",
+        "Maismehl",
+        "südafrikanisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1315,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-african-bkfst-nsima-bowl/",
+      "components": [
+        {
+          "key": "6e72d14d-ffa2-5141-8ff8-9c0b014f91f3",
+          "name": "Zutaten",
+          "servingGrams": 578.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "3368085d-8da9-5fb7-835f-286052f8f703",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91ce4c89-95db-5301-b612-ee16461a0ce5",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f45ec663-fb39-5ed9-8ed1-2b481f18ef6e",
+              "ingredientName": "Grünkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "114f795e-3b05-549f-a144-23baf974e1fd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09051c99-c810-597c-bb04-1ae878ca1c8b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00dc1faa-ccea-58c6-89d7-54cccbe41945",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "496efe02-dd03-566b-8ae6-a26ae0a40972",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb004be9-b008-5d01-8bf4-75f6bf4b441b",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Wasser zum Kochen. Rühre langsam Maismehl ein und gare es 10–12 Minuten unter Rühren, bis ein sehr fester Brei entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Befeuchte deine Hände und forme den Nsima zu runden Fladen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste Zwiebel und Knoblauch 3 Minuten an. Gib Tomaten und Grünkohl dazu und gare alles 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Relish (Ndiwo) neben den Nsima-Fladen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2023/11/Kondowole.jpg.webp",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2023/11/Kondowole.jpg.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-veg-ratatouille",
+      "slug": "mfr-euro-veg-ratatouille",
+      "title": "Französische Ratatouille",
+      "instructions": "Langsam gekochter provenzalischer Gemüseeintopf aus Aubergine, Zucchini, Paprika und Tomaten mit Kräutern der Provence: einfache Bauernküche mit dem Geschmack eines Sommers in Südfrankreich.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Am nächsten Tag schmeckt dieses Gericht besser. Bereite die doppelte Menge zu.",
+        "Saisonales Gemüse kostet halb so viel wie Gemüse außerhalb der Saison.",
+        "Serviere die Ratatouille auf Polenta oder Pasta oder mit knusprigem Brot als vollständige Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "herbes-de-provence",
+          "swap": "Eine Mischung aus getrocknetem Thymian, Rosmarin und Oregano"
+        },
+        {
+          "forIngredientId": "eggplant",
+          "swap": "Mehr Zucchini, falls Aubergine teuer ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-ratatouille",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "Ratatouille",
+        "Gemüse",
+        "provenzalisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1316,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-ratatouille/",
+      "components": [
+        {
+          "key": "f1f5e09c-48e2-5268-a2b4-0dcd016de265",
+          "name": "Zutaten",
+          "servingGrams": 326,
+          "position": 0,
+          "items": [
+            {
+              "key": "4464d586-cb5b-59e9-a8b6-75d5408507e9",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a8d7917-1f74-5771-bb0f-4c333f57f026",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d58263b-28f1-5656-85d8-9d8c13311e0a",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77439d09-182e-51d6-a818-f49069cd249c",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad776d98-d814-5fd9-af09-6f9552fd4c2a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41521b7c-2553-5c6d-b908-446c8aaff0e6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffb6cab0-212b-5cea-8477-295092cb5d36",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2378ef6-7b77-58a7-8397-84981561fd12",
+              "ingredientName": "Kräuter der Provence",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdfff56e-2ffd-598a-8674-856b0355ce14",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle das gesamte Gemüse. Salze die Aubergine und lass sie 10 Minuten abtropfen. Tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch 5 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Aubergine dazu und gare sie 5 Minuten. Füge Paprika und Zucchini hinzu und gare alles weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomaten und Kräuter dazu, decke den Topf ab und lass alles 25 Minuten köcheln. Verfeinere die Ratatouille mit frischem Basilikum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2012/07/3ad6db7c2eca871f2eaa06e63dd7e7189b316fe4.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2012/07/3ad6db7c2eca871f2eaa06e63dd7e7189b316fe4.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-veg-ribollita",
+      "slug": "mfr-euro-veg-ribollita",
+      "title": "Italienische Ribollita",
+      "instructions": "Toskanische Bauernsuppe mit Cannellini-Bohnen, Schwarzkohl, altbackenem Brot und Gemüse: Ribollita bedeutet „wieder aufgekocht“ und sollte einen Tag vorher zubereitet werden, damit sich die Aromen entfalten. Aus einfachen Zutaten außergewöhnlich gut.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ribollita verwertet altbackenes Brot, das die Suppe kostenlos andickt.",
+        "Weiße Bohnen aus der Dose kosten $1.50. Getrocknete Bohnen sind noch günstiger.",
+        "Diese Suppe gehört zu den nährstoffreichsten Mahlzeiten für weniger als $1 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Wirsing oder Blattkohl"
+        },
+        {
+          "forIngredientId": "stale-bread",
+          "swap": "Beliebiges altbackenes Brot. Geröstetes Brot funktioniert ebenfalls"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-ribollita",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Ribollita",
+        "Bohnen",
+        "Grünkohl",
+        "Suppe"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1317,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-ribollita/",
+      "components": [
+        {
+          "key": "6b23b0cb-5321-5654-990b-3187dd70c91b",
+          "name": "Zutaten",
+          "servingGrams": 399.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca2b7180-9dc4-5375-9d7e-56de8fac3543",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fdde277-09e1-56f1-8764-87357fb0cb11",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b07a13fd-84d4-573f-88b4-627409334656",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab588210-a179-5769-b1b9-f0d141266d0b",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ea87088-ea86-58bd-aa52-195f16e1d083",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "717518b7-99ed-54d0-af4e-23f8d2f9ddcb",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94819e96-faa1-5372-b2dc-ccd8693d1df4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dd0c918-4650-5f37-b06a-0306ddf89c9d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f7192e4-8863-5ea2-8a3d-5eea6bf1480a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b9e0d9e-83cf-532a-a8de-4a6f22801aa0",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cf25392-46be-5383-a1a7-f5b94337a702",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Karotte und Sellerie 8 Minuten an. Gib Knoblauch und Thymian dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tomaten, Bohnen, Grünkohl und Brühe dazu und lass alles 25 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zupfe altbackenes Brot in die Suppe, rühre um und lass alles weitere 10 Minuten köcheln, bis die Suppe dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Suppe nach Möglichkeit über Nacht ruhen. Koche sie am nächsten Tag für die beste Variante erneut auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5aa15e94bb8d827814657414/1:1/w_2560%2Cc_limit/ribolitta-bean-stew-recipe-030818.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5aa15e94bb8d827814657414/1:1/w_2560%2Cc_limit/ribolitta-bean-stew-recipe-030818.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-veg-pisto",
+      "slug": "mfr-euro-veg-pisto",
+      "title": "Spanisches Pisto mit Spiegelei",
+      "instructions": "Spanische Antwort auf Ratatouille: ein dickflüssiges Gemüsegericht auf Tomatenbasis mit Zucchini, Paprika und Zwiebel, belegt mit Spiegeleiern. Einfach, sättigend und in ganz Spanien beliebt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pisto schmeckt mit Sommertomaten besser. Kaufe Tomaten in der Saison und friere die Sauce ein.",
+        "Geräuchertes Paprikapulver gibt dem spanischen Pisto seinen typischen Geschmack.",
+        "Traditionell wird das Gericht mit knusprigem Brot für weniger als $2 pro Portion serviert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Normales Paprikapulver und ein Tropfen Raucharoma"
+        },
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Paprika in beliebiger Farbe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-pisto",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "spanisch",
+        "Pisto",
+        "Eier",
+        "Gemüse"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1318,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-pisto/",
+      "components": [
+        {
+          "key": "c808887f-ed33-50ca-846d-5364e3b0a5f7",
+          "name": "Zutaten",
+          "servingGrams": 447,
+          "position": 0,
+          "items": [
+            {
+              "key": "da3aa1f1-e4e4-50af-b43b-19947ca4e212",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f946ee11-370a-5e1c-8d2b-10450e517b06",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59f65b55-2ce3-568f-8826-91ac4f8d2fdf",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68edbe5a-ef0b-5f78-9b4a-05acdab40c84",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "460c258e-62e7-5907-89e4-535e7dccaaed",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85b67611-e3fa-5ea1-8413-1f506ced5d71",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78c8acf5-4593-538f-b165-4cf5c1c5743b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edc4b90b-cfb2-5f7a-bfae-c8e29414d971",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e266d37-4bdc-56ec-b857-a4cc93b5e89c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel und Knoblauch 5 Minuten in Olivenöl an. Gib gewürfelte Paprika dazu und gare sie weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zucchini und Paprikapulver dazu und gare alles 5 Minuten. Füge Tomaten hinzu und lass das Gericht 15 Minuten köcheln, bis es dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme Mulden in das Pisto und schlage je eine Eierportion hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und gare alles 3–4 Minuten, bis das Eiweiß gestockt und das Eigelb noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thestayathomechef.com/wp-content/uploads/2015/10/Spanish2BPisto2B1-1.jpg",
+          "sourcePageUrl": "https://thestayathomechef.com/wp-content/uploads/2015/10/Spanish2BPisto2B1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-veg-kasespatzle",
+      "slug": "mfr-euro-veg-kasespatzle",
+      "title": "Deutsche Käsespätzle (Gratin aus Eiernudeln und Käse)",
+      "instructions": "Weiche Eiernudeln, geschichtet mit Gruyère und belegt mit knusprig karamellisierten Zwiebeln: Deutschlands Antwort auf Makkaroni mit Käse ist gleichzeitig reichhaltiger und leichter, echtes Wohlfühlessen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gruyère ist teuer. Verwende Schweizer Käse oder Emmentaler für einen ähnlichen Geschmack zu einem niedrigeren Preis.",
+        "Spätzle selbst zu machen dauert 10 Minuten und kostet $1.50 pro Ansatz.",
+        "Die karamellisierten Zwiebeln sind die wichtigste Zutat. Nimm dir dafür genug Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere-cheese",
+          "swap": "Schweizer Käse, Emmentaler oder beliebiger Käse, der gut schmilzt"
+        },
+        {
+          "forIngredientId": "all-purpose-flour",
+          "swap": "Glutenfreie Mehlmischung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-kasespatzle",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "Spätzle",
+        "Käse",
+        "Gratin"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1319,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-kasespatzle/",
+      "components": [
+        {
+          "key": "3440d745-f8b4-5147-b490-c0daf369a3e8",
+          "name": "Zutaten",
+          "servingGrams": 330,
+          "position": 0,
+          "items": [
+            {
+              "key": "54149ec0-deb7-5a21-95a5-f1e3e79cbf6b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0b7e674-67ec-5288-8333-c16f089bfd46",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c6aa011-9350-528f-921f-52b0f75e2e23",
+              "ingredientName": "Gruyère",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc951146-8666-5e0d-95d5-5eda5386275d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6695056-bddd-526f-8c4c-d039837ee846",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "906eae41-67e9-5553-a082-425b88e0e2b3",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f4a0eb2-0e73-51d3-b9b8-76bf24f77a55",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f3a6267-154a-5cb8-bec4-276eadec61aa",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere die geschnittenen Zwiebeln 20–25 Minuten in Butter, bis sie dunkelgolden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Mehl, Eier, Milch, Salz und Muskatnuss zu einem dicken Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke den Teig durch ein Sieb in kochendes Salzwasser und koche die Spätzle 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Spätzle und geriebenen Gruyère in eine Auflaufform. Belege sie mit Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe das Gratin bei 375°F 15 Minuten, bis es blubbert und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fI2uSrjxFfZnuFSQkyhRcBMOppo=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/German-Spaetzle-2-583ce5b63df78c6f6a0db946.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fI2uSrjxFfZnuFSQkyhRcBMOppo=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/German-Spaetzle-2-583ce5b63df78c6f6a0db946.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

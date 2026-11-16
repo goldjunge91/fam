@@ -1,0 +1,989 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-oyster-pie",
+      "slug": "gen-oyster-pie",
+      "title": "Austernpastete",
+      "instructions": "Amerikanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie im Laden gekaufte Tortenböden, um 45 Minuten Vorbereitungszeit zu sparen",
+        "Kaufen Sie Austern gefroren statt frisch, um die Kosten um 25 % zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6905,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oyster-pie/",
+      "components": [
+        {
+          "key": "6209d0fa-e87f-5e5d-bef6-edc1b234be5e",
+          "name": "Zutaten",
+          "servingGrams": 309.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "8de9b2b0-04ef-5281-983d-1ee8b1584fb2",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c1de7b18-5b72-5f45-82eb-06b57cad7207",
+              "ingredientName": "Austern mit Alkohol",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pint"
+            },
+            {
+              "key": "1f025f5b-eff3-58a7-90c7-5963ed0d5cbc",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "dfa261e5-a562-5071-bf62-4a2dd3c3bca6",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0188867e-fb2e-5a04-813a-0a3da396e6bc",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "95a87b45-fa22-5f2d-8b1c-9b30b33d6361",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7f37b4be-89cc-5e97-8638-649d235d0455",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "7777ce40-fcdf-5b7b-9b9d-395db1f07306",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 ganze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 400 Grad Fahrenheit vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Kuchenform mit der Hälfte des Teigs auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einem Topf schmelzen und Mehl unterrühren, sodass eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Unter Rühren nach und nach Milch hinzufügen, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Austern mit Likör vorsichtig unter die Soße heben, mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Austernmischung in den Tortenboden gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit dem restlichen Teig bedecken, die Ränder verschließen und mit geschlagenem Eigelb bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "25–30 Minuten backen, bis die Kruste goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2016/11/02/dining/02KITCHEN1/02KITCHEN1-superJumbo.jpg?quality=75&auto=webp",
+          "sourcePageUrl": "https://static01.nyt.com/images/2016/11/02/dining/02KITCHEN1/02KITCHEN1-superJumbo.jpg?quality=75&auto=webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salt-cod",
+      "slug": "gen-salt-cod",
+      "title": "Gesalzener Kabeljau",
+      "instructions": "Amerikanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kabeljau bei ethnischen Lebensmittelhändlern für 40 % weniger als in Fachgeschäften",
+        "Planen Sie im Voraus, da das Einweichen mindestens 24 Stunden dauert"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6906,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salt-cod/",
+      "components": [
+        {
+          "key": "3e0ea369-92ad-57c0-bb74-fc643e3099fe",
+          "name": "Zutaten",
+          "servingGrams": 336.26,
+          "position": 0,
+          "items": [
+            {
+              "key": "38d1cd76-c9fd-5882-8957-f93b8464f7ed",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4f59c1bf-3548-5a2b-b543-22ede0f11c78",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5d7b163e-5f0d-50f4-8f6f-24d53ea9b691",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "a5a85adf-8f21-56dd-98a5-1e9eaaf1a675",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fbba5721-7713-52cc-8e75-00e7a5dc1cda",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0ace5948-4dfe-5d84-ae21-3ce08af6e2f4",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "dfedb5e8-a459-58a3-835a-e76f54188654",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "83044826-5cf1-548b-b04d-07ee654dcdba",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den gesalzenen Kabeljau 24 Stunden lang in kaltem Wasser einweichen und alle 8 Stunden das Wasser wechseln, um ihn zu entsalzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Kabeljau abtropfen lassen und in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln weich kochen, schälen und würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter in einem großen Topf schmelzen und die gewürfelten Zwiebeln darin anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mehl einrühren, bis eine Mehlschwitze entsteht, dann nach und nach unter Rühren Milch hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kabeljau und Kartoffeln zur Sahnesauce hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "10 Minuten leicht köcheln lassen, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/li2gEnsmGeQ5iQ7KXWEIxC-LrLA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__06__portuguese-salt-cod-stew-bacalhoada-vertical-a-1800-c743825c369c4cd4a80dacbbadda3017.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/li2gEnsmGeQ5iQ7KXWEIxC-LrLA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__06__portuguese-salt-cod-stew-bacalhoada-vertical-a-1800-c743825c369c4cd4a80dacbbadda3017.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shore-dinner",
+      "slug": "gen-shore-dinner",
+      "title": "Meeresfrüchteessen an der Küste",
+      "instructions": "Amerikanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lassen Sie den Hummer weg und fügen Sie mehr Muscheln hinzu, um die Kosten auf 2.50 $ pro Portion zu senken",
+        "Kaufen Sie Kartoffeln und Mais der Saison zu den besten Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6907,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shore-dinner/",
+      "components": [
+        {
+          "key": "146a5f94-691f-5dad-94f0-f0aacc3b88d7",
+          "name": "Zutaten",
+          "servingGrams": 442.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9e7b502-fda9-56d5-908b-c1027f793163",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "e9940a47-3cd2-5c24-8bb4-b1bceb7eff83",
+              "ingredientName": "Hummerschwanz",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "40d33b11-5492-5f33-be90-f90fd3b608ce",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Kolben"
+            },
+            {
+              "key": "e0058e49-5bbe-5ef9-8a0f-dbf44b141686",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "80ab751a-5cde-5ee0-980a-273dc92f7527",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "8c2c3d3d-247e-5f51-9946-02daa2e3de0b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5c7f8c02-b95e-5ebe-ac98-30c193b23913",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 ganze"
+            },
+            {
+              "key": "c4a96991-4ad2-5b8c-b247-336568cf2e7c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Füllen Sie einen großen Dampfgartopf 3 cm hoch mit Wasser und fügen Sie Salz hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wasser zum Kochen bringen und ganze Kartoffeln hinzufügen, abdecken und 15 Minuten dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Muscheln und Hummerschwanz mit Mais in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abdecken und 10–12 Minuten dämpfen, bis sich die Muscheln öffnen und der Hummer gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Entsorgen Sie alle ungeöffneten Muscheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter mit gehacktem Knoblauch und Petersilie schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Alle Zutaten auf einer großen Platte anrichten und mit Buttersauce und Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://roadfood.com/wp-content/uploads/2016/03/rfl_10045.jpg",
+          "sourcePageUrl": "https://roadfood.com/wp-content/uploads/2016/03/rfl_10045.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boston-lettuce-salad",
+      "slug": "gen-boston-lettuce-salad",
+      "title": "Boston-Salat",
+      "instructions": "Amerikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Salat kurz vor Ladenschluss auf Bauernmärkten und profitieren Sie von Rabatten",
+        "Machen Sie größere Mengen und lagern Sie das Dressing getrennt, um ein Welken zu verhindern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6908,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boston-lettuce-salad/",
+      "components": [
+        {
+          "key": "26ac2baa-9640-5226-a016-d86ea97a0bb4",
+          "name": "Zutaten",
+          "servingGrams": 279.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "b34f6bdc-8409-5d96-b150-e20589bdb249",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Kopf"
+            },
+            {
+              "key": "5dbed04c-98c0-5bce-a1f4-a09cbac0e5f8",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0a627408-3f6c-5eca-a0f4-8181c37ce563",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 ganze"
+            },
+            {
+              "key": "7b2ea710-ca20-5abb-9cf6-3e5e9a344c22",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 ganze"
+            },
+            {
+              "key": "ffedc9c7-401a-5c05-8737-62183fe58760",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1d2d6502-f1e9-5431-91fd-46fd3765a3dc",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6372a171-3a26-58b5-a35f-49d060aa6eca",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "c58cc833-ceae-5876-8ca1-5c0210a06cef",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Boston-Salat waschen und die Blätter in mundgerechte Stücke zupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kirschtomaten halbieren und Gurke in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rote Zwiebel in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Alle Gemüse in einer großen Salatschüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Olivenöl, Essig, Salz und Pfeffer in einer kleinen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gießen Sie das Dressing über den Salat und schwenken Sie es vorsichtig, bis es bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort auf einzelnen Tellern servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/01/chopped-lettuce-salad-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/01/chopped-lettuce-salad-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boiled-peanuts",
+      "slug": "gen-boiled-peanuts",
+      "title": "Gekochte Erdnüsse",
+      "instructions": "Lowcountry-Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie während der Erntezeit rohe Erdnüsse in großen Mengen",
+        "Verwenden Sie Leitungswasser und einfaches Speisesalz, um die Kosten zu minimieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "Tiefland",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6909,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boiled-peanuts/",
+      "components": [
+        {
+          "key": "5af9edb8-7412-5205-87a8-25735cf91cd4",
+          "name": "Zutaten",
+          "servingGrams": 199.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "540092d6-3ce7-5c8b-a28e-4f6d024a1fbc",
+              "ingredientName": "Erdnüsse",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "3a2ba928-dc0f-5e05-8095-272da0e92dc9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "21b9b706-77db-5725-bb7a-9b6ae2ffccdc",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Gallonen"
+            },
+            {
+              "key": "6a1c8020-a8f8-5c68-8ddf-32ecb3a5fad0",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5061f27c-2bf1-5d7a-bd4b-42b6953882e8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rohe Erdnüsse gründlich unter kaltem Wasser abspülen und alle Rückstände entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringen Sie 3 Gallonen Wasser in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Salz, Cayennepfeffer und Knoblauchzehen in das kochende Wasser geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erdnüsse dazugeben und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2 bis 3 Stunden kochen, dabei gelegentlich umrühren und nach 30 Minuten alle 90 Minuten abschmecken, bis die gewünschte Weichheit erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erdnüsse abtropfen lassen und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/hQiEd8dtDTv6dstgoYafQA2zWbw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Boiled-Peanuts-LEAD-08-6aab621e0ab947a98a6373d2d86803db.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/hQiEd8dtDTv6dstgoYafQA2zWbw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Boiled-Peanuts-LEAD-08-6aab621e0ab947a98a6373d2d86803db.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

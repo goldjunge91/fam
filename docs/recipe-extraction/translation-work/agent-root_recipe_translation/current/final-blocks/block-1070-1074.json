@@ -1,0 +1,1090 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-nigerian-egusi-soup",
+      "slug": "mfr-nigerian-egusi-soup",
+      "title": "Nigerianische Egusi-Suppe",
+      "instructions": "Westafrikanische Melonenkernsuppe mit Hähnchen, Spinat, Palmöl und fermentierten Johannisbrotbohnen. Sämig, erdig und besonders sättigend zu Reis.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Egusi-Samen gibt es in afrikanischen Lebensmittelgeschäften für $3–5 pro Beutel. Das reicht für viele Mahlzeiten.",
+        "Palmöl verleiht Egusi seinen charakteristischen Geschmack. Schon eine kleine Menge genügt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "egusi",
+          "swap": "Gemahlene Kürbiskerne als besonders ähnlicher Ersatz"
+        },
+        {
+          "forIngredientId": "palm-oil",
+          "swap": "Normales Öl und 1 TL Paprikapulver für die Farbe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nigerian-egusi-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "nigerianisch",
+        "Suppe",
+        "Eintopf",
+        "afrikanisch",
+        "festlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1070,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nigerian-egusi-soup/",
+      "components": [
+        {
+          "key": "ea3caa64-0ef3-5418-bd76-93dc329ebc2a",
+          "name": "Zutaten",
+          "servingGrams": 1315.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "48f70280-965b-5f7f-9660-a0a9451a4972",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2362e4a2-7d60-58d1-a21c-95d97e29ce58",
+              "ingredientName": "Egusi (gemahlene Melonenkerne)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03934baf-d423-5e13-8751-b53c06f9afdc",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d075bf9-89cb-5a8a-88d2-04a9b63f8a0b",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ba76d4d-bb77-5156-846e-219251abc50e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eee0f12d-bf9f-51f5-9eec-4ed7df6ca3f8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "028211e8-4287-5154-8f13-e985d4f2930c",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0a9ae1c-39b7-5200-8b2a-a0df1cd8306f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64263679-4884-5b53-8903-ed6a5bcbf46e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0d80090-1267-51a0-b2fa-4135cb9950c9",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tomaten, Zwiebel, Knoblauch und Chili pürieren. In Palmöl 10 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen und Brühe dazugeben. 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Egusi (gemahlene Melonenkerne) einrühren. 10 Minuten köcheln lassen, bis die Suppe dick wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat dazugeben und 2 Minuten garen. Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/hx4DAscKBee9L2v3heNWiAL50wc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220425-Egusi-Maureen-Celestine-26-hero-1-608f079ef8ae4b8b840e61e44ecb766a.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/hx4DAscKBee9L2v3heNWiAL50wc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220425-Egusi-Maureen-Celestine-26-hero-1-608f079ef8ae4b8b840e61e44ecb766a.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ethiopian-doro-wat",
+      "slug": "mfr-ethiopian-doro-wat",
+      "title": "Äthiopisches Doro Wat",
+      "instructions": "Hähnchenkeulen, langsam in einem Eintopf aus roten Zwiebeln und Berbere-Gewürz gegart, mit hart gekochten Eiern. Äthiopiens berühmtes Nationalgericht, serviert mit Injera oder Reis.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Entscheidend ist, die Zwiebeln langsam zu karamellisieren. So bilden sie die süßliche Grundlage des Eintopfs.",
+        "Berbere-Gewürzmischung gibt es in äthiopischen und afrikanischen Lebensmittelgeschäften für $3–4 pro Beutel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "berbere-spice",
+          "swap": "Je 1 TL Paprikapulver, Kreuzkümmel, Koriander, Piment und Chili"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl (weniger traditionell, aber geeignet)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ethiopian-doro-wat",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "äthiopisch",
+        "Eintopf",
+        "Hähnchen",
+        "gewürzt",
+        "festlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1071,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ethiopian-doro-wat/",
+      "components": [
+        {
+          "key": "65f2b8e1-233d-5296-bd1f-2b41e6f44186",
+          "name": "Zutaten",
+          "servingGrams": 884.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc17a51a-765b-559e-b9aa-8d1f03d90c74",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "422f4e91-a25a-5e31-8e86-28ca29aa8c2d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e596bc8-c3f0-5ded-a8e7-ea777285d433",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da643ad7-56c2-5d26-a55a-dd5d7936aa9f",
+              "ingredientName": "Berbere-Gewürzmischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80638ec8-beb3-5394-9f09-9274f2ccde4a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d60dd88-5d35-57a6-8eaf-0dbcf8782735",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f24a81ef-3698-50f9-ae3f-aaedc270003c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cdba64c-ac73-52e3-901d-194a966e1771",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce2b5468-ea8b-5bf9-a2ce-cd9b4d1a7dbd",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0956265a-ba88-58d8-9323-0a584302004f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rote Zwiebeln in Butter 20–25 Minuten karamellisieren, bis sie sehr dunkelbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Berbere, Knoblauch und Ingwer dazugeben und 2 Minuten garen. Hähnchen und Brühe hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgedeckt 25 Minuten köcheln lassen. In den letzten 5 Minuten die eingeschnittenen, hart gekochten Eier dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Reis oder Injera servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HB9aeNJpYOVo_NeSIZf5qWLVP7I=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/doro-wat-39441-step-05-2ad5fd275f9540d9852e8ced0b10eb12.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HB9aeNJpYOVo_NeSIZf5qWLVP7I=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/doro-wat-39441-step-05-2ad5fd275f9540d9852e8ced0b10eb12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jamaican-jerk-shrimp",
+      "slug": "mfr-jamaican-jerk-shrimp",
+      "title": "Jamaikanische Jerk-Garnelen",
+      "instructions": "Garnelen in einer feurigen Jerk-Würzung aus Scotch Bonnet, Piment, Thymian und braunem Zucker mariniert, gegrillt oder in der Pfanne gebraten und mit Reis und Bohnen serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jerk-Gewürzmischung lässt sich vorbereiten und hält sich eine Woche im Kühlschrank.",
+        "Reis in Kokosmilch zu kochen kostet nur 20 Cent mehr, schmeckt aber viel besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "scotch-bonnet",
+          "swap": "Habanero oder Jalapeño für weniger Schärfe"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Hähnchenoberkeulen (mit derselben Marinade, ganz traditionell)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jamaican-jerk-shrimp",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "Garnelen",
+        "scharf",
+        "schnell",
+        "karibisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1072,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jamaican-jerk-shrimp/",
+      "components": [
+        {
+          "key": "9f453681-668a-5bf0-8cb1-7009dd804f51",
+          "name": "Zutaten",
+          "servingGrams": 834.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "84892c50-587a-53bf-aa8e-5576f5799a83",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0857f2e6-dc46-5c7d-8307-fba6f9ec92d7",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acad626e-54d4-5410-9d00-fad4486f5ed0",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24f5d293-f28e-5147-a32d-d7ff45704ebe",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5891d95d-2795-5806-a462-b71a52dbd167",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21c2987b-c068-54f1-b373-7c0b5267f96a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8676524f-f623-5a5e-a4db-3408fb3cd95a",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "734f28a7-66e1-5fa5-9b90-788f532ccd91",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fde556ba-22e9-51ed-8a58-8458b0610b6c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5864cb75-1c79-53c6-a948-c15e501e1fe4",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b3f51fe-31ed-5ea1-9e89-ac5e8ed07d0e",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d3ee9c5-0d10-56de-b38a-f9bb48d2962b",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Jerk-Marinade zubereiten: Piment, Thymian, Zucker, Knoblauch, Ingwer, Scotch Bonnet und Sojasauce pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelen in der Marinade wenden. Bei hoher Hitze in Öl 2–3 Minuten pro Seite garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis und Bohnen zubereiten: Reis mit Kidneybohnen und Thymian in Kokosmilch garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen auf dem Reis mit Bohnen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2021/02/jerk-shrimp-bowls-close-up.jpg",
+          "sourcePageUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2021/02/jerk-shrimp-bowls-close-up.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ghanaian-groundnut-stew",
+      "slug": "mfr-ghanaian-groundnut-stew",
+      "title": "Ghanaischer Erdnusseintopf",
+      "instructions": "Hähnchen in einer reichhaltigen Erdnuss-Tomatensauce mit Süßkartoffel und Spinat. Westafrikas beliebter Erdnussbutter-Eintopf, kräftig und sättigend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnusseintopf kostet $5 für 2 großzügige Portionen und gehört zu den besonders sättigenden preiswerten Abendessen.",
+        "Natürliche Erdnussbutter, die nur aus Erdnüssen besteht, eignet sich zum herzhaften Kochen besser als handelsübliche Sorten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffel oder Butternusskürbis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ghanaian-groundnut-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "ghanaisch",
+        "Eintopf",
+        "Erdnuss",
+        "afrikanisch",
+        "Wohlfühlküche"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1073,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ghanaian-groundnut-stew/",
+      "components": [
+        {
+          "key": "7a122b17-50e4-54a9-92e7-3fc889e0b700",
+          "name": "Zutaten",
+          "servingGrams": 1237,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1483243-5559-5529-86ad-790dc88cab61",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b19ed3f-6fe8-5dfc-a594-5d334106a730",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6338bba9-6447-51b7-aa28-67ba4d5c9cd1",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e42febc1-45db-5e0b-9dca-3c12a225303a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9bf56d0-23a5-5154-9f62-89378a7fd979",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cdd37d7-5410-5127-a511-105482e44f94",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94951a7e-034b-588f-8b99-b099226eafd9",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d3b7ddc-b4e4-5d9d-ad59-a9bf5cb7d07e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07bd7577-8f8c-5e36-aa5d-25b80524a7e0",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e33db35-f859-573f-99b7-b2a12e7e9c92",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen anbraten. Zwiebel, Knoblauch, Tomate und Chili 5 Minuten anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erdnussbutter mit 1 Tasse Brühe glatt rühren und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen und Süßkartoffel dazugeben. 25 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat einrühren und 2 Minuten garen. Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/African-Peanut-Stew_EXPS_TOHD24_188274_JenaCarlin_9.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/African-Peanut-Stew_EXPS_TOHD24_188274_JenaCarlin_9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-senegalese-thiebou-yapp",
+      "slug": "mfr-senegalese-thiebou-yapp",
+      "title": "Senegalesischer Gewürzfleisch-Reis",
+      "instructions": "Westafrikanisches One-Pot-Reisgericht, in einer kräftigen Tomaten-Fleisch-Brühe mit Gemüse gegart. Eine vereinfachte Version von Thiébou Yapp mit viel Geschmack.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bei One-Pot-Reisgerichten würzen die Fleischsäfte den Reis. So gibt es maximalen Geschmack zu minimalen Kosten.",
+        "Kohl und Karotten gehören auf jedem Markt zu den günstigsten Gemüsesorten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Hähnchenoberkeulen oder Lamm"
+        },
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Zucchini oder Aubergine"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-senegalese-thiebou-yapp",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "senegalesisch",
+        "Reis",
+        "Eintopfgericht",
+        "afrikanisch",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1074,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-senegalese-thiebou-yapp/",
+      "components": [
+        {
+          "key": "b6fb6b60-6f95-51a0-9f5a-1e55c8726c40",
+          "name": "Zutaten",
+          "servingGrams": 1007.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b194a8ce-ea6c-53eb-849d-c8172a40f96c",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4834723c-fa18-566f-947a-bab3ca51a570",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e337311e-d39f-5b1e-99b0-59139e1959e7",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19a16ebd-d1c9-5b63-a8b7-4495f0286e1a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6490c1b-2259-5054-ae6a-2881755f0c61",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cd5e56b-19b8-5e91-9541-af1190adc3b6",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57301cda-dc60-5f05-8d65-783f8d55da96",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c57345d-8189-55ba-9ff4-cbc16588f655",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5b35dbb-4b8d-5e67-8e36-f6c6d3ed9a7c",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea6a5262-b983-582d-9bbe-f96052dcf63c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, Knoblauch und Rinderhack anbraten, bis das Fleisch gebräunt ist. Tomatenmark, Gewürze und Brühe dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "15 Minuten köcheln lassen. Karotte und Kohl dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewaschenen Reis dazugeben. Abdecken und bei niedriger Hitze 18 Minuten kochen, ohne umzurühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "5 Minuten ruhen lassen. Auflockern und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Hjt6_JouPql9DFgrPjUK92SKiLc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8045745-jollof-rice-beauty-square-5550fccc7f3e4993abb9ef106a83d0cd.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Hjt6_JouPql9DFgrPjUK92SKiLc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8045745-jollof-rice-beauty-square-5550fccc7f3e4993abb9ef106a83d0cd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1059 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-palatscinta",
+      "slug": "gen-palatscinta",
+      "title": "Palatschinken (Palacsinta)",
+      "instructions": "Ungarisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Konfitüre von der Hausmarke statt teurer Fruchtaufstriche.",
+        "Ersetze saure Sahne durch griechischen Joghurt und spare Geld."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6020,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-palatscinta/",
+      "components": [
+        {
+          "key": "b6c8de00-c6c6-59a1-b84a-fd95b954cc42",
+          "name": "Zutaten",
+          "servingGrams": 246.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd66f44b-6e0e-5f4d-b5e6-05a548824ae6",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f215dd2c-3f76-5106-a4c1-f9a8ebd0714b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a2759b1-730d-5140-9068-f1be3627d657",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "38e965d4-c820-5062-954e-85a7cd2cf37b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "aa22fb54-536e-5bb8-8901-e8adc2c86387",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e347eef2-54db-5a48-a737-31333a20f620",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "87ea286c-a5b2-53c6-8f4c-44956f0d1ae3",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "023e1b30-751a-5268-925c-7ed449878f98",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4bcd3ffd-bfee-56b3-8c96-9b3ab5ee73a5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Mehl, Eier, Milch, Salz und Vanille zu einem dünnflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 0.5 Esslöffel Öl in einer beschichteten 8-inch Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 0.25 Tasse Teig in die Mitte, schwenke die Pfanne sofort zum dünnen Verteilen und backe den Pfannkuchen 1 Minute goldbraun. Wende ihn und gare die andere Seite weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Pfannkuchen auf einen Teller und wiederhole den Vorgang mit dem übrigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die gebackene Seite jedes Pfannkuchens mit 1 Esslöffel Konfitüre.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den Pfannkuchen fest auf und lege ihn mit der Naht nach unten auf einen Servierteller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib einen Klecks saure Sahne und etwas Puderzucker auf jeden aufgerollten Pfannkuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere ihn warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/j_60lRGx__PB3vfi9e4EcRz8Yd4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-157603668-582921d25f9b58d5b1748a93.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/j_60lRGx__PB3vfi9e4EcRz8Yd4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-157603668-582921d25f9b58d5b1748a93.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pfannkuchen",
+      "slug": "gen-pfannkuchen",
+      "title": "Pfannkuchen",
+      "instructions": "Deutsches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende zum Braten Pflanzenöl statt Butter und senke die Kosten.",
+        "Bestreue die Pfannkuchen nach Wunsch mit normalem Zucker statt Puderzucker."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6021,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pfannkuchen/",
+      "components": [
+        {
+          "key": "d62a489e-2198-5c84-ba96-7c68c986ff46",
+          "name": "Zutaten",
+          "servingGrams": 239.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "dbc3aa8c-6111-5ecd-86ed-8f62abc92b1c",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "085c4d88-da61-51f1-8563-a68ed26c8fa4",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea4547fe-514c-581b-976f-e1c9e5514965",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c885088c-8c38-50c5-97ef-0fa3ec063dc8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "e88cf718-944e-569c-838c-0a56c46dca2b",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6d094739-22a2-57b3-8a4b-bfddbd3e9431",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bcb93f08-36f3-5dfb-baa4-35cdf4ce7138",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7b86eff6-399f-5f34-8f9a-0e48cbe2e94b",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c26e2faf-2745-58c0-9a43-3d777c45d066",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Eier, Milch, Salz und Zucker in einer großen Schüssel zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 Esslöffel Öl in einer beschichteten 10-inch Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 0.5 Tasse Teig in die Mitte und schwenke die Pfanne sofort, damit sich der Teig dünn verteilt. Backe ihn 2 Minuten hellgolden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende den Pfannkuchen und gare die andere Seite 1 Minute, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ihn auf einen Teller und wiederhole den Vorgang mit dem restlichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmilz die Butter und bestreiche die warmen Pfannkuchen dünn damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue sie mit Puderzucker und beträufle sie mit Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Falte die Pfannkuchen zu Vierteln und serviere sie sofort warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.easygermanfood.com/wp-content/uploads/2019/08/german-pancakes-pfannkuchen-recipe.jpg",
+          "sourcePageUrl": "https://www.easygermanfood.com/wp-content/uploads/2019/08/german-pancakes-pfannkuchen-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hakka-sesame-ball",
+      "slug": "gen-hakka-sesame-ball",
+      "title": "Hakka-Sesambällchen",
+      "instructions": "Hakka-Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Klebreismehl auf Vorrat in asiatischen Lebensmittelgeschäften.",
+        "Bereite rote Bohnenpaste selbst zu und spare Geld."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "hakka",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6022,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hakka-sesame-ball/",
+      "components": [
+        {
+          "key": "706ce130-a8dd-5e96-9c8f-5119a9e60b5f",
+          "name": "Zutaten",
+          "servingGrams": 200.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9cdc17a-2957-5772-9bf4-431efc5fe1a5",
+              "ingredientName": "Klebreismehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "68f800d0-055a-5e72-bb3d-b27179fc338c",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "780e79a5-6145-54ab-b381-651372a9dfc2",
+              "ingredientName": "Rote Currypaste",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e282a8f4-6392-54ff-ab25-283f24ff2ecc",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a8ea6640-24c8-507c-899a-bbb4e291ed61",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f095ac2c-55f1-5bf8-b01d-4d2339a69fb7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c009b3a3-10bc-59a4-b29d-c42f20b5a3b7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Klebreismehl, warmes Wasser, Zucker und Salz zu einem weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in 12 gleich große Portionen und forme daraus Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke eine Mulde in jede Kugel und fülle sie mit 1 Esslöffel roter Bohnenpaste. Verschließe sie und rolle sie glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sesamsamen in eine flache Schüssel und wälze jede gefüllte Kugel darin, bis sie vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und gib vorsichtig jeweils 3-4 Bällchen hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere sie 8-10 Minuten und wende sie gelegentlich, bis sie goldbraun sind und an die Oberfläche steigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Bällchen mit einer Schaumkelle heraus und lasse sie vor dem Servieren auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FPhoto%2FRecipe%20Ramp%20Up%2F2021-12-Sesame-Balls%2Fimage",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FPhoto%2FRecipe%20Ramp%20Up%2F2021-12-Sesame-Balls%2Fimage",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stewed-beef-with-radish",
+      "slug": "gen-stewed-beef-with-radish",
+      "title": "Geschmortes Rindfleisch mit Rettich",
+      "instructions": "Hakka-Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preisgünstige Rinderschulter, die sich besonders gut zum Schmoren eignet.",
+        "Kaufe Rettich während der Saison zu günstigeren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hakka",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6023,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stewed-beef-with-radish/",
+      "components": [
+        {
+          "key": "d797bd9a-19d8-5bea-98d0-01a8198372f3",
+          "name": "Zutaten",
+          "servingGrams": 387.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca324212-20d5-5be1-bcb9-f584a9182efa",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ed86dce0-4917-54e1-b4ae-4f5a74163042",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "66acb3f1-f3dc-503b-928b-8256d3381d92",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4c968a36-e75b-5018-864f-3d8b7eb4a739",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "726bdd6d-5cd1-5bec-9a81-961fafb54c3f",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1e1fe1d6-4227-589b-8d7d-ad841dfcba72",
+              "ingredientName": "Dunkle Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ac3dadd0-edee-5b59-ab24-cab6a173e506",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a7e2ffb1-f353-5bb7-b0e9-23887f74db04",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3988fd22-e82a-5326-950b-b7bf386eac33",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "549bb3dd-e3c6-55c1-b45e-d3bb3726a80a",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Kapseln"
+            },
+            {
+              "key": "2cc3b1bc-94c6-5770-af47-f984b3160c30",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und bräune die Rindfleischstücke portionsweise von allen Seiten an. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate im selben Topf Ingwerscheiben und halbierte Zwiebeln etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rindfleisch zurück in den Topf und füge Sojasoße, dunkle Sojasoße, Zucker, Sternanis und Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze, decke den Topf ab und lasse es 45 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelten Rettich dazu und lasse alles weitere 20-25 Minuten köcheln, bis der Rettich zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere das Gericht heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Beef-and-Biscuit-Stew_EXPS_ODM25_4554_DR_11_19_02b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Beef-and-Biscuit-Stew_EXPS_ODM25_4554_DR_11_19_02b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hakka-fried-tofu-with-vegetables",
+      "slug": "gen-hakka-fried-tofu-with-vegetables",
+      "title": "Gebratener Hakka-Tofu mit Gemüse",
+      "instructions": "Hakka-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu in asiatischen Lebensmittelgeschäften zu günstigeren Preisen.",
+        "Verwende preisgünstiges Gemüse der Saison."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "hakka",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6024,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hakka-fried-tofu-with-vegetables/",
+      "components": [
+        {
+          "key": "921e653d-b05a-58a1-b8f2-6b3038d93206",
+          "name": "Zutaten",
+          "servingGrams": 198,
+          "position": 0,
+          "items": [
+            {
+              "key": "81a5ea1a-ef15-5a09-8958-45499cae609d",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "8afaf4fc-0ec2-5a98-a97d-5f614c5adbc4",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "58e3ce55-d0ef-57db-ba39-1c5d7643c779",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "5704c41d-fdf1-50c7-b970-1ccb260bfa5e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "7f599610-631e-5e2e-bf40-cefd25dad991",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "56c40a30-48d5-59b1-bae0-62a8438fec0f",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "375ff935-c76a-5652-8a66-b182c51a04f3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d8ce5419-1b0c-5697-a51d-1503d53e1cdf",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8ee2df93-f2ef-535e-a226-50a7ba01c345",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Bedarf"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 15 Minuten zwischen Küchenpapier aus, um überschüssige Flüssigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Pflanzenöl in einem Wok oder einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Tofuwürfel etwa 8 Minuten von allen Seiten goldbraun an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das restliche Öl dazu und brate Knoblauch und Zwiebel etwa 1 Minute unter Rühren an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Paprika dazu und brate sie 3 Minuten unter Rühren, bis sie etwas weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Tofu zurück in den Wok und füge Sojasoße und Sesamöl hinzu. Vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und weißem Pfeffer, gare alles weitere 2 Minuten und serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/CMYiK5UQmLRF5-O09x24t6qP2Kc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Spicy-Tofu-Stirfry-LEAD-4-15d3af7214e443d5a4869d187bac8fe5.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/CMYiK5UQmLRF5-O09x24t6qP2Kc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Spicy-Tofu-Stirfry-LEAD-4-15d3af7214e443d5a4869d187bac8fe5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

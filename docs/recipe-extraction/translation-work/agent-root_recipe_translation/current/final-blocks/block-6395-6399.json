@@ -1,0 +1,986 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-flan-normand",
+      "slug": "gen-flan-normand",
+      "title": "Flan Normand",
+      "instructions": "Normannisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Kondensmilch anstelle von halber Sahne, um die Kosten für Milchprodukte zu halbieren",
+        "Kaufen Sie Eier im Discounter oder in großen Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "normannisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6395,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flan-normand/",
+      "components": [
+        {
+          "key": "13c0e7c7-8c80-5df4-a7e3-2f71dfe3407c",
+          "name": "Zutaten",
+          "servingGrams": 147.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c4b88f1-bb86-5fe3-b37a-f5cc42ee6d6e",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "019b6821-6000-55de-92eb-7a35c2d15641",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1571a3f6-7e36-5c8d-940a-47af5f4f2b45",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "607e8bf1-ff54-596d-81f9-fe49011be57b",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "91381f1f-5e0b-5311-b0eb-ea77023c6ae5",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "fed280a3-dae6-5e72-b9a0-3437f44b80c5",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed525367-b701-514c-81f3-abc7e05255cd",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c0bffd7f-7a10-5da1-922f-e082603cfd74",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 325 °F vorheizen und eine 9 Zoll große Flan- oder Kuchenform in einen größeren Bräter stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1/4 Tasse Zucker und Wasser in einem Topf bei mittlerer Hitze etwa 5 Minuten erwärmen, bis sich der Zucker auflöst und leicht bernsteinfarben wird. Sofort in die Flanform gießen und Boden sowie Seiten gleichmäßig damit überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Milch und Sahne mit Zimtstange bei mittlerer Hitze erhitzen, bis sie dampfen, dann vom Herd nehmen und 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier, Eigelb und restlichen Zucker verrühren, bis die Masse blass und dick ist (ca. 3 Minuten), dann Vanille unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie die warme Milchmischung langsam unter ständigem Rühren in die Eier, um sie zu temperieren, und passieren Sie sie dann durch ein feines Sieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Vanillepudding in eine mit Karamell ausgekleidete Tortenform füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Geben Sie heißes Wasser in den Bräter, bis es bis zur Hälfte des Randes der Flanform reicht, und backen Sie es dann 40–45 Minuten lang, bis der Vanillepudding fest, aber in der Mitte leicht wackelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Kuchengitter vollständig abkühlen lassen, dann mindestens 4 Stunden in den Kühlschrank stellen, bevor man mit einem Messer über die Ränder fährt und es umdreht auf einen Servierteller legt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/1bKw-MlR8pcTqbzgqDSPd7EdZx8=/5874x3724/filters:fill(auto,1)/classic-cheese-and-onion-flan-recipe-4050762-hero-01-5beefb3846e0fb00261725e6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/1bKw-MlR8pcTqbzgqDSPd7EdZx8=/5874x3724/filters:fill(auto,1)/classic-cheese-and-onion-flan-recipe-4050762-hero-01-5beefb3846e0fb00261725e6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-me-fra-che",
+      "slug": "gen-cr-me-fra-che",
+      "title": "Crème Fraîche",
+      "instructions": "Normannischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie große Mengen und lagern Sie sie bis zu zwei Wochen im Kühlschrank, anstatt Fertiggerichte zu kaufen 2",
+        "Verwenden Sie normale Schlagsahne von Handelsmarken, keine Boutique-Versionen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "normannisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6396,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-me-fra-che/",
+      "components": [
+        {
+          "key": "e73a727d-37f2-5365-861c-ef61016ecef3",
+          "name": "Zutaten",
+          "servingGrams": 135,
+          "position": 0,
+          "items": [
+            {
+              "key": "95be939a-5040-56a2-b9a2-f458436ed997",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "47998d2f-60b8-5f3d-84a1-830149dc90f7",
+              "ingredientName": "Sauerrahm",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gießen Sie Sahne in ein sauberes Glasgefäß mit Deckel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Buttermilch oder Sauerrahm hinzufügen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Locker abdecken und bei Zimmertemperatur von 65–75 °F 12–24 Stunden stehen lassen, bis die Creme dick und leicht säuerlich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nochmals umrühren, dann fest abdecken und vor dem Servieren bis zu 2 Wochen im Kühlschrank lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.lovefrenchfood.com/wp-content/uploads/2025/12/creme-fraiche-pinterest-pin.jpg",
+          "sourcePageUrl": "https://www.lovefrenchfood.com/wp-content/uploads/2025/12/creme-fraiche-pinterest-pin.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fruits-de-mer-normands",
+      "slug": "gen-fruits-de-mer-normands",
+      "title": "Fruits de Mer Normands",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Meeresfrüchte zum Ladenschluss an der Fischtheke mit einem Rabatt von 20–30 %",
+        "Mischen Sie mehr Muscheln (günstigste Variante) und weniger Austern unter"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "normannisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6397,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fruits-de-mer-normands/",
+      "components": [
+        {
+          "key": "0a52b3ef-c019-55bb-a01d-aa89c2c335e7",
+          "name": "Zutaten",
+          "servingGrams": 198,
+          "position": 0,
+          "items": [
+            {
+              "key": "03e002d7-88b0-55f2-8614-02378c7d5daa",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "83458bf1-1454-5e2d-b6ca-e00dea238f97",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8e70e49b-3b94-558d-ad6c-80eb7996ee90",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e417aad8-d34c-5373-8a1e-a06793a3b8eb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Austern"
+            },
+            {
+              "key": "528a3db9-7dfc-5e2b-a04a-d769045325c2",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "567fca11-cc54-5fbf-b705-e208176b9b99",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77f023bb-8a09-5be6-a3f3-acc61eff9a81",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4747dc23-ee4b-5e04-842c-fa3732e39d04",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5a7a2256-4b7f-536e-8e98-da88bd9208d6",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d785e5e-b8d1-5bae-888a-faa1a5df9a42",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Laib"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schrubben Sie Muscheln unter fließendem kaltem Wasser, entfernen Sie die Bärte von den Muscheln und entsorgen Sie alle offenen Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schalotten fein hacken und bei mittlerer Hitze in einen großen Topf mit Butter und Weißwein geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Muscheln und Venusmuscheln hinzufügen, abdecken und 5–7 Minuten garen, bis sich die Schalen öffnen. Den Topf gelegentlich schütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen und Austern hinzufügen, wieder abdecken und weitere 3–4 Minuten kochen, bis die Garnelen rosa sind und sich die Austernschalen öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Entsorgen Sie alle ungeöffneten Schalen und geben Sie dann alle Meeresfrüchte mit einem Schaumlöffel auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die restliche Flüssigkeit im Topf 2 Minuten lang kochen lassen, bis sie leicht eingekocht ist, dann über die Meeresfrüchte gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Großzügig mit frischer Petersilie und Zitronenschnitzen garnieren und sofort mit knusprigem Brot zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.masculin.com/wp-content/uploads/sites/2/2024/01/gratin-fruit-de-mer.jpg",
+          "sourcePageUrl": "https://www.masculin.com/wp-content/uploads/sites/2/2024/01/gratin-fruit-de-mer.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-normande-sauce",
+      "slug": "gen-normande-sauce",
+      "title": "Normande-Sauce",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie statt teurer Fischbrühe Hühner- oder Gemüsebrühe",
+        "Ersetzen Sie die Sahne durch eine halbe Sahne, um Fett und Kosten zu reduzieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "normannisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6398,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-normande-sauce/",
+      "components": [
+        {
+          "key": "629906d0-fcaf-53cd-b616-e9012bf7ec5e",
+          "name": "Zutaten",
+          "servingGrams": 266.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "31f9e4a4-065b-53f9-8e67-77562c0108bb",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e82316ec-744b-5ed4-ae29-4a1c41ef6fb0",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "16db63c1-214d-517d-a903-4a71a82fc90e",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "5dc85603-b7aa-5aa7-b0da-66d451972579",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f95f2c74-46bb-5cab-b46f-d6d030b62778",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a76f4643-abd2-5063-ba42-156cc95f24e2",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "79492091-d205-5b6a-9c82-9b6e2613d8a0",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "9e3ab8f5-ce1f-574c-a8b0-46ff45588845",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f5e9f7f-8c8a-5e09-be17-222e178d4fc5",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "542a87b2-84b4-5ca1-8171-d2e08c73a2e2",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schalotten und Champignons fein hacken, dann in Butter bei mittlerer Hitze 3–4 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streuen Sie Mehl über das Gemüse und rühren Sie es 2 Minuten lang ständig um, um den Rohmehlgeschmack zu beseitigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach und nach Fischbrühe unter Rühren hinzufügen, um Klumpenbildung zu vermeiden, dann 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weißwein hinzufügen und weitere 3 Minuten köcheln lassen, um ihn leicht zu reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einer kleinen Schüssel Eigelb und Sahne verquirlen, dann langsam die scharfe Soße in die Eier geben und dabei ständig rühren, um sie zu temperieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Eiermischung zurück in den Topf gießen und bei geringer Hitze 2–3 Minuten ständig rühren, bis die Sauce eindickt. Sie darf nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz, weißem Pfeffer und Zitronensaft würzen und dann durch ein feines Sieb passieren, wenn Sie eine glattere Sauce bevorzugen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.afcdn.com/recipe/20170607/67607_origin.jpg",
+          "sourcePageUrl": "https://assets.afcdn.com/recipe/20170607/67607_origin.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-filet-de-turbot-la-normande",
+      "slug": "gen-filet-de-turbot-la-normande",
+      "title": "Filet vom Steinbutt à la Normande",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie Steinbutt durch günstigeren Heilbutt oder Kabeljau",
+        "Kaufen Sie gefrorene Muscheln und Garnelen statt frisch, um deutlich zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "normannisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6399,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-filet-de-turbot-la-normande/",
+      "components": [
+        {
+          "key": "2e469a99-2d96-515d-90c2-268aa0d160e9",
+          "name": "Zutaten",
+          "servingGrams": 172.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "445eb0e9-d1e0-5a23-96d3-73711edb0a4b",
+              "ingredientName": "Steinbuttfilets oder Heilbuttfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Filets (je 6 oz)"
+            },
+            {
+              "key": "f7adff68-683a-5034-b369-e46364919398",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e4a36353-4fa9-5a59-8976-330bead579be",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "cae7a2c8-18bf-5337-882d-2f41850a7953",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "5277847a-5a9a-5124-8685-08374fe0d5bd",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "148ae330-1ac5-5d5e-8034-2d1a59fbb5ef",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7ed80275-570f-53c7-8695-c33a628df0b4",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d68d24a1-0169-5bea-81c4-37e1775656c1",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "684d1ef8-27aa-5a6f-b9ac-2a7763979314",
+              "ingredientName": "Zitronenpfeffer-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinigen Sie Muscheln, indem Sie sie unter kaltem Wasser schrubben, die Bärte entfernen und alle offenen Muscheln entsorgen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schalotte fein hacken und mit der Hälfte der Butter, Weißwein und Fischfond in eine breite Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Muscheln hinzufügen, abdecken und 4–5 Minuten dämpfen, bis sie sich öffnen, dann mit einem Schaumlöffel herausnehmen und beiseite stellen, alle ungeöffneten Muscheln wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Steinbuttfilets trocken tupfen, mit Salz und Pfeffer würzen und dann vorsichtig in die kochende Pochierflüssigkeit geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Filets 6–8 Minuten leicht köcheln lassen, bis sie gerade gar sind, in den letzten 2 Minuten Garnelen hinzufügen und dann vorsichtig auf warme Servierteller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die restliche Pochierflüssigkeit auf die Hälfte einkochen lassen. Vom Herd nehmen und Sahne sowie übrige Butter einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gießen Sie die Soße um den Fisch, legen Sie Muscheln und Garnelen darauf, garnieren Sie ihn mit frischer Zitrone und servieren Sie ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.afcdn.com/recipe/20201111/115482_w3072h2304c1cx1448cy1448.jpeg",
+          "sourcePageUrl": "https://assets.afcdn.com/recipe/20201111/115482_w3072h2304c1cx1448cy1448.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

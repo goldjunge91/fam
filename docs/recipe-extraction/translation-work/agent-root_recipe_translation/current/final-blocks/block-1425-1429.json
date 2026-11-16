@@ -1,0 +1,1089 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-jp-katsudon",
+      "slug": "mfr-jp-katsudon",
+      "title": "Katsudon (Reisschale mit japanischem Schnitzel)",
+      "instructions": "Ein knuspriges, in Panko paniertes Schweineschnitzel, das in einer süß-herzhaften Dashi-Sojasauce mit Zwiebeln und Ei geschmort und auf lockerem japanischem Reis serviert wird. Japans ultimatives Wohlfühlgericht, beliebt vom Izakaya bis zur heimischen Küche.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust funktioniert genauso gut wie Schweinefleisch und kostet weniger.",
+        "Panko sorgt für die knusprigste Panade, normale Semmelbrösel funktionieren aber auch.",
+        "Die Sauce eignet sich auch hervorragend als Dip für Reste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Dünn geklopftes Schweinelendensteak für die authentische Variante"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 EL Reiswein und 1 TL Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-katsudon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Katsudon",
+        "Schweinefleisch",
+        "Reis",
+        "Donburi"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1425,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-katsudon/",
+      "components": [
+        {
+          "key": "6e7a69af-119e-5be4-9bb0-af860ec520f3",
+          "name": "Zutaten",
+          "servingGrams": 790,
+          "position": 0,
+          "items": [
+            {
+              "key": "709d3499-bf0e-5b14-bfb8-da15d855e093",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f58251f2-5306-5f55-b5b6-6f89e6d74a46",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f13b75d5-a713-5b90-97e3-8a6ab3bd8bb0",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de338181-55fc-5f8e-b23c-f95b00032243",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5319af3-c258-50ed-b7dd-c8e65568833d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcb529e5-27e7-5953-9bc5-72b5f8b2edb4",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e054fedf-d46f-5479-9125-2acb28de2dcf",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d51de81-4880-5919-a1cc-5ead14c5d73f",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99a70a0c-eacc-5547-8839-2c6b40c72418",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e52ffb28-fa40-5184-a3f6-93bb00a24044",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fd0dd25-aad4-5b1f-8f6a-84262711b3bf",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Schneide die Hähnchenbrust waagerecht in dünne Schnitzel und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paniere das Hähnchen: Wende es erst in Mehl, dann in verquirltem Ei und anschließend in Semmelbröseln. Brate es in etwa 1/2 Zoll heißem Öl pro Seite 3–4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche für die Sauce die in dünne Scheiben geschnittene Zwiebel mit Sojasauce, Mirin, Zucker und 3 EL Wasser 3 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das in Streifen geschnittene Schnitzel in die leicht köchelnde Sauce. Gieße verquirltes Ei darum und gare alles zugedeckt 1 Minute, bis das Ei gerade gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib alles auf den heißen Reis und garniere mit geschnittener Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3ooxcRIbygFYepmBESgfInBHdGs=/3348x2232/filters:no_upscale():max_bytes(150000):strip_icc()/katsudon-2031259-step-18-f0a638b5d91846a98f2c0863680d4246.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3ooxcRIbygFYepmBESgfInBHdGs=/3348x2232/filters:no_upscale():max_bytes(150000):strip_icc()/katsudon-2031259-step-18-f0a638b5d91846a98f2c0863680d4246.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-tempura-udon",
+      "slug": "mfr-jp-tempura-udon",
+      "title": "Udon mit Tempura-Garnelen",
+      "instructions": "Dicke, bissfeste Udon-Nudeln in goldener Dashi-Sojabrühe, gekrönt von zwei besonders knusprigen Tempura-Garnelen. Ein Klassiker japanischer Nudelläden, der mit seiner Mischung aus weich, knusprig, herzhaft und leicht alle Texturen vereint.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen eignen sich perfekt für Tempura. Taue sie 10 Minuten in kaltem Wasser auf.",
+        "Verwende Eiswasser für den Teig: Der Temperaturunterschied sorgt für eine knusprige Hülle.",
+        "Übrigen Teig kannst du für Zucchinischeiben oder Pilze verwenden und so Gemüse-Tempura zubereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Fester Tofu, in Rechtecke geschnitten, für vegetarisches Tempura"
+        },
+        {
+          "forIngredientId": "udon",
+          "swap": "Soba-Nudeln für einen leichteren Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-tempura-udon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Udon",
+        "Tempura",
+        "Garnelen",
+        "Nudelsuppe"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1426,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-tempura-udon/",
+      "components": [
+        {
+          "key": "21c94436-2be5-5b36-877e-8a3c7c7e2d63",
+          "name": "Zutaten",
+          "servingGrams": 712.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba700b05-a1e8-524f-981b-6fd1f03880f9",
+              "ingredientName": "Udon-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe3a7bed-af05-5d3a-b8ab-20321bff3da7",
+              "ingredientName": "Tiefgekühlte Garnelen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63f93a23-3043-567f-8934-6a1dc1b1ed8a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eceb2176-0dd2-50fa-bc5d-c2348251742a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f704d470-6e2e-52dd-a20a-3c91d3914290",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bc7f3cf-0e40-58f5-9484-ab0cd8a4cda3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c457b098-c981-5939-ac04-330c82ab976a",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d667b27-f458-5c34-90b6-754e78a4609e",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03f966a9-8afc-5599-bc29-cebe800d1ec5",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6bed6d0-6c58-579b-8543-e1c7c11d3d82",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84e21d4d-5f91-5235-a1e3-0677945d9132",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche für die Brühe Hühnerbrühe mit Sojasauce, Mirin und Ingwer 5 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre für den Teig 1/2 Tasse eiskaltes Wasser mit 1/2 Tasse Mehl. Klümpchen sind in Ordnung: kalt und klumpig wird knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauche die geputzten Garnelen in den Teig und frittiere sie in 2 Zoll Öl bei 350°F 2–3 Minuten lang, bis sie blassgolden und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Udon-Nudeln nach Packungsanweisung, gieße sie ab und gib sie in die heiße Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Tempura-Garnelen und geschnittene Frühlingszwiebel darauf und beträufle alles mit etwas Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/eYD0S4IPv1NzWcP-PP6k2vpwUX4=/5211x0/filters:no_upscale():max_bytes(150000):strip_icc()/tempura-udon-2031552-step-04-4bfa664e229d4270b841b051ab99ae2a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/eYD0S4IPv1NzWcP-PP6k2vpwUX4=/5211x0/filters:no_upscale():max_bytes(150000):strip_icc()/tempura-udon-2031552-step-04-4bfa664e229d4270b841b051ab99ae2a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-zaru-soba",
+      "slug": "mfr-jp-zaru-soba",
+      "title": "Zaru Soba (kalte Buchweizennudeln mit Dip-Sauce)",
+      "instructions": "Kalte Soba-Nudeln, auf einer Bambusmatte abgetropft und mit gekühlter Tsuyu-Dipsauce aus Sojasauce und Mirin serviert, dazu frischer Wasabi, Nori und Frühlingszwiebel. Japans elegantes minimalistisches Gericht und die beste Art, den erdigen, mild-süßen Geschmack von Buchweizen zu genießen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Soba ist in 4 Minuten gar und damit das schnellste Nudelgericht zum Abendessen.",
+        "Das Abspülen mit kaltem Wasser ist wichtig: Es entfernt Stärke und sorgt für die richtige Konsistenz.",
+        "Tsuyu hält sich gekühlt 2 Wochen. Bereite gleich eine größere Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "soba-noodles",
+          "swap": "Beliebige dünne Weizennudeln oder sogar Engelshaar-Pasta"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Kombu-Einweichwasser für vegetarisches Dashi-Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-zaru-soba",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Soba",
+        "kalte-Nudeln",
+        "Zaru",
+        "Buchweizen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1427,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-zaru-soba/",
+      "components": [
+        {
+          "key": "36d12537-de6f-592e-ab79-51fca0d22b8f",
+          "name": "Zutaten",
+          "servingGrams": 270,
+          "position": 0,
+          "items": [
+            {
+              "key": "3d360aca-0eda-5cdc-abd5-57b6c3b8cdee",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4de40e28-5d30-5990-bcd1-ef8d67fba01d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4c4096c-a884-5ac9-b4c4-610e066188df",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62208d22-3ef6-5e84-a275-976270d6e183",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e7f9d21-a723-5a2b-add0-f846ae3fd766",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f603fff-f282-5760-8b3d-0359a532f2ee",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d20ed84-4fd8-5206-a276-9ff2e16a3e96",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8d4c8a2-c20a-5009-9eac-5e81bc177c55",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche für die Tsuyu Sojasauce, Mirin, Zucker und Brühe 2 Minuten lang und lass die Sauce im Kühlschrank abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Soba-Nudeln 4–5 Minuten, gieße sie ab und spüle sie unter kaltem Wasser, bis sie eiskalt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Häufe die Nudeln auf einem Teller oder einer Bambusmatte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere sie mit gekühlter Tsuyu zum Dippen und garniere mit Frühlingszwiebel, Ingwer und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/689abc4a9297fed33df26107/1:1/w_2560%2Cc_limit/zaru-soba_RECIPE_V6_050825_12229_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/689abc4a9297fed33df26107/1:1/w_2560%2Cc_limit/zaru-soba_RECIPE_V6_050825_12229_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-tamagoyaki-bowl",
+      "slug": "mfr-jp-tamagoyaki-bowl",
+      "title": "Tamagoyaki-Reisschale",
+      "instructions": "Ein japanisches gerolltes Omelett mit süß-herzhaften, mit Dashi gewürzten Schichten, aufgeschnitten auf Reis und mit etwas Sojasauce und Sesam beträufelt. Das Gericht, das alle zuerst meistern, die japanische Bento-Boxen packen, und eines der besten Frühstücke der Welt in 20 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten Eiweißquellen: 6 Eier kosten etwa $1.20.",
+        "Wenn die erste Rolle auseinanderfällt, schmeckt sie trotzdem gleich. Der Geschmack zählt mehr als das Aussehen.",
+        "Furikake hält sich monatelang und wertet jedes Reisgericht sofort auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "furikake",
+          "swap": "Sesamsamen und eine kleine Prise Nori-Flocken"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Blumenkohlreis für eine kohlenhydratärmere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-tamagoyaki-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Tamagoyaki",
+        "Ei",
+        "Reis",
+        "Frühstück",
+        "Bento"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1428,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-tamagoyaki-bowl/",
+      "components": [
+        {
+          "key": "9d10344f-0513-52e1-8708-0216ea83b0b8",
+          "name": "Zutaten",
+          "servingGrams": 425,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfbdce25-7eaf-5bf1-b718-051033769f97",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8640cf79-610a-5964-ad50-fa122959abad",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "206274a8-7b26-55ee-ae1f-9dfb4e0f3343",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "285a9878-198e-5389-b926-f80553a031e4",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0583239c-b229-52e5-9e0c-19b4fae55b7e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23623daf-753a-5cf1-9b1b-c2e0b5a9b4f7",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46965631-0631-5e82-91b0-dc0608e792c1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6841143d-325d-5109-9b93-2c454044a127",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Verquirle pro Person 3 Eier mit je einem Schuss Sojasauce, Mirin und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete Pfanne bei mittlerer Hitze und pinsle sie mit Öl aus. Gieße 1/3 der Eiermischung hinein und lass sie 30 Sekunden stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle das Ei mit Stäbchen oder einem Pfannenwender zu einer Seite der Pfanne und schiebe die Rolle an den gegenüberliegenden Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße ein weiteres 1/3 der Eiermischung hinein und rolle die vorhandene Rolle darüber. Wiederhole den Vorgang, nimm das Omelett heraus und schneide es auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Scheiben auf den Reis und garniere mit Frühlingszwiebel und Furikake.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/erSF-Qp-nuohBnijnZW36ANLCWc=/3024x0/filters:no_upscale():max_bytes(150000):strip_icc()/japanese-tamagoyaki-recipe-2031022-rhoriike-20201-0041571554df44528c823e65b19f0bf6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/erSF-Qp-nuohBnijnZW36ANLCWc=/3024x0/filters:no_upscale():max_bytes(150000):strip_icc()/japanese-tamagoyaki-recipe-2031022-rhoriike-20201-0041571554df44528c823e65b19f0bf6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-karaage-bowl",
+      "slug": "mfr-jp-karaage-bowl",
+      "title": "Karaage-Hähnchen-Reisschale",
+      "instructions": "Hähnchenoberkeulen in mundgerechten Stücken, mariniert in Ingwer, Sojasauce und Sake und zweimal in Kartoffelstärke frittiert, bis sie außen splitterknusprig und innen saftig sind. Serviert auf Reis mit Kewpie-Mayonnaise, Zitrone und fein geschnittenem Kohl. Japans begehrtestes frittiertes Hähnchen.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen kosten halb so viel wie Brust und bleiben beim Frittieren saftiger.",
+        "Das zweimalige Frittieren ist das Geheimnis von Karaage wie im Restaurant. Ohne den zweiten Durchgang wird die Kruste weich.",
+        "Über Nacht marinieren verdoppelt das Aroma, ohne zusätzliche Arbeit zu machen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "Maisstärke für eine noch knusprigere, leichtere Hülle"
+        },
+        {
+          "forIngredientId": "kewpie-mayo",
+          "swap": "Normale Mayonnaise mit einem Schuss Reisessig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-karaage-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Karaage",
+        "frittiertes-Hähnchen",
+        "Reis",
+        "Izakaya"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1429,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-karaage-bowl/",
+      "components": [
+        {
+          "key": "b8a80e7d-4de8-5fde-9bed-2c3b5792c996",
+          "name": "Zutaten",
+          "servingGrams": 912.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "deb4cb82-dfbc-58c6-98d7-dc0e506062c9",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19cffc4d-c87b-510d-bc7a-9bed3020f990",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d00061f-e288-54c5-b6dd-5a4f84bd12a1",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "519cfc1f-bf83-568b-a31e-9f6149fd776d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20ff3f2d-b1b3-52ea-87fb-bda7b7bfe747",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5767b903-a1ce-5a7c-9624-a8f2c60a0c35",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5158e16-658a-5ba2-b968-48e67b1e82d0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b815e439-3963-5c80-b33b-a26750169b0a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a8e6ba2-5850-5767-ab62-da0f26511f8b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83377f9e-c605-51d8-b0c2-ef0954166e0a",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24f792f2-eb10-56d7-8b8e-1bda9e4836c0",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74cc53e4-7fdc-5e83-b456-7939d1457d17",
+              "ingredientName": "Kewpie-Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenoberkeulen in 2 Zoll große Stücke. Mariniere sie 20 Minuten oder bis über Nacht in Sojasauce, Mirin, geriebenem Ingwer, Knoblauch und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe das Hähnchen trocken und wende es in Mehl oder, falls vorhanden, Kartoffelstärke, bis es vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frittiere es zunächst bei 340°F 4 Minuten. Es soll durchgegart, aber noch nicht sehr knusprig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass es 3 Minuten ruhen und frittiere es dann bei 375°F weitere 1–2 Minuten, bis es goldbraun und splitterknusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere es auf Reis mit fein geschnittenem Kohl, einem Spritzer Zitrone und Kewpie-Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2018/07/25/dining/HK-karaage-horizontal/merlin_141075300_74569dec-9fc2-4174-931d-019dddef3bb8-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2018/07/25/dining/HK-karaage-horizontal/merlin_141075300_74569dec-9fc2-4174-931d-019dddef3bb8-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

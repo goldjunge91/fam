@@ -1,0 +1,992 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kalua-chicken",
+      "slug": "gen-kalua-chicken",
+      "title": "Kalua Chicken",
+      "instructions": "Hawaiianisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganze Hähnchen im Angebot und frieren Sie sie ein.",
+        "Verwenden Sie selbstgemachte Brühe aus übrig gebliebenen Hühnerknochen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "hawaiianisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4335,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kalua-chicken/",
+      "components": [
+        {
+          "key": "7067ac35-137d-50f0-9d34-7d19ac2a0688",
+          "name": "Zutaten",
+          "servingGrams": 173.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca415371-2fbb-51d4-868a-6d3e0e16fca9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (4-5 Pfund)"
+            },
+            {
+              "key": "fc9eed73-c177-517a-a4df-fc41a5f5e922",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bd992c2a-9220-5ba3-b8a2-277af3f6b227",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c2b4815f-0a0e-5673-9ee5-54953b2dc5c9",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7066d08b-47d1-53dd-9e59-5068e60e9c43",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a14f1386-e287-5628-bb97-13acc283a24b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück, geviertelt"
+            },
+            {
+              "key": "0ed71043-f098-5961-961e-6478e7195ef0",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen trocken tupfen und innen sowie außen mit Salz, Knoblauchpulver und schwarzem Pfeffer einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen in einen Schongarer legen und die geviertelte Zwiebel in die Bauchhöhle geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe um das Hähnchen gießen und Flüssigrauch darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abdecken und auf niedriger Stufe 6–7 Stunden garen, bis sich das Fleisch leicht mit einer Gabel zerpflücken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen aus dem Schongarer nehmen und das Fleisch mit zwei Gabeln zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Haut und Knochen entsorgen und das zerpflückte Fleisch mit der Kochflüssigkeit vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit Reis oder als Sandwichfüllung servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/8qznYXzE0bGQo8YN5UYGWb6fwZg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-24035-Kalua-Pig-in-a-Slow-Cooker-ddmfs-beauty-4x3-fa5b9361e7c14e2d96b98ed75c75b58c.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/8qznYXzE0bGQo8YN5UYGWb6fwZg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-24035-Kalua-Pig-in-a-Slow-Cooker-ddmfs-beauty-4x3-fa5b9361e7c14e2d96b98ed75c75b58c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-limu-seaweed-salad",
+      "slug": "gen-limu-seaweed-salad",
+      "title": "Limu-Algen-Salat",
+      "instructions": "Hawaiianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Algen auf asiatischen Märkten günstiger als in Spezialgeschäften.",
+        "Bereiten Sie eine größere Menge zu und essen Sie davon über die Woche."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "hawaiianisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4336,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-limu-seaweed-salad/",
+      "components": [
+        {
+          "key": "25d1a6e1-0d68-562e-a8d4-f319206bc452",
+          "name": "Zutaten",
+          "servingGrams": 133.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ec08ecf-9daf-5b1d-aeff-a09a07cf247d",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "775a5779-4c33-5ca9-90bc-10f7b7b7b44b",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "157d0817-0449-53fa-b7f6-cbc64fad11b1",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "32aac0d2-b1fc-5188-ada3-1d9a245127ab",
+              "ingredientName": "Reisessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d5da2332-5845-5838-b2fc-0a6f92c705d9",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2f709303-5421-544f-b146-076af7c8383c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6550b794-0e55-53b2-bb8c-c325143f7059",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zehe, fein gehackt"
+            },
+            {
+              "key": "9f34ec51-5ddc-5803-b0fe-5af7757ae57a",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Algen 10 Minuten in kaltem Wasser einweichen, bis sie zart sind, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reisessig, Sojasauce, Sesamöl, Knoblauch und Chiliflocken verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Algen, Gurke und Sesamsamen in einer Servierschüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dressing über den Salat gießen und vorsichtig untermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bis zum Servieren im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2024/07/seaweed-salad-recipe-1200x1800.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2024/07/seaweed-salad-recipe-1200x1800.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dungeness-crab-cioppino",
+      "slug": "gen-dungeness-crab-cioppino",
+      "title": "Dungeness-Krabben-Cioppino",
+      "instructions": "Abendessen aus dem Pazifischen Nordwesten – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganze Krabben während der Saison auf Bauernmärkten.",
+        "Verwenden Sie Krabbenfleisch aus der Dose, falls frisches nicht verfügbar ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Pazifischer Nordwesten",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4337,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dungeness-crab-cioppino/",
+      "components": [
+        {
+          "key": "2154a5e7-c824-5156-bf63-aeab8a2f197e",
+          "name": "Zutaten",
+          "servingGrams": 2188.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "daa3755d-9bdc-5325-a022-149d3819592c",
+              "ingredientName": "Krebsfleischimitat",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "e7da3c2a-e24f-50fb-a3da-9623acbd7802",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "126c117b-1696-5c15-8506-1b136da526a2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "a759f275-4f8e-5eeb-8ef2-febc466f49e2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "626c364c-4774-5fbf-a0c9-22a50f162e81",
+              "ingredientName": "Passierte Tomaten",
+              "grams": 8000,
+              "quantity": 20,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "cb18fd82-4071-568a-a636-443eb9095400",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6231c030-e14b-5b8d-a030-6cc352c7caa5",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7d8ee878-41e9-5756-bd2b-382321e17e04",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0219eb73-80d6-5362-b617-9c5ff8c2ad9b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b351579-1075-5031-91fb-8fcdb604f3ec",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7b2d4b88-f0a6-5194-ab90-35a6adc06ca4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Krabbe säubern und aufbrechen, Fleisch und Schalenstücke beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen und Zwiebel etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch hinzufügen und 1 Minute anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weißwein zugießen und 3 Minuten köcheln lassen, damit die Flüssigkeit etwas reduziert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Passierte Tomaten, Brühe, Lorbeerblatt und Chiliflocken hinzufügen und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Krabbenfleisch und Schalenstücke in die Brühe geben und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lorbeerblatt entfernen, frische Petersilie einrühren und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schalen schöpfen und mit knusprigem Brot zum Auftunken der Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DZ2PInM9qLIQxan4dizb8MNQitI=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/simple-grilled-crab-recipe-336003-step-1213-01-4af8596b861747d5a5ce75bb62fafea0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DZ2PInM9qLIQxan4dizb8MNQitI=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/simple-grilled-crab-recipe-336003-step-1213-01-4af8596b861747d5a5ce75bb62fafea0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salmon-en-papillote",
+      "slug": "gen-salmon-en-papillote",
+      "title": "Lachs en Papillote",
+      "instructions": "Abendessen aus dem Pazifischen Nordwesten – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lachs im Angebot und frieren Sie ihn für später ein.",
+        "Verwenden Sie tiefgekühlten Spargel, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Pazifischer Nordwesten",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4338,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salmon-en-papillote/",
+      "components": [
+        {
+          "key": "26521ea6-e62d-5ff7-aa54-7cfcedaa3c12",
+          "name": "Zutaten",
+          "servingGrams": 2203.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "72a61643-23c9-569d-a663-7a8e34543fcc",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Stück (je 6 Unzen)"
+            },
+            {
+              "key": "3306b903-adb3-5f9b-a08c-b2d87cb69856",
+              "ingredientName": "Reispapierblätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "7cabaec6-ed8a-5f9f-9a52-725070f74096",
+              "ingredientName": "Spargel",
+              "grams": 4000,
+              "quantity": 8,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Stangen"
+            },
+            {
+              "key": "afcdb43c-9d96-5b89-a7d8-f3f2120dabb3",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "204e7fc1-7636-5494-b59c-46e54a7f9d4b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7890ebbc-b7ee-5603-9beb-652096065882",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "089b94af-a528-571c-984c-2c479e149d1b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c2f4a3cf-e9be-58ca-a2d7-3ed9ca2025c0",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400 °F vorheizen und 2 große Stücke Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Je ein Lachsfilet auf ein Blatt legen und 4 Spargelstangen daneben anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jedes Filet mit 1 Esslöffel Butter, der Hälfte des Dills und Zitronenscheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2 Esslöffel Weißwein um jedes Lachsfilet gießen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backpapier der Länge nach halbieren und die Ränder fest zusammenfalten, um die Päckchen zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Päckchen auf ein Backblech legen und 15–18 Minuten backen, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Päckchen vorsichtig öffnen, Inhalt auf Servierteller geben und die Kochflüssigkeit darüber gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/698a73330e08913821ca3b24/1:1/w_2560%2Cc_limit/salmon-packets-spring-vegetables_RECIPE_V5_012226_3983_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/698a73330e08913821ca3b24/1:1/w_2560%2Cc_limit/salmon-packets-spring-vegetables_RECIPE_V5_012226_3983_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-geoduck-sashimi",
+      "slug": "gen-geoduck-sashimi",
+      "title": "Geoduck-Sashimi",
+      "instructions": "Mittagessen aus dem Pazifischen Nordwesten – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie lebende Geoducks direkt auf Küstenfischmärkten.",
+        "Bitten Sie den Fischhändler, die Muschel für Sie zu reinigen und vorzubereiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Pazifischer Nordwesten",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4339,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-geoduck-sashimi/",
+      "components": [
+        {
+          "key": "e3800dc0-7282-5035-8f77-3de100c984fe",
+          "name": "Zutaten",
+          "servingGrams": 308.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d85e1d87-8bc0-5682-87d5-ef419c394dde",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c8c8916e-686d-526e-8faf-d991349863ed",
+              "ingredientName": "Eis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b04a4b9a-7196-59bd-a3bd-b06446d2d9c8",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b604795b-9a45-5fc8-9139-b618ba2ba3df",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "22370ffb-f997-576a-9e7f-6592413bcfa1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stück, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Geoduck auf Eis lagern und die Schale unter kaltem fließendem Wasser reinigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Schale mit einem scharfen Messer öffnen, indem der Schließmuskel durchtrennt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fleisch herausnehmen, die zähe Halshaut abschneiden und gründlich abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das zarte Körperfleisch mit einem scharfen Sashimi-Messer sehr dünn quer zur Faser schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geoduckscheiben auf einem gekühlten Teller mit Wasabi und Ingwer anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Sojasauce in einer kleinen Schüssel und Zitronenspalten zum Darüberträufeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/1917/6033/files/Geoduck_step_by_step_2048x2048.PNG?v=1553785437",
+          "sourcePageUrl": "https://cdn.shopify.com/s/files/1/1917/6033/files/Geoduck_step_by_step_2048x2048.PNG?v=1553785437",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

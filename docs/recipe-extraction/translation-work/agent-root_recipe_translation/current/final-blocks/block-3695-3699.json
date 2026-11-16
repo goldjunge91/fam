@@ -1,0 +1,1069 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lampredotto",
+      "slug": "gen-lampredotto",
+      "title": "Lampredotto",
+      "instructions": "Toskanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lampredotto bei Fachmetzgern; frage vorher nach den besten Preisen.",
+        "Friere Reste ein, damit sie für mehrere Mahlzeiten reichen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "toskanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3695,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lampredotto/",
+      "components": [
+        {
+          "key": "7beec47b-cb46-52a6-a356-ca5ed9def8b5",
+          "name": "Zutaten",
+          "servingGrams": 540.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "592b0c86-78b5-52f5-8016-803ef5645d0f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "d2570465-91d7-52cc-92ae-0011aa27f4dd",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "0596a57b-1573-5838-9eb0-ba8dd64adf74",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2c855ff-15c8-501b-b8fc-e64064e23d56",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "0f7afc39-8642-5ff6-b4a6-0c49272a35ab",
+              "ingredientName": "Weißweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4b9f8265-de1e-5059-9271-3d83e5684520",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "01a52365-9f10-5777-9a3f-95e18ddf91e1",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "144ccdf4-9a90-5251-a082-1827109c2271",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "cb091e01-38c8-5b69-82cb-3de0afd99cfd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "0f930b3e-a3ae-5539-afe2-f930e685ffb0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b24347f-650d-56cf-8bb3-fd09ddca0d36",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Zweig"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Lampredotto unter kaltem fließendem Wasser ab und blanchiere es 3 Stunden in kochendem Salzwasser, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße es ab und schneide es in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste gehackte Zwiebel, Karotte und Sellerie goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 1 Minute. Lösche dann mit Weißwein ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gegarte Lampredotto-Stücke, Tomaten aus der Dose, Lorbeerblatt und Rinderbrühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 90 Minuten köcheln und rühre häufig um, bis die Sauce eindickt und die Aromen konzentriert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne das Lorbeerblatt, würze mit Salz und Pfeffer und serviere das Gericht heiß mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.deabyday.tv/.imaging/default/article/guides/cucina-e-ricette/piatti-unici/Come-cucinare-il-lampredotto--la-ricetta-originale-fiorentina--e-non-solo-/imageOriginal.jpg",
+          "sourcePageUrl": "https://www.deabyday.tv/.imaging/default/article/guides/cucina-e-ricette/piatti-unici/Come-cucinare-il-lampredotto--la-ricetta-originale-fiorentina--e-non-solo-/imageOriginal.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arista-alla-toscana",
+      "slug": "gen-arista-alla-toscana",
+      "title": "Arista alla Toscana",
+      "instructions": "Toskanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinelende im Angebot und friere sie bis zur Verwendung ein.",
+        "Lasse Wein weg und verwende für eine preiswerte Zubereitung mehr Brühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "toskanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3696,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arista-alla-toscana/",
+      "components": [
+        {
+          "key": "75137f1f-0013-5d80-904a-ffbf85df4898",
+          "name": "Zutaten",
+          "servingGrams": 103.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d123b695-5133-5d53-86da-4766cdbc1b8e",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "16f1c20e-87e4-5af6-8a9f-5a6e8215c97f",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "cdf35fa1-a197-5370-b8b7-fadbb4caf1af",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "9b1273b3-9276-57f9-bf90-38f50e6deaec",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "ffa3c122-1e30-590c-872c-12d46dc9caf5",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "0f1844bb-ab92-507a-9f0a-ce615eee77bb",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1fbdcddf-b7ee-58ee-bad7-87b22e5d4ce5",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9bb67825-b20a-5281-9935-a83b75cda4b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Schlitze in die Schweinelende und stecke ganze Knoblauchzehen, Rosmarinzweige und Salbeiblätter hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe den Braten großzügig von allen Seiten mit Olivenöl, Salz und Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine große ofenfeste Pfanne bei mittelhoher bis hoher Hitze und brate das Schweinefleisch insgesamt etwa 10 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Weißwein und Hühnerbrühe rund um den Braten in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Pfanne in den auf 350°F vorgeheizten Ofen und brate den Schweinebraten 90 Minuten, bis die Kerntemperatur 145°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Braten heraus und lasse ihn vor dem Aufschneiden 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Seihe den Bratensaft in einen Topf, lasse ihn 3 Minuten köcheln und serviere ihn als Sauce über den Schweinescheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://toscanamia.blog/wp-content/uploads/2024/02/dsc03623.jpg",
+          "sourcePageUrl": "https://toscanamia.blog/wp-content/uploads/2024/02/dsc03623.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-saltimbocca-alla-toscana",
+      "slug": "gen-saltimbocca-alla-toscana",
+      "title": "Saltimbocca alla Toscana",
+      "instructions": "Toskanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Kalbsschnitzel durch Hähnchenschnitzel als günstigere Variante mit ähnlicher Garzeit.",
+        "Kaufe Prosciutto an der Feinkosttheke in größeren Mengen, um pro Pfund zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "toskanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3697,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-saltimbocca-alla-toscana/",
+      "components": [
+        {
+          "key": "2d82a7a9-5fc9-5690-bded-61afdc918e5b",
+          "name": "Zutaten",
+          "servingGrams": 141.07,
+          "position": 0,
+          "items": [
+            {
+              "key": "5711a280-e79d-5377-b0db-c6490de7c363",
+              "ingredientName": "Kalbshackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 dünne Scheiben (1.5 Pfund)"
+            },
+            {
+              "key": "31336f51-9c99-5c6c-a5c5-31ec653be0d4",
+              "ingredientName": "Prosciutto",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "0ad37008-dc09-55ae-b9fe-0a84d73a202d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 80,
+              "quantity": 80,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "16 Blätter"
+            },
+            {
+              "key": "451fa4d3-585b-56e0-be93-0939f5265182",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "05793f5a-a45a-5fdf-b0cb-cbef82433073",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4a4d0ae5-a11a-5064-b42e-b5ca944af7e1",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7105c749-cb9b-5925-ba8f-5d208d0c53f7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4f904efc-0ecf-5bb5-ac5a-afe7c2b6b910",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege jedes Kalbsschnitzel zwischen Frischhaltefolie und klopfe es vorsichtig auf 0.25-inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege 1 Scheibe Prosciutto und 2 Salbeiblätter auf jedes Schnitzel und befestige sie mit einem Zahnstocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Butter und Olivenöl in einer großen Pfanne bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Saltimbocca 3 Minuten pro Seite goldbraun und lege sie dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lösche die Pfanne mit Weißwein ab und lasse ihn 2 Minuten köcheln. Gib dann Hühnerbrühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Saltimbocca zurück in die Pfanne und gare sie weitere 2 Minuten, bis die Sauce leicht reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer und serviere sie sofort mit der Pfannensauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2024/09/Saltimbocca-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2024/09/Saltimbocca-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zuppa-di-pesce-alla-toscana",
+      "slug": "gen-zuppa-di-pesce-alla-toscana",
+      "title": "Toskanische Fischsuppe",
+      "instructions": "Toskanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen und Fisch im Angebot; sie lassen sich gut in warmer Brühe auftauen.",
+        "Kaufe Miesmuscheln auf asiatischen Märkten, dort sind sie 40% günstiger als in Fischfachgeschäften."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "toskanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3698,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zuppa-di-pesce-alla-toscana/",
+      "components": [
+        {
+          "key": "91851258-dc18-5424-a114-1b0355f1f591",
+          "name": "Zutaten",
+          "servingGrams": 422.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea1f41fd-1891-5f8a-b6c8-ee6587b18434",
+              "ingredientName": "Gemischtes Gemüse (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund (Kabeljau, Heilbutt oder Schnapper)"
+            },
+            {
+              "key": "2c3175be-ae0c-5958-9184-fa5b1290d7f6",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "723c6448-9e2c-5aec-8630-abe6f0a6d1a8",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f12a6aae-4f8f-5d74-8fce-8f2de967ddfd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "d090d465-e738-5699-8937-70c57d15a29e",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "943828de-c62a-5e17-9844-612f163be946",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "39e346e7-fd4b-508f-8634-d87de7beae0d",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ab39d83f-74e8-5230-8791-b568fa50e110",
+              "ingredientName": "Fischbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "f02e02b4-26b5-55af-849c-41512911e83e",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "945e440e-61b8-51f3-a772-b0ac51afa389",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a51f1f0c-6919-5f75-aa6b-de1fda69648c",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "d131a4d6-05ab-58ec-9680-c03443883f14",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste gewürfelte Zwiebel etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 1 Minute. Lösche dann mit Weißwein ab und lasse alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Tomaten aus der Dose und Fischbrühe dazu, bringe alles zum Köcheln und gare es 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Fischfilets und Garnelen dazu und lasse sie 5 Minuten köcheln, bis sie teilweise gegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gereinigte Miesmuscheln dazu, decke den Topf ab und lasse alles 5 Minuten köcheln, bis sich die Muscheln öffnen. Wirf geschlossene Muscheln weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer und rühre 2 tablespoons frische Petersilie ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe die Suppe in Schalen und serviere sie mit knusprigem, mit Knoblauch eingeriebenem Brot. Garniere sie mit der restlichen Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/687cyV3UuhBU0iiZ1w22Zd_cYfg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250207-SEA-Zuppa-Toscana-AmandaSuarez-hero-6a668e643a4c4abdbada6f35392e3bac.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/687cyV3UuhBU0iiZ1w22Zd_cYfg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250207-SEA-Zuppa-Toscana-AmandaSuarez-hero-6a668e643a4c4abdbada6f35392e3bac.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crostini-neri",
+      "slug": "gen-crostini-neri",
+      "title": "Crostini Neri",
+      "instructions": "Toskanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hühnerleber an der Metzger Theke für die Hälfte des Preises fertiger Pastete.",
+        "Verwende Baguettes vom Vortag aus dem Rabattbereich zum Toasten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "toskanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3699,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crostini-neri/",
+      "components": [
+        {
+          "key": "b625b90c-88e1-530f-916f-836106c42f68",
+          "name": "Zutaten",
+          "servingGrams": 485.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "aac4dd7a-50e4-5621-b449-5cb96b391f9e",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "172ee884-58a4-559a-88d7-4b8ee0a1772b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "2e817ebd-37d7-58c0-ba7e-e1bda685cc7d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 kleines Stück"
+            },
+            {
+              "key": "2c9d10ba-5542-5ae4-b60b-6c4aac4707b6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "ccd6bf36-6269-5246-a331-37d0ae5ad644",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b7b1d6c9-85ed-513b-b752-3a0723eac200",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fe53d11d-0b95-5c46-b660-34a79b5d0b56",
+              "ingredientName": "Marsalawein",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5c51147a-08cc-5e07-b468-25b7707d5f07",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a836f022-7b35-526d-9cd5-4514c3cc072c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste gehackte Zwiebel und Knoblauch in Butter bei mittlerer Hitze etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Hühnerleber dazu und gare sie 5 Minuten. Zerteile sie dabei mit einem Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lösche mit Marsalawein ab und lasse alles 2 Minuten köcheln, bis der Alkohol verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Kapern ein, würze mit Salz und Pfeffer und zerdrücke die Mischung zu einer groben Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Toaste Baguettescheiben unter dem Grill 2 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche das getoastete Brot mit Olivenöl und verteile die Hühnerlebermischung großzügig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es sofort oder bei Raumtemperatur als Vorspeise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/05/easy-crostini-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/05/easy-crostini-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

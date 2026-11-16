@@ -1,0 +1,1290 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-vegetable-pulao",
+      "slug": "rice-cooker-vegetable-pulao",
+      "title": "Gemüse-Pulao aus dem Reiskocher",
+      "instructions": "Aromatischer Basmatireis mit ganzen Gewürzen, süßen Erbsen und Karotten. Ein gemütliches One-Pot-Abendessen, das die Küche mit warmen Düften erfüllt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Gewürze in großen Beuteln im indischen Lebensmittelgeschäft. Das kostet nur einen Bruchteil des Gewürzglases aus dem Supermarkt.",
+        "Verwende Gemüse, das im Angebot ist oder im Kühlschrank weich wird. Kartoffeln, grüne Bohnen oder Mais passen ebenfalls gut.",
+        "Tiefgekühlte Erbsen sind günstiger als frische, halten sich monatelang und sind eine gute Wahl, wenn sie im Angebot sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "Pflanzenöl oder ein beliebiges neutrales Öl",
+          "savings": "Spart etwa $0.40 pro Zubereitung und macht das Gericht vollständig vegan"
+        },
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Tiefgekühltes Mischgemüse",
+          "savings": "Ein Beutel enthält Erbsen und Möhren und spart ~$1 gegenüber dem Einzelkauf"
+        },
+        {
+          "forIngredientId": "garam-masala",
+          "swap": "1 tsp Currypulver und eine Prise Zimt",
+          "savings": "Verwendet eine wahrscheinlich vorrätige Zutat und spart ein $5-Glas"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "vegetarisch",
+        "fleischfrei"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 615,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-vegetable-pulao/",
+      "components": [
+        {
+          "key": "7be60422-3831-5e4b-8c95-ce4e7b9265d6",
+          "name": "Zutaten",
+          "servingGrams": 221.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "d047cbff-04e6-5902-8522-77277a583ec2",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen trocken, abgespült, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "8a026a93-d9ba-5142-b237-336119c7f9c3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "8da37b86-9c6d-5250-a73a-47a00635ed68",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gewürfelt klein"
+            },
+            {
+              "key": "5d1a5c3d-301f-5106-8175-f2f76d470038",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, muss nicht aufgetaut werden"
+            },
+            {
+              "key": "30462f9d-e0bc-5232-892d-36081e066513",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, gehackt"
+            },
+            {
+              "key": "16b5c02a-ea37-5ed6-a355-c9fca4865be7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel gerieben"
+            },
+            {
+              "key": "84b426a7-c86f-53c0-8547-f5dfd126f334",
+              "ingredientName": "Ghee",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel, oder substitute oil"
+            },
+            {
+              "key": "105c5ef3-4a5f-5099-b4e4-b236f18d6efc",
+              "ingredientName": "Garam Masala",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "eb221747-3027-56d0-a88c-1a57851e30aa",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel ganz oder gemahlener Kreuzkümmel"
+            },
+            {
+              "key": "69e6913c-63e0-53b3-92f1-19257f816100",
+              "ingredientName": "Kurkuma",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d16f4505-10bc-5469-9790-e7f4bdc8c2bc",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "17efb538-4055-56b6-8448-5a67043ceeeb",
+              "ingredientName": "Grüner Kardamom",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "3 pods, lightly grob zerstoßen"
+            },
+            {
+              "key": "a452a0b9-bb7e-5a38-880b-ad6d6dc36a6c",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Teelöffel, nach Geschmack"
+            },
+            {
+              "key": "e8402c5b-c722-5dc1-a5ad-0d2b8baab481",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "klein Handvoll, gehackt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 2 cups Basmatireis mehrmals mit kaltem Wasser, bis das Wasser größtenteils klar abläuft. Lass ihn anschließend abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle den Reiskocher auf Kochen oder Anbraten oder starte einen normalen Kochzyklus bei geöffnetem Deckel. Gib Ghee, geschnittene Zwiebel, Knoblauch, Ingwer, Kreuzkümmel, Lorbeerblatt und zerstoßene Kardamomkapseln dazu. Rühre 4-5 Minuten, bis die Zwiebel weich ist und die Gewürze duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gewürfelte Karotte, Kurkuma und Garam Masala ein und röste alles 1 Minute, damit die Gewürze das Gemüse überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den abgetropften Reis, tiefgekühlte Erbsen, Salz und 2.5 cups (etwa 600 ml) Wasser dazu. Rühre einmal um, damit der Reis gleichmäßig liegt, und schabe Gewürze vom Topfboden ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus für Kochen oder weißen Reis. Wenn der Kocher auf Warmhalten umschaltet, öffne den Deckel noch nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Pulao 10 Minuten auf Warmhalten ruhen. Lockere es dann vorsichtig mit einer Gabel auf, entferne das Lorbeerblatt und hebe vor dem Servieren gehackten Koriander unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Vegetable_Pulao_as_served_in_South_India.jpg/1280px-Vegetable_Pulao_as_served_in_South_India.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegetable_Pulao_as_served_in_South_India.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Vardhankoshal — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Gemüse-Pulao aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-chana-masala",
+      "slug": "rice-cooker-chana-masala",
+      "title": "Chana Masala aus dem Reiskocher",
+      "instructions": "Ein herzhaftes, kräftig gewürztes Kichererbsen-Tomaten-Curry, das von allein köchelt, während du gar nichts tun musst.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Kichererbsen kosten nur einen Bruchteil von Kichererbsen aus der Dose. Weiche sie über Nacht ein, koche eine Menge im Reiskocher mit Wasser und friere Portionen ein.",
+        "Kaufe ganze Gewürze lose und mahle sie bei Bedarf. Sie sind günstiger und halten viel länger als bereits gemahlene Gewürze im Glas.",
+        "Dieses Curry schmeckt am nächsten Tag noch besser. Bereite die doppelte Menge zu und erhalte fast kostenlos Mittagessen für die ganze Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Eine Dose Tomatensoße und ein Löffel Tomatenmark verwenden",
+          "savings": "Spart etwa $0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "garam-masala",
+          "swap": "Currypulver verwenden, wenn du kein Garam Masala hast",
+          "savings": "Spart den separaten Kauf eines Gewürzes"
+        },
+        {
+          "forIngredientId": "ginger",
+          "swap": "Frischen Ingwer durch 1/2 tsp gemahlenen Ingwer oder Ingwerpaste ersetzen",
+          "savings": "Spart etwa $0.30 und ist länger haltbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "vegan",
+        "Meal Prep",
+        "günstig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 616,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-chana-masala/",
+      "components": [
+        {
+          "key": "a9b4f885-7ab6-520e-a146-5d4ad5e4e96d",
+          "name": "Zutaten",
+          "servingGrams": 399.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "c87b713e-4b39-5386-b94f-51ec4cdb84fc",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "zwei 15 Unzen cans, abgetropft und abgespült"
+            },
+            {
+              "key": "a14e1c26-b646-5154-b675-5b857a0e0b75",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "eine 28 Unzen can"
+            },
+            {
+              "key": "dbd3f2a5-e548-5956-abca-fd6ad616aa70",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "17d997e6-7254-591e-9c7f-1073ce4f9f40",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, gehackt"
+            },
+            {
+              "key": "f8bd45db-84b2-57c4-9c4e-3275e4a4518f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel gerieben frischer Ingwer"
+            },
+            {
+              "key": "f011e01c-e3b2-532b-a3a4-3ea0526eb1ca",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a742be46-0a47-5afd-b4d7-56bafe36de2b",
+              "ingredientName": "Garam Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "47c498e0-8faf-5de2-8eb7-613cbd4fe020",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel gemahlener Kreuzkümmel"
+            },
+            {
+              "key": "c5275963-9d75-5c6f-bd98-8df458ae397c",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel gemahlener Koriander"
+            },
+            {
+              "key": "c499ed90-93a2-5381-9376-ea86193a173e",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d9e2c231-8e1d-5b55-b06b-3edc6aca3b1d",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Teelöffel, oder nach Geschmack"
+            },
+            {
+              "key": "4724a3bc-cb3a-5826-a317-7fe264f9aa0d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel, nach Geschmack"
+            },
+            {
+              "key": "4106c004-b7f8-5d2f-a398-d1cb1aaf934c",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "Saft of Hälfte a lemon, eingerührt bei the end"
+            },
+            {
+              "key": "258ffc8c-c474-51fd-bf18-400afc039522",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "klein Handvoll, gehackt, zum Garnieren"
+            },
+            {
+              "key": "d0a09eea-5173-57f7-9be4-6d3e95d673bb",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "1 kleine Chili, gehackt, für mehr Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Reiskocher auf Kochen oder Anbraten. Gib Pflanzenöl, gewürfelte Zwiebel, Knoblauch, Ingwer und nach Wunsch Jalapeño dazu. Lass alles weich und goldbraun werden und rühre ein- oder zweimal um, etwa 8 Minuten. Wenn dein Gerät nur eine Kochtaste hat, schließe einfach den Deckel und lass den Zyklus laufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Garam Masala, Kreuzkümmel, Koriander, Kurkuma, Chilipulver und Salz ein. Lass die Gewürze 1 Minute im Öl rösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gehackten Tomaten und abgetropften Kichererbsen dazu. Rühre alles um, damit die Kichererbsen überzogen sind, und schließe dann den Deckel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Starte einen vollständigen Garzyklus. Wenn er endet, rühre um und starte einen zweiten Garzyklus, damit das Curry eindickt und die Aromen intensiver werden. Insgesamt etwa 20 bis 25 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn das Curry zu dick ist, rühre einen Schuss Wasser ein. Ist es zu dünn, gare es bei leicht geöffnetem Deckel noch ein paar Minuten. Zerdrücke einige Kichererbsen am Topfrand, damit die Soße auf natürliche Weise eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schalte auf Warmhalten, rühre Zitronensaft ein und schmecke mit Salz ab. Garniere mit frischem Koriander und serviere das Curry mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Chana_Masala_-_Mohammed_-_Spice_Of_Life_2024-05-27.jpg/1280px-Chana_Masala_-_Mohammed_-_Spice_Of_Life_2024-05-27.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chana_Masala_-_Mohammed_-_Spice_Of_Life_2024-05-27.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Chana Masala aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-steamed-fish",
+      "slug": "rice-cooker-steamed-fish",
+      "title": "Gedämpfter Fisch mit Ingwer und Soja aus dem Reiskocher",
+      "instructions": "Seidiger Fisch dämpft direkt über lockerem Reis mit frischem Ingwer, Frühlingszwiebel und einem warmen Soja-Sesam-Guss. Ein One-Pot-Abendessen mit dem Geschmack von Essen zum Mitnehmen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Weißfischfilets sind viel günstiger als frischer Fisch und werden nach dem Auftauen genauso zart gedämpft.",
+        "Verwende die ganze Frühlingszwiebel: Drücke die weißen Teile unter den Fisch, damit sie Geschmack abgeben, und bewahre die grünen Spitzen für die heiße Garnitur auf.",
+        "Ein Stück Ingwer hält sich wochenlang im Tiefkühler und lässt sich gefroren leicht reiben. Kaufe ein Stück und verwende es in mehreren Gerichten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cod",
+          "swap": "Tilapia oder ein beliebiges tiefgekühltes Weißfischfilet verwenden",
+          "savings": "Spart etwa $2 pro Portion gegenüber frischem Kabeljau"
+        },
+        {
+          "forIngredientId": "low-sodium-soy",
+          "swap": "Normale Sojasauce mit einem Schuss Wasser verdünnen",
+          "savings": "Verwende die Flasche, die du bereits hast, ohne zusätzliche Kosten"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Ein paar Tropfen Pflanzenöl und geröstete Sesamsamen",
+          "savings": "Spart den Kauf eines Spezialöls, etwa ~$4"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "gedämpft",
+        "wie vom Lieferservice"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 617,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-steamed-fish/",
+      "components": [
+        {
+          "key": "d2588ee0-0d97-54c0-9478-7e684d016fa8",
+          "name": "Zutaten",
+          "servingGrams": 269.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa9fc0cc-2f9e-5c44-98cc-a79de39ad399",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse trockener Jasminreis"
+            },
+            {
+              "key": "a19046cd-7376-5d64-8a1e-3dcb21180da3",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 340.2,
+              "quantity": 340.2,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 fillets (~6 Unzen each)"
+            },
+            {
+              "key": "599d0f06-8fd7-510b-a993-931c90809b32",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "thumb of frischer Ingwer, geschält und in feine Streifen geschnitten"
+            },
+            {
+              "key": "db69178e-318a-55e9-ac45-04ebbfd0e39d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3-4 Frühlingszwiebeln, whites angedrückt und greens in Scheiben geschnitten"
+            },
+            {
+              "key": "aadc3141-583e-5832-9c56-c271f014595e",
+              "ingredientName": "Salzarme Sojasauce",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 3 Esslöffel natriumreduziert Sojasauce"
+            },
+            {
+              "key": "ec1027ee-0310-5ce5-8f46-f8c9bdb4417b",
+              "ingredientName": "Sesamöl",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1 Esslöffel geröstet Sesamöl"
+            },
+            {
+              "key": "723808a3-cc88-5f4b-bdd7-aa8934789666",
+              "ingredientName": "Pflanzenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 1 Esslöffel, heated für the sizzle abschließen"
+            },
+            {
+              "key": "86037368-ceff-5a97-804b-07b4b3358328",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 Teelöffel sugar zum Ausgleichen the soy"
+            },
+            {
+              "key": "679728b2-e4ae-5237-bbd0-ba954e108d88",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "klein Handvoll, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 cup Jasminreis, bis das Wasser größtenteils klar abläuft. Gib ihn mit 1.25 cups Wasser in den Reiskocher und starte einen normalen Garzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe den Fisch trocken, während der Reis gart. Verteile die Hälfte des in feine Streifen geschnittenen Ingwers und die zerdrückten weißen Teile der Frühlingszwiebel auf einem kleinen hitzebeständigen Teller, der in den Reiskocher passt. Lege den Fisch darauf und gib den restlichen Ingwer darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn der Reiskochzyklus endet und auf Warmhalten umschaltet, lockere den Reis auf und stelle den Fischteller direkt auf den heißen Reis oder auf den Dämpfeinsatz, falls vorhanden. Schließe den Deckel und starte einen ZWEITEN Garzyklus für 12-15 Minuten, bis der Fisch undurchsichtig ist und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe den Fischteller vorsichtig heraus, gieße wässrige Flüssigkeit ab und träufle Sojasauce, Zucker und etwas Dämpfflüssigkeit vom Fisch über die Filets. Streue die geschnittenen grünen Frühlingszwiebelteile darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Pflanzenöl und Sesamöl zusammen 30-40 Sekunden in der Mikrowelle oder kurz im Topf des Reiskochers, bis das Öl sehr heiß ist. Gieße es dann zischend über Frühlingszwiebel und Ingwer, damit sich ihr Aroma entfaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib frischen Koriander darüber und serviere den Fisch auf dem gedämpften Reis. Löffle die Pfannensoße über beides.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/GD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E6%82%85%E5%8C%AF%E5%9F%8E_Yue_City_Shopping_Mall_shop_%E5%BB%A3%E5%B7%9E%E9%99%B6%E9%99%B6%E5%B1%85_To_To_Kui_Restaurant_%E7%BE%8E%E9%A3%9F_cuisine_food_%E8%96%91%E8%94%A5%E8%92%B8%E9%AD%9A_steamed_fish_June_2025_R12S_01.jpg/1280px-thumbnail.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:GD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E6%82%85%E5%8C%AF%E5%9F%8E_Yue_City_Shopping_Mall_shop_%E5%BB%A3%E5%B7%9E%E9%99%B6%E9%99%B6%E5%B1%85_To_To_Kui_Restaurant_%E7%BE%8E%E9%A3%9F_cuisine_food_%E8%96%91%E8%94%A5%E8%92%B8%E9%AD%9A_steamed_fish_June_2025_R12S_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: MeiOLA 2290 WMENSZ — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von gedämpftem Fisch mit Ingwer und Soja aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-beef-broccoli",
+      "slug": "rice-cooker-beef-broccoli",
+      "title": "Reis-Bowl mit Rindfleisch und Brokkoli aus dem Reiskocher",
+      "instructions": "Zartes Rindfleisch mit Soja und Knoblauch sowie knackig-zarter Brokkoli köcheln in einer glänzenden Soße direkt über lockerem Reis – Wohlfühlessen wie vom Lieferservice aus einem Topf.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schneide Flanksteak dünner und strecke es, indem du es vorher 20 Minuten einfrierst. Günstigere Stücke wie Rinderschulter eignen sich ebenfalls.",
+        "Tiefgekühlter Brokkoli ist normalerweise günstiger als frischer und kann direkt ohne Schneiden in den Topf.",
+        "Lass Sesamsamen und Frühlingszwiebel als Garnitur weg. Die Soße gibt dem Gericht genug Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Rinderhack oder dünn geschnittene Rinderschulter",
+          "savings": "Spart etwa $2-3 pro Portion gegenüber Flankensteak"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Tiefgekühlter Brokkoli oder tiefgekühlte Wokgemüsemischung",
+          "savings": "Spart ~$1 und wird nicht verschwendet"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Honig oder normaler weißer Zucker",
+          "savings": "Verwendet eine Vorratszutat, die bereits vorhanden ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "wie vom Lieferservice zu Hause"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 618,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-beef-broccoli/",
+      "components": [
+        {
+          "key": "153d01bf-f142-5049-a945-93529d8a0736",
+          "name": "Zutaten",
+          "servingGrams": 215.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "e3e29bd4-250b-5c8b-ae31-112fd85e7d51",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse trocken weißer Reis"
+            },
+            {
+              "key": "8158dbfa-ad14-563f-a4a6-6d8739809607",
+              "ingredientName": "Flanksteak",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "quer zur Faser in dünne Scheiben geschnitten, ~1 serving per person"
+            },
+            {
+              "key": "2ad109c6-0731-5160-92ff-1ab9feaf87fb",
+              "ingredientName": "Brokkoli",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 2 Tassen florets"
+            },
+            {
+              "key": "f9ac01ac-9ced-5e77-86fa-b98e7998f8d5",
+              "ingredientName": "Sojasauce",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel für the sauce"
+            },
+            {
+              "key": "5d6e4bcf-31c6-5f4d-b760-32e9b6db1bcf",
+              "ingredientName": "Knoblauch",
+              "grams": 0.45,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, gehackt"
+            },
+            {
+              "key": "e52203eb-b688-5041-9147-7880a1f2992b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel gerieben"
+            },
+            {
+              "key": "f0fc8757-2d04-59a2-b829-4a8319c613c4",
+              "ingredientName": "Brauner Zucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "097c862e-0464-578a-bffb-acedfcda28c7",
+              "ingredientName": "Sesamöl",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel, eingerührt bei the end"
+            },
+            {
+              "key": "abd917d0-9ea1-5e20-851d-5865547224aa",
+              "ingredientName": "Maisstärke",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel zum Andicken der Sauce"
+            },
+            {
+              "key": "dbd92732-be27-508c-9e1c-7533f927f0dd",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 3.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "f0754399-1b16-5419-9cab-fba19d30269a",
+              "ingredientName": "Sesamsamen",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 cup Reis, bis das Wasser klar abläuft. Gib ihn mit 1.25 cups Wasser in den Reiskocher und starte einen normalen Garzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre währenddessen Sojasauce, gehackten Knoblauch, geriebenen Ingwer, braunen Zucker und Maisstärke mit 1/4 cup Wasser in einer Schüssel zu einer Soße. Schneide das Flanksteak quer zur Faser in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn der Reis fertig ist, lockere ihn auf und verteile ihn in Schüsseln. Wische dann den Innentopf trocken und setze ihn zurück in den Reiskocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Rindfleisch und Soße in den Topf und starte einen zweiten Garzyklus. Rühre nach 4-5 Minuten um, damit das Fleisch gleichmäßig gart und die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Brokkoliröschen ein, schließe den Deckel und lasse denselben Zyklus weitere 6-8 Minuten laufen, bis das Rindfleisch gar und der Brokkoli bissfest ist. Falls der Kocher zu früh auf Warmhalten schaltet, starte einen kurzen dritten Zyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Sesamöl ein, löffle das saftige Rindfleisch und den Brokkoli über den Reis und garniere alles mit Frühlingszwiebel und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Broccoli_beef_%285457397534%29.jpg/1280px-Broccoli_beef_%285457397534%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Broccoli_beef_(5457397534).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jeffreyw — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Reis-Bowl mit Rindfleisch und Brokkoli aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-cheesy-broccoli-rice",
+      "slug": "rice-cooker-cheesy-broccoli-rice",
+      "title": "Käsiger Brokkoli-Reis aus dem Reiskocher",
+      "instructions": "Cremiger, mit Cheddar überzogener Reis und zarter Brokkoli, alles in einem Topf zubereitet, ohne am Herd umrühren zu müssen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Brokkoli ist meistens günstiger als frischer und eignet sich hier perfekt. Du musst ihn vorher nicht auftauen.",
+        "Kaufe einen Cheddarblock und reibe ihn selbst. Das kostet pro Unze weniger als fertig geriebener Käse und er schmilzt cremiger.",
+        "Ersetze Hühnerbrühe durch Wasser und einen Brühwürfel, um noch etwas mehr zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Tiefgekühlter Brokkoli",
+          "savings": "Tiefgekühlte Röschen kosten etwa halb so viel wie frische und sind monatelang haltbar."
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und ein Brühwürfel",
+          "savings": "Spart etwa $1 pro Topf gegenüber Brühe aus der Packung."
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Ein zusätzlicher Schuss Milch",
+          "savings": "Lass es ganz weg und spare einen Dollar; der Cheddar macht es trotzdem cremig."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "vegetarisch",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 619,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-cheesy-broccoli-rice/",
+      "components": [
+        {
+          "key": "a48391cf-d684-591c-9353-2b23a7c85331",
+          "name": "Zutaten",
+          "servingGrams": 280.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "00355dcd-ebae-5d8b-98f1-72052c975bdf",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "weißer Langkornreis, trocken (Tassen)"
+            },
+            {
+              "key": "1ebd30c8-7cc9-5744-8134-04c17663cfb2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 3 Tassen; ersetze veggie-broth damit es vegetarisch bleibt"
+            },
+            {
+              "key": "a03015f4-d8be-5d9c-8caa-23a87e7764b7",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 2 Tassen florets, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "c59f6a68-f125-521f-a165-0b397fb9a77c",
+              "ingredientName": "Kräftiger Cheddar am Stück",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "gerieben sharp cheddar, etwa 1.5 Tassen"
+            },
+            {
+              "key": "2ca9f845-db59-5881-a3f4-063104866796",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "392b9e65-6ea4-5b78-a697-f58c7dc34954",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "94854814-c18b-5b75-aaa5-28c7552b5e62",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 2 Esslöffel"
+            },
+            {
+              "key": "af98a223-03ff-5824-a52d-a38a3b0fef01",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa Hälfte a Tasse, eingerührt bei the end"
+            },
+            {
+              "key": "de192064-667c-5dc2-a0b2-c7a0e4222ad0",
+              "ingredientName": "Frischkäse",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "etwa 2 Esslöffel für zusätzlich creaminess"
+            },
+            {
+              "key": "3e030dfa-33da-52d2-9999-d4444916908b",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 1 Teelöffel"
+            },
+            {
+              "key": "705e7f09-0d3d-56dc-ba69-0759168a7419",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "77de6d8d-0feb-5e98-9360-0bddcdb042b3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "31e63a90-e60d-5ae7-a810-8636c044215c",
+              "ingredientName": "Parmesan",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "gerieben, für sprinkling auf top"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 2 cups Reis, bis das Wasser größtenteils klar abläuft. Gib ihn mit Brühe, gewürfelter Zwiebel, gehacktem Knoblauch, Butter, Knoblauchpulver, Salz und Pfeffer in den Reiskocher. Rühre einmal um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus. Wenn dein Gerät eine Einstellung für weißen Reis hat, verwende sie. Andernfalls drücke einfach auf Kochen und lass den Zyklus laufen, bis das Gerät auf Warmhalten umschaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn der Zyklus endet, öffne den Deckel und rühre die Brokkoliröschen rasch ein. Drücke sie in den heißen Reis. Schließe den Deckel und starte einen zweiten kurzen Garzyklus oder lasse den Reis 12-15 Minuten auf Warmhalten, damit der Brokkoli weich dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öffne den Deckel und gieße Milch und Frischkäse dazu. Hebe den geriebenen Cheddar nach und nach unter und rühre, bis der Käse zu einer cremigen Soße schmilzt, die jedes Reiskorn überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Probiere das Gericht und passe Salz und Pfeffer an. Wenn es trocken aussieht, gib etwas mehr Milch dazu. Ist es zu flüssig, lasse den Deckel für ein paar Minuten auf Warmhalten offen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe den Reis in Schüsseln, bestreue ihn mit geriebenem Parmesan und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    }
+  ]
+}

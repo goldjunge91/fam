@@ -1,0 +1,1120 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lumpia-padang",
+      "slug": "gen-lumpia-padang",
+      "title": "Lumpia Padang",
+      "instructions": "Padang-Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Schweinehackfleisch durch Hähnchenhackfleisch oder lass das Fleisch für eine vegetarische Variante weg",
+        "Verwende Lumpia-Teigblätter von Handelsmarken statt teurer Spezialmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "padang",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6245,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lumpia-padang/",
+      "components": [
+        {
+          "key": "e462579a-fd24-57a7-8631-b7287972c94d",
+          "name": "Zutaten",
+          "servingGrams": 610.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "56aeebe1-ae6b-5965-bd9c-e19bda514aee",
+              "ingredientName": "Knödelhüllen",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "427b9b2d-83aa-51ad-8db1-52b5ebd6b9ed",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "a6560e26-5547-5d35-8637-f4869390b575",
+              "ingredientName": "Kohl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen gehackt"
+            },
+            {
+              "key": "809cf0d6-8163-5c4f-80f4-d6687264eed3",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse gewürfelt"
+            },
+            {
+              "key": "a3263a00-5890-5f75-b902-0a8ca9821a17",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95468de0-ac3a-555d-b986-465464751d8e",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce1dd355-11b6-5b26-80d1-3ad0e3b28f8b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fe02a23b-d003-5c24-ac8a-63fd9eae0f53",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "31ee8c9b-0a51-51e8-9f18-e232d9896139",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0a851a03-3b28-5399-9a1f-4b514841fa30",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Knoblauch und Schalotten fein. Erhitze 1 Esslöffel Öl in einer Pfanne und brate beides 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Schweinehackfleisch dazu und brate es 5 Minuten unter Zerteilen mit einem Löffel, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge gewürfelte Karotten und gehackten Kohl hinzu und brate das Gemüse 5 Minuten, bis es weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Sojasauce und Salz, gare alles weitere 2 Minuten und lass die Füllung etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 2 Esslöffel Füllung auf jedes Lumpia-Teigblatt. Rolle es fest auf und verschließe den Rand mit angefeuchteten Fingerspitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und frittiere die Lumpia portionsweise pro Seite 3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie auf Küchenpapier abtropfen und serviere sie heiß mit süßer Chilisauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/12/15/multimedia/ND-Lumpia-lhfz/ND-Lumpia-lhfz-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/12/15/multimedia/ND-Lumpia-lhfz/ND-Lumpia-lhfz-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-martabak-padang",
+      "slug": "gen-martabak-padang",
+      "title": "Martabak Padang",
+      "instructions": "Padang-Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Teig selbst zu; fertiger Martabak-Teig ist teuer",
+        "Verwende Rinderhackfleisch aus günstigen Packungen oder Mischungen mit magereren Stücken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "padang",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6246,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-martabak-padang/",
+      "components": [
+        {
+          "key": "d3363012-ca49-528a-a440-911d3c8752de",
+          "name": "Zutaten",
+          "servingGrams": 510.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "da95969a-a796-5096-b5e9-bc7efe0cf0cf",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4953fd61-87ce-5662-afdd-f60dbc956585",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "404bdf4d-332f-55d7-ae7a-92350d9266c5",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "6d895c0f-7ccb-5ad4-916f-9a28f7ea2848",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "29aca4e4-22ff-5650-99dc-22feed56ef19",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bc04c0c-651d-5f71-9f0f-2b3c14e7289f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e300ad35-9044-5083-9ed5-9a7831d71899",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "1203cd21-4456-51a1-95a6-183c40f3dbd4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel und Öl zum Braten"
+            },
+            {
+              "key": "e145aab0-ed8f-5d14-815f-2d2bc4232c73",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Mehl, Salz und Wasser in einer Schüssel zu einem klebrigen Teig. Lass ihn 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch und Zwiebel fein. Brate Rinderhackfleisch mit Knoblauch und Zwiebel 6 Minuten in einer Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Rindfleischfüllung mit weißem Pfeffer und Salz und lass sie auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 2 Portionen und ziehe eine davon auf einer flachen Fläche dünn und groß aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Hälfte der Füllung auf einer Teighälfte. Klappe die andere Hälfte darüber und drücke die Ränder fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer beschichteten Pfanne bei mittlerer Hitze und brate den Martabak pro Seite 4 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege ein Ei auf den gegarten Martabak, klappe ihn zusammen und gare ihn kurz weiter, bis das Ei gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide den Martabak in Quadrate und serviere ihn heiß mit süßer Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/76/d1/a0/76d1a0c0de28cb43a49c24a58e842f16.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/76/d1/a0/76d1a0c0de28cb43a49c24a58e842f16.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gado-gado-padang",
+      "slug": "gen-gado-gado-padang",
+      "title": "Gado-Gado Padang",
+      "instructions": "Padang-Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe frisches saisonales Gemüse auf Bauernmärkten günstiger ein",
+        "Verwende Erdnussbutter von Handelsmarken statt Spezialsorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "padang",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6247,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gado-gado-padang/",
+      "components": [
+        {
+          "key": "5e84671a-1a33-563f-9b70-d20c1a34ef39",
+          "name": "Zutaten",
+          "servingGrams": 732.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "efb1ee08-558e-5a82-a9c2-7ff43f9e5c10",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen gehackt"
+            },
+            {
+              "key": "686c29f7-328b-5b89-b5f8-06fbcf5577fd",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fa3cff67-2aa6-5ac4-a86e-6b84bb05dad6",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "c3c30058-df67-5bb4-a793-7242a8fb7c37",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "a26f7eb0-6811-5d7e-b360-4a946622081a",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "9ee79c5b-a3f9-55e6-887d-1ffa6d267808",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4b03a4a4-078e-57c7-8e0f-9a1a513c621b",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfc2e47e-532d-5087-8e89-82065ca9eb5c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8468974-dfb7-51c6-b814-cd016ebf37a6",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3ed0215d-62dc-5030-b309-0390c8a0aec3",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f9b1b986-0833-557f-8a43-9b8c3aeaac4e",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "7615f425-eb0b-543d-8161-9c442bf1bbf2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln und Karotten getrennt etwa 12 Minuten weich und schneide sie anschließend in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere Kohl und Sojasprossen jeweils 2 Minuten in kochendem Wasser und lass sie gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Tofu in Würfel und brate ihn in wenig Öl von allen Seiten goldbraun. Lass ihn abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere rote Chilis und Knoblauch mit 3 Esslöffel Wasser zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Erdnussbutter, Chili-Knoblauch-Paste, Limettensaft, Kokosmilch und Salz in einer Schüssel zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte blanchiertes Gemüse, Kartoffeln, Karotten und frittierten Tofu auf einem Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße warme Erdnusssauce über das Gemüse und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2024-03-gado-gado/gado-gado-088",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2024-03-gado-gado/gado-gado-088",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pariaman-gulai",
+      "slug": "gen-pariaman-gulai",
+      "title": "Pariaman Gulai",
+      "instructions": "Padang-Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie portionsweise für später ein",
+        "Koche nach Möglichkeit deine eigene Brühe aus Rinderknochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "padang",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6248,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pariaman-gulai/",
+      "components": [
+        {
+          "key": "0eb39d5b-7e58-5aac-8eb0-ccb00862d5d3",
+          "name": "Zutaten",
+          "servingGrams": 746.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e1a907d-c16e-5a04-823c-1be47cda63b2",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "52f7fad2-687f-5f8b-a7d2-711b9e78059e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "5590ded8-f97c-5aad-abeb-08ac64391644",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0594e878-9877-530e-bace-e463f95ff91a",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6f2d263-bd91-50cb-869a-8b3ffa58b303",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel fein gehackt"
+            },
+            {
+              "key": "a67c2b92-6cb1-50b8-b339-aca7f02fa9a7",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "95a3ba1d-3abf-5c6b-85d1-9876fc07e94f",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "66bf99c2-4272-55a3-a80e-2e92c475ab11",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "71886c5a-0f3b-52e9-ae65-317994c2ef78",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "761e4b61-9c96-5e03-a96e-a4ce2db7641e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f3a7d327-2389-5752-931b-875b2ba2780d",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch in 1.5-inch-Stücke und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Zwiebeln, Knoblauch, rote Chilis und Ingwer mit 3 Esslöffel Wasser zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und brate die Gewürzpaste 3 Minuten an, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kurkuma dazu und rühre 30 Sekunden. Füge dann die Rindfleischstücke hinzu und brate sie 8 Minuten an, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch und Rinderbrühe dazu, bringe alles zum Kochen und reduziere die Hitze auf niedrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Curry zugedeckt 35 Minuten köcheln, bis das Rindfleisch sehr zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Limettensaft und serviere das Gericht heiß auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://3.bp.blogspot.com/-gRgx_ezUNbk/UgEEyfLk3xI/AAAAAAAAIws/NDmnDdxlCkA/s1600/IMG_5840.JPG",
+          "sourcePageUrl": "http://3.bp.blogspot.com/-gRgx_ezUNbk/UgEEyfLk3xI/AAAAAAAAIws/NDmnDdxlCkA/s1600/IMG_5840.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ayam-pop",
+      "slug": "gen-ayam-pop",
+      "title": "Ayam Pop",
+      "instructions": "Padang-Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel und -keulen im Angebot; dunkles Fleisch ist günstiger und aromatischer",
+        "Verwende normalen Zucker, falls kein Palmzucker erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "padang",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6249,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ayam-pop/",
+      "components": [
+        {
+          "key": "8c83ea7b-3f81-5f29-a8d4-e282b11beff6",
+          "name": "Zutaten",
+          "servingGrams": 701,
+          "position": 0,
+          "items": [
+            {
+              "key": "e0c510b6-16b2-5c73-9a0d-4ce861bc48f3",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "baa0c386-972c-57b1-a787-fa1ddab9e7f0",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77a3fb29-7d67-50e1-828a-a985898072f6",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4f4b6a3-b14f-56ee-9b11-b8f2ff458f65",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb1c7835-aa37-5c85-b33c-cf378ec6afe7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "3182131c-1d03-518e-b9dd-ee7a41cf377b",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2ce88600-82cc-5d28-8fc6-60dd6d5848e0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b7a4e891-0a04-5de1-b0a9-358e943d1947",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "225936bc-91f2-505a-aa26-9552810f4324",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "06a738a6-45af-5a49-a49b-207231b0df46",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Knoblauch, Schalotten, rote Chilis und Ingwer mit 3 Esslöffel Wasser zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Hähnchenstücke mit Küchenpapier trocken, damit sie besser bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne und brate die Hähnchenstücke pro Seite 5 Minuten an. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Gewürzpaste in derselben Pfanne 2 Minuten an, bis sie duftet und dunkler wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in die Pfanne und füge Kurkuma, Salz, Palmzucker und Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lass das Gericht ohne Deckel 30 Minuten köcheln, bis das Hähnchen zart und die Sauce reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare alles weiter, bis die Flüssigkeit größtenteils aufgenommen ist und das Hähnchen karamellisiert und gebräunt ist, etwa weitere 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://image.slidesharecdn.com/4resepayampopspesialrumahmakanpadang-190513182638/75/4-Resep-Ayam-Pop-Spesial-Rumah-Makan-Padang-Beserta-Sambalnya-5-2048.jpg",
+          "sourcePageUrl": "https://image.slidesharecdn.com/4resepayampopspesialrumahmakanpadang-190513182638/75/4-Resep-Ayam-Pop-Spesial-Rumah-Makan-Padang-Beserta-Sambalnya-5-2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

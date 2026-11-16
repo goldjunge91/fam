@@ -1,0 +1,1352 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-pidan-doufu-century-egg-silken-tofu",
+      "slug": "egg-pidan-doufu-century-egg-silken-tofu",
+      "title": "Pidan Doufu (tausendjährige Eier mit kaltem Seidentofu)",
+      "instructions": "Eine seidige, ungekochte chinesische Vorspeise: kalter Seidentofu mit cremigem, weich-würzigem tausendjährigem Ei und einer kräftigen Sauce aus Sojasauce, Sesam und Frühlingszwiebel. Erfrischend, herzhaft und voll Umami – ein beliebter Klassiker, der fast nichts kostet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tausendjährige Eier sind in asiatischen Lebensmittelgeschäften meist am günstigsten und werden oft zu 6 Stück für ein paar Dollar verkauft – deutlich billiger als einzelne Eier. Eine Packung hält sich wochenlang im Vorratsschrank.",
+        "Ein Block Seidentofu reicht als Snack locker für 2-3 Personen, sodass diese ganze Platte deutlich weniger als einen Dollar pro Portion kostet.",
+        "Lass abgefülltes Chiliöl weg und bereite die günstige klassische Variante zu: Sojasauce, schwarzer Essig, Sesamöl und Frühlingszwiebeln schmecken trotzdem authentisch und wie im Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chinkiang-vinegar",
+          "swap": "Reisessig oder ein Schuss normaler schwarzer Essig oder Balsamico",
+          "savings": "verwenden Vorhundenes; rice vinegar is milder but funktioniert fine"
+        },
+        {
+          "forIngredientId": "light-soy-sauce",
+          "swap": "Normale Sojasauce oder Tamari für eine glutenfreie Variante",
+          "savings": "keine Zusatzkosten, wahrscheinlich bereits in deinem pantry"
+        },
+        {
+          "forIngredientId": "chili-oil",
+          "swap": "Eine Prise Chiliflocken oder ein paar Tropfen Sriracha",
+          "savings": "günstiger und probably bereits vorrätig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Ei",
+        "ohne Kochen",
+        "Vorspeise",
+        "kalte Speise",
+        "Tofu",
+        "5 Minuten",
+        "studentenküchengeeignet",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 310,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-pidan-doufu-century-egg-silken-tofu/",
+      "components": [
+        {
+          "key": "12302bf5-b6c1-5c48-928c-3abc9cbf5916",
+          "name": "Zutaten",
+          "servingGrams": 155.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9769114-3037-554b-9d12-a86c4f37ca9c",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 block, chilled kalt"
+            },
+            {
+              "key": "22031a59-12d7-56d1-afb0-f17491ee4d56",
+              "ingredientName": "Tausendjährige Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "geschält und geviertelt oder gehackt"
+            },
+            {
+              "key": "b7457892-d2ec-592b-b3d0-2f5733d31367",
+              "ingredientName": "Helle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für die Sauce"
+            },
+            {
+              "key": "6b232bae-223b-5939-a76f-d2b3a7d8ff8c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geröstet, für aroma"
+            },
+            {
+              "key": "d6053675-6ab0-5e8a-a9e4-7b7f85983822",
+              "ingredientName": "Chinkiang-Schwarzessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "chinesischer schwarzer Essig"
+            },
+            {
+              "key": "28b3bfae-02ee-533b-ab96-b811b6c36788",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum balance sauce"
+            },
+            {
+              "key": "51d0c63a-8ab3-5176-9535-db53815b2820",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "ffa5bf68-f6f3-5319-ba4c-9c3a88abd8b6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "dünn in Scheiben geschnitten"
+            },
+            {
+              "key": "95a84c7c-a725-5c16-9719-57ec02f3fb8f",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "für Schärfe, obenauf träufeln"
+            },
+            {
+              "key": "951d0e25-ce6e-5780-a0a1-cf2dbb53abde",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kühle den ungeöffneten Seidentofu mindestens 30 Minuten im Kühlschrank, damit er kalt und fest genug ist, seine Form zu behalten. Das Gericht wird kalt serviert, also lasse diesen Schritt nicht aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Sauce zu: Verrühre in einer kleinen Schüssel 2 EL helle Sojasauce, 1 EL Chinkiang-Schwarzessig, 1 TL geröstetes Sesamöl und 1/2 EL Zucker, bis sich der Zucker vollständig aufgelöst hat. Rühre dann 1 fein gehackte Knoblauchzehe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle die tausendjährigen Eier: Knacke vorsichtig die Schale auf und entferne sie. Das Eiweiß ist bernsteinfarbenes, durchsichtiges Gelee, das Eigelb weich, dunkel und cremig. Das ist normal; das Ei ist vollständig gereift und muss nicht gekocht werden. Abspülen und trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide jedes tausendjährige Ei in Viertel oder grobe Stücke. Mit einem in warmem Wasser abgespülten dünnen Messer lässt sich das weiche Eigelb sauber schneiden, ohne zu verschmieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stürze den kalten Seidentofu vorsichtig auf einen flachen Servierteller und gieße Flüssigkeit ab. Lass den Block ganz oder schneide ihn zum leichteren Aufnehmen in dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Stücke der tausendjährigen Eier über und um den Tofu, damit jeder Bissen etwas Ei enthält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löffle die Soja-Sesam-Sauce gleichmäßig darüber und lass sie um den Tofu herum zusammenlaufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue geschnittene Frühlingszwiebeln darüber, träufle Chiliöl darauf und garniere nach Wunsch mit Koriander. Sofort kalt servieren und in jedem Löffel Tofu, Ei und Sauce zusammen aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Tofu_with_Century_Egg_01.jpg/1280px-Tofu_with_Century_Egg_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tofu_with_Century_Egg_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Tbatb, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pidan Doufu (tausendjährigen Eiern mit kaltem Seidentofu)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-arctic-char-with-greens-and-gribiche-dressing",
+      "slug": "ba-arctic-char-with-greens-and-gribiche-dressing",
+      "title": "Saibling auf Blattgrün mit Gribiche-Dressing",
+      "instructions": "Saibling mit knuspriger Haut auf pfeffrigem Blattsalat, aufgefrischt mit einem kräftigen Gribiche-Dressing aus Ei und Kräutern. Ein schnelles, elegantes Abendessen wie im Restaurant. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/arctic-char-with-greens-and-gribiche-dressing",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Saibling ist hier die teurere Zutat; ersetze ihn durch Lachs- oder Forellenfilets und halbiere fast die Kosten, ohne die Zubereitung zu ändern.",
+        "Gribiche besteht nur aus hart gekochten Eiern, Senf, Essig, Kräutern und Öl, die miteinander verrührt werden – viel günstiger und frischer als jedes Dressing aus der Flasche.",
+        "Verwende beliebiges pfeffriges Blattgrün im Angebot; eine Tüte Rucola eignet sich gut als Ersatz für die Mischung aus Brunnenkresse und Mizuna."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "arctic-char",
+          "swap": "Lachs- oder Forellenfilets",
+          "savings": "ca. $3.50/Portion"
+        },
+        {
+          "forIngredientId": "mizuna",
+          "swap": "Zusätzlicher Rucola oder junger Spinat",
+          "savings": "ca. $0.50/Portion"
+        },
+        {
+          "forIngredientId": "tarragon",
+          "swap": "Frischer Schnittlauch oder Dill",
+          "savings": "geringfügig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "Fisch",
+        "Meeresfrüchte",
+        "Salat",
+        "Gribiche",
+        "schnelles Abendessen",
+        "in der Pfanne gebraten",
+        "Bon Appétit"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 311,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-arctic-char-with-greens-and-gribiche-dressing/",
+      "components": [
+        {
+          "key": "c646724c-e838-57c8-90f9-cb7fe8713dcf",
+          "name": "Zutaten",
+          "servingGrams": 397.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4503602a-ad53-5d8e-b9e9-1fb27e1c0729",
+              "ingredientName": "Saibling",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 5-6 oz mit Haut fillets"
+            },
+            {
+              "key": "b259c752-1845-5bcf-b90c-b502fe960b78",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Salz, zum season"
+            },
+            {
+              "key": "7961e0fb-19a4-526d-a5d2-e9d6394475de",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "frisch gemahlen, zum season"
+            },
+            {
+              "key": "5c33a059-2a28-5b17-8066-39df7f1da16b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e29ea0cc-18a4-569f-8519-c5c43582ad27",
+              "ingredientName": "Brunnenkresse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "part von 4 Tassen mixed greens"
+            },
+            {
+              "key": "f17e84f7-f9df-5d44-a60d-6f7f50fcd156",
+              "ingredientName": "Mizuna",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "part von 4 Tassen mixed greens"
+            },
+            {
+              "key": "94f53e10-afe5-550c-a198-abae219aab6c",
+              "ingredientName": "Rucola",
+              "grams": 150,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "part von 4 Tassen mixed greens (~1 Tasse)"
+            },
+            {
+              "key": "a5871688-2e6d-50e7-bb08-15fa2095279a",
+              "ingredientName": "Hart gekochte Eier (geschält)",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "für gribiche dressing"
+            },
+            {
+              "key": "b7ea1e14-5821-5c8c-9b5b-ced0104c51fc",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "für gribiche dressing"
+            },
+            {
+              "key": "0ab9f28e-16c9-5701-bf4f-d46e39105696",
+              "ingredientName": "Weißweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "für gribiche dressing"
+            },
+            {
+              "key": "fbe7b970-a043-5bf4-abda-555ede92af20",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 50,
+              "quantity": 0.1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, gehackt, für gribiche dressing"
+            },
+            {
+              "key": "9920f9a4-9e7f-51af-a2c8-392ca798abea",
+              "ingredientName": "Gewürzgurken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL fein gehackt cornichons, für gribiche dressing"
+            },
+            {
+              "key": "0374a9bd-4c0e-5337-809e-b7c5374f7658",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "gehackt, für gribiche dressing"
+            },
+            {
+              "key": "bfb5a7a0-75a5-5098-b9b6-d5ed6066d72b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "gehackt, für gribiche dressing"
+            },
+            {
+              "key": "13ad1e6f-a5bf-583f-84c4-690fa6e2b2a5",
+              "ingredientName": "Frischer Estragon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "gehackt, für gribiche dressing"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite das Gribiche-Dressing zu: Schäle die hart gekochten Eier und hacke sie fein. Verrühre Senf und Weißweinessig in einer Schüssel und gieße unter Rühren langsam Olivenöl dazu, bis es sich verbindet (etwas Öl für den Fisch zurückbehalten). Rühre gehackte Eier, Kapern, Cornichons, Schalotte, Petersilie und Estragon ein. Mit Salz und Pfeffer würzen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze beide Seiten der Saiblingsfilets mit Salz und frisch gemahlenem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schwenke Olivenöl in einer kalten großen beschichteten Pfanne, sodass der Boden bedeckt ist. Lege die Filets mit der Hautseite nach unten hinein und stelle die Pfanne auf mittlere Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate den Fisch und drücke die Filets gelegentlich ganz leicht an, damit die Haut gleichmäßig Kontakt mit der Pfanne hat, bis sie dunkelgoldbraun und das Fleisch an den Rändern undurchsichtig ist; das dauert 6-8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende die Filets und gare die Fleischseite nur so lange, bis sie undurchsichtig ist, etwa 1 Minute länger. Auf eine Platte legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge das gemischte Blattgrün in einer mittelgroßen Schüssel vorsichtig mit so viel Gribiche-Dressing, dass es leicht überzogen ist. Mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile das angemachte Blattgrün über dem Fisch und löffle noch etwas Gribiche-Dressing darüber. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/58c96f75c423ee32d9674fee/16:9/w_2639,h_1484,c_limit/arctic-char-with-greens-and-gribiche-dressing.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/arctic-char-with-greens-and-gribiche-dressing",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Saibling auf Blattgrün mit Gribiche-Dressing",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-buckwheat-banana-cake-with-yogurt-espresso-frosting",
+      "slug": "ba-buckwheat-banana-cake-with-yogurt-espresso-frosting",
+      "title": "Buchweizen-Bananenkuchen mit Joghurt-Espresso-Glasur",
+      "instructions": "Ein nussiger, intensiv nach Banane schmeckender Kastenkuchen aus Vollkorn- und Buchweizenmehl, gekrönt mit einer säuerlichen Glasur aus Frischkäse, griechischem Joghurt und Espresso. Nahrhaft genug zum Frühstück und besonders genug als Dessert. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/buckwheat-banana-cake-with-yogurt-espresso-frosting",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende sehr reife, stark gesprenkelte Bananen, die du sonst wegwerfen würdest; oft sind sie reduziert und lassen sich süßer zerdrücken.",
+        "Vollkornmehl kann Buchweizenmehl ersetzen, wenn du keine separate Packung kaufen möchtest.",
+        "Bereite die Glasur aus einem Block Frischkäse und einem kleinen Becher Joghurt zu; beides hält sich mehrere Tage, sodass nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buckwheat-flour",
+          "swap": "Stattdessen zusätzliches Vollkornmehl (oder Weizenmehl) verwenden",
+          "savings": "spart a $0.45 Spezial- flour"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Naturjoghurt oder saure Sahne, für eine dickere Konsistenz leicht abgetropft",
+          "savings": "spart ca. $0.70"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Neutrales Pflanzen- oder Rapsöl",
+          "savings": "spart ca. $0.20/EL"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Banane",
+        "Kuchen",
+        "Kastenkuchen",
+        "Backen",
+        "Dessert",
+        "Frühstück",
+        "Buchweizen",
+        "Espresso",
+        "Vollkorn"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 312,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-buckwheat-banana-cake-with-yogurt-espresso-frosting/",
+      "components": [
+        {
+          "key": "7f804b44-6547-58b3-9836-1783d9ef0a9c",
+          "name": "Zutaten",
+          "servingGrams": 209.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "3e91b1bc-b968-5836-97b2-ddf75fd586f2",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "nonstick Pflanzenöl spray, für pan"
+            },
+            {
+              "key": "d238d2c1-40f9-5b85-a7f0-cb0866094587",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse ganz wheat flour"
+            },
+            {
+              "key": "92428ecd-fe49-5ab5-b902-7d007c3de08b",
+              "ingredientName": "Buchweizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse buckwheat flour (oder ganz wheat flour)"
+            },
+            {
+              "key": "70f7230a-a249-5803-8746-c3c7d4c1355b",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL gemahlen cinnamon"
+            },
+            {
+              "key": "10e38e39-a69d-58bb-86c9-93dc1dd425b9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Salz"
+            },
+            {
+              "key": "ecd79e42-f0e3-516c-a736-f04fc5725524",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "e7e3a9ed-202e-53d6-b922-b39db03a0d06",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "a9c22710-2973-5fec-9c5a-27fcf2ffb818",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 sehr reife bananas"
+            },
+            {
+              "key": "9aaa5b89-ebc6-5bd1-acf7-b2678c4b8974",
+              "ingredientName": "Brauner Zucker",
+              "grams": 165,
+              "quantity": 165,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2/3 Tasse fest gedrückt dunkelbrauner Zucker"
+            },
+            {
+              "key": "d6587bb0-d934-55e7-892c-907743d8fade",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 groß eggs, verquirlt zum blend"
+            },
+            {
+              "key": "2f3bd5b3-6bf0-5ecc-8935-d2cc1a29ab04",
+              "ingredientName": "Olivenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse Olivenöl"
+            },
+            {
+              "key": "82b025cc-5a59-55cf-83ee-580613fa3470",
+              "ingredientName": "Saure Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse saure Sahne"
+            },
+            {
+              "key": "facbdc36-5218-5be3-a5cd-c83e6f394132",
+              "ingredientName": "Frischkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "4 oz Frischkäse, zimmerwarm"
+            },
+            {
+              "key": "7d05aeae-dc02-58c4-b156-2dd54223c478",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/2 Tasse plain griechischer Joghurt"
+            },
+            {
+              "key": "75e7d258-61b9-5542-8032-0d71f8a46b4a",
+              "ingredientName": "Salz",
+              "grams": 0.65,
+              "quantity": 0.65,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "Prise von Salz, für frosting"
+            },
+            {
+              "key": "d646ca36-3bbd-5fba-a953-a161855915a0",
+              "ingredientName": "Puderzucker",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1/3 Tasse Puderzucker"
+            },
+            {
+              "key": "48d62960-fd92-549a-a0f2-cd64a756fecb",
+              "ingredientName": "Espressopulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1/2 TL espresso powder"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F vor. Fette eine Kastenform von 8.5x4.5 inches mit Antihaftspray ein und lege sie dann mit Backpapier aus, sodass es an den beiden langen Seiten übersteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Vollkornmehl, Buchweizenmehl, Zimt, Salz, Natron und Backpulver in einer mittelgroßen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke Bananen und braunen Zucker in einer großen Schüssel, bis kaum noch Bananenstücke vorhanden sind und sich der Zucker auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Eier, Olivenöl und saure Sahne glatt unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die trockenen Zutaten dazu und hebe sie mit einem Gummispatel nur so lange unter, bis alles gerade vermengt ist. Fülle den Teig in die vorbereitete Form und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe den Kuchen 55-65 Minuten, bis die Oberseite bei leichtem Druck zurückfedert und ein in die Mitte gesteckter Holzstab sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Form auf ein Kuchengitter und lass den Kuchen 30 Minuten in der Form abkühlen. Stürze ihn dann auf das Gitter und lass ihn vollständig auskühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Für die Glasur Frischkäse, griechischen Joghurt und eine Prise Salz in einer großen Schüssel glatt verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Siebe den Puderzucker in die Schüssel und verrühre alles kräftig. Rühre dann das Espressopulver ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schneide den abgekühlten Kuchen auf und serviere ihn mit der Glasur zum Bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57fe58c401a5c3543761ddc1/master/w_2629,h_1710,c_limit/buckwheat-banana-cake-with-yogurt-espresso-frosting.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/buckwheat-banana-cake-with-yogurt-espresso-frosting",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Buchweizen-Bananenkuchen mit Joghurt-Espresso-Glasur",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-cherry-tomato-vinaigrette",
+      "slug": "ba-cherry-tomato-vinaigrette",
+      "title": "Vinaigrette mit Kirschtomaten",
+      "instructions": "Eine warme, marmeladige Tomatenvinaigrette, bei der geröstete Kirschtomaten zu einer glänzenden, säuerlichen Sauce aufplatzen, verfeinert mit Schalotte, Rotweinessig und frischem Schnittlauch. Über gegrillten Fisch, Hähnchen oder knuspriges Brot löffeln. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/cherry-tomato-vinaigrette",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Traubentomaten sind meist günstiger und fester als Kirschtomaten und eignen sich hier perfekt.",
+        "Ersetze Rotweinessig durch beliebigen Essig, den du schon hast, und spare dir den Weg zum Laden.",
+        "Bereite die doppelte Menge zu und bewahre sie bis zu 2 Tage gekühlt auf; sie passt die ganze Woche zu Salaten, Getreidegerichten und Eiweißquellen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "grape-tomatoes",
+          "swap": "Beliebige kleine Kirschtomaten oder halbierte alte Sorten",
+          "savings": "verwenden saisonal tomatoes for the best flavor und Preis"
+        },
+        {
+          "forIngredientId": "red-wine-vinegar",
+          "swap": "Sherryessig oder Weißweinessig",
+          "savings": "vorhundene Zutaten verwenden to vermeidet den Kauf von a neue Flasche"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "Dünn geschnittene Frühlingszwiebelspitzen oder frische Petersilie",
+          "savings": "oft günstiger und mehr versatile than frisch chives"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Vinaigrette",
+        "Sauce",
+        "Tomate",
+        "Würzsauce",
+        "schnell",
+        "Sommer",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 313,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-cherry-tomato-vinaigrette/",
+      "components": [
+        {
+          "key": "a7a96fe7-a357-533b-88c7-e0f69a1af170",
+          "name": "Zutaten",
+          "servingGrams": 598.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f56ae6f0-2f7e-5e15-8bc8-67456c7f154d",
+              "ingredientName": "Traubentomaten",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 pint cherry tomatoes (~2 Tassen)"
+            },
+            {
+              "key": "8578f20d-d585-5bd2-9cc2-8391d2824128",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL, aufgeteilt"
+            },
+            {
+              "key": "8d211fb9-6bde-53d6-95a6-e19d22a1c562",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "0bd0f44a-6655-59c5-94f3-01ba08dd84c2",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL (oder more)"
+            },
+            {
+              "key": "86e40582-059e-5e23-bf41-8214f3584cbb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7a5cb874-2a27-54fb-a2d9-1c0bf4d983ac",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "7aabe85b-d2d3-50f2-b869-17a63edf9b61",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "2 EL gehackt frisch chives"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Hälfte der Kirschtomaten und lass den Rest ganz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 EL Olivenöl in einem mittelgroßen Topf bei mittlerer Hitze. Gib Schalotte dazu und gare sie unter häufigem Rühren etwa 4 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib halbierte und ganze Tomaten dazu. Gare sie unter gelegentlichem Rühren 4 bis 6 Minuten, bis sie Saft abgeben. Zerdrücke einige Tomaten mit einem Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre 1 EL Essig und die restlichen 2 EL Olivenöl ein. Mit Salz und Pfeffer würzen und nach Geschmack mehr Essig dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Warm oder bei Zimmertemperatur servieren. Schnittlauch erst kurz vor dem Servieren einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vorbereitung: Die Vinaigrette lässt sich bis zu 2 Tage vorher (ohne Schnittlauch) zubereiten. Abdecken und kühlen, dann auf Zimmertemperatur bringen und vor dem Servieren Schnittlauch einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57ae0db353e63daf11a4e199/master/w_940,h_671,c_limit/cherry-tomato-vinaigrette.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/cherry-tomato-vinaigrette",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Vinaigrette mit Kirschtomaten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-daniel-bouluds-madeleines",
+      "slug": "ba-daniel-bouluds-madeleines",
+      "title": "Madeleines von Daniel Boulud",
+      "instructions": "Zarte, buttrige kleine Muschelkuchen mit goldenen, knusprigen Rändern, einer weichen, zitronig duftenden Krume und einer Schicht Puderzucker. Warm und frisch aus dem Ofen servieren, wie es ein französischer Pâtissier vorsieht. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/daniel-bouluds-madeleines",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den Spritzbeutel weg und spritze den Teig aus einem Beutel mit abgeschnittener Ecke oder löffle ihn einfach in die Förmchen.",
+        "Verwende normalen Kristallzucker mit einer zusätzlichen Prise melasseartigem braunem Zucker, statt Spezialzucker zu kaufen.",
+        "Eine normale beschichtete Mini-Muffinform eignet sich, falls du keine Madeleineform hast; du brauchst keine extra zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "Orangenschale für eine süßere, mildere Zitrusnote",
+          "savings": "same Kosten"
+        },
+        {
+          "forIngredientId": "unsalted-butter",
+          "swap": "Gebräunte Butter für einen tieferen, nussigen Madeleine-Geschmack",
+          "savings": "+$0.04/EL"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Heller Maissirup oder Ahornsirup, falls du keinen Honig hast",
+          "savings": "ähnlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Dessert",
+        "Backen",
+        "Gebäck",
+        "Teekuchen",
+        "Madeleine",
+        "Zitrus",
+        "vorab zubereiten"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 314,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-daniel-bouluds-madeleines/",
+      "components": [
+        {
+          "key": "c3fea00d-a8c2-5ba3-ad46-df9c9145289b",
+          "name": "Zutaten",
+          "servingGrams": 45.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "118d6e8c-1005-5a49-8334-925f99b10dc8",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "34a65189-412f-546f-9ffc-ab781e681d8e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a4179829-14fa-5ff7-bea9-988537114796",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse Weizen- flour, plus weitere zum Bestäuben"
+            },
+            {
+              "key": "3557739d-b19b-5851-8864-19b5be0cc020",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 groß eggs"
+            },
+            {
+              "key": "967581ec-f493-517e-8d23-a01ac7ebdd0c",
+              "ingredientName": "Zucker",
+              "grams": 79.5,
+              "quantity": 79.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse Kristallzucker"
+            },
+            {
+              "key": "31a685e8-818c-55b3-a3d8-ef89862e31c6",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL light brauner Zucker"
+            },
+            {
+              "key": "80de02c0-41cf-5e10-8399-64c47640fd2d",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL honey"
+            },
+            {
+              "key": "f54cfb89-391a-5edb-aaa1-e25c847c9cec",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL fein gerieben lemon oder orange zest"
+            },
+            {
+              "key": "26defb6f-5d51-5ff9-92ae-6ff82416949b",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 EL (3/4 stick), geschmolzen, warm"
+            },
+            {
+              "key": "95a5dde0-bb71-5507-91ec-a91e40d1ac59",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "nonstick Pflanzenöl spray, für pans"
+            },
+            {
+              "key": "0656ee2b-9cf3-560b-b597-46e4711e58a5",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Backpulver, Salz und Mehl in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier, Kristallzucker, braunen Zucker, Honig und Zitronenschale in einer mittelgroßen Schüssel glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die trockenen Zutaten nur so lange ein, bis sie vermengt sind, und rühre dann die warme geschmolzene Butter unter, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Teig in einen Spritzbeutel oder wiederverschließbaren Plastikbeutel und kühle ihn mindestens 1 Stunde (oder bis zu 1 Tag vorher).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 400 F vor. Besprühe die Madeleineformen leicht mit Antihaftspray und bestäube sie mit Mehl; überschüssiges Mehl ausklopfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide die Spitze des Spritzbeutels (oder eine Ecke des Beutels) ab und spritze den Teig in jede Form, etwa zu zwei Dritteln voll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Madeleines, bis die Ränder goldbraun und die Mitte aufgegangen ist und bei leichtem Druck zurückfedert; etwa 5 Minuten für Mini-Madeleines und 8-10 Minuten für normale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Klopfe die Form auf die Arbeitsfläche, damit sich die Madeleines lösen. Mit Puderzucker bestäuben und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57acf921f1c801a1038bc981/master/w_1384,h_1132,c_limit/daniel-boulud-madeleines.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/daniel-bouluds-madeleines",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Madeleines von Daniel Boulud",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

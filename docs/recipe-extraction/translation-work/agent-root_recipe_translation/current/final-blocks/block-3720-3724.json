@@ -1,0 +1,1115 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-spaghetti-alla-genovese",
+      "slug": "gen-spaghetti-alla-genovese",
+      "title": "Spaghetti alla Genovese",
+      "instructions": "Neapolitanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rindergulasch im Angebot und friere Portionen für künftige Pastagerichte ein",
+        "Bereite die doppelte Menge zu und friere die Hälfte der Sauce für schnelle spätere Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "neapolitanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3720,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spaghetti-alla-genovese/",
+      "components": [
+        {
+          "key": "06c0648d-4e42-5625-8ee6-51df60403eb5",
+          "name": "Zutaten",
+          "servingGrams": 323.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0f44561-baae-5ab0-bd1d-c48417c1f00d",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "0e645d50-9bec-5d86-94f1-a4b63e2a7f05",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "2e18578a-117c-51d2-9f2d-6464efd0dcd6",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "660ba20a-452d-5f14-bb09-5be23493fc25",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c23e894f-c149-5a9d-be35-02aa74f14209",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a5b857bf-ba2b-57c0-9c9c-389bf3e89eec",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "b7b573cf-671f-5818-acde-6c0957417716",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "50299c39-2535-5f7f-970e-4b12ef8e97ec",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e4ea50f2-cb54-5cea-ae93-c3dee9b8204c",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "002663f7-8354-5d09-9237-20a5a962056a",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Zwiebeln in dünne Streifen und erhitze Olivenöl in einem großen Topf mit schwerem Boden bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebeln hinzu und gare sie 10-15 Minuten langsam unter gelegentlichem Rühren, bis sie sehr weich und karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze Rindfleischstücke mit Salz und Pfeffer, lege sie in die Zwiebeln und bräune sie etwa 8 Minuten von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Weißwein hinzu, löse die gebräunten Röststoffe vom Topfboden und lasse ihn köcheln, bis er größtenteils verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelten Sellerie, Karotten und Rinderbrühe hinzu. Decke den Topf ab und lasse alles 2 Stunden sanft köcheln, bis das Fleisch zart und die Sauce dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche Spaghetti in kochendem Salzwasser al dente, gieße sie ab und vermische sie mit dem Ragù.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Pasta in Schalen mit geriebenem Parmesan darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/0bH6EJBtolMsGxXs383rl2_tNsk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__03__20210303-pasta-genovese-sasha-marx-16-22028d0441ce4b8f8c59fd3f6c3bd8b1.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/0bH6EJBtolMsGxXs383rl2_tNsk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__03__20210303-pasta-genovese-sasha-marx-16-22028d0441ce4b8f8c59fd3f6c3bd8b1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pasta-alla-genovese",
+      "slug": "gen-pasta-alla-genovese",
+      "title": "Pasta alla Genovese",
+      "instructions": "Neapolitanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Pinienkerne durch Walnüsse und senke die Pesto-Kosten um 60%",
+        "Bereite Pesto in größerer Menge zu und friere es portionsweise in Eiswürfelformen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "neapolitanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3721,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasta-alla-genovese/",
+      "components": [
+        {
+          "key": "70dea82a-511c-565e-8ed1-1ff7a2fb11c8",
+          "name": "Zutaten",
+          "servingGrams": 46.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "22a69e22-4aeb-5df7-b8bb-9b261370ce37",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen, fest eingedrückt"
+            },
+            {
+              "key": "9345380b-f4c8-575d-9626-632db1548452",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "a81144de-72d9-51c6-83ec-1d11beb9ec6a",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "8cc0e5ab-154a-5ccf-a85e-78b5a9653396",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "aa813869-baf2-505f-960d-3fb7ef9b560f",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b9c390d4-96f0-52c5-a557-0d05e6707dd7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "2b859452-6695-543c-894a-5e588c36fcd3",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4a3b777e-c589-5161-bd8b-76589fa3225d",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Basilikum, Knoblauch und Pinienkerne in eine Küchenmaschine und zerkleinere sie grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Parmesan hinzu und püriere weiter. Gieße währenddessen langsam Olivenöl ein, bis eine stückige Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Salz und Zitronensaft ein, um das Pesto abzuschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche Pasta in kochendem Salzwasser al dente, gieße sie ab und bewahre 1 Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische die heiße Pasta in einer großen Schüssel mit dem Pesto und gib bei Bedarf etwas Nudelwasser hinzu, um die Sauce zu verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Pasta auf Schalen und serviere sie sofort mit zusätzlichem Parmesan dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2025/10/Pasta-alla-Genovese-27-1024x1536.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2025/10/Pasta-alla-Genovese-27-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lasagna-napoletana",
+      "slug": "gen-lasagna-napoletana",
+      "title": "Lasagna Napoletana",
+      "instructions": "Neapolitanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhack im Angebot und friere Portionen für künftige Lasagnegerichte ein",
+        "Verwende Tomatensauce einer Hausmarke und senke die Saucenkosten um 40%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "neapolitanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3722,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lasagna-napoletana/",
+      "components": [
+        {
+          "key": "079222ef-cd30-53f7-9d3d-7dd18aa24dfa",
+          "name": "Zutaten",
+          "servingGrams": 638.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "efe2fd41-88d2-50a2-afbd-b4ce0c3a20ae",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d541b806-57bb-5a7a-a263-7ba8a751b716",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "255b087e-dc2f-5873-8ea9-6a2edeaf4503",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1a200bbf-96df-59af-96cc-e714a044be14",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "8d4095a5-8b2b-5c7d-bba9-6c345fa2d0d7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "4db0be75-8301-53d0-af90-e937f2917589",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Dosen (je 28 Unzen)"
+            },
+            {
+              "key": "e352266f-17b2-5e13-977b-a80a72277773",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ea58d897-bb02-5dd9-b7f3-543ecde53b27",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "4a22ab8b-a37e-5972-beef-6ed54d94710a",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "7dea9869-093a-5c8c-a2c0-818915688179",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "99219b1a-facf-570b-9240-458bab4e091f",
+              "ingredientName": "Lasagneplatten",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a226c851-646c-5217-b0e6-27a1f9105a2f",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bc15919e-b738-58b7-81c5-662e291805b7",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "0c2b474d-2d4b-51d9-8848-9eee38a994f8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittelhoher Hitze und dünste gewürfelte Zwiebel und Knoblauch etwa 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rinder- und Schweinehackfleisch hinzu, zerteile es beim Garen und bräune es 8 Minuten, bis kein Rosa mehr sichtbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatensauce und Rinderbrühe ein und lasse alles ohne Deckel 1 Stunde unter gelegentlichem Rühren köcheln, bis das Ragù reichhaltig und dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite Béchamelsauce zu: Schmilz Butter in einem Topf, rühre Mehl 1 Minute ein und gieße dann nach und nach warme Milch unter Rühren dazu, bis eine glatte Sauce entsteht. Lasse sie 5 Minuten köcheln und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 375°F vor und verteile eine dünne Schicht Fleischragù auf dem Boden einer 9x13 Zoll großen Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte Lasagneplatten, Ragù, Béchamel, Mozzarella und Parmesan und wiederhole, bis alle Zutaten verwendet sind. Beende mit Béchamel und Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Form mit Folie ab und backe sie 25 Minuten. Entferne die Folie und backe sie weitere 15-20 Minuten offen, bis die Oberfläche goldbraun ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Lasagne vor dem Anschneiden und Servieren 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/RfY60mmUNTy35DMg0Y0QHAXXeOc=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__01__20150113-lasagna-napoletana-meatball-ragu-italian-food-lab-30-6002f876884246cbb76825085e5454cf.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/RfY60mmUNTy35DMg0Y0QHAXXeOc=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__01__20150113-lasagna-napoletana-meatball-ragu-italian-food-lab-30-6002f876884246cbb76825085e5454cf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rigatoni-alla-genovese",
+      "slug": "gen-rigatoni-alla-genovese",
+      "title": "Rigatoni alla Genovese",
+      "instructions": "Neapolitanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wähle ein zähes, preiswertes Rindfleischstück, das durch langes, langsames Garen zart wird",
+        "Bereite die Sauce am Vortag zu, damit sich die Aromen vertiefen und du am Serviertag Zeit sparst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "neapolitanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3723,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rigatoni-alla-genovese/",
+      "components": [
+        {
+          "key": "3736ebaf-5c60-5dca-8b4f-a7048d384904",
+          "name": "Zutaten",
+          "servingGrams": 352.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a2a6f47-8f63-548e-9e6d-c54896edfbb0",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "bd953a5b-42d6-53ac-95b8-301a7a89c80b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0055ad6a-38da-5a78-bf01-e5a5a8b1dcad",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "39e58d75-5b4c-54f2-94c6-081c7dd659f0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "186f5f9b-e4d1-5c28-9eac-c46fea3b7c93",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "776c92ef-b3ab-5ae3-9d3d-3d39cec050e5",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f0b42732-ba45-5d80-914d-7b76dc978b84",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "6165baaa-e168-59e4-91e6-68d27ec8df30",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "57d3e70e-3415-5449-af25-1d3c025d6aec",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a7d7d339-8535-548b-a53c-986ba91f5a9c",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Zwiebeln in dünne Halbmonde und erhitze Olivenöl in einem großen schweren Topf bei mittlerer bis niedriger Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebeln hinzu und gare sie 15-20 Minuten langsam unter gelegentlichem Rühren, bis sie tief karamellisiert und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze das Rindfleischstück mit Salz und Pfeffer, lege es in die Zwiebeln und bräune es bei mittelhoher Hitze etwa 8 Minuten von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Gieße dann Rinderbrühe an und gib gewürfelte Karotten und Sellerie hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 1.5 Stunden sanft köcheln, bis das Rindfleisch sehr zart und die Sauce dick und aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Rindfleisch heraus, zupfe es mit zwei Gabeln auseinander und gib es zurück in die Sauce. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche Rigatoni in kochendem Salzwasser al dente, gieße sie ab und vermische sie mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Pasta in Schalen mit geriebenem Parmesan darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2025/10/Pasta-alla-Genovese-Featured.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2025/10/Pasta-alla-Genovese-Featured.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pasta-e-piselli",
+      "slug": "gen-pasta-e-piselli",
+      "title": "Pasta e Piselli",
+      "instructions": "Neapolitanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Erbsen statt frischer; sie sind günstiger und genauso nahrhaft.",
+        "Verwende Pasta und Dosentomaten einer Hausmarke, um Kosten deutlich zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "neapolitanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3724,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasta-e-piselli/",
+      "components": [
+        {
+          "key": "e6f7b816-be39-5901-b01b-2834e898fbea",
+          "name": "Zutaten",
+          "servingGrams": 590.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "b427047d-8d5b-5df4-84fc-e64738f6e420",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "788055d3-3a35-5214-99b2-4d1bcc9491a9",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4797f115-2e50-5436-b8ac-d329a58fe4ce",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "a60b5e8c-cb57-5072-852b-ce617c8f35f4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f58b62b-1166-5876-9d82-52d50fe0c50d",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "11b3b4b8-56b0-5893-9e51-e4d0de035fd6",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "8665fb38-bd2a-5fc1-97cb-c5d79b214683",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9a179c03-4136-5b6f-8d7f-ac28d0b0764f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3351c23a-4dc5-5ac6-bfa1-9ae803dc8420",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "07095220-f402-5a6e-9fe6-cac160d5578b",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste gewürfelte Zwiebel und gehackten Knoblauch etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Dosentomaten hinzu und gare sie 5 Minuten. Zerteile sie dabei mit einem Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Gemüsebrühe hinzu und bringe sie zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Pasta und Erbsen hinzu, reduziere die Hitze und lasse alles 12-15 Minuten köcheln, bis die Pasta weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmecke mit Salz und schwarzem Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß in Schalen servieren und mit geriebenem Parmesan bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2023/02/Pasta-e-Piselli-Pasta-and-Peas-Featured.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2023/02/Pasta-e-Piselli-Pasta-and-Peas-Featured.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

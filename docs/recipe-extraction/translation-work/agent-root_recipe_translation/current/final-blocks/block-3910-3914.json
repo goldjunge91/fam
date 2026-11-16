@@ -1,0 +1,1016 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sarmale",
+      "slug": "gen-sarmale",
+      "title": "Sarmale",
+      "instructions": "Rumänisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch in großen Mengen und frieren Sie es vor der Verwendung portionsweise ein",
+        "Verwenden Sie Weißkohl oder Wirsing, wenn dies günstiger ist als grüne Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "rumänisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3910,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sarmale/",
+      "components": [
+        {
+          "key": "35f32c41-989c-5016-bf59-d43923588196",
+          "name": "Zutaten",
+          "servingGrams": 335.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "98ab77d8-a436-5bc7-9b46-7f4b5ec9fc39",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "20acda21-bf87-5524-a2fb-1c0f8649afb5",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "c6dbab89-1d38-5a94-abff-6112c465ef40",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e278d568-10b6-5688-8e0c-db099ae6ea68",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "db3bed6a-1225-503d-88fe-7f877784554b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "0937a1fc-43d6-59d5-b031-64e16d70f5e5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "162cb072-c682-53fe-a5c2-6c97ccebc2ce",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "312d2429-c583-569d-838e-4494748b015d",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a6eda12a-0c5b-55b1-98a8-157688015505",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7ee2a25b-24de-5bb3-8dca-1731e03594b0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kohlkopf 10 Minuten kochen, bis die Blätter weich werden, dann vorsichtig abziehen und 12-14 Blätter beiseite legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch, Schweinehackfleisch, Reis, gehackte Zwiebeln, gehackten Knoblauch, Paprika, Salz und Pfeffer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie 2 Esslöffel Füllung auf jedes Kohlblatt, falten Sie die Seiten ein und rollen Sie es von unten nach oben fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Restliche Kohlstücke in einen Topf schichten und die Rollen mit der Nahtseite nach unten in Reihen anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenmark mit Rinderbrühe vermischen und über die Brötchen gießen, zum Kochen bringen und dann zugedeckt 60 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/q5Ai0G3V82J1eMGErtWkji4S6as=/3000x2000/filters:fill(auto,1)/romanian-stuffed-cabbage-recipe-sarmale-1137278-hero-01-710833f8c8c74c589992f27a4041f73a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/q5Ai0G3V82J1eMGErtWkji4S6as=/3000x2000/filters:fill(auto,1)/romanian-stuffed-cabbage-recipe-sarmale-1137278-hero-01-710833f8c8c74c589992f27a4041f73a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-m-m-lig",
+      "slug": "gen-m-m-lig",
+      "title": "Mămăligă",
+      "instructions": "Rumänisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maismehl in großen Mengen auf ethnischen Märkten, wo es billiger ist",
+        "Verwenden Sie Butter und Käse von Handelsmarken, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "rumänisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3911,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-m-m-lig/",
+      "components": [
+        {
+          "key": "126a54ed-085c-5821-8c08-b3e9d41c47af",
+          "name": "Zutaten",
+          "servingGrams": 313.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9510b836-f6b9-5d8c-94d1-53647bc9f88b",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "aca45ef3-b01f-590c-83d2-c56f32432925",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bc90a2d4-cb9c-56ac-a6d7-58450a764170",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "824482f6-319d-5b2e-a3f8-553a42c7879c",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "9c5f53ae-8366-5384-aa80-a30f378ceaf4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "721bee27-a5b0-54bc-95bb-6deb3bf1343a",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0da008c7-b66b-574a-9914-64b69c10f509",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e6d6ce78-d1c8-5d91-bd18-54a00227e85e",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch und Wasser in einem großen Topf mit Salz und Zucker zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maismehl unter ständigem Rühren langsam einrühren, um Klumpen zu vermeiden, dann die Hitze auf einen niedrigen Wert reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühren Sie häufig 15 Minuten lang, während die Mischung deutlich dicker wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter und Cheddar-Käse unterrühren, bis alles geschmolzen und vollständig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In eine Servierschüssel geben und mit Saure Sahne belegen, dann warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/BsnG2R5Ei1wXdjVA5F_UmF3pl2M=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/romanian-cornmeal-porridge-recipe-mamaliga-1137442-step-03-5c620f6bc9e77c0001d9314a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/BsnG2R5Ei1wXdjVA5F_UmF3pl2M=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/romanian-cornmeal-porridge-recipe-mamaliga-1137442-step-03-5c620f6bc9e77c0001d9314a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-papanasi",
+      "slug": "gen-papanasi",
+      "title": "Papanasi",
+      "instructions": "Rumänischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stellen Sie Ihren eigenen Puderzucker her, indem Sie Kristallzucker mischen, wenn die Preise hoch sind",
+        "Verwenden Sie eine vorhandene Konfitüre oder stellen Sie sie aus gefrorenem Obst her"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "rumänisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3912,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-papanasi/",
+      "components": [
+        {
+          "key": "23ac0268-15e0-530f-a97b-a4565e6832f7",
+          "name": "Zutaten",
+          "servingGrams": 232.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9396598b-df58-5d03-b4ab-ec574aaf379c",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9570ac72-1279-58fb-a7d6-417b1e7a5efc",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "f1501c65-5f8e-5a8a-abba-74ae97a528d9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "2164bd8d-d139-5438-a5a9-0d26b6548ac9",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "44943aa8-80f4-5810-9fb0-bd7f9da2491b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e3a2974-80e9-5127-b3fe-53e34e02b899",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fee1f077-22c6-5e5f-97bf-4db32e456d83",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "9661d0b9-3a6e-5769-bd56-87d719c69223",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "c2250c35-a478-5ccb-b974-34a577d75e3b",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "68d04816-d388-5123-b9dc-34c980c1714c",
+              "ingredientName": "Konfitüre",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver, Salz und Zucker in einer Schüssel vermischen, dann Eier und Joghurt getrennt verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nasse Zutaten mit trockenen Zutaten vermischen, bis ein dicker Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem tiefen Topf oder Schmortopf auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffelweise Teig vorsichtig in heißes Öl geben und 2-3 Minuten pro Seite goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Papanasi noch warm mit Puderzucker bestäuben und sofort mit Saure Sahne und Konfitüre garniert servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/8c/7f/43/8c7f43267050bf3e241e85c1aeee1e32.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/8c/7f/43/8c7f43267050bf3e241e85c1aeee1e32.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shchi",
+      "slug": "gen-shchi",
+      "title": "Schtschi",
+      "instructions": "Russisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kohl in großen Mengen, wenn er im Angebot ist; es ist wochenlang haltbar",
+        "Verwenden Sie Hühnerbrühe anstelle von Rinderbrühe, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "russisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3913,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shchi/",
+      "components": [
+        {
+          "key": "0c6aeee6-5dcf-5c8b-9a0b-9db6b525d322",
+          "name": "Zutaten",
+          "servingGrams": 597,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3d57ab3-f694-52c3-b899-c97a7315a223",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleiner Kopf, gehackt"
+            },
+            {
+              "key": "f5e160b1-8341-599c-931d-56d911ef526f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "c3ab652c-e8c2-589b-bd62-153d7abe66d9",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "f85d27ae-5775-590e-940a-416d73bc4c2b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "14ab47a5-6b27-5964-82ce-013ef855ad73",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "c61c0ebf-f66a-5081-b2c7-aad6f94b471e",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "75c447b6-340e-5ca2-b5aa-b217666482a7",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d9e0be5-9162-5a19-bc4d-a5bd58be0445",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bb16789d-bb5d-5c28-9302-e8e208e813f4",
+              "ingredientName": "Saure Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einem großen Topf bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebeln und Karotten hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln hinzufügen und 10 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Kohl und Tomatenmark mit Lorbeerblatt unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "20-25 Minuten köcheln lassen, bis das Gemüse zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schüsseln füllen und mit einem Klecks Saure Sahne garniert servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/GdjQuDhMAdY7aiK_P78rPAUSFhU=/3000x2000/filters:fill(auto,1)/traditional-russian-cabbage-soup-shchi-recipe-1135534-Hero_01-bd312ca096914402b392af18ad584790.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/GdjQuDhMAdY7aiK_P78rPAUSFhU=/3000x2000/filters:fill(auto,1)/traditional-russian-cabbage-soup-shchi-recipe-1135534-Hero_01-bd312ca096914402b392af18ad584790.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-blini",
+      "slug": "gen-blini",
+      "title": "Blini",
+      "instructions": "Russisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verzichten Sie auf Kaviar und verwenden Sie Konfitüre oder Honig für authentischen Geschmack zu geringeren Kosten",
+        "Machen Sie eine doppelte Portion und frieren Sie die Reste für ein schnelles zukünftiges Frühstück ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "russisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3914,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blini/",
+      "components": [
+        {
+          "key": "ef5fcf13-879d-50ce-a36e-f9fbd76dac92",
+          "name": "Zutaten",
+          "servingGrams": 223.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "46bf2b3c-acce-52af-95c5-3bbb2d8a696c",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2838dda4-7231-5650-9a22-84a0b9a13f6f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "2f5c6811-df78-5a5b-a227-3ce0070c3b2e",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d8bb78f8-187d-5695-a997-ff6ddc7934c1",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2399aa32-b8a0-50da-9f3b-1533fd881399",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "acc4fc92-d2b2-5ec4-b773-aedef826fe2e",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c0c14212-cc95-5ec2-8cfe-84d7ecba3c0d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL, geschmolzen, und etwas mehr für die Pfanne"
+            },
+            {
+              "key": "d0218b85-90a5-53b0-b303-8666b6235d28",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            },
+            {
+              "key": "0f72029d-ca5b-568f-a80d-4a96bc2511ba",
+              "ingredientName": "Konfitüre",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2-3 EL zum Belegen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker, Salz und Backpulver in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer anderen Schüssel Eier verquirlen, dann Milch und geschmolzene Butter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nasse und trockene Zutaten vermischen, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitzen Sie eine mit Butter bestrichene Pfanne oder Bratpfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie kleine 2-3 Zoll große Teigkreise hinein und backen Sie 1-2 Minuten pro Seite, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stapeln Sie die Blini nach dem Garen auf einem warmen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit saurer Sahne und Konfitüre oder Kaviar servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/SgeBFfTa0OELEN5qj4iyZNNpTp0=/4494x3000/filters:fill(auto,1)/russian-blini-recipe-buckwheat-pancakes-1136797_hero-01-4614c1f0be724524848179d9040f5005.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/SgeBFfTa0OELEN5qj4iyZNNpTp0=/4494x3000/filters:fill(auto,1)/russian-blini-recipe-buckwheat-pancakes-1136797_hero-01-4614c1f0be724524848179d9040f5005.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

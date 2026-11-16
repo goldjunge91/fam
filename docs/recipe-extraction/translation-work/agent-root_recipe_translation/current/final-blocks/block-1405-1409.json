@@ -1,0 +1,1095 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-sea-curry-khao-suey",
+      "slug": "mfr-sea-curry-khao-suey",
+      "title": "Burmesisches Khao Suey (Kokos-Nudel-Curry)",
+      "instructions": "Ein beliebtes Gericht aus Myanmar: Hähnchen in einer Kurkuma-Kokosbrühe, serviert auf Eiernudeln mit einer üppigen Auswahl an Beilagen wie knusprigen Nudeln, Röstknoblauch, hart gekochtem Ei, Limette und Koriander.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Beilagen machen Khao Suey besonders. Lass die knusprigen Nudeln nicht weg.",
+        "Eiernudeln sind günstig und nehmen die Kokosbrühe wunderbar auf.",
+        "Das Zusammenspiel der verschiedenen Texturen macht das Gericht aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Reisnudeln für eine glutenfreie Variante"
+        },
+        {
+          "forIngredientId": "fried-garlic",
+          "swap": "Knusprige Schalotten aus dem Glas"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-khao-suey",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "burmesisch",
+        "Khao Suey",
+        "Nudeln",
+        "Kokos-Curry"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1405,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-khao-suey/",
+      "components": [
+        {
+          "key": "fcfb20e6-4d59-586c-83c3-ce82be79131a",
+          "name": "Zutaten",
+          "servingGrams": 321.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca9b1ecf-0eab-5f8f-b65f-9ce310be7dee",
+              "ingredientName": "Hähnchenoberschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de35763d-348d-595d-9d35-deec19320855",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a5257ca-a0e8-5d2b-b9c1-d22ecefdd290",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25994fa6-d9d8-543b-884c-77fb80cf1ee4",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edc70f21-3b01-5811-8b60-92b32dd82251",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e002b02-31d0-5b35-b604-857830059338",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1fe61b8-2559-59e1-a29a-da1062f90860",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10dc0a06-b44a-5450-aa38-939b8431eb30",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39536324-30fd-5547-95a7-bd78625ee9a6",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98bb703d-e853-55b7-ae7f-afc375e0e0a2",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "430c44c0-7849-5335-8834-f6a4a4710347",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71c4a70a-8ec1-55cd-8cde-5c3b70dcab6e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schalotten, Knoblauch, Ingwer und Kurkuma zu einer Paste pürieren und 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen dazugeben und 3 Minuten anbräunen. Kokosmilch und Fischsauce einrühren und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier 8 Minuten hart kochen. Einen Teil der Nudeln für die Garnitur knusprig ausbacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nudeln kochen und auf Schalen verteilen. Curry darüber schöpfen und mit Ei, knusprigen Nudeln, Röstknoblauch, Limette und Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Ohn-No-Khao-Swe-Coconut-Chicken-Noodle-Soup.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Ohn-No-Khao-Swe-Coconut-Chicken-Noodle-Soup.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nordic-kottbullar",
+      "slug": "mfr-nordic-kottbullar",
+      "title": "Schwedische Köttbullar mit Rahmsauce",
+      "instructions": "Kleine, zarte Hackbällchen aus Schweine- und Rindfleisch werden in Butter goldbraun gebraten und in einer reichhaltigen Rahmsauce fertig gegart. Dazu gibt es Preiselbeermarmelade und eingelegte Gurken. Schwedens beliebtestes Gericht zu Hause und weltweit.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die traditionelle Mischung aus 50/50 Rind und Schwein ist günstiger als reines Rindfleisch.",
+        "Piment ist das besondere Gewürz. Nicht ersetzen.",
+        "Tiefgekühlte Preiselbeermarmelade von IKEA bietet ein gutes Preis-Leistungs-Verhältnis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lingonberry-jam",
+          "swap": "Preiselbeersauce für einen sehr ähnlichen Geschmack"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Saure Sahne für eine säuerlichere Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-kottbullar",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schwedisch",
+        "Köttbullar",
+        "Hackbällchen",
+        "Rahmsauce"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1406,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-kottbullar/",
+      "components": [
+        {
+          "key": "b0377b24-5ecb-5730-98ef-f888e5cff799",
+          "name": "Zutaten",
+          "servingGrams": 363.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e059af0-5d0f-551d-9ea0-6491f943a38e",
+              "ingredientName": "Rinderhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91d3e65c-3e32-5c51-948b-112c6c2ada10",
+              "ingredientName": "Schweinehack",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "986d53e3-d621-5182-b045-a2909d183059",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1a44419-54d3-534e-8c5e-975d18d55f31",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d60469da-2eae-5eb7-a529-c764cf625de7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f8ead51-2c30-537d-af0d-d4ccca58a981",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfbf6176-1747-5609-8f41-5f8bbd787683",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7869ae2d-2539-5cd1-a24d-1c120e6fa8c3",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91cfb91e-9b15-52d3-b512-8faa9bdde4b7",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7ed40c2-6fda-538f-aa52-a50f35a507b9",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96c13bbe-38ac-5b33-a103-aaf07d86b39d",
+              "ingredientName": "Preiselbeermarmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "488efd94-0d59-5367-834b-dcec1e2f591a",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rind- und Schweinehack, Semmelbrösel, Ei, gewürfelte Zwiebel und Piment vermengen. Zu 1-inch großen Bällchen rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bei mittlerer Hitze in Butter rundum 8–10 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hackbällchen herausnehmen. Butter und Mehl in die Pfanne geben, Brühe und Sahne unter Rühren einarbeiten und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sojasauce einrühren und die Hackbällchen zurück in die Sauce geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Kartoffelstampf und Preiselbeermarmelade servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/ZGcxD3bojonpsEni4TRNo2ua4ao=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1878-photo-step-4.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/ZGcxD3bojonpsEni4TRNo2ua4ao=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1878-photo-step-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nordic-salmon-dill",
+      "slug": "mfr-nordic-salmon-dill",
+      "title": "Norwegischer Ofenlachs mit Dillsauce",
+      "instructions": "Lachsfilet wird mit Zitrone, Kapern und frischem Dill im Ofen gegart und mit einer cremigen Senf-Dillsauce serviert. Ein schlichtes norwegisches Gericht, das den Geschmack der Fjorde in die heimische Küche bringt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs ist in vielen Supermärkten donnerstags oft im Angebot. Vorrat kaufen und einfrieren.",
+        "Frischer Dill ist hier unverzichtbar; getrockneter ist nur ein ferner Ersatz.",
+        "In 20 Minuten fertig und so gut wie im Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt für eine leichtere Sauce"
+        },
+        {
+          "forIngredientId": "capers",
+          "swap": "Fein gehackte Dillgurken"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-salmon-dill",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "norwegisch",
+        "Lachs",
+        "Dill",
+        "Ofengericht"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1407,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-salmon-dill/",
+      "components": [
+        {
+          "key": "a8850037-56d8-54c5-860b-c780cdfc4e97",
+          "name": "Zutaten",
+          "servingGrams": 589.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d98b4abd-4f39-5519-8561-093811f797a7",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fede6b91-1266-5eee-9503-98bffe815dab",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb51fe1b-5253-5c6b-84c3-c1ce3c2aa14c",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "beea8986-28f6-5407-b05a-207af289b33a",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "460ad801-2087-5a5c-a17e-d728412cf148",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e5be1f3-6a3d-5eb3-8224-d9c0df947d0b",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e98f26ca-3614-558d-93f6-0196ff634e7a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8528cc41-091b-5465-8679-0fb48ad3cc24",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1305ce75-0f97-59d6-b209-7086f1b475a1",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400°F vorheizen. Lachs mit Salz und Zitrone würzen und mit Butterflöckchen belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "12–15 Minuten backen, bis der Lachs gerade gar ist (Kerntemperatur 125°F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Sauce saure Sahne, Dijon-Senf, Dill, Kapern und Zitronensaft verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lachs auf gekochten Kartoffeln mit der Dillsauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/06/Pan-Seared-Salmon-with-Dill-Sauce_EXPS_SDAS18_133878_C03_29__10b-7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/06/Pan-Seared-Salmon-with-Dill-Sauce_EXPS_SDAS18_133878_C03_29__10b-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nordic-smorrebrod",
+      "slug": "mfr-nordic-smorrebrod",
+      "title": "Dänisches Smørrebrød (belegte Roggenbrote)",
+      "instructions": "Kräftiges, körniges dänisches Roggenbrot mit Räucherlachs, Ei und Dill-Frischkäse. Diese nordische Tradition der offen belegten Brote macht aus einfachen Zutaten kleine Kunstwerke.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dänisches Roggenbrot ist gehaltvoll. Eine Scheibe macht schon satt.",
+        "Räucherlachs reicht weiter, wenn du ihn dünn auf die offenen Brote legst.",
+        "Ein Mittagessen in 15 Minuten, das Eindruck macht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "danish-rye-bread",
+          "swap": "Beliebiges dunkles Brot mit Körnern"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Labneh oder griechischer Joghurt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-smorrebrod",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "dänisch",
+        "Smørrebrød",
+        "Roggenbrot",
+        "offenes Sandwich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1408,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-smorrebrod/",
+      "components": [
+        {
+          "key": "b7ed5316-f55c-5ec0-bf82-da76c5171c0d",
+          "name": "Zutaten",
+          "servingGrams": 503.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "44100e5d-9df8-5f61-a1c1-495aeab795d3",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6263c3ba-47cc-595a-b694-cd7a009a9474",
+              "ingredientName": "Räucherlachs",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d80b8fbc-12a1-56ff-9ccc-40fa4f305643",
+              "ingredientName": "Frischkäse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5907b7be-c1fd-5881-805b-e7bf01142962",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bfe7076-289d-5cbc-bda1-5110d757b515",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cf8f105-be2d-5870-81dd-23247292834b",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfc3d8fc-0e20-56e6-ad81-55bd5adf5865",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26bfb9e8-ef3c-5e6c-b3f9-6ff1bf228e90",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93536418-b6ec-5149-bfb5-e89c2dfdbb40",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Roggenbrotscheiben mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Frischkäse mit Dill und Zitronenabrieb verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier 8 Minuten hart kochen und in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frischkäse auf 2 Scheiben streichen und mit Räucherlachs, roter Zwiebel, Kapern und Dill belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die übrigen 2 Scheiben mit Eierscheiben, roter Zwiebel und Kapern belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/inhmtFRqZC3sXqMZVRTvGk-Zjkg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__12__20141201-smorrebrod-herring-vicky-wasik-3-9143da2af20547eebd3983d98b8a6726.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/inhmtFRqZC3sXqMZVRTvGk-Zjkg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__12__20141201-smorrebrod-herring-vicky-wasik-3-9143da2af20547eebd3983d98b8a6726.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nordic-lohikeitto",
+      "slug": "mfr-nordic-lohikeitto",
+      "title": "Finnische Lohikeitto (Lachssuppe)",
+      "instructions": "Eine buttrige, milde finnische Lachssuppe mit Lauch, Kartoffeln und frischem Dill. Eine der wohltuendsten Suppen Skandinaviens: in 30 Minuten fertig und doch, als hätte sie den ganzen Tag geköchelt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachszuschnitte oder Stücke statt Filets verwenden. Sie sind deutlich günstiger und passen perfekt in die Suppe.",
+        "Lauch bildet die aromatische Grundlage. Zwiebeln sind ein guter Ersatz.",
+        "In 30 Minuten fertig und am nächsten Tag zum Mittagessen gut aufzuwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Leichte Sahne für eine reichhaltigere Suppe"
+        },
+        {
+          "forIngredientId": "leek",
+          "swap": "2 normale Zwiebeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-lohikeitto",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "finnisch",
+        "Lohikeitto",
+        "Lachs",
+        "Suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1409,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-lohikeitto/",
+      "components": [
+        {
+          "key": "406a869c-e860-518a-bdf9-1cf32c392f45",
+          "name": "Zutaten",
+          "servingGrams": 357.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7022d612-4422-560d-be8a-dd85c627ecea",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fdc115b-89d6-5510-923c-265fc0208a23",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55b8745e-fb1c-59ea-8e3c-2a25d7c248f3",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4664516-879a-524d-ba79-5be082238044",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0944cef5-2320-54ca-84cc-76577228f5f5",
+              "ingredientName": "Fischbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9054d27-79a0-554e-b701-bbccabb4abce",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76f4eaa6-17a5-5360-a863-12a34c8833fe",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbf5f2d4-f0e2-58ce-8ece-863fda1131b6",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b25e72f5-a001-5b41-a5ff-47c0b460a320",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1d46623-95ea-517e-b1a8-014e0905d7b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lauch 4 Minuten in Butter anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Kartoffeln, Fischbrühe und Lorbeerblatt dazugeben. 12 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Milch angießen und erneut sanft erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lachsstücke hineingeben und 5 Minuten gar ziehen lassen, bis sie gerade gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit weißem Pfeffer und Salz abschmecken und großzügig mit Dill garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/bJWatSUUfYlSCKakl2L2iX1Jxnw=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R3115_finnische_lachssuppe_lohikeitto_title.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/bJWatSUUfYlSCKakl2L2iX1Jxnw=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R3115_finnische_lachssuppe_lohikeitto_title.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

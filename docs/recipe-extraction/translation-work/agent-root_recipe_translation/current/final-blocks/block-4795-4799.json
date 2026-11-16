@@ -1,0 +1,1087 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-enchilada",
+      "slug": "gen-enchilada",
+      "title": "Enchilada",
+      "instructions": "Mexikanische Enchiladas mit würzigem Rinderhackfleisch, Tomatensauce und geschmolzenem Käse.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Enchilada-Sauce aus Dosentomaten und Chilipulver selbst zu, um Geld zu sparen.",
+        "Kaufe Käse in Großpackungen und reibe ihn selbst, statt fertig geriebenen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4795,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-enchilada/",
+      "components": [
+        {
+          "key": "cf699eec-01c3-5a67-94cc-f8ef0a9bf167",
+          "name": "Zutaten",
+          "servingGrams": 307.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "3cd4ee7e-2723-5903-9b73-14a6db775fe9",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f68e259-d7b3-5320-8c4e-fd568bb6de87",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "41b989cb-9d05-54b9-9770-494717f40c44",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "568c5c6b-e2a3-549b-a4bd-b1be8839df8e",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9aede93e-ad94-5a70-9a6a-d818e9377bab",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "235ceec2-6cd2-5bfb-b7ab-1ded958eb774",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "3a69f5dd-96bf-5957-b0d2-c538dab8668e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c42d297c-8420-5890-8be4-2f9e46c6ecb8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "3d997ec5-75e9-53f7-a5a7-69e6a7ac170b",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0defc1c9-4dcb-55b6-bb10-8cb6ed5e7ca7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine 9x13 große Auflaufform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhackfleisch mit gewürfelter Zwiebel und gehacktem Knoblauch bei mittlerer Hitze 5-7 Minuten an. Gieße überschüssiges Fett ab und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Tortillas etwa 15 Sekunden pro Stück in einer trockenen Pfanne, damit sie biegsam werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße 1/2 cup Enchilada-Sauce auf den Boden der vorbereiteten Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle jede Tortilla mit 2-3 tablespoons Fleischmischung und 2 tablespoons Käse, rolle sie fest auf und lege sie mit der Naht nach unten in die Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die übrige Enchilada-Sauce über die aufgerollten Tortillas und streue den restlichen Käse gleichmäßig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe alles ohne Abdeckung 20-25 Minuten, bis die Sauce blubbert und der Käse goldbraun ist. Garniere die Enchiladas vor dem Servieren mit saurer Sahne und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2014/10/The-Best-Chicken-Enchiladas-Recipe-1-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2014/10/The-Best-Chicken-Enchiladas-Recipe-1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-maki",
+      "slug": "gen-maki",
+      "title": "Maki",
+      "instructions": "Japanische Maki-Rollen mit Thunfisch und Gurke, serviert mit Sojasauce und Wasabi.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Dosen-Thunfisch statt frischem, um deutlich Kosten zu senken.",
+        "Kaufe Noriblätter und Reisessig in asiatischen Märkten zu günstigeren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4796,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-maki/",
+      "components": [
+        {
+          "key": "7f272680-16ce-5ae2-ad30-a5c6d0880026",
+          "name": "Zutaten",
+          "servingGrams": 353.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6836c9c3-cc17-5add-a426-1abcd70f388e",
+              "ingredientName": "Sushireis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen, gegart"
+            },
+            {
+              "key": "8b15fc16-878f-58ba-a37b-cd154f02ab5e",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ca7b270-0d51-56be-9fef-2abc395d1629",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "612f109b-18b0-5262-ba27-9c1906033f72",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (5 Unzen)"
+            },
+            {
+              "key": "c99c79a3-0f39-52de-8c12-5c4f1ca89efd",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1323befa-ae28-5a3a-adf6-8009cc226615",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "12879a3d-1ffa-5b44-917c-0636c5ced7f1",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "086cacec-f8a4-5ba2-98fe-c8702ff00d04",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d5cdae66-6403-5fc9-b7bf-b9ef83be5570",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7a44bcce-718b-58c9-98fb-2a702a1d9f3a",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge den gekochten Sushireis, solange er noch warm ist, mit Reisessig, Zucker und Salz. Lass ihn auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ein Noriblatt mit der glänzenden Seite nach unten auf eine Bambusmatte zum Sushirollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile eine dünne Schicht abgekühlten Sushireis auf dem Noriblatt und lass am oberen Rand einen 1/2 inch breiten Streifen frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge den abgetropften Thunfisch mit Mayonnaise und lege die Mischung mit dünnen Gurkenstreifen in einer Linie in die Mitte des Reises.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle das Sushi mithilfe der Bambusmatte fest auf und befeuchte den freiliegenden Norirand mit Wasser, damit die Rolle geschlossen bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Rolle von der Matte und schneide sie mit einem scharfen, feuchten Messer in 6-8 Stücke. Führe das Messer dabei vorsichtig sägend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Maki mit Sojasauce und Wasabi zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/01/maki-sushi-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/01/maki-sushi-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-nh-m",
+      "slug": "gen-b-nh-m",
+      "title": "Bánh Mì",
+      "instructions": "Vietnamesisches Baguette-Sandwich mit Pastete, Putenaufschnitt, eingelegtem Gemüse und frischem Koriander.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Baguettes vom Vortag in der Backwarenabteilung mit 50% Rabatt.",
+        "Verwende Leberwurst statt Pastete, um deutlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4797,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-nh-m/",
+      "components": [
+        {
+          "key": "5d6788f2-c141-5163-8d16-81f8cedb7d81",
+          "name": "Zutaten",
+          "servingGrams": 262.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "64b6266a-3d51-5b7b-9c63-769e1c52d911",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "4c79f75c-6a26-5dcf-a46c-c9f0cb426117",
+              "ingredientName": "Pastete",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "1b2c4161-60a6-5535-9158-9de52fd2eb8c",
+              "ingredientName": "Putenaufschnitt",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "1dadb71d-6175-5b61-8a9b-a4ab554d6106",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "05550b13-292a-53bd-9cfa-62688db8bc39",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück"
+            },
+            {
+              "key": "addea2b0-345d-50eb-bdbd-c1be8a1b4d35",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "2cd9203a-e4dc-5134-9e6a-a3ded02ef42f",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück"
+            },
+            {
+              "key": "5522eb90-bd9b-55ce-a3f0-08e13be633f7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "b34154cb-b9fd-5f9f-8b69-6b3240e16b63",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04692c0f-f83c-5353-84c8-ce78864322ea",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Daikon-Rettich und Karotte in feine Stifte und vermenge sie mit Sojasauce. Lass das Gemüse 5 Minuten ziehen und weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Baguette längs auf und höhle etwas von der weichen Krume aus, damit Platz für die Füllung entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die obere Baguettehälfte mit Mayonnaise und die untere mit Pastete.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Schinkenscheiben auf die untere Hälfte und gib dann die eingelegte Daikon-Karotten-Mischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile dünne Gurkenscheiben und frischen Koriander darauf und gib geschnittene Jalapeño dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe die obere Hälfte auf die untere und drücke das Sandwich fest zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wickle es in Backpapier und schneide es zum Servieren diagonal durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/u3gIXTJIYhfR_sGIyMB9Y95e4Qw=/2784x4176/filters:fill(auto,1)/Simply-Recipes-Bahn-Mi-Sandwich-LEAD-2-2b32bfb7da9f41c8839a5f3d53054689.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/u3gIXTJIYhfR_sGIyMB9Y95e4Qw=/2784x4176/filters:fill(auto,1)/Simply-Recipes-Bahn-Mi-Sandwich-LEAD-2-2b32bfb7da9f41c8839a5f3d53054689.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-taco",
+      "slug": "gen-taco",
+      "title": "Taco",
+      "instructions": "Knusprige mexikanische Tacos mit würzigem Rinderhackfleisch und klassischen Toppings.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische Taco-Gewürz aus Kreuzkümmel, Chilipulver und Paprikapulver selbst und spare 70%.",
+        "Kaufe Rinderhackfleisch im Angebot in Großpackungen und friere es portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4798,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-taco/",
+      "components": [
+        {
+          "key": "bd39b061-ad5c-5e9d-8746-dbe4a50e4241",
+          "name": "Zutaten",
+          "servingGrams": 455.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e3e330a-a4e2-5be2-a194-4e3b253be1b9",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6309dd8d-66b3-5beb-8012-176454915920",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75ec70f9-fb8f-55a9-89ce-c83719972510",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "cdc7a82f-8abd-5eac-9a51-97fae3916890",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "332d0b15-d687-5e8f-9e9a-7832cb5ccd3b",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c45ddbc7-fcdf-5184-80ba-d8aa964da58c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dfd24736-b12d-58b1-b467-2c6e3b305468",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "16e8bb0e-9202-5d78-b9a1-b3d3113998a5",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "da666f2b-1921-5e06-94ee-ede438170e39",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "b4f3b851-2339-5104-bc0c-20e9b9b5d463",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Stück, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Rinderhackfleisch in einer Pfanne bei mittlerer bis hoher Hitze etwa 5-7 Minuten krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße überschüssiges Fett ab. Gib Taco-Gewürz und 1/4 cup Wasser dazu und rühre, bis das Fleisch gleichmäßig gewürzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 2-3 Minuten köcheln, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Taco-Schalen nach Packungsanleitung im Ofen oder in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würfle Zwiebel und Tomate und stelle alle Toppings zum einfachen Belegen in getrennten kleinen Schüsseln bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jede warme Taco-Schale mit 2-3 tablespoons gewürztem Rinderhackfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege die Tacos mit Salat, Tomate, Käse und weiteren Toppings nach Wunsch. Serviere sie mit Salsa und saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps188896_SD153323B06_03_5b-ver2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps188896_SD153323B06_03_5b-ver2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-pe-suzette",
+      "slug": "gen-cr-pe-suzette",
+      "title": "Crêpe Suzette",
+      "instructions": "Französische Crêpes mit warmer Orangen-Butter-Sauce und einem Hauch Brandy.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den Brandy weg und gib stattdessen mehr Orangenschale für ein ähnliches Aroma dazu.",
+        "Bereite die Crêpes im Voraus zu und friere sie zwischen Backpapier ein, damit sie sich einfach wieder aufwärmen lassen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4799,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-pe-suzette/",
+      "components": [
+        {
+          "key": "e2ef9f4a-065f-528d-8f5c-48ed59ddae5e",
+          "name": "Zutaten",
+          "servingGrams": 298.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e9a540c-6cbe-539e-8f30-ec085f9e52a4",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "68eb5e16-af17-5410-aadf-837dbc081922",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87fc2524-aa63-517d-8b5a-9e57caec9b2c",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "9e49e020-20db-50e5-a57d-59085cc654b3",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "d1a8b358-d9dd-50ed-a58b-a57d32064310",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "493bd3ba-42ac-5ea7-9714-c64f67912771",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "18d3e306-5e95-5739-8a3f-ab89466377ad",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "88fceadf-0ae8-50a9-bcbf-de1e04107b15",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f604e3b1-e22f-5e91-ba4d-89af2ce8075c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Mehl und Salz in einer Schüssel. Forme in der Mitte eine Mulde und gib die Eier hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Milch nach und nach dazu und rühre von der Mitte nach außen, bis der Teig glatt ist. Rühre 2 tablespoons geschmolzene Butter und Vanilleextrakt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den Teig bei Zimmertemperatur 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine beschichtete 8-inch Pfanne bei mittlerer Hitze und fette sie leicht mit Butter ein. Gieße 1/4 cup Teig hinein und schwenke die Pfanne, damit er sich gleichmäßig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Crêpe 1-2 Minuten, bis die Unterseite hellgolden ist. Wende ihn und backe die andere Seite 15 Sekunden. Lege ihn dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wiederhole den Vorgang mit dem übrigen Teig und staple die fertigen Crêpes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reibe die Orangenschale ab und gib sie mit der übrigen Butter, Zucker, Zitronensaft und nach Wunsch Brandy in einen Topf. Erwärme alles bei niedriger Hitze, bis die Butter geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Falte jeden Crêpe zu Vierteln und richte sie auf Tellern an. Gieße die warme Sauce darüber und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1648480661/k/Photo/Recipe%20Ramp%20Up/2022-03-Crepes-Suzette/CREPE-SUZETTE-01-000045-WEB.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1648480661/k/Photo/Recipe%20Ramp%20Up/2022-03-Crepes-Suzette/CREPE-SUZETTE-01-000045-WEB.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,942 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-argentine-french-toast",
+      "slug": "mfr-argentine-french-toast",
+      "title": "Arme Ritter nach argentinischer Art (Tostadas Francesas)",
+      "instructions": "Dicke Brotscheiben werden in einer Zimt-Vanille-Eimischung getränkt und goldbraun gebraten: die argentinische Variante der Armen Ritter mit Dulce de Leche.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Arme Ritter machen aus altbackenem Brot ein luxuriöses Frühstück.",
+        "Griechischer Joghurt statt Dulce de Leche spart 150 kcal und liefert zusätzliches Protein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Backspray für weniger Kalorien"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder Dulce de Leche nach traditioneller Art"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-argentine-french-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "argentinisch",
+        "Arme Ritter",
+        "süß",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1065,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-argentine-french-toast/",
+      "components": [
+        {
+          "key": "ef24f324-6601-56a4-a85b-75ed8d01ef17",
+          "name": "Zutaten",
+          "servingGrams": 372.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "98deef3d-4d82-56a6-959f-0fa7b8eab05c",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ef9fec6-ac89-5bc6-9427-7dbfefde74f6",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "528bd481-7fee-54c1-bed7-9b827c41f314",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df22c539-b377-59e4-b272-e9b96f4d7267",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "226d7268-48cb-5ec9-be14-f2631ae8aed7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e9ce3a0-59ab-5479-97eb-9b60ebf1f995",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d18ea974-65b4-502d-a3ee-0d03050ea3cc",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a299cba0-20b7-57bd-8f6d-b10097bc5c5a",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier, Milch, Zimt und Vanille.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die Brotscheiben auf jeder Seite 1 Minute in der Eimischung ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Scheiben bei mittlerer Hitze 3 Minuten pro Seite in Butter, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Armen Ritter mit griechischem Joghurt und Honig oder Dulce de Leche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f4/ea/04/f4ea04e1a138c5202ad2774829f490bf.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f4/ea/04/f4ea04e1a138c5202ad2774829f490bf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-peruvian-causa-breakfast",
+      "slug": "mfr-peruvian-causa-breakfast",
+      "title": "Kartoffelfrühstück nach Causa-Art",
+      "instructions": "Gestampfte gelbe Kartoffeln mit Ají Amarillo, Limette und Olivenöl, belegt mit Spiegelei und Avocado: ein proteinreiches Frühstück nach peruanischer Art.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ají-Amarillo-Paste gibt es in Gläsern in lateinamerikanischen Lebensmittelgeschäften und sie hält sich monatelang.",
+        "Das ist die peruanische Variante von Avocado-Toast und macht deutlich satter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "aji-amarillo-paste",
+          "swap": "½ tsp Kurkuma und ½ tsp Chilipulver"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Tomatenscheiben"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-peruvian-causa-breakfast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "peruanisch",
+        "Kartoffel",
+        "Eier",
+        "Avocado",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1066,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-peruvian-causa-breakfast/",
+      "components": [
+        {
+          "key": "63ad984f-34bc-51c0-8d78-332c885bdfae",
+          "name": "Zutaten",
+          "servingGrams": 403.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c32c8164-e368-5806-8c63-5d09ac67573e",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f6ca015-ce88-57ff-866d-8286f74418dd",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff0358e0-b12e-5991-aa95-7907102ad184",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d60df249-c6d2-5711-b9ca-e33cc67df5c0",
+              "ingredientName": "Ají-Amarillo-Paste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6aa11ed-fad1-511b-b9c5-79ff6689f8b0",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27b99c6d-fb1d-5afd-85b6-630aef2fcb3f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "417b82f6-4d75-50df-ba3b-6168932e3e77",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0d42e59-41cf-5a11-88cf-4559209a23ed",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln 12 Minuten. Zerdrücke sie mit Ají-Amarillo-Paste, Limettensaft, Olivenöl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Eier nach Wunsch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte Kartoffelstampf, Avocadoscheiben und Spiegelei auf einem Teller an und garniere alles mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishdlites.com/wp-content/uploads/2014/04/DSC_0731new.jpg",
+          "sourcePageUrl": "https://www.delishdlites.com/wp-content/uploads/2014/04/DSC_0731new.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cuban-breakfast-toast",
+      "slug": "mfr-cuban-breakfast-toast",
+      "title": "Kubanischer Frühstückstoast",
+      "instructions": "Getoastetes kubanisches oder französisches Brot mit Butter, belegt mit Spiegelei, Schinken und einem Spritzer scharfer Sauce: das klassische Frühstück im kubanischen Diner.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kubanischer Toast ist das schnellste warme Frühstück: in weniger als 10 Minuten fertig und für weniger als $3.",
+        "Schinkenaufschnitt passt hier gut. Dick geschnittener ist am besten, aber jede Sorte funktioniert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham",
+          "swap": "Putenbrust oder Räucherlachs"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Backspray"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cuban-breakfast-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kubanisch",
+        "Toast",
+        "schnell",
+        "preiswert",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1067,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cuban-breakfast-toast/",
+      "components": [
+        {
+          "key": "05769fda-5029-557f-ad98-ea1eb3612fe5",
+          "name": "Zutaten",
+          "servingGrams": 257.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9cec9af0-bc47-56b8-a384-db9b882c4df6",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23c0b80e-8cde-5b09-ab5c-c442e737ba57",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43f09bcc-98a7-5883-8172-dfbc060dfe01",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ecf54ad-f3e9-5f7d-9d4b-d430b7d0ab99",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "270b6a44-16fc-5b8f-b4a7-c44325531306",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5826bae-6794-536e-b6f4-45db8f6d5469",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "494aa873-169c-5506-a287-a775b7c8a7bf",
+              "ingredientName": "Orangensaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste das Brot goldbraun und bestreiche es mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Eier in derselben Pfanne. Erwärme die Schinkenscheiben 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege den Toast mit Schinken, Spiegelei, scharfer Sauce und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Toast mit Orangensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/iWap6oVlxi3h3qQ-CtSrjesT1VU=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__01__Authentic-Cuban-Sandwich-LEAD-4-e3bef52615014319b24d17c15c47fbbb.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/iWap6oVlxi3h3qQ-CtSrjesT1VU=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__01__Authentic-Cuban-Sandwich-LEAD-4-e3bef52615014319b24d17c15c47fbbb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-guatemalan-eggs-black-beans",
+      "slug": "mfr-guatemalan-eggs-black-beans",
+      "title": "Guatemaltekische Eier mit schwarzen Bohnen",
+      "instructions": "Rühreier auf gewürzten schwarzen Bohnen mit gebratener Kochbanane und Frischkäse: ein traditionelles guatemaltekisches Frühstück.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schwarze Bohnen und Eier ergeben eines der vollwertigsten und günstigsten Proteinfrühstücke.",
+        "Reife Kochbananen sind süß und preiswert. Sehr reife werden oft stark reduziert angeboten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta-cheese",
+          "swap": "Cotija-Käse für eine authentischere Variante oder weglassen"
+        },
+        {
+          "forIngredientId": "plantain",
+          "swap": "Kurz gebratene Banane"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-guatemalan-eggs-black-beans",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "guatemaltekisch",
+        "Eier",
+        "Bohnen",
+        "Kochbanane",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1068,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-guatemalan-eggs-black-beans/",
+      "components": [
+        {
+          "key": "4bb0ecdc-a932-54e8-b5f2-0740ac7077b4",
+          "name": "Zutaten",
+          "servingGrams": 668,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b826d69-b63b-5a22-ad32-377064b66db6",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85b518d0-481d-590d-8704-963f65f4c292",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "520b8b4d-f624-5900-9012-b0d28418fbc4",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e85f466-2512-505c-a01c-89549ad00342",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53795373-9ae7-5339-bc4c-4c2e394eda59",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87a90245-38be-5888-9c23-833dd3f61a4c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41f5a043-3446-58e8-84ab-1e82f197d4d6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "555fd192-79d8-528d-97d9-82e107aad7f9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die schwarzen Bohnen mit Zwiebel, Knoblauch und Kreuzkümmel und lass sie 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre die Eier in einer separaten Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die reife Kochbanane in Scheiben und brate sie 2 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Bohnen, Rührei und Kochbanane auf einem Teller an und bestreue alles mit zerbröseltem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/HVLeXdpMBhOEu9ZRjNNFGhVTwlI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/black-bean-fajita-skillet-2000-d9b1144ed07949eba8517ce8f3834ed4.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/HVLeXdpMBhOEu9ZRjNNFGhVTwlI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/black-bean-fajita-skillet-2000-d9b1144ed07949eba8517ce8f3834ed4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mexican-molletes",
+      "slug": "mfr-mexican-molletes",
+      "title": "Mexikanische Molletes",
+      "instructions": "Bolillo-Brötchen mit Bohnenmus und geschmolzenem Käse, goldbraun getoastet und mit Pico de Gallo belegt: Mexikos einfachstes und bestes Frühstück.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Molletes sind das schnellste mexikanische Frühstück: Bohnenmus aus der Dose, Käse und Brot.",
+        "Selbst gemachtes Pico de Gallo kostet $0.50 pro Portion und schmeckt viel besser als Salsa aus dem Glas."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Schwarze Bohnen, zerdrückt mit Kreuzkümmel und Knoblauch"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Beliebiges knuspriges Brötchen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mexican-molletes",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Toast",
+        "Bohnen",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1069,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mexican-molletes/",
+      "components": [
+        {
+          "key": "a6ce15ff-1d21-567c-b3d8-9458a8d5276b",
+          "name": "Zutaten",
+          "servingGrams": 721,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e0db04f-2ea1-51f5-b04a-717e8a920873",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ace64514-96c0-5818-a592-1c95fde816fc",
+              "ingredientName": "Bohnenmus",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c3f74e4-b68b-5b96-bb2d-242b9cffd0a0",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d2fb791-019f-5a8f-9466-06cbe9fcaed3",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0cda11a-0b1c-5d83-88dd-dcc2c4f1e4f2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "971df52b-10d6-5cbc-8440-64d21f69c1a3",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "537d284f-7099-525d-a851-512470e0634e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7de1d45b-367d-580d-9454-0937a73f2f76",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Brötchen. Bestreiche sie mit Bohnenmus und belege sie mit Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Überbacke sie 5–6 Minuten, bis der Käse schmilzt und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite Pico de Gallo zu: Würfle Tomate, Zwiebel und Jalapeño, hacke den Koriander und vermenge alles mit Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege die Molletes mit frischem Pico de Gallo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Q6P2FdN6VzclvLiyWA1B3sCULGo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Molletes-1x1-1-46a9189fede14211a44d5e4a403debd4.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Q6P2FdN6VzclvLiyWA1B3sCULGo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Molletes-1x1-1-46a9189fede14211a44d5e4a403debd4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

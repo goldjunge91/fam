@@ -1,0 +1,1076 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53231",
+      "slug": "tmdb-53231",
+      "title": "Vietnamesische Lammhaxen mit Süßkartoffeln",
+      "instructions": "Vietnamesisches Lammgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "lamm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2310,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53231/",
+      "components": [
+        {
+          "key": "6e9966b5-4565-55ff-a222-18fa702da346",
+          "name": "Zutaten",
+          "servingGrams": 601,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ee6938b-4185-516f-8010-36cfc8293343",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bda5567c-fed5-51a4-8179-0b2e4fca947b",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1842de7-bc00-541d-8760-f22fb1238546",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7e04c5c-d7f0-52ca-bb12-453479663d9a",
+              "ingredientName": "frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db362e23-bf72-5786-b8af-40243be836ab",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53d76cb7-2fa8-52c6-bce3-1dbad521ea09",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f39ed07-11ed-5d64-9c42-78c1b58c2236",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2b58da8-e5e2-55fc-8664-fbb83bf9cc55",
+              "ingredientName": "Sternanis",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a4dd2d6-d622-55b1-ba54-f040f2969e0f",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba3e8eaf-9082-56a7-ab43-23b06bc08028",
+              "ingredientName": "Anchovis-Brühepulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "049a73a1-af53-5438-80b2-794b69481e6f",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0914ebc4-1820-55a4-bed2-fbdf23cc6d0e",
+              "ingredientName": "Süßkartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a337ea40-e9cb-509c-bba7-fb6f81745044",
+              "ingredientName": "Fischsoße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1b090bb-1b4f-5fad-b1bc-008173a083c8",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff27cbb2-e064-5004-a4e9-032e3cc43349",
+              "ingredientName": "frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6899ef4-d391-5171-b4f1-bef9d915bf36",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 160C/140C Umluft/Gasstufe 3 vor. Erhitze 1 tbsp Öl in einem schweren Schmortopf. Würze die Haxen und bräune sie portionsweise, jeweils 2 Stück, von allen Seiten. Für die zweite Portion das restliche Öl hinzugeben. Nimm das Lamm heraus und gib die Zwiebeln hinein. Brate sie bei recht hoher Hitze etwa 30 secs an, gib Ingwer, Knoblauch und gehackte Chili dazu, reduziere die Hitze und gare alles 1 min. Gib 1 tbsp Zucker hinzu und rühre um. Füge Sternanis, Zitronengras, Brühe, Tomatenpüree und Gewürze hinzu. Zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke den Topf ab und gare alles 1½ hrs im Ofen. Gib dann Süßkartoffeln hinzu und gare das Gericht weitere 1 hr. Das Lamm sollte sehr zart sein und sich fast vom Knochen lösen. Rühre Fischsoße, Limettensaft und 1 tsp Zucker ein, um den Geschmack aufzufrischen. Zum Servieren mit Minze, Basilikum und geschnittener Chili bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/7xte3u1763757761.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/7xte3u1763757761.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53237",
+      "slug": "tmdb-53237",
+      "title": "Vietnamesischer Schweinefleischsalat",
+      "instructions": "Vietnamesisches Schweinefleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2311,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53237/",
+      "components": [
+        {
+          "key": "62367d91-f3ab-5941-a4d5-5ba41e0a0f4c",
+          "name": "Zutaten",
+          "servingGrams": 349.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "e226186c-1a92-59eb-9f4f-58057e478716",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0049ded4-8d2d-5d72-9639-7a94aa1d045c",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ab79bde-e3cc-56b7-8c73-fc04546bafba",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4f1d50a-be02-5f23-ba70-fc1239d4e88a",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "768d89df-c582-5f74-a006-90231eb88989",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "301f5207-84b2-56e0-976a-c122b238c362",
+              "ingredientName": "Fischsoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5308ab6b-d694-55e4-92ca-27cd9d99101a",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3b073dd-4b06-5b22-a286-6e4277d8122f",
+              "ingredientName": "Schweinefilet",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3a8a932-82ee-5970-b87e-0bca73c4ba67",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6bd396f-1042-5d5c-8571-395808477ed1",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf9f9fcb-526b-5980-8fc7-c4a2535cc5c8",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d711adad-8fb0-5354-b957-b74d29538c0e",
+              "ingredientName": "Sellerie",
+              "grams": 75,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0bfbedc-95ac-5560-8c9d-934ede45d0af",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac7f9a20-2eef-5668-82f9-a2b6d7cb0a66",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c31493f0-37d8-5aa3-a199-47db03611e69",
+              "ingredientName": "frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Am Vortag das Dressing zubereiten: Gib Zucker und Limettensaft mit 1 tbsp Wasser in einen Topf und bringe alles zum Kochen, damit sich der Zucker auflöst. Füge Chili und Koriander hinzu und rühre gut um. Püriere die Mischung anschließend in einem Mixer glatt. Fülle sie in eine Schüssel, rühre Sesamöl, Fischsoße, Sojasoße und Sesamsamen ein. Abdecken und bis zur Verwendung kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwei Stunden vor dem Servieren erhitze eine Grillpfanne. Heize den Ofen auf 200C/Gasstufe 6/Umluft 180C vor. Bestreiche das Schweinefleisch mit Öl und grille es rundum einige Minuten, bis es angebraten ist. Lege es auf ein Backblech und gare es etwa 10-12 Minuten im Ofen, bis es durch ist. Abkühlen lassen und quer zur Faser in dünne Scheiben schneiden. In eine Schüssel geben und mit der Hälfte des Dressings übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Servieren vermische die übrigen Salatzutaten mit dem restlichen Dressing in einer Schüssel. Häufe den Salat auf einer Platte an, belege ihn mit Schweinefleischscheiben und träufle den Fleischsaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/g7jomp1763763994.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/g7jomp1763763994.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53243",
+      "slug": "tmdb-53243",
+      "title": "Vietnamesische Garnelenrollen mit Spiralgemüse",
+      "instructions": "Vietnamesisches Meeresfrüchtegericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2312,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53243/",
+      "components": [
+        {
+          "key": "1849aba9-ca85-5a97-9763-a31be4d62888",
+          "name": "Zutaten",
+          "servingGrams": 546.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "1764c3c9-ab2b-53e2-85d7-573817528021",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5889cb8f-0a60-59c4-8da1-b361ada51a75",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb943f78-fbc0-5fb1-86fb-b77242449a33",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f118fff8-de64-5ed6-95e2-222d816590ea",
+              "ingredientName": "Fischsoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdfa21c5-d284-5766-88b4-23a08b3852f2",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f2b6e61-9963-5cff-89bb-c214a24c4a9e",
+              "ingredientName": "Reispapierblätter",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57472d98-6ba1-571b-a4da-ef3bde59c602",
+              "ingredientName": "frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22ed7a32-68f6-52ae-9cd8-646f5e5272d0",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b9d9364-d427-5eb3-89b9-0e5434440f72",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13174577-6e4f-5b3f-8f79-07d2b2b1d414",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cecb8d40-41ec-5c31-a994-7e944ca33477",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische alle Zutaten für die Dipsoße mit 50ml Wasser in einer Schüssel und stelle sie beiseite, damit sich der Zucker auflöst und die Aromen ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Rollen fülle eine breite Schüssel mit warmem Wasser und lege ein sauberes, feuchtes Geschirrtuch als Arbeitsfläche bereit. Tauche ein Reispapierblatt einige Sekunden ins Wasser, bis es weich wird, und lege es vorsichtig auf das Tuch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege einige Minz- und Korianderblätter in die Mitte des Reispapiers. Belege sie mit zwei Garnelen und einer kleinen Handvoll spiralisiertem Gemüse. Falls die Spiralen zu lang sind, schneide sie kürzer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falte die Seiten des Reispapiers über die Füllung zur Mitte und schlage dann die Ränder ein, sodass die Füllung vollständig umschlossen ist. Rolle alles fest auf. Wiederhole dies, bis Reispapier und Füllung aufgebraucht sind. Zum Servieren schräg aufschneiden und mit der Dipsoße genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/9r2xrg1763771238.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/9r2xrg1763771238.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53241",
+      "slug": "tmdb-53241",
+      "title": "Vietnamesische Gemüse-Päckchen",
+      "instructions": "Vietnamesisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "vietnamesisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2313,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53241/",
+      "components": [
+        {
+          "key": "607876b4-036a-5865-ac51-f0e7735fc9ec",
+          "name": "Zutaten",
+          "servingGrams": 354.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "122bb0c2-a68e-59cd-9cbf-0340797ec96c",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4c1380b-f1cb-5b35-ad48-ec6a89f61a46",
+              "ingredientName": "Reisnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3185a52a-e1d7-5ee6-8afb-2b2e269c0930",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37ba19ec-00c0-5ca4-93ac-15a78c48ab25",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69194af9-1855-5674-ad36-0bb9e8519fa6",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cd2cea5-ef56-505e-985f-7ccc7c52eb7a",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec8b2b3b-6930-5d3e-8e7c-d6b8ea4e7583",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "364f8b20-d646-5916-811c-c84a15d0ea5b",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "262a5998-3887-503d-b43d-881341fe2572",
+              "ingredientName": "frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4003e7b1-4a51-5aa6-90cf-656476412b63",
+              "ingredientName": "Fischsoße",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4777064-f03b-5a9f-91de-1195a3f5a8ca",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95f487da-8bfd-5315-8042-fb0bcfbe465a",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Reispapierfladen nach Packungsanweisung oder 30 secs in kochendem Wasser ein. Nimm sie heraus und lasse sie auf Küchenpapier abkühlen. Weiche die Reisnudeln nach Packungsanweisung ein, gieße sie ab und schneide sie in 2cm lange Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege einen Reispapierfladen auf ein Brett. Verteile Reisnudeln, Hähnchen, Gemüse und Kräuterblätter etwa auf dem oberen Drittel, lasse seitlich einen 1cm Rand frei. Klappe die Seiten über das Gemüse und rolle den Fladen der Länge nach zu einer Zigarrenform auf. Bis zu 1 day abgedeckt mit feuchtem Küchenpapier im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Zutaten für die Dipsoße und fülle sie in eine Schüssel. Richte die Rollen zum Servieren zusammen mit Blättern und Kräutern auf einem Teller an. Zum Essen jede Rolle in ein Salatblatt mit einem Kräuterzweig wickeln und in die Soße dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/f698g91763768731.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/f698g91763768731.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53235",
+      "slug": "tmdb-53235",
+      "title": "Vietnamesisches karamellisiertes Schweinefleisch",
+      "instructions": "Vietnamesisches Schweinefleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2314,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53235/",
+      "components": [
+        {
+          "key": "84638a8c-f8fc-5a1a-99f3-4a80f62e6f74",
+          "name": "Zutaten",
+          "servingGrams": 389.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "09eebe62-3e5e-5d9d-8a8b-4256da9c4093",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6ea8199-e4f7-50c1-9e53-3fe4e93b5247",
+              "ingredientName": "Schweineschulter",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93cd3cf1-190f-5c83-b9fb-6f970c11796b",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da44f7f5-c540-5b47-8ede-17124ae60cc1",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1db44b38-4013-51f6-b648-9005807aa5cc",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3a8f647-99ea-5ee7-ae34-ffc6c1243368",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bc20d89-aa3d-5023-885b-6177a29b5711",
+              "ingredientName": "Fischsoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb45a835-37e8-5e24-a76b-0636964aa061",
+              "ingredientName": "Tomatensoße",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c656a456-8dcf-5307-979b-d41717de09e0",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ad552f0-d103-5b88-8c5f-64c25957ae6f",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11e162c2-721a-522f-921e-5fc9f1d242d5",
+              "ingredientName": "Pak Choi",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 tbsp Öl in einem Wok bei hoher Hitze und brate das Schweinefleisch portionsweise rundum braun. Nimm es mit einem Schaumlöffel heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze deutlich, gib das restliche Öl und dann Schalotten, Ingwer und Chili dazu. Gare alles bei niedriger Hitze einige Minuten, bis es gerade weich wird. Füge Zucker, Fischsoße und 200ml Wasser hinzu und verrühre alles. Bringe die Mischung unter Rühren zum Kochen, damit sich der Zucker auflöst, und gib das Schweinefleisch zurück in die Pfanne. Lasse alles 8-10 mins kräftig blubbern, bis die Soße eindickt, das Fleisch überzieht und glänzt. Probiere und gib bei Bedarf etwas mehr Fischsoße und Chilisauce hinzu. Mit Frühlingszwiebeln bestreuen und mit gedämpftem Reis und Pak Choi servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/4mzt101763761546.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/4mzt101763761546.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,993 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-wheaten-bread",
+      "slug": "gen-wheaten-bread",
+      "title": "Weizenbrot",
+      "instructions": "Irischer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Vollkorn- und Allzweckmehl in großen Mengen, um die Kosten zu senken.",
+        "Buttermilch kann durch mit Essig oder Zitronensaft vermischte Milch ersetzt werden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "irisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7070,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wheaten-bread/",
+      "components": [
+        {
+          "key": "52462e7d-855c-58e2-aea8-c2c15fb7bcce",
+          "name": "Zutaten",
+          "servingGrams": 190,
+          "position": 0,
+          "items": [
+            {
+              "key": "15b08622-e1a6-59cd-9fd4-dbb96d83d934",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3a76f634-8c9a-5129-8bb3-956651a006b2",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d0afc8a0-b4ac-58b2-8b0e-8aa8e615a3ab",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cae28433-acca-5751-a3c3-30d8b85aca51",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7a1a36ca-1c3f-5411-8bf7-48c017e1fd9c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "391267ad-4170-5e9e-93ff-3b5a0240eab7",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 425°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischen Sie Vollkornmehl, Allzweckmehl, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in die Mehlmischung einreiben, bis Semmelbrösel entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach und nach Buttermilch hinzufügen und umrühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig auf einer bemehlten Arbeitsfläche kurz durchkneten und dann einen runden Laib formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf ein Backblech legen und die Oberseite mit einem Messer kreuzweise einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "25–30 Minuten backen, bis es goldbraun ist und beim Klopfen hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DTCZt0SOSAyVC3xy0l9FzVSlTYQ=/4923x3282/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-irish-wheaten-bread-recipe-435804-step-06-d2f4887d6cbc4747870aebca7d92efde.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DTCZt0SOSAyVC3xy0l9FzVSlTYQ=/4923x3282/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-irish-wheaten-bread-recipe-435804-step-06-d2f4887d6cbc4747870aebca7d92efde.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pints-and-oysters",
+      "slug": "gen-pints-and-oysters",
+      "title": "Pints und Austern",
+      "instructions": "Irischer Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Austern direkt auf Fischmärkten und nicht in Restaurants.",
+        "Verwenden Sie günstigere Bieralternativen, wenn das Budget knapp ist. Auf die Paarung kommt es an."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "irisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7071,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pints-and-oysters/",
+      "components": [
+        {
+          "key": "2557bd52-a8f6-5686-a18e-3ad03746287a",
+          "name": "Zutaten",
+          "servingGrams": 285.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "81546533-c5b5-5b6f-83df-f905f6dfc80d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba533f80-3b70-5f24-a14f-38a6e00305dc",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f8e927d5-80b9-5015-99d2-6b2e41e3a1eb",
+              "ingredientName": "Scharfe Soße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "88fda4c1-1104-532f-b254-c95fcded3a19",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "90380307-e143-52f1-a0f8-b4d8f591e1df",
+              "ingredientName": "Cracker",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "299c1bcc-64d3-5a60-9870-698efca8e148",
+              "ingredientName": "Bier (Kochen)",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Pints"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Packen Sie eine Servierplatte mit zerstoßenem Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schrubben Sie die Austernschalen unter fließendem kaltem Wasser sauber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Führen Sie die Klinge eines Austernmessers vorsichtig in das Scharnier ein und drehen Sie sie, um die Schalen zu öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Austern aus der Schale lösen und überschüssige Flüssigkeit abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geöffnete Austern auf der Eisplatte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Servieren Zitronensaft und scharfe Soße in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Servieren Sie Austern mit Zitronenmischung, Austerncrackern und kalten Guinness-Pints.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/li4n5WfxeYJSYoULD-UX95Phf7g=/4500x3000/filters:no_upscale():max_bytes(150000):strip_icc()/oysters-kilpatrick-recipe-256024-step-08-ce539c73185f44ef9d335c50ca339e24.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/li4n5WfxeYJSYoULD-UX95Phf7g=/4500x3000/filters:no_upscale():max_bytes(150000):strip_icc()/oysters-kilpatrick-recipe-256024-step-08-ce539c73185f44ef9d335c50ca339e24.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rasher-sandwich",
+      "slug": "gen-rasher-sandwich",
+      "title": "Speck-Sandwich nach irischer Art",
+      "instructions": "Irisches Mittagessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Speck in großen Mengen und frieren Sie ihn ein. Irish Rashers sind Backspeck, billiger als normale Streifen.",
+        "Verwenden Sie Brot und Gewürze von Handelsmarken, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "irisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7072,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rasher-sandwich/",
+      "components": [
+        {
+          "key": "51fad5e8-f5b1-515b-89ab-94848167e98b",
+          "name": "Zutaten",
+          "servingGrams": 1190,
+          "position": 0,
+          "items": [
+            {
+              "key": "9018e294-7844-5b21-bbbf-508bd5764001",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "29dc28f2-9a08-548f-a189-09a0f1f56767",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "682ee1da-9ec7-5992-9c51-77838f18b274",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cf932e58-9c20-52dc-8d3d-4db36215dcaf",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2b64925-764c-5087-bdc2-66d946aa8633",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46cacfa3-0553-5c2c-b275-580baa468a81",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speckstreifen in einer Pfanne bei mittlerer Hitze 3-4 Minuten pro Seite knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brotscheiben goldbraun rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter und Mayonnaise auf geröstetem Brot verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salat- und Tomatenscheiben auf das Brot schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2 gekochte Speckscheiben auf jedes Sandwich legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit der restlichen Brotscheibe belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.greataustralianseafood.com.au/wp-content/uploads/2020/11/English-Prawn-club-sandwich.jpg",
+          "sourcePageUrl": "https://www.greataustralianseafood.com.au/wp-content/uploads/2020/11/English-Prawn-club-sandwich.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-guinness-stew",
+      "slug": "gen-guinness-stew",
+      "title": "Guinness-Eintopf",
+      "instructions": "Irisches Abendessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderfutter im Sonderangebot und frieren Sie es zur späteren Verwendung ein.",
+        "Verwenden Sie günstigeres Wurzelgemüse wie Rüben oder Pastinaken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "irisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7073,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-guinness-stew/",
+      "components": [
+        {
+          "key": "f9b8de16-ac6a-57f7-8ece-5854fcf8d75b",
+          "name": "Zutaten",
+          "servingGrams": 347.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "b58dbade-15f1-5ce2-bb7c-6b8728375280",
+              "ingredientName": "Rinderfutter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "fba738e1-4e86-5995-b39e-456d5277616d",
+              "ingredientName": "Bier (Kochen)",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "538bb091-0170-5f8e-a4eb-64c0396dd134",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0694e238-b9bc-5241-82ad-53ac3a61bb8a",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0d78e6e6-b2bd-5d0b-a616-6cd003122659",
+              "ingredientName": "Karotte",
+              "grams": 91.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3f8e666f-4c12-511c-b3ee-45e2a9308759",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5d8a68c-f290-5500-b835-45860bb47040",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed136fa3-7d89-51a2-9e6b-004498550193",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "52f34fa9-779c-5eb5-86cd-10d448b90d61",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "52f78ab8-e877-5555-af05-4e414ff3dffa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "279096ce-047e-5d3e-92da-80914910d581",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleischstücke portionsweise anbraten, etwa 3–4 Minuten pro Seite; beiseite legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel und Knoblauch im selben Topf 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark einrühren und 1 Minute kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie Guinness und Rinderbrühe hinzu und kratzen Sie die gebräunten Stücke vom Boden ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Rindfleisch wieder in den Topf geben, Thymian hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und 45 Minuten kochen lassen, dann Kartoffeln und Karotten hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Ohne Deckel weitere 30–40 Minuten köcheln lassen, bis das Gemüse zart ist und das Rindfleisch auseinanderfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/03/guiness-stew_v2-3.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/03/guiness-stew_v2-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bagels",
+      "slug": "gen-bagels",
+      "title": "Bagels",
+      "instructions": "Jüdisches Frühstück in Montreal  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie eine große Menge und frieren Sie sie ein. im Toaster aufwärmen.",
+        "Kaufen Sie Samen in großen Mengen auf ethnischen Märkten, um erhebliche Einsparungen zu erzielen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Montreal-jüdisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7074,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bagels/",
+      "components": [
+        {
+          "key": "3b252a58-a534-5734-845c-103c31c3ac71",
+          "name": "Zutaten",
+          "servingGrams": 430,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba1fcbba-e0a8-548d-be71-b3c8c2bef6b9",
+              "ingredientName": "Allzweckmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "1b2f8d01-17b6-5a0c-88f9-d1eecf7e2171",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a0bf92bd-d49a-53cb-a0ca-f98640e9280b",
+              "ingredientName": "Instant-Hefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "c36573db-0de2-5023-88b5-8ae494fcea5d",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "76578bf2-4082-5ded-b973-f2869d14a7d5",
+              "ingredientName": "Schatz",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6d1a9dc3-ea81-5b59-be5d-8f2c25036675",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "f650f6af-b944-583f-aef2-e966ed2539f0",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d2edee9-9ff0-5a2a-beb9-c6b808f2a88d",
+              "ingredientName": "Sesamsamen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Hefe und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Honig und Wasser hinzufügen und rühren, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig 10 Minuten lang kneten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abdecken und 45 Minuten gehen lassen, bis die Masse geschwollen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig in 6 gleich große Stücke teilen und jedes zu einer Kugel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In die Mitte jeder Teigkugel ein Loch drücken und den Teig zu einem Bagel mit einer 2 Zoll großen Öffnung formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bagels auf Backpapier legen und 30 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Ofen auf 425 °F vorheizen und einen großen Topf Wasser zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bagels auf jeder Seite 1–2 Minuten kochen, bis sie schwimmen und leicht aufgehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Auf ein Backblech legen, mit verquirltem Ei bestreichen, mit Kernen bestreuen und 20–25 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2018/12/bagels.jpg",
+          "sourcePageUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2018/12/bagels.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

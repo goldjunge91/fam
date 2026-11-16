@@ -1,0 +1,991 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53214",
+      "slug": "tmdb-53214",
+      "title": "Thailändische grüne Hähnchensuppe",
+      "instructions": "Thailändisches Hähnchengericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "hähnchen",
+        "suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2255,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53214/",
+      "components": [
+        {
+          "key": "91560af0-45c6-5510-ad46-54cd839c8aa7",
+          "name": "Zutaten",
+          "servingGrams": 427.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "35b0d566-4d6a-5de1-80c5-637acbfd6ade",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d198519f-d3c8-555d-ae4b-9aa826564fd2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2009796a-8403-5d4d-bebe-6715339f503b",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6edb02b-f996-5b24-9d39-7c28b62c369e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "426f21fd-4e17-510a-9eb9-dd319f9c2fb1",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68e43f00-dcdc-5c5b-92ce-7005dbe21504",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "052e14af-fc83-531a-9cbe-027669cc14e6",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b1a16b7-494f-58d0-a190-e718a1f9f32d",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "094f7b3f-76c8-5a7e-ac03-af31cd151532",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ff56b95-e159-524b-ac09-26a880f3049c",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "697e5da1-a9ba-5e58-9ddc-729975a512d5",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54c0ea9c-f3a7-5631-b486-ba17c539b06c",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b297709a-93d9-59d4-af5d-932e2f1910b1",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl im größten Topf erhitzen, Zwiebel dazugeben und 3 Minuten weich braten. Hähnchen und Knoblauch dazugeben und garen, bis das Hähnchen die Farbe verändert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Currypaste, Kokosmilch, Brühe, Limettenblätter und Fischsauce dazugeben und 12 Minuten köcheln lassen. Gehackte Zwiebelspitzen, grüne Bohnen und Bambussprossen dazugeben und 4–6 Minuten garen, bis die Bohnen gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Währenddessen Limettensaft und Basilikum in einen hohen schmalen Messbecher geben und mit einem Stabmixer zu einer glatten grünen Paste pürieren. Zusammen mit geschnittenen Frühlingszwiebeln in die Suppe gießen und erhitzen. Mit Limettenspalten als leichtes Mittag- oder Abendessen oder als vorbereitete Vorspeise servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/7kb44y1763589084.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/7kb44y1763589084.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52814",
+      "slug": "tmdb-52814",
+      "title": "Thailändisches grünes Curry",
+      "instructions": "Thailändisches Hähnchengericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "thailändisch",
+        "hähnchen",
+        "curry",
+        "mild"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2256,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52814/",
+      "components": [
+        {
+          "key": "64d102f6-b975-53b4-a68d-ce344215960c",
+          "name": "Zutaten",
+          "servingGrams": 350.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb46942d-93de-578f-a0f6-0fb2ffa01160",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27ec92e2-f782-58e9-aafe-1213beb5c4cf",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56669456-f747-5a63-9fef-d11ced235518",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b66dcdc4-5893-5044-a2b0-f3f5ba1bb220",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9d134ad-f593-5963-bc8b-fcbf0bdf299e",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ce00ff7-2739-5513-ac25-ab40d9533ffb",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd939306-8927-5ffd-93fc-4e5a569d9502",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b39c5053-134a-5e80-bcd8-9edc75dec83f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e988ae75-a2c5-53ff-8b76-855f88e06ee1",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42a00d49-2b8c-5684-ae6a-382896f67b5f",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f087a458-8a9f-547c-a1b9-f70349e041be",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bd07a4c-0518-5db5-b555-f20dd9386c0e",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in einen Topf mit kochendem Wasser geben und 5 Minuten garen. Bohnen dazugeben und weitere 3 Minuten kochen; beides sollte dann gerade weich, aber nicht zu weich sein. Abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Wok oder einer großen Pfanne stark erhitzen. Knoblauch hineingeben und einige Sekunden goldbraun braten. Nicht zu dunkel werden lassen, sonst leidet der Geschmack. Currypaste mit einem Löffel hineingeben und einige Sekunden rühren, damit die Gewürze garen und ihre Aromen freisetzen. Kokosmilch angießen und aufblubbern lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischsauce und Zucker einrühren, dann Hähnchenstücke dazugeben. Hitze reduzieren und zugedeckt etwa 8 Minuten garen, bis das Hähnchen durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln und Bohnen hineingeben und in der heißen Kokosmilch erwärmen. Für ein angenehmes Zitrusaroma gehackte Limettenblätter (oder Limettenabrieb) einrühren. Basilikumblätter zuletzt dazugeben, aber nur kurz erhitzen, sonst verlieren sie schnell ihre leuchtende Farbe. Mit Limettengarnitur bestreuen und sofort mit gekochtem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/sstssx1487349585.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/sstssx1487349585.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53197",
+      "slug": "tmdb-53197",
+      "title": "Thailändisches Schweinefleisch-Erdnuss-Curry",
+      "instructions": "Thailändisches Schweinefleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "thailändisch",
+        "schwein"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2257,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53197/",
+      "components": [
+        {
+          "key": "42fa818b-07e2-548d-9bdd-6ff328fa56d5",
+          "name": "Zutaten",
+          "servingGrams": 311.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce6ac979-b24c-5649-98de-8ac97e90defb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fa6f5a8-31f6-516a-8e01-0100267f852e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "616288d3-3742-5ac9-9b33-e5ebcd1b57dd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f56c1a82-3d90-5fb7-a6cc-463cfc749d01",
+              "ingredientName": "Schweinefilet",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16b88f64-5739-52fc-b889-8bfebff32ee1",
+              "ingredientName": "Thailändische rote Currypaste",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18837202-6cb4-5f5e-8c80-aaac7191f09f",
+              "ingredientName": "Erdnussbutter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30039a6a-e54b-5234-a5af-99e50c4d493c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d79f5a24-4e28-5dd0-a286-245e05c8c189",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0783faa1-8fdb-528c-b400-e8e281ce4d2f",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41a9274a-9594-5812-ab32-4e21ff75c68f",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81af9fa4-6104-5bbf-a4e4-e91528d8cf0f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d92fffd-8d7c-5002-822c-26743435e3c3",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf oder feuerfesten Schmortopf erhitzen. Frühlingszwiebeln und Korianderstiele dazugeben und 1 Minute garen. Schweinefleischscheiben dazugeben und 5 Minuten braten, bis sie anfangen zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Currypaste und Erdnussbutter einrühren. Nach 30 Sekunden Zucker, Sojasauce und Kokosmilch sowie ½ Dose Wasser dazugeben. Gut vermengen, Deckel auflegen und 15 Minuten köcheln lassen; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Deckel abnehmen, Babymais dazugeben und Hitze erhöhen. 3 Minuten sprudelnd garen, bis der Mais gar und die Sauce etwas eingedickt ist. Limettensaft einrühren und abschmecken. Kann nun bis zu 2 Monate eingefroren werden. Zum Garen aus dem Gefrierfach vollständig auftauen und dann in einem Topf auf dem Herd erhitzen, bis das Curry vollständig heiß ist. Mit Korianderblättern und Reis bestreut servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/snmtd61763426568.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/snmtd61763426568.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53205",
+      "slug": "tmdb-53205",
+      "title": "Thailändisches Garnelencurry",
+      "instructions": "Thailändisches Meeresfrüchtegericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "thailändisch",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2258,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53205/",
+      "components": [
+        {
+          "key": "8cf5b31e-a55a-5ffc-9f03-49035c34da1f",
+          "name": "Zutaten",
+          "servingGrams": 243.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ce50683-96dd-56b6-87b0-707c6fe4029e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f928759a-3568-5be7-a3f5-e6b3372bd21e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3799c872-2072-5317-91ad-d8496e15665b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b6b3ad4-dcd6-50e9-8072-ef93b07ce875",
+              "ingredientName": "Thailändische rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fe08c9d-36fc-5fa1-a0af-f067014ccaf9",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e1c75ff-a0fd-50e3-afdf-70a8a0417ea2",
+              "ingredientName": "Kokoscreme (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d027faf3-3200-5d3d-8a83-39ab0fef5291",
+              "ingredientName": "Gemischtes Gemüse (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01c65133-6b3e-505a-b76a-006efcbe6214",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem mittelgroßen Topf erhitzen. Zwiebel und Ingwer hineingeben und einige Minuten weich garen. Currypaste einrühren und 1 Minute weitergaren. Gehackte Tomaten und Kokoscreme angießen. Zum Kochen bringen und 5 Minuten köcheln lassen. Wenn die Mischung zu dick wird, etwas kochendes Wasser hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelen hineingeben und je nach Größe weitere 5–10 Minuten garen. Mit etwas einfachem Reis servieren und nach Wunsch mit gehacktem Koriander bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qqlwv91763501559.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qqlwv91763501559.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53210",
+      "slug": "tmdb-53210",
+      "title": "Thailändische Kürbissuppe",
+      "instructions": "Thailändisches vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "thailändisch",
+        "vegetarisch",
+        "suppe",
+        "halloween"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2259,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53210/",
+      "components": [
+        {
+          "key": "c8764e0c-a353-51a6-a6c6-7bb243064520",
+          "name": "Zutaten",
+          "servingGrams": 213.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "1eabe058-f608-5dea-9f5d-df1a94ffb78c",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef7e833f-d409-5f5d-bf96-0d4600cd50c6",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c8da309-0d93-5786-8a5f-0b7342e3f792",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32c37e03-115e-5361-8550-86e784f76de1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8f23153-2e41-5a49-87df-8857e8ace87d",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b16a8503-ce62-5e0f-9701-90459c661c93",
+              "ingredientName": "Thailändische rote Currypaste",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d10487a7-4e2f-540d-90e7-b033d77f958d",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1745b782-178e-543d-9fdb-52b4a4ca5059",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3068a31-012b-5d75-b2c1-a8cd9bebab6d",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6324d065-6192-5493-a6ba-788fd5fc7449",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1da56064-754b-5511-97f3-db6146ebe118",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 200C/180C Umluft/Gasstufe 6 erhitzen. Kürbis oder Squash mit der Hälfte des Öls und Würzung in einem Bräter vermengen und 30 Minuten goldbraun und weich rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen übriges Öl mit Zwiebel, Ingwer und Zitronengras in einen Topf geben. 8–10 Minuten sanft garen, bis alles weich ist. Currypaste einrühren und 1 Minute garen. Gerösteten Kürbis, alles bis auf 3 EL Kokosmilch und Brühe dazugeben. Zum Köcheln bringen und 5 Minuten garen, dann Zitronengras herausnehmen. Einige Minuten abkühlen lassen und mit einem Stabmixer oder portionsweise in einem großen Mixer glatt pürieren. Zurück in den Topf geben und erhitzen. Mit Salz, Pfeffer, Limettensaft und bei Bedarf Zucker würzen. Nach Wunsch mit übriger Kokosmilch beträufeln und mit Chili bestreut servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1brbso1763585098.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1brbso1763585098.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

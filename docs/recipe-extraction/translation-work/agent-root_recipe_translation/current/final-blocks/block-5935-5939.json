@@ -1,0 +1,1191 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cauliflower-curry",
+      "slug": "gen-cauliflower-curry",
+      "title": "Blumenkohl-Curry",
+      "instructions": "Thailändisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kokosmilch aus der Dose in großen Mengen, wenn sie im Angebot ist",
+        "Verwende Currypaste von Handelsmarken statt teurer Markenprodukte"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "thailändisch",
+        "dinner",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5935,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cauliflower-curry/",
+      "components": [
+        {
+          "key": "d298278d-98a5-55b4-aa37-e12c5274b313",
+          "name": "Zutaten",
+          "servingGrams": 277.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "7309212d-deb5-509b-a149-72691ce34402",
+              "ingredientName": "Blumenkohl",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Köpfe"
+            },
+            {
+              "key": "5552c2e8-2944-54ba-a4d1-61b2291e15b6",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Dosen (je 13.5 oz)"
+            },
+            {
+              "key": "ff3b3cbd-a8b5-5fa1-85f7-b3b16615c64b",
+              "ingredientName": "rote Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d454411f-f2ac-5f00-b26a-6b3bea7a566f",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "430c9663-8341-5748-b731-85455709cc53",
+              "ingredientName": "Paprikapulver",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46c37b4d-b679-5a0b-9e41-7002892af71b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e23a921-34d2-52b8-abbf-103814e45dd0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "5cb49e20-b04c-59ea-8b86-423132c1f236",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7c7c4fb9-c78b-5d79-969d-f912acdf308f",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2dda4c70-7a5f-5fe3-be1a-69acb611024f",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "72c4b747-2435-5d00-a4e3-96b407ce6ac0",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "49cd6c3a-ffcd-5b32-b2a5-d6f0a95731e2",
+              "ingredientName": "frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e4576985-dee4-565e-b5b8-c919f946181c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und brate Knoblauch und Ingwer 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib rote Currypaste dazu und rühre 2 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Kokosmilch und Gemüsebrühe dazu und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Flüssigkeit aufköcheln und gib Blumenkohlröschen, Zwiebel und Paprika dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass alles 12-15 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Limettensaft, Fischsauce und braunen Zucker ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke das Curry ab und passe die Würzung nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Topf vom Herd, rühre frisches Basilikum ein und serviere das Curry mit Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/O-08WHzdHZmbFmkDB-PekiywkOQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/roasted-cauliflower-and-potato-curry-soup-hero-2979-256519-4000x4000-14628d763d9c4e7492bd11f115b94bf9.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/O-08WHzdHZmbFmkDB-PekiywkOQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/roasted-cauliflower-and-potato-curry-soup-hero-2979-256519-4000x4000-14628d763d9c4e7492bd11f115b94bf9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cauliflower-couscous",
+      "slug": "gen-cauliflower-couscous",
+      "title": "Blumenkohl-Couscous",
+      "instructions": "Marokkanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Blumenkohl im Angebot und friere ihn für später ein",
+        "Verwende über Nacht eingeweichte getrocknete Kichererbsen statt Kichererbsen aus der Dose und spare 40 %"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "lunch",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5936,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cauliflower-couscous/",
+      "components": [
+        {
+          "key": "0c4461c5-46a2-5ba5-bc43-9933f1b32ba0",
+          "name": "Zutaten",
+          "servingGrams": 429.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2fb015a8-8d75-5509-9ff2-3c68ffc9178b",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "55f67251-16fa-53e1-a613-5718efcdf591",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b5fa9770-dbfd-5cef-80d0-96706d63eb50",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "efb76c33-c288-51bd-97d9-760502c7fd2f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "78fab3f8-6c73-5821-bd03-bf8e070fd557",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "fcafbd52-be7f-58df-b4e8-f24e0beb4833",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0a54263-b5ae-5baf-8580-a164d7553c1c",
+              "ingredientName": "getrocknete Aprikosen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "03039ada-3fb0-5f9b-8b5c-958c1c650812",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "a4ce7a86-772a-5683-a6bc-dcb28f0a4ba3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "887d3f65-9872-5f78-974f-cb61385012eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9467cba1-0432-5d7f-8841-0638d098160c",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerteile den Blumenkohl in kleine Röschen und würfle Zwiebel und Knoblauch fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und brate die Zwiebel etwa 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Kreuzkümmel dazu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge die Blumenkohlröschen hinzu und gare sie unter gelegentlichem Rühren 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Gemüsebrühe dazu und bringe sie zum Kochen. Rühre dann Couscous, abgetropfte Kichererbsen und gehackte Aprikosen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Topf vom Herd, decke ihn ab und lass alles 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den Couscous mit einer Gabel auf und würze ihn mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib frischen Koriander darüber und serviere das Gericht warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2018/03/Herbed-Couscous-Recipe-with-Roasted-Cauliflower-The-Mediterranean-Dish-2.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2018/03/Herbed-Couscous-Recipe-with-Roasted-Cauliflower-The-Mediterranean-Dish-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-roasted-cauliflower-with-tahini",
+      "slug": "gen-roasted-cauliflower-with-tahini",
+      "title": "Gerösteter Blumenkohl mit Tahini",
+      "instructions": "Abendessen aus dem Nahen Osten: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze die Granatapfelkerne durch gewürfelte Tomaten oder rote Zwiebel",
+        "Kaufe Tahini in großen Mengen auf Märkten des Nahen Ostens und spare 30 %"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "naher-osten",
+        "dinner",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5937,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roasted-cauliflower-with-tahini/",
+      "components": [
+        {
+          "key": "5d6c168c-87dc-5e3f-8d3e-42454629380c",
+          "name": "Zutaten",
+          "servingGrams": 258.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "04f5247f-1de0-55a3-a85e-f32aef9b54cf",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "0f80ca89-85ed-5d5b-afbb-3df11c90b1c8",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "43185b91-c174-506e-b727-b73d22839419",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2a9a33f7-f891-58bc-9934-053c77f5bca8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7905ac41-6622-5203-b171-00c6feb25323",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "7d5bb7c4-bf57-519a-9a59-d50c73f19286",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "10a21170-adff-527d-afa3-171f34cff2c2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a85e25fb-acab-5de5-b8b4-f9be9c371658",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ea592a68-daa5-5caa-806b-23052be36693",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "514f1ddb-9d4b-541d-a062-da46b9ead93e",
+              "ingredientName": "Granatapfel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ac5b6f86-02e6-5428-b0f6-2437aec78868",
+              "ingredientName": "frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor und zerteile den Blumenkohl in Röschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den Blumenkohl auf einem Backblech mit 2 Esslöffeln Olivenöl, Kreuzkümmel, Paprikapulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste ihn 20-25 Minuten goldbraun und knusprig und wende ihn nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke den Knoblauch. Verrühre Tahini, Zitronensaft, das restliche Olivenöl, Wasser und den gehackten Knoblauch zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze die Sauce nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den gerösteten Blumenkohl auf eine Servierplatte und träufle die Tahinisauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue das Gericht vor dem Servieren mit Granatapfelkernen und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/c4fOHlQvwkjJ3-2xLzHc4YAWbVU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-RoastedCauliflowerWithTahini-Beauty-511_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-1bce16c6d3a84a4bbdb7c66c8adb994d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/c4fOHlQvwkjJ3-2xLzHc4YAWbVU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-RoastedCauliflowerWithTahini-Beauty-511_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-1bce16c6d3a84a4bbdb7c66c8adb994d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cauliflower-fritters",
+      "slug": "gen-cauliflower-fritters",
+      "title": "Blumenkohlküchlein",
+      "instructions": "Indischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Blumenkohlköpfe reduziert und bereite sie am Vorabend vor",
+        "Verwende Rapsöl oder Pflanzenöl statt spezieller Öle"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "indisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5938,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cauliflower-fritters/",
+      "components": [
+        {
+          "key": "2cd67be8-00af-548a-9acd-fddf0afbf510",
+          "name": "Zutaten",
+          "servingGrams": 209.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfe50692-62f6-5721-b031-d288c3e6ffcf",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "5cc8defc-89f6-5e15-bd0b-580466260389",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "fe5a26db-d8ee-504a-898a-0c3e30dd6fe5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "4062e2e5-aa47-5018-bc05-f9e6c97f4edb",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1436ad99-d89d-52a4-8b84-20732415d14c",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "e11c22ae-a3d9-5cb2-83b8-81a59e7e0bc4",
+              "ingredientName": "Kreuzkümmel seeds",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7b002093-87a9-502b-a982-35dc982f381c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "0e16b5c3-0365-5a7c-a884-b814b473c7ca",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "67f0707e-b86c-592a-8cf2-e4191e1085b2",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "5c862330-ffc0-51ce-819e-baee11f6d94c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4493e449-b912-5b80-8dc0-10b08c486386",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerteile den Blumenkohl in kleine Röschen und schneide sie in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Zwiebel, grüne Chili und Koriander fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Besan-Mehl, Kurkuma, Kreuzkümmelsamen und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Ingwer, Zwiebel, grüne Chili, Koriander und Blumenkohlröschen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße nach und nach Wasser hinein und rühre, bis ein dickflüssiger Teig entsteht, der die Blumenkohlstücke überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einem tiefen Topf oder Wok auf 350°F. Gib vorsichtig löffelweise die panierten Blumenkohlstücke ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frittiere sie portionsweise etwa 3-4 Minuten goldbraun und wende sie nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe die Küchlein mit einer Schaumkelle heraus, lass sie auf Küchenpapier abtropfen und serviere sie mit Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/02/cauliflower-fritters-recipe-9.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/02/cauliflower-fritters-recipe-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sicilian-cavolfiore-fritta",
+      "slug": "gen-sicilian-cavolfiore-fritta",
+      "title": "Sizilianischer frittierter Blumenkohl",
+      "instructions": "Italienischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche den Blumenkohl am Vortag vor, um Zeit zu sparen und weniger Öl aufzunehmen",
+        "Kaufe Eier lose oder auf Bauernmärkten zu günstigeren Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5939,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sicilian-cavolfiore-fritta/",
+      "components": [
+        {
+          "key": "ff04f4e0-8c5d-5d8e-96ab-026ac1a372cd",
+          "name": "Zutaten",
+          "servingGrams": 255.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "69246b8d-fffe-54ae-8a93-715397c1391b",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "c2598eb4-5136-54d5-bb02-4923809d9946",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bc0b5cc5-19cb-5d42-a6d6-7e3e8a3411a3",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98c2cfb2-0bdd-5d3c-a607-6d96fda1e504",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1c9c6329-b466-5930-99f3-5af9a7205e73",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "753a6fb1-4762-5067-abd6-7e121a430110",
+              "ingredientName": "Paprikapulver",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "13dab882-bdc5-5b66-95e6-346d1af10aec",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "22d86234-db2c-590d-a920-2158ebe81b75",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78c3cee9-f656-5911-92dd-32b8f05bdb32",
+              "ingredientName": "frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "86e755b1-e730-57aa-8ab6-4f075daf3cf9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Blumenkohl in mittelgroße Röschen und koche sie 5 Minuten in Salzwasser, bis sie gerade weich sind. Gieße sie vollständig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Eier, Wasser, Salz und Pfeffer in einer Schüssel zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauche jedes Blumenkohlröschen vollständig in den Teig und gib es vorsichtig ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Röschen portionsweise 3-4 Minuten rundherum goldbraun. Überfülle die Pfanne nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie auf Küchenpapier abtropfen und bestreue sie mit gehacktem Knoblauch und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß mit frischen Zitronenspalten zum Darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2023/08/IMG_9095.jpg",
+          "sourcePageUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2023/08/IMG_9095.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

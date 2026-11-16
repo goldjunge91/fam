@@ -1,0 +1,1146 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mussels-marinara",
+      "slug": "gen-mussels-marinara",
+      "title": "Muscheln Marinara",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Muscheln im Ausverkauf oder auf ethnischen Märkten und sparen Sie viel",
+        "Verwenden Sie Dosentomaten statt frischer Tomaten, um eine einheitliche Preisgestaltung zu gewährleisten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6960,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mussels-marinara/",
+      "components": [
+        {
+          "key": "c5db0f16-a54d-59ae-b5b8-44620d572fab",
+          "name": "Zutaten",
+          "servingGrams": 209,
+          "position": 0,
+          "items": [
+            {
+              "key": "94b37588-1ad8-5579-b1d1-6ad5bf6fc07d",
+              "ingredientName": "Muscheln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "95799e98-c25f-5301-961e-4444372d9375",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (28 oz)"
+            },
+            {
+              "key": "6d1316e1-39ce-53d4-9b91-5bc512c89691",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen fein gehackt"
+            },
+            {
+              "key": "75b1fb52-a708-5135-bbbd-e350c130c143",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "87abb840-756f-5178-9c84-c06fb50de3fb",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "24184590-73a5-58ca-a297-d2ffb25ee002",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "23d7010c-ad87-5139-838f-f16034c3de0b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "8b614107-2137-5e94-ad65-bb011deaafa0",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "81f139de-30ee-583c-a0ef-e45077095374",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel gehackt"
+            },
+            {
+              "key": "2cb6b269-9a6e-5a81-a8ba-82293d83436f",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Muscheln unter kaltem Wasser abspülen und eventuelle Bärte mit einem scharfen Messer entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen und den Knoblauch anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerkleinerte Tomaten, Weißwein, Salz, Pfeffer und rote Pfefferflocken in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Sauce 5 Minuten köcheln lassen, um die Aromen zu verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geputzte Muscheln in die Soße geben und den Topf abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5-7 Minuten kochen lassen, bis sich die Muschelschalen vollständig öffnen, dabei alle verschlossenen Schalen wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fügen Sie frisches Basilikum hinzu und probieren Sie es ab, um die Gewürze anzupassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Muscheln und Soße zu den gekochten Nudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.charlottefashionplate.com/wp-content/uploads/2018/05/img_5585.jpg",
+          "sourcePageUrl": "https://www.charlottefashionplate.com/wp-content/uploads/2018/05/img_5585.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-north-end-cannoli",
+      "slug": "gen-north-end-cannoli",
+      "title": "Cannoli nach North-End-Art",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Cannoli nur mit Füllung ohne selbstgemachte Schalen zu, um das Kochen zu einem günstigeren Preis zu ermöglichen",
+        "Kaufen Sie Ricotta im Sonderangebot und frieren Sie ihn für zukünftige Chargen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6961,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-north-end-cannoli/",
+      "components": [
+        {
+          "key": "2e4f94a8-82b7-5561-b9e9-88a51119a871",
+          "name": "Zutaten",
+          "servingGrams": 159.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "3117768c-e49d-50a4-984b-4d6f5dbec4c1",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "378666c2-d579-5240-897d-3d64fa689775",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6a0cbeed-1bb7-57aa-b222-2891053c0bad",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "b98afe15-66c5-5ae2-95a6-8fc1b9c6cd9d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 ganze"
+            },
+            {
+              "key": "4b29efa4-8569-5080-913d-a51ea00c61f6",
+              "ingredientName": "Weißweinessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "006ccc27-2bd0-5f61-b866-4657ca4fa062",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a83066ef-7a32-5d97-9c02-c5a49750a38a",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "acb54d9f-20f5-5546-83df-4826e7f33a2e",
+              "ingredientName": "Puderzucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "502a9954-45f5-5957-8a04-4e5641200231",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "93246571-2f54-58f0-83c1-e71b55bdafdd",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7b69eb76-2a60-5b0b-bd1c-7955d3a690f4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Quart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker und Salz in einer Schüssel vermischen, dann Ei, Wein und 2 Esslöffel Öl hinzufügen, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 10 Minuten lang kneten, bis er glatt ist, dann einwickeln und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig auf einer bemehlten Fläche sehr dünn ausrollen und in 3 Zoll große Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitzen Sie 2 Liter Öl in einem tiefen Topf auf 375 °F und braten Sie die Teigquadrate, die um Cannoli-Röhrchen aus Metall gewickelt sind, goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nehmen Sie die frittierten Schalen heraus und kühlen Sie sie auf Papiertüchern ab, bevor Sie sie aus den Röhrchen schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Füllung Ricotta, Puderzucker, Schokoladenstückchen und Vanilleextrakt in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Spritzbeutel die Ricotta-Füllung in beide Enden der abgekühlten Cannoli-Schalen spritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gefüllte Cannoli mit Puderzucker bestäuben und innerhalb weniger Stunden servieren, um eine optimale Knusprigkeit zu erzielen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/11/Mediterranean-Dish-Cannoli-LEAD-19.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/11/Mediterranean-Dish-Cannoli-LEAD-19.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-she-crab-soup",
+      "slug": "gen-she-crab-soup",
+      "title": "Krabbenbisque",
+      "instructions": "Lowcountry-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie Klumpenfleisch durch Krallenkrabbenfleisch, um die Kosten erheblich zu senken",
+        "Lassen Sie Sherry weg und verwenden Sie stattdessen einen Schuss Weißwein oder Zitronensaft"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tiefland",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6962,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-she-crab-soup/",
+      "components": [
+        {
+          "key": "8976e3fb-7ca1-5b67-bda2-557bd2553bf7",
+          "name": "Zutaten",
+          "servingGrams": 449.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b9b5978-edbe-5182-8ac8-178e9c05bc07",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "880ed672-d9b8-5836-99d8-a4d67b34e04d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße gewürfelt"
+            },
+            {
+              "key": "d7a9258a-8594-5d2f-8a49-541125b0af11",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stangen gewürfelt"
+            },
+            {
+              "key": "e3035dd0-8216-5758-b559-a58e380a851c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "b83f0495-42d9-5b67-9466-eb9bd3f48f06",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund, in großen Stücken"
+            },
+            {
+              "key": "3d5c76c2-d288-5c65-863d-0d10566f5fd9",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "706abe38-4f4a-54b3-a94f-139a3a9565e5",
+              "ingredientName": "Schwere Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "de132229-6d4c-5f96-9083-1d1b7e68b008",
+              "ingredientName": "Nachgemachte Krabbe",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "38687be3-82f5-5c32-a844-510c3c572fdc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3a0d2db8-54e2-5d1c-a29f-d88518de12fd",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "99eda473-61ba-57af-86f5-687a3dad438a",
+              "ingredientName": "Sherryessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen und Zwiebel, Sellerie und Knoblauch 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hühnerbrühe in den Topf geben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Krabbenfleisch und Krabbenrogen vorsichtig unterheben und darauf achten, dass die Klumpen nicht zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sahne einfüllen und vorsichtig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "10 Minuten köcheln lassen, damit sich die Aromen vermischen, dann mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen und kurz vor dem Servieren Sherry unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schüsseln füllen und heiß mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1645561906/k/Photo/Recipes/2022-02-she-crab-soup/220217_AptTherapyKitchn_SheCrabSoup_0189.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1645561906/k/Photo/Recipes/2022-02-she-crab-soup/220217_AptTherapyKitchn_SheCrabSoup_0189.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-frogmore-stew",
+      "slug": "gen-frogmore-stew",
+      "title": "Frogmore-Eintopf",
+      "instructions": "Lowcountry-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Garnelen gefroren und im Angebot statt frisch, um bessere Preise zu erzielen",
+        "Lassen Sie die geräucherte Wurst weg und verdoppeln Sie die Garnelenmenge, um eine leichtere, günstigere Variante zu erhalten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "Tiefland",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6963,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-frogmore-stew/",
+      "components": [
+        {
+          "key": "b63040a4-5534-5961-9ba2-9c24752477c2",
+          "name": "Zutaten",
+          "servingGrams": 614.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3dbe493-099a-5c52-97ae-f18dd40ab6ee",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Quart"
+            },
+            {
+              "key": "576a6649-223d-503c-975a-561c8a8e1e8e",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "41eef74d-d53f-5403-805e-cceb0ffbfc7c",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3cefccab-399f-55f5-aadf-59b5d6fef911",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Kolben"
+            },
+            {
+              "key": "9001b704-3101-5c30-b5a4-236366292e83",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "22dbcac9-28fb-59da-89c3-e36dc1928f08",
+              "ingredientName": "Geräucherte Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund in Scheiben geschnitten"
+            },
+            {
+              "key": "77558286-00b2-56e2-b9ce-b88542c0a52f",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a16b3512-3a69-5bd7-89c3-f76695817635",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "88f930f9-50e5-52b8-9869-a470fc2cadab",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Hälften"
+            },
+            {
+              "key": "e288dba1-15c8-5624-996c-797f9a927057",
+              "ingredientName": "Old Bay-Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf mit Wasser füllen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geben Sie das Crab Boil-Gewürzpaket, das Salz und die Zitronenhälften in das kochende Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fügen Sie Babykartoffeln hinzu und kochen Sie sie 8 Minuten lang, bis sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mais und geschnittene geräucherte Wurst hinzufügen und weitere 5 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen hinzufügen und 3-4 Minuten kochen lassen, bis sie rosa werden und sich kräuseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lassen Sie den gesamten Inhalt durch ein Sieb abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf eine große Servierplatte geben und mit Butter und Old Bay-Gewürzen vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren, mit zusätzlich geschmolzener Butter zum Dippen als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/RtYdF7amBTjAInXENzaAJAxMndM=/4680x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-frogmore-stew-4070923-stew-step-09-7a414a3862f24c86b478544f59b59f10.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/RtYdF7amBTjAInXENzaAJAxMndM=/4680x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-frogmore-stew-4070923-stew-step-09-7a414a3862f24c86b478544f59b59f10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-calabash-seafood-platter",
+      "slug": "gen-calabash-seafood-platter",
+      "title": "Calabash-Meeresfrüchteplatte",
+      "instructions": "Calabash-Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Meeresfrüchte in großen Mengen, wenn sie im Angebot sind, und portionieren Sie sie selbst",
+        "Ersetzen Sie frische Fischfilets durch gefrorene, um die Kosten um die Hälfte zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Kalebasse",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6964,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-calabash-seafood-platter/",
+      "components": [
+        {
+          "key": "e4f148ae-6e34-52a0-b474-f8a227fc29bf",
+          "name": "Zutaten",
+          "servingGrams": 237.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9e05caa-e2e6-538e-a149-aa460304d57f",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ea2b2583-2753-57f0-8cd4-a0018a000453",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fc9ae8c2-1eb1-5bc0-bd80-9b82adb53d23",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cfd44ff1-4179-52bd-a0bf-aa36428a443b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "3c7ac6ac-ac70-5f83-be63-7b49c477c66c",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "4e6c9b4c-6d48-5274-b370-afe8da4a92b7",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "904d5e8e-ef28-5291-974c-2c36f8ff5bb2",
+              "ingredientName": "Flunderfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "79758883-b07f-57e9-8f9f-ff61c2daa707",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Pfund"
+            },
+            {
+              "key": "bdf02707-0fb9-591d-8ec3-1086d730de65",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Quart"
+            },
+            {
+              "key": "fceaa499-a914-5ed0-a3d0-8d449d0d0071",
+              "ingredientName": "Päckchen Soßenmischung",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pflanzenöl in einer Fritteuse oder einem schweren Topf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Maisstärke, Salz, schwarzen Pfeffer und Cayennepfeffer in einer flachen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen, Flunderfilets und Jakobsmuscheln mit Papiertüchern trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauchen Sie jedes Stück Meeresfrüchte in die Mehlmischung und schütteln Sie den Überschuss ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen 2-3 Minuten goldbraun braten, dann auf einen mit Küchenpapier ausgelegten Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Flunderfilets 3-4 Minuten goldbraun braten, dann auf den Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jakobsmuscheln 2-3 Minuten goldbraun braten, dann auf den Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bereiten Sie Hush Puppies gemäß den Anweisungen in der Packung zu und braten Sie sie zusammen mit den Meeresfrüchten an. Servieren Sie dann alles zusammen auf einer Platte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.ncseafood.com/cms/wp-content/uploads/2026/03/seafood-platter-raleigh-nc.webp",
+          "sourcePageUrl": "https://www.ncseafood.com/cms/wp-content/uploads/2026/03/seafood-platter-raleigh-nc.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

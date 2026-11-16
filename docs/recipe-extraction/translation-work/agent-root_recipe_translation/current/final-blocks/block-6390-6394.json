@@ -1,0 +1,1060 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-nocino",
+      "slug": "gen-nocino",
+      "title": "Nocino",
+      "instructions": "Umbrischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie es am günstigsten im Sommer, wenn grüne Walnüsse Saison haben",
+        "Verwenden Sie als Aufgussbasis günstigeren Wodka oder Everclear"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "umbrisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6390,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nocino/",
+      "components": [
+        {
+          "key": "f4f03fad-a09b-5a1c-8672-7f14680995c7",
+          "name": "Zutaten",
+          "servingGrams": 373.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "c9108688-3e2b-5044-90aa-e56894eb3271",
+              "ingredientName": "Walnüsse",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "20 ganze"
+            },
+            {
+              "key": "39150a0e-ccb8-5da3-84cb-6c7d12add826",
+              "ingredientName": "Wodka",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a300a835-ab94-5de7-b655-791a697d91b8",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "571a01bc-085c-5f94-b2b0-028dccc4af4e",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2c7e842-b5f5-5c91-bc71-87c719511d2e",
+              "ingredientName": "Ganze Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "020bf62b-85e2-509b-9efa-215128546ec8",
+              "ingredientName": "Sternanis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8833adf1-3f49-5dff-bb42-d7690fce0da1",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grüne, unreife Walnüsse mit Handschuhen vierteln und in ein sauberes Glas geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gießen Sie Wodka oder Getreidealkohol über die Walnüsse, bis sie vollständig eingetaucht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Glas locker abdecken und 2 Wochen an einem kühlen, dunklen Ort ziehen lassen. Gelegentlich schütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zucker und Wasser zusammen erhitzen, um einen einfachen Sirup herzustellen, dann vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Walnussstücke abseihen und Zimtstange, Nelken und Sternanis zur aufgegossenen Flüssigkeit hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgekühlten Sirup einrühren und weitere 1–2 Wochen ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nochmals abseihen und in Flaschen abfüllen, um einen verdauungsfördernden Likör zu erhalten, der mit zunehmendem Alter besser wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/fCAaVIQbamevVUHyBhot1G16e1Q=/1200x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__06__making-nocino-walnut-drink-593b2a500ac24fa49c8fd59f15bf9d2d.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/fCAaVIQbamevVUHyBhot1G16e1Q=/1200x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__06__making-nocino-walnut-drink-593b2a500ac24fa49c8fd59f15bf9d2d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tozzetti",
+      "slug": "gen-tozzetti",
+      "title": "Tozzetti",
+      "instructions": "Umbrischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mandeln in großen Mengen oder verwenden Sie billigere ganze oder geschnittene Mandeln aus Großbehältern",
+        "Lassen Sie Anissamen weg oder reduzieren Sie sie, um die Kosten weiter zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "umbrisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6391,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tozzetti/",
+      "components": [
+        {
+          "key": "c962da60-41b1-5e24-88b0-cdb467c0a877",
+          "name": "Zutaten",
+          "servingGrams": 182.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "1152bc24-3a22-5890-8ad3-f6460ee80751",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ff81844a-f013-5b32-bded-840cd65eddc8",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "84e52b4a-0a9d-5082-95e2-662362e92949",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "6480e087-312e-5dbc-8046-0267bb076642",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85825eba-f6e1-5a3c-86e0-751472cedb28",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "2cca318e-f92a-5956-9ded-a738fae3234e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "3aa96524-802c-5bf3-aa03-c19c56d91fb9",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c603e291-f4e7-5654-a6fc-11c76dd61010",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cfff6e5d-b162-5955-840e-7142b75a24f5",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und legen Sie ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker schaumig schlagen, dann Eier und Vanille unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Backpulver, Salz und Anissamen in einer separaten Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trockene Zutaten unter die feuchten Zutaten heben, dann ganze Mandeln unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teilen Sie den Teig in zwei Hälften und formen Sie jede Hälfte auf dem Backblech zu einer langen Rolle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Teigrollen 20–25 Minuten backen, bis sie goldbraun und fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Etwas abkühlen lassen, dann diagonal in 0.75 Zoll dicke Scheiben schneiden und mit der Schnittseite nach unten weitere 8 Minuten backen, damit sie knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/54afe2abd3789d374d8febbd/1:1/w_600%2Ch_600/51170360_tozzetti_1x1.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/54afe2abd3789d374d8febbd/1:1/w_600%2Ch_600/51170360_tozzetti_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-marmite-dieppoise",
+      "slug": "gen-marmite-dieppoise",
+      "title": "Marmite Dieppoise",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Meeresfrüchte anstelle von frischen, um 20–30 % zu sparen",
+        "Ersetzen Sie die Hälfte der Sahne durch Milch, um die Milchkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "normannisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6392,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-marmite-dieppoise/",
+      "components": [
+        {
+          "key": "3ff680aa-761f-5fbb-9510-74f9306ca2ac",
+          "name": "Zutaten",
+          "servingGrams": 306.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "8986913b-d74d-5db8-9e68-f4d877cb3352",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ffa27ee8-55f1-5684-b9fd-8cd1c462477c",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2476521c-475f-53f4-a667-c99ba902da5b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "cca8449f-0f19-584d-b8ed-591ed01951bf",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "f7f0c515-6f9a-5268-afdc-23ba7a5d8fb7",
+              "ingredientName": "Weißweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0c4a23c5-4cf5-5b78-9565-e6b46669d45a",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "00b418c9-606d-5903-8fa9-323455e6c785",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ddd77ed0-fa6c-5260-94f2-b26612352b2d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5ca3aa65-0ad5-575e-8360-5684d98c756a",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8299f741-5a12-5013-917d-ebdf7a7fb402",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d5ebd950-0d7c-5875-b027-399cf48d2b3d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebeln und Sellerie fein hacken und bei mittlerer Hitze 5 Minuten in Butter anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fügen Sie Mehl hinzu, um eine Mehlschwitze zu erzeugen, und rühren Sie dabei 2 Minuten lang ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weißwein und Fischfond angießen, Klümpchen glatt rühren und die Flüssigkeit zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fischfilets hinzufügen und 8 Minuten garen, bis sie teilweise gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen, Muscheln und Jakobsmuscheln hinzufügen und weitere 5 Minuten kochen, bis die Meeresfrüchte gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sahne einrühren und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 5 Minuten köcheln lassen, dann mit frischer Petersilie garnieren und in tiefen Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://quoiquonmange.com/wp-content/uploads/2020/03/marmite-dieppoise-4.jpg",
+          "sourcePageUrl": "https://quoiquonmange.com/wp-content/uploads/2020/03/marmite-dieppoise-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cider-braised-pork-chops",
+      "slug": "gen-cider-braised-pork-chops",
+      "title": "In Apfelwein geschmorte Schweinekoteletts",
+      "instructions": "Normannisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulterkoteletts statt Rippchenkoteletts und sparen Sie 40 %",
+        "Verwenden Sie Apfelsaftkonzentrat gemischt mit Wasser anstelle von echtem Apfelwein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "normannisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6393,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cider-braised-pork-chops/",
+      "components": [
+        {
+          "key": "ca052df2-70fd-5729-9e52-bdd0ce74f47a",
+          "name": "Zutaten",
+          "servingGrams": 330,
+          "position": 0,
+          "items": [
+            {
+              "key": "d2799805-8cf5-5c85-9faa-dddc7bcb8898",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Koteletts"
+            },
+            {
+              "key": "1eae0e1c-5de9-5b01-a91b-79293ac13df2",
+              "ingredientName": "Apfelsaft",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "158658c9-edf3-5a75-8c52-5547be764d3e",
+              "ingredientName": "Apfelmus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "0abab701-d359-5d70-b4bd-3af0a338d7ac",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "6ac55c54-2da3-5983-bfd1-873001281a61",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8abcf063-ba66-579b-afcc-682e9f43e59b",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d7004075-a186-5946-8c25-e94e4156866d",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "2571ba95-df34-5e40-bd01-69cfe49813a6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "82c26a9a-618a-5cf9-a6f8-ee3de0d2d262",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinekoteletts trocken tupfen und großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen. Schweinekoteletts pro Seite 3–4 Minuten anbraten, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne die gewürfelten Zwiebeln 3 Minuten lang anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Äpfel schälen, entkernen und in dicke Ringe schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie Apfelwein und Senf in die Pfanne, kratzen Sie die gebräunten Stücke heraus, geben Sie dann die Schweinekoteletts zurück und fügen Sie Thymian hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Apfelscheiben über und um die Koteletts legen, dann abdecken und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schweinekoteletts und Äpfel auf einen Teller legen, Sahne in die Soße rühren und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schweinekoteletts und Äpfel mit Sauce übergießen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/65948ded2d63effd7aeb6f4a/1:1/w_2560%2Cc_limit/20231109-v0224-COZY-7606.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/65948ded2d63effd7aeb6f4a/1:1/w_2560%2Cc_limit/20231109-v0224-COZY-7606.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-calvados-apple-tart",
+      "slug": "gen-calvados-apple-tart",
+      "title": "Calvados-Apfelkuchen",
+      "instructions": "Normannisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Überspringen Sie den Calvados und verwenden Sie normalen Brandy oder lassen Sie ihn für die Vanille-Zimt-Version ganz weg",
+        "Kaufen Sie Äpfel im Herbst, wenn sie am günstigsten sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "normannisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6394,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-calvados-apple-tart/",
+      "components": [
+        {
+          "key": "c5bfbf66-2bd2-5d9d-8659-f6cadcd7e1e1",
+          "name": "Zutaten",
+          "servingGrams": 115.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f102283-4af8-5729-8365-f165f51e7025",
+              "ingredientName": "Tortenboden (im Laden gekauft oder selbstgemacht)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Teigboden"
+            },
+            {
+              "key": "d28fbf0c-08f0-5fd9-b7bd-24a92aaddc17",
+              "ingredientName": "Apfel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 mittelgroße"
+            },
+            {
+              "key": "cae0372b-ea0d-5af8-82cb-1039b198e140",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "cfb52a67-6636-5267-ba77-5048d6f1be0f",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "f9f9612d-00ff-519c-b7cc-811418cf65e0",
+              "ingredientName": "Calvados oder Brandy",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5b8ecbf3-c518-547b-821c-7cc5e8efa649",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1a4e5298-c5af-50a1-986c-feadd80d27c6",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "91e6298a-7adb-5736-b1b2-89f5aa35077b",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 400 °F vor, legen Sie den Tortenboden in eine Tarteform und stechen Sie ihn mit einer Gabel ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Äpfel schälen, entkernen und in dünne Halbmonde schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter und Zucker in einer großen Pfanne bei mittlerer Hitze erhitzen und rühren, bis sich der Zucker auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Äpfel, Vanille und Zimt hinzufügen und 10 Minuten kochen und umrühren, bis die Äpfel leicht weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen und unter leichtem Rühren vorsichtig Calvados hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ordnen Sie die Apfelscheiben in überlappenden Kreisen auf der Kruste an und gießen Sie dann die restliche Flüssigkeit darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "25–30 Minuten backen, bis die Kruste goldbraun und die Äpfel zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aprikosenmarmelade mit 1 Esslöffel Wasser erhitzen und die warme Tarte vor dem Servieren damit glasieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/m0TxS0A7EDj_LQXqeR_SYn1NQz0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/apple-tarts-807598-step-8-8a110c4bdd784d589eda2932c9775dbc.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/m0TxS0A7EDj_LQXqeR_SYn1NQz0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/apple-tarts-807598-step-8-8a110c4bdd784d589eda2932c9775dbc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

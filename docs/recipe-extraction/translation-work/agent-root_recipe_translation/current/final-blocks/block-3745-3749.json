@@ -1,0 +1,1067 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pa-amb-tom-quet",
+      "slug": "gen-pa-amb-tom-quet",
+      "title": "Pa amb tomàquet",
+      "instructions": "Katalanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Brot vom Vortag in der Bäckereiabteilung reduziert",
+        "Verwende Tomaten der Saison, wenn sie am günstigsten sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "katalanisch",
+        "frühstück",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3745,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pa-amb-tom-quet/",
+      "components": [
+        {
+          "key": "e627e54c-21bc-5c63-905b-b2b25b039e1b",
+          "name": "Zutaten",
+          "servingGrams": 100.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "271f85bb-9b61-5a41-87ae-154a681552a9",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "3a3d4c00-0eb3-5c7f-a6bb-6e032a0315fe",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "3e126d4d-00bc-532a-a3ad-f911c98b6202",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "0d7854f7-3217-52d9-937e-58568da061d4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5de0875a-aa13-5bc9-b492-a04804624ba0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fd4ab30f-4bc1-5ca7-8d90-ef406587da7a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Brot in 1/2 Zoll dicke Scheiben und röste sie leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere Tomaten und reibe die Schnittseite vorsichtig über den warmen Toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe jede Brotscheibe leicht mit einer geschälten Knoblauchzehe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle sie großzügig mit nativem Olivenöl extra.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue Salz und schwarzen Pfeffer nach Geschmack darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, solange das Brot noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2017/02/Catalan-Tomato-Bread-Pan-Con-Tomate-Recipe-2.jpg",
+          "sourcePageUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2017/02/Catalan-Tomato-Bread-Pan-Con-Tomate-Recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-calcots",
+      "slug": "gen-calcots",
+      "title": "Calcots",
+      "instructions": "Katalanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Frühlingszwiebeln im Frühjahr auf Bauernmärkten zu den besten Preisen",
+        "Bereite zusätzliche Sauce für anderes Gemüse zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "katalanisch",
+        "mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3746,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-calcots/",
+      "components": [
+        {
+          "key": "27233dd8-095d-50cc-8044-e2957a38b5ce",
+          "name": "Zutaten",
+          "servingGrams": 49.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "29fcc793-df9a-5fb9-ab12-8c98a092452b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "46a856c8-282a-5660-802e-b41dc5f8be33",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "c5c6d86f-8225-550a-a419-7a02169a4f84",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a80d82af-2f3d-5c72-a707-ca0a6c2e67dc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8b892ece-2e90-531d-bb7c-18f178136550",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "7077244a-7cca-5d94-9525-50b78c4d12f8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c1a4f7b-1d2c-50e0-86a9-82bd4b05b422",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c991dd87-3881-565d-b18a-1bb388feb5b9",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor und lege ein Backblech mit Folie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Wurzelenden und den größten Teil der grünen Spitzen von den Frühlingszwiebeln ab. Lasse etwa 3 Zoll weiße und hellgrüne Teile stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Zwiebeln in einer Lage auf das Backblech und röste sie 25-30 Minuten, bis sie verkohlt und zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle währenddessen Olivenöl, Essig, Salz, Pfeffer, gehackten Knoblauch und Paprikapulver zu einer Romesco-artigen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Zwiebeln aus dem Ofen und lasse sie leicht abkühlen, bis du sie anfassen kannst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ziehe die verkohlten äußeren Schichten ab, sodass das zarte weiße Innere zum Vorschein kommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte die geschälten Zwiebeln auf einer Servierplatte an und beträufle sie mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm mit knusprigem Brot zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/VtqeOCCKHzw5mIm0MUnXKq6dyao=/4800x3200/filters:fill(auto,1)/calcots--sweet-onions-typical-of-catalonia--spain-855007646-5a9b3a0f642dca00373cb386.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/VtqeOCCKHzw5mIm0MUnXKq6dyao=/4800x3200/filters:fill(auto,1)/calcots--sweet-onions-typical-of-catalonia--spain-855007646-5a9b3a0f642dca00373cb386.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-butifarra-amb-mongetes",
+      "slug": "gen-butifarra-amb-mongetes",
+      "title": "Butifarra amb mongetes",
+      "instructions": "Katalanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Bohnen lose statt in Dosen",
+        "Verwende italienische Wurst als preiswerten Ersatz für Butifarra"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "katalanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3747,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-butifarra-amb-mongetes/",
+      "components": [
+        {
+          "key": "0eb7acbc-2f3c-56ab-b7db-cce3e694d69f",
+          "name": "Zutaten",
+          "servingGrams": 432,
+          "position": 0,
+          "items": [
+            {
+              "key": "df700017-edff-5fdc-a960-d9707076680d",
+              "ingredientName": "Italienische Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "553bdcfd-0618-5978-97e1-80e5abc077ea",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e2a96e23-66ba-537b-81f2-cfdc455238e8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "e32ae5b8-f1f3-5382-af48-55dd84fdde8f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94cbc939-4cd3-59d6-b53c-d932d29a6c04",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b60ae01e-e3b3-59e0-b781-94487dfde53a",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "50913582-b14e-5c17-a94f-1abf114287eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5452c710-ba71-5141-bfa0-c7bd7d5caba0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "926a1873-1c8a-59e9-a506-0f622474e062",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Bohnen mindestens 4 Stunden oder über Nacht in kaltem Wasser ein und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste gewürfelte Zwiebel und gehackten Knoblauch weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgetropfte Bohnen, Brühe und Lorbeerblatt hinzu. Bringe alles zum Kochen und lasse es dann 45 Minuten köcheln, bis die Bohnen zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide währenddessen Würste in 2 Zoll große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bräune die Wurststücke in einer separaten Pfanne bei mittelhoher Hitze 8-10 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gegarte Wurst in den Bohnentopf und lasse alles weitere 5 Minuten zusammen köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://200momentosfelices.com/wp-content/uploads/2020/04/BUTIFARRA-Y-MONGETES2-1350x1536.jpg",
+          "sourcePageUrl": "https://200momentosfelices.com/wp-content/uploads/2020/04/BUTIFARRA-Y-MONGETES2-1350x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-conill-amb-xocolata",
+      "slug": "gen-conill-amb-xocolata",
+      "title": "Conill amb xocolata",
+      "instructions": "Katalanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Suche Kaninchen bei internationalen Metzgern; dort ist es günstiger als in Spezialgeschäften",
+        "Verwende Hähnchenschenkel, falls Kaninchen nicht erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "katalanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3748,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-conill-amb-xocolata/",
+      "components": [
+        {
+          "key": "30d5b634-6a6d-57f1-b6e1-887bc0c68830",
+          "name": "Zutaten",
+          "servingGrams": 170.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec9778f1-a34f-5fc4-8f0d-31a62ef7318f",
+              "ingredientName": "Kaninchen, in Stücke geschnitten",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "e23aa335-04a9-5162-afca-9114b8e00d16",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "b723db9a-edca-57eb-a3a5-406b8a353685",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "65ec5dc4-57bb-5e16-ac1b-d5e16a3d81ad",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b35715bf-e6c1-5330-b43f-37432333fffc",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "cc83d9eb-497b-50f5-a9b5-512bb166fc67",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "db8a93d6-f34f-5a34-a144-1f6c10a254ef",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "be8f5436-17a0-5b52-ada9-5ebfffc1a275",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a23bddc2-f638-54b3-b0c2-34d505be306c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "86da35ee-9c2b-5b7f-bada-ed00f871a028",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "je 1 Zweig"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe Kaninchenstücke mit Küchenpapier trocken und würze sie großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Schmortopf und bräune die Kaninchenstücke von allen Seiten. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste gewürfelte Zwiebel und gehackten Knoblauch im selben Topf goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mahle Mandeln mit 3 Esslöffeln Wasser zu einer Paste und gib sie zusammen mit Thymian und Lorbeerblatt in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lösche den Topf mit Rotwein ab, löse die Röststoffe und gib dann Brühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kaninchen zurück in den Topf, bringe alles zum Köcheln, decke den Topf ab und gare es 45-50 Minuten, bis das Kaninchen zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hacke Zartbitterschokolade fein und rühre sie während der letzten 2 Minuten der Garzeit in den Eintopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere das Gericht heiß mit knusprigem Brot oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Conill_a_la_xocolata.jpg?20090716110411",
+          "sourcePageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Conill_a_la_xocolata.jpg?20090716110411",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fideu",
+      "slug": "gen-fideu",
+      "title": "Fideuà",
+      "instructions": "Katalanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Garnelen und Tintenfisch für bessere Preise",
+        "Bereite Meeresfrüchtebrühe aus Fischresten selbst zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "katalanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3749,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fideu/",
+      "components": [
+        {
+          "key": "6696e28c-6620-5799-be4d-803a9f13ba3e",
+          "name": "Zutaten",
+          "servingGrams": 335.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "dea9cfea-e33b-588e-95b3-c6ffdf5a69e8",
+              "ingredientName": "Fadennudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "e7f104b8-921f-5ab8-bbaa-484a2c932714",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "2f2b4dd3-2145-55aa-a148-6e41cd15b66b",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "90310c5e-7f83-51a2-bf3f-ecfcccf7426f",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "580f9fc8-374f-5db3-94eb-60728f99ed5f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "e05595db-4593-5c35-a937-2d9cc94e4a0f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0321c5be-6dd2-516e-85d6-8fd2b65ef1f2",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "5b4aa622-7f60-57ab-8228-377e31c5e1e1",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ea71f499-0295-5e98-9050-5cc677e90690",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c7ac9762-03bc-5334-8c0f-2356f4b316d7",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "312926e7-5a90-51c0-97e6-906eecb1ac21",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer breiten, flachen Paella-Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die trockenen Nudeln 2-3 Minuten unter ständigem Rühren im Öl, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel und gehackten Knoblauch hinzu und gare alles 2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse Safran in 1/4 Tasse warmer Brühe 2 Minuten ziehen und gieße dann die Safranbrühe in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die übrige Brühe hinzu, rühre alles um und bette dann Garnelen und Tintenfisch in die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lasse es 12-15 Minuten köcheln, bis die Nudeln weich und die Flüssigkeit größtenteils aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Paprikapulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Presse frischen Zitronensaft darüber und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/04/Mediterranean-Dish-Catalan-Fideua-LEAD-10-1024x1536.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/04/Mediterranean-Dish-Catalan-Fideua-LEAD-10-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

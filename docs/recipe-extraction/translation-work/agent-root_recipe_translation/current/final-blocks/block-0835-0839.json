@@ -1,0 +1,1060 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-peanut-butter-banana-oat-bake",
+      "slug": "mfr-peanut-butter-banana-oat-bake",
+      "title": "Gebackene Haferflocken mit Erdnussbutter und Banane",
+      "instructions": "Ein gebackener Haferflocken-Kuchen für eine Portion, der wie ein warmer Erdnussbutterkeks schmeckt. Zubereitet nur mit Haferflocken, Banane, Ei und Erdnussbutter: Frühstück perfekt zum Vorbereiten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reife Bananen süßen das Gericht ganz von selbst. Kaufe überreife Bananen zum halben Preis.",
+        "Zarte Haferflocken gehören zu den günstigsten Frühstücksgrundlagen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder ein beliebiges Nussmus eignet sich ebenfalls"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Hafer- oder Mandelmilch für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-peanut-butter-banana-oat-bake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Meal Prep",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 835,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-peanut-butter-banana-oat-bake/",
+      "components": [
+        {
+          "key": "51f3e245-5081-53d5-a752-2c03f1e6fa9f",
+          "name": "Zutaten",
+          "servingGrams": 290.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f4cbf46-7f28-5f44-9399-e4abc08f92b5",
+              "ingredientName": "Zarte Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "222906ec-b88a-56be-b1c1-c33072fdf2f6",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "640f5633-9b02-5ac8-a721-b278a3f3a966",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "253e1feb-d3df-51b8-a4f7-a3fddb9427ff",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb23a3a8-b067-56a3-b3ce-26408f423972",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc34d286-8f25-5257-ba20-4091e21d7a2b",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ef44245-a92c-5af6-8a62-85fef92b6417",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46e6166f-50ee-5a33-91b2-e3a2f3b57698",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0906168-7f69-5796-8ed2-47fe0d8fc0e3",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor. Zerdrücke eine reife Banane in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Haferflocken, Erdnussbutter, Ei, Honig, Backpulver, Zimt, Vanille und Milch dazu. Verrühre alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Masse in eine kleine gefettete Auflaufform oder in zwei einzelne Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe alles 22–25 Minuten, bis die Masse fest und die Oberfläche leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Haferflocken warm, garniert mit Bananenscheiben oder etwas Erdnussbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.ambitiouskitchen.com/wp-content/uploads/2022/07/chocolate-peanut-butter-banana-baked-oatmeal.jpg",
+          "sourcePageUrl": "https://www.ambitiouskitchen.com/wp-content/uploads/2022/07/chocolate-peanut-butter-banana-baked-oatmeal.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-veggie-egg-breakfast-quesadilla",
+      "slug": "mfr-veggie-egg-breakfast-quesadilla",
+      "title": "Gemüse-Ei-Quesadilla zum Frühstück",
+      "instructions": "Rührei mit Spinat, Paprika und Käse, in eine knusprige Weizentortilla gefaltet: ein schnelles, sättigendes mexikanisch-amerikanisches Frühstück.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vier Eier und eine Tortilla kosten weniger als $1.50 und ergeben ein sättigendes Frühstück.",
+        "Jeder Käse passt. Verwende, was du bereits geöffnet hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Jedes Gemüse, das sich gut mit Rührei kombinieren lässt, etwa Pilze, Tomaten oder Zucchini"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Für eine milchfreie Variante weglassen und für mehr Cremigkeit Avocado dazugeben"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-veggie-egg-breakfast-quesadilla",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch-amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 836,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-veggie-egg-breakfast-quesadilla/",
+      "components": [
+        {
+          "key": "6c6565e3-e491-5f07-89f6-daece7036da1",
+          "name": "Zutaten",
+          "servingGrams": 388.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "41f6508f-f65e-5cc1-a84b-7ea2bf76eee4",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63ff1b94-c816-57d2-b55c-0304b1681f98",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f515a324-9668-5a63-9592-2064298469fc",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d03bf6b-106f-52b5-b847-44ad38e02039",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5bd0664-f58d-50e7-8b54-a41ce925a9f6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ba80d17-b783-5d97-b2ce-0352b5fd9f7f",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee6fd069-35ba-5dd6-b644-cc0fa6e818ce",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf683327-af1d-5a5f-956b-6cc16a1be9d2",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c933f927-6bff-55ba-a8b8-624f34376377",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Paprika und Zwiebel. Brate beides 2 Minuten in Olivenöl an. Gib Spinat dazu und lass ihn 1 Minute zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier mit Salz und Pfeffer. Gieße sie über das Gemüse und rühre, bis sie gerade gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Tortilla flach hin. Verteile die Eiermischung auf einer Hälfte und gib geriebenen Käse dazu. Klappe die Tortilla zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die gefaltete Quesadilla in derselben Pfanne 1–2 Minuten pro Seite, bis sie goldbraun ist und der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Quesadilla in Stücke und serviere sie mit Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlheartfood.com/wp-content/uploads/2024/01/Veggie-and-Egg-Quesadillas-7-1161x1536.jpg",
+          "sourcePageUrl": "https://girlheartfood.com/wp-content/uploads/2024/01/Veggie-and-Egg-Quesadillas-7-1161x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shakshuka-feta",
+      "slug": "mfr-shakshuka-feta",
+      "title": "Shakshuka mit Feta",
+      "instructions": "Eier, pochiert in einer gewürzten Tomaten-Paprika-Soße und mit zerbröseltem Feta garniert: ein Frühstück aus dem Nahen Osten und Nordafrika, das zu jeder Tageszeit passt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fünf Eier für drei Personen sind die gesamte Eiweißgrundlage und kosten weniger als $1.50.",
+        "Gehackte Tomaten aus der Dose sind eine perfekte Soßengrundlage: günstig und zuverlässig gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse oder Ricotta als andere cremige Garnitur"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Pitabrot dazugeben oder für eine kohlenhydratärmere Variante weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shakshuka-feta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "nahöstlich",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 837,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shakshuka-feta/",
+      "components": [
+        {
+          "key": "61036b79-f44e-5581-bda7-272c702bfd8e",
+          "name": "Zutaten",
+          "servingGrams": 350.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "a68e799f-b5a0-56f7-86f5-022ac6370852",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d60a1693-eeec-5c23-80c0-839e5167dcdc",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecbbf181-c2a2-5764-9118-50c090791c9b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96945736-6b2b-55a2-a7bb-c84df5c4ee7b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddc8cbf2-6a3e-556b-928f-ef436341adcb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "053e1c0a-5a19-58cb-91e4-8a5eaf7fea0c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8d09d76-6364-5a4a-9031-0fd88f5f917c",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4301a682-e298-5bec-8734-149f60f15a60",
+              "ingredientName": "Chilipulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b7a9b8b-bc52-52cb-94e4-4934b0434f82",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a25a2cf2-ae36-5ffb-b41c-eba6d451a3ce",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68264b57-c29f-5caa-9db9-8150f117fce7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa2100a6-f744-5837-8ae8-09c66e6d4308",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel und Paprika 5 Minuten bei mittlerer Hitze in Olivenöl an. Gib gehackten Knoblauch dazu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kreuzkümmel, geräuchertes Paprikapulver und Chilipulver dazu und röste die Gewürze 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gehackten Tomaten dazu. Lass die Soße 5 Minuten köcheln, bis sie leicht eindickt. Würze kräftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme 5 kleine Mulden in der Soße. Schlage je ein Ei hinein. Decke die Pfanne ab und gare alles 6–8 Minuten, bis das Eiweiß gestockt, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib zerbröselten Feta und frischen Koriander darüber. Serviere die Shakshuka mit knusprigem Brot zum Auftunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/03/Shakshuka-with-Brussels-and-Feta-Cheese-1.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/03/Shakshuka-with-Brussels-and-Feta-Cheese-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chia-seed-pudding",
+      "slug": "mfr-chia-seed-pudding",
+      "title": "Chiasamen-Pudding mit Beeren",
+      "instructions": "Chia-Pudding mit Mandelmilch, über Nacht quellen gelassen und mit frischen Beeren und etwas Honig garniert: ein Frühstück zum Vorbereiten, ganz ohne Kochen und Wecker.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chiasamen kosten etwa $0.25 pro Portion und gehören zu den günstigsten Frühstücken zum Vorbereiten.",
+        "Bereite gleich 4 Gläser für die Woche vor."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-milk",
+          "swap": "Kokosmilch für einen reichhaltigeren Pudding"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder Datteln als andere Süßungsmittel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chia-seed-pudding",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Meal Prep",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 838,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chia-seed-pudding/",
+      "components": [
+        {
+          "key": "5668c110-fe1f-5e04-ad2f-538a486fca41",
+          "name": "Zutaten",
+          "servingGrams": 264.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "66a064e0-1441-560a-a2a7-8d602a1ad229",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1c194b3-59ba-55da-b85d-140e7749c538",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e8163db-9157-52e4-b891-ca9dad4b2d0c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1efca334-3c4b-54c8-815c-934f7e811eee",
+              "ingredientName": "Blaubeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdaa562f-5b14-593e-b011-606a9d2a3b51",
+              "ingredientName": "Erdbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7083592-a98d-595d-9b9e-82b5ef41f277",
+              "ingredientName": "Granola",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "363d28f3-7589-559b-acfd-959c097b86f6",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Chiasamen (etwa 3 tbsp pro Portion) mit Mandelmilch, Honig, Vanille und Zimt. Verrühre alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Mischung 4 Stunden oder über Nacht in den Kühlschrank. Rühre nach 30 Minuten einmal um, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach dem Quellen haben die Chiasamen die Milch aufgenommen und eine dicke Puddingmasse gebildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere den Pudding mit gemischten Beeren und etwas Granola.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere ihn kalt. Im Kühlschrank hält er sich 4 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Vanilla-Chia-Pudding_9-1524x2286.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Vanilla-Chia-Pudding_9-1524x2286.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-huevos-rancheros",
+      "slug": "mfr-huevos-rancheros",
+      "title": "Huevos-Rancheros-Power-Bowl",
+      "instructions": "Spiegeleier auf warmen Maistortillas mit Bohnenmus und gerösteter Ranchero-Salsa: das klassische mexikanische Frühstück mit einer Extraportion Eiweiß.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bohnenmus aus der Dose kostet weniger als $1 und liefert 8g Eiweiß pro halber Dose.",
+        "Maistortillas sind günstiger als Weizentortillas und von Natur aus glutenfrei."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Schwarze Bohnen mit Kreuzkümmel zerdrücken für eine selbst gemachte Variante"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Guacamole aus einem Portionspäckchen für eine kontrollierte Portionsgröße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-huevos-rancheros",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 839,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-huevos-rancheros/",
+      "components": [
+        {
+          "key": "86e60dff-0313-5640-9973-190e977c9919",
+          "name": "Zutaten",
+          "servingGrams": 363,
+          "position": 0,
+          "items": [
+            {
+              "key": "4eab7657-bfc4-50e6-ac1c-2c5adf10da01",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60d44627-a531-5059-ad17-38d81fbfc769",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "910b68e0-810c-5d8b-8d95-dbec36007c02",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2018d490-df38-554c-8b3a-8a75f2491c21",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4f19916-4bae-5063-8d5d-de13b4aa1e42",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04fb90b3-c0b3-582d-8020-1f5af6955341",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90e0a031-f678-5f75-a5ce-fb039689834a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a0d534e-4e23-51f5-a317-276780ef904e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d4af138-4fe5-548b-a4c3-b38a19fd20b2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c82a0c6c-34f5-5058-a270-2eea5575b217",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Maistortillas direkt über einer Gasflamme oder in einer trockenen Pfanne, jeweils 20 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme das Bohnenmus mit einer Prise Kreuzkümmel. Verstreiche es auf den Tortillas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Eier 3–4 Minuten mit der Eigelbseite nach oben in Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Eier auf die mit Bohnenmus bestrichenen Tortillas. Gib Salsa darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere alles mit einigen Avocadoscheiben, etwas Käse und frischem Koriander. Serviere die Bowls mit Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/05/huevos-rancheros.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/05/huevos-rancheros.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

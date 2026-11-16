@@ -1,0 +1,1123 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-menudo",
+      "slug": "gen-menudo",
+      "title": "Menudo",
+      "instructions": "Philippinisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinebauch und Leber sind günstige Fleischstücke; achte auf Angebote auf asiatischen Märkten.",
+        "Verwende Tomatensauce aus der Dose statt frischer Tomaten, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "philippinisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3115,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-menudo/",
+      "components": [
+        {
+          "key": "49d2699e-5f1c-5f7b-bd8d-83651eaeaab5",
+          "name": "Zutaten",
+          "servingGrams": 627.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "88da2c3b-54b0-5a48-bfcc-eee3a4d813ff",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "f18b6c4c-7159-5715-84f3-f849fa3e6648",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen, gewürfelt"
+            },
+            {
+              "key": "875f223c-0f3f-5e0d-b422-a6242f5f647d",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "6a2cf578-1401-5f67-bd15-89075e687f7a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "1679a49d-a936-5c03-a9c2-17db5419d8d3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "be0c541f-61e1-5942-b030-fcc448286333",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "e598d266-adae-53a7-b913-a78157a1064d",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Unzen Dosen"
+            },
+            {
+              "key": "68908100-710e-5e7a-91d6-fe45ba2aa205",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "e3798869-de9b-51d6-b89c-8caa9bf37f7b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8efeae94-d01d-5521-954a-22c87cecbbbc",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ea7fa18-202d-59ff-ae06-559e2583eea1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "60d20dc4-80b5-5dc1-a4c6-a1e0900a4903",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittelhoher Hitze und brate Zwiebel und Knoblauch 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelten Schweinebauch dazu und bräune ihn 5 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Wasser oder Brühe dazu und gib Lorbeerblätter hinein. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze und lasse alles 20 Minuten köcheln, bis das Schweinefleisch zart wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kartoffeln, Karotten und Schweineleber dazu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Tomatensauce und Fischsauce ein und gare alles weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/76/d5/d6/76d5d61c6f663b501337c16331b2f0e9.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/76/d5/d6/76d5d61c6f663b501337c16331b2f0e9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wonton-soup",
+      "slug": "gen-wonton-soup",
+      "title": "Wan-Tan-Suppe",
+      "instructions": "Chinesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wan-Tan-Teigblätter auf asiatischen Märkten statt in normalen Supermärkten, dort sind sie günstiger.",
+        "Verwende aufgetaute tiefgekühlte Garnelen statt frischer, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3116,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wonton-soup/",
+      "components": [
+        {
+          "key": "f3e6a6ac-d05c-5757-8ac1-4d1461ef6582",
+          "name": "Zutaten",
+          "servingGrams": 1509.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "a92a1ee4-4c27-52cc-8ebe-e74a056b9f99",
+              "ingredientName": "Wan-Tan-Teigblätter",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "20 Stücke"
+            },
+            {
+              "key": "7452e193-109f-56c5-bac6-2c48f0ca83cf",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "9ac03c07-fc68-572b-be33-aec86c927b1a",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen, fein gehackt"
+            },
+            {
+              "key": "561abd03-9ab9-5a75-a43f-8bc4e89401e8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, fein gehackt"
+            },
+            {
+              "key": "e26dd3b2-13d3-5780-ba99-4f695b1b6f3a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "e8d16da7-58eb-5bc6-a4e0-105a4b3d6207",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fdb8eafd-3b4b-526f-b482-aa86925b8470",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5a96bd06-2f65-5a18-b386-964118e59d63",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "a9af5701-3cae-5725-9b99-f825cae98a4d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL, fein gehackt"
+            },
+            {
+              "key": "ac9e361b-ed6c-5d8f-be59-ab8cec10575c",
+              "ingredientName": "Pak Choi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen, gehackt"
+            },
+            {
+              "key": "08745303-c5a6-58f7-8841-839ca0040f77",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, zum Verschließen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Schweinehackfleisch, gehackte Garnelen, Frühlingszwiebel, Knoblauch, 1 EL Sojasauce und Sesamöl in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 TL Füllung in die Mitte jedes Wan-Tan-Teigblatts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Befeuchte die Ränder des Teigblatts mit dem Finger mit Wasser, falte es zu einem Dreieck und führe dann die gegenüberliegenden Ecken zusammen und drücke sie fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe einen Topf Wasser zum Kochen und koche Wan Tans portionsweise 3 Minuten, bis sie aufsteigen. Koche sie dann eine weitere Minute und nimm sie mit einer Schaumkelle heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Hühnerbrühe mit der übrigen Sojasauce und gehacktem Ingwer in einem Topf und lasse sie sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gehackten Pak Choi in die Brühe und gare ihn 2 Minuten, bis er leicht zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile gekochte Wan Tans auf Schalen, gieße heiße Brühe mit Pak Choi darüber und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/rwfvdwnuEVpN_vQluN_yx7uNe5I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Wonton-Soup-LEAD-05-2cd2c757c45c47fe8a17604b54776635.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/rwfvdwnuEVpN_vQluN_yx7uNe5I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Wonton-Soup-LEAD-05-2cd2c757c45c47fe8a17604b54776635.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-consomm",
+      "slug": "gen-consomm",
+      "title": "Consommé",
+      "instructions": "Französisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderbrühe von der Hausmarke und spare 30 % der Zutatenkosten.",
+        "Bereite Consommé zu, wenn du Rinderhackfleisch übrig hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3117,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-consomm/",
+      "components": [
+        {
+          "key": "0d6fbb2b-12be-53b8-9672-4df4aa62bc36",
+          "name": "Zutaten",
+          "servingGrams": 604,
+          "position": 0,
+          "items": [
+            {
+              "key": "98aca96a-c9d3-51e2-ada8-318670a0ec9c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "c8dd5739-48c0-5adb-9e55-0d4eea9ff184",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7871a863-bd38-5ca5-bbb6-e3cf7857a55d",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5de86a19-16d7-5cee-beee-fa0f43153404",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "915d9109-05e7-5a08-83a5-87cc5da531f8",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02b5d171-64d6-544e-911a-7a63932e5e03",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stangen"
+            },
+            {
+              "key": "eba7bb38-4cef-57b3-9898-ef1c2b029fe4",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "afd87f0e-d12b-5f43-95b7-f9bcc407d8f6",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "9acf0edd-6519-5ad9-90cd-eca052b79dab",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d61db532-bd39-5555-9a18-f8deaf2bff6c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Rinderhackfleisch, Eiweiß, gewürfelte Zwiebel, Karotte, Sellerie und Tomatenmark in einer Schüssel zu einer Klärmasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Rinderbrühe in einem großen Topf bei mittlerer Hitze, bis Dampf aufsteigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Klärmasse langsam in die heiße Brühe ein und gib Thymian und Lorbeerblatt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhöhe die Hitze auf mittelhoch und bringe die Brühe sanft zum Köcheln. Sobald sich die Klärmasse bildet, nicht mehr rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Suppe 45 Minuten köcheln, damit sich Verunreinigungen an der Oberfläche in der Klärmasse sammeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe die Consommé vorsichtig durch ein feinmaschiges, mit Käsetuch ausgelegtes Sieb in einen sauberen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer, erwärme sie vorsichtig erneut und serviere sie in warmen Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/VsCIN2hKx7kPwQzx59qGeZTD-rk=/3024x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-chicken-consomme-recipe-434886-carrie-parente-2021-c20b24fa21d04a1e91ff0a63e1c63cdf.jpeg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/VsCIN2hKx7kPwQzx59qGeZTD-rk=/3024x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-chicken-consomme-recipe-434886-carrie-parente-2021-c20b24fa21d04a1e91ff0a63e1c63cdf.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vichyssoise",
+      "slug": "gen-vichyssoise",
+      "title": "Vichyssoise",
+      "instructions": "Französisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gewöhnliche Kartoffeln statt teurer Sorten.",
+        "Lasse frischen Schnittlauch weg und verwende getrockneten oder Frühlingszwiebelgrün, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3118,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vichyssoise/",
+      "components": [
+        {
+          "key": "094de958-5a7a-5101-9694-64f617b65b3d",
+          "name": "Zutaten",
+          "servingGrams": 476.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "6307c2a4-9e21-51be-82a3-6b5b662cb8bd",
+              "ingredientName": "Lauch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "c33f4047-fa5a-5aac-8fd0-a94262e5ace0",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "2bab83b4-26f4-5019-80b1-9509211f3a45",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "55b9ab17-6573-5d32-a525-98641518c804",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "9233f72c-ed4e-5f52-9fdf-0f62493a9876",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f1b074fc-989c-55dd-a379-2b94dd00135d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7f23ef59-311c-5441-ba6a-aeb3f1b4b2ad",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "b43bf1a7-43a2-5f7b-a1b0-0b4ec9dea512",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinige Lauch, indem du ihn längs aufschneidest und zwischen den Schichten abspülst. Schneide ihn dann in dünne Halbringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle Kartoffeln und würfle sie in 1-inch große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz Butter in einem großen Topf bei mittlerer Hitze und brate Lauch 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kartoffeln und Gemüsebrühe dazu und bringe alles zum Kochen. Reduziere dann die Hitze und lasse die Suppe 20 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Püriere die Suppe portionsweise mit einem Stabmixer oder Standmixer vollständig glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Schlagsahne ein und würze mit Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kühle die Suppe mindestens 30 Minuten. Schöpfe sie dann in Schalen und garniere sie mit frischem Schnittlauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1632417851/k/Photo/Recipe%20Ramp%20Up/2021-09-Vichyssoise/vichyssoise_01.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1632417851/k/Photo/Recipe%20Ramp%20Up/2021-09-Vichyssoise/vichyssoise_01.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-minestra",
+      "slug": "gen-minestra",
+      "title": "Minestra",
+      "instructions": "Italienisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Pasta in größeren Mengen und Dosentomaten im Angebot.",
+        "Verwende tiefgekühlte statt frischer Zucchini, um das ganze Jahr über Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3119,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-minestra/",
+      "components": [
+        {
+          "key": "6e97e3e6-d2d0-5fa2-ad8a-45323c03be69",
+          "name": "Zutaten",
+          "servingGrams": 591.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "f47ac1c1-0515-55ae-ba8e-59ee5e097eda",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ac3e784c-6f37-58f1-a1cd-dce518fb2875",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "88676098-a88c-58e6-b9f0-83acd31a1fde",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "47abb39e-420f-55e1-8ced-f700a7822782",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "daf00bb5-ff15-5fa8-bcc0-0696ea2d04ed",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "2088be72-5aa4-531d-80cd-542624d519c0",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dosen (14 Unzen)"
+            },
+            {
+              "key": "37f0f0d2-744b-5b66-8aac-e9631c0025d0",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d2d5c5eb-a879-5646-b40e-2d909bda272d",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "a55ddd65-6963-5030-a416-9e184fa552e3",
+              "ingredientName": "Cannellini-Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dosen (15 Unzen)"
+            },
+            {
+              "key": "bcf2d27c-329b-55ce-b5f4-b2fe8e810d22",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "64a5c529-0010-5f7e-889d-caa468c2945e",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "af070972-cb1b-504b-893f-83e4325a4a03",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und brate gewürfelte Zwiebel, gehackten Knoblauch, Sellerie und Karotte 8 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Tomaten und Gemüsebrühe dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf mittlere Stufe, gib gewürfelte Zucchini und abgetropfte Bohnen dazu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Pasta ein und koche sie 8-10 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre kurz vor dem Servieren frisches Basilikum ein und schöpfe die Suppe in Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/s85q-dsy4MOh-R_idVIjccGF6KE=/2880x1920/filters:fill(auto,1)/italian-wedding-soup-minestra-maritata-4009194-hero-01-edfcb23146f0409f9c7e4add7394c2d8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/s85q-dsy4MOh-R_idVIjccGF6KE=/2880x1920/filters:fill(auto,1)/italian-wedding-soup-minestra-maritata-4009194-hero-01-edfcb23146f0409f9c7e4add7394c2d8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

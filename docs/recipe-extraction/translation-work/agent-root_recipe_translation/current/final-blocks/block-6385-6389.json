@@ -1,0 +1,1097 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pasta-alla-norcina",
+      "slug": "gen-pasta-alla-norcina",
+      "title": "Pasta alla Norcina",
+      "instructions": "Umbrisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um Geld zu sparen, verwenden Sie Schweinehackfleisch anstelle von Trüffelspezialitäten",
+        "Kaufen Sie Parmesan in Scheiben und reiben Sie ihn zu Hause statt vorgerieben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "umbrisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6385,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasta-alla-norcina/",
+      "components": [
+        {
+          "key": "2a76fc8f-ba0c-5217-adcd-a0a262473646",
+          "name": "Zutaten",
+          "servingGrams": 140.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7050c878-c839-5253-b310-e8027b468f3c",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "fb0b4767-6a17-5e66-a026-f8645459ed4f",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "93178862-8d61-5504-8713-2e4d5207f2dc",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "44c14289-01f7-5ed8-89b7-80a457f64c96",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "221e8389-f6b6-58a9-9f9c-6ea9c60a0b53",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "dffe7564-6ff4-5e0f-a850-dd3919344224",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "062dadcb-89a8-5b9f-9c78-4256c436c764",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4c300399-0c72-55e6-8bfb-e970160b6986",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3e595ed0-5978-504c-badc-2d0cfc82b3c4",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6e58cdb6-4a5c-5d6c-8c0d-6411e574a30d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringen Sie einen großen Topf mit Salzwasser zum Kochen und kochen Sie die Nudeln nach Packungsanweisung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer großen Pfanne erhitzen und den gehackten Knoblauch etwa 30 Sekunden lang anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinehackfleisch hinzufügen und unter Zerteilen vollständig anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Pfanne mit Weißwein ablöschen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren, Schlagsahne einrühren und 5 Minuten leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Nudeln abtropfen lassen und zur Soße geben und gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Parmesankäse und frische Petersilie unterrühren und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2024/04/One-Pot-French-Onion-Soup-Pasta-Featured.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2024/04/One-Pot-French-Onion-Soup-Pasta-Featured.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-strangozzi-al-tartufo",
+      "slug": "gen-strangozzi-al-tartufo",
+      "title": "Strangozzi al Tartufo",
+      "instructions": "Umbrisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Trüffelöl anstelle von frischen Trüffeln, um den Geschmack zu einem Bruchteil der Kosten zu erzielen",
+        "Machen Sie hausgemachten Nudelteig, anstatt ihn frisch zu kaufen, um deutlich zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "umbrisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6386,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-strangozzi-al-tartufo/",
+      "components": [
+        {
+          "key": "8ce493e0-2070-58f0-9605-d80f3e7f0316",
+          "name": "Zutaten",
+          "servingGrams": 229.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee9590ec-3f6a-5654-bdc2-67ab6785e5b0",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1fd0d5a3-55db-5f66-9d59-15273377f189",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "f7fe6398-5e0b-5c45-b6a9-68c3fe658348",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f7a154e2-fae2-5367-a81e-d8d9b3384c93",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9a5880bd-5378-5273-bad6-c5ad32ccc530",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "5a25607c-231a-5416-bbec-3e930c84a846",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "c70efcf3-0ebf-518e-9b90-126ac10a0d58",
+              "ingredientName": "Trüffelöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "419319d8-319f-587e-8a77-4f03ee4de70a",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "cc1b758f-9146-5740-b647-a547b5cc0fc4",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "efb82c8a-69c8-5e0e-8105-9b1628a18607",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz vermischen, dann nach und nach Wasser und 1 Esslöffel Olivenöl hinzufügen, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 10 Minuten lang kneten, bis er glatt und elastisch ist, dann einwickeln und 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teilen Sie den Teig in 4 Stücke und rollen Sie jedes zu einem dünnen Strang, dann schneiden Sie es in unregelmäßig geformte Nudelstücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringen Sie einen großen Topf mit Salzwasser zum Kochen und kochen Sie die Nudeln etwa 4–5 Minuten lang al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Butter in einer großen Pfanne mit gehacktem Knoblauch und frischem Thymian bei schwacher Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Nudeln abtropfen lassen und unter vorsichtigem Rühren zur Buttermischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Trüffelöl beträufeln, geriebenen Parmesan dazugeben, mit Pfeffer würzen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/b4/2c/12/b42c1209f5437032f83b56fe8ad19b17.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/b4/2c/12/b42c1209f5437032f83b56fe8ad19b17.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ragu-di-lepre",
+      "slug": "gen-ragu-di-lepre",
+      "title": "Ragu di Lepre",
+      "instructions": "Umbrisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie Kaninchen durch Schweineschulter, die deutlich günstiger ist und eine ähnliche Konsistenz hat",
+        "Machen Sie eine doppelte Menge und frieren Sie die Hälfte für zukünftige Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "umbrisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6387,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ragu-di-lepre/",
+      "components": [
+        {
+          "key": "43af3f42-9c04-5995-928e-cb6cc10a3ebc",
+          "name": "Zutaten",
+          "servingGrams": 225.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "605c0ca1-be2c-5d60-a8b9-99aa5829dffa",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1899d356-b518-5470-b41e-fbc406cb577d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "c4af6c82-504f-5e34-87d8-931e919e3c72",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "f2d4081a-ce88-5533-b0f0-bc1cfb5be356",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "860f9b19-32e0-5383-bf26-cb96d6337893",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7132929f-35a0-5fad-9ef6-96757b6212ba",
+              "ingredientName": "Rotweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3f0b905d-0d3d-579f-9521-342856923d24",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d1857bc2-6431-5631-b4fc-1909580b8e7d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "22288c1c-6381-5abb-8039-a006ced0bdc1",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ace5737e-36eb-5b1c-b26b-0cdbd9515f12",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4c2f407b-3e87-5194-b681-23cd21cfea59",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kaninchen oder Schweinefleisch in 2 Zoll große Stücke schneiden und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Schmortopf erhitzen. Das Fleisch portionsweise von allen Seiten anbraten und anschließend beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel, Karotte und Sellerie fein hacken (Soffritto) und ca. 5 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark einrühren und 2 Minuten kochen lassen, dann mit Rotwein ablöschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Fleisch wieder in den Topf geben, Rinderbrühe und Lorbeerblatt hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zugedeckt im Ofen bei 325 °F 2.5 Stunden schmoren. Dabei gelegentlich umrühren, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nudeln nach Packungsanweisung kochen und mit Ragout und Bratensaft garniert servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.conad.it/assets/images/ricette/viabagutta/saporiidee/pasta-con-rag--di-lepre-0007.jpg?_u=fc6b17df55e981303d3774699170c6d89d9652ad",
+          "sourcePageUrl": "https://www.conad.it/assets/images/ricette/viabagutta/saporiidee/pasta-con-rag--di-lepre-0007.jpg?_u=fc6b17df55e981303d3774699170c6d89d9652ad",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-orzotto",
+      "slug": "gen-orzotto",
+      "title": "Orzotto",
+      "instructions": "Umbrisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Gerste in großen Mengen in der Getreide- oder Naturkostabteilung, um deutlich zu sparen",
+        "Verwenden Sie alle verfügbaren Pilze oder lassen Sie sie für eine einfachere Variante weg"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "umbrisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6388,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-orzotto/",
+      "components": [
+        {
+          "key": "486af500-7e9d-5829-b2b6-73666f4350ab",
+          "name": "Zutaten",
+          "servingGrams": 461.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fca723f-c6e7-5816-8109-61f9f959b189",
+              "ingredientName": "Graupen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "77e3521a-ce9d-5167-91d1-9e546ebb04d4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "ae5cab95-aeba-5a81-bfa2-9c5d8e43b9db",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d3246cc0-a6d9-58ed-924d-c21757d64635",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "6cb2f754-0a11-5da7-816a-30c4b13fda5a",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5ceea6bb-b47d-583d-9ee9-26456a71af48",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5c21ecae-41cb-564c-9b7d-71176caabd00",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "df9b1d21-9441-54ea-8757-705268ea4f2d",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "1d5de3b8-c5dc-5116-8c6f-7c5d317fdca1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "3f17afd5-a946-5362-9114-4afc92a3d73c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einem separaten Topf erhitzen und während des Garens leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl und Butter in einer großen Pfanne erhitzen und gewürfelte Zwiebeln und gehackten Knoblauch anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In Scheiben geschnittene Pilze hinzufügen und etwa 5 Minuten lang goldbraun braten, dann beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gerste in derselben Pfanne 2 Minuten rösten, dann mit Weißwein ablöschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die warme Brühe unter häufigem Rühren jeweils Tasse für Tasse zugießen. Erst mehr hinzufügen, wenn die Flüssigkeit größtenteils aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fahren Sie etwa 30–35 Minuten fort, bis die Gerste zart und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Butter, Parmesan und gekochte Pilze unterrühren und vor dem Servieren mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/96f84073-a09b-49f9-9034-a84799a5f201.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/96f84073-a09b-49f9-9034-a84799a5f201.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-flan-di-tartufo",
+      "slug": "gen-flan-di-tartufo",
+      "title": "Flan di Tartufo",
+      "instructions": "Umbrisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lassen Sie Trüffelöl weg und verwenden Sie normales Pilzpulver oder fein gehackte Pilze, die in die Vanillesoße gemischt werden",
+        "Für eine einfachere Zubereitung verwenden Sie eine Kastenform statt einzelner Auflaufförmchen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "umbrisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6389,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flan-di-tartufo/",
+      "components": [
+        {
+          "key": "fe893529-f17f-5495-8f2d-f97ccbb39af7",
+          "name": "Zutaten",
+          "servingGrams": 197.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa9b6a93-4d5d-5b76-bd5a-96ca53a8e3be",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5049b0c-d985-5860-87a5-2f1f23a6ead4",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "1c0fd61e-7d1f-5aba-bfcd-3fd309ac34ce",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "89a1863c-a106-5db9-b3e8-6f3dec7e0467",
+              "ingredientName": "Trüffelöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "49dfd6e5-3145-557c-9e18-ae2d0708c919",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "10df0eec-4a0b-5cae-9e1e-2cd2803f87cf",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "13605cee-1b26-5a22-8386-620dfd7b7208",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "9d415802-d3cd-5ec0-bf5a-60f056e2526d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cd89fee4-47e7-56a3-aa7c-e2487b08475c",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 325 °F vor und bestreichen Sie 4 Auflaufförmchen oder Tortenformen gründlich mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Milch und Sahne zusammen erhitzen, bis sie dampfen, dann vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier mit geriebenem Parmesan, Salz, weißem Pfeffer und Muskatnuss verquirlen, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Temperieren Sie die Eier langsam, indem Sie die heiße Milchmischung unter ständigem Rühren hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Trüffelöl einrühren und die Mischung durch ein feines Sieb passieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Masse in die vorbereiteten Förmchen gießen und in ein Wasserbad stellen, das bis zur halben Höhe der Förmchen reicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "25–30 Minuten backen, bis die Mitte gerade fest, aber noch leicht wackelig ist, dann abkühlen lassen und vor dem Servieren kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Classic-Flan_EXPS_TOHVP25_278616_MF_01_14_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Classic-Flan_EXPS_TOHVP25_278616_MF_01_14_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

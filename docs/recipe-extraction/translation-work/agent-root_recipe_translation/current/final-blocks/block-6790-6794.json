@@ -1,0 +1,1109 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mantou",
+      "slug": "gen-mantou",
+      "title": "Mantou",
+      "instructions": "Gedämpfte chinesische Hefebrötchen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mehl und Hefe in großen Mengen auf asiatischen Märkten",
+        "Verwenden Sie für mehrere Portionen einen Dampfgarkorb aus Bambus"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "Frühstück",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6790,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mantou/",
+      "components": [
+        {
+          "key": "33563fe4-1e13-579d-8fab-d8f2ca470a8e",
+          "name": "Zutaten",
+          "servingGrams": 200.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ce13734-adf1-521f-91d9-036141fe45ea",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "5b8284c3-cd0c-585f-bc98-62cecec0c849",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "67670049-4d8a-55c0-bc66-bc60004467b4",
+              "ingredientName": "Instant-Hefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1612c3c1-ba20-5676-a518-af640087169d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a5c2fd6b-e2ad-5a51-8898-027f118eb541",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser, Hefe, Zucker und Salz zu einem Teig vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 8 Minuten kneten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig 45 Minuten gehen lassen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teilen Sie den Teig in 8 gleich große Stücke und rollen Sie jedes zu einer Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf Backpapierquadrate legen und weitere 30 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Einen Dampfgarer mit Wasser füllen und das Wasser zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Mantou 12–15 Minuten dämpfen, bis sie locker und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vorsichtig herausnehmen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6086f40d5799229a8ef966c0/1:1/w_2560%2Cc_limit/Brandon-Jew-Mantou-Buns.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6086f40d5799229a8ef966c0/1:1/w_2560%2Cc_limit/Brandon-Jew-Mantou-Buns.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-taftan",
+      "slug": "gen-taftan",
+      "title": "Taftan",
+      "instructions": "Persisches Safranbrot mit Sesam und Schwarzkümmel.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lassen Sie Safran weg und verwenden Sie stattdessen Kurkuma als Farbe",
+        "Verwenden Sie Sesamsamen anstelle von Schwarzkümmelsamen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "persisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6791,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-taftan/",
+      "components": [
+        {
+          "key": "455edd38-fa5c-51ea-b851-0c3fe18d46ae",
+          "name": "Zutaten",
+          "servingGrams": 372.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "a72f3416-9e01-5e54-9eee-9904a5e688e2",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "b889f63f-84c4-544c-861d-7b3093273e2e",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "1a08a4e8-322a-52ef-8758-1b148e6c2483",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "236ea7a1-122d-5aa1-be90-764432fcb561",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a0cbdb4-00aa-55ad-83f2-71bfec7387eb",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "218c2686-1b12-5b33-b954-22302e7ad89b",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "95b7cf7b-ade8-52d7-854b-24010d00e21f",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "8998f32f-a7b4-5a2c-8456-2378865cb97e",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "85eb4a87-b738-57bf-8ae3-f5fae0b52fac",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Milch erwärmen, die Safranfäden darin auflösen und die Milch leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Hefe, Zucker und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Safranmilch, 1 verquirltes Ei und Butter dazugeben. Den Teig 10 Minuten kneten, bis er glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig 1.5 Stunden gehen lassen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig rund formen und auf ein mit Backpapier ausgelegtes Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 45 Minuten gehen lassen, bis der Teig aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit verquirltem Ei bestreichen und Schwarzkümmelsamen darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 375 °F 25–30 Minuten backen, bis das Brot goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/bj3md353wq311.jpg",
+          "sourcePageUrl": "https://i.redd.it/bj3md353wq311.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-de-mariscos",
+      "slug": "gen-caldo-de-mariscos",
+      "title": "Caldo de mariscos",
+      "instructions": "Mexikanische Meeresfrüchtesuppe mit Kabeljau, Garnelen und Venusmuscheln.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Garnelen und Muscheln statt frisch, um 30–40 % zu sparen.",
+        "Für mehr Konsistenz und Einsparungen verwenden Sie Tomatensoße aus der Dose anstelle von frischen Tomaten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6792,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-de-mariscos/",
+      "components": [
+        {
+          "key": "a7f3d99b-2cb7-5619-a02c-35924955c7e3",
+          "name": "Zutaten",
+          "servingGrams": 523.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "fac9d1e8-14b0-5111-bb84-ce9961181dcc",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3c8d2bd2-a02b-5168-a7c1-5fa09a32665d",
+              "ingredientName": "Venusmuscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2af214ed-e500-5727-90db-c0a11d6641d2",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "ac6ab09f-d209-5f5b-abad-523f592f9d65",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "881d272f-1e1f-51c9-a303-689093e977b9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51ac915d-ed85-5ab5-af0f-d03a60f1efc4",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "3d873181-62c4-5858-a3ce-6fa6d1ecc036",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "25587c34-6289-5d99-852f-33f184ceaa68",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8e75873d-dca1-5c94-8c15-97b0b7d50f2c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bef5c6d1-fab8-5694-969f-a61b47d70159",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "25378519-e152-5389-ad22-348acb88689e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "11e26dc4-21c6-5456-bf64-abde933515bc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen. Gewürfelte Zwiebel und gehackten Knoblauch 3 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomatensauce, Hühnerbrühe und Oregano hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischfiletstücke dazugeben und 5 Minuten köcheln lassen, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen und Venusmuscheln dazugeben und unter gelegentlichem Rühren 6–8 Minuten garen, bis die Garnelen rosa sind und sich die Muscheln öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geschlossene Muscheln entfernen. Limettensaft und Salz nach Geschmack dazugeben und mit Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren in Schüsseln füllen und großzügig mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.taste.com.au/pzNr0igX/taste/2016/11/sopa-de-mariscos-spanish-seafood-soup-94102-1.jpeg",
+          "sourcePageUrl": "https://img.taste.com.au/pzNr0igX/taste/2016/11/sopa-de-mariscos-spanish-seafood-soup-94102-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bouillabaisse-marseillaise",
+      "slug": "gen-bouillabaisse-marseillaise",
+      "title": "Bouillabaisse aus Marseille",
+      "instructions": "Französischer Fischeintopf mit Meeresfrüchten, Safran und Fenchel.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verzichten Sie auf Safran und verwenden Sie Kurkuma für Farbe und erdigen Geschmack zu 80 % geringeren Kosten",
+        "Kaufen Sie gefrorenen Fisch und Muscheln im Discounter"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6793,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bouillabaisse-marseillaise/",
+      "components": [
+        {
+          "key": "f0e4cf77-dac8-5087-8df6-02bcadd3e319",
+          "name": "Zutaten",
+          "servingGrams": 280.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a5cdf79-bbfa-5092-b9e3-03ccf764d90d",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "99a6bbe4-fdad-5bb9-8a23-6510fa0b7aa6",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "09ba9e43-130c-5de5-a2a5-4ad17ed6f50a",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "cb9f2614-e01b-55eb-8aca-0aae71485c34",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "c73c641a-9d0d-5321-a75a-03fb8c874ae8",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17d616a4-ebf5-5e6c-90b3-fd2a4abdb8d6",
+              "ingredientName": "Fenchelknolle",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "627c8603-e3b0-5b77-9454-32a2124fac78",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "55600dc2-2c90-5456-a7ca-4f09c8583306",
+              "ingredientName": "Fischsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "3f77c4ea-d599-546a-9298-c2ca96617c27",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Prise"
+            },
+            {
+              "key": "1c713c71-23f9-57cc-ab93-22dc511f65d8",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "245aedd4-39d2-52aa-a9b4-b2665e190aa2",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "95e31060-0f6e-54cb-b541-94ac6b38045a",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccaf5782-7653-5b00-b698-02eebe50b26a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen. Zwiebelscheiben, gehackten Knoblauch und gewürfelten Fenchel 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinerte Tomaten, Fischfond, Safran und Orangenschale dazugeben und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Salz und Pfeffer würzen und die Brühe 10 Minuten köcheln lassen, damit sich das Aroma entfaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fischstücke dazugeben und 4 Minuten köcheln lassen. Anschließend Muscheln und Garnelen hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 4–6 Minuten garen, bis sich der Fisch leicht zerteilen lässt, die Muscheln geöffnet und die Garnelen rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Baguettescheiben rösten, Meeresfrüchte und Brühe auf Schüsseln verteilen und mit geröstetem Brot als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/maXpahogp_OSo9KMiLhkI6aS74g=/4264x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Bouillabaisse-LEAD-4-c74e05e003a049c88004c94876ff140e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/maXpahogp_OSo9KMiLhkI6aS74g=/4264x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Bouillabaisse-LEAD-4-c74e05e003a049c88004c94876ff140e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sopa-de-marisco",
+      "slug": "gen-sopa-de-marisco",
+      "title": "Spanische Meeresfrüchtesuppe",
+      "instructions": "Spanische Suppe mit Garnelen, Muscheln und Tomaten.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hühnerbrühe anstelle von Fischbrühe, um 2–3 $ pro Topf zu sparen",
+        "Kaufen Sie vorgeschälte gefrorene Garnelen, um die Zubereitungszeit und die Kosten zu reduzieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6794,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopa-de-marisco/",
+      "components": [
+        {
+          "key": "eef73970-236a-53fb-83a7-e2e086349f18",
+          "name": "Zutaten",
+          "servingGrams": 153.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c1926b08-89c5-5766-94b3-3b9f8a2b39a4",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "98527f9a-af3c-5863-8383-461e4cb36f39",
+              "ingredientName": "Venusmuscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "bc568a40-fc68-555c-b562-03efb1863bc2",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "bcd11770-edd0-5eea-b601-b0496c74aca5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "d95d0e68-2433-5b48-a811-cb2c1cb0f4b6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4ccbf1a-3a6e-5e09-a09f-abbd09c33eaa",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "a70d1c0d-b501-5c61-bc05-4c9d33669e13",
+              "ingredientName": "Fischsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "75ee0c94-ab3c-5da2-bf0b-27f6a4c47acc",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "54815810-e933-597a-a27f-3c7603712a00",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3ec9cc2d-eb79-52c9-a6c2-568f93aba66b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e3838b5d-a007-5183-b765-9514a3607f34",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "235d3c5e-d101-502d-8a29-ef7c5a3f24ff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebeln und gehackten Knoblauch 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paprikapulver dazugeben und 30 Sekunden umrühren. Weißwein hinzufügen und 2 Minuten köcheln lassen, damit er etwas reduziert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischfond und Tomatenwürfel samt Saft angießen. Lorbeerblatt dazugeben und alles zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und Muscheln hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen hinzufügen und 4–5 Minuten weiter köcheln lassen, bis alle Meeresfrüchte gar sind und sich die Schalen geöffnet haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lorbeerblatt entfernen, mit Salz und Pfeffer würzen und heiß in tiefen Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/01/Spicy-Sopa-de-Mariscos-Seafood-Soup.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/01/Spicy-Sopa-de-Mariscos-Seafood-Soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1041 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-it2-tuscan-white-bean-pasta",
+      "slug": "mfr-it2-tuscan-white-bean-pasta",
+      "title": "Toskanische Pasta mit weißen Bohnen und Grünkohl",
+      "instructions": "Ein einfaches toskanisches Gericht: Cannellini-Bohnen und Schwarzkohl in Knoblauch-Rosmarin-Olivenöl geschmort, mit kurzer Pasta vermischt und mit Zitrone und Parmesan vollendet. Schlichte Zutaten werden durch die richtige Zubereitung zu einem besonders herzhaften Essen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen weiße Bohnen kosten $2 und liefern 22 g Eiweiß pro Portion.",
+        "Tiefgekühlter Spinat eignet sich sehr gut – drücke vorher das Wasser heraus.",
+        "Das Gericht lässt sich wunderbar aufwärmen – bereite gleich mehr zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spinach",
+          "swap": "Grünkohl – gib ihn 5 Minuten früher dazu, damit er weich wird"
+        },
+        {
+          "forIngredientId": "rosemary-fresh",
+          "swap": "Getrockneter Rosmarin – verwende 1/2 TL"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-tuscan-white-bean-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "weiße-Bohnen",
+        "Grünkohl",
+        "Pasta",
+        "toskanisch",
+        "günstig"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1440,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-tuscan-white-bean-pasta/",
+      "components": [
+        {
+          "key": "7075aa74-8a61-5756-b19d-62c3b5c272d1",
+          "name": "Zutaten",
+          "servingGrams": 661,
+          "position": 0,
+          "items": [
+            {
+              "key": "8429cb4d-f4c2-542c-8cec-792cc9bc14f7",
+              "ingredientName": "Pasta",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ecddf1d-b95c-5ac4-ad5e-05016ba4cf22",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ca2bc1a-2a67-5908-a69b-0a5e945723ff",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdd91f91-8dce-59e8-9838-337ed736ae5c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abf656c5-e8e6-551c-a0be-c4091a3bdda9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67e442c0-62bd-539a-9fc3-2ea2f5002085",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "322f7405-96b9-5752-a998-f5ac82ce969a",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab9544b6-44e3-5d00-ae28-86b30f145a8e",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7bd4a89-9e77-56e3-aa24-3c1e59e23b15",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df3e70fc-bd92-5322-8486-bd6f6cae27eb",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Knoblauch, Rosmarin und Chiliflocken in Olivenöl an, bis sie duften. Gib weiße Bohnen dazu und gare sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Brühe dazu und zerdrücke 1/3 der Bohnen, damit die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Spinat dazu und schwenke alles, bis er zusammenfällt. Würze mit Zitronensaft und abgeriebener Zitronenschale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Pasta und gib sie mit etwas Nudelwasser zu den Bohnen. Vermische alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Pasta großzügig mit Parmesan bestreut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del129923-creamy-tuscan-white-bean-skillet-035-rv-hires-lead-6585a70ad2b73.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del129923-creamy-tuscan-white-bean-skillet-035-rv-hires-lead-6585a70ad2b73.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-it2-pasta-gricia",
+      "slug": "mfr-it2-pasta-gricia",
+      "title": "Pasta alla Gricia",
+      "instructions": "Die ursprüngliche römische Pasta, noch vor Tomaten und Eiern: nur Schweinefett, Pecorino Romano, schwarzer Pfeffer und Pasta. Guanciale schmilzt zu einer seidigen Emulsion, die sich an jede Rille der Rigatoni schmiegt und zeigt, dass weniger mehr ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Speck ist der beste Ersatz für Guanciale – verwende dicke Scheiben für mehr Fett.",
+        "Das stärkehaltige Nudelwasser ist unverzichtbar – es sorgt dafür, dass die Sauce an der Pasta haftet.",
+        "Lass das Speckfett etwas abkühlen, bevor du den Käse zugibst, sonst klumpt er."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Pancetta für ein milderes Schweinefleischaroma"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Pecorino Romano für die authentisch würzige und salzige Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-pasta-gricia",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Gricia",
+        "Pancetta",
+        "Pecorino",
+        "römisch",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1441,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-pasta-gricia/",
+      "components": [
+        {
+          "key": "f4238e2e-e8f2-5751-a402-cdeec44320e2",
+          "name": "Zutaten",
+          "servingGrams": 180,
+          "position": 0,
+          "items": [
+            {
+              "key": "78c97e19-f9cb-5cb7-9951-8669b1fb0daf",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "902a7c4e-ca2d-56fa-8402-d3ea16201010",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21fe66d4-b089-5af0-8bd7-ec6074926514",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ae3e378-4b87-5a61-bd62-10ba6913a954",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0c8b0a2-8123-518e-9a13-5f89136bd2a6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "638bde56-fe44-5e58-be5c-397347d418d3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta. Lass gewürfelten Speck in Olivenöl knusprig aus und hebe die Hälfte des Fetts auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib eine große Kelle stärkehaltiges Nudelwasser zum Schweinefett und lass es köcheln, bis eine Emulsion entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pfanne vom Herd. Vermische die abgetropfte Pasta portionsweise mit Pecorino und rühre dabei ständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib nach Bedarf Nudelwasser dazu, damit die Sauce glänzend bleibt und die Pasta umhüllt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Pasta an und gib extra Käse, frisch gemahlenen Pfeffer und den übrigen Speck darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57aced6df1c801a1038bc90d/1:1/w_2560%2Cc_limit/pasta-alla-gricia1.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57aced6df1c801a1038bc90d/1:1/w_2560%2Cc_limit/pasta-alla-gricia1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-it2-pasta-con-tonno",
+      "slug": "mfr-it2-pasta-con-tonno",
+      "title": "Pasta con Tonno (Thunfisch-Pasta)",
+      "instructions": "Ein Klassiker aus der italienischen Vorratskammer: Spaghetti mit Thunfisch in Olivenöl, Kapern, Kirschtomaten, Knoblauch und Oliven in einer schnellen Aglio-Olio-Sauce – eine besonders herzhafte Pasta in 15 Minuten, zubereitet aus Konserven.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Thunfisch kosten $2 und liefern 40 g Eiweiß – die günstigste Pasta mit Meeresfrüchten.",
+        "Thunfisch in Öl hat mehr Aroma als Thunfisch in Wasser, aber beides funktioniert.",
+        "Das Gericht dauert 15 Minuten und kostet $1.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs aus der Dose für ein etwas anderes Aroma"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Gehackte Tomaten aus der Dose für eine sämigere Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-pasta-con-tonno",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Pasta-Tonno",
+        "Thunfisch",
+        "Konserve",
+        "schnell",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1442,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-pasta-con-tonno/",
+      "components": [
+        {
+          "key": "1bec3233-6b58-5d54-b109-5302ec30e73b",
+          "name": "Zutaten",
+          "servingGrams": 696.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ca32e9e-ea23-5edc-9f6c-0e8f99b3b4fa",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d981b838-052b-56fd-9213-eb464ab9a468",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37fe24c5-ba51-559b-9661-0ec5717ed69d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32e5c9e3-d102-5f50-812c-773e10088a45",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8695241-bbbc-5db0-93da-7f9197db4c73",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acfd539d-8c26-5d93-b750-60fe20e737aa",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45c291de-b8d5-5b1d-89e7-49dbfd64ead9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77fea528-1158-5b57-ab07-4042318ef266",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3f1d015-d782-570f-94b3-ef379199c058",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3008a02d-25d8-54fd-8828-41cbe0be50a6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta und hebe 1/2 Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste währenddessen Knoblauch und Chiliflocken 1 Minute in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib halbierte Kirschtomaten dazu und gare sie 3–4 Minuten, bis sie aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abgetropften Thunfisch dazu und zerteile ihn vorsichtig, sodass einige größere Stücke bleiben. Füge Nudelwasser hinzu, um die Sauce zu verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische alles mit der Pasta und verfeinere es mit Zitrone, Petersilie, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/64f1058b03281ecc5ae60543/16:9/w_2560%2Cc_limit/20230822-SEO-ITS-2364.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/64f1058b03281ecc5ae60543/16:9/w_2560%2Cc_limit/20230822-SEO-ITS-2364.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-it2-orecchiette-sausage",
+      "slug": "mfr-it2-orecchiette-sausage",
+      "title": "Orecchiette mit Wurst und Stängelkohl",
+      "instructions": "Das typische Gericht aus Apulien: ohrförmige Pasta mit zerkrümelter Schweinswurst, bitterem Stängelkohl, Knoblauch und Chiliflocken. Der Reiz liegt im Kontrast zwischen süßlicher Wurst, bitterem Grün und bissfester Pasta.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Brokkoli eignet sich gut – gib ihn direkt gefroren zur Wurst in die Pfanne.",
+        "Süße italienische Wurst ist klassisch, scharfe schmeckt ebenfalls gut.",
+        "Wenn du die Pasta im selben Wasser wie den Brokkoli kochst, sparst du Abwasch und gewinnst Aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Truthahnwurst für eine magerere Variante mit ähnlichem Aroma"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Normaler Brokkoli oder Broccolini – gib ihn 3 Minuten früher dazu als den Stängelkohl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-orecchiette-sausage",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Orecchiette",
+        "Wurst",
+        "Brokkoli",
+        "apulisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1443,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-orecchiette-sausage/",
+      "components": [
+        {
+          "key": "e65af081-b240-5013-81d0-e242b4c01aaa",
+          "name": "Zutaten",
+          "servingGrams": 382.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "93b4213c-7572-57a1-a501-839e60296f29",
+              "ingredientName": "Pasta",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b4ccc04-b272-5535-afd0-081f3a9b38a3",
+              "ingredientName": "Schweinswurst",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a5088db-73e9-5dbf-af31-0f30914f0745",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad8f46b7-769d-5938-8427-794c622f0b49",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52453e57-7ddf-5807-aa6a-c63f72df37eb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b85c344-e312-5654-8c70-506add393cd5",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51c3baf9-9095-5274-a1e8-1326e9e64c45",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b3c652a-b664-55c3-9490-9f3d66aef62a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere den Brokkoli 3 Minuten im gesalzenen Nudelwasser und nimm ihn heraus. Lass das Wasser im Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Pasta im selben Wasser. Bräune währenddessen die zerkrümelte Wurst in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Chiliflocken dazu und gare alles 1 Minute. Füge Brokkoli hinzu und dünste ihn 5 Minuten, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die abgetropfte Pasta mit einer Kelle Nudelwasser in die Pfanne und vermische alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verfeinere das Gericht mit Parmesan und etwas Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/saw-a-post-about-a-month-ago-for-the-orecchiette-with-v0-q9py3jd99zo91.jpg?auto=webp&s=7073141d82cc1dac935fa3561f708d24220e410f",
+          "sourcePageUrl": "https://i.redd.it/saw-a-post-about-a-month-ago-for-the-orecchiette-with-v0-q9py3jd99zo91.jpg?auto=webp&s=7073141d82cc1dac935fa3561f708d24220e410f",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bfst-burrito-classic",
+      "slug": "mfr-bfst-burrito-classic",
+      "title": "Klassischer Frühstücks-Burrito mit Rührei",
+      "instructions": "Locker gerührte Eier, knusprige Bratkartoffeln, Cheddar und Pico de Gallo in einer warmen Weizentortilla, außen knusprig angebraten – der amerikanische Frühstücks-Burrito für Bauarbeiter, Studierende und alle dazwischen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln kosten 50 Cent pro Pfund und sind die günstigste Füllung.",
+        "Gare die Kartoffel zuerst in der Mikrowelle – so sparst du 10 Minuten am Herd.",
+        "Bereite 4 Burritos auf einmal zu und stelle sie kalt. Im Minibackofen lassen sie sich gut aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Tiefgekühlte Kartoffelrösti für eine noch schnellere Zubereitung"
+        },
+        {
+          "forIngredientId": "pico",
+          "swap": "Salsa aus dem Glas – funktioniert sehr gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-burrito-classic",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Burrito",
+        "Eier",
+        "Frühstück",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1444,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-burrito-classic/",
+      "components": [
+        {
+          "key": "2d848288-d4ec-52ca-919c-0d2a68c21e31",
+          "name": "Zutaten",
+          "servingGrams": 425,
+          "position": 0,
+          "items": [
+            {
+              "key": "1090d131-803c-594f-a1c7-73747a46edef",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e8fd28f-6d56-5d43-8897-231e5adb845d",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a08f01f4-e39d-5194-aa1c-33ab1f3c3957",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee705de0-e340-5d82-b0a0-4b1db610d943",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc5f809e-3f08-5398-ae82-cdf3640b8bab",
+              "ingredientName": "Pico de Gallo",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f523769-738b-5512-a99a-405a2f8defe0",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e765882-afc1-5481-85c3-203a91941673",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05cc1afe-cb0c-5823-8281-e4035f0b106c",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8752a3f-ad30-59e7-acd9-86a3f978fa6d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5255526a-211c-5f3d-b2e2-898e3ba70b70",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc51c8fd-1963-5ac6-99f0-2cb20ebe5e6a",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffel klein und gare sie 3 Minuten in der Mikrowelle. Brate sie anschließend mit Butter, Knoblauchpulver und Paprika knusprig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre die Eier bei niedriger Hitze vorsichtig und nimm sie früh vom Herd, solange sie gerade gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege Eier, Kartoffeln und Käse in die Mitte einer warmen Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Pico de Gallo und einen Löffel saure Sahne darauf. Rolle den Burrito fest auf und brate ihn mit der Naht nach unten in einer heißen, trockenen Pfanne auf jeder Seite 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/Egg-Burritos_EXPS_SDDJ18_18782_D08_04_4b.jpg",
+          "sourcePageUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/Egg-Burritos_EXPS_SDDJ18_18782_D08_04_4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

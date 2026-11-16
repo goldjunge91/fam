@@ -1,0 +1,1110 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-currywurst",
+      "slug": "gen-currywurst",
+      "title": "Currywurst",
+      "instructions": "Deutsches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Curry-Saucenbasis selbst zubereiten und in Eiswürfelformen einfrieren",
+        "Tiefgekühlte Pommes statt frischer verwenden, um Zeit und Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "deutsch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2835,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-currywurst/",
+      "components": [
+        {
+          "key": "c73a8469-9b8e-560a-a5d0-e047aae1dc90",
+          "name": "Zutaten",
+          "servingGrams": 89.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf42cfba-9a7f-5304-bbec-357a21905ccb",
+              "ingredientName": "Bratwurst oder Bockwurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Würste (12 Unzen)"
+            },
+            {
+              "key": "2521816c-4ae3-5936-b5de-6792cce85edd",
+              "ingredientName": "Ketchup",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "961e67e1-3348-5a4d-81a4-f4c160c6d006",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "56c5b2e8-336f-59c8-baf2-c8879eb3d247",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9b33f86d-513a-55a1-b2b9-a07f510bbc53",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0452906f-cd21-5f9f-81d9-273218637e2d",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2548bda2-af60-53c9-9bb5-092c28ae5e54",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "37d00051-4169-5274-8848-5c0e223cfe46",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "51579cb2-6180-589b-8297-0174410e3e6b",
+              "ingredientName": "Pommes frites (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würste in einer Pfanne bei mittelhoher Hitze 8-10 Minuten in Öl goldbraun braten und gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen Ketchup, Currypulver, Paprikapulver, Zwiebelpulver, Worcestershiresauce und Wasser in einer kleinen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würste herausnehmen und in 0.5 inch dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze auf mittlere Stufe reduzieren und Currysauce in dieselbe Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wurstscheiben zurück in die Pfanne geben, gut mit Sauce überziehen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pommes nach Packungsanweisung zubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Pommes auf einem Teller anrichten und mit Currywurst sowie zusätzlicher Sauce bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit zusätzlicher Currysauce zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/149_1_1677664884.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/149_1_1677664884.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-knockwurst",
+      "slug": "gen-knockwurst",
+      "title": "Knackwurst",
+      "instructions": "Deutsches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sauerkraut aus der Dose oder dem Glas statt frischem kaufen, um Geld zu sparen",
+        "Knackwurst der Hausmarke statt Würste vom Premium-Metzger verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2836,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-knockwurst/",
+      "components": [
+        {
+          "key": "72afb94a-380f-5ed5-bee2-0923f30b275e",
+          "name": "Zutaten",
+          "servingGrams": 345.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "f03dc9c2-48f7-53eb-8144-9e96e4f91bf0",
+              "ingredientName": "Knackwürste",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Würste (14 Unzen)"
+            },
+            {
+              "key": "be409740-0000-51ac-88d2-b08247281f1b",
+              "ingredientName": "Sauerkraut",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "53dbf767-110e-5961-92ef-8b28c7a8e8a0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c702f054-7819-587d-b48f-bd6b80615fca",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3e7ecb47-f709-5120-a8f3-3c160a4897f9",
+              "ingredientName": "Bier (zum Kochen)",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "c31939a9-d834-530e-bdb0-186b1e962e2a",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5e32f812-daf6-5de6-a72d-df6b91c125ab",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "f1159060-c0bc-5324-a98b-6f684ae9d1fb",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "3f953a64-f2dc-59b0-8702-f4f108c7d865",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer großen Pfanne bei mittlerer Hitze erhitzen und Knackwürste insgesamt 6-8 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knackwürste herausnehmen und auf einem Teller beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sauerkraut, Kümmel, Bier, Senf, Salz und Pfeffer in derselben Pfanne vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knackwürste zurück in die Pfanne legen und in die Sauerkrautmischung betten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf mittelniedrig reduzieren und 5 Minuten köcheln lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brötchen in einer trockenen Pfanne oder im Toasterofen 1-2 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Je eine Knackwurst in ein Brötchen legen und großzügig mit Sauerkrautmischung belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit zusätzlichem Senf und Gewürzgurken als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/41/46/66/picaLqTK7.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/41/46/66/picaLqTK7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hasenpfeffer",
+      "slug": "gen-hasenpfeffer",
+      "title": "Hasenpfeffer",
+      "instructions": "Deutsches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaninchen durch Hähnchenoberkeulen ersetzen und deutlich sparen",
+        "Tiefgekühlte Perlzwiebeln verwenden, um Vorbereitungszeit und Kosten zu reduzieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2837,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hasenpfeffer/",
+      "components": [
+        {
+          "key": "75fc31f0-482d-50b2-8c7c-c1457f68efcd",
+          "name": "Zutaten",
+          "servingGrams": 687.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "f202221b-ce66-5d5d-a7d3-2c95c559a60a",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "f150988a-d949-5176-99f3-f2fbd7feb0cc",
+              "ingredientName": "Rotweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "cba6761e-7657-55a0-92a4-19b27c6a1e54",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "1c2c2505-0d80-534d-93ce-01c58bc3aced",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a20b44a1-d4a7-5c4d-96c6-d660966aaa8d",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f8becfe7-be66-5393-9cff-770c1ce5ed3f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5ddfed2b-67af-5af0-b25e-09b82042e069",
+              "ingredientName": "Beeren (tiefgekühlt)",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "832a4dd7-d3e6-5f05-9d1d-8240e1c61678",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e0c80be-86f3-5cb7-92bf-a35788a5b62e",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "586b1377-95c5-562a-a87c-7f7fdca820ad",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a27ba829-ec75-5d59-bc90-be03dbfb7a0f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kaninchen trocken tupfen und großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Schmortopf bei mittelhoher Hitze erhitzen und Kaninchenstücke insgesamt etwa 8 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Mehl bestäuben, wenden und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rotwein und Rinderbrühe angießen, Tomatenmark, Wacholderbeeren und Lorbeerblätter hinzufügen und leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abdecken und bei 325°F 60 Minuten im Ofen schmoren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Perlzwiebeln und Pilze hinzufügen und weitere 30 Minuten ohne Deckel im Ofen garen, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lorbeerblätter entfernen und vor dem Servieren abschmecken; mit Eiernudeln oder knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/psfQOzx1c-5u0Y5eIAqRuWrV06w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8569933-hasenpfeffer-rabbit-stew-Johnny-Kotik-4x3-1-f8613865f6ea416a9429aef3c62ec6ea.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/psfQOzx1c-5u0Y5eIAqRuWrV06w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8569933-hasenpfeffer-rabbit-stew-Johnny-Kotik-4x3-1-f8613865f6ea416a9429aef3c62ec6ea.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fleischpflanzerl",
+      "slug": "gen-fleischpflanzerl",
+      "title": "Fleischpflanzerl",
+      "instructions": "Deutsches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hackfleisch im Angebot kaufen und für später einfrieren",
+        "Panko oder selbst gemachte Semmelbrösel statt gekaufter verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2838,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fleischpflanzerl/",
+      "components": [
+        {
+          "key": "7e2d4a95-a3fc-56bf-80e5-7a4055aeb272",
+          "name": "Zutaten",
+          "servingGrams": 120.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "f24c93b2-c4e6-57e5-974e-7f99c5d54e6d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a89c15ca-96e2-5c27-9c83-4c78e4b3c460",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "c7a64b7b-cd3f-5054-b265-88993d847e1a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "bf05d4cd-9597-558d-b2b8-fb193be3ccd2",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "1da82d76-d5d9-588a-8a31-692fa29c9ebf",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "8ed962c0-295a-56a8-804e-36645d00c042",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dffc584-0dad-5464-b40c-3464e37a048e",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "672c5eff-0659-5d12-a1d0-e73aab7148eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "814f19de-1192-5e91-8931-f5770a414552",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f94bd3d6-a287-53bf-85d3-c9bd291b0fad",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel fein würfeln und in 1 tbsp Öl bei mittlerer Hitze etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Semmelbrösel und Milch in einer Schüssel vermengen und 2 Minuten quellen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch, Schweinefleisch, gegarte Zwiebel, eingeweichte Semmelbrösel, Ei, Petersilie, Salz und Pfeffer in einer großen Schüssel nur kurz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zu 8 Bratlingen von etwa 0.75 inches Dicke formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3 tbsp Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bratlinge 4-5 Minuten pro Seite goldbraun und durchgegart braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit Senf und knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.grillfuerst.de/magazin/wp-content/uploads/2023/08/IMG_7707-scaled.jpeg?v=1692769039",
+          "sourcePageUrl": "https://www.grillfuerst.de/magazin/wp-content/uploads/2023/08/IMG_7707-scaled.jpeg?v=1692769039",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-k-nigsberger-klopse",
+      "slug": "gen-k-nigsberger-klopse",
+      "title": "Königsberger Klopse",
+      "instructions": "Deutsches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sardellen bei knappem Budget weglassen und für Umami stattdessen Worcestershiresauce verwenden",
+        "Rinderhackfleisch und Kapern der Hausmarke kaufen, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2839,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-k-nigsberger-klopse/",
+      "components": [
+        {
+          "key": "beb363d3-a8ea-5c53-a25f-86f8860d73a6",
+          "name": "Zutaten",
+          "servingGrams": 1179.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c792919-f7dc-5b42-a211-f9e3c22196f6",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "2460af78-43bc-57c2-8e52-739333daf302",
+              "ingredientName": "Sardellen in Olivenöl (aus der Dose)",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfc806ed-6683-5b49-aa0d-9ad33392faef",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "af0f4715-6039-5714-a246-88ae62ba9644",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "d9ab09f2-1a2b-59bf-971a-b164960bab0b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f99447be-be01-529d-a21a-8a5e1f0c301a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "58e84f2a-29c4-553e-a462-1a854a04b618",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "14c348f8-5c37-5c9d-a276-da94547f5418",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b82ce6c1-089d-5d60-93f5-ca5cce9e8985",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4d2cc325-8a13-5777-b530-992b278346d1",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "89af3c1c-03b6-5667-9213-c45c49c63f8c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Semmelbrösel 2 Minuten in Milch einweichen, dann mit Rinderhackfleisch, gehackten Sardellen, 1 Ei, gehackter Zwiebel, Salz und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zu 12-16 Fleischbällchen mit etwa 1.5 inches Durchmesser formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe in einem großen Topf zum Kochen bringen und Fleischbällchen vorsichtig hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und 20 Minuten köcheln lassen, bis die Fleischbällchen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für eine Mehlschwitze Butter schmelzen, Mehl einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Langsam 1 cup heiße Brühe unter Rühren zur Mehlschwitze geben, bis eine glatte Sauce entsteht, dann in den Topf einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kapern einrühren und 5 Minuten köcheln lassen, bis die Sauce eindickt; nach Bedarf abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Eiernudeln oder Salzkartoffeln servieren und Sauce darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/04/Konigsberger-Klops-German-Meatballs-and-Gravy-_EXPS_FT25_176882_JR_0206_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/04/Konigsberger-Klops-German-Meatballs-and-Gravy-_EXPS_FT25_176882_JR_0206_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

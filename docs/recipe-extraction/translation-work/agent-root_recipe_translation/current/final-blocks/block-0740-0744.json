@@ -1,0 +1,1167 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-lentil-veggie-minestrone",
+      "slug": "mfr-lentil-veggie-minestrone",
+      "title": "Minestrone mit Linsen und Gemüse",
+      "instructions": "Eine herzhafte Minestrone nach italienischer Art mit französischen Linsen, Pasta, Zucchini und gehackten Tomaten. Eine sättigende Mahlzeit in einer Schüssel, die das ganze Gemüsefach leert und lange satt hält.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Rezept ergibt 6 große Portionen für insgesamt etwa $8 – eine der kostengünstigsten Mahlzeiten überhaupt.",
+        "Gib beliebiges Gemüse dazu, das du aufbrauchen musst. Minestrone verzeiht alles."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat, Kohl oder Mangold"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lentil-veggie-minestrone",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Meal Prep",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 740,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lentil-veggie-minestrone/",
+      "components": [
+        {
+          "key": "7c5f8c33-fdf2-50c4-9e67-bb586b9ed007",
+          "name": "Zutaten",
+          "servingGrams": 529.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "e52dc3e6-22b3-548f-be9e-3355989a76db",
+              "ingredientName": "Linsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc485502-5d9e-5844-a4d0-fb19cc566f34",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9b3c795-8841-5262-8af7-c9ffa901342b",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81d28191-0ea1-5d56-a7be-1243b52cf2d5",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e5d2c8b-c49e-5ab4-b375-97a7be39e3bb",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d8a6bca-4cf9-5515-b388-ea7a3f46ebf5",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3c004f7-9f3e-5945-8a38-5f6a41c2bcaa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ffece41-d752-5d4b-9798-e5c19ccda246",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3329214f-6025-5285-a910-1411c90f9a6c",
+              "ingredientName": "Grünkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4b701ed-1940-5b74-95b8-c23dd3a4c64c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4cc8d22-5ab3-5131-b231-d93e179d4c8c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e927afa2-7e1c-5915-a28b-e1ce5ffb6b03",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11fe7991-3331-507c-9be9-d8778248f626",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl bei mittlerer Hitze. Brate Zwiebel, Karotte und Sellerie 6 Minuten an, bis sie weich sind. Gib Knoblauch und italienische Gewürzmischung dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib abgespülte Linsen, gehackte Tomaten und Gemüsebrühe dazu. Lass die Suppe 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Pasta, gewürfelte Zucchini und gehackten Grünkohl dazu. Koche alles etwa 10 Minuten, bis die Pasta bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze kräftig. Die Suppe dickt beim Stehen ein. Gib beim Aufwärmen nach Bedarf mehr Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/01/Delicious-and-EASY-Everyday-Lentil-Soup-8-wholesome-ingredients-1-pot-and-30-minutes-vegan-plantbased-dinner-lentil-recipe-glutenfree-soup-minimalistbaker-7.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/01/Delicious-and-EASY-Everyday-Lentil-Soup-8-wholesome-ingredients-1-pot-and-30-minutes-vegan-plantbased-dinner-lentil-recipe-glutenfree-soup-minimalistbaker-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-smoky-black-bean-soup",
+      "slug": "mfr-smoky-black-bean-soup",
+      "title": "Rauchige Suppe aus schwarzen Bohnen",
+      "instructions": "Schwarze Bohnen werden zu einer dicken, rauchigen, sättigenden Suppe mit einer würzigen Tiefe nach Chipotle püriert und mit saurer Sahne und Limette abgerundet. Ein Vorratsessen für unter der Woche, fertig in 30 Minuten und fast kostenlos.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen schwarze Bohnen und Gewürze aus dem Vorrat reichen für 4 Personen und kosten etwa $3.",
+        "Diese Suppe lässt sich perfekt einfrieren. Bereite gleich die doppelte Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt für mehr Eiweiß und weniger Kalorien"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Gemüsebrühe für eine vegane Suppe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-smoky-black-bean-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 741,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-smoky-black-bean-soup/",
+      "components": [
+        {
+          "key": "953bf2b7-8955-58d1-aa0f-c741ec304200",
+          "name": "Zutaten",
+          "servingGrams": 431.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "7fdfdda7-3a0a-5ccb-8b89-b10642ea4d21",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba523a1e-bc0c-552c-8b4d-4e92d95074ab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9b0322b-de92-5831-83d5-a51e700801b1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2648f4d2-179c-5515-8998-39aee4c1f02e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4fe1b18-92e5-55b8-8a64-1ff1e5cd6cc6",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c662ccbd-c18b-53a0-88a2-485b65e5035c",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "960de2c8-721b-5416-93b5-828a8e4bf9fc",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4542de2d-4e5e-5a1a-9999-c1b00751d49f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71409a63-78bc-5986-83f0-216c73c4dd23",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c04e44a8-0b5e-51b0-b76d-9f44de29df1a",
+              "ingredientName": "Saure Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff19718c-8c6d-5ca0-9684-8c5cd84f1b70",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5203b39-e297-5d10-8a03-5ef4af7e5a63",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel in Olivenöl 5 Minuten an, bis sie weich ist. Gib Knoblauch, Kreuzkümmel, geräuchertes Paprikapulver und Chilipulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib abgetropfte schwarze Bohnen und Hühnerbrühe dazu und lass die Suppe 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Suppe teilweise mit einem Stabmixer. Lass einige Bohnen für mehr Struktur ganz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zum Schluss Limettensaft dazu und schmecke die Suppe ab. Mit saurer Sahne und Koriander servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.budgetbytes.com/wp-content/uploads/2019/11/BlackBean_Soup_V2-800x1067.jpg",
+          "sourcePageUrl": "https://www.budgetbytes.com/wp-content/uploads/2019/11/BlackBean_Soup_V2-800x1067.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-broccoli-cheddar-soup",
+      "slug": "mfr-broccoli-cheddar-soup",
+      "title": "Brokkoli-Cheddar-Proteinsuppe",
+      "instructions": "Eine reichhaltige, käsige Brokkolisuppe mit einer Basis aus griechischem Joghurt statt Schlagsahne. Milchprodukte sorgen für Cremigkeit und Eiweiß: Jede Schüssel enthält 24 Gramm Eiweiß und schmeckt so wohltuend wie das Original.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischer Joghurt sorgt für Eiweiß und Cremigkeit und kostet nur einen Bruchteil von Schlagsahne."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Fettarme saure Sahne für ein ähnliches Ergebnis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-broccoli-cheddar-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 742,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-broccoli-cheddar-soup/",
+      "components": [
+        {
+          "key": "420daf37-55ae-52ef-a8e2-8dee80a7bb9d",
+          "name": "Zutaten",
+          "servingGrams": 686.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "6adf54f1-7b85-55d0-9513-34c10eeabc9f",
+              "ingredientName": "Brokkoli",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dae14d05-dc7f-549e-8b95-0e384a061a87",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d77b99e6-619d-5d3e-a843-00e0b9f45f72",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a57e165f-776f-527f-81ea-1baa621f2d85",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbe59423-68d8-5247-97ba-6c44899fe057",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c2d82c8-03f6-5642-80a3-06ee5f1d2e60",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b2dd4e3-9982-5825-9b12-afb4d9e2cb15",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63e00f83-de6e-5786-b87b-e5b7f315bf76",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78a8e997-eaec-534d-9bc9-61c3c37dabbf",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "faee6925-fbef-5d97-9a1e-cd1cb0ab4dd6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aefc489d-6a4d-5fd6-969f-9dc20387fab3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Knoblauch in Butter bei mittlerer Hitze etwa 4 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Brokkoliröschen und Hühnerbrühe dazu und bringe alles zum Köcheln. Koche die Suppe 12 Minuten, bis der Brokkoli sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd. Rühre Milch ein und püriere die Suppe teilweise mit einem Stabmixer. Etwas Struktur ist gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle den Topf zurück auf niedrige Hitze. Rühre den geriebenen Käse portionsweise ein, bis er geschmolzen ist. Nimm den Topf wieder vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre griechischen Joghurt und Senf ein. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/HfnByFIPVPcWqSrA1e1sgR3OjX0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11706191_High-Protein-Broccoli-Cheddar-Soup_Nicole-Russell_4x3-e2eaaaf242a149de950b3dc0b066833c.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/HfnByFIPVPcWqSrA1e1sgR3OjX0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11706191_High-Protein-Broccoli-Cheddar-Soup_Nicole-Russell_4x3-e2eaaaf242a149de950b3dc0b066833c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-tortilla-soup",
+      "slug": "mfr-chicken-tortilla-soup",
+      "title": "Hähnchen-Tortilla-Suppe",
+      "instructions": "Eine Suppe nach mexikanischer Art mit gezupftem Hähnchen in einer Brühe mit Kreuzkümmel und Tomaten, dazu schwarze Bohnen und Mais, gekrönt von zerdrückten Tortillachips. Ein Gericht aus einem Topf, das vier Personen für weniger als $8 satt macht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn du das Hähnchen direkt in der Brühe garst, bleibt es saftig und du hast kaum zusätzliche Arbeit.",
+        "Gehackte Tomaten vom Hauslabel sind für dieses Gericht genauso gut wie Markenprodukte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Übrig gebliebenes fertig gegrilltes Hähnchen. Am Ende dazugeben und nur noch erhitzen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-tortilla-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Meal Prep",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 743,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-tortilla-soup/",
+      "components": [
+        {
+          "key": "c6de8631-8ee5-5586-a35e-d0c7bfbda743",
+          "name": "Zutaten",
+          "servingGrams": 654.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "145fac4a-1d8c-5a00-aac5-fe65d91176fd",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db22d2a8-8f1c-57a3-b6e4-2131420b6821",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f50c793b-34c0-5427-884c-ccb1aa64bc52",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fed1d67e-49f3-58db-ac11-ac4fd46ac188",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fa00169-ed7e-5947-9689-49b679338313",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e46db8b-5932-53db-a8eb-956e7b5a8e11",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a628769-dcf7-5684-8627-ae96919524eb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eb0572f-c962-56b4-b234-518562d36937",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6406091-5f5f-5c90-911b-973de0e1b69f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82948106-6e67-511d-9d06-9ea41449d38b",
+              "ingredientName": "Tortillachips",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b48dd02-a275-5bb8-b3b7-c74e31647453",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ff5dc7a-9701-59ed-8243-c78f9dc99aeb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel an, bis sie weich ist. Gib Knoblauch, Kreuzkümmel und Chilipulver dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib rohes Hähnchen, gehackte Tomaten, schwarze Bohnen, Mais und Brühe dazu. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lass die Suppe 20 Minuten köcheln, bis das Hähnchen durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Hähnchen heraus und zerteile es mit zwei Gabeln. Gib es zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmecke die Suppe ab. Serviere sie mit zerdrückten Tortillachips, Limette und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/buCV8vJLd9ETIAtbTzm0SHzPrLk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tortilla-soup97-1-2718d48ba85c4a36b6dbc4e9be749c01.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/buCV8vJLd9ETIAtbTzm0SHzPrLk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tortilla-soup97-1-2718d48ba85c4a36b6dbc4e9be749c01.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pork-miso-ramen",
+      "slug": "mfr-pork-miso-ramen",
+      "title": "Ramen mit Schweinefleisch und Miso",
+      "instructions": "Eine wärmende Schüssel Ramen in einer kräftigen Schweinebrühe mit Miso, dazu ein weich gekochtes Ei, knackige Frühlingszwiebeln und etwas Sesamöl. Ein japanisches Wohlfühlessen aus günstigen Vorratszutaten, in weniger als 25 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Instant-Ramen-Nudeln ohne das Gewürzpäckchen gehören zu den günstigsten Nudelsorten.",
+        "Misopaste sorgt für sehr viel Geschmack und kostet nur wenige Cent pro Esslöffel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Putenhack oder zerbröselter Tofu für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pork-miso-ramen",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 744,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pork-miso-ramen/",
+      "components": [
+        {
+          "key": "59a68736-f87d-54a3-926a-2938b4f13ae1",
+          "name": "Zutaten",
+          "servingGrams": 806.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d763827-1bd8-5b26-89ca-0a926cab40c2",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90da171d-34dc-50c9-8ff0-57ae983761fc",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "366af770-1e49-5295-b585-37cc73e1fc23",
+              "ingredientName": "Schweinewurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0988a9dc-4fd8-50c0-841c-131a6007dfda",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c67a479a-2900-5b21-a191-d854041011d9",
+              "ingredientName": "Misopaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1595c414-daa7-5015-b528-4f63a5b18581",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3839a03-0011-5755-a48c-17aba515a292",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38ef4557-f371-5907-9c76-0a05d6ce2cbf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11e4a735-e62b-5478-ba66-f9f808581a47",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1af70f5-218f-5e44-b446-c44a1df92955",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12a125e4-3e38-5937-a19c-157fd0986604",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be7be019-9b76-5025-b9ac-d2d5dba74fcb",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 6½ Minuten, kühle sie in Eiswasser ab und schäle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die zerbröselte Wurst in einem Topf bei mittlerer bis hoher Hitze an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Knoblauch und Ingwer im selben Topf 30 Sekunden an. Gib Hühnerbrühe dazu und bringe sie zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre das Miso abseits der Hitze in die Brühe ein. Die Miso-Brühe nicht kochen. Gib Sojasauce und Sesamöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Nudeln separat nach Packungsanleitung und wirf das Gewürzpäckchen weg. Die Brühe ist bereits kräftig gewürzt. Gieße die Nudeln ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte die Schüsseln an: Nudeln hineingeben, Brühe darüber schöpfen und mit Schweinefleisch, halbiertem Ei, zusammengefallenem Spinat und geschnittenen Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Kctw5gK0YDdZVaXg1e5AwKm9eCg=/4272x2848/filters:fill(auto,1)/GettyImages-1355176861-56de62135f9b5854a9f644aa.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Kctw5gK0YDdZVaXg1e5AwKm9eCg=/4272x2848/filters:fill(auto,1)/GettyImages-1355176861-56de62135f9b5854a9f644aa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

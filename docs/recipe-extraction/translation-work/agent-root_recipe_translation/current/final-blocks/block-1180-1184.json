@@ -1,0 +1,1090 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-fitness-greek-chicken",
+      "slug": "mfr-fitness-greek-chicken",
+      "title": "Hähnchen-Reisschale mit griechischer Joghurtmarinade",
+      "instructions": "Hähnchenbrust, mariniert in griechischem Joghurt, Knoblauch und Zitrone und anschließend gegrillt, bis sie besonders saftig ist – der Joghurt macht das Fleisch zart und hält es wunderbar saftig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Marinade aus griechischem Joghurt ist günstiger als die meisten Marinaden und macht das Fleisch besonders zart.",
+        "Lass das Hähnchen über Nacht im Kühlschrank marinieren, damit es besonders zart wird.",
+        "Die übrige Marinade lässt sich zu einer Sauce erhitzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Naturjoghurt mit vollem Fettgehalt"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Fladenbrot für eine Variante als Wrap"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-greek-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "Reisschale",
+        "Hähnchen",
+        "Fitness",
+        "griechisch",
+        "mariniert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1180,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-greek-chicken/",
+      "components": [
+        {
+          "key": "a072020e-7c9b-57fc-a790-fe91aabe9727",
+          "name": "Zutaten",
+          "servingGrams": 904,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d3aaf00-6c81-56cb-aa03-e9d4dbea8250",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "847933ea-babd-5d6e-a404-8f58dfd8dd92",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dc90092-5311-52e8-ac16-84baa527ee9e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e846fab-b407-5bc3-8fc9-713a30cb3834",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e875bcb1-505d-5896-9ded-c0f19dbb5c5f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b359ca8f-796c-544e-9b54-d6438ad1ebfb",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42ccaf77-633d-5397-a733-4054e50c16c1",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51bad1d8-decf-54a4-80ec-ae9a88372f52",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b67f7399-3511-5b2c-9770-9b0d311f5f22",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66f25745-a18d-52b5-adb4-c388b3a9913b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "159c578e-8668-51f9-a24f-faeacda246dd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85880978-a735-53b5-9233-cef022ae5e0e",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische griechischen Joghurt mit Knoblauch, Zitronensaft, Kreuzkümmel, Paprika, Salz und Oregano. Bedecke das Hähnchen damit und lass es 1 Stunde oder über Nacht marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das marinierte Hähnchen bei mittlerer Hitze auf jeder Seite 6-7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass das Hähnchen vor dem Aufschneiden 3 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere es auf Reis mit aufgeschnittener Gurke und Tomate. Beträufle alles mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://easyweeknightrecipes.com/wp-content/uploads/2023/03/yogurt-marinated-chicken-4.jpg",
+          "sourcePageUrl": "https://easyweeknightrecipes.com/wp-content/uploads/2023/03/yogurt-marinated-chicken-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fitness-salmon-greens",
+      "slug": "mfr-fitness-salmon-greens",
+      "title": "Lachs-Kraftschale mit Blattgemüse",
+      "instructions": "Gebratener Lachs auf Grünkohl, Spinat und Quinoa mit Avocado und Zitronen-Tahini-Dressing – mit reichlich Omega-3-Fettsäuren, 42 g Eiweiß und Zutaten, die guttun.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Massierter Grünkohl wird zart und süß – knete ihn einfach mit den Händen, damit er seine feste Konsistenz verliert.",
+        "Tiefgekühlte Lachsfilets sind genauso nahrhaft wie frischer Lachs und kosten nur etwa die Hälfte.",
+        "Diese Schale hält sich im Kühlschrank 2 Tage – gib das Dressing erst kurz vor dem Essen dazu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Lachs aus der Dose oder Forellenfilet"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Vollkornreis oder Dinkel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-salmon-greens",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Reisschale",
+        "Lachs",
+        "Fitness",
+        "Omega-3",
+        "Blattgemüse"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1181,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-salmon-greens/",
+      "components": [
+        {
+          "key": "9bbd77b7-a531-5ec7-bf2f-8f32e8d822dc",
+          "name": "Zutaten",
+          "servingGrams": 691,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2f1fe82-f8d0-5ff0-9b46-aef57a7bae4a",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1600e2e4-1059-5024-b4f0-d01e07d224d3",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "573c593a-7117-51b4-ae8c-d83086cc988d",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36898413-6563-5221-96a0-c95e35945a4f",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "993f85f3-b0ca-5a3b-bf29-67d2a1bceb2b",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f88f854-2cd7-5a4d-b771-6926204eaa59",
+              "ingredientName": "Tahini",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88b8dc11-c0ef-50aa-8444-93f000c200b5",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f565562-ca46-52c3-86e3-51c752523912",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f1a8fd6-5ada-506e-83a8-cd7b2d7b2120",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97d8bad1-cd62-57d8-b8d7-e1710251dcec",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff1e551a-a56b-5ee8-93be-28480469f787",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ba98494-aac6-53ae-bbd7-24c16997eaad",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa. Massiere den Grünkohl mit Olivenöl und einer Prise Salz, bis er weicher wird (2 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Lachs mit der Hautseite nach unten 4 Minuten in Olivenöl an, wende ihn und brate ihn weitere 2 Minuten. Würze ihn mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Tahini, Zitrone, Knoblauch und Wasser zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Grünkohl, Spinat und Quinoa in einer Schale an. Gib Lachs, Avocado, Tahini-Dressing und Sesamsamen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/22tdiQTJqsXWTwgaw_VTIxwGQq0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Spicy-Roasted-Salmon-Broccoli-Rice-Bowls-1x1-165-a96b9819b0a04eeaaf432316558043fc.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/22tdiQTJqsXWTwgaw_VTIxwGQq0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Spicy-Roasted-Salmon-Broccoli-Rice-Bowls-1x1-165-a96b9819b0a04eeaaf432316558043fc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fitness-cottage-bowl",
+      "slug": "mfr-fitness-cottage-bowl",
+      "title": "Kraftschale mit Hüttenkäse und Ofengemüse",
+      "instructions": "Cremiger Hüttenkäse mit gerösteter Süßkartoffel, Brokkoli und Kirschtomaten auf Quinoa – eine sättigende, eiweißreiche Schale mit einem unterschätzten Fitnesslebensmittel als Grundlage.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hüttenkäse liefert 14 g Eiweiß pro halber Tasse und kostet etwa $1.50 – eine der günstigsten Eiweißquellen.",
+        "Das warme Gemüse schmilzt leicht in den kalten Hüttenkäse und sorgt für einen angenehmen Kontrast.",
+        "1 Tasse Hüttenkäse und Ofengemüse kosten für diese Schale zusammen $2.50."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Griechischer Joghurt für eine festere Konsistenz"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Vollkornreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-cottage-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Reisschale",
+        "Hüttenkäse",
+        "Fitness",
+        "Ofengemüse"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1182,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-cottage-bowl/",
+      "components": [
+        {
+          "key": "f11bc790-1efc-51f7-9950-9f613349e1b1",
+          "name": "Zutaten",
+          "servingGrams": 1074,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf326e9a-464a-579d-82cd-7a83d36665a9",
+              "ingredientName": "Hüttenkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05ecc311-9ae2-5968-850b-90ba69c07582",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16bf08f5-034f-5be8-aedc-a62a669c9803",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fd42c1f-7924-555c-b82b-d89bbe21d5da",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27f864bd-b746-59d2-920b-1f48a929d052",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8a8df4e-852b-5600-9a26-76c73050f1e3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1561fc3b-e155-53f1-9239-22e28867e78a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8c6be43-16ee-59c5-a872-8bb38b7e3a72",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ce12498-d1bb-5c28-815d-998034e5fe86",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a17dfba2-71e4-519a-81a6-c3346f244268",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Süßkartoffel und Brokkoli mit Olivenöl, Paprika und Knoblauchpulver. Röste das Gemüse bei 425°F 22 Minuten im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Quinoa. Halbiere die Kirschtomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte Quinoa und Hüttenkäse, gewürzt mit Zitrone und Schnittlauch, in einer Schale an. Gib das Ofengemüse und die Tomaten darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/w3D7CqCblODspyEwMsppzy73Pog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/RoastedPotatoTzatzikiBowl-370_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-006afd90515e4ef681dde7724acbc18d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/w3D7CqCblODspyEwMsppzy73Pog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/RoastedPotatoTzatzikiBowl-370_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-006afd90515e4ef681dde7724acbc18d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fitness-turkey-spinach-wrap",
+      "slug": "mfr-fitness-turkey-spinach-wrap",
+      "title": "Eiweißreicher Truthahn-Spinat-Wrap",
+      "instructions": "Aufgeschnittene Truthahnbrust mit Spinat, Hummus, Avocado und Gurke in einer Vollkorn-Tortilla – ein Wrap mit 40 g Eiweiß, den du sogar am Schreibtisch essen kannst.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Truthahnaufschnitt an der Frischetheke kostet $4-6 pro Pfund und ist viel günstiger als fertige Wraps.",
+        "Bereite 3-4 Wraps für die Woche auf einmal vor und bewahre die Zutaten bis zum Essen getrennt und ohne Dressing auf.",
+        "Hummus ersetzt Mayonnaise und liefert zusätzlich Eiweiß und Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-breast-deli",
+          "swap": "Thunfisch aus der Dose oder Hähnchenbrust"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Guacamole-Portion aus dem Supermarkt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-turkey-spinach-wrap",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Wrap",
+        "Truthahn",
+        "Fitness",
+        "schnell",
+        "Mittagessen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1183,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-turkey-spinach-wrap/",
+      "components": [
+        {
+          "key": "43ce6ec1-939b-567e-a7b5-1a0a65bf29a5",
+          "name": "Zutaten",
+          "servingGrams": 1250,
+          "position": 0,
+          "items": [
+            {
+              "key": "83338e84-be9a-5aa6-9011-d03a59f9ca6a",
+              "ingredientName": "Truthahnaufschnitt",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de15a6e2-fdb9-5d95-9d7e-605a145c0c4e",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cae22ab-dbc5-5ab8-8a1d-088ec632c3d9",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edebd994-5ced-57d4-bccc-84fddd9c8666",
+              "ingredientName": "Hummus",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7497aab4-fcd2-5f4e-9065-2b1cdfb73aa0",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e49316c-51c5-5481-a6aa-d86d70699265",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45b022af-992d-5980-9094-3abea9bf01a9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c78b66d-621b-5a05-a278-d54f102593d1",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19f67e7a-b8c6-5fc6-9a33-b984fa48c453",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verstreiche Hummus und Senf auf der Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege sie mit Truthahn, Spinat, aufgeschnittener Gurke, roten Zwiebeln und Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle den Wrap fest auf und halbiere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/UwHZo65INpWilfGCSdj4vmwWuwo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EatingWell-LWWD-Cucumber-Spinach-Wrap-Beauty-3x2-2e79ae0fce3044d38912d0f99b342f8a.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/UwHZo65INpWilfGCSdj4vmwWuwo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EatingWell-LWWD-Cucumber-Spinach-Wrap-Beauty-3x2-2e79ae0fce3044d38912d0f99b342f8a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fitness-shrimp-cauliflower",
+      "slug": "mfr-fitness-shrimp-cauliflower",
+      "title": "Kraftschale mit Garnelen und Blumenkohlreis",
+      "instructions": "Garnelen in Knoblauchbutter auf Blumenkohlreis, dazu gerösteter Brokkoli und Avocado – eine auf die Nährwerte abgestimmte Schale mit 38 g Eiweiß und weniger als 420 Kalorien.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen sind genauso gut wie frische. Taue sie in 10 Minuten unter kaltem Wasser auf.",
+        "Blumenkohlreis aus dem Beutel kostet $3 und erspart das Reiben.",
+        "Diese Mahlzeit bietet passende Nährwerte: viel Eiweiß, wenige Kohlenhydrate und gesunde Fette."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Jakobsmuscheln oder Fischfilet"
+        },
+        {
+          "forIngredientId": "cauliflower",
+          "swap": "Normaler Reis für mehr Kohlenhydrate"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-shrimp-cauliflower",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Reisschale",
+        "Garnelen",
+        "Fitness",
+        "kohlenhydratarm",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1184,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-shrimp-cauliflower/",
+      "components": [
+        {
+          "key": "34fc1e5c-41d9-53f4-a511-3be60e700dcd",
+          "name": "Zutaten",
+          "servingGrams": 581.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "76e124e9-dace-54de-9c48-6b8a684076df",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e06257e-4dda-57f9-921d-d3af2369a53b",
+              "ingredientName": "Blumenkohl",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e82b0a2-41cd-5e08-b6ed-34821a0f8857",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e224e558-901a-5dd0-b336-df29ab51f5d1",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df72ab3b-ef0c-5da7-9152-f7015e298d20",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8800732-86c0-500e-9467-7652939afc2f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "092aab57-d1a0-5ff4-ba67-1fe9cdfa9ff6",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f2d4b75-a99d-5156-9f1c-3bc3f238380f",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c6a8dd1-e967-5c63-9cc5-d471199311ce",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3d277e9-6d64-5037-9efb-981646a5ea97",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerkleinere den Blumenkohl in einer Küchenmaschine oder reibe ihn. Brate ihn 5 Minuten in Olivenöl, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste den Brokkoli bei 425°F 15 Minuten im Ofen. Würze die Garnelen mit Paprika und Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Garnelen in Butter mit Knoblauch auf jeder Seite 2 Minuten. Presse Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Blumenkohlreis, Garnelen und Brokkoli in einer Schale an und belege alles mit aufgeschnittener Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/a3IUqyq-zc3TeItmlCRm98yCJgs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-shrimp-with-cauliflower-rice-8064331-1x1-50fae3f52aac4b3fbd6625623a283025.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/a3IUqyq-zc3TeItmlCRm98yCJgs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-shrimp-with-cauliflower-rice-8064331-1x1-50fae3f52aac4b3fbd6625623a283025.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

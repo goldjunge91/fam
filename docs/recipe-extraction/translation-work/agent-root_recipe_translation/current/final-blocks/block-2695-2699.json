@@ -1,0 +1,1040 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lamb-tibs",
+      "slug": "gen-lamb-tibs",
+      "title": "Lamm-Tibs",
+      "instructions": "Äthiopisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammschulter statt hochwertigerer Stücke für Tibs kaufen",
+        "Einmal im Monat im Angebot zubereiten und Portionen einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "äthiopisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2695,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lamb-tibs/",
+      "components": [
+        {
+          "key": "74778e10-0f62-5159-b5ff-d23b5562a663",
+          "name": "Zutaten",
+          "servingGrams": 172.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b42928cc-38d2-5ca2-b7d6-dc663cac4103",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6da6c59b-c89c-5166-8500-d2d5f9163387",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "45815576-2e44-5f64-aa65-bc88a675b9fc",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "ac207252-3dd6-5fdd-9f9f-e42841e4feab",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "e4272713-6e78-5fcc-bdb1-7ce080282fac",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "324a1b3f-a4ee-5851-a060-8199deeee27e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cbf25bdd-15e7-5190-817b-10881da5a64a",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20d8adcd-28dd-531f-a249-59d918f60d69",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0b0fac7a-7765-5741-9430-c63b03081f9d",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "448eb09e-d95a-5aac-a64a-fb354d8e40b4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer großen Pfanne bei starker Hitze erhitzen, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lammwürfel in einer Lage hineingeben und 4-5 Minuten scharf anbraten, bis sie gebräunt sind; herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln in die Pfanne geben und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knoblauch, Ingwer und Rosmarin hinzufügen und 1 Minute unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lamm zurück in die Pfanne geben und Paprika sowie Tomate hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "8-10 Minuten unter gelegentlichem Rühren garen, bis das Lamm durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz, Pfeffer und Zitronensaft würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rosmarinzweige entfernen und heiß auf Injera servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&rect=0%2C454%2C2000%2C1454&poi=[980%2C920]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F09%2F13%2Fodaa-ethiopians-lamb-tibs.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&rect=0%2C454%2C2000%2C1454&poi=[980%2C920]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F09%2F13%2Fodaa-ethiopians-lamb-tibs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-niter-kibbeh",
+      "slug": "gen-niter-kibbeh",
+      "title": "Niter Kibbeh",
+      "instructions": "Äthiopischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine große Menge zubereiten und mehrere Wochen aufbewahren",
+        "Butter im Angebot kaufen und bis zur Verwendung einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "äthiopisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2696,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-niter-kibbeh/",
+      "components": [
+        {
+          "key": "11875cb7-4e4d-5521-a975-0b6132d16cac",
+          "name": "Zutaten",
+          "servingGrams": 99.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "96ed7d27-5f1b-593b-89c1-a2f49b2f8f28",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7bc2e9bc-8468-502e-b9c2-e56ab6b10b6f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "55e88105-a1c5-5a65-9e30-ed8a88c442ea",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Knoblauchzehen"
+            },
+            {
+              "key": "4f5986ca-a45f-591d-8065-f5c5fd054738",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d1b46645-dc06-587c-9a70-1f78d0c6552a",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "fbc077a3-9a12-55b0-b02f-93aba33a97e8",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6ba06c3b-ef99-5338-a79d-b0c1cd7d90de",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae4e63f0-07eb-522a-a6c2-7d9a3acd1d13",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cff7f0e-2e9f-5c1b-b752-2002e54a6460",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35398e3e-717b-5c87-a476-f1a115de61f2",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9af886c-8c5a-52e5-8e0b-09e148fe00d1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem kleinen Topf bei niedriger Hitze etwa 3 Minuten schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackte Zwiebeln hinzufügen und 5 Minuten sanft garen, ohne sie zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch und Ingwer einrühren und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Paprikapulver, Kurkuma, Kardamom, Zimt, Nelken und Lorbeerblatt hinzufügen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5 Minuten sanft köcheln lassen, damit sich die Aromen entfalten, dann vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5 Minuten abkühlen lassen, durch ein feinmaschiges Sieb in ein sauberes Glas gießen und den Bodensatz zurücklassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Im Kühlschrank aufbewahren und als Kochgrundlage oder Brotaufstrich verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2022/05/Niter-Kibbeh.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2022/05/Niter-Kibbeh.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ful",
+      "slug": "gen-ful",
+      "title": "Ful",
+      "instructions": "Äthiopisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Favabohnen lose in internationalen Abteilungen kaufen, sie sind deutlich günstiger als Bohnen aus der Dose",
+        "Eine große Menge zubereiten und für mehrere Frühstücke der Woche im Kühlschrank aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "äthiopisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2697,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ful/",
+      "components": [
+        {
+          "key": "95092f37-1185-5e2c-a184-8fbd5e86c55b",
+          "name": "Zutaten",
+          "servingGrams": 836.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b935b902-58a7-5a67-a01f-f0715122a622",
+              "ingredientName": "Favabohnen",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "55c9fcd6-7554-5706-ad28-1c628c937591",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "d0d48dec-9a1e-54a5-8edf-c65ff203557e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8f7c47b-5fea-5b1a-bfd1-2c35b2f58c62",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ad84afd2-81a8-5817-b873-dc936d1c4c90",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "27f4fbaa-b81e-52d4-8031-c2c2ee1a22b7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "124e4fa8-ffbd-5ee8-b34f-20ae38cf7b63",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Favabohnen über Nacht in Wasser einweichen, dann gründlich abgießen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "6 cups frisches Wasser in einem großen Topf zum Kochen bringen und die abgetropften Bohnen hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "15-20 Minuten köcheln lassen, bis die Bohnen sehr weich sind und zu zerfallen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel würfeln und Knoblauchzehen fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Olivenöl in einer Pfanne erhitzen und Zwiebel sowie Knoblauch etwa 3 Minuten dünsten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Bohnen in die Pfanne geben und mit einem Holzlöffel grob zerdrücken, bis sie noch stückig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und schwarzem Pfeffer würzen, gut umrühren und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HuhYKKtsm6EiB7DMsW0a4_ToAWw=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/ful-medames-egyptian-fava-beans-recipe-2355699-step-05-b9f2fd1ea95a407d88dff1e66c7a27c2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HuhYKKtsm6EiB7DMsW0a4_ToAWw=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/ful-medames-egyptian-fava-beans-recipe-2355699-step-05-b9f2fd1ea95a407d88dff1e66c7a27c2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chikla",
+      "slug": "gen-chikla",
+      "title": "Chikla",
+      "instructions": "Äthiopisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vollkornmehl lose kaufen, um Kosten zu senken",
+        "Bei knappem Budget Honig durch braunen Zucker oder Melasse ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "äthiopisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2698,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chikla/",
+      "components": [
+        {
+          "key": "c803c95c-048b-547d-9e01-5a58bbb00fc7",
+          "name": "Zutaten",
+          "servingGrams": 166.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a792f780-4426-5d17-84b6-95182941d617",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 90,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6f393400-51e1-5550-b6db-878937a429db",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "a9999f72-2e6f-53a9-9260-d0f5cbbeb4b5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "a7b91015-6adf-5623-a219-bd966d5bcdd5",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b051796f-3e08-5fef-a4de-fec415d685c7",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vollkornmehl, Salz und Wasser in einer Schüssel verrühren, bis ein dicker, klumpiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze schmelzen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in die heiße Pfanne gießen und mit einem Holzlöffel ständig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "8-10 Minuten weiterrühren, bis die Masse eindickt und leicht bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In eine Servierschüssel geben und mit Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warm servieren, solange die Masse noch weich ist und leicht dampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1608474667558-SCICDJRJDTGPNUEW8SP1/078CE99B-A651-4421-AD9C-08DF4FF99CBC.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1608474667558-SCICDJRJDTGPNUEW8SP1/078CE99B-A651-4421-AD9C-08DF4FF99CBC.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shakla-dist",
+      "slug": "gen-shakla-dist",
+      "title": "Shakla Dist",
+      "instructions": "Äthiopisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schulterbraten statt Gulaschfleisch verwenden, selbst würfeln und 30% sparen",
+        "Zwiebeln und Knoblauch lose kaufen; sie sind wochenlang haltbar"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "äthiopisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2699,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shakla-dist/",
+      "components": [
+        {
+          "key": "8d3c261f-2541-52e3-9116-f9c4950510ef",
+          "name": "Zutaten",
+          "servingGrams": 227.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1125de2-4b64-52e4-9892-9c4b5cd93c66",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6bd1f5a3-bcac-5415-b8fc-91c28e0f3048",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "71c4855d-2339-5a4c-a734-cf09d06bb6f5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccb46c58-24f8-5824-ab37-d1778b7ae5ed",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel fein gehackt"
+            },
+            {
+              "key": "99a11cf4-ed79-5071-88c3-3ce46e6379d1",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e922dfb7-e8fd-5385-bf7e-26ae203536d6",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5c49b4c6-6518-5647-bb06-f394676a118c",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5288e645-d201-5f26-8c7d-572f2308e4c7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a4dfaab2-be84-5e7d-8772-9e5e2e01f739",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "33a2a853-3342-5020-bc9b-f6866be5444f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch in 1-inch-Würfel schneiden und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln fein würfeln sowie Knoblauch und frischen Ingwer hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf bei mittelhoher Hitze erhitzen und das Rindfleisch portionsweise jeweils etwa 3-4 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fleisch herausnehmen und beiseitestellen, dann Zwiebel, Knoblauch und Ingwer im selben Topf 5 Minuten dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Paprikapulver, Cayennepfeffer und Tomatenmark hinzufügen; 2 Minuten unter ständigem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rindfleisch zurück in den Topf geben, Wasser und Salz hinzufügen und aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze reduzieren, abdecken und 30-35 Minuten köcheln lassen, bis das Rindfleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und heiß mit Injera servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/TBp6lbiwoYPhRP4N__4sROiUDhA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mixed-berry-breakfast-smoothie-7959466-1x1-e0ad2304222e49508cda7b73b21de921.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/TBp6lbiwoYPhRP4N__4sROiUDhA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mixed-berry-breakfast-smoothie-7959466-1x1-e0ad2304222e49508cda7b73b21de921.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

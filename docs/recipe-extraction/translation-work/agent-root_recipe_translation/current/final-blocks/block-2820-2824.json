@@ -1,0 +1,1054 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-satay-ayam",
+      "slug": "gen-satay-ayam",
+      "title": "Satay Ayam",
+      "instructions": "Indonesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot und friere es bis zur Verwendung ein",
+        "Bereite die Sauce in größeren Mengen für mehrere Mahlzeiten zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indonesisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2820,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-satay-ayam/",
+      "components": [
+        {
+          "key": "a0938a1a-44d3-53a2-96e3-a3f2d82e4884",
+          "name": "Zutaten",
+          "servingGrams": 1839.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "fff7c428-6d5e-577d-9f16-79ec4ef72944",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in Streifen geschnitten"
+            },
+            {
+              "key": "2a4b4f7a-d86a-5783-af55-611b24f09bb6",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "dcc0b9bd-d811-57a4-932a-da435cbd75fe",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "1ed45528-aede-5230-9ace-52c7a1546208",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4acd63e6-02d1-5358-b5aa-7050bf111728",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ mittelgroße Stücke"
+            },
+            {
+              "key": "31defd2d-f706-5145-89c0-94fd99c39a37",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a5a45d0a-b1b8-510c-8bc9-0708ab44ac1d",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6b982460-f6a9-5966-ab9f-3eafb9a89730",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7cc459c7-3780-50dd-9d17-626ecb857c3d",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a6c7b48-fbf2-5213-a685-8dcaa3f17c9e",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 4800,
+              "quantity": 12,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "12 (eingeweicht)"
+            },
+            {
+              "key": "a94f16e2-0d6c-5bc6-b229-67819346362b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Erdnussbutter, Kokosmilch, Knoblauch, Zwiebel, Sojasauce, Limettensaft, Zucker und Chili zu einer glatten Sauce. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stecke die Hähnchenstreifen auf eingeweichte Bambusspieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und gare die Spieße 4-5 Minuten pro Seite, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Erdnusssauce 2-3 Minuten in einem kleinen Topf bei niedriger Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die gegarten Satay-Spieße mit Erdnusssauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5b3a94319bb69f67a9df95d1/1:1/w_2560%2Cc_limit/chicken-satay-recipe-HC-070218.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5b3a94319bb69f67a9df95d1/1:1/w_2560%2Cc_limit/chicken-satay-recipe-HC-070218.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lumpia",
+      "slug": "gen-lumpia",
+      "title": "Lumpia",
+      "instructions": "Indonesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinehackfleisch im Angebot und friere es portionsweise ein",
+        "Verwende Frittieröl wieder, indem du es durch ein Passiertuch seihst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "indonesisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2821,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lumpia/",
+      "components": [
+        {
+          "key": "d1d36f7b-6083-554a-b58a-0e6fd439bd34",
+          "name": "Zutaten",
+          "servingGrams": 707.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8a6f7af-a3c0-5a59-b56f-22e6d233fb6e",
+              "ingredientName": "Teigtaschenblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "eb1e5a97-2097-5abb-bfcb-db234c224168",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "5883ceeb-8935-541d-a4fe-0cc98e0a5661",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "79ed8b16-d1fa-5e14-90e9-418ed427d60e",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen geraspelt"
+            },
+            {
+              "key": "189b0798-0570-5af6-ad2c-ae60149c9fd5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "4d308674-8727-55e8-9a76-0662e29d2a32",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ee58126b-1f15-5b69-9ef4-ef25071166f7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ mittelgroße Stücke, fein gehackt"
+            },
+            {
+              "key": "d1ffdf87-27eb-57bb-94d8-b41e450f6386",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen (zum Frittieren)"
+            },
+            {
+              "key": "e50cf15c-2b2b-5e61-bd53-1ff37fd99514",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "3a936eb0-517c-5224-9e51-16920dbe5e95",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "¼ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einer Pfanne und brate das Schweinehackfleisch, bis es gebräunt ist. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Zwiebel zum Fleisch und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Kohl, Karotten, Sojasauce, Salz und Pfeffer ein und gare alles 3-4 Minuten, bis das Gemüse leicht weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und lasse die Füllung 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege 2 Esslöffel Füllung auf das untere Drittel jedes Lumpia-Blatts, klappe die Seiten ein und rolle es fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze 3 Tassen Öl in einem tiefen Topf auf 350°F und frittiere die Lumpia portionsweise 2-3 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit süßer Chilisauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/tgsM-uKFVnPSKJLQibgMAsgAACg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-filipino-lumpia-photo-by-kims-cooking-now-7535265-2000-6e3307802c804e8b890e89dd12e56efa.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/tgsM-uKFVnPSKJLQibgMAsgAACg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-filipino-lumpia-photo-by-kims-cooking-now-7535265-2000-6e3307802c804e8b890e89dd12e56efa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-perkedel",
+      "slug": "gen-perkedel",
+      "title": "Perkedel",
+      "instructions": "Indonesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln im Angebot in größeren Mengen",
+        "Seihe Frittieröl ab und verwende es mehrmals wieder"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indonesisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2822,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-perkedel/",
+      "components": [
+        {
+          "key": "8fe18fec-6c4f-5dee-8482-60e99736370c",
+          "name": "Zutaten",
+          "servingGrams": 389.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "09946654-f151-576a-ab0e-68d58b774698",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ec25a64c-167e-5ff9-9009-49e58c7dd4e0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "c5389ebd-fbdf-545b-ab30-f3fa296df642",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e2b3ce9-9632-5ead-af59-99d5d6ffa805",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6eccfeea-4135-5743-86a8-408ff7cdda1d",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "aeddf559-eb57-5c28-a9a4-e62a4ab2652d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "dd31e034-9b6d-5343-b01e-be844e2914df",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "e39a9b15-416f-5843-98c4-f0ea9ca9eaa2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen (zum Frittieren)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln weich, gieße sie ab, schäle sie und zerdrücke sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Zwiebel und Knoblauch fein und mische sie unter die Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Ei, Mehl, Salz und Pfeffer zur Kartoffelmischung und rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Mischung leicht abkühlen und forme dann 12-15 ovale Bratlinge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere die Perkedel portionsweise 2-3 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.authenticworldfood.com/data/r3/00000103-00000111.jpg",
+          "sourcePageUrl": "http://www.authenticworldfood.com/data/r3/00000103-00000111.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bakso",
+      "slug": "gen-bakso",
+      "title": "Bakso",
+      "instructions": "Indonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch im Verhältnis 80/20 statt magerer Stücke",
+        "Ersetze Pak Choi bei Bedarf durch normalen Kohl"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2823,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bakso/",
+      "components": [
+        {
+          "key": "b06acd8a-524d-5226-949c-83fa86300d3d",
+          "name": "Zutaten",
+          "servingGrams": 675.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "05a95a95-7841-552c-9d2c-068772bcfb3f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "732a1c07-d4d2-5368-8bb5-dc5fd8995a6f",
+              "ingredientName": "Tapiokastärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¼ Tassen"
+            },
+            {
+              "key": "a3741489-32af-5e44-904c-a8f636b9feb5",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff8006ab-bf22-5ef4-8c70-128aff9798c9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, fein gehackt"
+            },
+            {
+              "key": "7a53aa60-f73a-518d-a9ff-65b03bffaa09",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3, fein gehackt"
+            },
+            {
+              "key": "948709a0-da27-54e4-8712-9ce29dfb07db",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "d23d0bff-653b-543b-9f18-83fabdce16ed",
+              "ingredientName": "Pak Choi",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen gehackt"
+            },
+            {
+              "key": "3751bdf7-4707-5c83-9406-865ef535c310",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "a4a15bc3-21b7-5054-a555-f309407b5029",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3f9383e7-f250-5bab-bdec-b3f655adf28a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b52f11b6-8222-5add-9e0a-e99abffa834b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Rinderhackfleisch, Tapiokastärke, Ei, Zwiebel und Knoblauch in einer Schüssel, bis alles gerade eben vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Rinderbrühe mit Salz und Sojasauce in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme mit einem Löffel oder Eisportionierer 20-24 kleine Bällchen aus der Fleischmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Fleischbällchen vorsichtig in die kochende Brühe und lasse sie 8-10 Minuten köcheln, bis sie an die Oberfläche steigen und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Reisnudeln separat nach Packungsanleitung, gieße sie ab und verteile sie auf Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Pak Choi in die Brühe und gare ihn 2-3 Minuten, bis er zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile Fleischbällchen, Gemüse und Brühe auf den Nudeln in den Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/t4DAO01Yq4bG3EqeBPbCi_z_U0o=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/mee-bakso-recipe-3030253-step-10-1d9528763d824e8c9955c23bd4a6193d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/t4DAO01Yq4bG3EqeBPbCi_z_U0o=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/mee-bakso-recipe-3030253-step-10-1d9528763d824e8c9955c23bd4a6193d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tahu-goreng",
+      "slug": "gen-tahu-goreng",
+      "title": "Tahu Goreng",
+      "instructions": "Indonesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu in größeren Mengen und friere ihn portionsweise ein",
+        "Bereite Chilisauce selbst zu, statt abgefüllte zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "indonesisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2824,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tahu-goreng/",
+      "components": [
+        {
+          "key": "ae429962-8690-5529-9ee3-117a682aa143",
+          "name": "Zutaten",
+          "servingGrams": 470,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fa9dbe4-5998-59f9-8b50-b4ce7c22d1db",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen Blöcke"
+            },
+            {
+              "key": "1aaf620e-c3fc-528f-927c-8527e4656fad",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "fb68ca5f-79b4-5b0a-bc3f-98387bd43f8d",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¼ Tassen"
+            },
+            {
+              "key": "9f25d426-ee62-5922-80be-31724a5b4b15",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "7909fc49-b0f3-594a-8089-aaab9009c46e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "bdec258e-3e78-5e2b-9520-bff41b7c8946",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "cb0b894c-1204-5c7a-89bc-c9358f8ec6d5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen (zum Frittieren)"
+            },
+            {
+              "key": "88016ce6-43e9-54db-96d9-5ec75fae20ea",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 10 Minuten zwischen Küchenpapier, um überschüssige Flüssigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Tofu in ½ Zoll dicke rechteckige Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Mehl, Maisstärke, Wasser, Salz und Pfeffer zu einem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende die Tofustücke im Teig, sodass beide Seiten bedeckt sind, und lege sie vorsichtig ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere sie 2-3 Minuten pro Seite, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit Chilisauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.mithra.si/wp/wp-content/uploads/2013/04/DSC08815-1024x768.jpg",
+          "sourcePageUrl": "http://www.mithra.si/wp/wp-content/uploads/2013/04/DSC08815-1024x768.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

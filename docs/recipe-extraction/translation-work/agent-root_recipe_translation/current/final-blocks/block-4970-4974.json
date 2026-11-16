@@ -1,0 +1,1146 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-coconut-rice-bowl",
+      "slug": "gen-coconut-rice-bowl",
+      "title": "Kokosreis-Bowl",
+      "instructions": "Thailändische Bowl mit duftendem Kokosreis, frischem Gemüse, Limette und Koriander.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Jasminreis in Großpackungen, um die Kosten pro Portion zu senken.",
+        "Verwende saisonales Gemüse statt Kirschtomaten, wenn es gerade erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "thailändisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4970,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coconut-rice-bowl/",
+      "components": [
+        {
+          "key": "b92511fc-e695-5260-a504-560861b35808",
+          "name": "Zutaten",
+          "servingGrams": 547.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "435ab187-4c3d-5453-927f-66a9e1dfac21",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen, ungegart"
+            },
+            {
+              "key": "0a613ac3-5a27-5313-a233-8d3d03d0a124",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "51744cd6-cac2-5f1f-b341-eac7df07935c",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d6bf7d20-928f-5473-93f3-211dbd09a797",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5fdee030-49d3-5a62-b026-e31e7e9a6ee2",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "89b0b395-676e-522f-af56-81914a0c38b3",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "758ffe8c-3d05-5965-b576-2ea11c31b68e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9c78e828-554c-593d-bdbc-b5651e5f21cd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a9545533-465a-5cac-b514-fc59634d761e",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e23dc27-f6c2-5841-b0e2-16055edf53b8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis unter kaltem Wasser ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Reis, Kokosmilch, Wasser, Salz und Zucker in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze, decke den Topf ab und lass den Reis 18-20 Minuten köcheln, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide währenddessen die Gurke in dünne Scheiben und halbiere die Kirschtomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hacke den Koriander und die Frühlingszwiebeln und schneide die Limette in Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lockere den gekochten Reis mit einer Gabel auf und verteile ihn auf Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jede Bowl mit Gurkenscheiben, Tomaten, Koriander und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Bowls mit Limettenspalten zum Darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2020/11/Easy-Coconut-Rice-SQUARE.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2020/11/Easy-Coconut-Rice-SQUARE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pumpkin-buddha-bowl",
+      "slug": "gen-pumpkin-buddha-bowl",
+      "title": "Kürbis-Buddha-Bowl",
+      "instructions": "Buddha-Bowl mit würzigem Kürbis, Quinoa, Spinat, knusprigen Kichererbsen und Tahini-Dressing.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kürbis aus der Dose nach der Herbstsaison in Großpackungen zu günstigeren Preisen.",
+        "Verwende tiefgekühlten Spinat für eine praktische und preiswerte Alternative."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "moderne Gesundheit",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4971,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pumpkin-buddha-bowl/",
+      "components": [
+        {
+          "key": "1f8c2034-a53b-5e7c-a757-4b176886ed42",
+          "name": "Zutaten",
+          "servingGrams": 710.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "e18b0d09-7e35-55e1-bdf2-fa0d6e1ce6af",
+              "ingredientName": "Kürbispüree (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e59edd72-b8e2-5974-92d3-ac2577ce7e5e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9073a34a-faf6-5816-a5de-1efaf26ab947",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "03a3e3f4-002b-5aba-91c7-e6256835921d",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "cbbb5164-6e05-5271-9628-34a32c1dbfc2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cc1a2bfb-a3ad-5ef2-8116-b7c4e275fd82",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "84c84800-91b8-5c2e-a9a0-192b73bf4d8a",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen, frisch"
+            },
+            {
+              "key": "817d817f-1623-57cd-a346-ea40b8ddbeab",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen), abgetropft"
+            },
+            {
+              "key": "ebf5c702-b510-59dd-a0b0-63fbc571340d",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ca324092-4c43-5f23-9c6d-baf1f70eaeb0",
+              "ingredientName": "Feta-Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse, zerbröselt"
+            },
+            {
+              "key": "bcbcfd50-0b21-5e77-a2a5-bcdb0ed3ed4d",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1fa1ae66-63ff-5d2e-bfc7-b5b12ffb32ca",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Kürbispüree mit 1 Esslöffel Olivenöl, Kreuzkümmel, Paprikapulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Kürbismischung auf dem Blech und röste sie 20 Minuten, bis sie leicht karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche Quinoa nach Packungsanleitung, falls sie nicht bereits vorbereitet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge Kichererbsen mit dem übrigen Olivenöl, Salz und Pfeffer. Röste sie auf einem separaten Blech 15 Minuten, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile Quinoa und Spinat auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege die Bowls mit geröstetem Kürbis, knusprigen Kichererbsen, Pepitas und Feta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verrühre Tahini und Zitronensaft und träufle das Dressing über die Bowls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2022/04/buddha-bowl-hero.jpg",
+          "sourcePageUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2022/04/buddha-bowl-hero.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grain-bowl",
+      "slug": "gen-grain-bowl",
+      "title": "Getreide-Bowl",
+      "instructions": "Herzhafte Bowl mit Getreide, geröstetem Brokkoli, Tomaten, eingelegter Zwiebel und Mandeln.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Farro in Großpackungen statt in kleinen Fertigpackungen.",
+        "Ersetze Mandeln bei Bedarf durch günstigere Sonnenblumenkerne."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "moderne Gesundheit",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4972,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grain-bowl/",
+      "components": [
+        {
+          "key": "a7481a63-9871-54a3-864d-f1c8bb836e97",
+          "name": "Zutaten",
+          "servingGrams": 534.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "58c438a0-9b40-55fe-8b1a-b93b19aa66b7",
+              "ingredientName": "Naturreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "5fe1e2f1-f024-5241-afaa-9f6ac1276486",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ab390487-586a-5e5a-b194-7b0911269875",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "efacbaa8-762d-5d0b-93c1-2f0e5a785a30",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11769cf1-159a-5689-81cc-536a70f3b97c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dc08d96d-2647-592b-8e26-9b4287c4faf9",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, halbiert"
+            },
+            {
+              "key": "642f7449-c92b-5e8d-8570-c2802c455072",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, dünn geschnitten"
+            },
+            {
+              "key": "40f7b045-294d-5df5-a4ba-0966c485ded5",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "83e4ec2d-27dd-585b-9b14-fee26e0db236",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse, gerieben"
+            },
+            {
+              "key": "6c13a620-4b35-59f4-84b3-0c9834d8b32a",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f999b493-2f6e-5343-ab17-5bd6ab3e6d3d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Farro oder Vollkornreis nach Packungsanleitung und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 425°F vor und vermenge Brokkoliröschen mit 2 tablespoons Olivenöl, Knoblauch, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste den Brokkoli 15 Minuten, bis er weich und leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge währenddessen rote Zwiebelscheiben mit Balsamico-Essig in einer kleinen Schüssel und lass sie ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das gekochte Getreide auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege die Bowls mit geröstetem Brokkoli, eingelegter roter Zwiebel, Kirschtomaten und gehackten Mandeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle die Bowls mit dem übrigen Olivenöl und bestreue sie jeweils mit Parmesan und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/ngz9Khhl6c7tIUWbYeWfivGpqxU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7010038_CL-Bowls_Kale-And-Chickpea-Grain-Bowls-With-Avocado_231-6731060352704c9eb32b811aaf671e12.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/ngz9Khhl6c7tIUWbYeWfivGpqxU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7010038_CL-Bowls_Kale-And-Chickpea-Grain-Bowls-With-Avocado_231-6731060352704c9eb32b811aaf671e12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-muesli-bowl",
+      "slug": "gen-muesli-bowl",
+      "title": "Müsli-Bowl",
+      "instructions": "Schweizer Frühstücksbowl mit Haferflocken, Milch, Joghurt, frischem Obst, Mandeln und Rosinen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Haferflocken in Großpackungen im Supermarkt.",
+        "Verwende ganzjährig preiswertes Obst wie Bananen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4973,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-muesli-bowl/",
+      "components": [
+        {
+          "key": "7f09bb7e-8e2c-5a7c-a84e-895038098fc8",
+          "name": "Zutaten",
+          "servingGrams": 540.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4aeb96c5-134e-5bb5-a447-23edf8c0c6c4",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e4d055d4-5561-5ec2-9fbf-226c95aa0a2e",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ae70ff52-300a-52f6-bea2-bdee82571e1e",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ef6d7af4-6442-5dba-82c8-4258cc6c75ea",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6781155d-072c-5c27-9fa0-3ea10e5bfc7e",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "9dacdbf9-7d42-5168-9827-0bd296e880d0",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "f4e938e7-523e-547b-98ae-b7e535b08e37",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "23fc671b-f409-5041-9e29-ee482369cf0c",
+              "ingredientName": "Rosinen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "443ad8e2-ceed-5c3c-95fa-d3ddcb739e55",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "23e0b933-a004-55b2-8323-05bca31a98b7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Haferflocken, Milch, griechischen Joghurt, Honig, Zimt und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre alles gut um und lass die Mischung 5 Minuten stehen, damit die Haferflocken weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entkerne den Apfel und schneide ihn in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Banane in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Müslimischung auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jede Bowl mit Apfelscheiben, Banane, gehackten Mandeln und Rosinen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Müsli sofort oder stelle es über Nacht für ein Frühstück zum Vorbereiten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/08/easy-Muesli-Recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/08/easy-Muesli-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-watermelon-feta-salad",
+      "slug": "gen-watermelon-feta-salad",
+      "title": "Wassermelonen-Feta-Salat",
+      "instructions": "Erfrischender mediterraner Sommersalat mit Wassermelone, Feta, Minze und Limette.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wassermelone in der Hochsaison im Sommer, wenn sie am günstigsten ist.",
+        "Verwende Feta der Hausmarke, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mediterran",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4974,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-watermelon-feta-salad/",
+      "components": [
+        {
+          "key": "91e7e0f1-25cb-557a-9476-cf693cf81a96",
+          "name": "Zutaten",
+          "servingGrams": 108.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c110b050-c2da-524e-a62e-d864b457c48c",
+              "ingredientName": "Wassermelone",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 kleine Melone, gewürfelt"
+            },
+            {
+              "key": "110f0c79-2cae-50e9-ba75-2d71c8c6617b",
+              "ingredientName": "Feta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e112dc9b-f68c-5a80-9edf-172e5eb550e4",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f170a45c-c141-557e-9805-3bb69fe16254",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück, dünn geschnitten"
+            },
+            {
+              "key": "1f6e2597-4f59-5883-ae5b-a32116dcd728",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c8d5e99b-4aa2-59ee-83d0-1c4addc4bfe1",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "49093dc8-a1e9-541b-a751-0f046d6ec0fb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "dc680dae-ea69-5694-ae92-72338a9905bf",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/8 TL"
+            },
+            {
+              "key": "ba134386-8716-5d68-b764-732080c91cbc",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Wassermelone in Würfel, entferne überschüssige Kerne und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib zerbröselten Feta und dünn geschnittene rote Zwiebel zur Wassermelone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zupfe die frischen Minzblätter mit der Hand und gib sie in die Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Olivenöl, Rotweinessig, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über die Wassermelonenmischung und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Presse Limettensaft über den Salat, damit er eine frische Note erhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Salat sofort, solange die Wassermelone kalt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2024/06/watermelon-salad-recipe.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2024/06/watermelon-salad-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

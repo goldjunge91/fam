@@ -1,0 +1,1100 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bunny-chow",
+      "slug": "gen-bunny-chow",
+      "title": "Bunny Chow",
+      "instructions": "Durban-indisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Grillhähnchen und zerpflücken Sie es, statt rohe Hähnchenbrust zu verwenden.",
+        "Verwenden Sie leichte Kokosmilch, um Fett und Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "durban-indisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4005,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bunny-chow/",
+      "components": [
+        {
+          "key": "e309c8e9-f133-5d51-8777-c06aab34398e",
+          "name": "Zutaten",
+          "servingGrams": 439.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9610d43d-4587-58a0-882d-f48241b8e386",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "00770561-1c27-5e13-800f-1012b934855b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "28297d4c-6b68-5554-a108-fa25020b266b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "bbf4a505-d561-5a4e-9c03-fcf4014a9a29",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "0d164d0d-ea91-5127-a70c-d588831c5007",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "ba2cacfe-834f-52d0-8402-1bc8d74696bc",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "972401bb-74de-5619-b262-5a92d433bd25",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "1e8cf261-91ff-5221-8482-58c920d5c408",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "df72c2ac-2a8d-585d-b411-a585c006ae03",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cb5dd7cb-ce25-510c-abe9-2a1a3bafd9fc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und Zwiebel, Knoblauch und Ingwer anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Currypulver und Chilipulver hinzufügen und 1 Minute rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenwürfel hinzufügen und leicht anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kokosmilch und Brühe zugießen, aufkochen und anschließend 25–30 Minuten köcheln lassen, bis das Hähnchen zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Deckel vom Brotlaib abschneiden und das Innere aushöhlen. Das herausgenommene Brot aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das beiseitegelegte Brot in Stücke reißen und zum Curry geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten köcheln lassen, bis das Brot in der Sauce weich wird, dann Koriander einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die ausgehöhlten Brote mit dem Curry füllen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thetravelbite.com/wp-content/uploads/2012/04/IMG_0357.jpg",
+          "sourcePageUrl": "https://thetravelbite.com/wp-content/uploads/2012/04/IMG_0357.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sosaties",
+      "slug": "gen-sosaties",
+      "title": "Sosaties",
+      "instructions": "Kap-malaiisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie Lamm durch preiswertere Rinderschulter.",
+        "Kaufen Sie getrocknete Aprikosen aus Großgebinden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "kapmalaiisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4006,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sosaties/",
+      "components": [
+        {
+          "key": "297c6140-fa82-5760-8838-23fbcf9cdc7c",
+          "name": "Zutaten",
+          "servingGrams": 196.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "76da577d-9c79-5bbc-83b1-fa5826a67bed",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ad5f000b-42d3-52d2-98ca-c15a77d3e340",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, grob zerteilt"
+            },
+            {
+              "key": "2489ae29-a629-5925-9de1-0258667346c4",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, getrocknet"
+            },
+            {
+              "key": "8b68a0aa-d111-54b3-9d75-6a5f60cdce9c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "d0d4f982-70c8-5545-a139-63f12718e465",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "736035a4-0841-5f70-a0ed-d7f13c3e3ec3",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "403427f0-94bd-5cfd-8776-c4b193828b01",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "db070a4b-f4fb-5cd4-9a2a-bd7c8fa86a87",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e5e0f38f-5fa1-5180-b546-f4782d0781b4",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "271e4202-2b8a-51c1-991e-3b15d437ebf8",
+              "ingredientName": "Holzspieße",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "6 Stück, eingeweicht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sojasauce, Essig, Zucker, Knoblauch, Ingwer und Currypulver in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lammwürfel mindestens 30 Minuten in der Mischung marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lamm, Zwiebelstücke und Aprikosen abwechselnd auf Spieße stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Marinade aufbewahren und die Spieße damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grill oder Grillpfanne auf mittlere bis hohe Hitze vorheizen. Spieße 12–15 Minuten grillen, gelegentlich wenden und mit der restlichen Marinade bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß mit Reis oder Fladenbrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ity5-JV9G5-DlRwtOzrl5rhTE70=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9427546-0586987f205d4a3388bb7d2d86b947b5.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ity5-JV9G5-DlRwtOzrl5rhTE70=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9427546-0586987f205d4a3388bb7d2d86b947b5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boerewors",
+      "slug": "gen-boerewors",
+      "title": "Boerewors",
+      "instructions": "Südafrikanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Fleisch im Angebot und frieren Sie es bis zur Zubereitung ein.",
+        "Bestellen Sie Wursthüllen online in größeren Mengen zu günstigeren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "südafrikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4007,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boerewors/",
+      "components": [
+        {
+          "key": "ca517ec1-60a5-5209-bed8-84ff8c539faa",
+          "name": "Zutaten",
+          "servingGrams": 90.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "12d08fe8-2874-59b2-9685-1f2276471043",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f179cf3f-1163-5a3c-9dc9-7915e0e31ebf",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "811a8933-8780-5c19-b3c0-31d4cb0be52a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "877c4d99-f308-53c0-97ac-04d48be417da",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "67961cda-3ec8-5c38-945c-5e01c540083c",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b2b137e-cd76-5f4a-a113-813a138a6f98",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "12c1f173-b20e-5b0b-aa20-758acb265ffb",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "88beaeb7-0e07-539d-a459-1d773b6ea181",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "48489dd0-fa6a-53dc-aacf-ae2d1a2e77ce",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "748db1ee-92d2-5588-be4d-3b6f6cc3f8db",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "3-4 Fuß"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koriandersamen, Nelken und Piment 2 Minuten in einer trockenen Pfanne rösten und anschließend zu Pulver mahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinder- und Schweinehackfleisch mit Knoblauch, Gewürzen, Salz, Essig und 1/4 Tasse Wasser vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wursthüllen 10 Minuten in warmem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hüllen mit einem Wurstfüller mit der Fleischmischung füllen und zu 6 Zoll langen Würsten abdrehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hüllen vorsichtig mit einer Gabel einstechen, damit sie nicht platzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei mittlerer Hitze 15–20 Minuten grillen oder in der Pfanne braten, bis sie gebräunt und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://meplusfood.com/wp-content/uploads/2024/02/Boerewors-on-the-Grill.png",
+          "sourcePageUrl": "http://meplusfood.com/wp-content/uploads/2024/02/Boerewors-on-the-Grill.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-koeksister",
+      "slug": "gen-koeksister",
+      "title": "Koeksister",
+      "instructions": "Südafrikanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie die doppelte Menge Teig zu und frieren Sie ungebackene Teigstücke ein.",
+        "Verwenden Sie Öl sparsam und filtern Sie es zur Wiederverwendung."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südafrikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4008,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-koeksister/",
+      "components": [
+        {
+          "key": "1d5f2360-390d-5e34-adc0-07af481611d0",
+          "name": "Zutaten",
+          "servingGrams": 125.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ae0b579-60c2-5d1a-a1b8-c06fdfe26a79",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7bb27822-f6b1-5ecd-a9d7-2b7a7d1a1fb2",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "ff62978b-bfe7-514e-a786-631b26559113",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f53f1faf-4b72-5a67-bfae-bb4af2a4836c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL, geschmolzen"
+            },
+            {
+              "key": "fdf3f328-b9b1-5cc9-a050-edc105df1991",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e44635e-66f6-534c-8270-5cea182780e6",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "eca6e45b-59f7-59e4-8d18-614d2724cc29",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bbfd932f-47c7-5b06-a64f-5a9543d7637b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL, gemahlen"
+            },
+            {
+              "key": "6fabd485-fd66-5cf5-95b6-b3cc65348378",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "77ed0b08-ad56-552a-9953-26d09bb295c9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschmolzene Butter, Ei und Milch verrühren, zu den trockenen Zutaten geben und zu einem weichen Teig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig auf einer bemehlten Fläche 1/8 Zoll dick ausrollen und in 3 Zoll lange Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zucker, Ingwer und Zimt in einer flachen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Teigstreifen portionsweise pro Seite 1–2 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die heißen Koeksisters sofort noch warm in der Zucker-Gewürz-Mischung wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Kuchengitter abkühlen lassen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/11/94/20/picqJRitW.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/11/94/20/picqJRitW.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-biltong",
+      "slug": "gen-biltong",
+      "title": "Biltong",
+      "instructions": "Südafrikanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rindfleisch im Angebot und frieren Sie es bis zur Zubereitung ein.",
+        "Verwenden Sie einen Dörrautomaten oder den Ofen auf niedrigster Stufe, um Platz zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "südafrikanisch",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4009,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-biltong/",
+      "components": [
+        {
+          "key": "f8c81eb5-9cf8-5876-8371-3ae92780b9c7",
+          "name": "Zutaten",
+          "servingGrams": 35,
+          "position": 0,
+          "items": [
+            {
+              "key": "78b6d17f-828a-5fc9-a2ce-950bc4815a23",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, in 1/4 Zoll dicke Scheiben geschnitten"
+            },
+            {
+              "key": "8ea4715d-1372-5c85-9592-0fddc5327d88",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "f84666f1-681e-5f6b-9031-1bc09576ea5b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2b71b94c-fe67-57fc-8892-c9d1bc9ee7e5",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c0d8d421-78af-50b7-aac7-c226d214539b",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "23fb10d1-5935-5924-88bd-ece7f803d862",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0a044350-9455-5f1b-b335-fde50561ee5c",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "148d366e-0de2-532d-bd5a-f761f2acdcc9",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koriandersamen 1 Minute in einer trockenen Pfanne rösten und anschließend grob zerstoßen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salz, Zucker, Pfeffer, Koriander, Knoblauchpulver und Paprikapulver in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Rindfleischscheiben gründlich mit Essig einreiben und gleichmäßig mit der Gewürzmischung bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das gewürzte Fleisch in einen Behälter schichten, abdecken und 6–12 Stunden im Kühlschrank lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Rindfleisch mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Streifen an Haken oder einer Schnur an einem warmen, gut belüfteten Ort (70–75 °F) aufhängen oder einen Dörrautomaten auf 160 °F einstellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5–7 Tage trocknen, bis das Fleisch vollständig trocken, aber noch leicht biegsam ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0491/8378/5111/files/how-to-make-biltong.jpg?v=1727373979",
+          "sourcePageUrl": "https://cdn.shopify.com/s/files/1/0491/8378/5111/files/how-to-make-biltong.jpg?v=1727373979",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

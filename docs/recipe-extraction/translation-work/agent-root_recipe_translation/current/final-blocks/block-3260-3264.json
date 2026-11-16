@@ -1,0 +1,1092 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-panettone",
+      "slug": "gen-panettone",
+      "title": "Panettone",
+      "instructions": "Italienisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Cranberrys und Orangenschale statt teurer kandierter Zitrusfrüchte verwenden",
+        "Normale Rosinen statt goldener Rosinen verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3260,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panettone/",
+      "components": [
+        {
+          "key": "a3a79e66-e645-557c-9bf9-7ca9d969ea5d",
+          "name": "Zutaten",
+          "servingGrams": 257.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "cee9bbfa-a88e-5c33-a37b-66e5fc986e6e",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "e6aaf49e-19c6-5de4-9695-e3c555434ec1",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "09f1c361-2fc8-581a-9a12-c24fc6ea6b13",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7c5f979a-2eaf-581c-93bb-25b0cf5e260f",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8b639e0-5409-57ad-8282-4f4e9fb2d867",
+              "ingredientName": "Nährhefe",
+              "grams": 33.75,
+              "quantity": 33.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2.25 TL"
+            },
+            {
+              "key": "19368a72-e13e-5bf2-a0bc-41db6998c055",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "17212d14-49aa-5f7c-8c9b-935b527bc924",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "45877311-904a-535d-92ee-83816ec52c3f",
+              "ingredientName": "Rosinen",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2/3 Tasse"
+            },
+            {
+              "key": "df36280b-080e-5cd4-8b98-ae03dd283cc8",
+              "ingredientName": "Kandierte Zitrusschale",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "cebaebff-0216-5231-8def-0fa59555cbfb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe mit warmer Milch vermengen und 5 Minuten stehen lassen, bis sich Schaum bildet; dann zur Mehlmischung mit Zucker, Salz und Eiern geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig 10 Minuten glatt kneten und dann nach und nach weiche Butter einkneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiterkneten, bis der Teig elastisch und luftig ist, dann Rosinen und kandierte Schale unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in eine gefettete Schüssel legen, mit Frischhaltefolie abdecken und an einem warmen Ort 2 Stunden gehen lassen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig zu einem runden Laib formen und in eine Panettoneform oder eine hohe, mit Backpapier ausgelegte Kuchenform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und 90 Minuten gehen lassen, bis der Teig über den Formrand steigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backofen auf 375°F vorheizen und Panettone 40-50 Minuten backen, bis ein in die Mitte gesteckter Spieß sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "15 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter stürzen und vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/1ERBrS9LSiyu3Vs6UV2yb3bZWRc=/5517x3678/filters:fill(auto,1)/Panettone-spruce-5bbcb1b14cedfd00269ba9ae.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/1ERBrS9LSiyu3Vs6UV2yb3bZWRc=/5517x3678/filters:fill(auto,1)/Panettone-spruce-5bbcb1b14cedfd00269ba9ae.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gulab-jamun",
+      "slug": "gen-gulab-jamun",
+      "title": "Gulab Jamun",
+      "instructions": "Indisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Milchpulver selbst durch Eindampfen normaler Milch herstellen",
+        "Rosenwasser weglassen und stattdessen Vanilleextrakt verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3261,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gulab-jamun/",
+      "components": [
+        {
+          "key": "4e2a6797-9e0d-5272-910e-828f5a9977e3",
+          "name": "Zutaten",
+          "servingGrams": 313.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a546c47-5f32-5593-be40-0054f896ca7b",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c5d5323f-98df-58e3-a72b-e40603facc21",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "793d5fe3-15ef-5c13-a1a6-a6e0d84cc111",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "87187e3c-829a-50c2-be3c-0be06a44fb87",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b15c0182-230d-5e22-bd28-31ff890c1019",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b0ed9483-aa0f-5663-a5ba-24a59f5c1ae6",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d94b2dc9-b18c-55d4-9d98-a8e675bafb6d",
+              "ingredientName": "Kardamom",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ade4100-5414-55b2-b2e2-f8c46d4b9109",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milchpulver, Mehl und Backpulver in einer Schüssel vermengen, dann geschmolzene Butter und ausreichend Milch hinzufügen, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig in kleine walnussgroße Kugeln teilen und beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zucker und Wasser in einem Topf zum Kochen bringen, zerdrückte Kardamomkapseln hinzufügen, vom Herd nehmen und Rosenwasser einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem tiefen Topf auf 350°F erhitzen und Gulab Jamun vorsichtig portionsweise hineingeben, ohne den Topf zu überfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Unter gelegentlichem Wenden etwa 5-7 Minuten portionsweise frittieren, bis sie rundum dunkel goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer Schaumkelle herausnehmen und sofort in den warmen Zuckersirup legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren mindestens 30 Minuten im Sirup ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/dj2E_rJjGaTcN8et02Ks3C5nwA8=/6000x3996/filters:fill(auto,1)/gulab-jamun-dessert-1957825-hero-01-ede4b62583704cd1926b59142d6ddc1f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/dj2E_rJjGaTcN8et02Ks3C5nwA8=/6000x3996/filters:fill(auto,1)/gulab-jamun-dessert-1957825-hero-01-ede4b62583704cd1926b59142d6ddc1f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mochi",
+      "slug": "gen-mochi",
+      "title": "Mochi",
+      "instructions": "Japanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mochiko-Mehl auf asiatischen Märkten zu besseren Preisen kaufen",
+        "Ungesüßte Kokosraspeln lose in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "vegan"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3262,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mochi/",
+      "components": [
+        {
+          "key": "f23e8d20-5d8a-5f6c-9d31-e9cf2819a12e",
+          "name": "Zutaten",
+          "servingGrams": 177.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e5e1c42-234e-5621-b928-e25e1a7240f1",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "db8d3065-223e-5fcb-aa7d-f537f034cc56",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "78920b9a-40e3-55b7-bc32-aaf117fa5582",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "68f856d3-145a-5fe3-8722-f1066fd2ee28",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4f696f45-2ee3-5de7-b892-e4ca8ba33f1f",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "389a459c-765b-5fb6-942e-c4bf344c3e2c",
+              "ingredientName": "Kokosraspeln (ungesüßt)",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "38349e1a-a8ba-5e61-9488-8055c15aafb1",
+              "ingredientName": "Lebensmittelfarbe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2-3 Tropfen, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mochiko-Mehl und Zucker in einer mikrowellengeeigneten Schüssel vermengen, Wasser hinzufügen und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Minuten auf hoher Stufe in der Mikrowelle erhitzen, gut umrühren, dann weitere 2 Minuten erhitzen, bis die Mischung dick und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aus der Mikrowelle nehmen, Kokosaroma einrühren und 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Arbeitsfläche großzügig mit Maisstärke bestäuben, damit nichts klebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mochi-Mischung auf die mit Maisstärke bestäubte Fläche geben und die Oberseite ebenfalls mit zusätzlicher Maisstärke bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald die Masse kühl genug zum Anfassen ist, etwa 1 Minute sanft kneten, bis sie glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf etwa 1/4-inch Dicke ausrollen und in 1.5-inch Quadrate schneiden oder mit einem Ausstecher ausstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jedes Stück rundum in Kokosraspeln wenden und zum Abkühlen auf Backpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/mochi-recipe-1747757485.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/mochi-recipe-1747757485.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tres-leches-cake",
+      "slug": "gen-tres-leches-cake",
+      "title": "Tres-Leches-Kuchen",
+      "instructions": "Lateinamerikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Erdbeeren statt frischer verwenden, um Kosten zu senken",
+        "Erdbeergarnitur weglassen und nur Schlagsahne verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "lateinamerikanisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3263,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tres-leches-cake/",
+      "components": [
+        {
+          "key": "126837e6-842d-5ac0-a010-bfc355fde7e7",
+          "name": "Zutaten",
+          "servingGrams": 379.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e2f4626-86d0-55b9-9a7c-0bd1deb6c405",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ec7f1120-62de-5669-9930-b4a382d71fde",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "28e3f6ad-86e2-5918-930f-441b7f20fde1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "695a7dca-40b7-555a-8f73-9da103ea6a06",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca9a67ad-7659-5a31-bd5c-76df9c56c0d7",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "851afd75-7eb1-5bfc-9dfa-d83808a7d5c8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "2d0df10f-e5d3-5fbf-ae60-704a73107617",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "9f421ed0-d3a4-54f0-8d51-ae58b6f83d4c",
+              "ingredientName": "Kondensmilch (ungesüßt)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (12 Unzen)"
+            },
+            {
+              "key": "d9db6f93-fdfe-5e41-927e-e03afc01a8cb",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "157140d1-e5c0-55d5-93af-f6971812351d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ee1fc739-8cc1-5956-a420-d62f173d4715",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 350°F vorheizen und eine Backform von 9x13 einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver und Salz in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5 Eier mit Zucker hell und dick aufschlagen, dann Mehlmischung und Milch vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in die vorbereitete Form gießen und 25-30 Minuten backen, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während der Kuchen backt, Kondensmilch, ungesüßte Kondensmilch und normale Milch vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgekühlten Kuchen überall mit einer Gabel einstechen, dann langsam die Milchmischung über die gesamte Oberfläche gießen, bis sie aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sahne mit Vanille und restlichem Zucker zu steifen Spitzen schlagen und auf dem abgekühlten Kuchen verstreichen oder aufspritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit frischen Erdbeeren belegen und vor dem Servieren mindestens 2 Stunden kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/sIWwiuS7xqsX_mu5ik8RTAlsALY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Tres-Leches-LEAD-7-cb45bef435fb4396905463b97b3717e2.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/sIWwiuS7xqsX_mu5ik8RTAlsALY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Tres-Leches-LEAD-7-cb45bef435fb4396905463b97b3717e2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-clair",
+      "slug": "gen-clair",
+      "title": "Éclair",
+      "instructions": "Französischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schokotropfen der Hausmarke statt Premiummarken verwenden",
+        "Schokoglasur aus Kakaopulver statt Schokotropfen zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3264,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-clair/",
+      "components": [
+        {
+          "key": "1bb05b72-17d3-538c-934c-a69997276a15",
+          "name": "Zutaten",
+          "servingGrams": 441.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b36bb87-d5e0-583b-8ccf-24021961db73",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "926dcc2d-b606-5df6-8aac-cdb7d7b5f750",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dc48b007-c1ac-53c0-a637-1abdce52b708",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3b81db48-4d31-5003-b856-1ceb83c1eb2f",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d43cf9c2-d966-5167-bd74-de5f548fc0fe",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fa820ffe-98cd-5272-b0c4-d7ccb8797cc7",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcaf4587-876e-57d1-a749-4aa1ef8c496f",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bdf5b0a2-0b43-584b-85f1-fdbf7cacb1e9",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ff1f264b-3d57-531a-ab45-66018f7e6fa4",
+              "ingredientName": "Schokotropfen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d371ab06-7701-5da0-8cd6-f6fd397b8bb2",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 400°F vorheizen und Backbleche mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wasser und Butter zum Kochen bringen, vom Herd nehmen und Mehl einrühren, bis sich eine Teigkugel bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Leicht abkühlen lassen, dann Eier einzeln einrühren, bis der Teig glatt und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einen Spritzbeutel mit großer runder Tülle füllen und 4-inch lange Streifen auf die vorbereiteten Backbleche spritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "25-30 Minuten backen, bis sie aufgegangen und goldbraun sind, dann auf Kuchengittern abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Konditorcreme Milch erhitzen und Eigelb mit Zucker und Maisstärke verquirlen, bevor die heiße Milch langsam eingerührt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Creme zurück auf die Hitze stellen und unter ständigem Rühren dick kochen, dann vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abgekühlte Éclairs waagerecht aufschneiden, mit Konditorcreme füllen und mit geschmolzener Schokolade vermischt mit Sahne überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/r2QSCuoJmHKMxZHwXUemnACU4ds=/5408x3600/filters:no_upscale():max_bytes(150000):strip_icc()/chocolate-eclairs-recipe-1375148-step-02-e7ce19ada0eb489b8c4ad3c84c157ea1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/r2QSCuoJmHKMxZHwXUemnACU4ds=/5408x3600/filters:no_upscale():max_bytes(150000):strip_icc()/chocolate-eclairs-recipe-1375148-step-02-e7ce19ada0eb489b8c4ad3c84c157ea1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

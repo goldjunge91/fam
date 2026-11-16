@@ -1,0 +1,935 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:dorm-ramen-upgrade",
+      "slug": "dorm-ramen-upgrade",
+      "title": "Aufgepeppte Ramen für die Studentenküche",
+      "instructions": "Instant-Ramen mit Ei, Käsescheibe, Tiefkühlgemüse und einem Schuss Sojasauce verfeinert.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Die Hälfte der Gewürzmischung reicht",
+        "Tiefkühlgemüse und Ei liefern günstig zusätzliche Nährstoffe"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Spinat",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Weglassen oder Butter verwenden",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Packung Ramen, ein Ei und ein paar übrige Zutaten kosten zusammen weniger als $1.75.",
+      "healthierTips": [
+        "Gewürzmischung weglassen",
+        "Salzreduzierte Sojasauce verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch",
+        "studentenküchengeeignet",
+        "Mikrowelle",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 85,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/dorm-ramen-upgrade/",
+      "components": [
+        {
+          "key": "40ee639d-768d-5ef9-ba5f-a77796e1148e",
+          "name": "Zutaten",
+          "servingGrams": 330,
+          "position": 0,
+          "items": [
+            {
+              "key": "aed23565-d602-5369-8241-2297dfaf39a9",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f8bd24f-f6ce-5454-a971-9081bbf359e9",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab0262ad-4f36-59a2-ab0c-dc88e9ac82a7",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "246d6923-9f08-58e0-ae01-cb7fc65bb578",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3078c474-3a42-5f8d-9a96-f3c6cc563892",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d3384c8-559a-5df1-8e4a-d8fb17ffd54d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Nudeln, 2 Tassen Wasser und Tiefkühlgemüse in eine Schüssel und gare alles 4 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage das Ei hinein und gare alles weitere 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die halbe Gewürzmischung und die Sojasauce unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege alles mit einer Käsescheibe und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/dorm-ramen-upgrade.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/dorm-ramen-upgrade.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/dorm-ramen-upgrade.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/dorm-ramen-upgrade.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:canned-chili-baked-potato",
+      "slug": "canned-chili-baked-potato",
+      "title": "Ofenkartoffel mit Chili aus der Dose",
+      "instructions": "In der Mikrowelle gegarte Kartoffel, aufgeschnitten und mit Chili aus der Dose, Käse und saurer Sahne belegt.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Zutaten im Kühlschrank 4 Tage haltbar.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Dosenchili kostet etwa $2",
+        "Eine Kartoffel ist eine ganze Mahlzeit"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "canned-chili",
+          "swap": "Bohnen + Kreuzkümmel",
+          "savings": "ca. $1"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Zwei Kartoffeln und eine Dose Chili reichen für weniger als $3 pro Portion.",
+      "healthierTips": [
+        "Vegetarisches Chili verwenden",
+        "Käse weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "studentenküchengeeignet",
+        "Mikrowelle"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 86,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/canned-chili-baked-potato/",
+      "components": [
+        {
+          "key": "d357a292-03c7-547c-9607-f732c818cfcc",
+          "name": "Zutaten",
+          "servingGrams": 425,
+          "position": 0,
+          "items": [
+            {
+              "key": "107b92f2-4646-5f97-9d56-09a94eaef13f",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fbba5d2-4f9d-5049-bf26-13f92864c42d",
+              "ingredientName": "Chili aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ff9e3e1-5a9a-559a-a951-fa92e8caa64a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0c263bb-0413-51ae-bc33-986aed96af1b",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "df663b6e-816d-5099-9ede-02b72f43019a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "27e5edc6-e943-54c6-8f77-9ab6942f4486",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Kartoffeln 8 Minuten in der Mikrowelle, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme das Chili 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Kartoffeln auf und belege sie mit Chili, Käse, saurer Sahne und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/canned-chili-baked-potato.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/canned-chili-baked-potato.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/canned-chili-baked-potato.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/canned-chili-baked-potato.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:chicken-rice-veggie-meal-prep",
+      "slug": "chicken-rice-veggie-meal-prep",
+      "title": "Hähnchen-Reis-Gemüse zum Vorbereiten",
+      "instructions": "Gebratene Hähnchenbrust, Reis und Brokkoli auf 4 Behälter für die Woche verteilt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": "Im Kühlschrank 4 Tage haltbar.",
+      "reheatingInstructions": "Mit einem Schuss Wasser über dem Reis 2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Hähnchen in Familienpackungen kaufen",
+        "Tiefkühlbrokkoli ist viel günstiger als frischer"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel",
+          "savings": "ca. $0.35/Portion"
+        },
+        {
+          "forIngredientId": "frozen-broccoli",
+          "swap": "Gemischtes Tiefkühlgemüse",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Hähnchen vom Blech ergibt mehr Portionen als Restaurantgerichte und ist günstiger.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Sojasauce weglassen, wenn sie zu salzig ist"
+      ],
+      "batchPrepTips": [
+        "Koche eine größere Menge Reis vor",
+        "Gare das ganze Hähnchen auf einmal auf einem Blech"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 87,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/chicken-rice-veggie-meal-prep/",
+      "components": [
+        {
+          "key": "387f8ab8-d1e5-5d43-9819-e6a0cea6a346",
+          "name": "Zutaten",
+          "servingGrams": 598.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4cb71b4-a238-5c21-ae33-1636ea9ac4de",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb54f262-d027-58f5-9bfa-663f66cfa17b",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3151de65-ebb8-553c-8c9e-07a3c0841c5a",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "338cc284-6661-5ff4-8770-6cb05170b740",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b607d2c8-96d6-52fa-84ac-d130629457d0",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa00694f-e417-5c8c-aa0c-3da1441fc896",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09e23a09-56e2-5efb-b725-e1a018e9082a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cc63454-a57c-5797-983f-1f6c1967382f",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge das Hähnchen mit Öl, Knoblauchpulver, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe es bei 400F 20 Minuten im Ofen oder brate es 6 Minuten pro Seite in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe den Brokkoli 5 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile alles auf 4 Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/chicken-rice-veggie-meal-prep.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/chicken-rice-veggie-meal-prep.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chicken-rice-veggie-meal-prep.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chicken-rice-veggie-meal-prep.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:turkey-or-lentil-chili-meal-prep",
+      "slug": "turkey-or-lentil-chili-meal-prep",
+      "title": "Puten- oder Linsen-Chili zum Vorbereiten",
+      "instructions": "Ein großer Topf Chili mit Putenhackfleisch oder Linsen, Bohnen, Tomaten und Gewürzen – davon isst du mehrere Tage.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": "Im Kühlschrank 5 Tage haltbar oder 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen und umrühren.",
+      "cheapTips": [
+        "Putenhackfleisch im Angebot ist eine günstige Eiweißquelle",
+        "Der Austausch gegen Linsen spart noch mehr"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Linsen (1.5 Tassen trocken verwenden)",
+          "savings": "ca. $1/Portion"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + Brühwürfel",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Bohnen strecken das Fleisch; ein Topf reicht für die ganze Woche.",
+      "healthierTips": [
+        "Paprika dazugeben",
+        "Salzreduzierte Brühe verwenden"
+      ],
+      "batchPrepTips": [
+        "Friere die Hälfte für die nächste Woche ein",
+        "Verdopple die Menge bei gleichem Zeitaufwand"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "gefriergeeignet"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 88,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/turkey-or-lentil-chili-meal-prep/",
+      "components": [
+        {
+          "key": "896b517e-110a-5ea5-990d-5356d4a3242d",
+          "name": "Zutaten",
+          "servingGrams": 426.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fc01d00-fa31-5435-bd6e-3f0fbbe0e493",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "oder 1.5 cups Linsen als vegetarische Alternative"
+            },
+            {
+              "key": "5e977c7b-2f84-5d7e-8bc7-18a0435be4cb",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c0f3132-05c0-5675-8579-473ec6d5ab49",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85c318d0-a60d-5f43-91a0-1137cb3c6d4c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7025a325-c3bc-5073-b05d-af970b2a2c21",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52fb6475-2856-5153-be15-3aac805734ec",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a2397df-a9b4-5fc7-a294-74b74b7358dc",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5160a2c1-6f85-5e67-a326-5a21c022738c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Putenhackfleisch mit gewürfelter Zwiebel 8 Minuten in einem großen Topf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Chilipulver und Kreuzkümmel dazu und rühre 1 Minute um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Bohnen, gehackte Tomaten und Brühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 25 Minuten köcheln, bis das Chili dickflüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile es auf 6 Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/turkey-or-lentil-chili-meal-prep.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/turkey-or-lentil-chili-meal-prep.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/turkey-or-lentil-chili-meal-prep.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/turkey-or-lentil-chili-meal-prep.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:lentil-taco-filling",
+      "slug": "lentil-taco-filling",
+      "title": "Linsenfüllung für Tacos",
+      "instructions": "Würzig-krümelige Linsen als Ersatz für Hackfleisch – ideal für Tacos, Schüsseln oder gefüllte Paprika.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": "Im Kühlschrank 5 Tage haltbar oder 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Linsen kosten pro Tasse nur ein paar Cent",
+        "Ergibt ähnlich viele Portionen wie Rinderhack"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "taco-seasoning",
+          "swap": "Kreuzkümmel + Chilipulver + Knoblauch",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + Brühwürfel",
+          "savings": "ca. $0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Getrocknete Linsen und Gewürze aus dem Vorratsschrank ergeben eine große Taco-Füllung für weniger als $4.",
+      "healthierTips": [
+        "Salzreduzierte Gewürzmischung verwenden",
+        "Paprika dazugeben"
+      ],
+      "batchPrepTips": [
+        "Verwende die Füllung die ganze Woche für Tacos, Burritos, Salate und gefüllte Paprika"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "milchfrei",
+        "mexikanisch",
+        "vegan",
+        "gefriergeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 89,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/lentil-taco-filling/",
+      "components": [
+        {
+          "key": "8afb458e-8d85-5234-b8b2-14fc01930d1a",
+          "name": "Zutaten",
+          "servingGrams": 283.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d6549c5-0e6a-5d40-bfb8-c8d5a4dda247",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b548f166-e07f-5393-bed2-e656e45dfe65",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5fca7f7-ec73-5b55-82eb-48a05cb4e2e9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97257378-2bcd-50c1-83b4-1c981eec2892",
+              "ingredientName": "Taco-Gewürzmischung",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05577354-d76b-50f4-a59c-ccca9c73af60",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68b7385d-6afa-5871-bb32-e8c555dbf7a4",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f236419-89e1-57aa-8b1a-607b80a469b7",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Knoblauch 5 Minuten in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Linsen, Taco-Gewürzmischung, Tomatensauce und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 25 Minuten köcheln, bis die Linsen die Flüssigkeit aufgenommen haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Füllung abkühlen und portioniere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/lentil-taco-filling.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/lentil-taco-filling.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/lentil-taco-filling.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/lentil-taco-filling.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

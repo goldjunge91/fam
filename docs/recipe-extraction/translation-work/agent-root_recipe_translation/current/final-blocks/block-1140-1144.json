@@ -1,0 +1,1000 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-black-bean-quesadillas",
+      "slug": "mfr-black-bean-quesadillas",
+      "title": "Schnelle Quesadillas mit schwarzen Bohnen und Käse",
+      "instructions": "Knusprige Quesadillas aus Vollkorn-Tortillas, gefüllt mit schwarzen Bohnen, Cheddar, Zwiebel und Jalapeño – in 12 Minuten fertig und vielseitig anpassbar.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Quesadillas kosten $2 und reichen für 2 Personen – ein besonders schnelles, günstiges Abendessen.",
+        "Der Ersatz von saurer Sahne durch griechischen Joghurt spart 50 kcal pro Portion und liefert zusätzlich Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus für eine besonders cremige Füllung"
+        },
+        {
+          "forIngredientId": "cheddar-cheese",
+          "swap": "Jeder gut schmelzende Käse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-black-bean-quesadillas",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Quesadilla",
+        "schnell",
+        "Bohnen",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1140,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-black-bean-quesadillas/",
+      "components": [
+        {
+          "key": "3ec62f44-632d-5f16-8216-8935508acd48",
+          "name": "Zutaten",
+          "servingGrams": 588,
+          "position": 0,
+          "items": [
+            {
+              "key": "415d6115-4515-5097-a1e9-82b62dde7f63",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae986ec5-046a-5e0c-af7a-8a8d466d2294",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd58def1-b32c-5ea1-8948-c23fab84ff7b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff79f817-5b0b-5cd3-81d8-f89207d92aa7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd1aacc7-bd21-5dd1-9c33-a2aca2ed68a1",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d6aaa60-78a8-5266-b145-8e97369864c5",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a81093fa-a5f5-550e-b632-b860a1456dc1",
+              "ingredientName": "Ölspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60034565-472d-59a5-8c46-e43d1cab08bd",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a27c8df-7199-5a14-bdc8-d61d98812c6f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische die Bohnen mit Kreuzkümmel und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Besprühe eine Pfanne mit Öl und lege eine Tortilla hinein. Belege eine Hälfte mit Käse, Bohnen, Zwiebel und Jalapeño.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Klappe die Tortilla zusammen und brate sie auf jeder Seite 3 Minuten, bis sie knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere sie mit Salsa und griechischem Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2021/12/CHEESY-Vegan-Quesadillas-with-Smoky-Black-Beans-9-ingredients-30-minutes-SO-satisfying-minimalistbaker-recipe-plantbased-quesadilla-8-1024x1536.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2021/12/CHEESY-Vegan-Quesadillas-with-Smoky-Black-Beans-9-ingredients-30-minutes-SO-satisfying-minimalistbaker-recipe-plantbased-quesadilla-8-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pesto-chicken-quick",
+      "slug": "mfr-pesto-chicken-quick",
+      "title": "15-Minuten-Pesto-Hähnchen",
+      "instructions": "Hähnchenbrust mit Pesto bestrichen und goldbraun in der Pfanne gebraten – ein schnelles Abendessen unter der Woche. Dazu passen Pasta, Salat oder Gemüse.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pesto aus dem Glas kostet $3 und macht in 15 Minuten daraus ein Abendessen wie im Restaurant.",
+        "Wenn du das Hähnchen flach klopfst, gart es schneller und gleichmäßiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pesto",
+          "swap": "Chimichurri oder Harissa"
+        },
+        {
+          "forIngredientId": "mozzarella-cheese",
+          "swap": "Provolone oder weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pesto-chicken-quick",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "italienisch",
+        "Hähnchen",
+        "Pesto",
+        "schnell",
+        "5 Zutaten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1141,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pesto-chicken-quick/",
+      "components": [
+        {
+          "key": "451ae824-cb87-5d45-81b1-fb5c6af2d843",
+          "name": "Zutaten",
+          "servingGrams": 322.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5cc9f116-3df0-502e-ae84-c3413509777e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c07f93c0-8fd1-53a5-a558-d563842a4f46",
+              "ingredientName": "Pesto",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28e05e4b-4d24-55a1-a8fa-1c7788aab358",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7efcf440-da46-5053-a512-b129af8cb359",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f5327e0-40a3-5553-b1e3-b4a997130b2b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c355f861-beb3-5817-8136-af5c7e234a0f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bda91ac-3efb-5e3f-b2de-c19ce3760ae9",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Hähnchen flach und bestreiche es mit Pesto.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate es in Olivenöl auf jeder Seite 5 Minuten, bis es durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege es mit Mozzarella und Kirschtomaten. Decke die Pfanne 1 Minute ab, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere es mit Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/03/Creamy-Pesto-Chicken-Recipe-3.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/03/Creamy-Pesto-Chicken-Recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-tacos-quick",
+      "slug": "mfr-salmon-tacos-quick",
+      "title": "Schnelle Lachstacos",
+      "instructions": "Zarter, in der Pfanne gebratener Lachs in Maistortillas mit Krautsalat aus Mango und Limette, Avocado und einem Joghurt-Sriracha-Dressing – in 18 Minuten fertig.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachstacos sind überraschend preiswert: 2 Lachsfilets für 4 Tacos kosten $8.",
+        "Der Krautsalat mit Mango und Limette macht aus einem einfachen Gericht etwas Besonderes."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mango",
+          "swap": "Pfirsich, Ananas oder weglassen"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tilapia oder Garnelen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-tacos-quick",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Tacos",
+        "Lachs",
+        "schnell",
+        "besonders"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1142,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-tacos-quick/",
+      "components": [
+        {
+          "key": "860e8bf0-3413-591a-8c44-b007b52ce233",
+          "name": "Zutaten",
+          "servingGrams": 646,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb05ad30-f6e3-51c7-8b9d-631edc2f9794",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3b7969e-aeb8-5f11-82c2-586d80a2dc68",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c031c2ec-44a4-5cf8-b2d6-5d4e4a0d8670",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2eae09f-3ee8-55d0-a31d-378d21c43236",
+              "ingredientName": "Mango",
+              "grams": 200,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00aecaaa-72cc-5999-94fb-ba4e2604f2ec",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05675f6f-4dd5-54a8-8129-667b8d60009a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65c7f5d1-7479-5c93-940a-49fb4ddd630c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36e584f0-48fa-5e1d-a1ac-b80dca7901f3",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84bbdc94-fa3b-5de8-9009-67d5046e79f4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5581f43-f25a-5456-a73d-9beb20a5d2f1",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze den Lachs. Brate ihn auf jeder Seite 4 Minuten in der Pfanne und zerteile ihn anschließend in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Krautsalat: Vermische fein geschnittenen Kohl mit gewürfelter Mango, Limettensaft und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Sriracha-Joghurt-Sauce: Verrühre den Joghurt mit Sriracha.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Tortillas. Fülle sie mit Lachs, Krautsalat und Avocado und beträufle alles mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2023/01/Blackened-Salmon-Tacos-Recipe-8.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2023/01/Blackened-Salmon-Tacos-Recipe-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-quick-steak-bowl",
+      "slug": "mfr-quick-steak-bowl",
+      "title": "Steak-Reisschale in 15 Minuten",
+      "instructions": "Dünn geschnittenes Rindfleisch mit Knoblauch und Butter sowie Soja- und Worcestershiresauce, serviert auf Reis mit Broccolini und Spiegelei – ein richtiges Steakessen in 15 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hackfleisch mit Worcestershiresauce und Butter schmeckt wie ein zerlegtes Steak – für 1/5 des Preises.",
+        "Das ganze Essen ist in genau 15 Minuten fertig, wenn du zügig arbeitest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccolini",
+          "swap": "Normaler Brokkoli oder grüne Bohnen"
+        },
+        {
+          "forIngredientId": "worcestershire-sauce",
+          "swap": "Sojasauce und Ketchup"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-quick-steak-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Steak",
+        "Reisschale",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1143,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-quick-steak-bowl/",
+      "components": [
+        {
+          "key": "441bdffb-4daf-5bba-b192-73415201c3bc",
+          "name": "Zutaten",
+          "servingGrams": 652,
+          "position": 0,
+          "items": [
+            {
+              "key": "95afc08d-f739-5bee-8c67-4784883fb3e8",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ff45a08-c587-54ba-8f73-70c4c1c33f29",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1d15745-9728-5009-aa69-293318ee0adf",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fcc0fc0-24fd-5bd9-93c9-aa54067e0eb3",
+              "ingredientName": "Broccolini",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "297f5f2c-0407-514b-aba6-1fbc5ad1f052",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "515b8449-ecef-50c2-8683-f5d3077f9f44",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac20d1fc-0d92-500e-a4ef-c62c0bfba6ac",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8fc0bff-0a29-5ec5-a117-393364fa625b",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dämpfe den Broccolini 3 Minuten und brate die Eier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Rinderhackfleisch bei hoher Hitze mit Butter, Knoblauch, Sojasauce und Worcestershiresauce an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte Reis, gewürztes Rindfleisch, Broccolini und Spiegelei in einer Schale an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Ultimate-Steak-Bowl-5.jpg",
+          "sourcePageUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Ultimate-Steak-Bowl-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tofu-scramble-quick",
+      "slug": "mfr-tofu-scramble-quick",
+      "title": "Tofu-Rührei in 15 Minuten",
+      "instructions": "Extra-fester Tofu, zerkrümelt und mit Kurkuma, Knoblauch und Hefeflocken gebraten – sieht aus wie Rührei, liefert viel pflanzliches Eiweiß und ist in 10 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu-Rührei aus extra-festem Tofu kostet $2 für 2 Portionen – ein besonders günstiges warmes Essen.",
+        "Hefeflocken sorgen für einen herzhaften, käsigen Geschmack und gehören zur veganen Vorratsküche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "nutritional-yeast",
+          "swap": "Misopaste für mehr Umami"
+        },
+        {
+          "forIngredientId": "extra-firm-tofu",
+          "swap": "Kichererbsen für eine andere Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tofu-scramble-quick",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Tofu",
+        "vegan",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1144,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tofu-scramble-quick/",
+      "components": [
+        {
+          "key": "0a047b84-54a8-5037-a381-5aeea069475a",
+          "name": "Zutaten",
+          "servingGrams": 528,
+          "position": 0,
+          "items": [
+            {
+              "key": "e3d42313-ca9f-54de-96ce-9f9b02ba92df",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "819f590e-33f2-54c6-9b68-0710cc25fd32",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b122b60-ac80-514b-b00e-fde52d189e7b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce46912b-4733-581f-955e-b7b0ffafb36b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3ad1342-bd3b-5cc0-93e7-ca544a1cd75b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19cabb62-0751-5af2-9844-ca118334a441",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc011834-ab4e-5075-9277-f499b4cc2146",
+              "ingredientName": "Hefeflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50548b38-3c16-515d-96ea-4247da07fa23",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc9611e4-cbb0-51fd-b910-363928aa3cc9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae852d5e-2eb4-53ed-976b-4c6676cd63ee",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus, zerkrümele ihn und gib ihn mit Olivenöl in eine Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kurkuma für die Farbe, Knoblauch, Sojasauce und Hefeflocken dazu. Brate alles bei mittlerer bis hoher Hitze 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprika, Zwiebel und Spinat dazu. Brate alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Tofu-Rührei auf Toast oder mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/ubUyaZLyq5qlXDBvCXWD5kNo_VE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Tofu-Scramble-1x1-045-7d55042052784bb0adb3d76651801123.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/ubUyaZLyq5qlXDBvCXWD5kNo_VE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Tofu-Scramble-1x1-045-7d55042052784bb0adb3d76651801123.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

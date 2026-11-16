@@ -1,0 +1,1102 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-flaki",
+      "slug": "gen-flaki",
+      "title": "Flaki",
+      "instructions": "Polnisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kutteln sind an Fleischtheken und auf internationalen Märkten sehr preiswert",
+        "Große Mengen zubereiten und zum einfachen Aufwärmen einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "polnisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2865,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flaki/",
+      "components": [
+        {
+          "key": "ee40585d-24af-5402-bdee-da6592d813b3",
+          "name": "Zutaten",
+          "servingGrams": 469.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f6cba4d-2109-5bae-a5f3-cde200aab58f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, geputzt und in Streifen geschnitten"
+            },
+            {
+              "key": "344ea834-d3b3-54cc-b0a8-b05355907e3e",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d03e1620-de3a-5f6e-8330-9360e10405d6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke, gewürfelt"
+            },
+            {
+              "key": "f628925d-1aeb-53ff-9504-456cdeb2c5f6",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "dea4cb1d-7a97-5bab-ab66-f947e3e61fff",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen, in Scheiben geschnitten"
+            },
+            {
+              "key": "1fabc285-2741-57b7-9708-59da7fde2a1d",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6b2e4071-13e5-51f2-afb1-13168c204687",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "733e3d55-cb02-5bda-ac1c-17a1f2a22ad6",
+              "ingredientName": "Frischer Majoran",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1924ed76-b2e0-557e-bbb9-8a4d616db078",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0bead93-26e8-5a52-8552-7d8358a9f3d1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "94d62e86-2407-5e48-b60e-278336a332ed",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kutteln und 6 cups Rinderbrühe in einem großen Topf aufkochen, dann die Hitze reduzieren und 2.5 Stunden köcheln lassen, bis sie sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kutteln abgießen und beiseitestellen; 4 cups Kochflüssigkeit aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl im selben Topf erhitzen und gewürfelte Zwiebel, Karotte und Sellerie 5 Minuten dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark, Paprikapulver und Majoran einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gekochte Kutteln mit der aufbewahrten Kochflüssigkeit, Lorbeerblättern, Salz und Pfeffer zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 30 Minuten köcheln lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und heiß in Schalen mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/L9D5Xy52ncATZMJP2kSkYOmmRzo=/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/polish-tripe-soup-recipe-flaki-zupa-1137120-step-10-cf8362234a47472e85088f57bc93c751.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/L9D5Xy52ncATZMJP2kSkYOmmRzo=/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/polish-tripe-soup-recipe-flaki-zupa-1137120-step-10-cf8362234a47472e85088f57bc93c751.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-czarnina",
+      "slug": "gen-czarnina",
+      "title": "Czarnina",
+      "instructions": "Polnisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganze Ente im Angebot kaufen und bis zum Kochen einfrieren",
+        "Entenblut weglassen und Hühnerblut verwenden oder für mehr Tiefe durch Tomatenmark ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "polnisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2866,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-czarnina/",
+      "components": [
+        {
+          "key": "8b362ecc-8cf5-5c29-b22f-e57a731dde46",
+          "name": "Zutaten",
+          "servingGrams": 359.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "c08f6345-891d-5b02-bacf-9ca56e6006fb",
+              "ingredientName": "Ente",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 ganz (4-5 Pfund), in Stücke geschnitten"
+            },
+            {
+              "key": "bb57bfb5-ff0d-5e56-a19a-f6aaed9b08e4",
+              "ingredientName": "Entenblut",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen (oder chicken blood falls verfügbar)"
+            },
+            {
+              "key": "38aac846-3c62-5d37-a9f1-5f776e40c0d5",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "85f64ffa-ab3e-5f54-aac9-6abf44d7a62b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "837a75b9-c6b9-56c4-9501-6f3b4d34d083",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große Stücke, geviertelt"
+            },
+            {
+              "key": "81699738-6872-5b52-8cc0-205d96ddde43",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "7c8fdd03-d3ec-5407-8965-09589115ddef",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70c94145-bfba-5cfe-bc9b-f66da51064ea",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "94642d23-370c-5a76-b1c6-acf2aa3db3c5",
+              "ingredientName": "Backpflaumen",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "19e69072-c284-59c1-9bc8-d0ec4bd19311",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dd6e512a-b9e5-5a98-835b-7c1f2eb31b4c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittelhoher Hitze erhitzen und Entenstücke portionsweise 8 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ente herausnehmen und beiseitestellen, dann Zwiebel und Karotte im selben Topf 5 Minuten dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ente zurück in den Topf geben und Rinderbrühe, Lorbeerblätter sowie schwarzen Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Aufkochen, dann abdecken, die Hitze reduzieren und 1 Stunde köcheln lassen, bis die Ente zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backpflaumen hinzufügen und weitere 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entenblut und Rotweinessig in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Blutmischung langsam unter ständigem Rühren in die heiße Suppe geben; danach nicht mehr aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz abschmecken und heiß mit Rotkohl und Kartoffeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/odlexQYzDlJTJM5YwiSun1mcVKU=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/zhu-guoyong-576054-unsplash-5bd133dcc9e77c0051146b62.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/odlexQYzDlJTJM5YwiSun1mcVKU=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/zhu-guoyong-576054-unsplash-5bd133dcc9e77c0051146b62.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-golabki",
+      "slug": "gen-golabki",
+      "title": "Gołąbki",
+      "instructions": "Polnisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kohl im Angebot kaufen und einfrieren, damit sich die Blätter leicht lösen",
+        "Rinderhackfleisch im Angebot oder die günstigste verfügbare Sorte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "polnisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2867,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-golabki/",
+      "components": [
+        {
+          "key": "607efa96-ba5c-5adc-a473-4f1e53abeed5",
+          "name": "Zutaten",
+          "servingGrams": 359.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "161bfe16-0861-5b4a-832e-f3f4825e70e0",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "b00f828b-3fc2-5e8a-988c-22ba7e90298d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "46adde9f-2885-5ac0-bd9c-a4ba28c9906e",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen cooked"
+            },
+            {
+              "key": "27c6a02f-afac-5136-bc88-4416a412cdf7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "4ebfd3a2-6a8b-5a5c-bea2-0efd784fb8f1",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "c34e5b0a-edaa-5453-a78d-ea7386bc7759",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "62bf5ad0-5cbe-500f-a805-5938a1092892",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d9f15a33-2ff6-52fa-9ced-f1b7f87c5611",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e5517dc0-930d-5a1d-be41-2c4d77b3f769",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salzwasser in einem großen Topf zum Kochen bringen und vorsichtig 8-10 Kohlblätter ablösen; etwa 5 Minuten kochen, bis sie biegsam sind, dann auf Küchenpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer Pfanne erhitzen und gewürfelte Zwiebel sowie Knoblauch duftend dünsten; Rinderhackfleisch hinzufügen und unter Zerteilen braten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gegartes Rindfleisch mit gekochtem Reis, Salz und Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Je 2-3 tablespoons Rindfleischmischung auf ein Kohlblatt geben, Seiten einschlagen und fest aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1 cup Tomatensauce auf den Boden einer Auflaufform gießen und Kohlrouladen mit der Nahtseite nach unten hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Übrige 1 cup Tomatensauce mit Rinderbrühe vermischen und über die Rouladen gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Folie abdecken und bei 350°F 45 Minuten backen, bis alles durchgewärmt ist und die Sauce blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren und nach Wunsch saure Sahne dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://meplusfood.com/wp-content/uploads/2024/12/generated-image-17.webp",
+          "sourcePageUrl": "https://meplusfood.com/wp-content/uploads/2024/12/generated-image-17.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-placki-ziemniaczane",
+      "slug": "gen-placki-ziemniaczane",
+      "title": "Placki Ziemniaczane",
+      "instructions": "Polnisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln in größeren Mengen kaufen, wenn sie am günstigsten sind",
+        "Saure Sahne der Hausmarke ist nahezu identisch mit Markenprodukten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polnisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2868,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-placki-ziemniaczane/",
+      "components": [
+        {
+          "key": "e36c8be9-352e-5344-bee0-5a92e4369b36",
+          "name": "Zutaten",
+          "servingGrams": 341.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "52ee62f8-6378-5082-a156-8ac4293a3237",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "464c7b1d-d1b0-51be-90b5-45a47678ea2d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleine Stücke"
+            },
+            {
+              "key": "84d5a1cf-4224-5821-b0fd-3a80911d747e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "f1816923-11a6-5606-ba3a-8015f2b07833",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ca18867a-5ba9-570c-ae41-868ffd2674e3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f058b8c0-cd44-5e9f-9931-2e0a805a2ddf",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen zum Frittieren"
+            },
+            {
+              "key": "ea59848f-8e26-5872-982b-4f625d10596b",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und grob reiben; Zwiebel in eine Schüssel reiben und überschüssige Flüssigkeit mit einem sauberen Küchentuch ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geriebene Kartoffelmischung mit Ei, Mehl, Salz und Pfeffer gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Häufungen der Kartoffelmischung mit einem Esslöffel ins Öl geben und mit dem Pfannenwender auf 1/4-inch Dicke flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3-4 Minuten pro Seite goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gebackene Kartoffelpuffer auf einen mit Küchenpapier ausgelegten Teller legen, damit überschüssiges Öl abtropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit saurer Sahne als Belag oder Dip servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/SBCncDT2TooPC_1SR4LoCHm8KFo=/1958x1305/filters:no_upscale():max_bytes(150000):strip_icc()/polish-potato-pancakes-recipe-1137080-step-05-5c5609c44cedfd0001efe46e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/SBCncDT2TooPC_1SR4LoCHm8KFo=/1958x1305/filters:no_upscale():max_bytes(150000):strip_icc()/polish-potato-pancakes-recipe-1137080-step-05-5c5609c44cedfd0001efe46e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paczki",
+      "slug": "gen-paczki",
+      "title": "Pączki",
+      "instructions": "Polnischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine große Menge zubereiten und Reste für später einfrieren",
+        "Marmelade der Hausmarke verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polnisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2869,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paczki/",
+      "components": [
+        {
+          "key": "cbd5b7ce-1131-5eb3-84e1-6c7ceb970389",
+          "name": "Zutaten",
+          "servingGrams": 210.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9d1c7fa-01c6-5fad-bed8-d1ecdabc2fb0",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5bbb66d9-9f1e-5bbb-9edd-2360f56e9347",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "84d50e40-f46c-5f5c-8000-67db2b9c382e",
+              "ingredientName": "Trockenhefe",
+              "grams": 67.5,
+              "quantity": 2.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 1/4 Teelöffel"
+            },
+            {
+              "key": "86c92e3f-3184-5996-b973-3ad68614b2d4",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebf70367-607c-573c-9cb3-cdbbe7962dd0",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tassen, warm"
+            },
+            {
+              "key": "4c851497-ed89-51dd-8abd-89804336ab4e",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel, geschmolzen"
+            },
+            {
+              "key": "94009872-2f9c-5032-9d51-62042eee80ee",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "babf84f5-11a5-531b-88c7-3ee24ef71d18",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "aee72483-099b-5bc7-9c57-4c7e52b527ef",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "9ca96bad-c787-5802-8445-c0152808eace",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tassen zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warme Milch, Hefe und 1 Esslöffel Zucker in einer kleinen Schüssel vermengen und 5 Minuten stehen lassen, bis sich Schaum bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, restlichen Zucker und Salz in einer großen Schüssel vermengen und in der Mitte eine Mulde formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hefemischung, Eigelb und geschmolzene Butter in die Mulde gießen und verrühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig 8-10 Minuten kneten, bis er glatt und elastisch ist, dann abdecken und an einem warmen Ort 1 Stunde gehen lassen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig in 12 Stücke teilen, zu Kugeln rollen und auf mit Backpapier ausgelegte Backbleche legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und 30 Minuten gehen lassen, bis sie luftig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl in einem tiefen Topf auf 350°F erhitzen und die Krapfen vorsichtig 1-2 Minuten pro Seite goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und dann mit einem Spritzbeutel 1 Esslöffel Marmelade in die Mitte jedes warmen Pączki spritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Noch warm großzügig mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/paczki-secondary-65b2dfb573af2.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/paczki-secondary-65b2dfb573af2.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

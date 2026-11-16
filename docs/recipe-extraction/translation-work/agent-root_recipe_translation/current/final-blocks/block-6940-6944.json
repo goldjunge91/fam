@@ -1,0 +1,1115 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-barbecue-sauce-slathered-ribs",
+      "slug": "gen-barbecue-sauce-slathered-ribs",
+      "title": "Rippchen mit Barbecuesoße",
+      "instructions": "Barbecue-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie Ihre eigene Barbecue-Sauce, anstatt Flaschenversionen zu kaufen",
+        "Kaufen Sie Rippchen, wenn sie im Angebot sind, und frieren Sie sie für zukünftige Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Grillen",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6940,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-barbecue-sauce-slathered-ribs/",
+      "components": [
+        {
+          "key": "139aed23-7bfe-576d-9149-119db1dbdb66",
+          "name": "Zutaten",
+          "servingGrams": 93.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd942ec8-3572-5852-b563-69300eab8dc1",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Rippchenstrang, 2 Pfund"
+            },
+            {
+              "key": "fc39c62e-5eb9-5361-a140-c552d0ebea62",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b7a47921-0164-5ddd-bba7-4d10298e22ef",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "df1380d5-ca19-51e6-ac14-7e60efc2f9ed",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9cc149b6-dd7e-564c-8ed2-243b3e60372b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2d71db35-2d11-53ee-bb21-aa412f9567ce",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e3da24f1-748c-5417-b063-f769dcdc1abb",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "e3b0ab43-cc81-5992-b109-365ac3ce83c3",
+              "ingredientName": "Melasse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ec614f23-d0b9-5f46-b26d-50cc84b04073",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ba62ee33-0d14-5db5-a2c7-e94f2145fda9",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 275 °F vorheizen und ein Backblech mit Folie auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entfernen Sie die Membran von der Rückseite der Rippchen und mischen Sie braunen Zucker, Paprika, Knoblauchpulver und schwarzen Pfeffer zu einer Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tragen Sie die Gewürzmischung gleichmäßig auf beide Seiten der Rippen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Rippchen auf das Backblech legen und mit Alufolie abgedeckt 2 Stunden backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während die Rippchen garen, Ketchup, Apfelessig, Melasse, Zwiebelpulver und Worcestershire-Sauce in einem Topf bei schwacher Hitze vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nach 2 Stunden die Folie entfernen und die Rippchen großzügig mit Barbecuesauce bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Geben Sie die Rippchen für 30 Minuten ohne Deckel in den Ofen und bestreichen Sie sie alle 10 Minuten mit Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aus dem Ofen nehmen und vor dem Schneiden und Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2023/06/oven-baked-bbq-ribs-1-21-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2023/06/oven-baked-bbq-ribs-1-21-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-burnt-ends",
+      "slug": "gen-beef-burnt-ends",
+      "title": "Karamellisierte Rinderbrustwürfel",
+      "instructions": "Barbecue-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie einen Ofen bei 225 °F anstelle eines Räucherofens, wenn Sie keinen Zugang dazu haben",
+        "Kaufen Sie Rinderbrust im Angebot, wenn verfügbar, und frieren Sie sie ein, bis sie zum Kochen bereit ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Grillen",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6941,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-burnt-ends/",
+      "components": [
+        {
+          "key": "a7962769-dcc3-572e-81e7-c1b28c284c44",
+          "name": "Zutaten",
+          "servingGrams": 196.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "93900132-d69c-5b9d-a2fd-39f71f9516b9",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "2ef40771-4fc8-527e-a85d-bd00c6b1aaf4",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d3d1d982-a6bd-535b-ba44-00fef0592662",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c2c1cc57-c273-5b0e-9d05-7babf9ef4f01",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b2bbb418-019b-53e6-94bd-ea05e9ce85f5",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c496b5d6-30d9-5bb1-9b3d-361886942493",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6addeade-a5d9-507e-8308-8ec06a4f31b3",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "bb65a47e-c293-516b-a96f-cbeddaa22560",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "25032280-d32b-5fb3-bf86-e8b8cd6ff61d",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mischen Sie braunen Zucker, Paprika, Knoblauchpulver und schwarzen Pfeffer zu einer trockenen Einreibung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Bruststückspitze von allen Seiten großzügig mit der Gewürzmischung einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Räuchern Sie das Bruststück in einem Räucherofen bei 225 °F 4 Stunden lang, bis es eine Innentemperatur von 165 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die geräucherte Rinderbrust in 1 Zoll große Würfel schneiden und in eine Aluschale legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rinderbrühe über die Würfel gießen und mit Butter beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decken Sie die Pfanne mit Folie ab und stellen Sie sie 225 Stunden lang bei 1.5 °F in den Räucherofen, bis die Ränder karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Barbecue-Sauce mit Apfelessig vermischen und mit den verbrannten Enden vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "30 Minuten lang ohne Deckel in den Räucherofen stellen, damit die Glasur fest wird, und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f2/31/8a/f2318aad71ae6207309f026cd9a246ca.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f2/31/8a/f2318aad71ae6207309f026cd9a246ca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-joe-s-signature-ribs",
+      "slug": "gen-joe-s-signature-ribs",
+      "title": "Joe’s Rippchen nach Art des Hauses",
+      "instructions": "Barbecue-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Honig und einfache Zutaten aus der Speisekammer anstelle von speziellen Barbecue-Saucen",
+        "Spareribs sind in der Regel günstiger als Babybackribs"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Grillen",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6942,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-joe-s-signature-ribs/",
+      "components": [
+        {
+          "key": "cc77ab8d-a5a2-5895-abc5-63cde0bf3952",
+          "name": "Zutaten",
+          "servingGrams": 105.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "310d93a6-1e6a-56d5-af60-f4d5d631701f",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Rippchenstrang, 2.5 Pfund"
+            },
+            {
+              "key": "e0e1af85-2ab8-567c-96d9-90a0e99c0385",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1523e459-347a-50aa-a695-c7d5a33a6024",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "35b532f2-a00a-54af-aebd-0c60df77801f",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "1209de7c-e32c-5ebb-a8ba-3f2df345675e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "11e4481b-c118-54b4-b1b9-c71a49a1db2a",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "5c4888f3-e1f7-56ac-b203-6c7ff47af659",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a0084c08-d24f-5a8e-a927-5a61e04553e3",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "⅓ Tasse"
+            },
+            {
+              "key": "ef150f30-ecbf-54f4-a64e-1f9731e0f303",
+              "ingredientName": "Schatz",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8e310f4b-d121-523a-8310-a8fa2721eaa4",
+              "ingredientName": "Senfpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 250 °F vor und entfernen Sie die Membran von der Rückseite der Rippchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Braunen Zucker, Paprika, Knoblauchpulver, schwarzen Pfeffer und Cayennepfeffer zu einer trockenen Mischung vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreichen Sie die Rippen gründlich mit der Gewürzmischung auf beiden Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wickeln Sie die Rippchen fest in Folie ein und backen Sie sie 3 Stunden lang bei 250 °F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während die Rippchen garen, Ketchup, Apfelessig, Honig und Senfpulver in einem Topf vermischen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rippchen aus der Folie nehmen und auf ein Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Rippchen mit der Sauce bestreichen und ohne Deckel 30 Minuten bei 350 °F backen, dabei alle 10 Minuten mit der Sauce bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten ruhen lassen und mit zusätzlicher Soße als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Spicy-Oklahoma-Joe-Ribs.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Spicy-Oklahoma-Joe-Ribs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lc-s-barbecue-combo-platter",
+      "slug": "gen-lc-s-barbecue-combo-platter",
+      "title": "BBQ-Kombiteller von LC’s",
+      "instructions": "Barbecue-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie die ganze Woche über verschiedene Fleischsorten im Angebot und frieren Sie sie ein, bis sie zum Kochen bereit sind",
+        "Bereiten Sie Ihre Barbecue-Sauce in großen Mengen zu und bewahren Sie sie für die zukünftige Verwendung auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Grillen",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6943,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lc-s-barbecue-combo-platter/",
+      "components": [
+        {
+          "key": "830d0a9f-709d-56ca-a5fb-7e3c1b1f9810",
+          "name": "Zutaten",
+          "servingGrams": 240.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc5827e1-c4de-535a-ac99-f70f549062c7",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Rippchenstrang, 2 Pfund"
+            },
+            {
+              "key": "cd6658a6-57b9-592a-8bed-cea48c04a0c6",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "ffe50ff4-e3d1-5ecc-a78e-226f2e77b91c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Oberkeulen, mit Haut"
+            },
+            {
+              "key": "95a5c4bd-b9f7-52e6-b3ab-b063355f632c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "b951066d-2ccd-565d-92f5-4d185ec43a20",
+              "ingredientName": "Paprika",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "eb830a1b-0cdb-5591-b269-73c319dc862d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "566a56fc-7f64-5fb2-a06e-1df1f38f7e39",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ec1955c3-46b9-55a7-8693-05260ff6faf6",
+              "ingredientName": "Ketchup",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "1aad4cd1-5e1e-50ad-a1ab-bd5e30502114",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "756b9795-70bf-5a2e-8670-5ee47e774796",
+              "ingredientName": "Melasse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "46fe5bbc-bfd0-59d4-b4fb-978242da5cbb",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bce52cce-0fb2-580b-9f9b-ce1bf14d4723",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Braunen Zucker, Paprika, Knoblauchpulver und schwarzen Pfeffer zu einer trockenen Mischung vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rippen, Bruststück und Hähnchenschenkel von allen Seiten trocken einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lassen Sie das Bruststück 225 Stunden lang in einem Räucherofen oder Ofen bei 3 °F backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach 2 Stunden die Rippchen in den Räucherofen geben und beides noch 1 weitere Stunde räuchern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchenschenkel für die letzten 45 Minuten in den Smoker geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Während des Räucherns Ketchup, Apfelessig, Melasse, Worcestershire-Sauce und Butter in einem Topf vermischen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Während der letzten 30 Minuten des Garvorgangs alle Fleischstücke alle 10 Minuten mit der Barbecue-Sauce bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wenn das Fleisch vollständig gegart ist, nehmen Sie es heraus, lassen Sie es 10 Minuten ruhen, schneiden Sie es in Scheiben oder schneiden Sie es in Portionen und legen Sie es auf einer Platte mit zusätzlicher Soße an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/2j514cqx41a01.jpg",
+          "sourcePageUrl": "https://i.redd.it/2j514cqx41a01.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crown-prime-rib",
+      "slug": "gen-crown-prime-rib",
+      "title": "Crown-Prime-Rib-Braten",
+      "instructions": "Steakhouse-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie während der Feiertagsverkäufe Prime Ribs und sparen Sie deutlich",
+        "Verwenden Sie frische Kräuter aus Ihrem Garten oder gefrorene Kräuter, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Steakhaus",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6944,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crown-prime-rib/",
+      "components": [
+        {
+          "key": "13ea7e2f-5c7b-5439-9a5c-2628f659f44d",
+          "name": "Zutaten",
+          "servingGrams": 119.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac75abe0-d437-5c0c-8b3b-b6b20275791a",
+              "ingredientName": "Hochrippenbraten",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund, mit Knochen"
+            },
+            {
+              "key": "df6af91d-b363-5875-9124-989195f5b513",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c790bf5e-56ab-56bd-b4cd-d85fafeec891",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ae31bc40-3016-5e1f-8d75-88d31bcd1d2b",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "58c4bf84-d298-5252-877e-f124500a021b",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 8,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "c811f96c-cbbe-5551-8d72-8bd84bbee02e",
+              "ingredientName": "Frischer Thymian",
+              "grams": 8,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "be6f6477-7316-5f65-94f3-0b1402ce8196",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "2661a75c-33f0-5cac-b2b9-4cc3633251d9",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nehmen Sie die Hochrippe 1 Stunde vor dem Garen aus dem Kühlschrank, um sie auf Zimmertemperatur zu bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heizen Sie den Ofen auf 450 °F vor und tupfen Sie den Braten mit Papiertüchern trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koscheres Salz, schwarzen Pfeffer und gehackten Knoblauch vermischen und den Braten damit einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Braten mit der Knochenseite nach unten in einen Bräter legen und mit Rosmarin und Thymian bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Braten im auf 450 °F vorgeheizten Ofen 15 Minuten scharf anbraten, bis die Außenseite gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduzieren Sie die Ofentemperatur auf 325 °F und rösten Sie es 1 Stunde und 15 Minuten lang weiter (Medium-Rare), wobei Sie alle 20 Minuten Butter auftragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Geben Sie Rinderbrühe in die Pfanne und begießen Sie weiter, bis die Innentemperatur 130 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aus dem Ofen nehmen, mit Folie abdecken und 15 Minuten ruhen lassen, bevor es angeschnitten und serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/11/Prime-Rib-2-SpendWithPennies-10.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/11/Prime-Rib-2-SpendWithPennies-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

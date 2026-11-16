@@ -1,0 +1,988 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-muffin-cups",
+      "slug": "egg-muffin-cups",
+      "title": "Eier-Muffins",
+      "instructions": "Kleine Gemüse-Käse-Omeletts aus dem Ofen – nimm dir die ganze Woche zwei zum Frühstück mit.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Im Kühlschrank 5 Tage haltbar oder einfrieren.",
+      "reheatingInstructions": "45 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein Dutzend Eier kostet etwa $4",
+        "Tiefkühlgemüse ist das ganze Jahr über günstig"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Gewürfelte Paprika oder Zwiebel",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Weglassen",
+          "savings": "ca. $0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Aus 8 Eiern werden 8 Muffins für die Woche.",
+      "healthierTips": [
+        "Vorwiegend Eiweiß verwenden",
+        "Mehr Spinat dazugeben"
+      ],
+      "batchPrepTips": [
+        "Einfrieren und gefroren 60 Sekunden aufwärmen"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "meal-prep",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 95,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-muffin-cups/",
+      "components": [
+        {
+          "key": "ca6ea26d-568f-5f3f-b94a-b10172349dfd",
+          "name": "Zutaten",
+          "servingGrams": 266.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd9ccfa6-a2f2-554e-962e-36f0abe9a870",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97a6da53-a595-560c-91dc-502d5098297c",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0ec4706-a5ed-5930-bd8d-5b70ee03a1b4",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43e063c8-da75-5745-aaa1-443ad2bc6d28",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fed39ae-ac5e-5c24-bd09-11d911713491",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "ffdf816b-9b06-5446-bef8-c177d1f0e61c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "847ccc17-e9e5-5b89-b016-88d3c704eda7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier, Milch, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fette 8 Muffinförmchen ein und verteile Gemüse und Käse darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eiermischung darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Muffins bei 375F 18 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass sie abkühlen und stelle sie in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/egg-muffin-cups.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/egg-muffin-cups.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/egg-muffin-cups.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/egg-muffin-cups.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tuna-pasta-salad",
+      "slug": "tuna-pasta-salad",
+      "title": "Nudelsalat mit Thunfisch",
+      "instructions": "Kalte Pasta mit Thunfisch, Mayonnaise, Sellerie und Zitrone vermengt – ideal zum Mitnehmen als Mittagessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Im Kühlschrank 4 Tage haltbar.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Zwei Dosen Thunfisch reichen für 4 Portionen",
+        "Am nächsten Tag schmeckt er noch besser"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "celery",
+          "swap": "Gewürzgurken oder Paprika",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Pasta und Thunfisch ergeben ein besonders günstiges Mittagessen zum Mitnehmen.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Statt Mayonnaise griechischen Joghurt verwenden"
+      ],
+      "batchPrepTips": [
+        "Hält sich 4 Tage und eignet sich gut als Mittagessen für die Schule"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "meal-prep",
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 96,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tuna-pasta-salad/",
+      "components": [
+        {
+          "key": "7635bf3d-78f8-5570-b9b1-ef6b6f10a32d",
+          "name": "Zutaten",
+          "servingGrams": 340.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ec6920e-24e7-5cf4-9295-1396e139a0cb",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "923cd1e3-7090-51cf-a3f1-3987c6f6de20",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2044562d-ab8b-5b74-912c-8bedc617298d",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92fd068d-6628-5f83-83b0-02527ca6f2b0",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "789485f4-4f17-520f-8b26-7188d4b855f3",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e74aa261-f50b-53fb-b652-a1e53c2e53be",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46b810ec-b83a-5272-98ea-3c6d8ff466ab",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27f0fb65-40f4-5b75-98c5-b2173d439e53",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta und spüle sie kalt ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den abgetropften Thunfisch mit Mayonnaise, Senf, gewürfeltem Sellerie, Zwiebel, Zitrone und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mische alles mit der Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle den Salat 1 Stunde kalt und portioniere ihn auf 4 Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tuna-pasta-salad.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tuna-pasta-salad.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-pasta-salad.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-pasta-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bean-enchilada-bake",
+      "slug": "bean-enchilada-bake",
+      "title": "Bohnen-Enchilada-Auflauf",
+      "instructions": "Tortillas, Bohnen, grüne Salsa und Käse geschichtet und gebacken, bis alles blubbert – reicht für 4 Portionen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": "Im Kühlschrank 4 Tage haltbar oder einfrieren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle oder 10 Minuten im Ofen erwärmen.",
+      "cheapTips": [
+        "Mit Zutaten aus dem Vorratsschrank lässt sich ein Auflauf für 4 Personen zubereiten",
+        "Zwei Dosen Bohnen reichen weit"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salsa-verde",
+          "swap": "Normale Salsa",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "frozen-corn",
+          "swap": "Weglassen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Tortillas, Bohnen aus der Dose und Salsa ergeben zusammen einen wunderbar einfachen Auflauf.",
+      "healthierTips": [
+        "Vollkorntortillas verwenden",
+        "Weniger Käse verwenden"
+      ],
+      "batchPrepTips": [
+        "Einzelne Portionen in Folie einfrieren"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "meal-prep",
+        "mexikanisch",
+        "vegetarisch",
+        "gefriergeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 97,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bean-enchilada-bake/",
+      "components": [
+        {
+          "key": "79226554-6ec3-5db9-94e7-bf4a335dfa87",
+          "name": "Zutaten",
+          "servingGrams": 386.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea652d7d-fb6c-5fcc-b0ac-db0f7bbcb0ca",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09a7613f-0e84-5bab-9de0-96b1475dd0b6",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c955ce7-dcae-5b57-af0a-8017395d6be0",
+              "ingredientName": "Grüne Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93b35c9d-2686-5e0e-a188-6dcd1eb58e61",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b9643fb-0c1d-5063-bf96-155ac32e4434",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dfec9be-1def-5659-bdb5-9c15b79a249f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cfd482b-b775-5db8-823c-095c27077e41",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "509632e6-05bd-5c07-bafc-bbb3afc435ef",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Bohnen, gewürfelte Zwiebel, Kreuzkümmel, Knoblauchpulver und Mais.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schichte Tortilla, Bohnen, Salsa und Käse in eine Auflaufform und wiederhole die Schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Auflauf bei 375F 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Portioniere ihn auf 4 Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/bean-enchilada-bake.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/bean-enchilada-bake.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/bean-enchilada-bake.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/bean-enchilada-bake.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-chicken-congee",
+      "slug": "rice-cooker-chicken-congee",
+      "title": "Hühner-Reisbrei aus dem Reiskocher",
+      "instructions": "Reisbrei aus dem Reiskocher mit zerpflücktem Hähnchen, Ingwer und Sojasauce – die ganze Woche ohne viel Aufwand vorbereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 65,
+      "storageInstructions": "Im Kühlschrank 5 Tage haltbar.",
+      "reheatingInstructions": "Mit Wasser 2 Minuten in der Mikrowelle erwärmen und gut umrühren.",
+      "cheapTips": [
+        "Zwei Hähnchenschenkel reichen mit Reis für 4 Portionen",
+        "Kocht sich fast von allein"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchen aus der Dose",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser + Brühwürfel",
+          "savings": "ca. $1"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Tasse Reis und zwei Hähnchenschenkel reichen für 4 Portionen.",
+      "healthierTips": [
+        "Beim Servieren Spinat dazugeben",
+        "Salzreduzierte Sojasauce verwenden"
+      ],
+      "batchPrepTips": [
+        "Der Reisbrei dickt nach; beim Aufwärmen Wasser dazugeben"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "meal-prep",
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Seelenfutter",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 98,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-chicken-congee/",
+      "components": [
+        {
+          "key": "d8b3d104-b201-5447-a5e4-1530e3ea345d",
+          "name": "Zutaten",
+          "servingGrams": 249,
+          "position": 0,
+          "items": [
+            {
+              "key": "29e139fd-dd9e-5374-a98a-3a233b9b3424",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "185a398e-6efd-527d-ac4c-f5591de253a0",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f258498c-866d-5ae6-894c-6e2e54560209",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da8f006b-1ce7-5ab3-8b3f-af622b0f451a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b9639d9-921c-54e5-b6f5-ce03abaf7ffb",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d083efc1-a042-5bff-bcff-48045c5d13df",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e76d83da-d9e9-5c35-a99d-10552b10c989",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "e0a4a9c2-24b0-5601-a3a0-1efa038bc8cc",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Reis, Hähnchen, geschnittenen Ingwer, Knoblauch und 7 Tassen Wasser oder Brühe in den Reiskocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Starte das Programm für Reisbrei oder das normale Programm und lasse den Reis anschließend 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerpflücke das Hähnchen und rühre es wieder unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Portioniere den Reisbrei mit Sojasauce, Frühlingszwiebel und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/rice-cooker-chicken-congee.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/rice-cooker-chicken-congee.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/rice-cooker-chicken-congee.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/rice-cooker-chicken-congee.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cabbage-tofu-stir-fry-meal-prep",
+      "slug": "cabbage-tofu-stir-fry-meal-prep",
+      "title": "Kohl-Tofu-Pfanne zum Vorbereiten",
+      "instructions": "Knusprig gebratener Tofu mit Kohl in Soja-Knoblauch-Sauce, über Reis verteilt für 4 Portionen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Im Kühlschrank 4 Tage haltbar.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kohl und Tofu sind ideale günstige Zutaten zum Vorbereiten",
+        "Zwei Tofublöcke reichen für 4 Mittagessen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Pak Choi oder Grünkohl",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "tofu",
+          "swap": "Eier oder Kichererbsen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kohl, Tofu und Reis ergeben 4 Mittagessen für insgesamt weniger als $8.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Salzreduzierte Sojasauce verwenden"
+      ],
+      "batchPrepTips": [
+        "Brate den Kohl vor dem Portionieren nur kurz an, damit er knackig bleibt"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "meal-prep",
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 99,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cabbage-tofu-stir-fry-meal-prep/",
+      "components": [
+        {
+          "key": "7c0224c7-bfa1-56b2-835d-40911604646f",
+          "name": "Zutaten",
+          "servingGrams": 670.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3452a30-7e1d-5056-9998-e38d770a766c",
+              "ingredientName": "Tofu",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba59870b-0b57-5e40-a3f6-f327070c7202",
+              "ingredientName": "Kohl",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac2da588-f368-510b-9de5-55e2de8980de",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f71b114e-745e-53c2-9e30-460f324bc7af",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8f01a69-91e7-5640-a5ce-6bac1127c235",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c64eb4ef-9b2f-5d58-8b72-27ec4553243f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb42b6a7-63d5-50aa-b92c-84d559ccf2d6",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e79183d-b637-5c20-84c5-7b0db603346d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Presse den Tofu aus, schneide ihn in Würfel und brate ihn 10 Minuten in Öl goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den fein geschnittenen Kohl und Knoblauch dazu und brate alles 5 Minuten scharf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge alles mit Sojasauce und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Portioniere die Kohl-Tofu-Mischung auf dem Reis in 4 Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/cabbage-tofu-stir-fry-meal-prep.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/cabbage-tofu-stir-fry-meal-prep.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/cabbage-tofu-stir-fry-meal-prep.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/cabbage-tofu-stir-fry-meal-prep.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

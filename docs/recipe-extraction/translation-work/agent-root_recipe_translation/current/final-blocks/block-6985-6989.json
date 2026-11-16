@@ -1,0 +1,1098 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lobster-salad",
+      "slug": "gen-lobster-salad",
+      "title": "Hummersalat",
+      "instructions": "Maine-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hummerfleisch aus der Dose oder gefroren, um die Kosten im Vergleich zu frischem Fleisch um 60 % zu senken",
+        "Kaufen Sie Salat im Sonderangebot und verbrauchen Sie ihn innerhalb von 2-3 Tagen, damit er frisch ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Maine",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6985,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobster-salad/",
+      "components": [
+        {
+          "key": "64f87692-edaa-5312-8488-e7450225bd55",
+          "name": "Zutaten",
+          "servingGrams": 611.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "8216100c-75ad-503e-a6ed-5b371e8a6a0e",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e4cfd3de-5a57-5fc8-ae17-2ff064013c7e",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "60cae9fc-9d86-5822-9ea0-3f23cdaab763",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ceff0adb-dfc5-5c73-852b-6a9216be1a43",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "784c2c68-ba84-53cd-bbdc-208e946c157c",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "41d80de6-85d9-5f0f-b835-9d5641651f20",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "baa2afb1-181c-5d51-aa13-bacf7ebfb0c1",
+              "ingredientName": "Frischer Estragon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5755b991-fb0c-505b-960e-c70ce7197ea2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1a0486b2-be6b-5d13-8f87-8ff89f4165e5",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5fa0218e-15d2-556e-91d0-9d3a42d77c7d",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tomate"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "In einer Schüssel Mayonnaise, Senf und Zitronensaft vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hummerfleisch, Sellerie, rote Zwiebeln und Estragon hinzufügen; Vorsichtig mischen, um alles zu kombinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das gemischte Gemüse auf Tellern anrichten und mit der Hummersalatmischung belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Tomatenscheiben garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/lobster-salad-secondary-642ddb52dea14.jpg?crop=1xw:0.999322951929587xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/lobster-salad-secondary-642ddb52dea14.jpg?crop=1xw:0.999322951929587xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-congr",
+      "slug": "gen-congr",
+      "title": "Kongrí",
+      "instructions": "Kubanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Bohnen aus der Dose in großen Mengen bei Discountern zum besten Preis",
+        "Verwenden Sie übrig gebliebenen gekochten Reis von früheren Mahlzeiten, um Zeit und Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "kubanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6986,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-congr/",
+      "components": [
+        {
+          "key": "c488a0fb-62fc-5a92-b30a-20b2c0574939",
+          "name": "Zutaten",
+          "servingGrams": 594.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "765ab4e8-4bfb-520c-8b1d-6ced7ee42af1",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4cd9392f-373b-587d-b351-10ccc6b4fe5b",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "992e4e22-d451-5fd5-bbd1-1a605bd14705",
+              "ingredientName": "Schwarzaugenerbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1ec7ab7d-b933-5635-b6f7-a2a402667b44",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "38ffdf39-6139-5cec-915f-06b28ab16ee4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "ce24c7ed-615d-535c-8242-009d4db5a797",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f6cd840-c053-5000-8965-352b91c1b07f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9f4939ee-abc2-525d-abc8-86bc5723b381",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "af42c4e8-0fe1-566b-a39d-15562cd5a3c9",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bdbaf000-cda2-5e01-b74d-52c95ec3cf86",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel, Knoblauch und Paprika etwa 5 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kreuzkümmel hinzufügen und 30 Sekunden lang rühren, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schwarze Bohnen und Schwarzaugenerbsen hinzufügen und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5 Minuten kochen lassen, dann gekochten Reis hinzufügen und gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5–8 Minuten weiterkochen, bis alles durchgeheizt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frischen Koriander unterrühren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2016/05/18/dining/18JPCUBA3/18JPCUBA3-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2016/05/18/dining/18JPCUBA3/18JPCUBA3-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vaca-frita",
+      "slug": "gen-vaca-frita",
+      "title": "Vaca Frita",
+      "instructions": "Kubanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Flanksteak, wenn es im Angebot ist, und frieren Sie es für die spätere Verwendung ein",
+        "Verwenden Sie Kreuzkümmel und Limettensaft von Handelsmarken anstelle von Premium-Marken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "kubanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6987,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vaca-frita/",
+      "components": [
+        {
+          "key": "70da378d-884d-586f-8b67-733d24e59058",
+          "name": "Zutaten",
+          "servingGrams": 222.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc7be597-ad0c-583d-a295-6fc09ce506f9",
+              "ingredientName": "Flankensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c01fed21-2485-5fcd-aafe-9bc712195f13",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "10b51538-845e-5046-b6aa-df2f453a3ec1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "986ad328-3b98-5ef0-b171-841b0f4baad7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "74eefd7a-3683-5347-8b90-75131e6c4b13",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d796ced-b984-5041-8a02-28b031d32e9a",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bfbd43fa-c176-5677-82aa-3c5afeaf36d0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ccc73317-f5df-56ec-9cc4-3e7d774e5323",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f94b0acf-6ee4-5c19-b766-a9899142206c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "59d432c6-6189-5598-a962-2219aba28e81",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Flanksteak entgegen der Faser in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 EL Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Rindfleischscheiben portionsweise braten, bis sie braun sind, etwa 2 Minuten pro Seite; beiseite legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Restliches Olivenöl in die Pfanne geben und Knoblauch, Zwiebel und Paprika etwa 5 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie das Rindfleisch wieder in die Pfanne und geben Sie unter gutem Rühren Kreuzkümmel hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Rinderbrühe und Limettensaft aufgießen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit frischem Koriander garnieren und mit Reis oder Kochbananen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/UIsOT_gsV13fr5Pqir7Imt_yhso=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250910-SEA-VacaFrita-LorenaMasso-13-3f533656532e43528455536bf88f869a.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/UIsOT_gsV13fr5Pqir7Imt_yhso=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250910-SEA-VacaFrita-LorenaMasso-13-3f533656532e43528455536bf88f869a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanadas-cubanas",
+      "slug": "gen-empanadas-cubanas",
+      "title": "Empanadas Cubanas",
+      "instructions": "Kubanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie den Teig und die Füllung vor und braten Sie ihn kurz vor dem Servieren, um die Effizienz zu steigern",
+        "Kaufen Sie Hackfleisch im Sonderangebot und frieren Sie es ein, um Füllkosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kubanisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6988,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanadas-cubanas/",
+      "components": [
+        {
+          "key": "a07dd154-2b42-5b05-9608-f6712cc429af",
+          "name": "Zutaten",
+          "servingGrams": 276.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4e47586-6fa6-5d90-9406-72dfe1c1162f",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "73d4a2d1-4634-5be9-a58e-07f0be806f6b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "708fd343-c4f2-527c-9113-49811544d01e",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5d8a4089-c513-5ce3-82b2-68ed8ddcebeb",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3a0bb20-c452-51ef-a05e-e34c43476b17",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fd3121ad-39f3-5567-8d2a-4775b8ef3085",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "d0ce5bab-da33-51cb-bb38-366e1dad85dd",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f11dc76-9b3f-5e55-a231-10d834da46e1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc1789ab-b408-54da-98d9-be1aee68c257",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "30adb3b3-5dfe-5c8b-a7d4-5120bf708f9f",
+              "ingredientName": "Rosinen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2dfd5a3f-d47a-5ed1-9ae8-9fc8eaa5462f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "21bf8486-108b-5739-9744-1933aa711eb4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Machen Sie einen Teig, indem Sie Mehl, Salz und kalte Butter mit einer Gabel vermischen, bis er krümelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eigelb und warmes Wasser hinzufügen und verrühren, bis der Teig zusammenkommt; 30 Minuten kühl stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch in einer Pfanne mit Zwiebeln und Knoblauch bei mittlerer Hitze anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kreuzkümmel, Oliven und Rosinen hinzufügen; 5 Minuten köcheln lassen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zwischen Backpapier in dünne Blätter rollen; in 4-Zoll-Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1 EL Füllung in die Mitte jedes Quadrats geben, diagonal falten und die Ränder mit einer Gabel verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Empanadas portionsweise goldbraun braten, etwa 2-3 Minuten pro Seite; Auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/df/65/f5/df65f5e664591e16ad8721932c477304.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/df/65/f5/df65f5e664591e16ad8721932c477304.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-huevos-a-la-habanera",
+      "slug": "gen-huevos-a-la-habanera",
+      "title": "Huevos a la Habanera",
+      "instructions": "Kubanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Eier in großen Mengen in Lagerhäusern",
+        "Verwenden Sie Jalapeños anstelle von Habaneros, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "kubanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6989,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huevos-a-la-habanera/",
+      "components": [
+        {
+          "key": "048bb9be-9c5c-5eac-acf7-5f4d952ea49f",
+          "name": "Zutaten",
+          "servingGrams": 375.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff10f522-e905-5547-9478-7f30150c0175",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ac742df-182d-57ab-b02e-585a3a9b9743",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "78032576-5d79-52ae-8ecb-e5dc811842b6",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a065de62-4b33-5d4b-ba75-c6f4e4d66f4e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5b0e8fdb-4f82-5717-92a7-daa6f4dcd053",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "51fc2bf7-62e3-5fa4-bd10-3a74765a1520",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "86bc431d-d7a3-5ca2-9c5d-10eb4b8d3d0b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "20301833-dfee-5ba4-956f-be3de677839e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, Knoblauch, Habanero-Pfeffer und Tomate fein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer Pfanne bei mittlerer Hitze erhitzen und Zwiebel und Knoblauch 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den gewürfelten Habanero und die Tomate dazugeben und 3 Minuten kochen lassen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlagen Sie die Eier direkt in der Pfanne über der Gemüsemischung auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kochen Sie die Eier etwa 3 bis 5 Minuten lang, bis sie den gewünschten Gargrad erreicht haben, und würzen Sie sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/05/huevos-rancheros-1080x1080.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/05/huevos-rancheros-1080x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

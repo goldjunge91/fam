@@ -1,0 +1,1270 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-mango-sago",
+      "slug": "cur-mango-sago",
+      "title": "Mango-Sago-Dessert",
+      "instructions": "Ein gekühltes Dessert aus Hongkong: reife Mango wird zu einer seidigen Kokos-Kondensmilch-Creme püriert und mit elastischen Tapioka-Sago-Perlen sowie frischen Mangowürfeln vermischt. Kalt, cremig und fruchtig, mit nur wenig Kochaufwand.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende sehr reife Mangos aus dem Angebot. Ataulfo- oder Champagne-Mangos sind besonders süß und brauchen meist keinen zusätzlichen Zucker.",
+        "Sago-Perlen sind günstig und lange haltbar. Koche gleich eine größere Menge und stelle sie für mehrere Desserts kalt.",
+        "Ersetze einen Teil der Kokosmilch durch Kondensmilch ohne Zucker, um Kosten zu sparen und die Creme dennoch reichhaltig zu halten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "all evaporated Milch oder whole Milch für ein lighter, cheaper version",
+          "savings": "~$1.00"
+        },
+        {
+          "forIngredientId": "sweetened-condensed-milk",
+          "swap": "2 tbsp Zucker plus ein splash mehr Milch",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "sago",
+          "swap": "klein pearl tapioca aus der Backen aisle (same thing)",
+          "savings": "oft günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "hong-kong (deutsche Fassung)",
+        "Nachtisch",
+        "asian (deutsche Fassung)",
+        "mango (deutsche Fassung)",
+        "chilled (deutsche Fassung)",
+        "no-backen",
+        "sago (deutsche Fassung)",
+        "summer (deutsche Fassung)",
+        "crowd-pleaser (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7415,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-mango-sago/",
+      "components": [
+        {
+          "key": "f58e4766-6291-55f0-9d9e-fcbbda490623",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 277.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "cf4ac1bc-397f-5afd-808c-fa6a8476a9bd",
+              "ingredientName": "Tapioka-Sago-Perlen, trocken",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "kleine Tapioka- oder Sagoperlen, trocken"
+            },
+            {
+              "key": "97d0a888-a97f-582e-a8a5-8a172859fc1e",
+              "ingredientName": "Mango",
+              "grams": 600,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "sehr reif, etwa 2 püriert, 1 gewürfelt"
+            },
+            {
+              "key": "b2bee474-060c-55d2-9a37-c3a11ed91ddf",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, Vollfett"
+            },
+            {
+              "key": "c4fdb96d-c655-560c-838d-f92e2ae670ae",
+              "ingredientName": "ungesüßte Kondensmilch",
+              "grams": 120,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1 Tasse"
+            },
+            {
+              "key": "ed692aaa-ae54-56ab-9eed-6bcbccb880bc",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 80,
+              "quantity": 0.2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "3-4 EL nach Geschmack"
+            },
+            {
+              "key": "7c721913-e3ec-53c6-82dd-be2bd928edb0",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "nur bei säuerlichen Mangos"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Sago-Perlen ab. Bringe einen mittelgroßen Topf Wasser zum Kochen, gib die Perlen hinein und koche sie bei mittlerer Hitze 10-12 Minuten. Rühre gelegentlich um, damit sie nicht zusammenkleben, bis sie fast durchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schalte die Hitze aus, decke den Topf ab und lasse die Perlen 5-10 Minuten ziehen, bis sie vollständig durchsichtig sind und keinen weißen Kern mehr haben. Gieße sie ab, spüle sie kalt ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle die Mangos und schneide das Fruchtfleisch vom Kern. Püriere etwa zwei Drittel glatt. Würfle den Rest klein und stelle ihn kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Mangopüree, Kokosmilch, Kondensmilch ohne Zucker und gezuckerte Kondensmilch glatt und cremig. Probiere die Mischung und rühre bei säuerlichen Mangos Zucker ein, bis sie angenehm süß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die abgekühlten Sago-Perlen und den Großteil der Mangowürfel unter die Mango-Kokos-Creme. Decke sie ab und stelle sie mindestens 1-2 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle das Dessert in Schalen oder Gläser und gib die übrigen Mangowürfel darauf. Für die klassische Mango-Pomelo-Variante einige frische Pomelostücke ergänzen. Kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Mango_pomelo_sago.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mango_pomelo_sago.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: relgar — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-carrot-sheet-cake",
+      "slug": "bake-carrot-sheet-cake",
+      "title": "Karotten-Blechkuchen",
+      "instructions": "Ein saftiger, würziger Karottenkuchen mit Öl gebacken und mit säuerlichem Frischkäsefrosting bestrichen. Frisch geriebene Karotten, Zimt und gehackte Walnüsse machen ihn aromatisch. Einfach für viele zu schneiden und am nächsten Tag noch besser.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Karotten und reibe sie selbst. Fertig geriebene Karotten sind trocken, pro Pfund teurer und zu dick, um zart zu backen.",
+        "Frischkäse in Blockform mit etwas weicher Butter ergibt ein reichhaltigeres Frosting als fertige Becherware und kostet weniger.",
+        "Röste die Walnüsse für ein intensiveres Aroma, dann brauchst du weniger. Rosinen bringen günstig Süße und Feuchtigkeit, falls du Zucker reduzieren willst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "gleich amount von unsweetened applesauce für up zu half der Öl",
+          "savings": "Reduziert den Fettgehalt und streckt eine Vorratszutat"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "gehackt pecans oder toasted Mandeln",
+          "savings": "Die günstigste Nusssorte in Großpackungen verwenden"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "dick Greek Joghurt verquirlt mit extra powdered Zucker",
+          "savings": "Oft günstiger und leichter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "Backen",
+        "Sahne-Käse-frosting",
+        "crowd-pleaser (deutsche Fassung)",
+        "potluck (deutsche Fassung)",
+        "spiced (deutsche Fassung)"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7416,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-carrot-sheet-cake/",
+      "components": [
+        {
+          "key": "d4ee8a2d-c34e-5b9d-9ea3-6b5e1be96201",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 182.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc084d75-83ee-53ac-81f7-2b561c3600c9",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "ad887605-fcc0-52f2-8003-8d83c5b4e64d",
+              "ingredientName": "Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen Kristallzucker"
+            },
+            {
+              "key": "59cd0c9f-483d-59c9-a23e-561e448d56bb",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse hellbrauner Zucker, fest angedrückt"
+            },
+            {
+              "key": "a31b1664-f77b-58db-abda-f3e4885489cc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse neutrales Öl für eine saftige Krume"
+            },
+            {
+              "key": "20416b11-c0e0-5f7d-a028-f4a470ae4ba7",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "7a615cf8-8e75-5c46-923d-1ebb60332774",
+              "ingredientName": "Karotte",
+              "grams": 366,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 3 fest gefüllte Tassen frisch geriebene Karotten"
+            },
+            {
+              "key": "1da3f3cd-1e5a-5eb6-b863-f4843a8ee9ea",
+              "ingredientName": "Walnüsse",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse, gehackt und geröstet"
+            },
+            {
+              "key": "d4c3875d-2e2b-596c-9917-8760b5624926",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "cedd2539-3483-5e11-a0b7-5bee09b03d8a",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL gemahlener Zimt"
+            },
+            {
+              "key": "3ed611d9-ccab-5d50-b429-aaf789b6adb3",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL frisch geriebene Muskatnuss"
+            },
+            {
+              "key": "a11aecfa-177d-50c3-b13a-b2170ab82e1a",
+              "ingredientName": "gemahlen ginger",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Ingwer"
+            },
+            {
+              "key": "43af362b-5aa8-52f2-b467-96dc0edb735f",
+              "ingredientName": "Natron",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "43f7499b-1c86-53e6-b8a7-a6b32fbc1e43",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "835cc995-0596-5e1f-a248-798899989e77",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "3/4 TL feines Salz"
+            },
+            {
+              "key": "dd78c321-77fc-5dd8-ba9f-c02fc1b0d54c",
+              "ingredientName": "Frischkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "8 oz, weich, für die Glasur"
+            },
+            {
+              "key": "9083ca68-6837-576f-b2e1-e130fa0f5841",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1/2 Tasse, ungesalzen und weich, für die Glasur"
+            },
+            {
+              "key": "ab5ec2d1-eb5e-5b24-ac37-1b0a62bd1cc8",
+              "ingredientName": "Puderzucker",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "3 Tassen, gesiebt, für die Glasur"
+            },
+            {
+              "key": "bf559f6e-41c8-56d8-b051-e902c4005922",
+              "ingredientName": "Rosinen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "1/2 Tasse, 10 Min. in warmem Wasser eingeweicht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Fette eine 9x13-inch Backform ein und lege den Boden mit Backpapier aus. Schäle und reibe die Karotten fein. Röste Walnüsse in einer trockenen Pfanne duftend und hacke sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Mehl, Natron, Backpulver, Salz, Zimt, Muskatnuss und gemahlenen Ingwer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, weißen Zucker und braunen Zucker in einer großen Schüssel etwa 1 Minute hell und dicklich. Rühre dann Öl und Vanille ein, bis die Masse glatt und verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die trockenen Zutaten unter die feuchten, bis keine Mehlstreifen mehr zu sehen sind. Nicht überrühren. Hebe geriebene Karotten, die meisten Walnüsse und nach Wunsch abgetropfte Rosinen unter. Einige Walnüsse zum Bestreuen zurückbehalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die Form und streiche ihn glatt. Backe ihn 30-35 Minuten, bis ein Zahnstocher aus der Mitte mit wenigen feuchten Krümeln herauskommt und die Oberfläche zurückfedert. Lasse den Kuchen vollständig in der Form auf einem Gitter abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für das Frosting Frischkäse und weiche Butter glatt und luftig schlagen. Siebe Puderzucker und eine Prise Salz dazu und schlage die Masse hell und streichfähig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile das Frosting auf dem vollständig abgekühlten Kuchen, streue die übrigen Walnüsse darüber, schneide ihn in 16 Quadrate und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:bake-lemon-drizzle-cake",
+      "slug": "bake-lemon-drizzle-cake",
+      "title": "Zitronen-Drizzle-Kuchen",
+      "instructions": "Ein klassischer britischer Kastenkuchen: zarter, buttriger Zitronenbiskuit wird warm mit knusprigem Zitronen-Zucker-Guss getränkt, der zu einer säuerlich-süßen Kruste fest wird. Mit frischer Zitronenschale duftend und besonders saftig.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Zitronen statt Saft aus der Flasche. Für das Aroma brauchst du die Schale, und ganze Früchte sind pro Kuchen günstiger. Wähle schwere, dünnschalige Zitronen mit viel Saft.",
+        "Self-Raising-Mehl ist normales Mehl mit 2 tsp Backpulver pro 150g. Mische es selbst aus Vorratszutaten.",
+        "Würfle kalte Butter und lasse sie 15 Minuten stehen oder reibe sie. So wird sie schneller weich, ohne teuren Streichaufstrich zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "gleich weight von margarine oder vegetable shortening",
+          "savings": "~30% günstiger als Butter"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Any plant Milch oder ein splash von Wasser mit ein squeeze von Zitrone",
+          "savings": "Vorhandenes verwenden, spart einen zusätzlichen Einkauf"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "Bottled Zitronensaft für der drizzle (behalten frisch zest in der sponge)",
+          "savings": "~40% günstiger beim Saftanteil"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "cake (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "Zitrone",
+        "loaf (deutsche Fassung)",
+        "afternoon-tea (deutsche Fassung)",
+        "Vegetarier"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7417,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-lemon-drizzle-cake/",
+      "components": [
+        {
+          "key": "dbf579d2-2d40-52f9-b509-4631e7f02a29",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 67.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b3c18ac-833e-5586-99db-703b47f162f4",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "225g, ungesalzen und weich (175g für den Biskuit + zusätzlich; etwa ~1 Stück verwenden)"
+            },
+            {
+              "key": "483f6472-d8ad-5e9e-b406-43212a18ce00",
+              "ingredientName": "Zucker",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "175g feiner Kristallzucker für den Biskuit"
+            },
+            {
+              "key": "3c53e947-2f4c-53df-98b3-c668b760c32c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große Eier, zimmerwarm"
+            },
+            {
+              "key": "a39fc93e-a19e-5b69-9cc1-d07e4e21e89b",
+              "ingredientName": "Weizenmehl",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "175g Mehl mit Backpulver (oder normales Mehl + Backpulver)"
+            },
+            {
+              "key": "b31e559a-84e7-5abb-a34b-27b56d526ede",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2b6fa1b3-0a19-541a-b1c0-8f769461087e",
+              "ingredientName": "Zitrone",
+              "grams": 252,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Schale von 2 Früchten in den Teig, Saft von 1.5 für den Guss"
+            },
+            {
+              "key": "0199a3e5-b28e-5435-9475-94ed50229e42",
+              "ingredientName": "Milch",
+              "grams": 31.2,
+              "quantity": 31.2,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL Vollmilch zum Verdünnen des Teigs"
+            },
+            {
+              "key": "206af381-9f94-5bb2-b7af-7b11588fd6dd",
+              "ingredientName": "Puderzucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "100g feiner Kristallzucker für den Guss"
+            },
+            {
+              "key": "7b71f8b3-f770-5e38-9a27-0aded2d3c9a4",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "1c052b9c-c5ad-5205-aadc-4a1e20268166",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 180C/350F (160C Umluft) vor. Fette eine 2lb (900g) Kastenform ein und lege sie mit Backpapier aus; an den langen Seiten soll Papier überstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage 175g weiche Butter mit 175g feinem Zucker 3-4 Minuten mit einem Holzlöffel oder Handrührgerät hell und luftig auf. Dadurch geht der Kuchen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die 3 Eier einzeln ein und gib mit jedem Ei einen Löffel Mehl dazu, damit die Masse nicht gerinnt. Rühre fein geriebene Schale von 2 Zitronen und Vanille ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Siebe das übrige Self-Raising-Mehl, Backpulver und eine Prise Salz dazu und hebe alles vorsichtig gerade eben unter. Rühre 2 tbsp Milch ein, bis ein weich fallender Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle den Teig in die Form, streiche die Oberfläche glatt und backe ihn 45-50 Minuten goldbraun, bis ein Holzspieß sauber herauskommt. Wird er zu schnell braun, decke ihn locker mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre während des Backens den Saft von 1.5 Zitronen mit 100g Zucker für den Guss. Die Mischung soll körnig bleiben; nicht vollständig auflösen, denn sie soll knuspern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Kuchen nach dem Backen in der Form und stich die Oberfläche überall mit einem Holzspieß ein. Löffle den Zitronen-Zucker-Guss langsam über den heißen Kuchen, damit er einzieht und oben eine Zuckerkruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass ihn vollständig in der Form abkühlen und hebe ihn dann am Backpapier heraus. Schneide ihn in 10 Stücke und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Lemon_Drizzle_Slice_-_Caf%C3%A9_W_2025-12-26.jpg/1280px-Lemon_Drizzle_Slice_-_Caf%C3%A9_W_2025-12-26.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lemon_Drizzle_Slice_-_Caf%C3%A9_W_2025-12-26.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-coffee-cake",
+      "slug": "bake-coffee-cake",
+      "title": "Zimt-Walnuss-Krümelkuchen",
+      "instructions": "Ein zarter, buttriger Sauerrahm-Kaffeekuchen mit einer Zimt-Walnuss-Schicht in der Mitte und einer dicken, groben Streuseldecke aus braunem Zucker. Der Kuchen enthält keinen Kaffee, sondern wird klassisch dazu serviert. Bleibt tagelang saftig und macht Lust auf ein weiteres Stück.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Saure Sahne sorgt für eine saftige Krume, aber vollfetter Naturjoghurt funktioniert genauso gut und ist oft günstiger.",
+        "Kaufe Walnüsse in größeren Mengen und friere Reste ein. Sie sind der teuerste Teil und optional; ohne sie sinken die Kosten.",
+        "Mehl, Zucker, Butter und Eier aus dem Vorrat tragen den Kuchen. Die ganze Form reicht für 9 Personen und kostet weniger als zwei Kuchenstücke im Café."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Full-fat natur Joghurt, same amount",
+          "savings": "Oft etwas günstiger und möglicherweise bereits vorhanden"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Pecans, oder leave out entirely",
+          "savings": "Das Weglassen der Nüsse spart die teuerste Zutat"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Half ein Teelöffel weniger plus ein pinch von Zimt",
+          "savings": "Lässt eine teure Flasche Extrakt länger reichen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "coffee-cake (deutsche Fassung)",
+        "streusel (deutsche Fassung)",
+        "Zimt",
+        "Backen",
+        "brunch (deutsche Fassung)",
+        "Nachtisch",
+        "crumb-cake (deutsche Fassung)",
+        "sour-Sahne"
+      ],
+      "defaultServings": 9,
+      "status": "published",
+      "sortOrder": 7418,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-coffee-cake/",
+      "components": [
+        {
+          "key": "a25d44bd-68c2-5151-8c36-e76c055dc1c5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 173.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "51ee55e8-c461-56b5-ac97-93ac5172b7cd",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, insgesamt ~2.25 Tassen auf Teig und Streusel verteilt"
+            },
+            {
+              "key": "94274051-2394-5cbc-a56d-ea31f946bec6",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Kristallzucker, ~1 Tasse für den Teig"
+            },
+            {
+              "key": "1e5684e5-b83a-54dd-9a4a-e6237bea6231",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "fest angedrückt, ~3/4 Tasse auf Marmorierung und Streusel verteilt"
+            },
+            {
+              "key": "cc17a659-364d-5a91-9443-5dab4ca217c5",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "ungesalzen, ~12 EL auf Teig und Streusel verteilt"
+            },
+            {
+              "key": "41dc21c6-aea2-5e99-bf24-7daa91010365",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0abae9e-c2d8-5505-8ddb-45e918da7054",
+              "ingredientName": "Sauerrahm",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Vollfett, ~1 Tasse, hält die Krume saftig und zart"
+            },
+            {
+              "key": "ed6bb405-657e-508e-94e9-c75095c408ae",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Vanilleextrakt, ~2 TL"
+            },
+            {
+              "key": "cd02fb6a-d6dc-58f6-bdc5-a4d5222f5f81",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "~1.5 TL"
+            },
+            {
+              "key": "74500087-8c2e-5a70-9ae2-238fcfca89d2",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "~1/2 TL"
+            },
+            {
+              "key": "c373b4e1-1da2-5c7d-b6b7-39821b4e4c99",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "~1/2 TL"
+            },
+            {
+              "key": "b3aaa5ea-cdfc-50d9-be07-74856b75af2b",
+              "ingredientName": "Zimt",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "~2.5 EL auf Marmorierung und Streusel verteilt"
+            },
+            {
+              "key": "5277ade2-ed4e-5f24-b508-f251f121f277",
+              "ingredientName": "Walnüsse",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "gehackt, für die Marmorierung und den Belag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Fette eine 8x8- oder 9x9-Backform mit Butter ein und lege sie mit einem Backpapierstreifen aus. Bereite zuerst die Streusel zu: Verreibe 6 tbsp geschmolzene Butter mit 3/4 cup Mehl, 1/2 cup braunem Zucker, 1.5 tsp Zimt und einer Prise Salz mit den Fingern zu feuchten, groben Klumpen. Rühre die Hälfte der gehackten Walnüsse ein und stelle die Streusel kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre für die Zimtschicht 1/4 cup braunen Zucker, 1 tbsp Zimt und die übrigen Walnüsse in einer kleinen Schüssel. Stelle die Mischung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die übrigen 1.5 cups Mehl mit Backpulver, Natron und Salz. Schlage in einer separaten großen Schüssel die übrigen 6 tbsp weiche Butter mit Kristallzucker 2-3 Minuten hell und luftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Eier einzeln ein und dann die Vanille. Kratze die Schüsselränder ab. Die Masse sollte glatt und hell sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Mehlmischung abwechselnd mit saurer Sahne in drei Portionen dazu, beginne und ende mit Mehl. Rühre auf niedriger Stufe nur so lange, bis keine trockenen Streifen bleiben. Überrühren macht den Kuchen zäh. Der Teig ist dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Hälfte des Teigs gleichmäßig in der Form. Streue die ganze Zimtmischung darüber und setze den restlichen Teig löffelweise darauf. Verstreiche ihn vorsichtig, sodass die Zimtschicht bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Drücke die gekühlten Streusel zu Klumpen und verteile sie dick und gleichmäßig auf der Oberfläche. Drücke sie leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Kuchen 40-50 Minuten, bis die Oberfläche tief goldbraun ist und ein Zahnstocher aus der Mitte mit nur wenigen feuchten Krümeln herauskommt. Wird das Topping zu schnell braun, decke es locker mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lass den Kuchen mindestens 30 Minuten in der Form abkühlen, bevor du ihn am Backpapier heraushebst und in 9 Quadrate schneidest. Beim Abkühlen wird er fester und lässt sich sauber schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Apple_coffee_cake.jpg/960px-Apple_coffee_cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Apple_coffee_cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: ChelseaWa — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-angel-food-cake",
+      "slug": "bake-angel-food-cake",
+      "title": "Angel Food Cake",
+      "instructions": "Ein federleichter, wolkig-zarter Biskuitkuchen nur aus aufgeschlagenem Eiweiß: ohne Butter, Eigelb oder chemisches Triebmittel. Weinstein stabilisiert den Eischnee, gesiebtes Kuchenmehl und Puderzucker halten die Krume zart, Vanille und Mandelextrakt sorgen für süßes Aroma. Kopfüber abgekühlt, damit er nicht zusammenfällt.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen Karton flüssiges Eiweiß statt ein Dutzend Eier aufzuschlagen und Eigelb übrig zu haben. Das ist hier günstiger und spart das Trennen.",
+        "Mache feinen Zucker selbst, indem du normalen weißen Zucker 20-30 Sekunden im Mixer mahlst. So brauchst du keinen Caster-Zucker zu kaufen.",
+        "Friere übrige Stücke bis zu einen Monat ein. Angel Food Cake taut in wenigen Minuten auf und schmeckt getoastet oder mit marinierten Beeren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "verwenden 1.5 tsp Zitronensaft oder white vinegar zu stabilize der whites",
+          "savings": "Spart eine nur einmal benötigte Vorratszutat, ~$3 Ersparnis"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "machen cake Mehl by replacing 2 tbsp von every cup von all-purpose Mehl mit cornstarch",
+          "savings": "Spart besonderes Kuchenmehl, ~$2 günstiger"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "Omit entirely oder verwenden ein little extra vanilla",
+          "savings": "Spart ~$4 für eine kaum verwendete Flasche"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "Backen",
+        "niedrig-fat",
+        "Ei-whites",
+        "light (deutsche Fassung)",
+        "sponge-cake (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7419,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-angel-food-cake/",
+      "components": [
+        {
+          "key": "c745a191-6c5f-50fd-ad2b-683625c28229",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 68.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "b33ac4d1-f4a4-5922-af24-a491403396a3",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen / 12 große Eiweiße, zimmerwarm"
+            },
+            {
+              "key": "8de83114-0454-57b1-bf20-8aeb771e5e28",
+              "ingredientName": "weißer Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse feiner Kristallzucker, aufgeteilt"
+            },
+            {
+              "key": "56e10085-e700-5fe8-a261-3e0d6e3d02ef",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, mit dem Mehl gesiebt"
+            },
+            {
+              "key": "ba9fad06-b154-57a3-8383-9a54c68e11bf",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse feines Kuchenmehl (3-mal sieben)"
+            },
+            {
+              "key": "1b8e3aa2-a9c3-5b86-9e2a-1a02862163a4",
+              "ingredientName": "Weinstein",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "11de6cd3-fbbf-509a-8c74-621f89664b83",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "bfc6abc4-f257-5e73-8b7d-4b1091e32e93",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "733fa495-6fd0-52ea-b635-b4cbc485e975",
+              "ingredientName": "Mandelextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schiebe ein Rost in das untere Drittel des Ofens und heize auf 350F (175C) vor. Stelle eine saubere, ungefettete 10-inch Rohrkuchenform bereit. Nicht einfetten: Der Teig muss an den Seiten hochklettern können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Siebe Kuchenmehl mit Puderzucker und Salz dreimal in eine Schüssel. So wird die Mischung luftig und klumpenfrei. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eiweiß auf Raumtemperatur in einer absolut sauberen, fettfreien Metall- oder Glasschüssel bei mittlerer Stufe schaumig. Gib Weinstein dazu, erhöhe auf mittelhohe Stufe und schlage weiche, voluminöse Spitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass bei laufendem Mixer feinen Zucker esslöffelweise einrieseln. Schlage zu festen, glänzenden Spitzen, die ihre Form gerade halten. Nicht trocken steif schlagen. Rühre Vanille und Mandelextrakt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Siebe die Mehlmischung in vier Portionen über den Eischnee und hebe jede vorsichtig mit einem Schneebesen oder Spatel unter, bis keine Streifen mehr bleiben. Dabei möglichst wenig Luft aus dem Eischnee schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den Teig in die ungefettete Rohrkuchenform. Ziehe einmal mit einem dünnen Messer oder Holzspieß im Kreis durch den Teig, um große Luftblasen zu entfernen, und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Kuchen 35-40 Minuten, bis die Oberfläche goldbraun ist, bei leichtem Druck zurückfedert und ein Holzspieß sauber herauskommt. Er sollte hoch und oben trocken sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stürze die Form sofort auf ihre Füße oder über den Flaschenhals und lasse den Kuchen kopfüber vollständig abkühlen, etwa 1.5 Stunden. So setzt sich die zarte Krume und fällt nicht zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Fahre nach dem Abkühlen mit einem dünnen Messer am äußeren und inneren Rand sowie am Boden entlang und löse den Kuchen aus der Form. Schneide ihn mit einem Sägemesser in sanften Sägebewegungen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/AngelFoodCake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:AngelFoodCake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jennifer — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

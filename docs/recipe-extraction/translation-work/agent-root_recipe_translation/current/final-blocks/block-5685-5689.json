@@ -1,0 +1,1018 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-roasted-marshmallows",
+      "slug": "gen-roasted-marshmallows",
+      "title": "Geröstete Marshmallows",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Marshmallows einer Handelsmarke statt einer bekannten Marke kaufen",
+        "Graham-Cracker und Schokolade im Angebot kaufen und bevorraten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5685,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roasted-marshmallows/",
+      "components": [
+        {
+          "key": "61edf990-2303-59f7-ae95-1241e541d7fd",
+          "name": "Zutaten",
+          "servingGrams": 46.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6da1f06-17c6-5eff-a3ac-67ecd78ca0b4",
+              "ingredientName": "Marshmallows",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4b297945-a4f2-5cb4-8462-eae97def4c10",
+              "ingredientName": "Graham-Cracker",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Packung (14.4 oz)"
+            },
+            {
+              "key": "59789f63-f1fb-501d-a860-898838394f97",
+              "ingredientName": "Milchschokolade",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen Marshmallow auf einen Röststock oder eine lange Gabel stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Marshmallow 4–6 Zoll über mittelheiße Lagerfeuerkohlen halten und langsam drehen, damit er gleichmäßig bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2–3 Minuten rösten, bis die Außenseite goldbraun und das Innere weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ein Stück Schokolade halbieren und auf einen Graham-Cracker legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gerösteten Marshmallow vom Stock auf die Schokolade schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einem weiteren Graham-Cracker zu einem Sandwich zusammensetzen und leicht andrücken, damit der Marshmallow die Schokolade schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Essen 10 Sekunden abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/62cc71dd942e51d624f2280a/1:1/w_2560%2Cc_limit/PockySmores_RECIPE_070722_36917.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/62cc71dd942e51d624f2280a/1:1/w_2560%2Cc_limit/PockySmores_RECIPE_070722_36917.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-croissant",
+      "slug": "gen-croissant",
+      "title": "Croissant",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Butter einer Handelsmarke im Angebot in größeren Mengen kaufen und einfrieren",
+        "8–12 Croissants auf einmal backen, um die Kosten pro Stück zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "french",
+        "breakfast",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5686,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-croissant/",
+      "components": [
+        {
+          "key": "29dccc46-9568-5903-92de-eb197cd44401",
+          "name": "Zutaten",
+          "servingGrams": 253.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "fdcf9067-f7c3-5735-a17e-1da082c0139f",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "acd906fd-81ef-5656-a3a6-f2b7efd3d93c",
+              "ingredientName": "Butter",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "eb1ef945-889f-5724-9d9a-eb5942f989ed",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "8599574d-9246-5746-a010-b431d9ce6038",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e0e7074d-13f9-5a19-b619-5badd163ff5d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a4dc6b01-e1f6-5bfb-922f-532dd7c76b55",
+              "ingredientName": "Trockenhefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "647cb299-4e0d-5db0-bc77-26969f35d60a",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "59fda953-476b-5373-be47-0aaffd54d682",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 große"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker, Salz und Hefe in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Milch und Wasser hinzufügen und zu einem groben Teig verrühren. 5 Minuten kneten, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in Folie wickeln und 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kalte Butter zwischen Frischhaltefolie zu einem 6 × 8 Zoll großen Rechteck klopfen. Sie soll formbar, aber kühl bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zu einem 12 × 8 Zoll großen Rechteck ausrollen. Butter mittig platzieren, Teig darüberfalten und Ränder verschließen. 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teig auf 12 × 24 Zoll ausrollen, in Drittel falten, um 90 Grad drehen und erneut ausrollen und falten. Dies insgesamt 3-mal wiederholen und zwischen den Faltungen jeweils 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach der letzten Faltung über Nacht kühlen. Dann Dreiecke ausschneiden, jeweils zu Hörnchen aufrollen und auf Backpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Croissants bei Raumtemperatur 1.5–2 Stunden gehen lassen, bis sie aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit verquirltem Ei bestreichen und bei 400°F 18–20 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2022/03/croissant-bread-3.jpg",
+          "sourcePageUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2022/03/croissant-bread-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tikka-masala",
+      "slug": "gen-tikka-masala",
+      "title": "Tikka Masala",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel statt Brustfleisch verwenden, sie bieten ein besseres Preis-Leistungs-Verhältnis",
+        "Tomaten aus der Dose kaufen und Gewürzmischungen in großen Gebinden besorgen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "indian",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5687,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tikka-masala/",
+      "components": [
+        {
+          "key": "1cbd3e6e-387d-5299-94ea-7702673f4cb4",
+          "name": "Zutaten",
+          "servingGrams": 176,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbad473d-aa49-584a-aa3d-7fd01a38e95b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9a30a183-e376-5366-8b28-0edc283d54d5",
+              "ingredientName": "griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ce5f7147-7099-5a6c-bb43-192957419f45",
+              "ingredientName": "Garam Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "8e0f7086-97ed-543e-a9bc-7e9a1db4b08c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "aa1e0a72-adcd-5176-ab5c-9af0a8e77ce2",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8ca0bd7c-a948-5d24-bbdd-9be1179d5a57",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "5c9f7058-06f5-5adf-99b9-fd5e3781645f",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b8b33e47-5c15-523d-a790-d1fb01390951",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "d4109360-5be0-543e-b180-6047388ab07a",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1f08fdd7-36ed-5f72-84e5-e0a32b93064c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "338b0056-3475-599c-8b7f-79cc12948e0c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "caf7c737-3081-5f64-923e-20983f6ba870",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in mundgerechte Stücke schneiden und 15 Minuten in Joghurt, Garam Masala, Kreuzkümmel, Paprika, der Hälfte des Knoblauchs und Salz marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und das Hähnchen etwa 8–10 Minuten goldbraun braten. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne Zwiebel, restlichen Knoblauch und Ingwer etwa 3 Minuten anbraten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatensauce einrühren und 5 Minuten köcheln lassen, damit sie etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen zurück in die Pfanne geben, Sahne hinzufügen und 10–12 Minuten köcheln lassen, bis das Fleisch gar und die Sauce dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und mit Salz und Pfeffer nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Wunsch mit frischem Basmati-Reis, Koriander und Limette servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5b69f163d3d14670539a2174/1:1/w_2560%2Cc_limit/ba-tikka-masala-2.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5b69f163d3d14670539a2174/1:1/w_2560%2Cc_limit/ba-tikka-masala-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-texas-brisket",
+      "slug": "gen-texas-brisket",
+      "title": "Texas-Brisket",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brisket im Angebot beim Großhandel kaufen",
+        "Ausgelassenes Fett für spätere Gerichte aufheben, um den Wert optimal zu nutzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "glutenfrei",
+        "dairy-free",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5688,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-texas-brisket/",
+      "components": [
+        {
+          "key": "7b74eee2-5a81-55d6-a377-9e21dbfa228c",
+          "name": "Zutaten",
+          "servingGrams": 119.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "ddeb1055-339a-55b7-bf5a-7386958925a9",
+              "ingredientName": "Rinderbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6-8 Pfund"
+            },
+            {
+              "key": "b43363f5-d292-5bc0-9dd3-c0ab2cbfe350",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e7c113bc-6897-5e24-8a3c-50c01a6f361b",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "128ad46e-da55-5cc3-931d-2632a5782c87",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4c1ef354-9157-5c1f-9bf4-d8536d8961e2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "16bad885-b829-5e4d-a287-ec48789c103b",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "f075e993-f5aa-51a4-b40d-1efe12e1ebee",
+              "ingredientName": "brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e0b67e85-b5da-55ca-b7fa-3898f406c28a",
+              "ingredientName": "Raucharoma",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schwarzen Pfeffer, Salz und Knoblauchpulver zu einer Trockenwürzung vermischen und die ganze Rinderbrust großzügig damit einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Rinderbrust mit der Fettseite nach oben auf ein großes Stück Folie in einen Bräter legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe, Essig, braunen Zucker und Raucharoma vermischen und neben das Fleisch gießen, nicht darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Folie fest um das Fleisch wickeln, vollständig verschließen und in einen auf 325°F vorgeheizten Ofen stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Etwa 14–15 Stunden garen (ungefähr 2 Stunden pro Pfund), bis das Fleisch gabelzart ist. Nach 12 Stunden durch die Folie prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Ofen nehmen und 30 Minuten in der Folie ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vorsichtig auspacken, quer zur Faser in 0.5 Zoll dicke Scheiben schneiden und mit dem Bratensaft servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps197658_CW163683D03_30_2b-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps197658_CW163683D03_30_2b-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-argentinian-asado",
+      "slug": "gen-argentinian-asado",
+      "title": "Argentinisches Asado",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderrippen an der Fleischtheke kaufen; sie sind oft günstiger als abgepackte",
+        "Zusätzliche Chimichurri-Sauce zubereiten und für später in Eiswürfelbehältern einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "glutenfrei",
+        "dairy-free",
+        "argentine",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5689,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-argentinian-asado/",
+      "components": [
+        {
+          "key": "5f3e188e-685d-59ae-80c0-c80c3378fc5a",
+          "name": "Zutaten",
+          "servingGrams": 29.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3bebbe4-e624-5163-af4d-78f575599609",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "ce237ea1-08f0-5d79-b9da-48dbd1f6d614",
+              "ingredientName": "Rinderhüftsteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8cca3484-b9e6-5aca-aa97-d0f1edad443c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "dbae7df4-5e1a-5a83-8ef2-cf663ac04225",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "a6537b66-1854-501e-881f-a37d9349e4b8",
+              "ingredientName": "frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d9012eb3-dff4-5ed1-a25a-dd2bac952dcf",
+              "ingredientName": "Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "508ccc7a-705c-57c7-9dc5-4e840f11f682",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e0e77346-a681-5914-a6c6-f99572ad44f8",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "dd8a057f-0d6b-5914-ad04-52fed3f27935",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch, Petersilie, Oregano, Kreuzkümmel, Olivenöl, Essig, Salz und Pfeffer zu einer Chimichurri-Sauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hälfte der Chimichurri-Sauce zum Servieren beiseitestellen. Die übrige Sauce auf beide Seiten von Rippchen und Steaks streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen Holzkohlegrill auf mittlere Hitze vorbereiten oder eine Grillpfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die kurzen Rippchen zuerst 25–30 Minuten grillen, alle 5 Minuten wenden und mit Chimichurri bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Steaks dazulegen und für medium-rare je Seite 8–10 Minuten grillen, dabei häufig mit Sauce bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Fleisch auf ein Schneidebrett legen und vor dem Servieren 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit der beiseitegestellten Chimichurri-Sauce und knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/d8/21/73/d821736d3512c2d087d347e6437dba3f.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/d8/21/73/d821736d3512c2d087d347e6437dba3f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1048 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gyro",
+      "slug": "gen-gyro",
+      "title": "Gyros",
+      "instructions": "Griechisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nur Rinderhackfleisch statt einer Mischung aus Rind und Lamm verwenden, um Geld zu sparen",
+        "Tzatziki zu Hause aus Joghurt, Gurke und Knoblauch selbst zubereiten statt fertig zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2570,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gyro/",
+      "components": [
+        {
+          "key": "b045aa66-8d01-5951-853e-4bb49b8b9481",
+          "name": "Zutaten",
+          "servingGrams": 310.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ae1b48f-cb97-54e9-8ee5-a011321fb4f4",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1c08c574-8c82-55db-94a0-9e4a1b00edb9",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f7bd7e5e-66ed-50fb-b6fe-99735d6ed092",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 mittelgroße"
+            },
+            {
+              "key": "57b10dcb-f667-50b3-82f7-2464a8db8a34",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0feea5c-05e1-5438-b7df-767e989977b2",
+              "ingredientName": "Oregano",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "a63dce0d-06f4-5fa1-acc4-b0e591deff5d",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f1dcfb32-2ad8-5550-b51f-e5a9ec731109",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0a947cfe-35fd-59df-aef6-51aea28f099a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "122083bb-c480-577d-ab8f-798b815cbdcd",
+              "ingredientName": "Pitabrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6b6b62a-6113-5518-9120-c434163411f9",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "43f96cb2-3f58-58c3-ae62-14938ab012ed",
+              "ingredientName": "Tzatziki-Sauce",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gehackte Zwiebel und Knoblauch in einer Küchenmaschine fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hackfleisch, Zwiebel-Knoblauch-Mischung, Semmelbrösel, Oregano, Paprika, Salz und Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung zu einem Laib formen und auf ein mit Folie ausgelegtes Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Olivenöl beträufeln und bei 375°F 35–40 Minuten backen, bis das Fleisch durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gegartes Gyrosfleisch in dünne Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pitabrot 2 Minuten im Ofen oder in einer Pfanne erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jedes Pitabrot mit Gyrosfleisch, Tomatenscheiben, Zwiebel und einem großzügigen Klecks Tzatziki füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/1910259.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/1910259.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spanakopita",
+      "slug": "gen-spanakopita",
+      "title": "Spanakopita",
+      "instructions": "Griechisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Filoteig im Angebot kaufen und für später einfrieren",
+        "Feta am Stück kaufen und selbst zerbröseln statt zerkrümelten zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2571,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spanakopita/",
+      "components": [
+        {
+          "key": "3f3cba3b-9dbe-5649-81d2-3a48d1e27ea0",
+          "name": "Zutaten",
+          "servingGrams": 294,
+          "position": 0,
+          "items": [
+            {
+              "key": "3fb26be3-4255-54c2-a77a-31f353f9aa94",
+              "ingredientName": "Spinat (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "8a9291a8-5c94-5b25-afd4-c4f12b605fc1",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "6681a8b0-4bf2-583a-a4a2-1b732894d784",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "09ca8e3f-1f81-5c5a-bb65-44c61893297f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "685933b2-9b6a-5072-abfb-e9948c3fc2d4",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1dcb036-fc76-5407-9287-b529f4bac0cd",
+              "ingredientName": "Filoteig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "2d76a5e9-8ce5-5c08-8586-49ff0fd5224c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2d921d01-79c0-5dd1-aaf2-f774a6d66941",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel, frisch"
+            },
+            {
+              "key": "fc444158-4dc7-5c8d-9abe-4e09f2ad0eba",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a6dc97e3-98e4-5ccb-879c-80cc387d7e5a",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühlten Spinat auftauen und gründlich ausdrücken, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und Knoblauch in Olivenöl bei mittlerer Hitze etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spinat dazugeben und 2 Minuten garen, dann vom Herd nehmen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gegarten Spinat, zerbröselten Feta, Ei, Dill, Salz, Pfeffer und Muskatnuss in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backofen auf 375°F vorheizen und eine Backform von 9x9 mit Olivenöl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "4 Filoteigblätter in die Form legen und jedes mit Olivenöl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Spinat-Feta-Füllung gleichmäßig auf dem Filoteig verteilen, dann die übrigen 4 Filoteigblätter darauflegen und jedes mit Olivenöl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Oberseite in 4 Quadrate einschneiden und 30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/LBRLNqNw9tt6nWxZV93zZLBAigg=/4494x3000/filters:fill(auto,1)/spinach-pie-with-feta-spanakopita-1706022_hero-01-80cc6ee388474e7aad68e1d009766967.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/LBRLNqNw9tt6nWxZV93zZLBAigg=/4494x3000/filters:fill(auto,1)/spinach-pie-with-feta-spanakopita-1706022_hero-01-80cc6ee388474e7aad68e1d009766967.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-saganaki",
+      "slug": "gen-saganaki",
+      "title": "Saganaki",
+      "instructions": "Griechischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Feta statt Halloumi für geringere Kosten verwenden",
+        "Eine größere Menge zubereiten und kurz im Ofen aufwärmen statt erneut zu braten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "griechisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2572,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-saganaki/",
+      "components": [
+        {
+          "key": "b705f772-abb8-56b9-b619-950b70d45d41",
+          "name": "Zutaten",
+          "servingGrams": 113.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff16cdca-af0f-5db5-9c09-d40ddcea8c97",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f40946c9-6103-5904-8d51-736f80ac5c7e",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "97df39dc-0664-592e-bbde-ba7ed0f9c82c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f57672ca-4cea-5684-8747-78a7726ed24c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9464470b-f001-5b1a-b57c-18aab12d524f",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ac9d3731-795b-5344-9696-956bcee4d321",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Käse in 1/2-inch-dicke Scheiben schneiden und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In eine flache Schüssel Mehl mit Salz und Pfeffer geben; in einer anderen das Ei verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede Käsescheibe zuerst in Mehl, dann in Ei und nochmals in Mehl wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einer Pfanne bei mittelhoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Panierte Käsescheiben auf jeder Seite 1–2 Minuten goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen Teller geben und sofort frischen Zitronensaft über den warmen Käse pressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/07/EXPS_TOHD24_276710_PerrySantanachote_9.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/07/EXPS_TOHD24_276710_PerrySantanachote_9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dolmades",
+      "slug": "gen-dolmades",
+      "title": "Dolmades",
+      "instructions": "Griechisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Doppelte Menge zubereiten und ungegarte Dolmades für später einfrieren",
+        "Rinderhackfleisch statt Lamm verwenden, um deutlich Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2573,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dolmades/",
+      "components": [
+        {
+          "key": "293a3af2-0ec5-5c24-971a-aef74bb64110",
+          "name": "Zutaten",
+          "servingGrams": 239,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1cab0e1-9d30-50d7-a3bd-263c8e384058",
+              "ingredientName": "Jackfruit in Salzlake (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Glas (16 oz)"
+            },
+            {
+              "key": "07cefe0e-8764-56db-ab68-b148799a7927",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "500bfc6f-c386-5777-95bc-ef221f97b9f3",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "26c0f1bf-94f6-5864-8fe4-d183605a2d4b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "7a942da6-fa96-54b8-aeba-167df7460d57",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78280439-cfcc-50b8-89b2-fe332adfd802",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6597d767-6d97-5367-a00c-f4706bb53f94",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2c2ff4ba-d21f-5c9c-a871-fa88f9d00aec",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d3884783-83f7-5298-a36d-9547f5f7603a",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6a44e468-c18c-5775-9cbc-54ae1f5a95e8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weinblätter unter kaltem Wasser abspülen, trocken tupfen und beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und Knoblauch in einer Pfanne bei mittlerer Hitze 2 Minuten dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hackfleisch dazugeben und etwa 5 Minuten unter Zerteilen anbraten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ungekochten Reis, Minze, Dill, Salz und Pfeffer einrühren und vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein Weinblatt mit der glänzenden Seite nach unten legen, 1 Esslöffel Füllung nahe am Stiel daraufgeben, Seiten einklappen und fest aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gerollte Dolmades mit der Naht nach unten dicht an dicht in einen Topf legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rinderbrühe und Zitronensaft über die Dolmades gießen und einen Teller darauflegen, damit sie an ihrem Platz bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Kochen bringen, dann Hitze reduzieren, abdecken und 35–40 Minuten köcheln lassen, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Warm oder bei Zimmertemperatur mit Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Greek-Dolmades-Stuffed-Grape-Leaves.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Greek-Dolmades-Stuffed-Grape-Leaves.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tzatziki",
+      "slug": "gen-tzatziki",
+      "title": "Tzatziki",
+      "instructions": "Griechischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischen Joghurt in großen Bechern statt Einzelportionen kaufen",
+        "Eine große Menge zubereiten und die Woche über zu verschiedenen Mahlzeiten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2574,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tzatziki/",
+      "components": [
+        {
+          "key": "2e3189b0-a75b-5c66-9ad9-841aadeba82d",
+          "name": "Zutaten",
+          "servingGrams": 212.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d9adb3f-6c0b-57e4-9a28-5a1bdab5efb8",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0465328f-8f29-5c65-8354-7a070dea4a91",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "1d4a0816-1c20-598d-845d-e0f58b8f068e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfeece3f-d9f4-53b4-949e-b50104de5f5c",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bb827b0a-041f-5499-b099-828d8f0a8ff6",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2f2d0c62-4d7a-56fe-aa44-00efc25635b4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "12760022-6584-56c1-a4d4-9e9d60d0bf87",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gurke reiben und überschüssige Flüssigkeit mit einem feinmaschigen Sieb oder einem sauberen Tuch ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch fein hacken oder durch eine Knoblauchpresse drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Griechischen Joghurt, geriebene Gurke, gehackten Knoblauch, Zitronensaft und Dill in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gut verrühren und nach Geschmack salzen und pfeffern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Olivenöl beträufeln und vor dem Servieren mindestens 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit warmem Pitabrot, Gemüse oder als Beilage zu gegrilltem Fleisch servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2024/07/tzatziki-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2024/07/tzatziki-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

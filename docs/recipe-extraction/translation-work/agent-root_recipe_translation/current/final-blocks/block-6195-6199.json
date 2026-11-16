@@ -1,0 +1,1022 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-khao-man-gai",
+      "slug": "gen-khao-man-gai",
+      "title": "Khao Man Gai",
+      "instructions": "Ein beliebtes nordthailändisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot in größeren Mengen und friere es ein.",
+        "Verwende preisgünstige Marken für Jasminreis, um deutlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Nordthailand",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6195,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khao-man-gai/",
+      "components": [
+        {
+          "key": "738f6f24-2307-5e1a-b98f-48144b8e6e4f",
+          "name": "Zutaten",
+          "servingGrams": 442.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ca58f95-e143-58b4-a63f-7b7a452ad6e5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6e542009-8ae0-5baf-b655-38a2eeba8937",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen ungekocht"
+            },
+            {
+              "key": "37ffe313-eda9-57fc-8f87-93b768935a48",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "8faa8274-5054-52f6-b5cc-392a91d21eb8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "f0e8dbcd-6e8a-50c1-a1f1-1e4bb9cd3c1b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "12ca6288-ac9c-5396-80bd-04799df16aa9",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "79927161-b4ce-5b9f-b547-29feaf2cfa53",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b3e1eec9-f700-5310-b457-98cb85bdf21d",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2ff79371-747a-5cda-bd45-458993d8d471",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "02a2473e-ecff-5ff2-8b1d-11e0a66dcf90",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Hühnerbrühe mit Ingwerscheiben zum Kochen. Gib die Hähnchenbrust hinein und lass sie 15 Minuten köcheln, bis sie gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen heraus und lass es leicht abkühlen. Zerpflücke oder schneide es dann in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche den Jasminreis in derselben Brühe etwa 15-18 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Fischsauce, Sojasauce und Limettensaft zu einem Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Reis auf Schüsseln, gib Hähnchen darauf und beträufle es mit der Sauce. Garniere mit Koriander und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/08/thai-khao-man-gai-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/08/thai-khao-man-gai-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sator-pad",
+      "slug": "gen-sator-pad",
+      "title": "Sator Pad",
+      "instructions": "Ein beliebtes nordthailändisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Stinkbohnen tiefgekühlt statt frisch, um Geld zu sparen.",
+        "Bereite die doppelte Menge zu und verwende Reste am nächsten Tag zum Mittagessen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Nordthailand",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6196,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sator-pad/",
+      "components": [
+        {
+          "key": "e50c15c9-552a-5b4a-8e6a-8354927648b8",
+          "name": "Zutaten",
+          "servingGrams": 189,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bdb2b63-8806-54a5-ab34-cd0737366b45",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a4769d56-67d5-57cd-a46d-e202dc7e11d0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "a63a264f-ae69-5110-963e-39c37266a379",
+              "ingredientName": "Thailändische rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82af0134-aaf5-54e0-8c40-9bb97f1d3822",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "826b5431-4c8c-5095-8ef2-f6b6baaad2f8",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "00f536a5-fddc-529f-b461-fab9c2a80b29",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3c1a2b91-a0e9-5b51-baaf-15d4755e8496",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a960bade-360b-5594-b20f-b29357c6920e",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze, bis es glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und thailändische Chilischoten dazu und brate sie 30 Sekunden unter Rühren an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Garnelenpaste dazu und verrühre sie 30 Sekunden mit der Knoblauchmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Stinkbohnen dazu und brate sie 5-7 Minuten unter Rühren, bis sie zart und leicht angekohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Fischsauce und Palmzucker, vermenge alles gut und serviere das Gericht auf Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/12/stink_beans_recipe_%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%97%E0%B8%B3_%E0%B8%81%E0%B8%B8%E0%B9%89%E0%B8%87%E0%B8%9C%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%B0%E0%B8%95%E0%B8%AD.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/12/stink_beans_recipe_%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%97%E0%B8%B3_%E0%B8%81%E0%B8%B8%E0%B9%89%E0%B8%87%E0%B8%9C%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%B0%E0%B8%95%E0%B8%AD.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nam-prik-aw",
+      "slug": "gen-nam-prik-aw",
+      "title": "Nam Prik Aw",
+      "instructions": "Ein beliebtes nordthailändisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Chilischoten in größeren Mengen auf asiatischen Märkten.",
+        "Tamarindenpaste lässt sich zu Hause durch Einweichen von Tamarindenschoten herstellen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "Nordthailand",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6197,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nam-prik-aw/",
+      "components": [
+        {
+          "key": "d4c6d1a6-a3d8-5d25-9fb8-c7324e3304ed",
+          "name": "Zutaten",
+          "servingGrams": 233.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "fcac3a5e-23ac-5139-937b-d38ca0499df6",
+              "ingredientName": "Chiliflocken",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e3e7f63-358a-5086-895d-e1ccf276691e",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3e426d0-cfed-558e-802e-671a52275568",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5320af42-fb10-5b32-92b4-b4ca1e7f9a5e",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "150504a2-10a3-5efb-af91-f106e57eb736",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "19bd1ec1-d024-55c7-9605-4bb428f05a20",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c60b7cb9-03b3-51b8-96dc-1e36485baba0",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "7e09e681-5a56-5db8-97cb-a6c93074df42",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "777b923a-2994-51c1-96bb-03c15713b71e",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "8f82e110-31b1-5082-994c-6b6b167e778a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Chilischoten 10 Minuten in heißem Wasser ein und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Schalotten und Knoblauch in einer trockenen Pfanne bei mittlerer bis hoher Hitze etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib eingeweichte Chilischoten, geröstete Schalotten und Knoblauch in einen Mörser und zerstoße alles zu einer groben Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem Wok, gib die Paste dazu und brate sie 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Garnelenpaste, Tamarindenpaste, Fischsauce und Palmzucker ein und gare alles weitere 2-3 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Paste warm mit Klebreis und frischen Gurkenscheiben als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5d39c7cde82b9d0008a5353d/1:1/w_2560%2Cc_limit/HLY-Nam-Prik-Horizontal.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5d39c7cde82b9d0008a5353d/1:1/w_2560%2Cc_limit/HLY-Nam-Prik-Horizontal.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-ped-ped-yang",
+      "slug": "gen-pad-ped-ped-yang",
+      "title": "Pad Ped Ped Yang",
+      "instructions": "Ein beliebtes nordthailändisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe fertig gebratene Ente auf asiatischen Märkten und spare Zeit.",
+        "Verwende Hähnchen als günstigeren Ersatz für Ente."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Nordthailand",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6198,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-ped-ped-yang/",
+      "components": [
+        {
+          "key": "0ef9d88c-1925-5034-aa8c-118fb21aae27",
+          "name": "Zutaten",
+          "servingGrams": 371.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bd1445a-3d88-5543-a2a5-4a91542b9dfa",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "500c09c0-ac56-5087-bb15-684541d6cab1",
+              "ingredientName": "Thailändische rote Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ea8c57f6-45a2-52d8-a454-895cc1830ae7",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e29acd58-ec45-5b52-9d82-1e2f8531c625",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "27ea47a3-313f-5611-8c44-00562084eefd",
+              "ingredientName": "Brauner Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "a7372af1-ea69-5bd8-9e72-43a86f72eabd",
+              "ingredientName": "Thailändisches Basilikum",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "65895702-cf76-5d37-b38b-be6de486a3d4",
+              "ingredientName": "Thailändische Chilischote",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97180e4b-3f56-515a-964d-9293f73b7571",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "701830de-b0ef-5da5-b63c-4c075e7e31b7",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Wok bei mittlerer bis hoher Hitze. Gib Currypaste dazu und brate sie 1-2 Minuten an, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße langsam Kokosmilch dazu und rühre sie unter die Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die geschnittene gebratene Ente dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Fischsauce und Palmzucker. Schmecke ab und passe die Würzung nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib thailändische Chilischoten und Basilikum dazu und gare alles weitere 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Curry auf Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/14599_1_1762438971.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/14599_1_1762438971.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaeng-khanun",
+      "slug": "gen-kaeng-khanun",
+      "title": "Kaeng Khanun",
+      "instructions": "Ein beliebtes nordthailändisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Jackfrucht aus der Dose in Salzlake, falls frische nicht erhältlich ist.",
+        "Bereite Currypaste in größerer Menge zu und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Nordthailand",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6199,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaeng-khanun/",
+      "components": [
+        {
+          "key": "e619f90d-15b4-5723-a0e3-98849c0cfe38",
+          "name": "Zutaten",
+          "servingGrams": 388.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7db5bfaf-570b-55f7-ad92-6d5e78074440",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d8cb8619-9281-547b-9235-90ee45af8412",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6850d331-9941-5e8e-91dc-60f50b190fe9",
+              "ingredientName": "Thailändische rote Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "188d95a1-207a-57af-a243-8b463c56f6f6",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "9bb4140a-5098-54c7-9c0d-4a657bba5887",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e95ff868-fdd1-5056-8d98-9027c6ddafde",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3c189280-a29a-516b-9216-90866ec1c8fb",
+              "ingredientName": "Kaffir-Limettenblätter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 Blätter"
+            },
+            {
+              "key": "9b1f8f40-7fb7-5cfd-91ae-e6df0158d0f8",
+              "ingredientName": "Thailändisches Basilikum",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "c6926c26-dec6-5bb8-9fc0-4b8733da3f89",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze einen Topf bei mittlerer bis hoher Hitze. Gib Currypaste dazu und rühre 1-2 Minuten um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Hälfte der Kokosmilch dazu und rühre, bis eine pastenartige Mischung entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerpflückte Jackfrucht und Brühe dazu und lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die restliche Kokosmilch hinein und gib Kaffir-Limettenblätter dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Fischsauce und Palmzucker und lass alles weitere 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib kurz vor dem Servieren thailändisches Basilikum dazu und serviere das Curry auf Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://archives.mju.ac.th/localfood/wp-content/uploads/2024/09/LocalFoodImage-012.jpg",
+          "sourcePageUrl": "https://archives.mju.ac.th/localfood/wp-content/uploads/2024/09/LocalFoodImage-012.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

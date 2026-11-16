@@ -1,0 +1,1115 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bubble-tea",
+      "slug": "gen-bubble-tea",
+      "title": "Bubble Tea",
+      "instructions": "Taiwanesischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tapiokaperlen in großen Mengen auf asiatischen Märkten kaufen; sie kosten 60% weniger als in Spezialgeschäften",
+        "Normale Schwarzteebeutel statt teurem losem Tee verwenden, um maximal zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "taiwanesisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3350,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bubble-tea/",
+      "components": [
+        {
+          "key": "50f1c4e1-5625-5daf-af93-305d5a991617",
+          "name": "Zutaten",
+          "servingGrams": 817.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fdb1522c-eadb-51a2-9602-b3b833c4cc7c",
+              "ingredientName": "Teebeutel",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Beutel oder 2 TL"
+            },
+            {
+              "key": "a2ba6022-26b1-543a-a607-e9a906daadd6",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "65bca77e-1137-5da4-b062-e6b6af6abe0f",
+              "ingredientName": "Birne",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "06b6cbc8-36e2-5f99-82fe-eb0f9665e73b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "903ffcc3-7f2c-5f6e-b933-fb9871073cdc",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "95ae21c5-53b9-5255-aa02-eb3a5e3aabad",
+              "ingredientName": "Eiscreme",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Teebeutel oder losen Tee in 1 cup heißem Wasser 5 Minuten ziehen lassen, herausnehmen und 10 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einem separaten Topf 2 Tassen Wasser zum Kochen bringen, Tapiokaperlen hinzufügen und gelegentlich umrühren; 8-10 Minuten kochen, bis sie durchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tapiokaperlen abgießen, sofort unter kaltem Wasser abspülen und dann mit 2 EL braunem Zucker vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den restlichen 1 EL braunen Zucker auf zwei hohe Gläser verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jedes Glas bis zur Hälfte mit Eiswürfeln füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgekühlten Tee gleichmäßig auf die Gläser über das Eis gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jeweils 0.375 Tasse Milch in die Gläser gießen und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gekochte Tapiokaperlen auf die Gläser verteilen und mit breiten Trinkhalmen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5953ca064919e41593325d97/1:1/w_2560%2Cc_limit/bubble_tea_recipe_062817.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5953ca064919e41593325d97/1:1/w_2560%2Cc_limit/bubble_tea_recipe_062817.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gua-bao",
+      "slug": "gen-gua-bao",
+      "title": "Gua Bao",
+      "instructions": "Taiwanesisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinebauch durch Schweineschulterhack ersetzen und 1.50 $ pro Portion sparen",
+        "Eingelegtes Senfkohlgrün weglassen und für eine günstige Alternative Gurkenscheiben verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "taiwanesisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3351,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gua-bao/",
+      "components": [
+        {
+          "key": "85ac069b-16a3-5d6f-af4c-3b9b30527589",
+          "name": "Zutaten",
+          "servingGrams": 300.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2316e84-2e64-5897-9f5e-ca825cc2209a",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ee683ffd-9ad4-526b-8630-5b34dc6480ad",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4520f9a6-6fc4-5b22-9cfc-a5893b5baad2",
+              "ingredientName": "Trockenhefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "bc0acd55-31da-5456-bc5b-9d699d00948d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "85ab57c8-8510-5b25-9c24-b037276d4ab2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0c0f4fcc-7ead-5d1f-ab86-93a8fc51d7a3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6e682b0c-72db-5e4e-aa19-0703d75000e6",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "526fd25a-5f06-5508-8c09-d99f018939a3",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8193cc39-1f01-558d-bf34-1b8d40e1ed13",
+              "ingredientName": "Brauner Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "792b26b5-0c89-59fe-b1be-60a5cd7aed3b",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a2222587-5c47-5c0a-b101-52b515b2e95c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "84bc8ef9-2da1-5a28-a7a1-6f50776bd414",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "12e2f7ef-8885-572b-be17-b8760acac195",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0757a877-39f9-5418-8868-a01fd7838a05",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "20433ece-ab25-5c12-93e0-a03108914413",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warmes Wasser, Zucker und Hefe vermengen und 5 Minuten stehen lassen, bis sich Schaum bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz in einer großen Schüssel vermengen, in der Mitte eine Mulde formen und Hefemischung sowie Öl hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühren, bis ein grober Teig entsteht, dann 8 Minuten kneten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In eine geölte Schüssel legen, mit Frischhaltefolie abdecken und 20 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während der Teig geht, Schweinefleisch mit Knoblauch und Ingwer in einer Pfanne bei mittlerer Hitze 3 Minuten garen, bis es leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce, braunen Zucker, Fünf-Gewürze-Pulver und Sesamöl zum Schweinefleisch geben und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gegangenen Teig in 6 gleiche Stücke teilen und jedes auf Backpapier zu einem dünnen Kreis von 4-inch ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Brötchen auf Backpapier in einem Bambusdämpfer oder Topf mit Dampfeinsatz 8-10 Minuten dämpfen, bis sie luftig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Backpapier vorsichtig abziehen und jedes Brötchen in der Mitte falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Jedes Brötchen mit der Schweinefleischmischung, eingelegtem Senfkohlgrün und Koriander füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://chinasichuanfood.com/wp-content/uploads/2016/10/Gua-Bao-Taiwanese-pork-belly-buns-33-copy.jpg",
+          "sourcePageUrl": "https://chinasichuanfood.com/wp-content/uploads/2016/10/Gua-Bao-Taiwanese-pork-belly-buns-33-copy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-scallion-pancake",
+      "slug": "gen-scallion-pancake",
+      "title": "Frühlingszwiebel-Pfannkuchen",
+      "instructions": "Taiwanesisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ausschließlich Pflanzenöl verwenden; es ist günstiger als Sesamöl und eignet sich gut zum Braten",
+        "Frühlingszwiebeln auf Bauernmärkten lose kaufen und 50% gegenüber dem Supermarkt sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "taiwanesisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3352,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scallion-pancake/",
+      "components": [
+        {
+          "key": "9c5c076c-f91b-57ac-9d70-793319ff061c",
+          "name": "Zutaten",
+          "servingGrams": 230.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "07ae3bdc-0291-5312-bcfc-6eb2e07cd48d",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ec777ddb-86a4-5eba-88f1-6546ac7738f6",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "c7a68721-d21f-58aa-adcb-8206c472fa94",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "e0b7d69e-3347-55ec-a6b7-0a059ae53849",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "d01eef3a-8b98-5123-ae74-38965b6b1c0f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4734222d-1990-5bb3-95e4-19ff6f07c1a3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heißes Wasser über Mehl und Salz in eine Schüssel gießen und mit einem Holzlöffel rühren, bis sich der Teig verbindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig auf einer leicht geölten Fläche 5 Minuten glatt kneten, dann abdecken und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in 3 gleiche Portionen teilen und jede zu einem dünnen Kreis von 10-inch ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeden Kreis großzügig mit Öl bestreichen und gleichmäßig mit gehackten Frühlingszwiebeln sowie einer Prise Salz bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig von einer Kante her fest zu einer langen Rolle aufrollen und dann zu einer Spirale formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spirale vorsichtig mit der Handfläche zu einem 6-inch-Pfannkuchen flach drücken und die Dicke nach Wunsch anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "1 EL Öl in einer Pfanne bei mittelhoher Hitze erhitzen und jeden Pfannkuchen 3-4 Minuten pro Seite goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nach Wunsch mit Sesamsamen bestreuen und heiß servieren; zum einfacheren Essen optional vierteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57b61dab3e1d654349a2fefc/1:1/w_2560%2Cc_limit/scallion-pancakes.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57b61dab3e1d654349a2fefc/1:1/w_2560%2Cc_limit/scallion-pancakes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-braised-pork-rice",
+      "slug": "gen-braised-pork-rice",
+      "title": "Schweinefleischreis",
+      "instructions": "Taiwanesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter oder -keule statt Schweinebauch verwenden und 2 $ pro Portion sparen",
+        "Hart gekochte Eier weglassen und 75 cents pro Portion sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "taiwanesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3353,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-braised-pork-rice/",
+      "components": [
+        {
+          "key": "c7e04f5b-1a17-53c6-8a83-760f2992ba03",
+          "name": "Zutaten",
+          "servingGrams": 709.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a117228-810a-59ea-b1fa-147de070cb0a",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "d3e8d7e6-675b-51ab-b916-76bdb8bf6c7a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a07ec25f-35e4-5724-9d8b-787f0c972152",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "88445aae-dfe3-5001-9b72-0cbde5ad9019",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "bf2dd348-5d4f-5fa4-a668-4011c326ca8e",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f139bd2c-05d3-5d4f-9421-0cc62b63143b",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8dab9ba5-2a18-5ac5-b83b-1647898efe12",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8454713e-8840-5dd9-ac1c-48556464d65a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "7d1b5925-8978-5284-aa5b-728aa6d34a56",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "8a8c9ea1-d804-56c7-88b8-1957c1272056",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64ae7e34-0fef-5d58-9b5c-2d2251fd8b9b",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc02f964-2fc4-53f2-8157-5895ce8f71ba",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "041b7f62-1ab8-5574-90f9-f1fe69cb7034",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinebauchwürfel 5 Minuten in kochendem Wasser blanchieren, dann abgießen und unter kaltem Wasser abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 EL Öl in einem großen Topf erhitzen und Knoblauch sowie Ingwer 1 Minute anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinefleisch hinzufügen und 3-4 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Topf mit Shaoxing-Wein ablöschen, dann Sojasauce, dunkle Sojasauce, Zucker, Sternanis und Zimtstange hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wasser oder Brühe angießen und aufkochen, dann abdecken, die Hitze reduzieren und 30 Minuten köcheln lassen, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reis unter kaltem Wasser abspülen, bis das Wasser klar ist, dann in die Schmorflüssigkeit geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gut umrühren, abdecken und aufkochen, dann Hitze reduzieren und 15 Minuten köcheln lassen, bis der Reis gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hitze ausschalten und abgedeckt 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Halbierte hart gekochte Eier auf dem Reis anrichten, mit Frühlingszwiebeln garnieren und direkt aus dem Topf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishar.com/wp-content/uploads/2014/11/2014-10-26-16-53-45_deco1.jpg",
+          "sourcePageUrl": "https://delishar.com/wp-content/uploads/2014/11/2014-10-26-16-53-45_deco1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mozuku",
+      "slug": "gen-mozuku",
+      "title": "Mozuku",
+      "instructions": "Okinawanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mozuku aus der Dose in großen Mengen auf asiatischen Märkten kaufen",
+        "Bei Bedarf Sesamöl weglassen und nur normale Sojasauce verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "okinawanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3354,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mozuku/",
+      "components": [
+        {
+          "key": "389129f9-858d-527d-b682-2a3471f031f0",
+          "name": "Zutaten",
+          "servingGrams": 632.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "92e0f485-30bf-58a1-be4b-64a41a903aee",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "200 g"
+            },
+            {
+              "key": "95ec4fd6-da5f-5edc-9434-d990995bf12c",
+              "ingredientName": "Reisessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bf5eb666-4da7-59f1-837d-3398c70ee7d0",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5f377f9c-2db8-5cc8-a750-b9a375423cc6",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d7d09f30-15d9-523e-a534-75cd3f6b58ae",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5364daf4-658c-5103-9047-84f51ba30d3c",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8467bade-8734-5267-8ba2-8b26c320ecd4",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "b205999c-9399-5437-9009-855359ec7b98",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mozuku-Algen 1 Minute unter kaltem Wasser abspülen, um überschüssiges Salz zu entfernen, und gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reisessig, Sojasauce, Zucker, Wasser und Sesamöl in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dressing über die Mozuku-Algen gießen und vorsichtig vermengen, bis alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In Servierschalen verteilen und mit Sesamsamen sowie geschnittener Frühlingszwiebel garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn es die Zeit erlaubt, vor dem Servieren 10 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://welovejapanesefood.com/101food/japan_tmpl/uploads/2016/06/wakameGAHAG.jpg",
+          "sourcePageUrl": "https://welovejapanesefood.com/101food/japan_tmpl/uploads/2016/06/wakameGAHAG.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

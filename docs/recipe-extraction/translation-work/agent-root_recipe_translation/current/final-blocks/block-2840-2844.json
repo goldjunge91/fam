@@ -1,0 +1,1059 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-frikadellen",
+      "slug": "gen-frikadellen",
+      "title": "Frikadellen",
+      "instructions": "Deutsches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine große Menge zu und friere rohe Frikadellen auf einem Blech ein.",
+        "Verwende gleiche Teile Schweine- und Rinderhackfleisch für besseren Geschmack und bessere Konsistenz zu geringeren Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2840,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-frikadellen/",
+      "components": [
+        {
+          "key": "d07037f6-7e53-5a5e-abee-2c8a94a08a20",
+          "name": "Zutaten",
+          "servingGrams": 89.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "50245993-4c58-5519-a5a3-0b4b4065b1ed",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b1829876-88cb-5157-b9fc-bae7d72e35bb",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "ee5e3df1-3bbd-5b1c-bd1f-2c7ccf7aa4a0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "34b3ed3a-d28d-5e8a-b674-83797fff319d",
+              "ingredientName": "Brot",
+              "grams": 18.75,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "c78caa61-c578-5dca-a209-3bed59dab0ba",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57767d45-2cbc-5edb-b671-423bf47f67d0",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "137e49ae-d261-58fe-bf60-513c369633c8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "68b147e4-586a-5cf7-8e0a-f88fa90358f6",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "35393c8e-0bee-5fdd-9892-07a67f5b0b83",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebel fein und vermische sie mit Schweine- und Rinderhackfleisch, Semmelbröseln, Ei, Worcestershiresauce, Salz und Pfeffer, bis alles gerade vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme 12 ovale Frikadellen von etwa 2 inches Länge und 0.5 inches Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Frikadellen 3-4 Minuten pro Seite goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege sie auf einen mit Küchenpapier ausgelegten Teller, damit überschüssiges Öl abtropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie warm mit Senf, Gewürzgurken und frischem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3rKxxApYWYp5Fae282CMkGEOJVA=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/basic-frikadellen-1447071-step-09-4689ef2bfdb94c3f91da15ce03a6b25c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3rKxxApYWYp5Fae282CMkGEOJVA=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/basic-frikadellen-1447071-step-09-4689ef2bfdb94c3f91da15ce03a6b25c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sauerkraut-und-kartoffelpuffer",
+      "slug": "gen-sauerkraut-und-kartoffelpuffer",
+      "title": "Kartoffelpuffer mit Sauerkraut",
+      "instructions": "Deutsches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln im Angebot in größeren Mengen und lagere sie kühl und dunkel.",
+        "Verwende Sauerkraut von der Frischetheke statt aus dem Glas."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2841,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sauerkraut-und-kartoffelpuffer/",
+      "components": [
+        {
+          "key": "b82ac188-2dcc-5a90-aa7f-7d481008b432",
+          "name": "Zutaten",
+          "servingGrams": 241.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1188f6f2-f2df-5fbc-a886-31e35d3cbc95",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "401b22c5-206d-543e-8692-46a51df55f8c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleine Stücke"
+            },
+            {
+              "key": "3f4bef71-f7af-5dec-9a27-df4616df92c3",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a71214f-7b1d-5368-a9d5-440d0a9bc1e3",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "ee5cb739-23ac-5e38-b098-523cccdb1b59",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "58942d25-ee18-5a72-bf0e-5b91d7ae73c3",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "486724b8-860d-54e9-8603-5b9ac1cbe106",
+              "ingredientName": "Sauerkraut",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bdaa1acc-cde4-5abf-a825-f8a32d498c75",
+              "ingredientName": "Kümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "897fbaca-b10c-55cf-92bb-6eb511509848",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle und reibe Kartoffeln und Zwiebel. Drücke dann mit einem sauberen Küchentuch überschüssige Flüssigkeit aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die geriebene Masse mit Eiern, Mehl, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 0.25 cup Öl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib portionsweise Löffel der Kartoffelmischung hinein, drücke sie zu 3-inch großen Puffern flach und brate sie 3-4 Minuten pro Seite knusprig und goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Puffer auf Küchenpapier abtropfen und gib zwischen den Portionen bei Bedarf weiteres Öl hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme Sauerkraut in einem separaten Topf 10 Minuten bei mittlerer Hitze mit Kümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Kartoffelpuffer mit warmem Sauerkraut und einem Klecks saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.backgaudi.de/wp-content/uploads/2016/06/image2-1.jpg",
+          "sourcePageUrl": "https://www.backgaudi.de/wp-content/uploads/2016/06/image2-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kartoffelsalat",
+      "slug": "gen-kartoffelsalat",
+      "title": "Kartoffelsalat",
+      "instructions": "Deutsches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gewöhnliche Kartoffeln, falls festkochende Sorten nicht erhältlich sind.",
+        "Bereite den Salat einen Tag vorher zu und bewahre ihn im Kühlschrank auf, damit sich der Geschmack entfaltet."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "deutsch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2842,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kartoffelsalat/",
+      "components": [
+        {
+          "key": "ce3d958c-f720-5933-a4a5-84916cb89f3d",
+          "name": "Zutaten",
+          "servingGrams": 146.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f418f66e-9b16-5868-b503-0d788092a2cd",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1d6f316b-9c7d-5c97-b11b-f578f47dc28c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Stücke"
+            },
+            {
+              "key": "12551708-fb10-5ef8-9804-43ee5dbc9c64",
+              "ingredientName": "Rinderbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "968f10b9-a539-56f1-b249-6ad0d5b1955d",
+              "ingredientName": "Weißweinessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f9681e3b-e5af-58d9-b8e5-86227a39d1d5",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "57397976-105a-5387-b547-e350748e21a8",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "fbaf43b1-bf86-5093-85b4-3abc5eb3be79",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "64d07eae-7183-557a-924c-4fe02ae1a279",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bc61366c-a936-58ff-ae8c-765abff6aad7",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche festkochende Kartoffeln etwa 15-18 Minuten in Salzwasser, bis sie gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate währenddessen Speck knusprig an, zerbrösele ihn und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Kartoffeln ab und schneide sie noch warm in 0.25-inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle warme Rinderbrühe, Essig, Senf und Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische die warmen Kartoffeln mit dem Dressing und gehackter roter Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse den Salat 10 Minuten ziehen, damit er Geschmack aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe zerbröselten Speck und frischen Dill unter und passe die Würzung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere den Salat bei Raumtemperatur oder gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/pX4zpYuNn2EpfyUvhD57cg04aBc=/4200x2800/filters:fill(auto,1)/potato-salad-swabia-schwabische-kartoffelsalat-1447186-hero-01-900c5d8370674439a2a8ef7f4fbb413a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/pX4zpYuNn2EpfyUvhD57cg04aBc=/4200x2800/filters:fill(auto,1)/potato-salad-swabia-schwabische-kartoffelsalat-1447186-hero-01-900c5d8370674439a2a8ef7f4fbb413a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pretzel",
+      "slug": "gen-pretzel",
+      "title": "Brezel",
+      "instructions": "Deutsches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Backe eine große Menge und friere übrige Brezeln für schnelle Frühstücke unter der Woche ein.",
+        "Verwende Trockenhefe statt Instanthefe, um ein wenig zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2843,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pretzel/",
+      "components": [
+        {
+          "key": "685b2551-2296-55aa-bb85-f9e00c3044a6",
+          "name": "Zutaten",
+          "servingGrams": 286.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "18b5ba66-b9bb-5b4f-ac52-979ddcfa2835",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "6ae200b4-bf09-57bc-a7d9-117ed4f00b73",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "a64bc539-7471-5286-90d3-0b25f556d003",
+              "ingredientName": "Instanthefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "fd107381-fa8b-59e2-a090-4cee777abc6e",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3901249a-5fbe-50ee-b11c-096ea17304da",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "0559c324-9a61-5020-966c-3b536db4fe03",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f3b376b8-c5b7-5cb3-b78d-8a32ef4ba891",
+              "ingredientName": "Natron",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4824a0b2-57be-574e-9b3b-8e8bf021e106",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Quarts"
+            },
+            {
+              "key": "55a4d1f5-5b06-5385-b265-f3ea92d99b90",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Milch auf 110°F, vermische sie dann mit Hefe und Zucker und lasse alles 5 Minuten stehen, bis es schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Salz, gib die Hefemischung und geschmolzene Butter dazu und knete 8 Minuten, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig in einer gefetteten Schüssel 1 Stunde gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 8 Stücke, rolle jedes zu einem 20-inch langen Strang und forme eine Brezel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe 2 quarts Wasser mit Natron zum Kochen und tauche jede Brezel kurz 30 Sekunden hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Brezeln auf ein mit Backpapier ausgelegtes Blech, bestreiche sie mit verquirltem Eigelb und bestreue sie mit grobem Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie bei 425°F 15-18 Minuten tief goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie vor dem Servieren 10 Minuten auf einem Gitter abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qC8h4GicEIouh0W6TIh5dGL4wAw=/2128x1409/filters:fill(auto,1)/GettyImages-170148804-594c4bea5f9b58f0fca48ed6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qC8h4GicEIouh0W6TIh5dGL4wAw=/2128x1409/filters:fill(auto,1)/GettyImages-170148804-594c4bea5f9b58f0fca48ed6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brezel",
+      "slug": "gen-brezel",
+      "title": "Brezel",
+      "instructions": "Deutsches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Teig am Vorabend zu und stelle ihn für einfachere Verarbeitung und besseren Geschmack kalt.",
+        "Kaufe Hefe in größeren Mengen im Großhandel und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2844,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brezel/",
+      "components": [
+        {
+          "key": "f6e91b83-851d-5101-a91c-b54153195ef2",
+          "name": "Zutaten",
+          "servingGrams": 212.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "cba613e1-765f-5dbb-a643-eca7fe15da9f",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "e14a4dc9-4435-5a55-97be-6cf7e382ed60",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "ebb0ac58-5e84-52f4-a008-fd18961ee0bf",
+              "ingredientName": "Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2ced0986-bc9f-533a-b943-dd7fc3d34203",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e4551a5e-ac3e-5937-ad6d-e0fa5057e412",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9a952e66-35e2-5144-bfe2-f55bad75879c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "66a256ff-d879-5214-8e2d-b71f44b7fd9c",
+              "ingredientName": "Natron",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "215e224f-7557-5ae4-81c8-05b33a3e28eb",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Quarts"
+            },
+            {
+              "key": "13aea169-f5e9-5148-9b9b-a703d043a7d4",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Milch auf 110°F, vermische sie mit Hefe und Zucker und lasse sie 5 Minuten stehen, bis sie schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Salz, gib die Hefemischung und geschmolzene Butter dazu und knete 7 Minuten glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig in einer gefetteten Schüssel 45 Minuten gehen, bis er fast sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 6 Stücke, rolle jedes zu einem 18-inch langen Strang und forme Brezeln daraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe Wasser mit Natron zum Kochen und tauche jede Brezel kurz 20 Sekunden hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie auf ein gefettetes Backblech, bestreiche sie mit verquirltem Ei und bestreue sie mit Brezelsalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie bei 425°F 12-15 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie vor dem warmen Servieren 5 Minuten auf einem Gitter abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/YGT9sh0Nui7B2bDINRvM2E_e4uc=/6720x4480/filters:fill(auto,1)/brezel-the-soft-pretzels-with-old-world-taste-1446685-hero-01-f4aace4d0ff642aeb1db96c65ac68314.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/YGT9sh0Nui7B2bDINRvM2E_e4uc=/6720x4480/filters:fill(auto,1)/brezel-the-soft-pretzels-with-old-world-taste-1446685-hero-01-f4aace4d0ff642aeb1db96c65ac68314.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

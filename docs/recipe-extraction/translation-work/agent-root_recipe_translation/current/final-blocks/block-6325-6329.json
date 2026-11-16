@@ -1,0 +1,1142 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-corzetti",
+      "slug": "gen-corzetti",
+      "title": "Corzetti",
+      "instructions": "Ligurischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Anis ist in der Großgewürzabteilung günstiger",
+        "Vergessen Sie teure Formen und verwenden Sie Glasrand zum Ausschneiden von Formen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ligurisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6325,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-corzetti/",
+      "components": [
+        {
+          "key": "c60ca3b5-fc7f-513e-8c02-2aa8d9234cc6",
+          "name": "Zutaten",
+          "servingGrams": 200,
+          "position": 0,
+          "items": [
+            {
+              "key": "c23996be-cf34-52bd-ab98-9e4c1e83ad5e",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e342683b-bb3d-5ae0-b067-130900f60eec",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse weich"
+            },
+            {
+              "key": "e78df164-2b63-507a-8a04-e70815de95ce",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "a6661704-886a-5177-b7e9-304ff2098c8e",
+              "ingredientName": "Fenchelsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "082438cf-1167-587b-b805-e9a3de1410f1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "4962c483-3644-57c7-8a5c-8bfb4b84a141",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfe7b107-abea-58a6-948d-475fe7652fb3",
+              "ingredientName": "Weißweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1e4bb7d6-3681-505b-ae87-5ee09ac85bc9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Anis und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter mit Zucker etwa 3 Minuten lang cremig rühren, bis sie leicht und locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eigelb, Weißwein und Vanilleextrakt unterrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Buttermischung unter die Mehlmischung heben, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig auf einer leicht bemehlten Oberfläche 5 Minuten lang kneten, bis er glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig zwischen Backpapier 0.25 Zoll dick ausrollen und mit einem Glas oder einer Ringform münzförmige Stücke ausstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Drücken Sie dekorative Muster mit einer Gabel oder einem traditionellen Corzetti-Stempel, falls verfügbar, auf Münzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Eiweiß schlagen und leicht auf die Kekse streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf mit Backpapier ausgelegten Blechen bei 350 °F 12–15 Minuten backen, bis die Kekse goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.the-pasta-project.com/wp-content/uploads/Homemade-corzetti-pasta-with-marjoram-and-pine-nuts-16-scaled.jpg",
+          "sourcePageUrl": "https://www.the-pasta-project.com/wp-content/uploads/Homemade-corzetti-pasta-with-marjoram-and-pine-nuts-16-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panissa",
+      "slug": "gen-panissa",
+      "title": "Panissa",
+      "instructions": "Ligurischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kichererbsenmehl aus Großbehältern, um 20–30 % zu sparen",
+        "Hier eignet sich Olivenöl von Handelsmarken gut"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "ligurisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6326,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panissa/",
+      "components": [
+        {
+          "key": "652101ec-d30f-5aa3-966a-c1a61e895a1d",
+          "name": "Zutaten",
+          "servingGrams": 312.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "9bd031ce-89dc-56c4-ac0e-683b76ff7701",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "138029f3-620d-5bfd-8d86-4d9d01372093",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "1aa963d8-e7cd-5b8b-aa91-71430fbdab0e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8db9fb1d-399f-5698-a7a9-5c14699ada67",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Braten"
+            },
+            {
+              "key": "33c7ad4e-0094-55e0-b44a-b8e60886abd2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "a3475e01-ede7-5cb3-be41-78dbdbc9e310",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1c46c87-5e0d-5561-9c9a-34bd56e0fee7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f3f88b3a-fcfe-526f-97a7-7e02786e26e0",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kichererbsenmehl mit 1 Tasse Wasser in einer Schüssel verquirlen, bis eine glatte Masse ohne Klümpchen entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die restlichen 2 Tassen Wasser in einem großen Topf mit Salz und Rosmarin zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gießen Sie die Mehlmischung langsam und unter ständigem Rühren in kochendes Wasser, um Klumpenbildung zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und unter häufigem Rühren 20 Minuten köcheln lassen, bis eine sehr dicke Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Masse in eine mit Backpapier ausgelegte 8 × 8 Zoll große Form gießen, auf Zimmertemperatur abkühlen lassen und anschließend 1 Stunde kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die abgekühlte Panissa in Quadrate oder Dreiecke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und gehackten Knoblauch und Zwiebeln 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Panissa-Stücke auf beiden Seiten goldbraun und knusprig braten, etwa 3 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit schwarzem Pfeffer würzen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://jonoandjules.com/wp-content/uploads/2019/02/panissa-rice.jpg",
+          "sourcePageUrl": "https://jonoandjules.com/wp-content/uploads/2019/02/panissa-rice.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tanselle",
+      "slug": "gen-tanselle",
+      "title": "Tanselle",
+      "instructions": "Ligurisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Ricotta in der Abteilung für Vortage und profitieren Sie von Rabatten",
+        "Verwenden Sie normalen Käse anstelle von Premium-Parmesan"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ligurisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6327,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tanselle/",
+      "components": [
+        {
+          "key": "9543b329-7ed5-5fe4-91fa-5b6c772b288e",
+          "name": "Zutaten",
+          "servingGrams": 337,
+          "position": 0,
+          "items": [
+            {
+              "key": "397a1f19-8a39-51b0-9cc5-20d455b7b58e",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "575ac09d-24b7-5636-ad83-63685958d4bc",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "bf10a702-21ae-55cd-b5ff-e54cee5b77dd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "61962cde-ed93-5b81-a43d-fd143964afbb",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2d7540e5-a373-50e2-aa29-e584b7ae9989",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2132fd1c-cf4c-580e-a094-5875afb2425c",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse gerieben"
+            },
+            {
+              "key": "6ced90d9-2d31-5d7c-93dd-8935b15e717a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7af5be7c-91ad-57c6-83e0-ba53b2db59a0",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "67775463-a4cf-5ef1-abf9-7064dacb3c13",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a6ee15c6-b5a6-5339-b0c1-a9f57f752b64",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl mit Wasser und Salz zu einem weichen Teig vermischen und dann 5 Minuten lang kneten, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig abdecken und 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mangold waschen und hacken, dabei dicke Stiele entfernen. Mit gehacktem Knoblauch in 1 Esslöffel Butter 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gekochten Mangold mit Ricotta, Parmesan, schwarzem Pfeffer und Muskatnuss in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zwischen Backpapier zu einem sehr dünnen Blatt ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig in 3 Zoll große Quadrate schneiden und jeweils 1 Esslöffel Füllung in die Mitte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jedes Quadrat diagonal zu einem Dreieck falten und die Ränder fest zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Salzwasser in einem großen Topf zum Kochen bringen und Tanselle kochen, bis sie schwimmen, und weitere 2 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Die restlichen 3 Esslöffel Butter in einer Pfanne schmelzen und das abgetropfte Tanselle mit der zerlassenen Butter und zusätzlichem Parmesan vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/stir-fry-chicken-recipe-720x1080.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/stir-fry-chicken-recipe-720x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-buridda",
+      "slug": "gen-buridda",
+      "title": "Buridda",
+      "instructions": "Ligurisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorenen Fisch, wenn frischer Fisch teuer ist",
+        "Verwenden Sie statt frischer Tomaten Dosentomaten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "ligurisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6328,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buridda/",
+      "components": [
+        {
+          "key": "1415b581-e675-537a-8c1a-690a1c2c31d6",
+          "name": "Zutaten",
+          "servingGrams": 542.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6afa608d-e258-5e7c-ab93-59dd372242a1",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "44825842-bad1-5737-b5d4-31da9aff9b92",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "eb67fbf6-c743-517c-a5a1-fdef0eadf771",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "c27ffb52-6f6e-5229-a637-6e22d585aff2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3c7b549-3943-5dcd-a266-1f3b1e5a5fcd",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14.5 oz)"
+            },
+            {
+              "key": "7b978bc1-d061-5dda-ae60-8dedc30eaa95",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1bd44d40-cdac-51d6-8fe1-0e8658db6b6b",
+              "ingredientName": "Oliven",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse entsteint"
+            },
+            {
+              "key": "1b566fe0-4035-5ee9-a0f2-7c6474507d7e",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "603f2dd3-a6df-5224-aeb8-78fb5515bedd",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse gehackt"
+            },
+            {
+              "key": "ec2dc59d-b60e-5e30-9518-104bdd88c6ae",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2e1b6037-fab9-5645-8764-081852706c12",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen und gewürfelte Zwiebeln und gehackten Knoblauch 5 Minuten lang anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomaten mit Saft dazugeben und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brühe angießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelten Fisch, grüne Oliven und Kapern in die Pfanne geben und 8–10 Minuten leicht köcheln lassen, bis der Fisch gar ist und leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kurz vor dem Servieren frische Petersilie unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schüsseln füllen und mit knusprigem Brot zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/4374da56-3dd3-4513-beb6-295e6c862597/birria-recipe.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/4374da56-3dd3-4513-beb6-295e6c862597/birria-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stoccafisso-alla-genovese",
+      "slug": "gen-stoccafisso-alla-genovese",
+      "title": "Genuesischer Stockfisch",
+      "instructions": "Ligurisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kabeljau auf ethnischen Märkten zu günstigeren Preisen als bei Fischspezialitätenhändlern",
+        "In großen Mengen zubereiten und portionsweise einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "ligurisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6329,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stoccafisso-alla-genovese/",
+      "components": [
+        {
+          "key": "b6c9e3fb-cc87-5a99-894d-fa7f8ae7c8b1",
+          "name": "Zutaten",
+          "servingGrams": 393,
+          "position": 0,
+          "items": [
+            {
+              "key": "0915c38a-406b-5b07-b363-32abd4e3576b",
+              "ingredientName": "Gesalzener Kabeljau",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "893b8eb4-e418-58bd-8402-c7c2d94e46c4",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "bfb49b43-75e5-5db8-b309-05f96178a958",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "6b78cfb7-4c2a-5807-b270-543ae38e214a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30813d3f-66bf-5945-aa28-a865990c77f5",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (28 oz)"
+            },
+            {
+              "key": "92f64e52-9cb7-5558-a496-99615b0d8e85",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "dde7914a-aa6c-580c-9a75-adfb2936de39",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse entsteint"
+            },
+            {
+              "key": "63ff836a-7581-567a-985d-5efcce16381b",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "b03bc201-ee95-5ab4-93b2-30549578d38f",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "873c69a5-f03a-5f2b-b9bf-e127c466eab3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.33 Tasse gehackt"
+            },
+            {
+              "key": "4c4ccb70-3259-5038-a4d8-a8a1ea6f85b0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrockneten Kabeljau 24–48 Stunden lang in kaltem Wasser einweichen, dabei alle 8 Stunden das Wasser wechseln, bis er rehydriert und entsalzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Fisch abtropfen lassen und abspülen, dann in Stücke schneiden und alle Gräten entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Schmortopf erhitzen. Geschnittene Zwiebeln und gehackten Knoblauch 5 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomaten mit Saft dazugeben und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffeln in 1 Zoll große Würfel schneiden und zusammen mit der Brühe in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fischstücke in die Flüssigkeit geben und Oliven und Kapern hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Leicht köcheln lassen, abdecken und 45–60 Minuten unter gelegentlichem Rühren kochen, bis der Fisch zart und die Kartoffeln sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit frischer Petersilie garnieren und in Schüsseln mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://blog.giallozafferano.it/alimentazionesalute/wp-content/uploads/2026/03/IMG_1494-scaled.jpg",
+          "sourcePageUrl": "https://blog.giallozafferano.it/alimentazionesalute/wp-content/uploads/2026/03/IMG_1494-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

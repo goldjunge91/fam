@@ -1,0 +1,978 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-champ",
+      "slug": "gen-champ",
+      "title": "Champ",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln in 5-Pfund-Beuteln, um bessere Einsparungen pro Pfund zu erzielen.",
+        "Frühlingszwiebeln aus der Obst- und Gemüseabteilung kosten weniger als abgepackte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "irisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7040,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-champ/",
+      "components": [
+        {
+          "key": "fbe15ad5-cde2-5370-97c0-ba195538a1af",
+          "name": "Zutaten",
+          "servingGrams": 470,
+          "position": 0,
+          "items": [
+            {
+              "key": "31ba5375-3c30-5bc6-aa07-b2f5b5837ae7",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2b314d0d-83d3-5272-a77a-7beadae702b1",
+              "ingredientName": "Zwiebel",
+              "grams": 900,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Stangen"
+            },
+            {
+              "key": "4f063072-8ed3-535d-aec9-a9fe40c65a46",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5c60597c-6d5e-57aa-b45b-28b203d3db9a",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "23eb613e-bcaf-5a21-878f-0cc04686d7fc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7bf01081-b776-5fa2-bda4-926f35adf99a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und in 1 cm große Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln in Salzwasser 12–15 Minuten kochen, bis sie gabelweich sind, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Milch mit 2 EL Butter in einem kleinen Topf erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frühlingszwiebeln in dünne Ringe schneiden und in die warme Milchmischung einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heiße Kartoffeln zerstampfen und die Milchmischung unterrühren, bis eine cremige und lockere Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer würzen und mit den restlichen 2 Esslöffeln geschmolzener Butter belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mMw_dHMQ8jbm8Zn5UF8yt4fAq9A=/6016x4016/filters:fill(auto,1)/easy-traditional-irish-champ-recipe-435734-hero-01-c0d8f178b97d4adf8c8a08f1b12868b0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mMw_dHMQ8jbm8Zn5UF8yt4fAq9A=/6016x4016/filters:fill(auto,1)/easy-traditional-irish-champ-recipe-435734-hero-01-c0d8f178b97d4adf8c8a08f1b12868b0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-full-irish-breakfast",
+      "slug": "gen-full-irish-breakfast",
+      "title": "Komplettes irisches Frühstück",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Speck und Würstchen von Handelsmarken anstelle von Premiummarken.",
+        "Verwenden Sie Pilze aus der Dose, wenn frische Pilze teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "irisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7041,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-full-irish-breakfast/",
+      "components": [
+        {
+          "key": "a9c9429e-9951-59c3-a76f-a41605f73411",
+          "name": "Zutaten",
+          "servingGrams": 577.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bcf6ffd2-daba-56ca-b40c-ab96e98cc128",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "7ead67c7-13f1-51a5-a618-8bd354e5b540",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "448d5c9a-0dd9-595d-86cf-7cce9abebbc0",
+              "ingredientName": "Würstchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Würste"
+            },
+            {
+              "key": "9b91abaa-1687-55a7-888f-6c45830db573",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "a4aadfb1-10a9-57f4-a5ec-ed5af3d3a9a8",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "631ec2b0-f654-52d9-b8d5-e2de1c041350",
+              "ingredientName": "Vegetarische gebackene Bohnen",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "7c5bd3d4-25c9-5f69-9cc5-d7c19b204acb",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "51aecc82-c68c-5c19-a38b-c1aa42be6e18",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitzen Sie eine große Pfanne bei mittlerer bis hoher Hitze und braten Sie die Speckscheiben etwa 5 Minuten pro Seite, bis sie knusprig sind, und legen Sie sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In derselben Pfanne die Würstchen 8–10 Minuten anbraten, dabei gelegentlich wenden und dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Champignons und Tomaten in Scheiben schneiden, dann die Champignons im restlichen Fett 3 Minuten anbraten und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halbierte Tomaten in die Pfanne geben und mit der Schnittfläche nach unten 2 Minuten braten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärmen Sie gebackene Bohnen in einem kleinen Topf bei schwacher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eier in der Pfanne etwa 3–4 Minuten bis zum gewünschten Gargrad braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Speck, Würstchen, Eier, Pilze, Tomaten und Bohnen auf einem Teller anrichten und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/nHlWJGiTo3wYc2GYDFN7SMpwpoY=/3000x2100/filters:fill(auto,1)/GettyImages-73741122-2-Ulster-Fry-1500-58a713b55f9b58a3c92a046b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/nHlWJGiTo3wYc2GYDFN7SMpwpoY=/3000x2100/filters:fill(auto,1)/GettyImages-73741122-2-Ulster-Fry-1500-58a713b55f9b58a3c92a046b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bacon-and-cabbage",
+      "slug": "gen-bacon-and-cabbage",
+      "title": "Speck mit Kohl",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Speckenden und -stücke anstelle von Speckscheiben, um erhebliche Einsparungen zu erzielen.",
+        "Wählen Sie vorgeschnittenen Kohl aus dem Supermarkt, wenn die Zeit begrenzt ist, das Budget es aber zulässt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "irisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7042,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bacon-and-cabbage/",
+      "components": [
+        {
+          "key": "ed020582-bbda-5862-b28b-e258a1db23fb",
+          "name": "Zutaten",
+          "servingGrams": 100.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a93b644-3086-5232-a814-b912c275f948",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9758e59f-75cc-5e7b-86bb-b89f4a5ff962",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Kopf (2 Pfund)"
+            },
+            {
+              "key": "1b5fb1c1-d9de-5e18-89d6-b4ef040a205f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "068850ea-5e52-50f6-b1fa-a180144b0904",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9550110e-6616-594c-a254-d2b40e9c2e78",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7d11415d-a753-5129-878a-e1504b5f8f7e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "655297a2-8c7a-5bab-a923-d8ca9d4a8e29",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie den Speck in 1 cm große Stücke und geben Sie ihn in einen großen Topf mit 6 Tassen Wasser. 5 Minuten zum Kochen bringen, um den Salzgehalt zu reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Speck abgießen und abspülen, mit frischem Wasser in den Topf zurückgeben, Lorbeerblatt hinzufügen und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschälte, gewürfelte Kartoffeln und gewürfelte Zwiebeln hinzufügen; 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Kohl in dicke Spalten schneiden, in den Topf geben und in die Flüssigkeit drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "10 Minuten köcheln lassen, bis der Kohl weich und die Kartoffeln gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer würzen, Butter einrühren und in Schüsseln mit Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/02/af28ee2f38bc797179739cf86d2f9f45ae649085.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/02/af28ee2f38bc797179739cf86d2f9f45ae649085.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-seafood-chowder",
+      "slug": "gen-seafood-chowder",
+      "title": "Meeresfrüchtesuppe",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um die Kosten zu senken, verwenden Sie gefrorene Garnelen- und Fischfilets anstelle von frischen.",
+        "Ersetzen Sie die Hälfte der Sahne durch Vollmilch, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "irisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7043,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seafood-chowder/",
+      "components": [
+        {
+          "key": "ef9971f0-bc27-5c74-bb6e-ebd944d57283",
+          "name": "Zutaten",
+          "servingGrams": 326.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a78ecc68-fb27-588e-a4c8-2b441f713b70",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3ed5870d-ef9b-50fd-b77f-2549543dae4e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "a9c6bd3e-143d-506d-bf14-59158903db46",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "0a8caf7a-0bb6-5352-bad0-1059ff699ced",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5271f369-9ac5-5719-aa86-e3d90149be1e",
+              "ingredientName": "Fischsauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "becbbd57-d4fe-5de5-a55f-5df0bde43ac4",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "48cc0c20-8b2b-546c-ab15-f5e629e1c11c",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "3e5169d6-643d-5b8f-bd3d-b96c16eca421",
+              "ingredientName": "Schwere Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "84365b31-ead2-5e11-b969-978186daf205",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "764d19e7-0e20-5bf4-86c2-26d6b2bb6ced",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf schmelzen und gewürfelte Zwiebeln und Sellerie etwa 5 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streuen Sie Mehl über das Gemüse und rühren Sie es 1 Minute lang ständig um, bis eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischbrühe angießen und gewürfelte Kartoffeln dazugeben; zum Kochen bringen und 10 Minuten köcheln lassen, bis die Kartoffeln fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Fisch in mundgerechte Stücke schneiden und zusammen mit den Garnelen in den Topf geben. 5 Minuten köcheln lassen, bis die Meeresfrüchte gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sahne einrühren und ca. 2 Minuten erwärmen, ohne zu kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Großzügig mit Salz und weißem Pfeffer würzen und heiß mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fannetasticfood.com/wp-content/uploads/2019/02/quick-easy-healthy-seafood-chowder-recipe.jpg",
+          "sourcePageUrl": "https://www.fannetasticfood.com/wp-content/uploads/2019/02/quick-easy-healthy-seafood-chowder-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-salmon-and-brown-bread",
+      "slug": "gen-smoked-salmon-and-brown-bread",
+      "title": "Geräucherter Lachs und Schwarzbrot",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Backen Sie das Brot am Vorabend, um morgens Vorbereitungszeit zu sparen.",
+        "Kaufen Sie geräucherten Lachs an der Feinkosttheke statt vorverpackt, um ein besseres Preis-Leistungs-Verhältnis zu erzielen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "irisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7044,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-salmon-and-brown-bread/",
+      "components": [
+        {
+          "key": "78bf6294-807b-5546-b28e-113c1159fb20",
+          "name": "Zutaten",
+          "servingGrams": 272.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3b5cafb-0cbf-5984-9660-48b9d67b84b5",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 90,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f1d90e45-2fc2-5c87-b600-9a212e7770f5",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "47ab93d3-14ce-5809-a3db-5e62a80829a4",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "e3cd8359-d6e5-5385-bc66-d57d59c6430f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "e3ca00f2-3191-528c-bf4a-36fdcf681879",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b15e3e52-45e6-5b53-956e-9526bbbf4666",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b687dfa0-91b0-5893-bef7-f5ea3fe1abad",
+              "ingredientName": "Geräucherter Lachs",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "5591e92d-54c2-5a5e-adcc-305d8c6d11cf",
+              "ingredientName": "Frischkäse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 400 °F vor und legen Sie ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischen Sie Vollkornmehl, Allzweckmehl, Backpulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Buttermilch einrühren, bis ein zottiger Teig entsteht; nicht übermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig auf dem Backblech zu einem runden Laib formen und oben mit einem Messer ein Kreuz einritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "30-35 Minuten backen, bis das Brot goldbraun ist und beim Klopfen hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Etwas abkühlen lassen, in Scheiben schneiden und leicht rösten; Mit Butter und Frischkäse bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geräuchertem Lachs belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/04/Smoked-Salmon-Toasts-with-Cream-Cheese-Recipe-10.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/04/Smoked-Salmon-Toasts-with-Cream-Cheese-Recipe-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

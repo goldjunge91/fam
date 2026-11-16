@@ -1,0 +1,1124 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ch-o-g",
+      "slug": "gen-ch-o-g",
+      "title": "Vietnamesischer Hühner-Reisbrei (Cháo Gà)",
+      "instructions": "Vietnamesisches Frühstücksgericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch: Sie schmecken kräftiger und sind günstiger.",
+        "Röstschalotten lassen sich günstig selbst machen: Schalotten in dünne Scheiben schneiden und in Öl ausbacken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4850,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ch-o-g/",
+      "components": [
+        {
+          "key": "0c3abf0d-d161-5e1c-a2b6-24dcab63c1d2",
+          "name": "Zutaten",
+          "servingGrams": 912.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "28c43bf7-f04f-58e5-a0d0-e192bdce88e9",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "73f2940b-8abc-54dd-95b1-99167728cf84",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "21f774b6-1778-5e4d-a7ba-c6da679d7585",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "378fbf21-1597-5683-89a5-832b5866dc2b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a314a700-a94d-5a5c-a434-4e1ce8b57589",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "aa01be3f-72d7-5a6d-9321-410be0b87872",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da6daf8a-2894-5084-9ade-e48920688942",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "448b396f-1da0-5262-bc1b-c9418cf86a6c",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e6ea1016-3b58-5e89-a02d-e82a81328fb3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7d75b724-f241-5490-a4be-1a54cb9f8131",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser in einem großen Topf zum Kochen bringen. Salz und Ingwer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hähnchenbrust im Ganzen hinzufügen und 15 Minuten köcheln lassen, bis sie durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Hähnchen herausnehmen und kurz abkühlen lassen. Das Fleisch zerpflücken und beiseitestellen; die Kochflüssigkeit im Topf lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Reis unter kaltem Wasser abspülen, bis das Wasser klar abläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Reis in die Hühnerbrühe geben, zum Kochen bringen und anschließend die Hitze reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "35–40 Minuten köcheln lassen und gelegentlich umrühren, bis der Reis zerfällt und ein cremiger Brei entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das zerpflückte Hähnchen zurück in den Topf geben, Fischsauce und weißen Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Noch 2 Minuten köcheln lassen, dann mit Sesamöl beträufeln und mit Röstschalotten und geschnittenen Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/JJCrzDjsp-y0B_T6AhHySAHai_o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chao-Ga-LEAD-02-2d9b058d46f04a5489fce830b85486a5.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/JJCrzDjsp-y0B_T6AhHySAHai_o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chao-Ga-LEAD-02-2d9b058d46f04a5489fce830b85486a5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ch-o-cua",
+      "slug": "gen-ch-o-cua",
+      "title": "Krabben-Reisbrei (Cháo Cua)",
+      "instructions": "Vietnamesisches Frühstücksgericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Surimi statt Krabbenfleisch spart deutlich.",
+        "Kaufe frisches Krabbenfleisch in der Saison und friere es für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4851,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ch-o-cua/",
+      "components": [
+        {
+          "key": "02c0ff2f-d945-53b8-8505-78cfa46de5c1",
+          "name": "Zutaten",
+          "servingGrams": 955.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb90b7e9-9837-5cd0-8d5f-5a8f75885b00",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3a760fc6-6690-545e-8929-265d569312c6",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "938561ef-168e-5ba3-a255-015bf691c570",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "0088325a-40f8-50e6-895a-69e3de0ef17e",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2c1a691f-d4b0-5461-94b8-5e03fbbb939a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a354c192-61c4-5fd6-ab5b-26ec4310c368",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "23da09de-915d-5be2-b4e4-d9ef6e84e5ed",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72c8f60b-5f2e-5ebe-b6c2-63cd092866ef",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ca47fe4b-0092-5ae0-ab6a-b9a24ee03cd2",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2f1cccea-c4a1-5d06-8272-5535bc9d65f0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser mit Salz und Ingwerscheiben zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Reis unter kaltem Wasser abspülen und ins kochende Wasser geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hitze reduzieren und den Reis 35–40 Minuten köcheln lassen; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Krabbenfleisch zerpflücken und dabei vorsichtig alle Schalenstücke entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald der Reis sehr weich und cremig ist, das Krabbenfleisch und die Ingwerstücke in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fischsauce und weißen Pfeffer einrühren und weitere 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Sesamöl beträufeln und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schalen schöpfen und mit gehackten Frühlingszwiebeln und frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cuacamau.com/source/SanPham/cai%20hai%20da%20nau%20chao3.jpg",
+          "sourcePageUrl": "https://cuacamau.com/source/SanPham/cai%20hai%20da%20nau%20chao3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ch-o-l-n",
+      "slug": "gen-ch-o-l-n",
+      "title": "Aal-Reisbrei (Cháo Lươn)",
+      "instructions": "Vietnamesisches Frühstücksgericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Aal auf asiatischen Fischmärkten; dort ist er oft günstiger als im Supermarkt.",
+        "Wels ist eine günstigere Alternative mit ähnlichem Ergebnis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4852,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ch-o-l-n/",
+      "components": [
+        {
+          "key": "388f8bcf-b2e2-53ca-a443-44f006d4b326",
+          "name": "Zutaten",
+          "servingGrams": 950.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b979f357-c0a5-570d-a914-bda943282dd4",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8b8d4eb6-077c-5963-8b50-419b6cdf3670",
+              "ingredientName": "Aalfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a44942b5-9620-5a5e-8c47-f4e9c9f93600",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "57f36b19-325f-5331-b130-f95b3ee3b9aa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b13882b5-6ec9-5990-a101-2df4bc46ba8d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "1a93c795-c5c1-58d0-9f3a-e0c3cf7197cc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "9524dad5-a2a9-570e-b9d4-be4ea421589f",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "175342fd-fb39-5934-b83e-5df37288e2b2",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "901d6f7b-1737-5128-90ef-02b200104dca",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "c22754fc-037e-5b4c-9ed8-c4ef1c376a8c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser mit Salz, Ingwerscheiben und gehacktem Knoblauch zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Aalfilet in 2 Zoll große Stücke schneiden und vorsichtig ins kochende Wasser geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Aal 10 Minuten köcheln lassen und dabei eventuell entstehenden Schaum abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Reis unter kaltem Wasser abspülen und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hitze reduzieren und den Reis 40 Minuten köcheln lassen; gelegentlich umrühren, bis er sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fischsauce und weißen Pfeffer einrühren und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sesamöl über den Reisbrei träufeln und vorsichtig unterrühren, damit es sich verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schalen schöpfen und großzügig mit geschnittenen Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/af/b3/47/afb347740dbda4d558e134997013da9a.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/af/b3/47/afb347740dbda4d558e134997013da9a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stromboli",
+      "slug": "gen-stromboli",
+      "title": "Stromboli",
+      "instructions": "Italienisch-amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Aufschnitt im Angebot und friere ihn ein; günstige Mozzarella-Mischungen sparen zusätzlich.",
+        "Bereite die Marinara-Sauce selbst zu, statt fertige Sauce im Glas zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4853,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stromboli/",
+      "components": [
+        {
+          "key": "6f265977-2505-59b3-a44c-07cc261b4a95",
+          "name": "Zutaten",
+          "servingGrams": 388.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "10868b5f-0120-5fe6-aaf6-b6944afc3ec5",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5ea99e69-d82c-55d1-9982-a0bb206b2d86",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "95515075-8e53-55fa-ba3c-32718600816f",
+              "ingredientName": "Instant-Hefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "5f13f37a-4325-5be7-a87f-4f2ed3f05c2e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "02b364d5-304e-564f-9c96-ee6431d37acb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "61a4e025-d600-5731-833a-c49f04e3f1f0",
+              "ingredientName": "Peperoni-Salami",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "57a5aec0-9f04-5acb-9d6c-b312dd2097b2",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1be77c2f-7ede-5206-ad72-9f3663a4b3aa",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "df6adaa0-5044-55dc-b3b0-7416ec9f6ed8",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "379821fe-cdfd-5dde-8b20-716c54a9735a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16b222f2-6e6f-5334-a12b-7568ce99b9b2",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lauwarmes Wasser, Hefe und Salz verrühren und 5 Minuten stehen lassen, bis die Mischung schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Olivenöl zur Hefemischung geben und 8 Minuten zu einem glatten Teig kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in einer geölten Schüssel 20 Minuten gehen lassen, bis er sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig auf Backpapier zu einem Rechteck von 12 × 10 Zoll ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ricotta gleichmäßig auf dem Teig verstreichen, dabei am Rand 1 Zoll frei lassen. Wurst und Mozzarella darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig von der langen Seite her fest aufrollen, die Naht durch Zusammendrücken verschließen und den Stromboli mit der Naht nach unten legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit verquirltem Ei bestreichen, italienische Kräuter darüberstreuen und bei 400 °F 25 Minuten backen, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten abkühlen lassen, dann in Scheiben schneiden und mit Marinara-Sauce zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2019/05/stromboli-recipe-www.thereciperebel.com-SWP-4-of-4.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2019/05/stromboli-recipe-www.thereciperebel.com-SWP-4-of-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-focaccia-col-formaggio",
+      "slug": "gen-focaccia-col-formaggio",
+      "title": "Käse-Focaccia (Focaccia col formaggio)",
+      "instructions": "Italienischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Teilentrahmter Mozzarella senkt die Kosten, ohne dass viel Geschmack verloren geht.",
+        "Getrockneter Rosmarin eignet sich ebenfalls, wenn kein frischer verfügbar ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4854,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-focaccia-col-formaggio/",
+      "components": [
+        {
+          "key": "76cc03df-1df6-5e52-8e57-6014d2925c7f",
+          "name": "Zutaten",
+          "servingGrams": 337.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "39913bb7-3552-597c-8b88-ed782efccd1d",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "5128d117-06b5-5316-982c-817e16942428",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1abe21cf-a4af-53eb-b256-87788109339c",
+              "ingredientName": "Instant-Hefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "40aea534-1bbe-5b03-8503-fc33ca1fd359",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f049166c-9790-5331-a82d-b6b3ee504996",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "10ba30e3-0230-56d8-a0de-59e3a0c3b7ec",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "20e201e5-0f8b-5d66-a6ad-afa49d5ea6ba",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "164c3e3b-c31e-5c24-ad50-4fca4dfe4a7e",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lauwarmes Wasser, Hefe und Salz vermengen und 5 Minuten stehen lassen, bis die Hefe schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und 2 EL Olivenöl hinzufügen und 8 Minuten kneten, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in einer geölten Schüssel 25 Minuten gehen lassen, bis er sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in eine geölte Backform von 9 × 13 Zoll drücken und mit den Fingerspitzen Mulden hineindrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit dem restlichen Olivenöl beträufeln und Mozzarellawürfel sowie Rosmarin darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Meersalz bestreuen und 10 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 425 °F 20 Minuten backen, bis der Teig goldbraun und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten abkühlen lassen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/10/23/multimedia/23focaccia-07-hfcz/03focaccia-07-hfcz-superJumbo.jpg?quality=75&auto=webp",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/10/23/multimedia/23focaccia-07-hfcz/03focaccia-07-hfcz-superJumbo.jpg?quality=75&auto=webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

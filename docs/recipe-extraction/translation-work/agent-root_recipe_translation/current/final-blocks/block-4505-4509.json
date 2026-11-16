@@ -1,0 +1,1063 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-galaktoboureko",
+      "slug": "gen-galaktoboureko",
+      "title": "Galaktoboureko",
+      "instructions": "Griechischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Filoteig ist auf ethnischen Märkten häufig tiefgekühlt in Großpackungen günstiger.",
+        "Bereiten Sie Honigsirup selbst zu, statt fertigen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4505,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galaktoboureko/",
+      "components": [
+        {
+          "key": "ce731abc-8f8c-571b-9714-f7d903100ac0",
+          "name": "Zutaten",
+          "servingGrams": 490,
+          "position": 0,
+          "items": [
+            {
+              "key": "001c8746-7fd2-5ea0-9665-e93fe490daaa",
+              "ingredientName": "Filoteig",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Blätter, aufgetaut"
+            },
+            {
+              "key": "e134766f-931b-5872-b90a-b4e19033d63a",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e2075f4e-4b8e-57ec-8eeb-3153d6692571",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0c82116f-f872-5bcc-bd66-e4d1970a111c",
+              "ingredientName": "Maisstärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "60b00cc5-7e43-564a-aea4-bd1cf2338ab9",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "d3702fe0-ce79-5be3-8dd1-06364f72f991",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, geschmolzen"
+            },
+            {
+              "key": "87458d6e-2b26-5b0c-8772-819f976c0e5b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e739f8c2-b5fc-5d2c-a022-bdfa500ab8bf",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "73306cd3-eb8c-5cf7-b750-c3ea7e05ff3d",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "5054eb77-4ad6-5510-bbf2-c82b43c5a13e",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch in einem Topf bei mittlerer Hitze erhitzen, bis sie dampft, dann mit 2 Esslöffeln kaltem Wasser verrührte Maisstärke einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Creme unter ständigem Rühren 3–4 Minuten kochen, bis sie eindickt. Vom Herd nehmen und leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eigelb und Zucker verquirlen und mit Vanilleextrakt unter die abgekühlte Creme heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine 9x9 Zoll große Auflaufform mit geschmolzener Butter bestreichen, 3 Filoteigblätter hineinlegen und jedes dazwischen mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Creme auf dem Filoteig verteilen und die übrigen 3 Filoteigblätter darauflegen, jedes mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Quadrate schneiden, mit der restlichen Butter bestreichen und bei 350 °F 25–30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Währenddessen Wasser, Honig und Zimt in einem Topf vermischen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warmen Sirup sofort nach dem Herausnehmen über das heiße Gebäck gießen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/l-bj-9KEFRhQhMmnmfkZ6upP0qM=/5616x3744/filters:fill(auto,1)/galaktoboureko-greek-custard-tart-130844831-5818c45e5f9b581c0b3571eb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/l-bj-9KEFRhQhMmnmfkZ6upP0qM=/5616x3744/filters:fill(auto,1)/galaktoboureko-greek-custard-tart-130844831-5818c45e5f9b581c0b3571eb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cevapcici",
+      "slug": "gen-cevapcici",
+      "title": "Ćevapčići",
+      "instructions": "Kroatisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinder- und Schweinehackfleisch im Angebot und frieren Sie es portionsweise ein.",
+        "Verwenden Sie eine normale Pfanne statt eines Grills, um Holzkohle oder Gas zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4506,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cevapcici/",
+      "components": [
+        {
+          "key": "f791e194-2e5b-5f95-adc3-551585c2f691",
+          "name": "Zutaten",
+          "servingGrams": 152.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae1e3299-7d14-5158-aafc-91f9b0cd05b6",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "a6189eee-c586-5ea3-b921-46322078b006",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "f9f6f59d-2d25-5ae4-96ea-5d82f16943d7",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse, sehr fein gehackt"
+            },
+            {
+              "key": "f97f0d3a-ef16-5886-9644-ba3162d667e9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "52a17322-815e-533b-9790-57e924eb751e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7c133799-11a9-5414-9af4-0f7349914c63",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "55337aeb-c3a4-5382-9325-e69a3a8e6157",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "de2fe3eb-78a7-583b-98aa-01a6e932cab9",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "16289baf-d4f4-5fae-be0f-d62b6f1c0bf2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "495f89b0-f907-55e3-a83a-b6c566834ce3",
+              "ingredientName": "Pitabrot",
+              "grams": 180,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rind, Schwein, Zwiebel, Knoblauch, Salz, Pfeffer, Paprikapulver, Semmelbrösel und Ei in einer Schüssel vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischung in 12 gleiche Portionen teilen und jede zu einer etwa 3 Zoll langen kleinen Wurst formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Grill oder Grillpfanne auf mittlere bis hohe Hitze vorheizen und den Rost leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ćevapčići 10–12 Minuten grillen und alle 2–3 Minuten rollen, bis sie durchgegart und leicht angekohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort in warmem Pitabrot mit Zwiebeln und Senf oder Ajvar servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/milankasfinefood.com/wp-content/uploads/2015/09/img_6357.jpg?fit=5234%2C3489&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/milankasfinefood.com/wp-content/uploads/2015/09/img_6357.jpg?fit=5234%2C3489&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-peka",
+      "slug": "gen-peka",
+      "title": "Peka",
+      "instructions": "Kroatisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie preiswertere Rinderschulter statt Lamm.",
+        "Kaufen Sie Gemüse in größeren Mengen und frieren Sie nicht verwendete Portionen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4507,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-peka/",
+      "components": [
+        {
+          "key": "1bb2739a-44b8-578c-9a3b-48bdf0f0056e",
+          "name": "Zutaten",
+          "servingGrams": 156.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "1604d17b-d8b0-53e5-86ba-cafcda717c6e",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "189f0a26-7d79-578d-b580-2f4c0c80db6c",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "6f4d1965-e1d5-5dd9-aaa7-e407e709cdea",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, in Stücke geschnitten"
+            },
+            {
+              "key": "acc61802-9e5e-5219-bb32-b1ce1a8680c8",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, in Stücke geschnitten"
+            },
+            {
+              "key": "639c34b7-ab9d-5940-a874-d6ad7d252a7a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück, geviertelt"
+            },
+            {
+              "key": "d5007b10-367f-5153-bfb6-dff8cb064e73",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "a87f9680-f7ae-58f8-9886-c17d0f3483c7",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4dfd18f3-0003-5ef6-ba44-18b4b93584e7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "72b884ba-3023-5c47-afaa-73c107a6e613",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 400 °F vorheizen und ein großes Stück strapazierfähige Alufolie von etwa 24 Zoll abreißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fleisch, Kartoffeln, Paprika, Zucchini, Zwiebel und Knoblauch mit Olivenöl, Salz, Pfeffer und Paprikapulver vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung auf zwei Folienpäckchen verteilen und die Ränder durch Falten fest verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Päckchen auf ein Backblech legen und 75 Minuten braten, bis das Fleisch zart und das Gemüse gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Päckchen vorsichtig öffnen (der Dampf ist heiß), Inhalt auf Servierteller geben und den Bratensaft darüber gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d722abc3803da0001b3bf5b/b75f971a-4c8c-4133-8140-a1a205f701d1/APC_3889.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d722abc3803da0001b3bf5b/b75f971a-4c8c-4133-8140-a1a205f701d1/APC_3889.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pasticada",
+      "slug": "gen-pasticada",
+      "title": "Pašticada",
+      "instructions": "Kroatisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie das Gericht am Vortag zu und kühlen Sie es über Nacht, damit es noch aromatischer wird.",
+        "Verwenden Sie preiswerteren Rotwein zum Kochen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4508,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasticada/",
+      "components": [
+        {
+          "key": "94da6c8c-addd-5c58-bd86-f9365c33c9c9",
+          "name": "Zutaten",
+          "servingGrams": 167.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "2fdab17d-6582-5a99-872b-1e2683e11fee",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, im Ganzen"
+            },
+            {
+              "key": "01b9fc26-33a5-51ee-8580-5357898506da",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben, gehackt"
+            },
+            {
+              "key": "d0f11c21-1f3b-55a2-b740-a905350f8ede",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "7eee9325-df48-5709-b190-9adfd730365b",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "726b0caf-4e83-539e-a096-cb62069afdbb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "de992db4-b1ca-546e-8d10-3661e089ce0c",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ae3c01c4-26dc-5d0f-b32c-2c4752ab8b20",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c0a9cf88-48ec-50e1-a3e1-b2e6d9c84e8e",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a0b2d3b3-36c0-57b7-b638-6aa991338a1e",
+              "ingredientName": "Backpflaumen",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cc73b4df-7af4-56b2-a2a2-b09ddf464836",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck in einem großen Schmortopf bei mittlerer bis hoher Hitze knusprig braten, herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderbraten im Speckfett insgesamt etwa 10 Minuten von allen Seiten anbraten, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel, Karotte und Knoblauch im selben Topf 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark einrühren und 1 Minute kochen, dann mit Rotwein ablöschen und Bratrückstände lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rindfleisch zurück in den Topf geben, Brühe, Speck, Backpflaumen und Lorbeerblatt hinzufügen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und im Ofen bei 300 °F 2.5–3 Stunden schmoren, bis das Rindfleisch mit der Gabel zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rindfleisch herausnehmen und aufschneiden. Kochflüssigkeit abseihen und die Sauce über dem Fleisch mit Nudeln oder Polenta servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.havocinthekitchen.com/wp-content/uploads/2025/04/Pasticada-Croatian-Braised-Beef-2-1500x1726.jpg",
+          "sourcePageUrl": "https://www.havocinthekitchen.com/wp-content/uploads/2025/04/Pasticada-Croatian-Braised-Beef-2-1500x1726.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-risotto-od-liganja",
+      "slug": "gen-risotto-od-liganja",
+      "title": "Risotto od Liganja",
+      "instructions": "Kroatisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Brühe aus Fischabschnitten selbst zu oder verwenden Sie ersatzweise Hühnerbrühe aus dem Laden.",
+        "Kaufen Sie Tintenfisch auf asiatischen Märkten, wo er oft günstiger als in Spezialgeschäften ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4509,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-od-liganja/",
+      "components": [
+        {
+          "key": "65feed75-1962-5363-bd39-9d5a42f9521d",
+          "name": "Zutaten",
+          "servingGrams": 515.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "234b76a1-2082-57b1-b9ce-3679b6c92a68",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gesäubert und in Scheiben geschnitten"
+            },
+            {
+              "key": "adb6c26e-2a4a-55d7-92d6-dee79646bd13",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "34212450-7c0b-5fbd-89ca-e6b64e0cb179",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d0b0a24a-0082-5279-aa80-68af215c3721",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen, warm"
+            },
+            {
+              "key": "006e2071-1f56-520e-a37d-cbfd6b3cc9bf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Stück, fein gewürfelt"
+            },
+            {
+              "key": "393b6dab-996c-506f-8335-154e8622fa63",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "6f7e3ab8-5d76-5e2f-9ec2-f2370d7de37d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "27a7efc8-176e-55d3-9374-74c8cc9c8026",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "48eb576d-e3af-5919-a256-e3bb0de633e7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "c048b8b9-e0b0-52ac-85f2-1ff465f7e9c4",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen und Zwiebel sowie Knoblauch 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tintenfisch in die Pfanne geben und unter gelegentlichem Rühren 3–4 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis einrühren und unter ständigem Rühren 1–2 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weißwein zugießen und rühren, bis er aufgenommen ist. Dann warme Brühe schöpflöffelweise unter häufigem Rühren hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 18–20 Minuten Brühe zugießen und rühren, bis der Reis cremig und zart, aber noch bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter, Salz und Pfeffer einrühren und sofort in warmen Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/10/healthy-pumpkin-risotto-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/10/healthy-pumpkin-risotto-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

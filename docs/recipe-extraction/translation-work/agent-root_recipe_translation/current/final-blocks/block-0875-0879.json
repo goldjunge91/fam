@@ -1,0 +1,893 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-strawberry-cottage-smoothie",
+      "slug": "mfr-strawberry-cottage-smoothie",
+      "title": "Erdbeer-Hüttenkäse-Smoothie",
+      "instructions": "Tiefgekühlte Erdbeeren mit Hüttenkäse, griechischem Joghurt und Vanille pürieren. Einer der eiweißreichsten Smoothies, die du für unter $2 zubereiten kannst.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hüttenkäse ist die günstigste Eiweißquelle in diesem Smoothie. Er kostet etwa $0.50 für 14g Eiweiß.",
+        "Tiefgekühlte Erdbeeren kosten halb so viel wie frische und lassen sich besser pürieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "strawberries",
+          "swap": "Beliebige tiefgekühlte Beeren verwenden. Blaubeeren und Himbeeren passen besonders gut."
+        },
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Zusätzlichen griechischen Joghurt für einen säuerlicheren und cremigeren Smoothie verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-strawberry-cottage-smoothie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne-Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 875,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-strawberry-cottage-smoothie/",
+      "components": [
+        {
+          "key": "73eeeece-62b3-5245-818d-8a1e8971cb52",
+          "name": "Zutaten",
+          "servingGrams": 548.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a460ae0-c3af-5fef-8a99-cbb8a7b23663",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25078e9b-591c-5ee5-970b-b95397adf56f",
+              "ingredientName": "Hüttenkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc8612bb-7b60-5ffb-a6fd-dcde01f96108",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62fbc908-39c0-5f93-a434-51438c440340",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "642636e0-9102-517c-ab27-1a3b2579556c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dc6a465-c21b-5860-a4f8-c9e7cfe8fa95",
+              "ingredientName": "Mandelmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere tiefgekühlte Erdbeeren, Hüttenkäse, griechischen Joghurt, Honig, Vanille und Mandelmilch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere alles 90 Sekunden, bis es vollständig glatt ist. Der Hüttenkäse braucht einen Moment, bis er sich aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Probiere den Smoothie und gib bei Bedarf mehr Honig dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sofort trinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2024/12/Cottage-Cheese-Smoothie-04.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2024/12/Cottage-Cheese-Smoothie-04.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-coffee-protein-shake",
+      "slug": "mfr-coffee-protein-shake",
+      "title": "Eiskaffee-Eiweißshake",
+      "instructions": "Cold Brew oder löslichen Kaffee mit griechischem Joghurt, Proteinpulver und Mandelmilch pürieren. Der perfekte Start in den Morgen: Kaffee und Eiweiß in einem Glas.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Löslicher Kaffee ist die günstigste Wahl und löst sich perfekt in kalten Smoothies auf.",
+        "Eine Tasse Kaffee macht den Eiweißshake gleichzeitig zu deinem Morgenkaffee."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-milk",
+          "swap": "Gewöhnliche Milch für eine cremigere Konsistenz verwenden."
+        },
+        {
+          "forIngredientId": "cocoa",
+          "swap": "Weglassen, wenn du einen reinen Kaffee-Eiweißshake möchtest."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-coffee-protein-shake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne-Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 876,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-coffee-protein-shake/",
+      "components": [
+        {
+          "key": "9cfb6e81-500e-5065-8759-4680d21d1d98",
+          "name": "Zutaten",
+          "servingGrams": 406.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e16db65-e1d1-5972-981d-904ae6b8275d",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "788354fb-9d8d-57a9-bdbb-2f53f544117f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d320ebe1-b8d5-52f5-aac2-b2fa687f9b0d",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0042e947-c120-58bb-a7a1-be1c087310eb",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67efd358-ac38-590a-a901-5f7cae05f7b1",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8ce944d-3360-551e-9653-377fbd162aec",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe 1 Tasse starken Kaffee oder löse 2 TL löslichen Kaffee in ¼ Tasse heißem Wasser auf. Lass ihn abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere abgekühlten Kaffee, Mandelmilch, griechischen Joghurt, Proteinpulver, Honig, Kakao und Vanille.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere alles mit Eis, bis der Shake glatt und dickflüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Shake in ein Glas und genieße ihn kalt. Wenn er zu dick ist, gib mehr Mandelmilch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://liveleantv.s3.amazonaws.com/wp-content/uploads/2013/06/24124646/iced-coffee.jpg",
+          "sourcePageUrl": "https://liveleantv.s3.amazonaws.com/wp-content/uploads/2013/06/24124646/iced-coffee.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-banana-oat-smoothie",
+      "slug": "mfr-banana-oat-smoothie",
+      "title": "Bananen-Hafer-Frühstücks-Smoothie",
+      "instructions": "Haferflocken mit Banane, griechischem Joghurt und Zimt pürieren. Dieser sättigende Smoothie aus vollwertigen Zutaten hält dich bis zum Mittagessen satt.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken kosten $0.10 pro Portion und liefern Ballaststoffe, die lange satt machen.",
+        "Eine reife Banane bringt natürliche Süße. Passe die Honigmenge entsprechend an."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelbutter verwenden oder ganz weglassen, um Kalorien einzusparen."
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Eine pürierte Medjool-Dattel für natürliche Süße hinzufügen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-banana-oat-smoothie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne-Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 877,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-banana-oat-smoothie/",
+      "components": [
+        {
+          "key": "11eee6ab-c76e-5d8f-b89a-fda1441d914e",
+          "name": "Zutaten",
+          "servingGrams": 623,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7595283-590b-5cd1-999a-2de7019511fb",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da4020e3-1d07-5f31-a4df-dc0996bd0eb4",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70c0cf8e-5935-5a4e-901b-403ff3c1137f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "091dcee6-a1ab-5d19-a496-072220cf866f",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36dc0b6c-ffe5-5232-a8b9-172ddd48e650",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1528cb18-7874-530d-b8d3-24c89b44adbc",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3eeb04ee-abf5-5f3c-b3ba-8f869575d2cb",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64ff95e9-3f0f-5512-b155-055579a17931",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib alle Zutaten in den Mixer: Banane, Haferflocken, griechischen Joghurt, Mandelmilch, Erdnussbutter, Honig, Zimt und Vanille.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere alles 90 Sekunden auf höchster Stufe. Die Haferflocken brauchen etwas länger, um vollständig zerkleinert zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den Smoothie in ein Glas. Er wird dickflüssig und sättigend sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sofort trinken oder bis zu 4 Stunden im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/g-qEJZu0sjFQMEwbIqkJAb6ksCA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/banana-oatmeal-b38b2229d8a7447094f7eca0cbafb908.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/g-qEJZu0sjFQMEwbIqkJAb6ksCA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/banana-oatmeal-b38b2229d8a7447094f7eca0cbafb908.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-blueberry-spinach-protein-smoothie",
+      "slug": "mfr-blueberry-spinach-protein-smoothie",
+      "title": "Power-Smoothie mit Blaubeeren und Spinat",
+      "instructions": "Wilde Blaubeeren und jungen Spinat mit griechischem Joghurt pürieren. Ein antioxidantienreicher violett-grüner Smoothie mit 26g Eiweiß.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte wilde Blaubeeren sind kleiner, günstiger und enthalten mehr Antioxidantien als frische.",
+        "Tiefgekühlter Spinat löst sich in einem leistungsstarken Mixer vollständig auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Tiefgekühlte gemischte Beeren für mehr Abwechslung verwenden."
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "Weglassen oder durch Orangensaft für eine süßere Zitrusnote ersetzen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-blueberry-spinach-protein-smoothie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne-Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 878,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-blueberry-spinach-protein-smoothie/",
+      "components": [
+        {
+          "key": "74763c34-f9fe-5c30-a771-0436ba039d4b",
+          "name": "Zutaten",
+          "servingGrams": 718.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "162ee254-51da-5587-bb0c-f123b0f1e9f1",
+              "ingredientName": "Blaubeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8ec65b9-5cac-52b9-825d-a37854ef796d",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b268e0f2-a5d6-5943-9808-12f548130869",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b942534d-c902-5257-a7f2-4049829d7129",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43d82f6c-715f-5657-8676-c11ccc6d4539",
+              "ingredientName": "Mandelmilch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8f22d3f-7707-5bb6-b52a-06acd66230ec",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "789159d6-7acc-5ba6-bf7b-62537da44090",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere tiefgekühlte Blaubeeren, Spinat, griechischen Joghurt, Proteinpulver, Mandelmilch, Honig und Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere alles 90 Sekunden auf höchster Stufe, bis die Mischung vollständig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Der Smoothie wird tief violettblau. Die Blaubeeren überdecken den Spinatgeschmack vollständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2017/01/Blueberry-Spinach-Smoothie-Recipe-2.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2017/01/Blueberry-Spinach-Smoothie-Recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cherry-almond-smoothie-bowl",
+      "slug": "mfr-cherry-almond-smoothie-bowl",
+      "title": "Kirsch-Mandel-Smoothie-Bowl",
+      "instructions": "Dicke Smoothie-Bowl aus tiefgekühlten Kirschen und Mandelmus, garniert mit Granola und frischem Obst. Iss sie mit einem Löffel als sättigende Mahlzeit am Morgen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte gemischte Beeren kosten $3–4 pro Beutel und reichen für 3–4 Smoothie-Bowls.",
+        "Wichtig ist, möglichst wenig Flüssigkeit zu verwenden. Die Mischung soll dick genug sein, um die Toppings zu tragen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-berries",
+          "swap": "Tiefgekühlte Mango oder Pfirsiche für eine tropische Variante verwenden."
+        },
+        {
+          "forIngredientId": "almonds",
+          "swap": "Beliebige Nüsse oder Samen verwenden, die du gerade da hast."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cherry-almond-smoothie-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne-Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 879,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cherry-almond-smoothie-bowl/",
+      "components": [
+        {
+          "key": "6e1ea921-6ee7-588a-8303-8afaf52303fe",
+          "name": "Zutaten",
+          "servingGrams": 547.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a021516b-9153-5181-8acb-bdb172dcb00d",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f484a100-06cf-5750-b1a8-4b47e029825c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98bf2e42-e76c-5f8a-b0ad-7d0540b33502",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1624f597-a840-5798-a4a9-4bdb6f1a284c",
+              "ingredientName": "Mandelmilch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ff2dae6-a60b-54d4-98bf-4dee981820b5",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cb0012c-0c89-5570-a4aa-b5593244de47",
+              "ingredientName": "Granola",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74522207-893a-593d-b8eb-eb86aefe31ba",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere tiefgekühlte Kirschen oder Beeren mit griechischem Joghurt, Proteinpulver und gerade so viel Mandelmilch, dass sich die Mischung pürieren lässt. Sie soll sehr dick bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Mischung in eine breite Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garniere sie mit Mandelstiften, einem kleinen Löffel Granola und etwas Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Iss die Bowl sofort mit einem Löffel, bevor sie schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.budgetbytes.com/wp-content/uploads/2021/04/Cherry-Almond-Smoothie-V.jpg",
+          "sourcePageUrl": "https://www.budgetbytes.com/wp-content/uploads/2021/04/Cherry-Almond-Smoothie-V.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

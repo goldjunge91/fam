@@ -1,0 +1,1015 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-nihari",
+      "slug": "gen-nihari",
+      "title": "Nihari",
+      "instructions": "Punjabi-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderbraten aus der Schulter im Angebot und friere ihn portionsweise ein.",
+        "Bereite Nihari-Masala aus einzelnen Gewürzen selbst zu, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Punjabi",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3380,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nihari/",
+      "components": [
+        {
+          "key": "fc889f1b-cba4-5001-a85c-01446ab0657d",
+          "name": "Zutaten",
+          "servingGrams": 481.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "141beb3e-aa65-5621-a5f9-5717b618812b",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "419c1c8f-5d96-52c8-bfab-9a553d57615d",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "2e346d12-f2a0-599b-ac93-de44b68429d2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "8ea7a41d-dfe5-5953-8684-a49913432ea5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ce5be3c6-1ebe-58f1-8a00-5a37cd6fbf9b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, in feine Streifen geschnitten"
+            },
+            {
+              "key": "1c200f72-0786-5aa7-84be-48f28a5d32fc",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d8693c93-103c-5a5f-a462-20a700987dac",
+              "ingredientName": "Garam Masala",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "060a70dd-59f3-5c00-9137-fe4fa3e9231b",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "7e53bc22-1cee-5564-acd7-04f546b5b750",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "17df295a-b5cd-5d69-9946-8489349ce68a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "96f23feb-8911-5ca4-872c-059ef8881627",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen, schweren Topf und bräune das Fleisch 8-10 Minuten von allen Seiten. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare im selben Topf geschnittene Zwiebeln etwa 8 Minuten, bis sie tief goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Ingwer-Knoblauch-Paste dazu und gare sie 2 Minuten unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Fleisch zurück in den Topf und füge Nihari-Masala hinzu. Rühre alles 2 Minuten gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser dazu und bringe alles zum Kochen. Reduziere dann die Hitze und lasse alles zugedeckt 90 Minuten köcheln, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Zitronensaft dazu und schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht in Schalen und garniere es mit in feine Streifen geschnittenem Ingwer, frischem Koriander und Minze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reiche Naan-Brot oder Reis dazu, um die reichhaltige Sauce aufzunehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/19/05/62/TZODy4NsRsWt9h77uHxT_1531045150473409640263.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/19/05/62/TZODy4NsRsWt9h77uHxT_1531045150473409640263.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paneer-bhurji",
+      "slug": "gen-paneer-bhurji",
+      "title": "Paneer Bhurji",
+      "instructions": "Punjabi-Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Paneer in indischen Lebensmittelgeschäften, dort ist er günstiger als in normalen Supermärkten.",
+        "Verwende Paneer der Hausmarke, falls Premium-Marken zu teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Punjabi",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3381,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paneer-bhurji/",
+      "components": [
+        {
+          "key": "92581c2e-6b10-59d6-8ce0-8ff0397bde57",
+          "name": "Zutaten",
+          "servingGrams": 177.12,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2a75438-f899-5ab4-b357-6e2b3fe1f8e7",
+              "ingredientName": "Paneer",
+              "grams": 170.1,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen, zerbröselt"
+            },
+            {
+              "key": "64b3ff94-40b7-581a-b1a3-3f47a4fbb7d1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück, fein gewürfelt"
+            },
+            {
+              "key": "59429ca3-14c2-5b2c-9451-e8bdb2f1fd4e",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "bc57e107-3f77-5313-81b5-7a2500fdb4d8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "f9b6bb12-227f-5752-9c81-09301e3a5ee5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL, gehackt"
+            },
+            {
+              "key": "aa6b0d89-f8f1-547c-b579-056d450275ad",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "33cd58ec-ec96-539f-8921-e571c0d0f3f8",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "ded74319-a90d-50a4-96b5-c7a946b019af",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b196ade8-ace6-5d44-9dbb-53fca67626ba",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer beschichteten Pfanne bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel dazu und gare sie 3 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Ingwer und grüne Chilischote ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Tomate dazu und gare sie 2 Minuten, bis sie leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib zerbröselten Paneer, Kurkuma, rotes Chilipulver und Salz in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare alles 4-5 Minuten unter häufigem Rühren, bis der Paneer durchgewärmt und leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe frischen Koriander unter und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß zum Frühstück mit Roti, Paratha oder Toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ooohdelish.com/wp-content/uploads/2025/10/ridamine_01407_paneer_bhurji_recipe_-v_7_1b3a9e2a-bfc6-4fb9-a8b4-bb195d238456_2-780x780.png",
+          "sourcePageUrl": "https://ooohdelish.com/wp-content/uploads/2025/10/ridamine_01407_paneer_bhurji_recipe_-v_7_1b3a9e2a-bfc6-4fb9-a8b4-bb195d238456_2-780x780.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lassi",
+      "slug": "gen-lassi",
+      "title": "Lassi",
+      "instructions": "Punjabi-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Rosenblätter und Mandelgarnitur weg, um Geld zu sparen.",
+        "Verwende Joghurt der Hausmarke statt einer teuren Marke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Punjabi",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3382,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lassi/",
+      "components": [
+        {
+          "key": "10f33008-a394-5fde-be1f-26d64c667869",
+          "name": "Zutaten",
+          "servingGrams": 311.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4242fb3f-574f-5044-a7e2-a32dd9c6b5f1",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e59e3878-8bd2-5b23-b975-1acc8ace7bd6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "dc52194e-da24-52f3-b80b-35382d7dd2ce",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2-3 EL"
+            },
+            {
+              "key": "9078aa2c-878b-5b54-a599-a8080ac1c86c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "6c43ed32-d675-5255-8536-984c6ddb5cdd",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "bd64d2bf-4741-5955-82ef-c9456bc0917e",
+              "ingredientName": "Eiscreme",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "8aab478a-49ef-57cd-a95a-73f2927a6484",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL, optional"
+            },
+            {
+              "key": "48ad8aa2-ac75-52d0-b63f-be5c5160433c",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL, in feine Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Joghurt, kaltes Wasser, Zucker, Salz und Kardamom in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mix alles etwa 1-2 Minuten glatt und schaumig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Eiswürfel dazu und mixe weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung sofort in hohe Gläser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere sie nach Wunsch mit Rosenblättern und Mandelstiften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie sofort kalt und schaumig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/7oZrY9CXkHSqrV6diryN7Kwyups=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mango-Lassi-LEAD-08-9b45bb7d7d6d45a79deee3013f2f3cf1.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/7oZrY9CXkHSqrV6diryN7Kwyups=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mango-Lassi-LEAD-08-9b45bb7d7d6d45a79deee3013f2f3cf1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-papadum",
+      "slug": "gen-papadum",
+      "title": "Papadum",
+      "instructions": "Punjabi-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe fertige Papadum-Fladen in indischen Geschäften, statt sie selbst herzustellen.",
+        "Verwende Frittieröl für künftiges Kochen erneut, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Punjabi",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3383,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-papadum/",
+      "components": [
+        {
+          "key": "11c6eeda-82a7-5632-898d-73fcfca42db6",
+          "name": "Zutaten",
+          "servingGrams": 30.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "2e890e63-6ce1-51bb-b6f7-98a9e02c2f88",
+              "ingredientName": "Fertige Papadum-Fladen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12-16 Stück"
+            },
+            {
+              "key": "996bf3f4-c526-5190-97bb-40aeb1a2b35d",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem tiefen Topf oder Wok auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib vorsichtig einen Papadum-Fladen ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende ihn nach 2-3 Sekunden mit einer Zange und drücke ihn leicht nach unten, während er sich ausdehnt und knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm ihn nach insgesamt 4-5 Sekunden heraus, sobald er vollständig aufgegangen und hellgolden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse ihn sofort auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wiederhole den Vorgang mit den übrigen Fladen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie als knusprigen Snack oder Beilage zu indischen Gerichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bewahre abgekühlte Papadums bis zu 2 Wochen in einem luftdichten Behälter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/57ed6cdad3758f2e70aced6b/1:1/w_2560%2Cc_limit/Papadums-with-Whipped-Dal-092916.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/57ed6cdad3758f2e70aced6b/1:1/w_2560%2Cc_limit/Papadums-with-Whipped-Dal-092916.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-goya-champuru",
+      "slug": "gen-goya-champuru",
+      "title": "Goya Champuru",
+      "instructions": "Okinawanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Spam in größeren Mengen im Großmarkt, um die Kosten pro Dose zu senken.",
+        "Bittermelone ist im Spätsommer auf asiatischen Märkten am günstigsten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "okinawanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3384,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-goya-champuru/",
+      "components": [
+        {
+          "key": "de312fc4-c0ae-5a43-be04-5fd941b200d1",
+          "name": "Zutaten",
+          "servingGrams": 258.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "da5de25d-51b3-5e02-8810-1af5205ca58f",
+              "ingredientName": "Egusi (gemahlene Melonenkerne)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "6edc30e4-3b62-5e4a-898b-c7e29c4775c1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccc54e40-b517-580b-8bfb-6e6f4f71e6e2",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Block (14 Unzen)"
+            },
+            {
+              "key": "23f19ded-3bf9-5c41-a2f2-20b8a6268330",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Dose (6 Unzen)"
+            },
+            {
+              "key": "ada5f526-5b09-5361-a33a-419b37d7efc3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f2e70c1e-10be-5680-8c0d-6d421ec57908",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "70bb2421-ffe0-56d8-814d-eb473c2950fc",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8dca793d-e7eb-5c61-b18c-990b1564afc5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "62752b3b-eed4-562b-8931-b80577ab9e6b",
+              "ingredientName": "Bonitoflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Bittermelone der Länge nach, entferne die Kerne und schneide sie in dünne Halbmonde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe den Tofu mit Küchenpapier trocken und schneide ihn in 1-inch große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Spam in kleine Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher bis hoher Hitze und brate die Bittermelone 3-4 Minuten unter Rühren, bis sie weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tofuwürfel und Spam dazu und gare alles 2 Minuten unter vorsichtigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe die Zutaten an den Rand, schlage die Eier in die Pfanne, verrühre sie leicht und vermische dann alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße Sojasauce und Mirin über die Mischung, vermenge alles und würze mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gare alles weitere 1-2 Minuten, bis die Eier gerade gestockt sind, und serviere das Gericht sofort nach Wunsch mit Bonitoflocken bestreut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2017/03/GoyaChanpuru_0294-e1488765945240.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2017/03/GoyaChanpuru_0294-e1488765945240.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1179 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chn-steamed-fish",
+      "slug": "mfr-chn-steamed-fish",
+      "title": "Kantonesischer gedämpfter Fisch mit Ingwer und Frühlingszwiebel",
+      "instructions": "Ein ganzer Fisch oder Filets, im Bambusdämpfer gerade gar gedämpft und anschließend mit heißer Soja-Sesamöl-Sauce beträufelt, die beim Kontakt mit Ingwer und Frühlingszwiebel zischt – eine besonders elegante und gesunde Art, Fisch zuzubereiten, in 12 Minuten von Anfang bis Ende.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jeder Fisch funktioniert – Tilapia und Kabeljau sind viel günstiger als Lachs.",
+        "Das Übergießen mit rauchend heißem Öl ist die entscheidende Technik: Es lässt die Aromaten zusammenfallen und entfaltet die Sauce.",
+        "Dieses Gericht gehört zu den schnellsten und gesündesten Abendessen überhaupt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Beliebiger ganzer Fisch oder Weißfischfilets"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Geröstetes Sesamöl für kräftigeres Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-steamed-fish",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "gedämpfter-Fisch",
+        "kantonesisch",
+        "Ingwer",
+        "Frühlingszwiebel",
+        "gesund"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1530,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-steamed-fish/",
+      "components": [
+        {
+          "key": "b5e269e6-0e34-562b-bbc2-59694ef9c552",
+          "name": "Zutaten",
+          "servingGrams": 410.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "93b2fb2b-009e-53e6-8382-e708bbb43c17",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a3d549f-1149-52ab-b55a-582c4170be3c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4de221c7-9450-54e5-92ec-b4e5629ab047",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68f02280-57e0-5589-94ca-2894e0361f87",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afd143d8-e004-5b3b-8401-a1e4c492c7ef",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83f8d319-9c37-5ea6-92ff-47360559fc57",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e62523c-b466-5f5c-9e4e-8377f4d9e8a0",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a2531c7-b70e-50f7-8790-2a9172bb8a3a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b42e96f-b4d4-5b31-8353-a84d95d2fc38",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Fischfilets ein und fülle die Schnitte mit Ingwerstreifen. Dämpfe den Fisch bei hoher Hitze 8–10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide währenddessen den übrigen Ingwer und die Frühlingszwiebel in feine Streifen und verteile sie auf dem Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasauce und Sesamöl und gieße die Mischung über den Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Pflanzenöl, bis es raucht, und gieße es über Fisch, Ingwer und Frühlingszwiebel, sodass es zischt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Fisch sofort mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/560d78d37b55306961bf34c1/1:1/w_2560%2Cc_limit/243067_hires.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/560d78d37b55306961bf34c1/1:1/w_2560%2Cc_limit/243067_hires.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chn-mapo-tofu",
+      "slug": "mfr-chn-mapo-tofu",
+      "title": "Mapo Tofu",
+      "instructions": "Sichuans berühmtestes Gericht: Seidentofu in einer prickelnd scharfen Sauce aus Doubanjiang (fermentierter Chilipaste mit Bohnen), Schweinehackfleisch, Knoblauch, Ingwer und Sichuanpfeffer – zugleich betäubend, scharf, herzhaft und seidig. Eines der besten Gerichte der Welt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Seidentofu ist eine der günstigsten eiweißreichen Zutaten und passt perfekt zu diesem Gericht.",
+        "Chili-Knoblauch-Sauce von Huy Fong kostet $3 und reicht für mehr als 10 Portionen Mapo Tofu.",
+        "Das Gericht ist in 25 Minuten fertig und kostet $2 pro Person."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-garlic-sauce",
+          "swap": "Doubanjiang (scharfe Bohnenpaste) für die authentische Sichuan-Variante"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Weglassen oder 1 EL Mehl verwenden – die Sauce wird dann etwas dünner"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-mapo-tofu",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Mapo-Tofu",
+        "Sichuan",
+        "scharf",
+        "Tofu",
+        "Schweinefleisch",
+        "betäubend"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1531,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-mapo-tofu/",
+      "components": [
+        {
+          "key": "f23d6aaa-fdd3-5a1b-a653-027d6f986bdb",
+          "name": "Zutaten",
+          "servingGrams": 429,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee890b56-3a42-56d9-8b3d-871eaae33cc7",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8fb37fd-abf3-591b-b048-1871ad846428",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2b16f58-2d03-5e9e-a673-ec4177015db7",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75dc8df1-9a19-5366-a3d5-5863b838b547",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea6b14bb-a2d7-503d-988e-63af5f1dad10",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db975ce1-6ffd-5472-9684-8c182d77f3bc",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa145d9d-5fe7-508a-8d79-87abaeef1278",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bb1368d-7853-579b-ae20-98cf98dfb861",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14986aaa-46dd-5d35-914b-f7dfb7aa0e94",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cd7ae97-b695-5542-b1fa-f982d7af7ebc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d72c293-1f1d-512a-a545-4fac98e47d93",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "555c5ff5-263f-54e8-a709-a058c86b90e1",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Chili-Knoblauch-Sauce und den Doubanjiang-Ersatz (Chili-Knoblauch-Sauce mit Miso) 2 Minuten in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 30 Sekunden. Füge Schweinehackfleisch oder zerkrümelten festen Tofu hinzu und brate ihn gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Brühe dazu und bringe sie zum Kochen. Lege gewürfelten Seidentofu vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre 1 TL Speisestärke mit 2 EL Wasser zu einer glatten Mischung und rühre sie zum Andicken der Sauce ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verfeinere das Gericht mit Sesamöl und Frühlingszwiebel und serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/UFSC67cEFpOJNQgm56g3SCmgpFA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mapo-Tofu-LEAD-07-a82396343dcf463ca69cbf03cc39b4f9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/UFSC67cEFpOJNQgm56g3SCmgpFA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mapo-Tofu-LEAD-07-a82396343dcf463ca69cbf03cc39b4f9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chn-egg-fried-rice",
+      "slug": "mfr-chn-egg-fried-rice",
+      "title": "Yangzhou-Bratreis mit Ei",
+      "instructions": "Der Maßstab für chinesischen Bratreis: Lockerer Reis vom Vortag, im rauchend heißen Wok mit Ei, Char-Siu-Schweinefleisch oder Schinken, Garnelen und Erbsen gebraten – jedes Reiskorn bleibt einzeln und wird von leichter Sojasauce, Frühlingszwiebel und Sesamöl umhüllt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reis vom Vortag ist unverzichtbar – frischer Reis wird matschig.",
+        "Tiefgekühlte Erbsen und gewürfelte Karotten sind in 1 Minute in der Mikrowelle aufgetaut.",
+        "Die Hitze des Woks ist entscheidend – verteile den Reis und lass ihn vor dem Schwenken 1 Minute liegen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Schinken, Hähnchenstreifen oder für eine günstigere Variante einfach zusätzliches Ei"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari für eine glutenfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-egg-fried-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Bratreis",
+        "Yangzhou",
+        "Ei",
+        "Wok"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1532,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-egg-fried-rice/",
+      "components": [
+        {
+          "key": "7f5ee6d8-5067-59bb-966a-3b5071dfb75a",
+          "name": "Zutaten",
+          "servingGrams": 457.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "4773c7f4-d88e-53b1-b860-87d8e8323807",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6baf0ecd-03cd-51d7-be27-ac2a54f312de",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "789a02ca-fac9-5f30-b547-6b9a7b914f08",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee5f8124-5c68-522b-ac4c-3f32f1be9e6d",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3ee3547-cf67-5fc9-8772-6981e6ef9ae8",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30cf37d0-847a-54a3-870c-287aa0bbc826",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "695c66a4-2ab2-5c2e-847e-45f903cb6384",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b499db6-b6a7-51a5-8cea-197c2c615c99",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee513a49-63bc-593d-848c-eca1dfc99ffb",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93eb60ab-c8b4-59ac-8bce-3a36c5b8ccf9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verwende kalten Reis vom Vortag. Erhitze den Wok, bis er raucht, und gib Öl hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Garnelen und Schinken oder Char Siu dazu und brate alles 1 Minute im Wok. Schiebe die Zutaten an den Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Eier dazu und rühre sie, bis sie gerade stocken. Vermische sie mit Reis und Eiweißzutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Erbsen, gewürfelte Karotte und Knoblauch hinzu und schwenke alles bei höchster Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Sojasauce und Sesamöl und garniere mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/BJjCEDw9OZe95hpZxmNcD3rJnHo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230529-SEA-EggFriedRice-AmandaSuarez-hero-c8d95fbf69314b318bc279159f582882.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/BJjCEDw9OZe95hpZxmNcD3rJnHo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230529-SEA-EggFriedRice-AmandaSuarez-hero-c8d95fbf69314b318bc279159f582882.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chn-kung-pao-shrimp",
+      "slug": "mfr-chn-kung-pao-shrimp",
+      "title": "Kung-Pao-Garnelen",
+      "instructions": "Saftige Garnelen, im Wok mit der klassischen Sichuan-Kung-Pao-Sauce aus dunkler Sojasauce, Reisessig, Zucker und Chili geschwenkt, dazu Erdnüsse, getrocknete Chilis und Sichuanpfeffer. Mit knuspriger Frühlingszwiebel und Zucchini verfeinert – schneller und besser als jeder Lieferservice.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnüsse sind die authentische Garnitur – verwende geröstete, gesalzene Erdnüsse aus dem Glas.",
+        "Tiefgekühlte Garnelen eignen sich perfekt für Kung Pao; die Sauce liefert das Aroma.",
+        "Diese Sauce ist die gleiche Grundlage wie bei General Tso – lerne sie einmal und verwende sie für viele Gerichte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Hähnchenbrust in mundgerechten Stücken für Kung-Pao-Hähnchen"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Ganze geröstete Erdnüsse für eine andere Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-kung-pao-shrimp",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Kung-Pao",
+        "Garnelen",
+        "Sichuan",
+        "Erdnuss",
+        "Wok"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1533,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-kung-pao-shrimp/",
+      "components": [
+        {
+          "key": "b1a6bf1c-cd63-5b48-85cc-b15838708148",
+          "name": "Zutaten",
+          "servingGrams": 520,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c788db5-b207-5a47-99eb-17c09045d77d",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7cab1f7-e675-54a5-b6f7-0ff9d65f083a",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2a5737e-c687-5a81-b3c4-fd06b9e43197",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49c4940c-1052-58bb-abde-bc30295b9137",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2ddd17c-ea8d-5313-a0eb-21ad4431de63",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49ec58a3-51f9-55c9-8f66-9fe1d03ef72a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b821407a-b7a6-5249-b9fa-0e71c580456a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c81437f4-dc43-5222-b258-d51090def867",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26791cd1-4959-5f76-bd94-4e52aed662d5",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a085db2-7b0e-5b07-b060-71a9b0839104",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09abd09f-06de-572b-8a35-cd05533395b8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a3bcfdc-f6fe-5263-a702-544bac05b68e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b53732eb-d5a9-5c68-8ee1-4acb7cb3914b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33b5be74-e5e4-547b-bbff-2717f98e156c",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Kung-Pao-Sauce: Verrühre Sojasauce, Essig, Zucker, Sesamöl und 1 EL Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Garnelen auf jeder Seite 1 Minute in einem rauchend heißen Wok an und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Knoblauch, Ingwer und Chiliflocken 30 Sekunden an. Gib Zucchini dazu und gare sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Garnelen zurück in den Wok, gieße die Sauce darüber und schwenke alles 1 Minute, bis sie die Zutaten überzieht und glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Erdnüsse und Frühlingszwiebel dazu und serviere das Gericht auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thishonestfood.com/wp-content/uploads/2026/01/Kung-Pao-Shrimp-Easy-Recipe.png",
+          "sourcePageUrl": "https://thishonestfood.com/wp-content/uploads/2026/01/Kung-Pao-Shrimp-Easy-Recipe.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chn-hoisin-pork",
+      "slug": "mfr-chn-hoisin-pork",
+      "title": "Schweinefleisch-Brokkoli-Wok mit Hoisinsauce",
+      "instructions": "Dünne Schweinefleischstreifen in einer süß-herzhaften Knoblauch-Hoisinsauce, mit Brokkoliröschen im Wok gebraten, bis die Sauce karamellisiert – ein chinesisch-amerikanischer Klassiker für jeden Abend, besser als jede Lieferung.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel eignen sich besser als Schweinelende und kosten weniger.",
+        "Die Speisestärke sorgt dafür, dass die Sauce an jedem Stück haftet.",
+        "Diese Sauce lässt sich auch als Glasur für Lachs, Tofu und andere Eiweißzutaten verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Dünn aufgeschnittenes Schweinefilet für die ursprüngliche Variante mit Hoisinsauce"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Pak Choi oder Zuckerschoten für ein anderes Gemüse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-hoisin-pork",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Hoisin",
+        "Schweinefleisch",
+        "Brokkoli",
+        "Wok",
+        "chinesisch-amerikanisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1534,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-hoisin-pork/",
+      "components": [
+        {
+          "key": "b5e4bf1c-147f-5a3b-a84a-d0d8b52d0443",
+          "name": "Zutaten",
+          "servingGrams": 551.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "484a9682-66cd-5e29-9f1c-3c10a0af46aa",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3f6e820-c923-51a3-82f6-e06dce36f085",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29f70f03-9a7d-5854-b08d-93c01c7dfd88",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe70e5c9-8e4c-5b92-b925-adbab6f72ee3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d2e75cd-ece8-5210-8e2f-098dfa1512fc",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4472fcea-462f-52f8-976a-25c182ad1709",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9f39196-dfd2-588f-bd2c-33aca3d9d044",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa1ff8bd-1003-58ca-a39a-89605c660cfb",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edf5f83d-ac3a-5965-83d5-889ecc99cc29",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77dcf85c-94b0-5dc7-81f3-f2a166859b64",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28003520-989f-5b5a-b0c8-60390b748038",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78c17e6e-47af-5e0d-bfd9-28f5aeac2fa8",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in dünne Streifen und wende es in Speisestärke. Für die Hoisinsauce: Vermische Sojasauce, Sesamöl, braunen Zucker, Essig, Knoblauch und Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Hähnchen portionsweise bei höchster Hitze goldbraun an und nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Brokkoli 3 Minuten im Wok an, gib das Hähnchen zurück und gieße die Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schwenke alles 1 Minute, bis die Sauce die Zutaten überzieht und leicht karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit Frühlingszwiebel und serviere das Gericht auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/N7XUurnCIUMBD6bSiEipFCIS4-U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Beef-Broccoli-Ramen-LEAD-2-2fc83ee4bbd043f28644d2bc53509034.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/N7XUurnCIUMBD6bSiEipFCIS4-U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Beef-Broccoli-Ramen-LEAD-2-2fc83ee4bbd043f28644d2bc53509034.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

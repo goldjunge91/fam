@@ -1,0 +1,1271 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-bowl4-southwest-quinoa",
+      "slug": "mfr-bowl4-southwest-quinoa",
+      "title": "Southwest-Quinoa-Power-Bowl",
+      "instructions": "Eine farbenfrohe Bowl aus dem Südwesten der USA: warme Quinoa mit schwarzen Bohnen, geröstetem Mais, gebräunter Paprika, Avocado und Koriander-Limetten-Dressing. Vegan, reich an pflanzlichem Eiweiß und in 20 Minuten aus Zutaten zubereitet, die du wahrscheinlich schon zu Hause hast.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für diese Bowl werden ausschließlich Zutaten aus Dosen und dem Tiefkühler verwendet. So entsteht kein Abfall.",
+        "Tiefgekühlter Mais, in einer heißen Pfanne angeröstet, schmeckt hier besser als frischer.",
+        "Eine Avocado reicht für 4 Portionen und wird optimal ausgenutzt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Naturreis oder Farro"
+        },
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Pintobohnen oder Kichererbsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-southwest-quinoa",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Southwest",
+        "Quinoa",
+        "schwarze-Bohnen",
+        "Mais",
+        "Avocado",
+        "vegan",
+        "Power-Bowl"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1655,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-southwest-quinoa/",
+      "components": [
+        {
+          "key": "3d3969f0-aa2e-5120-929a-eb4870168b3f",
+          "name": "Zutaten",
+          "servingGrams": 332.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2a327e61-3c5b-5050-99be-6a769decab27",
+              "ingredientName": "Quinoa",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71f5f947-0a5c-5093-8acc-398420d91f11",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d996741-614c-55f4-ac4c-c01796a9e6e4",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "326c626c-48c2-5776-bacc-f41ae96adb85",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79ace75a-0bf2-5b50-aad4-f65f66493359",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1db3cb31-8c50-5638-96b0-e6591807a2ec",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5451489-2c69-5d42-8de6-3fecda67b4b7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbe0e716-448a-52ee-825f-bf4525f4616e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cd2e6df-7b9e-5451-a334-314e3fde42b0",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e8fde4d-e076-599b-af75-4be531f4eba1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6681f87d-076e-553c-bf11-55cac35cec01",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35d83d1e-47d6-5e15-9859-f5decae89c8d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Mais und Paprika 4 Minuten in einer heißen, trockenen Pfanne, bis sie leicht geschwärzt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre für das Dressing Limettensaft, Olivenöl, Kreuzkümmel, geräuchertes Paprikapulver, Knoblauchpulver und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die schwarzen Bohnen mit Kreuzkümmel und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte Quinoa, Bohnen, Mais und Paprika sowie Avocado in eine Schale und garniere mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle alles großzügig mit Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2015/04/679869ae55d337c6b9546e6d6b54aa94f1f85db6.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2015/04/679869ae55d337c6b9546e6d6b54aa94f1f85db6.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bowl4-greek-chicken-salad",
+      "slug": "mfr-bowl4-greek-chicken-salad",
+      "title": "Griechische Hähnchen-Salat-Bowl",
+      "instructions": "Ein üppiger griechischer Salat als vollständige Mahlzeit: Gegrilltes Hähnchen in Scheiben auf Römersalat und Gurke mit Kalamata-Oliven, roter Zwiebel, gerösteter roter Paprika und zerbröseltem Feta. Mit Oregano-Zitronen-Vinaigrette angemacht und auf warmem Pita serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Römersalat und Gurke gehören zu den günstigsten Salatgemüsen.",
+        "Bereite mehr Dressing zu. Es hält sich 1 Woche und eignet sich auch als Marinade.",
+        "Der Salat macht auch ohne Brot satt. So sparst du Kohlenhydrate."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kalamata-olives",
+          "swap": "Beliebige schwarze Olive oder für eine günstigere Variante weglassen"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Zerbröselter Ziegenkäse oder für eine milchfreie Variante weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-greek-chicken-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "griechischer-Salat",
+        "Hähnchen",
+        "Feta",
+        "Kalamata",
+        "Römersalat",
+        "Bowl"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1656,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-greek-chicken-salad/",
+      "components": [
+        {
+          "key": "d8abfa2f-dffd-5132-a69b-2b2088927db2",
+          "name": "Zutaten",
+          "servingGrams": 694,
+          "position": 0,
+          "items": [
+            {
+              "key": "29e3fe41-a6d1-50c5-a52b-81b1ec73bb1e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d1943e3-4d61-5c26-96d2-c14c587cb23a",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6235e375-337e-532a-907c-06fed40b3cf1",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "145b8e5e-09cd-5cdc-8a9b-e65600e37e7e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbf9fa1b-8cf8-51de-981b-0e177df88ca6",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6782deb7-e2a5-5110-b9c0-d98a21eac5f3",
+              "ingredientName": "Kalamata-Oliven aus dem Glas",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc2969e5-cb7f-5984-ba1a-bde9709a0455",
+              "ingredientName": "Feta",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30759ac7-56a6-51ac-b5a9-4d5aca069264",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a52c985-bb51-5c5b-ada8-09525b21e269",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7502a3e-e38d-537f-b79a-1be1a74eaf77",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9439ac3-6916-5a15-b5d6-86b0db558775",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44030513-7211-5acd-bc38-84745c64ba81",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d8b7d3a-9bf8-5124-9330-be4bf0ee19d5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen mit Oregano, Knoblauch, Öl und Salz. Grille oder brate es 6 Minuten pro Seite und schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle für das Dressing Zitronensaft, Olivenöl, Dijon-Senf, Oregano und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke den Römersalat, würfle die Gurke, halbiere die Tomaten und schneide die Zwiebel in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische das Gemüse mit der Hälfte des Dressings.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte den Salat auf Tellern an, gib Hähnchen und Feta darauf und beträufle alles mit dem restlichen Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/03/Greek-chicken-salad-recipe-6.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/03/Greek-chicken-salad-recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bowl4-steak-potato-bowl",
+      "slug": "mfr-bowl4-steak-potato-bowl",
+      "title": "Steak-Bowl mit gerösteten Kartoffeln",
+      "instructions": "Eine herzhafte, sättigende Bowl für den großen Hunger: scharf angebratenes Steak in Scheiben auf knusprigen Ofenkartoffeln, Rucola, Kirschtomaten und Parmesan, dazu ein würzig-säuerliches Balsamico-Dijon-Dressing. Ein Essen wie im Restaurant, ganz einfach zu Hause.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flankensteak ist viel günstiger als Ribeye und schmeckt bei scharfem Anbraten genauso aromatisch.",
+        "Das Steak muss ruhen. Schneidest du es zu früh an, läuft der ganze Fleischsaft heraus.",
+        "Parmesanspäne sorgen für einen edlen Touch. Mit einem Sparschäler lassen sie sich schön hobeln."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Rinderlende, Skirt Steak oder auch dünn geschnittenes Hähnchen"
+        },
+        {
+          "forIngredientId": "arugula",
+          "swap": "Babyspinat oder gemischte Blattsalate"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-steak-potato-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Steak",
+        "Kartoffel",
+        "Power-Bowl",
+        "Rucola",
+        "Balsamico",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1657,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-steak-potato-bowl/",
+      "components": [
+        {
+          "key": "292ecb52-5d4d-50e8-85aa-a54ae6ad6010",
+          "name": "Zutaten",
+          "servingGrams": 747.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "53e6a22b-a472-59c0-8227-db4f1ca18dd7",
+              "ingredientName": "Flankensteak",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41d4177a-72f8-53e7-bcc2-3871060a5897",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cd494a8-e2e9-5450-8443-e4cf1a635bec",
+              "ingredientName": "Rucola",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21d46f65-9391-582a-bd8a-301cc3b0c0d6",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "daf34643-9ccf-5506-9a88-078127271132",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd5d9745-cd6b-5964-bcf6-cda8ec7e46b5",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "245c2506-ef09-5a77-87c3-b857845029d6",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26858420-8ed0-5d44-92f4-095446f2367d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18ebcb0b-0c8a-5d87-a705-47216a11809f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a0292e9-a76f-5b7f-9616-461baee0be3a",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 1,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e0c627a-8810-57d1-815f-4ebbd4ff38d7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Kartoffeln, vermische sie mit Öl, Knoblauch, Rosmarin und Salz und röste sie bei 400°F 25 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass das Steak Zimmertemperatur annehmen und würze es großzügig. Brate es für medium-rare bei starker Hitze 3 Minuten pro Seite an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass es 5 Minuten ruhen und schneide es dann quer zur Faser in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Balsamico, Dijon-Senf und Olivenöl zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte Rucola, Kartoffeln, Steak, Tomaten und Parmesan in eine Schale und gib das Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/w3D7CqCblODspyEwMsppzy73Pog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/RoastedPotatoTzatzikiBowl-370_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-006afd90515e4ef681dde7724acbc18d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/w3D7CqCblODspyEwMsppzy73Pog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/RoastedPotatoTzatzikiBowl-370_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-006afd90515e4ef681dde7724acbc18d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bowl4-sesame-noodle-bowl",
+      "slug": "mfr-bowl4-sesame-noodle-bowl",
+      "title": "Sesam-Nudel-Power-Bowl",
+      "instructions": "Nudeln bei Zimmertemperatur in einer kräftig-würzigen Sesam-Erdnuss-Sauce mit zerpflücktem Hähnchen, in feine Streifen geschnittenen Karotten und Gurken, Edamame und gerösteten Sesamsamen. Ein Klassiker für die Lunchbox, der kalt, bei Zimmertemperatur oder leicht warm schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnusssauce aus Vorratszutaten kostet fast nichts.",
+        "Am nächsten Tag schmeckt dieses Gericht kalt direkt aus dem Kühlschrank ausgezeichnet.",
+        "Ramen-Nudeln ohne Gewürzpäckchen sind die günstigsten guten Nudeln."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ramen-noodles",
+          "swap": "Soba-, Udon- oder Reisnudeln"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus als allergikerfreundliche Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-sesame-noodle-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Sesamnudeln",
+        "Erdnusssauce",
+        "Hähnchen",
+        "Bowl",
+        "kalte-Nudeln",
+        "Edamame"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1658,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-sesame-noodle-bowl/",
+      "components": [
+        {
+          "key": "0c63d05e-2313-524e-a4f2-02404898f8ad",
+          "name": "Zutaten",
+          "servingGrams": 460.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "cede36e6-fafb-581c-a848-970baf8264bc",
+              "ingredientName": "Instant-Ramen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6c2f0f8-5317-5a39-9ba2-7478d43c4ae7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "273bac11-795d-5420-ab3b-00bf1edcabac",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d022430b-aa85-5347-8f63-aa8bdc223c4d",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81c2dd53-7f93-5089-a722-ddea48634d72",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f644d6a4-647e-562f-8bd3-bdeb33c6d12a",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f048dcc-8af8-5f80-b7e9-7cb69acb40be",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "464832ed-2fb9-5c6c-aa0d-c59d635be89e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd5f3af9-6a3c-5f61-93f3-1b6ff5aee4d1",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0003c36d-e710-5629-aca0-8aac27899326",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "532a31b5-fc98-5622-8929-3b89a6ff3af8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "206ccc8e-14bf-58f0-ac16-0c7284ed2a9a",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9807e2bc-990f-50a0-8b11-ff28994daff8",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49ab7756-8fa9-56f5-b33e-bdb85754812c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln, spüle sie unter kaltem Wasser ab und lass sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pochiere oder brate das Hähnchen und zerpflücke es in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre für die Sauce Erdnussbutter, Sojasauce, Sesamöl, Limette, Knoblauch, Ingwer, Sriracha und 3 EL heißes Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Karotte und Gurke in feine Streifen. Taue die Edamame auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische die Nudeln mit der Sauce und gib Hähnchen, Karotte, Gurke, Edamame, Sesamsamen und Frühlingszwiebel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/x_qiZnCx8zv3wxVJSDfBTrcFVWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sesame-Soba-Noodles-LEAD-06-7721fb496aca42c9ae75532b350bb9e8.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/x_qiZnCx8zv3wxVJSDfBTrcFVWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sesame-Soba-Noodles-LEAD-06-7721fb496aca42c9ae75532b350bb9e8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bowl4-wild-rice-mushroom",
+      "slug": "mfr-bowl4-wild-rice-mushroom",
+      "title": "Bowl mit Wildreis und Pilzen",
+      "instructions": "Eine aromatische, nussige Wildreismischung mit gebratenen Cremini-, Shiitake- und Austernpilzen, dazu Spinat, gerösteter Knoblauch, Thymian und Parmesan. Ein pochiertes Ei obendrauf macht daraus eine luxuriöse vegetarische Bowl, die üppig schmeckt und zugleich nahrhaft ist.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cremini-Pilze sind günstig. Für ein intensiveres Aroma kannst du beliebige getrocknete Pilze ergänzen.",
+        "Wildreismischungen sind günstiger als 100 % Wildreis und schmecken genauso gut.",
+        "Das pochierte Ei rundet die Bowl ab und macht daraus eine vollständige Eiweißmahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "wild-rice",
+          "swap": "Naturreis oder Farro, mit kürzerer Garzeit"
+        },
+        {
+          "forIngredientId": "shiitake",
+          "swap": "Pilze beliebiger Sorte, etwa Portobello oder Austernpilze, oder einfach mehr Cremini"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bowl4-wild-rice-mushroom",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Wildreis",
+        "Pilze",
+        "Bowl",
+        "vegetarisch",
+        "pochiertes-Ei",
+        "Parmesan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1659,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bowl4-wild-rice-mushroom/",
+      "components": [
+        {
+          "key": "b55fdfad-487d-5ca6-be57-05fbb58da355",
+          "name": "Zutaten",
+          "servingGrams": 716.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "46d79a2b-01a4-593e-b47d-9266c48a2d6a",
+              "ingredientName": "Wildreismischung",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "102f76f2-433d-506c-8dec-3e6b58a3e92e",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbfd4cc9-5410-5125-aa0e-c2d718ce6917",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43fc6209-6259-5362-9d45-d41c16c629ce",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebc77c8e-263d-56e7-8449-3f697ed24836",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43009359-883d-5326-b162-da5bdbc48374",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b1c8128-be23-5f70-b45f-675df2941d82",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99b881ad-d334-5a1b-b4ee-76ce098c47f7",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a195438e-26d3-587c-93d3-b6d3cec3b5e1",
+              "ingredientName": "Weißwein zum Kochen",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f30445b6-097d-5944-8cda-fa37fd59393d",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59f3f61d-b147-5417-9986-ac5f87508300",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7892cd76-fc09-527f-8faa-9297e9787df7",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ed26632-ce06-5733-baf9-8fa1b1e3937c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb48485e-344a-5f55-b9f4-530a7cd7d51b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Wildreis nach Packungsanweisung, normalerweise 40–45 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Pilze 6 Minuten in Butter bei starker Hitze, bis sie kräftig gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Thymian dazu und gare alles 1 Minute. Gieße einen Schuss Weißwein an und gare ihn 1 Minute ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den Spinat unter, bis er zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pochiere die Eier in Essigwasser mit der Strudel-Methode 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte Wildreis, Pilz-Spinat-Mischung, pochiertes Ei und Parmesan in eine Bowl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F09%2F13%2Fcreamy-wild-rice-and-mushroom-soup.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F09%2F13%2Fcreamy-wild-rice-and-mushroom-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

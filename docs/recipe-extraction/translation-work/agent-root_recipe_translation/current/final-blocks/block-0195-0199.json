@@ -1,0 +1,1426 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-sticky-bbq-pork-ribs",
+      "slug": "af2-sticky-bbq-pork-ribs",
+      "title": "Klebrige BBQ-Schweinerippchen aus der Heißluftfritteuse",
+      "instructions": "Zarte Schweinerippchen mit einer klebrigen, karamellisierten BBQ-Glasur – in etwa 55 Minuten fertig, ganz ohne Smoker und ohne stundenlangen Einsatz des Ofens. Der glänzende, zum Fingerablecken gute Überzug ist der eigentliche Grund, dieses Gericht zu machen. Inspiriert vom beliebten Trend für Rippchen aus der Heißluftfritteuse ohne Smoker.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen ganzen Schweinerippchenbogen und portioniere ihn selbst – meist ist das pro Portion günstiger als vorgeschnittene Rippchen; Reste lassen sich bei 350F 4 Minuten in der Heißluftfritteuse erwärmen.",
+        "Lass die fertige Gewürzmischung aus dem Laden weg: Brauner Zucker und Gewürze, die du schon zu Hause hast, ergeben eine bessere und günstigere Trockenmarinade als jede Mischung aus der Flasche.",
+        "Ergänze die erste Portion um eine zweite Mahlzeit und serviere dazu eine günstige Beilage aus Mikrowellenreis (1 cup, etwa 15 Cent), der die übrige Glasur aufsaugt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder zusätzliche tbsp brauner Zucker für dieselbe klebrige Süße.",
+          "savings": "Brown sugar is günstiger and you likely already have it."
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Jeder Essig eignet sich – weißer Essig oder ein Spritzer Zitronensaft sorgt für dieselbe frische Säure.",
+          "savings": "spart buying a specialty vinegar."
+        },
+        {
+          "forIngredientId": "pork-ribs",
+          "swap": "Hähnchenkeulen als günstigere Eiweißvariante verwenden – bei 375F 22-25 min garen, bis innen 165F erreicht sind, dann genauso glasieren.",
+          "savings": "Drumsticks cost a fraction of ribs pro Portion."
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 45,
+      "airFryerTemperatureF": 325,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Abendessen",
+        "BBQ",
+        "Schweinefleisch",
+        "Seelenfutter",
+        "ohne Smoker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 195,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-sticky-bbq-pork-ribs/",
+      "components": [
+        {
+          "key": "d5799ce2-174a-5a1b-97a0-9204356dac2e",
+          "name": "Zutaten",
+          "servingGrams": 193.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f112bfe-a23e-5479-9c8f-564aa25a73c2",
+              "ingredientName": "Schweinerippchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb66667a-d5bb-5cb5-9957-14bfc6eeeb70",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "912caa9c-6df5-5c12-abc9-85f7cb39bf9c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "933d5cd5-ae7d-5792-a717-dc8f00e235a5",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88b5eaa6-89f0-50ab-8734-498243620b2d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef9b8c7d-321b-5567-8229-38f22c56eac1",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fee65480-6ca1-54ff-9d97-4a6302d10e6c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e91be46c-5896-5bec-a03e-e646eb0451ef",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "125147b9-8557-5b1c-a17a-3456c7b777ad",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afa08353-458a-54ad-b6a2-f1c93166945d",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b9f6098-ab0c-5dc2-b1ed-e8fc64ace5e9",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "2439d8a7-c09e-58b5-a49c-1fa10db1a15d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Rippchen trocken und ziehe die dünne, glänzende Haut auf der Rückseite ab: Schiebe ein Buttermesser darunter, fasse die Haut mit einem Papiertuch und ziehe sie ab. So werden die Rippchen zart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge braunen Zucker, geräuchertes Paprikapulver, Knoblauchpulver, Zwiebelpulver, Salz und Pfeffer in einer kleinen Schüssel. Reibe die Mischung auf beiden Seiten der Rippchen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Rippchen in den Korb der Heißluftfritteuse (schneide den Bogen bei Bedarf in der Mitte durch, damit er hineinpasst) und gare sie bei 325F 40 Minuten. Wende sie nach 20 Minuten, bis das Fleisch zart ist und sich von den Knochen löst (für eine zerfallende Konsistenz soll die Kerntemperatur 190-200F betragen, deutlich mehr als die sichere Mindesttemperatur für Schweinefleisch von 145F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre währenddessen BBQ-Sauce, Honig und Apfelessig in einer Schüssel zur klebrigen Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die Rippchen auf beiden Seiten großzügig mit Glasur, stelle die Heißluftfritteuse auf 350F und gare sie weitere 5 Minuten, bis die Sauce karamellisiert und klebrig glänzt. Beobachte sie in der letzten Minute, damit der Zucker nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Rippchen 5 Minuten ruhen, bestreiche sie mit der übrigen Glasur, schneide sie zwischen den Knochen durch und streue nach Wunsch Frühlingszwiebel und Sesamsamen darüber. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Barbecued_pork_ribs.jpg/1280px-Barbecued_pork_ribs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Barbecued_pork_ribs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto von klebrigen BBQ-Schweinerippchen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-lamb-chops",
+      "slug": "af2-crispy-lamb-chops",
+      "title": "Knusprige Lammkoteletts aus der Heißluftfritteuse",
+      "instructions": "Lammkoteletts für ein Date-Abendessen mit goldbraun-knusprigem Fettrand und saftigem, innen noch rosa Fleisch – in weniger als 10 Minuten ganz ohne Aufwand am Herd. Eine schnelle Marinade aus Knoblauch, Zitrone und Kräutern übernimmt die Arbeit, während die Heißluftfritteuse die Ränder wie beim scharfen Anbraten knusprig brät. Inspiriert vom beliebten Trend für Lammkoteletts aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammrippenkoteletts gibt es rund um Feiertage oft im Angebot – kaufe einen ganzen Bogen, schneide die Koteletts selbst heraus und friere jeweils zwei für günstige Date-Abende ein.",
+        "Lendenkoteletts sind meist ein paar Dollar pro Pfund günstiger als ausgelöste Rippenkoteletts und lassen sich genau gleich in der Heißluftfritteuse zubereiten.",
+        "Lass fertiges Tzatziki aus dem Laden weg und rühre in 30 Sekunden einen Dip aus Naturjoghurt, etwas geriebenem Knoblauch, Zitrone und Salz an – gleicher Geschmack für wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lamb-chops",
+          "swap": "Schweinekotelett – bei 400F garen, bis innen 145F erreicht sind; milder im Geschmack und deutlich günstiger",
+          "savings": "ca. $0.75/chop"
+        },
+        {
+          "forIngredientId": "rosemary-fresh",
+          "swap": "1 tsp getrockneter Rosmarin oder italienische Kräutermischung aus dem Gewürzregal",
+          "savings": "ca. $0.30"
+        },
+        {
+          "forIngredientId": "tzatziki",
+          "swap": "Naturjoghurt mit Knoblauch und Zitrone verrühren",
+          "savings": "ca. $0.40"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Lamm",
+        "Date-Abend",
+        "schnell",
+        "kohlenhydratarm"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 196,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-lamb-chops/",
+      "components": [
+        {
+          "key": "606cf19f-4e7b-5944-bb99-63096b4d942a",
+          "name": "Zutaten",
+          "servingGrams": 394.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "56d1cc30-9388-5332-8620-355c2330777e",
+              "ingredientName": "Lammkoteletts",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "860f0d8f-6b81-52c4-8af6-cf99c39cde80",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "034a9b99-6e3d-51db-8b95-75d5d45c5b46",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a06cfa66-4468-545e-a7b7-ea122b78f497",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2906134-ff35-533f-8e1e-dad0a4e323a7",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09aba49d-44d4-532f-85b7-8b5f68ea8415",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c3d9d66-6605-5688-8e94-60ca5c5ab5ba",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55e64766-df86-59b6-af55-94c36b0c2d71",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0329c0cc-dc46-5461-a2ed-dfa1f23e5a3e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89a43972-711f-5aa0-84e9-04836a984ead",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "280f82fb-f228-57e9-9645-e12565a35bbe",
+              "ingredientName": "Tzatziki",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Dippen"
+            },
+            {
+              "key": "d238b4ff-15c9-575c-b530-3c184d798213",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Olivenöl, geriebenen Knoblauch, Schale und Saft der halben Zitrone, gehackten Rosmarin, Oregano, Kreuzkümmel, Paprikapulver, Salz und Pfeffer in einer Schüssel zu einer lockeren Paste. Bewahre die andere Zitronenhälfte zum Servieren auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Lammkoteletts mit Papiertüchern sehr trocken und reibe sie rundum mit der Paste ein. Lass sie 5 Minuten oder bis zu über Nacht im Kühlschrank ziehen, damit sie Geschmack annehmen. Besprühe den Korb der Heißluftfritteuse leicht mit Öl, damit nichts kleben bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize die Heißluftfritteuse auf 400F vor und lass sie 2-3 Minuten vorheizen. Lege die Koteletts flach und mit etwas Abstand in einer Lage hinein, damit die heiße Luft um jedes Stück zirkuliert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 400F 4 Minuten in der Heißluftfritteuse, wende sie und gare sie weitere 3-4 Minuten für rosa Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Koteletts auf den Fettrand (Fettschicht nach oben; lehne sie aneinander oder an die Wand des Korbs) und gare sie weitere 1-2 Minuten, damit das Fett auslässt und goldbraun-knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Prüfe die dickste Stelle mit einem Thermometer: Nimm die Koteletts bei 145F für rosa Fleisch oder 160F für durchgegartes Fleisch heraus und lass sie 3-5 Minuten auf einem Teller ruhen, damit sich die Fleischsäfte verteilen (durch die Restwärme steigt die Temperatur noch um einige Grad). Für ganze Lammkoteletts empfiehlt das USDA 145F und eine Ruhezeit von 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse die übrige Zitrone darüber und streue Petersilie darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Koteletts mit einem Löffel Tzatziki zum Dippen. Dazu passen Mikrowellenreis oder warmes Pita.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lamb_chops_on_hummus_-_San_Francisco%2C_CA.jpg/1280px-Lamb_chops_on_hummus_-_San_Francisco%2C_CA.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lamb_chops_on_hummus_-_San_Francisco,_CA.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Lammkoteletts aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-lamb-kofta-kebabs",
+      "slug": "af2-lamb-kofta-kebabs",
+      "title": "Lamm-Kofta-Kebabs aus der Heißluftfritteuse",
+      "instructions": "Würziges Lammhackfleisch mit Kreuzkümmel, Piment, frischer Petersilie und Minze zu saftigen Kebabs geformt, die in der Heißluftfritteuse wie vom Grill bräunen. Serviere dazu einen schnellen Zitronen-Tahini-Guss und warmes Pita für ein Abendessen wie auf einer Reise – zum Preis für die Studentenküche. Inspiriert von einem beliebten Trend für Lamm-Kofta aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammhackfleisch ist hier die teurere Zutat. Streck es mit einer halben Dose zerdrückter Kichererbsen oder einigen Esslöffeln Semmelbröseln; so bekommst du 10 Kofta statt 8 für dasselbe Geld.",
+        "Lass frische Kräuter weg, wenn du keine hast: 1 tsp getrocknete Petersilie und Minze (oder ein Löffel Za'atar) bringen den gleichen Geschmack und kosten nur wenige Cent.",
+        "Kaufe eine ganze Zitrone statt Saft aus der Flasche: Du bekommst Saft für die Sauce und Schale für mehr Frische im Fleisch und sparst pro Verwendung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-lamb",
+          "swap": "Rinderhackfleisch oder Putenhackfleisch mit denselben Gewürzen für einen milderen Geschmack; Hackfleisch vom Rind oder Truthahn auf 165F garen.",
+          "savings": "spart etwa $0.60 to $0.85 pro Portion"
+        },
+        {
+          "forIngredientId": "tahini",
+          "swap": "Naturjoghurt mit Zitrone verdünnen und als Tzatziki-Guss servieren.",
+          "savings": "ungefähr gleich teuer cost, creamier result"
+        },
+        {
+          "forIngredientId": "pita",
+          "swap": "Mit Reis oder in einer normalen Tortilla servieren.",
+          "savings": "spart etwa $0.25 pro Portion"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "nahöstlich",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Lamm",
+        "Abendessen",
+        "Kebabs",
+        "Tahini",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 197,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-lamb-kofta-kebabs/",
+      "components": [
+        {
+          "key": "ddc8d392-f34f-5a3c-80f2-2e40f466cd62",
+          "name": "Zutaten",
+          "servingGrams": 249.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1551034-7bc0-5969-9876-7ed28fcbae21",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19a1e9fd-da0f-599e-a0f8-1fef9e205da0",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gerieben und squeezed dry"
+            },
+            {
+              "key": "f2600802-2dc9-595a-9ecc-2af83e758328",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt für die Köfte"
+            },
+            {
+              "key": "7cf64c83-8983-537a-bfc4-c18aee30f73b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "1c69d17c-d1ec-5db4-b2a3-3a88867b3ce3",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "eebe5abe-2762-5cc6-8854-f47dda7e20c7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06a8a0a6-6f16-53ef-ad9a-ecaab65b891b",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fac02dd-1bc6-5c50-9a2f-1ad3afb979e4",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c04cb4e-d9f6-513c-b9ae-01e6b146e735",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ba7534f-9095-5b35-936c-75a38c332893",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3a0f255-0e6c-5c72-a4da-b41bc9e05b43",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fe63136-7884-5fe7-b89e-0d018227bf0f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acaba9ee-6b9d-5f20-a386-41177cd1a1b8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "to brush kvonta"
+            },
+            {
+              "key": "6052bbca-6238-5b71-bfb9-b813d4810f16",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "für die Sauce"
+            },
+            {
+              "key": "29cd31d5-a501-5e33-883e-0a07190d8303",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "ausgepresst für die Sauce"
+            },
+            {
+              "key": "21e62c44-9c43-502c-8f43-b32d8ab83bf6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "gehackt für die Tahinisauce"
+            },
+            {
+              "key": "ea0157ef-e590-5852-a902-76cfafdaa11d",
+              "ingredientName": "Pitabrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "beee0141-7a2e-5785-9a90-e2b65e841696",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Lammhackfleisch, geriebene Zwiebel (zuerst die Flüssigkeit ausdrücken, damit die Kofta zusammenhalten), gehackten Knoblauch, Petersilie und Minze, Kreuzkümmel, Piment, Koriander, Paprikapulver, Zimt, Salz und Pfeffer in einer Schüssel. Mische alles mit den Händen nur so lange, bis es verbunden ist. Zu langes Kneten macht die Kebabs fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile die Masse in 8 Portionen und forme jede zu einer dicken, etwa 4 inches langen Wurst. Drücke sie fest, damit sie zusammenhält, und stelle sie bei Gelegenheit 10 Minuten kalt (festere Kofta bräunen besser). Bestreiche sie rundum leicht mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize die Heißluftfritteuse auf 400F vor und lass sie 3 Minuten vorheizen. Lege die Kofta mit Abstand in einer Lage hinein und gare sie bei Bedarf in 2 Portionen, damit sie bräunen statt zu dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 400F 8 Minuten in der Heißluftfritteuse, wende jede Kofta mit einer Zange und gare sie weitere 4 bis 6 Minuten, bis sie kräftig gebräunt und durchgegart sind. Prüfe die dickste Kofta mit einem Thermometer: Lammhackfleisch ist bei einer Kerntemperatur von 160F sicher durchgegart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite währenddessen die Sauce zu: Verrühre Tahini, Zitronensaft, die zusätzliche gehackte Knoblauchzehe, eine Prise Salz und 2 to 3 tablespoons Wasser, bis die Sauce glatt und gießfähig ist. Ist sie zu dick, gib noch etwas Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme das Pita etwa 1 Minute bei 350F in der Heißluftfritteuse, während die Kofta einige Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Häufe die Kofta auf das warme Pita, träufle Zitronen-Tahini-Sauce darüber, streue nach Wunsch Petersilie darauf und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Kufta_Kebab.jpg/1280px-Kufta_Kebab.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kufta_Kebab.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Kufta Kebab, Wikimedia Commons, CC BY-SA 3.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Lamm-Kofta-Kebabs aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-juicy-meatballs",
+      "slug": "af2-juicy-meatballs",
+      "title": "Saftige Fleischbällchen aus der Heißluftfritteuse",
+      "instructions": "Eine Mischung aus Rind- und Schweinefleisch wird außen knusprig und gebräunt und bleibt dank eines in Milch eingeweichten Panades aus Semmelbröseln innen zart und saftig. Rolle am Sonntag eine große Menge und bewahre sie für Pasta, Subs und Reisschüsseln während der Woche auf. Inspiriert von Holly Nilsson (Spend With Pennies) (https://www.spendwithpennies.com/juicy-air-fryer-meatballs/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinder- und Schweinehackfleisch in der großen Familienpackung und friere ein, was du heute nicht zu Bällchen formst. Pro Pfund ist das viel günstiger als kleine Packungen.",
+        "Lass frische Kräuter in der Masse weg. Getrocknete italienische Kräutermischung kostet nur wenige Cent und sorgt für denselben Geschmack. Frische Petersilie dient nur als Garnitur.",
+        "Bereite die doppelte Menge zu und friere die Hälfte roh oder gegart ein. Gegarte Fleischbällchen lassen sich bei 350F 4-5 Minuten in der Heißluftfritteuse erwärmen – eine Woche Abendessen ist dann fast ohne zusätzlichen Aufwand vorbereitet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Lass das Schweinefleisch weg und verwende insgesamt 4 servings Rinderhackfleisch oder nimm für eine magerere, günstigere Menge Putenhackfleisch.",
+          "savings": "ca. $1.20"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Zerkrümle eine Scheibe Sandwichbrot oder verwende Panko, falls du es vorrätig hast.",
+          "savings": "ca. $0.20"
+        },
+        {
+          "forIngredientId": "marinara",
+          "swap": "Verwende einfache Tomatensauce mit einer Prise italienischer Kräutermischung oder lass sie bei Reisschüsseln weg.",
+          "savings": "ca. $0.57"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 13,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "gefriergeeignet",
+        "Rindfleisch",
+        "Schweinefleisch",
+        "in großen Mengen kochen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 198,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-juicy-meatballs/",
+      "components": [
+        {
+          "key": "afd63375-83fc-5c43-a05b-1b9468ee6069",
+          "name": "Zutaten",
+          "servingGrams": 275.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "38edaaac-8491-535f-9626-157e3ad50b1c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31f214ea-de8a-5ccb-a0ff-75bb708cd384",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2700ee53-6464-5bf3-81ea-7f7896e51a17",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "735471db-6952-5c3f-95f1-0d576da3011b",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11faafcc-4fb6-5461-84c3-50e48b20f205",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "095e4a65-9e75-5575-a641-1fa184ec8334",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1396e02-6928-5349-b267-06c68eed5edd",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cafa0f4b-d10f-54e1-a7c4-f3f5bf7d9f5d",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b166a24-95da-5675-b465-824170fab4a6",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aacfcfe6-30d4-590a-8908-3e74ee5a8928",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "612afe2f-bd6f-5898-a525-254beb5aea88",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d5a9459-b680-5859-865b-b356d774d218",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44a17ee1-a064-5296-a774-ef30247b3c44",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da236e05-8076-5753-8b03-8ef55334fe9a",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Servieren / tossing"
+            },
+            {
+              "key": "8a85a3a8-33ae-51d9-9d6f-7af78cbf87a9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Semmelbrösel 2-3 Minuten in der Milch in einer großen Schüssel ein, bis sie matschig sind. Diese Panade ist das Geheimnis saftiger Fleischbällchen, die nie trocken werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rinderhackfleisch, Schweinehackfleisch, Ei, Parmesan, gehackten Knoblauch, italienische Kräutermischung, Zwiebelpulver, Knoblauchpulver, Salz und Pfeffer dazu. Vermenge alles vorsichtig mit den Händen, bis es verbunden ist. Zu langes Mischen macht die Bällchen zäh; hör auf, sobald die Masse zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle etwa 16 golfballgroße Fleischbällchen (ungefähr 1.5 inches). Bestreiche oder besprühe sie leicht mit Olivenöl, damit sie bräunen und nicht austrocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize die Heißluftfritteuse auf 380F vor und lass sie 2-3 Minuten vorheizen. Lege die Fleischbällchen mit Abstand in einer Lage hinein, damit die Umluft sie bräunt statt zu dämpfen; bei einem kleinen Korb in 2 Portionen arbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie bei 380F 12-14 Minuten in der Heißluftfritteuse. Schüttle oder rolle den Korb nach der Hälfte der Zeit vorsichtig, damit sie von allen Seiten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Prüfe die Mitte mit einem Fleischthermometer: Die Mischung aus Rind und Schwein ist bei einer Kerntemperatur von 160F sicher durchgegart. Sind sie innen noch rosa, gare sie weitere 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge die Fleischbällchen mit warmer Marinara-Sauce und garniere sie mit gehackter Petersilie. Oder lass sie vollständig abkühlen und friere sie für schnelle Mahlzeiten während der Woche in einem Beutel ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Surf_%26_Turf_meatballs.jpg/1280px-Surf_%26_Turf_meatballs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Surf_%26_Turf_meatballs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Mariusispas1, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von saftigen Fleischbällchen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-mongolian-beef",
+      "slug": "af2-mongolian-beef",
+      "title": "Mongolisches Rindfleisch aus der Heißluftfritteuse",
+      "instructions": "Knusprige Streifen aus Flankensteak mit einer glänzenden, süß-herzhaften Glasur aus Sojasauce und braunem Zucker – wie beim Klassiker von P.F. Chang's, aber für einen Bruchteil des Preises. Eine Hülle aus Maisstärke und die Umluft der Heißluftfritteuse sorgen mit nur wenig Ölspray für Knusprigkeit wie frittiert. Die Glasur wird vollständig in der Mikrowelle zubereitet, sodass das Abendessen in etwa 20 Minuten ohne Herd fertig ist. Inspiriert von einem beliebten Nachahmer-Trend für mongolisches Rindfleisch aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flankensteak ist der teuerste Teil. Achte auf Angebote und schneide es quer zur Faser dünn auf, damit ein kleineres Stück für zwei sättigende Portionen reicht.",
+        "Lass teure Saucenpäckchen vom Lieferdienst weg: Sojasauce, brauner Zucker und Knoblauch aus dem Vorratsschrank ergeben eine Glasur, die nur wenige Cent kostet und wie im Restaurant schmeckt.",
+        "Koche den Reis in der Mikrowelle, während das Rindfleisch in der Heißluftfritteuse gart. So brauchst du nur ein Gerät und hast das Abendessen in einem Zeitfenster von 20 Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Hüftsteak, dünn geschnitten (oder Hähnchenschenkel für eine noch günstigere Variante)",
+          "savings": "spart etwa $0.15/oz vs flank"
+        },
+        {
+          "forIngredientId": "low-sodium-soy",
+          "swap": "Normale Sojasauce",
+          "savings": "spart etwa $0.02/tbsp"
+        },
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Zusätzliche tbsp normale Sojasauce sowie eine weitere Prise brauner Zucker für mehr Farbe",
+          "savings": "Vorhandene Zutaten verwenden"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "günstiger als Lieferdienst",
+        "Nachahmergericht",
+        "Rindfleisch",
+        "20-Minuten",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 199,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-mongolian-beef/",
+      "components": [
+        {
+          "key": "e9f1ee78-7d92-5051-9474-b95a626b6f4c",
+          "name": "Zutaten",
+          "servingGrams": 422.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a9afc12-f065-5c9b-b12b-60d946d0f8af",
+              "ingredientName": "Flankensteak",
+              "grams": 340.2,
+              "quantity": 340.2,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "quer zur Faser in dünne 2-inch Streifen geschnitten"
+            },
+            {
+              "key": "486ff150-ed2e-52bc-8d64-1afcfc0bfbea",
+              "ingredientName": "Maisstärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 tbsp zum Panieren des Rinds, 1 tbsp für die Saucen-Mischung"
+            },
+            {
+              "key": "d511ee3d-68bd-5d79-8e36-4bbc5a31e4a9",
+              "ingredientName": "Ölspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "feiner Sprühnebel für knusprige Ränder"
+            },
+            {
+              "key": "7f7cdd5d-c248-50fc-b67d-2d4e2b6fb5c8",
+              "ingredientName": "Salzreduzierte Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72069ea7-c62b-52f7-b1d4-642d30425f51",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für Farbe und kräftiges Aroma"
+            },
+            {
+              "key": "64fa3bfa-467b-57ad-9bb8-3e307a910d45",
+              "ingredientName": "Brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adc083cf-0b1d-5c57-96db-533b7131c94d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "23b39b72-2562-5701-8dc2-03e08f917043",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a82fbfd4-92ba-5941-803d-4e6c51142731",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9397777f-3508-5802-a7f7-647de214740e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfffc92a-c9cd-557a-8825-c01d9313a4a0",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Verdünnen der Glasur"
+            },
+            {
+              "key": "7e07d030-bc2a-5859-b6cd-065bca71da35",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "in 1-inch große Stücke geschnitten"
+            },
+            {
+              "key": "81a268d9-7e73-5a7b-9926-124dc40da374",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "als Mikrowellenbeilage gegart"
+            },
+            {
+              "key": "05590bf9-fdc8-5e43-ac9e-d403a278f99b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Flankensteak quer zur Faser in 2-inch lange Streifen. Vermenge sie in einer Schüssel mit 3 tbsp Maisstärke, bis alle Stücke leicht und gleichmäßig überzogen sind und kein trockenes Pulver übrig ist. Lass sie 5 Minuten stehen, damit die Panade anzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Reis als Beilage zu: Verrühre 1 cup trockenen Jasminreis mit 1.5 cups Wasser in einer mikrowellengeeigneten Schüssel, decke sie ab und gare den Reis etwa 12-15 Minuten in der Mikrowelle, bis das Wasser aufgenommen ist und der Reis locker ist. Lass ihn zugedeckt dämpfen, während das Rindfleisch gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Besprühe den Korb der Heißluftfritteuse mit Ölspray, lege die Rindfleischstreifen in einer Lage hinein (bei Bedarf in 2 Portionen arbeiten, damit sie knusprig werden statt zu dämpfen) und besprühe sie leicht mit Öl. Gare sie bei 400F 12 Minuten in der Heißluftfritteuse und schüttle den Korb nach 6 Minuten, bis die Ränder kräftig knusprig sind. Das Rindfleisch soll innen mindestens 145F erreichen; prüfe die dickste Stelle mit einem sofort ablesbaren Thermometer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite währenddessen die Glasur zu: Verrühre salzreduzierte Sojasauce, dunkle Sojasauce, braunen Zucker, gehackten Knoblauch, Ingwer, Reisessig, Sesamöl und 1/4 cup Wasser in einer mikrowellengeeigneten Schüssel. Verrühre in einer kleinen Tasse die übrige 1 tbsp Maisstärke mit einem Schuss kaltem Wasser zu einer glatten Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Sauce 60-90 Sekunden in der Mikrowelle, bis sie blubbert. Rühre die Maisstärkemischung mit einem Schneebesen ein und erwärme sie weitere 30-45 Sekunden, bis sie zu einer glänzenden Glasur eindickt, die einen Löffelrücken überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das knusprige Rindfleisch und die Frühlingszwiebelstücke in die warme Glasur und vermenge alles, bis jeder Streifen glänzend überzogen ist. Die Restwärme lässt die Frühlingszwiebeln leicht zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Rindfleisch auf Jasminreis, gib übrige Glasur darüber und streue nach Wunsch Sesamsamen darauf. Sofort essen, solange die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Mongolian_beef.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mongolian_beef.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto von mongolischem Rindfleisch aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

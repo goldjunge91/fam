@@ -1,0 +1,1205 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-chinese-tomato-egg-stir-fry",
+      "slug": "egg-chinese-tomato-egg-stir-fry",
+      "title": "Chinesische Tomaten-Ei-Pfanne (Fanqie Chao Dan)",
+      "instructions": "Cremig-weiches Rührei in einer glänzenden, süß-herzhaften Tomatensauce, auf heißem Reis serviert. Das oft als inoffizielles Nationalgericht Chinas bezeichnete Essen macht aus zwei günstigen Vorratszutaten in nur 10 Minuten ein besonders wohltuendes Gericht.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 13,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Etwas weiche oder überreife Tomaten eignen sich perfekt und sind oft reduziert – sie zerfallen zu einer besonders aromatischen Sauce.",
+        "Ein Teelöffel Ketchup in der Sauce vertieft Farbe und Umami, wenn die Tomaten blass oder außerhalb der Saison sind.",
+        "Serviere das Gericht mit einfachem Reis als vollständige Mahlzeit für fast kein Geld; ein zusätzliches Ei reicht für drei Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Jedes neutrale Öl wie Raps- oder Sonnenblumenöl eignet sich genauso",
+          "savings": "vorhandene Zutaten verwenden on hand"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Ein Spritzer Ketchup bringt Süße und zusätzliches Tomatenaroma",
+          "savings": "vermeidet den Kauf von anything new"
+        },
+        {
+          "forIngredientId": "scallion",
+          "swap": "Etwas dünn geschnittene Zwiebel oder Schnittlauch als aromatische Grundlage",
+          "savings": "Günstiger als ein Bund frische Frühlingszwiebeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "chinesisch",
+        "Ei",
+        "Pfannengericht",
+        "Tomate",
+        "Reis",
+        "vegetarisch",
+        "schnell",
+        "studentenküchengeeignet",
+        "Seelenfutter",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 235,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-chinese-tomato-egg-stir-fry/",
+      "components": [
+        {
+          "key": "5d25083a-81db-56de-8a1b-cdc5d6453755",
+          "name": "Zutaten",
+          "servingGrams": 539.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "b0960b81-06c8-588b-b0f7-3185ea4bcc3a",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bb0b0a3-bdc5-51c1-bbd7-35c100f077f4",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "reif und in Spalten geschnitten"
+            },
+            {
+              "key": "5ade38e3-f1de-5aea-be94-69fa9a95f71c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "weiße und grüne Teile getrennt"
+            },
+            {
+              "key": "6f67f9cc-9d0b-5ab7-96f9-66d52d3d74c5",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9203b2c8-6682-59fc-af41-3c3dedc7c75f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "balances tomato acidity"
+            },
+            {
+              "key": "0eb30570-d44c-5ee7-a1cb-7976771c7e0d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9613d43-404b-5071-ac58-3227374becee",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "91eb5dfa-68ae-539b-93b0-2b9ef50c8535",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Schluss darüberträufeln"
+            },
+            {
+              "key": "21fe1307-7130-5276-b0aa-dd8456012b78",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "ein Schuss für die Sauce"
+            },
+            {
+              "key": "950fc9e2-00e6-5d7e-855f-89d18d4d7566",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "gegart zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Reis, damit er fertig ist, wenn die Pfanne bereit ist: Gare 1.5 Tassen nach Packungsanweisung im Reiskocher oder Topf und halte ihn anschließend warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die 4 Eier in eine Schüssel. Gib eine Prise Salz und 1/4 tsp weißen Pfeffer dazu und verquirle alles kräftig, bis die Mischung vollständig verbunden und leicht schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die 3 Tomaten jeweils in 6-8 Spalten. Schneide die 2 Frühlingszwiebeln in feine Scheiben und lege weiße und grüne Teile getrennt beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze 2 tbsp Pflanzenöl in einem Wok oder einer beschichteten Pfanne bei mittelhoher Hitze, bis es schimmert. Gieße die verquirlten Eier hinein, lass sie 5-10 Sekunden aufgehen und schiebe und falte sie dann vorsichtig, bis sie gerade gestockt, weich und glänzend sind, etwa 60-90 Sekunden. Sie sollen vollständig gegart sein, ohne flüssiges Ei, aber nicht gebräunt. Gib das Ei auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das übrige 1 tbsp Öl bei mittelhoher Hitze in dieselbe Pfanne. Füge die weißen Teile der Frühlingszwiebeln hinzu und rühre 15 Sekunden, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Tomatenspalten dazu und brate sie 2-3 Minuten unter vorsichtigem Drücken an, bis sie weich werden und Saft abgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue 1 tbsp Zucker und das restliche Salz darüber, gib einen Schuss Wasser (etwa 1/4 cup) dazu und lasse alles 2-3 Minuten köcheln, bis die Tomaten zu einer lockeren, glänzenden Sauce zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib das Ei zurück in die Pfanne und falte alles etwa 30 Sekunden vorsichtig zusammen, damit es warm wird und Sauce aufnimmt, ohne zu sehr zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm die Pfanne vom Herd, beträufle alles mit Sesamöl und streue die grünen Frühlingszwiebelteile darüber. Gib die Mischung auf den warmen Reis und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hunan_cuisine%2C_stir-fried_tomato_with_eggs.jpg/1280px-Hunan_cuisine%2C_stir-fried_tomato_with_eggs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hunan_cuisine,_stir-fried_tomato_with_eggs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA",
+          "attributionRequired": true,
+          "attributionText": "Hunan cuisine, stir-fried tomato with eggs, Wikimedia Commons, CC BY-SA",
+          "verifiedMatch": true,
+          "altText": "Foto einer chinesischen Tomaten-Ei-Pfanne (Fanqie Chao Dan)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-soft-french-scrambled-eggs",
+      "slug": "egg-soft-french-scrambled-eggs",
+      "title": "Cremiges französisches Rührei",
+      "instructions": "Der Maßstab für Rührei: seidig-weiche, puddingartige Flocken, die allein durch Eier, Butter und einen Schuss Sahne herrlich luxuriös schmecken. Günstig, schnell und eine echte Verbesserung gegenüber dem zähen Rührei aus der Studentenküche.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 6,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hier sind Eier und Butter die Hauptzutaten, du brauchst also nichts Besonderes. Eier der Hausmarke in Größe L funktionieren perfekt.",
+        "Keine Schlagsahne da? Ein Schuss Vollmilch oder sogar ein kleines zusätzliches Stück Butter, erst vom Herd genommen eingerührt, sorgt fast für dieselbe Cremigkeit und kostet weniger.",
+        "Lass frischen Schnittlauch weg, wenn du ihn nicht schon hast. Eine Prise Pfeffer oder beliebige Kräuter aus dem Kühlschrank runden das Gericht genauso gut ab und kosten nur wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch oder ein kleines zusätzliches Stück Butter, erst vom Herd genommen eingerührt",
+          "savings": "Ersetzt ein teureres Milchprodukt, das du sonst vielleicht nicht kaufst"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl oder Pflanzenbutter für eine milcharme Variante",
+          "savings": "Uses oil wahrscheinlich bereits vorhanden"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "Dünn geschnittene Frühlingszwiebelteile",
+          "savings": "Frühlingszwiebeln kosten nur einen Bruchteil von frischem Schnittlauch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "Ei",
+        "Frühstück",
+        "schnell",
+        "vegetarisch",
+        "preiswert",
+        "5 Zutaten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 236,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-soft-french-scrambled-eggs/",
+      "components": [
+        {
+          "key": "e6d10083-c966-552a-bb98-93b05c705e99",
+          "name": "Zutaten",
+          "servingGrams": 126.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4d4b857-e550-5321-b7fa-1efea7dc8255",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75fe6255-af93-5c8c-b251-76fd6fae984f",
+              "ingredientName": "Butter",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7a8c257-52ad-507b-888a-5623102999dd",
+              "ingredientName": "Schlagsahne",
+              "grams": 14.4,
+              "quantity": 14.4,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "ein Schuss (etwa 1 tbsp), nach dem Herunternehmen eingerührt, um den Garprozess zu stoppen"
+            },
+            {
+              "key": "b875c32d-932e-5ae5-948a-eb9044753601",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "erst am Ende salzen, damit der Käsebruch zart bleibt"
+            },
+            {
+              "key": "a4f0037a-57ac-5f0b-8e01-7126b9f1a9a3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f18ab64-63fb-58cb-8580-9a2077e547c1",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage 4 Eier in eine Schüssel und verquirle sie 20-30 Sekunden kräftig, bis die Mischung vollkommen gleichmäßig und leicht schaumig ist und keine Eiweißstreifen mehr zu sehen sind. So wird das Rührei zart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle eine beschichtete Pfanne auf NIEDRIGE Hitze und gib die Butter hinein. Lass sie langsam schmelzen und schäumen, ohne dass sie bräunt. Schwenke die Pfanne, damit der Boden mit Butter bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eier hinein und rühre sofort ständig mit einem Teigschaber in langsamen Achterbewegungen. Schabe dabei über Boden und Rand, damit nichts schneller stockt als der Rest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halte die Hitze niedrig und rühre weiter. In 4-6 Minuten dickt das Ei langsam zu kleinen, weichen, glänzenden Flocken ein. Wird es zu fest oder gart es zu schnell, nimm die Pfanne einige Sekunden vom Herd, rühre weiter und stelle sie dann wieder darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd, solange das Ei noch leicht feucht und glänzend, aber nicht mehr flüssig ist. Durch die Restwärme gart es weiter; jetzt ist der richtige Moment für weiches, vollständig gestocktes, cremiges Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre den Schuss Schlagsahne erst vom Herd genommen ein. Sie kühlt das Ei sofort ab, beendet den Garvorgang und macht es besonders seidig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer, rühre ein letztes Mal vorsichtig um und serviere das Rührei sofort auf warmen Tellern oder Toast. Nach Wunsch mit geschnittenem Schnittlauch garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Scrambed_eggs.jpg/1280px-Scrambed_eggs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Scrambed_eggs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Takeaway, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigem französischem Rührei",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-perfect-fried-eggs-sunny-over-easy",
+      "slug": "egg-perfect-fried-eggs-sunny-over-easy",
+      "title": "Perfekte Spiegeleier mit knusprigem Rand",
+      "instructions": "Feine, goldbraune, knusprige Ränder umschließen ein glänzendes, flüssiges Eigelb – die günstigste und schnellste Art, ein Ei wie im Restaurant aussehen und schmecken zu lassen. Beherrsche einen Trick zur Hitzekontrolle und du wirst nie wieder ein trauriges, blasses Ei braten.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten Eiweißquellen pro Gramm. Kaufe eine große Packung und dieses ganze Gericht kostet deutlich weniger als einen Dollar.",
+        "Lass den Schnittlauch weg und serviere das Ei auf einer Scheibe Brot, die du bereits zu Hause hast; das knusprige Ei ist der Star.",
+        "Keine beschichtete Pfanne da? Eine gut geölte normale Pfanne funktioniert ebenfalls. Verwende etwas mehr Öl und bewege die Eier erst, wenn die Ränder gestockt sind und sich von selbst lösen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Nur Pflanzenöl verwenden (insgesamt 1 tbsp) für eine milchfreie und noch günstigere Variante",
+          "savings": "ca. $0.19/Portion and macht es vegan-friendly"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Olivenöl oder ein kurzer Sprühstoß Ölspray",
+          "savings": "negligible, vorhandene Zutaten verwenden"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Stattdessen auf übrig gebliebenem Reis oder einer Tortilla servieren",
+          "savings": "verwendet Vorratszutaten wahrscheinlich bereits vorhanden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Ei",
+        "Frühstück",
+        "schnell",
+        "preiswert",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "5-Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 237,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-perfect-fried-eggs-sunny-over-easy/",
+      "components": [
+        {
+          "key": "d6bcb5ae-9c80-566f-8605-d45da2afdfbf",
+          "name": "Zutaten",
+          "servingGrams": 172.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9f8b0b4-3f1b-56e3-bf13-3fd7ce0a48cf",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65809a20-133f-59f4-b5cd-37f38c1c9f6c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d2bd603-39ad-5b75-9c2c-2a57fa319430",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54e2ca47-be42-53e2-945b-d3091edb48fc",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5308d81b-abae-5fb6-9ff5-27cb58db9569",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6bcfed6-39e3-573e-9f2c-aa4cffba2a7c",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "geschnitten zum Garnieren"
+            },
+            {
+              "key": "199f9832-1e0a-5789-9575-1ccf14939556",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "geröstet zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage jedes Ei zuerst in eine kleine Schüssel oder Tasse. So kannst du Schalenstücke auffangen und die Eier einzeln hineingleiten lassen, ohne das Eigelb zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle eine beschichtete Pfanne auf mittelhohe Hitze und gib Butter und Pflanzenöl hinein. Das Öl erhöht den Rauchpunkt, sodass die Butter bräunt, ohne zu verbrennen. Erhitze alles etwa 30-45 Sekunden, bis die Butter schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Eier aus der Schüssel in die Pfanne gleiten. Brate sie auf mittelhoher Hitze die ersten 30 Sekunden kräftig an, damit sie stocken und knusprige, goldbraune Spitzen am Rand bekommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittelniedrig und würze das Eiweiß mit Salz und Pfeffer. Gare es vorsichtig weitere 1-2 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig ist und nicht mehr wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "FÜR SPIEGELEIER MIT FLÜSSIGEM EIGELB: Wende die Eier nicht. Für eine gestockte Oberfläche gib 1 Teelöffel Wasser in die Pfanne und decke sie 30-45 Sekunden mit einem Deckel ab, damit sie dämpfen. Frische, richtig gekühlte Eier können mit flüssigem Eigelb gegessen werden; für vollständig gestocktes Eigelb weitere 1-2 Minuten garen, bis es fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "FÜR EIER MIT BEIDSEITIG GEGARTEM EIWEISS: Sobald das Eiweiß gestockt ist, schiebe einen dünnen Pfannenwender vollständig unter jedes Ei und wende es mit einer sicheren Bewegung. Gare es auf der zweiten Seite nur 20-30 Sekunden, damit das Eigelb flüssig bleibt, und wende es zum Servieren wieder mit dem Eigelb nach oben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Eier auf einen Teller gleiten (nach Wunsch auf Toast), streue geschnittenen Schnittlauch darüber und mahle zum Schluss etwas Pfeffer darauf. Sofort essen, solange die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Egg%2C_sunny_side_up_%289604241279%29.jpg/1280px-Egg%2C_sunny_side_up_%289604241279%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Egg,_sunny_side_up_(9604241279).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Devika, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von perfekten Spiegeleiern mit knusprigem Rand",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-cilbir-turkish-garlic-yogurt-eggs",
+      "slug": "egg-cilbir-turkish-garlic-yogurt-eggs",
+      "title": "Cilbir (Türkische Eier auf Knoblauchjoghurt mit Chili-Butter)",
+      "instructions": "Sanft pochierte Eier mit flüssigem, goldgelbem Eigelb auf kühlem, säuerlichem Knoblauch-Zitronen-Joghurt, darüber ein brutzelnder Guss aus Paprika-Chili-Butter. Der Kontrast aus heiß und kalt sowie cremig und scharf schmeckt wie ein besonderer Brunch im Café, kostet zu Hause aber nur wenige Dollar.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Joghurt und Eier tragen das ganze Gericht. Kaufe einen großen Becher Naturjoghurt nach griechischer Art und ein Dutzend Eier, dann kannst du dieses Frühstück die ganze Woche für nur wenige Dollar pro Schüssel zubereiten.",
+        "Du brauchst keinen besonderen Aleppo-Pfeffer: Normales Paprikapulver und eine Prise Chiliflocken in Butter ergeben denselben roten, brutzelnden Guss.",
+        "Lass den Essig weg, falls du keinen hast. Frische Eier halten im Wasser am besten zusammen, also nimm die neueste Packung zum Pochieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Naturjoghurt durch einen Kaffeefilter 15 Minuten abtropfen lassen oder saure Sahne mit einem Schuss Milch verdünnen",
+          "savings": "Plain yogurt kostet etwa half the price of Greek"
+        },
+        {
+          "forIngredientId": "red-pepper-flakes",
+          "swap": "Eine Prise Cayennepfeffer oder einen Spritzer scharfe Sauce in die Butter rühren",
+          "savings": "Vorhandene Gewürze aus dem Schrank verwenden"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Getoastetes Pita, Naan oder beliebiges Sandwichbrot, das du da hast",
+          "savings": "Vorhandenes Brot vom Vortag verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "Ei",
+        "Frühstück",
+        "pochierte Eier",
+        "Joghurt",
+        "vegetarisch",
+        "schnell",
+        "Brunch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 238,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-cilbir-turkish-garlic-yogurt-eggs/",
+      "components": [
+        {
+          "key": "d0e7d923-59d6-5a43-a73d-642897c4189d",
+          "name": "Zutaten",
+          "servingGrams": 317,
+          "position": 0,
+          "items": [
+            {
+              "key": "b12699a4-ff26-5868-966d-7c1fdb8e00f4",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Vollfett und zimmerwarm, damit es nicht eiskalt ist"
+            },
+            {
+              "key": "d59403a6-f616-55e6-8c57-a12938f60937",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gerieben oder fein gehackt in den Joghurt gerührt"
+            },
+            {
+              "key": "b83a3793-09fc-5f5c-afb1-af44a3c65300",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "ein Spritzer Saft für eine säuerliche Note"
+            },
+            {
+              "key": "b0072c95-aafa-5743-9151-eacd04125e60",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "möglichst frisch; 2 pro Portion"
+            },
+            {
+              "key": "36b03ecb-f895-5ed2-b283-07761f2c3ee9",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für das Pochierwasser"
+            },
+            {
+              "key": "e7235ea2-7672-5823-857e-7edca8636110",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "für die Chili-Butter"
+            },
+            {
+              "key": "c1f4fccf-e7c3-5c61-a929-8a513da4f465",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a73ddf99-d3a2-59fc-b7cd-cf8344cd8d33",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Aleppo-Pfeffer, falls vorhanden"
+            },
+            {
+              "key": "f03dfd57-ad66-5377-9315-4c3a50443503",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a38261d3-9365-592b-b6bb-4f73260925ca",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "geröstet zum Dippen"
+            },
+            {
+              "key": "ccbdd07c-6afe-5c59-ace7-152325c7f747",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Joghurt während der Vorbereitung heraus, damit er nicht mehr ganz kalt ist. Verrühre griechischen Joghurt, geriebenen Knoblauch, einen Spritzer Zitronensaft und eine Prise Salz in einer kleinen Schüssel. Verteile den Joghurt auf zwei flachen Schüsseln und streiche ihn darin aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle einen breiten Topf etwa 3 inches hoch mit Wasser, gib Essig und eine Prise Salz dazu und bringe es bei mittlerer Hitze zu einem sanften Köcheln (kleine Bläschen steigen auf, kein starkes Kochen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage jedes Ei in eine eigene kleine Tasse. Rühre das köchelnde Wasser zu einem sanften Strudel und lass die Eier einzeln hineingleiten. Pochiere sie 3 bis 4 Minuten, bis das Eiweiß ganz gestockt und das Eigelb absichtlich noch flüssig ist. Das Eiweiß soll undurchsichtig sein und zusammenhalten. Hebe die Eier mit einer Schaumkelle heraus und lass sie auf einem Papiertuch abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Eier pochieren, schmilz die Butter in einer kleinen Pfanne bei mittelniedriger Hitze. Sobald sie schäumt, rühre Paprikapulver und Chiliflocken ein und schwenke die Pfanne 30 bis 60 Sekunden, bis die Butter dunkelrot wird und geröstet duftet. Nimm sie vom Herd, bevor die Gewürze anbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste das Brot, bis es goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege zwei pochierte Eier auf jede Schüssel mit Knoblauchjoghurt. Löffle großzügig warme Chili-Butter über die Eier und den Joghurt, sodass sie die Oberfläche durchzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Schluss etwas grobes Salz und nach Wunsch frischen Dill darüberstreuen. Sofort mit Toast zum Auftunken servieren und das Eigelb am Tisch aufbrechen, damit es in den Joghurt läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/%C3%87%C4%B1lb%C4%B1r_-_Cafe_Rust_2025-03-31.jpg/1280px-%C3%87%C4%B1lb%C4%B1r_-_Cafe_Rust_2025-03-31.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%C3%87%C4%B1lb%C4%B1r_-_Cafe_Rust_2025-03-31.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Andy Li (Onthewings), via Wikimedia Commons (CC0)",
+          "verifiedMatch": true,
+          "altText": "Foto von Cilbir (Türkischen Eiern auf Knoblauchjoghurt mit Chili-Butter)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-skillet-huevos-rancheros",
+      "slug": "egg-skillet-huevos-rancheros",
+      "title": "Huevos Rancheros aus der Pfanne",
+      "instructions": "Eier mit flüssigem Eigelb in einer würzigen Pfanne mit Kreuzkümmel-Schwarzen-Bohnen und Salsa, auf knusprigen Maistortillas angerichtet und mit kühler Avocado, frischem Koriander und Limettensaft vollendet. Das klassische Frühstück der Rancher: sättigend, proteinreich und fast ausschließlich aus günstigen Vorratszutaten gemacht.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 17,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Salsa aus dem Glas übernimmt den Großteil der Arbeit – sie ist günstiger als einzelne Tomaten, Zwiebeln und Chilis zu kaufen, und ein Glas reicht für mehrere Portionen.",
+        "Kaufe eine Tüte Maistortillas und eine Dose schwarze Bohnen im Angebot. Die Pfanne aus Bohnen, Salsa und Eiern kostet etwa $3 pro Portion und deutlich weniger, wenn Eier bei dir günstig sind.",
+        "Lass Cotija, Avocado und Limette weg, wenn das Geld knapp ist – Bohnen, Salsa und Eier allein ergeben schon eine vollständige, sättigende Mahlzeit. Ergänze die Toppings, wann immer es geht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Stattdessen eine Dose Pintobohnen oder Bohnenmus verwenden – Bohnenmus macht das Gericht besonders cremig und sämig.",
+          "savings": "Mit Pintobohnen gleich teuer oder günstiger"
+        },
+        {
+          "forIngredientId": "cotija",
+          "swap": "Zerkrümelter Feta oder beliebiger geriebener Käse sorgt für die salzige Note.",
+          "savings": "Vorhandenen Käse aus dem Kühlschrank verwenden"
+        },
+        {
+          "forIngredientId": "salsa",
+          "swap": "Für eine säuerlichere, grünere Variante Salsa Verde verwenden oder eine Dose gewürfelte Tomaten mit einer Prise Chilipulver nehmen.",
+          "savings": "Canned tomatoes can be günstiger than jarred salsa"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch",
+        "Ei",
+        "Frühstück",
+        "vegetarisch",
+        "preiswert",
+        "Pfannengericht",
+        "Bohnen",
+        "aus einer Pfanne"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 239,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-skillet-huevos-rancheros/",
+      "components": [
+        {
+          "key": "79f5e966-950e-5a6a-994b-a5780830c5fd",
+          "name": "Zutaten",
+          "servingGrams": 636.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "6cc467b9-8d08-52ed-b8b0-75084a1272e1",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b914630e-3e7f-55df-a8b4-106614bb43ca",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7151e10-3ac2-50a8-8ec0-646624be7f87",
+              "ingredientName": "Salsa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3/4 cup Salsa aus dem Glas"
+            },
+            {
+              "key": "2f62d702-9681-59cd-8feb-de958ff1a3c7",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Maistortillas"
+            },
+            {
+              "key": "cf2a6974-da33-5ab1-8a99-181e673cdaa9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6f55ae1-151c-53f6-8669-1e01e3d44f60",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4199d872-bf66-562d-a30d-b03534cbfa46",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6befc45-ac34-559e-96c8-325edcd1bdea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0d3366e-91cc-56cf-bb86-025408c1b889",
+              "ingredientName": "Cotija",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zerbröselt oder durch Queso Fresco ersetzen"
+            },
+            {
+              "key": "864ebb13-42b0-5e3d-9cf3-bb92f71d9553",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in Scheiben oder Würfel geschnitten zum Belegen"
+            },
+            {
+              "key": "cf035b9e-527b-51b3-b215-fbeebb8750c8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "cb6dec4a-65dc-5b6a-b1d7-d46f04ac8239",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "geschnitten in wedges, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wenn du die Eier im Ofen fertig garen möchtest, stelle den Rost in die Mitte und heize jetzt auf 400F vor; für die Zubereitung nur auf dem Herd ist das nicht nötig. Lass die schwarzen Bohnen abtropfen, spüle sie ab und stelle alles griffbereit hin, denn sobald die Eier in die Pfanne kommen, geht es schnell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer ofenfesten Pfanne (Gusseisen eignet sich ideal) bei mittelhoher Hitze. Gib die Maistortillas einzeln oder zu zweit hinein und brate sie pro Seite 30-45 Sekunden knusprig, bis sie geröstet und an den Rändern fest sind. Reiße sie anschließend auseinander oder schichte sie über den Pfannenboden als Grundlage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf mittel und gib die abgetropften Bohnen, Salsa, Kreuzkümmel, Knoblauchpulver und Salz auf die Tortillas. Rühre vorsichtig um und lasse alles 4-5 Minuten köcheln, bis die Mischung sämig und blubbernd ist und die Tortillas in der Sauce weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke mit der Rückseite eines Löffels 4 flache Mulden in die Bohnen und verteile sie mit Abstand. Schlage je ein Ei in eine Mulde und achte darauf, das Eigelb nicht zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Eier auf eine von zwei Arten: Decke die Pfanne ab und gare sie 6-9 Minuten bei mittelniedriger Hitze auf dem Herd ODER stelle die offene Pfanne in den auf 400F vorgeheizten Ofen und gare sie 10-14 Minuten. In beiden Fällen garen, bis das Eiweiß vollständig gestockt und undurchsichtig ist und nicht mehr durchsichtig wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für klassisches flüssiges Eigelb nimm die Pfanne heraus, sobald das Eiweiß vollständig gestockt ist (das Eigelb wackelt dann noch). Die Eier sind sicher, sobald das Eiweiß fest ist. Wenn du festes Eigelb bevorzugst oder Personen bewirtest, die flüssige Eier meiden sollten, gare alles weitere 2-3 Minuten, bis das Eigelb fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd und streue zerkrümelten Cotija darüber, solange alles heiß ist, damit der Käse leicht weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege das Gericht mit Avocadoscheiben und gehacktem Koriander. Serviere es direkt aus der Pfanne mit Limettenspalten zum Beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Huevos_rancheros.jpg/1280px-Huevos_rancheros.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Huevos_rancheros.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "1000b, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Huevos Rancheros aus der Pfanne",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

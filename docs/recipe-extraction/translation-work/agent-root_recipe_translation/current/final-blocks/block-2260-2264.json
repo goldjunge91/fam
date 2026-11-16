@@ -1,0 +1,1032 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53203",
+      "slug": "tmdb-53203",
+      "title": "Thailändischer Reisnudelsalat",
+      "instructions": "Thailändisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "thailändisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2260,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53203/",
+      "components": [
+        {
+          "key": "bb178fa5-24c7-59b2-8995-f72ffb7e2b5c",
+          "name": "Zutaten",
+          "servingGrams": 461.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "65b26a76-1011-5a58-a676-f57199426ce4",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1751f891-3059-5d8e-8551-29520ecf938a",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf2456b9-2312-50f1-aa82-8b678f75f749",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa1f2d60-4b72-5da2-9ab2-89e6218789d6",
+              "ingredientName": "Fischsoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65f09d69-6af6-50a7-827d-5875bf4d489d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76e451e6-d6e2-51cd-9633-39b94176e7b5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "492614c5-41fb-54e7-8458-21cf6635b5eb",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfe63b03-7fa1-5f75-a330-d8ce1d503544",
+              "ingredientName": "Schweinebratwurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fb22ea2-9a34-5387-b582-05714d51732d",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81e8202c-381b-57ff-b5c2-9684c771d774",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e1742e8-578a-58ce-baf8-a961f6099fe4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ada3d77f-8a84-5d49-889f-b68c7dad7e6d",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91e0b8fe-0f01-57c3-bf14-7d792b1e7cd5",
+              "ingredientName": "Rinderfilet",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baaace76-cdc0-5e2d-bb8f-f7fcff9bcceb",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Nudeln und Sojasprossen in eine hitzebeständige Schüssel und übergieße sie mit kochendem Wasser. Lasse sie 4 mins ziehen, oder bis die Nudeln weich sind. Gieße sie ab, spüle sie unter kaltem fließendem Wasser ab und gieße sie erneut ab. Gib sie zurück in die Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Limettenschale und -saft, Fisch- oder Sojasoße und Zucker. Rühre die Mischung zusammen mit roter Zwiebel und Salat unter die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Variante mit Hackfleisch erhitze etwas Öl in einer beschichteten Pfanne und brate 500g Schweinehackfleisch, etwas geriebenen Ingwer und eine Prise Cayennepfeffer oder Chilipulver 10 mins, bis das Fleisch gebräunt und durchgegart ist. Vermische es mit den Nudeln, verteile sie auf vier Schüsseln und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Variante mit Steak bereite den Reisnudelsalat zu. Erhitze 1 tsp Sonnenblumenöl in einer Pfanne. Gib 2 tbsp Sesamsamen auf einen Teller. Reibe 1 tsp Öl in 4 x 175g Rindersteaks und drücke sie in die Sesamsamen. Brate sie 5 mins für rosa gebraten und wende sie nach der Hälfte der Zeit. Lasse sie 5 mins ruhen und schneide sie dann in dünne Scheiben. Mische 1 entkernte und fein geschnittene rote Chili sowie eine Handvoll Minzblätter unter die Nudeln. Zum Servieren mit Steak belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/6g3rso1763486069.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/6g3rso1763486069.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53213",
+      "slug": "tmdb-53213",
+      "title": "Thailändische Fischbrühe mit Blattgemüse",
+      "instructions": "Thailändisches Meeresfrüchtegericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2261,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53213/",
+      "components": [
+        {
+          "key": "fe961ed4-99a0-5330-a56a-9158e94222db",
+          "name": "Zutaten",
+          "servingGrams": 230.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "03ff41c8-9456-56d0-acab-3af347100732",
+              "ingredientName": "Naturreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c3806be-e3d9-51db-9743-095bc309a9c0",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "316e6af8-c377-5a4e-b9c0-c0cbeda195c0",
+              "ingredientName": "rote Thai-Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c773a1a-ef4e-5d33-8c3c-b1d641a3081e",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16ff2637-56fa-5257-b3e3-abea1ff16bc6",
+              "ingredientName": "Fischsoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce639cd7-f6cb-53a4-964a-ce058a35b1e7",
+              "ingredientName": "weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30b326fa-79ac-56f4-a434-bbe1b222e986",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3127803d-7fd9-5218-8e08-804e1caa266a",
+              "ingredientName": "Pak Choi",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92eedc9a-e3ef-5f0d-86ea-84535fe06716",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln nach Packungsanweisung. Schrecke sie mit kaltem Wasser ab und lasse sie gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Brühe in einen großen Topf und rühre Currypaste, Limettenblätter, Fischsoße und 250ml kaltes Wasser ein. Bringe alles zum Köcheln und gare es 5 mins.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Fisch in etwa 3cm große Würfel und gib sie in den Topf. Bringe alles erneut zum Köcheln und gare den Fisch ohne Deckel 2 mins.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Nudeln, Garnelen und Pak Choi ein und lasse alles 2-3 mins köcheln, bis Fisch und Garnelen gerade gar sind. In Schüsseln servieren und mit Koriander bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/a2ec961763587756.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/a2ec961763587756.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53202",
+      "slug": "tmdb-53202",
+      "title": "Gedämpfter Fisch nach thailändischer Art",
+      "instructions": "Thailändisches Meeresfrüchtegericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "thailändisch",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2262,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53202/",
+      "components": [
+        {
+          "key": "bfcedb36-6f6d-59a5-a299-c0623f14f1a4",
+          "name": "Zutaten",
+          "servingGrams": 116.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0e8c278-8817-52c1-a316-873de43fd563",
+              "ingredientName": "Forelle",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b07acab3-c32d-5993-8f63-a8f4ca5e684b",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09a0875e-ab8e-5e62-9ca3-46324ab230da",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92ed9630-9be4-54f5-a2cc-e2f787c9b9ed",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1618d1d-6a24-5bcb-9bcc-3e92f7cc373f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a524faf-5a3b-54d1-8f3c-66cda544f00a",
+              "ingredientName": "Baby-Pak-Choi",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5176385-43e9-5fd0-bd9b-9450e245edb7",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Fischfilets nebeneinander auf ein großes Stück Folie und streue Ingwer, Knoblauch, Chili und Limettenschale darüber. Beträufle sie mit Limettensaft und verteile Pak-Choi-Stücke um und auf dem Fisch. Gieße Sojasoße über den Pak Choi und verschließe die Folie locker zu einem Päckchen. Lasse oben Platz, damit der Dampf während des Garens zirkulieren kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dämpfe den Fisch 15 Minuten. (Falls du keinen Dämpfeinsatz hast, lege das Päckchen auf einen hitzebeständigen Teller über einen Topf mit sanft köchelndem Wasser, decke ihn ab und dämpfe den Fisch.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yx8j1i1763484612.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yx8j1i1763484612.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52882",
+      "slug": "tmdb-52882",
+      "title": "Fischpastete mit drei Fischsorten",
+      "instructions": "Britisches Meeresfrüchtegericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "meeresfrüchte",
+        "fisch",
+        "milchprodukte",
+        "pastete"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2263,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52882/",
+      "components": [
+        {
+          "key": "3cb02f88-ef47-5ce9-b8d5-162a04720b2d",
+          "name": "Zutaten",
+          "servingGrams": 354.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "1678e6dc-860e-59e5-a7b4-6fa52a252759",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77b7d94f-9142-52bc-9f8c-5ac29771807d",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c725997c-127e-5740-9990-aa2b2e465f93",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef3bd52d-ac0e-55ac-9cdd-4997a8bb66f1",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e35d93f6-c599-5e46-a49c-2bdcfc289774",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8c49666-8928-54e5-8a39-d3a0af624f51",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b0a2f23-e093-590e-981c-143647c53a25",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3af21874-6a4b-54d9-9f54-3af9b2e3fc7e",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d280133-f6ca-5f8a-b752-1da5adbfcdd4",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc905650-cb4d-5875-b8e6-21cd2c7f8d42",
+              "ingredientName": "geräucherter Schellfisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18ba2e47-b5e3-5aeb-9ab9-8750bcb7e3c8",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 200C/400F/Gasstufe 6 (180C Umluft) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Kartoffeln in einen Topf mit kaltem Salzwasser. Bringe das Wasser zum Kochen und lasse die Kartoffeln köcheln, bis sie ganz weich sind. Gieße sie gut ab und zerdrücke sie mit Butter und Milch. Gib Pfeffer hinzu und probiere, ob die Würzung stimmt. Bei Bedarf Salz und mehr Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Fischfüllung schmilz Butter in einem Topf, gib Lauch hinzu und rühre ihn über der Hitze um. Decke den Topf ab und lasse den Lauch 10 Minuten sanft köcheln, bis er weich ist. Miss Mehl in eine kleine Schüssel ab. Gib Wein dazu und verrühre alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Milch zum Lauch und bringe die Mischung zum Kochen. Rühre die Weinmischung ein und koche unter kräftigem Rühren, bis die Soße eindickt. Würze, gib Petersilie und Fisch dazu und rühre alles zwei Minuten über der Hitze um. Fülle die Mischung in eine ofenfeste Auflaufform und verteile die Eier darüber. Abkühlen lassen, bis die Füllung fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Kartoffelstampf über der Fischmischung und ziehe mit einer Gabel ein Muster hinein. Mit Käse bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Pastete 30-40 Minuten, bis die Oberfläche leicht goldbraun ist und die Ränder blubbern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52912",
+      "slug": "tmdb-52912",
+      "title": "Soufflés mit drei Käsesorten",
+      "instructions": "Französisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "frankreich",
+        "verschiedenes",
+        "backen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2264,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52912/",
+      "components": [
+        {
+          "key": "df55a101-a971-50e6-a0a4-fb55c238eddd",
+          "name": "Zutaten",
+          "servingGrams": 655.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "f513cad9-e344-590b-bb3a-c61a38ef0ad9",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "530f6f5f-b8dc-56e8-8e97-3afc1bf7b645",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad0c109d-79e4-5edc-b158-1d56d2a0a7a8",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e12c399e-135a-5ed4-8ada-c4865269f725",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04698b62-0a2b-5b79-a558-f9da2ba3de24",
+              "ingredientName": "Weizenmehl",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "410c7599-ae1f-5de5-87c3-500757df791c",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b513772-8c37-500f-8469-146d9cca6cad",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5677118b-d29c-578a-9da5-5d5203d89fad",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41c5d994-7cc4-5399-bcc7-532733855f04",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eff67f81-6451-5997-a4e3-3157aff17e6a",
+              "ingredientName": "geriebener Käse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7809ec60-5d49-5a97-8dbe-01fcfd55fafc",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec623b9b-4ccc-5d76-9751-678ea3b4e0e8",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 200C/180C Umluft/Gasstufe 6 vor und fette 4 kleine Förmchen (je etwa 200ml) mit Butter ein. Streue Parmesan hinein und drehe die Förmchen, bis alle Seiten bedeckt sind. Erwärme Milch und Lorbeerblätter in einem großen Topf sanft bis zum Kochen. Schalte die Hitze aus und lasse alles 15 mins ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entferne die Lorbeerblätter, gib Butter und Mehl hinzu und stelle den Topf wieder auf niedrige Hitze. Lasse die Soße unter ständigem, sehr vorsichtigem Rühren mit einem Schneebesen etwa 6 mins köcheln, bis sie glatt und dick ist. Rühre auch gut in den Ecken des Topfes, damit sie nicht ansetzt oder klumpt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sobald die Soße eingedickt ist, gib sie in eine große Schüssel und rühre Senfpulver, Cayennepfeffer, Gruyère und Eigelb vollständig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage das Eiweiß in einer absolut sauberen Schüssel mit einem sauberen Schneebesen, bis sich gerade Spitzen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe das Eiweiß vorsichtig in drei Portionen unter die Käsesoße. Rühre nicht, damit das Eiweiß luftig bleibt. Fülle die vorbereiteten Förmchen mit der Soufflémischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jedes Soufflé mit einer Scheibe Ziegenkäse und stelle die Förmchen auf ein Backblech. Backe sie 20-25 mins, bis sie aufgegangen und elastisch, aber durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Soufflés abkühlen, fahre mit einem Messer am Rand entlang und löse sie aus den Förmchen. Wenn du sie vorbereitest, stelle die Soufflés kopfüber für eine ordentliche Präsentation auf ein Blech. Decke es mit Frischhaltefolie ab. Kühle sie einige Tage oder friere sie bis zu 1 month ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum erneuten Backen heize den Ofen auf 200C/180C Umluft/Gasstufe 6 vor. Lege die kopfüber gestürzten Soufflés in eine flache Auflaufform, belege sie mit den restlichen Ziegenkäsescheiben und gieße Sahne darüber (so trocknen sie beim zweiten Backen nicht aus). Backe sie 8-10 mins goldbraun. Sofort mit leicht angemachtem Salat servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/sxwquu1511793428.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/sxwquu1511793428.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

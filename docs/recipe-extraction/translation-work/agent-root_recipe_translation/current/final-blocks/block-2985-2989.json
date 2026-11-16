@@ -1,0 +1,1188 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-blackened-chicken",
+      "slug": "gen-blackened-chicken",
+      "title": "Schwarz gewürztes Hähnchen",
+      "instructions": "Cajun-Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust im Angebot kaufen, flach klopfen und für mehr Komfort einfrieren",
+        "Eine große Menge Gewürzmischung herstellen und luftdicht aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "cajun",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2985,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blackened-chicken/",
+      "components": [
+        {
+          "key": "0e8aec0d-f761-541b-bd3b-8865403aa088",
+          "name": "Zutaten",
+          "servingGrams": 86.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e93d847-e4d8-5223-87b9-bc3166b2c919",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "5e5677d8-5a6f-5ed7-a006-47e813957578",
+              "ingredientName": "Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "7d77bf2c-36f7-5354-bf94-a4a4b2a84fde",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Esslöffel"
+            },
+            {
+              "key": "0f6e80c6-bfe2-57d7-aad0-09f9bab1547e",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2922276c-4995-5628-af52-ebcfb557aabc",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b3f930c1-a686-5152-b271-49f746f9170d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "2fe50af8-bc8e-5408-a04d-51c6ae03311b",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "fec81c6c-7c6d-55e4-968f-e9c069342a17",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e54ae81d-9de6-568b-84ea-962d1afaa0b3",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "66e0a264-2604-5ec7-b929-b505998e944d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust mit einem Fleischklopfer auf 0.75 inch Dicke klopfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paprikapulver, Cayennepfeffer, Oregano, Basilikum, Knoblauchpulver, Zwiebelpulver, schwarzen Pfeffer und Salz in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beide Seiten der Hähnchenbrust gründlich mit der Gewürzmischung bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter in einer großen gusseisernen Pfanne bei mittelhoher Hitze erhitzen, bis sie gerade zu rauchen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen in die Pfanne legen und 3-4 Minuten braten, ohne es zu bewegen, bis sich eine dunkle Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hähnchen wenden und weitere 3-4 Minuten braten, bis es durchgegart und dunkel gewürzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller legen und sofort mit Reis oder Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/04/Blackened-Chicken-SpendWithPennies-5.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/04/Blackened-Chicken-SpendWithPennies-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-seafood-gumbo",
+      "slug": "gen-seafood-gumbo",
+      "title": "Meeresfrüchte-Gumbo",
+      "instructions": "Kreolisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Okra und Garnelen statt frischer verwenden, um deutlich Kosten zu senken",
+        "Ganzes Hähnchen kaufen, selbst zerlegen und Fleisch sowie Brühe im Gumbo verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kreolisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2986,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seafood-gumbo/",
+      "components": [
+        {
+          "key": "a6ef3e38-06d5-59cb-82b1-43472ed48963",
+          "name": "Zutaten",
+          "servingGrams": 627.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "c86c7d15-1f40-5209-9f3c-0c4d739190a4",
+              "ingredientName": "Okra",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d88c8f32-24ef-5515-85a9-3836c6b937f3",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "1c2204d7-04da-594d-ae94-99a7d649bd45",
+              "ingredientName": "Krabbenfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "aa58437f-fa8d-5cd9-b097-32c91041bf9d",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "92c7b015-2254-5b77-bd77-7b285f2138c1",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "1340b783-3696-5897-9d60-cce5574c07df",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "d7ebfdb1-ec34-50d8-9613-a054d0e355b6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "6c01be6b-eb76-5a23-a462-945b4fbdea83",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "9715b3b9-c899-53c8-bf2b-3da4ab6ef79e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbb3c06a-efd8-5a42-bf9d-870aecbb8d57",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac6a62d0-4b1c-5343-9cf7-c3014ef1d6cd",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "996ea6e2-bb02-5359-9d3b-e18a19e99aa2",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d785a34f-dbc9-5aed-831a-93c00f7bb715",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c78f4aa8-dbe9-5848-9a89-5947dcb5544c",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "375fb9bc-3966-548b-aac6-ddf9cf549b25",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Geschnittene Wurst in einem großen Topf anbräunen, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter im Topf schmelzen, Mehl einrühren und unter ständigem Rühren 8-10 Minuten dunkel schokoladenbraun rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel, Sellerie, Paprika und Knoblauch hinzufügen und 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hühnerbrühe langsam unter ständigem Rühren angießen, damit keine Klumpen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wurst, Cajun-Gewürz, Lorbeerblätter und Thymian hinzufügen und 30 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Okra hinzufügen und 10 Minuten köcheln lassen, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garnelen und Krabbenfleisch einrühren und 5 Minuten garen, bis die Garnelen rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vom Herd nehmen und Filé-Pulver einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "In tiefen Schalen auf Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2023/11/Easy-Shrimp-Gumbo_092.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2023/11/Easy-Shrimp-Gumbo_092.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boudin",
+      "slug": "gen-boudin",
+      "title": "Boudin",
+      "instructions": "Cajun-Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter kaufen und selbst mahlen statt fertig gemahlenes Schweinefleisch zu nehmen",
+        "Naturdärme an der Fleischtheke statt Kunstdärme verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "cajun",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2987,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boudin/",
+      "components": [
+        {
+          "key": "76664cf8-642d-512c-ba53-2402a751c791",
+          "name": "Zutaten",
+          "servingGrams": 156.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "b5f4551b-53ba-55cd-aab3-0f6153b14cbf",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "78e3708f-4c40-5368-9389-b3a6188b5e7e",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "73bb023e-30c1-5a0e-b741-8baec124e5b6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke, gewürfelt"
+            },
+            {
+              "key": "ca9174e2-6c05-5f27-90ff-0a7a104c151c",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "894168c0-0ae2-5266-809e-cd9573921cf6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stück, gewürfelt"
+            },
+            {
+              "key": "420fd459-ef23-529c-a1cd-ef03635befb5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "620c31e8-994f-5930-9f04-f862506222f2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "4a8680a5-2957-5328-90c2-2fc754216478",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9fd7e319-54d7-53c3-864c-d94bdf8aabfa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineleber 15 Minuten in Hühnerbrühe gar kochen und dann fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel, Sellerie, Paprika und Knoblauch in einem großen Topf bei mittlerer Hitze 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinehackfleisch in den Topf geben und 8 Minuten garen; dabei zerteilen, während es bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackte Leber, Cayennepfeffer, Salz und schwarzen Pfeffer einrühren und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen und leicht abkühlen lassen, dann die Mischung mit einem Wurstfüller in Schweinedärme füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Boudin bei mittelhoher Hitze 10-12 Minuten grillen und gelegentlich wenden, bis er gebräunt und durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Crackern oder in einem Brötchen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/jyIBAsb_ED_ttI5iTJbiRcfAbGk=/5184x3456/filters:fill(auto,1)/homemade-boudin-sausage-3060607-hero-01-b96efbba307640d28253ed08ee986f35.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/jyIBAsb_ED_ttI5iTJbiRcfAbGk=/5184x3456/filters:fill(auto,1)/homemade-boudin-sausage-3060607-hero-01-b96efbba307640d28253ed08ee986f35.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crawfish-pasta",
+      "slug": "gen-crawfish-pasta",
+      "title": "Flusskrebs-Pasta",
+      "instructions": "Kreolisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Flusskrebsschwänze statt frischer verwenden und deutlich sparen",
+        "Sahne durch Kaffeesahne oder Milch mit etwas Maisstärke ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kreolisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2988,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crawfish-pasta/",
+      "components": [
+        {
+          "key": "b6bd9f80-9f6a-53fa-aee2-2a166829e714",
+          "name": "Zutaten",
+          "servingGrams": 165.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1144b38-eb17-5336-afaf-0f592fbefcdc",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "bd8b6642-268b-5237-9ba2-61322eaa6a54",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3492adfd-cb48-5817-ba85-ea4d34cae1df",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "fe0d52a3-b8db-5588-b5f5-f75c67f56dd8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stück, gewürfelt"
+            },
+            {
+              "key": "defbbfbe-598f-55b5-b172-7ef8070ba111",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "4027a673-3e59-5b85-a938-f6db8e78260f",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "08fa2ff7-36c5-5f8a-a67c-279572c0a86c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "9be18e1c-9779-5d31-918d-04d9e6957976",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c5952a4c-6338-5faf-bca0-8567e7b04ca1",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "c562c548-a008-565c-adba-e62da3f10a80",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salzwasser in einem großen Topf zum Kochen bringen, Pasta al dente kochen, dann abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze schmelzen und gewürfelte Zwiebel sowie Knoblauch 3 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Flusskrebsschwanzfleisch hinzufügen und 2 Minuten unter vorsichtigem Rühren erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sahne und Hühnerbrühe angießen, Cayennepfeffer einrühren und mit Salz sowie schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5 Minuten unter gelegentlichem Rühren köcheln lassen, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Pasta in die Pfanne geben und vorsichtig wenden, bis sie mit Sauce überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen und den größten Teil der Frühlingszwiebeln sowie Parmesan einrühren; etwas zum Garnieren zurückbehalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren und mit den restlichen Frühlingszwiebeln sowie Parmesan garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/AsIfc_-JA-dKdE3Cr4LZSv3vtrU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4588424-fe6225d37a1b4000b1ab11f3003a7334.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/AsIfc_-JA-dKdE3Cr4LZSv3vtrU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4588424-fe6225d37a1b4000b1ab11f3003a7334.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-alligator-gumbo",
+      "slug": "gen-alligator-gumbo",
+      "title": "Alligator-Gumbo",
+      "instructions": "Cajun-Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Falls kein Alligator erhältlich ist, durch Hähnchen oder Andouille-Wurst ersetzen",
+        "Eigene Brühe aus Hühnerknochen kochen statt Brühe zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "cajun",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2989,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-alligator-gumbo/",
+      "components": [
+        {
+          "key": "047c6afa-a4d7-5566-a3ad-8174205723de",
+          "name": "Zutaten",
+          "servingGrams": 699.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "9196d3bf-7b83-57c8-922b-72f083f9bf54",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "d8bb4c71-6272-522d-91d9-bacfd7944f37",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "51ebaa4c-49a8-5ce2-96c3-b6aa4592b1da",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "3887c1a5-f335-5709-be48-8fe5dd903510",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "15959795-fb98-5768-a8c4-21724df57f85",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stangen, gewürfelt"
+            },
+            {
+              "key": "267929bc-3f49-553c-a9ec-5c2c52dc6e62",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, gewürfelt"
+            },
+            {
+              "key": "2f77b359-76bb-5dbe-8cb7-8a7cfaa381b9",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "02f2ee90-2c11-5c7a-bf15-ff11464eb3da",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "7c10360b-6c77-51fb-bc46-3f586d3908b8",
+              "ingredientName": "Okra",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tassen, in Scheiben geschnitten"
+            },
+            {
+              "key": "4b63a129-0d90-5cda-a104-a5b2ea67e0b1",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0c711689-0dd5-5190-b1fe-0b3ce98de0bf",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8984f9d5-6b14-5a33-bd71-1aacefe8225f",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen schweren Topf bei mittelhoher Hitze erhitzen und Alligatorfleisch portionsweise anbräunen; beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf restliches Öl und Mehl verquirlen, um eine Mehlschwitze herzustellen; unter ständigem Rühren 15-20 Minuten tief schokoladenbraun rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel, Sellerie, Paprika und Knoblauch zur Mehlschwitze geben und 5 Minuten unter häufigem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hühnerbrühe langsam unter Rühren angießen und das angebräunte Alligatorfleisch zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lorbeerblätter und Cayennepfeffer hinzufügen, aufkochen und dann die Hitze reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "60 Minuten köcheln lassen und gelegentlich umrühren, bis der Alligator sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Geschnittene Okra hinzufügen und weitere 10 Minuten köcheln lassen, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vom Herd nehmen, Filé-Pulver einrühren und auf Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/gwanj8tnsyn81.jpg",
+          "sourcePageUrl": "https://i.redd.it/gwanj8tnsyn81.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1158 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-saag-aloo",
+      "slug": "gen-saag-aloo",
+      "title": "Saag Aloo",
+      "instructions": "Indisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten statt frischen Spinat kaufen.",
+        "Ganze Gewürze in großen Mengen auf indischen Märkten kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4805,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-saag-aloo/",
+      "components": [
+        {
+          "key": "9f61f149-aed6-5649-8590-0764369bcb41",
+          "name": "Zutaten",
+          "servingGrams": 476.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "915f7068-8597-5d0f-809d-2e4718b2617e",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0e841501-5624-54df-a5f3-5d6b48c34de3",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d8e01cea-d9d3-52d4-964e-04bcaaa90ad3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "b81748f9-1293-56a6-beb6-056f2ebe5bf4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbb0c320-8f55-5d60-beb4-9e9e1c087186",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ff5d78e2-8b3e-5431-8194-ef9e6b71f3c6",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "34165dcd-c5c0-553a-9621-381b48d449e4",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "734e5e22-a83d-5989-93c9-61399c850921",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "eca92afd-22b2-5cf0-a18f-249483150835",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5463a8e3-be5a-53af-9071-a14bc1f81c6d",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "dfa513f9-3aef-583a-bad6-4db100f208e0",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "faec56bb-e270-58fb-9b27-eef9aba59c03",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in 1 Zoll große Würfel schneiden und 10 Minuten kochen, bis sie halb gar sind. Abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne erhitzen. Kreuzkümmelsamen hineingeben und etwa 30 Sekunden rösten, bis sie aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gewürfelte Zwiebel dazu und dünste sie 3 Minuten, bis sie weich ist. Füge den gehackten Knoblauch und Ingwer hinzu und gare alles weitere 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Tomaten, Kurkuma und Garam Masala einrühren und 3 Minuten garen, bis die Tomaten zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die vorgekochten Kartoffeln dazugeben, gut umrühren und 5 Minuten weitergaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den frischen Spinat portionsweise einrühren, bis er zusammenfällt. Kokosmilch zugießen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feastingfood.com/wp-content/uploads/2025/01/Easy-Vegetarian-Recipes-scaled-e1738189503317.jpg",
+          "sourcePageUrl": "https://feastingfood.com/wp-content/uploads/2025/01/Easy-Vegetarian-Recipes-scaled-e1738189503317.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vegetable-pad-thai",
+      "slug": "gen-vegetable-pad-thai",
+      "title": "Pad Thai mit Gemüse",
+      "instructions": "Thailändisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tamarindenkonzentrat auf asiatischen Märkten in großen Packungen statt in kleinen Gläsern kaufen.",
+        "Bei knappem Budget kannst du die Fischsauce durch Sojasauce ersetzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "thailändisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4806,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vegetable-pad-thai/",
+      "components": [
+        {
+          "key": "dff52985-0e7d-5ba7-96ba-2e677492f31f",
+          "name": "Zutaten",
+          "servingGrams": 324.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc75fbc5-c30f-5347-a93b-aa62db43701e",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "bcbb7d64-dbb6-582a-bebc-fda5ab417db8",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "aaeb9946-19e3-5589-b942-6d33b2700659",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "3aeab21d-c8b0-5924-96a2-31a56fca847c",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "5eac5258-53a5-51ea-a425-7fe672f033b9",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a7a09313-3b9b-5a1f-976e-ac0ffc4cbd42",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "04f7cd95-137b-501f-ab4d-5bca58585570",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0cdaed29-2bee-5498-9e80-234b82569306",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "217b5119-0d8f-5ca3-8bc7-5a24430fe55b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "966099bd-3be1-5c79-86a5-5eb1dae38740",
+              "ingredientName": "Erdnussöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c2bd2ae1-191f-51fd-9b0d-f19e1de3d0b4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acb87c8e-9463-52fe-9721-a8eaab00193d",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reisnudeln 10 Minuten in warmem Wasser einweichen, bis sie weich sind, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tofu mit Küchenpapier trocken pressen und in 1/2 Zoll große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Esslöffel Erdnussöl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen. Gehackten Knoblauch 30 Sekunden anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Tofuwürfel dazu und brate sie 3 Minuten, bis sie leicht gebräunt sind. Nimm sie aus der Pfanne und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das restliche Öl hineingeben und Paprika, Karotten und Brokkoli 4 Minuten unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eingeweichte Nudeln, Tamarindenpaste, Fischsauce, Limettensaft und braunen Zucker dazugeben und unter ständigem Rühren 3 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den gegarten Tofu wieder dazugeben und alles 1 Minute vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit zerstoßenen Erdnüssen bestreuen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/NQy0jbywJClg3CFIaC7H-iqeJwE=/4001x2668/filters:no_upscale():max_bytes(150000):strip_icc()/vegetarian-pad-thai-3217746-step-11-231a859fac40430583b044297aaf4a87.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/NQy0jbywJClg3CFIaC7H-iqeJwE=/4001x2668/filters:no_upscale():max_bytes(150000):strip_icc()/vegetarian-pad-thai-3217746-step-11-231a859fac40430583b044297aaf4a87.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-halloumi-saganaki",
+      "slug": "gen-halloumi-saganaki",
+      "title": "Halloumi Saganaki",
+      "instructions": "Griechischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Halloumi in größeren Mengen bei Großhandelsmärkten kaufen.",
+        "Zum Braten günstigeres Rapsöl statt Olivenöl verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4807,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-halloumi-saganaki/",
+      "components": [
+        {
+          "key": "03bb7586-6f39-5659-90cf-ce719cf36524",
+          "name": "Zutaten",
+          "servingGrams": 189.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "87ed6da0-ccc5-5af3-8746-95f553f86e69",
+              "ingredientName": "Halloumi",
+              "grams": 113.4,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "5ef48939-c0de-5c3e-aa63-6f098405ac84",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "5a5d2bc1-d132-5830-a3a9-dba24a4fb4e4",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "27ffe9dc-a594-579f-8159-4159a25be887",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1a9f30b0-54ea-5012-81a6-d42e0c333b2b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe3737c5-7f4a-5706-929c-db4eb2b8f53e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halloumi in 1/4 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Ei in einer flachen Schüssel verquirlen und das Mehl in eine zweite flache Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede Käsescheibe erst in Mehl, dann im verquirlten Ei und anschließend nochmals in Mehl wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen, bis es leicht schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die panierten Käsescheiben pro Seite 1–2 Minuten goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen mit Küchenpapier ausgelegten Teller legen und abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frischen Zitronensaft über den warmen Käse pressen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/08/fried-halloumi-recipe-1.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/08/fried-halloumi-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-minestrone-soup",
+      "slug": "gen-minestrone-soup",
+      "title": "Minestrone-Suppe",
+      "instructions": "Italienisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gemüse und Konserven der Hausmarke verwenden, um Kosten zu sparen.",
+        "Tiefgekühlten statt frischen Spinat verwenden; das spart Geld und vermeidet Reste."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4808,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-minestrone-soup/",
+      "components": [
+        {
+          "key": "da3b3cb0-2e0f-53ef-bf30-00103795c9ad",
+          "name": "Zutaten",
+          "servingGrams": 704.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "91dd7ec4-355e-5358-a1ee-a21faa070004",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8eb19f0e-fda6-594a-b0fe-63705445784d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "45938813-6841-5765-91e6-f30ae8465220",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "e28a92d7-79e4-5a16-92b9-12f9667a88dd",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b4e063b-4559-5c67-98e6-2462b817048a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d40b481d-38d7-59b0-9a92-8cdcb2ea01d6",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "b5ef5080-3ea1-5589-9f48-9b838acdf2ec",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "0a5488a9-5056-52ae-ba44-664e81f5769f",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "9833a0cd-6113-52fa-abc1-6565a07b6550",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "2757ed44-2790-52b8-b95b-00882762211e",
+              "ingredientName": "Nudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "62791c75-0d8b-593c-aaf6-89fc81b57f71",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f2bd2291-36a6-564f-b727-399e50349266",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen. Zwiebel, Karotten und Sellerie würfeln und 5 Minuten darin garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch dazugeben und 1 Minute mitbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemüsebrühe und Dosentomaten samt Saft zugießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zucchini und abgegossene weiße Bohnen dazugeben. Die Hitze reduzieren und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nudeln dazugeben und 8 Minuten bissfest kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frischen Spinat einrühren und 2 Minuten garen, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/minestronesoup-vertical-2-652efdd4547f1.jpg?crop=0.8333333333333334xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/minestronesoup-vertical-2-652efdd4547f1.jpg?crop=0.8333333333333334xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vegetable-moussaka",
+      "slug": "gen-vegetable-moussaka",
+      "title": "Gemüse-Moussaka",
+      "instructions": "Griechisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Feta durch preiswerteren Ricotta ersetzen.",
+        "Dosentomaten der Hausmarke kaufen, um die Kosten deutlich zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4809,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vegetable-moussaka/",
+      "components": [
+        {
+          "key": "d9603bd5-2ef5-5d61-9c5c-2aa77fd56dc4",
+          "name": "Zutaten",
+          "servingGrams": 507.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd48c46a-d371-54dd-bfd1-7358b590bb15",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "adb78cea-99c2-5caf-9469-433379340a7e",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "7786a911-9ef6-5d77-b365-eac0a4eb641e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "166a740d-9d17-5974-b43c-089c617dcfd5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "9f035d07-4cbf-59b1-9459-1f6fe709c097",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6134c65-5811-5454-b9ed-953c61d62c20",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen)"
+            },
+            {
+              "key": "92893736-40ad-5f85-a0b8-9bad6a36b8c7",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b6db1308-6198-5483-ad7e-d20e445a5aa5",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4efb2d47-1b95-55f1-bd48-e60f8ed1f706",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3b5c5d56-e621-5bbc-bc4f-4aa573f8f4ef",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "dd91a30b-397e-545e-ad16-b0527946a619",
+              "ingredientName": "Fetakäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1de0dc9d-fa3d-5c93-894c-ac7fb0823ae3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 350°F vor. Schneide Aubergine und Zucchini längs in 1/4 Zoll dicke Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Gemüsestreifen mit Olivenöl bestreichen und auf zwei Backblechen 20 Minuten backen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Esslöffel Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebel sowie Knoblauch 3 Minuten darin dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dosentomaten dazugeben und 15 Minuten köcheln lassen. Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Béchamelsauce Butter schmelzen und Mehl einrühren, bis eine Paste entsteht. Milch langsam unter ständigem Rühren zugießen und kochen, bis die Sauce eindickt. Mit Muskatnuss würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hälfte von Aubergine und Zucchini in einer 9x13 Zoll großen Auflaufform schichten, mit Tomatensauce bestreichen und das restliche Gemüse darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Béchamelsauce darübergießen, mit Feta bestreuen und 30–35 Minuten backen, bis die Oberfläche goldbraun ist und die Sauce blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Yu5fZShU3YlLj9euEmciKkW9aXk=/5616x3744/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Vegetarian-Moussaka-LEAD-09-b005ce5289804189af024541410c4785.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Yu5fZShU3YlLj9euEmciKkW9aXk=/5616x3744/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Vegetarian-Moussaka-LEAD-09-b005ce5289804189af024541410c4785.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

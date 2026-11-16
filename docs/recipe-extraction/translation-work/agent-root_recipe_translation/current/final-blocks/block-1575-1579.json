@@ -1,0 +1,1315 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ind2-baingan-bharta",
+      "slug": "mfr-ind2-baingan-bharta",
+      "title": "Baingan Bharta – rauchige geröstete Aubergine",
+      "instructions": "Eine ganze Aubergine über offener Flamme geröstet, bis die Schale vollständig verkohlt und rauchig ist, dann geschält und mit karamellisierter Zwiebel, Tomaten, Ingwer und aromatischen Gewürzen zerdrückt – ein nordindischer Klassiker mit einzigartigem Lagerfeueraroma, in wenigen Minuten zubereitet, sobald die Aubergine geröstet ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Auberginen sind sehr günstig – kaufe die großen italienischen Sorten.",
+        "Das Rösten über offener Flamme ist für den authentischen Geschmack unverzichtbar – der Grill funktioniert, aber Gas ist besser.",
+        "Serviere dazu günstiges Fladenbrot für eine vollständige Mahlzeit unter $1.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "eggplant",
+          "swap": "Verwende 3–4 japanische Auberginen für den gleichen Geschmack in kürzerer Zeit"
+        },
+        {
+          "forIngredientId": "cumin-seeds",
+          "swap": "Gemahlener Kreuzkümmel – gib ihn mit den anderen Gewürzen dazu"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-baingan-bharta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Baingan-Bharta",
+        "Aubergine",
+        "rauchig",
+        "vegan",
+        "nordindisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1575,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-baingan-bharta/",
+      "components": [
+        {
+          "key": "3da47cd1-d7c5-59bc-8d87-296ac2f4605f",
+          "name": "Zutaten",
+          "servingGrams": 219.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "039e929b-418a-5bda-9705-fcbe850ca34d",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1921ba61-9a9b-5b14-a02c-001e1533e41a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e9d7171-86b2-5d79-838a-264d7e2d9e78",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2165963-7b17-55c6-b3da-e9712809ded5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8eae005c-0279-5329-9bb0-4ae99b485fd0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9313c87-87cf-5e19-aa08-b9bb010372fe",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25c50627-4959-558e-b3fb-240204e6684c",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0faa255-b474-5b37-990b-9e101574df2f",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a4949d1-977d-5c27-9701-b989d5b2d54c",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a443b3f-47f7-5995-80cd-2475e6d053cc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c27b3d5d-7f25-55b2-ad1c-8ef8c8822eb0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6322954-ae47-5335-af3e-674357c9dd70",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Auberginen direkt über einer Gasflamme oder unter dem Ofengrill und wende sie, bis sie vollständig schwarz sind (25 Minuten). Lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ziehe die verkohlte Schale ab und zerdrücke das Fruchtfleisch mit einer Gabel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl, gib Kreuzkümmelsamen dazu und lass sie aufspringen. Gib Zwiebel hinzu und gare sie 8 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 2 Minuten. Füge Tomaten hinzu und gare sie 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Gewürze unter und gare sie 1 Minute. Gib Auberginenfruchtfleisch dazu und koche alles unter Rühren 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verfeinere das Gericht mit Koriander und serviere es mit Roti oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Baingan-Bharta.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Baingan-Bharta.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind2-aloo-matar",
+      "slug": "mfr-ind2-aloo-matar",
+      "title": "Aloo Matar – Kartoffel-Erbsen-Curry",
+      "instructions": "Gewürfelte Kartoffeln und grüne Erbsen in einer würzigen Tomaten-Zwiebel-Sauce geschmort – eines der beliebtesten Alltagscurrys Indiens, das einfache Vorratszutaten in ein wohltuendes, wärmendes Gericht verwandelt. In 30 Minuten fertig und kostet weniger als $2.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln und Erbsen kosten fast nichts – dieser ganze Topf reicht für 4 Personen und kostet $3–4.",
+        "Verwende Tiefkühlerbsen – sie sind günstiger und tatsächlich süßer.",
+        "Bereite die doppelte Menge zu und stelle sie kalt – über Nacht wird das Curry noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel für ein anderes Aroma und mehr Beta-Carotin"
+        },
+        {
+          "forIngredientId": "peas",
+          "swap": "Grüne Bohnen oder Spinat, falls keine Erbsen verfügbar sind"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-aloo-matar",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Aloo-Matar",
+        "Kartoffel",
+        "Erbsen",
+        "Curry",
+        "vegan",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1576,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-aloo-matar/",
+      "components": [
+        {
+          "key": "5ffd92a2-9fcc-5eed-98fa-bbb32788de0c",
+          "name": "Zutaten",
+          "servingGrams": 374.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "90e4aef8-6d25-5569-af38-5f2bdfd7252f",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fbef48d-b3df-5f97-8a15-a79084daab09",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01796a10-ded8-5e26-add2-9ab99e4db940",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3aeb135a-2454-5a93-8a46-8a7c506fd226",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fa5ca32-db08-5c9a-8429-2222d3e88460",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecbda0a6-f696-5928-a7fd-886ea40efdbb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "695cfc32-bfaf-56f5-bf6a-672e1a04c2df",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88548a2c-1593-5b16-aafc-eb5c09a5ea15",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ea44cd3-aaa1-5ec0-86e0-0ad35f85f1cb",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee1ba6d5-b4d1-5c78-a58a-fe9cba8fbd62",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41215b06-02bc-515d-b57c-474411ab26f2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fb7d4db-2142-55ec-88d8-f3c201c290a5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca0e97ea-2191-5168-939a-af9ec6812998",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Kartoffeln. Erhitze Öl, gib Kreuzkümmelsamen dazu und lass sie aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel hinzu und gare sie 6 Minuten goldbraun. Füge Knoblauch und Ingwer hinzu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomaten dazu und gare sie 4 Minuten. Rühre Koriander, Kurkuma und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kartoffeln und 1 Tasse Wasser dazu. Decke den Topf ab und gare alles 12 Minuten, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Erbsen dazu und gare sie 3 Minuten. Verfeinere das Curry mit Garam Masala und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tasteasianfood.com/wp-content/uploads/2023/02/aloo-matar-gravy-recipe-1-featured-image.jpeg",
+          "sourcePageUrl": "https://tasteasianfood.com/wp-content/uploads/2023/02/aloo-matar-gravy-recipe-1-featured-image.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind2-palak-dal",
+      "slug": "mfr-ind2-palak-dal",
+      "title": "Palak Dal – Spinat-Linsen-Dal",
+      "instructions": "Gelbe Linsen cremig gekocht, dann mit Kreuzkümmel, Knoblauch und getrockneten Chilis in Ghee gewürzt und mit reichlich frischem Spinat vollendet – ein nährstoffreiches und besonders wohltuendes indisches Alltagsgericht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen gehören mit $2 pro Pfund zu den günstigsten Eiweißquellen.",
+        "Einweichen ist nicht nötig – sie garen in 20 Minuten.",
+        "Dieses Dal schmeckt am nächsten Tag deutlich besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-lentils",
+          "swap": "Gelbes Moong Dal für eine leicht andere Konsistenz"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Grünkohl, Senfblätter oder tiefgekühlter Spinat (vorher auftauen)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-palak-dal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Palak-Dal",
+        "Spinat",
+        "Linsen",
+        "Dal",
+        "vegan",
+        "Nährstoffe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1577,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-palak-dal/",
+      "components": [
+        {
+          "key": "e6fb4af9-8d8c-5e14-8444-cd863b2d0447",
+          "name": "Zutaten",
+          "servingGrams": 407.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ecdde88a-66e2-5645-82a5-265c03057a16",
+              "ingredientName": "Rote Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "783c8c35-bb8f-55b1-ba38-c4c7aa13809a",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79c8943a-5e8d-5919-8d73-681f6393625f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6114fa7c-7e1a-53ec-8234-d11cfb5ed85c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d929a6e-c8cc-5183-8b92-beab6be1a167",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83797dca-9daa-5df5-9974-b3f3020974f7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4156065-71a2-5890-aa91-54d2fa1a8ab8",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fc9b5d5-9d8d-5e48-8533-68297b1d234b",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cc6d328-09b6-58f4-83d7-9ce29d401303",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5d9bd4d-d9ec-559d-bb4b-c5f33a20ca5a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3abab7db-c51b-5b61-bcd4-c0b92705acca",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77423b0b-caf6-524d-a510-8b3e5f9edffa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Linsen ab und koche sie mit Kurkuma und 3 Tassen Wasser 20 Minuten, bis sie ganz weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer separaten Pfanne und gib Kreuzkümmelsamen dazu. Füge Zwiebel hinzu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer hinzu und gare alles 2 Minuten. Füge Tomate dazu und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Linsen zur gewürzten Zwiebelmischung und rühre um. Lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Spinat portionsweise dazu und rühre, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Presse Zitrone darüber und serviere das Dal auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i1.wp.com/aromaticessence.co/wp-content/uploads/2018/10/image3-min-1.jpeg?w=2160&ssl=1",
+          "sourcePageUrl": "https://i1.wp.com/aromaticessence.co/wp-content/uploads/2018/10/image3-min-1.jpeg?w=2160&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind2-veg-biryani",
+      "slug": "mfr-ind2-veg-biryani",
+      "title": "Gemüse-Biryani",
+      "instructions": "Duftender Basmatireis in Schichten mit gewürztem Gemüse wie Blumenkohl, Erbsen, Karotten und Kartoffeln, Safranmilch, knusprigen Röstzwiebeln und ganzen Gewürzen. Alles wird nach der Dum-Methode gemeinsam gedämpft, bis jedes Reiskorn nach Kardamom und Rosenwasser duftet.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Biryani sieht festlich aus, wird aber aus preiswertem Gemüse zubereitet.",
+        "Safran lässt sich für die Farbe durch Kurkuma ersetzen (das Aroma ist etwas anders).",
+        "Die Dum-Methode mit Dampf ist entscheidend – eine fest verschlossene Folie kann den Deckel ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "saffron",
+          "swap": "1 TL Kurkuma in warmer Milch für die Farbe"
+        },
+        {
+          "forIngredientId": "ghee",
+          "swap": "Butter oder Kokosöl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-veg-biryani",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Biryani",
+        "Reis",
+        "Gemüse",
+        "Safran",
+        "aromatisch"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1578,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-veg-biryani/",
+      "components": [
+        {
+          "key": "2cd97414-92bf-5180-8381-f5c231f7de39",
+          "name": "Zutaten",
+          "servingGrams": 357.15,
+          "position": 0,
+          "items": [
+            {
+              "key": "4819411c-cd38-5e8b-97a0-6b2c71ad28f3",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26aaa76e-d987-51c7-810c-d35b023103a4",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f21079a0-1f59-5ce2-92f1-1a88889ef4a6",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a5e0cd4-a827-5a42-b23c-4bbce02b3379",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6736ae2b-fa36-569c-9217-e09523320ef7",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c64c5394-1770-5001-9878-245a5f0bd0d0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee61c962-28b0-58b5-aad3-61b35cd17510",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b875519-f25c-5e3f-8698-5cdb2a48acd0",
+              "ingredientName": "Safranfäden",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a726eb05-2575-5932-bd8b-93eefe0e7051",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "035cc790-361a-5113-bd8c-c8ec056d5f49",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcaa1566-6309-505c-839b-fa2b2f39ea7f",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40dcf907-8e7d-5348-a508-ffd3b4926b5e",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "248a0587-a64d-5320-b718-120283834d59",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "caa428f0-8e50-571d-b4c5-b8eed79a37c3",
+              "ingredientName": "Ghee",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f25551dd-172e-53e6-9f8e-f8f90f1c4afd",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f03f1f03-13b4-54b2-bf4b-48b9b655d592",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis zu 70 % gar und gieße ihn ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebelringe 20 Minuten, bis sie dunkel karamellisiert sind. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mariniere das Gemüse 15 Minuten in Joghurt und Gewürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare das marinierte Gemüse, bis es zu 80 % gar ist, etwa 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte in einem Topf die Hälfte des Reises, Gemüse, Röstzwiebel, Minze, den übrigen Reis, Safranmilch und Ghee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verschließe den Topf mit Folie und backe alles bei 375°F 25 Minuten. Lass es vor dem Servieren 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.relishthebite.com/wp-content/uploads/2015/01/Vegbiryani.jpg2_.jpg",
+          "sourcePageUrl": "https://www.relishthebite.com/wp-content/uploads/2015/01/Vegbiryani.jpg2_.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind2-matar-paneer",
+      "slug": "mfr-ind2-matar-paneer",
+      "title": "Matar Paneer – Erbsen mit Hüttenkäse",
+      "instructions": "Weiche Paneerwürfel und süße grüne Erbsen in einer kräftigen Tomaten-Zwiebel-Sauce mit Kreuzkümmel, Koriander und Garam Masala – ein Klassiker nordindischer Restaurants, einfach zu Hause zuzubereiten und köstlich zu Naan oder Basmatireis.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Sauce aus einer pürierten Paste herzustellen ist die richtige Methode – der Schritt lohnt sich.",
+        "Tiefgekühlte Erbsen funktionieren gut und tauen während des Köchelns im Curry auf.",
+        "Gekaufter und selbst gemachter Paneer funktionieren beide; selbst gemacht ist günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "paneer",
+          "swap": "Fester Tofu für eine vegane Variante"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kokoscreme oder griechischen Joghurt erst abseits der Hitze einrühren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-matar-paneer",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Matar-Paneer",
+        "Erbsen",
+        "Paneer",
+        "nordindisch",
+        "Curry"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1579,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-matar-paneer/",
+      "components": [
+        {
+          "key": "7edd2d31-abf6-59f2-bef4-ab6291fdc2af",
+          "name": "Zutaten",
+          "servingGrams": 304.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f82e150-8fb4-5328-ba07-5773b2df089c",
+              "ingredientName": "Paneer",
+              "grams": 340.2,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "741c7d08-c1b9-5e81-b0ef-aada3dbecf2d",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bfb7ee5-8a60-5ca0-84dd-d101e047f015",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d89e5a20-e7c6-5715-ab12-cafe325999ab",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0fda87e-6a61-58a0-b35a-a5272d21b159",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c940c12e-30b0-5271-be1e-9fd56d7654ee",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b480cf28-9de7-5667-9679-06fa50e0eb25",
+              "ingredientName": "Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9de51e82-5334-5081-9f94-4b3d63073a22",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c10d8c6-c27f-5414-9cb2-2a02cd10ef36",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e2cfdfa-7328-52f9-b30c-393198ce5ce2",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "324f32e9-945c-5faa-a8e8-85a36270ee6f",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "989c6e37-7299-5e2a-a55d-845bafa1095d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee38ec97-d277-579d-92cb-ccd62197a40a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07a7b46c-2d16-5081-8af3-34a504a5dd2b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Paneer und brate ihn optional goldbraun an. Stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Zwiebel, Tomate, Knoblauch und Ingwer zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl und gare die Paste 8 Minuten, bis sie tiefrot ist und sich das Öl absetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib alle Gewürze dazu und gare sie 2 Minuten. Füge 1 Tasse Wasser hinzu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Paneer und Erbsen dazu und lass alles 5 Minuten köcheln. Rühre Sahne unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verfeinere das Curry mit Garam Masala und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/G5mGfzKOw_DvnyA6Rl2KqqCcpds=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mutter-paneer-peas-cottage-cheese-curry-1957971-hero-01-fe2c40de95ce41358589b3a7f01b2d97.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/G5mGfzKOw_DvnyA6Rl2KqqCcpds=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mutter-paneer-peas-cottage-cheese-curry-1957971-hero-01-fe2c40de95ce41358589b3a7f01b2d97.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

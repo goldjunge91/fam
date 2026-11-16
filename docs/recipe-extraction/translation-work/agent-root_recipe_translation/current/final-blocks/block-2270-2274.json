@@ -1,0 +1,957 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53196",
+      "slug": "tmdb-53196",
+      "title": "Tom Yum (sauer-scharfe) Suppe mit Garnelen",
+      "instructions": "Thailändisches Meeresfrüchtegericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "meeresfrüchte",
+        "suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2270,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53196/",
+      "components": [
+        {
+          "key": "d8099c5b-dd37-534f-a015-22a2fbf0f720",
+          "name": "Zutaten",
+          "servingGrams": 270.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "63ec153d-c6aa-56d9-854e-34bc29e116bb",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c4a2efd-e706-5159-a234-3c187838f62c",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5898130-6dea-5b62-992e-63b7357cb37f",
+              "ingredientName": "Galangal",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e03fff7-451c-5713-9999-055929a4bcd1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7fd2ac4-4eef-5d05-8989-2e2c4c709186",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fe3a53e-7d54-5823-ab5a-526d5ccd93b0",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "240b8739-1435-5407-b6d4-2cf086576538",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b662813c-e069-5473-85d6-d8d0f00a18a0",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "065fffb2-b6fe-5d24-8816-46c246b77465",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einem mittelgroßen Topf zum Kochen bringen. Zitronengras, Galangal, Korianderwurzeln und Limettenblätter dazugeben und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelen, Fischsauce, Chilis und Limettensaft dazugeben und wieder zum Kochen bringen. Abschmecken und nach Bedarf mit mehr Limettensaft oder Fischsauce nachwürzen. Mit Korianderblättern garnieren und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/9c5nlx1763424766.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/9c5nlx1763424766.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53194",
+      "slug": "tmdb-53194",
+      "title": "Tom-Yum-Suppe mit Garnelen",
+      "instructions": "Thailändisches Meeresfrüchtegericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "meeresfrüchte",
+        "suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2271,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53194/",
+      "components": [
+        {
+          "key": "f8a3ef45-59b3-5ae3-b838-26aecb431229",
+          "name": "Zutaten",
+          "servingGrams": 493.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "249b7fad-3e42-5414-b1db-9adb951b0bde",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7e61dba-15e2-5211-a882-43a91d68c47e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f8954d5-f258-552e-b4c6-7bd4e644a1be",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e1c7af7-1866-5ffd-8be1-1b0a80ee4d38",
+              "ingredientName": "Galangal",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e250073-3027-558a-851f-951b038c2b88",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "444a2ef4-7bfe-534c-ab9e-f4f8e51c5911",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6385a70c-599b-5ef5-b4e8-04637e6d4731",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05759c42-08b8-57de-a3d2-1a99ed710bc7",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93a7a27b-a727-537f-ad36-beee0ec2990e",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 8,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af7d4b6c-d20a-55e4-b9fb-8bc236da89e7",
+              "ingredientName": "Fischsauce",
+              "grams": 4.46,
+              "quantity": 4.46,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a13b6751-e039-5ba4-bf96-08aaefc6ec09",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 13.39,
+              "quantity": 13.39,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b6f8e24-b8e0-5acf-bf41-939b4975de10",
+              "ingredientName": "Kokosmilch",
+              "grams": 1000,
+              "quantity": 2.5,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71c77920-7037-52ca-97a6-7f8a640ee066",
+              "ingredientName": "Marmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "370ec32d-c193-56f8-a05a-2f16669ad7b4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1.3 Liter Wasser in einen großen Topf geben und bei starker Hitze erhitzen. Zwiebel, Tomate, Chili, Galangal, Zitronengras, Garnelenköpfe und Hühnerbrühwürfel dazugeben. Umrühren und zum Kochen bringen, dann Hitze auf mittlere Stufe reduzieren und 20 Minuten köcheln lassen, bis die Flüssigkeit eingekocht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heiße Brühe vorsichtig durch ein Sieb in eine große hitzebeständige Schüssel oder einen Krug gießen und Garnelenköpfe entsorgen. Abgeseihte Gemüse-Kräuter-Mischung zurück in den Topf geben und Brühe darüber gießen. Pilze und Limettenblätter einrühren und 3 Minuten garen, bis die Pilze weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 EL Zucker, Fischsauce, Limettensaft, Kokosmilch und Garnelen dazugeben. Zum Kochen bringen und etwa 1–2 Minuten garen, bis die Garnelen durch sind. Vom Herd nehmen. Zitronengras entfernen und nach Wunsch Thai-Chilipaste einrühren. Nach Belieben mit Koriander bestreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/l50vz41763422681.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/l50vz41763422681.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53032",
+      "slug": "tmdb-53032",
+      "title": "Tonkatsu-Schweinefleisch",
+      "instructions": "Japanisches Schweinefleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "schwein"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2272,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53032/",
+      "components": [
+        {
+          "key": "c42901ea-e04e-5a49-9a53-ca1cc6f87f50",
+          "name": "Zutaten",
+          "servingGrams": 270,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a7001ce-23fc-56fb-8086-1c41e7a3b209",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7838d2aa-6282-5220-ab35-e15e319b7a59",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e19d261-d61d-592c-90ed-d441b64c2629",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1c62d5a-c54b-59ac-9e71-7384841e1d2b",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b3bab23-cb2f-5597-9793-60753ece15ab",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed58db4d-8812-5aec-a82b-4f89b4187514",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "221443b0-e5b2-556f-a0b2-9619475b2e27",
+              "ingredientName": "Worcestersauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6446a2a6-de41-51a0-a609-bcab4ee2d443",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c6119d7-b6d9-535b-a4bc-4999a1051d46",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Großes Fettstück am Rand jedes Schweinelendenstücks entfernen. Fleischstücke zwischen zwei Blättern Backpapier auf etwa 1cm Dicke klopfen; dafür einen Fleischklopfer oder ein Nudelholz verwenden. Anschließend mit den Händen wieder in ihre ursprüngliche Form und Dicke bringen. So bleibt das Fleisch möglichst saftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Eier und Panko-Semmelbrösel in drei separate Schüsseln mit weitem Rand geben. Fleisch würzen und erst in Mehl, dann in Ei und zuletzt in Semmelbröseln wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer großen Brat- oder Sauteuse so viel Öl eingießen, dass es 2cm hoch an den Seiten steht. Öl auf 180C erhitzen. Ohne Thermometer etwas Panko ins Öl geben: Wenn es leicht absinkt und dann zu braten beginnt, ist das Öl bereit. Zwei Schweinekoteletts hineingeben und auf jeder Seite 1 Minute 30 Sekunden braten. Herausnehmen und auf einem Kuchengitter 5 Minuten ruhen lassen. Mit übrigen Koteletts wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während das Schweinefleisch ruht, Zutaten für die Sauce verquirlen und, falls sie besonders dick ist, einen Schuss Wasser einrühren. Tonkatsu in Scheiben schneiden und mit Sauce beträufelt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/lwsnkl1604181187.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/lwsnkl1604181187.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53415",
+      "slug": "tmdb-53415",
+      "title": "Torrijas",
+      "instructions": "Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2273,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53415/",
+      "components": [
+        {
+          "key": "0a12126c-272e-5ab5-bdce-abaca390f054",
+          "name": "Zutaten",
+          "servingGrams": 362.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "660cd4ce-d11f-58e6-8231-de39575f821c",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23a83ada-b016-5ed4-8602-13b432769c97",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd00b2f6-ecd2-5df9-99de-ce5cbd8fa9a6",
+              "ingredientName": "Milch",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d7e0540-41af-5146-bfb8-b8c64574c4fc",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b630f403-ae1c-51d6-81a6-bce7eec8b02e",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b98afc12-1205-5392-817c-ca46b618b56c",
+              "ingredientName": "Sherryessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c6c59ab-35fb-51af-9166-89bd9a218773",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6465a20-225d-5129-8126-4a3c946bb5e9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ec6786d-76e8-5d32-bacb-31c0dffa2a11",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57df4ed2-3bc6-5063-874b-d90069653132",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Abrieb von 1 mittelgroßen Orange (etwa 2 Teelöffel) und 1 mittelgroßen Zitrone (etwa 1 Teelöffel) fein in einen mittelgroßen Topf reiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Quart Vollmilch, 1/2 Tasse Kristallzucker und 1 (3-inch) Zimtstange dazugeben. Bei mittlerer Hitze zum Kochen bringen. Topf vom Herd nehmen und 1/3 Tasse trockenen Sherry dazugeben. Abkühlen lassen, bis die Mischung handwarm ist. Währenddessen 1 (12-ounce) altbackenes Baguette quer in 1-inch-dicke Scheiben schneiden (etwa 16). In einer Lage auf einem Backblech mit Rand anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Milchmischung über das Brot gießen und 5 Minuten einweichen lassen. Jede Brotscheibe wenden. Weiter stehen lassen, bis das Brot den größten Teil der Flüssigkeit aufgenommen hat, aber noch nicht auseinanderfällt, etwa weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 Tasse Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen, bis es schimmert. Währenddessen 4 Eier in einer mittelgroßen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jeweils 1 Scheibe Brot in die Eiermischung tauchen, bis es überzogen ist. Überschuss abtropfen lassen und in die Pfanne geben. Mit weiteren Scheiben wiederholen, bis der Pfannenboden in einer Lage bedeckt ist. Etwa 4 Minuten goldbraun braten. Scheiben wenden und weitere 3 bis 4 Minuten goldbraun braten. Auf einen mit Küchenpapier ausgelegten Teller oder ein Backblech geben. Übriges Brot ebenso eintauchen und braten. Zum Servieren mit Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/927vvp1779732018.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/927vvp1779732018.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53165",
+      "slug": "tmdb-53165",
+      "title": "Torrijas mit Sherry",
+      "instructions": "Spanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2274,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53165/",
+      "components": [
+        {
+          "key": "afb0b3b9-ba92-5d82-bb77-087bdcbdab95",
+          "name": "Zutaten",
+          "servingGrams": 440,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed45f1ba-3956-552c-8f15-0eb7f9a819bb",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58a081fd-03b5-5438-8112-d705714a5b9c",
+              "ingredientName": "Sahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dbe5542-a9cd-58b3-b623-6664ba90d590",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7df8130e-0c19-5271-a0e3-aa3e9efdd988",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04454b0b-cbb5-5760-9af7-788c144c9311",
+              "ingredientName": "Süßkartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b595b791-8a30-513a-bdc3-80cdc24e2c2b",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01b84724-93c4-5be8-b863-258ec1cd5676",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08516769-ac87-5ffb-b56b-c7c1a88cf5dc",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "336cc512-e6f9-572d-aa5f-45f4cebfebe0",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier mit Sahne, Milch, feinem goldenen Zucker und Sherry in einer breiten, flachen Schüssel verquirlen. Jede Brotscheibe halbieren und in die Eiermischung tauchen. Wenden, damit beide Seiten gut überzogen sind. Brot 10 Minuten in der Eiermischung einweichen lassen, damit es Flüssigkeit aufnimmt. Gelegentlich vorsichtig wenden und darauf achten, dass es nicht zu matschig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1½ EL Olivenöl in einer großen Pfanne erhitzen und Brot etwa 3 Minuten pro Seite braten, bis es dunkelgolden und am Rand knusprig ist. Während die übrigen Scheiben gebraten werden, im niedrigen Ofen warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Torrijas auf Teller verteilen und mit Puderzucker bestäuben. Mit Crème fraîche oder griechischem Joghurt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/f3ee3y1763309332.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/f3ee3y1763309332.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

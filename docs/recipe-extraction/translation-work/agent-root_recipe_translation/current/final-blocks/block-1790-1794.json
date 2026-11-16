@@ -1,0 +1,1161 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52796",
+      "slug": "tmdb-52796",
+      "title": "Hähnchen Alfredo Primavera",
+      "instructions": "Ein beliebtes italienisches Hähnchengericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Hähnchen",
+        "Pasta",
+        "Fleisch",
+        "Milchprodukte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1790,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52796/",
+      "components": [
+        {
+          "key": "74cca60f-cf54-539b-87b1-0f3a967b97a3",
+          "name": "Zutaten",
+          "servingGrams": 827.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "09ff9079-3730-513d-b9a7-26fc9f497a60",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5b421b4-7087-5027-887d-e0a37712ac3b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65da38db-014f-5f30-84cc-90a556bc6669",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0ca3026-129b-56dd-a6c4-e8f43cb65ca3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecb9577f-9eb5-534f-bf2b-f03aa68daede",
+              "ingredientName": "Butternusskürbis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1da87394-cc48-590c-8a53-84701864c236",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fabc86b-0d73-5056-8afd-de4e1f3f5abb",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddab5496-74f8-572c-ba0b-ad17ce7ad5a6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3fae5d1-9ea2-5561-976f-24def0339f10",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b17acf6-d8ba-5417-abb2-a756eab82e4c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d08cab0e-92e8-570d-becf-5dbc4acfb9ad",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30409d27-8fb6-58b5-9478-5dafe1c3a93b",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62878f29-2315-5682-ba11-7adb8708fb57",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73ed7326-fdaa-5eee-ac2d-88e8a4c9e0a3",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "544ed886-f803-5f46-83e5-03cc86a619a4",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbd7f41f-0569-53d7-8976-9f9958d2fe9a",
+              "ingredientName": "Pasta",
+              "grams": 1600,
+              "quantity": 16,
+              "unit": "portion",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d630cb2d-437e-593e-8a76-805630f0cf95",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Butter und 2 Esslöffel Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze beide Seiten jeder Hähnchenbrust mit gewürztem Salz und einer Prise Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Hähnchen in die Pfanne und gare es je Seite 5-7 Minuten, bis es vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Währenddessen einen großen Topf Wasser zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze das kochende Wasser mit einigen großzügigen Prisen koscherem Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Pasta dazu und rühre um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare sie unter gelegentlichem Rühren etwa 12 Minuten, bis sie al dente ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bewahre vor dem Abgießen 1/2 cup Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm das Hähnchen aus der Pfanne und lege es auf ein Schneidebrett; lass es ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Reduziere die Hitze auf mittel und gib den restlichen 1 Esslöffel Butter und Olivenöl in dieselbe Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Gib Gemüse (ohne Knoblauch) und Chiliflocken dazu und rühre um, bis alles mit Öl und Butter bedeckt ist. Würze das Gemüse erst nach dem Bräunen mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Gare das Gemüse unter häufigem Rühren etwa 5 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Gib Knoblauch sowie eine großzügige Prise Salz und Pfeffer dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "Lösche die Pfanne mit Weißwein ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52934",
+      "slug": "tmdb-52934",
+      "title": "Poulet Basquaise (Hähnchen nach baskischer Art)",
+      "instructions": "Ein beliebtes französisches Hähnchengericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Frankreich",
+        "Hähnchen",
+        "Fleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1791,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52934/",
+      "components": [
+        {
+          "key": "b96a303f-e1aa-5697-aadd-6ad2809fbc31",
+          "name": "Zutaten",
+          "servingGrams": 1330,
+          "position": 0,
+          "items": [
+            {
+              "key": "b61c6063-71bc-5d33-9843-2e5771662a60",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43ef48f7-aa91-5691-a6f6-5e349177260c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d52a4611-5d3b-5451-bb98-83df83d0076c",
+              "ingredientName": "Olivenöl",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51cfc07e-ecd3-5f81-a43f-3e29efbe0b63",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb853ac2-9c6a-5459-9164-3aba6419dac9",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "671ea09c-a28c-54ea-838a-7a4b3d729061",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d8b5a5b-627e-5d7e-b30c-c050efe9df26",
+              "ingredientName": "Getrocknete Tomaten (in Öl)",
+              "grams": 4000,
+              "quantity": 8,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6482d42-b6fa-53e2-9f48-9dd8a7211667",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35d56538-058f-555d-9bb4-351b0b54b9c1",
+              "ingredientName": "Basmatireis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7879c17-d0bd-565d-968c-a732b5168742",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3d8fc5b-d1ff-56c8-a876-6918d1efec96",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad064189-e8fb-5b79-bdc2-2e96cf4d7c72",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "629dae5b-8aa9-5078-863c-8e9fd5c218b6",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2c1a647-b00f-5ae9-88c7-f0008c7d84a0",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54e09f2c-c274-5abe-a183-314de177fb6f",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14e97c1a-7d6e-56ac-b865-02b96f2b3a3c",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7651f5a1-f3ff-5944-9a97-4226aa9ef44c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfab2872-211b-51e7-b0f0-f62734108521",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 180°C/Gas mark 4 vor. Erhitze Butter und 3 tbsp Olivenöl in einem ofenfesten Schmortopf oder einer großen Pfanne. Bräune die Hähnchenteile portionsweise von beiden Seiten und würze sie dabei mit Salz und Pfeffer. Überfülle die Pfanne nicht. Lege die fertigen Stücke auf Küchenpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib etwas mehr Olivenöl in den Topf und brate die Zwiebeln bei mittlerer Hitze 10 Minuten unter häufigem Rühren weich, ohne sie zu bräunen. Gib das übrige Öl und die Paprika dazu und gare sie weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Chorizo, getrocknete Tomaten und Knoblauch dazu und gare alles 2-3 Minuten. Füge den Reis hinzu und rühre um, damit er mit Öl überzogen ist. Rühre Tomatenmark, Paprika, Lorbeerblätter und gehackten Thymian ein. Gieße Brühe und Wein hinein. Sobald die Flüssigkeit blubbert, reduziere die Hitze auf sanftes Köcheln. Drücke den Reis unter die Flüssigkeit und lege das Hähnchen darauf. Verteile Zitronenspalten und Oliven darum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Topf ab und gare alles 50 Minuten im Ofen. Der Reis soll gar sein und noch etwas Biss haben; beim Einstechen ins dickste Stück soll klarer Fleischsaft austreten. Falls nötig, weitere 5 Minuten garen und erneut prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wruvqv1511880994.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wruvqv1511880994.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52956",
+      "slug": "tmdb-52956",
+      "title": "Hähnchen-Congee",
+      "instructions": "Ein beliebtes chinesisches Hähnchengericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1792,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52956/",
+      "components": [
+        {
+          "key": "04a560b5-ae69-54fd-a484-f20351874b1b",
+          "name": "Zutaten",
+          "servingGrams": 787.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2dad0f90-43c5-5509-b5ca-6f3a5017a745",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a11ce2c8-09c1-5f8e-a1e1-938272e05f95",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cc3d643-a79a-5431-8ebc-57a3b0557972",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e58ef48e-e9fa-5b88-b19b-c0201e621101",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93d52e26-e671-5005-aa50-5f01dce27dad",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ce2f93b-dad4-56de-9697-6a6ec56ab9d5",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ad182da-2e7a-5c91-b42f-0d10c6521741",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30bd863a-eea2-5a77-a15b-fc27cd9866c8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Hähnchen, Salz, weißen Pfeffer und Ingwersaft in einer Schüssel gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle das Hähnchen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weißen Reis spülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spüle den Reis ein paar Mal in einer Metallschüssel oder einem Topf und gieße das Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weißen Reis kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib 8 cups Wasser dazu und erhitze den Topf auf hoher Stufe, bis es kocht. Sobald der Reisbrei kocht, reduziere die Hitze und rühre alle 8-10 Minuten etwa 20-25 Minuten um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nach 25 Minuten kannst du optional etwas mehr Wasser hinzufügen, wenn du den Reisbrei dünner magst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib das marinierte Hähnchen zum Reisbrei und gare es weitere 10 Minuten bei niedriger Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Gib nach weiteren 10 Minuten Frühlingszwiebeln, geschnittenen Ingwer, 1 Prise Salz und 1 Prise weißen Pfeffer dazu. Rühre 10 seconds um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Serviere den Reisbrei in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Optional: Gib Koriander obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1529446352.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1529446352.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52850",
+      "slug": "tmdb-52850",
+      "title": "Hähnchen-Couscous",
+      "instructions": "Ein beliebtes marokkanisches Hähnchengericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "marokkanisch",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1793,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52850/",
+      "components": [
+        {
+          "key": "f7921c5b-82f1-53ff-b416-b5269dcf336c",
+          "name": "Zutaten",
+          "servingGrams": 373.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "054fb06b-5634-5533-b818-1d32b7c972c3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "032eda82-1915-55b4-be59-5dda484df983",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93c09a3f-0941-5f75-854b-9c89be0e4037",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99ea6bad-5c30-5836-9976-3d349a4f362a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a91b39dc-9035-5ba1-ac8c-13fe3cfd2d8c",
+              "ingredientName": "Harissa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f5d6424-297f-5eb5-a085-93e2dcf0f1a3",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "684fec5f-b86b-5a08-a429-257df2e34d1a",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03e1aa39-bb1b-5521-956b-a73ff2b255c7",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fff4b740-c4cf-5c9e-9d3c-c37391e67e09",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und gare die Zwiebel 1-2 mins, bis sie weich ist. Gib das Hähnchen dazu und brate es 7-10 mins, bis es gar ist und die Zwiebeln goldbraun sind. Reibe Ingwer darüber, rühre Harissa unter und gare alles 1 min weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Aprikosen, Kichererbsen und Couscous dazu, gieße Brühe darüber und rühre einmal um. Decke die Pfanne mit einem Deckel oder fest mit Folie ab und lass alles etwa 5 mins stehen, bis der Couscous die Brühe aufgesogen und sich aufgeplustert hat. Lockere ihn mit einer Gabel auf und bestreue ihn mit Koriander. Nach Wunsch mit zusätzlicher Harissa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qxytrx1511304021.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qxytrx1511304021.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52765",
+      "slug": "tmdb-52765",
+      "title": "Hähnchen-Enchilada-Auflauf",
+      "instructions": "Ein beliebter mexikanischer Hähnchenauflauf für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Hähnchen",
+        "Auflauf",
+        "käsig",
+        "Fleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1794,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52765/",
+      "components": [
+        {
+          "key": "a9d304b7-5645-540c-85c1-de156b407c06",
+          "name": "Zutaten",
+          "servingGrams": 995,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d838eaf-75d0-569c-987a-053d221b60a4",
+              "ingredientName": "Tomatensauce",
+              "grams": 3360,
+              "quantity": 3360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ced98253-943e-524a-97ce-7ab932d2c4a5",
+              "ingredientName": "Geriebener Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe5a7f9b-73a4-5fde-a8ea-94c349b8b50c",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76bfef55-1e7c-5db1-9cda-8942f7442838",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide jede Hähnchenbrust in etwa 3 Stücke, damit sie schneller gart, und gib sie in einen kleinen Topf. Gieße Enchilada-Sauce darüber und gare alles zugedeckt bei niedriger bis mittlerer Hitze etwa 20 Minuten, bis das Hähnchen gar ist. Kein Wasser nötig; das Hähnchen gart in der Sauce. Rühre gelegentlich um, damit nichts am Boden ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen aus dem Topf und zerpflücke es mit zwei Gabeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 375 F Grad vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beginne den Auflauf zu schichten. Verteile etwa ¼ cup der übrigen Enchilada-Sauce auf dem Boden einer Auflaufform. In einer längeren Form passen 2 Maistortillas nebeneinander. Lege 2 Tortillas auf den Boden und gib ⅓ des Hähnchens, ⅓ der übrigen Sauce und ⅓ des Käses darüber. Wiederhole die Schichten mit jeweils 2 weiteren Tortillas, Hähnchen, Sauce und Käse. Schließe mit der letzten Schicht aus den restlichen Zutaten ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Auflauf ohne Deckel 20 to 30 Minuten, bis er blubbert und der Käse geschmolzen und oben leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

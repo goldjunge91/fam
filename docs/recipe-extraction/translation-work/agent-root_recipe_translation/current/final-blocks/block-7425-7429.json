@@ -1,0 +1,1293 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-japanese-cotton-cheesecake",
+      "slug": "bake-japanese-cotton-cheesecake",
+      "title": "Japanischer Cotton-Cheesecake",
+      "instructions": "Der berühmte, leichte und wackelig-zarte japanische Soufflé-Käsekuchen: Eine Frischkäsecreme wird unter glänzenden Eischnee gehoben und im Wasserbad sanft gebacken. Der Kuchen geht hoch auf und sinkt anschließend zu einer wolkenweichen, zartschmelzenden Krume zusammen. Weniger süß und viel leichter als New-York-Cheesecake.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier sind hier die Grundlage. Kaufe eine große Packung Eier; der Kuchen braucht 6, und so bleiben die Kosten pro Kuchen niedrig.",
+        "Verzichte auf Kuchenmehl. Normales Weizenmehl und die Speisestärke, die ohnehin im Rezept steht, ergeben dieselbe zarte, glutenarme Krume.",
+        "Ein Stück Frischkäse reicht. Für die richtige Konsistenz brauchst du weder teuren Mascarpone noch importierte Marken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "Einen Schuss weißen Essig verwenden. Er mildert ebenfalls die Reichhaltigkeit und stabilisiert den Eischnee.",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "Ein paar zusätzliche Tropfen Zitronensaft oder Essig stabilisieren das Eiweiß ebenfalls.",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Beliebige Milch, auch 2% oder Kondensmilch, die mit Wasser verdünnt wurde.",
+          "savings": "~$0.25"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "käsekuchen",
+        "dessert",
+        "souffle",
+        "backen",
+        "leicht",
+        "wackelig",
+        "wasserbad",
+        "vegetarisch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7425,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-japanese-cotton-cheesecake/",
+      "components": [
+        {
+          "key": "8b916fcf-c455-5079-abe3-d762125f8b6a",
+          "name": "Zutaten",
+          "servingGrams": 62.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "031579b7-51df-5030-a15b-7cebc6cb94b4",
+              "ingredientName": "Frischkäse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "250g, weich"
+            },
+            {
+              "key": "578abb75-43c5-53bd-9bed-60b9af5d9e48",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "60g, ungesalzen"
+            },
+            {
+              "key": "b727f427-c14a-5e84-906d-85db246fcd3d",
+              "ingredientName": "Milch",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "100 ml"
+            },
+            {
+              "key": "b4dc60f3-8c3d-53f9-b102-b75ef252e9cd",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Eigelbe und Eiweiß getrennt"
+            },
+            {
+              "key": "4a46d956-7fe5-5c3c-b710-c364070f588b",
+              "ingredientName": "weißer Zucker",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "100g für das Baiser"
+            },
+            {
+              "key": "e198b2c7-37d0-5e7a-b811-8c13d0927b12",
+              "ingredientName": "Weizenmehl",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "60g Kuchen- oder Weizenmehl, gesiebt"
+            },
+            {
+              "key": "5faf3b90-9f0d-51bb-ae08-b0e5c642a6d3",
+              "ingredientName": "Speisestärke",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "20g, gesiebt"
+            },
+            {
+              "key": "7bb96e66-d0da-5ac4-aab1-80f9886807b9",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2e39326e-403d-51f1-93dc-7d2da0e5c259",
+              "ingredientName": "Weinstein",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL, stabilisiert den Eischnee"
+            },
+            {
+              "key": "485ce7da-ec6a-5c40-ad6a-5fb62f7e847e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1a4b6247-b5d9-5aca-97fa-44978009236d",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 320F (160C) vorheizen. Boden und Seiten einer runden Form mit 8-inch Durchmesser mit Backpapier auslegen. Die Form außen fest mit Folie umwickeln, damit beim Wasserbad kein Wasser eindringt. Wasser für das Wasserbad im Wasserkocher aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Frischkäse, Butter und Milch in einer hitzebeständigen Schüssel über einem Topf mit leicht siedendem Wasser sanft schmelzen. Glatt und klümpchenfrei rühren. Vom Herd nehmen und abkühlen lassen, bis die Mischung nur noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die 6 Eigelb, Vanille und Zitronensaft in die warme Frischkäsemischung rühren. Mehl und Speisestärke hineinsieben und glatt unterrühren, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer sauberen, fettfreien Schüssel die 6 Eiweiße mit Weinstein und Salz schaumig schlagen. Den Zucker in drei Portionen einrieseln lassen und zu weichen, leicht hängenden Spitzen schlagen. Nicht steif schlagen, sonst reißt der Kuchen und wird trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein Drittel des Eischnees unter die Frischkäsemasse rühren, damit sie leichter wird. Den übrigen Eischnee in zwei Portionen mit einem Teigschaber vorsichtig unterheben, bis alles gerade gleichmäßig vermischt ist. Dabei möglichst viel Luft bewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig in die vorbereitete Form füllen und einmal auf die Arbeitsfläche klopfen, damit große Luftblasen entweichen. Die Form in ein größeres Bratgeschirr stellen und kochendes Wasser angießen, bis es etwa 1 inch hoch an den Seiten steht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "25 Minuten bei 320F backen, dann die Temperatur auf 250F (120C) senken und weitere 55-65 Minuten backen, bis der Kuchen aufgegangen, goldgelb und fest ist und die Mitte nur noch leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Ofen ausschalten, die Tür einen Spalt öffnen und den Kuchen 15-20 Minuten darin ruhen lassen, damit er nicht plötzlich zusammenfällt. Herausnehmen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf einen Teller stürzen, das Backpapier abziehen und wieder richtig herum drehen. Warm servieren, wenn er besonders wackelig sein soll, oder für eine festere, gut schneidbare Krume kühlen. Nach Wunsch mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Souffl%C3%A9-style_cheesecake_001.jpg/1280px-Souffl%C3%A9-style_cheesecake_001.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Souffl%C3%A9-style_cheesecake_001.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ocdp — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Japanischer Cotton-Cheesecake",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-flourless-chocolate-cake",
+      "slug": "bake-flourless-chocolate-cake",
+      "title": "Mehlfreier Schokoladenkuchen",
+      "instructions": "Ein dichter, saftiger und intensiv schokoladiger Kuchen mit glänzender, rissiger Oberfläche und trüffelartiger Mitte. Er besteht nur aus geschmolzener dunkler Schokolade, Butter, Eiern und Zucker – ganz ohne Mehl und von Natur aus glutenfrei. Ein Schuss Espresso verstärkt das Schokoladenaroma, ohne dass der Kuchen nach Kaffee schmeckt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Tafel Backschokolade oder Schokoladenstückchen statt teurer Spezialschokolade. Mit 60-70% Kakaoanteil schmeckt der Kuchen genauso reichhaltig und kostet nur halb so viel.",
+        "Schokolade und Butter in kurzen Intervallen von 20 Sekunden in der Mikrowelle schmelzen. So brauchst du kein Wasserbad und hast weniger abzuwaschen.",
+        "Am nächsten Tag schmeckt der Kuchen noch besser. Bereite ihn vorher zu: Über Nacht kühlen verbessert die Konsistenz und erspart Stress kurz vor dem Servieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Zartbittere oder dunkle Schokoladenstückchen verwenden und den zugesetzten Zucker um 2 tbsp reduzieren.",
+          "savings": "Spart etwa $2 gegenüber hochwertiger Tafelschokolade"
+        },
+        {
+          "forIngredientId": "espresso",
+          "swap": "Weglassen oder 1/2 tsp löslichen Kaffee in 1 tbsp heißem Wasser auflösen und verwenden.",
+          "savings": "Spart das Brühen eines Espressos, ~$0.50"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter für eine milchfreie Variante verwenden.",
+          "savings": "Ungefähr gleiche Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "dessert",
+        "schokolade",
+        "mehlfrei",
+        "kuchen",
+        "zum-vorbereiten",
+        "üppig",
+        "backen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7426,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-flourless-chocolate-cake/",
+      "components": [
+        {
+          "key": "9df5442d-e981-5719-9556-97ce95dcdfa2",
+          "name": "Zutaten",
+          "servingGrams": 112.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ca0b71f-039f-5981-8a9b-b80b6f2dc03d",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 oz / 225g gute dunkle Bitterschokolade mit 60-70% Kakao, gehackt"
+            },
+            {
+              "key": "6c7a79bd-5a1c-5f1e-8b5b-fd9061df7955",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 EL / 140g ungesalzene Butter, in Stücke geschnitten, und mehr für die Form"
+            },
+            {
+              "key": "97426ca8-86c2-5131-a329-77e1fbfb7cea",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse / 150g Kristallzucker"
+            },
+            {
+              "key": "9a5e8e49-eb06-5a66-818c-8be2e3bc7119",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 große Eier, zimmerwarm"
+            },
+            {
+              "key": "237ac083-1194-5dd0-9c60-37fc5a1707c7",
+              "ingredientName": "Kakaopulver",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse / 30g ungesüßtes Kakaopulver, gesiebt, und mehr zum Bestäuben"
+            },
+            {
+              "key": "eb2687aa-92d6-56b6-a81e-dd7a9c72c601",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "733fa377-0907-5815-bac9-f4cc00a68ba0",
+              "ingredientName": "Espresso",
+              "grams": 10,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 EL gebrühter Espresso oder 1/2 TL Instant-Espressopulver für kräftigeres Schokoladenaroma"
+            },
+            {
+              "key": "36385ebb-86c3-5691-a8a0-27e9f584106c",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 325F (165C) vorheizen. Eine Springform oder Kuchenform mit 8-inch Durchmesser mit Butter einfetten, den Boden mit Backpapier auslegen und auch dieses einfetten. Bei einer normalen Kuchenform die Außenseite mit Folie umwickeln, damit ein Wasserbad möglich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dunkle Schokolade und Butter vorsichtig zusammen schmelzen: in einer hitzebeständigen Schüssel über leicht siedendem Wasser oder in kurzen Intervallen von 20 Sekunden in der Mikrowelle. Glatt und glänzend rühren. Vom Herd nehmen, Espresso, Vanille und Salz einrühren und 5 Minuten abkühlen lassen, damit die Eier später nicht stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier und Zucker in einer großen Schüssel 2-3 Minuten kräftig verquirlen, bis die Masse hell, dicklich und leicht schaumig ist. Dadurch geht der Kuchen auf und bekommt seine rissige Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die warme, nicht heiße Schokoladenmischung unter die Eier rühren. Kakaopulver darübersieben und vorsichtig mit einem Teigschaber unterheben, bis ein glatter, gleichmäßiger Teig ohne Schlieren entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig in die vorbereitete Form füllen und glatt streichen. Die Form in ein größeres Bratgeschirr setzen und heißes Wasser bis zur halben Höhe der Form angießen. Das Wasserbad hält die Konsistenz seidig und verhindert Risse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "35-40 Minuten backen, bis der Rand fest ist, die Mitte aber noch leicht wackelt und sich oben eine dünne Kruste gebildet hat. Ein Holzspieß sollte mit feuchten Krümeln, nicht mit flüssigem Teig herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Kuchen aus dem Wasserbad heben und in der Form auf einem Gitter vollständig abkühlen lassen. Mindestens 2 Stunden oder über Nacht kühlen, damit er seine charakteristische dichte, trüffelartige Konsistenz erhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einem Messer am Rand entlangfahren, den Formring lösen und den Kuchen auf einen Teller stürzen. Mit Kakao oder Puderzucker bestäuben und in dünnen Stücken servieren. Für saubere Schnitte das Messer zwischen den Schnitten erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Chocolate_Cake_Flourless_%281%29.jpg/1280px-Chocolate_Cake_Flourless_%281%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_Cake_Flourless_(1).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public domain",
+          "attributionRequired": false,
+          "attributionText": "Photo: CdnStar — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Mehlfreier Schokoladenkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-zucchini-bread",
+      "slug": "bake-zucchini-bread",
+      "title": "Zucchinibrot",
+      "instructions": "Ein saftiges, zartes Rührbrot mit geraspelter Zucchini, warmem Zimt und Muskat sowie gerösteten Walnüssen. Die Zucchini verschwindet in der Krume und hält jede Scheibe tagelang weich, ohne viel Eigengeschmack beizutragen. Das Brot wird dadurch goldgelb und mild-würzig süß.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zucchini am Ende des Sommers sind sehr günstig oder kommen kostenlos aus dem Garten eines Nachbarn. Kaufe oder sammle mehr, rasple sie, drücke sie aus und friere Portionen zu je 1.5 Tassen ein, um das ganze Jahr Brot zu backen.",
+        "Du brauchst weder Buttermilch noch spezielle Formen. Das ist ein Teig aus einer Schüssel und braucht nur eine normale Kastenform sowie Öl, das du ohnehin zu Hause hast.",
+        "Lass die Walnüsse weg, um Kosten zu sparen. Das Brot schmeckt auch pur hervorragend, und die Nüsse sind hier die teuerste Zutat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Geschmolzenes Kokosöl oder ein anderes neutrales Öl wie Rapsöl.",
+          "savings": "Bereits geöffnetes Öl verwenden und eine neue Flasche sparen"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Gehackte Pekannüsse verwenden oder ganz weglassen.",
+          "savings": "Spart etwa $1.50 pro Laib"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Zusätzlichen Kristallzucker mit einem Schuss Melasse mischen oder ausschließlich Kristallzucker verwenden.",
+          "savings": "Spart den Kauf eines zweiten Beutels Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "schnellbrot",
+        "backen",
+        "zucchini",
+        "herbst",
+        "snack",
+        "frühstück",
+        "vegetarisch",
+        "eine-schüssel",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7427,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-zucchini-bread/",
+      "components": [
+        {
+          "key": "6b4adeb4-1075-5781-98aa-1909b4564eb3",
+          "name": "Zutaten",
+          "servingGrams": 109.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca490504-c8b0-5e7d-9d94-928336f14469",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2 mittelgroße, gerieben zu ~1.5 fest gefüllten Tassen"
+            },
+            {
+              "key": "b4c7de5a-7a0a-52ff-9d0a-aa636c11e710",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl, ~1.5 Tassen"
+            },
+            {
+              "key": "9517926d-f6ae-5df2-8059-fcbfecd87cd2",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "~3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "eceed228-451e-5b3f-9958-143c8c61f8dc",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "~1/2 Tasse hellbrauner Zucker, fest angedrückt"
+            },
+            {
+              "key": "87d48729-ae49-5217-a33e-49bd287e8b4d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63590c24-6534-54e3-bc76-d9c3c52f0ec1",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "~1/2 Tasse neutrales Öl"
+            },
+            {
+              "key": "df37b2bc-ca4d-5084-92fa-c3d7aafafeff",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "e1a77818-8cc7-500f-b0fd-d61a2f6af995",
+              "ingredientName": "Natron",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "1e6d63d7-51c4-51a2-bf0a-cdfd8d5d1699",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e77ea5db-b0ee-58a7-9fa5-4893e2b983cc",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 TL, gemahlen"
+            },
+            {
+              "key": "10dc56ba-10de-580a-b6c7-60b868af82ca",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL, frisch gerieben"
+            },
+            {
+              "key": "ddb8590e-41ca-5b5d-a866-a951bb5a3298",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "53fe2be0-0068-5e38-9665-be0a18c266dd",
+              "ingredientName": "Walnüsse",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "~1/2 Tasse, gehackt und geröstet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F (175C) vorheizen. Eine Kastenform mit 9x5-inch einfetten und den Boden mit Backpapier auslegen, sodass es an den Seiten übersteht und das Brot später leicht herausgehoben werden kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Zucchini auf der groben Seite einer Vierkantreibe raspeln. Schälen ist nicht nötig. In ein sauberes Küchentuch geben und kräftig ausdrücken, um überschüssiges Wasser zu entfernen. Flüssigkeit wegschütten. Es werden etwa 1.5 fest zusammengedrückte Tassen ausgedrückte Zucchini benötigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier, Kristallzucker, braunen Zucker, Öl und Vanille in einer großen Schüssel etwa 1 Minute glatt und leicht dicklich verquirlen. Geraspelte Zucchini einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer separaten Schüssel Mehl, Natron, Backpulver, Zimt, Muskat und Salz verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die trockenen Zutaten zu den flüssigen geben und mit einem Teigschaber gerade so unterheben, bis keine trockenen Mehlstellen mehr zu sehen sind. Nicht zu lange rühren, sonst wird das Brot kompakt und zäh. Falls verwendet, geröstete Walnüsse vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig in die Form füllen und die Oberfläche glatt streichen. 50 to 60 Minuten backen, bis das Brot oben gewölbt und goldgelb ist und ein hineingesteckter Holzspieß mit nur wenigen feuchten Krümeln herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das Brot 15 Minuten in der Form auf einem Gitter abkühlen lassen. Dann mithilfe des überstehenden Backpapiers herausheben und vor dem Anschneiden auf dem Gitter vollständig auskühlen lassen. So setzt sich die Krume und lässt sich sauber schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Costata_Romanesco_zucchini_and_zucchini_bread.jpg/1280px-Costata_Romanesco_zucchini_and_zucchini_bread.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Costata_Romanesco_zucchini_and_zucchini_bread.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Temaciejewski — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Zucchinibrot",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-marble-pound-cake",
+      "slug": "bake-marble-pound-cake",
+      "title": "Marmorkuchen",
+      "instructions": "Ein zarter, buttriger Kuchen aus der Kastenform, in dem sich kräftiger Vanille- und Kakaoteig zu markanten Marmerschlieren verbinden. Die klassische Rührkuchenmethode sorgt für eine feine, saftige Krume und goldene Kruste: Weiche Butter und Zucker werden hell aufgeschlagen, dann kommen Eier und Mehl dazu. Lässt sich gut in Scheiben schneiden und hält sich mehrere Tage.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Butter, Eier und Milch vorher auf Zimmertemperatur bringen. Kalte Zutaten lassen sich nicht gut aufschlagen, und der Kuchen geht schlechter auf – ganz ohne zusätzliche Kosten.",
+        "Kein Kakao da? Eine kleine Handvoll Schokoladenstückchen schmelzen und unter den zurückbehaltenen Teig heben. So entsteht mit Vorratsresten derselbe Marmoreffekt.",
+        "Übrige Scheiben einwickeln und einfrieren. Rührkuchen lässt sich problemlos auftauen und toasten, so reicht ein Kuchen für zwei Wochen Snacks."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Buttermilch oder Naturjoghurt mit etwas Wasser verdünnen, damit die Krume noch zarter wird.",
+          "savings": "Ungefähr gleiche Kosten; verbraucht Vorhandenes aus dem Kühlschrank"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Die Hälfte der Butter durch Pflanzenöl ersetzen, damit der Kuchen saftiger bleibt und länger frisch ist.",
+          "savings": "Spart etwa $0.40 pro Laib"
+        },
+        {
+          "forIngredientId": "cocoa",
+          "swap": "Geschmolzene dunkle Schokoladenstückchen unter den zurückbehaltenen Teig heben.",
+          "savings": "Gleiche Kosten; vorhandene Schokostückchen verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "dessert",
+        "kuchen",
+        "marmor",
+        "kastenform",
+        "vanille",
+        "schokolade",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7428,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-marble-pound-cake/",
+      "components": [
+        {
+          "key": "db426ee0-b34d-571a-8e40-1223c0f714b1",
+          "name": "Zutaten",
+          "servingGrams": 152.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ccbc246b-b1d4-5397-9dd7-f0ef78bafcf1",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse / 2 US-Sticks ungesalzene Butter, weich"
+            },
+            {
+              "key": "363a938f-3e5f-507a-84f3-b61962d4f584",
+              "ingredientName": "Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Kristallzucker"
+            },
+            {
+              "key": "7fcc134e-32b0-535e-849e-bb9f0623ccec",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "große Eier, zimmerwarm"
+            },
+            {
+              "key": "b1e49964-4c6c-5ccc-a883-23676c91699f",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "335d0086-9716-51ae-a6cf-edcd0bc98003",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch, zimmerwarm"
+            },
+            {
+              "key": "b28cea2a-f59d-567a-a296-6c79001fe038",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "43282902-ce12-595e-b959-a800d368896a",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "160f197a-354d-5cc8-aac4-1b4db9a34c91",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "cae66168-9554-5546-9771-a798624025c9",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL ungesüßtes Kakaopulver, gesiebt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 325F (165C) vorheizen. Eine Kastenform mit 9x5-inch einfetten und mit Backpapier auslegen, das an den langen Seiten übersteht. Mehl, Backpulver und Salz in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter und Zucker in einer großen Schüssel mit dem Rührgerät bei mittelhoher Stufe 4-5 Minuten schlagen, bis die Masse sehr hell und luftig ist. So wird Luft in den Teig eingearbeitet und der Rührkuchen geht auf. Nimm dir dafür Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Eier einzeln einrühren, nach jedem Ei gut schlagen und die Schüsselwand abstreifen. Vanille einrühren. Der Teig soll glatt und dick sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei niedriger Rührstufe die Mehlmischung in drei Portionen abwechselnd mit der Milch dazugeben. Mit Mehl beginnen und enden. Nur rühren, bis die jeweilige Portion gerade eingearbeitet ist. Zu langes Rühren macht den Kuchen zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Etwa ein Drittel des Teigs in eine separate Schüssel geben und gesiebten Kakao vorsichtig unterheben, bis der Teig gleichmäßig dunkel ist. Falls er zu fest wird, mit 1-2 tsp Milch lockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beide Teige abwechselnd löffelweise in die Form geben und Vanille- und Schokoladenteig schichten. Mit einem Buttermesser oder Holzspieß einige Achterbewegungen durch den Teig ziehen. Nur wenige Male marmorieren, damit die Farben unterscheidbar bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "60-70 Minuten backen, bis der Kuchen oben gewölbt und goldgelb ist und ein Spieß in der Mitte mit nur wenigen feuchten Krümeln herauskommt. Wenn die Oberfläche zu schnell bräunt, nach 45 Minuten locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "15 Minuten in der Form abkühlen lassen, dann am Backpapier herausheben und auf einem Gitter vollständig abkühlen lassen. Die Krume setzt sich beim Abkühlen, also nicht warm anschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Kek_marmar_20230421_121632.jpg/1280px-Kek_marmar_20230421_121632.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kek_marmar_20230421_121632.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Wiki Farazi — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Marmorkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-olive-oil-cake",
+      "slug": "bake-olive-oil-cake",
+      "title": "Olivenölkuchen",
+      "instructions": "Ein saftiger, zarter Kuchen aus einer Lage, der statt Butter mit fruchtigem nativem Olivenöl extra zubereitet und mit Zitronen- und Orangenschale sowie etwas Vanille aromatisiert wird. Das Olivenöl hält ihn tagelang weich und gibt ihm eine feine würzige Tiefe. Aufgeschlagene Eier und Zucker sorgen für eine leichte, lockere Krume. Zum Schluss kommt einfach Puderzucker darüber – rustikal, elegant und italienisch.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für den ganzen Kuchen brauchst du keine teure Flasche. Ein gutes Olivenöl extra vergine für den Alltag eignet sich zum Backen. Ein pfeffriges Öl zum Beträufeln von Brot kannst du dir aufheben.",
+        "Zuerst Zitrusfrüchte abreiben und erst dann auspressen, damit nichts verloren geht. Übrige abgeriebene Orangen und Zitronen machen ein Glas Wasser schnell aromatisch.",
+        "Backe den Kuchen einen Tag vorher. Olivenölkuchen wird über Nacht besser, wenn sich die Krume setzt und die Feuchtigkeit verteilt. Ideal zum Vorbereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Mandel- oder Hafermilch für eine milchfreie Krume verwenden.",
+          "savings": "Ungefähr gleiche Kosten; verwendet bereits geöffnete Vorräte"
+        },
+        {
+          "forIngredientId": "evoo",
+          "swap": "Ein mildes, helles Olivenöl eignet sich, wenn natives Olivenöl extra zu pfeffrig schmeckt.",
+          "savings": "Pro Flasche oft $2-4 günstiger"
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "Die Orange weglassen und stattdessen die Schale einer zweiten Zitrone verwenden.",
+          "savings": "Spart etwa $0.70 und schmeckt weiterhin frisch und fruchtig."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "dessert",
+        "kuchen",
+        "olivenöl",
+        "zitrusfrüchte",
+        "backen",
+        "vegetarisch",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7429,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-olive-oil-cake/",
+      "components": [
+        {
+          "key": "de4b3abc-0355-5ee2-980b-c9502ac76dda",
+          "name": "Zutaten",
+          "servingGrams": 146.57,
+          "position": 0,
+          "items": [
+            {
+              "key": "f134b66c-6972-5320-ae0f-4bf4aec1d940",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1.75 Tassen Weizenmehl"
+            },
+            {
+              "key": "3d6619f1-f8ae-58bd-93c0-654b928e7e8a",
+              "ingredientName": "Zucker",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1.25 Tassen Kristallzucker"
+            },
+            {
+              "key": "5df041f3-d4d4-5498-b9ca-2786050130a9",
+              "ingredientName": "Natives Olivenöl extra",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse gutes fruchtiges natives Olivenöl extra"
+            },
+            {
+              "key": "eaace187-e7a2-58fe-a446-a03ebf5fcb4f",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Eier, zimmerwarm"
+            },
+            {
+              "key": "bde5dbdd-761d-56c1-9ac3-a8f7855ceed8",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse Vollmilch"
+            },
+            {
+              "key": "a33d087e-1331-537b-9a01-dd8ee21ba450",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Zitrone"
+            },
+            {
+              "key": "260059d8-bbf0-5f66-a643-cb81a04527a9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL frischer Zitronensaft"
+            },
+            {
+              "key": "204f1462-51f8-52c9-81f6-9ec49eeaee88",
+              "ingredientName": "Orange",
+              "grams": 65.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1/2 Orange"
+            },
+            {
+              "key": "78449b7e-f6ae-530f-801c-b77c4e6cb12a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL Vanilleextrakt"
+            },
+            {
+              "key": "b977ca85-e128-5d59-9894-6a141d9431f6",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 TL Backpulver"
+            },
+            {
+              "key": "4846614c-afa5-5ed8-b793-8ca3b586e1c5",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL Natron"
+            },
+            {
+              "key": "5256ecbf-1acf-588c-a488-67654f128094",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "06debf85-46f1-51e9-af86-813bfdbe9d0c",
+              "ingredientName": "Puderzucker",
+              "grams": 1.2,
+              "quantity": 1.2,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F (175C) vorheizen. Eine runde Kuchenform mit 9-inch Durchmesser mit etwas Olivenöl einfetten, den Boden mit Backpapier auslegen und erneut einfetten. Mehl, Backpulver, Natron und Salz in einer Schüssel verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier und Zucker in einer großen Schüssel mit dem Schneebesen oder Rührgerät 3 to 4 Minuten schlagen, bis die Masse hell, dicklich und deutlich voluminöser ist. Die eingearbeitete Luft sorgt für eine lockere Krume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei niedriger Rührstufe oder unter stetigem Rühren das native Olivenöl extra langsam in einem dünnen Strahl zugießen, damit es sich gleichmäßig mit den Eiern verbindet. Milch, Zitronensaft, Vanille sowie Zitronen- und Orangenschale einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die trockenen Zutaten in zwei Portionen dazugeben und mit einem Teigschaber vorsichtig unterheben, bis keine Mehlspuren mehr zu sehen sind. Nicht zu lange rühren. Ein paar Klümpchen sind in Ordnung, zu starkes Rühren macht den Kuchen zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig in die vorbereitete Form füllen und glatt streichen. Die Form einmal auf die Arbeitsfläche klopfen, damit größere Luftblasen entweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf der mittleren Schiene 40 to 45 Minuten backen, bis die Oberfläche kräftig goldgelb ist, der Kuchen bei leichtem Druck zurückfedert und ein Holzspieß in der Mitte sauber oder mit ein paar feuchten Krümeln herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15 Minuten in der Form auf einem Kuchengitter abkühlen lassen. Dann mit einem Messer am Rand entlangfahren, den Kuchen zum Lösen stürzen, das Backpapier abziehen und zum vollständigen Auskühlen wieder richtig herum drehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Unmittelbar vor dem Servieren großzügig mit Puderzucker bestäuben. Gut eingewickelt hält der Kuchen sich bei Zimmertemperatur bis zu 3 Tage und wird dabei noch saftiger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Lemon_olive_oil_cake_-_3300260329.jpg/1280px-Lemon_olive_oil_cake_-_3300260329.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lemon_olive_oil_cake_-_3300260329.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: stu_spivack — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Olivenölkuchen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1109 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-scallop-roll",
+      "slug": "gen-scallop-roll",
+      "title": "Jakobsmuschelbrötchen",
+      "instructions": "Neuengland-Mittagessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende aufgetaute tiefgekühlte Jakobsmuscheln statt frischer und spare 30%.",
+        "Bereite das Dressing auf Mayonnaisebasis selbst zu, statt ein fertiges zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Neuengland",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4325,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scallop-roll/",
+      "components": [
+        {
+          "key": "174ed2bd-4a19-592b-bc39-3e715d67a687",
+          "name": "Zutaten",
+          "servingGrams": 213.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b7863e90-070d-5c41-9cbc-c346df75cdfa",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a7b432c5-5c99-5689-86a1-74351f75a079",
+              "ingredientName": "Hotdog",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Stück (nach Neuengland-Art, oben eingeschnitten)"
+            },
+            {
+              "key": "cc8a93c8-b6af-5553-bfc1-a1dce8dd6daa",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "b1abb67c-3aa5-5829-91a8-6c547544d6bf",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9a6d3c87-443b-564c-a885-94a26adf27f8",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse, fein gewürfelt"
+            },
+            {
+              "key": "0c418678-26e9-574c-a860-c7a66221997c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "7c600105-be79-5345-9e61-573e563c0869",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "97db0031-d23a-5f18-8f82-8d7f6b81f1d5",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "3a2491f7-63ae-5023-8426-05472e3f9c27",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "92042dea-e153-5af8-93b7-b90d1b391e6c",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Jakobsmuscheln mit Küchenpapier trocken und würze sie leicht mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einer Pfanne bei mittelhoher bis hoher Hitze und brate die Jakobsmuscheln pro Seite 2-3 Minuten, bis sie undurchsichtig sind. Lasse sie abkühlen und hacke sie grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mayonnaise, Zitronensaft, Sellerie, Frühlingszwiebeln, Salz, Pfeffer und Paprikapulver in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die gehackten Jakobsmuscheln unter die Mayonnaise-Mischung, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die Innenseiten der aufgeschnittenen Brötchen leicht mit Butter und röste sie in einer Pfanne oder unter dem Backofengrill 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jedes getoastete Brötchen mit der Jakobsmuschel-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit zusätzlichen Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/v4oei4wi1y471.jpg",
+          "sourcePageUrl": "https://i.redd.it/v4oei4wi1y471.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-roll",
+      "slug": "gen-shrimp-roll",
+      "title": "Garnelenbrötchen",
+      "instructions": "Neuengland-Mittagessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen in größeren Mengen im Angebot und taue sie nach Bedarf auf.",
+        "Verwende Mayonnaise mit 2% Fett statt Vollfettmayonnaise, um Fett und Kosten etwas zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Neuengland",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4326,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-roll/",
+      "components": [
+        {
+          "key": "260051ce-9bf0-5feb-8e18-5985a7ffc06a",
+          "name": "Zutaten",
+          "servingGrams": 213.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a2e7269-3911-503f-899c-72b2c61bf3ad",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "ce49f446-f64f-5fef-bdf7-f35e509d37ce",
+              "ingredientName": "Hotdog",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Stück (nach Neuengland-Art, oben eingeschnitten)"
+            },
+            {
+              "key": "12ebbcb2-543a-510d-bd24-ff3cba7ae303",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "f1bb71b9-c28f-5769-9774-6dcc73324bb5",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e9f85308-eaa3-5177-8056-20e6ff6e52e0",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse, fein gewürfelt"
+            },
+            {
+              "key": "0f6afaa1-4ecc-5f3a-908d-412eecf5a430",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, fein gehackt"
+            },
+            {
+              "key": "fb8774f7-ece1-50b1-8aac-52039117edc1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "7bc77066-d20e-55ed-9fce-14340c60a28d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "ac144b93-8bfd-51ef-aad0-52e48be5af41",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d7105cc7-fecf-5684-b20e-428602744f5e",
+              "ingredientName": "Old Bay-Gewürz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf Salzwasser zum Kochen und gib die Garnelen hinein. Koche sie 2-3 Minuten, bis sie rosa sind. Lass sie abtropfen und abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke die gekochten Garnelen in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mayonnaise, Zitronensaft, Sellerie, rote Zwiebel, Salz, Pfeffer und Old Bay-Gewürz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die Garnelen unter die Mayonnaise-Mischung, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die Innenseiten der aufgeschnittenen Brötchen leicht mit Butter und röste sie in einer Pfanne 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jedes getoastete Brötchen mit der Garnelenmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit Zitronenspalten und zusätzlichem Old Bay-Gewürz servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57ad35e41b334044149754e0/1:1/w_2560%2Cc_limit/shrimp-rolls.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57ad35e41b334044149754e0/1:1/w_2560%2Cc_limit/shrimp-rolls.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-new-england-pot-roast",
+      "slug": "gen-new-england-pot-roast",
+      "title": "Schmorbraten aus Neuengland",
+      "instructions": "Neuengland-Abendessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschmorbraten im Angebot und friere ihn bis zur Verwendung ein.",
+        "Verwende Rinderbrühe von einer Handelsmarke statt einer Markenbrühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Neuengland",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4327,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-new-england-pot-roast/",
+      "components": [
+        {
+          "key": "16a61acb-a74f-5177-b9aa-abfbb14d1369",
+          "name": "Zutaten",
+          "servingGrams": 355.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "cee9a1bb-3fdb-56bf-94c2-9f39f47f5176",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "11cebfd5-2a6e-54d6-be5a-330f8b65c267",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "a52ab217-7766-56a8-ad3a-9e835495e0f2",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f058c0ca-7e6c-5738-a1f0-0c4d1a8b6112",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Pfund, geviertelt"
+            },
+            {
+              "key": "b120af39-5f53-54ea-bbad-178ef6e2cda3",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund, in 2-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "2c8ebbed-533e-54b6-a8ff-4f2f0b8c45ec",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück, geviertelt"
+            },
+            {
+              "key": "387690a8-333b-553b-8325-1828f629c9bb",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Stangen, in 2-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "dd6d5ec7-bcde-53ed-9aad-f7a7d9c7010d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb51d877-1955-59b6-8136-5a6cbf440d98",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "a54b6259-6cf5-51e5-8b59-828635126021",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "51c652d9-f7b3-5472-8d8c-06337f85fe7b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "c7bb4a16-ee98-51df-ab24-1d56c832ec5a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor und erhitze Olivenöl in einem schweren Schmortopf bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe den Braten trocken und würze ihn großzügig mit Salz und Pfeffer. Bräune ihn von allen Seiten jeweils 3-4 Minuten an und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste Zwiebel, Karotten und Sellerie im selben Topf kurz 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Braten zurück in den Topf und füge Rinderbrühe, Wasser, Lorbeerblätter und Thymian hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und stelle ihn in den Ofen. Schmore den Braten 2 Stunden und wende ihn nach der Hälfte der Garzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kartoffeln und Selleriestücke hinzu, decke den Topf ab und gare alles weitere 45 Minuten bis 1 Stunde, bis das Gemüse zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne Lorbeerblätter und Thymianzweige. Würze bei Bedarf mit zusätzlichem Salz und Pfeffer und serviere den Braten heiß in Schalen mit Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/42/68/91/Qj9AcIDJSYiOZZvWujZf_2994B7C4-61FB-4CB7-B3C5-AB8D2409C0BE.jpeg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/42/68/91/Qj9AcIDJSYiOZZvWujZf_2994B7C4-61FB-4CB7-B3C5-AB8D2409C0BE.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-corn-chowder",
+      "slug": "gen-corn-chowder",
+      "title": "Mais-Chowder",
+      "instructions": "Neuengland-Mittagessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten oder Mais aus der Dose statt frischem und spare 50%.",
+        "Bereite die Suppe mit halb Milch und halb Sahne statt nur Sahne zu und senke die Kosten um 25%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Neuengland",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4328,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-corn-chowder/",
+      "components": [
+        {
+          "key": "959f497e-ef04-5bfb-8ebd-d637f90a955a",
+          "name": "Zutaten",
+          "servingGrams": 818.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4cdd74c-de5f-52f0-a4b7-2cf4279217dc",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f1d9f3c8-777c-57db-86be-f9444bd6733c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "77460290-38f9-549c-a564-666d335f2334",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "914e42c4-92c5-531b-be36-ac5ca6c9e638",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "7839ba64-d53c-598b-a84a-e621f1f6800c",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen (frisch, tiefgekühlt oder aus der Dose)"
+            },
+            {
+              "key": "d526a762-27c3-5e96-9031-12b808a7204c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "8927d37c-14e9-5f20-b9ea-6d8d12186fe9",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "049a4753-c6ea-5ee3-8857-b765afbf12b5",
+              "ingredientName": "Schwere Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1331fcbf-45f0-54fe-add6-e72b4aaf4611",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "475295c6-a9d9-5f55-9d7b-8d2c68025188",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d27c6f45-8af5-5375-9a09-766c9913f383",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL, getrocknet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einem großen Topf bei mittlerer Hitze und dünste Zwiebel und Sellerie 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streue Mehl über das Gemüse und rühre 1-2 Minuten, bis eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Kartoffeln, Mais und Brühe hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Suppe 15-20 Minuten köcheln, bis die Kartoffeln weich sind. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Thymian, Salz und schwarzen Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Sahne langsam unter Rühren ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Suppe weitere 5 Minuten köcheln, ohne sie aufzukochen. Schmecke sie ab, würze bei Bedarf nach und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Gfmp44usm9wMrdjyyLALIi09NWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Corn-Crabmeat-Chowder-LEAD-5-ac3885c7ef2c4248972ee2a908f38887.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Gfmp44usm9wMrdjyyLALIi09NWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Corn-Crabmeat-Chowder-LEAD-5-ac3885c7ef2c4248972ee2a908f38887.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-johnnycakes",
+      "slug": "gen-johnnycakes",
+      "title": "Johnnycakes",
+      "instructions": "Neuengland-Frühstück – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maismehl in größeren Mengen aus Großgebinden und spare 40%.",
+        "Verwende Mehl und Backpulver von einer Handelsmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Neuengland",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4329,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-johnnycakes/",
+      "components": [
+        {
+          "key": "3a12d6cb-e327-5eb9-9895-da1e8afcd220",
+          "name": "Zutaten",
+          "servingGrams": 224.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "eeaf2dc4-a08a-51c4-97b0-7379d1bfd689",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ee37451e-5033-58cf-8f9b-cf01fa876871",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "8e91d7ac-66bd-5f40-8f0a-101ed39882ec",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "56112c28-02f5-5f0b-a9eb-8c668ca52479",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3288f5c9-9590-5e6a-8fb3-ebcae9729340",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f2dd65a2-f21f-5d17-b439-9b91a522113b",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dd5d7ca3-f700-5aff-ae94-28ad024eece7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "8282c3a0-b05b-57fa-98b7-624b8858803c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL, geschmolzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Maismehl, Mehl, Zucker, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Milch, Ei und geschmolzene Butter in einer separaten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die feuchten Zutaten zu den trockenen und rühre nur so lange, bis alles gerade vermischt ist. Nicht zu stark rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine Grillplatte oder Pfanne bei mittlerer Hitze und fette sie leicht mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Teig portionsweise zu je 1/4 Tasse auf die Grillplatte und drücke ihn mit der Rückseite eines Löffels leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Küchlein pro Seite 3-4 Minuten goldbraun und knusprig an den Rändern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie warm mit Ahornsirup, Butter und Marmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/BBpnrhtkdYVugaCW6I8pCQqAuKg=/0x3024/filters:no_upscale():max_bytes(150000):strip_icc()/johnnycakes-3054155-diana-andrews-Image_31-6554c10a067244249b2bdd124f5f1273.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/BBpnrhtkdYVugaCW6I8pCQqAuKg=/0x3024/filters:no_upscale():max_bytes(150000):strip_icc()/johnnycakes-3054155-diana-andrews-Image_31-6554c10a067244249b2bdd124f5f1273.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

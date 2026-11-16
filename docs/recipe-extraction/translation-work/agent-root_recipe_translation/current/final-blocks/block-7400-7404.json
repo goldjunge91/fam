@@ -1,0 +1,1396 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-british-fish-and-chips",
+      "slug": "cur2-british-fish-and-chips",
+      "title": "Britisches Fish and Chips",
+      "instructions": "Der Imbissklassiker in Perfektion: flockiger Kabeljau im hauchknusprigen, goldenen Bierteig, dicke doppelt frittierte Pommes und ein Löffel Erbsenpüree. Salz und Malzessig nicht vergessen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kabeljau ist klassisch, aber teuer. Basa, Seelachs oder Schellfisch lassen sich ebenso gut und günstiger frittieren.",
+        "Maris-Piper- oder Russet-Kartoffeln werden besonders fluffig. Einweichen und zweimaliges Frittieren macht sie außen knusprig und innen weich.",
+        "Seihe das Frittieröl ab und verwende es zwei- oder dreimal wieder. Lass es abkühlen, filtere es durch einen Kaffeefilter und bewahre es in einem verschlossenen Glas auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cod",
+          "swap": "tilapia oder basa fillets",
+          "savings": "Halbiert ungefähr die Fischkosten bei ebenso zartblättrigem Ergebnis"
+        },
+        {
+          "forIngredientId": "beer",
+          "swap": "kalt sparkling Wasser mit ein extra pinch von Backpulver",
+          "savings": "Spart Bier und bleibt ebenso knusprig"
+        },
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "weglassen der mushy peas und servieren mit extra Zitrone",
+          "savings": "Spart eine zusätzliche Zutat vollständig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "britisch",
+        "pub-klassisch",
+        "deep-gebraten",
+        "comfort-food",
+        "Fisch",
+        "beer-Teig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7400,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-british-fish-and-chips/",
+      "components": [
+        {
+          "key": "bb10c135-fb6a-513f-9b93-54be56967100",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 406.77,
+          "position": 0,
+          "items": [
+            {
+              "key": "00d20ddb-af6a-5981-a0de-4960b862cc70",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "zwei dicke Kabeljaufilets ohne Haut, je etwa 180g"
+            },
+            {
+              "key": "39e686c2-962e-5825-8e4f-65113ae4ee63",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "große Maris-Piper- oder Russet-Kartoffeln für Pommes"
+            },
+            {
+              "key": "ea9b175c-4b8a-5b7b-ad08-975c34a3dc00",
+              "ingredientName": "Weizenmehl",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Weizenmehl für den Teig und etwas zum Bestäuben"
+            },
+            {
+              "key": "08720c5b-6f7c-5ced-bddc-010cb6aa95ef",
+              "ingredientName": "Bier (Kochen)",
+              "grams": 11.34,
+              "quantity": 11.34,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "kaltes Lagerbier oder Pale Ale, etwa 180ml"
+            },
+            {
+              "key": "8b3efd88-1701-5d2e-82d9-76309f4e78d0",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL für einen leichteren, knusprigeren Teig"
+            },
+            {
+              "key": "856bdc24-90a6-545d-864f-4f7351631665",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Frittieren, etwa 1L"
+            },
+            {
+              "key": "c2c8c1b0-7176-51c7-9717-192587042563",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für das Erbsenpüree"
+            },
+            {
+              "key": "6f682e40-d326-5ad0-9c05-cf373da76fb7",
+              "ingredientName": "Butter",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "ein Stück zum Verfeinern des Erbsenpürees"
+            },
+            {
+              "key": "d5b14168-0934-5c23-8d6b-5220949311ed",
+              "ingredientName": "Frische Minze",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "einige Blätter für das Erbsenpüree"
+            },
+            {
+              "key": "b229a6ab-e507-55b7-ba4e-a68cecafe10d",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f43ec010-fc84-5523-b98b-02e048421e85",
+              "ingredientName": "Essig",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Malzessig zum Servieren"
+            },
+            {
+              "key": "fb6f0966-458f-5a30-9884-3a53c27befcc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "848bd04f-a2b1-5a3d-a066-8b034419ef09",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln und schneide sie in etwa 1.5cm breite, dicke Stifte. Spüle sie unter kaltem Wasser ab, weiche sie 10 Minuten in kaltem Wasser ein und tupfe sie vollständig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einem tiefen, schweren Topf auf 130C/265F. Blanchiere die Kartoffeln portionsweise 6-7 Minuten, bis sie weich, aber noch nicht gebräunt sind. Nimm sie heraus und lasse sie auf einem Gitter abtropfen. Dieser erste Frittiervorgang gart sie durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite das Erbsenpüree zu: Koche die Tiefkühlerbsen in wenig Salzwasser 4-5 Minuten weich und gieße sie ab. Zerdrücke sie grob mit Butter, einigen Minzblättern, Salz und Pfeffer. Halte das Püree warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Mehl, Backpulver und eine gute Prise Salz mit dem kalten Bier, bis der Teig gerade glatt und dickflüssig wie Sahne ist. Halte ihn kalt und verwende ihn sofort, damit die Panade besonders knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhöhe die Öltemperatur auf 190C/375F. Tupfe die Kabeljaufilets trocken, würze sie und bestäube sie leicht mit Mehl, damit der Teig haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tauche jedes Filet in den Teig, lass den Überschuss abtropfen und senke es vorsichtig von dir weg ins heiße Öl. Frittiere es 6-8 Minuten, einmal wenden, bis die Panade tief goldbraun und knusprig ist und der Fisch auseinanderblättert. Lasse es auf einem Gitter abtropfen und salze es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die blanchierten Kartoffeln zurück ins 190C-Öl und frittiere sie 2-3 Minuten goldbraun und knusprig. Lasse sie gut abtropfen und salze großzügig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere Fisch und Pommes sofort mit Erbsenpüree, Zitronenspalten und reichlich Malzessig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Fish_chips_and_peas_The_Ledger_Building_West_India_Quay_London_Docklands_England.jpg/1280px-Fish_chips_and_peas_The_Ledger_Building_West_India_Quay_London_Docklands_England.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fish_chips_and_peas_The_Ledger_Building_West_India_Quay_London_Docklands_England.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Acabashi — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-swedish-gravlax",
+      "slug": "cur2-swedish-gravlax",
+      "title": "Schwedischer Graved Lachs",
+      "instructions": "Seidig-zarter Lachs, der mit Salz und Zucker gebeizt und in frischem Dill bedeckt wird. Zwei bis drei Tage kalt gebeizt, hauchdünn geschnitten und mit süßer Senf-Dill-Sauce serviert.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine ganze Lachshälfte im Angebot und beize sie komplett. Graved Lachs hält 5 Tage und lässt sich nach dem Beizen gut einfrieren.",
+        "Lass teuren vorgeschnittenen Räucherlachs weg. Ein rohes Filet mit Salz, Zucker und Dill kostet nur einen Bruchteil und schmeckt frischer.",
+        "Verwerte übrig gebliebene Dillstiele und Lachshaut; knuspere die Haut in einer trockenen Pfanne."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine-vinegar",
+          "swap": "verwenden natur white vinegar oder Zitronensaft in der mustard Sauce",
+          "savings": "~$2 gegenüber einer zusätzlichen Flasche Weißweinessig"
+        },
+        {
+          "forIngredientId": "vodka",
+          "swap": "Omit entirely — it only firms der surface und is fully optional",
+          "savings": "spart eine möglicherweise nicht vorhandene Spirituose"
+        },
+        {
+          "forIngredientId": "dijon",
+          "swap": "verquirlen yellow mustard mit ein pinch von Zucker für der Sauce",
+          "savings": "~$2 gegenüber Dijon-Senf aus dem Glas"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "schwedisch",
+        "nordic",
+        "cured-Fisch",
+        "machen-ahead",
+        "no-garen",
+        "appetizer",
+        "skandinavisch",
+        "smorgasbord"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7401,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-swedish-gravlax/",
+      "components": [
+        {
+          "key": "2489b582-22d0-55fd-84a9-fa9998431ecb",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 107.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "8cff1c0a-dd45-5445-bc1e-a2735f44b22f",
+              "ingredientName": "Lachsfilet",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Lachsfilet-Mittelstück mit Haut in Sushi-Qualität (~2 Pfund / 900 g), Gräten entfernt"
+            },
+            {
+              "key": "3470ce85-4458-578e-ad05-47482c83bfe3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse grobes Salz zum Beizen"
+            },
+            {
+              "key": "51afcb5e-8702-57cc-82ef-1d88628e91c5",
+              "ingredientName": "weißer Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse, ungefähr so viel wie Salz nach Gefühl"
+            },
+            {
+              "key": "d1d1ec05-469f-540d-8d9b-4b916ac474d7",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Bund Dill, samt Stielen grob gehackt"
+            },
+            {
+              "key": "7052816b-181b-5dc0-aa4c-cc063904162e",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL weiße Pfefferkörner, grob zerstoßen"
+            },
+            {
+              "key": "ad55e5c2-ccf5-591e-83b1-0813e12843f1",
+              "ingredientName": "Wodka",
+              "grams": 1.42,
+              "quantity": 1.42,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "2 EL, optional zum Einreiben für eine festere Oberfläche"
+            },
+            {
+              "key": "9449f3d4-8ddd-5062-a773-3c6443552e61",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für die Hovmästarsås-Sauce"
+            },
+            {
+              "key": "caeb2fe1-1b83-54e2-971f-e9febc2fd8b8",
+              "ingredientName": "Honig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "oder Zucker zum Süßen der Senfsauce"
+            },
+            {
+              "key": "2b621697-1f07-55cf-9a02-3f3888b3638c",
+              "ingredientName": "Weißweinessig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "für die Sauce"
+            },
+            {
+              "key": "18227d28-19b3-511f-8f2e-978f9bb7358c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "neutrales Öl zum Emulgieren der Sauce"
+            },
+            {
+              "key": "15cc9076-ee5a-572e-a46e-f6d039e4e1c0",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "Roggen- oder Sauerteigknäckebrot zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fahre mit den Fingern über den Lachs und ziehe Gräten mit einer Pinzette heraus. Tupfe das Filet ganz trocken. Reibe die Fleischseite nach Wunsch mit Wodka ein, damit sie fester wird und die Beize besser haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mische Pökelsalz, Zucker und grob zerstoßene weiße Pfefferkörner. Verteile eine dünne Schicht Beize und eine Handvoll gehackten Dill auf einem ausreichend großen Stück Frischhaltefolie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege den Lachs mit der Hautseite nach unten auf den Dill. Verteile die übrige Beize fest auf dem Fleisch und bedecke es vollständig mit dem restlichen gehackten Dill. Drücke ihn leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wickle das Filet fest in Folie, lege es mit der Hautseite nach unten in eine flache Schale und stelle eine zweite Schale oder ein Brett mit ein paar Dosen darauf (etwa 2-3 lb Gewicht).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kühle den Lachs 48-72 Stunden. Wende das Päckchen alle 12 Stunden und beschwere es erneut. Das Fleisch wird fest und an den Rändern undurchsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre für die Hovmästarsås Dijon-Senf, Honig und Weißweinessig. Träufle langsam unter Rühren Öl ein, bis eine lockere, mayonnaiseartige Emulsion entsteht. Rühre einen Esslöffel fein gehackten Dill ein und stelle die Sauce kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wickle den Lachs aus, kratze Dill und Beize ab und tupfe ihn trocken. Spüle ihn nur ab, wenn er zu salzig schmeckt; tupfe ihn danach wieder trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege das Filet mit der Hautseite nach unten und schneide es mit einem scharfen Messer flach schräg in dünne, breite Scheiben. Lass die Haut zurück und fächere die Scheiben auf einer Platte auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere den Lachs kalt mit Senf-Dill-Sauce, zusätzlichem frischem Dill und Roggenknäckebrot oder Sauerteigbrot. Gut verpackt hält er im Kühlschrank bis zu 5 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Gravlax_med_hovm%C3%A4stars%C3%A5s.jpg/1280px-Gravlax_med_hovm%C3%A4stars%C3%A5s.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gravlax_med_hovm%C3%A4stars%C3%A5s.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tomas er — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-danish-smorrebrod",
+      "slug": "cur2-danish-smorrebrod",
+      "title": "Dänisches Smørrebrød",
+      "instructions": "Klassische dänische belegte Brote auf dichtem, gebuttertem Roggenbrot, auf zwei Arten: eingelegter Hering mit roter Zwiebel und Kapern sowie rosa Roastbeef mit Remoulade, knusprigen Zwiebeln und Gurken. Kalt und geschichtet, mit Messer und Gabel zu essen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Glas eingelegten Hering und ein kleines Stück Roastbeef von der Feinkosttheke. Beides reicht für mehrere Brote und spart beim Mittagessen.",
+        "Rühre Remoulade aus Mayonnaise, Senf, Gewürzgurke und Currypulver selbst an. Das schmeckt besser und kostet weniger als ein Glas.",
+        "Dichtes Roggenbrot gibt es in langen vakuumverpackten Laiben, die wochenlang halten. Schneide es dünn und friere übrige Scheiben ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sardines",
+          "swap": "verwenden canned sardines oder smoked salmon wenn pickled herring isn't available",
+          "savings": "oft günstiger und leichter erhältlich"
+        },
+        {
+          "forIngredientId": "deli-turkey",
+          "swap": "dünn-in Scheiben geschnitten deli ham oder actual deli turkey works in legen von roast Rindfleisch",
+          "savings": "spart etwa $2"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Dense whole-grain oder pumpernickel Brot anstatt imported rugbrød",
+          "savings": "spart $3-4 pro Laib"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "danish",
+        "open-faced",
+        "skandinavisch",
+        "rye-Brot",
+        "pickled-herring",
+        "roast-Rindfleisch",
+        "kalt-Mittagessen",
+        "nordic"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7402,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-danish-smorrebrod/",
+      "components": [
+        {
+          "key": "7f7e96a0-ae8e-51be-a872-9232e944abbe",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 483.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e046014-a7ca-5b4a-b18c-f4d90ae1524d",
+              "ingredientName": "Brot",
+              "grams": 8.75,
+              "quantity": 0.35,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "kompaktes dänisches Roggenbrot (Rugbrød), 4 dünne Scheiben"
+            },
+            {
+              "key": "7f562556-dc1e-5263-a4d8-508dc10f665a",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gute gesalzene Butter, weich, zum Bestreichen"
+            },
+            {
+              "key": "573584d7-0ffd-5602-9555-ce17af7bfe64",
+              "ingredientName": "Sardinen in Dosen",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "in Essigsud eingelegte Heringsfilets (Sild)"
+            },
+            {
+              "key": "b9f85616-f2ed-5618-965b-8c0ec2606bca",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7898c71e-0e6d-5ad9-9240-24c2c963877b",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 75,
+              "quantity": 0.15,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71e40473-e77a-59a9-8157-7dcaba5ca36c",
+              "ingredientName": "Deli-Truthahn",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "dünn geschnittenes, innen rotes Roastbeef"
+            },
+            {
+              "key": "b14f35a0-7616-5a2d-8aac-cf3438499eb1",
+              "ingredientName": "Mayonnaise",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Grundlage für schnelle Remoulade"
+            },
+            {
+              "key": "afa82bc1-0c3c-5754-a53c-ae3952be8811",
+              "ingredientName": "Dillgurken (im Glas)",
+              "grams": 100,
+              "quantity": 0.2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "fein gehackt in der Remoulade und in Scheiben zum Garnieren"
+            },
+            {
+              "key": "1b2874a9-6876-5314-9d4f-8a3bd9d3e326",
+              "ingredientName": "Currypulver",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise für Farbe und Geschmack der Remoulade"
+            },
+            {
+              "key": "142f12a7-649f-55ad-a95e-e65a172c12ee",
+              "ingredientName": "Senf",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Dijon-Art, für die Remoulade"
+            },
+            {
+              "key": "37a90825-ae73-5b1d-9db8-3201cbbe7b88",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "hart gekocht, für die Eier-Herings-Garnitur"
+            },
+            {
+              "key": "eebd9df3-71aa-5016-beb9-75ec13d1a2c0",
+              "ingredientName": "Frischer Dill",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f30b6ee-b817-5c97-8603-899b52f55618",
+              "ingredientName": "Zwiebel",
+              "grams": 22.5,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "dünn geschnitten und knusprig gebraten als Belag für Roastbeef"
+            },
+            {
+              "key": "24f41b28-1986-5cb9-81d7-df1bca785b7a",
+              "ingredientName": "Zitrone",
+              "grams": 16.8,
+              "quantity": 0.2,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier hart: Lege sie in kochendes Wasser und gare sie 9 Minuten. Schrecke sie in Eiswasser ab, schäle und schneide sie in Scheiben. Schneide die rote Zwiebel in dünne Ringe und tupfe den eingelegten Hering trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre für die Remoulade Mayonnaise, fein gehackte Gewürzgurke, Dijon-Senf und eine Prise Currypulver. Würze mit Salz und Pfeffer und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für knusprige Zwiebeln (optional) brate dünn geschnittene gelbe Zwiebel bei mittlerer Hitze in einer trockenen oder leicht geölten Pfanne goldbraun und knusprig. Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche jede Roggenbrotscheibe großzügig bis an den Rand mit weicher Salzbutter. So wird das Brot nicht matschig und der Belag hält besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege zwei gebutterte Scheiben mit eingelegten Heringsfilets. Gib rote Zwiebelringe, einige Kapern und ein paar Scheiben hartgekochtes Ei darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege gefaltete Scheiben rosa Roastbeef auf die übrigen gebutterten Brote. Verteile Remoulade darüber und kröne sie mit knusprigen Röstzwiebeln und Gurkenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue jedes Brot reichlich mit gehacktem Dill und schwarzem Pfeffer. Gib zum Hering ein kleines Zitronenschnitz dazu. Kalt mit Messer und Gabel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Sm%C3%B8rrebr%C3%B8d_in_Copenhagen_01.jpg/1280px-Sm%C3%B8rrebr%C3%B8d_in_Copenhagen_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sm%C3%B8rrebr%C3%B8d_in_Copenhagen_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kritzolina — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-ukrainian-borscht",
+      "slug": "cur2-ukrainian-borscht",
+      "title": "Ukrainischer Borschtsch",
+      "instructions": "Die tief rubinrote Rote-Bete-Suppe im Herzen der ukrainischen Küche: Rindfleisch am Knochen für kräftige Brühe, angebratene Rote Bete und Tomate für leuchtende Farbe, Kohl und Kartoffeln für Substanz. Mit Essig aufgefrischt und mit Knoblauch, saurer Sahne und frischem Dill vollendet.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 130,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Beinscheibe oder Querrippe mit Knochen ist günstiger als Gulaschfleisch und ergibt eine kräftigere Brühe.",
+        "Borschtsch schmeckt am nächsten Tag noch besser. Koche einen großen Topf für mehrere Mittagessen.",
+        "Gib saure Sahne und Dill erst beim Servieren dazu. So reichen kleine Mengen weiter und die Suppe hält sich ohne Milchprodukte im Topf länger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-stew-meat",
+          "swap": "weglassen der meat und verwenden veggie-Brühe für ein vegetarisch borscht — still deeply satisfying",
+          "savings": "~$4/Zubereitung"
+        },
+        {
+          "forIngredientId": "vinegar",
+          "swap": "verwenden bottled Zitronensaft du already have auf hand",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "natur Greek Joghurt gives der same tang für weniger",
+          "savings": "~1 $"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "ukrainian",
+        "soup",
+        "beet",
+        "comfort-food",
+        "Rindfleisch",
+        "osteuropäisch",
+        "machen-ahead",
+        "one-Topf",
+        "winter"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7403,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-ukrainian-borscht/",
+      "components": [
+        {
+          "key": "ac2b7792-990f-5550-804e-aa3e6197a7b3",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 288.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4a47a9f-5ad2-58b2-a8e8-f2ea95a90bd8",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rinderbeinscheibe oder Querrippe mit Knochen"
+            },
+            {
+              "key": "6f732438-d95c-5eb9-ba2e-b02eaf4d96d9",
+              "ingredientName": "Rote Bete",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 3 mittelgroße Rote Beten, geschält"
+            },
+            {
+              "key": "2386f38d-55c3-58ce-9ff0-60f9b92f10a5",
+              "ingredientName": "Kohl",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "ungefähr ein Drittel eines kleinen Kopfs, in feine Streifen geschnitten"
+            },
+            {
+              "key": "e8c7dd9d-3d46-566a-9e80-8624a4404536",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "mittelgroße, geschält und gewürfelt"
+            },
+            {
+              "key": "19463519-248a-528c-a367-abe3f934b54e",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gerieben"
+            },
+            {
+              "key": "33034872-6732-5597-b58e-46c7ccbf2943",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2923b69c-2c4b-5094-a3d4-bbdc52ba85e8",
+              "ingredientName": "Tomatenmark",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 2 EL"
+            },
+            {
+              "key": "c53182ec-cbd4-5489-bd74-8eed37dbf0f3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "Zehen, zum Schluss zerdrückt"
+            },
+            {
+              "key": "b21dd70c-3318-5192-aa6d-905f11b7d537",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09b80c7d-aa21-59ad-a2e4-015be484a42b",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 1 EL; auch Zitronensaft oder Rote-Bete-Kwas sind traditionell"
+            },
+            {
+              "key": "48d62c46-971e-5b0c-954c-99bc7ec53985",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Prise zum geschmacklichen Ausgleich der Roten Bete"
+            },
+            {
+              "key": "7da8c221-d45c-5f02-acd8-04d395bd40f9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "für die Zazharka-Gemüsebasis"
+            },
+            {
+              "key": "647a1ac0-2043-5fd7-8f64-8641b7c5fd68",
+              "ingredientName": "Sauerrahm",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "zum Servieren, Smetana"
+            },
+            {
+              "key": "56fb4ff8-c40c-53f1-a40a-4428b261cc29",
+              "ingredientName": "Frischer Dill",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "gehackt, zum Verfeinern"
+            },
+            {
+              "key": "d6658f20-29f3-5516-a5eb-69f8db1918e4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c227de9-916f-53d8-b6e2-969c06970965",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "062e995f-a3ad-5394-bbda-2659c66143f7",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 16,
+              "optional": true,
+              "source_note": "Optional; in manchen Regionen kommen weiße Bohnen dazu."
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib das Rindfleisch am Knochen mit etwa 3 quarts kaltem Wasser in einen großen Topf. Bring es sanft zum Kochen und schöpfe den grauen Schaum ab. Gib Lorbeerblätter und eine große Prise Salz dazu. Lasse es 1.5 bis 2 Stunden sanft köcheln, bis das Fleisch weich ist. Nimm es heraus, löse das Fleisch vom Knochen und seihe die Brühe ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite inzwischen die Zazharka zu: Erhitze Öl in einer Pfanne bei mittlerer Hitze. Dünste gewürfelte Zwiebel und geriebene Karotte etwa 6 Minuten weich. Rühre Tomatenmark ein und brate es 2 Minuten, bis es dunkler wird und süß duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geriebene Rote Bete, einen Schuss Essig und eine Prise Zucker in die Pfanne. Die Säure erhält die rubinrote Farbe. Gib eine Kelle Brühe dazu, decke die Pfanne ab und schmorte alles 15 bis 20 Minuten, bis die Bete weich, aber noch leuchtend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze die übrige Brühe wieder bis zum Köcheln. Gib gewürfelte Kartoffeln dazu und gare sie 10 Minuten, bis sie fast weich sind. Gib gehobelten Kohl und nach Wunsch weiße Bohnen dazu und koche alles weitere 5 bis 7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Zazharka und gezupftes Rindfleisch in den Topf. Lasse alles 10 Minuten zusammen köcheln, damit sich die Aromen verbinden. Schmecke mit Salz, Pfeffer und Säure ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schalte die Hitze aus und rühre rohen, zerdrückten Knoblauch ein. Decke den Topf ab und lasse den Borschtsch mindestens 15 Minuten ziehen; am nächsten Tag schmeckt er noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe die Suppe in Schalen. Gib je einen Löffel saure Sahne und reichlich frischen Dill darauf und serviere sie mit dunklem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Ukrainian_borscht.jpg/1280px-Ukrainian_borscht.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ukrainian_borscht.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Nillerdk — CC BY 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-potato-latkes",
+      "slug": "cur2-potato-latkes",
+      "title": "Kartoffel-Latkes",
+      "instructions": "Knusprige, goldene jüdische Kartoffelpuffer aus grob geriebenen Kartoffeln und Zwiebeln, gründlich ausgedrückt und nur mit Ei und etwas Mehl gebunden. In wenig Öl gebraten, außen kross und innen zart. Heiß mit Apfelmus und saurer Sahne servieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Russet-Kartoffeln gehören zu den günstigsten Grundnahrungsmitteln. Kaufe einen großen Sack, dann kosten die Latkes nur wenige Cent pro Portion.",
+        "Lass das ausgepresste trübe Wasser stehen, bis sich die Kartoffelstärke absetzt. Rühre die Stärke als kostenlosen Binder wieder unter; so werden die Latkes knuspriger.",
+        "Matzenmehl, Semmelbrösel oder etwas zusätzliches Mehl eignen sich als Binder. Nimm, was du bereits im Vorrat hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "Matzo meal oder natur breadcrumbs (der traditional binder)",
+          "savings": "Vorhandene Vorräte verwenden und den Mehlkauf sparen"
+        },
+        {
+          "forIngredientId": "applesauce",
+          "swap": "Grate ein frisch Apfel oder weglassen it entirely",
+          "savings": "Spart ~$2 gegenüber einem Glas Apfelmus"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Any neutral Öl — canola, corn, oder sunflower",
+          "savings": "Die vor Ort günstigste Variante verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisch",
+        "latkes",
+        "Kartoffel-pancakes",
+        "hanukkah",
+        "gebraten",
+        "vegetarisch",
+        "comfort-food",
+        "ashkenazi"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7404,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-potato-latkes/",
+      "components": [
+        {
+          "key": "736c8146-f3e0-5988-9677-84520db75a62",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 234.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "21576d81-5111-53d6-b71f-377dd317f20a",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2 Pfund Russet-Kartoffeln, geschält"
+            },
+            {
+              "key": "59700961-5141-5757-bee8-c5a527f17a78",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße gelbe Zwiebel"
+            },
+            {
+              "key": "abfb743d-ef35-534a-98de-2ab2b2e00e62",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8714f27e-0685-55fd-a153-89ea66b24ab6",
+              "ingredientName": "Weizenmehl",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse Weizenmehl (oder Matzenmehl)"
+            },
+            {
+              "key": "be66fa72-ab0e-5abd-aafb-d5edb7b277df",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL grobes Salz"
+            },
+            {
+              "key": "539111fc-126d-567b-ba86-26fbc36aaaf1",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL schwarzer Pfeffer"
+            },
+            {
+              "key": "6f8d31cf-4e9a-5f6a-9d85-6a691f258599",
+              "ingredientName": "Backpulver",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL für mehr Lockerung und Knusprigkeit"
+            },
+            {
+              "key": "4dccc232-bde3-5337-83c1-114452016af0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "neutrales Öl zum Ausbacken, etwa 1 Tasse"
+            },
+            {
+              "key": "6f4c933f-ae12-5979-bc2b-22b90712b99b",
+              "ingredientName": "Apfelmus",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "cdf401b0-52dc-5039-beea-28a23f37cc29",
+              "ingredientName": "Sauerrahm",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln. Reibe Kartoffeln und Zwiebel grob mit der großen Seite einer Küchenreibe oder der Raspelscheibe einer Küchenmaschine. Die Enzyme der Zwiebel verhindern, dass die Kartoffeln braun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Häufle Kartoffeln und Zwiebel in die Mitte eines sauberen Küchentuchs oder mehrerer Lagen Mulltuch. Drehe das Tuch über dem Spülbecken fest zu und presse wiederholt so viel Flüssigkeit wie möglich heraus. Lass die Flüssigkeit eine Minute in einer Schüssel stehen. Gieße das Wasser vorsichtig ab und lasse die weiße Kartoffelstärke zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das ausgedrückte Gemüse mit der aufgefangenen Stärke zurück in die Schüssel. Mische Eier, Mehl, Salz, Pfeffer und Backpulver unter, bis alles gleichmäßig überzogen ist. Arbeite zügig, damit die Masse nicht grau anläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße etwa 1/4 inch Öl in eine schwere Pfanne (am besten aus Gusseisen) und erhitze es bei mittlerer bis hoher Hitze, bis es schimmert. Ein Kartoffelraspel sollte sofort brutzeln, etwa bei 350F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze pro Latke knapp 1/4 cup Masse ins Öl und drücke sie mit einem Pfannenwender vorsichtig zu einem dünnen, gleichmäßigen Kreis. Überfülle die Pfanne nicht; brate jeweils 3 bis 4 Stück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Latkes ohne sie zu bewegen 3 bis 4 Minuten pro Seite, bis sie tief goldbraun und am Rand knusprig sind. Passe die Hitze an, damit sie gleichmäßig bräunen und nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie auf ein Kuchengitter über einem Blech, nicht auf Küchenpapier, da sie dort weich dämpfen würden. Salze sie sofort leicht. Halte sie im 200F warmen Ofen, während du die übrigen brätst, und fülle bei Bedarf Öl nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Latkes heiß und frisch mit Apfelmus und saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/00_Potato_Latkes.jpg/1280px-00_Potato_Latkes.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:00_Potato_Latkes.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Mark Mitchell — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

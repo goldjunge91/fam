@@ -1,0 +1,1111 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52813",
+      "slug": "tmdb-52813",
+      "title": "Kentucky Fried Chicken",
+      "instructions": "Hähnchengericht aus den Vereinigten Staaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vereinigte-staaten",
+        "hähnchen",
+        "fleisch",
+        "scharf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1980,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52813/",
+      "components": [
+        {
+          "key": "3103f5ba-34f9-520b-ad93-231165c6e339",
+          "name": "Zutaten",
+          "servingGrams": 240,
+          "position": 0,
+          "items": [
+            {
+              "key": "672bb309-1f8a-587f-b871-fd63c9b85782",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a0c2529-a4a0-5ed0-8620-86b0779c92e3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1da2bab2-1d69-59ed-be21-67878abc4ffa",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b364f32-782e-5cf9-8f01-78d690198fa7",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37d7fb0c-721a-5803-b52f-b69deec0ae81",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fdea53d-5c56-511c-9d93-c88ba07e01a6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e69e6fae-43f5-5815-b2a1-18cdfa65a726",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a8617f9-9396-5af3-b8a9-a7c5e150aeb2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a192d82-ce15-514e-a6fd-b8a0d8a62b83",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6390706d-12ae-59fb-bc1d-7474d38a6c80",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "032dd0be-1e04-5c38-86de-8f6941b9b78e",
+              "ingredientName": "Selleriesalz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72b26077-1aef-55eb-aa92-4cd7ffb2356b",
+              "ingredientName": "Schweinebratwurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c0259a3-31b3-5e81-a2c8-9f00be6a5b14",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ddbf51e-8750-5270-923c-ed82721fc44a",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50252e39-26c9-5272-bed5-73e05658ef44",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd3c3189-0441-5400-a679-f3e3d335ce41",
+              "ingredientName": "frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5208061c-9974-57fc-85d1-5ebfa0641d7d",
+              "ingredientName": "frischer Majoran",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize die Fritteuse auf 350°F vor. Vermische alle Zutaten für die Gewürzmischung gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die Gewürzmischung mit Mehl, braunem Zucker und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauche die Hähnchenteile in Eiweiß, sodass sie leicht überzogen sind, und gib sie dann in die Mehlmischung. Wende sie einige Male und achte darauf, dass die Mehlmischung gut am Hähnchen haftet. Wiederhole dies mit allen Hähnchenteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Hähnchenteile 5 Minuten ruhen, damit die Kruste etwas trocknen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere das Hähnchen portionsweise. Bruststücke und Flügel brauchen 12-14 Minuten, Keulen und Schenkel einige Minuten länger. Das Hähnchen ist gar, wenn ein Fleischthermometer an der dicksten Stelle 165°F anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse das Hähnchen nach dem Frittieren auf Küchenpapier abtropfen. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/40r49m1763197022.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/40r49m1763197022.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53112",
+      "slug": "tmdb-53112",
+      "title": "Kenianisches Rindfleisch-Curry",
+      "instructions": "Kenianisches Rindfleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kenianisch",
+        "rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1981,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53112/",
+      "components": [
+        {
+          "key": "630addd5-8a94-5f13-8e7c-fbd7c2209810",
+          "name": "Zutaten",
+          "servingGrams": 474.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd47c046-b73d-5ac3-b995-91edae862b81",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "641f5a00-b0f3-5e86-9fb8-348e40571b9d",
+              "ingredientName": "Rinderfilet",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c6def0d-8223-5e12-9749-5f92c0e9ac82",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b73ece8-f9e4-55a0-9c4d-8090392f1234",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f93bfc9-85f6-5249-80e0-297451696e37",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaa73833-e265-5a51-842e-f537dae01710",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2163f24-d200-557b-b493-1cec91362a03",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df1ee29c-2d00-5225-a949-01f26aeab53f",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eac0586-c235-55e5-b316-2426a27a7d20",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa59a042-e42a-5603-bb0e-3625a56f9278",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab3f0c37-b539-555e-9368-cf13fd72385f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f339c477-3870-58a2-848f-3e160bbe8ca0",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b238a415-c2b3-58fb-b1e4-3dab52d0c449",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 4 cups Wasser in einem Schmortopf oder Suppentopf zum Kochen. Gib Rindfleisch, Knoblauch und Ingwer hinzu und rühre gut um. Lasse alles sanft aufköcheln, decke den Topf ab und koche unter gelegentlichem Rühren 20 Minuten. Falls sich oben Schaum bildet, schöpfe ihn einfach ab oder rühre ihn wieder ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Topf vom Herd und gieße die Flüssigkeit ab. Bewahre das überschüssige Wasser für später auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle den Topf wieder bei mittlerer Hitze auf den Herd und gib 2 tablespoons Speiseöl hinein. Sobald das Öl glänzt, gib die Zwiebeln dazu und brate sie unter gelegentlichem Rühren 5 to 7 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Tomaten zu den Zwiebeln und gare sie unter gelegentlichem Rühren weitere 3 to 5 Minuten, bis sie zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das abgetropfte Rindfleisch zur Tomaten-Zwiebel-Mischung und rühre gut um. Gare alles bei mittlerer Hitze unter gelegentlichem Rühren weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Paprika, Pfeffer, Currypulver, Tomatenmark und Salz nach Geschmack hinzu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das zum Garen des Rindfleischs verwendete Wasser zurück in den Topf und füge so viel weiteres Wasser hinzu, dass alles bedeckt ist. Bringe es zum Kochen, reduziere die Hitze und lasse es offen unter gelegentlichem Rühren etwa 1 hour köcheln, bis das Fleisch zart und die Soße eingedickt ist. Gib zusätzliches Wasser hinzu, falls das Curry trocken wird und anzusetzen beginnt oder wenn du eine suppigere Konsistenz möchtest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wenn das Curry fertig ist, nimm es vom Herd, probiere es und passe die Würzung nach Wunsch an. Mit frischen Chilis und Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/lqampv1762325397.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/lqampv1762325397.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52859",
+      "slug": "tmdb-52859",
+      "title": "Key Lime Pie",
+      "instructions": "Dessert aus den Vereinigten Staaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vereinigte-staaten",
+        "dessert",
+        "kuchen",
+        "pie",
+        "wüste",
+        "fruchtig",
+        "sauer"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1982,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52859/",
+      "components": [
+        {
+          "key": "2f19978b-6a69-58bc-9ec5-b8b65bcfd712",
+          "name": "Zutaten",
+          "servingGrams": 304.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9850bd89-af9b-533c-abae-9e98104df7e9",
+              "ingredientName": "Digestive-Kekse",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49620f8f-5368-5f26-9873-d48942b34bc2",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c471a6d5-36b4-5715-b118-02a21d91a0bc",
+              "ingredientName": "gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f93e78a-d898-5ea5-8ca0-20c0c37abb6e",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "206d0171-3e36-560f-be78-ac08d7554a90",
+              "ingredientName": "Limette",
+              "grams": 268,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67072aa0-a272-54b7-9257-b07506312929",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a665570-2486-5222-80ec-e85fee26d31d",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 160C/Umluft 140C/Gasstufe 3 vor. Zerkleinere die Kekse in einer Küchenmaschine zu Krümeln (oder gib sie in einen stabilen Plastikbeutel und zerstoße sie mit einem Nudelholz). Vermische sie mit der geschmolzenen Butter und drücke die Masse auf den Boden und an den Rand einer 22cm-Tarteform mit herausnehmbarem Boden. Backe den Boden 10 Minuten. Herausnehmen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Eigelbe in eine große Schüssel und schlage sie eine Minute mit dem Handrührgerät. Gib die Kondensmilch hinzu und schlage 3 Minuten weiter. Füge dann Limettenabrieb und -saft hinzu und schlage alles nochmals 3 Minuten. Gieße die Füllung in den abgekühlten Boden und backe den Pie weitere 15 Minuten. Abkühlen lassen und mindestens 3 Stunden oder nach Wunsch über Nacht kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn du servieren möchtest, nimm den Pie vorsichtig aus der Form und lege ihn auf eine Servierplatte. Schlage Sahne und Puderzucker leicht auf. Gib die Sahne mit einem Löffel oder Spritzbeutel auf den Pie und verziere ihn mit zusätzlichem Limettenabrieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qpqtuu1511386216.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qpqtuu1511386216.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53286",
+      "slug": "tmdb-53286",
+      "title": "Khobz el Dar (algerisches Grießbrot)",
+      "instructions": "Algerische Beilage – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "algerisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1983,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53286/",
+      "components": [
+        {
+          "key": "5735367c-4a65-5f08-9ae0-7a94f069cdc6",
+          "name": "Zutaten",
+          "servingGrams": 356.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0c1b676-4adb-5d32-84ab-b4db773ecd84",
+              "ingredientName": "Grieß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe21b824-575e-51d8-a85e-a57c07808e4b",
+              "ingredientName": "Sesamsamen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a0fb1ef-cdbb-5e61-82cc-fee0cbbcbe6c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c41e603-5b55-5bd8-816b-877853c452be",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66e071e7-985f-50c0-b1f3-27f0de1d89da",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5814d809-7b39-566c-972f-7cbc6574dd86",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1815477b-b375-5b67-8703-b70fc3e5b202",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5b2e0ab-8483-589d-92aa-c4d571ea021b",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8241e48e-3d30-551f-a6f4-e136a20b9c26",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3050a00e-642d-5695-a2f5-175615f48c1d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische 1/2 cup plus 2 tablespoons Grieß, 2 tablespoons Sesamsamen, Zucker, Hefe und Salz in einer großen Schüssel. Rühre Öl, Ei und Eiweiß mit dem Schneebesen ein. Gib langsam warme Milch dazu, bis ein flüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel mit einem Teller oder Frischhaltefolie ab und lasse den Teig bei Raumtemperatur etwa 1 hour stehen, bis er schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre 2 3/4 cups Mehl mit einem Holzlöffel ein, bis ein klebriger Teig entsteht. Decke die Schüssel wieder ab und lasse den Teig 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege ein Backblech mit Backpapier oder einer Backmatte aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue 1 Esslöffel Mehl über den Teig und deine Hände. Knete den Teig und gib nach Bedarf jeweils 1 Esslöffel Mehl hinzu, bis er sich vom Schüsselrand löst. Forme einen runden Laib und lege ihn auf das vorbereitete Blech. Decke ihn locker mit einem Tuch ab und lasse ihn an einem warmen Ort 1 hour gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 400 Grad F (200 Grad C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle Eigelb und Wasser mit einer Gabel in einer Schüssel und bestreiche damit die gesamte Oberfläche des Laibs. Streue 1 Esslöffel Sesamsamen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe das Brot im vorgeheizten Ofen etwa 20 to 25 Minuten, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/5u37fy1764116774.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/5u37fy1764116774.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52868",
+      "slug": "tmdb-52868",
+      "title": "Kidneybohnen-Curry",
+      "instructions": "Indisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indien",
+        "vegetarisch",
+        "curry"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1984,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52868/",
+      "components": [
+        {
+          "key": "db627926-eebf-5615-b6c3-66f4997438f2",
+          "name": "Zutaten",
+          "servingGrams": 227.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9343a1e0-0282-5c16-89b7-da2e75e19161",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cf599e0-7f36-57a6-b6ae-542782c90e5a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af239f49-f3f8-5847-8a51-79ec8aa46d12",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a3583ac-78a3-5ff3-ab06-65ab00860700",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c8de634-4ff3-5b39-9e08-7f0bab32a981",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f289b9e9-b361-5a32-af37-545df955c6a1",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6363309c-90df-5e63-8e1c-19e0ccf454b8",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02f30c18-b064-5bfb-adfa-1f173c2ce202",
+              "ingredientName": "Garam Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f113e35-5b13-56c6-8f1f-8d6921a6cb6b",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a392944d-db0d-50cf-a791-01cd59ce38a2",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2511893e-0ee6-544a-a6cb-68f82ecc85fd",
+              "ingredientName": "Basmati-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl in einer großen Pfanne bei niedriger bis mittlerer Hitze. Gib Zwiebel und eine Prise Salz hinzu und gare sie langsam unter gelegentlichem Rühren, bis sie weich wird und sich leicht färbt. Gib Knoblauch, Ingwer und Korianderstiele hinzu und gare alles weitere 2 mins, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Gewürze in die Pfanne und gare alles weitere 1 min, bis es aromatisch duftet. Gib gehackte Tomaten und Kidneybohnen samt Flüssigkeit dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lasse das Curry 15 mins köcheln, bis es schön dick ist. Mit Salz und Pfeffer abschmecken und mit Basmati-Reis und Korianderblättern servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/sywrsu1511463066.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/sywrsu1511463066.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

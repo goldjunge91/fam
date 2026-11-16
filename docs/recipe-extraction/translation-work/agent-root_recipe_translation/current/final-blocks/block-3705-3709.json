@@ -1,0 +1,1116 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-huevos-divorciados",
+      "slug": "gen-huevos-divorciados",
+      "title": "Huevos Divorciados",
+      "instructions": "Pueblanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Angebot in größeren Mengen",
+        "Bereite Saucen aus frischen Tomaten und Tomatillos in der Saison zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "pueblanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3705,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huevos-divorciados/",
+      "components": [
+        {
+          "key": "7e89de6e-2a30-5041-a5a9-895b29282927",
+          "name": "Zutaten",
+          "servingGrams": 498,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9c542d8-2533-522a-b14b-fe30212f64db",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "598db995-dc2f-5ed5-8890-ebdaf5d28075",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5addaa83-c21d-558d-ad7d-a067a07cfea3",
+              "ingredientName": "Salsa Verde",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b7525e8d-bbc7-571d-993a-c01757ab55fe",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "17e6eb80-46c6-5ffb-9e20-7a248c3c5cb9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc4a0582-16fb-56f5-9d6e-63abcec1a430",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04706352-376a-5dfd-a9f6-c457005a6d9b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e89a62d5-64fd-5967-a615-26e25abdb0d4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "688063fe-8ae6-5a9b-b2c5-f3e30f2fd1ef",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "66d6163f-5d9f-551b-aedf-6132edba9938",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Tomaten mit der Hälfte der Zwiebel, 1 Knoblauchzehe und Salz zu einer roten Sauce; seihe sie nach Wunsch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Tomatillos oder die Salsa-Verde-Basis mit Jalapeño, restlicher Zwiebel und Knoblauch zur grünen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze die rote Sauce in einer kleinen Pfanne und die grüne in einer zweiten Pfanne bei mittlerer Hitze. Lasse beide je 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer dritten Pfanne und brate die Eier jeweils zu zweit, bis das Eiweiß gestockt und das Eigelb noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege je Portion ein Spiegelei in jede Sauce und lasse es 1 Minute köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme Tortillas in einer trockenen Pfanne, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte je ein Ei mit roter Sauce auf der einen und grüner Sauce auf der anderen Seite an, garniere mit Koriander und serviere warme Tortillas dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/d0r2cjTXwj2q9iworeDn4FFcv8o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/huevos-divorciados-recipe-5214077-d-centoni-2022-b7c72265b1cc4a55947788188352aab4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/d0r2cjTXwj2q9iworeDn4FFcv8o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/huevos-divorciados-recipe-5214077-d-centoni-2022-b7c72265b1cc4a55947788188352aab4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chilaquiles-poblanos",
+      "slug": "gen-chilaquiles-poblanos",
+      "title": "Chilaquiles Poblanos",
+      "instructions": "Pueblanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tortillas vom Vortag, um Geld zu sparen",
+        "Kaufe Poblanos in der Saison in größeren Mengen und friere sie ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "pueblanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3706,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chilaquiles-poblanos/",
+      "components": [
+        {
+          "key": "dc040cf8-7c13-5114-b558-a7f6aa7d29f6",
+          "name": "Zutaten",
+          "servingGrams": 801.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b60c7eb-51e5-5c76-b35a-9697cecf8fa2",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27452f5b-fb84-59c1-a156-fd240af42497",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0437133-2ee0-5723-afa3-e75366c5301e",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "b5237990-2b66-5388-9250-d03793e941cf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a26beb4-94ed-56c3-8f35-3a0810aced80",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "727f8e17-829d-5de5-86ab-a12e106dbf98",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8b79aa4a-0de3-5407-b655-6832ee2f3c17",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "5547e4b2-ddd9-5fab-836d-ab55eac0d137",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dece25bb-5256-5904-a339-fbbfb88c21e8",
+              "ingredientName": "Queso Fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse, zerbröselt"
+            },
+            {
+              "key": "f8cb7887-a50b-58e9-8858-3bb9df3c36f1",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Tortillas in Viertel und frittiere sie in 2 Esslöffeln Öl in einer Pfanne knusprig. Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Poblano-Chilis über Flamme oder unter dem Grill, bis sie verkohlt sind. Lege sie 5 Minuten in eine Tüte, ziehe die Haut ab und schneide sie in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste gewürfelte Zwiebel und Knoblauch 2 Minuten im restlichen Öl, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere Poblano-Streifen, saure Sahne und Brühe glatt und gieße die Mischung mit der Zwiebel in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Sauce 5 Minuten köcheln, probiere sie und passe das Salz an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib frittierte Tortillastücke zur Sauce, rühre vorsichtig um und lasse sie 3 Minuten köcheln, bis sie leicht weich sind, aber noch Struktur haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brate Eier in einer separaten Pfanne, bis das Eiweiß gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib die Chilaquiles auf eine Servierplatte, belege sie mit Spiegeleiern und Queso Fresco und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Chilaquiles_EXPS_FT24_276331_0416_JR_08.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Chilaquiles_EXPS_FT24_276331_0416_JR_08.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pan-de-muerto",
+      "slug": "gen-pan-de-muerto",
+      "title": "Pan de Muerto",
+      "instructions": "Pueblanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hefe lose in größeren Mengen",
+        "Verwende normalen Zucker statt Spezialprodukte zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "pueblanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3707,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pan-de-muerto/",
+      "components": [
+        {
+          "key": "662658fd-b700-5ca3-a33d-cbee55a88952",
+          "name": "Zutaten",
+          "servingGrams": 613.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "088c43ee-d07a-5f43-8f3c-0e7dc4352f7c",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "61f2162c-9575-5d31-8980-3fbc6c5e5448",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "9a7464dc-1411-52d0-8cc0-2b0192ac2cd6",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, weich"
+            },
+            {
+              "key": "9cb78357-c360-562e-8591-5b37aa9fc2c6",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c190316e-9871-5cf5-a2e6-c66193b2a3e5",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "db32e2c0-6c4c-5d98-9ca0-3973160b7c7e",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "db0f98ea-4217-5896-ab8e-54bcc56485eb",
+              "ingredientName": "Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Päckchen (2.25 TL)"
+            },
+            {
+              "key": "1433aea9-e348-58f8-a0b4-9b2d54606283",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "88a2af71-0360-52d2-a4bf-f9a7bc62d163",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Löse Hefe in warmem Wasser auf und lasse sie 5 Minuten stehen, bis sie schaumig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Butter und Zucker cremig und luftig und rühre dann die Eier einzeln ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl und Salz und gib sie abwechselnd mit der Hefemischung zur Buttermasse. Rühre, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knete den Teig auf einer bemehlten Fläche 8 Minuten glatt und elastisch und arbeite dabei Orangenschale und Anissamen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege den Teig in eine geölte Schüssel, decke ihn mit einem feuchten Tuch ab und lasse ihn an einem warmen Ort 1.5 Stunden gehen, bis er sich verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücke die Luft aus dem Teig, forme einen runden Laib, lege ihn auf Backpapier, decke ihn ab und lasse ihn 45 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe ihn bei 350°F 45 Minuten goldbraun, bis er beim Klopfen hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse das Brot vor dem Servieren auf einem Gitter abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fyLBQQ92C2KyQpaHI2VBOOvA6lI=/4494x3000/filters:fill(auto,1)/pan-de-muerto-2343007_Hero-5b58b742c9e77c002c218263.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fyLBQQ92C2KyQpaHI2VBOOvA6lI=/4494x3000/filters:fill(auto,1)/pan-de-muerto-2343007_Hero-5b58b742c9e77c002c218263.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bu-uelos-poblanos",
+      "slug": "gen-bu-uelos-poblanos",
+      "title": "Buñuelos Poblanos",
+      "instructions": "Pueblanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Pflanzenöl statt Spezialöle",
+        "Brauner Zucker kann Piloncillo ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "pueblanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3708,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bu-uelos-poblanos/",
+      "components": [
+        {
+          "key": "69119332-81ac-59f0-ba5a-0e40eb66f40a",
+          "name": "Zutaten",
+          "servingGrams": 265,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d7a8802-b69a-5a4f-8bc1-0c05d6fd59c6",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "cbaddf4c-adfc-5a63-b834-fa55325790a6",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8635058b-f894-5482-91eb-f91ef8252b7a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8ddb232-2d4e-5bbe-a14e-23661afec779",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e4492bbd-3b47-5af7-a7ef-051caeeac15d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "4c536838-c460-5180-8878-a184ea341824",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "960073c4-4560-5522-a539-33826f681ac5",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6d7552f4-c67d-5a40-97c2-894b258116e1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e1750f43-f93a-5a9c-aaf9-36cbc6c0d344",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "883560dd-eb8e-531e-aa15-b4aee9f76543",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier und Milch und rühre sie unter die trockenen Zutaten, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib mit zwei Löffeln Teigportionen ins heiße Öl und frittiere sie je Seite 2 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Buñuelos auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Piloncillo und Wasser in einem kleinen Topf bei mittlerer Hitze und rühre, bis sich alles zu Sirup aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische Zucker und Zimt in einer flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wende die warmen Buñuelos in der Zimt-Zucker-Mischung, beträufle sie dann mit Piloncillo-Sirup und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://justmexicanfood.com/wp-content/uploads/2025/07/Traditional-Bunuelos-1-1365x2048.png",
+          "sourcePageUrl": "https://justmexicanfood.com/wp-content/uploads/2025/07/Traditional-Bunuelos-1-1365x2048.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-molotes-de-papa",
+      "slug": "gen-molotes-de-papa",
+      "title": "Molotes de Papa",
+      "instructions": "Pueblanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in größeren Mengen",
+        "Verwende Salsa einer Hausmarke, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "pueblanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3709,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-molotes-de-papa/",
+      "components": [
+        {
+          "key": "7d252db3-42b8-5470-ad16-008d88bb3fd1",
+          "name": "Zutaten",
+          "servingGrams": 254.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "16b97b6f-8fd6-5cb8-9d53-fdb11094350e",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c0638f35-52fb-55ab-a75e-e5ca55cc430b",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bafd80ec-19c4-547a-a746-5edae2514647",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "62a945a5-e625-597a-9314-dcbc1a2a950a",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00c5ef6f-e76b-57ba-b6de-12fc01feea11",
+              "ingredientName": "Queso Fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "71920348-747f-5f8d-904c-e9bb2023b088",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c3f81e84-ee0f-595e-b1b7-472f97ee78ac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a3c9915b-0ce8-5b14-8145-e131b9c5a7e1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "7208e4c6-c3f7-5457-90f5-f1aa6af89920",
+              "ingredientName": "Salsa Verde",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln weich, schäle sie und zerdrücke sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Zwiebel und Jalapeños fein und hebe sie zusammen mit Queso Fresco und Koriander unter die Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Tortillas in einer trockenen Pfanne, damit sie biegsam werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 3 Esslöffel Kartoffelfüllung auf jede Tortilla, falte sie zu einem Dreieck oder Rechteck und drücke die Ränder fest zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Molotes vorsichtig ins heiße Öl und frittiere sie je Seite 2-3 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Salsa Verde zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/01/2b/cd/012bcd15b105e0c25d403167d72797c5.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/01/2b/cd/012bcd15b105e0c25d403167d72797c5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

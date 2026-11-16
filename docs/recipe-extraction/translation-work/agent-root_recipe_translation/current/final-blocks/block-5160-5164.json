@@ -1,0 +1,936 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-grilled-salmon-with-hollandaise",
+      "slug": "gen-grilled-salmon-with-hollandaise",
+      "title": "Gegrillter Lachs mit Sauce hollandaise",
+      "instructions": "Französisch inspiriertes Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lachs im Angebot und friere ihn für später ein.",
+        "Bereite die Sauce hollandaise portionsweise zu, damit du weniger Eigelb übrig hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5160,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-salmon-with-hollandaise/",
+      "components": [
+        {
+          "key": "2702f099-f7e4-5415-9f4a-bd2c9d345e8c",
+          "name": "Zutaten",
+          "servingGrams": 195,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fb7b954-70d6-5167-b2cf-248a55090922",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (6 Unzen je)"
+            },
+            {
+              "key": "4b7ac599-b37d-59de-9a57-f2f16330a620",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "f91b91da-2c02-5f57-aecb-c8476a6f8bd8",
+              "ingredientName": "Eigelb",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f0669c0-c8ab-5dcf-8d9f-9ff3af2c7004",
+              "ingredientName": "Zitronensaft",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8637524c-d7a3-52e2-8b79-9255dc0c06fa",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9c0344bb-ce5c-530e-956c-2e2225e29c4a",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "4b42fb43-e75b-5444-bca2-7f6956e63e72",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8b803b94-0276-5961-85da-37ee0c938630",
+              "ingredientName": "frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz die Butter in einem kleinen Topf und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle das Eigelb in einer hitzebeständigen Schüssel über leicht siedendem Wasser im Wasserbad etwa 3 Minuten, bis es hell und schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Träufle die warme Butter unter ständigem Rühren langsam zum Eigelb, bis die Sauce eindickt. Rühre Zitronensaft, Salz, weißen Pfeffer und Cayennepfeffer ein und nimm die Schüssel vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tupfe den Lachs trocken, bestreiche ihn mit Olivenöl und würze beide Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Grill auf mittlere bis hohe Hitze vor. Grille den Lachs mit der Hautseite nach oben 5-6 Minuten, wende ihn und grille die Hautseite 4-5 Minuten, bis er gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte den Lachs an, gib Sauce hollandaise darüber und garniere ihn mit frischem Dill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/18/11/1520957651-grilled-salmon-vertical.jpg?crop=1.0xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/18/11/1520957651-grilled-salmon-vertical.jpg?crop=1.0xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ribeye-steak",
+      "slug": "gen-ribeye-steak",
+      "title": "Ribeye-Steak",
+      "instructions": "Amerikanisches Steakgericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ribeye-Steaks im Angebot in größeren Packungen und friere sie einzeln verpackt ein.",
+        "Lass teure Gewürzmischungen weg und würze einfach mit Salz und Pfeffer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5161,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ribeye-steak/",
+      "components": [
+        {
+          "key": "bc6a61ac-976a-5a74-b84f-59aa65fd869c",
+          "name": "Zutaten",
+          "servingGrams": 86.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9bf05e3-b02f-5e19-a43a-16be58afd963",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (12 Unzen je)"
+            },
+            {
+              "key": "54e14c62-95fe-5e18-b0c5-e6d39f7ad375",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6d68dd4d-0693-5f47-9441-2cc55e4a95bc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, zerdrückt"
+            },
+            {
+              "key": "99534ffb-7b69-58cc-8779-0641e0800b82",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "d4708be4-09bd-5cb0-9f7c-ace45e287e18",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b65ee7a0-bb2b-5c82-9c88-fe0a752d6bf7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "910be37a-24e5-5822-a50b-405676ffd9eb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nimm die Steaks 30 Minuten vor dem Braten aus dem Kühlschrank, damit sie Zimmertemperatur annehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Steaks mit Küchenpapier vollständig trocken und würze beide Seiten großzügig mit Meersalz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer gusseisernen Pfanne bei hoher Hitze, bis es gerade zu rauchen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Steaks für einen rosa Gargrad 4-5 Minuten pro Seite und bewege sie dabei möglichst nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Butter, zerdrückten Knoblauch und Rosmarin in die Pfanne. Neige die Pfanne und übergieße die Steaks 2 Minuten lang mit der schäumenden Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Steaks auf einen vorgewärmten Teller und lasse sie vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xcRag0vFwMMPmyOdPOzLTPthJQ4=/5184x3456/filters:fill(auto,1)/tomahawk-rib-eye-steak-2313425-hero-01-98fc6c07472c440fbdfdd87db6c71e26.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xcRag0vFwMMPmyOdPOzLTPthJQ4=/5184x3456/filters:fill(auto,1)/tomahawk-rib-eye-steak-2313425-hero-01-98fc6c07472c440fbdfdd87db6c71e26.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bunless-blt",
+      "slug": "gen-bunless-blt",
+      "title": "Salat-Wraps mit Speck",
+      "instructions": "Amerikanisches Mittagessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck in Großpackungen und friere ihn portionsweise für schnelle Mahlzeiten ein.",
+        "Verwende preiswerten Eisbergsalat statt teurer Blattsalate."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5162,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bunless-blt/",
+      "components": [
+        {
+          "key": "57730edf-ace0-5e57-939b-c9a5fe3cf283",
+          "name": "Zutaten",
+          "servingGrams": 755,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c0b6293-4d17-587b-99eb-de796d211b18",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61e2232f-286a-5cb3-a23f-9865fa39a6d1",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3-4 groß"
+            },
+            {
+              "key": "7ed1511f-6772-57bf-af9e-5b840a1e4cf0",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß, in Scheiben geschnitten"
+            },
+            {
+              "key": "4134b7e2-d505-5e5d-8765-bf5f0c392ee0",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9f23f8d4-3581-5580-91ee-7e149c444a69",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck in einer Pfanne bei mittlerer Hitze 6-8 Minuten knusprig. Lasse ihn anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche eine Seite jedes Salatblatts mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Speckstreifen auf die Salatblätter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatenscheiben darauf und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle die Salatblätter um die Füllung und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/BLT_EXPS_TOHD25_278758_JonathanMelendez_06.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/BLT_EXPS_TOHD25_278758_JonathanMelendez_06.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-deviled-eggs",
+      "slug": "gen-deviled-eggs",
+      "title": "Gefüllte Teufelseier",
+      "instructions": "Amerikanischer Snack für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Großhandel, um Geld zu sparen.",
+        "Bereite eine größere Menge zu und bewahre sie als schnellen Snack im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5163,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-deviled-eggs/",
+      "components": [
+        {
+          "key": "b342fb4c-5f48-5f0d-9074-f753818e71c4",
+          "name": "Zutaten",
+          "servingGrams": 126.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a1d1f19-5987-517f-a31a-db7e8e963dff",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 groß"
+            },
+            {
+              "key": "19ab323c-1061-5897-bbde-b2f1c0e4dcf1",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "61803d7f-130a-5784-b870-dc0162acbdf7",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "dc0ebdf8-9035-5958-9835-cd00c8bbfff7",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "92474acd-0ec5-51bf-b12b-e1dc2473f607",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "436b2831-b28f-5f3c-9697-c48a5a5a6cd3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "de3f7b71-caf3-5db6-baf2-b9664c2348d8",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier in einem Topf mit Salzwasser 10-12 Minuten hart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Eier 5 Minuten in ein Eiswasserbad. Pelle sie anschließend vorsichtig unter fließendem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere jedes Ei längs und gib das Eigelb in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische das Eigelb mit Mayonnaise, Dijon-Senf, Essig, der Hälfte des Paprikapulvers, Salz und Pfeffer zu einer cremigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Masse in einen Spritzbeutel oder einen Gefrierbeutel. Schneide eine Ecke ab und spritze die Füllung in die Eiweißhälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue die Eier mit dem übrigen Paprikapulver und gehacktem Schnittlauch. Stelle sie bis zum Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/sour-cream-and-onion-deviled-eggs-lead-web-060-rv-del039925-67eafa1565b89.jpg?crop=1xw:0.9998039215686274xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/sour-cream-and-onion-deviled-eggs-lead-web-060-rv-del039925-67eafa1565b89.jpg?crop=1xw:0.9998039215686274xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-belly",
+      "slug": "gen-pork-belly",
+      "title": "Geschmorter Schweinebauch",
+      "instructions": "Asiatisch inspiriertes Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch im Angebot und friere ihn zum späteren Schmoren ein.",
+        "Verwende einfache Vorratszutaten wie Sojasauce und Honig statt spezieller Zutaten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "asiatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5164,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-belly/",
+      "components": [
+        {
+          "key": "907f6407-0a75-5038-95e9-2dfedb96ef8d",
+          "name": "Zutaten",
+          "servingGrams": 260.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "51c0b2c4-dcde-5b91-a0b7-5ca0334e4d7d",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, skin-on"
+            },
+            {
+              "key": "d5a042c7-9c13-5e68-a01e-0bbf6cb310d3",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "6f3b7124-528f-59fa-ac2e-fbc944e8e226",
+              "ingredientName": "frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "dcc17718-dc6a-52d9-966c-43bdab1fc3db",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "2e6002e7-848b-5623-a8a9-ef720d5e7638",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1f771eb0-bc0b-5e18-9c35-d8f58d732958",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b9d1f7c2-fa1e-5707-9489-18c329c84fea",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e8d31355-f98e-5e03-9c4e-30de0e5ee643",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d8f25de-d8e6-5b9b-a39b-49712cad1dd4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Schwarte des Schweinebauchs kreuzweise ein, ohne ins Fleisch zu schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe einen großen Topf Wasser zum Kochen und blanchiere den Schweinebauch 5 Minuten. Gieße ihn ab und spüle ihn mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasauce, Ingwer, Knoblauch, Honig, Reisessig, 1 cup Wasser und Sternanis in einem großen Topf oder Schmortopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Schweinebauch mit der Schwarte nach oben hinein. Bringe die Flüssigkeit zum Kochen, reduziere dann die Hitze und lasse alles zugedeckt 90 Minuten schmoren, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Deckel ab, erhöhe die Hitze und koche die Sauce 10-15 Minuten ein, bis sie glänzend und sirupartig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Schweinebauch auf ein Schneidebrett und lasse ihn 5 Minuten ruhen. Schneide ihn dann auf und richte ihn auf einer Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die übrige Sauce über den Schweinebauch und garniere ihn vor dem Servieren mit gehackten Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2024/08/healthy-pork-belly-bowl-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2024/08/healthy-pork-belly-bowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

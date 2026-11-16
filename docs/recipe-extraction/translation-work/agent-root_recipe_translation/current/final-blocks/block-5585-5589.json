@@ -1,0 +1,1036 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tabouli",
+      "slug": "gen-tabouli",
+      "title": "Gericht: Tabouli",
+      "instructions": "Zubereitung: Lebanese Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy frisch herbs from the farmers market in season for better pricing",
+        "Hinweis: Skip frisch mint and use dried mint to cut herb costs by 60%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "lebanese",
+        "lunch",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5585,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tabouli/",
+      "components": [
+        {
+          "key": "9106a417-f4d1-553c-8d0b-3e533084960d",
+          "name": "Zutaten",
+          "servingGrams": 458.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed0ec4f0-dd2b-5d1f-ab64-3b8ee2c239f0",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dc5295aa-0d08-53bd-9d62-1a94db7b5d51",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen heiß"
+            },
+            {
+              "key": "bd83fef8-8779-5011-9954-9c7dc4cd52a4",
+              "ingredientName": "frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "28bd0e69-7fc4-5495-9de3-62adeab31b01",
+              "ingredientName": "frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse gehackt"
+            },
+            {
+              "key": "69705e43-fc1a-5bbb-bc8d-642d2575440d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen gewürfelt"
+            },
+            {
+              "key": "0fb7bfd1-86ed-554e-a87b-a3f656696ee2",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroß gewürfelt"
+            },
+            {
+              "key": "9ed10dc7-757f-5f0b-8204-44edd4e029e3",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Stangen gehackt"
+            },
+            {
+              "key": "b8f398f7-eba6-5dbd-a137-cc1713d15b1d",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2927f7f8-0f4b-51ad-9598-c46dd67db696",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2c12de16-ac8d-5c3f-a547-412d6e5f25d1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ef5aae19-d415-54d1-b095-282c2131af0a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Gieße the bulgur wHitze into a bowl and hinzufügen the hot water.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Cover and let sit for 15 Minuten bis the water is absorbed and the bulgur is tender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Fluff the bulgur mit a fork and let it cool to room temperature.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Finely chop the frisch parsley, mint, and green onions.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Dice the cherry tomatoes and cucumber into small, uniform pieces.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: In a large bowl, combine the cooled bulgur, parsley, mint, green onions, tomatoes, and cucumber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Whisk together the olive oil and lemon juice, then pour over the bulgur mixture.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zubereitung: Hinzufügen salt and pepper, then vermengen gently to combine, and servieren at room temperature or chilled.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/BynSTjHraCvBaxGmfy6DD51kgnE=/4048x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-tabouli-salad-2217084-hero-01-5bdb12cbc9e77c00517e55df.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/BynSTjHraCvBaxGmfy6DD51kgnE=/4048x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-tabouli-salad-2217084-hero-01-5bdb12cbc9e77c00517e55df.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-turkey",
+      "slug": "gen-turkey",
+      "title": "Gericht: Turkey",
+      "instructions": "Zubereitung: amerikanisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy turkey on sale the week before and freeze",
+        "Hinweis: Use leftover bones for homemade broth"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "high-protein",
+        "gluten-free",
+        "dairy-free",
+        "american",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5586,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turkey/",
+      "components": [
+        {
+          "key": "e32c365a-175e-534d-a54c-81480ff2fbc2",
+          "name": "Zutaten",
+          "servingGrams": 225.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "df32d8b6-ee86-5655-9692-0cbd5e125dc6",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12-14 Pfund"
+            },
+            {
+              "key": "5ef35532-07c3-5ab0-b66e-911176ef31fe",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "5cb0da43-751a-50fd-9254-e77c9186a7ed",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1ba11c84-ab06-5c3e-8498-4c4b919c4631",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ca39b78b-d39f-5d88-af13-d5dc2a219740",
+              "ingredientName": "frischer Thymian",
+              "grams": 8,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "820bcd4f-335a-52b2-9d86-e2be3dbec264",
+              "ingredientName": "frischer Rosmarin",
+              "grams": 8,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "0f3d991b-b055-5045-aef5-83aaed9825ba",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "3752e0ba-2fbe-5806-9fe5-7741b08fb413",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7bd9db0d-394b-50cf-b83e-61f807cb56e6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: PreHitze oven to 325°F and position rack in niedriger third.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Entferne turkey from refrigerator 1 hour before kochening; pat dry mit paper towels inside and out.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Mische softened butter mit salt, pepper, and minced garlic, then rub under and over turkey skin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Stuff cavity loosely mit halved onion, thyme, and rosemary sprigs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Lege turkey breast-side up on roasting pan, pour broth into bottom, and tent mit foil.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Roast for 13 Minuten per pound, removing foil for last 30 Minuten to brown skin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Prüfe temperature at thickest thoch reaches 165°F mit meat thermometer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zubereitung: Rest turkey 20 Minuten before carving.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps191975_THCA173831C03_11_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps191975_THCA173831C03_11_1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stuffing",
+      "slug": "gen-stuffing",
+      "title": "Gericht: Stuffing",
+      "instructions": "Zubereitung: amerikanisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Use day-old bread from backenry section or save heels from bread loaves",
+        "Hinweis: Substitute vegetable broth for chicken broth"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "american",
+        "dinner",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5587,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stuffing/",
+      "components": [
+        {
+          "key": "ef1063fd-1d90-5db3-825b-19bf3a93d1ca",
+          "name": "Zutaten",
+          "servingGrams": 277.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "59008e00-14c3-5d10-8d13-b88c36096580",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "043185c5-ff20-5d87-baec-d6db888ba708",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "05c72f74-caf5-508e-a17f-f25ddaa09a74",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse gehackt"
+            },
+            {
+              "key": "7ed1f21f-8efa-52f2-95a5-2554ab0b96b0",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "f5f30023-6c0e-583a-8c72-9bf3f5f4ea75",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ea5e051d-70de-5ea0-a1b6-12a9666b5c6b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "2978e513-9c0b-56c6-9be8-c8c7cbdd06af",
+              "ingredientName": "frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8f311ed2-734c-5cb0-8dbc-1904bec8e8b3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "92d4b52a-9a43-5ee6-b817-6998d96c0077",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: PreHitze oven to 350°F and grease a 9x13 baking dish.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Melt butter in large skillet and sauté celery and onion bis softened, about 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Rühren in sage, salt, and pepper, then hinzufügen bread cubes and vermengen to coat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Whisk broth and eggs together in bowl, then pour over bread mixture and vermengen gently.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Gib to prepared baking dish and cover mit foil.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Backen for 30 Minuten covered, then uncover and backen 15-20 Minuten bis golden and crispy on top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/c4Bx8kLXgi5NFEkZ-HeOCLNC0xU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Slow-Cooker-Stuffing-LEAD-06-7c2f5c63f4ba4f0f89d933aa7d563648.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/c4Bx8kLXgi5NFEkZ-HeOCLNC0xU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Slow-Cooker-Stuffing-LEAD-06-7c2f5c63f4ba4f0f89d933aa7d563648.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cranberry-sauce",
+      "slug": "gen-cranberry-sauce",
+      "title": "Gericht: Cranberry Sauce",
+      "instructions": "Zubereitung: amerikanisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy cranberries in bulk during fall and freeze for year-round use",
+        "Hinweis: Omit spices if unavailable; sauce is delicious plain"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "dairy-free",
+        "american",
+        "dinner",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5588,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cranberry-sauce/",
+      "components": [
+        {
+          "key": "3bcb9471-7a4b-5cbf-8c44-9d9bb94a0905",
+          "name": "Zutaten",
+          "servingGrams": 104.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "cf8c6496-5d65-5d53-a9c0-682e6b312242",
+              "ingredientName": "frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "d784c86c-75ef-588d-9c26-ecd957b882e7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d52052c8-5214-5a53-b94c-de05343ad20f",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3bf3bb79-4c6a-5d41-a4b1-6a681b668b6b",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "045db62c-3556-5ddb-b61e-4f32042c9124",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec29e3b3-c6bf-5c2c-a4b0-fa9dcb174711",
+              "ingredientName": "ganze Gewürznelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c199f71-a937-54ef-b88d-420d611be728",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "¼ Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Vermische water and sugar in saucepan and bring to boil, rührenring bis sugar dissolves.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Hinzufügen cranberries, zest from orange, cinnamon stick, cloves, and salt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Reduce Hitze to mittel and köcheln for 15-20 Minuten, rührenring occasionally.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Cranberries will begin to pop and sauce will eindicken; rühren in juice from orange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Entferne from Hitze and let cool to room temperature; sauce will continue to eindicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Entferne cinnamon stick and cloves before serving, or leave in for presentation.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/EJZbyEcXDKRkZVCVU34Ft4gQLUk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Cranberry-Sauce-Lead-Shot-1b-967e3151401342bfa2362e1e8e1d6573.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/EJZbyEcXDKRkZVCVU34Ft4gQLUk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Cranberry-Sauce-Lead-Shot-1b-967e3151401342bfa2362e1e8e1d6573.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gravy",
+      "slug": "gen-gravy",
+      "title": "Gericht: Gravy",
+      "instructions": "Zubereitung: amerikanisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Use pan drippings for maximum flavor mitout buying hinzufügenitional stock",
+        "Hinweis: Make flour slurry separately if gravy lumps; whisk smooth cornstarch paste into hot gravy"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "american",
+        "dinner",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5589,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gravy/",
+      "components": [
+        {
+          "key": "7e2315ac-b133-5d78-852c-6bd04d00d135",
+          "name": "Zutaten",
+          "servingGrams": 368.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d6758658-435a-5d0b-9efb-511ff2493c1b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "fac15e85-6287-5032-9802-72247dfc3c75",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f98fde86-ccc6-5039-9eae-f9e28edbce2b",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5b9b3965-4dae-5063-b792-0fb5670697cb",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "06326afc-e7e9-58b3-b55f-d4ae73565067",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "fb7fbb69-73df-517a-bfeb-3d06daf22577",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ Teelöffel"
+            },
+            {
+              "key": "05db5878-7cb1-576e-a429-7cb527117215",
+              "ingredientName": "getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Gieße roasting pan drippings into a measuring cup and let fat rise to top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Melt butter in saucepan over mittel Hitze and whisk in flour to create a roux, kochening 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Gradually whisk in broth, rührenring constantly to avoid lumps.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Hinzufügen ¼ cup of the reservierend fat and pan drippings, rührenring well.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Köcheln 5-7 Minuten bis eindickened and bubbly, rührenring occasionally.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Würze mit salt, pepper, and sage; adjust thickness by hinzufügening more broth if needed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.100daysofrealfood.com/wp-content/uploads/2024/09/2021-05-05_15-35-52_860.jpeg",
+          "sourcePageUrl": "https://www.100daysofrealfood.com/wp-content/uploads/2024/09/2021-05-05_15-35-52_860.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

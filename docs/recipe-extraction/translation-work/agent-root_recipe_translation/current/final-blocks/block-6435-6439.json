@@ -1,0 +1,1030 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gnocchi-di-ricotta-e-spinaci",
+      "slug": "gen-gnocchi-di-ricotta-e-spinaci",
+      "title": "Gnocchi mit Ricotta und Spinat",
+      "instructions": "Ein beliebtes piemontesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ricotta im Angebot in größeren Mengen und friere Portionen für später ein.",
+        "Lass frischen Salbei weg und verwende bei knappem Budget getrockneten Salbei aus dem Gewürzregal."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "piemontesisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6435,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gnocchi-di-ricotta-e-spinaci/",
+      "components": [
+        {
+          "key": "f569433e-a9ef-51aa-a7f3-33c781b074bb",
+          "name": "Zutaten",
+          "servingGrams": 128.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "def4de8d-96b9-5f64-9e96-c27f6b4f2f6e",
+              "ingredientName": "Ricotta",
+              "grams": 64.29,
+              "quantity": 64.29,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "15 Unzen"
+            },
+            {
+              "key": "767d4730-ea07-50d6-bb84-1f05af38e999",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "cd883780-bb82-5dee-b542-bf75a46c5058",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "b39d963b-5a50-5cfe-9b95-74fb04755114",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "30db7b9f-fa1b-594d-946c-9e0796381732",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "904ee1aa-a5cc-577c-95ed-e981ec68a149",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "5ec3db0e-991e-51a5-92d2-0cca85e19eae",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "b08c3ba2-8d17-5fe2-86b9-2ff43c5bd187",
+              "ingredientName": "Frischer Salbei",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Blätter"
+            },
+            {
+              "key": "e4f01eb7-7d95-5040-bd24-732a3f2a4d74",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Taue den Tiefkühlspinat vollständig auf und drücke ihn mit einem sauberen Küchentuch trocken, bis keine Flüssigkeit mehr austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Ricotta, ausgedrückten Spinat, 1/2 cup Parmesan, Ei, Muskatnuss, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe Mehl vorsichtig unter, bis ein weicher Teig entsteht. Knete ihn nicht zu lange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe Salzwasser in einem großen Topf zum sanften Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme mit zwei Löffeln Gnocchi, indem du Löffelportionen des Teigs ins siedende Wasser gibst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche sie 3-4 Minuten, nachdem sie an die Oberfläche gestiegen sind. Nimm sie dann mit einer Schaumkelle heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass Butter mit Salbeiblättern in einer kleinen Pfanne schmelzen, bis sie duftet und leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schwenke die gekochten Gnocchi in der Buttersauce und dem restlichen Parmesan und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/06/Ricotta-Gnocchi_13-683x1024.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/06/Ricotta-Gnocchi_13-683x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-plin",
+      "slug": "gen-plin",
+      "title": "Plin",
+      "instructions": "Ein beliebtes piemontesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Pastateig selbst zu, statt fertigen zu kaufen, und spare deutlich.",
+        "Verwende Rinderhackfleisch statt Kalbfleisch, um Fleischkosten zu senken und den Geschmack zu bewahren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "piemontesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6436,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-plin/",
+      "components": [
+        {
+          "key": "6b8b7806-10e1-5f56-848f-f6f8c2fc9cf8",
+          "name": "Zutaten",
+          "servingGrams": 519,
+          "position": 0,
+          "items": [
+            {
+              "key": "59e41470-00a6-5392-a34e-afdad6ffc001",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bf180366-39ec-5e5e-ad73-f7259d6d114c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "166ae171-0380-5dd4-bb7d-800cdbb6bb87",
+              "ingredientName": "Kalbshackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "0869cc6f-cbd1-5354-aa11-7a7fead6ab3e",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "17a26238-0731-5a32-943b-caf209ec67b0",
+              "ingredientName": "Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "cf819ff9-43f8-5bb1-baee-6801e0cd817b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 mittelgroße"
+            },
+            {
+              "key": "d7e3e6a1-b4c4-579d-8dcc-647a951aa5a3",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zehe"
+            },
+            {
+              "key": "7f79602d-573d-5240-9918-9a8651c6a471",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "593e0cef-7240-5a7c-b8e0-a27a143f7515",
+              "ingredientName": "Salbei",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "263be0ef-278b-5261-a928-15a4770da4e2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Pastateig aus Mehl und 3 Eiern zu. Knete ihn glatt, wickle ihn ein und lass ihn 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Zwiebel und Knoblauch fein und dünste sie in 1 Esslöffel Butter 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hackfleisch dazu und brate es 5 Minuten krümelig an. Lass es leicht abkühlen und vermische es mit 1/4 cup Parmesan und 1 Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Pastateig auf einer bemehlten Fläche sehr dünn aus und schneide ihn in 2-inch große Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 1 Teelöffel Füllung auf die Hälfte jedes Quadrats, klappe es zu einem Dreieck und führe dann die Ecken zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe Brühe in einem großen Topf sanft zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Plin in die kochende Brühe und gare sie 3-4 Minuten, bis sie an die Oberfläche steigen und dort 1 Minute bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Plin auf Schüsseln und schöpfe Brühe darüber. Beträufle sie mit gebräunter Butter und Salbei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/b7/9b/ce/b79bce5a4dc07b02accf1bf41db9b2c3.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/b7/9b/ce/b79bce5a4dc07b02accf1bf41db9b2c3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zabaione",
+      "slug": "gen-zabaione",
+      "title": "Zabaione",
+      "instructions": "Ein beliebter piemontesischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Angebot und lagere sie richtig, damit du frisches Eigelb zur Hand hast.",
+        "Ersetze Marsala bei Bedarf durch süßen Wermut oder Sherry."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "piemontesisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6437,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zabaione/",
+      "components": [
+        {
+          "key": "5164b93d-6af0-5f25-8c26-7cbc29a57d5a",
+          "name": "Zutaten",
+          "servingGrams": 294.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "8850bb8b-5d8d-593b-8218-5782da24ff11",
+              "ingredientName": "Eigelb",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 große"
+            },
+            {
+              "key": "fc8792b2-38a7-5d8c-aa8b-f0c599ee73bc",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b4130009-1703-5824-b2ce-3588b96c3988",
+              "ingredientName": "Marsalawein",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "40341452-76b6-5440-ab2f-e5bffa4dd5d4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "1648b8a1-99a4-5e62-bb4b-d90e72ec11a1",
+              "ingredientName": "Löffelbiskuits",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle eine große Schüssel mit Eiswasser und stelle eine Metallschüssel darauf. Der Boden darf das Wasser nicht berühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eigelb und Zucker in der Metallschüssel etwa 2 Minuten hell und dickcremig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Schüssel über das Eis und gieße langsam Marsalawein hinein. Schlage dabei 8-10 Minuten ständig weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage die Masse weiter, bis sie auf einem Thermometer 160°F erreicht oder dick und luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Schüssel von der Hitze und rühre Vanilleextrakt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile Zabaione auf Dessertgläser und serviere sofort Löffelbiskuits zum Dippen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2024/03/zabaglione-1-12-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2024/03/zabaglione-1-12-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bonet",
+      "slug": "gen-bonet",
+      "title": "Bonet",
+      "instructions": "Ein beliebter piemontesischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kakaopulver und Amaretti-Kekse von einer Hausmarke, um Zutatenkosten zu sparen.",
+        "Bereite das Dessert einen Tag vorher zu, um Zeit und Stress zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "piemontesisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6438,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bonet/",
+      "components": [
+        {
+          "key": "4022dc59-85e9-561b-96af-a8a8d3ae0630",
+          "name": "Zutaten",
+          "servingGrams": 259.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0244f9de-12eb-5536-a752-fd7317c03fb1",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "edb949c4-bbc2-583e-951d-c7d4209b0855",
+              "ingredientName": "Eigelb",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 große"
+            },
+            {
+              "key": "c5f0589a-b7c4-510e-87be-e7ab40564bae",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ab22f27f-2482-5f9d-85ba-7b7bffa4dfc0",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5cef08cf-b1f9-5201-8270-86a91d9fad7c",
+              "ingredientName": "Amaretti-Kekse",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "c2beb862-1ea7-5b02-ac7f-93efb00bffbc",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0ae1b01d-3f6b-5d02-9ad9-df02feaab920",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor und fette eine 6-cup-Backform oder Förmchen mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Milch in einem Topf, bis sie dampft, aber nicht kocht. Nimm sie dann vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eigelb und Zucker etwa 3 Minuten hell und dickcremig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Siebe Kakaopulver zur Eiermischung und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die heiße Milch unter ständigem Rühren langsam zur Eiermischung, damit das Eigelb nicht stockt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre zerstoßene Amaretti-Kekse und eine Prise Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Mischung in die vorbereitete Form und stelle sie in einen größeren Bräter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle heißes Wasser in den Bräter, bis es bis zur halben Höhe der Backform reicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Backe den Pudding 25-30 Minuten, bis er gestockt, in der Mitte aber noch leicht wackelig ist. Lass ihn abkühlen und stelle ihn vor dem Servieren mindestens 2 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://preview.redd.it/italian-bonet-alla-piemontese-chocolate-amaretti-pudding-v0-yd5xsbftnuia1.jpg?auto=webp&s=003d2fb23a1960443f741cb7afa4dcc8114f7c74",
+          "sourcePageUrl": "https://preview.redd.it/italian-bonet-alla-piemontese-chocolate-amaretti-pudding-v0-yd5xsbftnuia1.jpg?auto=webp&s=003d2fb23a1960443f741cb7afa4dcc8114f7c74",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-torta-di-nocciole",
+      "slug": "gen-torta-di-nocciole",
+      "title": "Torta di Nocciole",
+      "instructions": "Ein beliebter piemontesischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Haselnüsse in größeren Mengen in der Backabteilung oder online, um den Preis pro Pfund zu senken.",
+        "Lass die Puderzuckerschicht weg und spare Geld, ohne auf guten Geschmack zu verzichten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "piemontesisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6439,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-torta-di-nocciole/",
+      "components": [
+        {
+          "key": "5e013576-6f0f-5ee4-8c93-7206bf0016ad",
+          "name": "Zutaten",
+          "servingGrams": 230.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "66cd30a1-34a5-58db-98ac-bce07403eaca",
+              "ingredientName": "Geröstete Haselnüsse",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d39ef439-5966-59fc-94e2-da306e11f24b",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "6d19d90b-231f-51d3-ac08-038d10cee796",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "c2e098ba-42e5-5a93-b675-24935e22f1e8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "6ae664d2-f9f7-534d-a103-97ac5e587911",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bbeb189c-141c-5562-95fe-b8d05335d228",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5964dc38-b265-521f-9fed-e18d0e122bb4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b4f6e528-b51c-538c-b8a5-8325003142db",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "063bea21-848a-5238-9a3a-57c4fd07c83c",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine runde Kuchenform von 9-inch mit Butter ein und bestäube sie mit Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinere geröstete Haselnüsse in einer Küchenmaschine fein. Achte darauf, dass keine Haselnussbutter entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Butter und Zucker etwa 3 Minuten hell und luftig auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Eier einzeln dazu und schlage nach jeder Zugabe gut, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Mehl, Backpulver und Salz in einer kleinen Schüssel und hebe sie dann unter die feuchte Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe gemahlene Haselnüsse und Vanilleextrakt nur so lange unter, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße den Teig in die vorbereitete Form und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Kuchen 30-35 Minuten, bis ein in die Mitte gesteckter Zahnstocher mit einigen feuchten Krümeln herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lass den Kuchen 15 Minuten in der Form abkühlen und stürze ihn dann auf ein Gitter. Lass ihn vollständig abkühlen, bevor du ihn mit Puderzucker bestäubst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/7d/f4/2a/7df42a3a98dbbb4d6a6f4fc758d4b2c0.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/7d/f4/2a/7df42a3a98dbbb4d6a6f4fc758d4b2c0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

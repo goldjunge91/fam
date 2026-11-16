@@ -1,0 +1,1105 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mirliton-gratin",
+      "slug": "gen-mirliton-gratin",
+      "title": "Mirliton-Gratin",
+      "instructions": "Ein beliebtes Abendessen der kreolischen Küche Louisianas, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Garnelen im Angebot und friere sie einzeln auf einem Backblech ein",
+        "Ersetze Mirlitons durch Zucchini, falls sie nicht erhältlich sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Louisiana-Kreolisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4350,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mirliton-gratin/",
+      "components": [
+        {
+          "key": "60daa341-88c7-50f8-8311-d22d5333bc09",
+          "name": "Zutaten",
+          "servingGrams": 211,
+          "position": 0,
+          "items": [
+            {
+              "key": "b871a7d0-74b8-56dc-89dd-6c9e593f0905",
+              "ingredientName": "Chayote",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "f01bf16c-1cbe-52eb-822c-e09028f31314",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "ae085170-2c38-5f89-a839-5aba7a98e3e9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "9cd505cd-6af1-58dc-988a-52bf511948a2",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund, geschält"
+            },
+            {
+              "key": "9a524f38-7824-5236-9187-1c1e74cf0bf5",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "59145b52-0fbe-592b-beb3-224faa42c5cd",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "b8a30a8f-ccc6-58d1-bced-7b81422b952b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "4723b67d-87b7-51db-b826-c46e166b49a5",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "48d7ebb6-322f-5f38-b73d-22a5441a96c9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f653f5df-b93f-5699-80ca-e98758892e76",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Backofen auf 350°F vorheizen und die Mirlitons längs halbieren, dann 20 Minuten in Salzwasser kochen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Etwas abkühlen lassen und das Fruchtfleisch mit einem Löffel herauslösen, dabei eine dünne Schale stehen lassen, dann das Fruchtfleisch in kleine Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Butter in einer Pfanne schmelzen und Zwiebel und Knoblauch etwa 3 Minuten braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Garnelen hinzufügen und etwa 3-4 Minuten garen, bis sie rosa sind, dann das Mirliton-Fruchtfleisch und den Cayennepfeffer unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Semmelbrösel und Parmesan in einer kleinen Schüssel vermengen und 2 Esslöffel geschmolzene Butter unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Garnelenmischung in die Mirliton-Schalen einer Backform geben, mit Milch beträufeln und mit der Semmelbröselmischung bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "20-25 Minuten backen, bis die Oberfläche goldbraun ist und die Füllung am Rand blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/aa/35/1e/aa351e57b2c723eb755c088da7c811f3.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/aa/35/1e/aa351e57b2c723eb755c088da7c811f3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bread-pudding-with-whiskey-sauce",
+      "slug": "gen-bread-pudding-with-whiskey-sauce",
+      "title": "Brotpudding mit Whiskysauce",
+      "instructions": "Ein beliebtes louisianisch-kreolisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe altbackenes französisches Brot im Backwarenbereich zum Sonderpreis.",
+        "Verwende zum Kochen günstigen Whiskey statt teurer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Louisiana-Kreolisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4351,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bread-pudding-with-whiskey-sauce/",
+      "components": [
+        {
+          "key": "a8979032-233c-5e03-950f-545331da3c8b",
+          "name": "Zutaten",
+          "servingGrams": 196.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "89a2568c-f44c-5706-b207-d8f1eaa48047",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib, gewürfelt"
+            },
+            {
+              "key": "f0a808b7-42fe-54f3-b3ea-cb68ed25adeb",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6396ecd8-a02e-565a-aa70-389de40fca65",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa22a55d-ebe6-5f11-8851-231647e658d4",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "2ed2d7a5-12a8-57d9-a3ca-47442e7a7c31",
+              "ingredientName": "Brauner Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "e9d1d224-067b-5885-8f66-8cc0e3844965",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "2be1dfb9-76bf-5850-b052-2642a1735e1c",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2d2561d3-16cc-540d-9a01-eebe061a3624",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "279e3caf-362d-5eb9-b8ab-f99ea9b02de6",
+              "ingredientName": "Whisky",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse für die Soße"
+            },
+            {
+              "key": "870b685e-f795-5969-9306-1717e145c9ae",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse für die Soße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Backofen auf 350°F vorheizen und eine 9x13 Zoll große Backform einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Brotwürfel in die Backform geben und die Rosinen darüber verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Milch, Eier, geschmolzene Butter, braunen Zucker, Vanilleextrakt und Zimt in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Eiermilch über das Brot gießen und leicht andrücken, damit es die Flüssigkeit aufnimmt; anschließend 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "40-45 Minuten backen, bis der Pudding fest und die Oberfläche goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Während der Pudding backt, 2 Esslöffel Butter in einem Topf schmelzen und den Zucker einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen, leicht abkühlen lassen, dann vorsichtig den Whiskey hinzufügen und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren die warme Whiskysauce über den warmen Brotpudding gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/kLwBATgi4Ev-LEi1_eexuD_Y7iY=/3671x2447/filters:no_upscale():max_bytes(150000):strip_icc()/instant-pot-bread-pudding-with-bourbon-sauce-recipe-4584663-final-2-5c4a188c46e0fb0001735872.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/kLwBATgi4Ev-LEi1_eexuD_Y7iY=/3671x2447/filters:no_upscale():max_bytes(150000):strip_icc()/instant-pot-bread-pudding-with-bourbon-sauce-recipe-4584663-final-2-5c4a188c46e0fb0001735872.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bananas-foster",
+      "slug": "gen-bananas-foster",
+      "title": "Bananen fördern",
+      "instructions": "Ein beliebtes louisianisch-kreolisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe leicht überreife Bananen im Angebot.",
+        "Verwende Kochrum statt teurem dunklem Rum."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Louisiana-Kreolisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4352,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bananas-foster/",
+      "components": [
+        {
+          "key": "3480e024-0034-5954-85cf-92c166439b59",
+          "name": "Zutaten",
+          "servingGrams": 566.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b11f715-4800-5703-b522-18152cd22e3f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cca369f6-b92f-5b0e-b686-7ee2fb1887d6",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "0b8e923e-5e79-5ef2-8112-7fa6aeb3b598",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "14b63ad4-d017-56f8-aa77-74940743a13e",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stück, schräg in Scheiben geschnitten"
+            },
+            {
+              "key": "9adea1ef-6410-5e2e-ab8f-11bf39430532",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0084dcc9-22cb-553e-9daa-34a04878f98d",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Kugeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Braunen Zucker und Zimt hinzufügen und rühren, bis sich der Zucker auflöst und die Mischung Blasen wirft, etwa 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Bananenscheiben in die Pfanne geben und 1-2 Minuten pro Seite braten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Rum vorsichtig in die Pfanne geben (er kann kurz aufflammen) und die Pfanne leicht schwenken, damit sich alles verbindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "30 Sekunden weiterkochen, damit der Alkohol verdampft und die Sauce andickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In jede Servierschale eine Kugel Vanilleeis geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die warme Bananensauce und die Bananen über das Eis gießen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HoUKXrEB1YEGw6Rh-STwv540nok=/2998x2000/filters:fill(auto,1)/BananasFosterRecipeHERO-0d9356e95de74558a892cf0d6175f2e4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HoUKXrEB1YEGw6Rh-STwv540nok=/2998x2000/filters:fill(auto,1)/BananasFosterRecipeHERO-0d9356e95de74558a892cf0d6175f2e4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-andouille-sausage-gumbo",
+      "slug": "gen-andouille-sausage-gumbo",
+      "title": "Andouille-Wurst-Gumbo",
+      "instructions": "Ein beliebtes louisianisch-kreolisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wurst im Angebot und friere sie für später ein.",
+        "Okra ist tiefgefroren günstiger und eignet sich genauso gut für Gumbo."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Louisiana-Kreolisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4353,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-andouille-sausage-gumbo/",
+      "components": [
+        {
+          "key": "1f15abfe-8480-5d90-b8cf-f17ed1598038",
+          "name": "Zutaten",
+          "servingGrams": 656.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "dcd69c59-c328-502b-87ee-b49c70faa5a1",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "07b4f96b-555d-5e2e-b448-b7cf17b1251e",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "de1957ee-b758-502b-8aaa-7abff6c7e46a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1138bd15-78e0-550c-a978-2c65e801cc7a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "88ea0795-5831-5f87-8138-163b4ab4fa47",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "cd6b9372-8507-57d0-a104-1212eba6439f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "a55654ff-1e0a-5207-8726-ba7f50dcb2ed",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5780f53e-4b1a-5a8d-bd16-1aa534d3c17e",
+              "ingredientName": "Okra",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6d2fe00d-7f32-5b22-bd6b-68ae0251120c",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "5d048e3e-0585-51b7-a2f5-50f395a76124",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "a3a0f1b6-af84-5fa7-a788-e51f4d5b4a7b",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "93cedc70-7082-5995-a3f5-cfbee619504b",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Andouille-Wurst in 0.5-Zoll dicke Scheiben schneiden und in einem großen Topf bei mittlerer bis hoher Hitze 5 Minuten anbraten, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf Öl und Mehl bei mittlerer Hitze verquirlen und 10-12 Minuten ständig rühren, bis die Mehlschwitze dunkel schokoladenbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel, Sellerie und Paprika zur Mehlschwitze geben und 5 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch einrühren und 1 Minute kochen, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hühnerbrühe langsam unter Rühren zugießen, um Klümpchen zu vermeiden, dann die angebratene Wurst zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Okra und gewürfelte Tomaten mit ihrem Saft hinzufügen und weitere 15 Minuten köcheln lassen, bis die Okra weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Cayennepfeffer abschmecken, dann kurz vor dem Servieren Filé-Pulver einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß über weißem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/v1/img/recipes/51/27/71/KWcyxN3fS9KAdo7gl1nT-Andouille-and-Chicken-Gumbo.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/v1/img/recipes/51/27/71/KWcyxN3fS9KAdo7gl1nT-Andouille-and-Chicken-Gumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poke",
+      "slug": "gen-poke",
+      "title": "Stochern",
+      "instructions": "Ein beliebtes hawaiianisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ahi bei Costco, um bei Fisch in Sushiqualität zu sparen.",
+        "Bereite Poke-Bowls mit Reis und günstigen Gemüsebeilagen zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "hawaiianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4354,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poke/",
+      "components": [
+        {
+          "key": "98dabbbd-f25f-5806-b1ed-9574d938cd18",
+          "name": "Zutaten",
+          "servingGrams": 281.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "3842b231-5ed6-5e98-9334-66ffa2cb5a91",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1e29db7a-d5cd-509e-bafc-8f4d08a18f7a",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e1c9daa1-5ff0-5061-bfb2-a9264f587853",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8707e8d5-9484-5ab5-9df9-e4b5abfc55e8",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "749addf9-4343-551c-b4f5-61dc29c08c8d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "7ac18334-a348-543a-a429-7b9511e2d240",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "61116e40-a79c-566c-9742-bb6481ff13fb",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zehe, fein gehackt"
+            },
+            {
+              "key": "0a51c75e-1ec4-5426-b3bc-cace027f7b88",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "090cc8d2-c1f5-5d4a-917c-41ec292f0b66",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e68bd5ec-c298-5000-b2ff-0d1aed5e5f84",
+              "ingredientName": "Algensalat (optional)",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Thunfisch in Sushiqualität in 0.75-Zoll große Würfel schneiden und in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer kleinen Schüssel Sojasauce, Sesamöl, Reisessig, gehackten Ingwer und gehackten Knoblauch verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Marinade über den Thunfisch gießen und vorsichtig vermengen, bis alles gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chiliflocken und geschnittene Frühlingszwiebel hinzufügen und vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abdecken und mindestens 10 Minuten oder bis zu 2 Stunden im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Sesam bestreuen und über Reis oder mit Algensalat servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/01/05/multimedia/ND-Poke-bowl-bfwm/ND-Poke-bowl-bfwm-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/01/05/multimedia/ND-Poke-bowl-bfwm/ND-Poke-bowl-bfwm-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

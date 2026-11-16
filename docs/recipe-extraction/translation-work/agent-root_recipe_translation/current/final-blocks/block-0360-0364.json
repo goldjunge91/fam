@@ -1,0 +1,1366 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-creamy-pesto-chicken-with-zoodles",
+      "slug": "she-creamy-pesto-chicken-with-zoodles",
+      "title": "Cremiges Pesto-Hähnchen mit Zucchini-Nudeln",
+      "instructions": "Goldbraun gebratene Hähnchensteaks auf seidiger Pesto-Sahnesoße mit aufplatzenden Kirschtomaten und zarten Zucchini-Nudeln: ein frisches, kohlenhydratarmes Abendessen, das in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-pesto-chicken-with-zoodles/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchenbrüste und schneide sie selbst seitlich auf, statt vorgeschnittene Steaks zu kaufen. So sparst du Geld pro Pfund.",
+        "Bereite Pesto selbst aus einem Bund Basilikum, Knoblauch und einer Handvoll Nüsse zu, wenn Basilikum Saison hat. Das ist viel günstiger als Pesto aus dem Glas.",
+        "Ersetze die Hälfte der Sahne durch Milch, die du mit etwas Speisestärke angedickt hast. So reicht die Soße für mehr Portionen und bleibt cremig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen ohne Knochen und Haut für saftigeres, günstigeres Fleisch",
+          "savings": "~30% günstiger pro Portion"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Leichte Sahne oder Kondensmilch für eine leichtere, günstigere Soße",
+          "savings": "Lower fat und Kosten"
+        },
+        {
+          "forIngredientId": "grape-tomatoes",
+          "swap": "Eine gewürfelte normale Tomate, wenn Kirschtomaten teuer sind",
+          "savings": "~50% günstiger off-season"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch-inspiriert",
+        "Hähnchen",
+        "kohlenhydratarm",
+        "keto-freundlich",
+        "Zucchini-Nudeln",
+        "Pesto",
+        "cremig",
+        "schnell",
+        "Abendessen",
+        "aus-einer-Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 360,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-pesto-chicken-with-zoodles/",
+      "components": [
+        {
+          "key": "d96486ae-bea1-5374-964d-cae504d242cb",
+          "name": "Zutaten",
+          "servingGrams": 519.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "35e35f7e-c658-5fa9-9f0d-493422c710e8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 breasts, each cut halbiert horizontally into thinner steaks"
+            },
+            {
+              "key": "bedd953c-66be-54b4-8bff-26bb90d39102",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken, plus extra zum Servieren"
+            },
+            {
+              "key": "9846ead2-7a62-5d7e-8e18-b18f1d6f798e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL frisch gemahlen, plus extra zum Servieren"
+            },
+            {
+              "key": "9e5b4974-d567-5e2d-98e6-2475f62e4b48",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b548570c-936d-598f-9732-e27c92b4a704",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fc6bc682-5b65-506e-8e51-11db54569493",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "71f3c069-0edc-51d1-93c5-b0a9310e1872",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt (~3 Zehen)"
+            },
+            {
+              "key": "585fbb1d-00a5-5cb2-a511-e2e3a5e5960b",
+              "ingredientName": "Datteltomaten",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "250 g cherry oder grape tomatoes"
+            },
+            {
+              "key": "8ab28c74-b535-5394-9a70-dbb85f16306b",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "250 ml Schlagsahne"
+            },
+            {
+              "key": "c12fc960-07e7-5595-a02e-a4c9da9f4aae",
+              "ingredientName": "Zucchini",
+              "grams": 784,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 groß, spiralized into zoodles oder dünn geschnitten"
+            },
+            {
+              "key": "6dc5b604-cf75-51ac-9c87-c199ad870ad8",
+              "ingredientName": "Pesto",
+              "grams": 165,
+              "quantity": 165,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "160 g store-bought oder homemade"
+            },
+            {
+              "key": "321e54fe-2dee-512b-9174-52b1b0d4623d",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "25 g gerieben, plus extra zum Garnieren"
+            },
+            {
+              "key": "bc64da62-159b-505e-8d9e-faa70b76f64b",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1/4 bunch, Blätter picked, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Hähnchensteaks auf ein Brett. Vermische Meersalz, schwarzen Pfeffer, Knoblauchpulver und edelsüßes Paprikapulver in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile die Gewürzmischung gleichmäßig auf beiden Seiten des Hähnchens und reibe sie mit den Händen leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Olivenöl in einer großen, schweren Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Hähnchen auf jeder Seite 3-4 Minuten, bis es goldbraun und durchgegart ist. Lege es dann auf einem Teller beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den gehackten Knoblauch in dieselbe Pfanne und brate ihn unter Rühren 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Kirschtomaten dazu und gare sie unter Rühren 1-2 Minuten. Drücke sie mit der Rückseite eines Löffels an, damit ihr Saft austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Sahne dazu und lass sie 1-2 Minuten köcheln, bis sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Pfanne vom Herd. Rühre Zucchini-Nudeln, Pesto und Parmesan 1-2 Minuten unter, bis die Zucchini leicht weich wird. Schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib das gegarte Hähnchen darauf. Garniere das Gericht mit Basilikumblättern und zusätzlichem Parmesan. Nach Wunsch noch einen Klecks Pesto daraufgeben und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/04/Creamy-Pesto-Chicken-Breast-4.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-pesto-chicken-with-zoodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigem Pesto-Hähnchen mit Zucchini-Nudeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-creamy-pesto-pasta-salad",
+      "slug": "she-creamy-pesto-pasta-salad",
+      "title": "Cremiger Pesto-Pasta-Salat",
+      "instructions": "Ein frischer Pasta-Salat ohne Kochen mit würzigem Rucola, saftigen Tomaten und zartem, gezupftem Hähnchen in einem cremigen Pesto-Joghurt-Dressing. In 10 Minuten fertig und mit Feta und gerösteten Pinienkernen verfeinert. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-pesto-pasta-salad/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übriges Hähnchen oder Hähnchen vom Drehspieß, statt frisches Hähnchen zu pochieren. So sparst du Zeit und Geld.",
+        "Ersetze Pinienkerne durch geröstete Sonnenblumenkerne oder lass sie ganz weg, um Geld zu sparen.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Das ist günstiger als fertig geriebener Parmesan und er hält sich länger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rotisserie-chicken",
+          "swap": "Kichererbsen oder weiße Bohnen aus der Dose für eine vegetarische Variante",
+          "savings": "ca. $0.40/Portion"
+        },
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "Geröstete Sonnenblumenkerne oder gehackte Walnüsse",
+          "savings": "ca. $0.30/Portion"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Naturjoghurt oder Mayonnaise, mit einem Schuss Wasser verdünnt",
+          "savings": "ca. $0.15/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-inspiriert",
+        "Pasta-Salat",
+        "Pesto",
+        "ohne-kochen",
+        "schnell",
+        "Mittagessen",
+        "Meal-Prep",
+        "Hähnchen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 361,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-pesto-pasta-salad/",
+      "components": [
+        {
+          "key": "e81ea2cd-1e6a-56e1-a381-9cf63521c9ba",
+          "name": "Zutaten",
+          "servingGrams": 544.41,
+          "position": 0,
+          "items": [
+            {
+              "key": "16c422f5-f63c-5337-a435-eaaeb20ab9e8",
+              "ingredientName": "Rucola",
+              "grams": 300,
+              "quantity": 0.6,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "90g rocket (arugula) oder baby spinach"
+            },
+            {
+              "key": "192ec301-85e8-56b7-9da3-a3d21e9a6c6b",
+              "ingredientName": "Pasta",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "200g gegart pasta of choice"
+            },
+            {
+              "key": "f39ccc33-64d8-5e11-a387-64d5362e5d4c",
+              "ingredientName": "Datteltomaten",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "150g grape tomatoes, halbiert"
+            },
+            {
+              "key": "fc6c14e4-606e-5c55-bc6e-bda4ee172a3d",
+              "ingredientName": "Hähnchen vom Drehspieß",
+              "grams": 120,
+              "quantity": 1.2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "160g geraspelt poached oder roasted chicken"
+            },
+            {
+              "key": "adbe560d-a970-5d89-8b65-092f8733db4e",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "35g zerbröselter Feta"
+            },
+            {
+              "key": "92835815-4125-571a-b183-24106445dc5b",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "15g frisch basil Blätter"
+            },
+            {
+              "key": "022ee164-dea5-523d-8e83-321c8eece51f",
+              "ingredientName": "Pinienkerne",
+              "grams": 8.51,
+              "quantity": 8.51,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 EL geröstet pine nuts"
+            },
+            {
+              "key": "616718fa-daa3-53f2-9163-ba9f32ca2587",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "25g frisch gerieben parmesan"
+            },
+            {
+              "key": "115f25e2-ccb7-5ff8-826c-b0e3f0f7c125",
+              "ingredientName": "Pesto",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 heaped EL pesto"
+            },
+            {
+              "key": "2e9681c8-8545-5f98-9d1f-df97876248ee",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 heaped EL plain Greek yoghurt"
+            },
+            {
+              "key": "2c82d598-d942-53a9-bd9c-e3bbc01fcfa6",
+              "ingredientName": "Wasser",
+              "grams": 4.8,
+              "quantity": 4.8,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL water"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Rucola oder jungen Spinat, gekochte Pasta, halbierte Tomaten, gezupftes Hähnchen, zerbröselten Feta, Basilikumblätter, geröstete Pinienkerne und geriebenen Parmesan in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Pesto, griechischen Joghurt und Wasser in einer kleinen Schüssel mit einem Schneebesen, bis das Dressing glatt und gießfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Träufle das Dressing über den Salat und mische alles vorsichtig, bis die Zutaten gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Probiere den Salat, schmecke ihn ab und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/11/Creamy-Pesto-Pasta-Salad-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-pesto-pasta-salad/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigem Pesto-Pasta-Salat",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-creamy-rose-pasta-with-pork-sausage",
+      "slug": "she-creamy-rose-pasta-with-pork-sausage",
+      "title": "Cremige Rosé-Pasta mit Schweinswurst",
+      "instructions": "Goldbraune Schweinswurst mit Fenchel köchelt in einer samtigen Rosé-Soße aus gehackten Tomaten und Sahne. Die Soße wird mit Rigatoni, weichem Spinat und Parmesan vermischt. Eine wohltuende Pasta für unter der Woche, die in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-rose-pasta-with-pork-sausage/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einfache Schweinswürste und gib selbst 1/2 TL Fenchelsamen dazu, statt für Würste mit Fenchelgeschmack mehr zu bezahlen.",
+        "Verwende jede kurze Röhrenpasta aus dem Angebot, etwa Penne, Ziti oder Rigatoni, statt eine bestimmte Sorte zu kaufen.",
+        "Ersetze frischen jungen Spinat durch tiefgekühlten Spinat. Das ist viel günstiger und er hält sich monatelang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Schweine- oder Putenhack mit 1/2 TL Fenchelsamen und einer Prise Chili",
+          "savings": "ca. $0.40/Portion"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kondensmilch oder Kaffeesahne für eine leichtere, günstigere Soße",
+          "savings": "ca. $0.30/Portion"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Pecorino Romano oder geriebener Parmesan aus der Dose",
+          "savings": "ca. $0.15/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "cremig",
+        "Rosé-Soße",
+        "Schweinswurst",
+        "Abendessen",
+        "Wohlfühlessen",
+        "20-Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 362,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-rose-pasta-with-pork-sausage/",
+      "components": [
+        {
+          "key": "910596d3-ff71-52fa-bc08-638d477e320e",
+          "name": "Zutaten",
+          "servingGrams": 618.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3d83ad6-d59a-5104-8c33-58ea7d3645f2",
+              "ingredientName": "Ziti",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "400g Rigatoni"
+            },
+            {
+              "key": "c76b3dca-93e8-5c5c-9cc8-ab0625795d60",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b3a46003-faf2-5b46-89dc-95f63e3eb71f",
+              "ingredientName": "Italienische Wurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "500g pork und fennel sausages, meat squeezed from casings"
+            },
+            {
+              "key": "a2d140e7-9228-5f98-b59e-80f5099f3c77",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL frisch gerieben"
+            },
+            {
+              "key": "14b89d6e-a35d-5fa4-8cfa-d9fa8ea8aac6",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4f52f4c5-db3d-5457-9c36-545ce3403793",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "400g canned zerstoßen tomatoes"
+            },
+            {
+              "key": "aed5eb05-fb8b-51f6-a42e-261f08010eeb",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "250g thickened/Schlagsahne"
+            },
+            {
+              "key": "1e3ec085-6e3e-5278-8aca-5a303d83e0b5",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "90g baby spinach Blätter"
+            },
+            {
+              "key": "1fc7ae24-a8ed-50c8-8d95-53d526487174",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            },
+            {
+              "key": "e3a96b65-2fe0-5c8d-a1dc-f45b46a4ece3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "b879babd-b798-5ea1-986b-bbcd3e630e61",
+              "ingredientName": "Parmesan",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "100g frisch gerieben, plus extra zum Servieren"
+            },
+            {
+              "key": "91fdccf6-9c6f-518e-b982-e842f9e3332c",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "1/4 bunch, Blätter picked, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Rigatoni in Salzwasser 1 Minute kürzer als auf der Packung angegeben. Schöpfe etwa 1/2 Tasse Nudelwasser ab und gieße die Pasta dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze währenddessen Olivenöl in einer großen, schweren Pfanne bei mittlerer bis hoher Hitze. Gib das Wurstbrät dazu, zerkleinere es und brate es unter Wenden 3-4 Minuten, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den geriebenen Knoblauch dazu und brate ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre das Tomatenmark ein und gare es 30 Sekunden. Gib dann gehackte Tomaten, Sahne, jungen Spinat, Salz und Pfeffer dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Soße 5-6 Minuten köcheln, bis sie eindickt und der Spinat zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre den Parmesan ein. Gib dann die abgetropfte Pasta dazu und mische alles, bis die Nudeln überzogen sind. Falls nötig, verdünne die Soße mit etwas aufgefangenem Nudelwasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Pasta mit zusätzlichem Parmesan und gezupften Basilikumblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/11/Creamy-Rose-Pasta-with-Pork-Sausage.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-rose-pasta-with-pork-sausage/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremiger Rosé-Pasta mit Schweinswurst",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-creamy-sausage-pasta",
+      "slug": "she-creamy-sausage-pasta",
+      "title": "Cremige Wurst-Pasta",
+      "instructions": "Gebräunte italienische Wurst köchelt mit Weißwein und Kräutern in einer seidigen Parmesan-Sahnesoße. Vermischt mit zarter Pasta ist dieses Gericht in 20 Minuten fertig und ein Hit unter der Woche. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-sausage-pasta/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze italienische Wurst durch einfaches Schweinehack, das du mit Fenchel, Knoblauch und italienischen Kräutern würzt. So sinken die Kosten pro Portion.",
+        "Lass den Weißwein weg und verwende stattdessen mehr Hühnerbrühe und einen Schuss Weißweinessig. So erhältst du für einen Bruchteil des Preises dieselbe frische Note zum Ablöschen.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst, statt fertig geriebenen Parmesan in Dosen zu kaufen. So bekommst du mehr Käse fürs Geld."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Mehr Hühnerbrühe mit einem kleinen Schuss Weißweinessig",
+          "savings": "ca. $2.50"
+        },
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Gewürztes Schweinehack oder pflanzliche Wurst",
+          "savings": "ca. $3.00"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Doppelrahm oder Kondensmilch, mit etwas Speisestärke angedickt",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "Wurst",
+        "cremig",
+        "Abendessen",
+        "Wohlfühlessen",
+        "30-Minuten",
+        "aus-einer-Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 363,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-sausage-pasta/",
+      "components": [
+        {
+          "key": "5a40a95e-416a-5e60-aeb9-b5cb3873576e",
+          "name": "Zutaten",
+          "servingGrams": 392.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c37b4109-0270-5b5e-80ef-c78c4d3d3040",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "für pasta water"
+            },
+            {
+              "key": "860181da-8ad6-5931-beff-605320502766",
+              "ingredientName": "Lasagneplatten",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "250g frisch lasagne sheets, torn into 1-inch strips (oder pasta of choice)"
+            },
+            {
+              "key": "52a340d1-1339-54b4-9b9b-69a9d5eeb7a2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2cefad89-c634-5fa8-8044-4156fef9eaa4",
+              "ingredientName": "Italienische Wurst",
+              "grams": 350,
+              "quantity": 3.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "450g italienische Schweinswürste, Hüllen entfernt"
+            },
+            {
+              "key": "b4bf070b-d4a3-585b-b9ac-85668c1ff85d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt"
+            },
+            {
+              "key": "63c9049b-84f4-5629-9627-786f79dc8818",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "be2d6f98-3b01-5d8c-b63a-efaa3c8d2a90",
+              "ingredientName": "Weißwein zum Kochen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "125ml dry white wine (oder mehr Hühnerbrühe)"
+            },
+            {
+              "key": "ba724080-08ac-50a4-b040-6c708fffb64c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "250ml"
+            },
+            {
+              "key": "2800bee6-a7d9-5a65-a7e4-e7c14a97b063",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL Italian mixed herbs"
+            },
+            {
+              "key": "b641f015-5bc8-5a5a-bd7b-33274a646832",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/2 TL zerstoßen chilli flakes"
+            },
+            {
+              "key": "65fb197d-8271-5f9e-b543-529d8eb1ef35",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "250ml Schlagsahne"
+            },
+            {
+              "key": "c7a7f838-cfd8-5534-b20b-66ad5cf908bc",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "50g frisch gerieben, plus extra zum Servieren"
+            },
+            {
+              "key": "87203a6c-a6f0-56be-8f2a-532e33b5bb84",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1f9d4310-9792-51e7-ae8f-991b3ec71e41",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "86a15c7d-ecc5-5e4d-b102-237b63653078",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf mit Salzwasser für die Pasta zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wenn du frische Lasagneplatten verwendest, schneide oder reiße sie in etwa 1 Zoll breite Streifen und gare sie erst, wenn die Soße fertig ist (30-60 Sekunden). Gieße sie anschließend ab und gib sie direkt zur Soße. Bei normaler Pasta: Koche sie 1 Minute kürzer als auf der Packung angegeben und gieße sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Olivenöl in einer großen Pfanne bei mittlerer Hitze. Gib die Wurst dazu, zerkleinere sie in kleine Stücke und brate sie etwa 5 Minuten, bis sie gebräunt und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Knoblauch dazu und brate ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre das Tomatenmark ein und gare es 1-2 Minuten, damit es karamellisiert und sein Aroma kräftiger wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Weißwein oder zusätzliche Brühe dazu und lass alles 2-3 Minuten köcheln. Kratze dabei die gebräunten Reste vom Pfannenboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sobald der Großteil des Weins verdampft ist, gib die Hühnerbrühe dazu und koche alles 2-3 Minuten, bis die Flüssigkeit um die Hälfte reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre die italienischen Kräuter und nach Wunsch die Chiliflocken ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib die Sahne dazu, rühre gut um und lass alles 3-4 Minuten köcheln, bis die Soße leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Rühre den geriebenen Parmesan ein und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Schalte den Herd aus, gib die gekochte Pasta dazu und vermische sie mit der Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Garniere das Gericht mit frischem Basilikum und serviere es sofort mit zusätzlichem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/07/Creamy-Sausage-Pasta-4.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-sausage-pasta/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremiger Wurst-Pasta",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-creamy-tomato-sausage-pasta",
+      "slug": "she-creamy-tomato-sausage-pasta",
+      "title": "Cremige Tomaten-Wurst-Pasta",
+      "instructions": "Goldbraune Wurstbällchen köcheln in einer reichhaltigen, samtigen Tomaten-Sahnesoße. Die Pasta gart direkt in der Pfanne und macht das Gericht zu einem schnellen Abendessen aus einem Topf. Mit Parmesan und frischem Basilikum verfeinert, steht es in 20 Minuten auf dem Tisch. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/creamy-tomato-sausage-pasta/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einfache Schweinswürste im Angebot und friere übrige Würste ein. Das Brät aus günstigen Würsten eignet sich hier genauso gut wie das aus teuren.",
+        "Verwende Passata der Hausmarke und Rinderbrühwürfel, die du in Wasser auflöst. So sparst du Geld, ohne Geschmack einzubüßen.",
+        "Reibe ein Stück Parmesan selbst, statt fertig geriebenen zu kaufen. Das ist pro Gramm günstiger und schmilzt besser in der Soße."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Pflanzliche Wurst oder gebräuntes Rinderhack für eine andere Eiweißquelle",
+          "savings": "Rinderhackfleisch ist pro Portion günstiger"
+        },
+        {
+          "forIngredientId": "tomato-passata",
+          "swap": "Eine Dose gehackte Tomaten, glatt püriert",
+          "savings": "oft günstiger than bottled passata"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Leichte Sahne oder Kondensmilch für eine leichtere Soße",
+          "savings": "Light cream is lower Kosten und lighter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "aus-einem-Topf",
+        "Wurst",
+        "cremig",
+        "Tomate",
+        "Abendessen",
+        "Wohlfühlessen",
+        "30-Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 364,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-creamy-tomato-sausage-pasta/",
+      "components": [
+        {
+          "key": "7d74f0a2-7a1c-5724-a4d3-9e88e4472189",
+          "name": "Zutaten",
+          "servingGrams": 641.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "f88fdb35-e015-5bf4-a169-5791388c733c",
+              "ingredientName": "Schweinswurst",
+              "grams": 450,
+              "quantity": 4.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "600g good-quality pork oder beef sausages, meat squeezed from casings"
+            },
+            {
+              "key": "186c5373-bc14-51c6-8d3c-6d6c07e27835",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ee4738e3-9b14-5e2c-804a-d44121eb5b02",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt"
+            },
+            {
+              "key": "fa91efc7-be21-5795-9077-fba576e6ee7c",
+              "ingredientName": "Passierte Tomaten",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "700g Passata"
+            },
+            {
+              "key": "ee50f735-e7a7-58be-8356-86bc40d48ef0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 624,
+              "quantity": 624,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "625ml Rinderbrühe"
+            },
+            {
+              "key": "94e4acfd-2b8c-53af-bedb-9e0bb403f056",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "300g short pasta such as rigatoni, macaroni oder penne"
+            },
+            {
+              "key": "22980891-5299-5671-b5c5-64e68344e04b",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "250ml Schlagsahne"
+            },
+            {
+              "key": "cab66ec0-3f99-5fbf-941a-b80e18ed8229",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Meersalzflocken, nach Geschmack"
+            },
+            {
+              "key": "e4f0b01b-f4e3-5370-aa7c-ce72d419c164",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "7e054877-7007-5102-a70a-3cb4969567ea",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "25g frisch gerieben, plus extra zum Servieren"
+            },
+            {
+              "key": "965c47ce-f215-595c-8071-6ff20a08bb1e",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1/4 bunch frisch basil Blätter, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Drücke das Wurstbrät aus den Hüllen und forme daraus kleine Bällchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen, tiefen, schweren Pfanne bei mittlerer bis hoher Hitze. Brate die Wurstbällchen 2-3 Minuten, bis sie rundherum goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den gehackten Knoblauch ein und gib sofort Passata und Rinderbrühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Soße leicht köcheln und rühre dann Pasta, Sahne, Salz und Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze so, dass die Soße leicht blubbert. Sie muss weiter köcheln, sonst gart die Pasta nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare alles 10-12 Minuten, bis die Pasta gerade gar ist. Rühre regelmäßig um, damit die Soße nicht am Boden ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte den Herd aus und lass das Gericht zugedeckt 3 Minuten ruhen, damit die zusätzliche Soße von der Pasta aufgenommen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue das Gericht nach Wunsch mit Parmesan und frischem Basilikum und serviere es mit zusätzlichem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/11/Creamy-Tomato-Sausage-Pasta-2.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/creamy-tomato-sausage-pasta/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremiger Tomaten-Wurst-Pasta",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

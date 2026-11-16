@@ -1,0 +1,1087 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-saag-paneer",
+      "slug": "mfr-saag-paneer",
+      "title": "Saag Paneer",
+      "instructions": "Cremige, gewürzte Spinatsauce mit in der Pfanne gebratenen Paneerwürfeln. Das beliebteste vegetarische Curry Indiens: reichhaltig und sättigend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Paneer lässt sich einfach zu Hause zubereiten: Milch erhitzen, bis sie kocht, Zitronensaft einrühren, gerinnen lassen und abseihen.",
+        "Tiefgekühlter Spinat eignet sich perfekt für Saag. 2 Beutel ersetzen frischen Spinat und sparen Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cooking-cream",
+          "swap": "Griechischen Joghurt einrühren, nachdem du den Topf vom Herd genommen hast."
+        },
+        {
+          "forIngredientId": "paneer",
+          "swap": "Festen Tofu für eine vegane Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-saag-paneer",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Curry",
+        "Spinat",
+        "Paneer",
+        "Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1090,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-saag-paneer/",
+      "components": [
+        {
+          "key": "80b74770-c4dd-5561-85c1-5c9024139e0d",
+          "name": "Zutaten",
+          "servingGrams": 1277.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "a084e114-655a-5e19-b2af-cca1a16197c1",
+              "ingredientName": "Paneer",
+              "grams": 680.4,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c80f7bc-11de-54ca-90a0-425b7815c1ea",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a1d0a7d-ab15-5702-9993-c4110e740484",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd7ec2c3-42e6-57f9-81f4-9e65ba24388c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c218182-4409-5c3d-b1f2-c565b87a699b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cbc5478-38c7-51f3-a50a-4a3b40991ee0",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed78c72e-a0e7-5a1f-9f1b-790d7ad33ead",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82ee6fe3-62e0-5c9b-86e7-a26051c2b48f",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7665f22c-9b59-531e-a28b-6555791da5e9",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a09f380e-08dc-58f6-ac96-86ded34e35be",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cccdb9da-3944-53e4-8fa6-4f4fd68ce678",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Paneerwürfel in Öl goldbraun an und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Kreuzkümmelsamen an. Gib Zwiebel, Knoblauch und Ingwer dazu und gare alles 5 Minuten. Füge Kurkuma und Garam Masala hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Spinat portionsweise dazu und lass ihn zusammenfallen. Püriere ihn teilweise, bis die Sauce glatt ist, aber noch etwas Struktur hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sahne und Paneer dazu. Lass alles 5 Minuten köcheln und serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2021/03/09/dining/kc-saag-paneer/merlin_184703130_333fde92-9fe6-489d-87fb-eb1617e82395-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2021/03/09/dining/kc-saag-paneer/merlin_184703130_333fde92-9fe6-489d-87fb-eb1617e82395-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-raita-bowl",
+      "slug": "mfr-indian-raita-bowl",
+      "title": "Indische Gurken-Raita-Schüssel",
+      "instructions": "Dicker, würziger Joghurt mit Gurke, Tomate, geröstetem Kreuzkümmel und Minze. Eine eiweißreiche indische Beilage, die als leichtes Mittagessen gut sättigt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischer Joghurt gehört in jedem Lebensmittelgeschäft zu den eiweißreichsten Lebensmitteln pro Dollar.",
+        "Raita kühlt den Gaumen bei scharfem Essen und eignet sich auch allein als proteinreicher Dip zum Mittagessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mint-fresh",
+          "swap": "Getrocknete Minze in halber Menge verwenden."
+        },
+        {
+          "forIngredientId": "pita-bread",
+          "swap": "Vollkorncracker oder Karottenstifte dazu servieren."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-raita-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Joghurt",
+        "ohne-Kochen",
+        "leicht",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1091,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-raita-bowl/",
+      "components": [
+        {
+          "key": "9944a673-3120-5145-9f4a-c76eff4ba5da",
+          "name": "Zutaten",
+          "servingGrams": 922.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6ec0fac-11c3-59e7-ab6b-caa9a8fe051d",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58e07e37-3fcc-53e6-8c80-aa92a93ef60c",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d320e8e-1ef3-5e8e-a6ca-5ef153eed1a6",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77cb6a26-603b-5a96-91a0-3121ec5f7499",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d11222b0-68e4-5822-b4ac-75cc82fc6fa1",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "117b6e0b-4987-5eb2-b521-5ac645691803",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46abcbd4-7826-59af-a9d3-658101073162",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41565b20-1981-59fb-b1a3-b91e2efa5d11",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12bcd670-dfd0-5976-8e30-d7bbe4eb18ea",
+              "ingredientName": "Pitabrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Kreuzkümmel 30 Sekunden in einer trockenen Pfanne, bis er duftet. Lass ihn abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Joghurt mit geraspelter und ausgedrückter Gurke, gewürfelter Tomate, Minze, Koriander, Kreuzkümmel, Chili und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Serviere den Dip mit warmem Pitabrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.balcalnutrefy.com/wp-content/uploads/2023/04/Recipe-Cucumber-Raita-scaled.jpg",
+          "sourcePageUrl": "https://www.balcalnutrefy.com/wp-content/uploads/2023/04/Recipe-Cucumber-Raita-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-aloo-paratha",
+      "slug": "mfr-indian-aloo-paratha",
+      "title": "Indisches Aloo Paratha",
+      "instructions": "Vollkornfladenbrot mit gewürztem Kartoffelpüree füllen und in der Pfanne goldbraun braten. Indiens beliebtestes Frühstück, das sich auch perfekt zum Mittagessen eignet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aloo Paratha kostet etwa $1.50 für 2 große Fladenbrote und ist damit sehr günstig.",
+        "Teig und Füllung lassen sich vorbereiten. Brate die Fladen morgens frisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-wheat-flour",
+          "swap": "Weizenmehl verwenden. Es enthält weniger Ballaststoffe."
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Gewöhnlichen Joghurt oder eingelegte Mango dazu servieren."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-aloo-paratha",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "Fladenbrot",
+        "Kartoffel",
+        "Wohlfühlessen",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1092,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-aloo-paratha/",
+      "components": [
+        {
+          "key": "913a9f62-67ce-5360-9615-bf0161db3270",
+          "name": "Zutaten",
+          "servingGrams": 801.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c76b5263-62c4-5c9f-acfb-99169e8639e4",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68e5b8a1-ba4e-55b0-a615-6c928f10fef9",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "551b845f-f9dd-56d7-8b65-44e4141aa195",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6410409d-4024-574f-9034-8e62c0b2b705",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38d9308d-77fa-58c2-9500-791b0c5114f0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd0c328a-e195-5b70-b753-b5c57c0feddc",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f550b22e-596e-5df3-a633-293e04dff69e",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b049838-8d05-5e38-805a-dcdcfa80cd3a",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a81492a6-b2d7-50ff-b5c0-976df3b9cdf4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1cee9a8-3c75-52c7-8b21-dbc56d649d55",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln und zerdrücke sie mit Kreuzkümmel, Koriander, Ingwer, Chili, Zwiebel und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Teig zu: Vermische Mehl, Wasser und eine Prise Salz. Knete ihn 5 Minuten und lass ihn 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle den Teig zu Kreisen aus. Gib die Kartoffelfüllung in die Mitte, schlage die Ränder darüber und rolle den Fladen dünn aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Fladen in einer leicht geölten Pfanne pro Seite 3 Minuten goldbraun. Serviere sie mit griechischem Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.beautyfitnessfood.com/wp-content/uploads/2023/01/aloo-paratha-gobi-paratha-also-known-as-potato-cauliflower-stuffed-flatbread-dish-originating-from-indian-subcontinent-2048x1367.jpg",
+          "sourcePageUrl": "https://www.beautyfitnessfood.com/wp-content/uploads/2023/01/aloo-paratha-gobi-paratha-also-known-as-potato-cauliflower-stuffed-flatbread-dish-originating-from-indian-subcontinent-2048x1367.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-chicken-tikka-bowl",
+      "slug": "mfr-indian-chicken-tikka-bowl",
+      "title": "Indische Hähnchen-Tikka-Schüssel",
+      "instructions": "In Joghurt mariniertes, gegrilltes Hähnchen-Tikka auf Basmatireis mit Gurken-Raita, Kirschtomaten und einem Spritzer Zitrone. Eine vollständige indische Schüsselmahlzeit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen-Tikka ist mariniertes Hähnchen, das bei hoher Hitze gegart wird. Ein spezieller Tandoor-Ofen ist nicht nötig.",
+        "Die Joghurtmarinade hält das Hähnchen saftig, egal wie du es zubereitest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "basmati-rice",
+          "swap": "Quinoa oder Blumenkohlreis verwenden."
+        },
+        {
+          "forIngredientId": "cherry-tomatoes",
+          "swap": "Geschnittene gewöhnliche Tomaten statt Kirschtomaten verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-chicken-tikka-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Hähnchen",
+        "Reisschüssel",
+        "gegrillt",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1093,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-chicken-tikka-bowl/",
+      "components": [
+        {
+          "key": "a90e9ab7-4822-5f3c-98d7-67126834721d",
+          "name": "Zutaten",
+          "servingGrams": 916.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8656aa4-adfe-543a-8296-f513351156f0",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c12f0509-6b14-5cb3-8b81-416a7ae03227",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2bc03e1-c8a2-5418-a34c-48935ca23774",
+              "ingredientName": "Garam Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b7b4770-3c87-510b-b173-e94c6285d703",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15790805-03b8-5e7b-9a72-0f163e038c33",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "757fc329-8241-55b7-b4f1-79a5eb459c97",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70e7bcc1-9446-5f32-895d-46cbecd7133d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b3dc74f-48b4-5fb1-8be3-b5d6ffe6ec75",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6f45d85-90fa-5272-9f2a-14c72032b802",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "373e79da-c043-5de2-b0ac-71b2e95b8d7f",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59ce6fb8-b601-5d79-846b-d63ab6ebfa81",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5b246eb-18e4-5d78-ae33-1f9efaef84b8",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Hähnchenmarinade zu: Vermische 1 Tasse Joghurt, Garam Masala, Kurkuma, Chili, Knoblauch und Ingwer. Bedecke das Hähnchen damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grille oder brate das Hähnchen pro Seite 5–6 Minuten, bis es außen geröstet und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Raita zu: Vermische den übrigen Joghurt mit geraspelter Gurke und Minze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das geschnittene Hähnchen auf Reis mit Raita und Kirschtomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Best-Chicken-Tikka-Masala-IMAGE-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Best-Chicken-Tikka-Masala-IMAGE-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-anda-bhurji",
+      "slug": "mfr-indian-anda-bhurji",
+      "title": "Indisches Anda Bhurji (gewürztes Rührei)",
+      "instructions": "Eier mit Zwiebel, Tomate, Ingwer, Kreuzkümmel und Kurkuma nach Art des Straßenessens aus Mumbai zu Rührei braten. In 10 Minuten fertig und mit Brot oder Reis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "5 Eier für 2 Personen kosten $1.25. Bhurji ist eine der günstigsten sättigenden indischen Mahlzeiten.",
+        "Der Trick: Gib die Tomate vor den Eiern hinzu. So entsteht eine saucige Grundlage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bread",
+          "swap": "Pav, das indische Brötchen, Pitabrot oder Reis dazu servieren."
+        },
+        {
+          "forIngredientId": "chili-pepper",
+          "swap": "1/4 TL Chiliflocken verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-anda-bhurji",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Eier",
+        "schnell",
+        "preiswert",
+        "Streetfood"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1094,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-anda-bhurji/",
+      "components": [
+        {
+          "key": "69a1520b-6dd7-5f6b-94d4-cef93d59423f",
+          "name": "Zutaten",
+          "servingGrams": 370.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4d46a5f-595c-5b71-b805-e33ddc837cae",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b15ca9d-2a9a-5233-a298-228d9d1e709a",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e84e22fc-9440-504d-a22f-b5e5cacc699a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b889616e-b370-5279-81b3-41f59edcd630",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46961d35-93b7-5ea2-b41a-48d6ba1ef00d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a96edef5-c11b-5979-9a9e-037ef81da3d4",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2d0908d-2a6b-5489-beb2-66715a3fa01d",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d140d2ef-d38d-5a60-97d6-9d747f782632",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b50b8d0a-57b2-567f-be22-79beed44250b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2f27cb2-e9a0-53b1-b9dd-f3b58fd5d88a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3904d02-25d2-51e0-a0d3-3e9f3b054bbf",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Kreuzkümmelsamen 30 Sekunden in Öl an. Gib Zwiebel, Knoblauch, Ingwer und Chili dazu und gare alles 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge Tomate und Kurkuma hinzu und gare alles 2 Minuten, bis die Tomate weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die Eier, gieße sie hinein und rühre bei mittlerer Hitze vorsichtig zu Rührei, bis sie gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere das Rührei mit Koriander und serviere es mit Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/_UpZJf-wE0Vr5jNOpBPPC_FyzcA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/anda-bhurji-spicy-indian-scrambled-eggs-recipe-step-06-b861178e6c5546559667743aa64a187f.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/_UpZJf-wE0Vr5jNOpBPPC_FyzcA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/anda-bhurji-spicy-indian-scrambled-eggs-recipe-step-06-b861178e6c5546559667743aa64a187f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

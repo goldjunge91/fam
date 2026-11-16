@@ -1,0 +1,990 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ragda-patties",
+      "slug": "gen-ragda-patties",
+      "title": "Ragda Patties",
+      "instructions": "Gujaratiischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erbsen in großen Mengen kochen und einfrieren",
+        "Chutneys selbst zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "gujaratisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3430,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ragda-patties/",
+      "components": [
+        {
+          "key": "b1be55f3-02f9-59e1-8cb9-f00bd0b3721c",
+          "name": "Zutaten",
+          "servingGrams": 383.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "7df57183-6a6e-55f0-8037-c1c9572f1ae2",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gekocht und zerdrückt"
+            },
+            {
+              "key": "5773fb6b-aebb-5577-8969-35e7dbf7979a",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, gekocht und zerdrückt"
+            },
+            {
+              "key": "43e1129c-e560-57e3-8d51-11f50708218b",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, gekocht und zerdrückt"
+            },
+            {
+              "key": "4e1c5dab-4b23-5adf-aa9b-5bd5e683ff67",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "a57f171b-e791-551a-881f-f60161aa5b5a",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "cf56404d-963a-5ef2-b7a9-a6c6f3377399",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zoll langes Stück, fein gehackt"
+            },
+            {
+              "key": "78ea0396-29b5-5e99-a34c-dd44f7f0c846",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL zum Braten"
+            },
+            {
+              "key": "156c47d1-971c-5b9d-8308-57a86f1fdba2",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bace63dc-6ade-5575-9afd-e65e2b8a2c63",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "edac56f7-280c-5d8e-aa08-1bd8d485bc8c",
+              "ingredientName": "Tamari",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a161fd25-c150-5e08-a9a7-0fb5af89d19b",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gekochte weiße Erbsen mit Tamarinden-Chutney und Salz zu einer Ragda-Sauce vermengen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gestampfte Kartoffeln, zerdrückte grüne Erbsen, Mehl, grüne Chili, Ingwer, Chaat Masala und Salz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aus der Mischung 6-8 kleine, flache ovale Bratlinge formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer flachen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bratlinge 2-3 Minuten pro Seite goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bratlinge auf einem Teller anrichten und warme Ragda-Sauce darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Minz-Chutney und zusätzlichem Chaat Masala garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gayathriscookspot.com/wp-content/uploads/2016/09/9-5.jpg",
+          "sourcePageUrl": "https://gayathriscookspot.com/wp-content/uploads/2016/09/9-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bhakri",
+      "slug": "gen-bhakri",
+      "title": "Bhakri",
+      "instructions": "Gujaratiisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jowar-Mehl in großen Mengen in indischen Lebensmittelgeschäften kaufen",
+        "Öl weglassen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "gujaratisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3431,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bhakri/",
+      "components": [
+        {
+          "key": "1d01e1e3-f4a4-517f-bb86-e7f60336fe0e",
+          "name": "Zutaten",
+          "servingGrams": 246.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "47bdbc85-8ca6-5092-a1cc-696f3c162970",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7d9b1cb7-72b0-5556-8f91-c3145c5b64f8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, warm"
+            },
+            {
+              "key": "8e25ee68-1b84-5b62-8fdd-83706b7529d4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "8a9a5114-70bc-5486-bb46-97c921bf8ec6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "221ab0ba-c05b-5461-8663-d4ffba0cfd0d",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Jowar-Mehl, Salz und Kreuzkümmelsamen in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach und nach warmes Wasser und Öl hinzufügen und rühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1-2 Minuten kneten, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 4-6 gleiche Portionen teilen und jeweils zu einer Kugel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine gusseiserne Platte oder Tawa bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine Teigportion auf die Platte legen und mit dem Handballen leicht zu einem dicken, runden Fladen drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2-3 Minuten garen, bis die Unterseite braun ist, vorsichtig wenden und die andere Seite 2-3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Noch einmal wenden und leicht andrücken; garen, bis dunkle Stellen entstehen und die Bhakri leicht knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß mit Dal oder Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://relishdelish.ca/wp-content/uploads/2023/02/IMG_5177-2-800x840.jpeg",
+          "sourcePageUrl": "https://relishdelish.ca/wp-content/uploads/2023/02/IMG_5177-2-800x840.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rotli",
+      "slug": "gen-rotli",
+      "title": "Rotli",
+      "instructions": "Gujaratiisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vollkornmehl in großen Mengen kaufen",
+        "Nur wenig Öl verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "gujaratisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3432,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rotli/",
+      "components": [
+        {
+          "key": "7cbb38f3-24ba-57ab-81ca-7b10d3510e4d",
+          "name": "Zutaten",
+          "servingGrams": 105.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "83e485c6-b1dd-534b-a45d-94c502540747",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4712c475-782b-5fc4-8069-64a0dfd22da1",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse, warm"
+            },
+            {
+              "key": "be1e3396-769f-5bd3-ba78-99ecfb412088",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "08925121-2b5c-5e91-aae6-dbd643075c3e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vollkornmehl und Salz in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl hinzufügen und nach und nach warmes Wasser zugießen, dabei mit den Händen mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zu einem weichen, glatten Teig kneten, abdecken und 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 6-8 gleiche Portionen teilen und jeweils zu einer glatten Kugel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Tawa oder Grillplatte bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine Kugel mit Mehl bestäuben, leicht flach drücken und zu einem dünnen, gleichmäßigen runden Fladen ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf die heiße Tawa legen und etwa 30 Sekunden garen, bis der Fladen leicht aufgeht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wenden und die andere Seite 30 Sekunden garen, bis hellbraune Stellen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß mit Dal, Gemüse oder Curry servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mayuris-jikoni.com/wp-content/uploads/2017/06/puran-poli-3-copy.jpg",
+          "sourcePageUrl": "https://mayuris-jikoni.com/wp-content/uploads/2017/06/puran-poli-3-copy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sev",
+      "slug": "gen-sev",
+      "title": "Sev",
+      "instructions": "Gujaratiischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsenmehl auf indischen Märkten kaufen",
+        "Frittieröl für die nächste Portion wiederverwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "gujaratisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3433,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sev/",
+      "components": [
+        {
+          "key": "c00028bc-34c8-5a5a-ac7f-e7d4df57b873",
+          "name": "Zutaten",
+          "servingGrams": 199.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "30b73940-9c6e-5897-b836-f79c1d457cd4",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "68fdd28d-3384-53e9-ad69-5f2f0997a4ca",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "665ec93f-8960-5551-bccf-59d5e66047d0",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "aa6cdefc-c60c-5f38-9309-835699c1f7c0",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "1904e91e-9453-56e4-85a1-2bd75d9b9635",
+              "ingredientName": "Asant",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "9f456844-1d42-5436-8910-5253c4193231",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "24c82bab-06b1-5ecd-b201-3f66b60b272d",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL sowie 2 Tassen zum Frittieren"
+            },
+            {
+              "key": "461649e5-d684-5466-b65d-8b8e112bb26a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ddd33774-2ef2-5d77-992a-e4f16f51214f",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kichererbsenmehl, Reismehl, Kurkuma, rotes Chilipulver, Asant, Kreuzkümmelsamen und Salz in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "4 tablespoons Öl und Wasser hinzufügen und zu einem dicken, glatten Teig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 cups Öl in einer tiefen Pfanne auf 350°F (175°C) erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Sev-Presse (Murukku-Presse) mit dem Teig füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Presse direkt über dem heißen Öl in kreisenden Bewegungen drücken, sodass dünne nudelartige Fäden entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2-3 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vollständig abkühlen lassen und bis zu einer Woche in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2019/09/tomato-sev-recipe-tomato-sev-namkeen-khasta-tamatar-namkeen-sev-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2019/09/tomato-sev-recipe-tomato-sev-namkeen-khasta-tamatar-namkeen-sev-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-puri",
+      "slug": "gen-puri",
+      "title": "Puri",
+      "instructions": "Bengalisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl in großen Mengen kaufen, um Kosten zu senken",
+        "Frittieröl für die nächste Portion wiederverwenden, wenn es gefiltert wurde"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bengalisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3434,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puri/",
+      "components": [
+        {
+          "key": "9761595a-52bb-52c9-9a85-8d9f1b5fa775",
+          "name": "Zutaten",
+          "servingGrams": 245.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "edc286a7-b02b-5724-af15-0f08e848b85b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4ee1c93a-adb9-5bb1-a79b-4b6da616f88b",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "7ab7d3b4-55f0-54b3-8da2-986879747570",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5acf15b4-3d30-5c98-9602-72d661215f22",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL sowie 2 Tassen zum Frittieren"
+            },
+            {
+              "key": "37a3f923-9b55-545a-ae95-233c68ff5ba1",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weizenmehl, Vollkornmehl, Salz und 3 tablespoons Öl in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach und nach Wasser hinzufügen und zu einem glatten, festen Teig kneten; abgedeckt 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in 12 gleich große Kugeln teilen und jede zu einem dünnen Kreis von 4-inch ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2 cups Öl in einer tiefen Pfanne auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein Puri vorsichtig ins heiße Öl geben und mit einer Schaumkelle andrücken, bis es aufgeht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Je Seite 30 Sekunden hellgolden frittieren, dann auf Küchenpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit den übrigen Teigkugeln wiederholen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.between2kitchens.com/wp-content/uploads/2021/10/Pani-Puri-filling-27-of-1.jpg",
+          "sourcePageUrl": "https://www.between2kitchens.com/wp-content/uploads/2021/10/Pani-Puri-filling-27-of-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

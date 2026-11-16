@@ -1,0 +1,956 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-skibidi-toilet-cake",
+      "slug": "gen-skibidi-toilet-cake",
+      "title": "Skibidi-Toilettenkuchen",
+      "instructions": "Ein auffälliger Schokoladenkuchen, der mit blauer Frischkäsecreme wie eine Toilette dekoriert wird.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kakaopulver und Zucker der Hausmarke.",
+        "Lass aufwendige Dekorationen weg, um Spezialzutaten für das Frosting zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4980,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-skibidi-toilet-cake/",
+      "components": [
+        {
+          "key": "336a7ccb-9c53-5659-9b8a-45d9ef3122d8",
+          "name": "Zutaten",
+          "servingGrams": 158.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "0dfcfaad-39ba-569b-b562-967ae5114f99",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "61385688-70b0-5e87-af37-cd7ee4bf8de2",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9e4f8fd2-6bd1-5f8d-88ed-88d782e51392",
+              "ingredientName": "Kakaopulver",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "52683783-ede3-545d-a8a2-7fde5768ee33",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db35fe11-2aca-560f-9b59-627cda000e45",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bbf0cabc-aa95-58f5-821d-8f90a01ad427",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "80c7c5d9-dd78-55f3-a738-fbfa7a8d9b65",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "4ae1fe52-c2a1-559c-acf9-ded48f9e44b3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "e6075862-d653-56bb-8217-67db838aa7c8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "855f8cbd-5716-5152-a98c-f8da4ab02e87",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Becher (16 Unzen)"
+            },
+            {
+              "key": "e521c4c8-0151-5f94-9f7e-385209e4cc14",
+              "ingredientName": "Blauschimmelkäse-Dressing",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "einige Tropfen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine runde 9-inch Kuchenform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Mehl, Zucker, Kakao, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, Öl und Vanille und vermische die Eiermischung anschließend mit den trockenen Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre heißes Wasser ein, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die Form und backe ihn 30-35 Minuten, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den Kuchen vollständig abkühlen und bestreiche ihn dann mit blau gefärbtem Frischkäse-Frosting.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Forme das Frosting mit einem Spritzbeutel zu einer Toilettenschüssel auf dem Kuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.cpatisserie.com/cdn/shop/files/cake_game_skibidi_01_1_2937fcd5-0858-457b-b78a-9ea01a3fac51.jpg?v=1711693506&width=1946",
+          "sourcePageUrl": "https://www.cpatisserie.com/cdn/shop/files/cake_game_skibidi_01_1_2937fcd5-0858-457b-b78a-9ea01a3fac51.jpg?v=1711693506&width=1946",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-corn-in-a-cup",
+      "slug": "gen-corn-in-a-cup",
+      "title": "Mais im Becher",
+      "instructions": "Mexikanischer Mais-Snack mit Butter, Käse, Limette, Chili und frischem Koriander.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Mais; er ist günstiger und genauso lecker.",
+        "Ersetze Cotija-Käse durch Feta oder sogar Parmesan, um zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4981,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-corn-in-a-cup/",
+      "components": [
+        {
+          "key": "84c648e9-b78a-516b-afb2-75d8fe864de6",
+          "name": "Zutaten",
+          "servingGrams": 277.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "629f6677-2b8b-5a7f-8feb-2dfc6f59a39a",
+              "ingredientName": "Maiskörner (tiefgekühlt)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "439ccd76-3abc-5679-8cb5-5597aae36cc3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "07c22b8c-d39c-585c-932b-50851a888677",
+              "ingredientName": "Feta-Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "39345558-0efa-565e-849b-dd3a42f1425e",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a96441a6-f894-5c93-87fd-6751a2b72da1",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "817126ab-18ba-5221-ad4c-54dba951689e",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "bd3ea72f-c6dc-53bd-8dd1-39339458a718",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9a8c8aab-6b41-553f-a98d-386e47847703",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Butter in einer Pfanne und gib die Maiskörner dazu. Brate sie 3-4 Minuten, bis sie leicht geröstet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm die Pfanne vom Herd und rühre Mayonnaise ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe zerbröselten Cotija-Käse, den Saft einer halben Limette und Chilipulver unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Mischung auf Servierbecher und garniere sie mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Mais warm mit einer zusätzlichen Limettenspalte und etwas Chilipulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/InEFcebKmXC0pF46hqbonWSTtII=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/242204-corn-in-a-cup-elote-en-vaso-ddmfs-step3-0086-a660b09ab57e4081b2ee850a0dc964ca.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/InEFcebKmXC0pF46hqbonWSTtII=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/242204-corn-in-a-cup-elote-en-vaso-ddmfs-step3-0086-a660b09ab57e4081b2ee850a0dc964ca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dalgona-coffee",
+      "slug": "gen-dalgona-coffee",
+      "title": "Dalgona-Kaffee",
+      "instructions": "Indisches Kaffeegetränk mit luftig aufgeschlagenem Instantkaffee auf kalter Milch.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende eine beliebige Instantkaffeemarke; auch die Hausmarke eignet sich gut.",
+        "Lass das Kakaopulver weg, um Zutaten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4982,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dalgona-coffee/",
+      "components": [
+        {
+          "key": "9d5153de-c693-58b1-a215-92fd17a9ab5c",
+          "name": "Zutaten",
+          "servingGrams": 443.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2a8f25ac-553f-50dd-a1d7-98062eb4b1e0",
+              "ingredientName": "Instantkaffee",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9d7aca39-d578-5a3f-b42e-b2b442fef7de",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7a8d7dd9-0970-5e3b-96c2-b075e4982ce9",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "02a678d6-4b3c-5abc-9305-3d2153aec3aa",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6e239c44-4bf1-5282-9ead-4ff175412ca3",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "412bbb9b-594b-5c90-b624-3aac0f96d4e6",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Instantkaffee, Zucker und 2 tablespoons heißes Wasser in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die Mischung 5-7 Minuten kräftig auf, bis sie dick und luftig ist und eine hellbraune Farbe hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle zwei Gläser mit Eiswürfeln und verteile die Milch darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den luftigen Kaffeeschaum auf die Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre das Getränk vor dem Trinken um oder trinke zuerst den Schaum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://everything-delish.com/wp-content/uploads/2020/04/IMG_6660-1536x2048.jpg",
+          "sourcePageUrl": "https://everything-delish.com/wp-content/uploads/2020/04/IMG_6660-1536x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-butter-board",
+      "slug": "gen-butter-board",
+      "title": "Butterbrett",
+      "instructions": "Weiche Butter auf einem Brett, garniert mit Dill, Knoblauch, Zitronenschale und Chiliflocken, zum Servieren mit Brot.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Butter im Angebot und friere sie bis zur Verwendung ein.",
+        "Verwende getrocknete Kräuter, wenn keine frischen verfügbar sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4983,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-butter-board/",
+      "components": [
+        {
+          "key": "86c6407c-c7a6-5e4b-a822-b620178dd1e8",
+          "name": "Zutaten",
+          "servingGrams": 24.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0cf3409c-6a61-532e-8519-9b68727b54e7",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a1428bdd-9294-5e0f-bac2-d59cc0f52198",
+              "ingredientName": "Frischer Dill",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "142d9d5c-bc90-5cd8-85e0-3137b0a84342",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "745bff8a-8844-5ffe-bcff-449077191bee",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5dc9ddf5-1223-545a-bb40-8b9704f1e9d4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "11707bfd-d3bc-59e5-be1b-11be6294ce05",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "ed6967b5-2a48-5636-a6ca-a48dbc0f3df2",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Laib"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verstreiche weiche Butter gleichmäßig auf einem Holzbrett oder einer Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke die frischen Kräuter und streue sie zusammen mit Knoblauchpulver über die Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile Zitronenschale, Meersalz und Chiliflocken auf dem Brett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ziehe die Toppings mit einem Messer leicht spiralförmig durch die Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib eine Prise Fleur de Sel darüber und serviere dazu geschnittenes knuspriges Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Herbed-Butter-Board_EXPS_RC24_275705_P2_MD_04_04_6b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Herbed-Butter-Board_EXPS_RC24_275705_P2_MD_04_04_6b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gyatt-skibidi-tacos",
+      "slug": "gen-gyatt-skibidi-tacos",
+      "title": "Gyatt-Skibidi-Tacos",
+      "instructions": "Tacos mit würzigem Rinderhackfleisch, Käse, Salat, Tomate und Salsa.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch in Großpackungen und friere es portionsweise in Beuteln ein.",
+        "Verwende Taco-Gewürz der Hausmarke statt einzelner Gewürzpäckchen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4984,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gyatt-skibidi-tacos/",
+      "components": [
+        {
+          "key": "ec944d05-7a8c-5123-865f-a6c94ad6ca85",
+          "name": "Zutaten",
+          "servingGrams": 365.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "81337d53-cb89-51ae-81dd-7425c6495faf",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ed2a5f60-9c6e-556c-a84f-baaffc4abcb1",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "8184cad8-6396-5185-90b4-1b1a387656fa",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "eefb345d-ecb6-5577-9533-e8eba30ce302",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b30882a0-20b4-5d15-abe2-7f66f80f2a5a",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f0fe8334-9f8f-5b54-abde-1349105e0071",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "90e26795-d7d4-5b5e-95b9-ab461137a81c",
+              "ingredientName": "Salsa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "41625bec-bb9d-5405-86d1-6f2f56a23129",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Rinderhackfleisch in einer Pfanne bei mittlerer bis hoher Hitze krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße überschüssiges Fett ab und gib Taco-Gewürz mit 1/4 cup Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Mischung 5 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Taco-Schalen nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würfle Zwiebel und Tomaten fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jede Schale mit gewürztem Rindfleisch, Käse, Salat, Tomate und Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib saure Sahne und Salsa darauf und serviere die Tacos sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.valyastasteofhome.com/wp-content/uploads/2023/04/The-Tastiest-Burger-Taco-Simple-Recipe-with-Great-Flavors-4.jpg",
+          "sourcePageUrl": "https://www.valyastasteofhome.com/wp-content/uploads/2023/04/The-Tastiest-Burger-Taco-Simple-Recipe-with-Great-Flavors-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

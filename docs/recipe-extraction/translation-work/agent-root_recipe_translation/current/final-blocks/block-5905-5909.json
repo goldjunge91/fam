@@ -1,0 +1,1182 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-risotto-nero",
+      "slug": "gen-risotto-nero",
+      "title": "Risotto Nero",
+      "instructions": "Italienisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Arborio-Reis auf Vorrat in italienischen Lebensmittelgeschäften.",
+        "Ersetze Tintenfischtinte durch Sepiatinte, falls diese günstiger oder besser erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5905,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-nero/",
+      "components": [
+        {
+          "key": "50899e68-7574-5bb9-898a-794c9c4e4bb3",
+          "name": "Zutaten",
+          "servingGrams": 493.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e7a6f01-b66d-5584-b451-da1f6a26609b",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "15eeb523-5f13-5b40-84ca-1cd162d9ce3b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "1e32c9d4-671d-5730-bba4-7dc616e0fd06",
+              "ingredientName": "Tintenfischtinte",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen (4g)"
+            },
+            {
+              "key": "5c6b8f0e-570d-5665-9557-a62a0f03f070",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fe15a8a0-e747-5472-a351-da187ed39a23",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "12c343d9-1d00-5571-be6e-35055d96101e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "877f74ec-c664-59bd-b4f6-2d926326b3bf",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "30d52fde-c69f-5f87-9e37-8d6b6d7b3f6d",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse gerieben"
+            },
+            {
+              "key": "3c9bf437-bbb2-56b1-8c7a-3ba0f7ec8996",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9e6615c6-c531-52e0-9660-e1cb4b0d9fe8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Hühnerbrühe in einem separaten Topf und halte sie auf dem Herd warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und dünste die gewürfelte Zwiebel etwa 3 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Arborio-Reis dazu und rühre 2 Minuten ständig, bis die Körner am Rand leicht glasig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Weißwein dazu und rühre, bis er fast vollständig aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib schöpflöffelweise warme Brühe dazu und rühre häufig. Warte jeweils, bis die Flüssigkeit aufgenommen ist, bevor du mehr zugibst (insgesamt etwa 18-20 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Reis cremig und weich, aber noch leicht bissfest ist, rühre die Tintenfischtinte ein, bis sie gleichmäßig verteilt ist und der Reis schwarz wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Pfanne vom Herd und rühre Butter und Parmesan ein, bis das Risotto cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Würze mit Salz und Pfeffer und serviere das Risotto sofort in warmen Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2019/10/Risotto-Nero-Tasty-Recipes.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2019/10/Risotto-Nero-Tasty-Recipes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lemon-pasta",
+      "slug": "gen-lemon-pasta",
+      "title": "Zitronenpasta",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Pasta und Parmesan von der Hausmarke und spare 30%.",
+        "Lass die Garnitur aus frischer Petersilie weg oder verwende getrocknete Petersilie."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5906,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lemon-pasta/",
+      "components": [
+        {
+          "key": "7d18d676-5a3a-5492-af8b-86c1897b5e65",
+          "name": "Zutaten",
+          "servingGrams": 86,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1adb103-6c8a-538c-ab8f-c52d7758256e",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1f6fb628-ca34-5b45-89bc-a88e8719a3eb",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "65e1c329-fc95-529d-9422-33ca16e8021c",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c2bc5735-de1c-5719-b779-80b118780534",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80f8d458-d9b2-564d-b59e-8b203808bef1",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "5566ab36-1024-527d-b53f-a54d3d7f3523",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d46bded5-881f-59a4-b848-adc3f7bacd16",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fa6c63bd-cba6-5af9-829c-9215bd755dcd",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1af47bde-0b55-5338-954e-074fa14f43e9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "b371b8e4-b1e3-53cd-b5da-27683e0e069d",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf mit Salzwasser zum Kochen und gare Spaghetti nach Packungsangabe bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke die Knoblauchzehen fein und erhitze Butter und Olivenöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Knoblauch dazu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Zitronensaft in die Pfanne, rühre Zitronenschale ein und lasse alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe 1 Tasse Nudelwasser auf und gieße die gegarten Spaghetti ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die abgetropften Nudeln zur Zitronen-Butter-Soße und vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib nach und nach etwas Nudelwasser hinzu, bis die gewünschte Konsistenz erreicht ist. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Pasta auf Schüsseln, gib frische Petersilie und geriebenen Parmesan darüber und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/opengraph/2024/03/lemon-pasta-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/opengraph/2024/03/lemon-pasta-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-toor-dal",
+      "slug": "gen-toor-dal",
+      "title": "Toor Dal",
+      "instructions": "Indisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Toor Dal in indischen Lebensmittelgeschäften auf Vorrat und spare 40%.",
+        "Lass Curryblätter weg, falls du keine hast, oder ersetze sie durch getrockneten Oregano."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5907,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-toor-dal/",
+      "components": [
+        {
+          "key": "00419567-1958-55a5-b60f-5ea56b969ff6",
+          "name": "Zutaten",
+          "servingGrams": 386,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c8f0df8-0c12-5036-868a-38875fef0219",
+              "ingredientName": "Toor Dal",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1b8f9a4f-b8d7-58d4-aa65-a4ba96eebeee",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "dd9383ee-10a3-5ed4-bfca-cc038759df09",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "cea9c155-1b8d-5b41-ab52-878d254a15aa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b3cfd5a7-a923-5ba9-8544-fc63cfde41ae",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "081ca306-8478-5889-b6a0-070cc66a2b99",
+              "ingredientName": "Senfsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b48e63df-0040-5351-a472-09abe4573a4e",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97c06ec5-71a7-54e1-935c-1f2aa1bc9193",
+              "ingredientName": "Curryblätter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a7b0b6c-e894-5e40-b705-99e83d0f62b6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "ffe50da5-3bdb-5099-83a8-5e8a81de3fa3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56c68df1-de3a-5516-ba6b-8a39ec6c9229",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Toor Dal unter kaltem Wasser ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe 4 Tassen Wasser in einem Topf zum Kochen und gib das abgespülte Dal sowie Kurkumapulver hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche das Dal bei mittlerer Hitze 25-30 Minuten weich, bis es zerfällt. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze das gegarte Dal nach Geschmack mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer kleinen Pfanne und gib Senfsamen, getrocknete rote Chili und Curryblätter dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald die Senfsamen aufplatzen, hacke Zwiebel und Knoblauch fein und gib sie in die Pfanne. Gare sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Gewürzmischung zum gegarten Dal und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Dal mit frischem Koriander und serviere es heiß mit Reis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/SA7SR2tFi7K9FDoPAHBLCiVSY4M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20241028-ToorDal-KanikaandJatinSharma12-7289f47fe60d4e86842ef9afa92e229e.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/SA7SR2tFi7K9FDoPAHBLCiVSY4M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20241028-ToorDal-KanikaandJatinSharma12-7289f47fe60d4e86842ef9afa92e229e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rajma",
+      "slug": "gen-rajma",
+      "title": "Rajma",
+      "instructions": "Indisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende abgetropfte Kidneybohnen aus der Dose statt getrockneter Bohnen und spare 30 Minuten.",
+        "Kaufe Gewürze lose statt abgepackt und senke die Kosten um 50%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5908,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rajma/",
+      "components": [
+        {
+          "key": "57625dc7-1df4-589d-9a62-841f5f26924e",
+          "name": "Zutaten",
+          "servingGrams": 649.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "30966af6-8100-5b5a-8f4c-df3e7fabc35d",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "633de5a7-8fe2-530b-8ae2-79516f951fb0",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "6d65cdd1-1e15-56e1-9493-4dde6b97285b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "ec07ca71-a893-5a18-92de-aada83d30eaa",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "f34c166f-54ad-5447-93dc-806a17d3c4fc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c71b0081-6819-5363-ba89-e26f40831c11",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "728cd149-64ab-5edf-9d84-7437ae8658db",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9919d652-96a9-533c-96fe-4d56bc894709",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2d276a1f-505d-5402-8d98-022a47641684",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "0b654955-22be-56b2-b66f-80213b647286",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8a9c6850-a9fa-51af-8231-2407554c672a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1c89464b-2f58-568d-94b9-c5b49db3fd4f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Kidneybohnen mindestens 6 Stunden oder über Nacht in Wasser ein. Gieße sie anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die eingeweichten Bohnen in frischem Wasser 45-50 Minuten weich. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke Zwiebeln, Tomaten, Knoblauch und Ingwer fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem großen Topf und gib Kreuzkümmelsamen dazu. Lasse sie 30 Sekunden knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gehackten Zwiebeln dazu und gare sie 3-4 Minuten, bis sie glasig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 1 Minute. Füge dann Tomaten hinzu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Kurkuma, Chilipulver und Salz ein. Gib die gegarten Bohnen dazu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit frischem Koriander und serviere es heiß mit Reis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2019/01/rajma-recipe-rajma-masala-rajma-curry-punjabi-rajma-recipe-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2019/01/rajma-recipe-rajma-masala-rajma-curry-punjabi-rajma-recipe-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mujadarah",
+      "slug": "gen-mujadarah",
+      "title": "Mujadarah",
+      "instructions": "Libanesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Linsen und Bulgur auf Vorrat und spare 40%.",
+        "Karamellisiere alle Zwiebeln auf einmal und spare Brennstoff und Zeit."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "libanesisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5909,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mujadarah/",
+      "components": [
+        {
+          "key": "10dab611-9400-52bd-9cf4-51109759a036",
+          "name": "Zutaten",
+          "servingGrams": 501.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "625f4deb-5c53-5ce1-bce1-780520c2918a",
+              "ingredientName": "Braune Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f54a0573-0ab9-582d-b7e3-c8e0c3ad7d17",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "3a47a285-3396-5ffa-a234-53c4dbeefe09",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "f40f1145-90b6-5de1-a822-f6f3ed040d40",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "6d38d1da-50eb-59fe-9a8c-3e24d56e82ca",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Esslöffel"
+            },
+            {
+              "key": "42d6d631-2a29-57aa-b5d8-f6277f466c10",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "695587ed-2a9c-5691-a19b-29bca04053a3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b3091b73-1091-5b86-977f-ec06482f52b6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a4753404-712b-5322-8099-73674bc2c97b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0a546875-9b3f-5037-a167-dfb4e9759583",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die braunen Linsen ab und gib sie mit 3 Tassen Wasser in einen Topf. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und lasse die Linsen 20 Minuten köcheln, bis sie teilweise gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Zwiebeln in dünne Scheiben und erhitze 3 Esslöffel Olivenöl in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Hälfte der Zwiebeln bei mittlerer Hitze 8-10 Minuten goldbraun und karamellisiert. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die übrigen Zwiebeln mit Bulgur, Gemüsebrühe, Kreuzkümmel, Salz und Pfeffer zu den Linsen in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 15-20 Minuten köcheln, bis Linsen und Bulgur weich sind und die Flüssigkeit aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Zitronensaft und die übrigen 2 Esslöffel Olivenöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib das Gericht in eine Servierschüssel und belege es vor dem Servieren mit den karamellisierten Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/03/Mujadara-Recipe-4-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/03/Mujadara-Recipe-4-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

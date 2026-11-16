@@ -1,0 +1,1134 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-sand-pulled-pork",
+      "slug": "mfr-sand-pulled-pork",
+      "title": "Pulled-Pork-Sandwich aus dem Schongarer",
+      "instructions": "Schweineschulter langsam schmoren, bis sie in zarte, rauchige Fasern zerfällt. Mit einer säuerlichen Essig-BBQ-Sauce vermengen und auf weichen Briochebrötchen mit cremigem Krautsalat und Gewürzgurken servieren. Ein perfektes Sandwich aus dem Süden der USA.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 240,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter gehört zu den günstigsten Fleischstücken und wird durch langsames Garen besonders zart.",
+        "Eine 3-lb-Schulter reicht für 8 Personen, etwa $1 pro Portion.",
+        "Übrig gebliebenes Pulled Pork einfrieren; es lässt sich perfekt aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Hähnchenschenkel für eine schnellere, magerere Variante"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Kartoffelbrötchen, Hoagie-Brötchen oder Salatblätter zum Einwickeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-pulled-pork",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Pulled-Pork",
+        "Sandwich",
+        "Grill",
+        "südstaatlich",
+        "Schweineschulter",
+        "langsam-gegart"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 1630,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-pulled-pork/",
+      "components": [
+        {
+          "key": "4e43b514-c313-511e-b230-39b8e87f92f1",
+          "name": "Zutaten",
+          "servingGrams": 110.32,
+          "position": 0,
+          "items": [
+            {
+              "key": "b142e23d-56e1-54fe-bff5-9d735d9ae943",
+              "ingredientName": "Schweineschulter",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c31d1abd-804b-5032-9605-440e2fc88cc3",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55714ef8-da64-5f84-b515-805afd89740e",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f3f4125-9c1b-5da4-b6ea-b7eea92a4471",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "043aadb1-65d4-519f-97ff-8d028e69f97a",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d7b5b2f-c3ac-57a5-baba-26d0588702e6",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "940e04f0-1d50-509c-882b-b46742ed17ed",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a755a15-f5df-5bf9-bbbf-fdbf307402c5",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8341cf3-746a-55bf-a9a4-10689541dec4",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4baf413-a9aa-556c-9446-23d6d939c54d",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60ed60e3-21b0-572d-9709-3dc389cdcd3e",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa54200c-525c-52da-b214-0a8c837dd2df",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe das Schweinefleisch rundum mit geräuchertem Paprikapulver, Knoblauchpulver, Zwiebelpulver, Zucker und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare es zugedeckt bei 300°F 3.5–4 Stunden, bis es butterzart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerpflücke das Fleisch mit zwei Gabeln und vermenge es mit BBQ-Sauce und Essig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneller Krautsalat: Kohl mit Mayonnaise, Dijon-Senf, Essig und Salz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das Fleisch auf Brötchen und belege es mit Krautsalat und Gewürzgurken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/62d1e3ef07a1e6add71de80b/1:1/w_2560%2Cc_limit/0715-pulled-pork-recipe-lede.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/62d1e3ef07a1e6add71de80b/1:1/w_2560%2Cc_limit/0715-pulled-pork-recipe-lede.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sand-philly-cheesesteak",
+      "slug": "mfr-sand-philly-cheesesteak",
+      "title": "Philly Cheesesteak",
+      "instructions": "Dünn aufgeschnittenes Ribeye auf einer heißen Grillplatte mit Zwiebeln und grüner Paprika braten, bis das Gemüse weich und leicht gebräunt ist. Mit geschmolzenem Provolone in ein geröstetes Hoagie-Brötchen füllen. Saftig, üppig und unwiderstehlich.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ribeye ist teuer; dünn geschnittenes Sirloin oder Flanksteak eignet sich ebenfalls.",
+        "Friere das Steak vor dem Schneiden an, damit besonders dünne Scheiben gelingen.",
+        "Teile ein Philly im Restaurant oder bereite es selbst für 1/3 des Preises zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ribeye",
+          "swap": "Sirloin, Flanksteak oder sogar Roastbeef-Aufschnitt"
+        },
+        {
+          "forIngredientId": "provolone",
+          "swap": "Amerikanischer Schmelzkäse, die klassische Philly-Variante, oder Cheez Whiz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-philly-cheesesteak",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Philly-Cheesesteak",
+        "Steak",
+        "Hoagie",
+        "Provolone",
+        "Philadelphia"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1631,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-philly-cheesesteak/",
+      "components": [
+        {
+          "key": "99832c1b-e908-5742-8c85-92bdd177b08f",
+          "name": "Zutaten",
+          "servingGrams": 338.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b55c04b8-9292-5c94-96cc-803c90cbbdc1",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40c93ce5-50e9-55ec-945f-69adbd945c68",
+              "ingredientName": "Hoagie-Brötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebeebc90-6b06-5c28-9fd5-3e657b89d06d",
+              "ingredientName": "Provolone",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cc07bbb-ce1d-5f9f-9cf1-1e46bff68e4b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72e2f65d-0fbe-5144-83b7-c44acf9a7a67",
+              "ingredientName": "Grüne Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e0a09ab-2d70-501d-868b-a5f4e9a636d6",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96be9486-519a-57f3-a58c-b836fc3864b2",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2ce9272-60a6-5c67-afd0-6210ff57e827",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15c6bbe3-93cb-5c04-b511-1588c324280d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec6f3f7f-b20d-52a7-b2be-f745f56dad0b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80815bc2-0580-5818-9044-36a29701d938",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege das Steak 20 min ins Gefrierfach und schneide es quer zur Faser hauchdünn auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel, Paprika und Pilze in Öl bei hoher Hitze 6 min an, bis sie weich und leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe das Gemüse an den Rand. Verteile das Steak dünn in der Pfanne, würze es und brate es 2 min ohne Rühren an. Zerteile es anschließend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Worcestershiresauce und Knoblauchpulver dazu und vermenge alles. Lege Provolone darauf und decke die Pfanne ab, bis er schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Mischung in geröstete Hoagie-Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/82B2jc2xF2ZT-pGfHahKT372ymk=/6720x4480/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Philly-Cheesesteak-LEAD-6-4097c8fed894408e8646f1ca0d252a08.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/82B2jc2xF2ZT-pGfHahKT372ymk=/6720x4480/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Philly-Cheesesteak-LEAD-6-4097c8fed894408e8646f1ca0d252a08.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sand-blt",
+      "slug": "mfr-sand-blt",
+      "title": "Das ultimative BLT-Sandwich",
+      "instructions": "Der Sandwich-Klassiker in Bestform: dicke Baconscheiben knusprig braten, aromatische Tomaten salzen und mit Kopfsalat sowie reichlich Mayonnaise nach Duke’s-Art auf geröstetem Sauerteigbrot schichten. Dieses BLT stellt alle anderen in den Schatten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bacon in der kalten Pfanne wird knuspriger und rollt sich weniger ein.",
+        "Salze die Tomaten zuerst: So verlieren sie überschüssiges Wasser und ihr Aroma wird intensiver.",
+        "Ein richtiges BLT braucht dick geschnittenen Bacon; dünne Streifen gehen unter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenbacon oder geräucherter Tempeh für leichtere Varianten"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Avocadocreme oder Aioli"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-blt",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "BLT",
+        "Bacon",
+        "Salat",
+        "Tomate",
+        "Sandwich",
+        "klassisch",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1632,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-blt/",
+      "components": [
+        {
+          "key": "f0d72d5e-c25a-52eb-a951-98521d2b7f1c",
+          "name": "Zutaten",
+          "servingGrams": 537.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "21989a1c-b112-5ba3-9d01-e309c32d1f97",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dba855a-4085-510e-93d8-4dd918098c3e",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b42c6dbe-bb86-575a-a3da-5d77c54343ec",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e04c4a16-dacd-56bb-b110-030ce0d4a3c6",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "beb4d4ea-6f57-5a9b-9887-15fcd3e4dfdd",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9f1beab-fc14-57cb-8743-33a64e5dd31f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c35b0a5c-986a-5d18-96b9-d917fa944942",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Bacon in einer kalten Pfanne bei mittlerer Hitze langsam aus, damit er besonders knusprig wird. Lass ihn abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salze die Tomatenscheiben und lass sie 5 min ruhen. Tupfe sie trocken, damit überschüssige Flüssigkeit entfernt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste das Brot, bis es kräftig goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche beide Scheiben großzügig mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte Salat, Tomate (erneut würzen) und Bacon darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/3YVAm9kdFKD4SFHPqv30krrvm3A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-209578-blt-DDMFS-3x4-e1e67e3c348645ba85e304249fd43ff9.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/3YVAm9kdFKD4SFHPqv30krrvm3A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-209578-blt-DDMFS-3x4-e1e67e3c348645ba85e304249fd43ff9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sand-sloppy-joe",
+      "slug": "mfr-sand-sloppy-joe",
+      "title": "Klassischer Sloppy Joe",
+      "instructions": "Der amerikanische Klassiker aus der Schulkantine, selbst gemacht: Rinderhack mit Tomaten, Zwiebeln und grüner Paprika in einer süß-säuerlichen Sauce aus Worcestershiresauce, Ketchup und Senf köcheln lassen, bis sie dick ist. Auf einem weichen Kartoffelbrötchen servieren.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack und ein paar Vorratssaucen ergeben ein besonders günstiges Abendessen.",
+        "Bereite die doppelte Menge zu und friere sie ein; zum Aufwärmen braucht es nur wenige Minuten.",
+        "Kartoffelbrötchen lohnen sich für genau dieses Sandwich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine leichtere Variante"
+        },
+        {
+          "forIngredientId": "ketchup",
+          "swap": "Tomatenmark und eine Prise Zucker für eine zuckerärmere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-sloppy-joe",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Sloppy-Joe",
+        "Rinderhack",
+        "Sauce",
+        "Brötchen",
+        "schnell",
+        "günstig"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1633,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-sloppy-joe/",
+      "components": [
+        {
+          "key": "b14f859a-bd91-5726-95ea-b6e04155b6ad",
+          "name": "Zutaten",
+          "servingGrams": 167.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9e87d4a-1900-5437-b75f-fae97bcb7586",
+              "ingredientName": "Rinderhack",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e636a55-4ce5-54bc-863c-f3ac23650e45",
+              "ingredientName": "Brot",
+              "grams": 125,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0dc4455-03b0-555f-b145-889ae98075fd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1fe4139-6bb3-51d2-a3d4-0d8e09ffd747",
+              "ingredientName": "Grüne Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99edbb2b-9e94-53c8-bd5c-d3545b346118",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fb06e72-5506-5a99-bc22-474fc17af266",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "017637c4-394d-534e-a8e8-3ffb43e2a8bf",
+              "ingredientName": "Ketchup",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1875788d-2eed-54f4-9d50-92fcc16db734",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca1d92ca-139d-59ff-8014-f61a6a02a53b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54816da0-cb67-5756-b5ef-f19c81e294ff",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "520e05f6-a78a-58fb-bbe5-8e2b780e5467",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "337dadf7-f1ea-54ca-a525-0899d446cb74",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11f70f55-ba7e-5384-86dd-89b6002afc09",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Rinderhack krümelig an und gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel, Paprika und Knoblauch in derselben Pfanne 4 min an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rindfleisch zurück in die Pfanne und füge Tomaten, Ketchup, Worcestershiresauce, Zucker und Senf hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 10 min köcheln, bis die Sauce dick ist. Würze nach Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Mischung auf gerösteten Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps37031_SD1440074D54_WEB2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps37031_SD1440074D54_WEB2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sand-club-sandwich",
+      "slug": "mfr-sand-club-sandwich",
+      "title": "Klassisches Club-Sandwich",
+      "instructions": "Drei Schichten geröstetes Weiß- oder Sauerteigbrot mit Pute, knusprigem Bacon, Tomate, Salat und reichlich Mayonnaise: der dreistöckige Klassiker aus dem Diner. Diagonal schneiden, mit Zahnstochern sichern und mit einer Gewürzgurke servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aufschnitt von der Putenbrust ist die klassische Wahl; kaufe eine ganze Packung in Scheiben.",
+        "Röste alle drei Brotscheiben gleichzeitig im Toaster.",
+        "Verwende Aufschnitt im Angebot, etwa Schinken, Roastbeef oder Hähnchen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-breast",
+          "swap": "Gegrillte Hähnchenbrust für eine frisch zubereitete Variante"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenbacon für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-club-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Club-Sandwich",
+        "Pute",
+        "Bacon",
+        "dreistöckig",
+        "Diner",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1634,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-club-sandwich/",
+      "components": [
+        {
+          "key": "4f0b0d6c-56d4-5b87-bdd4-4c9db9316a90",
+          "name": "Zutaten",
+          "servingGrams": 838.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ad30183-dc81-5ec2-a2ee-4c7db9622631",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a0cf60c-0daf-5128-bedc-fa91da29db79",
+              "ingredientName": "Putenbrust",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da12c88d-bdb0-5dac-8c34-e240b0373642",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d51dddc0-9f05-5ae8-99ac-dc5a3c18ce55",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b85de98-8ad8-5472-9fa0-f5d71eaa0787",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c45d861f-5ce1-5cf8-ae0c-ed8ad62bed49",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "169a9418-7774-59c6-b198-ac5cc16bc92e",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ca36c9b-f4e0-5d81-8868-4f8fba1040de",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d273d083-530d-5d8f-aa75-ff6c3df76781",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Bacon, bis er knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste alle drei Brotscheiben, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Brotscheiben mit Mayonnaise und Dijon-Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte von 1→2 Pute, Salat und Tomate auf die erste Brotscheibe und würze alles mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte von 2→3 Pute und Bacon auf die zweite Brotscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide das Sandwich zweimal diagonal in 4 Dreiecke und sichere sie mit Zahnstochern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2020/10/club-sandwich-1-9.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2020/10/club-sandwich-1-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

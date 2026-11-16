@@ -1,0 +1,1362 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-veggie-frittata",
+      "slug": "cur-veggie-frittata",
+      "title": "Gemüse-Frittata",
+      "instructions": "Saftige, goldbraun gebackene Frittata mit angebratener Zwiebel, Paprika, Pilzen und Spinat, mit Feta und frischen Kräutern verfeinert. Auf dem Herd begonnen und im Ofen fertig gebacken; warm oder bei Zimmertemperatur köstlich.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gemüse verwenden, das im Kühlschrank weich zu werden beginnt. Frittata eignet sich ideal, um Reste ohne Abfall aufzubrauchen.",
+        "Frittata schmeckt auch bei Zimmertemperatur sehr gut. Vorbereiten und in Stücke schneiden, damit das Frühstück die ganze Woche schnell bereitsteht.",
+        "Feta weglassen und vorhandene Käsereste aufbrauchen. Auch eine kleine Menge geriebener Cheddar oder Parmesan passt gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Crumbled goat Käse oder grated sharp cheddar",
+          "savings": "Vorhandenen Käse verwenden und den Kauf eines besonderen Käses sparen"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "gefroren spinach, thawed und squeezed very dry",
+          "savings": "Tiefkühlware kostet etwa halb so viel wie Frischware und hält monatelang"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "ein extra splash von Wasser oder any Milch du have",
+          "savings": "Für nur zwei Esslöffel keine Milchprodukte kaufen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Vegetarier",
+        "Eier",
+        "brunch (deutsche Fassung)",
+        "meal-prep (deutsche Fassung)",
+        "one-Pfanne",
+        "veggie-packed (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7310,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-veggie-frittata/",
+      "components": [
+        {
+          "key": "8aecd433-1b45-5a74-87a8-7621179e3c17",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 203.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "58b63e04-7d2b-5cc0-92ab-85e10aca9f5c",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efc6525b-4963-5be3-8e54-57e6594aac74",
+              "ingredientName": "Milch",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse Vollmilch oder Milch-Sahne-Mischung"
+            },
+            {
+              "key": "3406565b-f32e-5d05-8c7f-c2bb85b19a37",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a33c2ea9-3a52-5206-a8cf-f17f65ec82bd",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75ea37d9-015f-5036-aa76-5490ce0f6e4e",
+              "ingredientName": "Pilze",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen braune Champignons in Scheiben"
+            },
+            {
+              "key": "081cae09-38a5-5e12-9fbc-3ecac9b7faf9",
+              "ingredientName": "Spinat",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 2 große Handvoll, frisch"
+            },
+            {
+              "key": "1b08053f-88da-5764-8a32-ed4c05152789",
+              "ingredientName": "Knoblauch",
+              "grams": 0.3,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "990cd132-84ae-5afe-b142-414fcccc6ff7",
+              "ingredientName": "Feta",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse zerbröselt"
+            },
+            {
+              "key": "586d25f2-50ad-57ff-8320-5b7f14903ad0",
+              "ingredientName": "Olivenöl",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cc5b0afd-0968-505d-b15b-51a101aa0be0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "2 EL, gehackt, zum Verfeinern"
+            },
+            {
+              "key": "5eb04c42-3749-5af0-a458-3eddb0f6ec3a",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad003801-bc20-55f7-8cc0-01a994d74a19",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Ofengitter im oberen mittleren Einschub platzieren und den Ofen auf 375 °F (190 °C) vorheizen. Eier, Milch, eine großzügige Prise Salz und mehrere Umdrehungen schwarzen Pfeffer verquirlen, bis alles gut vermischt und leicht schaumig ist. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer ofenfesten (gusseisernen oder beschichteten) Pfanne von 10 Zoll Durchmesser bei mittlerer Hitze erhitzen. Gewürfelte Zwiebel und in Scheiben geschnittene Paprika dazugeben und unter Rühren 5–6 Minuten braten, bis sie weich und leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pilze dazugeben und weitere 4–5 Minuten braten, bis sie Flüssigkeit abgeben und diese verdampft ist. Gehackten Knoblauch einrühren und 30 Sekunden braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Spinat portionsweise dazugeben und etwa 1 Minute unterheben, bis er zusammenfällt. Gemüse gleichmäßig verteilen und die Hitze auf mittlere bis niedrige Stufe reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Eiermischung gleichmäßig über das Gemüse gießen und den zerbröselten Feta darüberstreuen. Ohne Rühren 2–3 Minuten garen, bis der Rand zu stocken beginnt, die Mitte aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Pfanne in den Ofen stellen und die Frittata 10–14 Minuten backen, bis sie aufgegangen und in der Mitte gestockt ist und sich die Oberfläche leicht färbt. Die Mitte sollte beim leichten Anstoßen nicht mehr wackeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Frittata 5 Minuten in der Pfanne ruhen lassen, damit sie fertig stockt und etwas zusammenfällt. Mit einem Pfannenwender am Rand entlangfahren, auf ein Brett gleiten lassen oder direkt aus der Pfanne servieren. Mit gehackter Petersilie bestreuen und in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg/1280px-Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Veggie Frittata",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-breakfast-hash",
+      "slug": "cur-breakfast-hash",
+      "title": "Knuspriger Frühstücks-Hash",
+      "instructions": "Goldbraune, knusprig gebratene Kartoffelwürfel mit süßer Zwiebel, Paprika und gebräunter Frühstückswurst, dazu Spiegeleier mit flüssigem Eigelb und scharfe Sauce. Das Geheimnis ist Geduld: Kartoffeln in einer Lage ausbreiten und erst wenden, wenn sich eine Kruste gebildet hat.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln vorzugaren sorgt dafür, dass sie schnell knusprig werden. So spart man Öl und Zeit, statt rohe, matschige Kartoffeln mühsam zu braten.",
+        "Kartoffeln im ausgelassenen Wurstfett statt in zusätzlichem Öl braten. Das würzt sie kostenlos und schmeckt besser.",
+        "Festes Gemüse verwenden, das im Kühlschrank welk wird. Paprika, Zucchini und Blattgemüse eignen sich gut für diesen Restegericht-Hash."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "verwenden bacon schneiden in lardons, oder browned gemahlen turkey mit extra Paprika",
+          "savings": "Speck ist oft im Angebot; Putenhackfleisch ist pro Portion günstiger als Würste"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Swap in süß Kartoffel oder gefroren hash browns",
+          "savings": "Tiefgekühlte Kartoffelwürfel sparen das Schneiden und Vorkochen bei etwa gleichen Kosten"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "normal Paprika plus ein tiny pinch von Kreuzkümmel",
+          "savings": "Spart den Kauf eines zweiten Gewürzes bei bereits vorhandenem einfachem Paprikapulver"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Frühstück",
+        "brunch (deutsche Fassung)",
+        "potatoes (deutsche Fassung)",
+        "one-Pfanne",
+        "hearty (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7311,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-breakfast-hash/",
+      "components": [
+        {
+          "key": "0a9dfcf2-c8d8-50ea-bb2a-0a3442fb5056",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 402.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "72bd90ea-1a65-5eac-b68f-30e5b3531666",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1.5 Pfund Russet oder Yukon Gold, in 1/2 Zoll große Würfel geschnitten"
+            },
+            {
+              "key": "73e7767d-58f1-5d56-97f0-ee3c2ef133aa",
+              "ingredientName": "Schweinswurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "Frühstückswurst, gegebenenfalls aus der Pelle gelöst"
+            },
+            {
+              "key": "8adce936-a5a9-53e8-a6d8-9c70194320bd",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c89aa071-0af3-589a-a0f4-f15e43149b79",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dbfbb21-389d-5cf1-83f6-0a1eb1d8d5aa",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a932762-8588-5df2-8598-208469ac3112",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "180d48b6-300f-5f3d-b2b0-6417496a5fd7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Esslöffel und bei Bedarf etwas mehr"
+            },
+            {
+              "key": "23efcbc5-341e-53ea-9a0b-57f342edf4ce",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "c76a6a99-fb02-5c99-8af0-6a4868847574",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "96b5fa15-a54f-52a1-a641-fba0c1fc17b9",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c98df28c-17bf-56f2-aafb-63962a3d9419",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "2bff09cd-9c83-5532-b67c-ddbc7844ca51",
+              "ingredientName": "scharfe Sauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in gleichmäßige Würfel von 1/2 Zoll schneiden. In einem Topf mit kaltem Wasser bedecken, kräftig salzen, zum Kochen bringen und 5 Minuten vorgaren, bis sie gerade eben weich sind. Gut abgießen und einige Minuten ausdampfen lassen, damit die Oberfläche trocknet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen gusseisernen oder schweren beschichteten Pfanne bei mittlerer bis hoher Hitze erhitzen. Wurst hineingeben, in mundgerechte Stücke teilen und 4–5 Minuten braten, bis sie gebräunt ist. Mit einer Schaumkelle herausnehmen und das ausgelassene Fett in der Pfanne lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vorgegarte Kartoffeln in das heiße Fett geben und in einer Lage ausbreiten. 4–5 Minuten ungestört braten, bis sich eine goldene Kruste bildet, dann wenden und wiederholen. Mit geräuchertem Paprika, Salz und Pfeffer würzen. Insgesamt 12–15 Minuten braten, bis die Kartoffeln sehr knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln an eine Seite schieben und gewürfelte Zwiebel sowie Paprika in die freie Fläche geben. 4–5 Minuten braten, bis sie weich und leicht angeröstet sind. Gehackten Knoblauch einrühren und 30 Sekunden braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gebräunte Wurst zurück in die Pfanne geben und alles vermengen. Abschmecken, bei Bedarf Salz und Pfeffer ergänzen, den Hash gleichmäßig verteilen und noch eine Minute ruhen lassen, damit der Boden wieder knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eier in einer zweiten geölten Pfanne (oder in freien Stellen des Hashs) bei mittlerer Hitze braten, bis das Eiweiß gestockt und das Eigelb noch flüssig ist, etwa 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hash auf Teller verteilen, jeweils mit einem Spiegelei belegen und mit Frühlingszwiebeln sowie einigen Spritzern scharfer Sauce garnieren. Sofort servieren, solange das Ei heiß und die Kartoffeln knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Breakfast_hash_at_Legends_Bistro_%2821838853126%29.jpg/1280px-Breakfast_hash_at_Legends_Bistro_%2821838853126%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Breakfast_hash_at_Legends_Bistro_(21838853126).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ruth Hartnup from Vancouver, Canada — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Crispy Frühstück Hash",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-belgian-waffles",
+      "slug": "cur-belgian-waffles",
+      "title": "Belgische Waffeln",
+      "instructions": "Leichte belgische Waffeln nach Brüsseler Art mit knusprigen Rändern, tiefen Mulden und luftiger, puddingartiger Mitte. Hefeteig und aufgeschlagenes Eiweiß sorgen für die typische zarte Knusprigkeit. Mit Puderzucker, frischen Beeren und Ahornsirup heiß servieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl, Zucker und Hefe in größeren Mengen kaufen. Eine ganze Waffelportion kostet so nur einen Bruchteil des Cafépreises, und die trockenen Zutaten reichen für weitere Portionen.",
+        "Die ganze Portion backen und übrige Waffeln flach einfrieren. Direkt aus dem Gefrierfach im Toaster aufwärmen.",
+        "Auf teuren Markensirup und Beeren verzichten. Puderzucker und etwas Zitronensaft oder Bananenscheiben sind günstige Alternativen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden oat-Milch oder almond-Milch plus ein splash von vinegar für ein dairy-free, buttermilk-like tang",
+          "savings": "Spart bei bereits vorhandenem Pflanzendrink ~$0.50/Zubereitung"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "geschmolzen vegetable-Öl oder coconut-Öl works in ein pinch",
+          "savings": "Spart ~$0.40/Zubereitung"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "weglassen Hefe und verwenden 2 tsp Backen-powder für ein schnell (weniger airy) version",
+          "savings": "Spart die Gehzeit und einige Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belgian (deutsche Fassung)",
+        "Frühstück",
+        "brunch (deutsche Fassung)",
+        "waffles (deutsche Fassung)",
+        "Hefe-raised",
+        "weekend (deutsche Fassung)",
+        "kid-friendly (deutsche Fassung)",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7312,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-belgian-waffles/",
+      "components": [
+        {
+          "key": "a5ba5d30-229e-55e8-9960-f0d47ad24103",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 114.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c08cc3e-1b9c-53eb-9465-e9c1c5ba8c26",
+              "ingredientName": "Weizenmehl",
+              "grams": 84,
+              "quantity": 84,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2 Tassen Weizenmehl"
+            },
+            {
+              "key": "197e8ec8-ba43-511a-a862-ddd61165e064",
+              "ingredientName": "Instanthefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL Instant- oder aktive Trockenhefe"
+            },
+            {
+              "key": "c23e8a40-9cf8-51b3-9356-bf335d9dfa42",
+              "ingredientName": "Zucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL Kristallzucker"
+            },
+            {
+              "key": "f2d87754-3321-5510-b89e-206f8de070d7",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "da0b3c2d-8ef9-586a-b414-097c988c5dab",
+              "ingredientName": "Milch",
+              "grams": 108,
+              "quantity": 108,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 3/4 Tassen warme Milch"
+            },
+            {
+              "key": "03d82754-26d6-5c23-80c7-9b1f4a1e9ef3",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Eigelbe in den Teig geben, Eiweiß separat steif schlagen"
+            },
+            {
+              "key": "17b6d9e3-1100-5584-87c7-831d467b8699",
+              "ingredientName": "Butter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 EL geschmolzene Butter"
+            },
+            {
+              "key": "80904894-1f52-5462-ac5f-cd199548609a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 1/2 TL Vanilleextrakt"
+            },
+            {
+              "key": "6d45804c-f342-5744-a73f-49302f72f12b",
+              "ingredientName": "Puderzucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Bestäuben"
+            },
+            {
+              "key": "6464d7e7-be38-5833-939a-aa8841bff1f3",
+              "ingredientName": "Ahornsirup",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "1c58f590-eed2-5559-adf9-161b4fa8eb94",
+              "ingredientName": "Erdbeeren",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "frische Beeren zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch lauwarm erwärmen (etwa 110 °F / 43 °C). Hefe und Zucker einrühren und 5–10 Minuten stehen lassen, bis sich Schaum bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz in einer großen Schüssel verquirlen. Eier trennen: Eigelb in eine kleine Schüssel, Eiweiß in eine saubere, fettfreie Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eigelb, geschmolzene Butter und Vanille in die schaumige Milchmischung einrühren. Über das Mehl gießen und nur so lange verquirlen, bis der Teig glatt ist. Abdecken und bei Raumtemperatur 45–60 Minuten gehen lassen, bis er aufgegangen und blasig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kurz vor dem Backen das Eiweiß steif und glänzend schlagen. In zwei Portionen vorsichtig unter den aufgegangenen Teig heben, damit möglichst viel Luft erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belgisches Waffeleisen erhitzen und leicht mit geschmolzener Butter oder Öl bestreichen. Vollständig vorheizen, damit die erste Waffel knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teig in das Waffeleisen schöpfen und es etwa zu drei Vierteln füllen, damit sich der Teig ausbreiten kann, ohne überzulaufen. Schließen und 4–5 Minuten backen, bis die Waffeln tief goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Waffeln auf ein Kuchengitter legen, nicht auf einen Teller, damit der Dampf entweichen kann und sie knusprig bleiben. Währenddessen den restlichen Teig backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Puderzucker bestäuben und heiß mit frischen Beeren und Ahornsirup servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Belgian_waffles_%26_fruit_-_Brewhouse_%26_Kitchen_2026-04-14.jpg/1280px-Belgian_waffles_%26_fruit_-_Brewhouse_%26_Kitchen_2026-04-14.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Belgian_waffles_%26_fruit_-_Brewhouse_%26_Kitchen_2026-04-14.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Belgian Waffles",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-breakfast-sandwich",
+      "slug": "cur-breakfast-sandwich",
+      "title": "Frühstückssandwich mit Speck, Ei und Käse",
+      "instructions": "Klassiker vom Imbiss: gefaltetes, saftiges Spiegelei mit knusprigem Speck und geschmolzenem amerikanischem Käse auf einem gebutterten, in der Pfanne gerösteten englischen Frühstücksbrötchen. Herzhaft und in etwa zehn Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Vorteilspackung Speck kaufen und portionsweise flach einfrieren, damit sich jeden Morgen genau die benötigte Menge entnehmen lässt.",
+        "Eier und englische Frühstücksbrötchen sind die günstigsten Zutaten. Speck weglassen und nur ein Ei-Käse-Sandwich zubereiten, um noch mehr zu sparen.",
+        "Alle vier Eier und den gesamten Speck auf einmal braten und zwei Sandwiches zusammensetzen. Eines davon für den nächsten Tag aufbewahren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "english-muffin",
+          "swap": "Toasted bagel oder two Scheiben von Brot",
+          "savings": "Brot ist pro Portion oft günstiger und vermutlich bereits vorhanden"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "ein browned sausage patty oder in Scheiben geschnitten ham",
+          "savings": "Wurst und Kochschinken sind pro Portion meist günstiger als Speck"
+        },
+        {
+          "forIngredientId": "american-singles",
+          "swap": "ein Scheibe von cheddar oder whatever block Käse du have",
+          "savings": "Vom Stück geriebener Käse ist günstiger als Scheibenkäse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "schnell",
+        "handheld (deutsche Fassung)",
+        "diner-klassisch",
+        "bacon-Ei-Käse"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7313,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-breakfast-sandwich/",
+      "components": [
+        {
+          "key": "5433c6ac-5088-5b0b-966c-db9d6794ae90",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 207.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "4cef3f88-7da6-59c1-8535-922d0f855c56",
+              "ingredientName": "Englisches Frühstücksbrötchen",
+              "grams": 114,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae69ec5b-e166-5130-ab3d-0be24d0a3923",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bec7dbf0-15dc-5a59-a497-eacba36ff0ef",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "insgesamt 4 Streifen, 2 pro Sandwich"
+            },
+            {
+              "key": "125108f9-5c44-502f-aa79-d72106d445d8",
+              "ingredientName": "Amerikanische Schmelzkäsescheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Scheibe pro Sandwich"
+            },
+            {
+              "key": "49251555-c6e2-5461-a1d6-59b4781315a9",
+              "ingredientName": "Butter",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "zum Rösten der Muffins"
+            },
+            {
+              "key": "59428779-d88d-5c92-b4bd-a23b28801be0",
+              "ingredientName": "Salz",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8748436f-a25f-5a5a-983d-ff6c650b58bb",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54d30e44-30d4-55f9-81cf-3c231e43e7d0",
+              "ingredientName": "scharfe Sauce",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "einige Spritzer nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Englische Frühstücksbrötchen aufschneiden und mit der Schnittfläche nach unten in einer trockenen oder leicht gebutterten Pfanne bei mittlerer Hitze goldbraun rösten. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In derselben Pfanne bei mittlerer Hitze die Speckstreifen braten und einmal wenden, bis sie knusprig sind, etwa 6 Minuten. Auf Küchenpapier legen und bis auf einen dünnen Film das Fett abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier in die Pfanne schlagen, mit Salz und Pfeffer würzen und das Eigelb aufbrechen. Etwa 1 Minute braten, bis das Eiweiß unten gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jedes Ei zu einem Brötchen-großen Quadrat zusammenfalten, wenden und weitere 30 Sekunden braten, damit das Eigelb gerade eben cremig stockt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Je eine Scheibe amerikanischen Schmelzkäse auf die heißen Eier legen und 20 Sekunden schmelzen lassen. Vom Herd nehmen; die Restwärme schließt das Schmelzen ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sandwiches zusammensetzen: untere Brötchenhälfte, Käse-Ei, zwei passend zurechtgebrochene Speckstreifen, nach Wunsch einige Spritzer scharfe Sauce und obere Brötchenhälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Leicht andrücken und eine Minute in Folie oder Backpapier wickeln, damit sich die Aromen verbinden. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Breakfast_sandwich.jpg/1280px-Breakfast_sandwich.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Breakfast_sandwich.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jeffreyw — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Bacon, Ei & Käse Frühstück Sandwich",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-chicken-and-sausage-gumbo",
+      "slug": "cur-chicken-and-sausage-gumbo",
+      "title": "Hähnchen-Wurst-Gumbo",
+      "instructions": "Aromatischer Klassiker aus Louisiana mit langsam gebräunter, schokoladenbrauner Mehlschwitze, der „heiligen Dreifaltigkeit“ aus Zwiebel, Sellerie und Paprika, rauchiger Andouille-Wurst und zarten Hähnchenschenkeln mit Okra. Auf Reis serviert: herzhaft, würzig und jede Minute am Herd wert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen sind günstiger als Brustfleisch, und die Knochen geben dem Gumbo beim Köcheln mehr Geschmack und Fülle.",
+        "Eine dunkle Mehlschwitze besteht nur aus Mehl und Öl und kostet fast nichts. Mit Geduld lässt sich damit viel Geschmack entwickeln.",
+        "Tiefgekühlte Okra statt frischer verwenden, um Kosten und Vorbereitungszeit zu sparen, ohne auf die Bindung zu verzichten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-sausage",
+          "swap": "kielbasa oder any smoked sausage",
+          "savings": "Spart ~30% gegenüber echter Andouille bei vergleichbarem Raucharoma."
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchen drumsticks",
+          "savings": "Unterkeulen sind oft am günstigsten und geben durch ihre Knochen ein ebenso kräftiges Aroma."
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser plus ein bouillon cube",
+          "savings": "Senkt die Kosten der Brühe um mehr als die Hälfte bei ähnlich herzhaftem Geschmack."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "cajun-creole (deutsche Fassung)",
+        "gumbo (deutsche Fassung)",
+        "louisiana (deutsche Fassung)",
+        "cajun (deutsche Fassung)",
+        "kreolisch",
+        "comfort-food (deutsche Fassung)",
+        "one-Topf",
+        "southern (deutsche Fassung)",
+        "stew (deutsche Fassung)"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7314,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chicken-and-sausage-gumbo/",
+      "components": [
+        {
+          "key": "f7c0d40a-9a6f-5386-8a86-740efe224577",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 515.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e823541-4137-538c-817d-7665fb357da9",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "mit oder ohne Knochen, ohne Haut"
+            },
+            {
+              "key": "c5ca988c-03ab-5a9e-bb60-fe72706a1740",
+              "ingredientName": "Geräucherte Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "Andouille, in Scheiben geschnitten"
+            },
+            {
+              "key": "abe03951-8923-57f4-b8cc-2c13d760b338",
+              "ingredientName": "Weizenmehl",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Weizenmehl für die Mehlschwitze"
+            },
+            {
+              "key": "788ef12a-668a-5154-9276-e296d88f4d8f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für die Mehlschwitze"
+            },
+            {
+              "key": "2384bab3-a313-5d67-8063-7e1c1023d0e7",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cea2868-ce6b-5b96-b666-40e00f1e639a",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 3 Stangen"
+            },
+            {
+              "key": "f6f0f340-c31b-53e5-85ac-483bd1b69df5",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "grüne"
+            },
+            {
+              "key": "f21a2712-1f29-5aa7-97d0-734acb7b15fb",
+              "ingredientName": "Knoblauch",
+              "grams": 0.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 4 Zehen, fein gehackt"
+            },
+            {
+              "key": "be49d599-4352-566b-a404-1c1ab907f6c5",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "frisch oder tiefgekühlt, in Scheiben geschnitten"
+            },
+            {
+              "key": "b4970b74-f620-52d5-8ae8-dbe32784ea32",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "775928e2-e29e-5dc9-a057-6e38780500b5",
+              "ingredientName": "Cajun-Gewürzmischung",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc55d593-a9ef-54ce-9140-3bbed623c3bc",
+              "ingredientName": "Thymian",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "getrocknet"
+            },
+            {
+              "key": "fbd1bfad-3d12-5bcf-9599-ae7a11af9bf8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "edc79c9b-1ece-58f5-b490-f794ebeedae6",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0833a44-bb3e-5ffa-9ea8-9eb80f32b25b",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "134b0f64-4626-5b28-9fab-d9882d504804",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "eff4b491-6e5d-5360-9d73-7272f53bcefd",
+              "ingredientName": "Frische Petersilie",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "b559c9ba-0ee3-5402-b34b-86f08916e144",
+              "ingredientName": "scharfe Sauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "58988fc3-e5fe-5c7e-b599-dbbd00919ab2",
+              "ingredientName": "Reis",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "weißer Langkornreis, gedämpft, zum Servieren"
+            },
+            {
+              "key": "fc3b1479-b91d-5669-97b3-2750143b9992",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57d121b5-8e5d-596f-994c-bf90f87662a7",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 20,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenschenkel mit Salz, Pfeffer und der Hälfte der Cajun-Gewürzmischung würzen. In einem schweren Topf oder Schmortopf die Wurstscheiben bei mittelhoher Hitze braten, bis die Ränder karamellisieren. Herausnehmen. Hähnchen im ausgelassenen Fett anbräunen und ebenfalls beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Mehlschwitze Öl in den Topf geben und das Mehl einrühren. Bei mittlerer bis niedriger Hitze unter ständigem Rühren 25–40 Minuten kochen, bis die Mischung die Farbe von Milchschokolade annimmt. Nicht anbrennen lassen; bei Rauchentwicklung die Hitze reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel, Sellerie und Paprika, die „heilige Dreifaltigkeit“, direkt in die heiße Mehlschwitze geben. Unter Rühren 6–8 Minuten garen, bis das Gemüse weich ist. Knoblauch einrühren und 1 Minute braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hühnerbrühe schöpflöffelweise langsam einrühren, damit sich die Mehlschwitze klümpchenfrei auflöst. Lorbeerblätter, Thymian, geräuchertes Paprikapulver, Cayennepfeffer und die übrige Cajun-Gewürzmischung dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen und Wurst zurück in den Topf geben, Okra hinzufügen und alles sanft köcheln lassen. Ohne Deckel unter gelegentlichem Rühren 45–60 Minuten garen, bis das Gumbo eindickt und sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hähnchen herausnehmen, Fleisch vom Knochen lösen oder schneiden und zurück in den Topf geben. Lorbeerblätter entfernen. Mit Salz, Pfeffer und scharfer Sauce abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Überschüssiges Fett von der Oberfläche abschöpfen. Gumbo über Schüsseln mit gedämpftem Langkornreis schöpfen und mit Frühlingszwiebeln und gehackter Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Chicken_and_Sausage_Gumbo.jpg/1280px-Chicken_and_Sausage_Gumbo.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_and_Sausage_Gumbo.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jens Ohlig — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen und Sausage Gumbo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

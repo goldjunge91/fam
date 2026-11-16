@@ -1,0 +1,964 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-matlouh",
+      "slug": "gen-matlouh",
+      "title": "Matlouh",
+      "instructions": "Algerisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie den Teig aus einfachen Vorratszutaten zu, um Kosten zu sparen.",
+        "Ziehen Sie den Teig von Hand statt mit einem Nudelholz auseinander."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "algerisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4025,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matlouh/",
+      "components": [
+        {
+          "key": "d93ebff0-cecc-5a9a-b061-a8ff0eb38dfc",
+          "name": "Zutaten",
+          "servingGrams": 410,
+          "position": 0,
+          "items": [
+            {
+              "key": "2f2bee4e-1b4e-5919-b723-d4550436f991",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "51450ab3-b59c-54c6-bcce-ebf480e85649",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d45cc8f5-38bd-5d7f-94ed-f3304535c214",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "1ad89647-b7df-570f-8ecd-4f1859fed070",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2ee9fa03-e46e-57ff-83ef-dfd084a84c08",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "587e9743-f6f8-5d23-a78c-996bb5841164",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "4806a0fd-9b50-5815-9c4b-daddb2ffe9ac",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "3d15230b-a015-56c3-867e-7fad599993c9",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "847546b1-eb84-5604-91d6-3d8c32396902",
+              "ingredientName": "Kümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer Schüssel vermischen. Nach und nach Wasser hinzufügen und zu einem weichen Teig kneten. Abgedeckt 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hackfleisch mit gewürfelter Zwiebel, Koriander, Kümmelsamen und Salz in einer Pfanne bräunen. Die Füllung beiseitestellen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in 6 Kugeln teilen und jede auf einer bemehlten Fläche sehr dünn ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den ausgerollten Teig mit Öl bestreichen, dünn mit Fleischfüllung belegen und fest zu einer Rolle aufwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Rolle auf Backpapier oder einer geölten Fläche zu einer Spirale formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öl in einer großen Pfanne auf mittlere Temperatur erhitzen und die Matlouh-Spiralen pro Seite 3–4 Minuten goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren, nach Wunsch mit Honig oder Harissasauce beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.budgetbytes.com/wp-content/uploads/2024/12/classic-meatloaf-slices.jpg",
+          "sourcePageUrl": "https://www.budgetbytes.com/wp-content/uploads/2024/12/classic-meatloaf-slices.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaab-el-ghzal",
+      "slug": "gen-kaab-el-ghzal",
+      "title": "Kaab El Ghzal",
+      "instructions": "Algerischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie normalen Zucker mit Wasser statt Orangenblütenwasser.",
+        "Kaufen Sie Filoteig im Angebot und frieren Sie ihn für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "algerisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4026,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaab-el-ghzal/",
+      "components": [
+        {
+          "key": "daeff0f8-ed69-5259-ba5c-394aedf2f131",
+          "name": "Zutaten",
+          "servingGrams": 379.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bbd25fd2-e36d-561a-a68f-ede5d88be1c6",
+              "ingredientName": "Filoteig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "591999a3-002c-5151-9d8e-12edda7d8740",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c01eeebd-0d36-55b8-ba00-c47bcc61eab1",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL, geschmolzen"
+            },
+            {
+              "key": "6bf2a0f5-6f83-5cdd-b415-40818675e89c",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "287b05d3-5165-53a4-ae41-85e73f615678",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be0416b7-c6b3-5ac6-9462-faa2ffec2f7e",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d9c8e228-8f1c-5a7b-9512-61587e7805cf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "dfce3a77-bb20-514c-a9f2-f5bda98252f1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mandelpaste, Puderzucker, Eiweiß, Orangenblütenwasser und Salz in einer Schüssel zu einer formbaren Füllung vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein Filoteigblatt auslegen und leicht mit geschmolzener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Esslöffel Füllung entlang einer langen Kante des Filoteigs verteilen und an den Seiten 1 Zoll Rand lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Filoteig fest um die Füllung rollen und dann zu einer Mondsichel (Gazellenhorn) biegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen und Kaab El Ghzal vorsichtig hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2–3 Minuten goldbraun frittieren, einmal wenden und anschließend auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Noch warm großzügig mit Puderzucker bestäuben und nach Wunsch mit Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/12/04/multimedia/NB-Sesame-Seeds-Gazelle-Horns-zcbt/NB-Sesame-Seeds-Gazelle-Horns-zcbt-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/12/04/multimedia/NB-Sesame-Seeds-Gazelle-Horns-zcbt/NB-Sesame-Seeds-Gazelle-Horns-zcbt-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rejjala",
+      "slug": "gen-rejjala",
+      "title": "Rejjala",
+      "instructions": "Algerisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderschulter im Angebot und frieren Sie sie bis zum Kochtag ein.",
+        "Kaufen Sie Karotten und Kartoffeln aus Großgebinden zu günstigeren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "algerisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4027,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rejjala/",
+      "components": [
+        {
+          "key": "76e3b4ac-954b-5642-ae35-e9371164c69e",
+          "name": "Zutaten",
+          "servingGrams": 407.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa52800d-37cc-56d5-a351-3ae95f6e0366",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "3a073bde-02e8-5210-8585-6a669fd07d25",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "18b9dc0b-2921-5193-9884-d5eda26b94a4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "9295d365-dd30-5ce0-bfee-c676871d4bcb",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "5ad61e79-4652-5013-8e00-9143668905c8",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "c3e33579-76fa-5ae4-a719-01c6cb72d520",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "81c78735-d10f-57ed-b145-7cc14750f2b1",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "8a9241c8-9488-5f50-851e-4e949f2642e1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "45f853d9-5090-5e0a-827c-ef69f236aacc",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "75176a94-d979-5404-aeb5-1b71527cb0e8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fda245e6-3f9d-5480-b5f0-4c6b73fca9d8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und die Rindfleischwürfel portionsweise insgesamt etwa 10 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebelstreifen und gehackten Knoblauch hinzufügen und etwa 5 Minuten anbraten, bis die Zwiebeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark und Paprikapulver einrühren und 2 Minuten garen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe zugießen, zum Köcheln bringen, abdecken und 20 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Karottenscheiben und Kartoffelwürfel hinzufügen, mit Salz und Pfeffer würzen und zugedeckt weitere 15–20 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und vor dem Servieren frischen Koriander einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in Schalen servieren, nach Wunsch mit Brot zum Auftunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hungryforever.net/wp-content/uploads/2017/03/Mutton-Rezala-Recipe-scaled.jpg",
+          "sourcePageUrl": "https://hungryforever.net/wp-content/uploads/2017/03/Mutton-Rezala-Recipe-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ugali",
+      "slug": "gen-ugali",
+      "title": "Ugali",
+      "instructions": "Kenianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maismehl in größeren Mengen in internationalen oder Großhandelsgeschäften.",
+        "Lassen Sie die Butter weg und verwenden Sie Öl, um noch mehr zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "kenianisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4028,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ugali/",
+      "components": [
+        {
+          "key": "1405d2df-2ce8-535d-9939-c07ef3524c5c",
+          "name": "Zutaten",
+          "servingGrams": 368.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "de5a39c0-7330-5582-a8f6-e79996c70d10",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9e6e62de-e556-50a6-a994-5b99b03d14c0",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "951c250e-93c4-5621-95f6-5feaeeb237a9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "26f68729-9e5e-55bf-a51d-90fc186330ab",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser oder Brühe in einem großen Topf zum Kochen bringen und Salz hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maismehl langsam unter ständigem Rühren mit einem Holzlöffel in die kochende Flüssigkeit schütten, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere bis niedrige Stufe reduzieren und 10–15 Minuten ständig weiterrühren, bis die Masse dick wird und sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter einrühren, bis sie vollständig aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ugali auf eine Servierplatte geben oder zu einer Kuppel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß mit gegartem Gemüse, Bohnen oder einem Eintopf zum Auftunken servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/4tWLftVBDWztunWtWD8Tr2RDITk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240806-SEA-Ugali-MaureenCelestine-14-833dce8dc17844f292c92925b827ac15.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/4tWLftVBDWztunWtWD8Tr2RDITk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240806-SEA-Ugali-MaureenCelestine-14-833dce8dc17844f292c92925b827ac15.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nyama-choma",
+      "slug": "gen-nyama-choma",
+      "title": "Nyama Choma",
+      "instructions": "Kenianisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie günstigere Stücke wie Rindersteak aus der Schulter und marinieren Sie es, damit es zart wird.",
+        "Grillen Sie draußen, um Strom- oder Gaskosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "kenianisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4029,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nyama-choma/",
+      "components": [
+        {
+          "key": "c9679b7e-4763-50ba-b0ce-974211fd483e",
+          "name": "Zutaten",
+          "servingGrams": 74.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fea7f80a-05b5-5e86-afa1-5654796db46a",
+              "ingredientName": "Rinderlendensteak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "13dd5584-5e32-5494-afea-b5195a15e6ea",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "cde59216-6894-509c-9316-45177ac02942",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1f20248a-d296-5faf-ac34-c1d5c0c40445",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "938e9368-b561-54e7-8a5b-437f632a822a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "10f67e1b-2470-53c5-ad6e-367aeb5eca42",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, zum Auspressen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleischwürfel mit Küchenpapier trocken tupfen und großzügig mit Salz, Pfeffer und Knoblauchpulver würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne oder Grillpfanne bei hoher Hitze erhitzen, bis es sehr heiß ist und gerade zu rauchen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Fleisch portionsweise anbraten, damit die Pfanne nicht überfüllt wird: pro Seite 2–3 Minuten, bis die Würfel kräftig gebräunt und nach Wunsch gegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das gegarte Fleisch auf eine Servierplatte geben und frischen Zitronen- oder Limettensaft darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort heiß servieren, nach Wunsch mit gegrillten Zwiebeln und Tomaten als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dazu Ugali, Reis oder frischen Salat reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/03/Nyama-Choma.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/03/Nyama-Choma.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

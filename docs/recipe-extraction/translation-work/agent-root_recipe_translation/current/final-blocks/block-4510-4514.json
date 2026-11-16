@@ -1,0 +1,975 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-brodet",
+      "slug": "gen-brodet",
+      "title": "Brodet",
+      "instructions": "Kroatisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie tiefgekühlte Meeresfrüchte, die günstiger und ebenso nahrhaft wie frische sind.",
+        "Kaufen Sie Fischfilets im Angebot und frieren Sie sie portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4510,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brodet/",
+      "components": [
+        {
+          "key": "ed34d914-44a3-56f8-807f-6060cfd1dbb1",
+          "name": "Zutaten",
+          "servingGrams": 255.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c89eed3d-fa68-5ae0-9537-18bebc1884d7",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gemischter Fisch (Kabeljau, Schellfisch oder ähnliche Sorten)"
+            },
+            {
+              "key": "3fd509ee-6499-5cce-905f-ba86c779f608",
+              "ingredientName": "Tiefgekühlte Garnelen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund, geschält"
+            },
+            {
+              "key": "3c1e23de-43e7-5855-a1eb-6e2d1f550e30",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund, gesäubert"
+            },
+            {
+              "key": "9cc7dbb5-c4ab-5c17-bba3-eb76372907ff",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, dünn geschnitten"
+            },
+            {
+              "key": "9350b4b3-3b21-51b7-a2d9-14ab8c5e690e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "f553d7f8-135c-533f-bd52-80b492a0227e",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen), zerkleinert"
+            },
+            {
+              "key": "35d62ac7-238c-5788-8c12-347ec96e2a51",
+              "ingredientName": "Fischbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "48fcfffe-c5db-5c20-a15f-24a86234aa1a",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d9f87f25-eeba-5e38-9614-16963af8b722",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "b18d29ba-addc-52b3-aead-234a348f261b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen und Zwiebel sowie Knoblauch 3–4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Passierte Tomaten, Fischbrühe und Weißwein hinzufügen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischfilets hinzufügen und 5 Minuten köcheln lassen, dann Garnelen und Miesmuscheln dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weitere 8–10 Minuten köcheln lassen, bis Garnelen rosa, Muscheln geöffnet und Fisch leicht zerteilbar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nicht geöffnete Muscheln entsorgen, mit Salz und Pfeffer würzen und in Schalen mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_960/v1/img/recipes/19/72/65/picVO51zU.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_960/v1/img/recipes/19/72/65/picVO51zU.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-strukli",
+      "slug": "gen-strukli",
+      "title": "Štrukli",
+      "instructions": "Kroatisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Ricotta von Handelsmarken statt Spezialmarken, um Kosten zu senken.",
+        "Bereiten Sie die Füllung im Voraus zu und kühlen Sie sie, um bei der Zubereitung Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kroatisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4511,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-strukli/",
+      "components": [
+        {
+          "key": "0a53670b-6a71-5f66-98f7-74e6cd18c3ce",
+          "name": "Zutaten",
+          "servingGrams": 236.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "65255068-614e-50c8-9681-b801302bf3e0",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5bf0028a-41c9-581d-bea6-1b3958344bdb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "96eab25a-d00a-58b1-88ad-1c2b472e194d",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "ec89e1cd-1f7a-5f41-8040-cfaa48f4604b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "27f73f7a-ddd5-55ba-a1ca-64b8728584b7",
+              "ingredientName": "Ricotta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d8c10e08-aa6c-5691-89fe-e1e0ee20a4a3",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "27e631e3-009e-5c9b-af69-f617d8306c2e",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse, geschmolzen"
+            },
+            {
+              "key": "d29b8a04-414a-544e-82b7-c6012e32668d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ba72cb17-7344-5400-9fdb-b7b6be72da7e",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3c0dd480-8f33-5478-995a-b40da2ffd15e",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer Schüssel vermischen, eine Mulde formen, Wasser und Ei hineingeben und zu weichem Teig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig 5 Minuten glatt kneten, in Frischhaltefolie wickeln und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ricotta, Cheddar, Pfeffer und Dill in einer separaten Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig auf einer bemehlten Fläche mit den Händen sehr dünn ziehen, bis er fast durchsichtig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ricottamischung gleichmäßig auf dem Teig verteilen, fest aufrollen und zu einer Spirale wickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spirale mit der Naht nach unten in eine gebutterte Auflaufform legen und großzügig mit geschmolzener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375 °F 35–40 Minuten goldbraun backen und mit einem Klecks saurer Sahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://passionspoon.com/wp-content/uploads/2018/07/P1160800.jpg",
+          "sourcePageUrl": "https://passionspoon.com/wp-content/uploads/2018/07/P1160800.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sarma",
+      "slug": "gen-sarma",
+      "title": "Sarma",
+      "instructions": "Kroatisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch im Angebot und frieren Sie es portionsweise für später ein.",
+        "Verwenden Sie Tomatensauce statt Tomaten aus der Dose und sparen Sie pro Portion ein oder zwei Dollar."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4512,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sarma/",
+      "components": [
+        {
+          "key": "fd3d9d23-03af-5e04-8d0d-0fe7df548d6d",
+          "name": "Zutaten",
+          "servingGrams": 293.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "71179775-0f4c-53e6-bd3b-63b21e6f7ae2",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12-16 große Stücke"
+            },
+            {
+              "key": "067f6cea-c1f3-5dd8-a35f-b8fc4bad1f26",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5478b67d-7ffc-5bf1-8f0d-bc9fa76ec35d",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "fa061359-1b96-52f3-ab2c-4846c0def967",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Stück, fein gewürfelt"
+            },
+            {
+              "key": "8b938a13-193c-59cc-9eb5-6076d9dbca55",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse, ungegart"
+            },
+            {
+              "key": "ab5dc3d3-29e3-5af1-a6cb-87b3b4ca8e43",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "91935023-ed7a-5e12-b9b1-3139641d4eee",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen), zerkleinert"
+            },
+            {
+              "key": "2d3696ee-d86c-5636-a74d-d7177a00bc77",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a058ddeb-8fa4-5050-a114-0db5f8701ecd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1bf7ea97-561e-50ee-8f3a-0f0031f04d36",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf Salzwasser zum Kochen bringen, Kohlblätter vorsichtig 2–3 Minuten blanchieren, bis sie biegsam sind, dann abgießen und abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rind, Schwein, Zwiebel, Reis, Ei, Salz und Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jeweils etwa 3 Esslöffel Füllung auf ein Kohlblatt geben, Seiten einschlagen und fest aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rollen mit der Naht nach unten in eine Auflaufform legen und passierte Tomaten sowie Brühe darüber gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Folie abdecken und bei 350 °F 60 Minuten backen. Folie entfernen und weitere 15 Minuten backen, bis die Sauce etwas reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß servieren und jede Rolle mit zusätzlicher Sauce beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/jsy4STqVru3LZw_m156j4GqUYbg=/2880x1920/filters:fill(auto,1)/serbian-stuffed-cabbage-recipe-sarma-1136569-hero-01-e874d6a9f7d74101a4a80f7465cbcfc7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/jsy4STqVru3LZw_m156j4GqUYbg=/2880x1920/filters:fill(auto,1)/serbian-stuffed-cabbage-recipe-sarma-1136569-hero-01-e874d6a9f7d74101a4a80f7465cbcfc7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mango-lassi",
+      "slug": "gen-mango-lassi",
+      "title": "Mango-Lassi",
+      "instructions": "Indisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mangos während der Saison (Mai bis August) zum besten Preis.",
+        "Verwenden Sie Naturjoghurt statt griechischem Joghurt, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4513,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mango-lassi/",
+      "components": [
+        {
+          "key": "d81af6d6-fd7a-52e9-a6a4-0b86b084046a",
+          "name": "Zutaten",
+          "servingGrams": 276.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c4638c0-da2c-5704-a70c-e518c6ac0db8",
+              "ingredientName": "Frische Mango",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großes Stück oder 1.5 Tassen, gehackt"
+            },
+            {
+              "key": "858ae32a-a8db-54f9-9c22-28bd5645f60b",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "70fb74dc-3b0c-5e3d-8e5a-17d7fa2d02af",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "967fe802-60a9-5b1c-b0e0-bf72d017202d",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0bd801c9-5f72-57cb-bcf3-3595824b507a",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "cd1cb708-cab5-5f51-a62b-09bfe8261b5d",
+              "ingredientName": "Eis",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Frische Mango würfeln und in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Joghurt und Milch zugießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zucker und Kardamompulver hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eiswürfel dazugeben und glatt mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Gläser füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pcsqktOMrnzmfWPFmqy08-zj4lk=/6016x4011/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mango-Lassi-LEAD-13-73719759cc3f4a2ca7fe8be72baaeaab.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pcsqktOMrnzmfWPFmqy08-zj4lk=/6016x4011/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mango-Lassi-LEAD-13-73719759cc3f4a2ca7fe8be72baaeaab.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-strawberry-banana-smoothie",
+      "slug": "gen-strawberry-banana-smoothie",
+      "title": "Erdbeer-Bananen-Smoothie",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühlte Erdbeeren in größeren Mengen statt frischer und sparen Sie ganzjährig.",
+        "Verwenden Sie Joghurt von Handelsmarken, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4514,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-strawberry-banana-smoothie/",
+      "components": [
+        {
+          "key": "9f5371f6-1f44-59d0-b76a-40faa4f2d4a4",
+          "name": "Zutaten",
+          "servingGrams": 396.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "819be15f-b1e4-5569-b9de-ff51296f4157",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "859997e6-68d3-576b-a1ae-a49837ee614c",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "3a499867-6b5f-5b26-a386-0f833edfbf5c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2d728ec7-50fa-5aa6-9ed3-9e9d58d7e9f4",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "300f903a-732f-5b3a-be25-d6ddfc27f5cc",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "790b63db-54f5-5c22-9c24-59199180eac4",
+              "ingredientName": "Eis",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Frische Erdbeeren entkelchen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Banane schälen und in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erdbeeren, Banane, Joghurt und Milch in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Honig und Eiswürfel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Glatt und cremig mixen, dann in Gläser füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/06/strawberry-banana-smoothie.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/06/strawberry-banana-smoothie.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

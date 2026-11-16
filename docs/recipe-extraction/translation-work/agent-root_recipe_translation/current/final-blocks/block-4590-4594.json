@@ -1,0 +1,1158 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chickpea-bowl",
+      "slug": "gen-chickpea-bowl",
+      "title": "Kichererbsen-Bowl",
+      "instructions": "Indisches Mittagessen, ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen aus der Dose in Großpackungen im Großhandel für $0.50 pro Dose kaufen",
+        "Tiefgekühlten Spinat verwenden, er ist günstiger und verursacht weniger Abfall"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4590,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chickpea-bowl/",
+      "components": [
+        {
+          "key": "daef7219-803c-5a07-ad30-fde9347828f5",
+          "name": "Zutaten",
+          "servingGrams": 656.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "28c9d601-3acc-5a45-ac00-e51a78b06b6c",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 Unzen)"
+            },
+            {
+              "key": "a4f880d4-7a91-5b37-99ff-264a6b02c244",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "aa3d461a-aa2e-5fe7-9a1f-0a15bb5e03fc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "5a9a7c85-21e0-5fd7-9acd-999553475347",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "f008454a-9d1f-5f05-ad03-973194365bad",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "6b8551ff-d05c-5f61-b457-ae8ad616182b",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "d0149f84-5d9c-5e9d-93ba-4c8200ca03d4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aa0247db-224d-5163-a347-910604da1a28",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d0cc4ec3-64ad-5538-862a-c61585468db5",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "f45015fa-7f50-5dcc-96fe-e1920c7c73f9",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen, frisch"
+            },
+            {
+              "key": "e24acbf4-fe18-5323-9814-2e89cb7de24d",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            },
+            {
+              "key": "041e5bbc-d995-5735-96c9-8446a3a4e0cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel etwa 3 Minuten anbraten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch und Ingwer hinzufügen und 1 Minute braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Currypulver und Kreuzkümmel einrühren, sodass das Gemüse bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kichererbsen aus der Dose abgießen, abspülen und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kokosmilch und Dosentomaten samt Saft hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15 Minuten köcheln lassen, bis sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frischen Spinat einrühren und 2 Minuten kochen, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit Salz und Pfeffer würzen und über Basmatireis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/eyM3uZIXNqgDVKdcGUzFoYDiBfY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chickpea-FarroGrainBowl-beauty-27930_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-e40b45a8518741118e8fc560da21cf8e.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/eyM3uZIXNqgDVKdcGUzFoYDiBfY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chickpea-FarroGrainBowl-beauty-27930_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-e40b45a8518741118e8fc560da21cf8e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lentil-bowl",
+      "slug": "gen-lentil-bowl",
+      "title": "Linsen-Bowl",
+      "instructions": "Mittagessen aus dem Nahen Osten: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Linsen in größeren Mengen für weniger als $1 pro Pfund",
+        "Verwende Gemüsebrühe aus der Dose statt aus dem Karton, um mehr fürs Geld zu bekommen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Naher Osten",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4591,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lentil-bowl/",
+      "components": [
+        {
+          "key": "a5af4357-f6d8-5457-961b-316fad395874",
+          "name": "Zutaten",
+          "servingGrams": 457,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ca92562-c81b-584f-9b41-9e34945fa0bc",
+              "ingredientName": "Braune Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6ef9e007-e339-5dbd-a782-976615ae4ff8",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "f4adde6a-ecde-506d-b5d9-78350c24147d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "268b3485-9924-516a-a9ed-88374e5da068",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "6ea82a92-0e6d-5dae-9a72-f2cc46cb251c",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "9a0bcdbc-e335-5596-83d6-a454a94ef460",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "1544a51e-b4d2-5a6b-a407-5853eda14910",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "62ddce51-6aee-5f81-8c3a-1e0b12c9268e",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a01a4985-da4a-5a39-83cc-ae0af0ba5c9a",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "43cdf29e-11e7-5f06-a4a0-c68edcd93928",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "574ec57d-df7c-58b8-8db0-38b6224ef494",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "852b4e79-460d-51ba-84d0-5f01cd4e086f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Braune Linsen unter kaltem Wasser abspülen, um Rückstände zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel, Karotte und Sellerie würfeln und 5 Minuten anbraten, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kreuzkümmel und getrockneten Thymian in den Topf geben und 30 Sekunden rühren, bis die Gewürze duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgespülte Linsen und Gemüsebrühe in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aufkochen, dann die Hitze reduzieren und 25 Minuten köcheln lassen, bis die Linsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gewürfelte Tomaten aus der Dose und Zitronensaft hinzufügen und weitere 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen und vor dem Servieren mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/WhDin1W3yuXYNWGNdx5xWuwIIM0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Braised-Black-Lentil-Bowls-1x1-1-1ee6d082032645dea5f9791c29110e6d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/WhDin1W3yuXYNWGNdx5xWuwIIM0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Braised-Black-Lentil-Bowls-1x1-1-1ee6d082032645dea5f9791c29110e6d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grain-salad-bowl",
+      "slug": "gen-grain-salad-bowl",
+      "title": "Getreidesalat-Bowl",
+      "instructions": "Mediterranes Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Feta durch Mozzarella der Hausmarke und spare $0.75 pro Portion",
+        "Kaufe Farro lose statt abgepackt, um einen besseren Preis zu bekommen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4592,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grain-salad-bowl/",
+      "components": [
+        {
+          "key": "76a389a4-e85c-5a17-90a8-da41363b632c",
+          "name": "Zutaten",
+          "servingGrams": 635,
+          "position": 0,
+          "items": [
+            {
+              "key": "70d34c33-e41b-5c1e-b402-df63ef910595",
+              "ingredientName": "Farro",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4fd0728e-f368-5894-9082-5123a052ef2e",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "242fd5a4-344e-55f1-98fc-d195a491979c",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9ab13237-a33a-5531-8703-557c00d6242e",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "c20801b1-eb80-5fcb-9e9c-4e316c1deb3e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "0a556821-927d-5679-a1a1-72a4a96bdc44",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "de6c26be-e4db-5593-9cdf-ec6106152967",
+              "ingredientName": "Feta-Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse, zerbröselt"
+            },
+            {
+              "key": "43941815-bbba-5c3b-bfaf-18b2dc340bd7",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a613bc2d-9555-5e23-a7e5-6c51536b7712",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f1c3be2b-ab4b-5008-af60-26843d6282cf",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "97fe165e-0c6e-5bf4-91ce-5a904dc32dbc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser aufkochen, Farro hinzufügen und gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "30-35 Minuten köcheln lassen, bis der Farro weich ist, dann überschüssige Flüssigkeit abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den gekochten Farro in eine große Schüssel geben und auf Zimmertemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kirschtomaten halbieren sowie Gurke und rote Zwiebel in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gemüse, Kalamata-Oliven und frisches Basilikum zum Farro geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Olivenöl und Zitronensaft in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das Dressing über die Getreidemischung gießen und alles vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zerbröselten Feta unterrühren, mit Salz und Pfeffer würzen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.fannetasticfood.com/wp-content/uploads/2017/03/build-your-own-salad-dressing-4-2.jpg",
+          "sourcePageUrl": "http://www.fannetasticfood.com/wp-content/uploads/2017/03/build-your-own-salad-dressing-4-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-farro-bowl",
+      "slug": "gen-farro-bowl",
+      "title": "Farro-Bowl",
+      "instructions": "Italienisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Farro im Unverpacktregal, um 30% zu sparen",
+        "Verwende Gemüsebrühe der Hausmarke und tiefgekühlte Tomaten, wenn frische zu teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4593,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-farro-bowl/",
+      "components": [
+        {
+          "key": "8329e0b3-4a96-5c17-bdc0-be8c3f9f4759",
+          "name": "Zutaten",
+          "servingGrams": 723.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a3eb8c0-8d5a-5433-a9e0-5fb124f3c161",
+              "ingredientName": "Farro",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1edd93bd-8699-5949-b72c-5d493e02448c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "da64184f-bb4c-53fc-8a79-78727ec48d63",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "889b9276-ee8a-5da2-8149-d44c695f1fad",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "629252d5-ddff-5e81-97b6-4c87a99da50e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 mittelgroßes Stück"
+            },
+            {
+              "key": "b1903034-dd42-5b3c-93bc-8b515376f967",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "f136c7ae-c01a-57de-b2a3-3b41a83c8658",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "33b02237-b5ba-5b41-87c3-42d2cca32415",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2150177c-ba69-5820-a8a2-137b3d5c5390",
+              "ingredientName": "Feta-Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e880eeb2-09ee-5104-9050-e01c71679edb",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gemüsebrühe in einem Topf aufkochen, Farro hinzufügen und gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "30 Minuten köcheln lassen, bis der Farro weich, aber noch bissfest ist, dann abgießen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kirschtomaten und Gurke würfeln und die rote Zwiebel in einer großen Schüssel fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den abgekühlten Farro zum Gemüse geben und mit Olivenöl, Zitronensaft und Basilikum vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer würzen, mit zerbröseltem Feta bestreuen und bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/lHjlbpSZfLXlhJ4xBYJaB6BFHsQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Green-Goddess-Farro-Bowl-121-c9709704fda1418d8798b2ef51842fe8.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/lHjlbpSZfLXlhJ4xBYJaB6BFHsQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Green-Goddess-Farro-Bowl-121-c9709704fda1418d8798b2ef51842fe8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-barley-bowl",
+      "slug": "gen-barley-bowl",
+      "title": "Gersten-Bowl",
+      "instructions": "Skandinavisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Perlgraupen lose für weniger als $0.50 pro Tasse",
+        "Verwende Rote Bete aus der Dose, wenn frische gerade keine Saison haben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "skandinavisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4594,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-barley-bowl/",
+      "components": [
+        {
+          "key": "31c45c99-21a7-5134-bdf6-16c1b4a95ff3",
+          "name": "Zutaten",
+          "servingGrams": 452.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "642658ed-c3a3-5688-a1e3-c8e42a2f8b91",
+              "ingredientName": "Graupen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "772b9715-b6b9-5493-953f-fa36d4ba68bc",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "8869b8bd-c4a7-5aee-aeb3-d3a1348f92bb",
+              "ingredientName": "Rüben",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "5b846430-7715-5737-bc8e-cf80003026f0",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "426c0d98-c6b9-5de2-8c91-371688d7fe9e",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bcd17f94-2e97-5c0d-8b0b-44233b2ee4bc",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "587bde8a-5002-5591-bf0e-0c745236f3ce",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b664013-d9d2-5a81-813e-a280da2ef724",
+              "ingredientName": "Sonnenblumenkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "aa2e43e6-3a79-5132-828c-7afb9349f851",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a55fc040-9214-5254-8d82-55c4f9035134",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gemüsebrühe aufkochen, Perlgraupen hinzufügen und 35 Minuten köcheln lassen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rote Bete und Karotten schälen, würfeln und bei 400°F 25 Minuten rösten, bis sie karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gekochte Perlgraupen abgießen und mit Butter, Salz und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Saure Sahne mit frischem Dill und Zitronensaft zu einem Dressing verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Perlgraupen auf Schüsseln verteilen und mit geröstetem Gemüse, Sonnenblumenkernen und einem Klecks Dillcreme garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/61f93f0a91c05315a4e0211a/1:1/w_2560%2Cc_limit/Lemony%2520Spring%2520Vegetable%2520and%2520Barley%2520Bowl.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/61f93f0a91c05315a4e0211a/1:1/w_2560%2Cc_limit/Lemony%2520Spring%2520Vegetable%2520and%2520Barley%2520Bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

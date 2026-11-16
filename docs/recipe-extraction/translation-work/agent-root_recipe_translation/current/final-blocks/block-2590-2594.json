@@ -1,0 +1,1061 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fabada-asturiana",
+      "slug": "gen-fabada-asturiana",
+      "title": "Fabada Asturiana",
+      "instructions": "Spanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Bohnen in größeren Mengen, um 40 % der Kosten zu sparen.",
+        "Ersetze teure Morcilla durch Pancetta, falls sie nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2590,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fabada-asturiana/",
+      "components": [
+        {
+          "key": "ac8df3bf-4671-53cf-a8b5-c6742cad62fb",
+          "name": "Zutaten",
+          "servingGrams": 352.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "079559ab-b6a6-500a-930f-09cffcb2295f",
+              "ingredientName": "Ackerbohnen",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7814ec58-12a9-57d2-8d3f-3f05794ec7f8",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "bdf7f673-cfa2-57bf-af3d-0e121fcc5183",
+              "ingredientName": "Pancetta",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "bbbd843f-aade-5c34-a88c-abb8ccb7df6b",
+              "ingredientName": "Schinken, in Scheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4cbcfc6e-593b-5918-9c1d-96306351d37b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "2061bde2-626c-55d9-b628-2c45fea97df2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7a7a39d-51cf-5583-9d75-272c0e11d02b",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Quarts"
+            },
+            {
+              "key": "4eb89b0c-c29e-5464-ac12-bd747c227f31",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf60c58a-3069-5195-8db1-f0d690b4d97f",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c7684035-ccba-5585-ab8d-f9234d737236",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Ackerbohnen über Nacht in Wasser ein, gieße sie dann ab und spüle sie gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Bohnen, Schweinshaxe, halbierte Zwiebel und 4 Quarts Wasser mit Lorbeerblättern in einen großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze und lasse es 1.5 Stunden köcheln. Schöpfe bei Bedarf den Schaum ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Chorizo und geschnittene Morcilla oder Pancetta in den Topf und lasse alles weitere 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate in einer kleinen Pfanne gehackten Knoblauch in Öl an und gib Safran dazu, den du in warmem Wasser aufgelöst hast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die Knoblauch-Safran-Mischung in den Bohnentopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles weitere 15 Minuten köcheln, bis die Bohnen sehr weich und cremig sind, und würze dann mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/CYbW10Fm5rnMYjVMiAblt2bN-jg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/asturian-fabada-686356862-5b14088c04d1cf00376f5369.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/CYbW10Fm5rnMYjVMiAblt2bN-jg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/asturian-fabada-686356862-5b14088c04d1cf00376f5369.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pulpo-a-la-gallega",
+      "slug": "gen-pulpo-a-la-gallega",
+      "title": "Pulpo a la Gallega",
+      "instructions": "Spanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Oktopus ist 30-40 % günstiger als frischer und gelingt ebenso gut.",
+        "Kaufe Paprikapulver in größeren Mengen auf Märkten mit internationalem Angebot, um deutlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2591,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pulpo-a-la-gallega/",
+      "components": [
+        {
+          "key": "c83252e8-f22d-547f-9887-9ee3fe6a0ff9",
+          "name": "Zutaten",
+          "servingGrams": 140.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "35c13379-0c45-5d35-8071-405d3c26f010",
+              "ingredientName": "Oktopus",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "fa6b94e6-16fc-5be1-8dac-ef8701c4d23b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "5b8f86b3-54a4-5c8a-b171-5f9a2683c828",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 große"
+            },
+            {
+              "key": "ca1919c8-796a-5135-9527-abaf11fc9449",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68bb74ba-46fa-5fe2-b385-b239da32e6f4",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "4b466b4a-a127-59b2-b038-13b2b717e82a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "96542a8c-0b13-59d8-b9a5-f4a699ecb019",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "006cb693-8af5-5c13-aa91-ce8452928900",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e37a2f6-ef86-5882-8904-8e4374468586",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Oktopus, halbierte Zwiebel und 2 Lorbeerblätter in einen großen Topf mit Wasser und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und lasse den Oktopus 40-45 Minuten köcheln, bis er zart ist. Gieße ihn dann ab und lasse ihn etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Oktopustentakel in mundgerechte Stücke und lege sie auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Kartoffeln ganz in Salzwasser, bis sie weich sind, etwa 20 Minuten. Schneide sie dann in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Kartoffelscheiben über den Oktopusstücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Olivenöl mit gehacktem Knoblauch 30 Sekunden in einer kleinen Pfanne und nimm sie dann vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle Oktopus und Kartoffeln mit Knoblauchöl, bestreue sie mit Paprikapulver, Meersalz und schwarzem Pfeffer und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/XMFejqmeT2cUIvJMEhDY7zqeDbE=/4500x3000/filters:no_upscale():max_bytes(150000):strip_icc()/galician-style-octopus-recipe-3083727-step-07-8d9e33545f764bc391a40da60b146b18.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/XMFejqmeT2cUIvJMEhDY7zqeDbE=/4500x3000/filters:no_upscale():max_bytes(150000):strip_icc()/galician-style-octopus-recipe-3083727-step-07-8d9e33545f764bc391a40da60b146b18.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bacalao-a-la-vizca-na",
+      "slug": "gen-bacalao-a-la-vizca-na",
+      "title": "Bacalao a la Vizcaína",
+      "instructions": "Spanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Stockfisch in größeren Mengen auf spanischen Märkten statt in Feinkostgeschäften.",
+        "Verwende geröstete Paprika aus dem Glas statt getrockneter Paprika und spare 30 Minuten Vorbereitungszeit."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2592,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bacalao-a-la-vizca-na/",
+      "components": [
+        {
+          "key": "e86c6f26-081f-5ca1-9bff-12fb984b66ce",
+          "name": "Zutaten",
+          "servingGrams": 736.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4b919f0-56f8-51c5-8ef7-c1bd7f22e524",
+              "ingredientName": "Stockfisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b71920b0-1091-54c9-9bfa-8d2ef5ea4a99",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "ec34bdcf-d2b6-5402-84dc-9ee8fc04af67",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "f8e42bd0-67d3-56b7-b437-5f78c8772da0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7302e9f7-9100-51c8-a3a9-259ceedad887",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14.5 oz)"
+            },
+            {
+              "key": "30baf958-7394-53b4-84d8-0e6f2e12bee2",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "b4d38754-53a2-5b54-8be2-c309b9d069c5",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2ff4c503-e183-583b-aab7-c5265d64ea0c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "634f01c0-8dbb-54e9-a014-c69bd97d7a00",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "857c8aa9-c3a3-51fe-98a9-307ce7937871",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche den Stockfisch 24 Stunden in kaltem Wasser ein und wechsle das Wasser 3-4 Mal. Gieße ihn dann ab und zerpflücke ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste getrocknete Paprika über einer offenen Flamme 20 Sekunden pro Seite und weiche sie dann 15 Minuten in warmem Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die eingeweichten Paprika mit 0.5 cup Einweichwasser, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl und brate geschnittene Zwiebeln und gehackten Knoblauch etwa 5 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Paprikasauce, Dosentomaten und zerpflückten Stockfisch mit Wasser und Lorbeerblatt in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 20 Minuten köcheln, bis der Stockfisch durchgewärmt ist und die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Oliven dazu, würze mit Salz und Pfeffer und lasse alles vor dem Servieren weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/1108527.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/1108527.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-merluza-a-la-romana",
+      "slug": "gen-merluza-a-la-romana",
+      "title": "Merluza a la Romana",
+      "instructions": "Spanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mache Paniermehl aus altbackenem Brot in der Küchenmaschine, statt fertiges zu kaufen.",
+        "Kabeljau ist günstiger als Seehecht und eignet sich ebenso gut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2593,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-merluza-a-la-romana/",
+      "components": [
+        {
+          "key": "26bc5269-e8a2-53cd-91fa-3b59a8754c1e",
+          "name": "Zutaten",
+          "servingGrams": 204.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "e26923c5-b59c-5ae1-bf68-5c6fdcf0d53b",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "39bde905-f13d-51fe-bbc4-5b820faf16f6",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a46bc820-c028-5299-8d57-9f70bc5962fe",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "337d45d7-a525-566c-9c2b-27c73bb0e81c",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "63a8a6d9-b9bf-51a6-990b-981362af5960",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "873ed0f7-641e-533a-9913-f28f5a1a9cba",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Quart"
+            },
+            {
+              "key": "10cbfbb4-0ce8-5e9d-9705-42629d28f14d",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Hälften"
+            },
+            {
+              "key": "6381f6aa-f06d-5a72-b20e-88402c614cd1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddc323bd-e69b-5ab3-8d8e-ad20c4299539",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Fischfilets mit Küchenpapier trocken und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln bereit: eine mit Mehl, eine mit verquirlten Eiern und eine mit Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Filet erst in Mehl, tauche es dann ins Ei und umhülle es anschließend gründlich mit Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne auf 350°F (bei mittelhoher Hitze etwa 3 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die panierten Filets vorsichtig ins heiße Öl und brate sie 3-4 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den gegarten Fisch auf Küchenpapier, damit überschüssiges Öl abtropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere ihn heiß mit Zitronenspalten und bestreue ihn mit gehackter Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/d3/88/e0/d388e0ee9f7fae58cb002e5b2e4ddf78.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/d3/88/e0/d388e0ee9f7fae58cb002e5b2e4ddf78.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-espinacas-con-garbanzos",
+      "slug": "gen-espinacas-con-garbanzos",
+      "title": "Espinacas con Garbanzos",
+      "instructions": "Spanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Spinat spart 60 % der Kosten und hat denselben Nährwert.",
+        "Verwende Kreuzkümmel und Paprikapulver, die du getrocknet und in größeren Mengen kaufst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "spanisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2594,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-espinacas-con-garbanzos/",
+      "components": [
+        {
+          "key": "c10a8956-1086-5297-8dce-3dbbafc499b0",
+          "name": "Zutaten",
+          "servingGrams": 155.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fa023e3-8ea3-5e02-a2fb-63166a20d5a1",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b93ef948-2bfd-5304-a185-ffa02d320de9",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 oz)"
+            },
+            {
+              "key": "fc8a0363-ef85-55cc-ad8f-64c29a6dbaf6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "8c8e1507-07ee-56ea-8421-23ceecd5a096",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dfb0002-dbd2-5f2f-8ba5-9c105bbe3e0d",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "d29ff5ef-81ec-5796-ad8f-6d33fcaf9c26",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "db00bdfc-1f2f-555b-a982-61be5058cce7",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "e1f89add-9d8c-5c67-80c2-0a80f7fd8145",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "69451db7-79cc-5d0c-9546-9e637a2e1321",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und brate gewürfelte Zwiebel und gehackten Knoblauch 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kreuzkümmel und Paprikapulver dazu und rühre 30 Sekunden ständig, bis die Gewürze duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die abgetropften und abgespülten Kichererbsen sowie Gemüsebrühe dazu und lasse alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den frischen Spinat portionsweise dazu und rühre jede Portion unter, sobald sie zusammenfällt; insgesamt etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der gesamte Spinat zusammengefallen ist, lasse alles weitere 2 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/1007369.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/1007369.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1271 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-skinny-cobb-salad",
+      "slug": "toh-skinny-cobb-salad",
+      "title": "Leichter Cobb-Salat",
+      "instructions": "Eine leichtere Variante des klassischen Cobb-Salats: Knackiger Krautsalat und Blattsalat mit gewürfeltem Hähnchen, cremiger Avocado, würzigem Feta und rauchigem Putenspeck, abgerundet mit einem kühlen Ranch-Dressing aus griechischem Joghurt. Reich an Eiweiß und frisch, ohne schwer im Magen zu liegen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/skinny-cobb-salad/",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gezupftes Hähnchen vom Drehspieß oder gegartes Hähnchen vom Vortag, statt Hähnchenbrust frisch zuzubereiten. So sparst du Geld und Zeit.",
+        "Kaufe einen ganzen Salatkopf und schneide aus Kohl und Karotten selbst Krautsalat, statt fertige Mischungen zu verwenden.",
+        "Kichererbsen aus der Dose sind eine der günstigsten Eiweißquellen. Lass sie nicht weg, denn sie machen den Salat günstig sättigender."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Blauschimmelkäse für einen kräftigeren, traditionelleren Cobb-Geschmack",
+          "savings": "ähnliche Kosten"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen vom Drehspieß",
+          "savings": "etwa $0.80 pro Portion"
+        },
+        {
+          "forIngredientId": "turkey-bacon",
+          "swap": "Normaler Speck, wenn du auf den Fettgehalt nicht achtest",
+          "savings": "vergleichbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Salat",
+        "gesund",
+        "Mittagessen",
+        "Cobb",
+        "kohlenhydratarm",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 505,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-skinny-cobb-salad/",
+      "components": [
+        {
+          "key": "7731649f-f0ad-591f-a357-7d5aa4f83278",
+          "name": "Zutaten",
+          "servingGrams": 504.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "4338b723-055c-5190-a58c-48890de89642",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "fettfrei plain, für das Dressing"
+            },
+            {
+              "key": "8f65c5a2-7e0b-5b95-b40a-4cc0d4dcc071",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "fettreduziert, für das Dressing"
+            },
+            {
+              "key": "26abae45-2d98-59fd-8a17-fd88cb2a63d4",
+              "ingredientName": "Wasser",
+              "grams": 7.2,
+              "quantity": 7.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Verdünnen des Dressings"
+            },
+            {
+              "key": "cc836ffa-f437-542f-a7f9-412eeca11103",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "008a04fb-3846-5d55-8c38-2b3a13e4aa89",
+              "ingredientName": "Salat",
+              "grams": 200,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt, etwa 3 Tassen"
+            },
+            {
+              "key": "434a331b-f3bb-59fd-b5e5-b4bcdca1bae1",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "groß, gehackt"
+            },
+            {
+              "key": "45494635-9e25-5eb7-bb8a-bb7d41340ef6",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "fettreduziert, zerbröselt (oder Blauschimmelkäse)"
+            },
+            {
+              "key": "e486e873-7e41-55f6-bc82-c88ace3dc8d7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "gekocht und gewürfelt, etwa 1 Tasse"
+            },
+            {
+              "key": "e6ee2b3b-7859-5780-a6fc-902fa6f3a599",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "da17aa1b-be99-52df-b56c-aa26fc717518",
+              "ingredientName": "Putenspeck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "gekocht und gehackt"
+            },
+            {
+              "key": "073a9c21-eeec-5ae7-8557-bd611c9f9ea7",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "abgespült und abgetropft"
+            },
+            {
+              "key": "47decb65-3ca8-57de-b216-c78461c8daa4",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "klein, geschält und gewürfelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre griechischen Joghurt und Ranch-Dressing in einer kleinen Schüssel, bis die Mischung glatt ist. Gib nach und nach kaltes Wasser dazu, bis das Dressing dünn genug zum Beträufeln ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Putenspeck knusprig, schneide ihn dann in mundgerechte Stücke und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Krautsalatmischung und gehackten Blattsalat und verteile das Grün auf vier Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ordne gewürfeltes Hähnchen, zerbröselten Feta, gehackten Apfel, Kichererbsen, Avocado, Putenspeck und Frühlingszwiebeln in ordentlichen Reihen auf dem Salat an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle jeden Salat mit dem Joghurt-Ranch-Dressing und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Skinny-Cobb-Salad_EXPS_SDFM17_181784_C10_06_6b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/skinny-cobb-salad/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einem leichten Cobb-Salat",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-sloppy-joe-biscuit-cups",
+      "slug": "toh-sloppy-joe-biscuit-cups",
+      "title": "Sloppy-Joe-Muffinförmchen",
+      "instructions": "Saftiges Barbecue-Rindfleisch in goldbraunen, blättrigen Teigförmchen mit schmelzendem Cheddar: Diese handlichen Häppchen machen aus klassischen Sloppy Joes ein lustiges, kleckerfreies Abendessen, zu dem die ganze Familie gern greift. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/sloppy-joe-biscuit-cups/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine größere Familienpackung Rinderhack und friere übrige Portionen für die nächste Zubereitung ein.",
+        "Kühlteig und geriebener Käse der Hausmarke sind deutlich günstiger als Markenprodukte und eignen sich genauso gut.",
+        "Strecke die Füllung und senke die Kosten, indem du die Hälfte des Rindfleischs durch pflanzliches Hack oder zusätzliches gehacktes Gemüse ersetzt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere, günstigere Variante",
+          "savings": "~$0.25 pro Portion"
+        },
+        {
+          "forIngredientId": "bbq-sauce",
+          "swap": "Ketchup mit einem Schuss Essig, braunem Zucker und Worcestersoße verrühren",
+          "savings": "Spart den Kauf einer Flasche"
+        },
+        {
+          "forIngredientId": "shredded-cheddar",
+          "swap": "Ein Stück Cheddar kaufen und selbst reiben",
+          "savings": "~$0.10 pro Unze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Sloppy-Joe",
+        "Teigförmchen",
+        "Rinderhack",
+        "kinderfreundlich",
+        "Abendessen",
+        "handlich",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 506,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-sloppy-joe-biscuit-cups/",
+      "components": [
+        {
+          "key": "057baa8f-96c7-545b-aad5-1c1ca80a63a3",
+          "name": "Zutaten",
+          "servingGrams": 162.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "7621ea40-9d67-55cd-b926-65c500631f4d",
+              "ingredientName": "Rinderhack",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "mager, 90%"
+            },
+            {
+              "key": "6cda6165-37f9-595e-bd05-d85ee21ea522",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "2d1c7e88-6924-500c-ad94-05c4c417aca5",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "0d4bf663-6b53-5507-a572-b73ca7db191b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "green, fein gehackt"
+            },
+            {
+              "key": "2993ce6e-1fae-517e-bc8a-ddd76b2b5ce8",
+              "ingredientName": "Barbecue-Soße",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "494b4408-ff42-57db-b8ec-ffa276161f5c",
+              "ingredientName": "Gekühlter Keksteig",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gekühlt blättrig Brötchen"
+            },
+            {
+              "key": "dde35a9b-793d-591a-ac93-b0ecbe2c7352",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400F vor und fette 10 Muffinförmchen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhack mit gehacktem Sellerie, Zwiebel und grüner Paprika in einer großen Pfanne bei mittlerer Hitze. Zerkleinere das Fleisch, bis es nicht mehr rosa ist, etwa 5-7 Minuten. Gieße das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Barbecue-Soße ein und bringe alles zum Kochen. Reduziere die Hitze und lass die Mischung ohne Deckel 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trenne den Teig in 10 Stücke und drücke jedes zu einem runden Fladen von etwa 5 Zoll Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke einen Teigfladen auf den Boden und an die Seiten jedes gefetteten Muffinförmchens und gib dann die Rindfleischfüllung hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Förmchen 9-11 Minuten, bis der Teig goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue sie mit Cheddar und schiebe sie 1-2 Minuten zurück in den Ofen, gerade bis der Käse geschmolzen ist. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps113889_SD163615C04_07_7b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/sloppy-joe-biscuit-cups/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Sloppy-Joe-Muffinförmchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-smothered-chicken-breasts",
+      "slug": "toh-smothered-chicken-breasts",
+      "title": "Hähnchenbrust unter Käse und Zwiebeln",
+      "instructions": "Saftige Hähnchenbrust aus der Pfanne, belegt mit knusprigem Speck, süßen karamellisierten Zwiebeln und einer Schicht geschmolzenem Colby-Jack-Käse. Ein schnelles, beliebtes Pfannengericht, das viel üppiger schmeckt, als die kurze Zutatenliste vermuten lässt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/smothered-chicken-breasts/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust in einer Familienpackung und friere jeweils zwei Stücke zusammen ein. So sinken die Kosten pro Portion deutlich gegenüber einzelnen Packungen.",
+        "Speckabschnitte und Speckwürfel sind günstiger als ganze Scheiben und eignen sich hier bestens, da du den Speck ohnehin zerbröselst.",
+        "Ein Stück Käse, das du selbst reibst, ist pro Unze günstiger als fertig geriebener Käse und schmilzt besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck",
+          "savings": "~$0.13 pro Scheibe"
+        },
+        {
+          "forIngredientId": "colby-jack",
+          "swap": "Colby-Käse",
+          "savings": "gleicher Preis, oft im Angebot"
+        },
+        {
+          "forIngredientId": "lemon-pepper",
+          "swap": "Gewürzsalz",
+          "savings": "~$0.21 pro Teelöffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Hähnchen",
+        "Speck",
+        "Pfannengericht",
+        "Wohlfühlessen",
+        "schnelles-Abendessen",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 507,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-smothered-chicken-breasts/",
+      "components": [
+        {
+          "key": "45cb7c57-8820-5e70-bda1-1b39bd3079f0",
+          "name": "Zutaten",
+          "servingGrams": 221.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a5dded6-bdb3-55bd-bb34-7a19c0feea66",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51b6fa37-c63c-53a0-b21b-e895575a89f6",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f374c77-485c-5443-9ea3-fc5be3ac82a2",
+              "ingredientName": "Zitronen-Pfeffer-Gewürz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d50e33d-0d29-5c68-90fb-280455747268",
+              "ingredientName": "Rapsöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f11fba28-5e18-589f-a35a-d9061332e8e8",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62fc9d53-353e-5c0e-ada3-aa57fb5a6359",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "39eec88a-4c8d-5d01-9ba8-753914f4b1b2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gepackt"
+            },
+            {
+              "key": "769a3ccc-3704-5b8b-9faa-85047ad8a991",
+              "ingredientName": "Colby-Jack-Käse",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze beide Seiten der Hähnchenbrüste mit Salz und Zitronen-Pfeffer-Gewürz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Rapsöl in einer großen Pfanne bei mittlerer Hitze und brate das Hähnchen, bis es vollständig gar ist (Kerntemperatur 165F), etwa 6-8 Minuten pro Seite. Lege es auf einen Teller und halte es warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Speck in derselben Pfanne bei mittlerer Hitze knusprig und lege ihn dann auf Küchenpapier. Gieße das Fett ab und lass etwa 2 EL in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die geschnittene Zwiebel und den braunen Zucker in den Bratensatz und brate sie bei mittlerer Hitze, bis die Zwiebel weich und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerbrösele den Speck über jeder Hähnchenbrust oder lege ihn darauf. Gib karamellisierte Zwiebel darüber und schließe mit geriebenem Colby-Jack-Käse ab. Die Restwärme lässt ihn schmelzen. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Smothered-Chicken-Breasts_EXPS_SDON17_32248_B07_06_2b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/smothered-chicken-breasts/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchenbrust unter Käse und Zwiebeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-southwest-chicken-barley-chowder",
+      "slug": "toh-southwest-chicken-barley-chowder",
+      "title": "Südwestliche Hähnchen-Graupensuppe",
+      "instructions": "Eine herzhafte, cremige Suppe aus einem Topf mit zartem Hähnchen, bissfesten Graupen, schwarzen Bohnen und süßem Mais, gewürzt mit Taco-Gewürzen und abgerundet mit etwas Kaffeesahne. Ein wärmendes Wohlfühlessen mit Aromen des Südwestens, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/southwest-chicken-barley-chowder/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze frische Hähnchenbrust durch Oberkeulen oder Hähnchen vom Drehspieß, um Geld zu sparen und Geschmack hinzuzufügen.",
+        "Lass die Kaffeesahne weg und rühre einen Löffel saure Sahne oder einen Schuss Milch ein, um das Gericht leichter und günstiger abzurunden.",
+        "Tiefgekühlter Mais und Bohnen aus der Dose sind günstige Vorratszutaten. Kaufe größere Mengen, um die Kosten pro Portion zu senken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kabocha-squash",
+          "swap": "Kürbispüree aus der Dose oder pürierter Winterkürbis",
+          "savings": "Oft günstiger und leichter zu finden als frischer Kürbis"
+        },
+        {
+          "forIngredientId": "half-and-half",
+          "swap": "Vollmilch oder ein Schuss Sahne, mit Wasser verdünnt",
+          "savings": "Verwendet, was bereits vorrätig ist"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen ohne Knochen und Haut oder übriges Hähnchen vom Drehspieß",
+          "savings": "Schenkel sind pro Pfund günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "südwestlich",
+        "Suppe",
+        "Eintopf",
+        "Hähnchen",
+        "Graupen",
+        "aus-einem-Topf",
+        "Südwesten",
+        "schwarze-Bohnen",
+        "Abendessen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 508,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-southwest-chicken-barley-chowder/",
+      "components": [
+        {
+          "key": "1e289bfe-a3b0-562e-8750-a7469e7926a9",
+          "name": "Zutaten",
+          "servingGrams": 447.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc7b781b-0f70-5e0a-8fc9-723d3163276e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95d47fae-601b-5c5c-b118-d1beaf633163",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "in 3/4-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "e5b20316-5edf-58ff-a68d-dc585f75a878",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "6452e893-e6c0-5a5f-a5c7-855cd79e91b8",
+              "ingredientName": "Kabocha-Kürbis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Ersatz für tiefgekürbten Winterkürbis aus der Dose, aufgetaut"
+            },
+            {
+              "key": "93d044e0-92bc-5d73-a82e-e93badaaf082",
+              "ingredientName": "Perlgraupen",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "schnell garend"
+            },
+            {
+              "key": "f0c203b8-6cdb-5911-9823-29ff2bdad3a9",
+              "ingredientName": "Taco-Gewürz nach Hausart",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "974cfbc2-63f1-5214-85a4-b034546ea8f4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "917bef41-226a-5e65-a012-db542b7f0fcb",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1534df45-b8b9-5073-9512-fe5c4cd2abde",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "6f741cbb-f7d6-51e1-b41f-a8e25d7365cc",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "abgespült und abgetropft"
+            },
+            {
+              "key": "ccdfb00b-800c-5c23-ad29-3faa37aecda4",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6db12a26-b240-5c35-abb2-17ab788a2f92",
+              "ingredientName": "Kaffeesahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e8fad12-a58e-51c8-a405-5c2390507a9e",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e50511de-743f-588a-8c92-d6ccc8f8f059",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "5b5b20ce-bf6e-5807-99d0-09280991bdf4",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "gewürfelt, zum Servieren"
+            },
+            {
+              "key": "9824ecb5-c151-510a-a9fc-60644a53a516",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "gehackt, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze. Gib gewürfeltes Hähnchen und gehackte Zwiebel dazu und rühre ein paar Minuten, bis die Zwiebel weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Kürbis, Graupen, Taco-Gewürz, Salz, Pfeffer und Hühnerbrühe ein. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze, decke den Topf ab und lass alles 10 bis 12 Minuten köcheln, bis die Graupen zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre schwarze Bohnen, Mais, Kaffeesahne, Salsa und Koriander ein. Erhitze alles unter gelegentlichem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Suppe in Schüsseln und gib nach Wunsch gewürfelte Avocado und Tomaten darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps190257_SD163324B08_11_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/southwest-chicken-barley-chowder/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von südwestlicher Hähnchen-Graupensuppe",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-spicy-beef-pepper-stir-fry",
+      "slug": "toh-spicy-beef-pepper-stir-fry",
+      "title": "Scharfes Rindfleisch-Pfannengericht",
+      "instructions": "Zarte Rumpsteakstreifen marinieren in Ingwer und Knoblauch und werden kurz angebraten. Dazu kommen knackige Paprika und Zwiebel in einer cremigen, säuerlich-frischen Kokos-Limetten-Soße mit Sriracha. Zusammen mit weichem Spinat, Frühlingszwiebeln und Koriander entsteht ein schnelles, scharfes Pfannengericht für unter der Woche. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/spicy-beef-pepper-stir-fry/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Rumpsteak durch ein günstigeres Stück wie Flanksteak, Skirtsteak oder dünn geschnittene Rinderschulter. Schneide das Fleisch quer zur Faser, damit es zart bleibt.",
+        "Limettensaft aus der Flasche und tiefgekühlter Spinat, aufgetaut und ausgedrückt, senken die Kosten, ohne dem Gericht zu schaden.",
+        "Verwende normale rote Paprika statt einer süßen Sorte und gib eine Prise Zucker in die Soße. Sie schmecken fast gleich, aber die normale Paprika kostet viel weniger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sirloin-steak",
+          "swap": "Flanksteak oder Rindergulasch, in dünne Streifen geschnitten",
+          "savings": "Verwende ein günstigeres Stück und spare etwa $2-4 beim Gericht"
+        },
+        {
+          "forIngredientId": "lime-juice-bottled",
+          "swap": "Frische Limette (Saft und Schale einer Limette)",
+          "savings": "Eine frische Limette reicht für Saft und Schale"
+        },
+        {
+          "forIngredientId": "sriracha",
+          "swap": "Knoblauch-Chili-Soße oder süße Chilisauce für ähnliche Schärfe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch-inspiriert",
+        "Pfannengericht",
+        "scharf",
+        "Rindfleisch",
+        "Kokos",
+        "Abendessen",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 509,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-spicy-beef-pepper-stir-fry/",
+      "components": [
+        {
+          "key": "17798f85-4b00-582b-8693-ab1d020316fb",
+          "name": "Zutaten",
+          "servingGrams": 536.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "64257da6-1a92-57e4-b74b-d2da57e22ec5",
+              "ingredientName": "Rumpsteak",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "in dünne Streifen geschnitten"
+            },
+            {
+              "key": "c0f1b00a-023d-5845-ba35-8b8d1d879360",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "frisch, gehackt"
+            },
+            {
+              "key": "71a19ea0-b8f8-5889-93a2-e82223ea1462",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt, aufgeteilt"
+            },
+            {
+              "key": "a4a6406c-da23-5a9d-8075-6beb69ec3cdd",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cea01d9-ea2c-5203-b938-7bd80d6c3a69",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "272fd891-5235-52e0-856b-d6cb9e78e842",
+              "ingredientName": "Kokosmilch",
+              "grams": 240,
+              "quantity": 0.6,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "leicht; etwa 1 Tasse"
+            },
+            {
+              "key": "d4d6cdd7-8a76-501b-8a9d-fb08698d7c85",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00299eed-6ee5-5d42-b583-fe695fdfa26f",
+              "ingredientName": "Sriracha",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1 Esslöffel"
+            },
+            {
+              "key": "49bebba1-c22b-5110-a5d3-ea53ff12e814",
+              "ingredientName": "Limettenschale",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3af32a92-c99b-5218-8429-82251c1c31cb",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a8ef6bf-dc5d-5ce2-9689-75157a6aa310",
+              "ingredientName": "Rapsöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "a269e123-2361-567d-acb4-a19ca70afe78",
+              "ingredientName": "Rote Paprika",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "in dünne Streifen geschnitten"
+            },
+            {
+              "key": "7392c40c-11eb-52d1-be01-c9127f04ab43",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "55eba635-bdbc-582f-89ba-d2fded468e77",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "entkernt und in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "44024e67-ec31-5338-9d4c-c96eeec0d6e7",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "frischer Babyspinat"
+            },
+            {
+              "key": "52f3abe1-2799-52d0-a1de-ff356d0bdf71",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "cefb89a1-0297-5291-86f8-d6ead6a913bb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische die geschnittenen Rumpsteakstreifen mit gehacktem Ingwer, zwei Knoblauchzehen, Pfeffer und der Hälfte des Salzes. Lass das Fleisch etwa 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre während das Rindfleisch ruht Kokosmilch, Zucker, Sriracha, Limettenschale, Limettensaft und das übrige Salz zur Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 EL Öl in einer großen Pfanne bei mittlerer bis hoher Hitze. Brate das Rindfleisch im Wok-Stil, bis es gerade durchgegart ist, 2 bis 3 Minuten, und lege es dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das übrige Öl in die Pfanne und brate rote Paprika, rote Zwiebel, Jalapeño und die letzte Knoblauchzehe 2 bis 3 Minuten, bis das Gemüse knackig-zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Kokossoße dazu und lass sie leicht köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Rindfleisch zurück in die Pfanne und füge den Spinat dazu. Gare alles unter gelegentlichem Rühren, bis der Spinat zusammengefallen und das Gericht heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verfeinere das Gericht mit Frühlingszwiebeln und Koriander und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/Spicy-Beef-Stir-Fry_EXPS_TOHD24_186044_AnaStanciu_9.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/spicy-beef-pepper-stir-fry/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einem scharfen Rindfleisch-Pfannengericht",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

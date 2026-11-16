@@ -1,0 +1,1348 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-chicken-noodle-salad-with-sesame-soy-dressing",
+      "slug": "she-chicken-noodle-salad-with-sesame-soy-dressing",
+      "title": "Hähnchen-Nudelsalat mit Sesam-Soja-Dressing",
+      "instructions": "Ein frischer, knackiger Nudelsalat nach vietnamesischer Art mit gezupftem Hähnchen, knackigem Kohl und Kräutern, alles vermischt mit einem glänzenden süß-sauren Sesam-Soja-Dressing. Frisch, schnell und in 15 Minuten fertig, ohne dass außer den Nudeln etwas gekocht werden muss. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-noodle-salad-with-sesame-soy-dressing/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenes oder fertig gegrilltes Hähnchen, statt frisches zu pochieren. Das spart Geld und Zeit.",
+        "Kaufe eine Tüte fertige Krautsalatmischung. Damit hast du beide Kohlsorten und die Karotte günstig in einem Produkt.",
+        "Rühre das einfache Sesam-Soja-Limetten-Dressing selbst an, statt ein fertiges Dressing zu kaufen. Es kostet nur wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale Sojasauce verwenden (Hinweis: dann ist das Gericht nicht mehr glutenfrei)",
+          "savings": "About $0.10 pro EL"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Gezupftes Hähnchen vom Grill verwenden",
+          "savings": "About $0.65 pro Portion"
+        },
+        {
+          "forIngredientId": "lime-juice-bottled",
+          "swap": "Reisweinessig verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "vietnamesisch",
+        "Salat",
+        "Nudeln",
+        "Hähnchen",
+        "asiatisch",
+        "schnell",
+        "ohne Kochen",
+        "Meal Prep",
+        "frisch",
+        "Sesam"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 345,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-noodle-salad-with-sesame-soy-dressing/",
+      "components": [
+        {
+          "key": "fed23006-6459-5fad-999d-bd6b9c604fa4",
+          "name": "Zutaten",
+          "servingGrams": 692.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "d914b9a9-b477-5c33-8cec-476cf9855e73",
+              "ingredientName": "Reisnudeln (Fadennudeln)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "100g, gegart as per packet instructions"
+            },
+            {
+              "key": "6286189c-f3dd-5ed6-852e-a1249edd222d",
+              "ingredientName": "Kohl",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "35g geraspelt red cabbage"
+            },
+            {
+              "key": "8d20960e-8901-5beb-973e-c4e39d117018",
+              "ingredientName": "Kohl",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "35g geraspelt green cabbage"
+            },
+            {
+              "key": "c85e44da-0699-5814-9313-0d788a403d36",
+              "ingredientName": "Karotte",
+              "grams": 42.7,
+              "quantity": 0.7,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "45g, in feine Streifen geschnitten"
+            },
+            {
+              "key": "598a71cb-80ea-5f52-9131-e845cbc53f1a",
+              "ingredientName": "Mungobohnensprossen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "45g"
+            },
+            {
+              "key": "b314e046-1504-56cf-8b35-c58199001567",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 80,
+              "quantity": 0.8,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "100g geraspelt poached chicken"
+            },
+            {
+              "key": "b6018764-c214-558c-9be0-4961aaa53290",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "7g coriander (cilantro) Blätter"
+            },
+            {
+              "key": "1098a1ce-e4f6-5306-a655-d822cf17c5c4",
+              "ingredientName": "Frische Minze",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "5g mint Blätter"
+            },
+            {
+              "key": "1058e559-76ca-5ea0-a9d4-d179b0b5f4b9",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 EL store-bought crispy fried shallots"
+            },
+            {
+              "key": "c99c71d6-c7e4-5ee4-9016-1b9b6c7f971b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7cb2fa47-351a-5049-9cb3-31c243fe5b5b",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL sweet chilli sauce (oder honey)"
+            },
+            {
+              "key": "d3716ff5-d432-5363-9f36-677da3fe9bac",
+              "ingredientName": "Tamari",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL tamari (oder Weizen- Sojasauce)"
+            },
+            {
+              "key": "b79e1d57-d605-557c-9724-b1fbf9299796",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "767711c6-cd57-5171-a5a8-0834911f51bd",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 EL Limettensaft (oder Reisessig)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Reisfadennudeln nach Packungsanleitung, gieße sie ab und lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Nudeln, den Rotkohl, den Weißkohl, die Karotte, Mungobohnensprossen, gezupftes Hähnchen, Koriander und Minze in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre in einer separaten Schüssel süße Chilisauce, Tamari, Sesamöl und Limettensaft zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Träufle das Dressing über den Salat und vermische alles, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue den Salat nach Wunsch mit knusprigen Röstschalotten und Sesamsamen und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/07/Chicken-Noodle-Salad-with-Sesame-Soy-Dressing-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-noodle-salad-with-sesame-soy-dressing/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Nudelsalat mit Sesam-Soja-Dressing",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-chicken-quesadillas",
+      "slug": "she-chicken-quesadillas",
+      "title": "Hähnchen-Quesadillas",
+      "instructions": "Goldbraune, knusprige Weizentortillas sind mit würzigem, rauchigem Hähnchen und reichlich geschmolzenem Käse gefüllt. In 20 Minuten fertig und perfekt zum Dippen. Dazu passen saure Sahne, Pico de Gallo und ein Spritzer Limette. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-quesadillas/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen sind hier günstiger und saftiger als Brustfleisch und verzeihen es, wenn sie etwas zu lange garen.",
+        "Kaufe ein Stück Käse und reibe es selbst. Das kostet pro Unze weniger als fertig geriebener Käse und schmilzt besser.",
+        "Lass gekauftes Guacamole und Pico de Gallo weg: Zerdrücke eine Avocado und würfle eine Tomate mit Zwiebel und Limette als ebenso leckeren, viel günstigeren Belag."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust oder Hähnchenfiletstreifen (gut im Auge behalten, damit sie nicht zu lange garen)",
+          "savings": "Ähnlicher Preis"
+        },
+        {
+          "forIngredientId": "shredded-mexican-blend",
+          "swap": "Geriebener Cheddar oder Mozzarella oder eine Mischung aus beiden",
+          "savings": "beliebige vorhundene block cheese is im Angebot"
+        },
+        {
+          "forIngredientId": "sweet-paprika",
+          "swap": "Geräuchertes Paprikapulver für ein kräftigeres Raucharoma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Quesadilla",
+        "Hähnchen",
+        "Tex-Mex",
+        "unter der Woche",
+        "schnell",
+        "30 Minuten",
+        "kinderfreundlich",
+        "in der Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 346,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-quesadillas/",
+      "components": [
+        {
+          "key": "4bc58d77-207b-5c90-a96d-7253147ac06c",
+          "name": "Zutaten",
+          "servingGrams": 404.41,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6cc7bcb-3d89-52d0-bf70-e9f72b7bb691",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "500g ohne Knochen ohne Haut chicken thighs, fein gewürfelt"
+            },
+            {
+              "key": "9812ca04-722e-50cb-8ebf-c2c8a476cac7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL, aufgeteilt"
+            },
+            {
+              "key": "627b3d34-b730-5f45-b586-5d157d44f3b1",
+              "ingredientName": "Edelsüßes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1ab74088-7d38-5f74-b826-45762551df0d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "32e2e928-21a0-58cb-a952-0e59c8fdc277",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9c7ea422-d1ed-5682-ba91-69dd4cbefd67",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL gemahlen cumin"
+            },
+            {
+              "key": "dc0062d7-6a2d-596c-8478-4a47e19cf2fc",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0b8a3ca5-0153-54cb-a898-c5868b86b7d0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "684e4641-a3ac-58c8-86f8-8c1bdd66ba2a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "3a7941b1-d3b4-597e-a602-44719396a653",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 red onion, fein gewürfelt"
+            },
+            {
+              "key": "478965e1-be39-58a1-848c-c0dea8c488bf",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt garlic"
+            },
+            {
+              "key": "b321f88d-af64-58af-8f84-2c52d71d2407",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 groß flour tortillas"
+            },
+            {
+              "key": "48d32637-b00c-59bf-94af-288cd9e0352d",
+              "ingredientName": "Geriebene mexikanische Käsemischung",
+              "grams": 255.15,
+              "quantity": 255.15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "250g geraspelt cheese (cheddar/mozzarella mix)"
+            },
+            {
+              "key": "60b85596-9484-587a-bc06-1aba989033ff",
+              "ingredientName": "Saure Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "fa00e468-0a33-5958-a5e7-fe5a81635c00",
+              "ingredientName": "Pico de Gallo",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "pico de gallo, zum Servieren"
+            },
+            {
+              "key": "b3e0b64b-7de1-58db-82b7-7fc2083fbcc7",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "guacamole, zum Servieren"
+            },
+            {
+              "key": "f132969c-8f9b-5542-be4b-ce8cc9166d41",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "1/4 bunch coriander, Blätter picked"
+            },
+            {
+              "key": "8ab738a1-0fa3-5654-b720-b47b8d3cc99c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "geschnitten in wedges, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen marinieren: Wende das gewürfelte Hähnchen in einer großen Schüssel mit 2 EL Olivenöl, Paprika, Knoblauchpulver, Zwiebelpulver, Kreuzkümmel, Oregano, Salz und Pfeffer, bis es gleichmäßig bedeckt ist. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aromaten anbraten: Erhitze das restliche 1 EL Olivenöl in einer großen, tiefen Pfanne bei mittlerer bis hoher Hitze. Gib rote Zwiebel und gehackten Knoblauch dazu und brate alles unter Rühren 1-2 Minuten, bis es weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen braten: Gib das marinierte Hähnchen dazu und brate es unter Rühren 6-8 Minuten, bis es goldbraun und durchgegart ist. Lege es auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Quesadilla belegen: Lege eine Tortilla in derselben Pfanne bei mittlerer Hitze flach hinein. Verteile reichlich Käse auf einer Hälfte, gib etwas von der Hähnchenmischung darauf und bedecke sie mit einer weiteren Käseschicht, die alles zusammenhält. Klappe die Tortilla halbmondförmig zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Knusprig braten: Reduziere die Hitze auf mittlere bis niedrige Stufe und brate die Quesadilla 2-3 Minuten, bis sie goldbraun und knusprig ist. Wende sie vorsichtig mit einem Pfannenwender und brate die andere Seite ebenfalls goldbraun. Lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wiederhole den Vorgang mit den übrigen Tortillas, dem Hähnchen und dem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Quesadillas 1 Minute ruhen und schneide sie dann in Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie sofort mit saurer Sahne, Pico de Gallo, Guacamole, frischem Koriander und Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/08/Chicken-Quesadillas-recipe-served-with-pico-de-gallo.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-quesadillas/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Quesadillas",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-chicken-salad-with-creamy-peanut-dressing",
+      "slug": "she-chicken-salad-with-creamy-peanut-dressing",
+      "title": "Hähnchensalat mit cremigem Erdnussdressing",
+      "instructions": "Eine knackige, bunte Schüssel mit gezupftem Hähnchen, knackigem Kohl, Karotte, Gurke und Edamame, abgerundet mit einem glänzenden Erdnuss-Limetten-Dressing. Frisch, proteinreich und in nur 15 Minuten fertig. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-salad-with-creamy-peanut-dressing/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenes oder fertig gegrilltes Hähnchen, statt frisches zu pochieren. Das spart Geld und Zeit.",
+        "Kaufe einen ganzen Kohlkopf und eine Karotte und raspel sie selbst, statt vorgeschnittene Mischungen zu kaufen. So bekommst du mehr Portionen für dein Geld.",
+        "Tiefgekühlte Edamame sind günstiger als frische und halten sich monatelang. So verwendest du nur so viel, wie du gerade brauchst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Gezupftes Hähnchen vom Grill oder gebackener Tofu für eine einfache oder vegane Variante",
+          "savings": "Tofu cuts protein Kosten roughly in half"
+        },
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale Sojasauce verwenden, wenn das Gericht nicht glutenfrei sein muss",
+          "savings": "spart etwa $0.10 pro EL"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "Limettensaft aus der Flasche ist eine praktische Alternative",
+          "savings": "günstiger pro Verwendung und keine Lebensmittelverschwendung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Salat",
+        "Erdnussdressing",
+        "ohne Kochen",
+        "Meal Prep",
+        "glutenfrei möglich",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 347,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-salad-with-creamy-peanut-dressing/",
+      "components": [
+        {
+          "key": "ededb48b-05be-5961-9859-786f21a18a6f",
+          "name": "Zutaten",
+          "servingGrams": 660.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c30bb604-3c07-5792-863c-f958730ad25e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 60,
+              "quantity": 0.6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "75g geraspelt poached chicken"
+            },
+            {
+              "key": "af82af0f-4b9b-5f94-aaa5-1bbbc51a7f40",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "35g geraspelt green cabbage"
+            },
+            {
+              "key": "cf4831ec-ef09-5033-bb14-6529ad84601a",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "35g geraspelt red cabbage"
+            },
+            {
+              "key": "18f79a1f-5426-5815-bf39-01df4fed4ae4",
+              "ingredientName": "Karotte",
+              "grams": 45.75,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "45g geraspelt carrot"
+            },
+            {
+              "key": "1ead2555-d09d-51b6-af44-9550b4c5ea04",
+              "ingredientName": "Gurke",
+              "grams": 90,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "80g in Scheiben geschnitten cucumber"
+            },
+            {
+              "key": "343fb254-6ddf-55b1-aa52-e565cf9ee364",
+              "ingredientName": "Edamame",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "70g Edamame-Bohnen"
+            },
+            {
+              "key": "9398ecd5-0ee6-599d-8799-7291d13bb84f",
+              "ingredientName": "Schalotte",
+              "grams": 6.25,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 TL crispy-fried shallots"
+            },
+            {
+              "key": "ac18e3f1-536f-5d9f-aec5-59d322e846cc",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 TL sesame seeds"
+            },
+            {
+              "key": "cea4b2f1-867f-5d3d-8df9-35f61b1523a7",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL natural peanut butter (smooth)"
+            },
+            {
+              "key": "95176e61-cee2-517e-9d50-94dfdbd43528",
+              "ingredientName": "Tamari",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL tamari oder Weizen- Sojasauce"
+            },
+            {
+              "key": "aae3d67b-0870-5e4c-b8f6-f48c224e1a71",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL Sesamöl"
+            },
+            {
+              "key": "005269b5-e5ca-545e-8baf-31746386430a",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL sweet chilli sauce"
+            },
+            {
+              "key": "4b43cfd3-32e9-5e7e-92c6-af254edaa9b4",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL frisch Limettensaft"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib gezupftes Hähnchen, Grün- und Rotkohl, Karotte, Gurke und Edamame in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dressing zubereiten: Verrühre Erdnussbutter, Tamari, Sesamöl, süße Chilisauce und Limettensaft in einer kleinen Schüssel, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Träufle das Dressing über den Salat und vermische alles, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue den Salat nach Wunsch mit knusprigen Röstschalotten und Sesamsamen und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/05/Chicken-Salad-with-Creamy-Peanut-Dressing-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-salad-with-creamy-peanut-dressing/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchensalat mit cremigem Erdnussdressing",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-chicken-schnitzel-pesto-sandwich",
+      "slug": "she-chicken-schnitzel-pesto-sandwich",
+      "title": "Hähnchenschnitzel-Pesto-Sandwich",
+      "instructions": "Knuspriges Hähnchenschnitzel auf getoasteten Sauerteigbrötchen mit Basilikumpesto, saftiger Tomate, frischem Mozzarella, würzigem Rucola und cremiger Mayonnaise. Ein 10-Minuten-Mittagessen wie vom Feinkostladen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-schnitzel-pesto-sandwich/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende vorgegartes oder übrig gebliebenes Hähnchenschnitzel beziehungsweise panierte Hähnchenscheiben, um das Braten ganz zu überspringen.",
+        "Ersetze frischen Mozzarella durch günstigeren Schnittkäse. Er schmilzt gut und schmeckt lecker, kostet aber nur einen Bruchteil.",
+        "Kaufe ein Sauerteigbaguette und schneide die Brötchen selbst ab, statt einzelne Brötchen zu bezahlen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fresh-mozzarella",
+          "swap": "Beliebiger Schnittkäse, zum Beispiel Provolone, Schweizer Käse oder Cheddar",
+          "savings": "spart ca. $2"
+        },
+        {
+          "forIngredientId": "sub-rolls",
+          "swap": "Längliche Sandwichbrötchen oder Ciabatta",
+          "savings": "vergleichbar"
+        },
+        {
+          "forIngredientId": "arugula",
+          "swap": "Junger Spinat oder gemischte Salatblätter",
+          "savings": "spart ca. $1"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "australisch",
+        "Sandwich",
+        "Hähnchen",
+        "Pesto",
+        "schnell",
+        "Mittagessen",
+        "Schnitzel",
+        "Mozzarella",
+        "10 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 348,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-schnitzel-pesto-sandwich/",
+      "components": [
+        {
+          "key": "5d8a703d-7766-571c-8afd-8d3d048bc2ff",
+          "name": "Zutaten",
+          "servingGrams": 375.86,
+          "position": 0,
+          "items": [
+            {
+              "key": "25a3f179-7248-5938-868b-f5089e806783",
+              "ingredientName": "Sandwichbrötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 long sourdough rolls oder baguette sections, halbiert lengthways"
+            },
+            {
+              "key": "566b3c48-a955-51de-a2e4-80a57deeaa72",
+              "ingredientName": "Pesto",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL basil pesto"
+            },
+            {
+              "key": "8432e16e-ed9d-53a9-9040-ffa8e4a86851",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 gegart chicken schnitzels"
+            },
+            {
+              "key": "5bd069cf-6529-5c24-b0b3-0f990474a9b6",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 groß tomatoes, fein in Scheiben geschnitten"
+            },
+            {
+              "key": "14827348-c8ff-58c5-a070-9bbd5471e5a4",
+              "ingredientName": "Frischer Mozzarella",
+              "grams": 198.45,
+              "quantity": 198.45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "200g frisch mozzarella, fein in Scheiben geschnitten"
+            },
+            {
+              "key": "c284c1bf-ba49-5b1c-9246-dd2c5b44981a",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Meersalzflocken, nach Geschmack"
+            },
+            {
+              "key": "ae3723f0-c98a-5fb7-a42b-3ad00056b88c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "frisch gemahlen schwarzer Pfeffer, nach Geschmack"
+            },
+            {
+              "key": "4b862e42-5881-50dd-a280-997791bcb87d",
+              "ingredientName": "Rucola",
+              "grams": 300,
+              "quantity": 0.6,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "90g Rucola"
+            },
+            {
+              "key": "599c62b3-eee3-5569-8f85-81df6e360251",
+              "ingredientName": "Mayonnaise",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL Vollei- mayonnaise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofengrill auf hoher Stufe vor. Lege die Brötchen mit der Schnittfläche nach oben auf ein Backblech und röste sie 1-2 Minuten, bis sie goldbraun und leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Unterseiten der Brötchen mit Pesto.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege auf jede Unterseite ein Hähnchenschnitzel und darauf Tomatenscheiben und frischen Mozzarella.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Schichten nach Geschmack mit Meersalzflocken und frisch gemahlenem schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Rucola auf dem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die Schnittseite jeder oberen Brötchenhälfte mit Mayonnaise und klappe die Sandwiches zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Drücke die Sandwiches leicht zusammen, schneide jedes in zwei Hälften und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/04/Crispy-Chicken-Pesto-Sandwich-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-schnitzel-pesto-sandwich/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Hähnchenschnitzel-Pesto-Sandwich",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-chicken-with-creamy-tomato-sauce",
+      "slug": "she-chicken-with-creamy-tomato-sauce",
+      "title": "Hähnchen mit cremiger Tomatensoße",
+      "instructions": "Goldbraun gebratene Hähnchenfilets in einer samtigen Parmesan-Sahnesoße mit süßen, halbtrockenen Tomaten und zusammengefallenem Spinat. Ein 20-Minuten-Pfannengericht, das wie eine Restaurant-Spezialität schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/chicken-with-creamy-tomato-sauce/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine ganze Hähnchenbrust und schneide sie selbst waagerecht auf, statt vorgeschnittene Schnitzel zu kaufen. So sparst du ein paar Dollar pro Pfund.",
+        "Ersetze den geriebenen Parmesan durch ein Stück, das du selbst reibst. Das ist pro Unze günstiger und hält sich deutlich länger.",
+        "Verwende tiefgekühlten Spinat, aufgetaut und gut ausgedrückt, statt frischen Babyspinat. Das spart viel Geld, ohne das Rezept zu verändern."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Gleiche Teile Vollmilch, mit Mehl angedickt, oder Kondensmilch für eine leichtere, günstigere Soße",
+          "savings": "ca. $0.30/Portion"
+        },
+        {
+          "forIngredientId": "sun-dried-tomatoes",
+          "swap": "Geröstete rote Paprika oder ein Löffel Tomatenmark mit einer Prise Zucker",
+          "savings": "ca. $0.50/Portion"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen ohne Knochen und Haut; sie sind saftiger und meist günstiger",
+          "savings": "ca. $0.40/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch inspiriert",
+        "Hähnchen",
+        "cremig",
+        "aus einer Pfanne",
+        "unter der Woche",
+        "schnell",
+        "kohlenhydratarm",
+        "Tomate",
+        "Spinat",
+        "Parmesan",
+        "Pfannengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 349,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-chicken-with-creamy-tomato-sauce/",
+      "components": [
+        {
+          "key": "7ca1b019-fbe5-5e53-8e9f-27c197aa3975",
+          "name": "Zutaten",
+          "servingGrams": 718.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "d83ab494-c992-5d31-9784-9a2190eb3c71",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 groß breasts, in Scheiben geschnitten halbiert horizontally into 4 thinner steaks"
+            },
+            {
+              "key": "88879d6b-6070-5f0a-9081-e193a0158589",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "72f8e807-b3c2-595e-a165-b3dfed498797",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "1329b94d-7e9b-57c8-adea-a22f96541371",
+              "ingredientName": "Weizenmehl",
+              "grams": 14.4,
+              "quantity": 14.4,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL plain (Weizen-) flour"
+            },
+            {
+              "key": "7035c34e-062e-5565-9201-8f9b51a4232f",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "60 g, aufgeteilt"
+            },
+            {
+              "key": "926aaca7-12ad-59a7-b033-f5e7623a5caf",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt"
+            },
+            {
+              "key": "1dea74a7-84bd-5f30-ab3e-146093c13542",
+              "ingredientName": "Getrocknete Tomaten (in Öl eingelegt)",
+              "grams": 200,
+              "quantity": 0.4,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "80 g marinierte, halbtrockene (sonnengetrocknete) Tomaten"
+            },
+            {
+              "key": "b8dcecc3-ac34-52c0-b517-d60ca09cce1c",
+              "ingredientName": "Spinat",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "180 g frisch baby spinach Blätter"
+            },
+            {
+              "key": "17cc92b4-12db-5f2f-a53d-86a7ce9a357d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "250 ml"
+            },
+            {
+              "key": "f19c208e-6e47-5224-8e93-8be31dc4259d",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "250 ml Schlagsahne"
+            },
+            {
+              "key": "fb3fc318-1eee-5884-8fcc-22f642326a26",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "100 g frisch gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Hähnchenfilets auf einen Teller und bestreue beide Seiten mit Salz, Pfeffer und Mehl. Reibe alles mit den Händen gleichmäßig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze etwa ein Viertel der Butter (20 g) in einer großen, schweren Pfanne bei mittlerer Hitze. Gib das Hähnchen hinein und brate es 3 Minuten pro Seite, bis es goldbraun und fast gar ist. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Hitze hoch und gib die restliche Butter (40 g) zusammen mit dem Knoblauch dazu. Rühre alles 30 Sekunden um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die halbtrockenen Tomaten und den Spinat dazu und brate alles 1 Minute, bis der Spinat zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Hühnerbrühe dazu und koche alles 2 Minuten, bis etwas Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Sahne dazu, reduziere die Hitze auf mittlere Stufe und koche alles 2 Minuten, bis die Soße etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre den Parmesan ein, gib das Hähnchen zurück in die Pfanne und koche alles weitere 2 Minuten, bis das Hähnchen durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht mit Reis, Kartoffelpüree, Pasta oder knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/08/Chicken-with-Creamy-Tomato-Sauce-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/chicken-with-creamy-tomato-sauce/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen mit cremiger Tomatensoße",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

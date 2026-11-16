@@ -1,0 +1,1173 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sisig",
+      "slug": "gen-sisig",
+      "title": "Sisig",
+      "instructions": "Philippinisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinekopf bei philippinischen Fleischern; er ist deutlich günstiger als übliche Fleischstücke.",
+        "Verwende Hähnchenschenkel als günstigen Ersatz, falls kein Schweinekopf erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2805,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sisig/",
+      "components": [
+        {
+          "key": "c0db5707-de90-5ee7-bfef-2a466642ae34",
+          "name": "Zutaten",
+          "servingGrams": 142.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "c14859c9-1fac-544c-895d-12e524b83b5b",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d4a7d473-ba1d-5a06-8ed8-bfb251f6384d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "b5e907e4-e9e4-5366-8c2c-a1be3f24d258",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "7fb757be-11b7-548e-8f6e-c056a3e272d3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b58ce5e0-f7b0-5745-b659-d8eee4ef2b5e",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5361baaf-8ad4-5516-ba32-d06c676ac40d",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0b8bfcdf-2bab-5a16-83f4-99bb2f24a96b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d30760a4-aefd-5312-bff5-60b3131d75ac",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "57bcdb33-7f9c-5e55-b103-b57514fbca7f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f3c62746-b3a0-5f11-9528-368cba28fc29",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "24d7f23e-aee4-5d49-a76a-9246b653ed74",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Schweinekopf oder -schulter 30 Minuten in Salzwasser, bis das Fleisch zart ist. Lasse es abkühlen und hacke es fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Hühnerleber in einem separaten Topf 5 Minuten, gieße sie ab und hacke sie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne bei mittelhoher Hitze und brate gehackten Knoblauch und gewürfelte Zwiebel etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehacktes Schweinefleisch und Leber in die Pfanne und gare alles unter häufigem Rühren 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Limettensaft, Sojasauce, Essig und gehackte rote Chilischoten ein und gare alles weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe die Mischung an den Rand der Pfanne, schlage ein Ei in die Mitte und verrühre es leicht. Vermische es dann mit dem Schweinefleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere das Gericht heiß auf einer heißen Platte mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/0e/37/e5/0e37e5d1f20b45e62911a2ceb7db1b25.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/0e/37/e5/0e37e5d1f20b45e62911a2ceb7db1b25.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldereta",
+      "slug": "gen-caldereta",
+      "title": "Caldereta",
+      "instructions": "Philippinisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und schneide sie selbst in Würfel statt fertiges Gulaschfleisch zu nehmen.",
+        "Verwende tiefgekühlte Erbsen und Karotten, um Vorbereitungszeit und oft auch Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2806,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldereta/",
+      "components": [
+        {
+          "key": "a1172d53-4229-56c5-9f56-a45d7c76dc22",
+          "name": "Zutaten",
+          "servingGrams": 592.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b1e0f9f-2861-550a-91a2-2db55be8319c",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0602d5d9-7179-5df1-be51-e1d6399234de",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "d7977eaf-d32e-5cc6-8bb1-ad0a9a9274d1",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "5458302c-be1f-507f-9c41-3b2a1e479d13",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e1653a4-b3b9-5650-bad1-dc3f745d4d77",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen tiefgekühlt oder frisch"
+            },
+            {
+              "key": "822ce21a-03f3-50a4-be28-ad408c16e38c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "368d90e1-8dcc-5d61-b64d-1e48a55a5d78",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53de6c40-2ced-5c5b-bf24-f59922f532ba",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d9c6eac6-503a-5ecd-ad91-9a15b84ca658",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "b6063073-fa37-522b-a514-bad50add12c2",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tassen gerieben"
+            },
+            {
+              "key": "a49ecb8b-eaf9-5106-8eab-1a0ac6fe1e4e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2c1a65aa-9d88-5385-af32-7ee77bc2302c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher Hitze und bräune Rindfleischstücke etwa 10 Minuten rundherum an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate im selben Topf gehackten Knoblauch und gewürfelte Zwiebel etwa 2 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rindfleisch zurück in den Topf, füge Rinderbrühe und Tomatensauce hinzu und bringe alles zum Kochen. Reduziere die Hitze und lasse es zugedeckt 45 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Kartoffeln und Karotten in Stücke, gib sie in den Topf und lasse alles 15 Minuten köcheln, bis das Gemüse fast weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelte rote Paprika und Erbsen dazu und lasse alles weitere 5 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre geriebenen Cheddar ein, bis er geschmolzen ist, und würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß zu weißem Reis oder mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ooohdelish.com/wp-content/uploads/2026/01/ridamine_01407_filipino_recipe_beef_caldereta__Amateur_photo__e3304060-07a5-41d6-b594-ec67b6ae6e2c_3-780x780.png",
+          "sourcePageUrl": "https://ooohdelish.com/wp-content/uploads/2026/01/ridamine_01407_filipino_recipe_beef_caldereta__Amateur_photo__e3304060-07a5-41d6-b594-ec67b6ae6e2c_3-780x780.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-escabeche",
+      "slug": "gen-escabeche",
+      "title": "Escabeche",
+      "instructions": "Philippinisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Tilapia statt frischen Fisch und spare 30-40 %.",
+        "Kaufe Ananas aus der Dose statt frischer, damit der Preis das ganze Jahr über gleich bleibt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "philippinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2807,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-escabeche/",
+      "components": [
+        {
+          "key": "a69fc2d0-fce6-5dbb-98d0-f6ad9f19c9fb",
+          "name": "Zutaten",
+          "servingGrams": 233,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb82427a-c04a-54f0-86aa-faaad400cf82",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "90bfb529-36e9-55f5-904a-b83fbca4e6d1",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "8c01ae73-bdd3-51c3-b636-41846b759b43",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "c64fa048-27ca-581b-9907-7f71c7a70a12",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "8f248376-0da8-5fab-bfed-8f7c5b4daaa3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0945a7b4-8760-53be-99ed-d461168b3f31",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "7b5d6b94-3fc6-566e-bc65-6bec555985ed",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "7d44cd99-e4c6-5745-b519-c0b11ce45998",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "46b09d40-2040-5f95-82f0-93f33b717418",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bd0c03c1-45d7-5b8a-8cfd-0f410ebfa51f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe den Fisch trocken, würze ihn mit Salz und Pfeffer und wende ihn leicht in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und brate den Fisch etwa 4-5 Minuten pro Seite goldbraun. Stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate in derselben Pfanne gehackten Knoblauch und geschnittene Zwiebeln etwa 3 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Paprikastreifen und Ananasstücke dazu und rühre 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Essig, braunen Zucker und Sojasauce ein, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Fisch zurück in die Pfanne und überziehe ihn vorsichtig mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles ohne Deckel 8-10 Minuten köcheln, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle das Gericht auf eine Servierplatte und lasse es vor dem Servieren etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/qS617ujcJoLwC8Ku7znqfg2ieXE=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2005__10__Pickled-Jalapenos-LEAD-02-ba59843d046244f08c2e87afb7bc9a5b.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/qS617ujcJoLwC8Ku7znqfg2ieXE=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2005__10__Pickled-Jalapenos-LEAD-02-ba59843d046244f08c2e87afb7bc9a5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-relleno",
+      "slug": "gen-relleno",
+      "title": "Relleno",
+      "instructions": "Philippinisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten ganzen Fisch, falls frischer nicht erhältlich ist, und taue ihn vor dem Kochen vollständig auf.",
+        "Lasse Oliven weg und verwende mehr Rosinen, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "philippinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2808,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-relleno/",
+      "components": [
+        {
+          "key": "943a1f29-e9ad-5865-9e7a-ecf5267c9069",
+          "name": "Zutaten",
+          "servingGrams": 389.14,
+          "position": 0,
+          "items": [
+            {
+              "key": "ef82c8f8-8994-5897-8911-4509dcf63b5b",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "ae6b2126-b8f5-55cf-9538-8f08d532875f",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "df8754be-db53-55a4-b0d8-25ad4b36a9d5",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "53f0e693-c1c0-523f-a556-c9601445e114",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "56f43fa7-a3d1-5ead-9bb4-4d7d3c20ba52",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "d097f8cd-05ad-5272-8f51-eaf39046ea61",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "5351f91b-ef68-5ba6-865e-58e39581e6e0",
+              "ingredientName": "Rosinen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ce245f07-9c25-501c-a5f0-c75bf0f79f0a",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "a9e024c5-9b6d-50ec-91d9-527aed121b55",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea053665-989e-5b02-8bdb-985bdc60dd2b",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "ad9eae4e-f3d0-520e-87a7-fc85c265e297",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bitte den Fischhändler, das Rückgrat zu entfernen und die Haut intakt zu lassen, oder filetiere den Fisch vorsichtig selbst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Schweinehackfleisch mit gehacktem Knoblauch und gewürfelter Zwiebel an. Rühre Rosinen, Oliven, Salz und Pfeffer ein und lasse die Mischung abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die abgekühlte Schweinefleischmischung gleichmäßig in den Bauchraum des Fisches.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle ein Ei in einer flachen Schale. Bestäube den gefüllten Fisch leicht mit Mehl, tauche ihn in das Ei und wende ihn erneut in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer großen Pfanne und brate den Fisch vorsichtig etwa 5-7 Minuten pro Seite goldbraun. Nimm ihn dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bereite im selben Öl eine einfache Mehlschwitze zu, indem du Mehl einrührst und 1 Minute garst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Tomatensauce und Wasser dazu und rühre glatt. Lege den Fisch zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke die Pfanne ab und lasse alles 15-20 Minuten köcheln, bis der Fisch zart und die Sauce dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lege den Fisch auf eine Platte und gieße vor dem Servieren die Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2021/12/Chiles-Rellenos-FT_Ericka-Sanchez-for-Taste-of-Home.jpg?w=2400",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2021/12/Chiles-Rellenos-FT_Ericka-Sanchez-for-Taste-of-Home.jpg?w=2400",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanada",
+      "slug": "gen-empanada",
+      "title": "Empanada",
+      "instructions": "Philippinischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die Füllung am Vortag zu, um die aktive Kochzeit zu verkürzen.",
+        "Verwende Schweinehackfleisch statt Rind und spare 20 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "philippinisch",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2809,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanada/",
+      "components": [
+        {
+          "key": "a3084796-a599-53ec-a648-9c4b68506cc3",
+          "name": "Zutaten",
+          "servingGrams": 217.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "d691d453-73f6-5c5e-b924-30c662ca7310",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "19b6298b-979d-5b58-9bc2-0ef988128b38",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "67a031b2-e741-5ffd-bf21-7eeb04379701",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02532ad8-ca0a-5122-9215-f9221ef7c7a0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "99951a8f-b4e4-5c1b-9f97-06aaf835fde6",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3-4 EL"
+            },
+            {
+              "key": "a7a80a1a-0de5-578e-b157-7ab8702912ab",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4173e094-abe1-5b4b-8006-0be5f8d2b442",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "6d81c60b-f988-52e7-b765-924a29aa2155",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "1138cda6-1316-5b94-b037-2b57deca97b7",
+              "ingredientName": "Rosinen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b639aee2-49dc-5964-9d43-0f3c20d4cd72",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "6e66eed9-9b53-564c-893c-bfa3e1a90aea",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz in einer Schüssel und arbeite kalte Butter ein, bis die Mischung Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib verquirltes Ei und nach und nach Wasser dazu, bis ein Teig entsteht. Knete ihn vorsichtig glatt, wickle ihn ein und stelle ihn 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche gewürfelte Kartoffel 5-7 Minuten in kochendem Salzwasser, bis sie gerade weich ist, und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate Rinderhackfleisch mit gehacktem Knoblauch und Zwiebel etwa 8 Minuten gar. Rühre Kartoffel und Rosinen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig dünn zwischen Plastikfolien aus und schneide 3-inch große Kreise aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 1 EL Füllung auf jeden Kreis, klappe ihn halbmondförmig zusammen und drücke die Ränder mit einer Gabel fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Öl auf 350°F und frittiere die Empanadas insgesamt etwa 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit Essig oder süßer Chilisauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2012/10/beef-empanadas-1-6.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2012/10/beef-empanadas-1-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

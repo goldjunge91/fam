@@ -1,0 +1,1082 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tajine-lamb",
+      "slug": "gen-tajine-lamb",
+      "title": "Tajine mit Lamm",
+      "instructions": "Algerisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lamm im Angebot und frieren Sie es für später ein.",
+        "Lassen Sie Mandeln weg oder verwenden Sie als preiswerte Alternative Erdnüsse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "algerisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4045,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tajine-lamb/",
+      "components": [
+        {
+          "key": "f1fd19d7-f6f3-5d02-a162-e29ab1d34593",
+          "name": "Zutaten",
+          "servingGrams": 252.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "978276b3-3255-5417-9c8d-63df1cde76af",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "1329bdb4-d273-5184-bc9d-58631e186718",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "d410cc9e-ed28-54e4-a64d-706d85e2d7b1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fc578e4-df4a-5e16-ba7b-88ba312b1d44",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a8362ea0-bf62-59d5-970a-d51c94e7e960",
+              "ingredientName": "Mandeln",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "919fd974-fdca-52fc-a90c-5c2f6d897211",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4beb51c7-9ed1-5de5-abc5-849b57729d5c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9f7dd4b8-259e-5826-845a-8843e3a9f43f",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "20bb106c-5ba9-5c7b-ac29-61a8d2f99206",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "512b3fb2-4616-5152-911a-627f2c4965d0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "11c5d908-0043-5472-b3d9-1cb26adeee6d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lamm in 2 Zoll große Stücke schneiden und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf oder einer Tajine erhitzen und die Lammstücke portionsweise jeweils 3–4 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lamm herausnehmen und gewürfelte Zwiebel sowie gehackten Knoblauch etwa 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lamm zurück in den Topf geben, Ingwer, Zimtstange und Kreuzkümmel hinzufügen und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rinderbrühe über das Lamm gießen und zum Kochen bringen, dann Hitze reduzieren und abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "45 Minuten köcheln lassen, bis das Lamm zart ist, dann Aprikosen und Mandeln hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ohne Deckel weitere 15 Minuten köcheln lassen, damit die Sauce etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren abschmecken und nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/4HZ1sPEjOyIDtroCdfQp9eLmRdo=/4906x3271/filters:fill(auto,1)/moroccan-tagine-lamb-beef-prunes-recipe-2394651-hero-01-7242212179e4448a96ee1974c14ace48.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/4HZ1sPEjOyIDtroCdfQp9eLmRdo=/4906x3271/filters:fill(auto,1)/moroccan-tagine-lamb-beef-prunes-recipe-2394651-hero-01-7242212179e4448a96ee1974c14ace48.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mkate-tabouna",
+      "slug": "gen-mkate-tabouna",
+      "title": "Mkate Tabouna",
+      "instructions": "Algerisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie größere Mengen zu und frieren Sie das gebackene Brot zum schnellen Aufwärmen ein.",
+        "Lassen Sie Gewürzsamen weg, um noch mehr zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "algerisch",
+        "Frühstück",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4046,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mkate-tabouna/",
+      "components": [
+        {
+          "key": "6afa2436-15d0-530c-9402-4ae850bed248",
+          "name": "Zutaten",
+          "servingGrams": 358.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e695414-0dd1-5dd9-990a-1ed854bb4406",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "f2a39f99-df7b-57e8-8281-e58d9c5ac244",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "651ad75f-4822-587b-8683-f5a04b9a03b0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3db388a0-1f35-55b0-873f-07884325d673",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1e997c7d-e3db-52b5-bf23-6ccb477794d1",
+              "ingredientName": "Trockenhefe",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "49aff4bf-1619-5f63-a5e1-13f4cedeb4ff",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1bfa4d4c-89bf-53d6-bc6f-add3f74db6c5",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe in warmem Wasser mit einer Prise Zucker auflösen und 5 Minuten stehen lassen, bis sich Schaum bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz in einer großen Schüssel vermischen, dann die Hefemischung und 1 Esslöffel Olivenöl hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig 8 Minuten kneten, bis er glatt und elastisch ist. Bei Bedarf Wasser hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig abdecken und bei Raumtemperatur 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig in 3 Kugeln teilen und jede zu einem flachen, runden Brot von etwa 0.5 Zoll Dicke ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine gusseiserne Pfanne oder Grillplatte bei mittlerer bis hoher Hitze erwärmen und mit dem restlichen Olivenöl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das Brot in die heiße Pfanne legen und pro Seite 3–4 Minuten backen, bis es aufgeht und goldene Stellen bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nach Wunsch während des Backens mit Koriander- und Anissamen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2019/07/classic-tabouli-recipe-2.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2019/07/classic-tabouli-recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chakhchoukha",
+      "slug": "gen-chakhchoukha",
+      "title": "Chakhchoukha",
+      "instructions": "Algerisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Kichererbsenbrühe selbst aus getrockneten Kichererbsen zu, um 30 % zu sparen.",
+        "Verwenden Sie Gemüsebrühe statt Rinderbrühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "algerisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4047,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chakhchoukha/",
+      "components": [
+        {
+          "key": "44e91a14-0a6c-532c-ada1-2ae10f6156e4",
+          "name": "Zutaten",
+          "servingGrams": 601.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c7bc07c-2124-5734-9801-2938a6716722",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ff537804-186c-55c8-a664-7bb2948dadd8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6a3d0ba-b12d-5bd8-b4a4-583eb703703a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "71d0c5c3-a24f-5a96-823e-eea01e28f777",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "116a90a5-bce5-5c60-8649-f99c2f9166c7",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "76be460d-d094-54e9-b135-73360d6877f4",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "3ce24a34-e9cc-5f25-b7e4-8104b9e04370",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "6b426365-f378-5322-ac6d-60c6fc566ac4",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "52732ceb-8973-53f0-b91f-89cc8fc46cb8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d3660036-9b93-5f33-9709-d0bc91bdfa0e",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl mit 1 Ei und einer Prise Salz vermischen. Nach und nach Wasser hinzufügen, bis eine dicke Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebel etwa 3 Minuten weich anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark und Harissa hinzufügen und 1 Minute kochen, dann Rinderbrühe und Kichererbsen zugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Brühe sanft zum Kochen bringen und löffelweise Teig in die köchelnde Flüssigkeit geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jeden Kloß 2–3 Minuten garen lassen, bevor die nächste Portion hinzugefügt wird, bis der gesamte Teig verbraucht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "15 Minuten köcheln lassen, bis die Klöße durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die übrigen 3 verquirlten Eier vorsichtig einrühren und dabei 2 Minuten ständig rühren, bis die Eier gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2024/03/Djamel_foodie-chakhchoukha-e1711391040988.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2024/03/Djamel_foodie-chakhchoukha-e1711391040988.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-calentica",
+      "slug": "gen-calentica",
+      "title": "Calentica",
+      "instructions": "Algerisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kichererbsenmehl in größeren Mengen in indischen oder nahöstlichen Geschäften.",
+        "Lassen Sie Harissa weg und verwenden Sie für die Schärfe Cayennepfeffer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "algerisch",
+        "Frühstück",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4048,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-calentica/",
+      "components": [
+        {
+          "key": "d085d42b-b9fa-5d2a-b278-07d9ea2bc4bc",
+          "name": "Zutaten",
+          "servingGrams": 299.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "9be548d9-44aa-53cf-8a6e-7dfe166d7d72",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "daaa1097-b62e-51be-9af0-678fd17df748",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "f5617082-4502-56fc-94c3-c466ce1fe943",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2f7f7579-054a-5902-aa35-6e5632c665aa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "c0af9ff9-f18f-5131-a625-ab3df599e17b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9b7fee67-8cac-515a-a2a4-6bfa21a76d24",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "ca015913-be18-5f61-bf77-048dd1e36262",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kichererbsenmehl mit Wasser glatt verquirlen und anschließend durch ein feines Sieb streichen, um Klümpchen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hälfte des Olivenöls in einem Topf bei mittlerer Hitze erhitzen und gewürfelte Zwiebel etwa 4 Minuten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Kichererbsenmischung zu den Zwiebeln in die Pfanne gießen und 5–7 Minuten ständig rühren, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salz, Pfeffer und Harissa hinzufügen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den dicken Teig in eine geölte 8x8 Zoll große Form geben und 10 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald die Masse abgekühlt und fest ist, in Quadrate oder Dreiecke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das restliche Olivenöl in einer Pfanne erhitzen und die Calentica-Stücke pro Seite etwa 2 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm servieren und nach Wunsch Harissa zum Dippen dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://whereintheworldislianna.com/wp-content/uploads/2023/06/Gibraltar_Calentita-7-scaled.jpg",
+          "sourcePageUrl": "https://whereintheworldislianna.com/wp-content/uploads/2023/06/Gibraltar_Calentita-7-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-haricot-blanc",
+      "slug": "gen-haricot-blanc",
+      "title": "Haricot Blanc",
+      "instructions": "Algerisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie über Nacht eingeweichte getrocknete Bohnen statt Bohnen aus der Dose, um 60 % zu sparen.",
+        "Lassen Sie Koriander weg und verwenden Sie getrocknete Petersilie aus dem Vorrat."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "algerisch",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4049,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-haricot-blanc/",
+      "components": [
+        {
+          "key": "876586e7-c3e7-5d13-bb97-d067ff9dc6c5",
+          "name": "Zutaten",
+          "servingGrams": 382.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c764c1fb-535e-5ccb-8b46-b86232471de3",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "675438ef-5ad0-56f4-a157-9fd875836dbd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "1ba280ff-f023-564a-bcb3-64bb0bff7e7f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3daec758-f4ed-52a2-b513-9920e5cf11d7",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e0fbd40b-9f5f-5ad8-85ff-ad2a57b3245a",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "90f990e9-b37d-55e6-ab81-1384a5c7beaf",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "53decaa9-fb99-5817-8c57-39c63b47fc71",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "702e91e0-e450-52b9-860f-a94cbf80c31e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "67a1171b-2c6a-5a7b-99dd-37cfe1949319",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebel sowie gehackten Knoblauch etwa 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomatenmark und Kreuzkümmel hinzufügen und unter Rühren 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemüsebrühe zugießen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weiße Bohnen aus der Dose abgießen, abspülen und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "15 Minuten köcheln lassen und gelegentlich umrühren, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 10 Minuten köcheln lassen, bis die Bohnen sehr zart sind und die Brühe etwas reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frischen Koriander einrühren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/24/5f/5a/245f5ac17828b9845b5424c9a1b6f184.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/24/5f/5a/245f5ac17828b9845b5424c9a1b6f184.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

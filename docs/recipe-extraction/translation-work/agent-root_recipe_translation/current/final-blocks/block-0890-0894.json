@@ -1,0 +1,1124 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-shrimp-avocado-salad",
+      "slug": "mfr-shrimp-avocado-salad",
+      "title": "Zitrussalat mit Garnelen und Avocado",
+      "instructions": "Saftige, angebratene Garnelen, cremige Avocado, frische Orangenstücke und Spinat mit Koriander-Limetten-Dressing vermischen. Frisch, tropisch und in 15 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen sind genauso nahrhaft wie frische und kosten halb so viel.",
+        "Eine Orange sorgt für Süße, Vitamin C und Farbe und kostet etwa $0.90."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "orange",
+          "swap": "Grapefruit oder Mango für eine andere Zitrusnote verwenden."
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Romanasalat, gemischte Blattsalate oder eine beliebige andere Salatgrundlage verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-avocado-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Salat",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 890,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-avocado-salad/",
+      "components": [
+        {
+          "key": "50201f86-7f4d-5e7d-93c6-a63e2cfa69cd",
+          "name": "Zutaten",
+          "servingGrams": 737,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfbc9db8-39c5-550f-bb46-086a88e6dc96",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44f5b8c7-6614-55dd-8158-8cf507a09c9f",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eb661d7-d81f-544d-af5f-fbffcbfc2e7c",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2f081be-620d-5d45-ac2d-dcee7ae19283",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f4edbf3-46f4-5c88-a880-872ffdfa7e7b",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "901ab177-7fdc-5a33-b2af-6df59722a2a2",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49ff9f46-24c7-5851-b5be-25b033d6a709",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82812f94-983b-5659-9cc6-696655912c73",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c55d619-8b49-5398-bb4d-5584230d8e3a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6e38d6d-b457-5657-aac5-8b201e3ee769",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8132cfa-b1be-523a-a900-61da56b8794c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Taue tiefgekühlte Garnelen auf. Tupfe sie trocken und würze sie mit Salz, Pfeffer und gehacktem Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Garnelen in 1 EL Olivenöl bei mittlerer bis hoher Hitze pro Seite 2 Minuten, bis sie rosa und eingerollt sind. Lass sie etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite das Dressing zu: Verrühre übriges Olivenöl, Limettensaft, gehackten Koriander und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Filetiere die Orange. Würfle die Avocado und schneide die Tomate in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische den Spinat mit dem Dressing. Belege den Salat mit Garnelen, Avocado, Orange und Tomate. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://nutritionfor.us/wp-content/uploads/2013/03/shrimpsalad16LOVEtoo.jpg",
+          "sourcePageUrl": "http://nutritionfor.us/wp-content/uploads/2013/03/shrimpsalad16LOVEtoo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai-beef-larb-bowl",
+      "slug": "mfr-thai-beef-larb-bowl",
+      "title": "Thailändische Larb-Schüssel mit Rinderhack",
+      "instructions": "Kräftig gewürztes Rinderhack mit Limette, fischsaucenähnlicher Würzung, Minze und Koriander auf Reis. Eine besonders sättigende Kombination aus Salat und Schüsselgericht aus Thailand.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack im Angebot macht diese asiatisch inspirierte Schüssel besonders günstig.",
+        "Im Notfall getrocknete Minze verwenden. Nimm 1 TL statt frischer Minze."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Puten- oder Hähnchenhack für eine magerere Larb-Variante verwenden."
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Blumenkohlreis verwenden, um etwa ~150 kcal einzusparen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai-beef-larb-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "Schüsselgericht",
+        "makrofreundlich",
+        "asiatisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 891,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai-beef-larb-bowl/",
+      "components": [
+        {
+          "key": "471f57f3-4dbc-52ca-8a6e-5b1f7c6323e1",
+          "name": "Zutaten",
+          "servingGrams": 632.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed2b7d0a-a392-57af-a570-43c0fbbae877",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b863f961-2e80-5ac2-a41b-0bb2034c1406",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3618ab66-2a25-53e1-82d9-b79c7465ef0b",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "470e0c74-2a2b-5bd4-b8ad-94a295cc3e97",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b91d2b46-e934-55e1-b6c5-0c19157c0741",
+              "ingredientName": "Frische Minze",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "817b7f26-918d-57ff-97e8-887525d8339c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ae31696-2acf-57a2-a653-4cee86e67f54",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3388a159-73e3-50a2-a769-4a84c0af73c2",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "593c332c-dc9e-5b3f-967e-2a9b8d6b05e8",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18711645-9fe4-58b7-9801-350952ae9f32",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8cdcc9a-44c0-5076-96de-3ee0f2502121",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Bräune das Rinderhack in einer trockenen Pfanne bei mittlerer bis hoher Hitze. Zerteile Klümpchen und gare das Fleisch 8–10 Minuten vollständig durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm die Pfanne vom Herd und rühre Limettensaft, Sojasauce, Chili-Knoblauch-Sauce und gehackten Knoblauch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zupfe die Salatblätter auseinander. Schneide die Frühlingszwiebeln in Scheiben und hacke Minze und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Rinderhack auf Reis in Schüsseln. Gib Salat, Kräuter, Frühlingszwiebeln und Sesamsamen darauf. Presse zusätzlichen Limettensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://migrationology.smugmug.com/Thai-Recipes-2/i-4PNQg7p/0/X3/thai-laab-recipe-12-X3.jpg",
+          "sourcePageUrl": "https://migrationology.smugmug.com/Thai-Recipes-2/i-4PNQg7p/0/X3/thai-laab-recipe-12-X3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-japanese-sesame-spinach-bowl",
+      "slug": "mfr-japanese-sesame-spinach-bowl",
+      "title": "Japanische Reisschüssel mit Sesamspinat und braunem Reis",
+      "instructions": "Blanchierter Spinat in geröstetem Sesam-Mirin-Dressing auf braunem Reis. Eine einfache, japanisch inspirierte Schüssel mit kräftigem herzhaftem Geschmack, in 20 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brauner Reis aus dem Großgebinde gehört zu den günstigsten Vollkornsorten.",
+        "Tiefgekühlte Edamame halten sich monatelang. Habe am besten immer welche im Vorrat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 TL Honig und 1 TL Reisessig verrühren."
+        },
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Weißen Reis verwenden, wenn es schneller gehen soll."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-japanese-sesame-spinach-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Schüsselgericht",
+        "vegan",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 892,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-japanese-sesame-spinach-bowl/",
+      "components": [
+        {
+          "key": "1f0d346b-5533-51cb-8b94-bf95ab9647d2",
+          "name": "Zutaten",
+          "servingGrams": 913,
+          "position": 0,
+          "items": [
+            {
+              "key": "180b291d-7bf6-5878-b9f3-da788afa6e5d",
+              "ingredientName": "Brauner Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa56bf8d-4e94-5061-8c0c-76412311f119",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "783fc07b-5cd3-5244-9445-285a398e3379",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7e79db7-c83d-547a-9609-f0d0b7790ece",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "923043a4-48f3-546c-b2ed-5452e6fd82df",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4704d740-94ed-5b01-8cdb-4602e6938117",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19a90771-429a-59f8-832e-1b05896edcca",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bba5c960-ed00-5778-942f-b25adf8b57c4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bae807ce-78e9-5db9-85f0-ffebd51b2ba4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45db3b25-a60c-5be4-b59f-553757791615",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare braunen Reis (20 Minuten). Erwärme Edamame 3 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere den Spinat 30 Sekunden in kochendem Salzwasser. Gieße ihn gut ab und drücke das Wasser heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze den Spinat mit Sesamöl, Sojasauce, Mirin, geriebenem Knoblauch, Ingwer und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den Reis auf Schüsseln und gib gewürzten Spinat, Edamame und Frühlingszwiebeln darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/y-uCILXVzArj4FKKEyBR70wzLCI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sesame-crusted-tuna-rice-bowls-beauty-165_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-40ee34be5b3244538787ca4d5dd397e5.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/y-uCILXVzArj4FKKEyBR70wzLCI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sesame-crusted-tuna-rice-bowls-beauty-165_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-40ee34be5b3244538787ca4d5dd397e5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-korean-ground-beef-salad-bowl",
+      "slug": "mfr-korean-ground-beef-salad-bowl",
+      "title": "Koreanisch gewürzte Rinderhack-Salatschüssel",
+      "instructions": "Mit Gochujang glasierte Rinderhackmischung auf knackigem Salat und Reis. Ein dekonstruierter Bibimbap, der in 15 Minuten fertig ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Glas Gochujang kostet etwa ~$7 und würzt dutzende Mahlzeiten.",
+        "Rinderhack in Familienpackungen kostet pro Pfund oft 20% weniger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gochujang",
+          "swap": "1 EL Sriracha und 1 TL Misopaste verrühren."
+        },
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere koreanische Schüssel verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-korean-ground-beef-salad-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Schüsselgericht",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 893,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-korean-ground-beef-salad-bowl/",
+      "components": [
+        {
+          "key": "99373041-6b86-5602-9bf1-bcb44f63b37a",
+          "name": "Zutaten",
+          "servingGrams": 793,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff75dda2-f439-5ef9-aad7-0080b09b7d9c",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ff851fd-f684-595a-af7a-ec0d65360978",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edb865a8-818e-5074-a104-194821f8aff2",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50bf727c-5ff0-53a6-b72f-50fff8347dbe",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82668415-51fa-5bcb-8a81-fe0a52cf2c82",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f78dd17b-e0fd-5c20-9953-e44ca2a82fa1",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2512462-a9e3-5c8e-9aaa-6796269f2b58",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c3ceada-f96a-55de-946f-3630b0e20d67",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f05e9876-6ff1-555d-8dd5-26cf0114eab8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc1b9dfe-8f40-512d-b0a8-59f11ee6d706",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f63d057-9aa9-5f7e-bb75-53749c91239b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Bräune das Rinderhack bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Gochujang, Sojasauce, Sesamöl, Knoblauch und Honig. Gieße die Mischung über das gegarte Fleisch und rühre 2 Minuten um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Gurke in dünne Scheiben. Lass den Spinat nach Wunsch in der warmen Pfanne zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Reis, Rinderhack, Spinat, Gurke, Frühlingszwiebeln und Sesamsamen an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/lid87hYHpXJEtMeBNg1WGLM2Sbw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5759837-b2371603be79499c9e1cfa7eeefc7b25.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/lid87hYHpXJEtMeBNg1WGLM2Sbw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5759837-b2371603be79499c9e1cfa7eeefc7b25.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cold-soba-peanut-bowl",
+      "slug": "mfr-cold-soba-peanut-bowl",
+      "title": "Kalte Soba-Schüssel mit Erdnussdressing",
+      "instructions": "Gekühlte Soba-Nudeln mit cremigem Erdnuss-Sesam-Ingwer-Dressing, Edamame und knackigem Gemüse vermischen. Eine Mahlzeit in 25 Minuten, die warm oder kalt gleichermaßen schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Packung Soba-Nudeln kostet etwa ~$4 und reicht für 4+ Personen.",
+        "Erdnussbutter-Dressing kostet pro Portion nur wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "soba-noodles",
+          "swap": "Reisnudeln für eine glutenfreie Variante oder Spaghetti verwenden."
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandel- oder Sonnenblumenkernmus für eine nussfreie Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cold-soba-peanut-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Nudeln",
+        "vegan",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 894,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cold-soba-peanut-bowl/",
+      "components": [
+        {
+          "key": "ff7171c1-d9a5-5dff-aef6-bd6650bbbf9c",
+          "name": "Zutaten",
+          "servingGrams": 721.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "263bac6f-58cb-5b99-9b3b-95f2c9bad3fa",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "950128bc-ed12-5756-b847-24c64ebdd5ac",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2489f98c-ce6b-5893-aa56-58502f45592b",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84dc926a-c458-5729-978e-1bcc84c12ff6",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d45a07e-b2f1-503e-a4fe-1499937cf10f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e83d042-1b22-50a0-80dc-791d69e84101",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ef3f1b9-41a2-5845-a201-9de5e5c00f7c",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8964c57-3329-5b66-b3b7-a9d30a66f0c7",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b324de62-1128-5754-9292-cd3262c6c958",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f2d8877-3638-5bbb-9d42-56e9168329da",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "833b20c8-85a6-515e-82ec-de5b2735c485",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d76efb0d-68c0-566d-a968-51f44c84adef",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Soba-Nudeln nach Packungsanleitung (4–5 Minuten), spüle sie kalt ab und lass sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Edamame in der Mikrowelle. Schneide die Gurke in Scheiben und hacke die Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Erdnussbutter, Sojasauce, Sesamöl, Limettensaft, Ingwer, Knoblauch, Sriracha und 2 EL Wasser, bis das Dressing glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische die Nudeln mit Dressing, Edamame, Spinat und Gurke. Garniere sie mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8bfi-yeiLB-BMaW7C0O6GYQDL9s=/3456x2305/filters:no_upscale():max_bytes(150000):strip_icc()/cold-soba-noodle-salad-4142109-step-05-474a24aeece547ec80d8149f7d1a4a9b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8bfi-yeiLB-BMaW7C0O6GYQDL9s=/3456x2305/filters:no_upscale():max_bytes(150000):strip_icc()/cold-soba-noodle-salad-4142109-step-05-474a24aeece547ec80d8149f7d1a4a9b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

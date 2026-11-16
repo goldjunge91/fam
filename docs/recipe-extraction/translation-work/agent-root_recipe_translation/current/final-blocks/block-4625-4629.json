@@ -1,0 +1,1093 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bhaji",
+      "slug": "gen-bhaji",
+      "title": "Bhaji",
+      "instructions": "Indischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwiebeln und Kartoffeln in größeren Mengen bei Discountern kaufen, um deutlich zu sparen",
+        "Gewürze von Eigenmarken sind qualitativ gleichwertig und deutlich günstiger als Markenprodukte"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4625,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bhaji/",
+      "components": [
+        {
+          "key": "4d0c1f1a-6135-5b3e-8246-ad583e92b2a0",
+          "name": "Zutaten",
+          "servingGrams": 230.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a370653-efea-51b8-bd69-b348d26476b9",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Stücke, dünn geschnitten"
+            },
+            {
+              "key": "068990ad-e39f-5972-8b3d-aff6b6fb8058",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in feine Stifte geschnitten"
+            },
+            {
+              "key": "4e6f8f13-67ba-558f-aeab-05d13a905f97",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "b7c0c516-b334-58e0-8d59-9460376a46cf",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "09d57f36-eae1-576c-8161-9f1203303493",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bb6d942c-e180-510c-bacd-e71198568f6b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "b3bada4e-c54f-5b92-b4ad-378f4201cbde",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "d671e7e8-1c18-5390-aa6e-a3ba543f4d3c",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "768d575d-063a-5774-8092-e1a663106890",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0d0a0773-e0db-58f2-a9e7-2cf69b8436a2",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und Kreuzkümmelsamen hinzufügen, sodass sie 10 Sekunden knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittene Zwiebeln hinzufügen und 3-4 Minuten anbraten, bis sie weich werden und sich goldbraun färben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fein gehackten Knoblauch einrühren und 30 Sekunden braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffelstifte, Kurkuma, Chilipulver und Salz hinzufügen und gut umrühren, damit das gesamte Gemüse bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "12-15 Minuten ohne Deckel garen, gelegentlich umrühren, bis die Kartoffeln weich und die Zwiebeln kräftig karamellisiert und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen und Koriander und Limettensaft einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß als Beilage oder Snack servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hintofhelen.com/wp-content/uploads/2019/07/Onion-Bhaji-Recipe-Hint-of-Helen-5.jpg",
+          "sourcePageUrl": "https://hintofhelen.com/wp-content/uploads/2019/07/Onion-Bhaji-Recipe-Hint-of-Helen-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-farinata",
+      "slug": "gen-farinata",
+      "title": "Farinata",
+      "instructions": "Italienischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsenmehl in größeren Mengen auf indischen oder nahöstlichen Märkten kaufen und 50% sparen",
+        "Zum Kochen einfaches Olivenöl statt hochwertigem nativem Olivenöl extra verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4626,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-farinata/",
+      "components": [
+        {
+          "key": "c0233ddd-b927-5584-a43f-f17587092a2f",
+          "name": "Zutaten",
+          "servingGrams": 173.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f76f842e-9eef-5bd9-a135-7f61b7c8b4eb",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f0389f02-7e10-52b3-8080-dba6a8d14d8c",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "4f4e661f-6a52-5658-adb1-b8e83c3c335e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "df98e322-170e-5560-9006-ceaf1be117f5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "160b991a-2d17-523a-a6ed-cdf72bb91c7d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "53d7a0ee-1733-5f49-991f-f43a86b5ba26",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL, frisch oder getrocknet"
+            },
+            {
+              "key": "c45202e0-adee-53be-b36e-9ee7e3faf31e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "cf2f4143-4e61-5a83-be57-ef430f84b2a2",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 kleines Stück, dünn geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 425°F vorheizen und eine 10-Zoll-Gusseisenpfanne oder runde Backform mit 3 Esslöffel Olivenöl 5 Minuten im Ofen erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kichererbsenmehl mit Wasser in einer Schüssel glatt und klümpchenfrei verquirlen, dann Salz, Pfeffer, Knoblauch und Rosmarin einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig vorsichtig in die heiße, geölte Pfanne gießen und das restliche Olivenöl darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach Wunsch dünn geschnittene Zwiebel über dem Teig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "15-18 Minuten backen, bis die Oberfläche goldbraun und die Ränder dunkel und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Ofen nehmen und vor dem Schneiden in Stücke 2-3 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit einem Spritzer Zitronensaft und nach Wunsch zusätzlichem Pfeffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/o1QiW5DEaRLlyu7GquyowDarVlg=/4000x2667/filters:no_upscale():max_bytes(150000):strip_icc()/ligurian-chick-pea-farinata-recipe-2018827-step-01-5d60559fd3da484ea7be6fce4196b884.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/o1QiW5DEaRLlyu7GquyowDarVlg=/4000x2667/filters:no_upscale():max_bytes(150000):strip_icc()/ligurian-chick-pea-farinata-recipe-2018827-step-01-5d60559fd3da484ea7be6fce4196b884.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-plintz",
+      "slug": "gen-plintz",
+      "title": "Plintz",
+      "instructions": "Jiddisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Marmelade und saure Sahne von Eigenmarken statt teurer Marken verwenden",
+        "Größere Mengen zubereiten und Reste einfrieren, um später schnell Frühstück zubereiten zu können"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jiddisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4627,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-plintz/",
+      "components": [
+        {
+          "key": "45584c85-1345-53f7-b3cf-2cc5ebc26249",
+          "name": "Zutaten",
+          "servingGrams": 219.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "34bc123d-3179-56e0-ba6f-f5becfa19dda",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "da160b95-f987-5217-997f-e799559da9dc",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4395afc2-6eb4-5c8b-a9da-3598c5107353",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1e5b179d-5540-5707-a413-374f25577b2d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "1f6da1be-2f86-5554-830d-56a3add16b66",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "75aec064-b789-5587-beb0-ab4d01c9c634",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "428e8c19-8dec-5460-9885-2ce31de3cc12",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            },
+            {
+              "key": "09de8c6d-1e53-516e-93e3-aa6deb1555f2",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            },
+            {
+              "key": "1dec65bc-a52f-5181-9564-ed3ca88edd07",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Eier, Milch, Salz und Zucker in einer Schüssel verquirlen, bis der Teig glatt und dünn wie Crêpe-Teig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine beschichtete Pfanne oder Crêpe-Pfanne bei mittlerer Hitze erhitzen und leicht mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwa 1/4 Tasse Teig in die Pfanne geben und diese schnell kippen und drehen, damit sich der Teig zu einem dünnen Kreis verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa 1-2 Minuten braten, bis die Unterseite hellgolden ist, dann wenden und die andere Seite 30-45 Sekunden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf einen Teller geben und mit dem restlichen Teig wiederholen, dabei die fertigen Plintz stapeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warm gefaltet oder gerollt, mit saurer Sahne und Marmelade garniert, servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Wunsch mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/V6nHvd6b9kepuqhGKJE_IGW-nM4=/4494x3000/filters:fill(auto,1)/jewish-cheese-blintzes-recipe-1136318-hero-01-22d5e078d8914d90add2b45b79ab99b4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/V6nHvd6b9kepuqhGKJE_IGW-nM4=/4494x3000/filters:fill(auto,1)/jewish-cheese-blintzes-recipe-1136318-hero-01-22d5e078d8914d90add2b45b79ab99b4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tempeh-goreng",
+      "slug": "gen-tempeh-goreng",
+      "title": "Tempeh Goreng",
+      "instructions": "Indonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tempeh in größeren Mengen auf asiatischen Märkten kaufen und gegenüber herkömmlichen Geschäften 30% sparen",
+        "Eigene Gewürzpaste zubereiten, statt fertige Varianten zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indonesisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4628,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tempeh-goreng/",
+      "components": [
+        {
+          "key": "c564edfd-4e56-5cfa-a625-33e60fb55168",
+          "name": "Zutaten",
+          "servingGrams": 51.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0acaf85-be71-54c5-90f2-836595e41ded",
+              "ingredientName": "Tempeh",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen, in 1/2 Zoll dicke Scheiben geschnitten"
+            },
+            {
+              "key": "77d3da71-4d0e-5dbd-a7b5-92b87213bea6",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fea72e5d-331b-5dfe-a54f-585ddb399089",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "817483be-01f8-5497-b4f4-a52d5c6f9ec6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "378b5a2e-e5da-5952-be37-a0678ee328ae",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "f47277fe-fa7a-5eb3-983d-625f1a1dd8b9",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "67dc3584-62bb-5969-afb2-220c09c30fc9",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2ae5021a-d998-5868-a462-f58554fbe237",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1eb524c4-2a66-503b-9405-fa3e8b0eed04",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Frittieren"
+            },
+            {
+              "key": "596ffebb-8707-509f-93cc-65537b3750f9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tempehscheiben 10 Minuten dämpfen, um die Bitterkeit zu entfernen, dann kurz abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kurkuma, Salz, Knoblauch und Ingwer in einer kleinen Schüssel zu einer Paste verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Kurkumapaste auf beide Seiten jeder Tempehscheibe reiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer tiefen Pfanne auf 350°F erhitzen und die Tempehscheiben portionsweise vorsichtig 2-3 Minuten pro Seite braten, bis sie goldbraun und knusprig sind, dann auf Küchenpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Im selben Öl Schalotten und Chilischoten braten, bis sie duften und leicht knusprig sind, etwa 2 Minuten, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gebratenen Tempeh auf einem Teller anrichten, mit Schalotten und Chilischoten belegen und anschließend mit Sojasauce und Limettensaft beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.authenticworldfood.com/data/r7/00000047-00000056.jpg",
+          "sourcePageUrl": "http://www.authenticworldfood.com/data/r7/00000047-00000056.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lachha-paratha",
+      "slug": "gen-lachha-paratha",
+      "title": "Lachha Paratha",
+      "instructions": "Indisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl in 5-10 Pfund-Packungen im Großhandel oder in indischen Geschäften kaufen, um deutlich zu sparen",
+        "Butter sparsam verwenden und für die letzte Garstufe aufbewahren, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4629,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lachha-paratha/",
+      "components": [
+        {
+          "key": "38966143-d846-56cf-a46b-f61a23ceac78",
+          "name": "Zutaten",
+          "servingGrams": 265.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "a958ce7b-2598-5206-ab78-658bb7bc115f",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "43280f1e-8f2e-5d02-83eb-50ef2668b6e7",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "746914c9-3de8-51eb-b381-f668c4af6126",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "35d957fd-8f34-5605-8f0b-f18ffe9547f4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5e1ea4e5-caba-5687-837e-7947731db033",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL, geschmolzen"
+            },
+            {
+              "key": "e8c1ecad-2a91-5345-bbaa-290326ad2f05",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "77b2ce8c-faf7-5799-997e-e6152c8c892d",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "efbc388b-1544-5054-bac0-17075fd0914a",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "421a1c3a-eeb1-58f4-a249-f64fda4f18dc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weizenmehl, Vollkornmehl, Salz, Kreuzkümmel und Ajowansamen in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl und Wasser nach und nach hinzufügen und kneten, bis ein weicher, glatter Teig entsteht, dann 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in 6 gleich große Portionen teilen und jede zu einem dünnen Kreis mit etwa 8 Zoll Durchmesser ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geschmolzene Butter auf dem Teigkreis verstreichen, Koriander darüberstreuen, den Teig dann eng zu einer Rolle aufrollen und zu einer Spirale wickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Spirale vorsichtig mit der Hand flach drücken und zu einem 1/4-Zoll dicken Kreis ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine gusseiserne Pfanne oder Grillplatte bei mittlerer bis hoher Hitze erhitzen und ein Paratha hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Etwa 1-2 Minuten braten, bis hellbraune Flecken entstehen, dann wenden und mit Butter bestreichen; mit einem Pfannenwender andrücken, bis es aufgegangen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erneut wenden, mit Butter bestreichen und weitere 30 Sekunden braten, bis es knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf einen Teller geben und heiß mit Curry oder Joghurt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xNnc7LZcZ-sDeK_3Ox7RI0BXOE0=/5616x3744/filters:fill(auto,1)/GettyImages-676294571-7d58c21598a54c1b813fa12334fee6ad.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xNnc7LZcZ-sDeK_3Ox7RI0BXOE0=/5616x3744/filters:fill(auto,1)/GettyImages-676294571-7d58c21598a54c1b813fa12334fee6ad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

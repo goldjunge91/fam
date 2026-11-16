@@ -1,0 +1,1191 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-homemade-chicken-potpie",
+      "slug": "toh-homemade-chicken-potpie",
+      "title": "Hausgemachte Hähnchen-Pastete",
+      "instructions": "Eine herzhafte Hähnchen-Pastete für den Abend unter der Woche: zartes Hähnchen und Gemüse in cremiger, mit Geflügelgewürz abgeschmeckter Sauce, bedeckt von einer einzigen goldbraunen, blättrigen Teigkruste. Wohlfühlessen, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/homemade-chicken-potpie/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenes oder fertig gegrilltes Hähnchen statt es frisch zu garen. Das spart Geld und Zeit.",
+        "Kaufe eine Tüte tiefgekühltes Mischgemüse statt frischem Gemüse. Es ist günstiger und verursacht weder Vorbereitungsarbeit noch Abfall.",
+        "Ein gekühlter Teigboden der Hausmarke senkt die Kosten. Du kannst ihn auch selbst aus Mehl zubereiten, das du bereits zu Hause hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "two-percent-milk",
+          "swap": "Vollmilch oder für eine reichhaltigere Sauce auch halb Sahne, halb Milch",
+          "savings": "Vergleichbare Kosten; Vollmilch ist oft günstiger"
+        },
+        {
+          "forIngredientId": "pie-crust",
+          "swap": "Tiefgekühlter Pastetenteig oder Blätterteig aus dem Kühlregal als Füllungsdecke",
+          "savings": "Tiefgekühlter Boden ist etwa $0.50 günstiger"
+        },
+        {
+          "forIngredientId": "rotisserie-chicken",
+          "swap": "Gewürfelte, gegarte Hähnchenbrust oder abgetropftes Hähnchen aus der Dose",
+          "savings": "Grillhähnchen ist meist die günstigste gegarte Option"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Wohlfühlessen",
+        "Hähnchen",
+        "Pastete",
+        "Abendessen unter der Woche",
+        "Ein-Topf-Gericht",
+        "gebacken",
+        "30-Minuten-Gericht"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 480,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-homemade-chicken-potpie/",
+      "components": [
+        {
+          "key": "feea6717-cd48-5f18-9534-d35495da8243",
+          "name": "Zutaten",
+          "servingGrams": 299.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e5c67e9-920b-5151-a9aa-283efe9c0f33",
+              "ingredientName": "Rapsöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "008e2ba9-13e7-5d9c-b7cd-e45f4b0bf29d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "db86266a-7d42-5b11-91e6-31c44e4d5314",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Weizen-"
+            },
+            {
+              "key": "c729a6b4-2e65-519a-9b21-2c55dfa38c34",
+              "ingredientName": "Geflügelgewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a5819cd-ae7d-5e08-a4d5-4243386f43ff",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 432,
+              "quantity": 432,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "ein 14.5-Unzen Dose"
+            },
+            {
+              "key": "1d15b59d-cdfe-5976-8756-2ff0ef5dcd6b",
+              "ingredientName": "Milch mit 2 % Fett",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87c6f505-d161-5481-b7de-a9d13286437f",
+              "ingredientName": "Fertig gegrilltes Hähnchen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 3 Tassen gewürfelt gekocht Hähnchen"
+            },
+            {
+              "key": "518bb645-44f1-5e5d-a252-37478e0f0103",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "aufgetaut Gemüsemischung"
+            },
+            {
+              "key": "59fd3e6b-ba58-5ef3-80c5-fa56320c7d86",
+              "ingredientName": "Gekühlter Pastetenteig",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "gekühlt sheet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 450F vor. Fette eine tiefe, 9 Zoll große Pastetenform leicht ein und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme das Rapsöl in einem großen Topf bei mittelhoher Hitze. Gib die gehackte Zwiebel dazu und gare sie unter Rühren, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue Mehl und Geflügelgewürz darüber und rühre, bis die Zwiebeln damit überzogen sind und kein trockenes Mehl mehr übrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Hühnerbrühe und Milch langsam mit dem Schneebesen ein. Bringe die Sauce unter ständigem Rühren zum Kochen und gare sie weitere 2 bis 3 Minuten, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre das gewürfelte, gegarte Hähnchen und das aufgetaute Mischgemüse ein, bis alles gleichmäßig mit Sauce überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Füllung in die vorbereitete Pastetenform und lege den Teigboden darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Ränder passend zu und drücke sie zum Verschließen fest. Schneide dann einige Schlitze in den Teig, damit Dampf entweichen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe die Pastete 15 bis 20 Minuten, bis die Kruste goldbraun ist und die Füllung blubbert. Lass sie vor dem Servieren einige Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps38787_SD153319C10_14_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/homemade-chicken-potpie/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von hausgemachter Hähnchen-Pastete",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-hot-dog-pie",
+      "slug": "toh-hot-dog-pie",
+      "title": "Hotdog-Pastete",
+      "instructions": "Ein herzhaftes, bei Kindern beliebtes Ofengericht aus der Pfanne: würzige gebackene Bohnen, gebräuntes Rinderhack und geschnittene Hotdogs treffen in einem blättrigen Teigboden auf zart schmelzenden Käse. Obenauf liegt ein goldbraunes Gitter aus amerikanischen Käsescheiben. Schmeckt wie ein Grillfest im Garten, in einer Pfanne gebacken. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/hot-dog-pie/",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hotdogs und gebackene Bohnen sind preiswerte Grundzutaten. Diese ganze Pastete reicht für sechs Personen und kostet nur wenige Euro.",
+        "Verwende Käse der Hausmarke und amerikanische Schmelzkäsescheiben. Sie schmelzen genauso gut wie Markenprodukte und sind günstiger.",
+        "Strecke das Gericht mit einer zusätzlichen Dose Bohnen und serviere es auf Reis oder in Brötchen statt im Teigboden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack oder pflanzliche Hackalternative für eine leichtere oder fleischlose Variante.",
+          "savings": "Pute ist im Angebot oft pro Pfund günstiger"
+        },
+        {
+          "forIngredientId": "frozen-pie-crust",
+          "swap": "Gekühlter Hörnchenteig oder Biskuitteig, in die Form gedrückt und als Boden verwendet.",
+          "savings": "Kipferlteig kann günstiger und vielseitiger sein"
+        },
+        {
+          "forIngredientId": "processed-cheese-loaf",
+          "swap": "Geriebener Cheddar statt Velveeta für einen kräftigeren Geschmack.",
+          "savings": "Ein Block Cheddar ist pro Unze günstiger als Velveeta"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Wohlfühlessen",
+        "kinderfreundlich",
+        "preiswert",
+        "Auflauf",
+        "Hotdogs",
+        "gebackene Bohnen",
+        "Abendessen unter der Woche",
+        "Familienessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 481,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-hot-dog-pie/",
+      "components": [
+        {
+          "key": "9940d28e-a3c6-5413-ad9a-99946db3c287",
+          "name": "Zutaten",
+          "servingGrams": 206.12,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5e4f926-eb50-54ff-bf48-f0bf9396e40e",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund, angebraten und abgetropft"
+            },
+            {
+              "key": "2ea99751-9cbe-542b-845f-e66f69330caa",
+              "ingredientName": "Hotdog",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "halbiert der Länge nach und in Scheiben geschnitten"
+            },
+            {
+              "key": "1af03a9c-3ee3-5da0-a705-399bd12f5b4e",
+              "ingredientName": "Vegetarische gebackene Bohnen",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "16 Unzen Dose"
+            },
+            {
+              "key": "34fa04ba-74f9-5975-8272-20781e05ab02",
+              "ingredientName": "Ketchup",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse"
+            },
+            {
+              "key": "d9998338-0386-5c71-82b7-03a8031b9f4b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7d987c9-89d9-5d48-b143-d572b5bb216b",
+              "ingredientName": "Senf",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel prepared Senf"
+            },
+            {
+              "key": "a8c3d494-cffc-5b5b-8a48-11d6325a7ab4",
+              "ingredientName": "Schmelzkäse (nach Velveeta-Art)",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Velveeta, gewürfelt"
+            },
+            {
+              "key": "83032034-039d-5773-9392-994ff4585aa6",
+              "ingredientName": "Tiefgekühlter Pastetenteig",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "9-Zoll deep-dish"
+            },
+            {
+              "key": "b4ec984f-32c0-592b-bbd9-1e116609a690",
+              "ingredientName": "Amerikanische Käsescheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "in Streifen für das Gitter geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400 Grad F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare das Rinderhack in einem großen Topf bei mittlerer Hitze, bis es nicht mehr rosa ist. Gieße anschließend das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die geschnittenen Hotdogs, gebackenen Bohnen, Ketchup, braunen Zucker, Senf und gewürfelten Schmelzkäse ein. Rühre weiter, bis der Käse geschmolzen ist und eine glatte, würzige Füllung entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Füllung gart, stich den gefrorenen Teigboden mit einer Gabel überall ein und backe ihn etwa 10 Minuten vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle die heiße Rinderhack-Bohnen-Mischung in den vorgebackenen Teigboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide jede Scheibe amerikanischen Käse in vier Streifen und lege sie obenauf als geflochtenes Gitter aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Pastete zurück in den Ofen und backe sie weitere 5 bis 10 Minuten, bis das Käsegitter vollständig geschmolzen ist. Lass sie vor dem Anschneiden einige Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps21669_FF163882B01_13_4b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/hot-dog-pie/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Hotdog-Pastete",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-italian-sausage-bean-soup",
+      "slug": "toh-italian-sausage-bean-soup",
+      "title": "Suppe mit weißen Bohnen und Wurst",
+      "instructions": "Eine herzhafte italienische Suppe, die lange sättigt: würzige Wurst köchelt mit cremigen weißen Bohnen, bissfestem Perlgraupen und zartem Grünkohl in einer tomatigen Brühe. Während das Gericht langsam im Topf gart, erfüllen Salbei und Rosmarin das ganze Haus mit ihrem Duft. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/italian-sausage-bean-soup/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Cannellini- oder weiße Bohnen und koche eine große Menge vor, statt Dosenbohnen zu verwenden. So halbieren sich ungefähr die Kosten pro Schüssel.",
+        "Perlgraupen sind eine der günstigsten sättigenden Getreidesorten. Damit kannst du die teurere Wurst strecken.",
+        "Ersetze Grünkohl durch saisonales, festes Blattgemüse wie Blattkohl oder Mangold, wenn es im Laden günstiger ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Pflanzliche Wurst oder geräucherte Wurst",
+          "savings": "Pflanzlich bleibt das Gericht fleischlos; Räucherwurst ist oft pro Portion günstiger"
+        },
+        {
+          "forIngredientId": "cannellini-beans",
+          "swap": "Pintobohnen oder weiße Bohnen",
+          "savings": "Pintobohnen und weiße Hausmarkenbohnen sind günstiger als Cannellinibohnen"
+        },
+        {
+          "forIngredientId": "kale",
+          "swap": "Lacinato-Grünkohl oder junger Grünkohl",
+          "savings": "Schwarzkohl kostet pro Tasse meist etwa halb so viel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Suppe",
+        "Wurst",
+        "weiße Bohnen",
+        "Grünkohl",
+        "Perlgraupen",
+        "Eintopf",
+        "herzhaft",
+        "Abendessen",
+        "auf dem Herd"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 482,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-italian-sausage-bean-soup/",
+      "components": [
+        {
+          "key": "61dff13c-b19b-54ca-b2e0-c81200e9a47f",
+          "name": "Zutaten",
+          "servingGrams": 636.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f48750e-5a5f-5559-ab6c-8f43643aa5ba",
+              "ingredientName": "Italienische Wurst",
+              "grams": 350,
+              "quantity": 3.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "loses Wurstbrät ohne Darm; insgesamt 1 Pfund"
+            },
+            {
+              "key": "e7e36036-6f07-5562-8994-875040f023d3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "acd10a3f-fe7e-5c42-a6e0-14867586504e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "c38b00a9-eb4e-5d54-a485-c9db1a2c1a45",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1680,
+              "quantity": 1680,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "natriumreduziert; ~58 Unzen"
+            },
+            {
+              "key": "cb14aaee-1a3e-5d95-9b7f-77c4f11de370",
+              "ingredientName": "Cannellini-Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "abgespült und abgetropft; pinto also eignet sich"
+            },
+            {
+              "key": "44756c78-c071-5e6d-80a1-ea173460491c",
+              "ingredientName": "Geschmorte Tomaten (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "gewürfelte Tomaten, nicht abgetropft"
+            },
+            {
+              "key": "dc11c1de-3f79-5efe-a7c8-45e438724d73",
+              "ingredientName": "Perlgraupen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "mittelgroß pearl barley"
+            },
+            {
+              "key": "f985d1ae-8916-5054-aa63-6e8e89eb5ff1",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 groß, in Scheiben geschnitten"
+            },
+            {
+              "key": "99ea9a14-017d-59c7-b990-f4ad3e4fb0b6",
+              "ingredientName": "Staudensellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 rib, in Scheiben geschnitten"
+            },
+            {
+              "key": "9534847c-e2fa-5515-941b-9d049e7ecac1",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "ersetzt 1 Teelöffel frischer Salbei"
+            },
+            {
+              "key": "b6d21c7b-a4dc-562c-8a6b-062ce3331453",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "gehackt; ~1 sprig yields etwa 1/2 Teelöffel"
+            },
+            {
+              "key": "69d279fa-664b-5628-81cf-3cb586ad2f75",
+              "ingredientName": "Grünkohl",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "gehackt frisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle einen großen Topf oder Schmortopf bei mittlerer Hitze auf den Herd. Zerteile die italienische Wurst darin zusammen mit der gehackten Zwiebel und rühre, bis das Fleisch nicht mehr rosa ist, etwa 6 bis 7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den geschnittenen Knoblauch dazu und gare ihn etwa eine Minute, bis er duftet. Gieße anschließend überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe dazu und gib Bohnen, Tomaten samt Flüssigkeit, Perlgraupen, Karotte, Staudensellerie, Salbei und Rosmarin hinein. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze, decke den Topf ab und lass die Suppe 45 Minuten sanft köcheln, damit die Graupen weich werden und sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre den gehackten Grünkohl ein und bringe die Suppe wieder zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze erneut, decke den Topf ab und lass die Suppe weitere 25 bis 30 Minuten köcheln, bis das Gemüse weich ist. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hinweis: Graupen nehmen beim Stehen weiterhin Brühe auf. Koche sie separat und gib sie erst in die jeweilige Schüssel, wenn Reste suppig bleiben sollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/08/White-Bean-and-Sausage-Soup_EXPS_FT24_41317_JR_0814_3.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/italian-sausage-bean-soup/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Suppe mit weißen Bohnen und Wurst",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-lemony-chickpeas",
+      "slug": "toh-lemony-chickpeas",
+      "title": "Zitronige Kichererbsen",
+      "instructions": "Zarte Kichererbsen köcheln mit Zwiebeln, Tomaten und Brühe und erhalten zum Schluss mit frischer Zitronenschale und Zitronensaft eine spritzige Note. Serviert auf lockerem Vollkornreis. Ein schnelles, wohltuendes und preiswertes veganes Abendessen, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/lemony-chickpeas/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Kichererbsen, die du selbst kochst, kosten nur einen Bruchteil von Kichererbsen aus der Dose. Weiche gleich eine größere Menge ein.",
+        "Zitronensaft aus der Flasche ist viel günstiger als frische Zitronen und passt hier hervorragend. Etwas Zitronenschale sorgt für Aroma.",
+        "Kaufe Zwiebeln und Reis in großen Packungen. Sie sind wochenlang haltbar und bilden die Grundlage für günstige Abendessen unter der Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Weißer Reis oder Couscous",
+          "savings": "Weißer Reis ist pro Tasse günstiger"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser mit einer Prise Salz und einem Brühwürfel",
+          "savings": "spart etwa $0.50"
+        },
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "Ein Schuss Weißweinessig und zusätzliche Zitronenschale",
+          "savings": "Essig ist günstiger und lange haltbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mediterran",
+        "vegan",
+        "vegetarisch",
+        "preiswert",
+        "aus einer Pfanne",
+        "ballaststoffreich",
+        "Abendessen unter der Woche",
+        "pflanzlich",
+        "30-Minuten-Gericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 483,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-lemony-chickpeas/",
+      "components": [
+        {
+          "key": "ae730c61-472f-5a04-b049-0024d33ecf4d",
+          "name": "Zutaten",
+          "servingGrams": 533.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "11831b8f-d825-5543-ae9d-f6b44edbec55",
+              "ingredientName": "Vollkornreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Instantprodukt; nach Packungsanweisung garen"
+            },
+            {
+              "key": "200f7528-8220-5b5a-82b2-6ed15a630810",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90b8404d-57d0-5702-a568-35a329885ad5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "1ee5caf7-d94e-5e04-b1f0-75ec23beb815",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "abgespült und abgetropft"
+            },
+            {
+              "key": "0df2f257-70b3-5845-9318-4efd4ef0411b",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "gewürfelte Tomaten, nicht abgetropft"
+            },
+            {
+              "key": "4cdccac4-f319-59f0-bc85-58fd6cf70cf9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8caa002-8d4a-5911-893e-364de83441a7",
+              "ingredientName": "Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58224739-396d-58c1-9c48-a0a0ae328967",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9ce5c9b-d4e0-52a6-aa2f-c3d8a92e57a1",
+              "ingredientName": "Zitronenschale",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bb0e57d-7582-596b-bc76-560e61cbeddc",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Vollkornreis nach Packungsangabe und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während der Reis kocht, erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze. Brate die gehackte Zwiebel 3 bis 4 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kichererbsen, Tomaten samt Flüssigkeit, Brühe, Chiliflocken und schwarzen Pfeffer dazu. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze, decke die Pfanne ab und lass alles 10 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Deckel ab und lass alles weitere 4 bis 5 Minuten köcheln. Rühre gelegentlich um, bis die Flüssigkeit etwas eingekocht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Zitronenschale und Zitronensaft ein. Gib die Mischung über den gekochten Reis und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps69272_SD163324B08_07_6b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/lemony-chickpeas/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von zitronigen Kichererbsen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-lemony-tortellini-bacon-salad",
+      "slug": "toh-lemony-tortellini-bacon-salad",
+      "title": "Zitroniger Tortellini-Speck-Salat",
+      "instructions": "Zarte Käsetortellini und knackig-weicher Brokkoli werden mit einem frischen Zitronen-Balsamico-Mayonnaise-Dressing vermengt. Auf jungem Blattgemüse angerichtet und mit rauchigem, zerbröseltem Speck bestreut entsteht ein schnelles, sättigendes Hauptgericht als Salat. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/lemony-tortellini-bacon-salad/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Käsetortellini in großen Packungen und friere einzelne Portionen ein. Das ist pro Portion günstiger als kleine frische Packungen.",
+        "Brate den Speck selbst aus einer Vorteilspackung, statt fertig gegarte Speckstückchen zu kaufen. So sparst du Geld und erhältst mehr Knusprigkeit.",
+        "Ersetze die 5 oz Blattmischung durch beliebiges Blattgemüse im Angebot oder verwende gehackten Römersalat als preiswerte Grundlage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Naturjoghurt nach griechischer Art oder eine Mischung aus Joghurt und Mayonnaise für ein leichteres, säuerlicheres Dressing",
+          "savings": "Reduziert Fett und kostet oft weniger pro Portion"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Truthahnspeck",
+          "savings": "Etwa $0.13 weniger pro Scheibe"
+        },
+        {
+          "forIngredientId": "balsamic",
+          "swap": "Rotweinessig mit einer Prise Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Nudelsalat",
+        "Tortellini",
+        "Speck",
+        "Brokkoli",
+        "Zitrone",
+        "Salat als Hauptgericht",
+        "schnell",
+        "20-Minuten-Gericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 484,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-lemony-tortellini-bacon-salad/",
+      "components": [
+        {
+          "key": "ddf3a7a6-396d-5e33-8e24-807acbfc0bd2",
+          "name": "Zutaten",
+          "servingGrams": 492.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d1a2f12-de35-576f-a824-da4aec6a2c04",
+              "ingredientName": "Tortellini",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "tiefgekühlte Käsetortellini, etwa 8 Unzen"
+            },
+            {
+              "key": "345b2dd9-218c-5540-b928-59b1bae7fc54",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "frische Röschen"
+            },
+            {
+              "key": "3df48c9d-8208-5690-8b7d-e6c4bd0272f4",
+              "ingredientName": "Mayonnaise",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "2166403c-ed3e-5cc4-95cb-f565bbe7accc",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f839b9f8-159e-5d4b-807e-1e929e352cb0",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 10.05,
+              "quantity": 10.05,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "dc9dfa7c-a717-526a-a0a2-2ad85b909c19",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd1bc0f5-d00e-50bd-9ab8-30bf4824ee6d",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d3f0c89-2792-57cd-af94-9826842dc358",
+              "ingredientName": "Junge Blattsalatmischung",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "5 Unzen Packung"
+            },
+            {
+              "key": "bc54b38e-3739-5545-85ff-604c1559d530",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "gekocht und zerbröselt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Wasser zum Kochen und gare die Tortellini nach Packungsangabe. Gib die Brokkoliröschen für die letzten 5 Minuten dazu, damit sie knackig und gar werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während die Nudeln kochen, verrühre Mayonnaise, Balsamico-Essig, Zitronensaft, getrockneten Oregano und Salz in einer kleinen Schüssel zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Tortellini und Brokkoli ab und spüle sie vorsichtig mit kaltem Wasser ab, damit sie abkühlen und nicht weitergaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tortellini und Brokkoli in eine große Schüssel, gieße das Dressing darüber und vermenge alles, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Blattsalatmischung auf Tellern oder einer Servierplatte. Gib die angemachten Tortellini und den Brokkoli darauf und streue zum Schluss zerbröselten Speck darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Lemony-Tortellini-Bacon-Salad_exps167570_SD2847494D02_13_6bC_RMS-2-e1721158542484.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/lemony-tortellini-bacon-salad/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von zitronigem Tortellini-Speck-Salat",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

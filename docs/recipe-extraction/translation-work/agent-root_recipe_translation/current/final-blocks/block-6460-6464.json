@@ -1,0 +1,1049 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-schmorgurken",
+      "slug": "gen-schmorgurken",
+      "title": "Schmorgurken",
+      "instructions": "Sächsisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie am Ende des Tages Gurken auf Bauernmärkten und profitieren Sie von Rabatten",
+        "Um Geld zu sparen, verwenden Sie griechischen Joghurt anstelle von Sauerrahm"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "sächsisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6460,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schmorgurken/",
+      "components": [
+        {
+          "key": "cd68903d-bddc-52ab-927f-08fb0c4e2650",
+          "name": "Zutaten",
+          "servingGrams": 172.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b0900bb1-96d9-5232-be3c-a2cb938435a9",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "3f695100-f549-54e1-9575-764c4d8240a2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "425b2d2e-bd5e-5d09-9177-b116836df76a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8183baca-cd82-5a38-b2e7-209e69f29d95",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c62b12e7-760e-5b01-8da9-2ed2bd8ba906",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "abb72f60-3bce-57e7-8867-018690a825af",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a9bd69cb-2c55-5763-b403-6907b580a647",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "1aa62ff1-3d13-5d3c-bd04-7135768d9640",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "7588b271-bf23-5406-8050-ac97838122be",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "13bef4ce-562f-55e3-a22f-c3fcbfe47f5a",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gurken schälen, der Länge nach halbieren und in 0.5 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel fein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer großen Pfanne schmelzen und die Zwiebel darin anbraten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gurkenstücke hinzufügen und unter leichtem Rühren 3 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Rinderbrühe, Essig und Zucker aufgießen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "15–20 Minuten köcheln lassen, bis die Gurken weich, aber noch leicht fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Dill und Sauerrahm vorsichtig unterrühren, dann erhitzen, ohne zu kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm als Beilage oder leichtes Hauptgericht servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sandraskochblog.de/wp-content/uploads/2019/08/Schmorgurken-mit-Hackfleisch-Low-Carb.jpg",
+          "sourcePageUrl": "https://sandraskochblog.de/wp-content/uploads/2019/08/Schmorgurken-mit-Hackfleisch-Low-Carb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-s-chsische-ente",
+      "slug": "gen-s-chsische-ente",
+      "title": "Sächsische Ente",
+      "instructions": "Sächsisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganze Enten statt Teile, um 20–30 % zu sparen",
+        "Bewahren Sie ausgelassenes Entenfett für die Zubereitung zukünftiger Mahlzeiten auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "sächsisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6461,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-s-chsische-ente/",
+      "components": [
+        {
+          "key": "00797abc-3a91-59fc-9187-8be962baf516",
+          "name": "Zutaten",
+          "servingGrams": 316.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "fceb236f-8ceb-52e4-865f-95574c49e9de",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 Pfund"
+            },
+            {
+              "key": "fb170fe9-f8dc-5d41-832c-a043eb75b70e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "8ceb0caf-bafe-554c-83db-1b56c4d7e035",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cd264ab-fed1-503b-b472-b4a8786c1bd8",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "a47e5371-2d3c-58ec-a554-acf093866931",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "6c9497a0-0033-500a-8b81-019f776544f0",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5610b7f9-965b-5b5a-a6c1-260c4637b3b7",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "566030be-3f4c-5f14-924f-97365e6b277a",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "9af4d638-5e76-5843-ba42-3f72d68a6b11",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "557a1754-40db-5e6a-a660-fce202f57b5b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 375 °F vorheizen und die Ente innen und außen mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Entenhohlraum mit geviertelten Zwiebeln, Karottenstücken und Apfelstücken füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Entenhaut mit Salz und Pfeffer würzen und dann mit der Brust nach oben auf einen Bräter legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "30 Minuten braten, dann die Ofentemperatur auf 350 °F reduzieren und weitere 90 Minuten braten. Dabei das ausgelassene Fett regelmäßig abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Ente auf ein Schneidebrett legen und 10 Minuten ruhen lassen, dann den Vogel vierteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bräter auf den Herd stellen, mit Rinderbrühe ablöschen, Thymian und Lorbeerblatt hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Sauce abseihen und mit geschnitzten Entenstücken und Salzkartoffeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ggHafkpSpJqI3zs6o92DusfEeC4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-145059660-59b1a84edafc47269db2062015b80c05.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ggHafkpSpJqI3zs6o92DusfEeC4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-145059660-59b1a84edafc47269db2062015b80c05.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-clafoutis-breton",
+      "slug": "gen-clafoutis-breton",
+      "title": "Clafoutis Breton",
+      "instructions": "Bretonisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene oder konservierte Kirschen statt frischer Kirschen, um das ganze Jahr über zu sparen",
+        "Je nach Saison können Sie es am günstigsten mit Pflaumen oder Pflaumen zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bretonisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6462,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-clafoutis-breton/",
+      "components": [
+        {
+          "key": "0ca417c0-253f-5d81-a3b1-c9aa77aeae2c",
+          "name": "Zutaten",
+          "servingGrams": 210,
+          "position": 0,
+          "items": [
+            {
+              "key": "df66c9d6-f54e-5ee2-8a0f-b9d9f3cd8d02",
+              "ingredientName": "Frische Kirschen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "cb77a486-1764-5585-a6ac-eb102e87c878",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ec56f5dd-1998-5b7e-a954-02ba00f9ba54",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "a8440004-1b7e-57da-93fa-223e93c138fd",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "697b86b2-f405-552d-9ebe-1e08132e7782",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "afb2ba04-cc5d-5238-9a13-0e49005554dd",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4b060c1e-ee19-5512-9f80-b7744fbf4d79",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2df3849a-a6c7-51f4-b25a-8d3d101bd975",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "af414439-a7a7-52da-9571-982d5ac9e8a6",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350 °F vorheizen und eine runde 9 Zoll große Auflaufform mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entkernen Sie frische Kirschen oder verwenden Sie Pflaumen aus der Dose, lassen Sie sie gut abtropfen und verteilen Sie sie dann gleichmäßig in der Butterform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Eier, Milch, Zucker, geschmolzene Butter, Vanille und Salz in einem Mixer vermischen und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie den Teig über die Früchte und achten Sie darauf, dass er gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "35–40 Minuten backen, bis die Clafoutis goldbraun sind und ein Messer in der Mitte sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5 Minuten abkühlen lassen, dann großzügig mit Puderzucker bestäuben, bevor es warm oder bei Zimmertemperatur serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2025/05/best-clafoutis-recipe.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2025/05/best-clafoutis-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-andouille-de-gu-men",
+      "slug": "gen-andouille-de-gu-men",
+      "title": "Andouille de Guémené",
+      "instructions": "Bretonisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fragen Sie Ihren Metzger nach vergünstigtem Innereienfleisch und Innereien",
+        "Machen Sie mehrere auf einmal und frieren Sie sie für zukünftige Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bretonisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6463,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-andouille-de-gu-men/",
+      "components": [
+        {
+          "key": "ac5d2eea-fc6b-560b-bd97-f6b3ba411b18",
+          "name": "Zutaten",
+          "servingGrams": 160.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "06d9bc3c-2491-5231-b2d0-ea09fee991c3",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück"
+            },
+            {
+              "key": "12f33279-557d-51fc-990d-86c967e1ba5d",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1bb44bb9-1a8a-5750-97d1-a2f3d4124746",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "9f9b6b7f-d59d-5b87-82f5-8cf4f027f6a8",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "a90cb6d9-4a10-524e-bf46-ec3e8df94666",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7d00ab2d-ca95-5976-8b65-80a0590bdc44",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "f3e31ab4-9a56-5f20-aa8a-c3f4224a06bc",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e4e66a26-72ad-53c1-8e1d-804a6375cdc6",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinigen Sie die Magenschleimhaut und den Darm des Schweins gründlich unter fließendem kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweineschulter und -därme in kleine Stücke schneiden und zusammen mit gehacktem Knoblauch und Schalotten zermahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Hackfleisch mit Salz, Pfeffer, Wein und Thymianblättern gründlich vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füllen Sie die Mischung mit einem Wurstfüller fest in die vorbereitete Magenschleimhaut oder den Dickdarm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Binden Sie die Enden mit Küchengarn fest zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Andouille 90 Minuten lang in kochendem Wasser pochieren, bis sie gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lassen Sie es vollständig abkühlen und stellen Sie es dann in den Kühlschrank, bevor Sie es in Scheiben schneiden und gegrillt oder mit Senf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://andouille-guemene.com/img/cms/Recettes/IMG_9344.jpg",
+          "sourcePageUrl": "https://andouille-guemene.com/img/cms/Recettes/IMG_9344.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-pe-compl-te-aux-ufs",
+      "slug": "gen-cr-pe-compl-te-aux-ufs",
+      "title": "Crêpe Complète aux Œufs",
+      "instructions": "Bretonisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schinken im Sonderangebot und schneiden Sie ihn selbst in Scheiben, statt ihn vorverpackt zuzubereiten",
+        "Verwenden Sie scharfen Cheddar anstelle von Gruyere, um einen ähnlichen Geschmack zu geringeren Kosten zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bretonisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6464,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-pe-compl-te-aux-ufs/",
+      "components": [
+        {
+          "key": "8ea9e747-d5a9-5253-b031-abd79539b2b0",
+          "name": "Zutaten",
+          "servingGrams": 446.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f24b9fd-14a0-513d-bbb7-8eff8dc6076a",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "cdc136fd-5edb-5b38-9cfc-ae9ddbcf6d51",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "b9ebf68a-b80c-5645-86ce-51c5150ff056",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "110a4e34-55af-5d65-aa7b-95d03c9b17d6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "50697e3b-9a48-549a-9cc1-2853d371b135",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8d46aa54-695a-515d-85bd-76b92eb8512c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "105454bf-effb-5c07-a2e7-84827feebd1d",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "b291b63c-1a37-5b58-9c24-2e26ecffe202",
+              "ingredientName": "Gruyère",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse in feine Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Buchweizenmehl, Allzweckmehl und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In der Mitte eine Mulde formen und 2 Eier hineinschlagen, dann nach und nach Milch und Wasser unter Rühren hinzufügen, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine beschichtete Crêpe-Pfanne oder Bratpfanne bei mittlerer bis hoher Hitze erhitzen und leicht mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "0.25 Tasse Teig in die Pfanne gießen, die Pfanne sofort schwenken und den Teig etwa 1 Minute dünn ausbacken, bis die Unterseite hellgolden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drehen Sie den Crêpe um und legen Sie eine Schinkenscheibe und 3 Esslöffel Käse auf eine Hälfte. Schlagen Sie dann ein Ei auf die andere Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kochen, bis das Eiweiß fest ist (ca. 2-3 Minuten), dann den Crêpe in zwei Hälften falten und auf einen Teller gleiten lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2024/02/Galette-Complete-23-1024x1536.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2024/02/Galette-Complete-23-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

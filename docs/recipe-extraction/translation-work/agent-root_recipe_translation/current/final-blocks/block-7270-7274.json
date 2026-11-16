@@ -1,0 +1,911 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:drink-protein-smoothie",
+      "slug": "drink-protein-smoothie",
+      "title": "Bananen-Protein-Smoothie",
+      "instructions": "Dicker, cremiger Bananen-Smoothie mit Vanille-Proteinpulver und Milch. Natürlich süß, proteinreich und in etwa drei Minuten fertig – ideal nach dem Training oder als Frühstück zum Mitnehmen.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gepunktete Bananen im Angebot kaufen, schälen und einfrieren. Gefrorene Banane macht den Smoothie dicker, sodass das Eis weggelassen werden kann.",
+        "Eine Dose Proteinpulver kostet pro Portion deutlich weniger als fertige Proteinshakes; für dieses Rezept reicht ein Messlöffel.",
+        "Honig weglassen: Eine vollreife Banane ist von selbst süß genug."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "almond-Milch oder oat-Milch",
+          "savings": "Mit Pflanzendrink wird es milchfrei; Eigenmarken sind oft günstiger als Milch."
+        },
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "greek-Joghurt",
+          "savings": "Eine halbe Tasse griechischer Joghurt liefert Eiweiß und Cremigkeit und kostet weniger als hochwertiges Proteinpulver."
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "gefroren-berries",
+          "savings": "Eine Handvoll tiefgekühlte Beeren ergibt eine fruchtigere und günstigere Mischung."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "smoothie (deutsche Fassung)",
+        "no-garen",
+        "blender (deutsche Fassung)",
+        "Frühstück",
+        "post-workout (deutsche Fassung)",
+        "Banane"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7270,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-protein-smoothie/",
+      "components": [
+        {
+          "key": "4a90e659-0dbb-5bd7-95eb-e3728e5115b9",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 543,
+          "position": 0,
+          "items": [
+            {
+              "key": "91002212-8ef2-5d8c-8e58-0d2702a58395",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "reif; für eine dickere, eisigere Mischung vorher einfrieren"
+            },
+            {
+              "key": "c06a04b4-fbd9-5f44-aeb2-6a3da9d3ea43",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Messlöffel, Vanille oder geschmacksneutral"
+            },
+            {
+              "key": "abcef2b7-180e-5e41-95cd-1324a90062e4",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1 Tasse"
+            },
+            {
+              "key": "b224d6ad-befc-586d-80f0-46e4a6db43db",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "1 EL für mehr Cremigkeit und zusätzliches Eiweiß"
+            },
+            {
+              "key": "37a9211e-a591-533d-ace8-16d754d08f82",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "1 TL, nur wenn es süßer sein soll"
+            },
+            {
+              "key": "4e8f0da3-0e01-5bfa-85b7-2d9ffb0c611c",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse für eine kältere, dickere Konsistenz"
+            },
+            {
+              "key": "93ea1bd9-3c32-5624-a259-2f5588db4b6b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "eine Prise für eine warme Gewürznote"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Banane schälen, in einige Stücke brechen und in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Proteinpulver, Milch, Erdnussbutter, nach Wunsch Honig und Eis hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "30–45 Sekunden auf höchster Stufe mixen, bis alles glatt und schaumig ist und keine Bananenstücke mehr enthält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Konsistenz prüfen: Für einen dünneren Smoothie etwas Milch, für einen dickeren einige Eiswürfel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In ein hohes Glas füllen, mit einer Prise Zimt bestäuben und sofort trinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Banana_Smoothie.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana_Smoothie.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ourlibrary — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Banane Protein Smoothie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-iced-latte",
+      "slug": "drink-iced-latte",
+      "title": "Iced Latte",
+      "instructions": "Klassischer Kaffee aus zwei kräftigen Espressi, kalter Milch und Eis. Cremig und in weniger als drei Minuten fertig.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Starken Kaffee brühen oder Espressopulver verwenden, statt eine Espressomaschine zu nutzen; das spart deutlich Geld.",
+        "Milch in größeren Gebinden kaufen und Kaffee zu Eiswürfeln einfrieren, damit der Latte nicht verwässert.",
+        "Zuckersirup selbst herstellen, indem gleiche Teile Zucker und heißes Wasser verrührt werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden oat-Milch oder almond-Milch für ein dairy-free, plant-based latte",
+          "savings": "Vergleichbare Kosten, ergibt eine vegane Variante"
+        },
+        {
+          "forIngredientId": "espresso",
+          "swap": "verwenden kalt-brew oder strong drip coffee wenn du don't have ein espresso machine",
+          "savings": "Spart die Kosten für Espressozubehör"
+        },
+        {
+          "forIngredientId": "simple-syrup",
+          "swap": "Sweeten mit Zucker, Honig, oder agave-syrup instead",
+          "savings": "Verwendet bereits vorhandene Zutaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "italienisch",
+        "coffee (deutsche Fassung)",
+        "no-garen",
+        "iced (deutsche Fassung)",
+        "espresso (deutsche Fassung)",
+        "cafe (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7271,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-iced-latte/",
+      "components": [
+        {
+          "key": "13e26c7c-732f-5ffc-af52-2afd2677276b",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 1894.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "06cee757-8fa9-5810-b1b8-a4611e795648",
+              "ingredientName": "Espresso",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Shots, frisch gebrüht und leicht abgekühlt"
+            },
+            {
+              "key": "504d685d-ec47-5118-84f1-41237a31ad1b",
+              "ingredientName": "Milch",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse kalte Vollmilch"
+            },
+            {
+              "key": "b81724c3-2352-52ab-ab48-b27c23562fa8",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse Eiswürfel"
+            },
+            {
+              "key": "cff2e575-a5bd-515b-b7f4-9d1c8de18329",
+              "ingredientName": "Zuckersirup",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "nach Geschmack für einen süßeren Latte"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 Espressi (etwa 2 oz) zubereiten und eine Minute abkühlen lassen, damit das Eis nicht sofort schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein hohes Glas mit einem Fassungsvermögen von 12–16 oz mit 1 Tasse Eis füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "6 oz kalte Milch über das Eis gießen und nach Wunsch Zuckersirup hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Espresso langsam über die Rückseite eines Löffels auf die Milch gießen, damit sich eine Schicht bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vorsichtig umrühren und sofort mit einem Trinkhalm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Iced_latte_-_BROR_2025-04-26.jpg/1280px-Iced_latte_-_BROR_2025-04-26.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Iced_latte_-_BROR_2025-04-26.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Iced Latte",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-dalgona-coffee",
+      "slug": "drink-dalgona-coffee",
+      "title": "Dalgona-Kaffee",
+      "instructions": "Der koreanische Kaffee-Trend: Instantkaffee, Zucker und heißes Wasser werden zu einem dicken, glänzenden Schaum aufgeschlagen und auf kalte Milch mit Eis gegeben. Vor dem Trinken umrühren.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mit einer Dose Instantkaffee einer Handelsmarke lassen sich für den Preis eines Café-Latte viele Portionen zubereiten.",
+        "Ohne Mixer mit einer Gabel oder einem Schneebesen von Hand aufschlagen; das dauert nur einige Minuten länger.",
+        "Beliebige vorhandene Milch verwenden. Der Kaffeeschaum bleibt auch bei pflanzlicher Milch obenauf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden oat Milch oder almond Milch für ein dairy-free version",
+          "savings": "Vergleichbarer Preis; verwendet vorhandene Vorräte"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Swap in brown Zucker für ein deeper caramel note",
+          "savings": "Gleiche Kosten, gängige Vorratszutat"
+        },
+        {
+          "forIngredientId": "instant-coffee",
+          "swap": "Instant espresso powder für ein stronger, bolder whip",
+          "savings": "Etwas teurer, aber pro Löffel intensiver"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "koreanisch",
+        "coffee (deutsche Fassung)",
+        "no-garen",
+        "iced (deutsche Fassung)",
+        "whipped-coffee (deutsche Fassung)",
+        "viral (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7272,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-dalgona-coffee/",
+      "components": [
+        {
+          "key": "8ea00f77-e231-52a7-85db-8bf7a63a63ea",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 2680,
+          "position": 0,
+          "items": [
+            {
+              "key": "69974c15-3996-586f-bcd1-a1f4f858b879",
+              "ingredientName": "Instantkaffee",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL; für den Schaum ist Instantkaffee erforderlich"
+            },
+            {
+              "key": "0749993b-81a9-58b1-ae4b-84db34d6e9e7",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL Kristallzucker"
+            },
+            {
+              "key": "9bbe2850-1de9-5208-8edd-2c9e1c9c8f42",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL heiß, fast kochend"
+            },
+            {
+              "key": "225f6e16-c3f6-5030-bf8b-86479a368bdc",
+              "ingredientName": "Milch",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 oz, kalt"
+            },
+            {
+              "key": "b6cb6148-b272-5a8c-90f2-8e31ce3b45b9",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse zum Füllen des Glases"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 EL Instantkaffee, 2 EL Zucker und 2 EL heißes Wasser in einer Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2–4 Minuten kräftig mit dem Schneebesen oder Handrührgerät schlagen, bis die Mischung heller, dick und glänzend ist und Spitzen bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein hohes Glas mit 1 Tasse Eis füllen und 8 oz kalte Milch hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den aufgeschlagenen Kaffee als luftigen Schaum auf die Milch löffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren und vor dem Trinken umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Dalgona_coffee.jpg/1280px-Dalgona_coffee.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dalgona_coffee.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kguirnela — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Dalgona Whipped Coffee",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-iced-mocha",
+      "slug": "drink-iced-mocha",
+      "title": "Eis-Mokka",
+      "instructions": "Kalter Mokka mit kräftigem Espresso und Kakao, zu einem schnellen Schokoladensirup verrührt und mit kalter Milch auf Eis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Espressopulver in einem Schuss heißem Wasser auflösen, statt Espresso frisch zuzubereiten.",
+        "Ungesüßter Kakao kostet pro Getränk viel weniger als fertiger Schokoladensirup und reicht für viele Mokkas.",
+        "Eine größere Menge Kakao-Zucker-Sirup vorbereiten und im Kühlschrank aufbewahren, damit der Mokka schnell fertig ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "oat-Milch oder almond-Milch für ein dairy-free version",
+          "savings": "Vergleichbare Kosten; Hafermilch sorgt für natürliche Cremigkeit"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "agave-syrup oder Honig",
+          "savings": "Etwas teurer, löst sich aber sofort in kalten Getränken auf"
+        },
+        {
+          "forIngredientId": "espresso",
+          "swap": "1 cup strong kalt-brew oder coffee",
+          "savings": "Keine Espressomaschine nötig; pro Portion günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "amerikanisch",
+        "coffee (deutsche Fassung)",
+        "no-garen",
+        "iced (deutsche Fassung)",
+        "Schokolade",
+        "cafe (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7273,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-iced-mocha/",
+      "components": [
+        {
+          "key": "8341d2b6-d0a9-54c1-94a7-7709fb16ed48",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 1941.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "acf1ebf0-6f5a-5ff3-8604-cfa7efed8a2b",
+              "ingredientName": "Espresso",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Shots, frisch gebrüht und heiß"
+            },
+            {
+              "key": "9eeb8694-1183-5b84-87ae-618c33122b5f",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "ungesüßt, 2 TL"
+            },
+            {
+              "key": "1f937695-3d04-535d-b8a7-b7f6f5819615",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL nach Geschmack"
+            },
+            {
+              "key": "4388eae3-09d4-5f47-90a3-0b7ec3ac6b56",
+              "ingredientName": "Milch",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "kalt, 6 oz"
+            },
+            {
+              "key": "5969df1c-dadf-5226-89f5-b95d2f567e5f",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d9bf284c-2a67-5ba9-b7a5-397d524fb326",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heißen Espresso mit Kakaopulver und Zucker in einer kleinen Tasse verrühren, bis ein glatter Schokoladensirup ohne Klümpchen entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach Wunsch Vanilleextrakt hinzufügen und unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein hohes Glas mit Eis füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Schokoladen-Espresso-Mischung über das Eis gießen und mit kalter Milch auffüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gut umrühren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Iced_mocha_-_Cafe_Rust_2025-03-31.jpg/1280px-Iced_mocha_-_Cafe_Rust_2025-03-31.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Iced_mocha_-_Cafe_Rust_2025-03-31.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Iced Mocha",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-cold-brew",
+      "slug": "drink-cold-brew",
+      "title": "Vanille-Cold-Brew",
+      "instructions": "Milder, säurearmer kalt gebrühter Kaffee mit Vanille und einem Schuss Milch. Auf Eis serviert ist er in weniger als zwei Minuten fertig.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zu Hause eine größere Menge Cold Brew zubereiten: Grob gemahlenen Kaffee über Nacht in kaltem Wasser ziehen lassen und anschließend abseihen. Das kostet nur einen Bruchteil eines Cafégetränks.",
+        "Vanillesirup aus der Flasche weglassen. Einige Tropfen Vanilleextrakt und etwas Zucker erfüllen denselben Zweck.",
+        "Milch in größeren Gebinden kaufen und pro Getränk nur einen Schuss verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "oat Milch oder almond Milch für ein dairy-free, café-style finish",
+          "savings": "Vergleichbare Kosten; spart den Kauf von Milchprodukten, wenn diese nicht vorrätig sind"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "einfach syrup oder ein drizzle von Honig/maple syrup",
+          "savings": "Verwendet vermutlich vorhandene Grundzutaten, keine zusätzlichen Ausgaben"
+        },
+        {
+          "forIngredientId": "cold-brew",
+          "swap": "strong chilled brewed coffee oder instant coffee mixed mit kalt Wasser",
+          "savings": "Spart den Kauf von trinkfertigem Cold Brew, oft zum halben Preis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "amerikanisch",
+        "coffee (deutsche Fassung)",
+        "no-garen",
+        "kalt-brew",
+        "iced (deutsche Fassung)",
+        "vanilla (deutsche Fassung)",
+        "caffeine (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7274,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-cold-brew/",
+      "components": [
+        {
+          "key": "bea2fccf-dac4-58c0-a4e9-1978b003d1b4",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 992.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "404aa9f6-55de-57f0-a594-5f644d6cca53",
+              "ingredientName": "Cold-Brew-Konzentrat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gekühlt, unverdünntes Cold-Brew-Konzentrat oder trinkfertiger Cold Brew"
+            },
+            {
+              "key": "f90fe51d-3df7-5ca9-8a23-e2367903e5aa",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Würfel zum Füllen des Glases"
+            },
+            {
+              "key": "459ac40f-5eb0-54cf-8cef-737b6a2000a2",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "ein Schuss; Vollmilch oder 2% Fett für Cremigkeit"
+            },
+            {
+              "key": "24177856-1136-5c9b-abf4-06074537c02f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "reine Vanille"
+            },
+            {
+              "key": "b3059b0d-90ba-5c4e-a0a3-832551fb5a99",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "oder Zuckersirup; löst sich besser als Kristallzucker"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein hohes Glas bis oben mit Eis füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vanilleextrakt und Zucker in den Cold Brew rühren, bis sich der Zucker vollständig aufgelöst hat. Falls nötig, den Kaffee leicht erwärmen oder Zuckersirup verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den gesüßten Vanille-Cold-Brew über das Eis gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit einem Schuss Milch auffüllen und vorsichtig umrühren, damit sich die Farben vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Irish_Cream_Cold_Brew_at_Starbucks_-_2021-11-15_-_Sarah_Stierch.jpg/1280px-Irish_Cream_Cold_Brew_at_Starbucks_-_2021-11-15_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Irish_Cream_Cold_Brew_at_Starbucks_-_2021-11-15_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Missvain — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Vanilla kalt Brew",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1226 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-eu-spanakopita-bake",
+      "slug": "mfr-eu-spanakopita-bake",
+      "title": "Spinat-Feta-Auflauf nach Spanakopita-Art",
+      "instructions": "Alle Aromen der griechischen Spinat-Feta-Pastete – Dill, Zitrone und Muskatnuss – ohne Teigboden: Cremiger Feta, zusammengefallener Spinat und Eier werden in einer Auflaufform gebacken, bis die Masse gestockt ist. Schneller als mit Filoteig und trotzdem wunderbar sättigend.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Spinat ist deutlich günstiger als frischer und eignet sich besser zum Backen.",
+        "Drücke jeden Tropfen Wasser heraus, sonst wird der Auflauf matschig.",
+        "Der Auflauf hält sich 4 Tage im Kühlschrank und schmeckt kalt oder bei Zimmertemperatur ausgezeichnet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "Getrockneter Dill, 1 TL verwenden, schmeckt ebenfalls ausgezeichnet"
+        },
+        {
+          "forIngredientId": "frozen-spinach",
+          "swap": "Frischer Spinat: Eine große Packung zusammenfallen lassen und das Wasser ausdrücken"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-spanakopita-bake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "Spanakopita",
+        "Spinat",
+        "Feta",
+        "Auflauf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1515,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-spanakopita-bake/",
+      "components": [
+        {
+          "key": "59b2d464-d82f-5b96-83e8-2a420cea1374",
+          "name": "Zutaten",
+          "servingGrams": 288.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fc79025-ecc0-5105-8a66-6717757978ce",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03495ccf-9aa9-54ed-87a9-5c46e4f8669b",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69ef428d-ee0d-5ff6-b435-3beaebadb19e",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "809b6048-8bd4-50b9-817f-322baa8f4617",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ef43c01-46b8-5cb0-9222-b797275cc4cf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0c68b7c-b91a-5f22-8693-7094d4c1450a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edbba9aa-9930-519d-91bd-64030dff4006",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfbbf31e-8e71-59b9-a165-ed8bd3150e50",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46f1499a-0c21-5b30-a9fa-dd0f5f43678d",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70bbf936-cd16-5fce-8902-cda39aecae93",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b803356-21dc-52ce-9886-91553b3c3a55",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9da557af-c557-59a8-8e5f-0c072a54595e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Drücke das gesamte Wasser aus dem aufgetauten Spinat. Dieser Schritt ist unverzichtbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel an, bis sie weich ist. Gib Knoblauch und Spinat dazu und gare alles trocken, bis das restliche Wasser verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Masse mit zerbröseltem Feta, Dill, Zitronenschale und Muskatnuss.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle die Eier und vermenge sie mit der Spinatmischung. Fülle alles in eine geölte Auflaufform und bestreue es mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Auflauf bei 375°F 30 Minuten, bis er gestockt und oben goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/nca1FABNMNmdM7674C_LsYd43nI=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/spinach-pie-with-feta-spanakopita-1706022_hero-02-ff2e5c12e0b649ffb5fed316deebe299.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/nca1FABNMNmdM7674C_LsYd43nI=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/spinach-pie-with-feta-spanakopita-1706022_hero-02-ff2e5c12e0b649ffb5fed316deebe299.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu-bigos",
+      "slug": "mfr-eu-bigos",
+      "title": "Bigos (polnischer Jägereintopf)",
+      "instructions": "Polens Nationalgericht: ein langsam gekochter Eintopf aus Sauerkraut, frischem Kohl, Pilzen und verschiedenen Fleischsorten. Der tiefe Geschmack entsteht durch langes Köcheln und die säuerliche Komplexität des fermentierten Kohls. Eines der sättigendsten Wintergerichte Osteuropas.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sauerkraut sorgt für vielschichtige Aromen zum kleinen Preis. Verwende frisches Sauerkraut aus dem Glas.",
+        "Kohl ist eines der günstigsten Gemüse und eignet sich perfekt für lange geschmorte Eintöpfe.",
+        "Bigos schmeckt tatsächlich über 3 Tage hinweg immer besser und ist ideal zum Vorkochen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Sauerkrautlake oder Zitronensaft für die Säure"
+        },
+        {
+          "forIngredientId": "sausage",
+          "swap": "Beliebige geräucherte Wurst; Kielbasa ist traditionell"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-bigos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "polnisch",
+        "Bigos",
+        "Jägereintopf",
+        "Kohl",
+        "Sauerkraut"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1516,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-bigos/",
+      "components": [
+        {
+          "key": "dcdbee7d-23ab-55c1-bffa-6b7e3a501bfc",
+          "name": "Zutaten",
+          "servingGrams": 372.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e931f8b6-161e-578b-98f7-cc0e2f5ac132",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02f4fa8a-8787-540f-9a09-53f939646427",
+              "ingredientName": "Schweinswurst",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e169f28-63b7-5cb3-b5bc-96f20bef1dab",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39e0e6da-be9a-5d0b-b66c-af092e0858e7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da4b4ed5-8c19-5d0b-8129-a22d4cf52006",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba30c991-58f6-5144-98ee-e5b3cca694dc",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "285d827a-6f9e-5abc-97a0-38668864981b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10435a3b-c0d9-5683-b6d6-aa6b8aece084",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18ff247a-8a83-5c97-b37d-42f9c9dd803d",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a02e8d3-09ab-566d-800d-c00253ec4cd3",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ccdbf98-b66b-51d7-81e1-62ad11a41e32",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4a04c3e-db98-5d81-ab79-bfd3bd87c70f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba084dde-5eaf-5fd1-9597-ea1e3273edc3",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d13b85e-3d76-5b35-80c5-0c54b448381e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke den Kohl grob. Gare die Zwiebel in Öl, bis sie goldbraun ist. Gib die Pilze dazu und gare sie, bis die Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die in Scheiben geschnittene Wurst und den Kohl dazu. Brate alles 5 Minuten zusammen an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark, Knoblauch, Paprikapulver, Lorbeerblatt und einen Schuss Essig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Brühe dazu und bringe alles zum Kochen. Lass den Eintopf zugedeckt 45 Minuten köcheln. Je länger, desto besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze den Eintopf und serviere ihn mit dunklem Roggenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/H4ixZdWIwmvFSL-2aqT3mt7V4DM=/4494x3000/filters:fill(auto,1)/polish-hunters-stew-bigos-recipe-1136773-hero-01-3103cca591e248838157cbe61be0560c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/H4ixZdWIwmvFSL-2aqT3mt7V4DM=/4494x3000/filters:fill(auto,1)/polish-hunters-stew-bigos-recipe-1136773-hero-01-3103cca591e248838157cbe61be0560c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu-salmon-gratin",
+      "slug": "mfr-eu-salmon-gratin",
+      "title": "Skandinavischer Lachs-Kartoffel-Gratin",
+      "instructions": "Dünn geschnittene Kartoffeln, geschichtet mit Lachsfilets, Dill und einer Sahne-Senf-Sauce und gebacken, bis alles blubbert und goldbraun ist. Ein reichhaltiger, wärmender und sehr sättigender skandinavischer Wintergratin, der trotzdem nicht schwer wirkt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Lachsfilets, über Nacht aufgetaut, eignen sich perfekt für diesen Gratin.",
+        "Die Dijon-Milch-Sauce ist die einfachste Sahnesauce und kommt ohne Mehlschwitze aus.",
+        "Der Gratin hält sich 3 Tage und lässt sich gut aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Beliebiger fester Fisch; Kabeljau oder Schellfisch sind skandinavische Klassiker"
+        },
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "Getrockneter Dill, 1 TL verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-salmon-gratin",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "skandinavisch",
+        "Gratin",
+        "Lachs",
+        "Kartoffel",
+        "Dill",
+        "Ofengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1517,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-salmon-gratin/",
+      "components": [
+        {
+          "key": "39767094-14d4-5676-8b2f-d0641f89da0e",
+          "name": "Zutaten",
+          "servingGrams": 403.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "55d9b246-0d0e-5baa-8bb3-9464090f878d",
+              "ingredientName": "Lachsfilet",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49e941d9-4f8a-5101-b1ef-0c8d5f8b8fbb",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11c97b41-79f2-5576-aad9-ab213aa1578b",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a906ff94-379b-5864-beb9-4e2e2b1498ba",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa2b8987-d947-5b32-a7b4-ee21093e81c5",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2011cbce-5812-55cc-8832-537f9bb196df",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "993aed4a-e95a-545f-90ed-fcd236e0c411",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccf47efe-0407-5ea3-85de-2c1f4229dcdb",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cef1ad6-2337-509e-82a7-2ed90c009514",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9a85de0-a61b-54e4-8a33-2206db3083ae",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "508034ba-3d25-5a07-8683-58ead5be12e6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in dünne Scheiben und vermische sie mit Knoblauch, Olivenöl, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schichte die Hälfte der Kartoffeln in eine geölte Auflaufform. Lege die Lachsfilets darauf und würze sie mit Dill und Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bedecke den Lachs mit den übrigen Kartoffelscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle die Milch mit Dijon-Senf und gieße sie über den Gratin. Bestreue ihn mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Gratin zugedeckt bei 375°F 30 Minuten und dann weitere 15 Minuten ohne Deckel, bis die Kartoffeln weich und die Oberfläche goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2023/05/Salmon-and-asparagus-gratin-eb950af.jpg",
+          "sourcePageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2023/05/Salmon-and-asparagus-gratin-eb950af.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu-schnitzel-bowl",
+      "slug": "mfr-eu-schnitzel-bowl",
+      "title": "Schnitzel-Bowl mit Kartoffelsalat und Gurke",
+      "instructions": "Österreichs berühmtestes Gericht alltagstauglich zubereitet: ein dünnes, flach geklopftes Hähnchen- oder Schweineschnitzel, paniert und splitterknusprig ausgebacken. Serviert auf warmem deutschem Kartoffelsalat mit Essig und Speck sowie einem kalten Gurken-Dill-Salat. Ein praktischer deutsch-österreichischer Abendessen-Teller.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dünn geklopfte Hähnchenbrust ist von Schweineschnitzel kaum zu unterscheiden.",
+        "Das Klopfen ist entscheidend: Das dünne Schnitzel gart schnell und bleibt saftig.",
+        "Bereite zusätzliche panierte Schnitzel vor und friere sie für ein Abendessen unter der Woche in 10 Minuten ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Panko für ein besonders knuspriges Schnitzel"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Für einen vegetarischen Kartoffelsalat weglassen und einfach mehr Essig hinzufügen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-schnitzel-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "deutsch",
+        "Schnitzel",
+        "Hähnchen",
+        "paniert",
+        "Kartoffelsalat"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1518,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-schnitzel-bowl/",
+      "components": [
+        {
+          "key": "b0fdf8b3-b94f-5910-8465-62276e8d4478",
+          "name": "Zutaten",
+          "servingGrams": 719.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "02ae099f-341c-5795-b816-4e5ee95d9b39",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec4b5126-471e-5df9-aad0-a82f267cec19",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6637e6ea-ae64-5b2e-879a-989d8561a3db",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73788301-5e60-5a37-8361-e737180b862b",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f09f4c4-e64b-581a-81e8-5d070d7ff3bc",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "025944b5-9fbd-5742-a922-e0cb7d5100c7",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbda62aa-05fa-5dcc-bf39-09f1d9f7e005",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04a6a860-5632-5259-9144-d47e3016f78f",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bc66030-a15f-53c4-9768-ba926ad5438d",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af608929-5d6e-5b8e-a70d-8048540e3400",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "233d2873-e893-5208-b22d-90d11b0542cb",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bbc1aec-aea4-5d93-8018-97aefcf3c1fa",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6956940d-4e2b-5f22-890e-3ef4b502f4a6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Hähnchen zwischen Frischhaltefolie auf 1/4 Zoll Dicke. Würze es, wende es in Mehl, dann in Ei und schließlich in Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate es in 1/2 Zoll heißem Öl pro Seite 2–3 Minuten, bis es kräftig goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wärme den Kartoffelsalat zu: Koche gewürfelte Kartoffeln und vermische sie mit gegartem Speck, Essig, Dijon-Senf und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für den Gurken-Dill-Salat schneide die Gurke in dünne Scheiben und vermische sie mit Dill, Essig und einer Prise Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte das Schnitzel neben warmem Kartoffelsalat und Gurkensalat an und presse Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Oi7uJY5iWmBlt8d0Oqt7qxsFfFw=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/wiener-schnitzel-recipe-1447089-Final-5b9be0b7c9e77c0057a39572.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Oi7uJY5iWmBlt8d0Oqt7qxsFfFw=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/wiener-schnitzel-recipe-1447089-Final-5b9be0b7c9e77c0057a39572.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu-irish-egg-bake",
+      "slug": "mfr-eu-irish-egg-bake",
+      "title": "Ofengericht mit irischer Wurst und Wurzelgemüse",
+      "instructions": "Ein herzhaftes Blechgericht nach irischer Art: Schweinswürste mit Wurzelgemüse wie Pastinake, Karotte und Kartoffel, geröstet mit einer Senf-Kräuter-Glasur und abgerundet mit einem Schuss Stout und frischer Petersilie. Ein Abendessen, das nach einer richtigen irischen Pubküche duftet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wurzelgemüse gehört zu den günstigsten Winterprodukten und kostet jeweils weniger als 1 Dollar pro Pfund.",
+        "Ein Blech reicht für 4 Personen und macht praktisch keinen Abwasch.",
+        "Das ist das perfekte Abendessen nach dem Motto: einfach alles rösten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Hähnchenoberkeulen als leichtere Variante"
+        },
+        {
+          "forIngredientId": "carrot",
+          "swap": "Pastinake für ein traditionelleres irisches Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-irish-egg-bake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "irisch",
+        "Wurst",
+        "Blechgericht",
+        "Wurzelgemüse",
+        "Pubessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1519,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-irish-egg-bake/",
+      "components": [
+        {
+          "key": "76f3d17d-8644-5e1f-aefa-d43e3ed71473",
+          "name": "Zutaten",
+          "servingGrams": 420.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac41a4f4-26f6-5b56-a3d4-83bae30a3102",
+              "ingredientName": "Schweinswurst",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f807f1c-d274-597c-bd51-1bd709b59a8d",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24f2b12e-f40b-57af-9610-5e75dd1de95d",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19647e55-560a-57b8-913f-ac2f057c864e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a3203e8-8e11-5cbf-9084-e6645313bcbf",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4db77651-ba09-5cfa-87de-edeb71806e76",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbae63a5-5b43-58a5-9f00-4b617a2a1b2d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7e7ab2b-fa75-5622-91d2-0da3d57be3dc",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2b4c3fc-8d85-544a-a23e-e5894332a308",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b423b516-d6e5-5f55-a514-d0b56eaef6a0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08e8818a-6b05-5e46-8851-dfcefdf74517",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27a4acb5-0314-5e17-bd4b-70124e126f5e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere Kartoffeln und Karotten, schneide die Zwiebel in dicke Scheiben und trenne die Knoblauchzehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische das gesamte Gemüse mit Olivenöl, Senf, Thymian, Rosmarin und Essig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile alles auf einem großen Blech und bette die Würste zwischen das Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste alles bei 400°F 35–40 Minuten, bis die Würste gebräunt und das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue frische Petersilie darüber und serviere das Gericht direkt vom Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/10/sausage-and-potato-sheet-pan-dinner-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/10/sausage-and-potato-sheet-pan-dinner-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

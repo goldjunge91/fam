@@ -1,0 +1,1151 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-bbq-honey-mustard-salmon",
+      "slug": "mfr-bbq-honey-mustard-salmon",
+      "title": "Lachs mit Honig-Senf-Glasur",
+      "instructions": "Lachsfilets werden mit einer würzig-säuerlichen Glasur aus Honig und Dijon-Senf bestrichen und gegrillt, bis die Oberfläche karamellisiert und das Fleisch gerade gar ist. Mit geröstetem Spargel und Zitrone serviert ist dies ein 15-Minuten-Abendessen für den regelmäßigen Speiseplan.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Lachs lässt sich genauso gut grillen. Taue ihn 20 Minuten in kaltem Wasser auf.",
+        "Dijon-Senf und Ahornsirup ergeben mit einfachen Vorratszutaten eine unkomplizierte Glasur wie im Restaurant.",
+        "Dieses Abendessen dauert 17 Minuten und ist schneller als jede Lieferung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig für die traditionelle Honig-Senf-Glasur"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Beliebiges schnell garendes Gemüse, zum Beispiel Brokkolini oder grüne Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-honey-mustard-salmon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Lachs",
+        "Honig-Senf",
+        "gegrillt",
+        "Spargel",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1545,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-honey-mustard-salmon/",
+      "components": [
+        {
+          "key": "da78f546-50f8-52ad-adb5-6f6cf3031e66",
+          "name": "Zutaten",
+          "servingGrams": 410,
+          "position": 0,
+          "items": [
+            {
+              "key": "7df856b8-3505-54bb-887b-1ce879d38345",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6169fb86-6047-5a31-9e16-35aad08d0f2d",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57b8b931-d997-5560-a77d-23809b73ffd4",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ceedfa8-3d03-560e-b297-dd39e959840b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47f19fe1-94d0-5419-aac1-5e980e52a3c0",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d780929-7c59-536b-a686-ce75669565ca",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d64c833e-89ad-54fa-b9f7-834537fb9efb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e93772b-9860-57dd-9d90-36b7fd363cee",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c932581-fd4f-5e17-9549-23b64d5630a4",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fef41e93-4f03-55ae-94d1-5cc66619c63a",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre für die Glasur Dijon-Senf, Ahornsirup, Knoblauch, Zitronensaft und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Lachsfilets mit der Glasur und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Grille den Lachs bei hoher Hitze 8–10 Minuten, bis die Oberfläche karamellisiert und der Fisch leicht auseinanderfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate währenddessen den Spinat in derselben Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Lachs mit zusätzlicher Zitrone und Thymian.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/05/Honey-Mustard-Salmon-In-Foil-Recipe-3.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/05/Honey-Mustard-Salmon-In-Foil-Recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-carolina-bowl",
+      "slug": "mfr-bbq-carolina-bowl",
+      "title": "Carolina-BBQ-Bowl mit Essig-Hähnchen",
+      "instructions": "Die säurebetonte BBQ-Tradition von Eastern Carolina mit zerpflücktem Hähnchen: Apfelessig, roter Pfeffer und brauner Zucker ergeben eine würzige Sauce ganz ohne Tomate. Serviert auf weißem Reis mit Blattkohl und Maisbrot. Frisch, ungewöhnlich und sehr sättigend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Apfelessig ist hier die ganze BBQ-Sauce. Aufwendige Zutaten sind nicht nötig.",
+        "Beim Zerpflücken zieht die Essigsauce ins Hähnchen ein und sorgt für besonders viel Geschmack.",
+        "Blattkohl ist günstiger als Spinat, braucht aber eine längere Garzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spinach",
+          "swap": "Echter Blattkohl, 20 Minuten länger garen"
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Weißweinessig für eine etwas mildere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-carolina-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Carolina-BBQ",
+        "Essigsauce",
+        "Hähnchen",
+        "Südstaaten",
+        "gezupft"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1546,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-carolina-bowl/",
+      "components": [
+        {
+          "key": "cb85e668-7560-5fd1-8be6-6cb12cb36d20",
+          "name": "Zutaten",
+          "servingGrams": 535,
+          "position": 0,
+          "items": [
+            {
+              "key": "98aeaaec-b6d2-544a-b0d9-2083cd666c66",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc0c2b6a-09f9-5879-8e49-eed83ed0ca74",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16e7c9ee-c958-5bb4-a1ae-95a424a1d91c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d337a6c3-7eb2-5971-9486-149510f097e5",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5c839fe-b70d-5c33-a13f-167fb987240a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54e110a7-8a5b-5ad2-9d90-170a3c42a61d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44bba683-1bc5-55a9-a433-47ce0fbe4bb2",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e27813c1-db61-5f63-96b7-3d68c9d55673",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65b53faa-003c-555d-8c43-9d0c392a2ee9",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65c8b8a4-19d1-5287-a0c2-7b8c0289571b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95217ef2-17c8-523a-8699-2b62ebf2b6b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Hähnchenoberkeulen mit Essig, braunem Zucker, rotem Pfeffer, Paprikapulver, Knoblauchpulver und Wasser köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare alles zugedeckt 30 Minuten und zerpflücke das Hähnchen. Gib es zurück in den Topf und lass es weitere 5 Minuten in der Essigsauce köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Spinat in Butter an. Er ist der schnelle Ersatz für Blattkohl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das gezupfte Hähnchen auf Reis mit dem Essigsud und dem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.southernplate.com/wp-content/uploads/2010/06/DSC_0273_4288x2848.jpg",
+          "sourcePageUrl": "https://www.southernplate.com/wp-content/uploads/2010/06/DSC_0273_4288x2848.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-pineapple-chicken",
+      "slug": "mfr-bbq-pineapple-chicken",
+      "title": "Gegrilltes Teriyaki-Hähnchen mit Ananas",
+      "instructions": "Hähnchenoberkeulen mit einer Teriyaki-Ananas-Sauce glasiert: Die Süße der gegrillten, karamellisierten Ananas trifft auf die salzig-herzhafte Teriyaki-Sauce. Serviert auf Reis mit gebräunten Ananasringen, Gurke und Sesamsamen. Hawaiianisches BBQ ganz ohne Flugreise.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ananas aus der Dose mit Saft eignet sich perfekt. Verwende den Saft für die Sauce und grille die Ringe.",
+        "Teriyaki-Sauce aus der Flasche macht daraus eine Marinade in 10 Minuten.",
+        "Das ist ein komplettes Abendessen für 4 Dollar pro Person."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-mango",
+          "swap": "Ananasringe aus der Dose samt Saft, die traditionelle hawaiianische Zutat"
+        },
+        {
+          "forIngredientId": "teriyaki-sauce",
+          "swap": "Sojasauce, Mirin und braunen Zucker vermischen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-pineapple-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Teriyaki",
+        "Ananas",
+        "hawaiianisch",
+        "gegrillt",
+        "Hähnchen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1547,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-pineapple-chicken/",
+      "components": [
+        {
+          "key": "019c555e-39d8-5bfb-85e3-355e496f36c2",
+          "name": "Zutaten",
+          "servingGrams": 573,
+          "position": 0,
+          "items": [
+            {
+              "key": "06c7ad87-66cf-5f27-bf8d-233d93d2136e",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79484ec2-f2b0-50ba-8fb5-f621aaf8c6f4",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57d278db-cdc1-5b91-a324-8fff7cb82c61",
+              "ingredientName": "Mango",
+              "grams": 200,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8420346d-1758-590a-81b6-0e1501a9962b",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72bfc235-f58c-5c96-979f-91f39b8361de",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98c07cd4-e25a-5243-ae22-d2c6282cb9ac",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a787531-7c79-5f12-8fa4-2e858515109c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ac35b47-b0b7-5d4e-8811-3083a4d1ee23",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b23e1dc1-eabc-5b7f-b202-228e5c9d4228",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e719a5e1-5d28-5b08-a6a4-71150cba3fec",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ae02c25-c193-5002-8aa4-03cd98ad81e2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aab6d437-89d4-523b-873a-cdc91bb54563",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre für die Sauce Teriyaki-Sauce, Knoblauch, Ingwer, braunen Zucker und Ananassaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere das Hähnchen 30 Minuten und brate es in einer heißen Pfanne mit der Hautseite nach unten 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende es, bestreiche es mit Sauce und grille es 8 Minuten, bis es karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille die Ananasringe aus der Dose in derselben Pfanne, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Hähnchen auf Reis mit Ananas, Gurke, Sesamsamen und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/4434_1_1721363762.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/4434_1_1721363762.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-skillet-chicken-mushroom",
+      "slug": "mfr-skillet-chicken-mushroom",
+      "title": "Cremige Hähnchen-Pilz-Pfanne",
+      "instructions": "Goldbraun angebratene Hähnchenbrust in einer seidigen Pilz-Knoblauch-Sahnesauce, komplett in einer Pfanne zubereitet. Erdig-aromatische Cremini-Pilze, etwas Hühnerbrühe und ein Schuss Sahne verbinden sich in weniger als 30 Minuten zu einem Abendessen wie im Restaurant.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cremini-Pilze sind am günstigsten, weiße Champignons funktionieren ebenfalls.",
+        "Verwende Halbrahm statt Schlagsahne, um Kosten zu sparen.",
+        "Serviere das Gericht mit Reis oder Eiernudeln für mehr Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Halbrahm oder vollfetter griechischer Joghurt, vom Herd genommen untergerührt"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen, saftiger und günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-chicken-mushroom",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Pfannengericht",
+        "Hähnchen",
+        "Pilze",
+        "cremig",
+        "One-Pot"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1548,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-chicken-mushroom/",
+      "components": [
+        {
+          "key": "acb23602-20b1-56a4-b8e5-d3f41bd14538",
+          "name": "Zutaten",
+          "servingGrams": 421,
+          "position": 0,
+          "items": [
+            {
+              "key": "023ec801-0abc-598c-8a6f-36097bafc869",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "861ea70d-10be-565c-99c1-a10383b62222",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fd85c1b-c095-55e7-8d10-abee3865eaae",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08087e74-5fbf-50ea-a791-5e5f626bc5b6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34fc4198-ce9d-5174-8a04-7821c0f4b073",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af2abf8f-0000-5bec-aa61-fe9d61cb18ae",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a22e6e5d-4d40-5478-85a4-9c21c8ea1efe",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "146dd12e-7cff-5af9-8ec2-608cd0e8b299",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66833fdf-7322-5baa-b7f9-35af24da7a23",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "268bcd06-fd08-5704-918d-88b285ca9631",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c9f3eac-2f1b-5996-a7ed-8a620ad58219",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate es in Öl bei mittelhoher bis hoher Hitze 5–6 Minuten pro Seite goldbraun an und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Zwiebel und Pilze in derselben Pfanne 6 Minuten an, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und Thymian dazu und gare alles 1 Minute. Gieße die Brühe an und löse dabei den Bratensatz vom Pfannenboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Sahne ein und lass alles 3 Minuten köcheln, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Hähnchen zurück in die Pfanne, löffle Sauce darüber und gare es 2 Minuten. Garniere mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2017/10/ff57402f090aaa3b0a7fea2ce037a08ed70d9934.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2017/10/ff57402f090aaa3b0a7fea2ce037a08ed70d9934.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-skillet-beef-peppers",
+      "slug": "mfr-skillet-beef-peppers",
+      "title": "Rindfleisch-Paprika-Pfanne",
+      "instructions": "Streifen aus Flankensteak werden bei starker Hitze kurz mit dreifarbiger Paprika, Zwiebel und einer herzhaften Worcestershire-Soja-Glasur gebraten. Steakhouse-Geschmack in 20 Minuten, perfekt zu Reis oder in Hoagie-Brötchen gefüllt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flankensteak, Dünnung oder Rinderlende eignen sich alle. Achte auf Angebote.",
+        "Tiefgekühlte Wok-Gemüsemischungen mit Paprika sind günstiger und ersparen das Schneiden.",
+        "Serviere das Gericht mit weißem Reis, um 4 Portionen auf 5 zu strecken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Rinderhackfleisch für eine Pfannenvariante nach Cheesesteak-Art"
+        },
+        {
+          "forIngredientId": "worcestershire",
+          "swap": "Austernsauce oder mehr Sojasauce mit einem Tropfen Fischsauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-skillet-beef-peppers",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Rindfleisch",
+        "Paprika",
+        "Pfannengericht",
+        "Steak",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1549,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-skillet-beef-peppers/",
+      "components": [
+        {
+          "key": "c06e350f-7d53-52b2-9fec-da19fad5ec60",
+          "name": "Zutaten",
+          "servingGrams": 159.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b642bb1-ef35-51ec-83fb-213f61ad0509",
+              "ingredientName": "Flankensteak",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcea114c-22b6-583a-b172-d6647470849d",
+              "ingredientName": "Paprika",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3408df04-63a5-5879-9786-7df7d5689bdc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66e6b2a6-bdf7-53f8-9f2c-5a58adbf5461",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03c170bc-d331-5f98-b1e4-a20d49314e22",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4109a29-c25c-5d70-997f-e271a5e3d5d0",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c125107-7515-5255-a129-4ba72713ce03",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d266f09-7f9b-5c5b-b159-e993356a12c3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59fbfe6f-00b8-5315-be45-89ae2ddd16de",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b79268d-2376-51f2-8c51-3adeb1edc700",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Flankensteak quer zur Faser in dünne Streifen und vermische sie mit Maisstärke und Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne bei starker Hitze, bis es raucht. Brate das Rindfleisch 2 Minuten scharf an und nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprika und Zwiebel dazu und gare sie 4 Minuten, bis sie leicht angekohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Knoblauch dazu und gare ihn 30 Sekunden. Gib das Rindfleisch zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Worcestershiresauce dazu, schwenke alles 1 Minute und schmecke das Gericht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/05/steak-and-peppers-recipe-.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/05/steak-and-peppers-recipe-.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

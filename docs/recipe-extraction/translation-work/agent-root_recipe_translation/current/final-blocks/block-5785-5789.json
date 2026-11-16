@@ -1,0 +1,909 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sour-cream-cucumber-salad",
+      "slug": "gen-sour-cream-cucumber-salad",
+      "title": "Gurkensalat mit saurer Sahne",
+      "instructions": "Kühler Gurkensalat mit saurer Sahne, Dill und Knoblauch.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Saure Sahne in großen Bechern statt in Einzelportionen kaufen; das ist pro Unze 50% günstiger.",
+        "Saure Sahne der Hausmarke verwenden; die Qualität ist genauso gut wie bei teureren Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "russian",
+        "lunch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5785,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sour-cream-cucumber-salad/",
+      "components": [
+        {
+          "key": "40a7b8eb-761e-585d-9b26-5b9df4ab685e",
+          "name": "Zutaten",
+          "servingGrams": 279.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8bd7927d-3586-5904-a271-5d2e1ae0f839",
+              "ingredientName": "Gurke",
+              "grams": 900,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "2c51b49e-7936-509d-a0f5-bcb67c00bd45",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "22498d90-e5f6-5f85-9071-377fa8e1ed29",
+              "ingredientName": "Frischer Dill",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel, gehackt"
+            },
+            {
+              "key": "905ae227-ba58-57ef-80f9-d7ac31945acf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5a4840b4-4b55-54d6-89a7-dc825bbbd67b",
+              "ingredientName": "Paprikapulver",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "5afe610b-0bc7-5b13-bd4f-d18b8badf4e5",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "67acd8c8-c5bc-5ce2-aedd-9cabb8f23052",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 mittelgroße, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "c1acfc6e-fb39-5927-9b22-d2408d428e6e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gurken und Zwiebel in dünne Scheiben schneiden und in eine Servierschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit Salz bestreuen und 5 Minuten stehen lassen, damit die Gurken Flüssigkeit abgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer separaten Schüssel saure Sahne, fein gehackten Knoblauch, frischen Dill, Essig und schwarzen Pfeffer glatt verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Dressing aus saurer Sahne über Gurken und Zwiebeln gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Behutsam vermengen, damit alle Gemüsestücke gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort kalt servieren oder bis zum Servieren kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2009/04/5a1cc399a3cdb69e131cbb6b5981dccc3f070e5d.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2009/04/5a1cc399a3cdb69e131cbb6b5981dccc3f070e5d.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hollandaise",
+      "slug": "gen-hollandaise",
+      "title": "Hollandaise",
+      "instructions": "Klassische französische Buttersauce mit Eigelb und Zitrone.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier im Angebot kaufen und überschüssige Eier für später einfrieren.",
+        "Gesalzene statt ungesalzene Butter verwenden und 20-30 cents sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5786,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hollandaise/",
+      "components": [
+        {
+          "key": "15e8c001-0081-5f0f-b501-cc37a4e9802e",
+          "name": "Zutaten",
+          "servingGrams": 232.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce88e51d-f051-51ea-a897-0723b38ba52a",
+              "ingredientName": "Eigelb",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d21aa351-4de0-5e32-b974-df14e3f9fd38",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "33626ec4-0703-5132-a172-f9223e221181",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6837e326-4bd2-53ab-9a4b-09e32680fa88",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "955a0c3c-246d-57e0-a59c-0f013d098fa5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "4983c36b-5fe0-51dc-a6cf-00d6947ee04c",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen Topf mit 2 inches Wasser füllen und zum Köcheln bringen. Eine hitzebeständige Schüssel daraufsetzen, ohne dass sie das Wasser berührt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eigelb und Wasser in der Schüssel über sanfter Hitze 2-3 Minuten schlagen, bis die Masse hell und warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Schüssel vom Herd nehmen und geschmolzene Butter tröpfchenweise langsam einrühren, bis eine Emulsion entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zitronensaft, Salz und Cayennepfeffer einrühren, bis die Sauce glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falls die Sauce gerinnt, ein frisches Eigelb in einer sauberen Schüssel aufschlagen und die geronnene Sauce langsam unter ständigem Rühren hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/OQSCMch9y_5yiFBRRqv-kXxS_ZY=/5789x3859/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes_Blender-Hollandaise-Sauce_LEAD-3-f3dba745e5e748de91206e96ef8d830a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/OQSCMch9y_5yiFBRRqv-kXxS_ZY=/5789x3859/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes_Blender-Hollandaise-Sauce_LEAD-3-f3dba745e5e748de91206e96ef8d830a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-risotto-al-tartufo",
+      "slug": "gen-risotto-al-tartufo",
+      "title": "Risotto mit Trüffel",
+      "instructions": "Cremiges italienisches Risotto mit Trüffelaroma.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Trüffelöl statt echter Trüffelspäne verwenden und 15+ $ pro Portion sparen.",
+        "Gemüsebrühe selbst zubereiten oder eine günstige Hausmarke verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5787,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-al-tartufo/",
+      "components": [
+        {
+          "key": "7c9ce81e-bda2-5852-acc4-7b7129fc1b8a",
+          "name": "Zutaten",
+          "servingGrams": 528.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "04e07448-4439-55cc-9ea2-57d117999ba7",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "ace65210-f69b-5aa7-ab86-bde945cbb502",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "d1c93b19-4f5e-5f8c-a504-7f267e778150",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "84aa0b20-45a6-5413-a567-4cbf8a3a8b83",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "ac0c0b42-1cf6-5d07-9194-d36c8ae36d73",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "9bf8e583-c27d-5deb-9f90-4f9bdc3f44cc",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1a754412-4923-57c7-a51f-03c9263c1da6",
+              "ingredientName": "Trüffelöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "50c2f2be-df64-58a4-9bee-47f4d9a7795a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "abfa1e03-5390-572b-a1a1-10ad755b14e1",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Brühe in einem Topf erhitzen und während des Kochens leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel würfeln und in 2 Esslöffeln Butter in einer großen Pfanne mit schwerem Boden bei mittlerer Hitze 2 Minuten anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis hinzufügen und 1-2 Minuten unter ständigem Rühren rösten, bis die Ränder glasig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wein zugießen und rühren, bis er aufgenommen ist. Die Brühe anschließend schöpflöffelweise hinzufügen und jeweils warten, bis sie aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere Brühe nach und nach einrühren und 18-20 Minuten garen, bis der Reis cremig und bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen und restliche Butter, Parmesan, Trüffelöl, Salz und Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.agrodolce.it/app/uploads/2018/01/Still-life-risotto-al-tartufo5.jpg",
+          "sourcePageUrl": "https://www.agrodolce.it/app/uploads/2018/01/Still-life-risotto-al-tartufo5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sabayon",
+      "slug": "gen-sabayon",
+      "title": "Sabayon",
+      "instructions": "Luftige italienische Weinschaumcreme, warm serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Marsala durch günstigen trockenen Sherry oder süßen Wermut ersetzen.",
+        "Löffelbiskuits der Hausmarke statt importierter italienischer Ware kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5788,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sabayon/",
+      "components": [
+        {
+          "key": "53c144f6-6eec-5aff-9195-64bdc828d4ff",
+          "name": "Zutaten",
+          "servingGrams": 305.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "01bb3d3a-4b25-508e-b1c0-1b61b85c938d",
+              "ingredientName": "Eigelb",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0567bb0f-c2cb-5170-bba7-3cd51e1a8ee9",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7ce77526-c7a5-55ad-b01c-d19a72be3e2b",
+              "ingredientName": "Marsalawein",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a5aa9d78-9c60-5494-8844-8a30a635e3d9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "6bf10f38-e599-5ffe-8d24-4e11d69e50b8",
+              "ingredientName": "Oreo-Kekse",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen Topf mit 2 inches Wasser füllen und zum Köcheln bringen. Eine große hitzebeständige Schüssel daraufsetzen, ohne dass sie das Wasser berührt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eigelb und Zucker in der Schüssel vermengen und über sanfter Hitze 8-10 Minuten ständig schlagen, bis die Masse hell ist und ihr Volumen verdreifacht hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Marsala und Vanilleextrakt langsam einrühren und über der Hitze weitere 2-3 Minuten schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Schüssel vom Herd nehmen und weitere 1-2 Minuten schlagen, bis die Masse etwas abgekühlt und luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffelbiskuits auf Dessertgläser verteilen und mit etwas Marsala beträufeln. Mit warmem Sabayon bedecken und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6491f7a94311959de61fc301/1:1/w_2560%2Cc_limit/SavorySabayonGrilledNectarines_RECIPE_061523_55261.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6491f7a94311959de61fc301/1:1/w_2560%2Cc_limit/SavorySabayonGrilledNectarines_RECIPE_061523_55261.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-piri-piri-chicken",
+      "slug": "gen-piri-piri-chicken",
+      "title": "Piri-Piri-Hähnchen",
+      "instructions": "Würziges portugiesisch inspiriertes Hähnchen mit Piri-Piri-Marinade.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel im Angebot kaufen und für später einfrieren.",
+        "Zitronensaft aus der Flasche statt frischer Zitronen verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "eiweißreich",
+        "portuguese",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5789,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-piri-piri-chicken/",
+      "components": [
+        {
+          "key": "d4394461-7962-5e84-935f-f3b63cc88de3",
+          "name": "Zutaten",
+          "servingGrams": 954.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cede8686-4168-5e48-a4bf-0674aed58203",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Stück"
+            },
+            {
+              "key": "a0b489e2-0f52-5038-9a58-69cd8a7994f2",
+              "ingredientName": "Geröstete Paprika aus dem Glas",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d14b1bd-34ab-5bc5-ad61-1f9d6fb4176a",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "057128ab-a221-593c-865e-29c400f06a94",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9238f4ce-ce00-5fdb-899c-b0e77ae69bfa",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1344dac2-3084-5497-9c06-d600ac5c657e",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "670aa0f4-e1b2-5b8c-829e-74fdb4586c92",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1d8dfb5b-7195-538a-b99f-c04d1b764b96",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rote Chilischoten, Knoblauch, Zitronensaft, Olivenöl, Paprikapulver, Salz und schwarzen Pfeffer glatt pürieren, um die Piri-Piri-Marinade zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenschenkel in eine große Schüssel legen und gründlich mit der Marinade bedecken. 2 Esslöffel zum Bestreichen zurückbehalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Hähnchen mindestens 30 Minuten bei Zimmertemperatur oder bis zu 8 Stunden im Kühlschrank marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Backofen auf 425°F vorheizen und das Hähnchen mit der Hautseite nach oben auf ein Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Hähnchen 30-35 Minuten braten, bis die Haut goldbraun ist und die Kerntemperatur 165°F erreicht. Nach der Hälfte der Zeit mit der zurückbehaltenen Marinade bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/PrKDwrMz0qt1CMa1441d4nZaeBo=/2665x3998/filters:fill(auto,1)/Simply-Recipes-Piri-Piri-Fried-Chicken-LEAD-03-af9d915b35334a35991f1931d62482e0.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/PrKDwrMz0qt1CMa1441d4nZaeBo=/2665x3998/filters:fill(auto,1)/Simply-Recipes-Piri-Piri-Fried-Chicken-LEAD-03-af9d915b35334a35991f1931d62482e0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1050 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-prime-rib",
+      "slug": "gen-prime-rib",
+      "title": "Gericht: Prime Rib",
+      "instructions": "Zubereitung: amerikanisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy at warehouse clubs like Costco for better pricing",
+        "Hinweis: Use meat thermometer to avoid overkochening; every degree matters"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "high-protein",
+        "gluten-free",
+        "dairy-free",
+        "american",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5590,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-prime-rib/",
+      "components": [
+        {
+          "key": "c10d1ac0-29c6-5866-99df-c2d24343fbde",
+          "name": "Zutaten",
+          "servingGrams": 113.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd1c0f38-07fb-5dff-b5cf-a4ec7121d377",
+              "ingredientName": "Hochrippenbraten",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "c90db229-520d-5ff2-b398-fb0272e3812a",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bea6c596-5033-5b7e-8e5e-8ec0afbab87e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7bf468f0-5578-5d30-943e-8ea05b566b7a",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "68e7df07-fd14-58c3-bd0a-a5c34b349029",
+              "ingredientName": "frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "679084e8-e7a5-50d7-9435-f260e1f76e92",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "20c08301-120f-5430-af54-0245e5cca29f",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Entferne prime rib from refrigerator 1 hour before kochening to bring to room temperature.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: PreHitze oven to 450°F mit rack in niedriger third.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Pat meat dry and rub mit salt, pepper, garlic, and olive oil; place rosemary sprigs on top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Sear in oven for 15 Minuten at 450°F bis browned.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Reduce Hitze to 325°F, hinzufügen broth to pan, and continue roasting 1-1.5 hours bis internal temperature reaches 130°F for mittel-rare.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Tent loosely mit foil if browning too quickly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rest meat 15 Minuten before slicing; internal temperature will rise 5 Grad while resting.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/HVhpYG0hI0e-hUVD73Zq8hTDmDo=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/Garlic-Prime-Rib-Gravy-LEAD-2-803d4696ccc2409da8f3101a1071e532.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/HVhpYG0hI0e-hUVD73Zq8hTDmDo=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/Garlic-Prime-Rib-Gravy-LEAD-2-803d4696ccc2409da8f3101a1071e532.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-honey-baked-ham",
+      "slug": "gen-honey-baked-ham",
+      "title": "Gericht: Honig Backend Ham",
+      "instructions": "Zubereitung: amerikanisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy pre-geschnitten ham to reduce kochening time, though bone-in has better flavor",
+        "Hinweis: Save ham bone for making split pea soup"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "high-protein",
+        "gluten-free",
+        "dairy-free",
+        "american",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5591,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-honey-baked-ham/",
+      "components": [
+        {
+          "key": "ebb015e5-02a7-5737-a447-bef4cbfde201",
+          "name": "Zutaten",
+          "servingGrams": 110,
+          "position": 0,
+          "items": [
+            {
+              "key": "816250ab-3734-5576-ac9d-8b6903d8270b",
+              "ingredientName": "Schinken in Scheiben",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8-10 Pfund"
+            },
+            {
+              "key": "7625e654-7a8e-565e-93e1-1a775e03c903",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "70cd6e7b-228e-5ae0-8442-e92e003163c5",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "a871a35c-c9b4-59e9-b620-a674455aeb86",
+              "ingredientName": "Dijon-Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e4af04e8-fd0d-5df5-8f5a-771337401af5",
+              "ingredientName": "gemahlene Gewürznelken",
+              "grams": 100,
+              "quantity": 100,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0686826-3784-5d92-aeb4-711b0a3f88e3",
+              "ingredientName": "Apfelsaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "14dd3ba4-8575-5229-863c-a45e9fb1c882",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: PreHitze oven to 325°F and place ham cut-side down in roasting pan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Score skin in crosshatch pattern, cutting through fat but not into meat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Stud mit whole cloves at intersections of score marks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Whisk together honey, brown sugar, mustard, and butter; brush generously over ham.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Gieße apple juice into bottom of pan and cover tightly mit foil.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Backen for 1.5 hours, basting mit glaze every 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Uncover last 15 Minuten to caramelize glaze bis sticky and golden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/copycat-honey-baked-ham-vertical-1676409888.jpg?crop=1.00xw:0.801xh;0",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/copycat-honey-baked-ham-vertical-1676409888.jpg?crop=1.00xw:0.801xh;0",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-latkes",
+      "slug": "gen-latkes",
+      "title": "Gericht: Latkes",
+      "instructions": "Zubereitung: Jewish Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Use russet potatoes on sale; they have niedriger moisture content than reds",
+        "Hinweis: Prepare potato mixture right before frying to prevent oxidation"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jewish",
+        "dinner",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5592,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-latkes/",
+      "components": [
+        {
+          "key": "67f716fc-4190-5aee-ac71-483286c1aaba",
+          "name": "Zutaten",
+          "servingGrams": 332.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a33955ca-e12e-50b4-a33e-5bca294f2154",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "c6259f90-0888-5767-b245-5c2e50ea2099",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ mittelgroß"
+            },
+            {
+              "key": "662d2aa8-b19e-5a07-a34f-88baf1d85dc3",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "2de6e571-fc02-5993-9d4a-9e6ff322a565",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "de9bf6ef-27dd-55dc-985e-17dca69dae00",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cb06256c-bd3d-55a5-b099-ff49e523eeb4",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "1c9a3913-094c-53f3-9183-1dd00acd74c3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "75d52da9-0b70-513e-aa42-d6bd7311e761",
+              "ingredientName": "saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "af1a9a68-33f4-5d96-b879-556532c956b0",
+              "ingredientName": "Apfelmus",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Peel potatoes and onion, then grate finely using box grater; place in clean kitchen towel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Squeeze towel vigorously over sink to remove excess moisture; transfer to bowl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Whisk eggs mit flour, salt, and pepper, then fold into potato mixture immediately to prevent browning.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Hitze oil in large skillet over mittel-hoch Hitze bis shimmering.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Drop spoonfuls of potato mixture into oil and flatten mit spatula to ¼-inch thickness.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Fry 3-4 Minuten per side bis golden brown and crispy; drain on paper towels.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Servieren immediately mit sour cream and applesauce on the side.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/4mHuFb4kwWCkGHQqPB83_QGgwOw=/4494x3000/filters:fill(auto,1)/traditional-hanukkah-potato-latkes-parve-2121656-hero-01-5c3bbd6146e0fb0001bbbd7b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/4mHuFb4kwWCkGHQqPB83_QGgwOw=/4494x3000/filters:fill(auto,1)/traditional-hanukkah-potato-latkes-parve-2121656-hero-01-5c3bbd6146e0fb0001bbbd7b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-che-de-no-l",
+      "slug": "gen-b-che-de-no-l",
+      "title": "Gericht: Bûche de Noël",
+      "instructions": "Zubereitung: französisch Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Make the day before; flavors improve and assembly is easier",
+        "Hinweis: Substitute cocoa powder mit instant coffee for deeper chocolate flavor mitout extra expense"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "french",
+        "dinner",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5593,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-che-de-no-l/",
+      "components": [
+        {
+          "key": "9a20ba82-cbbd-575a-bc8b-36660d771c79",
+          "name": "Zutaten",
+          "servingGrams": 204.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "913d6ef1-4ff5-5682-82ac-fa3317dcb375",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "0097e7e3-60bc-542b-b857-d609f301a9a9",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "1177432f-4d39-55a9-acef-c7288706a021",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "3504cfd1-7899-518d-bc96-e5557049d40d",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4c9e8b55-77aa-5fd3-89db-78bb899cb387",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "64ee5e22-a821-51a5-b4ae-5f7d7660c5e9",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "0bc076ef-2fca-5977-9f1e-87ddccfb3154",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f985cf4e-91d0-5c9f-8103-3761f181079b",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "08e3a50d-28b8-5698-a8a6-56dad7823487",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: PreHitze oven to 375°F and line 10x15 inch pan mit parchment paper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Whisk eggs and granulated sugar over hot water bath for 3 Minuten bis warm, then beat bis thick ribbons form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Sift flour and cocoa together, then gently fold into egg mixture in two hinzufügenitions.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Spread batter evenly in prepared pan and backen 10-12 Minuten bis springy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Turn out onto sugar-dusted towel, roll tightly from short end while warm, and cool completely.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Hitze cream to köcheln, pour over gehackt chocolate, rühren in butter and vanilla bis glossy ganache forms.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Unroll cake, spread ½ cup ganache filling inside, re-roll, and coat outside mit remaining ganache.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zubereitung: Dust mit powdered sugar and refrigerate 30 Minuten before serving.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/GcLWAJ7659yuuw98cVErGl9zXS8=/3388x2204/filters:fill(auto,1)/buche-de-noel-GettyImages-505323149-57c6c3e83df78cc16ebc500a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/GcLWAJ7659yuuw98cVErGl9zXS8=/3388x2204/filters:fill(auto,1)/buche-de-noel-GettyImages-505323149-57c6c3e83df78cc16ebc500a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stollen",
+      "slug": "gen-stollen",
+      "title": "Gericht: Stollen",
+      "instructions": "Zubereitung: deutsch Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy raisins and candied peel in bulk from ethnic grocery stores",
+        "Hinweis: Make dough 2-3 days ahead; wrap tightly and refrigerate overnight for deeper flavor"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "german",
+        "breakfast",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5594,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stollen/",
+      "components": [
+        {
+          "key": "070aca9f-a52b-5092-9255-a0de03a69820",
+          "name": "Zutaten",
+          "servingGrams": 303.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "8def238c-444a-5d9b-b320-253d7cd3035e",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "217faac6-5c39-5bb2-9b97-0aa711c1c4a7",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "7560ab85-c358-5c34-8c62-83f7ccab46a3",
+              "ingredientName": "Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "bef4b6da-dd6a-59a4-8f9d-693cf2fed1ef",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tasse weich"
+            },
+            {
+              "key": "2a143328-11b9-56e4-8162-a6dcb05b4b37",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "fee01a1b-532c-5986-bee8-e6c464ef0802",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "b8341642-c4cf-529c-a541-54657b243327",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "67796088-26e5-5b2a-b458-93760170e820",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "72942912-5dd4-5a6f-aa99-b6514e911b19",
+              "ingredientName": "kandierte Zitrusschale",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "6bfb0d89-f513-512b-84f1-29ef98d534e9",
+              "ingredientName": "Mandelextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "9aa0f80b-8170-5374-8a97-3f709124321d",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Mische warm milk mit yeast and let sit 5 Minuten bis foamy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Vermische flour, sugar, and salt in large bowl; make well and hinzufügen yeast mixture, butter, and egg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Knead 8-10 Minuten bis smooth and elastic; fold in raisins, citrus peel, and almond extract.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Lass dough rise 1.5 hours in greased bowl bis doubled in size.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Shape dough into oval, then fold lengthwise leaving ½-inch of opposite edge visible; place on baking sheet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Cover and let rise 1 hour bis puffy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Backen at 375°F for 35-40 Minuten bis golden brown and holniedrig-sounding when tapped.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zubereitung: Cool slightly, then brush mit melted butter and dust generously mit powdered sugar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Y-GZ7dhD6XeiU7dsFIOw5tVX_jY=/4494x3000/filters:fill(auto,1)/christmas-stollen-from-brendan-lynch-435063_hero-01-d322d1fe0c5044538092f296c2c4a234.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Y-GZ7dhD6XeiU7dsFIOw5tVX_jY=/4494x3000/filters:fill(auto,1)/christmas-stollen-from-brendan-lynch-435063_hero-01-d322d1fe0c5044538092f296c2c4a234.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

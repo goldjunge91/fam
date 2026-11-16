@@ -1,0 +1,1022 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tandoori-chicken-wrap",
+      "slug": "gen-tandoori-chicken-wrap",
+      "title": "Tandoori-Hähnchen-Wrap",
+      "instructions": "Indisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische deine Tandoori-Gewürzmischung selbst aus Paprika, Kreuzkümmel und Koriander",
+        "Verwende Hähnchenschenkel statt Brustfleisch für mehr Geschmack und geringere Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3130,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tandoori-chicken-wrap/",
+      "components": [
+        {
+          "key": "bf4d7e08-d8e2-5404-abf6-9a728d15fba5",
+          "name": "Zutaten",
+          "servingGrams": 272.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce109e49-d417-56a0-9b27-0f1b29b71bb5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5398c68d-adc0-5e1c-91c6-dc2d14e24b9a",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "55b08d44-06e7-5c20-a881-35fa98223e90",
+              "ingredientName": "Berbere-Gewürzmischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ed746253-1ab5-5529-920b-5041a5be2608",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ae8c8f97-7c8a-5bd0-97db-6833494eefa7",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "f1d29c51-8ba7-51cb-b92c-92ab9801e959",
+              "ingredientName": "Tortilla",
+              "grams": 120,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "492d3db4-0969-55cd-a065-0df477311772",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ec70599-7a38-5f16-9286-269e89c84e0a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8000e432-9e5c-5578-b9a1-ea618f8a8586",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "a48b57a3-5b98-50be-9ad2-093816e42fc3",
+              "ingredientName": "Mango",
+              "grams": 100,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in mundgerechte Stücke und gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Joghurt, Tandoori-Gewürzmischung, Limettensaft und gehackten Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Marinade über das Hähnchen und stelle es mindestens 20 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine Pfanne bei mittlerer bis hoher Hitze und gare das marinierte Hähnchen 8-10 Minuten, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würfle die Gurke und schneide die rote Zwiebel in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege die Tortilla mit gegartem Tandoori-Hähnchen, Gurke, roter Zwiebel und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle die Füllung mit Mangochutney und rolle die Tortilla fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.healthyfood.com/wp-content/uploads/2016/09/Tandoori-chicken-wraps-1024x656.jpg",
+          "sourcePageUrl": "https://www.healthyfood.com/wp-content/uploads/2016/09/Tandoori-chicken-wraps-1024x656.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-d-ner-kebab",
+      "slug": "gen-d-ner-kebab",
+      "title": "Döner Kebab",
+      "instructions": "Türkisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch im Verhältnis 80/20 statt Lamm, um deutlich Kosten zu senken",
+        "Bereite Joghurtsauce selbst aus Naturjoghurt, Knoblauch und Salz zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3131,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-d-ner-kebab/",
+      "components": [
+        {
+          "key": "bda8c86b-c678-5322-8455-84cf08393b12",
+          "name": "Zutaten",
+          "servingGrams": 268,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d466727-b7e4-5a3d-8bb1-f548e00d21e1",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ea738112-27cb-5228-8765-f3f5c4b1bd46",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "190b5cc2-be2e-5fce-9e04-8e1f3378d5d8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62ccd15b-c26c-5647-992d-3cc17450c58d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "41134f06-bd82-5deb-ada5-3f8cf739d802",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "fe595e4a-2c86-5643-883c-97c1d900d5e0",
+              "ingredientName": "Fladenbrot",
+              "grams": 180,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57862a34-b670-5f7b-9477-84efb6da82de",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a933f9c7-2ecb-5cad-9b96-44874e383652",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97e6a150-0bd3-52be-a1b8-680819b05188",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "b36870ac-6efc-5d9a-8d2a-e1d5cc1cfeb1",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebel fein, hacke den Knoblauch und vermische beides mit Hackfleisch, Paprikapulver und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete die Mischung 2-3 Minuten, bis sie klebrig und gut vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme die Fleischmischung auf einem mit Folie ausgelegten Backblech zu einem Laib.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Laib bei 400°F 30 Minuten, bis er gar und oben gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm ihn aus dem Ofen und lasse ihn 5 Minuten ruhen. Schneide ihn dann in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme das Fladenbrot im Ofen oder über einer Herdflamme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würfle Tomate und Gurke fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle das Fladenbrot mit Fleischscheiben, Tomate, Gurke und Joghurt mit Zitronensaft und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/NRuxY8YJmof92GgShYoUFouVeIo=/2105x2105/filters:fill(auto,1)/aqIMG_1498fsq-5b343910c9e77c001a218bd0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/NRuxY8YJmof92GgShYoUFouVeIo=/2105x2105/filters:fill(auto,1)/aqIMG_1498fsq-5b343910c9e77c001a218bd0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-egg-mcmuffin",
+      "slug": "gen-egg-mcmuffin",
+      "title": "Egg McMuffin",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Canadian Bacon im Angebot und friere ihn für schnelle Frühstücke an Wochentagen ein",
+        "Verwende English Muffins von der Handelsmarke und spare 30-40%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 3132,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-egg-mcmuffin/",
+      "components": [
+        {
+          "key": "e9ec84f7-9bcd-5bdd-9f6c-149169b3a078",
+          "name": "Zutaten",
+          "servingGrams": 334.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "09a3f4bd-e661-5969-92b5-5fbfddf5b115",
+              "ingredientName": "English Muffin",
+              "grams": 57,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64c1aacf-9758-5d66-a4d6-9d487d898aef",
+              "ingredientName": "kanadischer Speck",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Scheiben"
+            },
+            {
+              "key": "ef1520a6-b0c3-5c5f-8f49-a5fa737722d8",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Scheiben"
+            },
+            {
+              "key": "363219b5-e664-5b2b-958a-005c9cdb671b",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80f441bf-5f7f-5834-89ec-e1ec950e3f51",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Esslöffel"
+            },
+            {
+              "key": "d6466f96-bd98-53a5-a606-6af4dcdae620",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "5615d850-43b1-568b-aca0-79b9a2d440ea",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "eine Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine beschichtete Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere den English Muffin und röste ihn im Toaster oder in der Pfanne goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Canadian Bacon 1 Minute pro Seite in der Pfanne und stelle ihn dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Butter in die Pfanne, schlage ein Ei hinein und brate es 3-4 Minuten als Spiegelei, bis das Eiweiß gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze das Ei mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege die untere Muffinhälfte mit Canadian Bacon und Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege das gegarte Ei darauf und setze die obere Muffinhälfte auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wickle das Sandwich in Folie, damit es warm bleibt, und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/copycat-egg-mcmuffin-index-675cbe7118ce5.jpg?crop=0.891xw:1.00xh;0.109xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/copycat-egg-mcmuffin-index-675cbe7118ce5.jpg?crop=0.891xw:1.00xh;0.109xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-croissant-sandwich",
+      "slug": "gen-croissant-sandwich",
+      "title": "Croissant-Sandwich",
+      "instructions": "Französisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Croissants aus der Bäckereiabteilung im Angebot",
+        "Verwende normalen Schinken statt teurer importierter Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "französisch",
+        "frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 3133,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-croissant-sandwich/",
+      "components": [
+        {
+          "key": "4084a23c-b884-5576-b712-723b1ae0f6bd",
+          "name": "Zutaten",
+          "servingGrams": 1190,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4637756-d62b-5e6f-b5d5-a9a9cd6361c7",
+              "ingredientName": "Croissant",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2559cae-4e30-56a5-9821-e787b156f359",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "1dbb4cf9-8796-5921-8795-ee1ef7f2f2b7",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Scheiben"
+            },
+            {
+              "key": "dddc619f-8781-5090-9149-07ec2230c205",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "72020a51-a306-539b-a9fb-49140a239c9c",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "d77d0bca-0daa-5e43-9550-0103624f080f",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Croissant waagerecht in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Schnittflächen leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verstreiche Dijon-Senf auf der unteren Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege den Senf mit Schinken und Schweizer Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege frische Salatblätter auf den Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze die obere Croissanthälfte auf das Sandwich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme das Sandwich nach Wunsch bei 350°F 2-3 Minuten im Ofen, damit der Käse leicht schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren, solange das Croissant noch warm und buttrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/vrG7kogHA-DUlfhufG5GaOj1bDQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8680045-the-ultimate-croissant-sandwiches-ddmfs-2574-beauty-2x1-ec57a0b7fe7f48929d257498ddaed102.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/vrG7kogHA-DUlfhufG5GaOj1bDQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8680045-the-ultimate-croissant-sandwiches-ddmfs-2574-beauty-2x1-ec57a0b7fe7f48929d257498ddaed102.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bacon-lettuce-and-tomato",
+      "slug": "gen-bacon-lettuce-and-tomato",
+      "title": "BLT-Sandwich",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck in Großpackungen im Angebot und friere Portionen ein",
+        "Verwende Weißbrot von der Handelsmarke statt teurer Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 3134,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bacon-lettuce-and-tomato/",
+      "components": [
+        {
+          "key": "616ed112-8bcb-5f5e-ab62-4d2289d490a2",
+          "name": "Zutaten",
+          "servingGrams": 1325,
+          "position": 0,
+          "items": [
+            {
+              "key": "781c4557-bcb1-54a8-a6aa-d048296b005c",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "490a0e98-84df-5442-b618-460f9c95e507",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdefc930-4ac8-53e4-bf8e-054cf566515d",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa51ce5e-0783-5b4e-84bc-03de18d4ffed",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87bdc8a6-f92c-5446-b2bb-325834cc8629",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0fd6c26f-61f7-5fe1-90ca-aad959e0fa0c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "8dd82633-f6a4-5e12-8fd2-24023e255ced",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "eine Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck 5-7 Minuten bei mittlerer Hitze in einer Pfanne knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege den Speck zum Abtropfen und Abkühlen auf Küchenpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste die Brotscheiben im Toaster goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Tomate in 0.25 Zoll dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche eine Seite jeder Brotscheibe mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Salatblätter auf eine Brotscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege den Salat mit Tomatenscheiben und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zerteile den Speck und verteile ihn auf der Tomate. Lege die zweite Brotscheibe darauf und serviere das Sandwich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/E6IzznwN45Ox_yekQWEIyBnT84c=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__08__20160812-BLT-bacon-lettuce-tomato-12-3b5300d8e9d74203b2ddc296c7b6d0fe.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/E6IzznwN45Ox_yekQWEIyBnT84c=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__08__20160812-BLT-bacon-lettuce-tomato-12-3b5300d8e9d74203b2ddc296c7b6d0fe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

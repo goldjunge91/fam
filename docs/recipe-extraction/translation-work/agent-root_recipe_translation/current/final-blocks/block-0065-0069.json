@@ -1,0 +1,958 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:japanese-curry-rice",
+      "slug": "japanese-curry-rice",
+      "title": "Japanisches Curry mit Reis",
+      "instructions": "Sämiges, süßlich-würziges Curry mit Kartoffeln, Karotten und Hähnchen zu lockerem Reis.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": "Im Kühlschrank 4 Tage haltbar.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen und etwas Wasser dazugeben.",
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger als Hähnchenbrust",
+        "Das Gericht reicht für 3 Mahlzeiten"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Tofu",
+          "savings": "ca. $0.15"
+        },
+        {
+          "forIngredientId": "curry-powder",
+          "swap": "Japanischer Currywürfel",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Aus 2 Hähnchenschenkeln werden mit Gemüse und Reis 3 Portionen.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Weniger Öl verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Seelenfutter",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 65,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/japanese-curry-rice/",
+      "components": [
+        {
+          "key": "d0a6e80f-2c6a-5ea0-875f-61c3b3b84e7d",
+          "name": "Zutaten",
+          "servingGrams": 679,
+          "position": 0,
+          "items": [
+            {
+              "key": "7eac464d-669e-5a3d-a5be-6b3c58286115",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d06f43ca-15ca-5cc3-ae18-f9ff77ca69d4",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19b1e766-2cbe-50ac-bff5-33a59e8c1604",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40182799-e7c8-5cce-a7be-f467c833375c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "373164a6-8c63-5af2-b243-49c3face7bb0",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73b4ef02-dfdc-547b-aa31-516a75037c63",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5dff48a-4b5d-5b2b-a3b9-65f4c57f0724",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4ea8dbd-c2d0-52ad-a8d2-5dc71198481b",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das gewürfelte Hähnchen 5 Minuten in einem Topf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel, Karotte und Kartoffel dazu und gare alles 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Currypulver und Mehl ein, gib dann 3 Tassen Wasser und die Sojasauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass alles 20 Minuten köcheln, bis das Curry sämig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Curry mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/japanese-curry-rice.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/japanese-curry-rice.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/japanese-curry-rice.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/japanese-curry-rice.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:loaded-baked-potato",
+      "slug": "loaded-baked-potato",
+      "title": "Gefüllte Kartoffel mit Toppings",
+      "instructions": "In der Mikrowelle gegarte Kartoffel, gefüllt mit Käse, saurer Sahne, Frühlingszwiebel und Speckwürfeln.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kartoffeln kosten je 40 Cent",
+        "Speck weglassen und sparen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Weglassen",
+          "savings": "ca. $0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Kartoffel für 40 Cent ist ein ganzes Abendessen.",
+      "healthierTips": [
+        "Butter weglassen",
+        "Statt saurer Sahne griechischen Joghurt verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "studentenküchengeeignet",
+        "Seelenfutter"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 66,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/loaded-baked-potato/",
+      "components": [
+        {
+          "key": "b83c8d8d-2e6c-5330-aab0-8531c19d31a3",
+          "name": "Zutaten",
+          "servingGrams": 243.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0082a2e2-c912-5991-b35b-fd1a62f85dcf",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c67e51e-0ada-5b41-81bb-cbefe5932c87",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50eada9f-c24b-5b23-ad38-05d53dbc0921",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9590cb9-60c7-5acb-b990-2512b26ffa07",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "959943cd-2df2-5344-89e0-980a0c024eb1",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3603492-0eb4-5d8c-bcf6-70fcba520341",
+              "ingredientName": "Speck",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "66427b56-1e27-5a36-92b4-9667479cf5dc",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cafbf658-43f2-5538-b692-758110f42d97",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich die Kartoffeln ein und gare sie 8-10 Minuten in der Mikrowelle, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide sie auf und lockere das Innere mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege sie mit Butter, Käse, saurer Sahne, Frühlingszwiebel, Speck, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/loaded-baked-potato.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/loaded-baked-potato.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/loaded-baked-potato.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/loaded-baked-potato.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tuna-jacket-potato",
+      "slug": "tuna-jacket-potato",
+      "title": "Gefüllte Thunfisch-Kartoffel",
+      "instructions": "In der Mikrowelle gegarte Kartoffel mit cremigem Thunfisch-Mayonnaise-Mix, Frühlingszwiebel und Pfeffer – ein britischer Klassiker.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Eine Kartoffel und eine Dose Thunfisch ergeben ein ganzes Abendessen",
+        "Der Backofen ist nicht nötig"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "tuna",
+          "swap": "Hähnchen aus der Dose",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Kartoffel und eine Dose Thunfisch kosten zusammen weniger als $2.75.",
+      "healthierTips": [
+        "Statt Mayonnaise griechischen Joghurt verwenden",
+        "Käse weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 67,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tuna-jacket-potato/",
+      "components": [
+        {
+          "key": "72837f33-ce71-583e-93c7-a7464660a607",
+          "name": "Zutaten",
+          "servingGrams": 637.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5aac38ba-b857-5912-b58e-0fad8fea27df",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38ccd957-6c06-5efb-8da2-a0b7f239a4bd",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5653c5fe-d594-5acc-8ba7-f468d429ae6e",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dea656e-405f-5aa3-bee3-90a4b9512d09",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5ba86d7-3f69-5492-bf48-c0e7dbf097a8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27975750-624e-5fa9-bf3f-6f34f3b13eba",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "0c7ea7a9-32b0-5321-8f13-236730dbe826",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich die Kartoffel ein und gare sie 7-9 Minuten in der Mikrowelle, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mische den abgetropften Thunfisch mit Mayonnaise, Frühlingszwiebel, Pfeffer und Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Kartoffel auf und gib die Thunfischmischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tuna-jacket-potato.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tuna-jacket-potato.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-jacket-potato.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-jacket-potato.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:broccoli-cheese-potato",
+      "slug": "broccoli-cheese-potato",
+      "title": "Kartoffel mit Brokkoli und Käse",
+      "instructions": "In der Mikrowelle gegarte Kartoffel mit geschmolzenem Käse und gedämpftem Brokkoli.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Tiefkühlbrokkoli ist viel günstiger als frischer",
+        "Eine Kartoffel macht satt"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-broccoli",
+          "swap": "Frischer Brokkoli oder anderes Tiefkühlgemüse",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Frischkäse",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Tiefkühlbrokkoli und eine Kartoffel kosten zusammen weniger als $2.25.",
+      "healthierTips": [
+        "Butter weglassen",
+        "Weniger Käse verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "studentenküchengeeignet",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 68,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/broccoli-cheese-potato/",
+      "components": [
+        {
+          "key": "5ab00c69-1f93-5699-8310-b08ab946de0e",
+          "name": "Zutaten",
+          "servingGrams": 547.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f26038e0-f169-5b68-b4b9-c242ca38bbf1",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aabd5973-0d59-5aaf-93cc-334cefdc2209",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83438a6b-3ccc-508a-81cc-3626abca074a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "664eef04-d473-553c-a217-235062a5e3c8",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef54308f-97e8-50f2-8e72-bd566c47627c",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "2a57e5d2-4202-57ce-96fe-6b2dc844a770",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6b513ef-c343-5a73-86ea-06b5aa43b3ae",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Kartoffel 8 Minuten in der Mikrowelle, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dämpfe den Tiefkühlbrokkoli 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Kartoffel auf und lockere das Innere mit Butter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege sie mit Brokkoli und Käse und erwärme alles 60 Sekunden in der Mikrowelle, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/broccoli-cheese-potato.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/broccoli-cheese-potato.jpg",
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Dinner_at_home_-_October_2023_-_Sarah_Stierch_01.jpg/960px-Dinner_at_home_-_October_2023_-_Sarah_Stierch_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dinner_at_home_-_October_2023_-_Sarah_Stierch_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Sarah Stierch — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Kartoffel mit Brokkoli und Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:potato-lentil-curry",
+      "slug": "potato-lentil-curry",
+      "title": "Kartoffel-Linsen-Curry",
+      "instructions": "Gewürfelte Kartoffeln und rote Linsen in Currypulver und Tomaten geschmort – wärmend und günstig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": "Im Kühlschrank 5 Tage haltbar oder einfrieren.",
+      "reheatingInstructions": "Mit etwas Wasser 2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Zwei günstige Vorratszutaten – Linsen und Kartoffeln – machen das Gericht aus",
+        "Currypulver bringt mit einer einzigen Gewürzmischung viel Geschmack"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "curry-powder",
+          "swap": "Currypaste (1 EL verwenden)",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + Brühwürfel",
+          "savings": "ca. $0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kartoffeln und Linsen ergeben ein besonders günstiges, sättigendes Abendessen.",
+      "healthierTips": [
+        "Zum Schluss Spinat dazugeben",
+        "Mit Joghurt servieren"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "vegan",
+        "gefriergeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 69,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/potato-lentil-curry/",
+      "components": [
+        {
+          "key": "5902fb6e-f4d7-5b72-b55e-8d4c2afec6b4",
+          "name": "Zutaten",
+          "servingGrams": 498.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8cf64a9d-ab9e-56d8-815b-8d48eacd6853",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7a07eb8-2e39-58d8-a27a-7cddc511563f",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d4d11ce-be91-52d2-85c7-efad3779d696",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e94442e-0ed2-503a-b78c-6946ee99a3bb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "115088f3-46a9-5226-b4a7-0a0967603fda",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1b487af-8550-5e05-8eac-29f4229f991c",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a5ff624-aed7-5e21-be3f-50a48371a6ee",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cdad0b4-4271-5815-9877-ff5357ba6a5f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Knoblauch 5 Minuten in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Currypulver dazu und rühre 30 Sekunden um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge gewürfelte Kartoffel, Linsen, Tomaten und Brühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 25 Minuten köcheln, bis Kartoffeln und Linsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze das Curry.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/potato-lentil-curry.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/potato-lentil-curry.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/potato-lentil-curry.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/potato-lentil-curry.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

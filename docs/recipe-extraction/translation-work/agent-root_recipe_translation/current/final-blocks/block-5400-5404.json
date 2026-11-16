@@ -1,0 +1,1046 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cajun-wings",
+      "slug": "gen-cajun-wings",
+      "title": "Cajun-Hähnchenflügel",
+      "instructions": "Kreolischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenflügel im Angebot in größeren Mengen und friere sie für später ein.",
+        "Verwende einfache Gewürze aus dem Vorratsschrank statt fertiger Cajun-Gewürzmischungen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kreolisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5400,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cajun-wings/",
+      "components": [
+        {
+          "key": "01008252-42cb-5868-a216-cf105f129c45",
+          "name": "Zutaten",
+          "servingGrams": 91.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "a88ef2c0-a584-541c-9e03-1207651525d3",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "c19c7e92-209a-5fac-9342-b877a877a212",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d682ff71-9e32-5507-94d1-4a47acbd5319",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ad401097-5bb1-5817-ad2a-ab1ef560435e",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d2bc6e2a-32ac-5be0-b3a5-cb6e8ee6ba58",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "06c81f6f-f58a-5cc4-a2c8-6016a1e25e2f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a548e9b3-3ddd-5fd0-b9c0-86d5e13d9ca6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8c7cbad2-6c32-56c4-af64-911e1b339f64",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7a042a7a-afc0-59a8-a975-f1c27111fc67",
+              "ingredientName": "Chilisauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cfda735b-e426-5773-84de-580241bf028c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor und lege ein Backblech mit Alufolie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Hähnchenflügel trocken und vermenge sie in einer großen Schüssel mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Paprika, Cayennepfeffer, Knoblauchpulver, Zwiebelpulver, schwarzen Pfeffer und Salz in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende die Flügel gleichmäßig in der Gewürzmischung und verteile sie auf dem Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie 25 Minuten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmilz die Butter mit der Chilisauce bei niedriger Hitze in einem kleinen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge die gebackenen Flügel mit der Butter-Chilisauce und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://alldayidreamaboutfood.com/wp-content/uploads/2022/10/How-to-make-Crispy-Cajun-Wings-1152x1536.jpg",
+          "sourcePageUrl": "https://alldayidreamaboutfood.com/wp-content/uploads/2022/10/How-to-make-Crispy-Cajun-Wings-1152x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boneless-wings",
+      "slug": "gen-boneless-wings",
+      "title": "Hähnchenflügel ohne Knochen",
+      "instructions": "Amerikanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und schneide sie selbst in Stücke, statt vorgeschnittene zu kaufen.",
+        "Verwende Panko und Eier der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5401,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boneless-wings/",
+      "components": [
+        {
+          "key": "cf904ac7-46fd-5b99-a880-809de6596ddf",
+          "name": "Zutaten",
+          "servingGrams": 282.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5c409541-0488-5b41-893c-35cce95cc5f8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2bd4e031-9672-595d-8d42-6b551575a20e",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "262096d3-357b-5e63-b1db-b02409cd374c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c77b011-dfee-5572-bdc3-afb567223e04",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9a39f006-f98e-5f8d-984b-da2791cda28b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1bb74d9c-4ce7-5ac9-b861-7859faff64c1",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5cdcc64b-885d-5376-8493-d9de8b393fb3",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "91f5d6d1-acd0-562b-9791-a9eabe44bd5c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Nuggetstücke und würze sie mit Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln bereit: Fülle die erste mit Mehl, die zweite mit verquirlten Eiern und die dritte mit Panko und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Hähnchenstück erst im Mehl, dann im Ei und anschließend im Panko-Paniermehl. Drücke die Panade leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Hähnchenstücke portionsweise je Seite 3–4 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie auf Küchenpapier abtropfen und serviere sie sofort mit deiner Lieblingssauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Q4O3AURWK2mEYcqmXvX94LSaNXQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/151266-Boneless-Buffalo-Wings-1052464-EmmieYum-2000-d6b21ce6821741b7851b5d472ec121fd.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Q4O3AURWK2mEYcqmXvX94LSaNXQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/151266-Boneless-Buffalo-Wings-1052464-EmmieYum-2000-d6b21ce6821741b7851b5d472ec121fd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mango-habanero-wings",
+      "slug": "gen-mango-habanero-wings",
+      "title": "Mango-Habanero-Hähnchenflügel",
+      "instructions": "Karibisch-amerikanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Mangopüree selbst zu, indem du frische Mangos in der Saison einfrierst.",
+        "Kaufe frische Habaneros auf dem Wochenmarkt statt im Spezialitätengeschäft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "karibisch-amerikanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5402,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mango-habanero-wings/",
+      "components": [
+        {
+          "key": "335452f8-a5ca-5944-a7b3-5e67c12bb755",
+          "name": "Zutaten",
+          "servingGrams": 217.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e561b9f-ff0a-5e1d-a9cc-1fd914dee544",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "e88ec354-dff6-5f51-ae73-8cabdf33e1e0",
+              "ingredientName": "Mango",
+              "grams": 200,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "18f28c90-9af6-5b82-a5db-ad7712ea2ba9",
+              "ingredientName": "Habanero-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "478ef95c-8e60-5b7d-8577-d05fa312ea37",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fafbba8d-c246-5172-9aa7-b70548cc9f16",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "54a9596f-8840-5bd9-b5d6-f7a398424656",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31a19a80-c4e9-5c0b-980f-4704a2b2154f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "f40e1957-7195-54d5-846b-076f34fa72db",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "2693edd3-48c5-56be-bc23-42cf50a0c14e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein Backblech mit Alufolie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Flügel trocken, verteile sie auf dem Blech und backe sie 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere währenddessen Mangopüree, Habanero-Chilis, Limettensaft, Honig, gehackten Knoblauch, Salz und Pfeffer glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streiche die Sauce nach Wunsch durch ein feines Sieb, wenn du weniger Fruchtfasern möchtest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die halb gegarten Flügel aus dem Ofen und bestreiche sie großzügig mit der Mango-Habanero-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe sie weitere 15 Minuten, bis sie karamellisiert und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge die Flügel vor dem Servieren mit der restlichen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/01/Mango-Habanero-Wings-SpendWithPennies-8.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/01/Mango-Habanero-Wings-SpendWithPennies-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vietnamese-fish-sauce-wings",
+      "slug": "gen-vietnamese-fish-sauce-wings",
+      "title": "Hähnchenflügel mit vietnamesischer Fischsauce",
+      "instructions": "Vietnamesischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fischsauce in größeren Flaschen im Asialaden, dort ist sie viel günstiger als im Supermarkt.",
+        "Verwende normale Chilis, falls keine Thai-Chilis erhältlich sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5403,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vietnamese-fish-sauce-wings/",
+      "components": [
+        {
+          "key": "03d06044-9ef3-50f6-8fed-386448824b1c",
+          "name": "Zutaten",
+          "servingGrams": 198.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d86415d-772c-576c-893b-d00c3fc5a3a8",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "8bf984d5-7b60-557a-ae3e-95eeff9568bc",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4917931c-5ab5-5668-9020-d23a6644c5da",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "d848d574-34d4-5c50-8f61-a1c565cb16ab",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "97d90f1b-94b5-5ad3-a471-034bebc6e759",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0701c927-08f1-5aaa-8f62-cc287c777373",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bdf385f-c5ae-5c74-82ae-f7fddec2b6d6",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad3778a2-a7ce-546d-8d67-c73c82f7ef00",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "65d1c4e8-7f20-5e0a-bf80-dde75ba182b8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6555a126-65c3-5290-b9f7-9e4a311be2de",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Flügel trocken und wende sie leicht in Maisstärke und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze und bräune die Flügel insgesamt 8 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke Knoblauch, Schalotten und Thai-Chilis zusammen zu einer feinen Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Fischsauce, Limettensaft, Honig und die Knoblauch-Schalotten-Chili-Paste in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Sauce über die gebräunten Flügel und bringe sie zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze einen Deckel auf und lass die Flügel 15 Minuten köcheln, bis sie gar sind und die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Deckel ab und lass alles weitere 3 Minuten köcheln, damit die Sauce einkocht und die Flügel karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/scruffandsteph.com/wp-content/uploads/2020/04/Sticky-Fish-Sauce-Wings-in-Air-Fryer-2.1.jpg?w=4000&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/scruffandsteph.com/wp-content/uploads/2020/04/Sticky-Fish-Sauce-Wings-in-Air-Fryer-2.1.jpg?w=4000&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nashville-hot-chicken",
+      "slug": "gen-nashville-hot-chicken",
+      "title": "Nashville Hot Chicken",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch, sie sind günstiger und aromatischer.",
+        "Verwende übrig gebliebene Buttermilch oder säuere Milch mit Zitronensaft an."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5404,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nashville-hot-chicken/",
+      "components": [
+        {
+          "key": "2f3ea6a7-032d-5e53-82e0-d83c7aee9203",
+          "name": "Zutaten",
+          "servingGrams": 807.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2148973f-60bb-5b3a-ad23-18e64bf21b80",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f986fa4-b807-566d-9d1a-334a49255c58",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2f197270-51f7-5b7f-bc9f-086bfa2b4fbe",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "37642593-72b0-539a-8704-cbd63d4039f9",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4966dda5-a022-59c0-9dee-853bed376639",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8dc57fe3-b838-5c6c-818a-8822f42abb75",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "56dad751-fed7-5d81-8d1c-e7b6dca24555",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "e52a62d8-c8ad-5cc2-a280-75bf4b73cc16",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c60a5ba3-dbe2-5191-890d-94c5436c03f9",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "13d36142-4f77-556e-afe3-6d16436fdd8f",
+              "ingredientName": "Schmalz oder Backfett",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere die Hähnchenschenkel mindestens 2 Stunden oder über Nacht in Buttermilch im Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Cayennepfeffer, Paprika, Knoblauchpulver, Salz und schwarzen Pfeffer in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Hähnchenschenkel aus der Buttermilch und wende sie gründlich in der gewürzten Mehlmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Pflanzenöl in einer tiefen Pfanne oder einem Schmortopf auf 325°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Hähnchenschenkel je Seite 12–15 Minuten, bis sie dunkel goldbraun sind und eine Kerntemperatur von 165°F erreicht haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie auf Küchenpapier abtropfen und serviere sie heiß mit Weißbrot und Essiggurken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2023/05/Nashville-Hot-Chicken_195.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2023/05/Nashville-Hot-Chicken_195.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

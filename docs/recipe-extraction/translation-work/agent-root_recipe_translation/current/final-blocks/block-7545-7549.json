@@ -1,0 +1,1296 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-kolaczki",
+      "slug": "bake2-kolaczki",
+      "title": "Kolaczki (polnische Frischkäsekekse)",
+      "instructions": "Zarte, mürbe polnische Weihnachtskekse aus einem reichhaltigen Frischkäse-Butterteig. In Quadrate geschnitten, mit dicker Fruchtkonfitüre gefüllt, über den Ecken zusammengefaltet und blassgolden gebacken, dann mit Puderzucker bestäubt. Der Teig enthält keinen Zucker; der Gegensatz zwischen leicht säuerlichem Gebäck und süßer Konfitüre ist typisch.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frischkäse und Butter der Hausmarke funktionieren genauso gut. Puderzucker verdeckt jeden Unterschied und spart Geld.",
+        "Ein Glas dicke Konfitüre im Angebot kaufen. Aprikose, Himbeere oder Pflaume sind traditionelle Füllungen; nimm die günstigste.",
+        "Puderzucker selbst herstellen: 1/4 cup Zucker mit einer Prise Speisestärke in einer sauberen Kaffeemühle mixen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Himbeer- oder Preiselbeerkonfitüre oder eine dicke Pflaumen- beziehungsweise Mohnfüllung – alles klassische Kolaczki-Füllungen.",
+          "savings": "Verwende vorhandene Konfitüre, statt ein neues Glas zu kaufen."
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Die gleiche Menge säuerlichen Bauernkäse oder gut abgetropften Vollfett-Ricotta verwenden.",
+          "savings": "Neutral."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Feste Pflanzenbutter in Stangenform für einen milcharmen Teig.",
+          "savings": "Neutral."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polnisch",
+        "backen",
+        "kekse",
+        "weihnachten",
+        "feiertage",
+        "dessert",
+        "frischkäse",
+        "gefüllt",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 30,
+      "status": "published",
+      "sortOrder": 7545,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-kolaczki/",
+      "components": [
+        {
+          "key": "d4992659-f8a3-5ede-a1b2-da62095ec49d",
+          "name": "Zutaten",
+          "servingGrams": 37.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "cda64ecf-d020-5e52-bfc0-958ee4703aeb",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl, plus etwas zum Ausrollen"
+            },
+            {
+              "key": "14e53feb-df8f-5f60-8671-1ac95302f4f2",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "25c563bb-2d83-5e46-9a6e-18f9d7b5e136",
+              "ingredientName": "Frischkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 oz Frischkäse, weich"
+            },
+            {
+              "key": "3ef17ad7-c331-5903-a177-911082f80deb",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "9a9d11da-f573-5b67-a767-725526bafffb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "4eb6442a-5d50-5a3c-a78c-1f57ffb3ad3e",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse dicke Aprikosenkonfitüre (oder Pflaumenmus oder Himbeerkonfitüre) für die Füllung"
+            },
+            {
+              "key": "9ab57b88-6dd2-5a01-9ba2-0fe2a5fbad64",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse Puderzucker zum Bestäuben"
+            },
+            {
+              "key": "ef0ea503-dab5-5d20-a6b8-64dcaa53cd11",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 Ei, verquirlt, zum Bestreichen (optional; hilft, die Ecken zu verschließen und zu bräunen)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Butter und Frischkäse mit dem Handrührgerät 2-3 Minuten glatt und luftig schlagen. Vanille und Salz einrühren. Mehl bei niedriger Stufe jeweils etwa eine halbe Tasse dazugeben, bis ein weicher, leicht klebriger Teig entsteht. Nicht überkneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig halbieren, zu Scheiben drücken, einwickeln und mindestens 1 Stunde oder über Nacht kühlen. Gut gekühlt lässt sich der Teig ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Ofen auf 375F vorheizen und zwei Bleche mit Backpapier belegen. Jeweils eine Teigscheibe bearbeiten und die andere gekühlt lassen. Auf bemehlter Fläche etwa 1/8 inch dick ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Messer oder Pizzaschneider in Quadrate von 2 to 2.5 inch schneiden. Jeweils knapp 1/2 Teelöffel dicke Konfitüre in die Mitte geben. Nicht überfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zwei gegenüberliegende Ecken über der Füllung zusammenklappen und in der Mitte fest zusammendrücken. Nach Wunsch die Ecken zuvor mit verquirltem Ei oder Wasser befeuchten und die Oberseiten mit Eistreiche bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit etwa 1 inch Abstand auf das Blech setzen. Falls der Teig weich ist, die Bleche 10 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jeweils ein Blech 12-15 Minuten backen, bis die Kekse fest und an den Rändern und unten gerade goldgelb sind. Oben sollen sie blass bleiben. Nach 12 Minuten prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech abkühlen lassen, dann auf einem Gitter vollständig auskühlen. Durch ein feines Sieb großzügig mit Puderzucker bestäuben. Luftdicht lagern und vor dem Servieren erneut bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Kolaczki.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kolaczki.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Kurman Communications LLC, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Kolaczki (polnische Frischkäsekekse)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-cowboy-cookies",
+      "slug": "bake2-cowboy-cookies",
+      "title": "Klassische Cowboy-Kekse",
+      "instructions": "Große, herzhafte Cowboy-Kekse nach texanischer Art: Haferflocken, Zartbitterschokoladenstückchen, geröstete Pekannüsse und Kokosraspeln. Knusprige Ränder, weiche Mitte und kräftiger Geschmack von braunem Zucker und Zimt. Ein beliebter Keks für Schulbasare und Lunchboxen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken, Schokoladenstückchen und Kokos lose kaufen, damit nur die benötigte Menge bezahlt wird.",
+        "Walnüsse sind meist günstiger als Pekannüsse und lassen sich genauso rösten; der Austausch senkt die Kosten spürbar.",
+        "Teig zu Kugeln portionieren und auf einem Blech einfrieren. Tiefgefroren backen und 1-2 Minuten zur Backzeit hinzufügen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pecans",
+          "swap": "Geröstete, gehackte Walnüsse.",
+          "savings": "Spart etwa 2–3 $ pro Backladung."
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "Zartbitterschokolade für einen weniger süßen, kräftigeren Keks.",
+          "savings": "Preislich vergleichbar."
+        },
+        {
+          "forIngredientId": "coconut-flakes",
+          "swap": "Ungesüßte Kokosraspel und 1 extra tbsp braunen Zucker.",
+          "savings": "Preislich vergleichbar."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "kekse",
+        "dessert",
+        "haferflocken",
+        "schokolade",
+        "zum-vorbereiten",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7546,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-cowboy-cookies/",
+      "components": [
+        {
+          "key": "d74788d6-0634-526e-888f-57e2418c1460",
+          "name": "Zutaten",
+          "servingGrams": 107.26,
+          "position": 0,
+          "items": [
+            {
+              "key": "acae1472-cf10-500a-adf4-0899cb769002",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "60d2459a-3e9e-5d0c-8b9a-eb8dbe989650",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "b1d86c65-e15a-5bdb-8710-3b9026f5b161",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "18157361-0a31-515e-ad75-5f48e2bddbfd",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt"
+            },
+            {
+              "key": "1941b5f5-eb37-5504-93d4-30d6c31e3a26",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "6497b8bc-c06c-5c3f-949f-9134136246a0",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "95021ffc-3748-5c32-b6fd-0411bb027bc9",
+              "ingredientName": "brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse fest eingedrückter hellbrauner Zucker"
+            },
+            {
+              "key": "bbe7bdda-b9de-5e63-afce-617136005b7f",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "8b9ea807-e730-5f35-a4cf-2154866220b1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "b81ebce7-7af1-5bcb-8b8d-579c126cb608",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "07277c2f-e88e-55cc-87a2-0dedc43f8a73",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen kernige Haferflocken"
+            },
+            {
+              "key": "3691f762-4910-59d0-949e-8fd833a581a9",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Tassen (12 oz) halbbittere Schokoladenstückchen"
+            },
+            {
+              "key": "a19ed883-5508-5d87-819b-f85db059137f",
+              "ingredientName": "Pekannüsse",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Tasse gehackte Pekannüsse, geröstet (etwa 4 oz)"
+            },
+            {
+              "key": "392d3a7b-9026-5995-a46c-128c564b049e",
+              "ingredientName": "Kokosraspel",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Tasse gesüßte Kokosraspeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gitter im oberen und unteren Drittel einsetzen und auf 350F (175C) vorheizen. Zwei Bleche mit Backpapier auslegen. Falls nötig Pekannüsse 6-8 Minuten auf einem trockenen Blech rösten, abkühlen lassen und grob hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Natron, Backpulver, Zimt und Salz verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiche Butter mit beiden Zuckersorten 3-4 Minuten hell und luftig schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier einzeln und dann Vanille einrühren. Nach jeder Zugabe die Schüsselwand abstreifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Trockene Zutaten bei niedriger Stufe einrühren, bis kein Mehl mehr sichtbar ist. Nicht überrühren. Haferflocken, Schokolade, geröstete Pekannüsse und Kokos von Hand unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Großzügige Portionen von 2 Esslöffel (etwa 2 oz) abstechen und mit 2 inches Abstand aufs Blech setzen. Für gleichmäßige Kekse zu Kugeln rollen, für rustikale Ränder grob portionieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "12-14 Minuten backen; die Bleche nach der Hälfte der Zeit oben/unten und vorne/hinten tauschen. Herausnehmen, wenn die Ränder goldgelb und fest sind, die Mitten aber noch leicht weich aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech ruhen lassen, dann auf einem Gitter vollständig auskühlen. Luftdicht halten sie bis zu 5 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Cowboy_Cookies.jpg/1280px-Cowboy_Cookies.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cowboy_Cookies.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Rex Roof, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Cowboy-Kekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-cranberry-orange-cookies",
+      "slug": "bake2-cranberry-orange-cookies",
+      "title": "Cranberry-Orangen-Kekse",
+      "instructions": "Weiche, kuchenartige Kekse mit säuerlichen getrockneten Cranberrys, frischer Orangenschale und dünner Orangenglasur. Die klassische Feiertagsvariante mit zarter Krume und süß-säuerlichem Zitrusaroma.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 13,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Orange kaufen und vollständig verwenden: Schale in den Teig, Saft in den Teig und die Glasur.",
+        "Cranberrys der Hausmarke kosten meist nur ein Drittel der Markenware und schmecken nach dem Hacken genauso.",
+        "Kein Standrührgerät nötig. Weiche Butter lässt sich auch mit einer stabilen Gabel oder einem Schneebesen cremig rühren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dried-cranberries",
+          "swap": "Getrocknete Kirschen oder gehackte Aprikosen für einen ähnlich süß-säuerlichen Biss.",
+          "savings": "In Großgebinden oft günstiger im Angebot."
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Kristallzucker in einer sauberen Gewürzmühle zu Puderzucker mahlen.",
+          "savings": "Du musst keine separate Packung Puderzucker kaufen."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter in Stangenform für eine milchfreie Variante.",
+          "savings": "Ähnlicher Preis; verwende, was du schon hast."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "kekse",
+        "feiertage",
+        "zitrus",
+        "dessert",
+        "tropfkekse",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7547,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-cranberry-orange-cookies/",
+      "components": [
+        {
+          "key": "193cbde9-e0dc-571d-a2b5-1fbf98cfa902",
+          "name": "Zutaten",
+          "servingGrams": 68.27,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac443760-a848-56a3-9043-9ea212cca43e",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "25668847-660e-537b-84e9-a344097ab92b",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "2d45a3a4-e053-596f-8ddb-385ddf3be69c",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Natron"
+            },
+            {
+              "key": "d43b42e5-1275-5354-97cd-83d3920874bb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "fdba412a-8f21-5ce8-a044-744561639fce",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "fe53774c-e536-5155-bce3-d3f590d15df8",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "71d95691-5c8a-5cf7-a17c-2b1b660dda69",
+              "ingredientName": "brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse fest eingedrückter hellbrauner Zucker"
+            },
+            {
+              "key": "75f95ac3-e735-5915-96ea-27c1901963a9",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 großes Ei"
+            },
+            {
+              "key": "0dad4575-97c2-51f3-87c9-33f4ed175be7",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Orange: Schale für den Teig, 2-3 EL Saft für die Glasur"
+            },
+            {
+              "key": "db873892-a56d-532d-bf4e-d519ddbd4e4c",
+              "ingredientName": "Orangensaft",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL frischer Orangensaft (für den Teig)"
+            },
+            {
+              "key": "734a95ba-1461-5d6f-a33e-8ecef33cbfb9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "a3034972-3cb7-5e03-b6be-fdeb5d12e11d",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL Orangenschale, plus etwas mehr für die Glasur"
+            },
+            {
+              "key": "4488b768-3431-5a6d-b528-7e1f481faeee",
+              "ingredientName": "Getrocknete Cranberrys",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 1/4 Tassen getrocknete Cranberrys, grob gehackt"
+            },
+            {
+              "key": "b226d366-1aaf-5b50-a9b2-98a5873818e8",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Tasse Puderzucker (für die Glasur)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Gitter in die Ofenmitte setzen und auf 375°F (190°C) vorheizen. Zwei Bleche mit Backpapier belegen. Cranberrys grob hacken und Orange vor dem Auspressen abreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver, Natron und Salz verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiche Butter, Kristallzucker und braunen Zucker etwa 3 Minuten hell und luftig schlagen. Ei einrühren, dann Vanille, Orangenschale und 3 tablespoons frischen Orangensaft. Glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trockene Zutaten in zwei Portionen bei niedriger Stufe einrühren. Cranberrys von Hand unterheben. Nicht zu lange rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Runde Portionen von etwa 1.5 tablespoons abstechen und mit 2 inches Abstand auf die Bleche setzen. Oberseiten mit feuchten Fingern abrunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Je Blech 11 to 13 Minuten backen, bis die Ränder fest und leicht goldgelb, die Mitten aber noch weich sind. 5 Minuten auf dem Blech ruhen lassen, dann auf einem Gitter auskühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Puderzucker mit 2 to 3 tablespoons des zurückbehaltenen Orangensafts und einer Prise Schale glatt und dickflüssig verrühren. Saft tropfenweise ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Ausgekühlte Kekse mit Glasur beträufeln oder dünne Linien darauf ziehen. Etwa 20 Minuten fest werden lassen, bevor sie gestapelt oder luftdicht aufbewahrt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/White_chocolate_and_cranberry_cookies_%288212918192%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:White_chocolate_and_cranberry_cookies_(8212918192).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Sodanie Chea, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Cranberry-Orangen-Kekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-peanut-butter-blossoms",
+      "slug": "bake2-peanut-butter-blossoms",
+      "title": "Erdnussbutter-Blütenkekse",
+      "instructions": "Der klassische amerikanische Feiertagskeks: Ein weicher Erdnussbutterkeks wird in Zucker gewälzt und direkt nach dem Backen mit einem Schokoladenkuss gekrönt. Die Schokolade schmilzt und wird anschließend zu einer glänzenden Kuppel fest. Nach dem Originalrezept von Hershey’s, mit aufgeschlagener Butter-Erdnussbutter-Masse und knusprigem Zuckerrand.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schokoladenküsse in einer großen Tüte statt in einer saisonalen Schachtel kaufen. Jede Milchschokolade funktioniert.",
+        "Cremige Erdnussbutter und Mehl der Hausmarke funktionieren genauso gut; teure Marken sind unnötig.",
+        "Kein Rührgerät? Butter 1 hour bei Zimmertemperatur weich werden lassen und mit einem stabilen Löffel cremig rühren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chocolate",
+          "swap": "Zartbittere Schokoladenstücke statt Schokoladenküssen hineindrücken.",
+          "savings": "Spart etwa 1–2 $ gegenüber einer Packung Marken-Schokoladenküsse."
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Vollmilch, 2%ige Milch oder etwas Wasser verwenden; die Flüssigkeit lockert den Teig leicht.",
+          "savings": "Verwende, was bereits im Kühlschrank ist, ohne zusätzliche Kosten."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Feste Pflanzenbutter 1:1 für eine milcharme Variante verwenden.",
+          "savings": "Preislich vergleichbar."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "kekse",
+        "dessert",
+        "feiertage",
+        "erdnussbutter",
+        "schokolade",
+        "klassisch",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 36,
+      "status": "published",
+      "sortOrder": 7548,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-peanut-butter-blossoms/",
+      "components": [
+        {
+          "key": "9b39685d-34a4-5b7d-9d8f-491f17981a3a",
+          "name": "Zutaten",
+          "servingGrams": 35.57,
+          "position": 0,
+          "items": [
+            {
+              "key": "124d9caf-af6f-552a-a4d5-5252b026705f",
+              "ingredientName": "Erdnussbutter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Tasse cremige Erdnussbutter"
+            },
+            {
+              "key": "09010923-8734-58a3-b60c-6f3427ac7aba",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "7d478f85-da05-5216-aace-73791eba006c",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker, plus etwas zum Wälzen"
+            },
+            {
+              "key": "bd063e24-1405-5ef1-97e1-6f08911e9d0f",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse fest eingedrückter hellbrauner Zucker"
+            },
+            {
+              "key": "883358d8-6d25-5fde-b8fb-81b28a679a26",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Ei"
+            },
+            {
+              "key": "37ab11a7-f5ee-51ec-8162-1b92f78d691d",
+              "ingredientName": "Milch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL Vollmilch"
+            },
+            {
+              "key": "f41dfa53-4269-5395-9542-bed8862acbce",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "165a85cd-32f3-5624-8ba4-2e9db99a42bb",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 3/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "bb21ff78-dc71-52b7-b7e8-6b3a26aad6d6",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "2092e1c3-61cc-51f4-9912-79d812f5d8d7",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "7205d270-07ca-538d-9e37-0a5edcc3f5ef",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "719bc05a-0072-5a4b-bce9-33bf01fea9b4",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "etwa 36 unverpackte Schokoladenküsse aus Vollmilchschokolade (8 oz)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 375°F (190°C) vorheizen und zwei Bleche mit Backpapier belegen. Schokoladenküsse auspacken und bereitlegen, damit es nach dem Backen schnell geht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter und Erdnussbutter etwa 1 Minute glatt schlagen. Kristallzucker und braunen Zucker dazugeben und 2 to 3 Minuten luftig schlagen. Schüsselwand abstreifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ei, Milch und Vanille glatt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl, Natron, Backpulver und Salz verquirlen. Zu den feuchten Zutaten geben und bei niedriger Stufe zu einem weichen, leicht klebrigen Teig rühren. Nicht überrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein paar Esslöffel Kristallzucker in eine Schüssel geben. Teig zu Kugeln von 1-inch (etwa 1 Esslöffel) rollen, in Zucker wälzen und mit 2 inches Abstand aufs Blech setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Je Blech 8 to 10 Minuten backen, bis die Ränder fest und leicht goldgelb, die Mitte aber noch weich ist. Nicht zu lange backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort aus dem Ofen nehmen und je einen Schokoladenkuss in die Mitte drücken, sodass er einsinkt und die Ränder leicht aufreißen. Die Schokolade sieht geschmolzen aus, das ist richtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "3 to 4 Minuten auf dem Blech ruhen lassen und dann auf ein Gitter setzen. Vollständig abkühlen lassen und die Schokolade etwa 1 Stunde fest werden lassen, bevor die Kekse gestapelt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/2022-01-01_00_57_47_A_Hershey_Kiss_cookies_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg/1280px-2022-01-01_00_57_47_A_Hershey_Kiss_cookies_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:2022-01-01_00_57_47_A_Hershey_Kiss_cookies_in_the_Dulles_section_of_Sterling,_Loudoun_County,_Virginia.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Famartin, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Erdnussbutter-Blütenkekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-seven-layer-magic-bars",
+      "slug": "bake2-seven-layer-magic-bars",
+      "title": "Magische Siebenschicht-Riegel",
+      "instructions": "Der klassische „Magic Cookie Bar“ von Eagle Brand, auch Hello Dolly oder Seven Layer Bar genannt. Ein buttriger Graham-Cracker-Boden wird mit gesüßter Kokosnuss, Schokoladen- und Karamellstückchen sowie Pekannüssen belegt. Kondensmilch bindet alles zu zähen, karamellisierten Riegeln. Schicht für Schicht direkt in der Form zubereitet, ganz ohne Schüssel.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Graham-Cracker selbst in einem Beutel mit dem Nudelholz zerdrücken, statt fertige Brösel zu kaufen.",
+        "Schokoladenstückchen und Kondensmilch der Hausmarke funktionieren genauso gut.",
+        "Pekannüsse sind die teuerste Schicht. Günstigere Walnüsse verwenden oder Nüsse weglassen und 1/2 cup zusätzliche Schokostückchen dazugeben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-chocolate-chips",
+          "swap": "Echte Karamellstückchen für traditionellen Geschmack oder dunkle Schokolade für einen kräftigeren Riegel.",
+          "savings": "Etwa gleicher Preis."
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Gehackte Walnüsse statt Pekannüsse.",
+          "savings": "Spart ungefähr 2 $ pro Backladung."
+        },
+        {
+          "forIngredientId": "graham-crackers",
+          "swap": "Zerdrückte Digestive-Kekse oder Vanillewaffelbrösel für den Boden.",
+          "savings": "Neutral."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "dessert",
+        "riegel",
+        "ohne-rührgerät",
+        "buffet",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7549,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-seven-layer-magic-bars/",
+      "components": [
+        {
+          "key": "6f862f3c-2d78-51be-8b5f-ec970351c41f",
+          "name": "Zutaten",
+          "servingGrams": 70.49,
+          "position": 0,
+          "items": [
+            {
+              "key": "be724e08-e631-58dd-b86b-11bf20b2d036",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, geschmolzen"
+            },
+            {
+              "key": "045198c1-bae9-5b7e-b702-1246929654c4",
+              "ingredientName": "Graham-Cracker",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Graham-Cracker-Brösel (etwa 12 ganze Crackerblätter, fein zerkrümelt)"
+            },
+            {
+              "key": "4e731dc5-9e4c-5198-9ea1-6728a29c7604",
+              "ingredientName": "Ungesüßte Kokosraspel",
+              "grams": 315,
+              "quantity": 315,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/3 Tassen gesüßte Kokosraspeln"
+            },
+            {
+              "key": "6ff4750c-97a7-5da6-9150-f8d48d5f7450",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse halbbittere Schokoladenstückchen"
+            },
+            {
+              "key": "0412c6a5-0ba5-51a2-a20f-f9f31963e5a8",
+              "ingredientName": "weiße Schokotropfen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse Karamellstückchen (ersatzweise weiße Schokolade)"
+            },
+            {
+              "key": "f2e6f3c1-c5a5-5198-b88b-d378d95e7171",
+              "ingredientName": "Pekannüsse",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse Pekannüsse, grob gehackt (etwa 4 oz)"
+            },
+            {
+              "key": "71d429a4-2bc5-56d9-bd28-d0fb1f869ebf",
+              "ingredientName": "Gesüßte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14 oz) gezuckerte Kondensmilch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Gitter in die Ofenmitte setzen und auf 350°F (175°C) vorheizen. Eine Form von 9x13-inch mit Folie oder Backpapier auslegen, das an zwei Seiten übersteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschmolzene Butter auf dem Boden der Form verteilen. Graham-Cracker-Brösel darüberstreuen und mit einem Messbecher oder den Fingern zu einer festen Schicht drücken. Nicht vorbacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kokosraspel gleichmäßig darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schokoladen- und Karamellstückchen auf der Kokosschicht verteilen. Gehackte Pekannüsse darübergeben, bis alles gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die gesamte Dose gesüßte Kondensmilch langsam darüberträufeln. NICHT umrühren; beim Backen zieht die Milch durch die Schichten. Belag leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "25 to 30 Minuten backen, bis die Oberfläche leicht goldgelb und die Ränder blubbernd und leicht gebräunt sind. Die Mitte bleibt etwas weich und wird beim Abkühlen fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In der Form auf einem Gitter mindestens 2 hours vollständig abkühlen lassen oder 1 hour kühlen, damit die Masse fest wird und sich sauber schneiden lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Riegel an den überstehenden Rändern herausheben und mit einem scharfen Messer in 24 Stücke schneiden. Für saubere Kanten die Klinge zwischen den Schnitten abwischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vegan_Magic_Bars_%285384914673%29.jpg/1280px-Vegan_Magic_Bars_%285384914673%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegan_Magic_Bars_(5384914673).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Veganbaking.net, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Magische Siebenschicht-Riegel",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

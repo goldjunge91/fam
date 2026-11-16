@@ -1,0 +1,1337 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-fluffy-souffle-omelette",
+      "slug": "egg-fluffy-souffle-omelette",
+      "title": "Fluffiges Soufflé-Omelett (Wolkenomelett)",
+      "instructions": "Ein wackeliges, zart schmelzendes Omelett, das dank aufgeschlagenem Eiweiß zu einer goldenen Wolke aufgeht – zubereitet mit wenigen Eiern und einer beschichteten Pfanne. Sieht nach Restaurant-Können aus, ist aber einfach für die Studentenküche und kostet nur wenige Cent.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": 9,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für den vollen Effekt brauchst du nur Eier, Butter und Salz. Lass alle optionalen Zutaten weg und du bekommst eines der günstigsten warmen Frühstücke.",
+        "Kein Handmixer da? Mit einem normalen Schneebesen und 3-4 Minuten kräftigem Schlagen bekommst du das Eiweiß kostenlos steif.",
+        "Hebe die leere Butterverpackung auf und fette damit die Pfanne ein, statt einen frischen Esslöffel Butter zu verwenden. Für eine beschichtete Pfanne reicht der dünne Film."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Ein kurzer Sprühstoß Kochspray oder ein Teelöffel beliebiges neutrales Öl fettet die beschichtete Pfanne genauso gut ein.",
+          "savings": "spart etwa $0.15 pro Omelett"
+        },
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "Ein paar Tropfen Zitronensaft oder Weißweinessig stabilisieren das Eiweiß ebenso.",
+          "savings": "Kauf vermeiden a jar du vielleicht not verwenden"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "Geschnittenes Frühlingszwiebelgrün oder eine Prise getrocknete Kräuter sorgen günstig für Farbe und Biss.",
+          "savings": "spart etwa $2 versus a frisch chive bunch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch-japanisch",
+        "Ei",
+        "Frühstück",
+        "Soufflé",
+        "Omelett",
+        "fluffig",
+        "vegetarisch",
+        "schnell",
+        "preiswert",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 300,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-fluffy-souffle-omelette/",
+      "components": [
+        {
+          "key": "48c12cb4-6167-5013-9ec0-e4a2416ce820",
+          "name": "Zutaten",
+          "servingGrams": 242.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "147bf071-89cd-582b-83a1-509bc9958503",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b828372-2ae7-505e-acab-8b7659b85982",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für greasing pan"
+            },
+            {
+              "key": "8d2f9285-00db-5448-982b-ef8bce1ce828",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a33042f7-1f0a-553b-9231-2d406841e816",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "season yolks"
+            },
+            {
+              "key": "b6fb9d3f-2f8d-5656-8511-ea8a78ce4657",
+              "ingredientName": "Weinstein",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "helps whites whip zum stiff, stable peaks"
+            },
+            {
+              "key": "dd9662ef-b75c-5846-a3dd-beec1259984f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "innen schmelzen lassen, bevor zusammengefaltet wird"
+            },
+            {
+              "key": "ae9c2630-2074-5058-86db-1badc2afa6c4",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "snipped, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage 3 Eier auf und trenne Eigelb und Eiweiß vorsichtig in zwei saubere, trockene Schüsseln. Schon ein winziger Eigelbtropfen verhindert, dass das Eiweiß steif wird – nimm dir Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Eigelb mit Salz und Pfeffer und verquirle es, bis es glatt und etwas heller ist. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib nach Wunsch Weinstein zum Eiweiß und schlage es mit einem Handmixer oder einem Schneebesen 2-3 Minuten, bis steife, glänzende Spitzen entstehen und der Schaum seine Form behält, wenn du den Schneebesen anhebst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Eigelb zum Eiweiß und hebe es mit einem Teigschaber vorsichtig unter. Fahre dafür von unten nach oben, bis alles gerade eben vermischt ist. Beende das Rühren, solange noch ein paar Streifen zu sehen sind, damit die Luft erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Butter in einer beschichteten Pfanne bei niedriger Hitze schmelzen und schwenke sie, damit sie den Boden überzieht. Niedrige Hitze ist wichtig; die Butter sollte nicht stark brutzeln. Gieße den luftigen Teig hinein und forme die Oberfläche vorsichtig zu einem Hügel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare das Omelett 7-9 Minuten ungestört. Es geht auf und der Boden wird goldbraun. Die Oberfläche ist fertig, wenn sie gerade gestockt und nicht mehr feucht oder glänzend ist. Nach Wunsch in den letzten 2 Minuten Käse auf eine Hälfte streuen und schmelzen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schiebe einen Pfannenwender unter eine Seite, klappe das Omelett über sich selbst zusammen und gleite damit auf einen Teller. Mit geschnittenem Schnittlauch garnieren und sofort heiß und locker essen. Die Eier sollten vollständig gestockt und nicht flüssig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Parmesan_souffle_omelette_-_Caf%C3%A9_des_Couleurs_2025-04-03.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Parmesan_souffle_omelette_-_Café_des_Couleurs_2025-04-03.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public domain (CC0 1.0 Universal)",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li (Onthewings) — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines fluffigen Soufflé-Omeletts (Wolkenomelett)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-tornado-omurice",
+      "slug": "egg-tornado-omurice",
+      "title": "Tornado-Omurice (gedrehtes Ei auf gebratenem Ketchup-Reis)",
+      "instructions": "Ein glänzender, mit Essstäbchen gedrehter Eiertornado auf herzhaft-süßem Ketchup-Reis. Dieser virale Eiertrick macht aus einer einfachen Schüssel Vorratsreis ein kleines Abendessen-Spektakel. Den Dreh hinzubekommen fühlt sich an, als würdest du eine ganz neue Küchentechnik lernen.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Reis vom Vortag. Das ist günstiger als frisch zu kochen, und die trockeneren Körner lassen sich viel besser braten, ohne matschig zu werden.",
+        "Tiefgekühlte Erbsen und Karotten aus einem Beutel Mischgemüse kosten pro Portion nur wenige Cent und halten monatelang. Kaufe nicht extra frisches Gemüse nur für dieses Gericht.",
+        "Einfacher Ketchup und ein paar Eier sorgen hier fast für den ganzen Geschmack. Besondere asiatische Saucen sind nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Beliebiges gemischtes Tiefkühlgemüse, Tiefkühlmais oder gegartes Gemüse vom Vortag",
+          "savings": "beliebige vorhundene is bereits in deinem Gefrierfach statt a dedicated bag"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Zusätzlicher 1/2 EL Pflanzenöl (hält das Gericht milchfrei)",
+          "savings": "spart ein paar Cent und makes it fully dairy-free"
+        },
+        {
+          "forIngredientId": "sriracha",
+          "swap": "Beliebige scharfe Sauce, die du schon hast, oder einfach mehr Ketchup",
+          "savings": "kein Kauf nötig: sriracha for one drizzle"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch-japanisch",
+        "Ei",
+        "Omurice",
+        "gebratener Reis",
+        "Abendessen",
+        "vegetarisch",
+        "viral",
+        "Seelenfutter",
+        "Vorratsküche"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 301,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-tornado-omurice/",
+      "components": [
+        {
+          "key": "fe13a053-c96d-5441-85cd-5a5dbcdb0d48",
+          "name": "Zutaten",
+          "servingGrams": 736.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1821c1ce-4c57-5390-9a3a-5a177929e225",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gegart und cooled; day-old rice eignet sich best"
+            },
+            {
+              "key": "8b2c8102-43e1-5e35-b5f7-cae313c7e42f",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "frisch oder pasteurized, für tornado swirl"
+            },
+            {
+              "key": "9e465ee7-ca2b-5750-b58a-559c0839177b",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "in fried rice"
+            },
+            {
+              "key": "7e057ba3-c231-5c0f-a476-9dfd435ffbff",
+              "ingredientName": "Pflanzenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "split between rice und egg pan"
+            },
+            {
+              "key": "4acf2e73-4249-5763-b6fb-a12dbd913990",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für richer fried rice"
+            },
+            {
+              "key": "241c27ae-d043-5a9b-ae7f-b2137985482b",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "362f20a1-4018-5f21-812a-eb1995247118",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "156a3c29-7f95-5bba-a36a-b1b4c519357d",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf8d369-6937-554c-9922-12aceb87681b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a74cb1d-1b0c-5a3b-a956-3082a5a14ad3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3953fc6b-83b5-51c5-9a3e-af706fd7d103",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "seasons rice"
+            },
+            {
+              "key": "32717847-29d6-57e3-8d7e-2967340ec425",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "mixed mit ketchup für drizzle"
+            },
+            {
+              "key": "dc6cfb4f-9640-5b9d-a399-7bef0e032dd0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide 1/4 Zwiebel und 1/2 Karotte in feine Würfel. Erhitze 1 EL Pflanzenöl und 1 EL Butter in einer beschichteten Pfanne bei mittelhoher Hitze und brate Zwiebel und Karotte 2-3 Minuten, bis sie weich und die Zwiebel glasig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1.5 Tassen abgekühlten gekochten Reis und 1/4 Tasse Tiefkühlerbsen dazu. Löse Klumpen und brate alles 2-3 Minuten unter Rühren, bis der Reis durchgehend heiß ist und dampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe den Reis zur Seite, gib 2 EL Ketchup und nach Wunsch 1/2 EL Sojasauce in die freie Stelle der Pfanne und lass die Mischung 20-30 Sekunden brutzeln, damit sich der Geschmack intensiviert. Vermenge sie dann mit dem Reis, sodass jedes Korn bedeckt ist. Würze mit 1/2 TL Salz und 1/4 TL Pfeffer, häufe den Reis auf einem Teller an und forme ein ordentliches Oval. Wische die Pfanne sauber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage 3 Eier in eine Schüssel, gib eine Prise Salz dazu und verquirle sie gründlich, bis sie vollkommen gleichmäßig und ohne Eiweißstreifen sind – für eine glatte Spirale müssen die Eier vollständig vermischt sein. Verwende frische oder pasteurisierte Eier, da die Mitte weich serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die saubere beschichtete Pfanne auf mittlere Hitze und gib das übrige 1/2 EL Pflanzenöl hinein. Schwenke die Pfanne, damit der Boden bedeckt ist. Sobald das Öl schimmert, gieße alle verquirlten Eier auf einmal hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald die Ränder zu stocken beginnen, die Mitte aber noch glänzend und flüssig ist (etwa 90% gegart, ungefähr 30-45 Sekunden), reduziere die Hitze. Stelle zwei Essstäbchen aufrecht in die Mitte und drehe sie gleichmäßig in eine Richtung, sodass sich das lockere Ei zu einem spiralförmigen Tornado sammelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sobald die Spirale ihre Form hält und das Ei außen gestockt, in der Mitte aber noch weich ist, gleite damit aus der Pfanne auf den Reishügel. Für ein vollständig gestocktes Ei ohne weiche Mitte weitere 20-30 Sekunden bei niedriger Hitze drehen, bis kein flüssiges Ei mehr übrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre 1 TL Sriracha in etwas zusätzlichen Ketchup und träufle die Sauce im Zickzack über den Tornado. Streue geschnittene Frühlingszwiebel darüber und serviere sofort, solange alles heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://zimmysnook.ca/wp-content/uploads/2022/03/Tornado-Omelette-Omurice-with-Sriracha-Ketchup-819x1024.jpg",
+          "sourcePageUrl": "https://zimmysnook.ca/tornado-omelette-omurice-with-sriracha-ketchup/",
+          "sourceName": "Zimmy's Nook",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": "Photo: Zimmy's Nook",
+          "verifiedMatch": true,
+          "altText": "Foto von Tornado-Omurice (gedrehtem Ei auf gebratenem Ketchup-Reis)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-croque-madame",
+      "slug": "egg-croque-madame",
+      "title": "Croque Madame (Toast mit Schinken, Gruyère, Béchamel und Spiegelei)",
+      "instructions": "Ein Klassiker der französischen Bistros: knusprig getoastetes Brot mit Schinken und nussigem Gruyère, mit glänzender Béchamel bedeckt und goldbraun überbacken, dann mit einem Spiegelei mit flüssigem Eigelb gekrönt. Im Grunde ein gegrilltes Käsesandwich, das nach Paris gereist ist.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 13,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gruyère ist hier die teure Zutat. Kaufe ein kleines Stück oder ersetze ihn durch günstigeren Schweizer Käse oder Emmentaler, ohne viel vom nussigen Geschmack zu verlieren.",
+        "Verwende kräftiges Brot, das du schon hast. Sauerteigbrot vom Vortag oder einfaches weißes Sandwichbrot wird schön knusprig und erspart dir einen besonderen Einkauf.",
+        "Bereite die doppelte Menge Béchamel zu und stelle die Hälfte kalt. Mit einem Schuss Milch aufgewärmt verwandelt sie Toast oder Pasta am nächsten Tag für fast nichts in etwas Besonderes."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere",
+          "swap": "Schweizer Käse oder Emmentaler – schmilzt auf dieselbe nussige Weise",
+          "savings": "spart roughly $0.50 pro Portion"
+        },
+        {
+          "forIngredientId": "ham",
+          "swap": "Putenaufschnitt oder kanadischer Speck als magerere Garnitur",
+          "savings": "ungefähr gleich teuer Kosten, leaner"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Sauerteigbrot oder Brioche-Brötchen als reichhaltigere Grundlage",
+          "savings": "wenige Cent mehr for a bistro upgrade"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Ei",
+        "Bistro",
+        "Sandwich",
+        "Mittagessen",
+        "Seelenfutter",
+        "Schinken und Käse",
+        "überbacken"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 302,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-croque-madame/",
+      "components": [
+        {
+          "key": "0b0f21c3-5ada-5341-82a6-2ceda90b6134",
+          "name": "Zutaten",
+          "servingGrams": 324.72,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6142a28-4867-5320-a0fb-d7409061c3f7",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "sturdy white oder sourdough, in Scheiben geschnitten thick"
+            },
+            {
+              "key": "dbbed0ca-2d79-5b8d-9d67-9bb90bfd2a33",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "good deli ham, fully gegart"
+            },
+            {
+              "key": "4fa6b5cf-2ba6-5789-af0d-fdead04b6f7d",
+              "ingredientName": "Gruyère",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "geraspelt; split between filling und top"
+            },
+            {
+              "key": "75cc225c-733a-53f0-9d5e-19359ef7a691",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL für roux, 1 EL zum Braten eggs"
+            },
+            {
+              "key": "05338b88-1669-5c6e-a25b-3cfe280f9eec",
+              "ingredientName": "Weizenmehl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL für roux"
+            },
+            {
+              "key": "9b62a0f2-587d-581f-928f-ea7cb01f6c8f",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "warm, whisked in für bechamel"
+            },
+            {
+              "key": "d56a4b67-c1d8-507e-9056-b1e1ae3bd4f8",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "eins pro Sandwich"
+            },
+            {
+              "key": "ab09ede7-abb0-5b8c-af7f-7216f82149a5",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.65,
+              "quantity": 0.65,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "a Prise, classic in bechamel"
+            },
+            {
+              "key": "b042b7e9-d856-5f02-9c8f-8ccd1020b176",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "thin smear on bread"
+            },
+            {
+              "key": "499a78d3-8e0b-5864-bea7-b2e878917857",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e46329cd-ce5e-54cd-bc89-a9fcb7816135",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f897ea69-8e03-5c99-aa51-d05e7d666f77",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "gerieben, extra on top zum help it brown"
+            },
+            {
+              "key": "0367f176-dcef-5095-bfb5-b689480d626d",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "snipped, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle einen Ofenrost etwa 6 Zoll unter den Grill und schalte ihn auf hohe Stufe. Toaste die 4 Brotscheiben leicht im Toaster oder Ofen, damit sie unter der Sauce knusprig bleiben, und lege sie dann auf ein mit Folie ausgelegtes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Béchamel zu: Schmilz 1 EL Butter in einem kleinen Topf bei mittlerer Hitze, rühre das Mehl ein und gare es 1 Minute, bis es nussig duftet, aber hell bleibt. Rühre die warme Milch langsam ein und schlage die Sauce 2 bis 3 Minuten weiter, bis sie eindickt und einen Löffel überzieht, aber noch gießfähig ist. Rühre eine Prise Muskatnuss, Salz und Pfeffer ein und nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege die Sandwiches: Bestreiche nach Wunsch 2 Toasts mit Dijon-Senf, lege auf jeden 2 Scheiben Schinken und gib etwa die Hälfte des Gruyère darauf. Lege auf jedes Sandwich einen zweiten Toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffle eine großzügige Schicht Béchamel über jedes geschlossene Sandwich und lass sie an den Seiten hinunterlaufen. Streue den übrigen Gruyère und nach Wunsch Parmesan darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Überbacke die Sandwiches 3 bis 5 Minuten und beobachte sie genau, bis Käse und Béchamel blubbern und stellenweise tief goldbraun sind. Lege sie auf Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Eier: Schmilz die übrige 1 EL Butter in einer beschichteten Pfanne bei mittlerer Hitze. Schlage die Eier hinein und gare sie 2 bis 3 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig, das Eigelb aber noch flüssig ist (für festeres Eigelb weitere ein bis zwei Minuten garen). Würze leicht mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege je ein Spiegelei auf jedes überbackene Sandwich, garniere nach Wunsch mit Schnittlauch und serviere sofort, solange der Käse geschmolzen und das Eigelb glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Croque_Madame_-_Milfey_Patisserie_2026-03-02.jpg/1280px-Croque_Madame_-_Milfey_Patisserie_2026-03-02.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Croque_Madame_-_Milfey_Patisserie_2026-03-02.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Andy Li (Onthewings), CC0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines Croque Madame (Toast mit Schinken, Gruyère, Béchamel und Spiegelei)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-loco-moco",
+      "slug": "egg-loco-moco",
+      "title": "Hawaiianisches Loco Moco",
+      "instructions": "Das ultimative hawaiianische Wohlfühlessen aus dem Diner: ein saftiges, angebratenes Rindfleischpatty auf einem Hügel heißem weißem Reis, mit würziger brauner Pilzsauce übergossen und mit einem Spiegelei mit flüssigem Eigelb gekrönt, das sich in jedem Bissen verteilt. Sättigend, günstig und unglaublich befriedigend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einfacher weißer Reis ist eine der günstigsten Möglichkeiten, jede Mahlzeit zu strecken. Koche etwas mehr und du hast gleich eine Grundlage für das Mittagessen am nächsten Tag.",
+        "Lass die Pilze ganz weg, wenn das Geld knapp ist. Eine braune Sauce nur mit Zwiebeln ist ebenfalls klassisch und lecker und spart dir über einen Dollar.",
+        "Kaufe Rinderhackfleisch in der größten Packung, die du dir leisten kannst, und friere es in Patty-Portionen ein. Pro Pfund ist es viel günstiger als kleine Packungen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Magereres, günstigeres Putenhackfleisch verwenden (vollständig auf 165F Kerntemperatur garen)",
+          "savings": "ca. $0.25/Portion"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Einen Rinderbrühwürfel in 1.5 Tassen heißem Wasser auflösen",
+          "savings": "ca. $0.70 total"
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Abgetropfte Champignons aus der Dose verwenden oder ganz weglassen",
+          "savings": "ca. $1.00 total"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Butter durch einen Schuss Pflanzenöl ersetzen, damit das Gericht vollständig milchfrei ist",
+          "savings": "ca. $0.15 total"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hawaiianisch",
+        "Ei",
+        "Seelenfutter",
+        "Reisschüssel",
+        "Rindfleisch",
+        "Abendessen",
+        "Sauce",
+        "Diner-Klassiker"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 303,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-loco-moco/",
+      "components": [
+        {
+          "key": "9749568c-8ade-55fe-8f71-de88585be0ad",
+          "name": "Zutaten",
+          "servingGrams": 660.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "cad501a8-bfb3-53c6-82dd-14d22fd4f250",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab03bb0e-2eff-5f25-afde-f52fabcd51d6",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ad7cdcd-8ec0-5be4-9d16-7ce2d3164fef",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd67e2c3-cd22-5437-bca2-47912c2c7f59",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d8fb561-8b11-5026-8267-f215e6e49637",
+              "ingredientName": "Maisstärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e728bb3c-31aa-5fe7-a748-6aa872d81490",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0de993dd-0866-5b68-88ec-cd7e03826cd3",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f23c9943-c6eb-5efa-b965-6c224d44ee10",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3082436-77b0-56ee-996e-dc54d652c259",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da888046-a831-5380-b85e-c17b2065ec79",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47ee95dc-016b-5829-92e9-6c8750f0db65",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06c4658d-961e-5429-bdff-2f3fe5785614",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c26ff0da-9585-53fc-a138-fc444c7a0928",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3759a7d-49d9-5cc4-a5f3-b9717101fe5e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44343ae8-67dc-5a29-8574-5bed5041b79d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis: Spüle 1 Tasse weißen Reis ab, gib ihn mit etwa 1.5 Tassen Wasser in einen Topf, bringe alles zum Kochen, decke den Topf ab und lass den Reis bei niedriger Hitze 15-18 Minuten weich garen. Halte ihn zugedeckt warm, während du den Rest zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge das Rinderhackfleisch mit einer großen Prise Salz und Pfeffer sowie etwa 1 TL Worcestershiresauce. Forme 2 feste Patties, etwas breiter als die gewünschte Größe, da sie beim Garen schrumpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 EL Pflanzenöl in einer Pfanne bei mittelhoher Hitze. Brate die Patties 3-4 Minuten pro Seite kräftig an, bis sie durchgegart sind und eine Kerntemperatur von 160F erreicht haben (innen kein Rosa mehr). Lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib in dieselbe Pfanne (die gebräunten Bratensäfte bleiben darin) gewürfelte halbe Zwiebel, geschnittene Pilze und Butter. Gare alles bei mittlerer Hitze 4-5 Minuten, bis es weich und goldbraun ist, und rühre dann gehackten Knoblauch für 30 Sekunden ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße 1.5 Tassen Rinderbrühe und die Sojasauce sowie die übrige Worcestershiresauce hinein. Kratze die gebräunten Stückchen vom Boden ab und bringe die Sauce zum Köcheln. Verquirle die Maisstärke mit 2 EL kaltem Wasser, rühre sie ein und lass die Sauce 2-3 Minuten köcheln, bis sie dick genug ist, einen Löffel zu überziehen. Probiere und würze mit Salz und Pfeffer nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Patties zurück in die Sauce, löffle Sauce darüber und halte sie bei niedriger Hitze warm, während du die Eier brätst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brate die Eier in einer separaten beschichteten Pfanne bei mittelniedriger Hitze 2-3 Minuten mit der Sonnenseite nach oben, bis das Eiweiß vollständig gestockt, das Eigelb aber noch flüssig ist. So entsteht der klassische Moment, wenn das Eigelb in die Sauce läuft. Flüssiges Eigelb ist hier üblich; für kleine Kinder, Schwangere oder Menschen mit geschwächtem Immunsystem pasteurisierte Eier verwenden oder die Eier vollständig durchgaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Richte das Gericht an: Häufe heißen Reis auf einen Teller, lege ein Patty mit Sauce darauf, löffle zusätzliche Sauce darüber und kröne jedes Gericht mit einem Spiegelei. Mit geschnittener Frühlingszwiebel garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Loco_moco_001.jpg/1280px-Loco_moco_001.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Loco_moco_001.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Ocdp, CC0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von hawaiianischem Loco Moco",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-classic-quiche-lorraine",
+      "slug": "egg-classic-quiche-lorraine",
+      "title": "Klassische Quiche Lorraine",
+      "instructions": "Eine seidige gebackene Eiercreme mit knusprigem, rauchigem Speck und nussigem Gruyère in einem blättrigen Boden. Bereite sie am Sonntag zu und du hast die ganze Woche Mittagessen mit Stücken, die auch kalt direkt aus dem Kühlschrank oder heiß zum Essen mit Gästen passen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen Gruyère-Block im Angebot und reibe ihn selbst, statt fertig geriebenen Käse zu kaufen. Oder nimm einen milderen schmelzenden Käse nach Schweizer Art für denselben nussigen Geschmack zum günstigeren Preis.",
+        "Speckabschnitte oder Truthahnspeck kosten weniger als hochwertige Scheiben und verschwinden ohnehin in der Eiercreme.",
+        "Ein fertiger Tortenboden ist günstiger, als für eine Quiche Butter und Mehl zu kaufen. Eine Quiche reicht für 6 Mittagessen, sodass die Kosten pro Mahlzeit schnell sinken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere",
+          "swap": "Ein milderer schmelzender Käse nach Schweizer Art",
+          "savings": "oft günstiger pro Unze mit a similar nutty melt"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kaffeesahne oder Vollmilch mit einem Stück Butter",
+          "savings": "ein paar Cent per quiche und a lighter custard"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Gewürfelter Kochschinken oder Truthahnspeck",
+          "savings": "spart around $0.50-1.00 und runs leaner"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "französisch",
+        "Ei",
+        "Speck",
+        "Gruyère",
+        "Quiche",
+        "vorab zubereitet",
+        "Brunch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 304,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-classic-quiche-lorraine/",
+      "components": [
+        {
+          "key": "ee36e42b-fdbc-56ca-8762-59b97151b107",
+          "name": "Zutaten",
+          "servingGrams": 142.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "08715175-c3c4-5273-ba37-dbe9a903292c",
+              "ingredientName": "Gekühlter Tortenboden",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "store-bought 9-inch, thawed if tiefgekühlt"
+            },
+            {
+              "key": "d3b579fa-079a-5a38-8067-691c2055fb92",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "groß"
+            },
+            {
+              "key": "f0ed2c61-fda1-5bba-a78d-8841cc0e108b",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder half-und-half für a lighter custard"
+            },
+            {
+              "key": "c0ef4694-3367-55fc-a8ab-bde5f54b9b15",
+              "ingredientName": "Speck",
+              "grams": 125,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gegart crisp und crumbled"
+            },
+            {
+              "key": "1e431e69-2f17-50fd-974c-d16e573571e9",
+              "ingredientName": "Gruyère",
+              "grams": 141.75,
+              "quantity": 141.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "about 1.25 Tassen geraspelt"
+            },
+            {
+              "key": "341cacd3-c4a5-5fc6-a662-7e08853b91a1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "dünn in Scheiben geschnitten"
+            },
+            {
+              "key": "073604ea-a4c3-5d73-8309-bb66eb7eff4b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa79b210-10e0-59a4-bc86-2cdb2a701153",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "866f4b49-a99a-564c-8d66-ca3be5a60119",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "just a Prise"
+            },
+            {
+              "key": "eec81321-3949-5e1b-9355-6ac7c974c656",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "eine kleine Menge gerieben, als klassische Note"
+            },
+            {
+              "key": "b3fdc92d-0a19-5d1a-a0ea-4fc32d24dd55",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325F vor und lege den Tortenboden auf ein Backblech mit Rand (es fängt Tropfen auf). Falls der Boden in einer dünnen Aluschale ist, lass ihn darin. Wenn es eine Teigplatte ist, drücke sie in eine 9-Zoll-Tarteform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Speck: Lege die Scheiben in eine kalte Pfanne bei mittlerer Hitze und brate sie 6-8 Minuten unter Wenden tiefbraun und knusprig, bis kein rohes Rosa mehr zu sehen ist. Lege sie auf ein Papiertuch und zerbrösele sie anschließend. Gieße bis auf einen dünnen Film Fett alles ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die Eiercreme: Schlage in einer Schüssel die 4 Eier mit Schlagsahne, Salz, Pfeffer, Cayennepfeffer und etwas frisch geriebener Muskatnuss glatt und gleichmäßig, ohne Eiweißstreifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den zerbröselten Speck, geriebenen Gruyère und geschnittene Frühlingszwiebel gleichmäßig auf dem Boden des Teiges.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiercreme langsam über die Füllung, bis sie fast den Rand erreicht. Hör knapp darunter auf, damit sie beim Aufgehen nicht überläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Quiche bei 325F 45-50 Minuten. Sie ist fertig, wenn die Ränder gestockt und aufgegangen, die Mitte aber noch leicht wackelig wie weiches Gelee ist. Ein Messer, 1 Zoll neben der Mitte eingestochen, sollte größtenteils sauber herauskommen. Die Eiercreme muss vollständig gestockt und nicht flüssig sein (für Sicherheit auf 160F durchgaren).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn die Ränder des Teigbodens zu schnell bräunen, decke sie in den letzten 15 Minuten mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Quiche vor dem Schneiden 15-20 Minuten ruhen; beim Abkühlen wird sie fester. Mit gehackter Petersilie garnieren und in 6 Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Für die Vorbereitung auf mehrere Tage: vollständig abkühlen lassen, einwickeln und bis zu 4 Tage im Kühlschrank lagern. Kalt essen oder ein Stück 45-60 Sekunden in der Mikrowelle beziehungsweise im 325F heißen Ofen 10 Minuten lang aufwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Quiche_lorraine_04.jpg/1280px-Quiche_lorraine_04.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Quiche_lorraine_04.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Arnaud 25, CC0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer klassischen Quiche Lorraine",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1138 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fafda",
+      "slug": "gen-fafda",
+      "title": "Fafda",
+      "instructions": "Gujarati-Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsenmehl in größeren Mengen in indischen Geschäften.",
+        "Verwende abgesiebtes Öl für mehrere Durchgänge erneut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Gujarati",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3440,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fafda/",
+      "components": [
+        {
+          "key": "5fded135-6b61-5f1c-8bac-75f9e3256756",
+          "name": "Zutaten",
+          "servingGrams": 258.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "93072e59-ea7d-5436-b7bc-af7c06ad0837",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1cb3f5ac-6de2-5a6f-a331-15bd3e9e77bd",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3f3cd4a6-6816-55f4-9988-9f085585a0c3",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "96e973c1-2aef-56da-ab6e-7de782313eba",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "50e73e59-ac8d-525a-87aa-1334165da0b0",
+              "ingredientName": "Asant (Hing)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/8 TL"
+            },
+            {
+              "key": "f4ac6af3-8d16-51b9-825d-6ba5a13b201e",
+              "ingredientName": "Sesam",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "2766ac31-63e6-5e8d-85dc-23526c09d6b0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kichererbsenmehl, Salz, Kurkuma, Asant und Ajowan in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach Wasser dazu und verquirle alles zu einem glatten, klümpchenfreien Teig, ähnlich wie Pfannkuchenteig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig 15 Minuten bei Raumtemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F; teste die Temperatur mit einem kleinen Teigstück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig durch ein Metallsieb oder einen Fafda-Maker direkt ins heiße Öl, sodass dünne nudelartige Streifen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere sie 2-3 Minuten goldbraun und knusprig und rühre vorsichtig um, damit sie gleichmäßig garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie heiß mit Jaggery-Sauce oder als Beilage zu gedämpftem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Fafda.webp",
+          "sourcePageUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Fafda.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jalebi",
+      "slug": "gen-jalebi",
+      "title": "Jalebi",
+      "instructions": "Gujarati-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Safran und Lebensmittelfarbe weg, wenn du sparen musst.",
+        "Bereite größere Mengen zu und bewahre sie bis zu 3 Tage in luftdichten Behältern auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Gujarati",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3441,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jalebi/",
+      "components": [
+        {
+          "key": "03c1ad25-27b8-575d-8cfe-0f12839bd300",
+          "name": "Zutaten",
+          "servingGrams": 176.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9b27815-ec28-5a52-b623-8c90c203a5cc",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "19cebfc1-f5f8-5b13-8c45-a1cbb35fef93",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4eee0280-3821-5e1c-a699-18e6a2dd2d42",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "8b0fd37e-36b8-5eef-bd3f-b781c8afaef3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren sowie weitere 2 EL"
+            },
+            {
+              "key": "0bb28bc7-3c06-5514-9bae-2d06ec00293d",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "02f96c1f-c811-5abd-a364-96fbecfac72d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c74d5085-2d80-588f-9aa9-e4afd21d6667",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "df8df389-7849-532f-b67d-abf0693cc705",
+              "ingredientName": "Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Stück, zerdrückt"
+            },
+            {
+              "key": "71f5fd35-03a0-55d2-b4e5-ad20bca07a09",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8-10 Stück, optional"
+            },
+            {
+              "key": "11a7ded0-8622-55f1-bb1e-3d4494b995df",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Joghurt und 2 tablespoons Öl in einer Schüssel und schlage alles glatt. Gib Natron dazu und lasse den Teig 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Zucker und Wasser in einer Pfanne und rühre, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zitronensaft, Kardamom, Safran und Lebensmittelfarbe zum Sirup. Lasse ihn 5 Minuten köcheln und halte ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze 3 cups Öl in einem tiefen Topf auf 350°F und fülle den Teig in eine Spritzflasche oder einen Jalebi-Maker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spritze den Teig vorsichtig spiralförmig ins heiße Öl und forme Kreise von 3-4 inches Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere sie 1-2 Minuten pro Seite, bis sie hellgolden sind, und nimm sie vorsichtig mit einer Schaumkelle heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tauche die heißen Jalebi sofort 5 Sekunden in warmen Zuckersirup und lege sie dann zum Festwerden auf ein Gitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie bei Raumtemperatur oder warm zu Tee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.pexels.com/photos/14530314/pexels-photo-14530314.jpeg?cs=srgb&dl=pexels-sarayu-p-371879973-14530314.jpg&fm=jpg",
+          "sourcePageUrl": "https://images.pexels.com/photos/14530314/pexels-photo-14530314.jpeg?cs=srgb&dl=pexels-sarayu-p-371879973-14530314.jpg&fm=jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khandvi",
+      "slug": "gen-khandvi",
+      "title": "Khandvi",
+      "instructions": "Gujarati-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsenmehl in größeren Mengen in indischen Geschäften.",
+        "Verwende geraspelte Kokosnuss aus Tiefkühlpackungen, falls keine frische erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Gujarati",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3442,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khandvi/",
+      "components": [
+        {
+          "key": "332c565b-05c3-5192-ba24-0180a9373de9",
+          "name": "Zutaten",
+          "servingGrams": 333.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2da88a20-7ab7-5edd-a0d3-9460135fbcd6",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "168e1caa-f1af-562a-ab55-9e34ff7b5749",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "eacc5809-d1b1-57a3-9b36-8c622a70392e",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "8508c40e-6084-5ff9-adda-ab8075a10c0c",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "0b75203e-4024-5193-9757-08a5c1902078",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "488a2963-fc23-5d97-812e-e16b30369f22",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "1b04aa89-c6dd-57ed-a7dc-31224450f211",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "b5be1b28-36f5-5842-8bfe-fd3156f35eb6",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse, frisch gerieben"
+            },
+            {
+              "key": "85131d2b-a59d-561f-a17a-ed257ce997f2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "edbbefb2-6bcd-5d87-ac3c-f23d70c754be",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d0cd834e-1133-51cb-a969-f66c04c77b99",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kichererbsenmehl und Joghurt in einer Schüssel und lasse die Mischung 10 Minuten stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach Wasser zur Mehlmischung und verquirle sie glatt und klümpchenfrei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Mischung in einen Topf mit schwerem Boden und gare sie bei mittlerer Hitze 8-10 Minuten unter ständigem Rühren, bis sie dick und pastenartig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Salz, Kurkuma, Ingwer und grüne Chilischote zur gekochten Mischung und rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße sie auf eine gefettete, ebene Fläche (Marmor oder Backpapier) und verstreiche sie mit einem feuchten Pfannenwender dünn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald die Masse abgekühlt und fest ist (etwa 5 Minuten), rolle sie vorsichtig zu einer Spirale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Öl in einer Pfanne und gib Senfkörner und Curryblätter hinein. Gieße diese Würzmischung über die Khandvi-Rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue sie mit geraspelter Kokosnuss und serviere sie bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/khandvi-recipe-how-to-make-gujarati-khandvi-in-pressure-cooker-2.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/khandvi-recipe-how-to-make-gujarati-khandvi-in-pressure-cooker-2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-undhiyu",
+      "slug": "gen-undhiyu",
+      "title": "Undhiyu",
+      "instructions": "Gujarati-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Gemüse in der Saison auf Bauernmärkten.",
+        "Bereite größere Mengen zu und friere Portionen für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Gujarati",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3443,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-undhiyu/",
+      "components": [
+        {
+          "key": "da21d175-33af-5762-95e2-a88c66836790",
+          "name": "Zutaten",
+          "servingGrams": 396.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2a55339-b15a-560f-b6ba-14c0cfcc0842",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "8b50a1ac-bdf5-5e06-ab7d-05a89b96c6f2",
+              "ingredientName": "Lila Yamswurzel (Ube) oder normale Yamswurzel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "c162ef75-e706-577f-8997-6d489ab87252",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "6a580b9d-da18-56ba-9aac-8e59c6ea5b0a",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4458f033-9d65-5722-8526-a26315a3cace",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "233c7eeb-920f-5d9b-b520-19d0046daeda",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Stück, fein gehackt"
+            },
+            {
+              "key": "848b52c1-790c-558a-b7aa-0c28d1f5c865",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, fein gehackt"
+            },
+            {
+              "key": "e14b59a5-7afc-5666-bcd5-e68f33f0ace4",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "252fc5cc-d330-573f-83f5-0b78ddeaff97",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "a29dec35-0907-5afc-aab7-9aeedc872e94",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6a6b3681-d6b0-5277-8620-27f45de3a463",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bed825b9-bdc6-5ca9-9a8f-d817f670e995",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9466e79d-5811-5767-b516-ccc1c454a254",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 tablespoons Öl in einer großen Pfanne und brate gewürfelte Kartoffeln und Yamswurzel an, bis sie teilweise gar sind. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Auberginenwürfel im selben Öl goldbraun und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate die Zwiebeln tief goldbraun. Gib Ingwer, Knoblauch und grüne Chilischoten hinzu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Kichererbsenmehl mit 1/4 cup Wasser zu einer glatten Paste, gib sie in die Pfanne und rühre 2 Minuten ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das gesamte gebratene Gemüse zusammen mit Erdnüssen und grünen Erbsen zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Salz, Kurkuma und Gujarati-Gewürzpulver darüber und vermische alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Tamarindenpaste dazu und rühre alles 3-4 Minuten um, bis es gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle die Mischung in einen Topf mit schwerem Boden, decke ihn mit Alufolie und dem Deckel ab und gare alles bei niedriger Hitze 30-40 Minuten. Rühre gelegentlich um, bis das Gemüse vollständig zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere das Gericht heiß mit warmem Brot oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.kansarrecipes.com/wp-content/uploads/2023/04/surti-undhiyu-traditional-gujarati-dish.jpg",
+          "sourcePageUrl": "https://www.kansarrecipes.com/wp-content/uploads/2023/04/surti-undhiyu-traditional-gujarati-dish.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mohanthal",
+      "slug": "gen-mohanthal",
+      "title": "Mohanthal",
+      "instructions": "Gujarati-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsenmehl in größeren Mengen in indischen Lebensmittelgeschäften.",
+        "Lasse Cashews und Rosinen weg, wenn du besonders sparen musst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Gujarati",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3444,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mohanthal/",
+      "components": [
+        {
+          "key": "89c34f2b-11e1-5bb2-9d24-2c7841217141",
+          "name": "Zutaten",
+          "servingGrams": 198.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "97b7fb25-ee68-5a45-84e5-a4c0fe79b498",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b3a741bf-386d-53fa-81ba-c48342a85a33",
+              "ingredientName": "Ghee",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4fdf2d7d-e5cb-5a6c-95c9-f7d20a6f7459",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dc4b348d-4c8d-5193-b52c-f3bca3ca4350",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "7eec0b12-f52e-5467-a834-cd106aeba626",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7461c0c5-f9ec-5ecb-b913-2bc65c9c56bd",
+              "ingredientName": "Cashewkerne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ff710588-ec59-590a-9f19-0cf01b67004f",
+              "ingredientName": "Rosinen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "04bcbac8-c90e-58c3-a3a2-d01b7be9edc1",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Ghee in einem Topf mit schwerem Boden bei mittlerer Hitze und röste Kichererbsenmehl 5-7 Minuten unter ständigem Rühren, bis es duftet und hellbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Löse Zucker in Wasser auf und stelle die Mischung beiseite. Zerdrücke Kardamomkapseln und entferne die Samen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Zuckerwasser langsam unter ständigem Rühren in das geröstete Mehl, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre 5-8 Minuten weiter, bis die Mischung eindickt und sich vom Pfannenrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kardamomsamen und Muskatnusspulver dazu und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste Cashews und Rosinen getrennt in etwas Ghee und hebe sie dann unter die Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Masse auf einen gefetteten Teller und lasse sie 15 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide sie in Quadrate und serviere sie, sobald sie vollständig abgekühlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cravecookclick.com/wp-content/uploads/2016/04/IMG_1084-min.jpg",
+          "sourcePageUrl": "https://cravecookclick.com/wp-content/uploads/2016/04/IMG_1084-min.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

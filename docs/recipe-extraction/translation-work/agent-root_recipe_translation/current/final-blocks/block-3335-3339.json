@@ -1,0 +1,1180 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chongqing-chicken",
+      "slug": "gen-chongqing-chicken",
+      "title": "Chongqing-Hähnchen",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel statt Hähnchenbrust; sie sind günstiger und aromatischer.",
+        "Getrocknete Chilischoten und Sichuan-Pfefferkörner sind in asiatischen Märkten oft günstiger erhältlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3335,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chongqing-chicken/",
+      "components": [
+        {
+          "key": "42d9b84e-4b29-5afa-94cc-6dddd59f1645",
+          "name": "Zutaten",
+          "servingGrams": 58.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0cf2cb00-a4de-572d-bdb3-56ff64235fa6",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "18451628-82c8-5768-a083-49ea998d9963",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "813e1b91-9f7d-5ee0-a5a8-5fa6ef08baf6",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4473d576-7b89-5499-a8ac-7952263f3507",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2b378b5-5e27-51b4-ac5b-aa8033562eef",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Zoll langes Stück"
+            },
+            {
+              "key": "c7b9df2d-85fe-538a-99f2-ecd0e3b8ba33",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "63492d62-01c4-5dd7-9c6b-faa54bd07f52",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "eab31890-7544-5a1e-a901-aa63264dd9c1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "22930a21-5c7e-5ab4-9cd5-ff88a46ade74",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9cab40c3-bfd9-5223-8a7b-e22a61394e0b",
+              "ingredientName": "Speisestärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenschenkel in mundgerechte Stücke und vermische sie mit Speisestärke und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok bei mittelhoher bis hoher Hitze und brate das Hähnchen goldbraun. Stelle es dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste im selben Wok getrocknete Chilischoten und Sichuan-Pfefferkörner 1 Minute, bis sie duften, und zerdrücke sie anschließend leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und Ingwer in den Wok und brate alles 30 Sekunden unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in den Wok und füge Sojasauce, Essig und Zucker hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schwenke alles bei starker Hitze 3-4 Minuten, bis es gleichmäßig überzogen und durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und schmecke es bei Bedarf mit mehr Sojasauce oder Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Richte es auf einer Servierplatte an und garniere es mit den gerösteten Chilischoten und Pfefferkörnern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/07/31/multimedia/04EATrex-laziji-chicken-with-chiles-jqhl/04EATrex-laziji-chicken-with-chiles-jqhl-threeByTwoMediumAt2X.jpg?quality=75&auto=webp",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/07/31/multimedia/04EATrex-laziji-chicken-with-chiles-jqhl/04EATrex-laziji-chicken-with-chiles-jqhl-threeByTwoMediumAt2X.jpg?quality=75&auto=webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sichuan-hot-pot",
+      "slug": "gen-sichuan-hot-pot",
+      "title": "Sichuan-Hotpot",
+      "instructions": "Sichuan-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende statt hochwertiger Fleischstücke Rindfleischabschnitte oder dünne Sirloin-Spitzen.",
+        "Kaufe saisonales Gemüse und verwende, was gerade im Angebot ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "Sichuan",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3336,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sichuan-hot-pot/",
+      "components": [
+        {
+          "key": "fde449af-b32d-5d1f-8cb5-11d7d3195bde",
+          "name": "Zutaten",
+          "servingGrams": 494.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9cf2e870-3108-5eac-894d-5817ef7f5c89",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "17f22a61-e2ed-5de7-87ac-c04c495bbcd1",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "971b30b8-3865-5e20-b23c-bfb4d8311b84",
+              "ingredientName": "Ganze Nelken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "03ef0d90-01fa-5206-a037-dc8cfad15eb9",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3ae12fe-eae2-566b-93b4-8bedd888c7cd",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe08cce8-5ef6-5825-b45b-b498920e18dc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59637cbc-567a-5da9-9d35-6cfe0bedf3b4",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ee73011e-c453-54da-ad9b-c83e71fa460f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0477de25-b5a6-56c5-bd73-adf073acb192",
+              "ingredientName": "Pak Choi",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c89ef2d8-c36c-5267-bc49-c11fb7855bfe",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "fe7645c5-826b-5621-8c82-9766e7f27374",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "7863913c-3bc7-54a7-9d01-9ec4ea471b44",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 tablespoons Sesamöl in einem großen Topf bei mittlerer Hitze und röste getrocknete Chilischoten, Sichuan-Pfefferkörner, Sternanis und Ingwer 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Rinderbrühe in den Topf, gib gehackten Knoblauch dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte dünn geschnittenes Rindfleisch, Pak Choi, gewürfelten Tofu und Reisnudeln auf getrennten Tellern an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die heiße Brühe in einen Hotpot um oder lasse sie im Topf am Tisch weiterköcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Gäste können die Zutaten mit Essstäbchen oder kleinen Sieben 10-30 Sekunden in der Brühe garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Sojasauce mit dem restlichen Sesamöl in kleinen Schälchen als Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche und genieße die Zutaten nach und nach in mehreren Gängen und gib nach Wunsch weitere Zutaten in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere weiter, bis alle Zutaten gegart und gegessen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2018/12/hot-pot-4.jpg",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2018/12/hot-pot-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fish-flavored-pork-shreds",
+      "slug": "gen-fish-flavored-pork-shreds",
+      "title": "Schweinefleischstreifen nach Fisch-Art",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende statt Schweinelende Schweineschulter für günstigere Fleischstreifen.",
+        "Bereite zusätzliche Sauce zu und friere sie für das nächste Mal ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3337,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fish-flavored-pork-shreds/",
+      "components": [
+        {
+          "key": "78d2893c-f345-5e8f-bef4-addd2cfc429e",
+          "name": "Zutaten",
+          "servingGrams": 225,
+          "position": 0,
+          "items": [
+            {
+              "key": "18390dee-ed86-5686-addf-780d5dd76be5",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e036ffec-bb9a-5af5-aedd-d63e2fc7731f",
+              "ingredientName": "Speisestärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "66f5f81b-7ecc-59c5-b357-7396d3ddb25d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "22d7c11f-1a2a-521e-8836-9333dbd31b74",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8d3fcc8-d278-5362-9f1a-d0d142ef4582",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Zoll langes Stück"
+            },
+            {
+              "key": "80a9819a-6bf2-52dd-a882-3f042b83860c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2852845b-9ad9-5987-920e-26953bedd441",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1ccb8f8b-b0fc-5ac0-a977-e1df3234ccf4",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7028a504-3865-50de-ad67-972a997299d2",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1c184415-4714-5aef-b3dc-b64975186c6b",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ae27abf2-183c-5f8f-a3bc-116af554acd0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Schweinelende erst in dünne Scheiben, dann in feine Streifen und vermische sie mit Speisestärke und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok bei starker Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Schweinefleischstreifen portionsweise hinein und brate sie insgesamt etwa 3-4 Minuten unter Rühren, bis sie gar sind. Stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate im selben Wok gehackten Knoblauch, Ingwer und getrocknete Chilischoten 30 Sekunden unter Rühren, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Sojasauce, Reisessig, Zucker und Wasser in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Sauce in den Wok und rühre, bis sie zu blubbern beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Schweinefleisch zurück in den Wok und schwenke alles 1-2 Minuten, bis es gut überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit geschnittenen Frühlingszwiebeln und serviere es auf gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.simplechinesefood.com/66/668896d5285143248c809a973f604fcd.jpg",
+          "sourcePageUrl": "https://img.simplechinesefood.com/66/668896d5285143248c809a973f604fcd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chongqing-rabbit",
+      "slug": "gen-chongqing-rabbit",
+      "title": "Chongqing-Kaninchen",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bestelle Kaninchenfleisch online oder suche es in Fachgeschäften; dort ist es oft günstiger.",
+        "Verwende Hähnchenschenkel als Ersatz, falls kein Kaninchen erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3338,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chongqing-rabbit/",
+      "components": [
+        {
+          "key": "577f4021-8576-5239-bd7b-70227e8c4e0e",
+          "name": "Zutaten",
+          "servingGrams": 118.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "5322a17d-9d79-53b7-bcd8-b87d3ab0994f",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "dfa1bd27-6e93-523b-9951-5f63ad4c1148",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2cd0a5e-666d-5268-943c-57e78fef5f82",
+              "ingredientName": "Ganze Nelken",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "7b9eeadc-351b-5b39-99a7-8be77292b5c5",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebd39db6-8aaf-5a3d-b3c1-cac50b544563",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Zoll langes Stück"
+            },
+            {
+              "key": "d3b12547-b2b2-5283-8525-808f7feb0785",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e90cba8f-108d-5270-9d4b-04bf50b62d04",
+              "ingredientName": "Reisessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "74a2434b-ddef-5817-ad29-48712fe4675d",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "02bd9294-558a-5c27-8db2-25e14a3131ec",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "419efcd5-38d3-5ab3-b307-c441b0fe9de1",
+              "ingredientName": "Sternanis",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df950ae8-13b8-50e4-8bcd-142d85db680d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Kaninchenfleisch in mundgerechte Stücke und blanchiere es 5 Minuten in kochendem Salzwasser. Gieße es ab und spüle es ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Wok bei mittelhoher bis hoher Hitze und röste getrocknete Chilischoten und Sichuan-Pfefferkörner 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und rühre 30 Sekunden ununterbrochen, bis alles aromatisch duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die blanchierten Kaninchenstücke dazu und brate sie 3-4 Minuten unter Rühren, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Sojasauce, Essig, Zucker, Wasser und Sternanis in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Sauce in den Wok und bringe sie zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Wok ab und lasse alles 15-20 Minuten köcheln, bis das Kaninchen zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Gericht, schmecke es ab und richte es mit allen Chilischoten und Pfefferkörnern auf einer Servierplatte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/13238_1_1755695637.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/13238_1_1755695637.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-duck",
+      "slug": "gen-smoked-duck",
+      "title": "Geräucherte Ente",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine ganze Ente im Angebot und friere sie bis zur Verwendung ein.",
+        "Teile die Ente mit Freunden, um die Kosten aufzuteilen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3339,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-duck/",
+      "components": [
+        {
+          "key": "56888aa1-116d-5102-842b-7163cfddbd1e",
+          "name": "Zutaten",
+          "servingGrams": 211.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc93b245-339c-540e-acaf-3e081e383384",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5-6 Pfund"
+            },
+            {
+              "key": "47843545-a59c-502c-8e77-e1d40b6c62ad",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6ac50cce-c27a-5748-966a-3b7f5d8892bf",
+              "ingredientName": "Ganze Nelken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9a3a9233-3260-5663-bc64-b820aaeac07a",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d95d149-9729-5ebb-b9eb-245191ab9eff",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19fc02fa-38c3-5cfc-9714-afcc052e7308",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bf8f3430-2de6-53bd-8730-259cd39e7a5d",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "fd07d287-e349-598a-bee9-80fcdc6d8beb",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e01e9286-b8e0-58cd-9177-a0ef312d6454",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c21fc60f-2ec6-5e2d-9f40-f846007dd3a9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Sichuan-Pfefferkörner, Sternanis und Zimt 2 Minuten in einer trockenen Pfanne und vermische sie dann mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Ente innen und außen mit der Gewürz-Salz-Mischung ein und lasse sie 2 Stunden im Kühlschrank ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege Ingwerscheiben und Sternanis in die Bauchhöhle der Ente und dämpfe sie 45 Minuten, bis sie vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Ente leicht abkühlen und trockne die Haut gründlich mit Küchenpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege einen Wok oder großen Topf mit Alufolie aus und verteile Teeblätter, Zucker und Reis auf dem Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle ein Gitter über die Räuchermischung und lege die Ente mit der Brustseite nach oben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Wok dicht mit Folie und Deckel ab und räuchere die Ente bei mittlerer Hitze 30-40 Minuten, bis sie dunkel und aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Topf vom Herd und lasse die Ente 5 Minuten abkühlen. Hacke sie dann in Stücke und serviere sie mit Sojasauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/-9r-XDRYoOvUfc7axFQUJe5wcOs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/6226790-maple-smoked-duck-breasts-Kim-4x3-1-3f50ea19faf24f899b2e94944ee50c5d.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/-9r-XDRYoOvUfc7axFQUJe5wcOs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/6226790-maple-smoked-duck-breasts-Kim-4x3-1-3f50ea19faf24f899b2e94944ee50c5d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

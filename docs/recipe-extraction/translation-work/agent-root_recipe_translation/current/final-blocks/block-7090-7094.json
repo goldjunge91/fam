@@ -1,0 +1,977 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lox-and-cream-cheese-bagel",
+      "slug": "gen-lox-and-cream-cheese-bagel",
+      "title": "Bagel mit Lachs und Frischkäse",
+      "instructions": "Jüdisches Frühstück in Montreal  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lachs an der Feinkosttheke nach Gewicht und nicht nach abgepacktem Lachs",
+        "Verwenden Sie normalen Räucherlachs, wenn Lachs nicht verfügbar oder zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Montreal-jüdisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7090,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lox-and-cream-cheese-bagel/",
+      "components": [
+        {
+          "key": "d9bb9024-cd14-57d1-bdf0-a9c33548ace2",
+          "name": "Zutaten",
+          "servingGrams": 726.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "8014310c-6b13-510f-97f0-032d21dc6f89",
+              "ingredientName": "Bagel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 ganze"
+            },
+            {
+              "key": "22af2b0b-bf67-55b2-bb2e-560794c6ac91",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "58f6e96b-219f-5f96-9fd2-c30942b6180b",
+              "ingredientName": "Geräucherter Lachs",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "e4ff18d8-28dd-5c50-832e-9472773aa9b0",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 kleine"
+            },
+            {
+              "key": "b8155183-9bad-514c-804c-c9c0e7ac53fd",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a7bb6af9-3ca7-572d-bdeb-180eaacc0d99",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "54645b26-fb90-523b-805d-a8e7988ad2b7",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 ganze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bagels waagerecht halbieren und rösten, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf jede Bagelhälfte 2-3 Esslöffel Frischkäse streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 Unze Lachs auf den Frischkäse schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Lachs mit roten Zwiebelscheiben, Kapern und frischem Dill bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den frischen Zitronensaft darüberpressen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/WSIZihlkMDrePKuvO0AmegEVKT8=/2000x1332/filters:fill(auto,1)/open-face-smoked-salmon-bagel-101094-hero-01-ea26c2ca36af4577b1d40e0af807754b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/WSIZihlkMDrePKuvO0AmegEVKT8=/2000x1332/filters:fill(auto,1)/open-face-smoked-salmon-bagel-101094-hero-01-ea26c2ca36af4577b1d40e0af807754b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-rotis",
+      "slug": "gen-chicken-rotis",
+      "title": "Hähnchen-Rotis",
+      "instructions": "Indokaribisches Mittagessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für mehr Geschmack und geringere Kosten verwenden Sie Hähnchenschenkel anstelle von Hähnchenbrüsten",
+        "Bereiten Sie eine große Menge Rotis zu und frieren Sie die Reste für schnelle zukünftige Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Indokaribik",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7091,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-rotis/",
+      "components": [
+        {
+          "key": "9b1b5867-7f33-508d-b2bc-5a25defa5b3c",
+          "name": "Zutaten",
+          "servingGrams": 382.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9ff92fa-999f-5101-898c-88c40534d7c8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "72dfe554-65b4-5961-8e63-4d0a1746c3bf",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "773b0721-af90-53bb-9f98-af7c368916f1",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "1a79c7fc-e46d-56d9-96f6-250c80eb73e8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1a170052-39ca-534d-8762-26740ac5e37f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d9b087cc-39ea-5e6f-9f5c-9f3ba6c1bc4d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "60d795ab-c6c2-557a-9d6c-10cd18dbdf59",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "2da7bc0d-4198-5387-89d9-e810349ced7f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7f2eb0f4-139f-54b0-9586-e003ca1456c7",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "71933de0-dd39-56a3-bdd9-1a31c1e55a83",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "f9801a4d-b1a7-54ab-994a-581fb9f71e9a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Machen Sie Roti-Teig, indem Sie Mehl, Salz, 1 Esslöffel Öl und Wasser weich vermischen, dann 5 Minuten lang kneten und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen, Kartoffeln, Zwiebeln würfeln und Knoblauch und Ingwer zerkleinern, während der Teig ruht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Esslöffel Öl in einem großen Topf erhitzen und Zwiebeln, Knoblauch und Ingwer 2 Minuten lang anbraten, bis ein angenehmer Duft entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Currypulver hinzufügen und 1 Minute kochen lassen, dann gewürfeltes Hähnchen hinzufügen und 5 Minuten kochen lassen, bis es leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Kartoffeln, Salz nach Geschmack und 0.5 Tasse Wasser hinzufügen und dann 15–20 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teilen Sie den Roti-Teig in 8 Kugeln und rollen Sie jede auf einer bemehlten Oberfläche flach zu einem dünnen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitzen Sie eine gusseiserne Pfanne oder Grillplatte bei mittlerer bis hoher Hitze und braten Sie jedes Roti 1–2 Minuten pro Seite, bis hellbraune Flecken erscheinen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wickeln Sie die fertigen Rotis in ein sauberes Küchentuch, um sie warm zu halten, und servieren Sie sie dann gefüllt mit Hühnercurry und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/15/21/70/JTaQ6IgeQwG0MY6cjO2g_1415850927098.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/15/21/70/JTaQ6IgeQwG0MY6cjO2g_1415850927098.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-perogies",
+      "slug": "gen-perogies",
+      "title": "Perogien",
+      "instructions": "Osteuropäisches Abendessen  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Perogies in großen Mengen zu und frieren Sie sie ungekocht ein, damit Sie später problemlos Mahlzeiten zubereiten können",
+        "Verwenden Sie rotbraune Kartoffeln, die billiger und lockerer sind, wenn sie püriert werden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "osteuropäisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7092,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-perogies/",
+      "components": [
+        {
+          "key": "1eedece7-c71f-5433-8483-dba88c90e00d",
+          "name": "Zutaten",
+          "servingGrams": 351.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "83673742-af2e-51b9-b6e1-c10cd52073d4",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "dd7a908e-fda3-5294-91b7-63e793d97710",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "61830bad-536d-59d2-94ff-f1f3c2d2a5d9",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ed0cdab4-1ca0-5052-bd68-27abb96130ac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b288245b-9569-5421-9be8-74f7f3ca9124",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d0c7cf53-3464-5d56-90ce-f5a9b0d3b006",
+              "ingredientName": "Scharfer Cheddar-Block",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b6596794-11cc-5afc-8d53-e4cbc1dce4ce",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "31db5a66-6cd1-5cb6-83ce-1613846dace9",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "afefe56b-f5f1-525d-a0b9-25ad5455009f",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Machen Sie den Teig, indem Sie Mehl, Ei, 0.25 Tassen Sauerrahm und Salz vermischen, bis ein weicher Teig entsteht, dann 5 Minuten lang kneten und 30 Minuten abgedeckt ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln kochen, bis sie sehr zart sind, dann mit 0.25 Tassen Sauerrahm, Salz und geriebenem Cheddar-Käse pürieren, bis eine glatte Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig auf einer bemehlten Arbeitsfläche dünn ausrollen und mit einer Tasse oder einem Keksausstecher 3 Zoll große Kreise ausstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie 1 Esslöffel Füllung auf jeden Teigkreis, falten Sie ihn zur Hälfte und drücken Sie die Ränder fest zusammen, um ihn zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kochen Sie Salzwasser in einem großen Topf und kochen Sie die Perogies portionsweise 3–4 Minuten lang, nachdem sie an der Oberfläche schwimmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Perogies mit einem Schaumlöffel herausnehmen und auf einer Servierplatte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zwiebeln würfeln und den Speck knusprig braten, dann die gewürfelten Zwiebeln im Speckfett goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gekochte Perogies mit Butter vermengen und vor dem Servieren mit knusprigem Speck und karamellisierten Zwiebeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/polish-perogies-recipe-1747903709.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/polish-perogies-recipe-1747903709.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-montreal-style-hot-dog",
+      "slug": "gen-montreal-style-hot-dog",
+      "title": "Hot Dog im Montreal-Stil",
+      "instructions": "Montreal-Snack  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hotdogs im Angebot in großen Mengen und frieren Sie sie für später ein",
+        "Machen Sie Ihr eigenes Chili im Voraus, anstatt es aus der Dose zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Montreal",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7093,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-montreal-style-hot-dog/",
+      "components": [
+        {
+          "key": "63728eb7-d810-5df4-ade8-5fd942da047d",
+          "name": "Zutaten",
+          "servingGrams": 188.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7dd55d0f-27f6-52f5-a300-ec95aad4153c",
+              "ingredientName": "Hotdog",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 ganze"
+            },
+            {
+              "key": "9d3e91a0-41ba-5fd3-a7ea-6b5d97f65c62",
+              "ingredientName": "Hot-Dog-Brötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 ganze"
+            },
+            {
+              "key": "3367f180-3336-5fe2-a9d3-0d057b6d3070",
+              "ingredientName": "Gelber Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "5b25e659-964d-50aa-b58a-4b6d6bf9e199",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "06bad9f0-7517-5b6b-b879-4140eb3e368c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a85d5da5-1391-5950-9fa2-4abeb98857a5",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel fein in kleine Stücke würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pflanzenöl in einer Pfanne erhitzen und die gewürfelten Zwiebeln 3–4 Minuten darin anbraten, bis sie goldbraun und leicht karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kochen oder braten Sie Hot Dogs, bis sie durchgewärmt und außen leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärmen Sie Hot-Dog-Brötchen leicht in derselben Pfanne oder demselben Toaster.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie den gekochten Hot Dog in das warme Brötchen und tragen Sie eine dünne Linie Senf in der Mitte auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit warmem Chili und Röstzwiebeln belegen, dann mit Paprika bestreuen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/08/Chicago-Style-Hot-Dog_EXPS_TOHD25_280659_SarahTramonte_4.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/08/Chicago-Style-Hot-Dog_EXPS_TOHD25_280659_SarahTramonte_4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-haddock",
+      "slug": "gen-smoked-haddock",
+      "title": "Geräucherter Schellfisch",
+      "instructions": "Schottisches Frühstück  – ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schauen Sie nach Angeboten an den Fischtheken oder kaufen Sie gefrorenen, geräucherten Schellfisch",
+        "Wenn kein Schellfisch verfügbar ist, verwenden Sie als Ersatz milden Weißfisch"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schottisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7094,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-haddock/",
+      "components": [
+        {
+          "key": "b8327642-4cb2-5bfc-8f14-c7a413c175d0",
+          "name": "Zutaten",
+          "servingGrams": 742.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "24e431af-8879-5eda-8e34-a9d676921052",
+              "ingredientName": "Geräucherter Schellfisch",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "8907ce77-aea2-5962-99ab-0457005ab72f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "877ca863-c756-52e2-8408-4cb101c0e157",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "571ed9d8-a2f4-5690-85d8-6661edc62c86",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "ecf0c5bb-250e-541f-bf12-6e79b87aa4fd",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "80e79ef6-c667-5be0-9b89-a833baee291b",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "1926b3b5-813c-5a5d-b6bc-01f0041b30a2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch in einem flachen Topf erhitzen und die Schellfischfilets vorsichtig in die Milch geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bei mittlerer bis niedriger Hitze 8–10 Minuten köcheln lassen, bis der Fisch undurchsichtig ist und sich mit einer Gabel leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während der Fisch kocht, schmelzen Sie 1 Esslöffel Butter in einer separaten Pfanne und braten Sie die Eier mit der Sonnenseite nach oben oder nach Ihrem Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brotscheiben goldbraun rösten und mit dem restlichen 1 Esslöffel Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gekochten Schellfisch vorsichtig mit einem Spatel aus der Milch nehmen und auf einen Servierteller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spiegeleier und Buttertoast neben dem Schellfisch auf den Teller legen, den Fisch mit schwarzem Pfeffer und einer Prise Salz würzen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/bmaERMY4jrKmQqUFCj0-554C8FE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/haddock-and-leek-clafoutis-642117087-58a705365f9b58a3c91d41dc.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/bmaERMY4jrKmQqUFCj0-554C8FE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/haddock-and-leek-clafoutis-642117087-58a705365f9b58a3c91d41dc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,904 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:combo-mw-pasta-af-tuna-patties",
+      "slug": "combo-mw-pasta-af-tuna-patties",
+      "title": "Thunfischfrikadellen auf Mikrowellen-Pasta",
+      "instructions": "Heißluftfrittierte Thunfischfrikadellen auf Pasta aus der Mikrowelle mit Zitrone: eine knusprige Variante von Thunfisch-Pasta.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 9,
+      "storageInstructions": "Frikadellen bis zu 3 Tage im Kühlschrank aufbewahren; Pasta separat lagern.",
+      "reheatingInstructions": "Frikadellen 3 Minuten bei 350F in der Heißluftfritteuse erwärmen; Pasta 60 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Eine Dose Thunfisch ergibt 2 Frikadellen",
+        "Mehl bindet die Frikadellen günstiger als Semmelbrösel"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs aus der Dose",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Zerdrückte Cracker",
+          "savings": "~$0.00"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Thunfisch (~$1.20), ein Ei und Pasta ergeben ein Abendessen mit 32 g Eiweiß für etwa ~$2.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 580,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-pasta-af-tuna-patties/",
+      "components": [
+        {
+          "key": "a1bca36c-8477-562a-8e00-f4d23e57e810",
+          "name": "Zutaten",
+          "servingGrams": 1038.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "377e8dc1-e9bf-51a6-a56e-93aeefdb1e4f",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d1230de-b9cd-5dde-80a1-b5ecde3dd8a7",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5da9dad7-70eb-578c-9164-5c2d174feafc",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c218c062-1752-5e2f-81ea-3dfb2e03dafc",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "433416f4-d4fe-51be-b237-f4f2b3133676",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d9ca8d0-55db-5cad-a32f-9def46d86b71",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ef345dd-0176-5fbe-bc7b-e71bd7d3f631",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße den Thunfisch ab und vermische ihn mit Ei, Mehl und Knoblauchpulver. Forme daraus 2 kleine Frikadellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Heißluftfritteuse auf 380F ein und gare die Frikadellen 8 Minuten. Wende sie nach der Hälfte der Zeit, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen Pasta mit 1 Tasse Wasser 7 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Pasta vorsichtig ab, da sie dampft. Mische sie mit Olivenöl und Zitrone und lege die Frikadellen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1604497181015-76590d828b75?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1604497181015-76590d828b75",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Pasta mit Thunfischfrikadellen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-oats-af-banana",
+      "slug": "combo-mw-oats-af-banana",
+      "title": "Haferflocken mit Banane aus der Heißluftfritteuse",
+      "instructions": "Haferflocken aus der Mikrowelle mit karamellisierten Bananenscheiben aus der Heißluftfritteuse, Zimt und Walnüssen.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Am besten frisch genießen.",
+      "reheatingInstructions": "Haferflocken 30 Sekunden in der Mikrowelle erwärmen; Banane kalt essen.",
+      "cheapTips": [
+        "Verwende überreife Bananen, die du sonst wegwerfen würdest",
+        "Walnüsse aus der Großpackung sind günstiger als kleine Packungen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "banana",
+          "swap": "Apfelscheiben",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder brauner Zucker",
+          "savings": "~$0.05"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Haferflocken (~$0.10), Milch (~$0.25) und eine Banane (~$0.25) ergeben ein besonderes Frühstück für unter $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 581,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-oats-af-banana/",
+      "components": [
+        {
+          "key": "26275e9d-5525-5be8-9db8-d9d836b8e039",
+          "name": "Zutaten",
+          "servingGrams": 555.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e64c14d-a98a-5c72-86f0-0a91473df81d",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af6d5d99-814b-53a3-b623-1e511c87ca82",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0302a287-9f2c-552d-a6d1-5b273cc6f381",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c764b1de-08a7-5b71-ae6c-f6d03e6f9f16",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2444152-b1e7-5cc9-8f10-b7caf8f1b04c",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37dcccac-76fb-5508-b0a6-47e4447b5306",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Banane in 1/2 Zoll dicke Scheiben und bestreue sie mit Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Heißluftfritteuse auf 380F ein und gare die Banane 6 Minuten, bis sie weich und karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen Haferflocken und Milch insgesamt 2 Minuten in einer hohen Schüssel in der Mikrowelle. Rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Bananenscheiben aus der Heißluftfritteuse auf die Haferflocken und ergänze Honig und Walnüsse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Banana_Oatmeal_Breakfast_Bowl_%2844302857265%29.jpg/960px-Banana_Oatmeal_Breakfast_Bowl_%2844302857265%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana_Oatmeal_Breakfast_Bowl_(44302857265).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo by Ella Olsson — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Haferflocken mit Banane aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-sweet-potato-af-buffalo-tofu",
+      "slug": "combo-mw-sweet-potato-af-buffalo-tofu",
+      "title": "Buffalo-Tofu mit Süßkartoffel",
+      "instructions": "Süßkartoffel aus der Mikrowelle mit Buffalo-Tofu aus der Heißluftfritteuse und Ranch-Dressing: ein Gericht für den Spieltag zu Hause.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Tofu separat bis zu 3 Tage im Kühlschrank aufbewahren, damit er knusprig bleibt.",
+      "reheatingInstructions": "Tofu 3 Minuten bei 350F in der Heißluftfritteuse erwärmen; Kartoffel 90 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Scharfe Soße und Butter ergeben günstig eine Buffalo-Soße",
+        "Süßkartoffeln kosten weniger als $1 pro Pfund"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Kichererbsen",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "ranch",
+          "swap": "Griechischer Joghurt mit Dill",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Süßkartoffel (~$0.60) und ein halber Block Tofu (~$1.10) ergeben eine Buffalo-Bowl für $2.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 582,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-sweet-potato-af-buffalo-tofu/",
+      "components": [
+        {
+          "key": "de71eea4-d09e-572c-8b39-e74deec62b7a",
+          "name": "Zutaten",
+          "servingGrams": 267.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "31e43a79-1e95-5ae5-b6cd-9d5f01ddd7c8",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcb276b1-cad3-5135-8c73-04fea39dc456",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "449e0560-3761-51b0-8986-70174daf8acf",
+              "ingredientName": "Scharfe Soße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dd92c9d-dc6f-5788-bd05-804132f0dd58",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3251c100-35e8-5868-8ddb-410d5dbc4a63",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54ffc86e-7076-5de4-994b-71b25eced4cf",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tofu in Würfel und vermische ihn mit scharfer Soße und geschmolzener Butter zu einer Buffalo-Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Heißluftfritteuse auf 400F ein und gare den Tofu 12 Minuten. Schüttle den Korb nach der Hälfte der Zeit, bis die Stücke knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stich währenddessen 5-mal mit einer Gabel in die Süßkartoffel und erhitze sie 7 Minuten in der Mikrowelle. Wende sie nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Kartoffel auf, gib Buffalo-Tofu darauf und beträufle ihn mit Ranch-Dressing und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1766589221224-636d6113b5f8?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1766589221224-636d6113b5f8",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Süßkartoffel mit Buffalo-Tofu",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-rice-af-orange-chicken",
+      "slug": "combo-mw-rice-af-orange-chicken",
+      "title": "Orangenhähnchen-Bowl aus der Heißluftfritteuse",
+      "instructions": "Hähnchenstücke aus der Heißluftfritteuse mit einer Soße aus Orange und Sojasoße vermischt, auf Mikrowellenreis serviert: Panda Express zu Hause.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 11,
+      "storageInstructions": "In einem luftdichten Behälter im Kühlschrank bis zu 3 Tage haltbar.",
+      "reheatingInstructions": "Hähnchen 3 Minuten bei 350F in der Heißluftfritteuse erwärmen; Reis 60 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot und friere es ein",
+        "Verwende übrige Orangenschale"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Tofu",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "1 EL Orangenmarmelade",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Hähnchenbrust (~$1.60) und Reis (~$0.18) ergeben eine Bowl wie vom Imbiss für $2.30.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 583,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-rice-af-orange-chicken/",
+      "components": [
+        {
+          "key": "27911199-c18c-51c0-addd-f57b952ae771",
+          "name": "Zutaten",
+          "servingGrams": 517.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7c0b109-ebab-5466-8f15-d9e21d25d140",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0b8c905-fd6b-5621-91f7-20762129b07e",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f8b3118-34c0-5358-b365-22e12b5d8de3",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40bb0006-9eed-5ef4-ad72-598fda1aeffc",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c60a749-e060-5ef7-9355-970545e7286f",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d531c954-918e-54b7-97a2-f39e1b60946b",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4db9a039-79a0-500f-99a2-811188bdce3d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in Würfel und würze es mit Knoblauchpulver und Sojasoße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Heißluftfritteuse auf 400F ein und gare das Hähnchen 10 Minuten. Schüttle den Korb nach der Hälfte der Zeit, bis das Fleisch durchgegart und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen den Reis mit einem Schuss Wasser 90 Sekunden in einer abgedeckten Schüssel in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse Orangensaft über das Hähnchen und vermische es in einer Schüssel mit Honig und der restlichen Sojasoße, bis es glasiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das Hähnchen auf dem Reis und gib Frühlingszwiebel und Orangenschale darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1636401870585-a8852371e84a?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1636401870585-a8852371e84a",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Reis mit Orangenhähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-congee-af-egg-strips",
+      "slug": "combo-mw-congee-af-egg-strips",
+      "title": "Reis-Congee mit knusprigen Eierstreifen",
+      "instructions": "Wohltuendes Congee aus der Mikrowelle, belegt mit Streifen eines gewürzten Eierpfannkuchens aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Congee bis zu 3 Tage im Kühlschrank aufbewahren; die Eier verlieren ihre Knusprigkeit.",
+      "reheatingInstructions": "Congee mit einem Schuss Brühe 90 Sekunden in der Mikrowelle erhitzen; die Eierstreifen kalt essen.",
+      "cheapTips": [
+        "Übrigen Reis mit Congee strecken",
+        "Zwei Eier liefern 12 g Eiweiß für $0.70"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit Brühwürfel",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "ginger-paste",
+          "swap": "Ingwerpulver",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 375,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine halbe Tasse Reis (~$0.09), 2 Eier (~$0.70) und Brühe kosten zusammen weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 584,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-congee-af-egg-strips/",
+      "components": [
+        {
+          "key": "2fbd9923-4667-5ad1-8c5d-9eaa5111d37e",
+          "name": "Zutaten",
+          "servingGrams": 727.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cad8c711-f6f1-54e2-854b-dbe10b82357d",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67eec43b-d76c-58f0-bade-e53e02c54780",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51bf9b49-a4db-5e34-bcec-bf2f9daada2a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "846d3ae4-2918-5ec7-81fe-6b25555588cf",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07872b44-16ff-555d-911f-55daac385f79",
+              "ingredientName": "Ingwerpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d542eef-7210-5cfb-b42e-cca3c946a975",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47db7046-9a58-58ab-96e2-a7e57e7a9726",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reis, Brühe und Ingwer in einer hohen, mikrowellengeeigneten Schüssel. Erhitze alles insgesamt 5 Minuten in der Mikrowelle und rühre alle 2 Minuten um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die Eier mit Sojasoße auf und gieße sie in eine kleine, mit Backpapier ausgelegte Schale für die Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Heißluftfritteuse auf 375F ein und gare die Eier 6 Minuten, bis sie gestockt und an den Rändern goldbraun sind. Schneide sie in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Eierstreifen auf das Congee und verfeinere es mit Frühlingszwiebel und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1623476663367-66cf1126d357?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1623476663367-66cf1126d357",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Congee mit Eierstreifen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

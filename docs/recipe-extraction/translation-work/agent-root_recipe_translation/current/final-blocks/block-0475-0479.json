@@ -1,0 +1,1083 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-grilled-ribeye-with-garlic-blue-cheese-mustard-sauce",
+      "slug": "toh-grilled-ribeye-with-garlic-blue-cheese-mustard-sauce",
+      "title": "Gegrilltes Ribeye mit Knoblauch-Blauschimmelkäse-Senfsauce",
+      "instructions": "Saftige gegrillte Ribeye-Steaks mit samtiger, würziger Sauce aus Blauschimmelkäse und Dijon-Senf, verfeinert mit Knoblauch. Ein Abendessen wie im Steakhaus, in einer halben Stunde fertig. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/grilled-ribeye-with-garlic-blue-cheese-mustard-sauce/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Ribeye durch ein günstigeres Stück wie Sirloin oder Flat Iron. Die kräftige Sauce lässt jedes Stück besonders gut schmecken.",
+        "Blauschimmelkäse ist die teuerste Zutat der Sauce. Kaufe ein kleines Stück und zerbrösele nur die benötigte Menge, statt fertig zerbröselten Käse zu kaufen.",
+        "Kein Grill vorhanden? Eine gusseiserne Pfanne bei hoher Hitze sorgt für eine gute Kruste und spart Holzkohle oder Gas."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ribeye",
+          "swap": "Sirloin- oder Flat-Iron-Steak statt Ribeye",
+          "savings": "~$3-4 pro Portion"
+        },
+        {
+          "forIngredientId": "blue-cheese",
+          "swap": "Gorgonzola für einen ähnlich würzigen Blauschimmelkäsegeschmack",
+          "savings": "minimal"
+        },
+        {
+          "forIngredientId": "half-and-half",
+          "swap": "Schlagsahne, mit einem Schuss Milch verdünnt",
+          "savings": "minimal"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Steak",
+        "gegrillt",
+        "Blauschimmelkäse",
+        "romantisches Abendessen",
+        "kohlenhydratarm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 475,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-grilled-ribeye-with-garlic-blue-cheese-mustard-sauce/",
+      "components": [
+        {
+          "key": "fec470f2-e2bd-545f-b234-5f4237c0b866",
+          "name": "Zutaten",
+          "servingGrams": 212.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dacac92-bb95-5ce6-9621-b8de79de820f",
+              "ingredientName": "Kaffeesahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be4b1788-bd5c-5bb3-bddf-4a9d3f66856a",
+              "ingredientName": "Dijon-Senf",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6739c786-abe0-580b-867e-91b0eee42d98",
+              "ingredientName": "Blauschimmelkäse",
+              "grams": 70.2,
+              "quantity": 70.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79940580-01ac-5f31-8a7b-595909192bd5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fae2cfe-fc2b-5a19-b29b-6fb76b9f75f8",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91e8cae4-ba66-5d54-bf5d-dee06e2d382a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "526d1701-39fe-511b-9796-f94a4ea1d58b",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "798b4203-b23d-5abe-84e5-349dc5ff0253",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Kaffeesahne, Dijon-Senf, 1/4 cup Blauschimmelkäse und gehackten Knoblauch in einem kleinen Topf bei mittlerer Hitze mit dem Schneebesen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Sauce leicht köcheln, reduziere die Hitze auf niedrig und lass sie unter gelegentlichem Rühren einkochen, bis sich ihr Volumen etwa halbiert hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche währenddessen beide Ribeye-Steaks mit Olivenöl und würze sie rundherum mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille die Steaks zugedeckt bei hoher direkter Hitze auf einem geölten Rost 4 bis 6 Minuten pro Seite, bis sie den gewünschten Gargrad erreicht haben (135°F für rosa und im Kern blutig, 140°F für rosa, 145°F für fast durchgegart).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Steaks vom Grill und lass sie 10 Minuten ruhen, während die Sauce weiter einkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffle die eingekochte Sauce über die Steaks und bestreue sie zum Schluss mit den übrigen 2 teaspoons zerbröseltem Blauschimmelkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Grilled-Ribeye-with-Garlic-Blue-Cheese-Mustard-Sauce_EXPS_THJJ17_200968_B02_07_2b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/grilled-ribeye-with-garlic-blue-cheese-mustard-sauce/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von gegrilltem Ribeye mit Knoblauch-Blauschimmelkäse-Senfsauce",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-haddock-with-lime-cilantro-butter",
+      "slug": "toh-haddock-with-lime-cilantro-butter",
+      "title": "Schellfisch mit Limetten-Koriander-Butter",
+      "instructions": "Zarte Schellfischfilets unter dem Ofengrill gegart und mit frischer Kräuterbutter aus Limette und Koriander belegt: ein schnelles Abendessen wie im Restaurant, in 15 Minuten fertig. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/haddock-with-lime-cilantro-butter/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Schellfisch durch tiefgekühlte Kabeljau- oder Tilapiafilets, um die Kosten pro Portion mehr als zu halbieren.",
+        "Verwende eine frische Limette für Saft und Schale statt Saft aus der Flasche. Eine Limette reicht für das Rezept und sorgt für frischeren Geschmack.",
+        "Kaufe Fisch im Angebot und friere ihn ein. Das Grillen unter dem Ofengrill funktioniert auch mit direkt aufgetauten Filets."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "haddock-fillet",
+          "swap": "Tiefgekühlte Kabeljau- oder Tilapiafilets",
+          "savings": "~$3 pro Portion"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter für eine milchfreie Variante",
+          "savings": "etwa gleich"
+        },
+        {
+          "forIngredientId": "lime-juice-bottled",
+          "swap": "Saft aus einer frischen Limette (liefert auch die abgeriebene Schale)",
+          "savings": "Spart einen Einkauf für den Vorrat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Meeresfrüchte",
+        "Fisch",
+        "unter dem Ofengrill gegart",
+        "schnell",
+        "kohlenhydratarm",
+        "ketofreundlich",
+        "unter der Woche",
+        "Limette",
+        "Koriander"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 476,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-haddock-with-lime-cilantro-butter/",
+      "components": [
+        {
+          "key": "b1e69612-2d78-5926-8b07-20d622063144",
+          "name": "Zutaten",
+          "servingGrams": 124.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a1940d6-c26e-5287-9afe-e19e86318545",
+              "ingredientName": "Schellfischfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 6 Unzen je Stück"
+            },
+            {
+              "key": "7a5fe4ad-0251-52ed-96c3-c7b94af2b277",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0db257c-9b5f-5e98-a014-65153ea920bd",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aec63011-b314-5652-9b32-c8f9fb24fa8b",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geschmolzen"
+            },
+            {
+              "key": "44e9f4e5-3f03-5fff-91c3-0f5c449bb925",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "37ad75b1-a268-5276-9fc4-e199678e6d49",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fc59819-778b-5d7d-aaac-3ec912809b7f",
+              "ingredientName": "Limettenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schiebe einen Ofenrost 4-5 inches unter den Ofengrill und schalte den Grill zum Vorheizen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Schellfischfilets trocken und würze beide Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Filets auf eine geölte Grillpfanne oder ein mit Folie ausgelegtes Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille den Fisch etwa 5-6 Minuten, bis er undurchsichtig wird und sich mit einer Gabel leicht in Stücke teilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre währenddessen geschmolzene Butter, gehackten Koriander, Limettensaft und Limettenschale in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffle die Limetten-Koriander-Butter über die heißen Filets und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps173193_SD142780B08_07_9b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/haddock-with-lime-cilantro-butter/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Schellfisch mit Limetten-Koriander-Butter",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-ham-egg-wraps",
+      "slug": "toh-ham-egg-wraps",
+      "title": "Wraps mit Schinken und Ei",
+      "instructions": "Lockeres Rührei mit Dijon-Senf, herzhaftem Schinken und frischen Frühlingszwiebeln, eingerollt in warme Weizentortillas: eine schnelle, proteinreiche Mahlzeit für unterwegs. In 20 Minuten fertig und ebenso gut als Frühstück wie als Mittagessen zum Mitnehmen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/ham-egg-wraps/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Stück Kochschinken und würfle es selbst, statt geschnittenen Aufschnitt zu nehmen. So sinken die Kosten pro Unze.",
+        "Eier sind hier die günstigste Proteinquelle. Ergänze ein oder zwei Eier, wenn du mehr Personen versorgst.",
+        "Lass Dijon-Senf weg und verwende einfachen gelben Senf, der pro Teelöffel nur einen Bruchteil kostet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham",
+          "swap": "Gewürfelter Kochschinken oder gegarter Speck vom Vortag",
+          "savings": "~$0.15 pro Portion mit einem Schinkensteak"
+        },
+        {
+          "forIngredientId": "dijon",
+          "swap": "Gelber Senf",
+          "savings": "~$0.06 pro Teelöffel"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Neutrales Speiseöl oder Antihaft-Spray",
+          "savings": "ein paar Cent pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "schnell",
+        "Eier",
+        "Wrap",
+        "Schinken",
+        "für die Hand",
+        "in weniger als 30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 477,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-ham-egg-wraps/",
+      "components": [
+        {
+          "key": "8911142f-6f69-5def-913e-86cd619ae54f",
+          "name": "Zutaten",
+          "servingGrams": 179.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "d583f52c-f0bf-51ec-8a32-deb6cd6f2962",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ac7824c-cdbb-57aa-84c8-d0a33482cece",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7864cff5-ebd9-5d15-876d-0186c1a8ea38",
+              "ingredientName": "Dijon-Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "908cc4f9-9e03-5920-8095-6215dd2c0194",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d9d4ff7-8399-5269-a3da-c45daf091ed1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2a124bc-868c-5126-9c3b-a7eba868e602",
+              "ingredientName": "Butter",
+              "grams": 10.05,
+              "quantity": 10.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e06d52a-24fd-56aa-a2cb-09f5c3937df7",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "Aufschnittschinken, in Streifen geschnitten"
+            },
+            {
+              "key": "c86c237e-ec3b-53ea-824d-e6ab7c318fb4",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "8-Zoll Mehl, erwärmt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier, geschnittene Frühlingszwiebel, Dijon-Senf, Salz und Pfeffer, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einer großen Pfanne bei mittlerer Hitze. Gib Schinkenstreifen dazu und rühre 1-2 Minuten, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eiermischung in die Pfanne und gare sie unter Rühren, bis die Eier gestockt sind und keine flüssige Masse übrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und teile das Rührei in vier gleich große Portionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle eine Portion mittig auf jede warme Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe den unteren Rand über die Füllung und dann beide Seiten nach innen, sodass ein Wrap entsteht. Servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps167534_BB143289C07_22_2b-2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/ham-egg-wraps/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Wraps mit Schinken und Ei",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-ham-veggie-casserole",
+      "slug": "toh-ham-veggie-casserole",
+      "title": "Auflauf mit Schinken und Gemüse",
+      "instructions": "Zarter Brokkoli und Blumenkohl in einer samtigen, kräftigen Cheddar-Parmesan-Sauce mit herzhaften Schinkenstücken, überbacken mit buttrigen, gerösteten Bröseln. Ein gemütliches, proteinreiches Ofengericht für die ganze Familie, in einer halben Stunde fertig. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/ham-veggie-casserole/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Stück Kochschinken oder verwende Schinkenreste von Feiertagen statt gewürfeltem Aufschnitt, um pro Unze zu sparen.",
+        "Nimm tiefgekühltes Gemüse im Angebot. Eine einzelne Packung Brokkoli-Blumenkohl-Mischung eignet sich genauso gut.",
+        "Reibe ein Stück Cheddar selbst, statt fertig geriebenen zu kaufen. So schmilzt er glatter und ist pro Unze günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham-steak",
+          "swap": "Gegartes Hähnchen vom Drehspieß oder gewürfelte Pute",
+          "savings": "Oft günstiger, wenn Reste verwendet werden"
+        },
+        {
+          "forIngredientId": "sharp-cheddar",
+          "swap": "Beliebiger gut schmelzender Käse wie Colby, Monterey Jack oder Gruyère",
+          "savings": "Verwende den Käseblock, der gerade im Angebot ist"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Zerdrückte Cracker oder Panko mit einer Prise Gewürz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Auflauf",
+        "Wohlfühlessen",
+        "Schinken",
+        "käsig",
+        "Gemüse",
+        "Ofengericht",
+        "unter der Woche",
+        "gebacken"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 478,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-ham-veggie-casserole/",
+      "components": [
+        {
+          "key": "12dc29c3-58a8-53b0-a6c2-d02bfb03cfe8",
+          "name": "Zutaten",
+          "servingGrams": 555.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6907947-8b4a-5fe1-9232-0d082dec9b22",
+              "ingredientName": "Tiefgekühlter Brokkoli",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "16 Unzen tiefgekühlte Röschen, gekocht und abgetropft"
+            },
+            {
+              "key": "a97ceb33-e63a-5d03-853f-3c3286819a16",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Ersatz für 16 Unzen tiefgekühlte Röschen, gekocht und abgetropft"
+            },
+            {
+              "key": "92e892e2-aabc-5a9f-8ae3-511545410bf0",
+              "ingredientName": "Butter",
+              "grams": 40.05,
+              "quantity": 40.05,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "aufgeteilt: 2 Teelöffel für die Panade, 2 Esslöffel für die Sauce"
+            },
+            {
+              "key": "ffcd758f-d877-5fac-b308-1f19ffa05374",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "gewürzt"
+            },
+            {
+              "key": "58913899-4a78-5e72-af88-822b6e360f6a",
+              "ingredientName": "Weizenmehl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Weizen-, 2 Esslöffel"
+            },
+            {
+              "key": "e21657d6-0a3e-5996-b1a4-6da04a17d203",
+              "ingredientName": "Milch mit 2 % Fett",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9be26422-afbb-5bc7-98c3-e53caab30112",
+              "ingredientName": "Kräftiger Cheddar",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gerieben, etwa 3/4 Tasse"
+            },
+            {
+              "key": "f8f27e2d-cf05-5732-8388-458b41dcd28d",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9d1090a1-0cb2-58ef-b91b-718f1bcbafc6",
+              "ingredientName": "Schinkensteak",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "vollständig gegart, gewürfelt"
+            },
+            {
+              "key": "7151cbb5-6e23-507a-9ece-5c01e90e76c4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425F vor. Gare tiefgekühlten Brokkoli und Blumenkohl nach Packungsanleitung und gieße sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 2 Teelöffel Butter in einer kleinen Pfanne bei mittlerer Hitze. Rühre Semmelbrösel ein und röste sie unter Rühren etwa 2-3 Minuten goldbraun. Nimm sie vom Herd und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz die übrige Butter in einem großen Topf bei mittlerer Hitze. Rühre Mehl glatt ein und gieße dann langsam unter ständigem Rühren die Milch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bring die Sauce unter ständigem Rühren zum Kochen und gare sie 1-2 Minuten, bis sie eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Topf vom Herd und rühre Cheddar und Parmesan ein, bis sie geschmolzen und die Sauce glatt ist. Hebe Schinken, Pfeffer und das abgetropfte Gemüse unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffle alles in eine gefettete quadratische 8-inch-Backform und verteile die gerösteten Brösel darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Auflauf ohne Abdeckung 10-15 Minuten, bis er heiß ist und blubbert. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps135074_SD163575B10_09_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/ham-veggie-casserole/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Auflauf mit Schinken und Gemüse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-hearty-pork-chops",
+      "slug": "toh-hearty-pork-chops",
+      "title": "Herzhafte Schweinekoteletts",
+      "instructions": "Saftige Schweinekoteletts mit Knochen in einer süß-herzhaften Marinade aus Zitronen-Limetten-Limonade, Sojasauce und Honig eingelegt und anschließend gegrillt, bis sie karamellisiert und zart sind. Ein unkompliziertes Hauptgericht für unter der Woche mit kräftiger Kräuternote. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/hearty-pork-chops/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinekarree mit Knochen und schneide die Koteletts selbst, statt vorgeschnittene zu kaufen.",
+        "Normale Sojasauce eignet sich statt salzarmer genauso gut. Lass dann zusätzliches Salz weg.",
+        "Mariniere das Fleisch in einer Schüssel mit einem Teller als Abdeckung, statt wiederverschließbare Beutel zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon-lime-soda",
+          "swap": "Sodawasser mit einem Spritzer Limette",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Brauner Zucker oder Ahornsirup",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "pork-chop",
+          "swap": "Schweinefilet, in Medaillons geschnitten",
+          "savings": "~$1.00 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "gegrillt",
+        "Marinade",
+        "unter der Woche"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 479,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-hearty-pork-chops/",
+      "components": [
+        {
+          "key": "dd98aaf4-b81c-5657-8e29-7a6fda882e63",
+          "name": "Zutaten",
+          "servingGrams": 158.47,
+          "position": 0,
+          "items": [
+            {
+              "key": "bead8a41-b92d-5dcd-ac0f-9ec7dce9319d",
+              "ingredientName": "Zitronen-Limetten-Limonade",
+              "grams": 160.8,
+              "quantity": 160.8,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Diät-"
+            },
+            {
+              "key": "6c25826e-a66b-51b3-b7aa-af4eed56a947",
+              "ingredientName": "Salzarme Sojasauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b3ee057-bf27-58b9-9b1f-34276e02a1e9",
+              "ingredientName": "Honig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "976c4019-17dd-557a-a226-64a6d5cfab59",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bfe1c85-f1e6-555d-9f74-074220e0261b",
+              "ingredientName": "Getrockneter Rosmarin",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "zerkleinert"
+            },
+            {
+              "key": "d11fd376-c3f0-561d-86ff-1e2ec8bfc4cb",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0ed8295-0cb2-5cbc-b6eb-99f05e9b7581",
+              "ingredientName": "Schweinekotelett",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "mit Knochen loin, 3/4 Zoll dick"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Zitronen-Limetten-Limonade, Sojasauce, Honig, Thymian, Rosmarin und Pfeffer in einem großen wiederverschließbaren Beutel oder einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Schweinekoteletts dazu, verschließe den Beutel und wende sie, bis sie gleichmäßig mit Marinade bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mariniere sie mindestens 4 Stunden, am besten über Nacht, im Kühlschrank, damit die Aromen einziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Koteletts heraus und entsorge die verwendete Marinade. Öle den Grillrost oder den Rost für den Ofengrill leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille sie zugedeckt bei mittlerer Hitze (oder grille sie etwa 4 inches unter dem Ofengrill) 4-5 Minuten pro Seite, bis die Innentemperatur 145°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Koteletts vor dem Servieren 5 Minuten ruhen, damit sich der Fleischsaft verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps32830__SD143206C04_03_6b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/hearty-pork-chops/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von herzhaften Schweinekoteletts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

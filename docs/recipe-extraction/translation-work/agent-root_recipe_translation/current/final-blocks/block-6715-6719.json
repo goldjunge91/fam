@@ -1,0 +1,973 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-labneh-with-za-atar",
+      "slug": "gen-labneh-with-za-atar",
+      "title": "Labneh mit Za’atar",
+      "instructions": "Levantinisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende griechischen Joghurt als Abkürzung und spare dir das Abtropfen über Nacht.",
+        "Kaufe Za’atar in größeren Mengen auf Märkten des Nahen Ostens zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "levantinisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6715,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-labneh-with-za-atar/",
+      "components": [
+        {
+          "key": "c583fb44-101a-5772-b0fc-f12e8c89d7a2",
+          "name": "Zutaten",
+          "servingGrams": 345.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f73fa846-32b5-5715-b5f3-24e3c19077f9",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e043985c-0c5b-5bba-a1c4-d0afdb78e757",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "edb2f11f-f7d4-573e-af1d-36c442c04edf",
+              "ingredientName": "Za’atar",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c3b5a00e-464b-5bb5-b5a9-967a51b4496a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ad96040b-853f-579c-aa9b-abcdbb6d5779",
+              "ingredientName": "Pitabrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2cc1919-a791-51cc-8234-58c662c0cae4",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "facf742d-9581-50d7-a14a-298f1b3e57ba",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 ausgepresst"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege ein feinmaschiges Sieb mit Seihtuch aus und stelle es über eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Joghurt und Salz in einer Schüssel und gib die Mischung in das ausgelegte Sieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage das Seihtuch über dem Joghurt zusammen und lasse ihn 12-24 Stunden im Kühlschrank vollständig abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm Labneh aus dem Seihtuch und gib es in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke mit dem Löffelrücken eine Mulde in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Olivenöl in die Mulde und streue großzügig Za’atar darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere mit frischem Thymian und Zitronensaft und serviere dazu warmes Pitabrot zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2017/07/Homemade-Labneh-Recipe-How-to-Make-Labneh-The-Mediterranean-Dish-4.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2017/07/Homemade-Labneh-Recipe-How-to-Make-Labneh-The-Mediterranean-Dish-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crumpets",
+      "slug": "gen-crumpets",
+      "title": "Crumpets",
+      "instructions": "Britisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bastle Crumpet-Ringe selbst, indem du den oberen und unteren Teil von Aludosen abschneidest.",
+        "Bereite den Teig am Vorabend zu und backe die Crumpets morgens frisch."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6716,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crumpets/",
+      "components": [
+        {
+          "key": "a15b7e22-3ba0-5212-a323-6daf933b798c",
+          "name": "Zutaten",
+          "servingGrams": 220,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c548350-ede8-50ca-89f8-20a15c7634cd",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0b8f529c-1bc0-5800-bbfd-bafa3b496030",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f4121a44-735a-5f41-a6a4-5cadcea68492",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "682e97e2-f511-5719-8a60-491a9237479f",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "9bb3179a-cfc2-5895-93d9-3e393a571988",
+              "ingredientName": "Trockenhefe",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "73ef1d36-ea4c-56f1-a14d-43e5a2681dda",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel geschmolzen"
+            },
+            {
+              "key": "fddfb198-7cc5-5f75-807b-013cfba6d478",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "48686126-70b0-55e6-a306-cb55f0555576",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz, Zucker und Hefe in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib warmes Wasser und geschmolzene Butter hinzu und rühre, bis ein dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel mit Frischhaltefolie ab und lasse den Teig 30 Minuten bei Zimmertemperatur gehen, bis er Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Natron kurz vor dem Backen unter den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine beschichtete Grillplatte oder Pfanne bei mittelniedriger Hitze und fette sie leicht mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Teig in Crumpet-Ringe oder eine 2 Zoll hohe Metallform und fülle sie bis zur Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Crumpets 5-7 Minuten, bis die Oberseiten trocken und blass aussehen. Wende sie und backe sie weitere 2 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie aus den Ringen und serviere sie warm mit Marmelade, Honig oder Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/a6yo9nweVPCfguaX_IS6jVg6LRQ=/6016x4000/filters:fill(auto,1)/traditional-crumpet-recipe-435276-hero-01-5bf46678c9e77c00270eeeab.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/a6yo9nweVPCfguaX_IS6jVg6LRQ=/6016x4000/filters:fill(auto,1)/traditional-crumpet-recipe-435276-hero-01-5bf46678c9e77c00270eeeab.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mooncake",
+      "slug": "gen-mooncake",
+      "title": "Mondkuchen",
+      "instructions": "Chinesischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gesalzene Enteneigelbe in größeren Mengen auf asiatischen Märkten statt in Spezialgeschäften.",
+        "Bereite rote Bohnenpaste selbst zu, indem du getrocknete Bohnen mit Zucker kochst, und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6717,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mooncake/",
+      "components": [
+        {
+          "key": "c89e54e1-8c56-5242-93a8-306c7289373f",
+          "name": "Zutaten",
+          "servingGrams": 97.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb33bbc0-689b-5dc1-9e38-608910c1039f",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1b2ced3e-e7a5-5276-ade2-6ca478c58472",
+              "ingredientName": "Ahornsirup",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "b86ba896-e0ff-5104-a648-cfdac9e6256d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c8db3bd3-2a20-5a97-a20a-344f4a075b04",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c8a65fdd-1752-5a74-a059-581e3e44b3f4",
+              "ingredientName": "Rote Currypaste",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "1aacfbf1-fa7a-52ad-977b-8a7d739cbe12",
+              "ingredientName": "Salz",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Zuckersirup, alkalisches Wasser und Pflanzenöl, bis alles gut verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Mondkuchen-Mehlmischung zu den feuchten Zutaten und verrühre alles zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wickle den Teig in Frischhaltefolie und lasse ihn 2 Stunden bei Zimmertemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 8 Portionen und die rote Bohnenpaste in 8 gleich große Portionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke eine Teigportion flach, lege eine Portion Bohnenpaste und ein Eigelb in die Mitte. Ziehe die Teigränder vorsichtig hoch und um die Füllung, um sie zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die gefüllte Teigkugel in eine Mondkuchenform und drücke sie fest, um ein Muster einzuprägen. Löse den Kuchen aus der Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Mondkuchen auf ein Backblech und backe sie bei 350°F 15 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie vollständig abkühlen und bewahre sie vor dem Servieren 3-5 Tage luftdicht auf, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/vidthumb/images/mooncake-2-jpg-1657823404.jpg?crop=1xw:0.75xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/vidthumb/images/mooncake-2-jpg-1657823404.jpg?crop=1xw:0.75xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zongzi",
+      "slug": "gen-zongzi",
+      "title": "Zongzi",
+      "instructions": "Chinesisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Bambusblätter in größeren Mengen auf asiatischen Märkten; sie sind lange haltbar.",
+        "Ersetze chinesische Wurst durch gewürfelten Schweinebauch oder lass sie ganz weg, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6718,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zongzi/",
+      "components": [
+        {
+          "key": "e8c1f46e-a2ab-5d59-aa9c-8bcb356d6b72",
+          "name": "Zutaten",
+          "servingGrams": 230.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "4c2cf001-ce75-54fc-9edb-1456cdca20ea",
+              "ingredientName": "Klebreismehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4e6f5531-5078-58b1-bba6-07939c737a83",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "20 Blätter getrocknet"
+            },
+            {
+              "key": "e1380bd0-9187-51a1-97a7-95d687396ab2",
+              "ingredientName": "Rote Currypaste",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "52324988-05cb-5e0c-bdc9-a5e11a7b4db0",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67dd3b1a-3bc2-5b70-861f-3a0fb107668f",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 150,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Unzen gewürfelt"
+            },
+            {
+              "key": "8b273f94-87cb-5fd7-82c4-c45d486baa8c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "aded94f4-6aa1-5c4a-b39b-9eddc24636b7",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Bedarf"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Bambusblätter 30 Minuten in heißem Wasser ein, bis sie weich und biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle Klebreis ab und koche ihn mit Salz und Öl, bis er gerade weich, aber noch leicht fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege zwei Bambusblätter über Kreuz auf eine Arbeitsfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib einen Löffel Reis in die Mitte, etwas rote Bohnenpaste, ein Stück Enteneigelb und gewürfelte Wurst darauf. Bedecke alles mit weiterem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Bambusblätter über der Füllung zu einer Pyramide oder einem Tetraeder zusammen und stecke die Enden fest ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege alle Zongzi in einen großen Topf mit kochendem Wasser und lasse sie 45 Minuten köcheln, bis der Reis gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Zongzi mit einer Schaumkelle heraus und lasse sie vor dem Servieren leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://tasteasianfood.com/wp-content/uploads/2017/05/zong-square-700-on-plate.jpg",
+          "sourcePageUrl": "http://tasteasianfood.com/wp-content/uploads/2017/05/zong-square-700-on-plate.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hamantash",
+      "slug": "gen-hamantash",
+      "title": "Hamantaschen",
+      "instructions": "Jüdischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mohnfüllung in größeren Mengen oder bereite sie selbst aus gemahlenem Mohn und Honig zu.",
+        "Bereite Teig in Portionen zu und friere ihn bis zu 3 Monate ein, damit du das ganze Jahr frisch backen kannst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6719,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hamantash/",
+      "components": [
+        {
+          "key": "aff5e70c-cc67-5653-aebd-064ae2cafc83",
+          "name": "Zutaten",
+          "servingGrams": 114.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "64b62de4-2e46-5d5a-8caf-bebea4610455",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "ac689bdd-7b60-5d80-8c35-032e6f9abd96",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse weich"
+            },
+            {
+              "key": "57d3dcc4-d57a-5e30-9eb3-7ad8412e10f5",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2bfb67cf-4fc6-501b-9cc8-a8f0f5ce824a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84489adb-e789-5c05-8bba-71d874b3d99c",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "199638f8-b693-5d89-80f7-f90741aa8c5c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "bcbc431b-43f1-520c-a436-9e3682da22b8",
+              "ingredientName": "Fenchelsamen",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e0525fe6-8864-5803-bcd9-35ff893f7362",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage weiche Butter und Zucker etwa 3 Minuten hell und luftig auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Ei und Vanilleextrakt ein, bis alles gut verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl, Backpulver und Salz in einer separaten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die trockenen Zutaten unter die feuchten, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig 0.25 Zoll dick aus und stich mit einem Ausstecher Kreise von 3 Zoll aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 1 Teelöffel Mohnfüllung in die Mitte jedes Kreises und klappe drei Ränder zu einem Dreieck hoch. Drücke die Ecken zum Verschließen zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Plätzchen auf ein mit Backpapier ausgelegtes Blech und backe sie bei 375°F 12-15 Minuten, bis die Ränder leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/owqjM744rl73-deU9njRMeeKfM0=/4891x0/filters:no_upscale():max_bytes(150000):strip_icc()/jewish-hamantaschen-cookies-recipe-1136141-step-13-666d739062c54a369345ddf0d814968e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/owqjM744rl73-deU9njRMeeKfM0=/4891x0/filters:no_upscale():max_bytes(150000):strip_icc()/jewish-hamantaschen-cookies-recipe-1136141-step-13-666d739062c54a369345ddf0d814968e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1189 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-yeonpo-tang",
+      "slug": "gen-yeonpo-tang",
+      "title": "Yeonpo Tang",
+      "instructions": "Koreanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gefrorene Fischfilets, die günstiger sind als frische.",
+        "Bereite Anchovisbrühe selbst aus getrockneten Anchovis zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "koreanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2495,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yeonpo-tang/",
+      "components": [
+        {
+          "key": "fb462b0c-e805-5f22-b477-cf0a6ec1e3fd",
+          "name": "Zutaten",
+          "servingGrams": 491.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "437ef990-b973-5810-8687-fed1723a0472",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "06e5fd19-fbe6-5d4c-936f-b385ac703969",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "68d17954-f884-5f32-b6dd-bafa028e9779",
+              "ingredientName": "Dashi-Päckchen",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleine Stück"
+            },
+            {
+              "key": "fc56eaf9-7560-5c1a-90f8-2ba6032f7cc4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d37ca038-546e-5f6c-8293-cf6a44ff41e0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b8a5a028-2a90-522c-a939-1d796ef3bd00",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f821e445-d1dd-58d6-893b-d6855ab2c5db",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "bcad816b-ab38-555e-aaf9-841dcdab4adf",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdbe930e-e715-50e9-a601-f06b0539f0cf",
+              "ingredientName": "Doenjang (fermentierte Sojabohnenpaste)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1ef588e3-ed27-5c41-8f28-1edc0569d0cc",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "ac64b512-d4c3-5489-9d6f-0fa926be659d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "60d405f7-5586-525c-bd58-6f7e89f087ea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 5 cups Anchovisbrühe mit Kombu zum Kochen und nimm den Kombu nach 3 Minuten heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Fischfilet ganz oder in großen Stücken in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Suppe sanft 8-10 Minuten köcheln, bis der Fisch gar ist, aber nicht auseinanderfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Doenjang-Paste mit 1/4 cup heißer Brühe in einer kleinen Schüssel und gib die Mischung dann in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib geschnittene Zucchini dazu und lass alles 3 Minuten köcheln, bis sie zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Sojasauce und rote Chiliflocken dazu und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre kurz vor dem Servieren gehackte Frühlingszwiebel und Sesamöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß in Schalen servieren, dazu gedämpften Reis reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/_jm5QANFlAP6Ew5SweWH6713D6U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11756744-TangPie-PeytonBeckwith-4x3-838cfcb20efd42d8bad552acc977d6a4.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/_jm5QANFlAP6Ew5SweWH6713D6U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11756744-TangPie-PeytonBeckwith-4x3-838cfcb20efd42d8bad552acc977d6a4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gyeran-jjim",
+      "slug": "gen-gyeran-jjim",
+      "title": "Gyeran Jjim",
+      "instructions": "Koreanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in großen Packungen bei Großmärkten, um den besten Preis zu bekommen.",
+        "Verwende Wasser statt Brühe, um die Kosten weiter zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "koreanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2496,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gyeran-jjim/",
+      "components": [
+        {
+          "key": "df42f772-9ff7-51b1-a9b5-cededdf5d9ed",
+          "name": "Zutaten",
+          "servingGrams": 354,
+          "position": 0,
+          "items": [
+            {
+              "key": "717d04d7-ad82-5add-9f28-ed908b593255",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "d902fa48-e114-5696-bd2e-193036eb003d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b7f99753-3b04-5ff3-a8c4-771deeb1af22",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2431d98d-9225-5034-9f06-9a46556f19c0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1ed48dfb-ecf6-5e67-a987-86cb4ad07719",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6c76abf-8110-5020-8ea7-8e861c155197",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c508846-8dbc-53e1-9f6e-9bdde23fae28",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "d888a799-ba34-5995-89ae-deb8748f977a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "2b5e0767-891d-5400-a6c9-3bc46d5166aa",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage Eier in eine Schüssel und verquirle sie gründlich, bis alles vollständig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Wasser oder Brühe, Sojasauce, Sesamöl, gehackten Knoblauch, Salz und schwarzen Pfeffer zu den Eiern und verquirle alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Seihe die Mischung durch ein feines Sieb in eine hitzebeständige Schüssel, um Blasen zu entfernen und eine seidige Konsistenz zu erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle einen Topf mit 2 inches Wasser und bringe es zum Kochen. Reduziere die Hitze auf leichtes Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Schüssel mit der Eiermischung in den Topf (Wasserbad) oder dämpfe sie in einem Dämpfeinsatz und decke sie mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dämpfe die Mischung 12-15 Minuten, bis der Eierpudding gestockt, in der Mitte aber noch leicht wackelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Schüssel vom Herd und lass sie 1 Minute ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue das Gericht mit gehackten Frühlingszwiebeln und Sesamsamen und träufle etwas zusätzliches Sesamöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort mit Reis und Beilagen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/uykWIML2N76aSOk4-y7WJGRU4_w=/6000x4000/filters:no_upscale():max_bytes(150000):strip_icc()/SimplyRecipes_GyeranJjim_METHOD_5-3558c72fa07c4d65ac9095f654cf69d6.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/uykWIML2N76aSOk4-y7WJGRU4_w=/6000x4000/filters:no_upscale():max_bytes(150000):strip_icc()/SimplyRecipes_GyeranJjim_METHOD_5-3558c72fa07c4d65ac9095f654cf69d6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-japchae",
+      "slug": "gen-japchae",
+      "title": "Japchae",
+      "instructions": "Koreanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Pilze und Spinat im Angebot oder verwende gefrorenen Spinat, um Kosten zu senken.",
+        "Verwende Rinderhackfleisch statt Lendensteak und spare 30-40%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "koreanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2497,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-japchae/",
+      "components": [
+        {
+          "key": "46bd680f-6dfb-5707-a008-29d0fe9d3a7d",
+          "name": "Zutaten",
+          "servingGrams": 339.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2618b57-8553-5abb-bb23-60dbcf5c63e8",
+              "ingredientName": "Kartoffelstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "b6eea80a-2295-5273-8fca-65c4cd5beedd",
+              "ingredientName": "Rinderlendensteak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e4b8dd7f-40ec-5953-b184-9c546b04f3ec",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "66660528-3753-5c6c-b5ab-16c831bd3a94",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "c2078d76-e4b2-5767-b3f8-aee67a00c4a2",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "2a36b4dd-6c5a-5c6a-a291-f57acef9ca61",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "4325753b-d006-5840-9fab-d1f4631e4c6a",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1e67250e-e029-5bcd-a2a4-469ad9b62fae",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b57ad6f9-5b9c-5006-af41-4613d25b1d95",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "5a24413a-0dd2-5539-ac6a-ccc43e3c3d0e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2e5c06b5-4cd2-5a67-8b9d-5f29385a1164",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bcd62b7c-1951-57af-b41a-9a29cdfde4cc",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Süßkartoffelnudeln nach Packungsanweisung, bis sie weich sind. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Rindfleisch dünn quer zur Faser und vermische es mit 2 Esslöffeln Sojasauce, 1 Esslöffel Sesamöl, gehacktem Knoblauch und Zucker und lass es 10 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittelhoher Hitze und brate das marinierte Rindfleisch unter Rühren gar. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate in derselben Pfanne die geschnittenen Pilze und Karotten etwa 5 Minuten weich. Gib dann blanchierten Spinat dazu und wende alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Rindfleisch mit den gekochten Nudeln, restlicher Sojasauce und restlichem Sesamöl zurück in die Pfanne. Vermische alles 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und schwarzem Pfeffer und gib alles auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere mit Sesamsamen und serviere warm oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2018/02/Japchae-Recipe-1.jpg",
+          "sourcePageUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2018/02/Japchae-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ddukbokki",
+      "slug": "gen-ddukbokki",
+      "title": "Ddukbokki",
+      "instructions": "Koreanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reiskuchen auf asiatischen Märkten in größeren Mengen, oft 50% günstiger als im normalen Supermarkt.",
+        "Bereite die Sauce selbst aus Vorratszutaten zu statt eine fertige zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2498,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ddukbokki/",
+      "components": [
+        {
+          "key": "987a3c5f-b560-54c7-8d6f-1f701b5e8df2",
+          "name": "Zutaten",
+          "servingGrams": 259.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b7e53173-8993-502e-836d-2b12feb064a1",
+              "ingredientName": "Reiskuchen",
+              "grams": 5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "56c36173-45c1-55df-8d17-dad3f15b374b",
+              "ingredientName": "Gochujang",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "df524035-1cda-51f6-97ff-c0de911d9fd6",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3a0dd254-5802-59f0-a60d-1173a15fe61f",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "439262a9-dcd4-564c-bd5f-a6ffd07a1f81",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d369beb6-451a-56bf-b03c-ee1dee803af1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "daaa70f6-a800-58c7-ab60-2899a098cc29",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a1617150-0030-5e14-aeb5-7b6537a8b3af",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "dd4248f8-9f06-5727-99ef-10dcefacb342",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "17e24722-51f0-5825-b4b8-9b47bde275dd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reiskuchen 5-10 Minuten in warmem Wasser ein, bis sie leicht weich sind. Gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Gochujang, Gochugaru, Zucker, gehackten Knoblauch und Fischsauce mit Wasser zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittelhoher Hitze und gieße die Sauce hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die weichen Reiskuchen in die kochende Sauce und rühre häufig um. Gare alles 8-10 Minuten, bis die Reiskuchen gar und die Sauce eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackte Frühlingszwiebeln dazu und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle das Gericht in eine Servierschüssel und garniere es mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren und Gäste darauf hinweisen, dass die Sauce sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.easykoreanfood.com/images/dduckbokki7.jpg",
+          "sourcePageUrl": "https://www.easykoreanfood.com/images/dduckbokki7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-galbijim",
+      "slug": "gen-galbijim",
+      "title": "Galbijim",
+      "instructions": "Koreanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Short Ribs im Angebot oder auf asiatischen Märkten zu günstigeren Preisen.",
+        "Verwende Hähnchenschenkel statt Rindfleisch, um die Kosten um 40% zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2499,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galbijim/",
+      "components": [
+        {
+          "key": "c0eb2090-7d70-5563-948b-c40fbbb4dd47",
+          "name": "Zutaten",
+          "servingGrams": 462.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "32a5fe11-8287-5e65-b1db-85af2090d129",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "885cd98c-86fc-5142-a070-da95e5e81710",
+              "ingredientName": "Sojasauce",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Esslöffel"
+            },
+            {
+              "key": "17b8f888-ff14-5905-9c7d-15f54fdf770c",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d2405fe3-5d13-5428-a2cd-f761ed1ff672",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ba40a566-4b68-5886-b544-76caf6c62648",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "e3c1417b-b089-5204-a551-eba2e6bef0e6",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dc36dc44-49f0-5adc-9863-a1cf5189b300",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2d190322-f166-5d30-97fc-f5d321d905fa",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "83a98802-c880-56f6-8309-c8de09cd1a35",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "3d1fc7de-4bbf-54bc-a207-6358ab27027a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "665e974e-3827-5899-a868-150ddc0808c3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7afade72-a7b1-584e-9ae8-9d2edcc3bc5c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Rinderrippchen 5 Minuten in kochendem Wasser, um Unreinheiten zu entfernen. Gieße sie ab und spüle sie gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Rippchen, Wasser, Sojasauce, gehackten Knoblauch, Ingwer und die Hälfte des Zuckers in einem großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze auf niedrig und lass es zugedeckt 40 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Karotten und Kartoffeln in gleichmäßige Stücke und gib sie mit dem restlichen Zucker und Sesamöl in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass alles weitere 20 Minuten köcheln, bis das Gemüse vollständig gar und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und passe bei Bedarf die Sojasauce an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle das Gericht auf eine Servierplatte und garniere es mit gehackten Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in einzelnen Schalen mit Fleisch und Gemüsebrühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1696616231/k/Photo/Recipes/2023-10-galbi/galbi-216_1.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1696616231/k/Photo/Recipes/2023-10-galbi/galbi-216_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

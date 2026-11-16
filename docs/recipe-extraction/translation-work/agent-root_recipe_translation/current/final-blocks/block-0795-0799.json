@@ -1,0 +1,1243 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-cajun-chicken-pasta",
+      "slug": "mfr-cajun-chicken-pasta",
+      "title": "Cajun-Hähnchen-Pasta mit Gemüse",
+      "instructions": "Geschnittenes, mit Cajun-Gewürz eingeriebenes Hähnchen wird mit bunten Paprikaschoten und Zwiebeln in einer leichten Sahnesauce mit Pasta vermengt. Kräftiger Südstaatengeschmack in 25 Minuten.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cajun-Gewürz ist eine einzelne Gewürzmischung mit besonders viel Geschmack fürs Geld.",
+        "Frischkäse ergibt ohne Aufwand eine schnelle, reichhaltige Sauce. Schon 1 oz reicht weit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Griechischen Joghurt abseits der Hitze einrühren für eine leichtere Sauce"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Zucchininudeln für eine kohlenhydratarme Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cajun-chicken-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Südstaaten-Küche",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 795,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cajun-chicken-pasta/",
+      "components": [
+        {
+          "key": "7b2e7e84-b9f2-52df-8708-542194a9fbfd",
+          "name": "Zutaten",
+          "servingGrams": 569.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "792a42f0-b02b-5fc4-84a8-6dc9a863974c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad1a1eed-4bdc-5d73-94d1-c0f3899cee2b",
+              "ingredientName": "Pasta",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fa18940-b5ea-5637-9a80-2fa9c0082df0",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a829353b-ee1e-56cc-9c0e-407d8c143982",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3027218f-5436-54e9-8eab-c6a5ca49dfb4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56ece31a-781e-599c-a3e3-c40b20009937",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "356cbd5e-5874-52f5-8190-5f1c3771b605",
+              "ingredientName": "Frischkäse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3eb23869-07a7-54a4-9fc4-23f48a0e24b9",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0630012b-90fa-506f-add7-1f276c9369d3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "914c51b9-c4a9-56a2-9907-8a97db8be849",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta und hebe ½ Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Hähnchenbrust in Scheiben und vermenge sie mit Cajun-Gewürz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen in Olivenöl bei mittelhoher Hitze 3–4 Minuten pro Seite, bis es gar ist. Nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch, Zwiebel und Paprika in dieselbe Pfanne und gare sie 4 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Frischkäse und Hühnerbrühe dazu und verrühre alles zu einer Sauce. Gib Pasta und Nudelwasser hinein, lege das Hähnchen zurück in die Pfanne, vermenge alles und serviere es mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/7c/7c/38/7c7c380199367a73635ea0a29e87c74e.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/7c/7c/38/7c7c380199367a73635ea0a29e87c74e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tempeh-buddha-bowl",
+      "slug": "mfr-tempeh-buddha-bowl",
+      "title": "Buddha-Bowl mit mariniertem Tempeh",
+      "instructions": "Nussiger, eiweißreicher Tempeh mariniert in Soja-Ingwer-Sauce und in der Pfanne angebraten. Serviert auf einer bunten Bowl mit Vollkornreis, geröstetem Gemüse und cremigem Tahini-Dressing.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Block Tempeh kostet etwa $2–4 und liefert 30 g Eiweiß. Ein sehr gutes Preis-Leistungs-Verhältnis.",
+        "Tahini-Dressing macht die ganze Bowl noch besser und ist in 1 Minute zubereitet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tempeh",
+          "swap": "Tofu verwenden, falls Tempeh nicht erhältlich ist. Presse ihn aus und mariniere ihn auf dieselbe Weise."
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder gewöhnliche Kartoffeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tempeh-buddha-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "zum Vorbereiten",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 796,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tempeh-buddha-bowl/",
+      "components": [
+        {
+          "key": "541d346e-a3d7-5069-b346-0c4a61ea7afd",
+          "name": "Zutaten",
+          "servingGrams": 478.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a762362d-e4b5-5d7e-b2c1-d2734fde1f71",
+              "ingredientName": "Tempeh",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56e1a712-7c3b-5d64-8b58-ea7d155b4506",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75183a0b-9d19-57da-adad-762ff3329658",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9121225e-4cc8-530b-b6de-be3f31fb4692",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb73bb1b-638c-57cc-b9a8-54dbf4d14b65",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "478073a9-3952-523c-b333-d82f27ec7983",
+              "ingredientName": "Vollkornreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33a4a808-4c6d-5fe5-90c9-854d74cc3593",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da62567d-6764-53c3-b984-5f870d4339e4",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2d494cf-6095-56b0-880c-31e22e5fa43a",
+              "ingredientName": "Tahini",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ec1bf24-cd9f-5934-a4ef-06e476612e5b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e12bf3c7-ff12-5367-8767-282753b22bae",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6554fa7d-02b0-5fb5-b2e3-19c6eeb080a0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dd23c63-a0db-50f9-b4c3-0aba1c8d22bc",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tempeh in Streifen. Mariniere ihn 5 Minuten in Sojasauce, Knoblauch, Ingwer und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Vollkornreis. Würfle die Süßkartoffel und röste sie bei 400°F 20 Minuten mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den marinierten Tempeh bei mittlerer Hitze 2–3 Minuten pro Seite an, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe oder röste den Brokkoli. Für das Dressing Tahini, Zitronensaft, Wasser und Salz verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle Schüsseln mit Reis, Süßkartoffel, Brokkoli und Tempeh. Beträufle alles mit Tahini-Dressing und gib Frühlingszwiebeln und Sesam darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2020/03/vegan-marinated-tempeh-buddha-bowl-recipe-1-copy-1367x2048.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2020/03/vegan-marinated-tempeh-buddha-bowl-recipe-1-copy-1367x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-butter-chicken-lite",
+      "slug": "mfr-butter-chicken-lite",
+      "title": "Leichtere Variante von Butter Chicken",
+      "instructions": "Cremiges, mild gewürztes Hähnchencurry auf Tomatenbasis, leichter zubereitet mit griechischem Joghurt statt Schlagsahne. Wärmt genauso wohltuend und schmeckt weiterhin köstlich zu Basmatireis.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischer Joghurt ist der leichte Ersatz für Sahne und kostet nur einen Bruchteil davon.",
+        "Hähnchenbrust hält den Fettgehalt niedrig. Hähnchenschenkel eignen sich ebenfalls und sind noch günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Leichte Kokosmilch für eine milchfreie Variante"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Kichererbsen für eine vegetarische Butter-Kichererbsen-Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-butter-chicken-lite",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 797,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-butter-chicken-lite/",
+      "components": [
+        {
+          "key": "92e55fff-a984-5baf-9df8-ecc58269f37d",
+          "name": "Zutaten",
+          "servingGrams": 354.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "53e24dc3-4bc7-560e-9148-2bdb5da40d6f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08263fa1-2704-5d19-aea4-50469d7ed2a2",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7522769-1ff2-50de-ac98-a7033b7fc27e",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f784586-9b68-5e66-a570-ca19e0c72669",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5070aab7-bb0d-59c6-bf33-2b4826b64151",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24195d18-9170-587b-a695-2c1d2012e198",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45db973b-8fed-57af-9e32-8bd8b67b888c",
+              "ingredientName": "Garam Masala",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38948139-5aab-5d81-a971-13ef190d47d6",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ad8a9a4-5b17-527f-950b-13b3d33d3481",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d2d7383-9393-5df2-bfd5-6dbf9aad4380",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d07d98d-7c92-53b7-9757-69f7fcacaf6c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c89b403-85b3-56e6-b7dd-365716811f49",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61862e70-714a-5a06-8f97-1f7401d83fdb",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6821bb3-a2ac-5166-9f58-b43390c686d1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in Stücke. Mariniere es 5 Minuten in der Hälfte des griechischen Joghurts, der Hälfte des Garam Masala und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter und Öl in einer großen Pfanne. Brate das marinierte Hähnchen 3–4 Minuten pro Seite an, bis es goldbraun ist. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate in derselben Pfanne gewürfelte Zwiebel 5 Minuten an. Gib Knoblauch und Ingwerpaste dazu und gare alles 2 Minuten. Gib die übrigen Gewürze dazu und röste sie 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zerkleinerte Tomaten dazu und lass die Sauce 8 Minuten köcheln, bis sie kräftiger wird. Rühre den übrigen griechischen Joghurt abseits der Hitze ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in die Sauce und lass es 5 Minuten köcheln. Serviere das Curry auf Basmatireis mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2019/01/Butter-Chicken-IMAGE-27.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2019/01/Butter-Chicken-IMAGE-27.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-palak-paneer-tofu",
+      "slug": "mfr-palak-paneer-tofu",
+      "title": "Tofu nach Art von Palak Paneer",
+      "instructions": "Sämiges, püriertes Spinatcurry mit gewürfeltem, in der Pfanne gebratenem Tofu als Ersatz für Paneer. Eine besonders sättigende vegane Variante des indischen Klassikers.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Spinat ist viel günstiger als frischer und lässt sich perfekt zu dieser Sauce pürieren.",
+        "Ein Block Tofu kostet etwa $2 und liefert die gesamte Eiweißgrundlage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Paneer-Käse für eine nicht vegane Variante, die dem Original näherkommt"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Ungesüßter pflanzlicher Joghurt für eine säuerlichere, fettärmere Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-palak-paneer-tofu",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 798,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-palak-paneer-tofu/",
+      "components": [
+        {
+          "key": "9c0a8833-2089-56f8-a288-4ae38147d52c",
+          "name": "Zutaten",
+          "servingGrams": 525.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "997c9041-e5fe-5238-8372-79200b630973",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1907e98-22ca-59c5-b85e-aeed4ee8dff1",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bf6497a-120b-53e7-8e78-18ba4c154c8d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e6b0321-c674-506b-b428-b322ec3634ca",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab214478-0950-5e0d-978e-88d2328555be",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69992b83-0017-5330-a8d8-612c5acc4bf5",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6785ec0d-1356-543a-b1b8-cc2ea3d1bcc6",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b767c16-827f-5771-bb06-eaf671dfc83f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b211214a-8b46-5e9c-9240-6785dc0d5a41",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7b8baf3-8200-5095-b604-12d1403e8ae2",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1af27f3c-9879-5e55-9044-e66709d9bc68",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26610314-428a-52d9-ac34-15da6a9afc25",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "617f738e-7d56-5986-9919-322fc97212f8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus und schneide ihn in Würfel. Brate ihn in Olivenöl 3–4 Minuten pro Seite an, bis er goldbraun ist. Stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate in derselben Pfanne Zwiebel 5 Minuten an. Gib Knoblauch, Ingwer, Kreuzkümmel, Kurkuma und Garam Masala dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Tomate dazu und gare sie 4 Minuten, bis sie weich ist. Rühre aufgetauten Spinat ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere die Spinat-Tomaten-Mischung, bis sie glatt ist. Verwende dafür einen Stabmixer oder fülle die Mischung in einen Standmixer. Gib sie zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Kokosmilch ein, würze das Curry und lass es 5 Minuten köcheln. Hebe die Tofuwürfel vorsichtig unter. Auf Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/10/AMAZING-Vegan-Palak-Paneer-with-Tofu-30-minutes-wholesome-ingredients-EASY-BIG-flavor-vegan-glutenfree-palakpaneer-tofu-curry-minimalistbaker-recipe-11.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/10/AMAZING-Vegan-Palak-Paneer-with-Tofu-30-minutes-wholesome-ingredients-EASY-BIG-flavor-vegan-glutenfree-palakpaneer-tofu-curry-minimalistbaker-recipe-11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chana-masala",
+      "slug": "mfr-chana-masala",
+      "title": "Chana Masala mit Reis",
+      "instructions": "Kräftig gewürzte Kichererbsen in einer säuerlichen Tomaten-Zwiebel-Sauce. Ein beliebtes nordindisches Streetfood, das zu Hause nur wenige Cent kostet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen kosten weniger als $2 und reichen für vier Personen.",
+        "Chana Masala gehört zu den günstigsten indischen Gerichten, die man zu Hause zubereiten kann."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Zwei frische Tomaten pürieren für eine leichtere Sauce"
+        },
+        {
+          "forIngredientId": "coriander-seed",
+          "swap": "Gemahlenen Koriander in derselben Menge verwenden, statt ganze Samen zu kaufen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chana-masala",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "zum Vorbereiten",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 799,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chana-masala/",
+      "components": [
+        {
+          "key": "44906ad0-94ea-55f8-9ef6-ae4e8dd994ba",
+          "name": "Zutaten",
+          "servingGrams": 497.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "584947c3-04fb-54af-b9e0-2e032aff1fc4",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d17201a0-318c-5ed2-8601-9baee84f124e",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c73b4581-a06b-5f3a-9ade-cfa56995342b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "428274c8-f053-535a-97b7-4017348ded25",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddd56f36-29d5-5608-ae26-a5a4585ee8b1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0489e838-69b2-52f3-a01b-c655d7b2506b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cd60664-d438-57f6-b47d-32625e1fcc22",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a751bed5-a88d-5756-ab5b-c1269a443685",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d628c4f-1678-538c-b890-272a292ca0ff",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7a0e0b7-8186-5a1b-8f08-e3dc45e96ce2",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "471b6b16-df72-5c05-b6f2-6e5fbaff90c6",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84f208b8-17dd-50a2-ba8f-52b9416dae4f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bcdadd8-ac23-5983-b5bb-8aa3e4260c74",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8451c7f-fc4d-5940-ae25-066e195f12f7",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85bee12d-bb16-56f7-be18-d6f9224dc930",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die Zwiebel fein und gare sie 6–7 Minuten in Olivenöl, bis sie goldbraun ist. Gib gehackten Knoblauch und Ingwer dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib alle gemahlenen Gewürze und Tomatenmark dazu und röste sie 1 Minute an. Rühre zerkleinerte Tomaten ein und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Kichererbsen abtropfen und spüle sie ab. Gib sie mit ½ Tasse Wasser zur Sauce. Lass alles 10 Minuten köcheln und zerdrücke einige Kichererbsen, damit die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere das Gericht mit Zitronensaft und frischem Koriander. Würze großzügig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf Basmatireis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/02/AMAZING-Chana-Masala-made-in-1-Pot-So-healthy-flavorful-and-delicious-vegan-glutenfree-chanamasala-recipe-easy.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/02/AMAZING-Chana-Masala-made-in-1-Pot-So-healthy-flavorful-and-delicious-vegan-glutenfree-chanamasala-recipe-easy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1112 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-bread-machine-white-bread",
+      "slug": "bake-bread-machine-white-bread",
+      "title": "Brot Machine White Brot",
+      "instructions": "ein soft, golden 1.5 lb sandwich loaf made start-zu-finish in ein Brot machine. warm Milch und Butter geben it ein tender, fine crumb while ein touch von Zucker feeds der Hefe für ein tall, even rise. Just layer der ingredients in der right order, press Basic, und walk away.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 205,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "ein bag von Brot Mehl und ein jar von Hefe cost ein fraction von aufbewahren-bought loaves; one hausgemacht loaf runs well unter ein dollar in ingredients versus several dollars at der bakery.",
+        "kaufen instant Hefe in ein vacuum brick oder jar anstatt single packets und aufbewahren it in der freezer, where it stays active für über ein year, dropping der per-loaf Hefe cost zu pennies.",
+        "No Brot machine? der same Teig rises in ein Schüssel und bakes in ein loaf Pfanne at 375F für etwa 30 zu 35 Minuten, so du only need Mehl, Hefe, und ein Pfanne."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden warm Wasser plus 2 tbsp powdered Milch, oder just natur warm Wasser für ein slightly chewier, leaner loaf",
+          "savings": "Verzichtet auf Milchprodukte und spart etwa $0.30 pro Laib"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Swap in Pflanzenöl oder geschmolzen coconut Öl at der same amount",
+          "savings": "Spart ungefähr $0.20 und funktioniert mit vorhandenem Öl"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "All-purpose Mehl works; der crumb is ein touch weniger chewy but still excellent",
+          "savings": "Weizenmehl ist meist günstiger und spart etwa $0.15 pro Laib"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Brot",
+        "Brot-machine",
+        "Backen",
+        "sandwich-Brot",
+        "white-Brot",
+        "hausgemacht",
+        "Hefe-Brot",
+        "beginner-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7485,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-bread-machine-white-bread/",
+      "components": [
+        {
+          "key": "70fe1a21-b9f1-5684-bbb9-4a6d72cac812",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 86.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad9472da-0abc-5225-a754-27a11e234aa9",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse + 2 EL Vollmilch, auf ~110F erwärmt (lauwarm)"
+            },
+            {
+              "key": "ee5d9428-883e-55e7-be5c-2902d678a4ca",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL ungesalzene Butter, weich und in Stücke geschnitten"
+            },
+            {
+              "key": "a98fac10-9636-5041-83ee-08b4c24b0f8d",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL Kristallzucker"
+            },
+            {
+              "key": "442cdebc-0c97-544e-844e-492e72c1f1d1",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL feines Salz"
+            },
+            {
+              "key": "ba306523-226c-5551-a3de-0a2ac5426f2b",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen backstarkes Mehl (ersatzweise Weizenmehl)"
+            },
+            {
+              "key": "071d6d68-62f9-53d3-9837-0ad3700e0acd",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2.25 TL (1 Päckchen) Instanthefe oder Hefe für Brotbackautomaten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "gießen der warm Milch (etwa 110F, just warm zu der touch) in der Brot machine Pfanne first, dann hinzufügen der weich Butter Stücke. Starting mit der wet ingredients keeps der Teig aus clumping at der bottom.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "hinzufügen der Zucker und Salz zu opposite corners von der Pfanne, keeping der Salz away aus where der Hefe will go, since direct contact mit Salz can kill der Hefe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spoon der Brot Mehl evenly über der liquid so it covers der entire surface, dann gently smooth it in ein flat layer that fully blankets der wet ingredients.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "machen ein klein well in der center von der Mehl mit dein finger, making sure it does not reach down zu der liquid, und gießen der instant Hefe in der dry well so it stays separated aus der liquid bis mixing begins.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lock der Pfanne in der machine und select der Basic / White cycle mit ein mittel crust setting für ein 1.5 lb loaf, dann press Start.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Check der Teig etwa 5 Minuten in der first kneten: it should form ein smooth, slightly tacky ball that clears der sides von der Pfanne. hinzufügen Mehl 1 Esslöffel at ein time wenn too sticky, oder warm Milch 1 Teelöffel at ein time wenn too dry.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "lassen der full cycle run undisturbed (roughly 3 zu 4 Stunden including rises und backen); avoid opening der lid during rising und Backen so der loaf does not deflate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "When der cycle finishes, immediately turn der loaf out onto ein wire rack und entfernen der kneading paddle aus der bottom. lassen it abkühlen at least 30 Minuten before slicing so der crumb sets und does not gum up.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/White_bread_800.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:White_bread_800.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: User Sannse on en.wikipedia — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Brot Machine White Brot",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-pizza-dough",
+      "slug": "bake-pizza-dough",
+      "title": "Pizza Teig",
+      "instructions": "ein klassisch Neapolitan-style pizza Teig made mit just Mehl, Wasser, Hefe, und Salz. ein slow, kalt ferment develops deep flavor und ein airy, blistered crust mit ein chewy interior. Makes enough für two 12-inch pizzas.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "natur all-purpose oder Brot Mehl, Wasser, Hefe, und Salz are pennies per ball - hausgemacht Teig costs ein fraction von aufbewahren-bought balls oder ein delivery crust.",
+        "ein long kalt ferment lets du verwenden very little Hefe; ein klein bag von Hefe makes dozens von pizzas, so it stretches ein long way.",
+        "machen ein double batch und freeze der extra Teig balls after shaping - thaw overnight in der fridge für ein near-instant pizza night."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "active-dry-yeast",
+          "swap": "verwenden instant Hefe (same amount, weglassen der proofing step) oder ein sourdough starter für natural leavening",
+          "savings": "kaum ein Kostenunterschied; Instanthefe spart die Aktivierungszeit"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "All-purpose Mehl works fine wenn du can't find 00 oder Brot Mehl",
+          "savings": "spart ~30% gegenüber besonderem Mehl Type 00"
+        },
+        {
+          "forIngredientId": "semolina",
+          "swap": "Dust der peel mit normal Mehl oder fine cornmeal instead",
+          "savings": "vorhandenes Mehl verwenden und ~$3 sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "pizza (deutsche Fassung)",
+        "Teig",
+        "Backen",
+        "fermented (deutsche Fassung)",
+        "vegan (deutsche Fassung)",
+        "aus-scratch",
+        "neapolitan (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7486,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-pizza-dough/",
+      "components": [
+        {
+          "key": "4345f461-1da4-554c-98a8-2b8b5a3335f6",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 294.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "99b61629-e3ca-52c7-b6c4-156697ed5284",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "vorzugsweise Mehl Type 00 oder backstarkes Mehl, ~500g / 3.5 Tassen"
+            },
+            {
+              "key": "07a03b4f-df0d-5cf5-b576-ec91ed801c80",
+              "ingredientName": "Wasser",
+              "grams": 312,
+              "quantity": 312,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "lauwarm, ~325ml (65% Hydration)"
+            },
+            {
+              "key": "4795c399-7412-55dd-8ad6-8bccb67619de",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 1.5,
+              "quantity": 0.05,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/2 TL für eine langsame Gare"
+            },
+            {
+              "key": "cedb464d-3379-5354-a976-05e445daff9a",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "feines Meersalz, ~12g / 2 TL"
+            },
+            {
+              "key": "1b911d41-fa34-5930-8ff1-2cba6e82dc16",
+              "ingredientName": "Olivenöl",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "zum Einölen der Schüssel"
+            },
+            {
+              "key": "1b92e630-f9dc-5ded-9dc0-e8cfc9c08815",
+              "ingredientName": "Grieß",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "zum Bestäuben des Backschiebers, damit der Teig gleitet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dissolve der Hefe in der lukewarm Wasser und lassen it sit 5 Minuten bis it looks cloudy. in einer großen Schüssel, verquirlen der Mehl und Salz together, dann gießen in der Hefe Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "mischen mit ein wooden spoon oder dein hand bis no dry Mehl remains und ein shaggy, sticky Teig forms. Cover und rest 20 Minuten zu lassen der Mehl fully hydrate (autolyse).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "kneten der Teig auf ein lightly floured surface für 8-10 Minuten, oder stretch-und-unterheben in der Schüssel every 5 Minuten für 20 Minuten, bis glatt, elastic, und slightly tacky. It should pass ein windowpane test.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lightly Öl ein Schüssel, hinzufügen der Teig, cover tightly, und lassen rise bei Raumtemperatur für 1-2 Stunden bis nearly doubled.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Divide in two gleich balls, shaping je in ein tight round by tucking der edges underneath. legen in oiled containers, cover, und kalt-ferment in der fridge 24-72 Stunden für der best flavor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "entfernen der Teig 1-2 Stunden before Backen und lassen it come zu room temperature so it stretches easily.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Preheat der Ofen und ein pizza stone oder steel zu its highest setting (260C/500F oder hotter) für at least 45 Minuten. Gently stretch je ball in ein 12-inch round by hand, leaving ein puffy rim und never using ein rolling pin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Dust ein peel mit semolina, top der pizza, und backen 6-10 Minuten bis der crust is blistered, golden, und charred in spots.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Pizza_night-_dough_is_ready_%2833502053445%29.jpg/1280px-Pizza_night-_dough_is_ready_%2833502053445%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pizza_night-_dough_is_ready_(33502053445).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: terri_bateman — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Pizza Teig",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-garlic-knots",
+      "slug": "bake-garlic-knots",
+      "title": "Knoblauch Knots",
+      "instructions": "Pillowy pizza-Teig knots gebacken bis goldbraun, dann tossed while heiß in ein garlicky Butter loaded mit frisch Petersilie und parmesan. der klassisch pizzeria side that disappears off der tray in Minuten.",
+      "prepTimeMinutes": 55,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "ein 1 lb ball von aufbewahren-bought pizza Teig is usually cheaper than ein bakery loaf und makes ein full dozen knots.",
+        "verwenden der parmesan rinds und stems aus dein Petersilie für stock anstatt tossing them.",
+        "Melt der Butter in der still-warm Ofen oder microwave zu weglassen dirtying ein Pfanne, dann hinzufügen raw grated Knoblauch off der erhitzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "verwenden Olivenöl für ein dairy-free, vegan version",
+          "savings": "~$0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "parsley-fresh",
+          "swap": "1 tbsp getrocknet Petersilie",
+          "savings": "~$0.80 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Pecorino oder ein bestreuen von Knoblauch powder",
+          "savings": "~$0.50 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Knoblauch-knots",
+        "pizzeria (deutsche Fassung)",
+        "Brot",
+        "side (deutsche Fassung)",
+        "party (deutsche Fassung)",
+        "Vegetarier",
+        "gebacken",
+        "Backen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7487,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-garlic-knots/",
+      "components": [
+        {
+          "key": "d9ec0616-9df3-5b7a-b9fb-c7f04d4aef36",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 182.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "34427207-2b6c-52e1-bdcd-74aef9649a0e",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund Teigkugel, gekauft oder selbst gemacht, zimmerwarm"
+            },
+            {
+              "key": "4b67270f-fb7a-5ce7-9cc0-19a925d7a11b",
+              "ingredientName": "Butter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 5 EL, geschmolzen"
+            },
+            {
+              "key": "36db246c-d873-56eb-b8c9-c485d4fa61ed",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL für Teig und Form"
+            },
+            {
+              "key": "4a0475ec-9ffc-5f73-bf96-f357004448e7",
+              "ingredientName": "Knoblauch",
+              "grams": 0.6,
+              "quantity": 0.2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen, sehr fein gehackt oder gerieben"
+            },
+            {
+              "key": "7df62aed-aa68-5415-b0bc-6d103a886cf6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL fein gehackt"
+            },
+            {
+              "key": "0c1e6109-0ac8-58d2-ab38-d323e497acb1",
+              "ingredientName": "Parmesan",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse, fein gerieben, und mehr zum Verfeinern"
+            },
+            {
+              "key": "37eefa4f-1b2a-51ac-8bee-117e7eaef8f8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für die Butter und zum Bemehlen der Oberfläche"
+            },
+            {
+              "key": "b8c84037-765a-5b64-8c62-e6515269c20a",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "Prise für die Schärfe"
+            },
+            {
+              "key": "ec8f9ca1-d89b-5a91-9804-f7a2b76bb2df",
+              "ingredientName": "Weizenmehl",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Bestäuben der Arbeitsfläche"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "lassen der pizza Teig sit bei Raumtemperatur für 30-45 Minuten so it's relaxed und einfach zu stretch. erhitzen der Ofen zu 425F (220C) und line ein Backen sheet mit parchment.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lightly Mehl dein surface und pat der Teig in ein rough 8x10-inch rectangle. schneiden it in 12 strips etwa 3/4 inch wide, dann ausrollen je strip in ein 6-7 inch rope unter dein palms.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tie je rope in ein einfach knot, tucking der ends unter so they don't unravel. Arrange der knots auf der sheet etwa ein inch apart und brush lightly mit Olivenöl. lassen them rest 15 Minuten zu puff slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "backen für 15-18 Minuten, bis der knots are golden brown und sound hollow when tapped.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "While they backen, gently warm der geschmolzen Butter mit der fein gehackt Knoblauch bei niedriger Hitze für 1-2 Minuten just bis es duftet (do not brown der Knoblauch), dann umrühren in der gehackt Petersilie, Salz, und red Pfeffer flakes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "As soon as der knots come out, brush oder vermengen them generously mit der Knoblauch-Petersilie Butter so they soak it up while heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Shower mit der grated parmesan, vermengen once mehr, und warm servieren mit extra parmesan und ein side von marinara wenn du like.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/2022-01-28_15_54_50_A_plate_of_garlic_knots_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg/1280px-2022-01-28_15_54_50_A_plate_of_garlic_knots_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:2022-01-28_15_54_50_A_plate_of_garlic_knots_in_the_Dulles_section_of_Sterling,_Loudoun_County,_Virginia.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Famartin — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Knoblauch Knots",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-empanada-dough",
+      "slug": "bake-empanada-dough",
+      "title": "Empanada Teig",
+      "instructions": "ein tender, flaky hausgemacht masa para empanadas built der traditional way: kalt Butter schneiden in Mehl, bound mit ein Ei und ein splash von vinegared ice Wasser. It rolls out smooth, crimps in ein clean repulgue, und bakes up golden und sturdy enough zu hold any Füllung ohne leaking. Makes roughly 12 discs.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "ein bag von Mehl costs pennies per disc; making dein own Teig is far cheaper than buying gefroren tapas/discos und tastes noticeably better.",
+        "Swap der Butter für lard oder vegetable shortening, der traditional fat, für ein even flakier Teig at ein lower cost.",
+        "machen ein double batch, schneiden der discs, und freeze them stacked between parchment squares so du always have empanada Teig auf hand."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "verwenden lard oder vegetable shortening anstatt Butter für ein mehr traditional, flakier masa",
+          "savings": "~$0.80 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "vinegar",
+          "swap": "weglassen it, oder verwenden ein squeeze von Zitronensaft; both just tenderize der gluten",
+          "savings": "vernachlässigbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "meal-prep (deutsche Fassung)",
+        "argentine (deutsche Fassung)",
+        "empanada (deutsche Fassung)",
+        "Teig",
+        "pastry (deutsche Fassung)",
+        "aus-scratch",
+        "Backen",
+        "latin-american (deutsche Fassung)",
+        "machen-ahead",
+        "Vegetarier"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7488,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-empanada-dough/",
+      "components": [
+        {
+          "key": "424c66c3-8b81-577c-a01c-258c7356909e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 82.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "369037fd-d760-59d2-a900-a7f813650263",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 3 Tassen / 375g"
+            },
+            {
+              "key": "51081072-1fed-51a8-9767-685b789cbaef",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "kalte ungesalzene Butter, gewürfelt (~6 EL); traditionell wird der Teig mit Schweineschmalz gemacht"
+            },
+            {
+              "key": "154e6b47-2b6b-5e51-8d75-e2c2cde8f32b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97626479-6ec9-5c19-8eff-21f7889490be",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "d94f336b-b69e-5f1e-bad5-bbb0a775fcf0",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse eiskaltes Wasser, nach und nach zugegeben"
+            },
+            {
+              "key": "28d217bd-c194-5c34-a8e3-cb190e23f7fa",
+              "ingredientName": "Essig",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1 TL weißer Essig für einen zarten Teig"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "in einer großen Schüssel, verquirlen together der Mehl und Salz bis evenly combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "hinzufügen der kalt cubed Butter und rub it in der Mehl mit dein fingertips (oder schneiden mit ein pastry blender) bis der Mischung looks like coarse crumbs mit some pea-sized bits übrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in ein klein Schüssel, beat der Ei mit der vinegar und etwa 1/2 cup ice-kalt Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen der wet Mischung in der Mehl und umrühren, dann bring it together by hand, adding ein splash mehr kalt Wasser only wenn der Teig won't cohere. Do not overwork it.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Turn out onto ein clean surface und kneten just 5-6 times in ein smooth ball; der Teig should be soft but not sticky.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wrap tightly in plastic und rest in der fridge für at least 30 Minuten (up zu overnight) zu relax der gluten und firm der Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "ausrollen der chilled Teig out auf ein lightly floured surface zu etwa 2-3mm dick und schneiden in 5-inch (13cm) rounds using ein Schüssel oder cutter; gather und re-ausrollen der scraps once.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fill, unterheben, und seal je disc mit ein fork press oder twisted repulgue crimp. backen filled empanadas at 400F (200C) für 20-25 Minuten bis deeply golden, brushing mit Ei wash für shine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Empanada_-_Stu_Spivack.jpg/1280px-Empanada_-_Stu_Spivack.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Empanada_-_Stu_Spivack.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: stu_spivack — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Empanada Teig",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-cornbread-muffins",
+      "slug": "bake-cornbread-muffins",
+      "title": "Cornbread Muffins (deutsche Fassung)",
+      "instructions": "Golden, tender cornbread muffins mit crisp tops und ein moist, buttery crumb. Real buttermilk und ein hoch ratio von stone-gemahlen cornmeal geben them genuine corn flavor und ein light, slightly crumbly texture — just barely süß, der way ein great Southern-leaning muffin should be.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "No buttermilk? umrühren 1 tbsp vinegar oder Zitronensaft in 1.25 cups normal Milch und lassen it sit 5 Minuten — it curdles in ein perfect ersetzen.",
+        "kaufen cornmeal in der bulk bin; du only verwenden ein fraction von ein bag per batch und it keeps für months in der freezer.",
+        "backen ein double batch und freeze der extras — they reheat in 20 seconds in der microwave und taste frisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "normal Milch soured mit 1 tbsp vinegar oder Zitronensaft",
+          "savings": "~$1.50 pro Zubereitung gegenüber dem Kauf einer ganzen Packung Buttermilch"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Vegetable oder canola Öl (verwenden ein little weniger)",
+          "savings": "~$0.40 pro Zubereitung und hält Muffins besonders saftig"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Maple syrup oder just weglassen it",
+          "savings": "~$0.30 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "cornbread (deutsche Fassung)",
+        "muffins (deutsche Fassung)",
+        "Backen",
+        "southern (deutsche Fassung)",
+        "side (deutsche Fassung)",
+        "Vegetarier",
+        "comfort-food (deutsche Fassung)",
+        "brunch (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7489,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-cornbread-muffins/",
+      "components": [
+        {
+          "key": "1c4dd0a9-bb70-5404-ba04-495aae56807d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 91.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "b43ac765-b01b-5b1f-865f-26d762670ef0",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "auf Stein gemahlener gelber Maisgrieß, ~1.5 Tassen"
+            },
+            {
+              "key": "1943f952-92b2-5c0f-b785-882b19075f06",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl, ~1 Tasse"
+            },
+            {
+              "key": "5cf8d125-ea49-5f9f-b1f6-c2dcdd340c58",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "~3 EL; für süßere Muffins auf 1/4 Tasse erhöhen"
+            },
+            {
+              "key": "c1a9acac-ea89-5dcc-8124-6eb55ef6763e",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "62824b2b-6f33-5405-9927-4abdf9ecdaa3",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL, reagiert mit Buttermilch"
+            },
+            {
+              "key": "f547ef90-90fb-5e5b-b0aa-2bbc7c313f6e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6ce8cc3d-39a6-50fe-b83e-417b52736c0b",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "~1.25 Tassen"
+            },
+            {
+              "key": "2a6b0b32-f2df-5d98-abdc-da4d262e69a2",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c7e5779-6c3c-5a91-ac4e-846c2a33f652",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 EL, geschmolzen, und mehr für die Form"
+            },
+            {
+              "key": "27ab53da-7cdb-5cff-a785-349a7ec5a06a",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "2 EL, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 400F (200C) und grease ein 12-cup muffin tin generously mit Butter, oder line mit paper liners.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, verquirlen together der cornmeal, Mehl, Zucker, Backpulver, Natron, und Salz bis evenly combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in einer separaten Schüssel, verquirlen der Eier, dann verquirlen in der buttermilk bis glatt. verquirlen in der geschmolzen (but not heiß) Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen der wet ingredients in der dry und unterheben gently mit ein spatula just bis no dry streaks remain — der Teig should be dick und ein little lumpy. Do not overmix, oder der muffins turn tough.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "lassen der Teig rest 5 Minuten so der cornmeal hydrates und der crumb stays tender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Divide der Teig among der 12 cups, Füllung je etwa three-quarters full.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen 16 zu 19 Minuten, bis der tops are golden und ein toothpick inserted in der center comes out clean.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen in der tin 5 Minuten, dann turn out onto ein rack. warm servieren mit Butter und ein drizzle von Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Broccoli_Cheddar_Quinoa_Cornbread_Muffins_%2834470710350%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Broccoli_Cheddar_Quinoa_Cornbread_Muffins_%2834470710350%29.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Alpha via Wikimedia Commons — CC BY-SA 2.0",
+          "verifiedMatch": true,
+          "altText": "Photo von Cornbread Muffins",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

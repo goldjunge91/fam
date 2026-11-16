@@ -1,0 +1,979 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53330",
+      "slug": "tmdb-53330",
+      "title": "Cassava-Pizza",
+      "instructions": "Venezolanisches Schweinefleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "venezuela",
+        "schwein"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1780,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53330/",
+      "components": [
+        {
+          "key": "bb6754d3-bfd7-57cd-b3dc-d59afcbf857b",
+          "name": "Zutaten",
+          "servingGrams": 243.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "036c0c4f-7a54-5422-a856-43afce3a2f59",
+              "ingredientName": "Casabe",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c124b761-e63e-523a-a400-dd2ea2f0c954",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f052d54f-9b0c-51a0-9998-144c41c26bf7",
+              "ingredientName": "Chorizo",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8d68bc2-29b8-5891-b1d5-588e06344461",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d7ff209-7859-59de-beb2-331e11ee6bf8",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75a62567-5f75-5e88-9e2a-92c1d0793590",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5aac3f91-5726-5ee3-8d99-af1782390086",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a10e3dac-d59d-5dfd-a52d-5778522135ec",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 200ºC vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Speck oder Chorizo in mittelgroße Stücke und Paprika in Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede Portion Cassava mit etwas Tomatensauce und Mozzarella bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Speck oder Chorizo, Mais, Putenaufschnitt, einige Oliven und Paprika daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "7 bis 10 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Ofen nehmen und genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/lrfdwz1764438393.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/lrfdwz1764438393.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53055",
+      "slug": "tmdb-53055",
+      "title": "Ćevapi-Würstchen",
+      "instructions": "Kroatisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kroatisch",
+        "rindfleisch",
+        "würstchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1781,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53055/",
+      "components": [
+        {
+          "key": "1f524de8-1cc5-5e7f-b1a0-2abbf6f4d77b",
+          "name": "Zutaten",
+          "servingGrams": 431.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "49bbfa82-5b70-50d7-9c37-5300b08e70e6",
+              "ingredientName": "Rinderhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "609487fe-12e7-59e7-91d2-9fe617ebeef9",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83f9b814-a890-56e7-9dbe-8844e3a0a4d0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93eb2368-ebe3-5930-88c7-c6c0fe34c889",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26bf0d03-1efd-58f5-976a-b48624829951",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f09bf14e-4714-567e-ab9d-9f8cac3af7b5",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34a117f0-f0f8-5490-8829-d37b5ba49a7c",
+              "ingredientName": "Backpulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fde4aa5-cd0c-56eb-ae9f-8efc14cc3581",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca16ba23-3896-51f5-bf88-c4e0ea14506a",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d713b59e-a35b-5eaf-8cd5-a8c44448ec52",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a50ea233-4662-5924-80d6-e609d043446f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dbd3647-069d-5ef1-ba30-21518b7f96e1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hackfleisch in eine Schüssel geben. Zwiebel sehr fein hacken und Knoblauch reiben. Beides dazugeben. Gehackte Petersilie, Paprikapulver, Natron, getrocknete Semmelbrösel, Wasser, Vegeta, Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit dem Handmixer und Knethaken gut vermengen. Schüssel mit Frischhaltefolie abdecken und 1 oder 2 Stunden im Kühlschrank ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Portionen von etwa 50-55 g/ 1.7-1.9 oz/ ¼ Tasse abnehmen und Ćevapi formen. Die Rollen sollten etwa daumendick und 7-10 cm/ 3-4 inches lang sein. Ich habe 18 Würstchen erhalten. Das Rezept lässt sich leicht verdoppeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ćevapčići in einer heißen Grillpfanne oder auf dem Grill etwa 12-14 Minuten grillen, dabei mehrmals wenden, bis sie gebräunt und durchgegart sind. Zur Kontrolle eines in der Mitte anschneiden und die übrigen Portionen genauso lange grillen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wie oben vorgeschlagen heiß servieren. Im Ofen bei 180 Grad Celsius/ 350 Grad Fahrenheit etwa 10 Minuten aufwärmen oder bis sie heiß sind. Prüfen und bei Bedarf noch einige Minuten erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/vc08jn1628769553.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/vc08jn1628769553.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52969",
+      "slug": "tmdb-52969",
+      "title": "Chakchouka",
+      "instructions": "Tunesisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "tunesisch",
+        "sonstiges"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1782,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52969/",
+      "components": [
+        {
+          "key": "ab93d9d9-a087-55c2-9bec-2aeef0eccfc7",
+          "name": "Zutaten",
+          "servingGrams": 532.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "3bb2131c-b5c0-59aa-885d-7536763b5c33",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fb12561-2fc9-5717-86d8-1065d5fb5085",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bb0de8a-ea9a-591e-b7bb-b11eba043f88",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "252fe554-2c8c-5aac-884a-3c2d39f40015",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0407826f-2767-5796-9084-681fc7010b8b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1896bf38-fd6a-5a5c-9e84-5adace100c22",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b495b80-be93-5098-9897-2b5cbb9f208e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2678a2b0-7c20-5ddc-b34c-3611c9e54aad",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "267adaf2-c246-5d94-a04a-547f219cde54",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf8f6e06-50f7-58aa-8e9a-83570e0a659f",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb02e907-e1fe-5e11-a36e-607678a17342",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer großen gusseisernen oder beschichteten Pfanne mit Deckel bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel dazugeben und 2-3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Paprika und Knoblauch dazugeben und weitere 3-5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomaten, Kreuzkümmel, Paprikapulver, Salz und Chilipulver hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gut vermengen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze auf mittelniedrige Stufe reduzieren und ohne Deckel 10-15 Minuten köcheln lassen, bis die Mischung die gewünschte Dicke erreicht. Sauce abschmecken und nach Belieben würzen. Mit dem Löffelrücken vier Mulden formen, die groß genug für je ein Ei sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In jede Mulde ein Ei aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Pfanne abdecken und 5-7 Minuten köcheln lassen, bis die Eier gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort mit knusprigem Brot oder Pita servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/gpz67p1560458984.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/gpz67p1560458984.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53310",
+      "slug": "tmdb-53310",
+      "title": "Challa",
+      "instructions": "Polnische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1783,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53310/",
+      "components": [
+        {
+          "key": "76ce7a7c-084d-5b1b-b158-24983fe09aa6",
+          "name": "Zutaten",
+          "servingGrams": 49.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e510de9-493f-5cbc-ad66-2642abd5e9ae",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c5ba967-84ed-54ff-8c61-95ee9dca5156",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a46a059-2b4d-5aa6-afff-4328f150a778",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d661f969-f734-53c2-a1c1-9ae2a1f46e07",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cbd75de-28d8-5fd4-b25d-e8c8603eccd1",
+              "ingredientName": "Olivenöl",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29663784-0475-50cf-84df-eb58534944f1",
+              "ingredientName": "Mohn",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe mit einer Prise Zucker und ein paar Esslöffeln lauwarmem Wasser in einer kleinen Schüssel verrühren. Rühren, bis die Hefe aufgelöst ist, und 10 Minuten stehen lassen, bis sich Schaum bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Inzwischen Mehl, restlichen Zucker und 2 TL feines Salz in einer großen Schüssel vermischen. In der Mitte eine Mulde formen. Die Hälfte des verquirlten Eis, die Hefemischung und Öl hineingeben. 200ml lauwarmes Wasser angießen, mit einem Löffel verrühren und dann mit einer Hand zu einem Teig vermengen. Falls viel trockenes Mehl übrig bleibt, nach und nach wenig Wasser dazugeben. Der Teig soll nicht zu nass oder klebrig werden, sondern feucht, aber nicht matschig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig auf eine leicht bemehlte Fläche geben und 10 Minuten mit beiden Händen kneten, bis er glatt und elastisch ist. Bei starker Klebrigkeit nur sehr wenig Mehl ergänzen. Ein Teigschaber hilft, wenn der Teig an der Fläche haftet. Teigränder nach unten ziehen und zu einer Kugel formen. Eine Schüssel leicht einölen und Teigkugel darin rollen, bis sie mit Öl überzogen ist. Mit einem sauberen Geschirrtuch abdecken und an einem warmen Ort 1 Stunde gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backblech mit Backpapier auslegen. Teig auf eine saubere Arbeitsfläche geben und in drei gleiche Stücke teilen. Für mehr Genauigkeit abwiegen, wenn gewünscht. Jedes Stück zu einer etwa 25cm langen Rolle formen und die Enden leicht verjüngen. Rollen parallel mit ein paar Zentimetern Abstand vor sich legen. Oben zusammendrücken und bis zum Ende flechten. Enden unter das Brot schlagen. Brot vorsichtig auf das Blech legen und locker mit einem sauberen Geschirrtuch abdecken. Etwa 40 Minuten gehen lassen, bis es luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Inzwischen Backofen auf 200C/180C Umluft/Gasstufe 6 erhitzen. Restliches verquirltes Ei vorsichtig auf der gesamten Challa verstreichen, auch in den Vertiefungen. Nach Belieben mit Mohn oder Sesam bestreuen. Auf mittlerer Schiene 25-30 Minuten backen, bis der Laib unten goldbraun ist und beim Klopfen hohl klingt. Nach etwa 15 Minuten prüfen. Wenn die Oberseite zu dunkel wird, mit Folie abdecken. Auf einem Gitter abkühlen lassen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/fm01ky1764366365.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/fm01ky1764366365.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53290",
+      "slug": "tmdb-53290",
+      "title": "Käse-Börek",
+      "instructions": "Algerische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "algerisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1784,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53290/",
+      "components": [
+        {
+          "key": "ff7fd3db-19a1-52ad-8f9c-2ff11e9d1f45",
+          "name": "Zutaten",
+          "servingGrams": 454.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "be7fb2d9-f742-5cd3-875c-2f46194b6a8e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20c08a04-d327-5c66-b3f6-5dc9b2e9b123",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afbed064-bbc8-5361-8a76-6d9a286a8a43",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "283711bc-544a-58fd-9c15-9bb4354693d0",
+              "ingredientName": "Chiliflocken",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aeaeaf48-f51c-51d6-9098-ad2182b2066e",
+              "ingredientName": "Gouda",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4ee2f5e-fa13-5a1a-99af-5e559222c7f0",
+              "ingredientName": "Geriebener Käse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c76ea58e-a668-5cf2-a276-590cea1fbb0b",
+              "ingredientName": "Filoteig",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc4a2a16-6233-5788-9ab5-a3ad4deead6e",
+              "ingredientName": "Butter",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ei, Petersilie, Knoblauch und zerstoßene Chiliflocken in einer mittelgroßen Schüssel verquirlen. Gouda und Emmentaler einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein Filoblatt nach dem anderen auf eine ebene Fläche legen und mit etwa 1 EL Butter bestreichen. Der Länge nach in 4 Streifen schneiden. Jeweils einen gehäuften Teelöffel der Eiermischung an ein Ende geben. Ecke des Streifens über die Füllung falten, sodass ein Dreieck entsteht. Streifen weiter dreieckig falten, bis ein kleines gefülltes Dreieck entsteht. Mit dem übrigen Filoteig wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backofen auf 350 Grad F (175 Grad C) vorheizen. Ein großes Backblech leicht einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gefüllte Filoteigdreiecke in einer Lage auf dem vorbereiteten Blech verteilen. Im vorgeheizten Ofen 30 Minuten backen, bis sie leicht gebräunt sind. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

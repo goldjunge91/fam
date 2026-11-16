@@ -1,0 +1,1084 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-thit-nuong-xa",
+      "slug": "gen-thit-nuong-xa",
+      "title": "Thịt Nướng Sả",
+      "instructions": "Vietnamesisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter kaufen; sie ist das günstigste Schweinefleischstück",
+        "Fischsauce der Eigenmarke verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2535,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thit-nuong-xa/",
+      "components": [
+        {
+          "key": "fcfe7cf6-79fc-56a6-a056-290fabbb5cbd",
+          "name": "Zutaten",
+          "servingGrams": 373.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "510ec964-e5ad-5582-87fb-68d86e2718e7",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "6a1ab736-7830-5701-a080-b5c73a7db921",
+              "ingredientName": "Zitronengras",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "79aa7646-49b0-5821-b45a-fce7631e4585",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 fein gehackt"
+            },
+            {
+              "key": "921e5312-3f4c-5b97-8c59-fd6065ef239f",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "d6a7fe1f-3034-5d54-b97a-551ac760d98a",
+              "ingredientName": "Fischsauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "799ea0ed-77b0-53c8-a75a-e67f70f6bd1a",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f3adb7c1-d5ba-5f7e-b701-f5d224e91451",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "465a31bc-35e2-5138-a0ac-35032bd0885b",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "522f4af8-52a6-58d0-8ab4-94c677897fb9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "77b549be-57ea-57fa-8841-c1dfebe1b872",
+              "ingredientName": "Holzspieße",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Holzspieße mindestens 30 Minuten in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehacktes Zitronengras, Knoblauch, Schalotten, Fischsauce, Zucker, Limettensaft, Öl und schwarzen Pfeffer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittenes Schweinefleisch zur Marinade geben und wenden. 15 Minuten marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Marinierte Schweinefleischscheiben auf Spieße stecken und das Fleisch dabei falten und schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grillpfanne oder Außengrill auf mittelhohe Hitze erhitzen und Spieße auf jeder Seite 3–4 Minuten grillen, bis die Ränder verkohlt und das Fleisch durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß mit Reis, frischem Gemüse und zusätzlicher Dip-Sauce aus der aufbewahrten, mit Wasser vermischten Marinade servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/thit-heo-nuong-xa-vietnamese-grilled-lemongrass-pork-chops-v0-1hidgs8i52vb1.jpg?s=cf955c440c453d951fbcd4c9f6e8f40802c98d07",
+          "sourcePageUrl": "https://i.redd.it/thit-heo-nuong-xa-vietnamese-grilled-lemongrass-pork-chops-v0-1hidgs8i52vb1.jpg?s=cf955c440c453d951fbcd4c9f6e8f40802c98d07",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-canh-chua-tom",
+      "slug": "gen-canh-chua-tom",
+      "title": "Canh Chua Tôm",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte statt frische Garnelen kaufen; sie sind günstiger und funktionieren ebenso gut",
+        "Ananas aus der Dose im Saft verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2536,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-canh-chua-tom/",
+      "components": [
+        {
+          "key": "ff06bda8-11e3-584b-81b6-07e64f4d4235",
+          "name": "Zutaten",
+          "servingGrams": 809.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f84eb3a-0b12-5ed6-ae63-76f7046e2908",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6654f1c4-2fdb-58f1-ac54-e3649590d267",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "e92f6de4-3591-5755-9f08-b76870ac2078",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3c4db043-992b-5ec3-8767-c202c473e140",
+              "ingredientName": "Ananas",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d2820b7c-f009-5d9c-979a-cd7712248aef",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackte"
+            },
+            {
+              "key": "ba0296c0-505e-510b-9dab-566cc92b9f80",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 oz, in Scheiben geschnitten"
+            },
+            {
+              "key": "3ef1ccca-3d8e-5c92-b40d-d99243ffc9ef",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "ac5e85e6-4871-5463-828d-9c41f683c77c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "5e93990f-e3dd-5e11-bcab-bedf61e78e9e",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2dc8030a-cb2c-5924-8b9d-1f6a5b705a3e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "acd539dd-ef8b-5407-95a0-46681ac2fc3d",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "aeb73c8b-f311-5522-a34c-837eb24e90cd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gemüsebrühe in einem großen Topf zum Kochen bringen und gehackten Knoblauch sowie geschnittene Zwiebel dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tamarindenpaste, Fischsauce und Zucker einrühren und 3 Minuten köcheln lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ananasstücke und gehackte Tomaten dazugeben und erneut zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen und Okrascheiben dazugeben und 4–5 Minuten köcheln lassen, bis die Garnelen rosa und die Okra weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackte Thai-Chilis einrühren und abschmecken. Nach Wunsch Fischsauce oder Tamarinde ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Schalen schöpfen, mit frischem Koriander garnieren und heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfffWCPwIsS_xKnd7FakNiYhaWkLWXHmUe8z87WbvX0_Y-8C7_YihLLdLDenmekdURe-HNh781QgekHTEBh9q1yTd5qslGTOqytIjxAFVGbjm0Y3M5DPSXt90i1vwMN2faPhbWpifRwEVsgMWlpHHfLAwg?key=obb0iaOV-bjzt2iWXIGkxg",
+          "sourcePageUrl": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfffWCPwIsS_xKnd7FakNiYhaWkLWXHmUe8z87WbvX0_Y-8C7_YihLLdLDenmekdURe-HNh781QgekHTEBh9q1yTd5qslGTOqytIjxAFVGbjm0Y3M5DPSXt90i1vwMN2faPhbWpifRwEVsgMWlpHHfLAwg?key=obb0iaOV-bjzt2iWXIGkxg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiropita",
+      "slug": "gen-tiropita",
+      "title": "Tiropita",
+      "instructions": "Griechisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Filoteig im Angebot kaufen und einfrieren",
+        "Feta der Eigenmarke verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2537,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiropita/",
+      "components": [
+        {
+          "key": "ec4eda9c-72a4-5141-9706-4f67950f8391",
+          "name": "Zutaten",
+          "servingGrams": 128.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0462a0c3-57f1-5877-be6c-5ee6549fb4e5",
+              "ingredientName": "Filoteig",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1-Pfund-Packung"
+            },
+            {
+              "key": "64b6be17-5aca-56ec-bd68-07eda2cf2123",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, zerbröselt"
+            },
+            {
+              "key": "0401c180-b33c-5b94-b414-1305059c59d4",
+              "ingredientName": "Ricotta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "80c84953-7914-5f78-a8a7-d0ec445ea957",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "eb87ac6c-d8f6-5b39-9413-023916748104",
+              "ingredientName": "Frischer Dill",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel, gehackt"
+            },
+            {
+              "key": "598ef823-14a4-5984-9e1c-4acdd921943a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, geschmolzen"
+            },
+            {
+              "key": "ff0e4752-be1a-569c-a543-43f3c576f1aa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f86abf54-8fa9-52fc-9443-fffbd9a6e108",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 350°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Feta, Ricotta, Eier, Dill, Salz und Pfeffer in einer Schüssel gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Backform von 9x13 mit geschmolzener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "4 Filoteigblätter in die Form legen und jedes Blatt mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Käsemischung gleichmäßig auf dem Filoteig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Übrige Filoteigblätter darauflegen und jedes mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tiropita mit einem scharfen Messer in Quadrate oder Dreiecke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "35–40 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2014/02/tiropita-1-11.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2014/02/tiropita-1-11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kolokithokeftedes",
+      "slug": "gen-kolokithokeftedes",
+      "title": "Kolokithokeftedes",
+      "instructions": "Griechischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normalen Joghurt statt griechischen Joghurt verwenden, um Geld zu sparen",
+        "Eine größere Menge zubereiten und Reste für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2538,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kolokithokeftedes/",
+      "components": [
+        {
+          "key": "683974ff-227e-5ac8-a464-7d1c0cd3815b",
+          "name": "Zutaten",
+          "servingGrams": 298.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "30a4af78-75c1-5052-935a-324e07141325",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "37cac004-cff0-5fa9-88e0-6435283d3621",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f96dd77e-45e7-575c-b9ac-f9da1a8a81d8",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, zerbröselt"
+            },
+            {
+              "key": "9589a8c3-f139-53c4-b3b7-7e611f9940f7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "dfd8f8b1-ccb4-561d-8af0-7905d22dce3c",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "37ff91cb-47e5-5068-8187-970184227456",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "58060c89-cccf-5e6b-8936-94fcb4ee7831",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "a2a7f2e4-1e03-5a36-bc75-c80ff769cae4",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Frittieren"
+            },
+            {
+              "key": "fcbd9440-44e4-50d4-904c-311cebebc924",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zucchini reiben und überschüssige Feuchtigkeit mit einem sauberen Tuch ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucchini mit Feta, Mehl, Eiern, Minze, Salz und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffelweise Mischung ins heiße Öl geben und mit der Löffelrückseite leicht flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf jeder Seite 2–3 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Küchenpapier abtropfen lassen und warm mit griechischem Joghurt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/07/zucchini-fritter-recipe-46-1024x683.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/07/zucchini-fritter-recipe-46-1024x683.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yemista-domates",
+      "slug": "gen-yemista-domates",
+      "title": "Yemista Domates",
+      "instructions": "Griechisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Generischen Langkornreis statt besonderer Reissorten verwenden",
+        "Tomaten während der Saison zu günstigeren Preisen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "griechisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2539,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yemista-domates/",
+      "components": [
+        {
+          "key": "a860335a-718d-5e51-b9ce-303129839406",
+          "name": "Zutaten",
+          "servingGrams": 316.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "a101fb62-3a28-5cc3-bccc-b4666be9ec70",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bc2357c-eb40-52f8-b34a-c416a4d9f0f4",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e130444e-e364-56a0-880e-5b544445aa4f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "7b1ce10a-ed87-596e-a957-22cc8e50b52e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "6f629a63-3c0f-5a2f-bc21-d5ea240e8392",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "790b548d-e921-592e-a3ff-4a86cf767687",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel, gehackt"
+            },
+            {
+              "key": "711a7652-0d46-5084-98b4-7e99d5c31234",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "9940777c-aae2-5aee-a3cc-b4865f3115c8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f50ebfea-6c8d-5f12-b050-bef037751e28",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "cc1c4a63-9eec-5552-88d3-ba930cee19d2",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 375°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomaten oben abschneiden und das Innere herauslöffeln. Saft aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einer Pfanne erhitzen und Zwiebel sowie Knoblauch weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis in die Pfanne geben und 2 Minuten rühren. Dann Tomatensaft, Wasser, Petersilie, Dill, Salz und Pfeffer dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reismischung 10 Minuten köcheln lassen, bis sie teilweise gegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Tomate mit der Reismischung füllen, in eine Auflaufform setzen und mit Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "35–40 Minuten backen, bis die Tomaten weich und der Reis gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/59/67/2/YUCtvx6ZToitn8029vEX_StuffedPeppers-3.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/59/67/2/YUCtvx6ZToitn8029vEX_StuffedPeppers-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

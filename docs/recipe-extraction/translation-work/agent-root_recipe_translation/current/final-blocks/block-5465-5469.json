@@ -1,0 +1,977 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-potato-wellington",
+      "slug": "gen-potato-wellington",
+      "title": "Kartoffel-Wellington",
+      "instructions": "Französisches bzw. amerikanisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Blätterteig im Angebot und lagere ihn im Gefrierfach.",
+        "Verwende normale Champignons statt brauner Champignons, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5465,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-potato-wellington/",
+      "components": [
+        {
+          "key": "dea78a46-0fbd-519d-a08b-2ef185a0fc70",
+          "name": "Zutaten",
+          "servingGrams": 108.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ecce01e-7d3d-54e4-94d8-73f00a11ceea",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "f1a8c395-9fff-5285-abde-39f32ec3d5e0",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "4909b315-2acb-5de9-9f9b-296d2c68f053",
+              "ingredientName": "Blätterteig",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund aufgetaut"
+            },
+            {
+              "key": "7be4446f-1801-5107-885b-2de9e2d43685",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen gehackt"
+            },
+            {
+              "key": "e261a599-fa04-5455-8828-10f76f4a8bd8",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "00ec02d5-07d3-585d-b33d-7a532b360f68",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81b2472e-98cb-555a-bddf-b321f5f68976",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c3ff94d1-4eb0-50b3-9f56-1a7fa80c0835",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed1e82b9-b01a-5e48-a55d-304d099a8718",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die gewürfelten Kartoffeln 15 Minuten in Salzwasser, bis sie weich sind. Gieße sie ab und zerdrücke sie mit 2 Esslöffeln Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste fein gehackte Pilze, Schalotten und Knoblauch in der übrigen Butter etwa 10 Minuten an, bis die Flüssigkeit verdampft ist. Rühre Petersilie ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse Kartoffelpüree und Pilzmischung auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Blätterteig aus und schneide ihn in 4 Rechtecke. Verteile die Pilz-Kartoffel-Mischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Ecken des Teigs nach oben und verschließe die Ränder mit Wasser. Bestreiche die Oberseite mit verquirltem Eigelb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Päckchen auf ein mit Backpapier ausgelegtes Blech und backe sie bei 400°F 20-25 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2025/05/Beef-Wellington-SpendWithPennies-12.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2025/05/Beef-Wellington-SpendWithPennies-12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pommes-sarladaises",
+      "slug": "gen-pommes-sarladaises",
+      "title": "Pommes Sarladaises",
+      "instructions": "Französisches bzw. amerikanisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den Trüffel ganz weg und verwende frische Petersilie; so sparst du 90% der Kosten und erhältst einen authentischen Geschmack.",
+        "Kaufe Speck im Angebot und friere ihn portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5466,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pommes-sarladaises/",
+      "components": [
+        {
+          "key": "5378b18a-7a37-52ea-aba7-cb7d48eaa966",
+          "name": "Zutaten",
+          "servingGrams": 141.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2a2a301-953a-5892-b8bc-d9800c95dec0",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "67f723b5-59d8-5a96-9599-10722b2803d2",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "42f863eb-dc15-519b-8612-7e17d15f53f6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6636e21f-cc7c-5f7d-a61c-41cde0fa29c8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "10f709b7-127c-5d30-9a41-ae9c13b31797",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Unzen"
+            },
+            {
+              "key": "0db7d457-b3c4-557a-8c65-dfa2cde9019d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d7952ea5-247c-58c6-8e4d-1aec510937d3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in 1/4-inch dicke Scheiben und den Speck in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Speck in einer großen Pfanne bei mittlerer Hitze knusprig. Nimm ihn mit einer Schaumkelle heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Kartoffelscheiben portionsweise in das Speckfett. Brate sie unter gelegentlichem Wenden 15-20 Minuten goldbraun und weich. Überfülle die Pfanne nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Speck zurück in die Pfanne. Füge gehackten Knoblauch hinzu und brate ihn 1 Minute an, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd und vermische den Inhalt mit gehackter Petersilie und Trüffel oder zusätzlicher Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer und serviere die Kartoffeln sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.frenchrevolutionfood.com/wp-content/uploads/2011/01/Potatoes-Sarladaises.jpg",
+          "sourcePageUrl": "http://www.frenchrevolutionfood.com/wp-content/uploads/2011/01/Potatoes-Sarladaises.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bravas-potatoes",
+      "slug": "gen-bravas-potatoes",
+      "title": "Bravas-Kartoffeln",
+      "instructions": "Französisches bzw. amerikanisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Mayonnaise und Ketchup einer Hausmarke statt teurer Marken.",
+        "Seihe das Frittieröl durch ein Tuch ab und lagere es kühl, damit du es erneut verwenden kannst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5467,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bravas-potatoes/",
+      "components": [
+        {
+          "key": "5e8c37fc-5c49-5769-a400-8ca83db09afd",
+          "name": "Zutaten",
+          "servingGrams": 66.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "5dffb38c-8982-5199-bd18-03170fe21e41",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "68fc9076-b07b-5f8f-abec-4ab867a3ec50",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Braten"
+            },
+            {
+              "key": "19cb8cc3-dfaa-574d-96d9-48cc70899931",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ac0248f8-bf88-5eda-b5f4-5c774b4ddfc2",
+              "ingredientName": "Ketchup",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8185c415-bcca-56d2-8331-eaaffcf575cc",
+              "ingredientName": "Scharfe Soße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1-2 Teelöffel"
+            },
+            {
+              "key": "d2cd109a-f52e-5216-8f41-f29b181b6074",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "193d2720-5846-54b3-bcc4-c76828400a0a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a753d284-a970-5738-9ee5-fef692e3aa5d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in 1-inch große Würfel und tupfe sie mit Küchenpapier gründlich trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem tiefen Topf oder einer Fritteuse auf 350°F. Frittiere die Kartoffeln portionsweise 10-12 Minuten knusprig und goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse sie auf Küchenpapier abtropfen und bestreue sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Mayonnaise, gehackten Knoblauch, Ketchup und scharfe Sauce zu einer Bravas-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die heißen Kartoffeln an und beträufle sie mit der Sauce oder serviere die Sauce separat zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere sie mit frischer gehackter Petersilie und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mKF-nBxksi-jyCl2aTRR_hR4Lp8=/6240x4160/filters:fill(auto,1)/spanish-patatas-bravas-recipe-3083718-hero-01-6b6c963b3bca4bbbbe626324e05fd627.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mKF-nBxksi-jyCl2aTRR_hR4Lp8=/6240x4160/filters:fill(auto,1)/spanish-patatas-bravas-recipe-3083718-hero-01-6b6c963b3bca4bbbbe626324e05fd627.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baked-potato-bar-special",
+      "slug": "gen-baked-potato-bar-special",
+      "title": "Ofenkartoffel-Bar mit Toppings",
+      "instructions": "Französisches bzw. amerikanisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Brokkoli statt frischen und spare 40%.",
+        "Nutze Speckstücke aus dem Glas statt echtem Speck, um deutlich Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5468,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-potato-bar-special/",
+      "components": [
+        {
+          "key": "42b05435-c914-5b32-be10-8e561edcaec6",
+          "name": "Zutaten",
+          "servingGrams": 707.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e65e7bd6-dee4-5ee6-9e41-83b95aba3261",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "75303787-1668-53e6-9e95-50b049f24d90",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "29cf575a-a5da-521e-a4b0-4d0aee9f18a4",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b7d34ef3-830b-5391-959d-759db8867c41",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "9ab44dd5-507a-536f-88c3-46819635f9a6",
+              "ingredientName": "Brokkoli",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen gehackt"
+            },
+            {
+              "key": "11e377ab-0efb-5f4e-9ce0-d987f5911d07",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "40964a5f-a4bf-5082-94f4-9bf8a19d1672",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Stangen"
+            },
+            {
+              "key": "e2697798-abaf-5f31-8fa1-cc3dc29c627e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und backe die Kartoffeln 40 Minuten, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere den Brokkoli 3-4 Minuten in kochendem Salzwasser und lasse ihn gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere die gebackenen Kartoffeln längs und lockere das Innere mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege jede Kartoffelhälfte mit Butter, Sauerrahm, Käse, Brokkoli und Speckstückchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe die Kartoffeln weitere 5 Minuten in den Ofen, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere sie mit geschnittenen Frühlingszwiebeln und serviere sie heiß. Weitere Toppings kannst du separat dazustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/k/Photo/Recipe%20Ramp%20Up/2022-09-Baked-Potato-Bar/baked_potato_bar_2_of_3",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/k/Photo/Recipe%20Ramp%20Up/2022-09-Baked-Potato-Bar/baked_potato_bar_2_of_3",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pommes-boulang-re",
+      "slug": "gen-pommes-boulang-re",
+      "title": "Pommes Boulangère",
+      "instructions": "Französisches bzw. amerikanisches Abendessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zwiebeln und Kartoffeln lose, um Verpackung und Kosten zu sparen.",
+        "Ersetze Rinder- oder Hühnerbrühe durch Gemüsebrühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5469,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pommes-boulang-re/",
+      "components": [
+        {
+          "key": "b1014bca-38b8-5032-8c8f-4c8607c617c8",
+          "name": "Zutaten",
+          "servingGrams": 260,
+          "position": 0,
+          "items": [
+            {
+              "key": "e673fae9-de11-5685-b746-b3ce9fc9d5cf",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "cbb580d5-d37b-55ab-bc80-a784c3a32630",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "199a4d75-394c-5d40-adf7-afc2c7c1f44c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6964e24e-1237-52e5-abd1-798c6d3c7f10",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1b35fcca-f295-5e61-a5ba-66a92f346da7",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "39b9e290-d8b7-52a5-ad83-499a919dd265",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a71fe74f-cfef-5cc0-8664-aad1555887d9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ddbbd3e1-68f5-5170-9bd9-41030be113a4",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und fette eine 9x13 Auflaufform mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die Kartoffeln und schneide sie in 1/8-inch dünne Scheiben. Schneide die Zwiebeln in dünne Halbringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte die Hälfte der Kartoffeln in die Form und würze sie mit Salz und Pfeffer. Gib die Zwiebeln und anschließend die übrigen Kartoffeln darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze die Brühe mit Thymian und Lorbeerblatt und gieße sie über die Kartoffeln, bis diese gerade bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Butterflöckchen darauf. Decke die Form mit Folie ab und backe alles 35-40 Minuten, bis die Kartoffeln sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne die Folie und backe die Kartoffeln weitere 5-10 Minuten, bis die Oberfläche zu bräunen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse das Gericht 5 Minuten ruhen und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1706823081/k/Edit/2024-02-pommes-boulangere/pommes-boulangere-1.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1706823081/k/Edit/2024-02-pommes-boulangere/pommes-boulangere-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

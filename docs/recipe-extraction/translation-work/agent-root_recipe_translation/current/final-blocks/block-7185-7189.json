@@ -1,0 +1,1039 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-faggots-and-peas",
+      "slug": "gen-faggots-and-peas",
+      "title": "Faggots und Peas",
+      "instructions": "Walisisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen Schweinefleisch offal aus butchers; it's much cheaper than other cuts.",
+        "verwenden aufbewahren-brand gefroren peas anstatt frisch."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "welsh (deutsche Fassung)",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7185,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-faggots-and-peas/",
+      "components": [
+        {
+          "key": "d3057d59-3a0c-5632-8d80-52a89227daac",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 353.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "338f4223-7553-5192-9cb1-12832b0ac62b",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c833f78e-bbef-5e87-bafd-dd1eb171bd50",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "77402fd4-9072-5a93-84de-98c662d9931b",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0e5b2d1e-70b8-575a-9f68-b5e1c55a55e7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "82081c97-e469-5d49-9cc8-b509a21ef582",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "959acd77-aa35-577c-83c5-b1f4d059d0ef",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "bd13b387-6a14-506a-92b3-3b0d6459121d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4dba4893-0907-5af1-a9e0-eb4a8d04a9b6",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d9da7c41-484d-5f58-a99b-b183905dacf3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "099d44f7-198a-5983-b87e-3031fbdb821f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 350°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "mischen Schweinefleisch, liver, breadcrumbs, Zwiebel, Salbei, Ei, Salz, und Pfeffer in ein Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Form Mischung in 8 balls und legen in ein Backen Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen Rindfleisch Brühe around der faggots.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "backen für 35-40 Minuten bis es vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "umrühren in gefroren peas during der last 5 Minuten von cooking.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "köcheln auf stovetop für 2-3 Minuten zu erhitzen through.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "servieren faggots mit peas und gravy aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fh1UD_vtX4Q3WTRiUwlDWqVYDOQ=/4288x2848/filters:fill(auto,1)/classic-british-faggots-recipe-435283-Hero-5b86feb9c9e77c0050be9ea8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fh1UD_vtX4Q3WTRiUwlDWqVYDOQ=/4288x2848/filters:fill(auto,1)/classic-british-faggots-recipe-435283-Hero-5b86feb9c9e77c0050be9ea8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tatws-pwnc",
+      "slug": "gen-tatws-pwnc",
+      "title": "Tatws Pwnc (deutsche Fassung)",
+      "instructions": "Walisisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen bacon in bulk wenn im Angebot und freeze in portions.",
+        "verwenden aufbewahren-brand Milch und Butter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "welsh (deutsche Fassung)",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7186,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tatws-pwnc/",
+      "components": [
+        {
+          "key": "99fbf88c-1b8e-5d72-acd9-1071042db136",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 237.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "106a64f3-3f34-50ba-9754-02e94bc88d8e",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "377eec4e-6c1a-51b4-b83c-d0e55f34545d",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "59314994-393d-5c3b-a800-a3502444d89d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "cffdbacc-f32f-5e43-8d73-161d1d5af0fc",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f936b758-75f1-5634-973c-5f2022e7d6d3",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cf3c67db-cc8d-5549-b89b-a450f3cd72c6",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "aedc9a9e-e089-5a6b-9b34-a41fa46d2349",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "02db4dba-b60e-5e07-8ca8-eb3f4689e54c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "garen gewürfelt potatoes in salted boiling Wasser für 12-15 Minuten bis just tender, dann drain.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Meanwhile, fry bacon Stücke in ein groß Pfanne bis crispy und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in derselben Pfanne, sauté gewürfelt Zwiebeln in bacon fat und Butter bis soft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen gegart potatoes zu der Pfanne mit Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "gießen Milch über der Mischung und erhitzen gently, stirring carefully.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Würze mit salt and pepper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "zurückgeben bacon zu der Pfanne und mischen gently.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "garnieren mit Petersilie und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fabulousfusionfood.com/Images/tatws-popty-porc.png",
+          "sourcePageUrl": "https://www.fabulousfusionfood.com/Images/tatws-popty-porc.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lobscouse",
+      "slug": "gen-lobscouse",
+      "title": "Lobscouse (deutsche Fassung)",
+      "instructions": "Walisisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen chuck roast auf sale und machen groß batches zu freeze.",
+        "weglassen premium Rindfleisch Brühe und verwenden aufbewahren brand oder machen dein own."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "welsh (deutsche Fassung)",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7187,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobscouse/",
+      "components": [
+        {
+          "key": "39398823-7d1f-5e37-af92-faa23af5b569",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 442.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "eb6f7919-f02d-5d94-9dc2-4634c63099b2",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "e07daaa9-31fb-56fb-9679-168f67e7d0c3",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2898d770-ca05-5e39-9fc4-faa63415e648",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "d21f88ba-14a2-57d2-b2bf-7da7aeda0d99",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "35c35c09-4422-518a-8f21-17b1387228a2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "00d31cce-db47-55cd-be2d-83975605fd94",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "91200434-dfa2-52af-9aa0-c4ea5ef2571f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1df9f727-5a22-5988-8d30-56bac25a63e4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "331c6730-f185-5086-824e-18b7002517ea",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b41cc1cd-6265-5b0d-ad3f-9f6c62624e5d",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen ein groß Topf bei mittlerer bis hoher Hitze und brown Rindfleisch chunks in batches, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "im selben Topf, sauté Zwiebeln bis weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "zurückgeben Rindfleisch zu Topf und hinzufügen Brühe, Tomate Paste, Lorbeerblätter, und Worcestershire Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Kochen bringen, abdecken und 30 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen potatoes und carrots, dann köcheln covered für weitere 35-40 Minuten bis vegetables are tender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Würze mit salt and pepper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "entfernen Lorbeerblätter und heiß servieren in bowls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishably.com/.image/w_3840,q_auto:good,c_fill,ar_4:3/MTg6MDAwMDAwMDAwMDU2NDg4/traditional-liverpool-scouse-stew_hero_landscape-1.jpg?arena_f_auto",
+          "sourcePageUrl": "https://delishably.com/.image/w_3840,q_auto:good,c_fill,ar_4:3/MTg6MDAwMDAwMDAwMDU2NDg4/traditional-liverpool-scouse-stew_hero_landscape-1.jpg?arena_f_auto",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-welsh-lamb-stew",
+      "slug": "gen-welsh-lamb-stew",
+      "title": "Welsh Lammfleisch Stew",
+      "instructions": "Walisisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen Lammfleisch neck fillet anstatt shoulder für cost savings.",
+        "machen groß batches und freeze portions für schnell weeknight meals."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "welsh (deutsche Fassung)",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7188,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-welsh-lamb-stew/",
+      "components": [
+        {
+          "key": "df0a0f96-0082-53ba-8761-10762556d26b",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 547.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "006d5e20-9c2b-577b-aa15-d53b80a5d828",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f7f8c342-9d37-5192-bd64-a7397787238d",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "0e45118b-0af6-5d9a-a94b-c70cd3ab8651",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "73fb5791-2bc7-50ad-a956-fbf6545305e6",
+              "ingredientName": "Lauch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Lauchstangen"
+            },
+            {
+              "key": "4774a085-3693-57ef-b215-3ac25e9c0019",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "7a9dd078-29b9-546b-aa77-e95042dd6dda",
+              "ingredientName": "Frischer Thymian",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "ec8db2db-75b0-5cb0-9a0d-ac5875c1f040",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "08433c1f-3629-59c5-b41f-f614e497154b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ff02b999-6650-5b02-9fdf-bf393db63065",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderbrühe in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "hinzufügen Lammfleisch chunks und zurückgeben zu ein köcheln, skimming off foam für 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen Zwiebeln, carrots, und leeks along mit frisch Thymian.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und köcheln covered für 40 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen potatoes und weiter simmering für 30-35 Minuten bis Lammfleisch is tender und potatoes are gegart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "entfernen Thymian sprigs und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/jirsudOsXLVVAfFGtIDlrxsSFUI=/5957x0/filters:no_upscale():max_bytes(150000):strip_icc()/welsh-cawl-recipe-435581-step-08-3d5a0a20433d454ba3f0787c219cbf3c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/jirsudOsXLVVAfFGtIDlrxsSFUI=/5957x0/filters:no_upscale():max_bytes(150000):strip_icc()/welsh-cawl-recipe-435581-step-08-3d5a0a20433d454ba3f0787c219cbf3c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pilchard-p-t",
+      "slug": "gen-pilchard-p-t",
+      "title": "Pilchard Pâté (deutsche Fassung)",
+      "instructions": "Cornish Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen canned pilchards auf sale in bulk",
+        "verwenden aufbewahren-brand Sahne Käse zu reduce costs"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kornisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7189,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pilchard-p-t/",
+      "components": [
+        {
+          "key": "25c2ced5-d8d8-5a37-814b-2fcc86a09654",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 188.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a9a218f-2b4e-5cdd-ac45-4aeee535f3f0",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 120g)"
+            },
+            {
+              "key": "eaeb9c94-9858-526d-95ed-a953e84ef1dc",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "cfc8cec0-f00a-5787-886e-e5c0e03b63e4",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "fe005cdd-628e-522b-bbce-0f7239621f62",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4a4511b6-726c-5bb4-8f11-8eedd171d0cb",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2bfb262a-5f3c-518f-965e-5de5999e0b48",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "4d86873c-270d-5c3a-8d98-26d1bd1d1d17",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "5c02b0f7-0f8b-5827-8c1b-a04dc036caea",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Drain der pilchards und entfernen any groß bones, dann legen in ein food processor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "hinzufügen weich Butter, Sahne Käse, Zitronensaft, Petersilie, Salz, und Pfeffer zu der processor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "mixen bis glatt und creamy, scraping down der sides as needed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Transfer der pâté zu ein serving Schüssel und refrigerate für at least 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "servieren chilled mit crackers oder buttered toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/MXkyw9eDhFb9OYQf0L3b6aWdKWE=/4288x2848/filters:fill(auto,1)/GettyImages-1022271990-f947f2ea2f804c9e86f2c217737b0915.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/MXkyw9eDhFb9OYQf0L3b6aWdKWE=/4288x2848/filters:fill(auto,1)/GettyImages-1022271990-f947f2ea2f804c9e86f2c217737b0915.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

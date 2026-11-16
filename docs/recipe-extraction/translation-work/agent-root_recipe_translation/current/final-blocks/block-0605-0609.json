@@ -1,0 +1,1321 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-bibimbap-bowl",
+      "slug": "rice-cooker-bibimbap-bowl",
+      "title": "Bibimbap-Reisschale aus dem Reiskocher",
+      "instructions": "Eine gemütliche koreanische Reisschale, bei der der Reis am Boden goldbraun und knusprig wird. Darauf kommen schnell gegartes Gemüse, ein weich gekochtes Ei und Gochujang.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühltes Mischgemüse eignet sich genauso gut wie frisches. Gib es für den zweiten Kochzyklus direkt auf den Reis, ganz ohne Schneiden.",
+        "Ein Becher Gochujang kostet nur ein paar Dollar und hält sich monatelang. Die Schärfe kostet pro Schüssel nur wenige Cent.",
+        "Lass teure Shiitake weg und verwende Champignons oder Cremini-Pilze aus dem Angebot. Jeder Pilz wird in der Schüssel zart."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "Beliebiger Rundkornreis oder sogar normaler Langkornreis",
+          "savings": "Weißer Reis ist pro Pfund günstiger und wird am Topfboden trotzdem knusprig"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha mit etwas zusätzlicher Sojasauce und Zucker",
+          "savings": "Verwendet eine Flasche, die du wahrscheinlich schon hast, statt eine neue Paste zu kaufen"
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Tiefgekühlte Wok-Gemüsemischung",
+          "savings": "Kostet weniger und verhindert Abfall durch frisches Gemüse, das nicht aufgebraucht wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 605,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-bibimbap-bowl/",
+      "components": [
+        {
+          "key": "e2ad09dc-ac79-541f-ba09-6142efa60bb5",
+          "name": "Zutaten",
+          "servingGrams": 758.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "54cb2133-06fb-5d13-8f3c-63de348f771a",
+              "ingredientName": "Sushi-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rundkorn- oder beliebig Klebreis; crisps best bei the bottom"
+            },
+            {
+              "key": "cb6b753c-adc2-5fa0-9fb5-3f82d0cfb96f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5004f34-4ba4-57af-9a49-3c7806d9bcd5",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "in dünne Stifte geschnitten"
+            },
+            {
+              "key": "0f70775e-4007-5b53-aa7f-596977efd669",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Handvoll"
+            },
+            {
+              "key": "117deb3e-8e68-50a7-8aff-1c3065ffefc4",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten; shiitake if you have it"
+            },
+            {
+              "key": "44a5409a-a44a-527b-870d-77dff01d3a8b",
+              "ingredientName": "Zucchini",
+              "grams": 98,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": "Hälfte a zucchini, thin Hälfte-moons"
+            },
+            {
+              "key": "caf84304-56fc-5928-b4d7-235f79a1c3e1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, als Belag"
+            },
+            {
+              "key": "b02aa8aa-4bc0-5c57-89d1-2fbc2987b70e",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "koreanische Chilipaste; the heart of the bowl"
+            },
+            {
+              "key": "83bb4d5c-5742-549f-91b5-691d6ff7f8ef",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3d1b60c-eb75-5673-8b3c-92e1bcdd5e3c",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e50a6f2e-48c1-57ad-a016-a3364a4180ea",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "900c67a8-8384-5531-8e76-cbcb2eaccfe3",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel, zum Ausgleichen the gochujang"
+            },
+            {
+              "key": "c1949986-e8fe-506c-88ba-b5147abfe9ce",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "5b84748c-bc8f-514d-b0f6-10ef1930f968",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "zum Einölen des Reiskochertopfs zum Knusprigbraten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 cup Reis, bis das Wasser größtenteils klar abläuft. Gib ihn mit 1 cup Wasser in den Reiskocher und bestreiche den Topfboden und die Seiten dünn mit Pflanzenöl. Dadurch wird der Reis knusprig. Starte einen normalen Kochzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre während der Reis kocht Gochujang, Sojasauce, geröstetes Sesamöl, gehackten Knoblauch und Zucker in einer kleinen Schüssel zur Sauce. Rühre einen Schuss Wasser ein, bis eine löffelbare Glasur entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn der Zyklus endet, lockere den Reis auf und verteile Karotte, Pilze, Zucchini und Spinat in getrennten Häufchen darauf. Schlage die Eier direkt über dem Reis auf, schließe den Deckel und starte einen ZWEITEN Kochzyklus, damit das Gemüse dämpft und die Eier stocken (etwa 12-15 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles weitere 8-10 Minuten auf Warmhalten stehen, ohne den Deckel zu öffnen. Dadurch röstet der Reis am heißen Topf zu einer knusprigen goldenen Kruste (dem begehrten Nurungji).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne den Deckel, träufle Gochujang-Sauce über alles und streue geschnittene Frühlingszwiebel und Sesamsamen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffle alles in Schüsseln und kratze dabei auch etwas knusprigen Reis vom Boden ab. Rühre alles kurz vor dem Essen zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Bibimbap_6.jpg/1280px-Bibimbap_6.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bibimbap_6.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Chloe Lim — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Bibimbap-Reisschale aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-quinoa-pilaf",
+      "slug": "rice-cooker-quinoa-pilaf",
+      "title": "Quinoa-Pilaw aus dem Reiskocher",
+      "instructions": "Lockere Quinoa mit Kräutern, süßem Gemüse und gerösteten Mandeln: eine Beilage, die sich von selbst kocht und als ganze Mahlzeit schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Quinoa lose. Sie kostet oft nur halb so viel wie Quinoa in Schachteln, und du nimmst nur die benötigte Menge.",
+        "Ersetze Gemüsebrühe durch Wasser mit einem Brühwürfel, um Geld zu sparen und den Geschmack zu erhalten.",
+        "Verwende beliebiges tiefgekühltes Gemüse, das du schon hast, statt Erbsen und Karotten. Eine Tüte Mischgemüse eignet sich hervorragend."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser mit einem Brühwürfel oder einer zusätzlichen Prise Salz",
+          "savings": "~$0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "slivered-almonds",
+          "swap": "Sonnenblumenkerne oder die Nüsse einfach weglassen",
+          "savings": "~$0.75 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "parsley-fresh",
+          "swap": "Frischer Koriander oder 1 tsp getrocknete Petersilie",
+          "savings": "~$0.30 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "mediterran",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "Essensvorbereitung",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 606,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-quinoa-pilaf/",
+      "components": [
+        {
+          "key": "cce99c34-4957-5df3-8866-db87316ec8d2",
+          "name": "Zutaten",
+          "servingGrams": 318.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ead576a4-36f2-5f96-b4a2-9aa5a59a22bf",
+              "ingredientName": "Quinoa",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "trocken, abgespült well zu remove bitterness"
+            },
+            {
+              "key": "c012e8e0-7733-5f23-9d72-3b41f5955499",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "oder Wasser + 1 Brühwürfel"
+            },
+            {
+              "key": "036d84d1-42f0-5ce2-a974-f2afcc684a82",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "a184b196-fa71-56f6-a35d-3ed42c736070",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "ea793be5-04bb-5114-8c19-164e0ecf23ae",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "klein dice"
+            },
+            {
+              "key": "89adb39c-56bb-557a-9c80-b8110235ca6d",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "muss nicht aufgetaut werden"
+            },
+            {
+              "key": "f8560e61-ae09-5a1b-b961-67c57aa3fd45",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "3bd36cdb-a347-5d28-9767-dc9236077e2a",
+              "ingredientName": "Kurkuma",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "Teelöffel, für golden color"
+            },
+            {
+              "key": "333786bd-0fd8-55c6-bc69-0d08b936c32c",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Teelöffel, adjust zu broth saltiness"
+            },
+            {
+              "key": "3f9455ed-6513-5054-a78f-a5838e470ba2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "e45c1efc-a100-521d-a66a-6e6a3665d2b1",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "juiced, eingerührt bei the end"
+            },
+            {
+              "key": "95cf20f3-f606-57cb-a970-fe9930d7bc24",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Tasse gehackt, oder substitute Koriander"
+            },
+            {
+              "key": "cb0bdead-aa9f-53e9-8a54-5e9ff4ce9b50",
+              "ingredientName": "Mandelstifte",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "Tasse, für crunch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Quinoa in einem feinen Sieb 30 Sekunden unter kaltem Wasser ab. Diesen Schritt darfst du nicht überspringen, sonst schmeckt der Pilaw seifig. Lass die Quinoa gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Olivenöl, gewürfelte Zwiebel, Knoblauch und Karotte in den Reiskocher. Rühre um, schließe den Deckel und starte für etwa 5 Minuten einen kurzen Kochzyklus, damit das Gemüse weich wird. Wenn dein Gerät keine manuelle Kochfunktion hat, gib das Gemüse einfach roh dazu. Es wird trotzdem weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gespülte Quinoa, Gemüsebrühe, Kurkuma, Salz und Pfeffer in den Topf. Rühre einmal um und verteile die Quinoa gleichmäßig unter der Flüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus. Wenn das Gerät auf Warmhalten umschaltet, streue tiefgekühlte Erbsen darüber, schließe den Deckel wieder und lass sie 8 bis 10 Minuten in der Restwärme dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lockere die Quinoa vorsichtig mit einer Gabel auf. Die kleinen weißen Spiralen sollten sich lösen, dann ist sie gar. Ist sie noch feucht, starte einen zweiten kurzen Kochzyklus für 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Zitronensaft und gehackte Petersilie ein und gib Mandelstifte darauf. Probiere den Pilaw und füge vor dem Servieren bei Bedarf noch eine Prise Salz hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Chickpea_quinoa_pilaf_%2841367978140%29.jpg/1280px-Chickpea_quinoa_pilaf_%2841367978140%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chickpea_quinoa_pilaf_(41367978140).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Joey Doll — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Quinoa-Pilaw aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-chocolate-cake",
+      "slug": "rice-cooker-chocolate-cake",
+      "title": "Schokoladenkuchen aus dem Reiskocher",
+      "instructions": "Ein besonders saftiger Schokoladenkuchen aus einer Schüssel, der direkt im Reiskocher bäckt und keinen Ofen braucht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kakaopulver und Mehl kosten pro Kuchen nur wenige Cent, deutlich weniger als eine Backmischung. Außerdem bestimmst du selbst die Süße.",
+        "Lass Schokodrops weg, um Geld zu sparen. Der Kakao allein sorgt für reichlich Schokoladengeschmack.",
+        "Verwende Wasser mit einem Löffel Öl, wenn du keine Milch mehr hast. Der Kuchen bleibt so oder so saftig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Mandel- oder Hafermilch",
+          "savings": "Verwende Vorrätiges; kein zusätzlicher Karton nötig"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Geschmolzene Butter",
+          "savings": "Tausche es für einen kräftigeren Geschmack gegen Vorratszutaten aus"
+        },
+        {
+          "forIngredientId": "chocolate-chips",
+          "swap": "Gehackte Schokoladentafel",
+          "savings": "Verwende übrig gebliebene Süßigkeiten statt Chips zu kaufen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Nachtisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "ohne Ofen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 607,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-chocolate-cake/",
+      "components": [
+        {
+          "key": "c9b202c1-ac50-5aeb-8210-edc4cd720b75",
+          "name": "Zutaten",
+          "servingGrams": 89.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fda2c43-fe25-53ec-8411-fc690cbce977",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl"
+            },
+            {
+              "key": "8007defb-9ed2-5c22-a449-708db4a66b00",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "weißer Kristallzucker"
+            },
+            {
+              "key": "8e925b96-312c-599a-adab-af0170a4b75e",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "ungesüßtes Kakaopulver"
+            },
+            {
+              "key": "dbd3523b-5451-561a-8b5b-3d838a523953",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1b27d63a-26cb-5bc4-a654-20fba21b5add",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "fb8b6031-4e73-5bd1-b799-de8e240e85e9",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 groß egg, room temp"
+            },
+            {
+              "key": "0de35b75-afc0-5169-84a9-ea629544d680",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "ganz oder beliebig milk"
+            },
+            {
+              "key": "47ca12b1-2e11-5bcf-8ee6-9fef05363e2e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "neutrales Öl, keeps it moist"
+            },
+            {
+              "key": "80459fdf-917e-5c86-bd42-92549aa8a311",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel Vanilleextrakt"
+            },
+            {
+              "key": "4be9c4d0-e58c-5160-bc23-09d077e393e1",
+              "ingredientName": "Schokodrops",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "fold in für fudgy pockets"
+            },
+            {
+              "key": "cfa41ed7-c04a-5de4-8f91-ff864c56eaed",
+              "ingredientName": "Backspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Einfetten der Schüssel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette die Innenseite der Reiskocherschüssel großzügig mit Backspray ein (Boden und Seiten), damit sich der Kuchen später gut löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Mehl, Zucker, Kakaopulver, Natron und Salz in einer einzigen Rührschüssel, bis keine Klümpchen mehr da sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Ei, Milch, Öl und Vanille dazu. Rühre nur so lange, bis ein glatter, gießbarer Teig entsteht. Hebe nach Wunsch die Schokodrops unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Teig in die gefettete Reiskocherschüssel, streiche die Oberfläche glatt und setze die Schüssel in den Kocher. Schließe den Deckel und drücke den normalen Kochzyklus (für weißen Reis).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Kocher auf Warmhalten umschaltet, sieht die Oberfläche noch leicht weich aus. Lass den Kuchen 5 Minuten ruhen und starte dann ein zweites Mal den Kochzyklus. Die meisten Geräte benötigen einen zweiten Zyklus, damit die Mitte fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stecke einen Zahnstocher in die Mitte. Wenn nur feuchte Krümel daran haften, ist der Kuchen fertig. Ist der Teig noch flüssig, starte einen kurzen dritten Zyklus und prüfe alle 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte den Kocher aus und lass den Kuchen 10 Minuten abkühlen. Stürze die Schüssel dann auf einen Teller. Schneide den Kuchen in 6 Stücke und serviere ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Chocolate_fudge_cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_fudge_cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tracy Hunter from Kabul, Afghanistan — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Schokoladenkuchen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-garlic-mushroom-rice",
+      "slug": "rice-cooker-garlic-mushroom-rice",
+      "title": "Knoblauch-Pilz-Reis aus dem Reiskocher",
+      "instructions": "Buttriger Pilzreis mit Knoblauch und Sojasauce, der in einem Kochzyklus würzig und locker wird, ganz ohne Aufpassen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganze weiße Champignons sind meist günstiger als geschnittene oder Cremini-Pilze und schmecken hier genauso gut.",
+        "Ersetze Hühnerbrühe durch Wasser mit einem halben Brühwürfel, um Geld zu sparen und den herzhaften Geschmack zu erhalten.",
+        "Kaufe ganze Knoblauchknollen statt gehackten Knoblauch im Glas. Das ist pro Zehe viel günstiger und schmeckt besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit einem zerdrückten Brühwürfel oder einem Löffel Miso",
+          "savings": "~$0.40 pro Portion gegenüber Brühe aus der Packung"
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Eingeweichte getrocknete Shiitake (günstiger pro Portion und sehr würzig)",
+          "savings": "~$0.30 pro Portion"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Sesamöl oder zusätzliches Olivenöl für eine vollständig vegane Variante",
+          "savings": "~$0.15 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "vegetarisch",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 608,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-garlic-mushroom-rice/",
+      "components": [
+        {
+          "key": "19b7a411-f523-5e0c-b427-ebd11f748aac",
+          "name": "Zutaten",
+          "servingGrams": 436.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "27dac2a8-3af5-5122-bcab-4cb2880ef77c",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "jasmine oder weißer Langkornreis, abgespült (Tassen trocken)"
+            },
+            {
+              "key": "8d35160e-bf84-51c1-9bd7-2a8f804df543",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "cremini oder white Champignons, in Scheiben geschnitten (Unzen)"
+            },
+            {
+              "key": "5a8ec218-b5c8-51ef-b96a-4aec9df82944",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "f3735e75-7397-549e-8afc-4242fd1dc79b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Esslöffel, aufgeteilt"
+            },
+            {
+              "key": "33375bff-7d5e-56e9-adee-b6eba08bade5",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "fa817e46-a5c2-5546-bced-534362fdf2fe",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "natriumreduziert; ersetze Gemüsebrühe oder Wasser (Tassen, as cooking liquid)"
+            },
+            {
+              "key": "528c1db4-aa61-51b5-879c-cbd6d36596b4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "d3963d0d-3f5c-58bb-a4bf-76dc814cfaaf",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "064a269b-2905-52ee-bb0c-417bfd447f8a",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "Teelöffel Blätter, oder a Prise dried"
+            },
+            {
+              "key": "735dd2df-348e-5b57-ae6e-caea7d354f28",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Teelöffel, frisch gemahlen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser, bis es größtenteils klar abläuft. Lass ihn gut abtropfen und gib ihn in den Reiskocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile geschnittene Pilze, gehackten Knoblauch, Sojasauce, Olivenöl, Pfeffer und 1 Esslöffel Butter direkt auf dem Reis. Gieße Hühnerbrühe dazu und rühre einmal vorsichtig um, damit alles gleichmäßig verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus mit der normalen Einstellung für weißen Reis. Die Pilze dämpfen und geben ihren herzhaften Saft an den Reis ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn der Zyklus endet, lass den Reis 10 Minuten auf Warmhalten stehen, ohne den Deckel zu öffnen. So dämpft er fertig und die Körner werden fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne den Deckel, gib den übrigen 1 Esslöffel Butter und frischen Thymian dazu. Lockere alles mit einer Gabel oder einem Reislöffel auf, bis die Butter geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere den Reis und gib bei Bedarf einen zusätzlichen Schuss Sojasauce dazu. Belege ihn mit geschnittenen Frühlingszwiebeln und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Shiitake_mushroom_rice_%2829896276690%29.jpg/1280px-Shiitake_mushroom_rice_%2829896276690%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shiitake_mushroom_rice_(29896276690).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: pelican from Tokyo, Japan — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Knoblauch-Pilz-Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-black-beans-rice",
+      "slug": "rice-cooker-black-beans-rice",
+      "title": "Schwarze Bohnen mit Reis aus dem Reiskocher",
+      "instructions": "Ein gemütliches kubanisches Gericht aus einem Topf mit Knoblauch, schwarzen Bohnen und lockerem Reis, das sich fast von selbst kocht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete schwarze Bohnen in großen Mengen gekocht kosten nur einen Bruchteil von Bohnen aus der Dose. Koche eine große Menge und friere sie in Portionen zu 1.5-cup ein, die du direkt für dieses Rezept verwenden kannst.",
+        "Ersetze Gemüsebrühe durch Wasser mit einem Brühwürfel, um Geld zu sparen und den Geschmack zu erhalten.",
+        "Grüne Paprika ist in den meisten Läden die günstigste Paprika und genau die Sorte, die in kubanisches Sofrito gehört."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser und 1 Brühwürfel",
+          "savings": "~$0.60 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Getrocknete schwarze Bohnen, eingeweicht und vorgekocht",
+          "savings": "~$1.20 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "cilantro",
+          "swap": "Gehackte frische Petersilie oder ganz weglassen",
+          "savings": "~$1.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kubanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "preiswert",
+        "vegan",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 609,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-black-beans-rice/",
+      "components": [
+        {
+          "key": "24067422-bb34-55ca-bb64-a01ed1e0876b",
+          "name": "Zutaten",
+          "servingGrams": 529.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9a97863-526f-53fb-923c-ce6c75f5c9bc",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "weißer Langkornreis, trocken"
+            },
+            {
+              "key": "ca0f2b26-8c87-5572-92a2-20e632917fcc",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "zwei 15 Unzen cans, abgetropft und abgespült"
+            },
+            {
+              "key": "7a8c782e-8ae3-547e-8878-f0ef5c20dd02",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Tassen; ersetze water + a Brühwürfel"
+            },
+            {
+              "key": "f417d95a-830d-544d-9c65-ba4ef507adaa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "klein, fein gewürfelt"
+            },
+            {
+              "key": "2f8e18ba-83a1-52cc-80df-cd409d142473",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "green, gewürfelt (the Cuban sofrito base)"
+            },
+            {
+              "key": "ef70dda0-212a-575a-88c6-d46faa5f72a9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "6faaea4e-434d-57df-a9ec-43bded1450cf",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "f733c516-5c32-57a5-a3af-3f04c2561e14",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel gemahlen"
+            },
+            {
+              "key": "9c306deb-b561-5415-8740-ec4eb2ed7321",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Teelöffel, dried"
+            },
+            {
+              "key": "c344da3c-5ff7-5dbb-a25b-b02a0b35a2b2",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "ganzes Blatt"
+            },
+            {
+              "key": "f4b3ab49-3c96-569b-9692-8c24686e8af3",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Esslöffel; a Schuss brightens the beans"
+            },
+            {
+              "key": "64470f26-541c-59fb-8f2c-825ee3898d5d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Teelöffel, oder nach Geschmack"
+            },
+            {
+              "key": "73352eae-1c33-572c-a5c0-5565b08949fa",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "dc74afda-2e48-594e-a85e-47bc80219205",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "Tasse gehackt, zum Schluss"
+            },
+            {
+              "key": "a4838879-abeb-517a-b717-45542da24dc0",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "in Spalten geschnitten zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Olivenöl, gewürfelte Zwiebel, grüne Paprika und Knoblauch in den Reiskocher. Starte bei geöffnetem Deckel einen Standard-Kochzyklus für etwa 5 Minuten. Rühre ein- oder zweimal um, bis das Gemüse zu einem schnellen Sofrito weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle den trockenen Reis, bis das Wasser größtenteils klar abläuft. Gib ihn zusammen mit abgetropften schwarzen Bohnen, Gemüsebrühe, Kreuzkümmel, Oregano, Lorbeerblatt, Essig, Salz und Pfeffer in den Topf. Rühre alles gleichmäßig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus (verwende die Einstellung für weißen Reis, falls dein Gerät eine hat). Öffne den Deckel während des Kochens nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn der Zyklus endet, lass alles 10 Minuten auf Warmhalten stehen, damit der Reis dämpft und die Bohnen die Brühe aufnehmen. Schmeckt der Reis noch fest, gib einen Schuss Brühe oder Wasser dazu und starte einen zweiten kurzen Kochzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne den Deckel, entferne das Lorbeerblatt und lockere alles vorsichtig mit einer Gabel oder einem Reislöffel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gehackten Koriander und einen Spritzer Limettensaft dazu und serviere das Gericht warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Frijoles_Negros%2C_26_Nov_2020.jpg/1280px-Frijoles_Negros%2C_26_Nov_2020.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Frijoles_Negros,_26_Nov_2020.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Thraddax — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von schwarzen Bohnen mit Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1338 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-coconut-shrimp-sweet-chili-dip",
+      "slug": "af2-coconut-shrimp-sweet-chili-dip",
+      "title": "Kokosgarnelen aus der Heißluftfritteuse mit süßem Chili-Dip",
+      "instructions": "Knusprige, goldbraune Garnelen mit Kokoskruste und geröstetem, tropischem Biss, dazu ein süßer Thai-Chili-Dip für die perfekte süß-scharfe Kombination. Schmeckt wie eine Vorspeise im Steakhaus, ist aber viel günstiger und weniger fettig als die frittierte Variante. Inspiriert von Yumna Jawad (Feel Good Foodie) (https://feelgoodfoodie.net/recipe/air-fryer-shrimp/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen sind praktisch: Kaufe einen Beutel und taue nur die benötigte Menge unter kaltem, fließendem Wasser in etwa 5 Minuten auf. Das ist viel günstiger als an der Frischfischtheke.",
+        "Keine geraspelte Kokosnuss da? Zerdrücke ein paar einfache Kokoschips aus der Snackabteilung oder strecke den Vorrat, indem du ihn im Verhältnis 50/50 mit zusätzlichem Panko mischst.",
+        "Ein Ei reicht für die ganze Portion. Lass überschüssiges Ei vor dem Panko-Schritt abtropfen, damit nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Tiefgekühlte Popcorn-Garnelen oder sogar Fischstäbchen für eine Variante mit Kokoskruste",
+          "savings": "ca. $1.50/Portion"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "Normale Semmelbrösel oder zerdrückte Cornflakes",
+          "savings": "ca. $0.05/Portion"
+        },
+        {
+          "forIngredientId": "sweet-chili-sauce",
+          "swap": "Für einen selbst gemachten Dip Aprikosenkonfitüre mit einem Schuss Sriracha und Reisessig verrühren",
+          "savings": "ca. $0.15/Portion"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 360,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "tropisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Garnelen",
+        "Kokosnuss",
+        "Snack",
+        "Vorspeise",
+        "knusprig",
+        "tropisch",
+        "Party"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 190,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-coconut-shrimp-sweet-chili-dip/",
+      "components": [
+        {
+          "key": "8bd215fc-e7ee-5454-9d6f-c9e647806860",
+          "name": "Zutaten",
+          "servingGrams": 327.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f9ae929-47f6-5dfd-bd1e-752b0d1006f2",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "aufgetaut, geschält, entdarmt, mit Schwanz und sehr trocken getupft"
+            },
+            {
+              "key": "1a76b256-1ff2-5fd3-96e4-bfbf205748d5",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Wenden"
+            },
+            {
+              "key": "8e3f064b-baa2-5065-8a7b-1e35f45aec45",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "verquirlt zum Bestreichen"
+            },
+            {
+              "key": "40537028-9293-537c-9680-c45814bbdc62",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "398406d9-cbfc-533a-93e5-c2352776687b",
+              "ingredientName": "Ungesüßte Kokosraspel",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87e8942c-722b-591e-85ce-b3562bd90436",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ef7eed6-f5b8-5580-86d7-538a5779df4b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e027dc0-9081-56c3-ae8e-66c8522d9963",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e646f4b-233a-5306-bdd5-08be411a2557",
+              "ingredientName": "Kochspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f05c958-8b7e-5ac1-9e23-1bc741ea462a",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Dippen"
+            },
+            {
+              "key": "79efaa1f-b510-5665-9eab-da9e7cc65876",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Spalten geschnitten zum Auspressen"
+            },
+            {
+              "key": "1d48d2a1-3291-5cf1-a725-2a9aa369460e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die aufgetauten Garnelen mit Papiertüchern sehr trocken (trockene Garnelen werden knuspriger paniert). Stelle drei flache Schalen bereit: eine mit Mehl, in das Knoblauchpulver, Salz und Pfeffer eingerührt sind; eine mit verquirltem Ei; und eine mit einer Mischung aus Panko und Kokosraspeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende jede Garnele einzeln im gewürzten Mehl, tauche sie in das Ei und lass Überschüssiges abtropfen. Drücke sie dann fest in die Panko-Kokos-Mischung, bis sie rundum bedeckt ist. Lege die panierten Garnelen auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Besprühe den Korb der Heißluftfritteuse mit Kochspray und verteile die Garnelen mit etwas Abstand in einer Lage (bei Bedarf in zwei Durchgängen garen). Besprühe die Oberseiten leicht mit Kochspray, damit die Kokoskruste goldbraun röstet und nicht blass bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 360F ein und gare die Garnelen 6 Minuten in der Heißluftfritteuse. Wende jede Garnele, besprühe sie erneut leicht mit Kochspray und gare sie weitere 5-7 Minuten, bis die Panade kräftig goldbraun und knusprig ist und die Garnelen undurchsichtig und eingerollt sind. Sie sind bei einer Kerntemperatur von 145F gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während die Garnelen garen, gieße die süße Chilisauce in eine kleine Schale zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte die Garnelen auf einem Teller an, presse frische Limette darüber, streue gehackten Koriander darauf und serviere sie heiß mit dem süßen Chili-Dip, solange sie am knusprigsten sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Coconut_shrimp_with_a_sweet_chili_sauce.jpg/1280px-Coconut_shrimp_with_a_sweet_chili_sauce.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Coconut_shrimp_with_a_sweet_chili_sauce.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Kokosgarnelen aus der Heißluftfritteuse mit süßem Chili-Dip",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-fish-tacos",
+      "slug": "af2-crispy-fish-tacos",
+      "title": "Knusprige Fischtacos aus der Heißluftfritteuse",
+      "instructions": "Zarter Kabeljau in goldbrauner Panko-Kruste, in warme Tortillas gefüllt und mit spritzigem Koriander-Limetten-Krautsalat serviert – der knusprige Fisch wie aus der Taqueria, ganz ohne Frittieren. Frisch, sommerlich und in etwa 15 Minuten fertig. Inspiriert von einem viralen Baja-Fischtaco-Trend aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Weißfisch wie Kabeljau oder Felsenbarsch kostet oft nur halb so viel wie frischer. Lass ihn über Nacht im Kühlschrank auftauen und tupfe ihn vor dem Panieren sehr trocken.",
+        "Kein Panko da? Zerkleinere altes Brot oder einfache Tortillachips zu Bröseln – das sorgt fast ohne Zusatzkosten für dieselbe Knusprigkeit.",
+        "Kaufe einen kleinen Kopf Weißkohl statt Krautsalat aus der Tüte. Ein Kopf reicht für Krautsalat zu Tacos für eine Woche und kostet weniger als einen Dollar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cod",
+          "swap": "Tilapia oder beliebigen tiefgekühlten Weißfisch – günstiger und genauso zart",
+          "savings": "ca. $3.20 for the batch"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "Zerdrückte einfache Semmelbrösel oder Cornflakes",
+          "savings": "ca. $0.05"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Naturjoghurt nach griechischer Art für einen säuerlicheren, leichteren Krautsalat",
+          "savings": "Etwa gleich teuer und liefert zusätzlich Protein"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch-bajakalifornisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Fisch",
+        "Tacos",
+        "Baja",
+        "15 Minuten",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 191,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-fish-tacos/",
+      "components": [
+        {
+          "key": "6f0214d8-8461-5fac-ba9f-f5dc9d1328ca",
+          "name": "Zutaten",
+          "servingGrams": 564.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "e228e1c2-c541-5d02-bc43-005a3e504d1d",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "trocken getupft, geschnitten in 1-inch strips"
+            },
+            {
+              "key": "f5d71fed-b430-52e7-bd63-91e791757154",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1f610b2-732d-5e46-90c5-a94c837bcc86",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02b64c75-4f67-5fe4-936d-4c2ca14b6795",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "verquirlt zum Wenden"
+            },
+            {
+              "key": "eec8b7ff-c143-5ec4-9b57-695ec32b2627",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d9ceeb3-c24d-5f87-86c1-b54a9fce0475",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d52278bb-da2f-5815-9bd3-66b61a0a05b7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9f32ab3-bf9b-54fc-947f-38865cfb4aa8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dc9fc7f-4703-52c7-a7e4-343703a17974",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbadeeb5-11bb-5d5e-bead-00108552a6a6",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3fc6b90-27f0-5684-9fca-6e87cb05e694",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f2f28f8-5be9-5d9d-a669-f5df75b17200",
+              "ingredientName": "Kohl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "geraspelt"
+            },
+            {
+              "key": "9180eb44-4bfc-54aa-9d7b-e8340c1b29fc",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67127ef9-861f-54c8-b7bc-c8eb70c05b19",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "half juiced into slaw, half in Spalten geschnitten"
+            },
+            {
+              "key": "6adbecc6-c41f-5c24-91eb-e6e3bc3e8b95",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt, für Krautsalat und zum Garnieren"
+            },
+            {
+              "key": "8b7c6d18-0eea-5659-adf5-d1756d883e00",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "zum Beträufeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Kabeljaustreifen sehr trocken. Stelle drei Schalen bereit: Verrühre im ersten Mehl mit Paprikapulver, Knoblauchpulver, Kreuzkümmel, Salz und Pfeffer; gib das verquirlte Ei in die zweite und Panko in die dritte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende jeden Kabeljaustreifen im gewürzten Mehl, tauche ihn ins Ei und drücke ihn dann fest in das Panko, damit es rundum haftet. Besprühe beide Seiten mit Kochspray – so wird die Kruste goldbraun wie frittiert, aber ohne Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 400F ein und gare die Streifen 10-12 Minuten in der Heißluftfritteuse. Wende sie nach der Hälfte der Zeit, bis die Kruste kräftig goldbraun und der Fisch undurchsichtig ist und leicht auseinanderfällt. Er sollte eine Kerntemperatur von 145F erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während der Fisch gart, bereite den Krautsalat zu: Vermenge den geraspelten Kohl mit Mayonnaise, dem Saft einer halben Limette und gehacktem Koriander (falls verwendet). Würze mit einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Tortillas in einem feuchten Papiertuch eingewickelt 20-30 Sekunden in der Mikrowelle, damit sie weich und biegsam bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jeden Taco mit einem Löffel Krautsalat und ein paar knusprigen Kabeljaustreifen. Presse zum Schluss die übrige Limette darüber und gib nach Wunsch zusätzlichen Koriander und einen Spritzer scharfe Sauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Fish_tacos_in_Pittsburg.jpg/1280px-Fish_tacos_in_Pittsburg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fish_tacos_in_Pittsburg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Fischtacos aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-cajun-garlic-butter-shrimp",
+      "slug": "af2-cajun-garlic-butter-shrimp",
+      "title": "Cajun-Knoblauchbutter-Garnelen aus der Heißluftfritteuse",
+      "instructions": "Rauchig-scharfe Cajun-Garnelen, in wenigen Minuten in der Heißluftfritteuse saftig und leicht angekohlt gegart, dann in glänzender Knoblauch-Kräuter-Butter geschwenkt, die in jeden Bissen einzieht. Kräftiger Geschmack, fast kein Abwasch und ein Abendessen, das viel aufwendiger schmeckt, als es ist. Inspiriert von einem viralen Cajun-Garnelen-Trend aus der Heißluftfritteuse auf TikTok.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen Beutel roher tiefgekühlter Garnelen und taue nur die benötigte Menge etwa 5 Minuten unter kaltem, fließendem Wasser auf – günstiger pro Portion als frische Garnelen und wochenlang im Gefrierfach haltbar.",
+        "Kein Cajun-Gewürz da? Mische Paprikapulver, Knoblauchpulver, Zwiebelpulver, Cayennepfeffer und etwas getrockneten Oregano, den du schon zu Hause hast.",
+        "Lass den Reis weg und serviere die Garnelen auf Toast oder mit der übrigen Knoblauchbutter zum Dippen. So wird daraus für wenig Geld eine größere Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cajun-seasoning",
+          "swap": "Kreolisches Gewürz oder eine eigene Mischung aus Paprikapulver + Knoblauchpulver + Cayennepfeffer",
+          "savings": "Use what's in the cabinet, save ca. $0.40"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter für eine milchfreie Knoblauchbutter",
+          "savings": "etwa gleich teuer cost, makes it dairy-free"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Avocadoöl oder einige Sprühstöße Kochspray",
+          "savings": "Cooking spray spart ca. $0.25"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 7,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Cajun und Südstaatenküche",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Garnelen",
+        "Cajun",
+        "Knoblauchbutter",
+        "schnell",
+        "Abendessen",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 192,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-cajun-garlic-butter-shrimp/",
+      "components": [
+        {
+          "key": "eb148ea3-b7d1-5de9-9e47-b21a9c9e904f",
+          "name": "Zutaten",
+          "servingGrams": 295.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "75b5eb99-68f8-52b3-b114-95adbb20b997",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "large raw shrimp, thawed und trocken getupft"
+            },
+            {
+              "key": "a1b206f5-334a-5e94-ba96-b51918694dd7",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4f1c211-7989-5798-8dc2-69f5d7a1ee60",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eea41bd-3b3e-5f92-8721-223c09e0fbc4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum leichten Bestäuben der Garnelen vor dem Garen im Airfryer"
+            },
+            {
+              "key": "47b4c364-3838-5511-a247-33ca32ae6c5d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "513109e5-5888-54ef-bc15-33be169ace5f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "638d023b-b3fd-5df1-9917-3e94315d69a6",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "half juiced into butter, half in Spalten geschnitten"
+            },
+            {
+              "key": "025538b5-6001-5419-980f-d822ebf513d5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "46c608f3-bb7a-517b-a72b-1adcceb65f64",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f34e8a3e-49ba-564c-ac4e-328e2ab175e1",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "optionale Mikrowellenbeilage"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die aufgetauten Garnelen mit einem Papiertuch sehr trocken (trockene Garnelen bräunen, statt zu dämpfen). Vermenge sie in einer Schüssel mit Olivenöl, Cajun-Gewürz, geräuchertem Paprikapulver und einer Prise Salz, bis alle Stücke gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize die Heißluftfritteuse auf 400F vor und lass sie 2-3 Minuten aufheizen. Verteile die Garnelen in einer Lage mit etwas Abstand im Korb (bei einem kleinen Korb in zwei Durchgängen garen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 400F ein und gare die Garnelen insgesamt etwa 7 Minuten in der Heißluftfritteuse; schüttle den Korb nach der Hälfte der Zeit. Sie sind gar, wenn sie sich zu einem lockeren C einrollen, ganz undurchsichtig sind und laut sofort ablesbarem Thermometer eine Kerntemperatur von 145F erreichen. Zieh sie heraus, sobald sie 145F erreichen, damit sie zart und nicht gummiartig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Garnelen garen, bereite die Butter zu: Erwärme Butter und gehackten Knoblauch in einer hitzefesten Schüssel in der Mikrowelle in Intervallen von 20 Sekunden (insgesamt etwa 40-50 Sekunden), bis alles geschmolzen ist und duftet. Rühre zwischen den Intervallen einmal um, damit der Knoblauch nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse den Saft einer halben Zitrone in die geschmolzene Butter und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die heißen Garnelen direkt in die Knoblauch-Cajun-Butter und schwenke sie, bis sie glänzend überzogen sind. Für eine sättigendere Mahlzeit erwärme Jasminreis nach Packungsangabe in der Mikrowelle und gib die buttrigen Garnelen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue alles mit gehackter Petersilie und serviere es mit der übrigen Zitrone in Spalten zum Darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://drdavinahseats.com/wp-content/uploads/2022/01/Air-Fryer-Cajun-Shrimp-in-Bowl.jpg",
+          "sourcePageUrl": "https://drdavinahseats.com/air-fryer-cajun-shrimp",
+          "sourceName": "Dr. Davinah's Eats",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Cajun-Knoblauchbutter-Garnelen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-honey-sriracha-cauliflower-wings",
+      "slug": "af2-honey-sriracha-cauliflower-wings",
+      "title": "Klebrig-süße Honig-Sriracha-Blumenkohl-Wings aus der Heißluftfritteuse",
+      "instructions": "Knusprige Blumenkohlröschen mit einer leichten Panko-Panade, in der Heißluftfritteuse gebacken und anschließend in einer glänzenden süß-scharfen Honig-Sriracha-Glasur gewendet, die an jedem Bissen haftet. Schmeckt wie ein teurer Imbiss, kostet aber nur ein paar Dollar und kommt ganz ohne Fritteuse aus. Inspiriert von Gina Homolka (Skinnytaste) (https://www.skinnytaste.com/air-fryer-cauliflower-wings-with-honey-sriracha/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Blumenkohlkopf ist hier die Hauptzutat. Kaufe ihn im Angebot oder greife zu einer reduzierten Tüte vorgeschnittener Röschen – für ein paar Dollar bekommst du einen Snack für 3.",
+        "Sriracha und Honig sind preiswerte Vorratslieblinge: Eine Quetschflasche von jeder Zutat reicht für viele Portionen, sodass die Glasur pro Portion nur wenige Cent kostet.",
+        "Lass das Panko weg, wenn es gerade knapp ist. Ein einfacher Teig aus Maisstärke und Mehl wird in der Heißluftfritteuse ebenfalls knusprig und spart eine ganze Zutat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder braunen Zucker in einem Schuss Wasser auflösen und als vegane Glasur verwenden",
+          "savings": "ungefähr gleich teuer, and maple makes it fully plant-based"
+        },
+        {
+          "forIngredientId": "sriracha",
+          "swap": "Buffalo-Sauce oder eine beliebige scharfe Sauce, die du schon hast",
+          "savings": "Vorhandenes aus dem Kühlschrank verwenden, $0 Zusatzkosten"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "Zerdrückte Cornflakes, normale Semmelbrösel oder ganz weglassen",
+          "savings": "spart etwa $0.30 and uses up cereal you already have"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegetarisch",
+        "Snack",
+        "scharf",
+        "klebrig",
+        "Publikumsliebling",
+        "preiswert",
+        "fleischlos",
+        "Spieltag"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 193,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-honey-sriracha-cauliflower-wings/",
+      "components": [
+        {
+          "key": "c8628288-903b-57be-8e68-fcd805aefaaf",
+          "name": "Zutaten",
+          "servingGrams": 247.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ac3100a-55e1-594f-a84c-faf55b15e5be",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "in mundgerechte Röschen geteilt"
+            },
+            {
+              "key": "6acef3e7-ffcf-56f5-927a-ceaa505055dc",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a64aaf9-733d-5807-acde-273eda5b3cd9",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f4f9dd7-c6bb-57ef-8b1a-7d47e9081a32",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4d53de2-9440-5af6-b15a-562361096486",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a5d3cce-0635-5e3e-ba5c-23f3a3502511",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf0e0cb4-d4d5-5785-abcb-b2ba687cec3e",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a393ccb8-1a0c-5422-b125-9289c519aa68",
+              "ingredientName": "Kochspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa1de262-30ad-5e95-a77f-fad3e07a1024",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7f3f14e-5cc0-5503-a753-3fcfa05d42d4",
+              "ingredientName": "Sriracha",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7287d9cb-bfc8-5c6a-b908-f36c405fd9ec",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fd8ccc7-a999-5fd6-8ee6-6e7fda483536",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb8a81f9-a61e-5174-bc96-44c1907e8374",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "gerieben für die Glasur"
+            },
+            {
+              "key": "ea792519-34ff-5ba8-8815-9269a8e8e438",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca026817-06df-5b27-bef0-3de506b21cb9",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "dünn geschnitten, zum Garnieren"
+            },
+            {
+              "key": "fbb02a79-9f34-58ca-a0c6-25dfb35a3922",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Blumenkohl in mundgerechte Röschen. Verrühre Mehl, Wasser, Maisstärke, Knoblauchpulver und Salz in einer Schüssel zu einem glatten, gießfähigen Teig, etwa so dick wie Pfannkuchenteig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Panko in eine zweite Schüssel. Tauche jedes Röschen in den Teig, lass Überschüssiges abtropfen und wende es dann vollständig in Panko. Lege die panierten Röschen auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Besprühe den Korb der Heißluftfritteuse leicht mit Kochspray. Verteile die Röschen in einer Lage (in 2 Durchgängen garen, damit sie nicht zu dicht liegen – sonst dämpfen sie, statt knusprig zu werden) und besprühe die Oberseiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 380F ein und gare die Röschen 13-14 Minuten in der Heißluftfritteuse. Schüttle den Korb und wende die Röschen nach der Hälfte der Zeit, bis sie tief goldbraun und an den Rändern knusprig sind und sich innen mit einer Gabel leicht einstechen lassen. Wiederhole den Vorgang mit dem zweiten Durchgang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während sie garen, verrühre Honig, Sriracha, Sojasauce, Reisessig, geriebenen Knoblauch und Sesamöl in einer großen Schüssel zur Glasur (sie muss nicht gekocht werden).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den heißen, knusprigen Blumenkohl direkt in die Schüssel mit der Glasur und wende ihn vorsichtig, bis jedes Röschen glänzend überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Häufle alles auf einem Teller an und garniere es mit geschnittener Frühlingszwiebel und Sesamsamen. Sofort essen, solange die Glasur klebrig und der Blumenkohl knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Crispy_cauliflower_with_spicy_Korean_sauce_-_Long_Man_Inn_2024-12-18.jpg/960px-Crispy_cauliflower_with_spicy_Korean_sauce_-_Long_Man_Inn_2024-12-18.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Crispy_cauliflower_with_spicy_Korean_sauce_-_Long_Man_Inn_2024-12-18.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 1.0 (Public Domain)",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — Public Domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Blumenkohlröschen mit glänzender, scharfer Glasur auf einem weißen Teller",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-pork-belly-bites",
+      "slug": "af2-crispy-pork-belly-bites",
+      "title": "Knusprige Schweinebauch-Happen aus der Heißluftfritteuse",
+      "instructions": "Kleine Würfel aus Schweinebauch, die außen splitterknusprig werden und innen zart schmelzen. Direkt aus dem Korb sind sie unwiderstehlich oder schmecken auf Reis. Der Schweinebauch hat genug Fett, um von selbst knusprig zu werden; du brauchst keinen Tropfen Öl. Inspiriert von einem viralen Schweinebauch-Trend aus der Heißluftfritteuse auf TikTok.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Stück Schweinebauch und schneide es selbst in Würfel. Das ist pro Pfund meist günstiger als vorgeschnittene Stücke, und die Hälfte kannst du für das nächste Mal einfrieren.",
+        "Keine Maisstärke da? Eine Prise beliebige Stärke oder sogar etwas Backpulver hilft der Oberfläche genauso gut, knusprig zu werden.",
+        "Hebe das ausgelassene Fett im Korb auf. Seihe es in ein Glas ab und verwende es zum Braten von Eiern oder Rösten von Kartoffeln – für zusätzlichen Geschmack ohne Mehrkosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-belly",
+          "swap": "Dick geschnittenen Speck in Stücke schneiden – schneller und günstiger",
+          "savings": "ca. $1.50/Portion"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Normales Paprikapulver mit einer Prise Knoblauchsalz",
+          "savings": "Wenige Cent"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Nach dem Garen Honig oder Ahornsirup unterheben",
+          "savings": "Etwa gleich teuer"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 20,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "Schweinefleisch",
+        "knusprig",
+        "Reisschüssel",
+        "TikTok",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 194,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-pork-belly-bites/",
+      "components": [
+        {
+          "key": "4fb64198-2bd5-5686-aa53-76cd4e865706",
+          "name": "Zutaten",
+          "servingGrams": 133.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e7cc34dc-7770-538a-94fa-fdc22eef52e1",
+              "ingredientName": "Schweinebauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "in 1-inch große Würfel geschnitten"
+            },
+            {
+              "key": "7d7351ee-c3d9-5afb-a9b5-1f0be4a0b519",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "kosher oder table salt"
+            },
+            {
+              "key": "fd610549-0718-5158-a03e-980bce1891b2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffaaec6e-b836-5c0b-b036-d67c7eded737",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e07dcdaf-39dc-50b8-b0e0-06b50a3db555",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d35675f-4ce2-54b8-8d51-3b3e3c65a8cc",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "hilft beim Karamellisieren der Oberfläche"
+            },
+            {
+              "key": "229b60d7-3e42-5cdb-b50f-d578fadbb7be",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "light dusting für extra crackle"
+            },
+            {
+              "key": "4656d2fe-cf4a-5283-ad7c-bc8cc9658b69",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "thinly in Scheiben zum Garnieren"
+            },
+            {
+              "key": "99c240c9-a671-522c-b8a3-76ee0bb9c5f9",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Schweinebauchwürfel mit einem Papiertuch sehr trocken; nur trockene Oberflächen werden splitterknusprig. Vermenge sie in einer Schüssel mit Salz, Pfeffer, Knoblauchpulver, geräuchertem Paprikapulver und braunem Zucker, bis alle Würfel gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streue die Maisstärke über die Würfel und vermenge alles erneut, sodass sie leicht bestäubt sind. Das ist das Geheimnis einer besonders knusprigen Kruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Würfel mit der Fettseite nach unten in einer Lage in den Korb der Heißluftfritteuse. Lass etwas Abstand, damit die heiße Luft das Fett auslassen kann. Lege sie nicht zu dicht, sonst dämpfen sie, statt knusprig zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 400F ein und gare die Würfel insgesamt 18-20 Minuten in der Heißluftfritteuse. Schüttle den Korb alle 5-6 Minuten, damit sie gleichmäßig bräunen und das ausgelassene Fett abtropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Prüfe den Gargrad in den letzten Minuten: Die Außenseiten sollten tief goldbraun und splitterknusprig sein. Schweinefleisch ist bei einer Kerntemperatur von 145F vollständig gegart. Prüfe den größten Würfel mit einem sofort ablesbaren Thermometer und lass die Happen 3 Minuten ruhen (für eine festere Konsistenz auf 160F garen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Happen auf einen mit Papiertuch ausgelegten Teller und tupfe sie 1 Minute ab, um überschüssiges Fett aufzunehmen. Streue geschnittene Frühlingszwiebel und Sesamsamen darüber. Für eine vollständige Mahlzeit kannst du sie auf eine Schüssel Reis aus der Mikrowelle geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Lechon_Kawali.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lechon_Kawali.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Schweinebauch-Happen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

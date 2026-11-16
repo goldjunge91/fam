@@ -1,0 +1,966 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-viral-lemon-pound-cake",
+      "slug": "gen-viral-lemon-pound-cake",
+      "title": "Zitronen-Rührkuchen",
+      "instructions": "Saftiger amerikanischer Zitronenkuchen mit feiner Zitronenglasur.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zitronen in der Hochsaison in Großpackungen und friere abgeriebene Schale und Saft ein.",
+        "Verwende Zitronensaft aus der Flasche, wenn frische Zitronen teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4985,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-viral-lemon-pound-cake/",
+      "components": [
+        {
+          "key": "beacd12a-11ae-5e6a-8dd5-4aa1044838d4",
+          "name": "Zutaten",
+          "servingGrams": 150.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ea26c1b-09f1-5ecf-9271-1040bd8eb56d",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "86cef7e0-a07a-56f2-8ee6-e6fbbae00c31",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "859c7536-8860-5665-9d78-8160467adf1b",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "309d28f5-c30b-5312-80c7-b69c427d4f6e",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7404e1ae-b712-5e7d-9de4-1491b4ece0de",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2736849a-472f-52ac-8219-7385b77c10b1",
+              "ingredientName": "Zitronenschale",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "32cc9fec-b872-531d-ada5-0a1a97afce8e",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e24c40fc-a7a9-5825-bd41-7469749608c6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0fd1b664-5352-5ba6-b4cf-0cd1f969ab88",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "12fda062-fcd8-5ab2-983e-d99e1a73b5e6",
+              "ingredientName": "Puderzucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor und fette eine Kastenform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage weiche Butter und Zucker etwa 3 Minuten cremig und luftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Eier einzeln dazu und schlage die Masse nach jeder Zugabe gut auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Mehl, Backpulver und Salz in einer separaten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Mehlmischung abwechselnd mit saurer Sahne unter die Buttermischung. Beginne und ende mit Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe Zitronensaft und Zitronenschale unter, bis alles gerade vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße den Teig in die Form und backe ihn 50-55 Minuten, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Kuchen 15 Minuten in der Form abkühlen und stürze ihn dann auf ein Kuchengitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Verrühre Puderzucker mit 2-3 tablespoons Zitronensaft zu einer Glasur und träufle sie über den abgekühlten Kuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.budgetbytes.com/wp-content/uploads/2023/08/Lemon-Pound-Cake-V2-800x1067.jpg",
+          "sourcePageUrl": "https://www.budgetbytes.com/wp-content/uploads/2023/08/Lemon-Pound-Cake-V2-800x1067.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-seafood-boil",
+      "slug": "gen-seafood-boil",
+      "title": "Meeresfrüchte im Sud",
+      "instructions": "Amerikanisches Seafood-Boil mit Garnelen, Mais, Kartoffeln und geräucherter Wurst, gewürzt mit Old Bay.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen statt frischer und spare 30-40%.",
+        "Verwende Hähnchenwurst statt Räucherwurst, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4986,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seafood-boil/",
+      "components": [
+        {
+          "key": "38b6b2a5-6a4b-5f73-8f82-989b137a8b7b",
+          "name": "Zutaten",
+          "servingGrams": 472.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b0414be1-b895-553e-815e-a4f2066a839c",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6e6ef48d-4da4-5a80-9169-18c66e76306e",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Kolben"
+            },
+            {
+              "key": "0f61eefe-f5e0-5c44-9f8c-1030e0f2c842",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "309d9ecc-f830-5408-92ee-22c290bb4b17",
+              "ingredientName": "Geräucherte Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "1e1ea7e5-8ffb-5d66-8824-4808c5505d1a",
+              "ingredientName": "Old Bay-Gewürz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b8006f6e-c54b-5ffd-9168-d040b3c38ff6",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "75a9c515-51ae-5cd0-9f3e-88a530baee4b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9eb6f0f-1901-5320-8016-1a1444eab020",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ba4b3b1-4165-5140-91bc-4e662d3b28e6",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Quart"
+            },
+            {
+              "key": "279091e3-0c90-5e65-9cf4-cdf91babfee0",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle einen großen Topf mit Wasser, gib Salz dazu und bringe es sprudelnd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Old Bay-Gewürz, halbierte Zitronen und zerdrückte Knoblauchzehen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Wurst in Stücke und gib sie in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geviertelte Kartoffeln und Mais dazu und koche alles 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Garnelen dazu und koche sie 3-4 Minuten, bis sie rosa und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße alles in ein Sieb ab und richte die Zutaten auf einer großen Servierplatte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche sie mit geschmolzener Butter und serviere sie sofort mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/07/Seafood-Boil-10-1024x1536.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/07/Seafood-Boil-10-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-charcuterie-board",
+      "slug": "gen-charcuterie-board",
+      "title": "Charcuterie-Platte",
+      "instructions": "Französisch inspirierte Platte mit Aufschnitt, Käse, Crackern, Oliven, Gurken, Mandeln, Trauben und Honig.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wurstwaren und Käse an der Feinkosttheke in Großpackungen statt fertig abgepackt.",
+        "Verwende Oliven und Nüsse der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "französisch",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4987,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-charcuterie-board/",
+      "components": [
+        {
+          "key": "53e1613e-4405-5139-a012-eb55728243ff",
+          "name": "Zutaten",
+          "servingGrams": 114.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "23dab1f9-92ac-5991-89f4-5b5e13565193",
+              "ingredientName": "Prosciutto",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "51f3454a-1df2-57bc-ba56-fcce78144a91",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "0d998519-9d8e-554f-9969-6d6e1c8d365f",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "3dfc2210-3988-5ac1-b8e7-556a8b08538f",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6726015f-8571-5111-9edc-f9efe6104004",
+              "ingredientName": "Gewürzgurken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "43b9a91e-9fb4-5133-9467-9adcab4af1d4",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d800692e-1ca9-57ca-ade1-6a4118c8d3b3",
+              "ingredientName": "Trauben",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "234dde56-b13d-5f51-bc9b-cad48549e719",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Richte den Aufschnitt in lockeren Falten auf einem großen Holzbrett an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile verschiedene Käsestücke mit etwas Abstand auf dem Brett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Oliven, Cornichons, Nüsse und Trauben in kleinen Gruppen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Cracker und Brotscheiben an den Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle einen Teil des Käses mit Honig und serviere die Platte bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/10/1200-How-to-Make-a-Charcuterie-Board-SpendWithPennies.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/10/1200-How-to-Make-a-Charcuterie-Board-SpendWithPennies.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cloud-bread",
+      "slug": "gen-cloud-bread",
+      "title": "Wolkenbrot",
+      "instructions": "Luftiges, glutenfreies Brot aus Eiern und Frischkäse mit feiner Vanillenote.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in Großpackungen bei Großmärkten.",
+        "Lass den Zuckerbelag weg, um Zutaten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4988,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cloud-bread/",
+      "components": [
+        {
+          "key": "9b3b20b3-4825-542a-844c-6671b7bd1d1d",
+          "name": "Zutaten",
+          "servingGrams": 45,
+          "position": 0,
+          "items": [
+            {
+              "key": "9201e47c-81ec-5403-89cd-04fe1cd5f58a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "196e8750-88d2-5aeb-b868-55f9ba25d393",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "7f27b498-940f-59fe-ad46-b0db0a0b1901",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "40e2d1d0-da25-5923-9430-1efd0b0054ab",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ed5e2763-bd6c-50fa-94a3-2c5541c785f1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 300°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage das Eiweiß mit einer Prise Salz zu steifen Spitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere in einer anderen Schüssel Eigelb, weichen Frischkäse, Vanille und Zucker glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die Eiweißmasse vorsichtig in zwei Portionen unter die Eigelbmasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze sechs Häufchen auf das vorbereitete Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe sie 15-18 Minuten, bis sie leicht goldbraun und gestockt, aber noch weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Wolkenbrot auf einem Kuchengitter abkühlen und serviere es pur oder mit Marmelade und Schlagsahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.mamaknowsglutenfree.com/wp-content/uploads/2024/06/cloud-bread-recipe-2-scaled.jpg",
+          "sourcePageUrl": "https://www.mamaknowsglutenfree.com/wp-content/uploads/2024/06/cloud-bread-recipe-2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-matcha-latte",
+      "slug": "gen-matcha-latte",
+      "title": "Matcha Latte",
+      "instructions": "Japanisches Getränk aus fein aufgeschlagenem Matcha und warmer Milch.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Matcha-Pulver in Großpackungen auf asiatischen Märkten statt in Spezialitätencafés.",
+        "Verwende normale Milch statt Mandel- oder Hafermilch und spare 30-40%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4989,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matcha-latte/",
+      "components": [
+        {
+          "key": "13f19959-52c9-5b7b-bbfb-4d3e5a447f7f",
+          "name": "Zutaten",
+          "servingGrams": 253.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfe96002-db78-58bc-b79b-85a33ab87dd9",
+              "ingredientName": "Matcha-Pulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "37d063e9-80d9-5c63-a6d7-d049589305c8",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "216a741a-5d74-5170-b36e-4bdb4080be1f",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "527034cb-7fab-5a2a-b4ff-a2ea6b9c8407",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1-2 TL"
+            },
+            {
+              "key": "0091847e-8cc9-5fd4-bf54-09cb48ec075b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Siebe 2 teaspoons Matcha-Pulver in eine Schüssel, um Klümpchen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1/4 cup heißes Wasser (etwa 160°F) zum Matcha und schlage ihn mit einem Bambusbesen oder einer Gabel glatt und schaumig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 1/2 cups Milch in einem Topf bei mittlerer Hitze, bis sie dampft, aber nicht kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Matcha-Mischung in zwei Tassen und verteile die heiße Milch darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre nach Geschmack Honig oder Zucker sowie bei Wunsch Vanilleextrakt ein und serviere den Matcha sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/07/THE-BEST-Matcha-Latte-Creamy-Coconut-and-Macadamia-milk-make-the-perfect-combo-vegan-glutenfree-matcha-latte-recipe-19.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/07/THE-BEST-Matcha-Latte-Creamy-Coconut-and-Macadamia-milk-make-the-perfect-combo-vegan-glutenfree-matcha-latte-recipe-19.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

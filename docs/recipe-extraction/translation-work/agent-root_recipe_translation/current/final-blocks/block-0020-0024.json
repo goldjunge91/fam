@@ -1,0 +1,943 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:chili-oil-egg-noodles",
+      "slug": "chili-oil-egg-noodles",
+      "title": "Chiliöl-Ei-Nudeln",
+      "instructions": "Heiße Nudeln mit Knoblauch-Chiliöl und Sojasauce, dazu ein weiches Spiegelei.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Ein Glas Chiliöl reicht für Monate",
+        "Ein Ei macht jede einfache Nudel-Bowl besser"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-oil",
+          "swap": "Erhitztes Öl + rote Chiliflocken",
+          "savings": "ca. $0.10"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Essig oder Zitrone",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Fünf Vorratszutaten ergeben ein sättigendes Abendessen für eine Person.",
+      "healthierTips": [
+        "Vollkornnudeln verwenden",
+        "Zusammengefallenen Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "wohnheimgeeignet",
+        "schnell",
+        "scharf"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 20,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/chili-oil-egg-noodles/",
+      "components": [
+        {
+          "key": "88055605-c9b6-51cc-8d04-9353e1791649",
+          "name": "Zutaten",
+          "servingGrams": 203.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d491b390-55c3-5875-b6d0-1028227cf0b2",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Spaghetti oder Ramen"
+            },
+            {
+              "key": "25a0d9d7-1fbb-5099-bc8e-20e42833bcd0",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "095298d2-256d-549a-a10f-e5a48ab9fda1",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d332ff5-8722-5675-ab8a-57f490bde95a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91a66483-fc54-51f1-bcbb-f365f60a5ea2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca931470-4b02-5fe6-8948-eb8a7edc7d63",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3196fdd8-b514-5eff-a567-01e7242429b4",
+              "ingredientName": "Reisessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Chiliöl, Sojasauce, gehackten Knoblauch und Essig in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate ein Ei, bis der Rand knusprig ist und das Eigelb noch flüssig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Nudeln ab, gib sie zur Sauce und mische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Ei darauf und garniere mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/chili-oil-egg-noodles.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/chili-oil-egg-noodles.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chili-oil-egg-noodles.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chili-oil-egg-noodles.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ramen-egg-bowl",
+      "slug": "ramen-egg-bowl",
+      "title": "Ramen-Bowl mit Ei",
+      "instructions": "Instant-Ramen mit weich gekochtem Ei, Frühlingszwiebel und etwas Sesamöl verfeinert.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Eine Packung Ramen kostet $0.50 und lässt sich endlos verfeinern",
+        "Eier machen jede günstige Mahlzeit besser"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "eggs",
+          "swap": "Tofuwürfel",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Spinat",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ramen mit Ei ist das typische Wohnheimessen für weniger als $1.50.",
+      "healthierTips": [
+        "Nur die Hälfte des Gewürzpäckchens verwenden",
+        "Eine Tasse Blattgemüse dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch",
+        "wohnheimgeeignet",
+        "Seelenfutter",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 21,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ramen-egg-bowl/",
+      "components": [
+        {
+          "key": "4b6d6823-364f-5fd3-b152-4f636a50ee27",
+          "name": "Zutaten",
+          "servingGrams": 295,
+          "position": 0,
+          "items": [
+            {
+              "key": "15c41114-3c70-5507-9651-54fa32be2f11",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2403aa6-2e6b-52f5-a6fc-c7c98b461ff7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17244cf3-6b83-5bbf-883a-ff4787cd990d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae3ead74-db2c-5941-8630-ea203dcab8e9",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf577a84-4799-5535-887b-19a87a0d4523",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "163063a4-3bd2-590d-926f-9be4060db3f1",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 2 Tassen Wasser zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche das Ei 6 Minuten weich, lege es dann in ein Eisbad und schäle es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Nudeln im selben Wasser 3 Minuten mit dem Gewürzpäckchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre das Tiefkühlgemüse in der letzten Minute unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit dem halbierten Ei, Frühlingszwiebel und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/ramen-egg-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/ramen-egg-bowl.jpg",
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Shoyu_Ramen.jpg/960px-Shoyu_Ramen.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shoyu_Ramen.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Guilhem Vellut — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Ramen-Ei-Bowl mit weich gekochten Eiern, Nudeln und Frühlingszwiebel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ramen-stir-fry",
+      "slug": "ramen-stir-fry",
+      "title": "Gebratene Ramen-Nudeln",
+      "instructions": "Abgetropfte Ramen-Nudeln mit Tiefkühlgemüse und Soja-Knoblauch-Sauce aus einer Pfanne.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 9,
+      "storageInstructions": "Bis zu 2 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Zwei Packungen Ramen und Tiefkühlgemüse ergeben ein Abendessen für weniger als $3",
+        "Lass das Gewürzpäckchen weg, wenn du ein frischeres Gericht möchtest"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Beliebiges übriges Gemüse",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "ramen",
+          "swap": "Beliebige Weizennudeln",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ramen sind die günstigsten Nudeln überhaupt. Verfeinere sie mit dem, was du da hast.",
+      "healthierTips": [
+        "Das Gewürzpäckchen weglassen",
+        "Für mehr Eiweiß Tofu dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "wohnheimgeeignet",
+        "eine Pfanne"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 22,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ramen-stir-fry/",
+      "components": [
+        {
+          "key": "da83514d-d7c3-51d8-ba87-f5af63e1d0a8",
+          "name": "Zutaten",
+          "servingGrams": 399.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "86aa6030-724a-5cb1-b67d-097bf85a868c",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d62042b-335b-5fd3-98bd-480bf24c4f21",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cd58553-2d1c-5a60-9aa9-32e7028409a0",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9af5b61-7d43-53c3-ad39-75231e8c612d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78125112-8131-5829-a69a-38c6ef3c9897",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6976b722-8f3b-5378-a79b-daf407b54b1e",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d3bd7a7-ae99-5b35-ae34-15c14b6392a8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "c6d7f9a9-c47f-57eb-9e10-ebaa8244791c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Ramen-Nudeln 2 Minuten und gieße sie ab. Hebe das Gewürzpäckchen für später auf oder verwende nur die Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne, gib gehackten Knoblauch und Tiefkühlgemüse dazu und brate alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Nudeln und Sojasauce dazu und brate alles unter Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Sesamöl und Frühlingszwiebel unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/ramen-stir-fry.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/ramen-stir-fry.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/ramen-stir-fry.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/ramen-stir-fry.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:pesto-pasta-with-peas",
+      "slug": "pesto-pasta-with-peas",
+      "title": "Pesto-Pasta mit Erbsen",
+      "instructions": "Frische grüne Pasta mit Pesto und süßen Tiefkühlerbsen, ein leichtes Abendessen in 15 Minuten.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 13,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein Glas Pesto reicht für mehrere Abendessen",
+        "Tiefkühlerbsen sind günstiger als frische Erbsen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pesto",
+          "swap": "Olivenöl + Knoblauch + Parmesan + Basilikum",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Tiefkühlbrokkoli oder Spinat",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein kleines Glas Pesto reicht für mehrere Mahlzeiten.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Gehacktes Hähnchen oder Kichererbsen dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "vegetarisch",
+        "für den Alltag"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 23,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/pesto-pasta-with-peas/",
+      "components": [
+        {
+          "key": "e714e89c-f4cd-5a24-833f-6db647ff5647",
+          "name": "Zutaten",
+          "servingGrams": 269.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "46dc89c9-44e2-5ccd-8266-fa74936ab42f",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d34d0767-7a78-5911-b2cf-c673df2aadc0",
+              "ingredientName": "Pesto",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fd20d7d-2df7-569c-8f7b-6239f33ce700",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3aca1f7d-19a3-5e6c-b27a-2ac8514a7fce",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "949a381f-9f55-5d9f-86fb-08da55625d95",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51e4536a-bfdc-5402-bdb2-54d23b498fe8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df8e769e-05ce-5e79-9100-c796ab46f657",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta und gib in der letzten Minute die Tiefkühlerbsen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hebe 1/4 Tasse Nudelwasser auf und gieße die Pasta ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mische Pasta und Erbsen mit Pesto, Olivenöl und einem Schuss Nudelwasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue das Gericht mit Parmesan und presse etwas Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/pesto-pasta-with-peas.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/pesto-pasta-with-peas.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/pesto-pasta-with-peas.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/pesto-pasta-with-peas.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:one-pot-mac-and-cheese",
+      "slug": "one-pot-mac-and-cheese",
+      "title": "Ein-Topf-Makkaroni mit Käse",
+      "instructions": "Cremige Makkaroni mit Käse, direkt im Kochtopf zubereitet und in 15 Minuten fertig.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 13,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Milch 90 Sekunden in der Mikrowelle erwärmen und umrühren.",
+      "cheapTips": [
+        "Günstiger als die Fertigpackung",
+        "Beliebigen geriebenen Käse verwenden, den du da hast"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Pflanzendrink + 1 EL Butter",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Schmelzkäsescheiben für eine besonders cremige Sauce",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Pasta, Milch und Käse sind drei besonders günstige Zutaten für echtes Wohlfühlessen.",
+      "healthierTips": [
+        "Tiefkühlbrokkoli unterrühren",
+        "Vollkornpasta verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "wohnheimgeeignet",
+        "Seelenfutter",
+        "one-pot"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 24,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/one-pot-mac-and-cheese/",
+      "components": [
+        {
+          "key": "44f990c4-e0f6-5ca1-80fe-bd56db5a713f",
+          "name": "Zutaten",
+          "servingGrams": 372.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd09ad54-bc27-512a-9b03-15a0a5f571c7",
+              "ingredientName": "Pasta",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Am besten kurze Makkaroni"
+            },
+            {
+              "key": "d740195a-f044-5718-80cd-7c03958fbdd5",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42fec98b-4b1a-507b-aab6-78685fc9ff78",
+              "ingredientName": "Geriebener Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f99fa9c-76e1-5f88-a1cf-5c0e4018ac2f",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85730acb-6407-5a09-a751-c35a2cf7573d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bc12081-7c59-53ee-8cc4-8d8927b0e7d2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4a47d0c-6774-594d-a38b-6c2a1437dca2",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta in Salzwasser bissfest und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter im selben Topf und rühre, falls du Mehl verwendest, mit dem Schneebesen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Milch langsam unter ständigem Rühren dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd und rühre den Käse unter, bis er geschmolzen und die Sauce cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Pasta zurück in den Topf und würze mit Knoblauchpulver und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/one-pot-mac-and-cheese.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/one-pot-mac-and-cheese.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/one-pot-mac-and-cheese.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/one-pot-mac-and-cheese.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

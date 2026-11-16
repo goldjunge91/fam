@@ -1,0 +1,1481 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-baked-lemon-garlic-butter-salmon",
+      "slug": "she-baked-lemon-garlic-butter-salmon",
+      "title": "Gebackener Lachs mit Zitronen-Knoblauch-Butter",
+      "instructions": "Zarte, blättrige Lachsfilets werden mit einer frischen Zitronen-Knoblauch-Butter mit Honig, Paprika und Oregano bestrichen, dann gebacken und unter dem Grill karamellisiert. Ein Abendessen für unter der Woche, das in 20 Minuten fertig ist und wie im Restaurant schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/baked-lemon-garlic-butter-salmon/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lachsfilets im Angebot und friere sie ein. Taue sie über Nacht im Kühlschrank auf, bevor du sie bäckst.",
+        "Zitronensaft aus der Flasche eignet sich für die Marinade und kostet nur einen Bruchteil frischer Zitronen. Hebe die frische Zitrone zum Servieren in Scheiben auf.",
+        "Lass das mit Parmesan bestreute Gemüse weg und serviere einfache Kartoffelstampf dazu, um die Kosten pro Portion zu senken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "unsalted-butter",
+          "swap": "Gesalzene Butter; halbiere die zusätzlich zugegebene Salzmenge",
+          "savings": "meist günstiger und bereits vorrätig"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tiefgekühlte, aufgetaute Lachsfilets",
+          "savings": "ca. $0.25/Portion günstiger than frisch"
+        },
+        {
+          "forIngredientId": "sweet-paprika",
+          "swap": "Geräuchertes Paprikapulver für ein kräftigeres Raucharoma",
+          "savings": "Pantry swap, keine Zusatzkosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Lachs",
+        "Meeresfrüchte",
+        "gebacken",
+        "Zitrone",
+        "Knoblauch",
+        "Butter",
+        "Abendessen",
+        "schnell",
+        "Backofen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 335,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-baked-lemon-garlic-butter-salmon/",
+      "components": [
+        {
+          "key": "4b79fee8-bf55-5565-8da8-fc5a9943e893",
+          "name": "Zutaten",
+          "servingGrams": 331.74,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e7ae3c6-de8f-56f4-8c2d-096295e56c48",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen"
+            },
+            {
+              "key": "ecbb0c65-d4e9-5059-86d4-3dec4763a915",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL extra-virgin"
+            },
+            {
+              "key": "1327379e-35e2-5dc7-810c-65b439332896",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL frisch Zitronensaft"
+            },
+            {
+              "key": "a4eede3d-493f-5b1d-a10d-e7ab45802a62",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt (~1 clove)"
+            },
+            {
+              "key": "c6ac6008-259d-59c7-b6f2-5b607afb2930",
+              "ingredientName": "Honig",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d9061e07-9e6f-53b5-8682-b9ba5a4c3c11",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8dfec11e-600e-51ee-ba94-132459bcd1bf",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b3b68eca-046a-5811-b05f-0ed5c8aae3c1",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "c5022a7f-8b52-52b2-a55e-b1188fea3ae6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL, plus extra zum Servieren"
+            },
+            {
+              "key": "2b7a9daf-16ee-51f1-8bab-f4d6121b8d61",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/2 TL Chiliflocken"
+            },
+            {
+              "key": "7f9cc480-0eca-532d-a4de-b27342144860",
+              "ingredientName": "Lachsfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 mit Haut salmon fillets"
+            },
+            {
+              "key": "363d4303-0922-595f-b5ae-3a89088e27ec",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "freezer-friendly mashed potato, zum Servieren"
+            },
+            {
+              "key": "3571b855-398a-58c2-a4a3-6dd5990f70d5",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "optional über das Grün streuen"
+            },
+            {
+              "key": "69d6522d-0e43-5785-a0f8-e7769239bd4b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "frisch lemon slices, zum Servieren"
+            },
+            {
+              "key": "fda07b85-3225-59a0-9f7d-74e795fe5104",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "frisch flat-leaf parsley, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 220C (425F) oder bei Umluft auf 200C/400F vor und lass ihn mindestens 20 Minuten aufheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Zitronen-Knoblauch-Butter zu: Verrühre in einer Schüssel die geschmolzene Butter, das Olivenöl, den Zitronensaft, den gehackten Knoblauch, den Honig, das Paprikapulver, den Oregano, das Salz, den schwarzen Pfeffer und nach Wunsch die Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Lachsfilets mit der Hautseite nach unten in eine Auflaufform. Verteile die Marinade möglichst gleichmäßig auf den Filets.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Lachs 12 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schalte den Backofengrill auf hoher Stufe ein und grille den Lachs weitere 3 Minuten, bis er karamellisiert und nach deinem Geschmack gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere ihn mit Kartoffelstampf, gedämpftem Gemüse oder einem grünen Salat, zusätzlichem schwarzem Pfeffer, frischen Zitronenscheiben und gehackter Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/03/Baked-Lemon-Butter-Salmon-4.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/baked-lemon-garlic-butter-salmon/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von gebackenem Lachs mit Zitronen-Knoblauch-Butter",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-baked-miso-salmon",
+      "slug": "she-baked-miso-salmon",
+      "title": "Gebackener Miso-Lachs",
+      "instructions": "Süß-herzhafter Lachs mit Miso-Glasur wird gebacken, bis die Oberfläche karamellisiert. Dazu gibt es gedämpftes grünes Gemüse, lockeren Reis und schnell eingelegte rote Zwiebeln. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/baked-miso-salmon/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Lachsfilets und taue sie über Nacht im Kühlschrank auf, um die Kosten pro Portion deutlich zu senken.",
+        "Ersetze Pak Choi durch günstiges Gemüse, zum Beispiel Brokkoli, Kohl oder grüne Bohnen.",
+        "Miso, Tamari und Sesamöl sind lange haltbare Vorratszutaten. Sobald du sie im Haus hast, kostet die Marinade pro Portion nur wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale oder salzreduzierte Sojasoße kann in gleicher Menge verwendet werden.",
+          "savings": "ca. $0.10/Rezept"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tiefgekühlte Lachsfilets oder für eine günstige vegetarische Variante fester Tofu.",
+          "savings": "ca. $1/Portion"
+        },
+        {
+          "forIngredientId": "caster-sugar",
+          "swap": "Jeder weiße Haushaltszucker löst sich in der Marinade problemlos auf.",
+          "savings": "geringfügig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Lachs",
+        "Miso",
+        "gebacken",
+        "Abendessen",
+        "asiatisch",
+        "schnell",
+        "glutenfreie-Variante"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 336,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-baked-miso-salmon/",
+      "components": [
+        {
+          "key": "566e948c-8942-556b-b0b9-cb4c9020819d",
+          "name": "Zutaten",
+          "servingGrams": 351.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2ee3fd7-cd01-5098-a640-61892b1167b3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 red onion, fein in Scheiben geschnitten"
+            },
+            {
+              "key": "d2fa4286-7849-5015-aee8-63b4c9db14ca",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL Reisessig (für pickle)"
+            },
+            {
+              "key": "9cd25f84-e469-5503-a297-ed4f677ecf05",
+              "ingredientName": "Feiner Zucker",
+              "grams": 4.8,
+              "quantity": 4.8,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL caster (superfine) sugar"
+            },
+            {
+              "key": "a7fdf975-fef7-5ea6-956c-97fbfb6dd31b",
+              "ingredientName": "Lachsfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 mit Haut salmon fillets"
+            },
+            {
+              "key": "f2d44cc5-0d04-5cde-bd3a-89e205dad4a5",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL miso paste"
+            },
+            {
+              "key": "2f109101-ad82-5727-a2dc-dbc3c5436f61",
+              "ingredientName": "Tamari",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL tamari, oder Weizen- Sojasauce"
+            },
+            {
+              "key": "88b1dc71-0102-54f1-b493-634791b2616a",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL Sesamöl"
+            },
+            {
+              "key": "de7b4ea8-bbd5-545d-ae9b-38af685ecb2a",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL brauner Zucker"
+            },
+            {
+              "key": "7279d035-c724-5629-8c6f-ec7f8e3f7005",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL Reisessig (für marinade)"
+            },
+            {
+              "key": "b234de1c-6f49-5200-bcbc-11ec3b7c807d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 EL in Scheiben geschnitten spring onion (scallion)"
+            },
+            {
+              "key": "c4339127-ec9d-5151-80ee-7ddb0b865d78",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1 TL black und white sesame seeds"
+            },
+            {
+              "key": "4d1c46c0-84b1-5af0-a987-1347d12aba43",
+              "ingredientName": "Pak Choi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "steamed bok choy oder vegetables von your choice"
+            },
+            {
+              "key": "472b1184-492a-5ff8-8725-5701788ab783",
+              "ingredientName": "Fresno-Chili",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten frisch chilli"
+            },
+            {
+              "key": "8963c235-248a-5be6-b7da-e37e51b88945",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "gekochter Reis"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 200C (400F) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die eingelegten Zwiebeln zu: Vermische die fein geschnittene rote Zwiebel, 2 EL Reisessig und den feinen Zucker in einer Schüssel. Rühre alles um und stelle es zum leichten Durchziehen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Marinade zu: Verrühre in einer kleinen, flachen Auflaufform Miso, Tamari, Sesamöl, braunen Zucker und 2 EL Reisessig, bis sich der Zucker aufgelöst hat. Durch das Miso kann die Mischung etwas körnig bleiben; das ist in Ordnung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Lachsfilets hinein und wende sie mehrmals, bis sie vollständig mit der Marinade bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Lachs 12 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße zum Karamellisieren 2-3 EL Wasser auf den Boden der Form, damit die Soße nicht anbrennt. Schalte dann den Backofengrill ein und grille den Lachs 3-5 Minuten, bis er gebräunt und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Dämpfe in der Zwischenzeit den Pak Choi und koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere den Lachs mit Reis, gedämpftem Gemüse und den eingelegten roten Zwiebeln. Bestreue ihn nach Wunsch mit Sesamsamen, Frühlingszwiebeln und frischer Chili in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/03/Baked-Miso-Salmon-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/baked-miso-salmon/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von gebackenem Miso-Lachs",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-beans-with-fried-rice-and-dumplings",
+      "slug": "she-beans-with-fried-rice-and-dumplings",
+      "title": "Schweinefleisch mit grünen Bohnen aus dem Wok",
+      "instructions": "Karamellisiertes Schweinehack und gebräunte grüne Bohnen werden auf schnellem gebratenem Eierreis angerichtet und mit gedämpften Teigtaschen und etwas Chiliöl serviert. Ein schnelles, herzhaftes Abendessen für unter der Woche, das wie vom Imbiss schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/beans-with-fried-rice-and-dumplings/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Reis vom Vortag oder übrigen gekochten Reis statt frisch gekochtem. Er lässt sich besser anbraten und du verwertest deine Vorräte.",
+        "Tiefgekühlte grüne Bohnen sind günstiger und länger haltbar als frische und eignen sich hier bestens.",
+        "Lass die optionalen Teigtaschen und das Chiliöl weg, um Geld zu sparen. Schweinefleisch, Bohnen und gebratener Reis ergeben auch allein eine vollständige Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shaoxing-wine",
+          "swap": "Trockener Sherry oder ein Schuss Reisessig",
+          "savings": "verwenden eine Vorratszutat statt Kauf a Spezial- wine"
+        },
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale oder salzreduzierte Sojasoße",
+          "savings": "ca. $0.10 pro EL"
+        },
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchen- oder Putenhack",
+          "savings": "oft günstiger und leaner"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Pfannengericht",
+        "Schweinefleisch",
+        "grüne-Bohnen",
+        "gebratener-Reis",
+        "Abendessen",
+        "schnell",
+        "wie-vom-Imbiss"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 337,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-beans-with-fried-rice-and-dumplings/",
+      "components": [
+        {
+          "key": "47536fd3-01b2-5704-b72a-45846fe5b168",
+          "name": "Zutaten",
+          "servingGrams": 876.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "034c73f5-48d0-5186-8b38-e94fc5388ef0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL total cooking oil (2 EL für beans/pork, 1 EL für rice)"
+            },
+            {
+              "key": "69eef9cb-3a29-563f-af2c-7eb8804ba99e",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "500 g tiefgekühlt oder frisch green beans"
+            },
+            {
+              "key": "10899070-cf06-5488-9d72-633e54ab399f",
+              "ingredientName": "Wasser",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL water"
+            },
+            {
+              "key": "cbccd3d5-4b25-5799-ba3b-423f96f6be3c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL gehackt (~3 Zehen) + 1 TL gehackt (~1 clove)"
+            },
+            {
+              "key": "7b366cc0-44a7-5878-aee6-7d7ca214d808",
+              "ingredientName": "Schweinehack",
+              "grams": 481.95,
+              "quantity": 481.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "500 g gehackt (gemahlen) pork"
+            },
+            {
+              "key": "e030752a-b1e7-56c6-9a06-d03fb1158e08",
+              "ingredientName": "Shaoxing-Kochwein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL Shaoxing wine"
+            },
+            {
+              "key": "dc8a5af6-a423-5259-99f6-c2be1957c758",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL brauner Zucker"
+            },
+            {
+              "key": "c0b20683-bd2c-5964-99c7-42fa85b63a13",
+              "ingredientName": "Tamari",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL (pork) + 1 EL (rice) tamari oder Weizen- Sojasauce"
+            },
+            {
+              "key": "ca6cf5b5-9782-5330-8e54-f8452677a9a5",
+              "ingredientName": "Dunkle Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 TL dark Sojasauce"
+            },
+            {
+              "key": "9a234498-46b5-5dac-bd65-ac4bc04cbfd1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 spring onions, fein gehackt, white und green separated"
+            },
+            {
+              "key": "a48ace4e-b0bb-5213-bba9-3b534137e00a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 eggs, verquirlt"
+            },
+            {
+              "key": "d6e5acc4-71a0-57ea-b90f-2cb4d4ba0f09",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "370 g kalt gegart rice"
+            },
+            {
+              "key": "57a55027-98b6-5777-8ee4-abc6964fff89",
+              "ingredientName": "Sesamöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL Sesamöl"
+            },
+            {
+              "key": "71a9076e-1e5a-5a07-86ac-ca010b51ad32",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "c48cd087-9330-5208-a64d-c70dd123b278",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen schwarzer Pfeffer"
+            },
+            {
+              "key": "a7daf4ba-ff7c-5842-ad13-9717a9e2149b",
+              "ingredientName": "Tiefgekühlte Teigtaschen (Potstickers)",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "12 store-bought oder homemade wonton dumplings"
+            },
+            {
+              "key": "0915c6c2-a205-5538-a5f3-e27acd21a46f",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "chilli oil, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große, schwere Pfanne auf hoher Stufe. Gib 1 EL Öl und sofort die grünen Bohnen hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bei frischen Bohnen: Brate sie ohne Deckel in einer Lage 2-3 Minuten, bis sie langsam weich werden. Gib nach der Hälfte 2 EL Wasser dazu, damit Dampf entsteht. Bei tiefgekühlten Bohnen: Gare sie abgedeckt 2-3 Minuten, nimm dann den Deckel ab, gib das Wasser dazu und gare sie weitere 2-3 Minuten, bis sie weich sind und Röststellen haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die grünen Bohnen aus der Pfanne und stelle sie auf einem Teller beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 1 EL Öl in dieselbe Pfanne. Füge die größere Menge Knoblauch hinzu und brate ihn unter Rühren 30 Sekunden. Gib das Schweinehack dazu, zerkleinere es mit einem Löffel und brate es etwa 2 Minuten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Shaoxing-Wein, braunen Zucker, Tamari und dunkle Sojasoße dazu. Gare alles ohne Deckel 4-6 Minuten, bis die Soße zu karamellisieren beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die grünen Bohnen zurück in die Pfanne, rühre alles durch und stelle die Mischung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze das restliche 1 EL Öl in der Pfanne bei mittlerer bis hoher Hitze. Gib den übrigen Knoblauch und die weißen Teile der Frühlingszwiebeln dazu. Brate alles unter Rühren 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib das verquirlte Ei dazu und gare es 2 Minuten, bis es gestockt ist. Schiebe es mit einem Pfannenwender umher und zerteile es, damit es gleichmäßig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib Reis, die grünen Teile der Frühlingszwiebeln, Sesamöl, Tamari, Salz und Pfeffer dazu. Brate alles 1-2 Minuten, bis der Reis durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Serviere den gebratenen Eierreis mit Schweinefleisch und grünen Bohnen. Gib nach Wunsch gedämpfte Teigtaschen dazu und träufle Chiliöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2021/07/Beans-with-Fried-Rice-and-Dumplings-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/beans-with-fried-rice-and-dumplings/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweinefleisch mit grünen Bohnen aus dem Wok",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-beef-burrito-bowl",
+      "slug": "she-beef-burrito-bowl",
+      "title": "Burrito-Bowl mit Rindfleisch",
+      "instructions": "Rauchig gewürztes Rinderhack köchelt mit Tomatenmark und kommt auf lockeren Reis, dazu deine liebsten mexikanischen Toppings. Ein vielseitiges Abendessen für unter der Woche, das in 15 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/beef-burrito-bowl/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhack in einer größeren Familienpackung und friere es in Portionen zu 500g ein, damit du den günstigeren Kilopreis bekommst.",
+        "Lass fertige Taco-Gewürzmischungen weg. Die Gewürze aus dem Vorrat kosten nur wenige Cent und ergeben eine größere, frischere Mischung.",
+        "Koche getrocknete Bohnen in größeren Mengen oder verwende die günstigsten Bohnen aus der Dose. Mit zusätzlichem Reis reicht die Bowl für mehr Personen und kostet weniger pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Puten- oder Hähnchenhack für eine magerere, günstigere Bowl",
+          "savings": "ca. $0.40/Portion"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Tiefgekühlter Blumenkohlreis als kohlenhydratarme Grundlage"
+        },
+        {
+          "forIngredientId": "sweet-paprika",
+          "swap": "Geräuchertes Paprikapulver für ein kräftigeres Raucharoma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch",
+        "Rindfleisch",
+        "Burrito-Bowl",
+        "Abendessen",
+        "schnell",
+        "Reis-Bowl",
+        "30-Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 338,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-beef-burrito-bowl/",
+      "components": [
+        {
+          "key": "df4f2aab-0c17-53ba-827a-88b0ea4533d2",
+          "name": "Zutaten",
+          "servingGrams": 882.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "0bd4f833-2771-5288-ae94-37179068825f",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL sweet paprika"
+            },
+            {
+              "key": "37d44a16-00c6-55b9-bd58-983157a34798",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL gemahlen cumin"
+            },
+            {
+              "key": "3a0e74d5-102e-5c62-99fe-5d90f20ded5e",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL onion powder"
+            },
+            {
+              "key": "1a1e228a-f7e3-5d3f-8418-def087f4d7fe",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL dried oregano"
+            },
+            {
+              "key": "8bb19ff9-c408-5dea-8ad8-b2986ed0c028",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "28dbab67-07ed-5ead-b93c-c15a654c39b7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL Olivenöl"
+            },
+            {
+              "key": "5c0bd4da-e0ee-5f64-9aca-524b0ebcaa65",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 onion, fein gewürfelt"
+            },
+            {
+              "key": "d9ac2b67-7309-54c8-b7c1-75443232dc4a",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "500g regular gemahlen beef"
+            },
+            {
+              "key": "b94f3411-e4d1-529a-96b9-bbe1494d1e1f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL Tomatenmark"
+            },
+            {
+              "key": "16fb9db6-6fe1-530b-a88e-f0fce690f41b",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gegart rice, zum Servieren"
+            },
+            {
+              "key": "6f0d3ab3-e0ec-5186-b4a8-96f6dbe86d9a",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gerieben cheese, zum Servieren"
+            },
+            {
+              "key": "44936c9c-36d8-5e44-a84c-3bcc242e1bc5",
+              "ingredientName": "Eingelegte Jalapeños",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 11,
+              "optional": true,
+              "source_note": "jalapeños, zum Servieren"
+            },
+            {
+              "key": "7f608394-45d8-553b-a885-5a0a323f0e93",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "red cabbage, geraspelt, zum Servieren"
+            },
+            {
+              "key": "7f812681-12df-5d74-bf70-fc8c103f8066",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 13,
+              "optional": true,
+              "source_note": "black beans, zum Servieren"
+            },
+            {
+              "key": "b329e7dc-803a-5129-b6da-e09cf01212a3",
+              "ingredientName": "Mais aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 14,
+              "optional": true,
+              "source_note": "corn, zum Servieren"
+            },
+            {
+              "key": "a934456c-ac8a-5c2c-89ea-ec714d6ea668",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "lime wedges, zum Servieren"
+            },
+            {
+              "key": "1c9f569f-6811-5f5c-92ad-cd4eba1a17d6",
+              "ingredientName": "Saure Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "saure Sahne, zum Servieren"
+            },
+            {
+              "key": "03cde062-1808-5b6f-bc08-1eb06589526b",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "avocado, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische edelsüßes Paprikapulver, Kreuzkümmel, Zwiebelpulver, getrockneten Oregano und Meersalzflocken in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine große, schwere Pfanne auf hoher Stufe. Gib Olivenöl und gewürfelte Zwiebel hinein und brate alles unter Rühren 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rinderhack dazu und brate es 3-4 Minuten. Zerkleinere es dabei, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Gewürzmischung, das Tomatenmark und 1/3 Tasse (80 ml) Wasser ein. Gare alles unter Rühren 2-3 Minuten, bis die Mischung eindickt und aromatisch duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das gewürzte Rindfleisch auf gekochtem Reis in Schüsseln und ergänze deine liebsten mexikanischen Toppings, zum Beispiel Käse, Jalapeños, Rotkohl, schwarze Bohnen, Mais, Limettenspalten, saure Sahne und Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/10/Beef-Burrito-Bowl-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/beef-burrito-bowl/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Burrito-Bowl mit Rindfleisch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-bruschetta-salad",
+      "slug": "she-bruschetta-salad",
+      "title": "Bruschetta-Salat",
+      "instructions": "Saftige reife Tomaten, rote Zwiebel und frisches Basilikum in einem Dressing aus Balsamico und Olivenöl, dazu warme Sauerteig-Croutons mit Knoblauch und Parmesan für den perfekten Biss. Der Geschmack klassischer Bruschetta in einem frischen Salat zum Teilen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/bruschetta-salad/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende möglichst reife Tomaten aus der Saison. Sie sind dann am günstigsten und geben dem ganzen Gericht Geschmack.",
+        "Verarbeite Sauerteigbrot vom Vortag oder altbackenes Brot zu Croutons. Es wird besonders knusprig und kostet nichts extra.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Das ist deutlich günstiger als fertig geriebener Parmesan und er hält sich wochenlang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sourdough",
+          "swap": "Jedes knusprige Brot oder ein Baguette eignet sich für die Croutons",
+          "savings": "beliebige vorhundene bread bereits vorhunden vorrätig"
+        },
+        {
+          "forIngredientId": "red-onion",
+          "swap": "Weiße Zwiebel oder ein paar fein geschnittene Schalotten",
+          "savings": "Swap for what's im Vorratsschrank"
+        },
+        {
+          "forIngredientId": "balsamic",
+          "swap": "Rotweinessig mit einer Prise Zucker",
+          "savings": "günstiger than balsamic falls du don't keep it stocked"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Salat",
+        "Bruschetta",
+        "Tomate",
+        "vegetarisch",
+        "Sommer",
+        "Croutons",
+        "Beilage",
+        "frisch",
+        "Salat-ohne-kochen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 339,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-bruschetta-salad/",
+      "components": [
+        {
+          "key": "310055e5-fe67-507f-b35d-6c6a77cc8432",
+          "name": "Zutaten",
+          "servingGrams": 247.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c1c49b2-5623-5846-917d-237f187ffdde",
+              "ingredientName": "Tomate",
+              "grams": 600,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 mittelgroß ripe, zimmerwarm, gewürfelt"
+            },
+            {
+              "key": "5670f291-dd21-58bc-9031-72ed823bfa70",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 onion, fein gewürfelt"
+            },
+            {
+              "key": "3b5267f5-3ed3-5fb1-8710-fa6e84aaa810",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "25g frisch basil Blätter, geraspelt, plus extra zum Servieren"
+            },
+            {
+              "key": "e420f387-3e7a-5d8e-bb17-b1201d6fb5f2",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "60ml extra-virgin, für salad"
+            },
+            {
+              "key": "66ccd0e1-3672-5123-b07b-60ebc850a302",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL balsamic vinegar"
+            },
+            {
+              "key": "ce23f274-ca39-5fba-8925-f77004b04b7f",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL für salad + 1/2 TL für croutons"
+            },
+            {
+              "key": "d4409dde-48e0-5a3c-8ad7-192654e198d8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL frisch gemahlen"
+            },
+            {
+              "key": "641095a9-76a8-533f-a105-482280ddcfe5",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen"
+            },
+            {
+              "key": "814d1249-f683-52bc-9b0d-ab8d73bb7a06",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL extra-virgin, für croutons"
+            },
+            {
+              "key": "3ff48f01-320f-5069-8ea2-5aaee8e84501",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL frisch gehackt (~2 Zehen)"
+            },
+            {
+              "key": "7516492e-fd1f-5702-a510-5c5050e70066",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Scheiben kräftiges Sauerteigbrot, in Stücke gezupft"
+            },
+            {
+              "key": "5de79be9-2289-5871-9d4b-9a67a6d31d96",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL fein gerieben, plus extra zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Salat zu: Gib die gewürfelten Tomaten, die rote Zwiebel, das geschnittene Basilikum, 4 EL Olivenöl, Balsamicoessig, 1/2 TL Meersalz und schwarzen Pfeffer in eine große Servierschüssel. Mische alles und stelle es beiseite, während du die Croutons zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Überziehe das Brot: Verrühre in einer großen Schüssel die geschmolzene Butter, 2 EL Olivenöl, den gehackten Knoblauch und die übrigen 1/2 TL Meersalz. Gib die gezupften Sauerteigbrotstücke dazu und mische alles gut durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe die Croutons im Ofen: Heize den Backofen auf 220C/425F (200C/400F Umluft) vor. Verteile das Brot in einer Lage auf einem mit Backpapier belegten Blech und backe es 10-15 Minuten. Wende es nach der Hälfte der Zeit, bis es goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Oder bereite sie in der Heißluftfritteuse zu: Heize sie auf 180C/350F vor. Lege das Brot in einer Lage hinein, bei Bedarf in mehreren Durchgängen, und gare es 6-8 Minuten. Schüttle den Korb nach der Hälfte der Zeit, bis die Croutons goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fertigstellen: Bestreue die heißen Croutons mit geriebenem Parmesan und wende sie vorsichtig, damit der Käse daran haftet. Lass sie kurz abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Anrichten und servieren: Gib die warmen Knoblauch-Parmesan-Croutons, zusätzliches Basilikum und Parmesan auf den Salat. Sofort servieren, solange die Croutons noch knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2026/06/bruschetta-salad-with-garlic-parmesan-croutons-serving-spoon.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/bruschetta-salad/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Bruschetta-Salat",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

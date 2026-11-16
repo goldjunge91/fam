@@ -1,0 +1,1007 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-egg-veggie-fried-rice",
+      "slug": "mfr-egg-veggie-fried-rice",
+      "title": "Gebratener Vollkornreis mit Ei und Gemüse",
+      "instructions": "Vollkornreis vom Vortag wird im Wok mit Ei, Tiefkühlgemüse und Sojasauce gebraten. Ein schnelles, eiweißreiches Grundgericht, für das du Reste aus dem Kühlschrank verwerten kannst.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus übrig gebliebenem Reis wird mit kaum zusätzlichen Kosten eine vollständige Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Weißer Reis oder Blumenkohlreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-veggie-fried-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 760,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-veggie-fried-rice/",
+      "components": [
+        {
+          "key": "b431264c-a303-5b3e-ac1b-3b853aed9853",
+          "name": "Zutaten",
+          "servingGrams": 480.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "228d7001-a5ed-5333-99c1-ec458bec1ecd",
+              "ingredientName": "Vollkornreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34ff7a2f-60d2-579f-87ae-def1b6e6d1a1",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebac8b14-5c69-5551-97b5-40599217d379",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43d7de41-3fea-534c-bf19-e65e6b777d56",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bf6400e-53e5-5ac6-ad8c-a62264d16e05",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22807272-9580-50fa-87f1-7a5d4b0e3cac",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3caea44d-79b9-50e6-af2d-e315990782f5",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a0df148-c28a-503a-9b30-530647f049ef",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Wok bei sehr hoher Hitze. Rühre die Eier und schiebe sie an den Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tiefkühlgemüse und Knoblauch dazu und brate alles unter Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib kalten Reis dazu und löse Klumpen auf. Brate ihn 3 Minuten, bis er heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Sojasauce und Sesamöl. Gib Frühlingszwiebeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/301_LLBlog_FriedRice_47795.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/301_LLBlog_FriedRice_47795.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-stuffed-zucchini",
+      "slug": "mfr-turkey-stuffed-zucchini",
+      "title": "Mit Putenhack und Quinoa gefüllte Zucchinischiffchen",
+      "instructions": "Große Zucchini werden halbiert, ausgehöhlt und mit italienisch gewürztem Putenhack und Quinoa gefüllt. Im Ofen gebacken, bis alles goldbraun ist, wird daraus ein kohlenhydratarmes, gefülltes Gemüsegericht, das eine vollständige Portion ergibt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zucchinischiffchen sind eine gute Möglichkeit, eine sättigende Mahlzeit mit kaum stärkehaltigen Kohlenhydraten zu servieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Blumenkohlreis für noch weniger Kohlenhydrate"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-stuffed-zucchini",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 761,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-stuffed-zucchini/",
+      "components": [
+        {
+          "key": "e86a52c5-7ceb-5fb9-aa80-e32a4293315f",
+          "name": "Zutaten",
+          "servingGrams": 510.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2cf93e6b-8e50-5fc8-926c-44a28242bd1c",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cec536a6-111d-54f2-b1c9-9b3e5150c118",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b66b6c40-4ba8-5eed-938b-569101dc11ae",
+              "ingredientName": "Quinoa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e49435c9-cd88-5db9-8ba9-1f3e3f140efd",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58c381b9-9506-5675-bcbc-26aa8d165649",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "960a9bc6-cd4e-5fc0-8d46-a2b93e0b43cc",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7084ceb9-1c0e-51ed-bf5d-cb6c7cd984cf",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bfb965f-be97-5775-a5c5-419e61f1737c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d064dbf-cdc9-5fda-9430-0579c271d20a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400 °F vor. Halbiere die Zucchini längs und höhle sie aus, sodass eine Schale bleibt. Hacke das Fruchtfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Quinoa. Brate Putenhack mit Knoblauch, italienischer Gewürzmischung und Zucchinifruchtfleisch an. Gib gewürfelte Tomaten und gekochte Quinoa dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Zucchinischalen und gib geriebenen Käse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Zucchini 20–25 Minuten, bis sie weich und der Käse goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/07/stuffed-zucchini.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/07/stuffed-zucchini.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-grain-bowl",
+      "slug": "mfr-salmon-grain-bowl",
+      "title": "Getreide-Bowl mit Lachs in Honig-Dijon-Glasur",
+      "instructions": "In der Pfanne angebratener Lachs mit Glasur aus Honig und Dijon-Senf auf Quinoa mit geröstetem Brokkoli. Eine Getreide-Bowl in Restaurantqualität, die zu Hause in 25 Minuten zubereitet ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dijon-Senf kostet pro Teelöffel fast nichts und bringt unglaublich viel Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Vollkornreis, Couscous oder Farro"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 762,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-grain-bowl/",
+      "components": [
+        {
+          "key": "3124d1c8-263d-5da3-a97b-b82ec26714c2",
+          "name": "Zutaten",
+          "servingGrams": 550.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf75b231-231b-5a16-b3ac-63187f06cc27",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd83bab1-2a95-5f42-9e52-97f95d1109e7",
+              "ingredientName": "Quinoa",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14efc28e-e742-5ff3-9942-7fcdc8ad15e5",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ece6f76-62d1-5fde-afb8-d5c03375ab0f",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eccff383-e88a-5c9c-9fa3-35fe7b63ebcc",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25553513-bdb4-5e76-bc38-1b111f8c3866",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8431620-747d-52e1-828a-73b12d85c6b7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2139cd7f-5701-58bb-a296-3f8d413c27df",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ead6c3f-2985-5ea0-b9f0-a3204d24295e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Quinoa. Röste Brokkoli bei 425 °F 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Honig, Dijon-Senf, Knoblauch und Zitronensaft. Bestreiche den Lachs mit der Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Lachs mit der Hautseite nach oben in Olivenöl bei mittelhoher Hitze 3 Minuten an. Wende ihn und gare ihn weitere 2 Minuten. Gieße die restliche Glasur in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Lachs auf Quinoa mit Brokkoli.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/03/Hot-Honey-Crispy-Salmon-Bowls-7.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/03/Hot-Honey-Crispy-Salmon-Bowls-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-white-chicken-chili",
+      "slug": "mfr-white-chicken-chili",
+      "title": "Weißes Chili mit Hähnchen",
+      "instructions": "Ein cremiges, mild gewürztes Chili mit gezupftem Hähnchen, weißen Bohnen, Mais und grünen Chilis in einer Kreuzkümmelbrühe. Ein Abendessen aus einem Topf, das in 30 Minuten fertig ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischer Joghurt macht dieses Chili cremig und kostet nur einen Bruchteil von Schlagsahne."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne verwenden oder sie weglassen und eine brühenbasierte Variante zubereiten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-white-chicken-chili",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 763,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-white-chicken-chili/",
+      "components": [
+        {
+          "key": "83d8a93f-839e-55c4-b7d8-db8b9c4c8401",
+          "name": "Zutaten",
+          "servingGrams": 631.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b9fc18e-ae4e-5396-8309-45677cc43bea",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c03d5069-e8f2-5807-8e5f-f3b3f6550c06",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dfc835f-48b0-549e-817b-52b9150a3706",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f23aaa6d-d3a6-55be-99a1-b2ffb2841ac1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8086f43c-0f68-52bb-a1af-ca20c49a699d",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e72e26e8-24a4-5a89-b85a-7ba899d36733",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e43a5ea0-e7bc-5140-adc9-f50f59add1c0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2e82235-103a-5460-b614-ab7919a62829",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d735029f-23cb-5253-8bbb-0cae83db005e",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eff57bf-c0eb-5263-9ec5-5f1b2c15c720",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "358b7224-49e1-5577-ab9d-3e8c4897ddd8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46248f19-375c-56d7-9738-6d9c0f71a050",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Knoblauch in Öl an. Gib Kreuzkümmel und Chilipulver dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib rohes Hähnchen, weiße Bohnen, Mais und Brühe dazu. Lass alles 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen heraus und zupfe es auseinander. Gib es zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den griechischen Joghurt abseits der Hitze ein, damit das Chili ohne Sahne cremig wird. Verfeinere es mit Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/18/05/1517424535-delish-white-chicken-chili-1.jpg",
+          "sourcePageUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/18/05/1517424535-delish-white-chicken-chili-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-spinach-feta-frittata",
+      "slug": "mfr-spinach-feta-frittata",
+      "title": "Frittata mit Spinat und Feta",
+      "instructions": "Eine mediterrane Ofenfrittata mit reichlich Spinat und Feta. Sie wird zuerst auf dem Herd begonnen und im Ofen fertig gebacken. Ein unkompliziertes, perfekt gestocktes Abendessen unter der Woche, das sich auch zum Brunch eignet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "8 Eier zu je $0.42 kosten $3.36 und reichen für 4 Personen. Ein hervorragender Preis für so viel Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Beliebiger Käse wie Ziegenkäse, Cheddar oder Mozzarella"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-spinach-feta-frittata",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 764,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-spinach-feta-frittata/",
+      "components": [
+        {
+          "key": "255e21d1-c3e1-5f33-80f2-e29868271d21",
+          "name": "Zutaten",
+          "servingGrams": 442.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f6d956f-fc57-5001-b1a6-b93676770f69",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "369eb869-7b10-5c65-a0cd-95cefa6f5fde",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a037f92d-15bb-51b7-8436-8575622ac210",
+              "ingredientName": "Feta",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a98cb31-3930-5a05-92b7-5b6384b59d3e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa49dfc6-8678-5455-9f97-9916417ab60c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52ea73b4-8b1b-52af-adcd-77a7959a321b",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81b17e1a-ab86-51b4-bb2d-20d4ab499a68",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2ebf5b0-59bb-5516-9131-1dd70911bc9d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "286cb758-fc4f-50d8-86b9-63955df1ae2c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375 °F vor. Brate Zwiebel und Knoblauch in einer ofenfesten Pfanne an. Gib den Spinat dazu und lass ihn zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier mit Milch, Salz und Pfeffer. Rühre Feta ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eiermischung über das Gemüse in der Pfanne. Gare sie 3 Minuten ungestört auf dem Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Pfanne in den Ofen und backe die Frittata 15–18 Minuten, bis sie vollständig gestockt und leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Frittata in Spalten und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/07/db86e38bdf8cfdd3cddcfa2d4884282e079d7fd6.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/07/db86e38bdf8cfdd3cddcfa2d4884282e079d7fd6.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,981 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-luang-prabang-sausage",
+      "slug": "gen-luang-prabang-sausage",
+      "title": "Wurst aus Luang Prabang",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinehackfleisch im Angebot und friere es bis zur Zubereitung ein.",
+        "Lasse Därme weg und forme stattdessen Bratlinge, das ist einfacher."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "laotisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3525,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-luang-prabang-sausage/",
+      "components": [
+        {
+          "key": "232fa570-ee52-5bef-bbfe-c0dc71483300",
+          "name": "Zutaten",
+          "servingGrams": 268.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "224dd8f7-58d9-56cf-acd0-3d956ecfaa9f",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "856290c1-90a6-53ba-b5bf-925dcaff6bee",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fac24c51-faa3-5069-84b6-25247d15a8df",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbda20aa-dfc6-5556-9e78-86c7728376a0",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "544e684e-3646-5037-851a-340a6c2a43ad",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "15ed773f-b27b-5bba-8834-89d98fdc010f",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5432ca00-2905-5d64-b07e-4c9e908b02e3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "722f872a-fd50-583b-b1d3-bdb4962af6cf",
+              "ingredientName": "Schweinewurst",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Fuß"
+            },
+            {
+              "key": "7453f846-ffc8-518f-b4df-62f754691e20",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Wurstdärme 30 Minuten in warmem Wasser ein, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch, Zitronengras und Chilischoten fein und vermische sie mit Schweinehackfleisch, Fischsauce, Sojasauce und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Füllung gründlich und stelle sie mindestens 1 Stunde kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Därme mit einem Wurstfüller oder einem improvisierten Trichter und binde 4-inch lange Würste ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille oder brate die Würste bei mittlerer Hitze 15-20 Minuten und wende sie häufig, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie heiß mit Klebreis und Dipsaucen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://2.bp.blogspot.com/-knn6Ip8Zkos/W54b0ya6pQI/AAAAAAAAMnM/s20O5-DjxeA0VVcI1RA-fKURj72n8tInQCLcBGAs/s1600/IMG_6625.JPG",
+          "sourcePageUrl": "https://2.bp.blogspot.com/-knn6Ip8Zkos/W54b0ya6pQI/AAAAAAAAMnM/s20O5-DjxeA0VVcI1RA-fKURj72n8tInQCLcBGAs/s1600/IMG_6625.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tam-maak-hoong",
+      "slug": "gen-tam-maak-hoong",
+      "title": "Tam Maak Hoong",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe leicht unreife Papaya vergünstigt auf asiatischen Märkten.",
+        "Verwende zerstoßene Erdnüsse aus dem Großgebinde statt abgepackter Ware."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "laotisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3526,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tam-maak-hoong/",
+      "components": [
+        {
+          "key": "221d5129-6a87-5447-80a1-7aedb7a320e7",
+          "name": "Zutaten",
+          "servingGrams": 371.52,
+          "position": 0,
+          "items": [
+            {
+              "key": "b501f464-c3b7-5ca4-bf79-aeb0d27087d6",
+              "ingredientName": "Unreife Papaya",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "09813ef8-711a-5f81-a425-8313e91ad0bd",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c7efb445-86eb-5ea0-af7e-f5e909cc771e",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "54b67a35-6541-55fa-a9e6-759dd0af6a81",
+              "ingredientName": "Thailändische Chilischote",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85edd1f1-a805-52ed-91ee-070e404f8724",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53fdf136-4071-55da-98fa-bc40c2323baa",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b1270a62-a42b-55e2-b0b5-404f5cdc7987",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2f5b47a9-3263-5cfa-98ab-4f6c77e8b75e",
+              "ingredientName": "Erdnüsse",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d4b59e83-613e-5101-a540-033d9cefb728",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerstoße Knoblauch und Chilischoten gemeinsam in einem Mörser, bis sie zerkleinert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib lange Bohnen und Tomaten in den Mörser und zerdrücke sie vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle die Papaya und schneide sie mit einer Vierkantreibe oder einem Messer in feine Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Papaya, Limettensaft, Fischsauce und Salz in den Mörser und vermische alles leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle den Salat in eine Servierschüssel, bestreue ihn mit zerstoßenen Erdnüssen und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.foodaciously.com/static/recipes/50d9329b-480e-4a84-9ac9-bfabd7c9e4f9/laos-green-papaya-salad-tam-mak-hoong-a9c6812c235d8cf55fe60c7da135df8d-2560-q60.jpg",
+          "sourcePageUrl": "https://cdn.foodaciously.com/static/recipes/50d9329b-480e-4a84-9ac9-bfabd7c9e4f9/laos-green-papaya-salad-tam-mak-hoong-a9c6812c235d8cf55fe60c7da135df8d-2560-q60.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khao-kha-moo",
+      "slug": "gen-khao-kha-moo",
+      "title": "Khao Kha Moo",
+      "instructions": "Laotisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinekeule oder Haxe in größeren Mengen bei Discountern.",
+        "Bereite eine größere Menge zu und friere Portionen für spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "laotisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3527,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khao-kha-moo/",
+      "components": [
+        {
+          "key": "b2e48ecb-ef85-5b75-8fda-70607475f1f8",
+          "name": "Zutaten",
+          "servingGrams": 541,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ec7d340-c1e6-5d86-a1ab-5970dbb45de2",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "2ecdb35a-9424-5f83-9573-3789f48e9f61",
+              "ingredientName": "Jasminreis",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "ebb1ca45-177f-5ace-9ea0-72ba50d74c74",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95f87a1a-67e7-5808-92c6-4251763786c4",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "2e0dbb5b-c986-5d90-8dd9-35dc71a370a8",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f39ec9b1-922d-5485-b1d4-b3c413d1323c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "af648394-8666-5fff-8331-26c2c6bd55c9",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "64b35588-cdfd-523d-ad25-7813bd7ed8ed",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bd608a14-ff07-5e6b-9337-48d3f27919e2",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke Knoblauchzehen und brate sie etwa 2 Minuten mit Öl in einem Topf, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Schweinekeule dazu und bräune sie etwa 10 Minuten von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Wasser, Sojasauce und Fischsauce dazu, gib braunen Zucker hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze und lasse alles 2-3 Stunden köcheln, bis das Schweinefleisch sehr zart ist und auseinanderfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Jasminreis separat nach Packungsanweisung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere Reis in Schalen, belege ihn mit Schweinefleisch und reichlich Schmorflüssigkeit und garniere ihn mit Koriander und Senfblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2016/02/thai-braised-pork-leg-10.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2016/02/thai-braised-pork-leg-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jaew-bong",
+      "slug": "gen-jaew-bong",
+      "title": "Jaew Bong",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es bis zur Verwendung ein.",
+        "Verwende getrocknete Minze, falls frische nicht erhältlich oder teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "laotisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3528,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jaew-bong/",
+      "components": [
+        {
+          "key": "a481aaeb-db70-50ff-bb0f-0295f08255c6",
+          "name": "Zutaten",
+          "servingGrams": 446.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "455ec4d2-1131-5d59-bc20-453ca890ab35",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7bbc96d5-7672-5728-be0c-3fa9ca5f8659",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e9111379-0e20-578b-be0a-cc276a0e013f",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0942b54f-38ec-531d-b5fe-e446e584ae57",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb67495a-cdcf-523c-9d51-fa0edcacc6ed",
+              "ingredientName": "Thailändische Chilischote",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99c362f6-fff5-5c8a-9cab-03bf768044fc",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4dd53c79-f0d6-5732-8527-0e4aa317cc19",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "19aa008c-4953-5ea6-ac44-9cff3111ec04",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            },
+            {
+              "key": "6681bb5e-206a-5dbc-9a40-92b8e8ab8bc6",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Bund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne bei starker Hitze und brate das Rinderhackfleisch etwa 8 Minuten krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch und Chilischoten fein und gib sie zum gegarten Rindfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pfanne vom Herd und rühre Limettensaft, Fischsauce, gehackte Minze und Frühlingszwiebeln ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Rindfleischmischung warm auf einer Platte mit Salatblättern, Klebreis und weiteren frischen Kräutern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Gäste wickeln die Rindfleischmischung zum Essen in Salatblätter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2015/11/30/magazine/charred-tomatillo-jaew/charred-tomatillo-jaew-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2015/11/30/magazine/charred-tomatillo-jaew/charred-tomatillo-jaew-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nam-pla-dip",
+      "slug": "gen-nam-pla-dip",
+      "title": "Nam Pla Dip",
+      "instructions": "Laotischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fischsauce in größeren Flaschen auf asiatischen Märkten, das lohnt sich mehr.",
+        "Verwende Gemüse, das gerade im Angebot ist oder sich noch im Kühlschrank befindet."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "laotisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3529,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nam-pla-dip/",
+      "components": [
+        {
+          "key": "2376c254-f169-56af-bf5a-691d326236e4",
+          "name": "Zutaten",
+          "servingGrams": 626.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "19fb5a2a-049d-52a4-8a93-0022100a8330",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "44361975-de7e-56da-9ffa-75475a8dacce",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5d42b7e3-118d-529b-afda-09d3fe2ce26f",
+              "ingredientName": "Thailändische Chilischote",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7bbcbd2-d5d1-5fdf-9608-04786bfc4874",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfc08f8f-0b72-5c3a-b50a-b2fd0a65ead8",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9b18976a-42fd-5724-8b78-03afe21073b8",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ca068b58-9280-558a-9f2c-fcaa0303d4c1",
+              "ingredientName": "Gemischtes Gemüse (tiefgekühlt)",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Knoblauch und Chilischoten fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Fischsauce, Limettensaft, Wasser und Zucker in einer kleinen Schüssel und rühre, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe gehackten Knoblauch und Chilischoten unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Dip in eine Servierschüssel und serviere ihn mit frischem Gemüse wie Kohl, Karotten und Gurke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/60152ef33c15960033d3b095/1618149301940-OX2SJULKO271QJ6K46VC/prik-nam-pla-web2.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/60152ef33c15960033d3b095/1618149301940-OX2SJULKO271QJ6K46VC/prik-nam-pla-web2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

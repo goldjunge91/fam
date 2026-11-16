@@ -1,0 +1,1230 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-chinese-marbled-tea-eggs",
+      "slug": "egg-chinese-marbled-tea-eggs",
+      "title": "Chinesische Tee-Eier mit Marmorierung (Cha Ye Dan)",
+      "instructions": "Hart gekochte Eier mit fein geknackter Schale in einem duftenden Sud aus schwarzem Tee, Sojasauce und warmen Gewürzen ziehen lassen, bis sie wunderschöne marmorierte Adern und einen herzhaften Geschmack bekommen. Proteinreich, sehr günstig und über Nacht im Kühlschrank der Studentenküche durchgezogen noch besser.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass einen ganzen Eierkarton in einer Portion Sud ziehen. Die Gewürze kosten nur ein paar Cent und ein Sud aromatisiert problemlos ein Dutzend Eier als Eiweißsnack für die ganze Woche.",
+        "Lass losen Tee weg und verwende einfach Beutel mit schwarzem Tee. Sie kosten weniger als zehn Cent pro Beutel und sorgen für dieselbe dunkle Farbe und Gerbstoffnote.",
+        "Verwende den Sud erneut. Fülle ihn nach der ersten Portion mit einem Schuss Wasser und Sojasauce auf und lege eine zweite Runde Eier fast ohne Zusatzkosten ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Zusätzlich einen Esslöffel helle Sojasauce und eine Prise Zucker verwenden; die Farbe wird etwas heller, der Geschmack bleibt passend.",
+          "savings": "eine Spezialflasche weglassen"
+        },
+        {
+          "forIngredientId": "sichuan-peppercorn",
+          "swap": "Stattdessen 1/2 tsp chinesisches 5-Gewürze-Pulver für ein ähnlich warmes Anisaroma verwenden.",
+          "savings": "Verwendet ein Gewürz, das vielleicht schon vorhanden ist"
+        },
+        {
+          "forIngredientId": "black-tea",
+          "swap": "Jeder koffeinhaltige Beutel mit schwarzem Tee eignet sich; für einen milderen, grasigeren Aufguss 3 Beutel Grüntee verwenden.",
+          "savings": "Vorhandenen Tee aus dem Schrank verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Ei",
+        "Snack",
+        "zum Vorbereiten",
+        "Streetfood",
+        "vorbereiten",
+        "preiswert"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 280,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-chinese-marbled-tea-eggs/",
+      "components": [
+        {
+          "key": "6ddcacf5-0ad4-5ebe-a134-5e2bd1a6ea48",
+          "name": "Zutaten",
+          "servingGrams": 366.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b33e5ef-9870-5f80-af6f-e2e850cd7dbd",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b427d35-248a-55f6-b027-21966e31375c",
+              "ingredientName": "Schwarzer Tee",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "black tea bags, oder 1 tbsp loose black tea leaves"
+            },
+            {
+              "key": "322b32a0-81e3-55c6-801c-3b90fa1732d8",
+              "ingredientName": "Helle Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für savory base color und salt"
+            },
+            {
+              "key": "a4ceca52-8097-59e4-a483-067ea4dc2f5f",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für deep mahogany marbling"
+            },
+            {
+              "key": "52098caa-d43d-5506-8a73-7acbd1d9a1b0",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29550d3c-9729-5b5d-befc-792eab901ed4",
+              "ingredientName": "Zimtstangen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a64293bf-f0c4-5971-8f01-dbd2f17f2afb",
+              "ingredientName": "Ganze Gewürznelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für a gentle citrusy, numbing aroma"
+            },
+            {
+              "key": "eaa039c2-3685-5a67-ad07-2a6bd6e41b15",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9a5dc39-879f-5062-be47-eb45d9b50150",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "rounds out soy"
+            },
+            {
+              "key": "9840f795-6323-5178-b88d-37ad2a198ee4",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in Scheiben zum Garnieren when serving"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Eier in einer Lage in einen kleinen Topf und bedecke sie etwa 1 inch hoch mit kaltem Wasser. Bringe das Wasser bei hoher Hitze zum Kochen, reduziere es dann auf ein sanftes Köcheln und gare die Eier 8 Minuten, bis das Eigelb vollständig gestockt und hart gekocht ist (Tee-Eier müssen immer hart gekocht und dürfen nicht flüssig sein, da sie stundenlang ziehen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Eier ab und lege sie 2 Minuten in eine Schüssel mit kaltem Wasser, bis sie kühl genug zum Anfassen sind. So stoppt der Garvorgang und die Schalen lassen sich leichter anknacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Klopfe jedes Ei vorsichtig mit der Rückseite eines Löffels rundherum an, sodass feine Risse in der Schale entstehen. Lass die Schale dran. Je mehr Risse, desto auffälliger die Marmorierung; schäle die Eier aber nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 3 cups frisches Wasser, schwarzen Tee, helle und dunkle Sojasauce, Sternanis, Zimtstange, Sichuan-Pfefferkörner, Salz und Zucker in denselben Topf. Bringe alles bei hoher Hitze zum Kochen, reduziere dann auf niedrige Hitze und lass den Sud 5 Minuten köcheln, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die angeknacksten Eier zurück in den köchelnden Sud, sodass sie größtenteils bedeckt sind. Lass sie zugedeckt bei allerniedrigster Hitze 30 Minuten ziehen, damit Farbe und Gewürze durch die Risse eindringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schalte die Hitze aus und lass die Eier im Sud abkühlen. Für die beste Marmorierung und den besten Geschmack Eier und Flüssigkeit in einen Behälter füllen und mindestens 4 Stunden, am besten über Nacht, im Kühlschrank ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Servieren ein Ei schälen, damit das Marmormuster sichtbar wird, halbieren und nach Wunsch mit geschnittener Frühlingszwiebel bestreuen. Übrige Eier im Sud bedeckt im Kühlschrank aufbewahren und innerhalb von 4 Tagen essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Tea_flavored_egg.jpg/1280px-Tea_flavored_egg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tea_flavored_egg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Hiroooooo, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von chinesischen Tee-Eiern mit Marmorierung (Cha Ye Dan)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-gyeran-mari-seaweed",
+      "slug": "egg-gyeran-mari-seaweed",
+      "title": "Gyeran-Mari (Koreanisches gerolltes Omelett mit Seetang)",
+      "instructions": "Lockeres, schichtweise gerolltes koreanisches Omelett mit süßer Karotte und Frühlingszwiebel, in dessen jeder Scheibe eine auffällige Spirale aus geröstetem Seetang steckt. Ein beliebtes Banchan und Highlight in der Lunchbox, das kalt eingepackt genauso gut schmeckt wie frisch aus der Pfanne.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten Eiweißquellen, und eine Rolle aus 6 Eiern reicht als Beilage für vier Personen. Kaufe die große Packung.",
+        "Verwerte Reste: Eine halbe Karotte, die letzten zwei Frühlingszwiebeln oder eine Handvoll Gemüse vom Vortag verschwinden in den Schichten. So wird nichts verschwendet.",
+        "Lass Nori weg, wenn du keinen da hast – das Omelett schmeckt auch pur köstlich. Ein gefaltetes Blatt reicht weit, sodass eine kleine Packung für viele Portionen genügt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "scallion",
+          "swap": "Gehackter Schnittlauch oder fein gewürfelte Zwiebel sorgen für dieselbe frische Lauchnote.",
+          "savings": "Onion is often günstiger and keeps longer"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Ölspray oder ein beliebiges neutrales Öl – du brauchst nur einen dünnen Film.",
+          "savings": "A few cents pro Rezept"
+        },
+        {
+          "forIngredientId": "nori-sheets",
+          "swap": "Stattdessen eine dünne Schicht gehackten Spinat oder geriebenen Käse als Füllstreifen verwenden oder ganz weglassen.",
+          "savings": "Skipping it spart etwa a quarter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "koreanisch",
+        "Ei",
+        "Banchan",
+        "Lunchbox",
+        "gerolltes Omelett",
+        "Gyeran-Mari",
+        "vegetarisch",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 281,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-gyeran-mari-seaweed/",
+      "components": [
+        {
+          "key": "855b3dde-2fe1-5a00-ba37-51bac037ec47",
+          "name": "Zutaten",
+          "servingGrams": 147,
+          "position": 0,
+          "items": [
+            {
+              "key": "b79df447-d2b3-55cc-9352-daac7d860ef2",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "352faa9f-d601-511f-9e43-960883b6ba83",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gewürfelt oder gerieben"
+            },
+            {
+              "key": "f8411716-ab9a-5e00-9380-2ccf84daa7ab",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten"
+            },
+            {
+              "key": "525ff543-36f8-5746-8aa9-fc28bc743d5e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "157cf90a-fe5a-5185-a8cb-e62a201dab39",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für pan, applied in thin coats"
+            },
+            {
+              "key": "391de552-e9ad-5c67-b40a-809f8702986a",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": "geröstet gim, für inner spiral"
+            },
+            {
+              "key": "261e29f6-5174-5947-b150-32a81df7e29a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "brushed on at end"
+            },
+            {
+              "key": "0fddd424-4fdb-57c3-953f-26920cc99ade",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in eine Schüssel, gib 1/2 tsp Salz dazu und verquirle sie mit einer Gabel oder einem Schneebesen gründlich, bis alles vollständig vermischt und leicht schaumig ist. Rühre fein gewürfelte Karotte und geschnittene Frühlingszwiebel ein. Für eine besonders glatte Konsistenz die Mischung durch ein feines Sieb gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete, idealerweise rechteckige Pfanne bei niedriger bis mittelniedriger Hitze. Verteile mit einem Papiertuch einen dünnen Film Pflanzenöl auf der Oberfläche. Halte die Hitze sanft und gleichmäßig, damit das Ei stockt, ohne zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße eine dünne Schicht Ei hinein, gerade so viel, dass der Pfannenboden bedeckt ist. Neige die Pfanne, damit es sich verteilt, und gare es etwa 1 bis 2 Minuten, bis die Oberfläche größtenteils gestockt, oben aber noch leicht feucht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege ein Blatt gerösteten Nori auf das Ei, solange die Oberfläche noch klebrig ist (bei Bedarf passend zuschneiden). Rolle das Ei von einer Seite vorsichtig zu einer festen Rolle auf und halte es mit einem Pfannenwender eng zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe die Rolle an das hintere Ende der Pfanne, öle die freie Stelle leicht ein und gieße eine weitere dünne Schicht Ei hinein. Hebe die bestehende Rolle an, damit das neue Ei darunterfließt und daran haftet. Lass es stocken, bis es klebrig ist, und rolle es erneut auf. Wiederhole den Vorgang, bis alles Ei verbraucht ist; halte die Hitze niedrig, damit jede Schicht zart bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn die letzte Schicht aufgerollt ist, drücke die Rolle vorsichtig mit dem Pfannenwender zusammen und gare sie weitere 30 bis 60 Sekunden. Drehe sie, damit alle Seiten leicht stocken. Das Omelett soll vollständig durchgegart sein, ohne flüssiges Ei, innen aber feucht und zart bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Rolle auf ein Schneidebrett und lass sie 2 bis 3 Minuten ruhen, damit sie fester wird. Für eine gleichmäßigere Form beim Abkühlen fest in Backpapier oder Folie einwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche die Rolle mit etwas Sesamöl, schneide sie quer in 3/4-inch dicke Stücke, damit die Seetangspirale sichtbar wird, und streue Sesamsamen darüber. Warm servieren oder abkühlen lassen und für eine vorbereitete Mahlzeit gekühlt einpacken; im Kühlschrank bis zu 3 Tage haltbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Gyeran-mari.jpg/1280px-Gyeran-mari.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gyeran-mari.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Hyeon-Jeong Suk, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Gyeran-Mari (koreanischem gerolltem Omelett mit Seetang)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-tamagoyaki-sweet-rolled-omelette",
+      "slug": "egg-tamagoyaki-sweet-rolled-omelette",
+      "title": "Tamagoyaki (Japanisches süßes gerolltes Omelett)",
+      "instructions": "Luftige Schichten aus leicht süßem, mit Sojasauce gewürztem Ei zu einer zarten, goldenen Rolle aufgerollt – ein japanischer Frühstücks- und Bento-Klassiker. Wenn du das Rollen einmal beherrschst, wirst du es immer wieder machen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier, Zucker, Sojasauce und eine Prise Salz sind alles, was du wirklich brauchst. Lass Mirin und Dashi weg; das Omelett schmeckt auch so köstlich für weniger als einen Dollar pro Portion.",
+        "Keine Tamagoyaki-Pfanne da? Jede kleine beschichtete Rundpfanne eignet sich. Rolle das Omelett zu einer Seite hin auf und forme die Rolle anschließend in Folie.",
+        "Eine Portion reicht für zwei Bento-Boxen oder Frühstücke, und die Scheiben lassen sich gut einen Tag gekühlt aufbewahren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 tsp Zucker in einem Schuss Wasser oder Reisessig auflösen; das ahmt die Süße von Mirin nach",
+          "savings": "Spart eine spezielle Flasche, die möglicherweise nicht vorhanden ist"
+        },
+        {
+          "forIngredientId": "dashi",
+          "swap": "1/4 tsp Dashi-Pulver in Wasser oder einfach nur Wasser – das Ei schmeckt in beiden Varianten gut",
+          "savings": "Vermeidet den Kauf einer ganzen Packung Dashi"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari oder Kokos-Aminos für eine glutenfreie Variante",
+          "savings": "Vorhandenes aus dem Vorratsschrank verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Ei",
+        "Frühstück",
+        "Bento",
+        "gerolltes Omelett",
+        "Tamagoyaki",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 282,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-tamagoyaki-sweet-rolled-omelette/",
+      "components": [
+        {
+          "key": "89e984f2-61d2-5d89-8706-3265f631e7f2",
+          "name": "Zutaten",
+          "servingGrams": 168.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "e819a289-fe5b-56d8-833d-f448d2af0044",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce9374bf-7c79-5ed2-9fff-b009a8cc9ef5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für that classic gentle sweetness"
+            },
+            {
+              "key": "83811406-5058-5a85-875a-b1332429dc84",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c83275aa-fbf1-5c26-a1ff-dd567b3e0c44",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "adds gloss und depth; optional"
+            },
+            {
+              "key": "f1cf0572-8fbf-547a-97b1-39c55b888c49",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb32f35b-bd82-59c8-ba03-a33e972e807b",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "ergibt ein herzhaftes Dashimaki Tamago; optional"
+            },
+            {
+              "key": "3d60f2e9-74d6-5f33-8e29-0e14d4c4936f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für greasing pan between layers"
+            },
+            {
+              "key": "2f6c11c4-a3b8-513f-9772-abc6d128498a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "thinly in Scheiben geschnitten, as zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die 4 Eier in eine Schüssel. Gib Zucker, Sojasauce und Salz sowie nach Wunsch Mirin und Dashi dazu. Verquirle alles gründlich mit Stäbchen oder einer Gabel, bis Eigelb und Eiweiß vollständig vermischt und der Zucker aufgelöst ist. Versuche dabei, nicht zu viel Luft unterzuschlagen. Für eine besonders glatte Konsistenz die Mischung durch ein Sieb gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete Pfanne bei mittelniedriger Hitze (eine rechteckige Tamagoyaki-Pfanne ist ideal, aber eine kleine Rundpfanne mit 8-inch funktioniert ebenfalls). Falte ein Papiertuch, tauche es in Pflanzenöl und verteile einen dünnen Film auf der ganzen Pfanne. Halte das geölte Tuch bereit, um die Pfanne zwischen den Schichten erneut einzufetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Prüfe die Hitze: Ein Tropfen Ei sollte sanft brutzeln und innerhalb weniger Sekunden stocken, ohne zu bräunen. Gieße eine dünne Schicht Ei hinein, gerade genug, um den Boden zu bedecken, und neige die Pfanne zum Verteilen. Große Blasen beim Stocken mit Stäbchen aufstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn die Schicht größtenteils gestockt, oben aber noch leicht feucht und glänzend ist, rolle sie vom hinteren Ende zu dir hin zu einer festen Rolle auf (in einer runden Pfanne zur Seite hin rollen). Die feuchte Oberfläche verbindet die nächste Schicht, also lass sie nicht vollständig trocken werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe die Rolle zurück an das hintere Ende der Pfanne. Fette die freie Fläche mit dem geölten Tuch erneut ein, gieße eine weitere dünne Schicht hinein und hebe die bestehende Rolle an, damit das neue Ei darunterfließt. Lass es stocken, bis es gerade noch leicht feucht ist, und rolle die bestehende Schicht darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wiederhole das Einfetten, Eingießen, Anheben und Aufrollen für weitere 3 bis 4 Schichten, bis das gesamte Ei verbraucht ist. Halte die Hitze mittelniedrig, damit die Außenseite blassgolden bleibt und nicht bräunt. Die fertige Rolle soll ganz gestockt sein und innen kein rohes, flüssiges Ei enthalten; Eier sind sicher, wenn sie vollständig auf 160 Grad F gegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stürze die Rolle auf Folie oder eine Bambusmatte und forme sie, solange sie noch heiß ist, zu einer gleichmäßigen rechteckigen Rolle. Lass sie 1 bis 2 Minuten ruhen, damit sie fester wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide die Rolle quer in dicke 1-inch Stücke, sodass die Spiralschichten sichtbar werden. Nach Wunsch mit geschnittener Frühlingszwiebel garnieren und warm servieren oder in eine Bento-Box packen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Tamago_yaki_by_ayustety_in_Tokyo.jpg/1280px-Tamago_yaki_by_ayustety_in_Tokyo.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tamago_yaki_by_ayustety_in_Tokyo.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "ayustety from Tokyo, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Tamagoyaki (japanischem süßem gerolltem Omelett)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-chawanmushi-steamed-custard",
+      "slug": "egg-chawanmushi-steamed-custard",
+      "title": "Chawanmushi (Seidiger gedämpfter Eierpudding)",
+      "instructions": "Eleganter japanischer herzhafter Pudding, glatt wie Glas und gerade eben gestockt, bei dem Ei und Dashi über verborgenen Stücken von Hähnchen, Garnelen und Pilzen zergehen. Schmeckt wie im Restaurant, erfordert aber kaum Aufmerksamkeit, wärmt wohltuend und ist schwer zu vermasseln.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Dashi da? Ein Dashi-Beutel oder etwas Dashi-Pulver in heißem Wasser kostet nur wenige Cent und reicht für viele Portionen.",
+        "Verwende nur eine Eiweißzutat, die du gerade da hast: nur Hähnchen oder nur Garnelen, statt beides zu kaufen. Der Pudding ist der Star.",
+        "Jede kleine hitzebeständige Tasse oder jedes Förmchen eignet sich; du brauchst keine besondere Ausstattung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dashi",
+          "swap": "1.25 cups Wasser mit Dashi-Pulver vermischen oder bei Bedarf Hühnerbrühe verwenden",
+          "savings": "Dashi powder is far günstiger pro Tasse than liquid dashi"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Zusätzlich Hähnchenbrust oder für eine vegetarische Variante mehr Pilze",
+          "savings": "Skipping shrimp spart etwa $1.40 pro Rezept"
+        },
+        {
+          "forIngredientId": "shiitake",
+          "swap": "Beliebige Pilze, die du da hast",
+          "savings": "Champignons kosten nur einen Bruchteil von Shiitake"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Ei",
+        "gedämpft",
+        "Pudding",
+        "Abendessen",
+        "Seelenfutter"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 283,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-chawanmushi-steamed-custard/",
+      "components": [
+        {
+          "key": "f2226324-eb04-55fd-87c6-3ece610d29f5",
+          "name": "Zutaten",
+          "servingGrams": 333.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "42d00738-f3ff-530b-912f-ec4ca20f702a",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "196554c1-7ad3-57fd-8937-5ec0bbe42bc5",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64f0204c-4b4b-5c35-96c9-e20c2f85e239",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "light/usukuchi if you have it, für color"
+            },
+            {
+              "key": "bfaf15a7-905d-5bac-9b37-0b92fea9413d",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34aa2516-cbe8-53a2-97e0-6d0d5e2626d3",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e00b82b-3067-5f3f-811a-8b950422677c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "geschnitten in small bite-size pieces"
+            },
+            {
+              "key": "512513b3-6d0e-54e8-91d7-f4508ba25803",
+              "ingredientName": "Tiefkühlgarnelen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "geschält, deveined; halbiert if large"
+            },
+            {
+              "key": "2b01f39b-8d29-5e7b-aa29-2a900a44c095",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten"
+            },
+            {
+              "key": "d368b98c-9e94-5ee5-8996-ae1677e73057",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "thin-in Scheiben geschnitten greens zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf oder eine breite Pfanne mit etwa einen inch Wasser bei mittlerer Hitze zum sanften Köcheln (du brauchst Dampf, kein starkes Kochen, das die Tassen klappern lässt). Stelle zwei kleine hitzebeständige Tassen, Becher oder Förmchen bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe das Hähnchen trocken und verteile es mit den Garnelen und geschnittenen Shiitake-Pilzen auf die beiden Tassen. Hähnchen und Garnelen kommen roh hinein; sie garen beim Dämpfen vollständig im Pudding.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle in einer Schüssel die 2 Eier nur so lange, bis sie aufgeschlagen sind. Schlage möglichst keinen Schaum, denn der hinterlässt Bläschen im fertigen Pudding. Rühre Dashi, Sojasauce, Mirin und Salz glatt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Eiermischung durch ein feines Sieb direkt über die Füllung in die Tassen; das Sieben ist das Geheimnis des glatten Puddings. Schöpfe Oberflächenbläschen mit einem Löffel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke jede Tasse locker mit Folie ab, damit kein Kondenswasser hineintropft. Stelle die Tassen in das köchelnde Wasser (es soll etwa bis zur Hälfte der Tassen reichen) und lege den Deckel leicht geöffnet auf den Topf, damit die Hitze niedrig und gleichmäßig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dämpfe alles bei niedriger Hitze 15 bis 20 Minuten. Die Hitze muss sanft sein: Bei zu großer Hitze wird der Pudding blasig und fest statt seidig. Er ist fertig, wenn die Oberfläche gerade gestockt ist, wie weicher Tofu wackelt und beim Einstechen mit einem Zahnstocher klare statt trübe Flüssigkeit austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Prüfe vor dem Servieren, dass Hähnchen und Garnelen vollständig durchgegart sind: Das Hähnchen soll überall undurchsichtig und die Garnelen rosa und fest sein. Ist die Mitte noch sehr weich, weitere 3 bis 5 Minuten dämpfen und erneut prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die heißen Tassen vorsichtig heraus, gib geschnittene Frühlingszwiebelteile darauf und serviere sie warm mit einem kleinen Löffel, um die Stücke am Boden herauszuholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Chawanmushi_001.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chawanmushi_001.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Toukou Sousui, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Chawanmushi (seidigem gedämpftem Eierpudding)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-kerala-egg-roast-nadan-mutta",
+      "slug": "egg-kerala-egg-roast-nadan-mutta",
+      "title": "Kerala-Eier in Masala-Sauce (Nadan Mutta Roast)",
+      "instructions": "Gekochte Eier in einer glänzenden, stark karamellisierten Zwiebel-Masala mit schwarzem Pfeffer, Ingwer, Knoblauch und Curryblättern geschwenkt – fast trocken, würzig und etwas feurig, die Sauce haftet an jedem Ei. Ohne Kokos und Sahne, nur mit viel Geschmack aus günstigen Zutaten. Passt perfekt zu Chapati oder einfachem Reis.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwiebeln sind hier die günstigsten Hauptzutaten. Kaufe einen Beutel und schneide gleich mehr auf; je stärker sie bräunen, desto intensiver wird der Geschmack, ohne zusätzliche Kosten.",
+        "Koche die Eier selbst, statt vorgekochte zu kaufen – ein Dutzend rohe Eier kostet pro Ei viel weniger.",
+        "Keine frischen Curryblätter da? Ein kleiner Beutel getrockneter Blätter aus der internationalen Abteilung hält sich monatelang und kann zu Beginn mit angebraten werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-oil",
+          "swap": "Pflanzenöl oder Ghee",
+          "savings": "spart etwa $0.15 wenn bereits vorhanden neutral oil"
+        },
+        {
+          "forIngredientId": "hard-boiled-eggs",
+          "swap": "4 rohe Eier zu Hause kochen",
+          "savings": "spart roughly $1.10 vs pre-boiled"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "1 tbsp Tomatenmark mit Wasser verdünnen",
+          "savings": "spart etwa $0.65"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch-südindisch-kerala",
+        "Ei",
+        "Kerala",
+        "südindisch",
+        "indisch",
+        "scharf",
+        "Abendessen",
+        "studentenküchengeeignet",
+        "vegetarisch",
+        "aus einer Pfanne"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 284,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-kerala-egg-roast-nadan-mutta/",
+      "components": [
+        {
+          "key": "46d6c0c9-ef60-5224-a9b4-9dfc7201f249",
+          "name": "Zutaten",
+          "servingGrams": 361,
+          "position": 0,
+          "items": [
+            {
+              "key": "e58caa09-0ca5-5198-b428-7ae71a61b3e6",
+              "ingredientName": "Hart gekochte Eier (geschält)",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "geschält und scored"
+            },
+            {
+              "key": "bf256edf-f676-5908-a6f7-1184bdea5d7a",
+              "ingredientName": "Kokosöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "typisches Aroma aus Kerala"
+            },
+            {
+              "key": "1ee16bfb-3c32-57d6-b7d7-d61b72b2264a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten"
+            },
+            {
+              "key": "a7667910-f740-5be2-84d2-643220d68967",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "feae4564-2ae5-5266-8efa-d81b31789cbd",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "oder etwa 1 tsp frisch gerieben"
+            },
+            {
+              "key": "261ab10e-d72f-5021-b254-fc6997517da6",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "frisch, falls erhältlich"
+            },
+            {
+              "key": "39be2f27-8070-5fd5-80a1-eb68b4604f6a",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "715e0435-6ee6-5107-a806-ddbd85e01e55",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Kaschmir-Chili für Farbe und weniger Schärfe"
+            },
+            {
+              "key": "ae394df9-bd67-59b4-8928-97c07d9fa6fe",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61ebbf10-d7bc-58a3-973c-be1d92113e3a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "star - freshly cracked"
+            },
+            {
+              "key": "bb02e5e3-bfa6-56ec-b699-7e0712eabdeb",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c10f7493-dc98-5c3c-ad56-941452839a39",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "380bdb02-9050-501b-9adf-02757dbf560f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "gehackt, zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier hart, falls sie noch nicht gekocht sind: Bedecke sie mit Wasser, bringe es zum Kochen und lass sie dann 9-10 Minuten köcheln, bis das Eigelb vollständig gestockt ist. Kühle sie unter kaltem fließendem Wasser ab, schäle sie und ritze jedes Ei 3-4 Mal mit einem Messer flach ein, damit die Masala haftet. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Kokosöl in einer breiten Pfanne bei mittlerer Hitze. Gib die geschnittenen Zwiebeln mit einer Prise Salz hinein und gare sie unter häufigem Rühren 12-15 Minuten langsam, bis sie weich, zusammengefallen und tief goldbraun sind. Nicht hetzen – die gebräunten Zwiebeln sind das ganze Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Knoblauch, Ingwer und Curryblätter ein und gare sie 1-2 Minuten, bis sie duften und der rohe Knoblauchgeruch verschwunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackte Tomate dazu und gare sie 4-5 Minuten. Zerdrücke sie dabei, bis sie vollständig mit den Zwiebeln zerfallen und die Mischung wie eine dicke, marmeladige Masala aussieht, aus deren Rändern sich Öl löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und gib Kurkuma, Chilipulver, schwarzen Pfeffer, Garam Masala und das restliche Salz dazu. Brate die Gewürze etwa 1 Minute in der Masala an. Wenn sie ansetzt, einen Esslöffel Wasser dazugeben, bis sie glänzt und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die eingeritzten Eier dazu und wende sie vorsichtig 3-4 Minuten in der Masala. Löffle die Zwiebelmischung darüber und darum, bis jedes Ei überzogen und geröstet ist. Die Eier sind bereits durchgegart; du glasierst und erwärmst sie nur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere die Sauce und passe Salz und schwarzen Pfeffer an – sie soll pfeffrig und kräftig schmecken. Schalte die Hitze aus, streue gehackten Koriander darüber und serviere das Gericht heiß mit Chapati, Naan oder einfachem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/Kerala_style_egg_roast.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kerala_style_egg_roast.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Renupradhul, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kerala-Eiern in Masala-Sauce (Nadan Mutta Roast)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

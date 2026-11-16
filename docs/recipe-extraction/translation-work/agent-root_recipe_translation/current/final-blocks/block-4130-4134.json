@@ -1,0 +1,1070 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pernil-de-cerdo",
+      "slug": "gen-pernil-de-cerdo",
+      "title": "Pernil de Cerdo",
+      "instructions": "Chilenisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter mit Knochen im Angebot kaufen; sie ist günstiger als Keule",
+        "Wasser statt Brühe verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "chilenisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4130,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pernil-de-cerdo/",
+      "components": [
+        {
+          "key": "d1e36a95-94e6-5879-81b5-965011ac0528",
+          "name": "Zutaten",
+          "servingGrams": 188.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "c214530e-cf68-5433-a3e5-cc5b75803d84",
+              "ingredientName": "Schweineschulter",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4-5 Pfund mit Knochen"
+            },
+            {
+              "key": "8ce55a36-034e-5b95-b34c-38ad4248807c",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Zehen"
+            },
+            {
+              "key": "278d6220-7ee1-573e-8ce0-4e2734dedcc5",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "3da4b226-2621-5f71-9498-bd7ef855bfb1",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "58bf2736-4889-5f10-8f92-903a27c3439a",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, getrocknet"
+            },
+            {
+              "key": "3ce90cd6-8d3b-5056-90ff-d58c007038b8",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ca64299d-24b1-5c84-9f9f-3919a457d386",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "888d79e4-4769-55f5-a07a-58be0079102b",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "0e442559-395d-5233-acc3-5d8862a27143",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "47b4e095-5b1f-5a05-939f-5237a1ab9a26",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch hacken und mit Kreuzkümmel, Paprika, Oregano, Salz, Pfeffer und Olivenöl zu einer Paste vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweineschwarte rautenförmig einschneiden, ohne ins Fleisch zu schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürzpaste rundherum und in die Einschnitte einreiben und mindestens 2 Stunden bei Raumtemperatur ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schweinefleisch mit der Schwarte nach oben in einen Bräter legen und Brühe darum herum gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 375°F 2.5 bis 3 Stunden braten und alle 30 Minuten mit dem Bratensaft übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn die Schwarte knusprig ist und die Kerntemperatur 160°F erreicht, aus dem Ofen nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Tranchieren 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren und den Bratensaft über das Fleisch löffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/28/6a/16/286a1672a25893495602550531887953.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/28/6a/16/286a1672a25893495602550531887953.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ajiaco-santafere-o",
+      "slug": "gen-ajiaco-santafere-o",
+      "title": "Ajiaco Santafereño",
+      "instructions": "Kolumbianisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel statt Brust verwenden, das ist günstiger und aromatischer",
+        "Tiefgekühlten Mais und grüne Bohnen kaufen, um 30% zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kolumbianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4131,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ajiaco-santafere-o/",
+      "components": [
+        {
+          "key": "70ee5ea0-08ed-5f23-8133-58ad886b656d",
+          "name": "Zutaten",
+          "servingGrams": 674.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "1ed5848e-a55a-54c9-9ebd-4fb9cb0a4e37",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "8ff2032c-7005-5b22-b218-9ed22dbff42a",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund, geschält und gewürfelt"
+            },
+            {
+              "key": "1913b796-bc0c-5df9-bece-11dc63a486cb",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Kolben, in Stücke geschnitten"
+            },
+            {
+              "key": "a4a41b2c-d88d-5082-8d79-74bd0e08db42",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "513ef3c3-3f89-5c47-9e24-9d590a1667e4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "1f7b6d56-2a77-55f9-9a12-25264d03df95",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "c87e2e84-7ee5-5d50-9035-4436e4475fc1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "a7de6730-67a7-53d1-871a-d575159ddf90",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse, frisch"
+            },
+            {
+              "key": "20759091-b62e-5d02-92b2-d9b077a09a48",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "990bffa1-2598-54e7-96ce-1b544e0b5582",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "956b79fd-f055-548c-9e74-94b006d98352",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ddc8b8cb-1311-5551-b2c3-dd8b757d22fd",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Stück, in Scheiben geschnitten (zum Servieren)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittelhoher Hitze erhitzen und Zwiebel sowie Knoblauch 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenstücke hinzufügen und 5 Minuten garen, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe angießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln und Mais hinzufügen, Hitze auf mittel reduzieren und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grüne Bohnen und Koriander einrühren und weitere 8 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Suppe in Schüsseln schöpfen, mit Avocadoscheiben belegen und frischen Limettensaft darüber auspressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/GXED7bNlXlU7hitpPYTpXccoVgY=/3863x2578/filters:fill(auto,1)/ajiaco-colombian-chicken-potato-soup-171573702-5893ce2d5f9b5874ee3053ea.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/GXED7bNlXlU7hitpPYTpXccoVgY=/3863x2578/filters:fill(auto,1)/ajiaco-colombian-chicken-potato-soup-171573702-5893ce2d5f9b5874ee3053ea.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bandeja-paisa",
+      "slug": "gen-bandeja-paisa",
+      "title": "Bandeja Paisa",
+      "instructions": "Kolumbianisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bohnen aus der Dose von Eigenmarken statt frisch gekochter verwenden",
+        "Bei Bedarf günstigere Schweinefleischstücke oder Rinderhack statt Chorizo verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kolumbianisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4132,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bandeja-paisa/",
+      "components": [
+        {
+          "key": "c7398a7d-49ca-5a49-a492-306594c0a70c",
+          "name": "Zutaten",
+          "servingGrams": 939.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "43c7e495-e3c9-530b-8cc6-31549bd3cb00",
+              "ingredientName": "Schweinehack",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "4c201f6a-12cb-570a-ac0d-f04b30112fe8",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Würste, in Scheiben geschnitten"
+            },
+            {
+              "key": "26128d36-ec59-5fa7-9e87-9054e8c6fb7d",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "44805c6c-42c1-5e91-8335-9812833941d1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cb382a9-a9a1-5854-92bf-24cbed76010b",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "21bb1496-ca1b-5189-8d56-f077e9b8f910",
+              "ingredientName": "Rote Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose, abgetropft und erwärmt"
+            },
+            {
+              "key": "87025416-e408-57ec-9548-b4d17beb8d08",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "f795372e-ed49-5322-819a-fa7c0de78930",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea05a04a-a000-5b9b-b0e1-e5bf0888cd8c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "7a506428-17f4-54cd-a37e-8808e80c648b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 kleines Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "f3ddb22c-3039-5a0c-979e-a10f71506a85",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "016cf363-a10f-53ba-915c-088ebb1322f0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer Pfanne bei mittelhoher bis hoher Hitze erhitzen und Kochbananenscheiben insgesamt etwa 4 Minuten von beiden Seiten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kochbanane auf einen Teller legen und Speck im selben Öl etwa 5 Minuten knusprig braten, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Chorizoscheiben je Seite 3 Minuten in der Pfanne bräunen und dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderhack in der Pfanne etwa 5 Minuten krümelig anbraten und mit Salz sowie Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rote Bohnen in einem kleinen Topf erwärmen und salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Arepa in einer trockenen Pfanne etwa 2 Minuten pro Seite erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Eier im restlichen Öl nach gewünschtem Gargrad braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reis, Bohnen, Kochbanane, Speck, Chorizo, Schweinefleisch, Arepa, Spiegelei sowie Tomaten- und Zwiebelscheiben auf einem großen Teller anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Bandeja-Paisa-Paisa-Platter.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Bandeja-Paisa-Paisa-Platter.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mang",
+      "slug": "gen-mang",
+      "title": "Mangú",
+      "instructions": "Dominikanisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kochbananen im Angebot in größeren Mengen kaufen und übrige einfrieren",
+        "Normale Zwiebeln aus dem Großgebinde statt abgepackte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "dominikanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4133,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mang/",
+      "components": [
+        {
+          "key": "010c8752-ec04-5932-876a-84e669ff7157",
+          "name": "Zutaten",
+          "servingGrams": 260,
+          "position": 0,
+          "items": [
+            {
+              "key": "092f2f13-2a0e-5bf4-8b20-d2c7dc6450b0",
+              "ingredientName": "Kochbanane",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "859a7d16-c838-5489-96b2-7cb9881c2663",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "eb6c5f6a-b8a3-5ca1-8f29-75328d2cae1b",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "95c58eef-2f09-5548-84a9-6d39fcbe06f2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2ee89713-130a-5674-8300-cb76d5cfcbf4",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0e527bb0-0c89-514f-a285-872dbcf110bc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "5fdc6c2f-594d-55c3-808e-3a94d6ebd4ea",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grüne Kochbananen schälen und in 2-inch große Stücke schneiden; den faserigen Kern entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kochbananenstücke 12-15 Minuten in Salzwasser kochen, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kochbananen abgießen und mit Butter sowie Milch cremig und glatt zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel würfeln und in Öl goldbraun sowie knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mangú vor dem Servieren mit gebratenen Zwiebeln, Salz und schwarzem Pfeffer garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&rect=0%2C532%2C2000%2C1532&poi=[920%2C900]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2022%2F04%2F01%2Fmangu-mashed-plantains.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&rect=0%2C532%2C2000%2C1532&poi=[920%2C900]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2022%2F04%2F01%2Fmangu-mashed-plantains.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-los-tres-golpes",
+      "slug": "gen-los-tres-golpes",
+      "title": "Los Tres Golpes",
+      "instructions": "Dominikanisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dominikanische Salami auf internationalen Märkten günstiger als in Spezialgeschäften kaufen",
+        "Queso de freír auf lateinamerikanischen Märkten suchen; er ist günstiger als US-Käsemarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "dominikanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4134,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-los-tres-golpes/",
+      "components": [
+        {
+          "key": "adfb5fa7-f6b5-55fc-9624-bdcef4d19ba0",
+          "name": "Zutaten",
+          "servingGrams": 273.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "45ef8154-82ed-58f8-9977-b2a28d468224",
+              "ingredientName": "Dominikanische Salami",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "b8c8f3e0-ec3c-5246-a3ad-3fa5b0aeb287",
+              "ingredientName": "Kräuter der Provence",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "0654ad0a-e5c0-5ef0-bffe-ec2ffd27ef57",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "e1413274-47a0-5401-b753-27746fc843f7",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ea32cde8-0209-5c2c-8f9c-25a779c6c3a6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8dcdbd60-9204-5a2b-ab66-2d519f5b4a95",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salami in dünne Scheiben und Käse in dicke Platten schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei mittelhoher bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Salamischeiben je Seite 2-3 Minuten braten, bis sich die Ränder kräuseln, dann auf Küchenpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Käseplatten je Seite 2-3 Minuten goldbraun braten und dann auf einen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier im restlichen Öl als Spiegeleier braten, bis das Eiweiß fest und das Eigelb noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spiegeleier mit Salami und Käse dazu servieren und mit Salz sowie Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/8b/42/d1/8b42d105b07b9f52b3f5bb73da14c191.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/8b/42/d1/8b42d105b07b9f52b3f5bb73da14c191.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

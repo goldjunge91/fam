@@ -1,0 +1,1073 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-filipino-sinangag-bowl",
+      "slug": "mfr-filipino-sinangag-bowl",
+      "title": "Filipinische Knoblauch-Reisschüssel",
+      "instructions": "Kalten Reis vom Vortag mit reichlich Knoblauch knusprig anbraten, dazu Tocino-Hähnchen nach Art der süß-salzigen Marinade, Spiegelei und eingelegtes Gemüse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sinangag ist die philippinische Antwort auf Reisreste. Kalter Reis schmeckt dafür besser.",
+        "Tocino gelingt mit jedem Fleisch: Schwein, Hähnchen oder sogar Spam."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Traditionell Schweinehack oder Spam verwenden."
+        },
+        {
+          "forIngredientId": "carrot",
+          "swap": "Eingelegte Gurken oder Mango verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-filipino-sinangag-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "philippinisch",
+        "gebratener-Reis",
+        "Knoblauch",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1015,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-filipino-sinangag-bowl/",
+      "components": [
+        {
+          "key": "f967c48e-04df-5f99-a027-64c91ab19b60",
+          "name": "Zutaten",
+          "servingGrams": 453,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5c7ccf8-be87-5cfc-8b07-2aba37b0c23a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b13d74b-c96c-516e-ba3e-a13139b78938",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "218fff2e-5cd2-5b68-9374-215ecf779a6c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f006e1f-2703-508a-8745-41c592bb33f6",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7f197d7-8b1a-5308-a681-745e14df73a1",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38c59d9e-4382-54c3-8cea-50f88be3c9ff",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1721948-07b7-564b-88f7-b7bb1868876b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af02aabf-044f-5e1c-a951-ea51371f49e1",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dc4e6cb-8c5a-5c34-85ba-e8a24851b626",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73da7c22-4f1a-52f6-8488-47558207b29a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite das Tocino-Hähnchen zu: Verrühre Sojasauce und Zucker und mariniere gewürfeltes Hähnchen 5 Minuten darin. Brate es, bis es karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Knoblauch 2 Minuten in Öl goldbraun an. Gib Reis dazu und brate ihn bei hoher Hitze 5 Minuten knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite schnell eingelegte Karotte mit Reisessig zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Knoblauchreis, Tocino-Hähnchen, Spiegelei und eingelegter Karotte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5f19a47a59eadf0c13289595/1:1/w_2560%2Cc_limit/GarlicFriedRice_Recipe_071520_9567_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5f19a47a59eadf0c13289595/1:1/w_2560%2Cc_limit/GarlicFriedRice_Recipe_071520_9567_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-filipino-sinigang-pork",
+      "slug": "mfr-filipino-sinigang-pork",
+      "title": "Filipinische Sinigang-Suppe",
+      "instructions": "Eine säuerliche Tamarindenbrühe mit Schweinefleisch, Aubergine, Okra und Blattgemüse. Die berühmte philippinische Suppe ist in 35 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tamarindenpaste ist günstig, lange haltbar und verleiht Sinigang seine einzigartige säuerliche Tiefe.",
+        "Sinigang gelingt mit Garnelen, Fisch oder Hähnchen. Nimm einfach die günstigste Eiweißquelle."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamarind-paste",
+          "swap": "2 EL Limettensaft und 1 TL Tomatenmark verrühren."
+        },
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Garnelen, Lachs oder Hähnchen verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-filipino-sinigang-pork",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "philippinisch",
+        "Suppe",
+        "Tamarinde",
+        "säuerlich",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1016,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-filipino-sinigang-pork/",
+      "components": [
+        {
+          "key": "d4f6be9f-a275-55e4-abb0-f1c61c7a1c96",
+          "name": "Zutaten",
+          "servingGrams": 1193.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "2bd39f55-2239-5267-9ea8-f45092bd3a2a",
+              "ingredientName": "Schweineschulter",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "582ae5a2-1848-5ba8-a10d-f143eb6b12fe",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76123be7-9ad9-5399-9762-7e3bf2d679a4",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fe08cae-5cb2-5028-a231-9ea93843752c",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fe294ee-1671-5120-9ba2-0d6d82cfb600",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85477268-45ce-5e37-9181-81311a26b31e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b99cd250-61ff-5bbc-87a5-e917b71c8b43",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21d50f76-3e27-5a14-bc1d-32ddb0ba36f5",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bb12e2c-4ff4-5b25-883f-4820f29cf3e7",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Schweinefleisch, Zwiebel und Tomate 20 Minuten in Brühe köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Löse Tamarindenpaste in der Brühe auf. Gib Aubergine dazu und gare sie 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Spinat hinzu und gare ihn 2 Minuten. Würze die Suppe mit Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere sie mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/lD8WTEx4d8fUV28ySzsl4bR7Wlk=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__11__20191030-filipino-Sinigang-na-Baboy-pork-vicky-wasik-14-0c4f581b8fd54f4c84385eaf31633297.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/lD8WTEx4d8fUV28ySzsl4bR7Wlk=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__11__20191030-filipino-Sinigang-na-Baboy-pork-vicky-wasik-14-0c4f581b8fd54f4c84385eaf31633297.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-filipino-arroz-caldo",
+      "slug": "mfr-filipino-arroz-caldo",
+      "title": "Filipinischer Arroz Caldo",
+      "instructions": "Ingwerduftender Hähnchen-Reisbrei mit knusprigem Knoblauch, Frühlingszwiebeln und Spiegelei. Die philippinische Variante von Congee für Krankheitstage oder kalte Morgen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Arroz Caldo macht aus zwei Hähnchenschenkeln mit Brühe und Reis 2 großzügige Schüsseln.",
+        "Der knusprige Knoblauch obendrauf macht das Gericht besonders. Lass ihn nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust oder beliebiges gegartes Hähnchen verwenden."
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-filipino-arroz-caldo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "philippinisch",
+        "Reisbrei",
+        "Congee",
+        "Wohlfühlessen",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1017,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-filipino-arroz-caldo/",
+      "components": [
+        {
+          "key": "f9797fcd-55a3-56d2-9361-23175677e717",
+          "name": "Zutaten",
+          "servingGrams": 961,
+          "position": 0,
+          "items": [
+            {
+              "key": "13c266dd-0860-5081-9ca7-394344e84d1f",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e49ce80a-ef25-5d8c-acc7-1cc6ac8e068e",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e3b3817-1d5e-5922-b399-c1e29b035a11",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8922beaa-0a09-580e-9524-32d9b135e236",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee7f05e8-ebc8-568c-91cd-e4fc14dd847e",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "733fa68c-a8e3-50bd-9a44-70704944e242",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6b381c6-eab0-5a99-a702-a534094d7784",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bacc71d2-4ed4-505c-bb45-61c4ccfecd30",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b68be86a-1028-56c0-b233-c3dd6afac47d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17bcef35-5d2a-5af6-a009-bf095c49c4bc",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Knoblauch und Ingwer 2 Minuten an. Gib Hähnchen und Fischsauce hinzu und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Reis und Brühe im Verhältnis 3:1 dazu. Lass alles 25 Minuten köcheln und rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerpflücke das Hähnchen. Brate den übrigen Knoblauch goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere die Schüsseln mit knusprigem Knoblauch, Spiegelei, Frühlingszwiebeln und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/4grl4EQdsIYgBxzxzZcTwKMYxIs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6512910-02568b8eea414fff9d49f500458faaf3.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/4grl4EQdsIYgBxzxzZcTwKMYxIs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6512910-02568b8eea414fff9d49f500458faaf3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai-basil-chicken-pad-krapao",
+      "slug": "mfr-thai-basil-chicken-pad-krapao",
+      "title": "Thailändisches Basilikum-Hähnchen (Pad Krapao)",
+      "instructions": "Hähnchenhack mit heiligem Thai-Basilikum, Austernsauce und Chilis anbraten. Eines der beliebtesten thailändischen Streetfood-Gerichte, in 12 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenhack ist die günstigste Eiweißquelle für dieses Gericht.",
+        "Im Notfall lässt sich Thai-Basilikum gut durch italienisches Basilikum ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "thai-basil",
+          "swap": "Gewöhnliches Basilikum und einige Minzblätter verwenden."
+        },
+        {
+          "forIngredientId": "ground-chicken",
+          "swap": "Traditionell Schweinehack oder Putenhack verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai-basil-chicken-pad-krapao",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "Wokgericht",
+        "schnell",
+        "Streetfood",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1018,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai-basil-chicken-pad-krapao/",
+      "components": [
+        {
+          "key": "d3620b09-eac1-5d3c-b8b8-a01e838f5379",
+          "name": "Zutaten",
+          "servingGrams": 734.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "d51b2ddd-a96d-550c-b07e-c08087c0145f",
+              "ingredientName": "Hähnchenhack",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "489d2e05-1ccf-57ea-ab7b-b928749571a7",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "412a1af1-83fb-5d08-9765-7333d33e5ba7",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "383e4523-58dd-5721-aebe-91f9d48328f4",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2dcf23e-01cc-57cc-bc32-6bc623fa1552",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ae84dd9-08ae-5b87-b57e-5f6590b07ef1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6f08c92-fdd7-5fdc-9ce1-1e147263c672",
+              "ingredientName": "Jalapeño",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dea52c4-b85e-5383-ad97-50827004383b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7c93697-889e-56fb-9bf6-4a71a4cab848",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b376460-4c13-56fc-bdbe-44dede24c3a8",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Knoblauch und Chilis 1 Minute bei hoher Hitze in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchenhack dazu, zerteile es und gare es 5 Minuten, bis keine rosa Stellen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Austernsauce, Sojasauce und Fischsauce dazu. Schwenke alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und rühre Basilikumblätter unter, bis sie gerade zusammengefallen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die Eier mit flüssigem Eigelb. Serviere das Hähnchen auf Reis und gib ein Spiegelei darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/45dh07o5n4u41.jpg",
+          "sourcePageUrl": "https://i.redd.it/45dh07o5n4u41.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai-peanut-chicken-satay",
+      "slug": "mfr-thai-peanut-chicken-satay",
+      "title": "Thailändische Satay-Schüssel mit Erdnuss-Hähnchen",
+      "instructions": "Hähnchenschenkel in Kokosmilch und Kurkuma marinieren, auf Spieße stecken und grillen oder in der Pfanne braten. Mit Reis und hausgemachter Erdnuss-Dip-Sauce servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbutter-Sauce ist in 2 Minuten zubereitet und viel besser als fertige Satay-Sauce im Glas.",
+        "Die Marinade mit Kokosmilch aus der Dose ist das Geheimnis für saftiges Hähnchen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Rindfleischstreifen, Garnelen oder Tofu verwenden."
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Tahini verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai-peanut-chicken-satay",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "thailändisch",
+        "Satay",
+        "Erdnuss",
+        "Spieß",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1019,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai-peanut-chicken-satay/",
+      "components": [
+        {
+          "key": "c55f78bf-aa89-5393-a969-a08537853d81",
+          "name": "Zutaten",
+          "servingGrams": 1019,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c655063-1a38-5392-a81f-80dae1f8fb97",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6038b4a-8ae6-5328-b2ea-5d60e84dd304",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5c4270d-3695-511c-be2f-2f36a6e0e76f",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "710341b6-32c2-5fe2-9a50-f80f45e83cd1",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a390848-cde7-586a-b959-b3d8da59fb04",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "329360d9-ca6c-5c0f-ad81-c6a4f50ef5c0",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "593b6bf6-9744-52c9-ade4-25dfd468150f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99770a8d-51b5-5719-9af7-1d80ca19bae5",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59881629-d33c-5314-a314-9f635ba6d5a9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c93fa07-16c6-5ded-9f85-770bdfd1ad90",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6275056c-799b-55c9-a16d-6964b996ccdc",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Hähnchen 5 Minuten in Kokosmilch, Kurkuma und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate oder grille es pro Seite 6 Minuten, bis die Oberfläche geröstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Erdnusssauce zu: Verrühre Erdnussbutter, Sojasauce, Limette, Honig, Knoblauch und 2 EL Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Hähnchen auf Reis mit Gurkenscheiben und Erdnusssauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://heatherlikesfood.com/wp-content/uploads/2021/01/Thai-Chicken-Bowls6.jpg",
+          "sourcePageUrl": "https://heatherlikesfood.com/wp-content/uploads/2021/01/Thai-Chicken-Bowls6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

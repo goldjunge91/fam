@@ -1,0 +1,1500 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-lemon-herb-salmon",
+      "slug": "cur-lemon-herb-salmon",
+      "title": "Lachs mit Zitrone und Kräutern",
+      "instructions": "Lachsfilets mit knuspriger Haut, in der Pfanne angebraten und mit frischer Zitronen-Knoblauch-Butter übergossen. Mit Dill und Petersilie verfeinert; ein schnelles Abendessen in Restaurantqualität aus einer Pfanne.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine ganze Seite Lachs kaufen und selbst portionieren oder tiefgekühlte Filets über Nacht auftauen; beides ist pro Pfund günstiger als Fisch von der Frischetheke.",
+        "Getrockneter Dill (1 TL) kann frischen Dill ersetzen und ist günstiger, wenn kein Bund zur Hand ist.",
+        "Übrig gebliebene knusprige Hautstücke im Ofen backen und als Snack servieren, damit nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "verwenden trout oder cod fillets, cooking cod ein little longer since it's leaner",
+          "savings": "Spart etwa $3-4 pro Portion"
+        },
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "getrocknet Dill oder frisch Thymian",
+          "savings": "Spart etwa $2 gegenüber einem frischen Bund"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Extra Olivenöl für basting",
+          "savings": "Spart einige Cent und ergibt eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Lachs",
+        "Meeresfrüchte",
+        "in der Pfanne angebraten",
+        "Zitrone",
+        "Kräuter",
+        "schnell",
+        "eine Pfanne",
+        "für den Feierabend"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7325,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-lemon-herb-salmon/",
+      "components": [
+        {
+          "key": "96e0c56d-43de-57f4-96cb-9f9adeb9282d",
+          "name": "Zutaten",
+          "servingGrams": 148.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "2835d408-4943-55f6-87de-236b4cd39268",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "zwei 6 oz-Filets mit Haut"
+            },
+            {
+              "key": "04998c35-fce3-581f-bbcd-0211ec55480c",
+              "ingredientName": "Olivenöl",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL zum scharfen Anbraten"
+            },
+            {
+              "key": "9b5d1026-4d88-5216-9ee7-5745ad9f29a3",
+              "ingredientName": "Butter",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL zum Übergießen"
+            },
+            {
+              "key": "f8437382-bbf0-5e64-86c4-8ee85d433706",
+              "ingredientName": "Knoblauch",
+              "grams": 0.24,
+              "quantity": 0.08,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, angedrückt"
+            },
+            {
+              "key": "d535cbed-51eb-511d-90f2-4f55f4fafa5a",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "eine Hälfte ausgepresst, die andere für die Pfanne in Scheiben geschnitten"
+            },
+            {
+              "key": "5f92d069-4ac8-56d8-8be3-84b8023567d5",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "abgeriebene Zitronenschale"
+            },
+            {
+              "key": "6154ddb0-7fe3-5500-b837-d3551ca538b1",
+              "ingredientName": "Frischer Dill",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "810f19c8-ff13-5aeb-9044-0bef4e7f7ce5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "b11dcde1-043b-5eed-bffe-1db3f72a40b9",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "439e9f58-ac2f-56ca-a176-5ff1fbcb8d8f",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lachsfilets mit Küchenpapier sehr trocken tupfen und beide Seiten großzügig salzen und pfeffern. 10 Minuten trocken stehen lassen, damit die Haut knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer Edelstahl- oder Gusseisenpfanne bei mittelhoher Hitze erhitzen, bis es schimmert. Filets mit der Hautseite nach unten hineinlegen und jedes 20 Sekunden mit einem Pfannenwender flach andrücken, damit die Haut aufliegt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "4–5 Minuten ungestört braten, bis die Haut tief goldbraun und knusprig ist und das Fischfleisch seitlich etwa zu zwei Dritteln undurchsichtig geworden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Filets wenden und die Fleischseite 1–2 Minuten braten, bis der Lachs an der dicksten Stelle 125–130 °F erreicht hat und innen saftig, gerade gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf mittlere Stufe reduzieren. Butter, zerdrückten Knoblauch und Zitronenscheiben in die Pfanne geben. Sobald die Butter schäumt, die Pfanne neigen und die Filets 1 Minute lang fortlaufend mit der Zitronen-Knoblauch-Butter übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Saft aus der übrigen Zitronenhälfte hineinpressen und zu einer glänzenden Pfannensoße verrühren. Bratrückstände vom Pfannenboden lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen und Zitronenschale, frischen Dill und Petersilie darübergeben. Pfannensoße über den Lachs löffeln und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Herb_baked_salmon.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Herb_baked_salmon.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shark2025 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Zitrone Herb Salmon",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-chicken-etouffee",
+      "slug": "cur-chicken-etouffee",
+      "title": "Hähnchen-Etouffée",
+      "instructions": "Wärmender Klassiker aus Louisiana: zartes Hähnchen in einer kräftigen, mit Mehlschwitze gebundenen Soße aus Zwiebel, Sellerie und Paprika. Mit kreolischen Gewürzen langsam geschmort, mit Petersilie und Frühlingszwiebeln verfeinert und auf lockerem weißem Reis serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel ohne Knochen sind günstiger als Brustfleisch, bleiben beim langen Köcheln saftig und geben der Soße viel Geschmack.",
+        "Mehlschwitze aus Mehl und Öl selbst zubereiten statt fertige Bindemittel zu kaufen; das ist günstig und traditionell.",
+        "Einen ganzen Sellerie und eine einzelne Paprika kaufen. Benötigte Reste für die nächste Mahlzeit aufbewahren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "verwenden bone-in thighs oder drumsticks und pull der meat off after simmering",
+          "savings": "Fleisch mit Knochen ist pro Pfund meist günstiger und gibt der Sauce mehr Geschmack"
+        },
+        {
+          "forIngredientId": "creole-seasoning",
+          "swap": "mischen dein own aus Paprika, Knoblauch powder, Zwiebel powder, cayenne, oregano, und Thymian",
+          "savings": "Spart den Kauf einer besonderen Mischung, wenn die Grundgewürze bereits vorhanden sind"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Butter makes ein richer roux",
+          "savings": "Bereits vorhandenes Fett verwenden und einen zusätzlichen Einkauf sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "Cajun",
+        "kreolisch",
+        "Louisiana",
+        "Hausmannskost",
+        "aus einem Topf",
+        "geschmort",
+        "Südstaatenküche",
+        "Reisschüssel"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7326,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chicken-etouffee/",
+      "components": [
+        {
+          "key": "4a545ae6-97c0-5fee-a5e7-3c895c5b1a50",
+          "name": "Zutaten",
+          "servingGrams": 492.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "ef257e38-44fc-5d79-9088-11e7c5f2cfd4",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "eae55250-762d-5a4e-85d2-7ff62754e881",
+              "ingredientName": "Pflanzenöl",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für die Mehlschwitze"
+            },
+            {
+              "key": "d0280a09-0240-5443-9036-abd1a9665151",
+              "ingredientName": "Weizenmehl",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Weizenmehl für die Mehlschwitze"
+            },
+            {
+              "key": "fc1ba220-ab57-5e63-9274-27f43ab7efb1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c709384-d193-504b-b4f6-60d2a93c62fa",
+              "ingredientName": "Sellerie",
+              "grams": 6,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2 Stangen, gewürfelt"
+            },
+            {
+              "key": "888cfe80-90a9-5b44-aea1-629ebd489bda",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "grüne, gewürfelt"
+            },
+            {
+              "key": "4791e869-5263-5352-a874-9d36d104daa8",
+              "ingredientName": "Knoblauch",
+              "grams": 0.45,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "86cddb9f-4e09-5d6f-8c90-55afc29d56f6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 2.5 Tassen"
+            },
+            {
+              "key": "b6ce5238-4dbd-540c-981e-d5140bd16762",
+              "ingredientName": "Kreolisches Gewürz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0302ae07-2d07-5d31-9633-609d9944555f",
+              "ingredientName": "Cajun-Gewürzmischung",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "08fc9ca3-9f3c-5b59-b07b-3965511262d9",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "63d4ae40-0b3f-5ed6-b78a-388997d43b6a",
+              "ingredientName": "Thymian",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "getrocknet"
+            },
+            {
+              "key": "5efb48ef-28ae-57cb-90b8-8f3854ee4f2e",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dfcffd7f-11c3-56cf-b011-b360178e4313",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62ca74ff-e992-531c-9b82-92f8c309ee46",
+              "ingredientName": "scharfe Sauce",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "7ef1f9e8-1bb1-5600-a6c6-1e5e2937a883",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "zum Verfeinern"
+            },
+            {
+              "key": "cca30533-d44d-59b1-ab50-8647a269f693",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 4.5,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "cea63fb6-cfbb-54b6-8051-27e06a38056e",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "876f0cd4-3872-5a4b-815b-5c0b31fcd31d",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "gekochter weißer Reis zum Servieren"
+            },
+            {
+              "key": "c7e98861-5d7c-535c-8090-a079972aa109",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54d9b795-c6fb-59f4-8d27-96bad87d3f99",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 20,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenstücke mit Salz, Pfeffer und der Hälfte der kreolischen Gewürzmischung würzen und beiseitestellen. Reis aufsetzen, damit er fertig ist, wenn das Etouffée serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Mehlschwitze Pflanzenöl in einem schweren Topf oder Schmortopf bei mittlerer Hitze erwärmen und Mehl einrühren. Unter ständigem Rühren 8–12 Minuten kochen, bis die Masse die Farbe von Erdnussbutter hat. Nicht hetzen oder anbrennen lassen; dies ist die Grundlage des Gerichts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel, Sellerie und Paprika direkt in die Mehlschwitze geben. Unter Rühren 5–6 Minuten weich dünsten, dann Knoblauch hinzufügen und 1 Minute weitergaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hühnerbrühe langsam unter ständigem Rühren zugießen, damit keine Klümpchen entstehen. Lorbeerblätter, Thymian, restliche kreolische Würzmischung, Cajun-Gewürz, Cayennepfeffer und Worcestershiresoße hinzufügen. Rühren, bis die Soße glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sanft aufkochen und Hähnchen hinzufügen. Teilweise zugedeckt 25–30 Minuten köcheln lassen und gelegentlich umrühren, bis das Fleisch zart ist und die Soße dick wie eine kräftige Bratensoße wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lorbeerblätter entfernen. Butter und etwas scharfe Soße einrühren. Mit Salz, Pfeffer und Schärfe abschmecken. Die Soße soll einen Löffel überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den größten Teil der Frühlingszwiebeln und Petersilie einrühren und etwas zum Garnieren zurückbehalten. Etouffée auf Schüsseln mit heißem weißem Reis geben, mit den übrigen Kräutern bestreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/World_Famous_Hotboys_-_February_2025_-_Sarah_Stierch_11.jpg/1280px-World_Famous_Hotboys_-_February_2025_-_Sarah_Stierch_11.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:World_Famous_Hotboys_-_February_2025_-_Sarah_Stierch_11.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Missvain (Sarah Stierch) — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Etouffee",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-chicken-tinga-tacos",
+      "slug": "cur-chicken-tinga-tacos",
+      "title": "Tacos mit Hähnchen-Tinga",
+      "instructions": "Zartes gezupftes Hähnchen, in einer rauchigen Tomaten-Chipotle-Soße geschmort und in warmen Maistortillas serviert. Mit Queso Fresco, Avocado und Limette garniert. Tinga Poblana ist ein Klassiker aus Puebla, dessen rauchiges Aroma von Chipotles in Adobo kommt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein ganzes Hähnchen pochieren oder Brathähnchenreste verwenden, statt nur Schenkel zu kaufen; das Fleisch reicht weiter und die Karkasse ergibt eine kräftige Brühe.",
+        "Eine kleine Dose Chipotles in Adobo reicht für mehrere Gerichte. Reste einfrieren und einzelne Chilis nach Bedarf entnehmen.",
+        "Tomaten und Zwiebel zusammen in derselben trockenen Pfanne rösten, um zusätzliches Öl zu sparen und Raucharoma zu erhalten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Shredded rotisserie Hähnchen oder leftover poached Hähnchen breast",
+          "savings": "Verbraucht Reste und spart ~$3 und 20 Min."
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "1 can zerdrückt tomatoes, no charring needed",
+          "savings": "Außerhalb der Saison etwa $1 günstiger und schneller zubereitet"
+        },
+        {
+          "forIngredientId": "queso-fresco",
+          "swap": "Crumbled feta oder cotija",
+          "savings": "Oft bereits im Kühlschrank; ähnlich salzig und krümelig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Tacos",
+        "Hähnchen",
+        "Chipotle",
+        "rauchig",
+        "für den Feierabend",
+        "gezupftes Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7327,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chicken-tinga-tacos/",
+      "components": [
+        {
+          "key": "2aab83fd-d1a8-57f2-9f1f-cb933eb81ae4",
+          "name": "Zutaten",
+          "servingGrams": 482.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "528d0894-625d-5cbb-9da1-16c0b66afd93",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, zum Pochieren und Zerzupfen"
+            },
+            {
+              "key": "b2cd6e81-0087-58b8-ba66-02caadfbc76c",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "reife Roma-Tomaten oder ersatzweise 1 Dose zerkleinerte Tomaten"
+            },
+            {
+              "key": "7b012ccb-0f10-5e7b-bd02-371872ecb34f",
+              "ingredientName": "Jalapeño",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2-3 Chilis und 1 EL Adobosauce nach Geschmack"
+            },
+            {
+              "key": "52d7b5f1-0a71-5c21-9245-c451245c3974",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "eine Hälfte für die Sauce in Scheiben geschnitten, die andere roh zum Garnieren"
+            },
+            {
+              "key": "0138697e-a86b-51c3-b0ba-55e91286ce28",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Zehen"
+            },
+            {
+              "key": "a8980d0d-2d39-57ef-ac08-b32693acd8a8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "vom Pochieren des Hähnchens aufbewahren"
+            },
+            {
+              "key": "611fcef3-6ca2-51a5-963f-0408c7854ed7",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56730625-8969-5e88-aa45-006b522a7c29",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "vorzugsweise mexikanischer Oregano, getrocknet"
+            },
+            {
+              "key": "c2eb84ff-03a2-5ee5-925b-cd160c66289f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "EL zum Anbraten der Sauce"
+            },
+            {
+              "key": "5d126370-1f1e-5bdd-9e13-f1fa4e61583a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fd84627c-e0e0-553d-9a9a-b64e1c89a44f",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "Maistortillas, 3 pro Person"
+            },
+            {
+              "key": "53f14a8a-0156-541b-a7e4-ef994375f843",
+              "ingredientName": "Queso Fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zerbröselt, zum Garnieren"
+            },
+            {
+              "key": "b2f14163-b5ad-5544-84cd-0e2700bbc023",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "3491bd2b-9d6b-58da-8ecf-ec845dac1d79",
+              "ingredientName": "Frischer Koriander",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "13e911e3-7345-5810-8825-25a5e368adc0",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenschenkel mit einer halben Zwiebel am Stück, 1 Knoblauchzehe, Lorbeerblatt und einer großzügigen Prise Salz in einen Topf geben. Mit Wasser bedecken, sanft aufkochen und 18–20 Minuten pochieren, bis das Fleisch gar ist. Hähnchen herausheben und etwa 1/3 Tasse Pochierbrühe aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während das Hähnchen gart, Tomaten in einer trockenen Pfanne oder unter dem Backofengrill 6–8 Minuten rösten, bis die Haut Blasen wirft und weich ist. Gelegentlich wenden. Das gibt der Soße mehr Tiefe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geröstete Tomaten mit Chipotles, Adobo-Soße, den übrigen 2 Knoblauchzehen, der aufbewahrten Brühe und Oregano glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn das Hähnchen kühl genug zum Anfassen ist, das Fleisch mit zwei Gabeln in mundgerechte Streifen zupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einer Pfanne bei mittelhoher Hitze erwärmen. Die übrigen geschnittenen Zwiebeln hinzufügen und 4–5 Minuten weich und leicht goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pürierte Tomaten-Chipotle-Soße hineingießen (sie kann spritzen) und unter Rühren 5 Minuten braten, bis sie dunkler und etwas dicker wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gezupftes Hähnchen hinzufügen und unterheben. 5–8 Minuten köcheln lassen, bis das Fleisch die Soße aufgesogen hat und die Soße daran haftet, ohne wässrig zu sein. Salzen; bei Bedarf etwas Brühe zugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Maistortillas in einer trockenen Pfanne erwärmen, bis sie biegsam und leicht geröstet sind. Stapeln und unter einem Tuch warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Für die Tacos jede Tortilla mit reichlich Tinga füllen und mit roher Zwiebel, zerbröseltem Queso Fresco, Avocado, Koriander und Limettensaft garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/El_Pavo_Real_Lunch_Chicken_Tinga_Tacos.jpg/1280px-El_Pavo_Real_Lunch_Chicken_Tinga_Tacos.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:El_Pavo_Real_Lunch_Chicken_Tinga_Tacos.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Infrogmation of New Orleans — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Tinga Tacos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-pork-tamales",
+      "slug": "cur-pork-tamales",
+      "title": "Tamales mit Schweinefleisch",
+      "instructions": "Zarte Schweineschulter in würziger Chilisauce, in weichen, luftigen Masa-Teig und Maisblätter gewickelt und gedämpft. Ein mexikanischer Klassiker, der etwas Arbeit erfordert, sich aber gut in großer Menge zubereiten und einfrieren lässt.",
+      "prepTimeMinutes": 60,
+      "cookTimeMinutes": 150,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter ist ein günstiges Stück und ergibt genug Fleisch für viele Tamales; ideal, wenn Gäste kommen.",
+        "Tamales lassen sich gut einfrieren. Eine doppelte Menge zubereiten und gegarte Tamales später dämpfen oder in der Mikrowelle erhitzen.",
+        "Die Schweinefleisch-Schmorbrühe zum Verdünnen der Masa verwenden, statt zusätzliche Brühe zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Bone-in Hähnchen thighs, braised und shredded der same way",
+          "savings": "Pro Pfund oft günstiger und schneller gar"
+        },
+        {
+          "forIngredientId": "coconut-oil",
+          "swap": "Real lard (manteca) für der most authentic, tender masa",
+          "savings": "Schweineschmalz ist meist günstiger als Kokosöl und traditionell"
+        },
+        {
+          "forIngredientId": "ancho-chili-powder",
+          "swap": "Whole getrocknet guajillo + ancho chiles, soaked und blended",
+          "savings": "Ganze getrocknete Chilis in Großpackungen sind günstiger als gemahlene"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Tamales",
+        "Schweinefleisch",
+        "Masa",
+        "gedämpft",
+        "zum Vorbereiten",
+        "zum Einfrieren",
+        "Party"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7328,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-pork-tamales/",
+      "components": [
+        {
+          "key": "eb38e308-d64a-5442-adb9-89c085a16e5e",
+          "name": "Zutaten",
+          "servingGrams": 133.07,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c5b205e-753c-52ea-bec8-8000bd78c95b",
+              "ingredientName": "Schweineschulter",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "zum Schmoren in 2 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "74daaddb-d40d-5e8f-a73d-52f18e2da37d",
+              "ingredientName": "Masa Harina",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Masa Harina für Tamales (mit Kalk behandeltes Maismehl)"
+            },
+            {
+              "key": "ede4ee5b-45ae-5bd7-9f51-8bd03af7b7e7",
+              "ingredientName": "Kokosöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "als Ersatz für Schweineschmalz oder Manteca; falls vorhanden Schweineschmalz für traditionellen Geschmack und Konsistenz verwenden"
+            },
+            {
+              "key": "1070e6d9-44a7-5a15-b9fb-924261415c67",
+              "ingredientName": "Ancho-Chilipulver",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "aus getrockneten Ancho- oder Guajillo-Chilis, als Grundlage der roten Chilisauce"
+            },
+            {
+              "key": "cdf438a0-74d5-5346-8c9f-95da50f735f4",
+              "ingredientName": "Jalapeño",
+              "grams": 36,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "verleiht der Chilisauce Raucharoma und etwas Schärfe"
+            },
+            {
+              "key": "d043db99-f853-52b5-9d5f-3a366115cfc6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "warm, für den Maisteig und die Chilisauce; auch den Schweinefleisch-Schmorsud aufbewahren"
+            },
+            {
+              "key": "d506673c-ed76-5f0b-ad71-e2c6ff2fc4a5",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf39c7be-b8cd-53e3-8e12-b590550a5d97",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 5-6 Zehen"
+            },
+            {
+              "key": "9d7572b2-6a72-5768-9198-9a922dc8260e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f70c925a-8913-5fbb-afed-fbf7b29b9a8e",
+              "ingredientName": "Oregano",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "möglichst mexikanischer Oregano"
+            },
+            {
+              "key": "4ff3ba01-d7fd-51df-914d-0270eab0138f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Blätter für den Schmorsud"
+            },
+            {
+              "key": "e808b0d5-5f5d-58f6-bcff-548f77062d70",
+              "ingredientName": "Backpulver",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "lockert den Maisteig, damit er beim Dämpfen luftig wird"
+            },
+            {
+              "key": "0475fe2f-05d8-5b65-998a-62ad5e18e410",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5210987-9431-57c4-8318-ea6c6176f0a1",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "oder 1 kleine Dose, für mehr Konsistenz in der roten Sauce"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulterstücke mit einer halben weißen Zwiebel, Knoblauch, Lorbeerblättern, 1 TL Salz und Wasser in einen Topf geben, sodass das Fleisch bedeckt ist. Aufkochen und zugedeckt etwa 1.5 Stunden köcheln lassen, bis es zart ist. Schmorbrühe aufbewahren und das Fleisch zupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Chilisauce Ancho-Chilipulver kurz anrösten. Mit Chipotle in Adobo, der übrigen Zwiebel, Tomate, Kreuzkümmel, Oregano und 1 Tasse warmer Schmorbrühe glatt mixen. 10 Minuten köcheln lassen, bis die Soße eindickt. Gezupftes Schweinefleisch unterheben und salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwa 30 getrocknete Maisblätter (nicht im Sortiment, separat kaufen) 30 Minuten in heißem Wasser einweichen, bis sie biegsam sind. Abgießen und trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Masa Kokosöl oder Schmalz luftig schlagen. Masa Harina, Backpulver und 1 TL Salz einrühren. Nach und nach warme Hühnerbrühe und Schweinebrühe zugeben, bis ein streichfähiger Teig wie Erdnussbutter entsteht. Ein kleines Teigkügelchen sollte im Wasser schwimmen, wenn die Masa fertig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine dünne 1/4 Zoll dicke Schicht Masa auf die glatte Seite jedes Maisblatts streichen und einen Rand frei lassen. Eine Linie der Schweinefleisch-Chilifüllung mittig daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Seiten der Blätter über die Füllung klappen, sodass die Masa sie umschließt, dann das leere untere Ende nach oben falten. Tamales mit der gefalteten Seite nach unten dicht nebeneinander aufrecht in einen Dämpfeinsatz stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Über siedendem Wasser zugedeckt 60–75 Minuten dämpfen. Wasser nachfüllen, damit der Topf nicht trocken kocht. Die Masa soll sich nach dem Garen sauber vom Maisblatt lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Tamales nach dem Ausschalten 10 Minuten ruhen lassen, damit die Masa fester wird. Heiß mit zusätzlicher Chilisauce, Salsa oder Crema servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Pork_tamale_-_May_2024_-_Sarah_Stierch_01.jpg/1280px-Pork_tamale_-_May_2024_-_Sarah_Stierch_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pork_tamale_-_May_2024_-_Sarah_Stierch_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Missvain (Sarah Stierch) — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Schweinefleisch Tamales",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-peruvian-lomo-saltado",
+      "slug": "cur-peruvian-lomo-saltado",
+      "title": "Peruanisches Lomo Saltado",
+      "instructions": "Peruanisches Pfannengericht aus scharf angebratenen Rumpsteakstreifen mit roter Zwiebel, Tomate und Ají Amarillo. Mit Sojasoße und Rotweinessig abgelöscht und mit knusprigen Pommes vermengt. Auf weißem Reis serviert, vereint es die Küche der Anden und chinesisch-peruanische Einflüsse (Chifa).",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rump- oder Flankensteak dünn gegen die Faser schneiden und heiß anbraten; so gelingt es auch mit günstigeren Stücken statt Filet.",
+        "Tiefgekühlte Pommes im Ofen oder in der Heißluftfritteuse zubereiten; das ist günstiger und sauberer als Frittieren, sie nehmen die Soße trotzdem gut auf.",
+        "Falls Ají-Amarillo-Paste fehlt, einen Löffel gelbe oder orange Chilipaste und eine Prise Kurkuma für die Farbe verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sirloin-steak",
+          "swap": "flank-steak oder skirt-steak in Scheiben geschnitten dünn against der grain",
+          "savings": "Spart ~30% gegenüber Filet und bleibt dünn geschnitten zart"
+        },
+        {
+          "forIngredientId": "aji-amarillo-paste",
+          "swap": "1 tbsp yellow chili/curry Paste + pinch Kurkuma",
+          "savings": "Spart den Kauf eines besonderen Glases, ~$4 Ersparnis"
+        },
+        {
+          "forIngredientId": "frozen-fries",
+          "swap": "2 frisch potatoes schneiden in batons und Ofen-roasted",
+          "savings": "Spart ~$1 und verwendet Vorratszutaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "peruanisch",
+        "Pfannengericht",
+        "Rindfleisch",
+        "Hausmannskost",
+        "Chifa",
+        "für den Feierabend"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7329,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-peruvian-lomo-saltado/",
+      "components": [
+        {
+          "key": "806542a2-84a9-5d46-827f-2c3949edb54b",
+          "name": "Zutaten",
+          "servingGrams": 416.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "37a72899-e841-575b-9ae6-d55d33b5cff3",
+              "ingredientName": "Lendensteak",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rinderhüfte oder -filet, in 1/2 Zoll breite Streifen geschnitten"
+            },
+            {
+              "key": "49bd0cbd-2281-5e09-bc0b-cc349271ee5e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "große, in dicke Spalten oder Segmente geschnitten"
+            },
+            {
+              "key": "3e8e8d4d-b730-5ac2-93be-9d656a2838cc",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "feste Roma-Tomaten, entkernt und in Spalten geschnitten"
+            },
+            {
+              "key": "ede81136-6ddf-5c51-9252-4b9785177002",
+              "ingredientName": "Ají-Amarillo-Paste",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "peruanische gelbe Chilipaste"
+            },
+            {
+              "key": "9f671596-125f-54c9-acf6-2690a49dc4c5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "68cb3f6f-9f7d-5f96-abbd-1772e24a1619",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "7df0b6e3-7c1c-589e-ae58-3b9787b75321",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "121144c8-0891-5e99-8eff-2a120c340818",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "grob gehackt, zum Verfeinern"
+            },
+            {
+              "key": "56ca1421-7bc4-5959-9d37-f024d81edd5e",
+              "ingredientName": "Gefrorene Pommes Frites",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "oder selbst geschnittene frittierte Kartoffeln"
+            },
+            {
+              "key": "5913b1d4-2d8a-5876-a347-8fe85c67237f",
+              "ingredientName": "Jasminreis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "weißer Reis, gedämpft, zum Servieren"
+            },
+            {
+              "key": "c8cd4ee1-702f-570c-b3a7-8bd4e1e4c6d9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Esslöffel zum scharfen Anbraten"
+            },
+            {
+              "key": "8905926e-c983-598c-aa98-18405a8152f8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b2045adb-6a2b-5cee-9514-d286b9011f9c",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "58c03a2e-6e78-5369-b29a-75a7f3d24cb8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "f860450c-bc48-501b-9b1c-f9761f87593a",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "möglichst Aji-Amarillo-Streifen, sonst eine dünne Chili für Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pommes zuerst zubereiten, damit sie am Ende heiß und knusprig sind: tiefgekühlte Pommes im Ofen oder in der Heißluftfritteuse goldbraun backen oder frisch geschnittene Kartoffeln frittieren. Warm halten. Jasminreis separat dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rumpsteakstreifen sehr trocken tupfen und mit Salz, Pfeffer und Kreuzkümmel würzen. So wird das Fleisch angebraten statt gedämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine große Pfanne oder einen Wok mit 1 EL Öl sehr stark erhitzen. Das Fleisch in 2 Portionen anbraten, damit die Pfanne nicht überfüllt wird. Etwa 1 Minute pro Seite kräftig braten, bis es gebräunt, innen aber noch rosa ist. Auf einen Teller geben und zwischen den Portionen etwas Öl ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In derselben heißen Pfanne einen weiteren EL Öl erhitzen. Rote Zwiebelspalten 1–2 Minuten unter Rühren braten, bis die Ränder angekohlt, die Zwiebeln aber noch bissfest und nicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Knoblauch und Ají-Amarillo-Paste hinzufügen und 30 Sekunden braten, bis sie duften. Tomatenspalten dazugeben und nur 1 Minute pfannenrühren, damit sie weich werden, aber ihre Form behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rindfleisch samt Fleischsaft zurück in die Pfanne geben. Sojasoße und Rotweinessig an den heißen Pfannenwänden hinuntergießen und 30–60 Sekunden kräftig wenden. Bratrückstände in die glänzende Soße einrühren. Abschmecken und salzen sowie pfeffern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze ausschalten und die heißen Pommes vorsichtig unter das Saltado heben, damit sie Soße aufnehmen, aber knusprig bleiben. Nach Wunsch Chilistreifen ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gehackten Koriander darüberstreuen und sofort mit gedämpftem weißem Reis als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Lomo-saltado-perudelights.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lomo-saltado-perudelights.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: WikiHes — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Peruvian Lomo Saltado",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

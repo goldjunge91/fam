@@ -1,0 +1,1159 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-puchero-andaluz",
+      "slug": "gen-puchero-andaluz",
+      "title": "Puchero Andaluz",
+      "instructions": "Ein beliebtes spanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kichererbsen aus der Dose statt getrockneter, um Einweichzeit und Aufwand zu sparen.",
+        "Verwende gefrorenen Kürbis, falls frischer nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5540,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puchero-andaluz/",
+      "components": [
+        {
+          "key": "0befc7af-b8ee-5c8b-a9b8-7bcc8d11f02d",
+          "name": "Zutaten",
+          "servingGrams": 1000.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8210bb1-ca1b-5915-9e36-1df7ed2db298",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7bc7a7dc-42d6-5957-bb57-2398f2ece9eb",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6b96acb9-c095-568b-9338-10804f3e2f37",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "344a49b3-4c9f-5124-9c90-9f9fd5357000",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "c21c9441-e80e-551b-aeae-3dabddd6a6b2",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "fa4fce38-aa10-555b-bf93-bcfa3a70aa26",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ede45ade-db71-52af-9546-cca9f3ace2fc",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 klein Kopf"
+            },
+            {
+              "key": "9a16c656-f735-5879-aedf-7a389ba4030b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "9ee8cb4d-0e25-5483-ab06-6b942078d516",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb9f3af5-432f-52a9-ba6e-c360c7b8ddfe",
+              "ingredientName": "Rinderbrühe",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "9f97e8d5-be2d-5419-a760-5b2ac9f3d6cc",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f0b760a7-b132-5277-9caf-949be518f238",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen. Blanchiere Rindfleischwürfel und Hähnchenschenkel 5 Minuten, gieße sie ab und spüle sie kalt ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Fleisch mit Rinderbrühe, halbierten Zwiebeln, Knoblauch, Paprikapulver und Lorbeerblättern zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe alles zum Kochen, schöpfe den Schaum ab, reduziere die Hitze und lasse den Topf zugedeckt 1 Stunde köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Chorizo auf und gib sie zusammen mit den abgetropften Kichererbsen dazu. Lasse alles weitere 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Viertle die Kartoffeln, würfle den Kürbis und schneide den Kohl in Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Gemüse in den Topf und lasse alles 45 Minuten köcheln, bis Gemüse und Fleisch sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne die Lorbeerblätter und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere Fleisch, Kichererbsen, Gemüse und Brühe zu gleichen Teilen in tiefen Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.pequerecetas.com/wp-content/uploads/2021/03/puchero-andaluz-receta.jpg",
+          "sourcePageUrl": "https://www.pequerecetas.com/wp-content/uploads/2021/03/puchero-andaluz-receta.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-birria-de-adobo",
+      "slug": "gen-birria-de-adobo",
+      "title": "Birria de Adobo",
+      "instructions": "Ein beliebtes mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine große Menge zu und friere Portionen für schnelle Mahlzeiten ein.",
+        "Kaufe Chipotle-Chilis aus der Dose in größeren Mengen und bewahre sie für weitere Gerichte auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5541,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-birria-de-adobo/",
+      "components": [
+        {
+          "key": "f36682f9-21e6-5982-ad2e-d0236960ca47",
+          "name": "Zutaten",
+          "servingGrams": 926.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec54d984-3df3-5f44-99bc-a78c24411ae6",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Pfund"
+            },
+            {
+              "key": "84850d14-888a-5b5e-ac7a-3731ef12a359",
+              "ingredientName": "Ancho-Chilipulver",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "640f1dcc-0ca9-59bb-b98a-dccb4145df4d",
+              "ingredientName": "Jalapeño",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7216244-8220-5922-9d55-50129b02c53c",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 groß"
+            },
+            {
+              "key": "5733514f-351e-5bf7-b811-3f841b9a71b0",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b9999e4-737a-5e7d-8741-58a6fefe383c",
+              "ingredientName": "Apfelessig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "e1812a43-32b4-5e68-9c38-6b9d7b6a0a68",
+              "ingredientName": "Rinderbrühe",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "681f1f56-fd92-5aa9-baa2-1a460026b0a2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "c706c01f-7a9c-5ed6-a013-824c90db56f4",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "37d36b33-ab10-50b0-9dbb-d03f500c390e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1a98b7b-586a-5c78-ab25-cd2e2bace064",
+              "ingredientName": "Tortillas",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "369a5e9b-8652-5fd6-85aa-7ede73a39a3d",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die Rinderschulter in einen großen Topf, bedecke sie mit Wasser und bringe es zum Kochen. Lasse das Fleisch 30 Minuten köcheln und gieße es dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Ancho-Chilis in einer trockenen Pfanne auf jeder Seite 30 Sekunden an und weiche sie anschließend 10 Minuten in heißem Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere weiche Ancho-Chilis, Chipotle-Chilis samt Sauce, Knoblauch, die Hälfte der Zwiebel, Essig, Kreuzkümmel und Oregano glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Chilimischung durch ein feines Sieb, um feste Stücke zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das angekochte Rindfleisch in einen sauberen Topf zurück und gieße die abgesiebte Chilisauce und Rinderbrühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Lorbeerblätter dazu und bringe alles zum Kochen. Reduziere die Hitze und lasse den Topf zugedeckt 2.5 Stunden köcheln, bis sich das Fleisch leicht zupfen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zupfe das Rindfleisch auseinander, gib es zurück in die Brühe und lasse es weitere 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es in Schüsseln mit Kochsud und gewürfelter Zwiebel. Reiche frische Limettenspalten und warme Tortillas zum Dippen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/01lNyKDcz944JzNVRukUOkGJWZI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-LEAD-05-cf8274d9a2384d59acdcc9f152dc3256.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/01lNyKDcz944JzNVRukUOkGJWZI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Birria-LEAD-05-cf8274d9a2384d59acdcc9f152dc3256.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldillo-de-congrio",
+      "slug": "gen-caldillo-de-congrio",
+      "title": "Caldillo de Congrio",
+      "instructions": "Ein beliebtes chilenisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preiswerten Weißfisch wie Kabeljau oder Seelachs, falls Congeraal nicht erhältlich oder zu teuer ist.",
+        "Kaufe Fisch kurz vor Ladenschluss an der Fischtheke; dann gibt es manchmal Preisnachlässe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chilenisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5542,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldillo-de-congrio/",
+      "components": [
+        {
+          "key": "6707e12f-f556-5d06-a80c-8bd67aaf407f",
+          "name": "Zutaten",
+          "servingGrams": 662.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8de2c309-9e37-55f1-ae0b-fda80fa2d97a",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "2de5ac5b-4fdd-5f01-bbe7-4d6ea56f2b27",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 groß"
+            },
+            {
+              "key": "78288ec8-3bed-5830-a5f6-748f58e9edd2",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "dfe53230-47c5-5274-a8a0-4fac9453a6b8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c2f8801-1242-556f-bd3b-5fe24409c591",
+              "ingredientName": "Fischbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "df96ef14-67b3-5c4a-809b-73f1bf2f451a",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4f7f061e-7f9c-52cd-930c-4aa44326d25c",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f79aa1fc-9a61-5128-aec1-5c5fb8655200",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "85b8a563-1939-5157-a3ca-866c01cded9a",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "480de27f-bd68-5bb3-9bc9-09221443cc60",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "293c0cdf-07ff-5adb-ac73-636c2186db4e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f690415f-490a-56b8-9557-01526c8b3e38",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste gewürfelte Zwiebeln und gehackten Knoblauch etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Tomatenmark und Paprikapulver ein und brate sie 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Weißwein dazu und lasse die Flüssigkeit etwa 3 Minuten auf die Hälfte einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Fischbrühe dazu und bringe alles zum Kochen. Füge gewürfelte Kartoffeln hinzu und lasse sie 15 Minuten köcheln, bis sie fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide den Fisch in große Stücke, gib sie vorsichtig in den Topf und reduziere die Hitze auf ein sanftes Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche den Fisch 8-10 Minuten, bis er undurchsichtig und gar ist. Koche ihn nicht zu lange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz, Pfeffer und frischem Limettensaft ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe die Suppe in Schüsseln und garniere sie mit frischer Petersilie. Reiche knuspriges Brot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/01/Caldillo-de-Congrio-Conger-Eel-Soup-2048x1499.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/01/Caldillo-de-Congrio-Conger-Eel-Soup-2048x1499.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-basque-burnt-cheesecake",
+      "slug": "gen-basque-burnt-cheesecake",
+      "title": "Baskischer Cheesecake",
+      "instructions": "Ein beliebter spanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Frischkäse im Angebot und friere ihn für später ein.",
+        "Bereite Vanilleextrakt selbst zu oder verwende Vanillearoma, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5543,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-basque-burnt-cheesecake/",
+      "components": [
+        {
+          "key": "6893f979-c647-5aa5-a0de-4da3659514db",
+          "name": "Zutaten",
+          "servingGrams": 94.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a2f87d1-0052-5fd3-9634-418a0d73f3fb",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund (32 Unzen) Zimmertemperatur"
+            },
+            {
+              "key": "ad81f368-61ef-5ce8-8924-3e2a6c7f37c9",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7cb7ee7f-fd29-555d-8fa8-45147e9526f7",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "f8527a50-ae5e-5d31-a68a-4d7630e9b4fe",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "efba5723-1a20-5878-b2c8-ba05f71babf2",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4a99128c-9778-53ca-a0b7-d1b8f190ccaa",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "3059ed10-1824-5f3c-ba0a-93a62632374c",
+              "ingredientName": "Reispapierblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Blatt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400°F vor und lege eine runde Springform mit 9 inch Durchmesser mit Backpapier aus. Lass das Papier über den Rand hinausragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Frischkäse bei Raumtemperatur und Schlagsahne etwa 2 Minuten glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zucker dazu und schlage alles zusammen. Rühre die Eier einzeln ein und schlage die Masse nach jedem Ei nur so lange, bis es gerade vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Vanilleextrakt und Salz vollständig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die vorbereitete Form und backe ihn 25-30 Minuten, bis die Ränder dunkelbraun sind und die Mitte beim Schütteln noch leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Kuchen aus dem Ofen und lasse ihn auf der Arbeitsfläche auf Raumtemperatur abkühlen. Stelle ihn anschließend mindestens 4 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löse den Kuchen aus der Springform und ziehe das Backpapier ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide ihn mit einem heißen Messer auf, das du zwischen den Schnitten abwischst. Serviere ihn kalt oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5c48972f52d8785eddd4a72c/1:1/w_2560%2Cc_limit/burnt-basque-cheesecake-1.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5c48972f52d8785eddd4a72c/1:1/w_2560%2Cc_limit/burnt-basque-cheesecake-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mochi-donut",
+      "slug": "gen-mochi-donut",
+      "title": "Mochi-Donut",
+      "instructions": "Ein beliebter japanisch-amerikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mochiko-Mehl in Asia-Märkten; dort ist es viel günstiger als im Fachhandel.",
+        "Verwende Frittieröl mehrmals, bevor du es entsorgst, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch-amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5544,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mochi-donut/",
+      "components": [
+        {
+          "key": "d3633e0f-4ade-5843-8eeb-6dbad7456a56",
+          "name": "Zutaten",
+          "servingGrams": 128.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "5be8c9cd-acd4-5a7a-a7ec-4bcecfc0d366",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d8e565fb-2591-5359-8c5c-8e65ba4d1eb1",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e6b4f159-3ac8-591f-afa8-abb0e7f040d0",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e63584df-3bda-56a2-a6d2-143904fa10ac",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "bf6a84e4-fe4b-5347-97ab-eda37b9ba0db",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "91363562-27d6-5ff8-92be-d6f22d7cde63",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "5dbf1f59-3d7a-557b-8639-7a54130e485e",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "9d445118-8929-51d0-a64d-53299dd67c05",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7f7cba78-2c1f-560c-b298-65590329fc6a",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2bf2b4cf-2efb-5357-867d-7dc0183eb6b3",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mochiko-Mehl, Weizenmehl, Zucker, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage das Ei in einer weiteren Schüssel auf und verrühre es mit der Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die flüssigen Zutaten zu den trockenen und rühre, bis ein weicher Teig entsteht. Rühre nicht zu lange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Teig in einen Spritzbeutel mit großer runder Tülle und erhitze Öl in einem tiefen Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spritze den Teig direkt ins heiße Öl und forme Ringe. Frittiere jeweils 3-4 Donuts, ohne den Topf zu überfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere die Donuts pro Seite 1-1.5 Minuten hellgoldbraun. Nimm sie mit einer Schaumkelle heraus und lege sie auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende die noch warmen Donuts in einer Mischung aus Puderzucker und Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie warm oder innerhalb weniger Stunden bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/62263b92331e011ab6fc25a4/1:1/w_2560%2Cc_limit/MochiDonuts_RECIPE_030322_29248.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/62263b92331e011ab6fc25a4/1:1/w_2560%2Cc_limit/MochiDonuts_RECIPE_030322_29248.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

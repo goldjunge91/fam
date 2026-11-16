@@ -1,0 +1,989 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-fried-rice",
+      "slug": "egg-fried-rice",
+      "title": "Gebratener Reis mit Ei",
+      "instructions": "Eine 10-Minuten-Pfanne mit übrig gebliebenem Reis, Rührei und Sojasauce: So wird aus trockenem Kühlschrankreis ein Abendessen.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "In einem luftdichten Behälter bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "60–90 Sekunden mit einem Schuss Wasser in der Mikrowelle erwärmen und nach der Hälfte der Zeit umrühren.",
+      "cheapTips": [
+        "Verwende übrig gebliebenen Reis, den du bereits hast",
+        "Tiefkühlerbsen sind viel günstiger als frische Erbsen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Beliebiges tiefgekühltes Gemüse, das du da hast",
+          "savings": "ca. $0.10"
+        },
+        {
+          "forIngredientId": "scallion",
+          "swap": "Übrig gebliebene Zwiebeln",
+          "savings": "ca. $0.15"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Die Basis bilden Vorratsklassiker, die du wahrscheinlich schon zu Hause hast: Reis, Eier und Sojasauce.",
+      "healthierTips": [
+        "Ersetze die Hälfte des Reises durch Blumenkohlreis",
+        "Verwende ein ganzes Ei und zusätzlich ein Eiweiß"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch",
+        "wohnheimgeeignet",
+        "one-pot",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 0,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-fried-rice/",
+      "components": [
+        {
+          "key": "163350fe-20fd-515a-abec-086915cf479c",
+          "name": "Zutaten",
+          "servingGrams": 390.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1cb4a31f-c85d-5b4e-bd2b-067853374782",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Kalter Reis vom Vortag eignet sich am besten"
+            },
+            {
+              "key": "fddf585e-f9c7-5fc6-b2e7-fd4fdd2ddd18",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eac28f92-efb7-5272-a9d1-6b1dbe8490e6",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62141b14-3844-5e76-845a-ed1a008ad464",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "804d29a9-3bea-592b-afa0-e9dc5a7a2656",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b371584c-2954-517c-9e1f-1a71fcc60d84",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdad6b57-8714-585b-9428-ddaddf05579d",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl in einer beschichteten Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die Eier in die Pfanne und verrühre sie, bis sie gerade eben gestockt sind. Schiebe sie dann an den Pfannenrand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Knoblauch und den kalten Reis dazu und löse Klumpen mit einem Pfannenwender auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mische alles mit der Sojasauce und brate weiter, bis der Reis heiß und leicht angeröstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die gehackten Frühlingszwiebeln und Erbsen unter, brate alles noch 1 Minute und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/egg-fried-rice.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/egg-fried-rice.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/egg-fried-rice.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/egg-fried-rice.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tuna-mayo-rice-bowl",
+      "slug": "tuna-mayo-rice-bowl",
+      "title": "Reis-Bowl mit Thunfisch und Mayo",
+      "instructions": "Cremiger Thunfisch auf warmem Reis, mit Sojasauce beträufelt und mit knackigen Frühlingszwiebeln garniert. In weniger als 5 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Am besten frisch essen; die Thunfischmischung hält sich 1 Tag im Kühlschrank.",
+      "reheatingInstructions": "Kalt essen oder den Reis separat 60 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Dosen-Thunfisch im Angebot auf Vorrat kaufen",
+        "Instantreis aus der Mikrowelle verwenden, wenn du keinen Reiskocher hast"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Dosenlachs oder Hähnchenfleisch",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt als leichtere Alternative",
+          "savings": "ca. $0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Dose Thunfisch und übrig gebliebener Reis ergeben eine vollwertige Mahlzeit für unter $2.50.",
+      "healthierTips": [
+        "Mayonnaise durch griechischen Joghurt ersetzen",
+        "Für etwas Knackiges Gurkenscheiben dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "wohnheimgeeignet",
+        "ohne Kochen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tuna-mayo-rice-bowl/",
+      "components": [
+        {
+          "key": "02c58498-b796-5145-9065-6c4144af42fb",
+          "name": "Zutaten",
+          "servingGrams": 692.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "771514c2-40dc-5c9e-a4be-8ea11a31b8c0",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7c69206-cd05-51ef-885c-f419593389a7",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dd37288-ee73-5607-9c3c-4e48a5a87742",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "391d3c4f-7b85-5b93-93c9-f4e09fee63cc",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f1566e9-4014-5a91-a0f2-c8cf3572de4d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "147624df-de23-51b5-ae14-cd815f804e5a",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5af013ca-95c4-5c8f-b087-7fd58c32d389",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Thunfisch abtropfen und zerdrücke ihn mit Mayonnaise und ein paar Tropfen Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den warmen Reis in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Thunfischmischung darauf und beträufle sie mit Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere das Gericht mit gehackter Frühlingszwiebel und nach Wunsch mit Sriracha für etwas Schärfe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tuna-mayo-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tuna-mayo-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-mayo-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-mayo-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:black-bean-burrito-bowl",
+      "slug": "black-bean-burrito-bowl",
+      "title": "Burrito-Bowl mit schwarzen Bohnen",
+      "instructions": "Warmer Reis, gewürzte schwarze Bohnen, Salsa und Käse: eine Bowl nach Chipotle-Art, in 10 Minuten zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Getrennt verpackt bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Reis und Bohnen 90 Sekunden in der Mikrowelle erwärmen und frische Toppings dazugeben.",
+      "cheapTips": [
+        "Getrocknete Bohnen in großen Mengen kaufen und portionsweise kochen; das kostet nur halb so viel",
+        "Salsa aus dem Glas hält sich wochenlang"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Pintobohnen, Kidneybohnen oder Bohnenmus",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Bohnen und Reis liefern zusammen besonders günstig vollständiges Eiweiß.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Käse weglassen und Avocado dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "wohnheimgeeignet",
+        "vegetarisch",
+        "sättigend"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/black-bean-burrito-bowl/",
+      "components": [
+        {
+          "key": "5eb16ad8-eb43-518a-89db-91b22df08016",
+          "name": "Zutaten",
+          "servingGrams": 515.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ad0fbcf-df2d-56f6-af90-3021cad69bb6",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae64f81e-49eb-5832-b909-a84d7809f177",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "683aa346-fa82-5f06-8a6d-0eac99bb21e5",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff9c8b74-c07d-5e53-9e5f-0299e8e9f666",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5e0bf2c-d175-54ac-b9fd-5570d1257bf4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52b554b2-c8c7-56b3-8a57-705fc75e130a",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d55ee16-6ee8-5847-9720-84d826e88e79",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "8e848010-f90c-561d-8c78-441cabe581c5",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis oder erwärme übrig gebliebenen Reis mit einem Schuss Wasser in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die schwarzen Bohnen abtropfen und erwärme sie in einem kleinen Topf mit Kreuzkümmel und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Reis auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Bohnen, Salsa, geriebenen Käse und einen Klecks saure Sahne darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/black-bean-burrito-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/black-bean-burrito-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/black-bean-burrito-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/black-bean-burrito-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:chickpea-curry-rice-bowl",
+      "slug": "chickpea-curry-rice-bowl",
+      "title": "Kichererbsen-Curry-Bowl mit Reis",
+      "instructions": "Cremiges Kokos-Kichererbsen-Curry auf Reis, in einem Topf mit Gewürzen aus dem Vorrat gekocht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 2 Minuten in der Mikrowelle erwärmen und nach der Hälfte der Zeit umrühren.",
+      "cheapTips": [
+        "Mit einer Dose leichter Kokosmilch lässt sich der Geschmack gut strecken",
+        "Bereite gleich die doppelte Menge zu, sie lässt sich gut einfrieren"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "1/2 Tasse Milch + 1 EL Öl",
+          "savings": "ca. $1"
+        },
+        {
+          "forIngredientId": "curry-powder",
+          "swap": "Currypaste (1 EL verwenden)",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kichererbsen aus der Dose und Vorratsgewürze reichen für drei Portionen für weniger als $6.",
+      "healthierTips": [
+        "Zum Schluss tiefgekühlten Spinat unterrühren",
+        "Vollkornreis verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "vegan",
+        "gut zum Einfrieren",
+        "one-pot"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/chickpea-curry-rice-bowl/",
+      "components": [
+        {
+          "key": "3666b20b-ebc6-59d3-b974-e461183dba55",
+          "name": "Zutaten",
+          "servingGrams": 699.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "a65e4e30-1785-5ae9-a18d-29a680a16539",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1227282-3c08-50a2-862e-fa00af7abba5",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b75f51b-4a2a-5713-9ba4-8a9b0288ebc5",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b5fcfc7-0784-5d1b-9886-94495f172958",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f0c7a03-c519-57ec-a794-4e79b0d9da15",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "420c7c2d-31e9-5c39-a8aa-0ac93f84106a",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f070cb09-f437-5ca9-945b-a75a757f91fb",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44e2b5cb-7d6e-534a-8953-a5144ba5b39f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze den Reis auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einem Topf und dünste die gewürfelte Zwiebel etwa 5 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Knoblauch und das Currypulver dazu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge die gehackten Tomaten, Kokosmilch und abgetropften Kichererbsen hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass alles 10–15 Minuten köcheln, bis die Sauce eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/chickpea-curry-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/chickpea-curry-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chickpea-curry-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chickpea-curry-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:lentil-dal-rice-bowl",
+      "slug": "lentil-dal-rice-bowl",
+      "title": "Linsen-Dal-Bowl mit Reis",
+      "instructions": "Wärmendes Dal aus roten Linsen, mit Knoblauch, Ingwer und Kurkuma geköchelt und auf lockerem Reis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "Mit etwas zusätzlichem Wasser 2 Minuten in der Mikrowelle erwärmen, denn das Dal dickt im Kühlschrank nach.",
+      "cheapTips": [
+        "Getrocknete Linsen kosten pro Portion nur ein paar Cent",
+        "Kurkuma und Kreuzkümmel lose und in größeren Mengen kaufen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ginger",
+          "swap": "Ingwerpaste oder 1/2 TL gemahlener Ingwer",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "lentils",
+          "swap": "Schälerbsen (10 Minuten länger garen)",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "1 Tasse getrocknete Linsen reicht für 4 sättigende Portionen und kostet insgesamt etwa $1.",
+      "healthierTips": [
+        "Zum Schluss gehackten Spinat unterrühren",
+        "Für mehr Ballaststoffe Vollkornreis verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "vegan",
+        "gut zum Einfrieren",
+        "ballaststoffreich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/lentil-dal-rice-bowl/",
+      "components": [
+        {
+          "key": "e1496c99-dfcc-59a1-a2c2-e5a67da76aa9",
+          "name": "Zutaten",
+          "servingGrams": 332.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1a58cc4-fc85-5ddb-bee6-ab4000bed7fe",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4f102a5-3171-5307-930f-469bb0a4ee8a",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6be470e4-1663-52bf-9090-f1823344a94b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1a5e199-1ffc-5266-a3e7-bf3714b52c94",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a39797d8-756a-59c6-b06e-e842a514c84f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72016714-4694-5ada-addf-b4dc26e22420",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f14c41f5-6ebf-564b-8168-a30109c9a6da",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "229d0b3f-f98d-5c44-b26c-fda84204b2ee",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Linsen ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die gehackte Zwiebel 5 Minuten in Öl an. Gib dann Knoblauch, Ingwer, Kurkuma und Kreuzkümmel dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge die Linsen und 3 Tassen Wasser hinzu und lass alles 20–25 Minuten köcheln, bis die Linsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke die Linsen leicht mit einem Löffel und würze mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Dal auf Reis und gib nach Wunsch etwas Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/lentil-dal-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/lentil-dal-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/lentil-dal-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/lentil-dal-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

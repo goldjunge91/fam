@@ -1,0 +1,1073 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mushroom-goulash",
+      "slug": "gen-mushroom-goulash",
+      "title": "Pilzgulasch",
+      "instructions": "Ungarisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Champignons und ergänze einen Cremini für authentischen Geschmack bei geringeren Kosten.",
+        "Kaufe ungarisches Paprikapulver auf Märkten, dort ist es oft frischer und günstiger als im Supermarkt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5875,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-goulash/",
+      "components": [
+        {
+          "key": "997111d9-68f8-5575-9165-83a362290868",
+          "name": "Zutaten",
+          "servingGrams": 391.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c35fcd8-019c-52fc-8d5e-dc8d8b6849b9",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gemischt"
+            },
+            {
+              "key": "658fa13d-49a9-5dc0-83db-b5c076295602",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6dc5981d-4e8d-512c-9862-d5ed638b7f0a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "2d4244eb-dd50-5712-8624-c26f78ec603d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af0bcd68-2a68-5180-b186-d54a46518033",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "27d4cf26-5023-5433-bbc7-3d5c4b518d9d",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9a68ee8e-c340-5ece-9f8c-8695ceace2ce",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4b48b60c-fb07-5fdd-b69b-b74edcdfb371",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0033fc1c-24d3-5bbf-99dc-d5400b3deb75",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8ce772f-90af-5a16-9ad0-e5d707ae5dde",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "1ce28748-e957-5f06-b626-dc1f8ac1bd78",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "½ Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Pilze in Stücke und die Kartoffeln in 1-inch große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebeln und hacke den Knoblauch. Dünste beides in Olivenöl in einem großen Topf bei mittlerer Hitze 5 Minuten, bis es weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Paprikapulver und Tomatenmark ein und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Pilze und Kartoffeln dazu, vermenge alles gut und gare es 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Brühe an und gib Lorbeerblatt und Kümmelsamen hinzu. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 40 Minuten köcheln, bis Kartoffeln und Pilze sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre kurz vor dem Servieren saure Sahne ein und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gulasch in Schüsseln mit knusprigem Brot oder Eiernudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://4.bp.blogspot.com/-Q8jUJVfNcRg/ThdZf8J9VbI/AAAAAAAAAqA/CnUmaUjSwgY/s1600/P1020876.JPG",
+          "sourcePageUrl": "http://4.bp.blogspot.com/-Q8jUJVfNcRg/ThdZf8J9VbI/AAAAAAAAAqA/CnUmaUjSwgY/s1600/P1020876.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lion-s-mane-steak",
+      "slug": "gen-lion-s-mane-steak",
+      "title": "Steak aus Igelstachelbart",
+      "instructions": "Modernes amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Igelstachelbart auf Bauernmärkten oder im Großhandel, dort ist er günstiger als im Feinkostladen.",
+        "Lass frischen Thymian weg und verwende halb so viel getrockneten Thymian."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "modern-amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5876,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lion-s-mane-steak/",
+      "components": [
+        {
+          "key": "eb05ef01-c67a-5ae6-9533-cb2ed1dd6ec2",
+          "name": "Zutaten",
+          "servingGrams": 85.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bd2a708-64c2-52da-8d98-351b319838e7",
+              "ingredientName": "Getrocknetes Pilzpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0ee8c049-c7a2-5bf4-9756-d13d5e501290",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4acfb83b-2bc1-551f-a59e-52c9d27dd551",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5c4ddc31-ba15-5296-8404-d20a4be4d448",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29b5eeb9-29c0-5ad0-8240-586f0ac13b65",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "90bccc71-d13f-5a92-9a5b-ca14d41c78eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "93058665-e1e5-5310-8c77-fccf14785f87",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bb7f1d65-323c-5e1f-b95a-13a936b2abcd",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Igelstachelbart in etwa 1 inch dicke Steaks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe sie trocken und würze sie großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Pilzsteaks in die Pfanne und brate sie 4-5 Minuten pro Seite goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Butter, Knoblauch und Thymian dazu. Übergieße die Steaks 2 Minuten mit der aufschäumenden Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie auf Teller und beträufle sie mit frischem Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/6b/12/f5/6b12f556297e26b6ca1977ea657c9376.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/6b/12/f5/6b12f556297e26b6ca1977ea657c9376.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushroom-vol-au-vent",
+      "slug": "gen-mushroom-vol-au-vent",
+      "title": "Pilz-Vol-au-vent",
+      "instructions": "Französischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstigere Champignons statt ausgefallener Pilzsorten.",
+        "Kaufe Blätterteigschalen auf Vorrat im Großhandel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5877,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-vol-au-vent/",
+      "components": [
+        {
+          "key": "47e997e8-d3cf-54f3-b27b-46eb0eef020f",
+          "name": "Zutaten",
+          "servingGrams": 567.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "593e15fc-72b6-544d-bb79-747f30d6b4cf",
+              "ingredientName": "Gefrorenes Mischgemüse",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Pastetenhüllen"
+            },
+            {
+              "key": "b47f5033-5f16-5903-951c-c7d300e93883",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "ba5b1fb3-b1d1-5200-8d70-7f9984e1a30b",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "08a207a5-1e54-5426-8fd0-5d8ebaa6e506",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "02858798-56bc-5b92-9afb-85f56d361d98",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b6c957a-e386-59f4-b91e-9897a23be9bf",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b1130814-127a-57ea-8b5e-d0df9962b05c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cb527c07-c84e-5fb1-af10-7b6073d69dc5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f9315884-aff9-57f0-9c92-5bc408a23b7a",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Blätterteigschalen nach Packungsangabe goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Pilze und Schalotte fein und hacke den Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmelze Butter in einer Pfanne bei mittlerer Hitze und dünste Schalotte und Knoblauch 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Pilze und Thymian dazu und gare sie 5-6 Minuten, bis sie Flüssigkeit abgeben und leicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Sahne ein und lasse alles 2 Minuten köcheln, bis die Soße eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer und hebe frische Petersilie unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die gebackenen Blätterteigschalen mit der Pilzmischung und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.frenchrevolutionfood.com/wp-content/uploads/2011/01/Wild-Mushroom-Vol-au-Vent.jpg",
+          "sourcePageUrl": "http://www.frenchrevolutionfood.com/wp-content/uploads/2011/01/Wild-Mushroom-Vol-au-Vent.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-melanzane-alla-parmigiana",
+      "slug": "gen-melanzane-alla-parmigiana",
+      "title": "Auberginenauflauf nach Parmigiana-Art",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Marinara-Soße selbst aus Tomaten aus der Dose zu und spare deutlich.",
+        "Kaufe Mozzarella an der Käsetheke und schneide ihn frisch, statt geriebenen zu verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5878,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-melanzane-alla-parmigiana/",
+      "components": [
+        {
+          "key": "486fe65e-95e5-5d2f-a754-58cd25f195ff",
+          "name": "Zutaten",
+          "servingGrams": 255,
+          "position": 0,
+          "items": [
+            {
+              "key": "c5836389-0258-536f-8803-464c3cab9b46",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "bd50af4a-731a-5503-9dfc-347ece8018ee",
+              "ingredientName": "Marinara-Soße",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "124b9920-e642-5630-a1f7-cd5311526ee2",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c9eccd9c-ddd9-5e1b-a1f9-59217d49ea73",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0f4ab208-b02f-5889-aba6-934c60ca615c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2616713a-23a2-53c2-aeb8-9c12c4321dff",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b905fa61-f436-5401-bcb9-90fc97c1a4b1",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b07fdcbb-3ab7-5a86-9afa-ecc0e641eb4a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "21442db0-c396-5f8b-8ac8-0bf492ee5daf",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Auberginen längs in 0.25-inch dicke Scheiben, salze sie großzügig und lasse sie 20 Minuten Wasser ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Auberginenscheiben mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle das Ei in einer flachen Schüssel und gib das Mehl in eine zweite. Wende die Auberginenscheiben erst im Mehl, dann im Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und brate die Auberginenscheiben portionsweise etwa 3 Minuten pro Seite goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile eine dünne Schicht Marinara-Soße auf dem Boden einer 9x13 Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte Aubergine, Soße, gezupften Mozzarella und Parmesan in die Form. Wiederhole die Schichten, bis alle Zutaten aufgebraucht sind. Schließe mit Soße und Parmesan ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Auflauf bei 375°F 25-30 Minuten, bis er blubbert und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere ihn vor dem Servieren mit frischem Basilikum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/26DTy3Lr_nDvUs8q3KnbAg9donM=/2121x1414/filters:fill(auto,1)/GettyImages-186599850-02faf774bad04a70ba092b3b5f4e141e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/26DTy3Lr_nDvUs8q3KnbAg9donM=/2121x1414/filters:fill(auto,1)/GettyImages-186599850-02faf774bad04a70ba092b3b5f4e141e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brinjal-fry",
+      "slug": "gen-brinjal-fry",
+      "title": "Gebratene Aubergine",
+      "instructions": "Indisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Gewürze in indischen Lebensmittelgeschäften statt in großen Supermarktketten.",
+        "Verwende normales Öl statt Spezialölen und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5879,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brinjal-fry/",
+      "components": [
+        {
+          "key": "3bb50b13-ac90-530d-8880-053f6d0ee713",
+          "name": "Zutaten",
+          "servingGrams": 85.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "f21d10f1-7f33-5dea-8814-26a1aefb2f08",
+              "ingredientName": "Aubergine",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "843ce095-f92a-5995-9a79-63b19314b75a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a143e3d0-6ea5-5a81-acfa-1dda58c05176",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "d32a4959-e361-5d4e-ac7d-95426b220e58",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13542eeb-1381-5ec4-a8bd-f345861822fe",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eee9113b-4dbf-5711-abb7-045fae9de511",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9f50d7b1-4707-5c72-b768-86550360d875",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "1905c17d-794e-5391-a3e1-855ff311556a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Aubergine in mundgerechte Würfel, weiche sie 10 Minuten in Salzwasser ein, gieße sie ab und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Zwiebel, Knoblauch und grüne Chili.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Wok oder einer Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackte Zwiebel, Knoblauch und grüne Chili dazu und dünste alles 2 Minuten an, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Auberginenstücke dazu und brate sie unter Rühren 8-10 Minuten, bis sie weich werden und leicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Kurkuma, rotes Chilipulver, Korianderpulver und Salz darüber und vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare das Gericht weitere 3-4 Minuten, bis die Aubergine weich ist und die Gewürze duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit frischem Koriander und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/3d/a5/63/3da563e8514b2ebcefb4a99e9813d158.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/3d/a5/63/3da563e8514b2ebcefb4a99e9813d158.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

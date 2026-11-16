@@ -1,0 +1,1035 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicoumar",
+      "slug": "gen-chicoumar",
+      "title": "Chicoumaré",
+      "instructions": "Senegalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hirse durch Perl-Couscous ersetzen, falls Hirse schwer zu finden ist",
+        "Rinderschulter im Angebot kaufen und für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "senegalesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4080,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicoumar/",
+      "components": [
+        {
+          "key": "7612d0f1-caba-56e3-a03b-e7fb5ec66714",
+          "name": "Zutaten",
+          "servingGrams": 598.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4213c041-29e1-5f21-b7bb-2deb23250437",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "709447a0-3067-5fb7-9c09-0a18facb6d2b",
+              "ingredientName": "Couscous",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e1d605bb-52d0-5dfd-b4ef-ccd6db64fe25",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "ca96c462-3193-5adc-8d0c-2ff328b5bd0c",
+              "ingredientName": "Rübe",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "18f8b2e0-3963-5cfe-b9c8-5f9af43e5f1c",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "df19473c-6876-5963-9e03-665c64852d63",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "1e9ba628-ca65-5786-b4b8-1aa68c518ce7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "eec3ab57-bd92-52bc-baca-63f38d437e94",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "8208a096-8793-5273-9d77-3a9669b8e278",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5fcfd4ec-1b7f-553b-8718-10b51877bc60",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0cd3311a-1c91-5b9b-b6a4-0246673a1d6b",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und Rindfleisch bei mittelhoher bis hoher Hitze etwa 8 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln und Knoblauch hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe angießen, Thymian hinzufügen und aufkochen; Hitze reduzieren und 25 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rüben und Karotten hinzufügen und 15 Minuten köcheln lassen, bis das Gemüse fast weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hirse einrühren, wieder zum Köcheln bringen, abdecken und 15 Minuten garen, bis die Hirse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen, 5 Minuten ruhen lassen, auflockern, mit Salz und Pfeffer abschmecken und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/chicken-meatballs-recipe-720x1080.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/chicken-meatballs-recipe-720x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-couscous-la-s-n-galaise",
+      "slug": "gen-couscous-la-s-n-galaise",
+      "title": "Couscous nach senegalesischer Art",
+      "instructions": "Senegalesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen aus der Dose im Angebot und in größeren Mengen kaufen",
+        "Weniger Fleisch verwenden und das Gericht mit zusätzlichen Kichererbsen strecken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "senegalesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4081,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-couscous-la-s-n-galaise/",
+      "components": [
+        {
+          "key": "51f4f432-a84b-5820-925c-86e0aa01683c",
+          "name": "Zutaten",
+          "servingGrams": 830,
+          "position": 0,
+          "items": [
+            {
+              "key": "c9472e44-2237-54cf-b9d6-6bc9a1205fde",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d52dd5f2-5640-5303-991b-9b4aa047be3d",
+              "ingredientName": "Couscous",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0e561375-3856-5257-a55f-0efa2ee6c90f",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "12529504-cf34-5e2d-9d84-695736b8b273",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "5af8b073-b9c5-5200-aa69-245d747c6fc1",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "db0625f5-7f49-5057-8c74-8c000de29b07",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "aa3a2d71-96e5-5b71-8b97-229db0e0926a",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "38079bf6-73b4-5a20-85b2-4a7d49ffc439",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "00676aec-5351-52bb-89b1-cdf31888dc16",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "7afbfd24-96b1-520a-a4c1-3ce2758e61fb",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "a17e82cb-ff07-5599-bf2d-7f682171bbe9",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ac5f2ee1-d18b-5287-82b9-e6603f6c0d68",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und Fleisch bei mittelhoher bis hoher Hitze etwa 8 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln und Knoblauch hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe angießen, aufkochen und dann bei reduzierter Hitze 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln und Karotten hinzufügen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zucchini und Kichererbsen hinzufügen und weitere 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Couscous in einem separaten Topf nach Packungsanleitung mit Salzwasser zubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fleisch-Gemüse-Mischung mit Salz und Cayennepfeffer würzen, auf Couscous servieren und mit Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tastysimplyrecipes.com/wp-content/uploads/2025/02/i183013-couscous-marocain.png",
+          "sourcePageUrl": "https://tastysimplyrecipes.com/wp-content/uploads/2025/02/i183013-couscous-marocain.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ngalakh",
+      "slug": "gen-ngalakh",
+      "title": "Ngalakh",
+      "instructions": "Senegalesisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hirsemehl lose oder auf internationalen Märkten zu günstigeren Preisen kaufen",
+        "Honig und Erdnussbutter von Eigenmarken verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "senegalesisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4082,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ngalakh/",
+      "components": [
+        {
+          "key": "6210612b-3412-57c3-9f1d-833b18aa00bf",
+          "name": "Zutaten",
+          "servingGrams": 360,
+          "position": 0,
+          "items": [
+            {
+              "key": "ddfdfa50-8179-59d8-971e-a02f4ec7d2e2",
+              "ingredientName": "Hirse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4fa8ddee-ef6c-58ac-997c-35e6cc683d9c",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b646bcf3-db0a-584b-9722-7d4edb5837d7",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "edb41c51-f8b1-58a9-a38e-be1c508262b5",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b4a2b604-cb10-58e7-95d1-8197c48934f1",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "92ae49a7-3db8-5643-ae85-3656fd858204",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b407c4e0-cfff-58bf-9d61-62c448d7b129",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "7d239336-a421-58d6-a5eb-6ee82e4f61a5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "f6c2e196-076e-5d51-a316-8ba1b5f48df2",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser in einem großen Topf zum Kochen bringen; Hirsemehl langsam unter ständigem Rühren einstreuen, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hitze auf mittelniedrig reduzieren und 10 Minuten köcheln lassen, dabei häufig umrühren, damit nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter, Erdnussbutter, Salz, Vanille und Zimt einrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach und nach Milch unter Rühren hinzufügen, bis ein dicker, cremiger Brei entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 5 Minuten köcheln lassen und gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Honig in einzelne Schüsseln träufeln und den Brei daraufgeben; vor dem heißen Servieren umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2022/07/ngalakh.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2022/07/ngalakh.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-basenji",
+      "slug": "gen-basenji",
+      "title": "Basenji",
+      "instructions": "Senegalesisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hirsemehl in großen Mengen auf internationalen oder afrikanischen Märkten kaufen und deutlich sparen",
+        "Milch und Butter von Eigenmarken verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "senegalesisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4083,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-basenji/",
+      "components": [
+        {
+          "key": "bd83b377-93b7-514c-864e-f5425270b004",
+          "name": "Zutaten",
+          "servingGrams": 440,
+          "position": 0,
+          "items": [
+            {
+              "key": "c4901c57-fdf0-5bb9-9a5b-4c434bbd8378",
+              "ingredientName": "Hirsemehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "90ab6451-1985-5bed-8ad6-41574bd7f214",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "3627cbd7-4026-502d-af37-b0e9ad688043",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "57713d99-4222-5277-a208-bd8e33fc97a7",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "42225a48-0c66-5673-9b70-fad5a8ef7e9f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "f81702a6-8208-5089-8fbe-23bde77a7df2",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "dd304677-4c5b-51c4-a5d1-87574afc2484",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser in einem großen Topf bei mittelhoher bis hoher Hitze erhitzen, bis es dampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hirsemehl langsam unter ständigem Rühren ins Wasser geben, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach und nach Milch hinzufügen und weiter rühren, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter, Zucker, Salz und Vanilleextrakt hinzufügen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf mittelniedrig reduzieren und 15 Minuten köcheln lassen, dabei häufig umrühren, damit nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Schüsseln füllen und heiß servieren; nach Wunsch zusätzliche Milch dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static.vecteezy.com/system/resources/previews/024/583/236/large_2x/portrait-of-a-dog-breeds-basenji-close-up-ai-generated-free-photo.jpg",
+          "sourcePageUrl": "https://static.vecteezy.com/system/resources/previews/024/583/236/large_2x/portrait-of-a-dog-breeds-basenji-close-up-ai-generated-free-photo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bouille-de-mil",
+      "slug": "gen-bouille-de-mil",
+      "title": "Bouille de Mil",
+      "instructions": "Senegalesisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Honig durch braunen Zucker oder Melasse ersetzen, um Kosten zu senken",
+        "Hirsemehl lose kaufen und Geld sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "senegalesisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4084,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bouille-de-mil/",
+      "components": [
+        {
+          "key": "541509c2-a704-5a13-90b0-b5148d5173a0",
+          "name": "Zutaten",
+          "servingGrams": 413.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e05542e1-b864-566e-9c56-a8225afd73e2",
+              "ingredientName": "Hirsemehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c1cd74a9-a11e-563f-b2ad-78615e151ee0",
+              "ingredientName": "Milch",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "44e2c9b5-1f5e-5fb8-981a-50b770eb4c23",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e049963e-792d-5541-8cc5-9da4eea93563",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "429e5337-1edf-5828-a11d-3238562a7cc8",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "9a1fafa1-12f2-54dd-aa17-bbf65a243196",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "af7b988b-4c82-50d9-8bdb-7eb129a321b1",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser in einem großen Topf bei hoher Hitze zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hirsemehl nach und nach unter ständigem Rühren einstreuen, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere Stufe reduzieren und die Milch langsam einrühren, bis sie vollständig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter, Honig, Zimt und Salz hinzufügen und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei mittelniedriger Hitze 10-12 Minuten köcheln lassen und gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß in Schüsseln servieren und nach Wunsch mit zusätzlichem Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kelianfood.com/wp-content/uploads/2022/10/bouille-de-riz-e1666451734224.jpg",
+          "sourcePageUrl": "https://kelianfood.com/wp-content/uploads/2022/10/bouille-de-riz-e1666451734224.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

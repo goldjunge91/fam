@@ -1,0 +1,1026 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pasteles",
+      "slug": "gen-pasteles",
+      "title": "Pasteles",
+      "instructions": "Puerto-ricanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wurzelgemüse in größeren Mengen auf asiatischen oder lateinamerikanischen Märkten, um bessere Preise zu bekommen.",
+        "Bereite Pasteles portionsweise zu und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "puerto-ricanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4195,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasteles/",
+      "components": [
+        {
+          "key": "7837ff47-a1ba-57c4-b5e1-42bef4e2d819",
+          "name": "Zutaten",
+          "servingGrams": 536.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "b31c5181-e813-5a28-9749-55bc6bc46b02",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "d3f66121-2af4-5ae6-ae95-4e99777a8754",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "4fa98cb7-06d3-5e92-a89d-f8880c6968a4",
+              "ingredientName": "Taro-Wurzel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3c4a5f7a-c5af-5961-a527-ec9a876fa05b",
+              "ingredientName": "Yuca",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9733ed15-a051-5a6b-b5cd-21d4d1c259fc",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "a03d2f31-be50-5d9c-9520-bc11f29c559f",
+              "ingredientName": "Sofrito",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2782aa82-9059-5319-84fe-08f3e9ce630f",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "678a2e48-cfae-57cf-a2a7-9abe5ce17683",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "ecaae2f2-073c-507a-9f7d-340192d45aba",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "b43f5143-9272-5908-a3ac-a972f713dad5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle und reibe Bananen, Kochbananen, Taro und Yuca in eine große Schüssel. Drücke anschließend überschüssige Flüssigkeit aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Schweinehackfleisch in einem Topf. Gib Sofrito, Oliven und Rosinen hinzu und gare die Füllung 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erweiche Kochbananenblätter über einer Flamme oder in heißem Wasser. Lege dann zwei überlappende Blätter auf eine flache Fläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile 3 Esslöffel der Gemüsemischung in der Mitte der Blätter und gib 2 Esslöffel Schweinefleischfüllung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falte die Blätter zu einem rechteckigen Päckchen um die Füllung und wickle es dann in Alufolie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe Schweinebrühe in einem großen Topf zum Kochen und gib die Pasteles vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche sie 30-35 Minuten, bis sie fest und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie vor dem Servieren 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/rr6MYL1bYRaECcXcjMprxu9zN80=/4000x2667/filters:fill(auto,1)/pasteles-basics-2138107-hero-1-0db6fa414a914b6f8103f1507720d914.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/rr6MYL1bYRaECcXcjMprxu9zN80=/4000x2667/filters:fill(auto,1)/pasteles-basics-2138107-hero-1-0db6fa414a914b6f8103f1507720d914.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rellenos-de-papa",
+      "slug": "gen-rellenos-de-papa",
+      "title": "Rellenos de Papa",
+      "instructions": "Puerto-ricanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln im Angebot und lagere sie mehrere Wochen, um Geld zu sparen.",
+        "Verwende preiswertes Rinderhackfleisch vom Discounter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "puerto-ricanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4196,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rellenos-de-papa/",
+      "components": [
+        {
+          "key": "c2e2f477-3521-5802-b226-e5919a3fb9df",
+          "name": "Zutaten",
+          "servingGrams": 193.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "463c585a-0da2-54ac-b42e-40dc3622ec68",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "ad7f2e91-4398-5c7d-ae9a-e75a89d4bbf3",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "32457927-e222-5604-abd4-cce821432b61",
+              "ingredientName": "Sofrito",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1bb7934c-b126-5951-b68b-3fd02b962838",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "1f0a479f-42fb-5a7d-942a-6a3cc265f420",
+              "ingredientName": "Rosinen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9d29c450-3147-5869-906e-bf22bf5ffe29",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "5132b061-112d-5247-aa8a-ff56ad5cfa16",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4db11ff9-dfc6-5b02-98d3-2abc80e893d7",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b6bd9122-ccf5-5c11-b588-9b566c59f5a1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche geschälte und gewürfelte Kartoffeln etwa 15 Minuten in Salzwasser, bis sie gabelzart sind. Lass sie abtropfen und zerstampfe sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhackfleisch in einer Pfanne an. Gib Sofrito, Oliven, Rosinen, Salz und Pfeffer hinzu und gare alles 5 Minuten, bis das Fleisch durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Kartoffelpüree mit Ei und Salz zu einer glatten, formbaren Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme etwas Kartoffelmasse in deiner Handfläche zu einer kleinen Mulde. Fülle einen Esslöffel Rindfleischfüllung hinein und bedecke sie vollständig mit weiterer Kartoffelmasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wälze die gefüllte Kugel rundherum leicht in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere die Rellenos pro Seite 3-4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit Ketchup oder scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/PFSUJM6pVzDkb08wiBBZLE3yKH8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/papas-rellenas-stuffed-potato-balls-recipe-2137763-hero-01-869ef90fb6a14a08955b6b5a7e9d5843.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/PFSUJM6pVzDkb08wiBBZLE3yKH8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/papas-rellenas-stuffed-potato-balls-recipe-2137763-hero-01-869ef90fb6a14a08955b6b5a7e9d5843.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ara-itas",
+      "slug": "gen-ara-itas",
+      "title": "Arañitas",
+      "instructions": "Puerto-ricanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kochbananen im Angebot und lagere sie an einem kühlen Ort.",
+        "Verwende Frittieröl für mehrere Durchgänge wieder."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "puerto-ricanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4197,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ara-itas/",
+      "components": [
+        {
+          "key": "97699b62-54fc-51f2-97b2-c7bac775a44c",
+          "name": "Zutaten",
+          "servingGrams": 118,
+          "position": 0,
+          "items": [
+            {
+              "key": "0838c0cd-1265-5f6f-ac7d-cc55033c0ade",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "c0677d74-79a0-5a8a-a4c5-a8bec509e342",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "779763df-d7fc-5d37-8193-f74307ac8cd7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "031ea03d-7c08-549b-a3d0-d0f081176724",
+              "ingredientName": "Pflanzenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7348bf87-8fdd-59d4-9060-f0816c716cf4",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die grünen Kochbananen: Schneide die Enden ab, ritze die Schale längs ein und ziehe sie vollständig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die geschälten Kochbananen mit der groben Seite einer Vierkantreibe in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke Knoblauchzehen mit Salz zu einer Paste und vermische sie mit den geriebenen Kochbananen und Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne bei mittelhoher bis hoher Hitze auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib löffelweise Kochbananenmasse in das heiße Öl und drücke sie mit der Rückseite eines Löffels zu dünnen, spitzenartigen Küchlein flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere sie pro Seite 2 Minuten goldbraun und knusprig und lasse sie dann auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort knusprig servieren, nach Wunsch mit etwas frischem Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/2181560.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/2181560.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-santo",
+      "slug": "gen-caldo-santo",
+      "title": "Caldo Santo",
+      "instructions": "Puerto-ricanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter mit Knochen oder Rinderschmorbraten im Angebot für mehr Geschmack und geringere Kosten.",
+        "Kaufe Yuca und Kochbananen auf lateinamerikanischen Märkten, dort sind sie oft deutlich günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "puerto-ricanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4198,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-santo/",
+      "components": [
+        {
+          "key": "ca8d0a2e-7c65-5752-bdbe-3cd699313e59",
+          "name": "Zutaten",
+          "servingGrams": 579.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "5c962123-4d71-56b7-8de8-207e4c8c6544",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "eea43c99-7810-5bd0-a7b5-d348f7cea0e0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "41352950-288c-5cab-ab1e-42bb005bcb6b",
+              "ingredientName": "Yuca",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ad0604ac-fd74-5d5e-9b6a-a38be2046ca5",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "fb8a8a79-019d-5656-af89-a900a7a73859",
+              "ingredientName": "Sofrito",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "17b2cff7-cb51-5e8b-ad4a-cbcf6c46ca34",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2e20002-3c48-5465-b316-95ae1f77ee79",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "047e8928-b70c-52be-94d0-e4748464a1d5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "49a877a3-ef42-5862-b74a-2334fc468e51",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch in mundgerechte Stücke und würze es mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittelhoher bis hoher Hitze und bräune das Rindfleisch insgesamt etwa 8 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sofrito und gehackten Knoblauch hinzu und rühre 1 Minute ständig, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Rinderbrühe hinzu und bringe alles zum Kochen. Reduziere dann die Hitze und lasse es zugedeckt 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schäle die Yuca und schneide sie in 1-inch große Stücke. Schäle die Kochbananen und schneide sie ebenfalls in 1-inch große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Yuca und Kochbananen in den Topf und lasse alles zugedeckt 15 Minuten köcheln, bis das Gemüse weich und das Rindfleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre frischen Koriander unter, probiere das Gericht und schmecke es bei Bedarf mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle das Gericht in Schalen und serviere es heiß mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/wN6DU1wbhz48yhSLPbdo-ieI8Rk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Caldo-Verde-LEAD-1-8d0ada6de3464a4d951ce9e4ef805658.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/wN6DU1wbhz48yhSLPbdo-ieI8Rk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Caldo-Verde-LEAD-1-8d0ada6de3464a4d951ce9e4ef805658.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-piononos",
+      "slug": "gen-piononos",
+      "title": "Piononos",
+      "instructions": "Puerto-ricanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe reife Kochbananen im Angebot in größeren Mengen und verbrauche sie innerhalb weniger Tage.",
+        "Verwende Frittieröl mehrmals, um Abfall und Kosten zu reduzieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "puerto-ricanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4199,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-piononos/",
+      "components": [
+        {
+          "key": "f40e3350-1ff2-58a6-9ab3-d87e0e5ff038",
+          "name": "Zutaten",
+          "servingGrams": 215,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc01d95b-6089-5bfb-9d19-88d4c3558a1f",
+              "ingredientName": "Kochbanane",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "8b6557be-07cd-544d-b53c-4a67acb7e6e0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0edc70f0-edfc-55d0-8ec6-48e99c3d2f1d",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "bb2de893-dba2-5f28-bad5-327e81bc1d40",
+              "ingredientName": "Sofrito",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "15a99e11-5625-5760-8e55-34ef6dadcc10",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "7f8c1d55-9a9a-5505-aed9-e58744d40ea1",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "a26a47d8-ff3a-5e30-9ea2-ab3a21a220fa",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "2216e664-4478-57e6-a040-093d46bd4a8d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "1f49f3ac-79a7-593f-b617-cc69e744875b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kochbananen und schneide sie längs in dünne Streifen. Frittiere sie in 350°F heißem Öl pro Seite 2 Minuten, bis sie goldbraun und biegsam sind. Lasse sie anschließend abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Rinderhackfleisch in einer Pfanne an. Gib Sofrito, Oliven, Rosinen und Rinderbrühe hinzu und lasse alles 5 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege zwei frittierte Kochbananenstreifen kreuzweise und überlappend auf einen Teller, sodass ein Kreis entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib einen großzügigen Löffel Rindfleischfüllung in die Mitte und falte die Kochbananenstreifen nach oben und darum, sodass ein Nest entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle das Ei in einer kleinen Schüssel und tauche die gefüllten Piononos vorsichtig hinein, damit sie leicht überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere die in Ei getauchten Piononos in 350°F heißem Öl 2-3 Minuten, bis die Eihülle goldbraun und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß, nach Wunsch mit zusätzlicher Sofrito-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://3.bp.blogspot.com/-662AY6uw5M4/UGGlpUBpmQI/AAAAAAAAAvg/_lC2_y_hT_A/s1600/Piononos+1.jpg",
+          "sourcePageUrl": "https://3.bp.blogspot.com/-662AY6uw5M4/UGGlpUBpmQI/AAAAAAAAAvg/_lC2_y_hT_A/s1600/Piononos+1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

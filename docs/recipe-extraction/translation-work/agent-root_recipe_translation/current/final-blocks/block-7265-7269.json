@@ -1,0 +1,966 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:drink-green-smoothie",
+      "slug": "drink-green-smoothie",
+      "title": "Grüner Detox-Smoothie",
+      "instructions": "Frischer Smoothie aus Spinat, reifer Banane und gefrorener Mango mit cremiger Hafermilch. Das süße Obst mildert den Gemüsegeschmack.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 2,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sehr reife Bananen im Angebot kaufen, schälen und einfrieren. Gefrorene Banane macht den Smoothie auch ohne Eis cremig und dick.",
+        "Gefrorene Mango ist günstiger und gleichmäßiger gereift als frische und hält sich monatelang.",
+        "Eine große Handvoll frischen Spinat verwenden, bevor er welk wird. Das Obst überdeckt leichte Welke und verhindert, dass Spinat weggeworfen wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "oat-milk",
+          "swap": "verwenden almond Milch oder natur Wasser plus ein splash von Orange juice",
+          "savings": "Wasser ist praktisch kostenlos und spart ~$0.40 pro Drink"
+        },
+        {
+          "forIngredientId": "frozen-mango",
+          "swap": "Swap in gefroren pineapple oder gefroren mixed berries",
+          "savings": "Im Angebot pro Beutel oft $1+ günstiger"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "verwenden ein pitted Medjool date oder ein splash von maple syrup",
+          "savings": "Bei reifem Obst ganz weglassen und die Kosten sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "smoothie (deutsche Fassung)",
+        "no-garen",
+        "blender (deutsche Fassung)",
+        "vegan (deutsche Fassung)",
+        "Frühstück",
+        "healthy (deutsche Fassung)",
+        "green (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7265,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-green-smoothie/",
+      "components": [
+        {
+          "key": "17105f07-3dfb-5c0e-b3d8-2fd49ef71237",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 911.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "17fb9886-81a9-5bd8-86e8-b5d60f38739d",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2 fest angedrückt Tassen frisch"
+            },
+            {
+              "key": "e118e4c1-6241-5d57-bfa2-4cfc0fc859a3",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "reif, idealerweise in Stücken tiefgekühlt"
+            },
+            {
+              "key": "62e7f533-52f3-5f04-90a6-bcc08c66f668",
+              "ingredientName": "Mango",
+              "grams": 150,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse Stücke"
+            },
+            {
+              "key": "ba1e468d-4655-506c-b1c9-c38f9fc8f01e",
+              "ingredientName": "Hafermilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse und mehr zum Verdünnen"
+            },
+            {
+              "key": "2c0933bb-819a-531b-ac55-ff5dba320c48",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "1 TL, nur wenn das Obst nicht süß genug ist"
+            },
+            {
+              "key": "0aaf8831-f9b9-519c-b95f-4b92e3820de8",
+              "ingredientName": "Chiasamen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1 TL für Ballaststoffe und Konsistenz"
+            },
+            {
+              "key": "618b4145-90a3-5eb8-bb21-e0280c9465f1",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/2 Tasse bei frischem statt tiefgekühltem Obst"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst die Hafermilch in den Mixer geben, dann Spinat, Banane und gefrorene Mango hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach Wunsch Honig und Chiasamen sowie Eis dazugeben, falls das Obst nicht gefroren ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "45–60 Sekunden auf höchster Stufe mixen, bis alles glatt ist und keine Spinatstückchen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Konsistenz prüfen. Falls der Smoothie zu dick ist, etwas Hafermilch hinzufügen und kurz durchmixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kalt und schaumig in ein hohes Glas füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Gr%C3%BCnes_Smoothie.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gr%C3%BCnes_Smoothie.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ralf Kabelitz — CC BY 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Green Detox Smoothie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-mango-smoothie",
+      "slug": "drink-mango-smoothie",
+      "title": "Mango-Smoothie",
+      "instructions": "Cremiger Mango-Smoothie mit griechischem Joghurt und Milch. Natürlich süß, tropisch und in weniger als fünf Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefrorene Mango im großen Beutel kaufen: Sie ist günstiger als frische, lange haltbar und sorgt für eine dicke, frostige Konsistenz.",
+        "Honig weglassen, wenn die Mango reif und süß ist.",
+        "Naturjoghurt verwenden, der gerade im Angebot ist. Mit normalem Joghurt etwas weniger Milch mixen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden almond-Milch oder oat-Milch für ein dairy-free version",
+          "savings": "Etwa gleicher Preis; Hafermilch ist pro Glas oft günstiger"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Swap in half ein gefroren Banane für creaminess",
+          "savings": "Spart ~$0.60 pro Portion"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "verwenden Zucker oder agave-syrup",
+          "savings": "Spart ~$0.20 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "proteinreich",
+        "glutenfrei",
+        "tropical (deutsche Fassung)",
+        "smoothie (deutsche Fassung)",
+        "no-garen",
+        "blender (deutsche Fassung)",
+        "mango (deutsche Fassung)",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7266,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-mango-smoothie/",
+      "components": [
+        {
+          "key": "41eea933-0119-5816-a7d8-20c6aeacc46f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 735,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2535950-b09b-52b1-a08a-621cf3c38c2c",
+              "ingredientName": "Mango",
+              "grams": 300,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Tassen, tiefgekühlt für eine dicke, eisige Konsistenz"
+            },
+            {
+              "key": "29c6861e-68f6-5289-a6c3-54b83d8c5703",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Tasse natur, für Cremigkeit und Eiweiß"
+            },
+            {
+              "key": "25764df5-2c97-5d6f-9ea0-9ec376c4f26c",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Tasse zum Mixen (zum Verdünnen mehr verwenden)"
+            },
+            {
+              "key": "a42e8a96-d901-5df2-b312-cbbb5966928e",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "EL nach Geschmack, je nach Süße der Mango"
+            },
+            {
+              "key": "6f196abd-f5cd-589e-95af-321c5e19c5bd",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "Tasse, nur bei nicht tiefgekühlter Mango"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gefrorene Mango, griechischen Joghurt und Milch in den Mixer geben; die Flüssigkeit zuerst einfüllen, damit die Klingen greifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Honig nach Wunsch einträufeln. Eis nur hinzufügen, wenn die Mango nicht gefroren ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "45–60 Sekunden auf höchster Stufe mixen. Dabei bei Bedarf die Seitenwände abschaben, bis alles glatt und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Konsistenz prüfen: Für einen dünneren Smoothie etwas Milch, für einen dickeren einige gefrorene Mangostücke hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frostig in ein hohes Glas füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Fresh-mango-smoothie_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fresh-mango-smoothie_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Vivekpat30 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Mango Smoothie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-berry-smoothie",
+      "slug": "drink-berry-smoothie",
+      "title": "Beeren-Smoothie",
+      "instructions": "Cremiger Smoothie aus gefrorenen Beeren, Banane und griechischem Joghurt. Erfrischend, fruchtig und proteinreich.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefrorene gemischte Beeren statt frischer verwenden: Sie kosten weniger, halten sich monatelang und machen den Smoothie ohne Eis dickflüssig.",
+        "Reife Bananen einfrieren, bevor sie verderben. Sie sorgen kostenlos für Cremigkeit und natürliche Süße.",
+        "Honig weglassen, wenn Joghurt oder Beeren bereits süß genug sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "verwenden natur whole Milch oder ein gefroren Banane für creaminess",
+          "savings": "~$0.50/Portion"
+        },
+        {
+          "forIngredientId": "almond-milk",
+          "swap": "normal Milch, oat Milch, oder even Wasser",
+          "savings": "~$0.30/Portion"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Maple syrup, agave, oder ein pitted date",
+          "savings": "wenige Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "smoothie (deutsche Fassung)",
+        "no-garen",
+        "blender (deutsche Fassung)",
+        "berry (deutsche Fassung)",
+        "Frühstück",
+        "healthy (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7267,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-berry-smoothie/",
+      "components": [
+        {
+          "key": "1aad03c2-09e3-5623-8283-f565e376dc9d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 793,
+          "position": 0,
+          "items": [
+            {
+              "key": "bcd511e2-0471-5cdb-add2-86f0845b28bd",
+              "ingredientName": "Gefrorene Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1 Tasse tiefgekühlte gemischte Beeren"
+            },
+            {
+              "key": "99aaec37-68a9-5b05-ac8d-cbf43a2fa100",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "reif; für eine besonders dicke Konsistenz einfrieren"
+            },
+            {
+              "key": "8a487ac1-27ac-5694-bd12-d0b823da0b12",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, natur oder Vanille"
+            },
+            {
+              "key": "59976017-8459-5cd9-82ac-e7045545724a",
+              "ingredientName": "Mandelmilch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse und bei Bedarf mehr zum Verdünnen"
+            },
+            {
+              "key": "6d8cc1b6-b69f-55f4-b6ab-b46142fa3103",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "1 TL nach Geschmack"
+            },
+            {
+              "key": "f0af1737-50d0-5e64-80a8-4bb0563cc64f",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1/2 Tasse bei frischem Obst"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mandelmilch und griechischen Joghurt zuerst in den Mixer geben, damit die Klingen die Flüssigkeit gut erfassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Banane und gefrorene Beeren daraufgeben, anschließend nach Wunsch Honig hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "45–60 Sekunden auf höchster Stufe mixen, bis alles glatt ist. Bei Bedarf die Seitenwände abschaben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Konsistenz prüfen: Für einen dünneren Smoothie etwas Mandelmilch, für einen dickeren eine Handvoll Eis hinzufügen und kurz mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In ein hohes Glas füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/33/Berry_smoothie_on_a_planterbox.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Berry_smoothie_on_a_planterbox.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Miscellaneous contributor — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Mixed Berry Smoothie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-pb-banana-smoothie",
+      "slug": "drink-pb-banana-smoothie",
+      "title": "Erdnussbutter-Bananen-Smoothie",
+      "instructions": "Cremiger Smoothie mit dem Geschmack eines Erdnussbutter-Bananen-Sandwiches. Reife Banane und Erdnussbutter werden mit kalter Milch zu einem proteinreichen Getränk gemixt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Überreife Bananen vom Angebotsregal kaufen, schälen und einfrieren. Sie sind günstiger und machen den Smoothie süßer und dickflüssiger.",
+        "Honig weglassen, wenn die Banane vollreif ist; sie ist von selbst süß genug.",
+        "Cremige Erdnussbutter einer Handelsmarke lässt sich genauso gut mixen wie teure Markenware."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "almond-Milch oder oat-Milch",
+          "savings": "Mit Pflanzendrink wird es milchfrei; Hafermilch hält es bei etwa gleichem Preis cremig."
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "ein couple von pitted medjool-dates blended in",
+          "savings": "Datteln liefern Ballaststoffe und natürliche Süße; alternativ weglassen und die gesamten Kosten sparen."
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "tahini oder sunflower-seed Butter",
+          "savings": "Ergibt eine erdnussfreie Variante; Tahini ist nach Volumen in internationalen Lebensmittelgeschäften oft günstiger."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "smoothie (deutsche Fassung)",
+        "no-garen",
+        "blender (deutsche Fassung)",
+        "Frühstück",
+        "post-workout (deutsche Fassung)",
+        "kid-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7268,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-pb-banana-smoothie/",
+      "components": [
+        {
+          "key": "b533bbec-866c-58c2-8473-0295fd89b2c4",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 2208,
+          "position": 0,
+          "items": [
+            {
+              "key": "950bafda-bcca-5bda-9a0a-c709221aca01",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "reif, geschält; für eine dickere, eisigere Mischung vorher einfrieren"
+            },
+            {
+              "key": "f7972100-1a6d-513f-87e5-d8f27a6d328b",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Esslöffel, cremig und naturbelassen"
+            },
+            {
+              "key": "ae8080c3-5fae-55a1-9fcf-2042d6586285",
+              "ingredientName": "Milch",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Unzen, kalt (etwa 1 Tasse)"
+            },
+            {
+              "key": "379e8bec-8d90-5224-b49c-97631bb5d308",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "Teelöffel, nur bei nicht sehr reifer Banane"
+            },
+            {
+              "key": "c94819a7-60fd-588c-8d29-454ad42422e1",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Tasse, bei tiefgekühlter Banane weglassen"
+            },
+            {
+              "key": "9772232e-4262-56f6-97e3-18a504aba297",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "Prise für eine warme Gewürznote"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst die Milch in den Mixer geben, dann Banane, Erdnussbutter, nach Wunsch Honig und eine Prise Zimt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eis daraufgeben. Bei gefrorener Banane kann das Eis weggelassen werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "30–45 Sekunden auf höchster Stufe mixen, bis die Masse glatt und cremig ist und keine Bananenstücke mehr enthält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Konsistenz prüfen: Für einen dünneren Smoothie etwas Milch, für einen dickeren einige Eiswürfel hinzufügen und erneut mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kalt und frostig in ein hohes Glas füllen und sofort trinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Banana-smoothie.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana-smoothie.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: S.C.J.Perera — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Peanut Butter Banane Smoothie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-tropical-smoothie",
+      "slug": "drink-tropical-smoothie",
+      "title": "Tropischer Sunrise-Smoothie",
+      "instructions": "Fruchtiger Smoothie aus Mango, Ananas und Banane mit Orangensaft und griechischem Joghurt. Natürlich süß, ganz ohne zusätzlichen Zucker.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefrorene Mango und Ananas verwenden: Sie sind günstiger als frische, halten sich wochenlang und kühlen den Smoothie, ohne ihn zu verwässern.",
+        "Bananen im Angebot kaufen, schälen und für Smoothies einfrieren.",
+        "Mit einem Schuss Wasser oder Hafermilch lässt sich das Rezept strecken, wenn wenig Orangensaft vorhanden ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "verwenden almond Milch oder oat Milch für ein dairy-free, vegan version",
+          "savings": "Spart etwa $0.40 pro Portion"
+        },
+        {
+          "forIngredientId": "orange-juice",
+          "swap": "Swap in coconut Wasser oder natur Wasser für ein lighter, lower-Zucker base",
+          "savings": "Spart etwa $0.30 pro Portion"
+        },
+        {
+          "forIngredientId": "mango",
+          "swap": "verwenden gefroren-mango anstatt frisch für der same flavor at lower cost",
+          "savings": "Spart etwa $0.50 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "tropical (deutsche Fassung)",
+        "smoothie (deutsche Fassung)",
+        "no-garen",
+        "blender (deutsche Fassung)",
+        "fruit (deutsche Fassung)",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7269,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-tropical-smoothie/",
+      "components": [
+        {
+          "key": "3da23d06-000b-5a75-827e-dc6926eee22b",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 1562.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "4b37da67-b387-5a44-b911-89bba6aaf9c3",
+              "ingredientName": "Mango",
+              "grams": 150,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "frische oder tiefgekühlte Stücke, etwa 3/4 Tasse"
+            },
+            {
+              "key": "6b964b97-79b6-5cb5-93ce-4684bd7bb886",
+              "ingredientName": "Ananas",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "frische oder tiefgekühlte Stücke, etwa 1/2 Tasse"
+            },
+            {
+              "key": "8035ff51-9dee-5135-9840-2f571968d0ca",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "reif, geschält; für einen dickeren Smoothie vorher einfrieren"
+            },
+            {
+              "key": "6d6a8d6c-11c9-5c6f-ab69-5b678b872aad",
+              "ingredientName": "Orangensaft",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse als flüssige Grundlage"
+            },
+            {
+              "key": "72b91dff-4975-5bfe-b0e9-b5f931490ba2",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse natur, für Cremigkeit und Eiweiß"
+            },
+            {
+              "key": "06ed6223-7343-55ff-807d-dedc50ff176e",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "bei tiefgekühltem Obst weglassen"
+            },
+            {
+              "key": "7d329aae-9b64-526e-a9b6-9eb6a4bcd9df",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "nur bei nicht sehr reifem Obst"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst Orangensaft und griechischen Joghurt in den Mixer geben, damit die Klingen die Flüssigkeit gut erfassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mango, Ananas, Banane und Eis hinzufügen. Das Eis weglassen, wenn das Obst gefroren ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "45–60 Sekunden auf höchster Stufe mixen, bis alles glatt ist. Bei Bedarf die Seitenwände abschaben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abschmecken und nur bei Bedarf Honig für zusätzliche Süße einmixen. Mit etwas Orangensaft verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kalt und schaumig in ein hohes Glas füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Tropicalsmoothie.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tropicalsmoothie.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Hmvb — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Tropical Sunrise Smoothie",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

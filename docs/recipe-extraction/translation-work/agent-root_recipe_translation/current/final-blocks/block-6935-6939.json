@@ -1,0 +1,1095 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-black-and-white-cookie",
+      "slug": "gen-black-and-white-cookie",
+      "title": "Schwarz-Weiß-Keks",
+      "instructions": "Jüdischer Deli-Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie Kekse in großen Mengen und frieren Sie überschüssigen Teig zum späteren Backen ein",
+        "Verwenden Sie Puderzucker und Kakao von Handelsmarken anstelle von Premiummarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisches Feinkostgeschäft",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6935,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-black-and-white-cookie/",
+      "components": [
+        {
+          "key": "99cc8a50-f428-5c32-956a-f1a25784c5f1",
+          "name": "Zutaten",
+          "servingGrams": 266.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "a75554e4-da0f-55e8-af14-17957bc94801",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "13100c6e-0971-5a11-b0c2-cde62e0a4b87",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e0102be9-2b5e-5e98-a250-0832a6de83cd",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "58b7060e-9f31-55ff-8790-10e2e8220120",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "7c2e7fab-6052-5764-8343-926f04826e75",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f00ec181-c3d8-5ee3-8729-4d7ebefb4f5f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3bbfc642-08af-523c-85bc-12952c248176",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2cfa1e82-3c04-5bd9-b576-867a11444bd8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "e9412b81-f145-50c5-8ee7-80e7a85cc95b",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "52f5108a-bfb0-52d7-a27f-b1c69001aed8",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d8b1129a-8b8e-5325-ad22-bc8126b71873",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter und Zucker etwa 3 Minuten lang schaumig rühren, bis eine leichte, lockere Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ei und Vanilleextrakt unterrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Backpulver und Salz in einer separaten Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abwechselnd Mehlmischung und Milch zur Buttermischung geben, jeweils mit Mehl beginnen und enden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Große Löffel Teig auf ein gefettetes Backblech setzen und bei 375 °F 12–14 Minuten backen, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kühlen Sie die Kekse auf dem Gitter vollständig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Puderzucker mit Wasser glatt rühren, dann auf zwei Schüsseln verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mischen Sie das Kakaopulver für die Schokoladenglasur in einer Schüssel und tauchen Sie dann die Hälfte jedes Kekses in Vanilleglasur und die andere Hälfte in Schokoladenglasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Black-and-White-Cookies_EXPS_TOHVP25_278553_MF_02_04_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Black-and-White-Cookies_EXPS_TOHVP25_278553_MF_02_04_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cheese-blintze",
+      "slug": "gen-cheese-blintze",
+      "title": "Käseblintzes",
+      "instructions": "Jüdisches Deli-Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Ricotta- und Cheddar-Käse in Großmärkten, um Mengen zu sparen",
+        "Machen Sie die Crêpes im Voraus und stellen Sie sie in den Kühlschrank. füllen und braten, wenn es servierfertig ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisches Feinkostgeschäft",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6936,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cheese-blintze/",
+      "components": [
+        {
+          "key": "40cecc8a-f714-5db0-8ec1-67b68cc3a854",
+          "name": "Zutaten",
+          "servingGrams": 296.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "29607b6d-27a4-508a-8978-005c3697c505",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "bb284a83-5d5d-5d05-8e04-e69b3cb61390",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "59e782e8-800a-5769-87b7-0cdba77c991f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "88999152-9aea-5237-bd32-048aaf2296c8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c4ce6d67-b4dd-58df-85b7-ad93d45b94a9",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ef5de499-19ea-5e87-b003-a89c2208c376",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse gerieben"
+            },
+            {
+              "key": "22f82304-ccbd-5641-82f3-a4e751212c19",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "873257f2-d901-56f0-9298-e81752d8f537",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "624904e3-c9a8-5846-8485-b2ba4f761b82",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "4d78c38d-af9a-59e1-8a37-a1a36cf45fdc",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier, Mehl, Milch und Salz verquirlen, um einen dünnen Crêpe-Teig herzustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitzen Sie eine 8-Zoll-Pfanne mit Antihaftbeschichtung bei mittlerer Hitze und bestreichen Sie sie leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gießen Sie 3 Esslöffel Teig in die Pfanne, kippen Sie sie, um sie dünn zu verteilen, und kochen Sie sie 1 Minute auf jeder Seite, bis sie fest, aber nicht braun ist. Auf dem Teller beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ricotta, Cheddar, Eigelb und Zucker in einer Schüssel gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie 2 Esslöffel Käsefüllung in die Mitte jedes Crêpes, falten Sie die Seiten nach innen und falten Sie dann die Ober- und Unterseite zum Verschließen zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter in der Pfanne bei mittlerer Hitze erhitzen und die Blintze vorsichtig mit der Nahtseite nach unten hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf jeder Seite 2-3 Minuten braten, bis der Käse goldbraun ist und durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm servieren und mit saurer Sahne beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/V6nHvd6b9kepuqhGKJE_IGW-nM4=/4494x3000/filters:fill(auto,1)/jewish-cheese-blintzes-recipe-1136318-hero-01-22d5e078d8914d90add2b45b79ab99b4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/V6nHvd6b9kepuqhGKJE_IGW-nM4=/4494x3000/filters:fill(auto,1)/jewish-cheese-blintzes-recipe-1136318-hero-01-22d5e078d8914d90add2b45b79ab99b4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-liver-and-onions",
+      "slug": "gen-liver-and-onions",
+      "title": "Leber mit Zwiebeln",
+      "instructions": "Jüdisches Deli-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderleber beim Verkauf in der Metzgerei und frieren Sie sie zur späteren Verwendung ein",
+        "Verwenden Sie günstigere gelbe Zwiebeln anstelle süßer Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jüdisches Feinkostgeschäft",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6937,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-liver-and-onions/",
+      "components": [
+        {
+          "key": "e49b613e-18c3-5c6d-9bd9-26555f1ec892",
+          "name": "Zutaten",
+          "servingGrams": 827.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "126e6bc2-9663-5054-a6c6-d35623cf2ba1",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "ac0dce1d-81fd-543f-8603-0234f2448c53",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "1739d518-7a14-5676-9724-e072792d75c3",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3adddf09-051f-5d6e-8d6a-bdddf14386ce",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4d6bedee-7730-574d-9ed1-b325bf48316a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6b127812-b0a2-504d-bb5c-4fa46f6023ca",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "133e073d-8925-5413-a7d2-f50491711aec",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "bb3ac5ec-0797-5e42-bd6d-659c3182d777",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b46a7181-bc2a-5a7f-b500-2a25776d5156",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebeln in Ringe schneiden und in Butter in einer großen Pfanne bei mittlerer bis hoher Hitze 8–10 Minuten braten, bis sie goldbraun und karamellisiert sind; Auf den Teller übertragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Leberscheiben in Mehl mit Salz und Pfeffer wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die restliche Butter in die Pfanne geben und die Leber auf jeder Seite 2-3 Minuten braten, bis sie außen gebräunt, innen aber noch leicht rosa ist. nicht zu lange kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie die Zwiebeln wieder in die Pfanne und gießen Sie Rinderbrühe und Essig hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3-4 Minuten köcheln lassen, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und nach Bedarf nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort über Ofenkartoffeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/FeAOJUQJfr-lb39tOZzpv4XhKBA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-JF-58942-Absolute-Best-Liver-and-Onions-Step-5-ef9c31cd80e6413d998523b72c71f6f8.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/FeAOJUQJfr-lb39tOZzpv4XhKBA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-JF-58942-Absolute-Best-Liver-and-Onions-Step-5-ef9c31cd80e6413d998523b72c71f6f8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hot-chicken-sandwich",
+      "slug": "gen-hot-chicken-sandwich",
+      "title": "Hot-Chicken-Sandwich",
+      "instructions": "Mittagessen mit Nashville Hot Chicken – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust im Sonderangebot kaufen und einfrieren; Vor dem Marinieren über Nacht auftauen lassen",
+        "Verwenden Sie das Frittieröl erneut, indem Sie es abseihen und zwischen den Anwendungen an einem kühlen Ort aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Nashville-Hot-Chicken",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6938,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hot-chicken-sandwich/",
+      "components": [
+        {
+          "key": "fe1d8e43-e38b-5e6b-ab8a-bf2b82c00648",
+          "name": "Zutaten",
+          "servingGrams": 482.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6dcd6f32-da2d-5e82-8b71-cd4e74ab1112",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (je 6 oz)"
+            },
+            {
+              "key": "44d62273-6099-5fb4-8b55-03c2c162a936",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "de5c931c-8003-5ac3-b4c0-ad34b2b8556c",
+              "ingredientName": "Allzweckmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "231cede5-8636-575c-aa2d-654d7daf3d1a",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4a1274ac-209c-59e6-80a5-a096e7b1b857",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "39bdc3e3-15ea-5185-96e9-940183f1bd36",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5172c95d-1706-5a9e-8e20-72980805b870",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "d371ffef-87d6-5e86-a375-74aef7226696",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Quart"
+            },
+            {
+              "key": "5ac50056-bfad-59b9-9470-2fd87d469f08",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a59cdb6-c3a1-5841-a52a-9a934c66d893",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ff0652e6-e340-54a9-8db1-334fc84b95c9",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hähnchenbrüste mit einem Fleischklopfer auf eine Dicke von 0.75 Zoll klopfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen in Buttermilch mindestens 30 Minuten im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Cayennepfeffer, Paprika, Knoblauchpulver und Salz in einer flachen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem tiefen Topf oder Schmortopf mit einem Thermometer auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Hähnchen aus der Buttermilch nehmen und vollständig mit der gewürzten Mehlmischung bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Legen Sie das Hähnchen vorsichtig in heißes Öl und braten Sie es 12–15 Minuten lang, bis die Innentemperatur 165 °F erreicht und die Beschichtung tief goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Abtropfen auf Papiertücher geben und dann die Brioche-Brötchen mit Butter rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gebratenes Hähnchen auf Brötchen legen, mit Gurken belegen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/02/Nashville-Hot-Chicken-Sandwich_EXPS_FT25_280493_JR_1112_6.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/02/Nashville-Hot-Chicken-Sandwich_EXPS_FT25_280493_JR_1112_6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kansas-city-rib-eye",
+      "slug": "gen-kansas-city-rib-eye",
+      "title": "Kansas-City-Ribeye",
+      "instructions": "Steakhouse-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rib-Eye-Steaks im Angebot und frieren Sie sie für die spätere Verwendung ein",
+        "Verzichten Sie auf teures Steakgewürz und verwenden Sie stattdessen einfaches Salz und Pfeffer"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Steakhaus",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6939,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kansas-city-rib-eye/",
+      "components": [
+        {
+          "key": "f7ee176c-57c9-5215-8cb7-a2b0598b743d",
+          "name": "Zutaten",
+          "servingGrams": 113.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec48884a-736f-56b7-950b-6c2a9be0d851",
+              "ingredientName": "Rib-Eye-Steaks",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Steaks, je 12 oz"
+            },
+            {
+              "key": "a28aefaf-3418-52d3-a460-1d93f225af99",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "24517235-40b3-57bb-af6a-1544c9d8bb92",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0306fca0-907f-525d-abed-6e11fc5ad93f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5c6d8815-89e6-5da0-ae68-2e8e8254a3e3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "929c3c2d-d962-5bd8-9f51-8ace8b08d092",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "6216a984-0066-5272-be13-3aa3386a5eac",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nehmen Sie die Steaks 20 Minuten vor dem Garen aus dem Kühlschrank und tupfen Sie sie mit Papiertüchern trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beide Seiten großzügig mit koscherem Salz und schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pflanzenöl in einer gusseisernen Pfanne bei starker Hitze erhitzen, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Legen Sie die Steaks in die Pfanne und braten Sie sie auf der ersten Seite 4–5 Minuten lang an, ohne sie zu bewegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Steaks wenden und Butter, Knoblauch und Thymian in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für medium-rare weitere 4–5 Minuten garen und die Steaks mit zerlassener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Steaks auf einen Teller geben und vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xcRag0vFwMMPmyOdPOzLTPthJQ4=/5184x3456/filters:fill(auto,1)/tomahawk-rib-eye-steak-2313425-hero-01-98fc6c07472c440fbdfdd87db6c71e26.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xcRag0vFwMMPmyOdPOzLTPthJQ4=/5184x3456/filters:fill(auto,1)/tomahawk-rib-eye-steak-2313425-hero-01-98fc6c07472c440fbdfdd87db6c71e26.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

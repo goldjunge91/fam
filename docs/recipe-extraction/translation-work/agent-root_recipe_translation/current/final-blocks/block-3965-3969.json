@@ -1,0 +1,1053 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-maklouba",
+      "slug": "gen-maklouba",
+      "title": "Maklouba",
+      "instructions": "Tunesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Reis in großen Mengen auf ethnischen Märkten zu günstigeren Preisen",
+        "Verwenden Sie zur Kostensenkung saisonales Gemüse, das im Angebot ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "tunesisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3965,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-maklouba/",
+      "components": [
+        {
+          "key": "7b207162-f63b-55af-97d7-195ce1514258",
+          "name": "Zutaten",
+          "servingGrams": 747,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d70183d-7839-53b4-80af-b6863de54e2d",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2d557518-c618-5ae2-be7b-4148dbcc4a97",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "903af0ec-e13f-5a7b-9f23-7b9411647dc6",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "8017328d-bc7a-5e10-9a5d-38dfd646f41f",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "82335ad7-b896-57fa-9acd-6e99a0a96241",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "4e46beb3-cb1c-58ac-95d9-6cdfa4bd8637",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "3693ea8c-bc3e-52c7-92bd-d789bff53ca7",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "85faee14-ce95-5d1c-aa4f-6f52bd4990f1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "8cf9a1f1-1496-5f99-abf8-e5564a872282",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a9391c32-5951-5308-b580-d62c8e1f5087",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Auberginen und Zucchini würfeln und in einem großen Topf in Olivenöl anbraten, bis sie leicht gebräunt sind, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf gewürfelte Zwiebeln und gehackten Knoblauch 3 Minuten anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis hinzufügen und umrühren, bis er mit Öl bedeckt ist, und 2 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gemüsebrühe, Paprika, Salz und Pfeffer hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das gekochte Gemüse wieder in den Topf geben und gewürfelte Tomaten unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe, decken Sie den Reis ab und lassen Sie ihn 20 Minuten köcheln, bis der Reis weich ist und die Flüssigkeit aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen und 5 Minuten ruhen lassen, dann auf eine Servierplatte stürzen und den Reiskuchen umdrehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/03/Maqluba_EXPS_FT25_279438_JR_0326_14.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/03/Maqluba_EXPS_FT25_279438_JR_0326_14.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lablabi",
+      "slug": "gen-lablabi",
+      "title": "Lablabi",
+      "instructions": "Tunesisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kichererbsen in Dosen in großen Mengen, wenn sie im Angebot sind",
+        "Verwenden Sie Harissa-Paste der Handelsmarke anstelle importierter Marken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "tunesisch",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3966,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lablabi/",
+      "components": [
+        {
+          "key": "24a12268-d1d7-51cc-b4ba-2539b59135a7",
+          "name": "Zutaten",
+          "servingGrams": 237,
+          "position": 0,
+          "items": [
+            {
+              "key": "95fc8e43-5ce1-59bb-a8dc-b9da285a4879",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "90ecf6e9-8c88-5cbb-8eed-b953337c57d8",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Stück"
+            },
+            {
+              "key": "3b4bd46a-ab51-5a3f-b831-5d9ef0146373",
+              "ingredientName": "Harissa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e561b8e8-7872-5ea8-aaf4-6d069461c2d6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a52ffb85-e6d7-594a-8a74-acb3b2f5d95f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "8348d10b-8127-5243-8a88-4716d4417213",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5521756f-d1fb-5ba3-88bc-15b26ce5fcfa",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e5a8ee5b-6d25-52f8-9c1c-2de0d4276a79",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e03365f9-126b-50a3-9081-840e22e08c13",
+              "ingredientName": "Kümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem Topf erhitzen und gehackten Knoblauch 1 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Harissa-Paste einrühren und 30 Sekunden kochen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgetropfte Kichererbsen, Kreuzkümmel, Kümmel, Salz und Wasser oder Brühe hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 8 Minuten köcheln lassen, bis es leicht eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brot in Stücke reißen und auf Servierschüsseln verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiße Kichererbsenmischung über das Brot schöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit extra Harissa und Olivenöl als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tangledupinfood.com/sites/default/files/2014/03/DSC_0268.jpg",
+          "sourcePageUrl": "https://www.tangledupinfood.com/sites/default/files/2014/03/DSC_0268.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ftira",
+      "slug": "gen-ftira",
+      "title": "Ftira",
+      "instructions": "Tunesisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie den Teig im Voraus und stellen Sie ihn in den Kühlschrank, um Vorbereitungszeit zu sparen",
+        "Kaufen Sie Thunfischkonserven in großen Mengen zu günstigeren Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "tunesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3967,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ftira/",
+      "components": [
+        {
+          "key": "e9002442-c5d5-50be-bbc7-a64348417b90",
+          "name": "Zutaten",
+          "servingGrams": 386.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "7140a05a-b9d2-58ba-a650-106b865b1b2a",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5005ecef-e8e3-50be-9705-8e449055ca8a",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9f76005b-8317-553c-a7dc-78f3ab6f2453",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "708ee888-6e5d-5727-bffc-dc8bb6bd9efc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b9ef4f6f-e91a-5d16-9462-e2e8ad15dfaf",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2a69cf0-c99b-5d64-a466-f6484106cb65",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (5 Unzen)"
+            },
+            {
+              "key": "80dbefcc-5b2c-5b9a-b0ee-a8b2e334b28e",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8dbb6048-3341-5897-b4f0-c6e53dd0f99a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "60f15dab-9d45-564d-83af-9ecc4228221b",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer großen Schüssel vermischen, eine Mulde formen und unter Rühren nach und nach Wasser hinzufügen, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 10 Minuten lang kneten, bis er glatt und elastisch ist, dann 30 Minuten abgedeckt ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in 4 gleiche Portionen teilen und jeweils dünn ausrollen, dann großzügig mit Olivenöl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die geölten Teigblätter übereinander legen, vierteln und 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Ftira zu einem dünnen Kreis ausrollen, Olivenöl in einer Pfanne erhitzen und braten, bis sie auf beiden Seiten aufgebläht und hellbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Füllung abgetropften Thunfisch, gehackte Zwiebeln, Harissa und gehackte Petersilie vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schlagen Sie ein Ei in die Mitte jedes heißen Ftira, geben Sie die Thunfischmischung darauf, falten Sie die Ränder nach innen und kochen Sie, bis das Ei fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/53/61/48/SafgxLVfRAeIxMrv3awE_Gozitan%2520open%2520Ftira%2520slice.JPG",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/53/61/48/SafgxLVfRAeIxMrv3awE_Gozitan%2520open%2520Ftira%2520slice.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chorba",
+      "slug": "gen-chorba",
+      "title": "Chorba",
+      "instructions": "Tunesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rinderschmorstücke aus preisgünstigen Teilstücken wie der Schulter",
+        "Kaufen Sie Dosentomaten und Kichererbsen im Sonderangebot und füllen Sie Ihren Vorrat auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tunesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3968,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chorba/",
+      "components": [
+        {
+          "key": "f570f205-8585-5d4d-ab18-5b05bdf6d2c3",
+          "name": "Zutaten",
+          "servingGrams": 446.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbbe5876-2df7-551e-a56b-adc0820baa55",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c1aabdc3-84c0-5842-8f96-b43b61d88b86",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "58082d51-edc7-5e16-881b-2134e4f71ded",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Dosen (je 14.5 Unzen)"
+            },
+            {
+              "key": "5b10f018-e50d-5e31-b0d4-5175c628e658",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "9de3f0c5-03a9-5d4e-a023-f780aed47dd4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "ae50c351-6f1b-575d-8283-fa42f0408bfb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9dae5218-e643-5d52-b115-d4d11038a01c",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8346e6cb-3fd1-59d8-b766-0027c17f430b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b7e4c045-48de-52ae-a089-3e143c9f3dd7",
+              "ingredientName": "Kümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "65dbf7c9-f14d-521f-a57f-371ef25795f4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und die Rindfleischstücke von allen Seiten anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf gewürfelte Zwiebeln und gehackten Knoblauch 3 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Harissa-Paste einrühren und 1 Minuten kochen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomaten mit Saft, Rinderbrühe, Kümmel, Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Fleisch wieder in den Topf geben, zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 25 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgetropfte Kichererbsen hinzufügen und weitere 10 Minuten köcheln lassen, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und würzen, dann heiß in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2026/03/03/multimedia/NB-Chorba-Beida-Chicken-and-Chickpea-Soup-hltp/NB-Chorba-Beida-Chicken-and-Chickpea-Soup-hltp-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2026/03/03/multimedia/NB-Chorba-Beida-Chicken-and-Chickpea-Soup-hltp/NB-Chorba-Beida-Chicken-and-Chickpea-Soup-hltp-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-merguez",
+      "slug": "gen-merguez",
+      "title": "Merguez",
+      "instructions": "Tunesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rinderhackfleisch anstelle von Lammfleisch, um die Kosten zu senken",
+        "Überspringen Sie Naturdärme und machen Sie stattdessen Pastetchen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "tunesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3969,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-merguez/",
+      "components": [
+        {
+          "key": "d0a55807-a94f-561f-acb9-fa7762d3e3f0",
+          "name": "Zutaten",
+          "servingGrams": 71.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "44f5e521-58d5-5867-882c-f481cc237400",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8157806a-0393-5ce6-8cd8-51136325673b",
+              "ingredientName": "Harissa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2d2e9683-b037-52cd-995c-fc58d76e23fc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "a2f66379-edc1-505f-a497-6ea0ed3efd21",
+              "ingredientName": "Kümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "beda6317-64cb-57f8-a878-64b01b3af026",
+              "ingredientName": "Paprika",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "b833282b-5e5b-5b8c-b317-e74ebfd3f36b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ad9ae493-4e5a-5834-a9b4-7fe5be8c0143",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "63b67ff2-33c2-57f6-995b-e59a542ca1aa",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Packung"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Wursthüllen 30 Minuten lang in warmem Wasser einweichen, um sie weicher zu machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lammhackfleisch, Harissa, gehackten Knoblauch, Kümmel, Paprika, Salz und Pfeffer in einer Schüssel gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Setzen Sie eine Wursthülle auf eine Wurstfülldüse und füllen Sie sie langsam mit der Fleischmischung, wobei Sie dabei Lufteinschlüsse einstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drehen Sie die gefüllte Hülle in 4 Zoll-Glieder und befestigen Sie sie bei Bedarf mit Küchengarn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Olivenöl in einer Pfanne bei mittlerer Hitze erhitzen und Merguez-Würstchen 12-15 Minuten kochen, dabei gelegentlich wenden, bis sie braun und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß mit Brot und Harissa oder in Couscous servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/_9eMdJ1TjBmWPZ2XuJnIqT0-oCs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7211843-7034fd7afbd54d0db027f9d20cda8ea1.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/_9eMdJ1TjBmWPZ2XuJnIqT0-oCs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7211843-7034fd7afbd54d0db027f9d20cda8ea1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

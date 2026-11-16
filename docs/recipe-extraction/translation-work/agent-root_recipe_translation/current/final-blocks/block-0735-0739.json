@@ -1,0 +1,1142 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-lamb-quinoa-stuffed-peppers",
+      "slug": "mfr-lamb-quinoa-stuffed-peppers",
+      "title": "Mit gewürztem Hackfleisch und Quinoa gefüllte Paprika",
+      "instructions": "Paprika gefüllt mit einer aromatischen Mischung aus Rinderhack, Quinoa, Kreuzkümmel, Zimt und Pinienkernen, dann weich gebacken: eine lateinamerikanisch-mediterrane Fusion, die beeindruckend aussieht und pro Paprika 34 Gramm Protein liefert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefüllte Paprika sind eine gute Möglichkeit, Rinderhack auf 4 vollständige Portionen zu strecken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere Variante mit fast demselben Ergebnis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lamb-quinoa-stuffed-peppers",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "lateinamerikanische Fusion",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 735,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lamb-quinoa-stuffed-peppers/",
+      "components": [
+        {
+          "key": "982e77bc-55ec-5710-9052-0925ea81b64d",
+          "name": "Zutaten",
+          "servingGrams": 301,
+          "position": 0,
+          "items": [
+            {
+              "key": "78d0da8d-d5c8-58f2-81af-3c969f4838ed",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de6ac90d-b0cc-52d5-8ecb-615ca781609b",
+              "ingredientName": "Rinderhack",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9da47606-bdc3-5ea7-ad7d-36a091953bbe",
+              "ingredientName": "Quinoa",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a356040-4b29-576e-b140-5bc40b03409f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72697d53-bf74-59a6-9647-fe6a518add81",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1392100b-63cc-5176-ac6b-cd02dfca784b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d435446-d29f-5f58-b3e1-a6fde7de9bd6",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d64b2dcf-77fb-527d-a6c3-60333b473967",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d304d0c-708f-5922-92e0-ec4fe4098707",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "442e840c-315f-56e4-b777-afa535b62a26",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec314b35-d541-5a8f-9031-d8fbed8df09d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Quinoa etwa 15 Minuten, bis sie weich ist. Heize den Ofen auf 375 °F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhack mit Zwiebel, Knoblauch, Kreuzkümmel und Zimt an. Gieße das Fett ab. Rühre Tomatenmark und gekochte Quinoa ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Spitzen der Paprika ab und entferne die Kerne. Fülle jede Paprika mit der Hack-Quinoa-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Paprika in eine Auflaufform und gib einen Schuss Wasser auf den Boden. Backe sie 30–35 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere sie mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Quinoa-Stuffed-Peppers_4-1524x2286.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Quinoa-Stuffed-Peppers_4-1524x2286.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lentil-taco-bowls",
+      "slug": "mfr-lentil-taco-bowls",
+      "title": "Taco-Schalen mit Kreuzkümmel-Linsen",
+      "instructions": "Französische Linsen mit mexikanischen Taco-Gewürzen auf Reis, dazu Salsa, Mais und geraspelter Kohl: ein pflanzlicher Taco-Abend, schneller als Rinderhack und voller Ballaststoffe.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen sind eine der günstigsten vollständigen Proteinquellen pro Portion. Diese Schüssel kostet weniger als $1.50 pro Portion.",
+        "Französische oder grüne Linsen behalten ihre Form besser als rote Linsen und eignen sich daher besser für Taco-Füllungen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Linsen aus der Dose als Abkürzung für ein Gericht in 20 Minuten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lentil-taco-bowls",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "vegan",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 736,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lentil-taco-bowls/",
+      "components": [
+        {
+          "key": "d6c6dedc-84de-5512-9551-fcffbb6b7143",
+          "name": "Zutaten",
+          "servingGrams": 453.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3696364-0a87-537a-a90f-4a7d2d6d4323",
+              "ingredientName": "Linsen",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07501961-6d88-5a19-b61c-369316a94cdf",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7551a2d7-9a09-5da3-a155-dc43453a6712",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20fe1714-6e72-5349-9458-8c7194c60316",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a605d0fd-840e-5c1a-95a9-7aace2a57b68",
+              "ingredientName": "Salsa",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66082788-bdbc-57a1-aea5-c818902b6bb7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "591784bf-0368-5f55-84a6-723ea0959e64",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aab544c3-4bb2-5f7b-b7a8-da9f646c3ac6",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e75aaf11-bb76-552b-b925-3402aaac0129",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af507c71-dbc4-53df-9434-9baffd8fda01",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "e3e1f046-c3bb-583c-bbc3-59c4d375144f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Köchele Linsen in 2 cups Wasser mit Kreuzkümmel, Chilipulver, Knoblauchpulver und einer Prise Salz 25 Minuten, bis sie weich und fast trocken sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Reis und erwärme den Mais.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Kohl fein und vermenge ihn mit Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schalen an: Reis, gewürzte Linsen, warmer Mais, geraspelter Kohl und Salsa. Gib nach Wunsch geschnittene Avocado dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/65bbf89e2c3c1e1bdd2c7f0d/1:1/w_2560%2Cc_limit/2023-12-14-BA-Sizzle_GBeef-059.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/65bbf89e2c3c1e1bdd2c7f0d/1:1/w_2560%2Cc_limit/2023-12-14-BA-Sizzle_GBeef-059.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuscan-white-bean-kale-soup",
+      "slug": "mfr-tuscan-white-bean-kale-soup",
+      "title": "Toskanische Suppe mit weißen Bohnen und Grünkohl",
+      "instructions": "Cremige weiße Bohnen und Streifen von kräftigem Grünkohl köcheln in einer knoblauchwürzigen Tomatenbrühe mit italienischen Kräutern: eine günstige, sättigende Suppe nach Art der klassischen Ribollita, die am nächsten Tag noch besser schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": "Im Kühlschrank bis zu 5 Tage aufbewahren; bis zu 3 Monate einfrieren.",
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Bohnen, ein Bund Grünkohl und Brühe aus dem Vorrat reichen für 4 Portionen und kosten weniger als $6.",
+        "Die Suppe dickt beim Abkühlen wunderbar ein und eignet sich perfekt zur Essensvorbereitung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat oder Mangold; in den letzten 2 Minuten dazugeben, da sie schnell zusammenfallen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuscan-white-bean-kale-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Essensvorbereitung",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 737,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuscan-white-bean-kale-soup/",
+      "components": [
+        {
+          "key": "2c6a0c53-d0c7-5343-ad4d-575f8be1ab37",
+          "name": "Zutaten",
+          "servingGrams": 809.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "d11cba32-3064-59f0-928e-ea2adc87751e",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b346dcd-ec49-56e1-a43c-90600331fa15",
+              "ingredientName": "Grünkohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92ceae2f-dcef-5ff2-b15e-2edfba46600b",
+              "ingredientName": "Zerdrückte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20797e72-b566-5f9c-86aa-05e7f7560221",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09c780c4-f3d2-59d2-bd5f-eeddf5477636",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36c5dc96-0aec-578e-a125-e3d174a756cf",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5dca2e88-8d79-59bf-80a9-a99437efa072",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35d53b38-0083-5e6f-acef-24ac520d1fe1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cf5bb1d-89e5-54a6-b2c3-19bd285b4214",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ca10430-a035-5a47-a6a4-10da3d98a098",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5325dae-f2f1-5613-8ef9-dd6436238ba4",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83da8b91-789f-5788-b18f-21eeb5c463ba",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5dd3e71-d8ad-54fb-b325-dfdf0eba30b5",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze. Gare gewürfelte Zwiebel, Karotte und Sellerie etwa 6 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, italienische Gewürzmischung und Chiliflocken dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerdrückte Tomaten, beide Dosen weiße Bohnen (eine davon leicht zerdrückt) und Gemüsebrühe dazu. Bring die Suppe zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke Grünkohl grob in Streifen und gib ihn in den Topf. Lass die Suppe 20 Minuten köcheln, bis der Grünkohl weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Probiere die Suppe und passe die Würzung an. Träufle zum Servieren etwas Olivenöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2018/01/Italian-Tuscan-Sausage-Kale-and-White-Bean-Soup-Recipe-6.jpg",
+          "sourcePageUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2018/01/Italian-Tuscan-Sausage-Kale-and-White-Bean-Soup-Recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-red-pepper-tomato-soup",
+      "slug": "mfr-red-pepper-tomato-soup",
+      "title": "Suppe aus gerösteter roter Paprika und Tomaten",
+      "instructions": "Geröstete rote Paprika und zerdrückte Tomaten zu einer süßen, rauchigen, samtigen Suppe püriert. Ein Klecks griechischer Joghurt sorgt für Protein und Cremigkeit, ganz ohne Schlagsahne.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geröstete Paprika aus der Dose können frische Paprika ersetzen und sparen den Röstschritt. Die Kosten sind ähnlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Kokosmilch für eine vegane Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-red-pepper-tomato-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 738,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-red-pepper-tomato-soup/",
+      "components": [
+        {
+          "key": "4aa18955-afbe-5fee-a71e-1cffb55b4a59",
+          "name": "Zutaten",
+          "servingGrams": 416.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0160b3fe-c5d2-5bad-8a51-4249104b7b77",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91abb706-b046-5b2b-8f2b-d8e3b9a7eb6a",
+              "ingredientName": "Zerdrückte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d56e8f3-1bfd-5c37-b97a-f8a3d5fe826f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64372d10-3c3e-57e1-91a3-b0adc42a9a6b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8063b5e-6e4e-5cbe-b7fb-a4a9706f0f30",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e233a1f4-fb17-5833-8a3d-a23050c461f6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bb40232-5a08-5989-ae76-eb9523db6c6d",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71870623-840d-52a8-bec3-69eae5525bf3",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ca1cd46-4aa8-5e59-84c8-6c9996a62420",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cad67af4-4f83-5888-bd9d-a362445db979",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere und entkerne die Paprika. Lege sie mit der Schnittseite nach unten auf ein Backblech und verteile Zwiebel und Knoblauch daneben. Röste alles bei 450 °F 20–25 Minuten, bis die Paprika verkohlt und zusammengefallen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ziehe die Haut von den Paprika ab, sobald sie kühl genug zum Anfassen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere geröstete Paprika, Zwiebel und Knoblauch mit zerdrückten Tomaten, geräuchertem Paprikapulver und Gemüsebrühe, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Suppe in einen Topf und lass sie 10 Minuten köcheln. Rühre griechischen Joghurt ein, nachdem du den Topf vom Herd genommen hast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz und Pfeffer. Serviere die Suppe mit zusätzlichem Joghurt als Klecks obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/02/CREAMY-Roasted-Red-Pepper-Tomato-Soup-Simple-ingredients-BIG-flavor-vegan-glutenfree-plantbased-soup-minimalistbaker-tomato.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/02/CREAMY-Roasted-Red-Pepper-Tomato-Soup-Simple-ingredients-BIG-flavor-vegan-glutenfree-plantbased-soup-minimalistbaker-tomato.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai-coconut-chicken-soup",
+      "slug": "mfr-thai-coconut-chicken-soup",
+      "title": "Thailändische Kokos-Hühnersuppe",
+      "instructions": "Aromatische Suppe nach thailändischer Art mit Hähnchenbrust, die in Kokosmilch mit Ingwer nach Zitronengras-Art, Limette und Fischsauce köchelt: wärmend, duftend und in 25 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vollfette Kokosmilch schmeckt am besten. Eine Dose reicht für 4 Schüsseln.",
+        "Fischsauce ist das Geheimnis für kräftigen Geschmack. Eine Flasche kostet $3 und hält viele Monate."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce für eine vegetarische Suppe"
+        },
+        {
+          "forIngredientId": "red-curry-paste",
+          "swap": "Eine Prise Chilipulver und zusätzlicher Ingwer, falls keine Currypaste da ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai-coconut-chicken-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 739,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai-coconut-chicken-soup/",
+      "components": [
+        {
+          "key": "34b12100-e915-5e44-9f9d-a9f4866ed6d8",
+          "name": "Zutaten",
+          "servingGrams": 591.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "efd9ac80-6cf5-5421-8559-fc5d9ceded39",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4df247e9-3e05-54cf-93bc-3daf7be541b9",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91b4441d-63ae-538c-9a9e-159ddb439233",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "609d524b-40ed-56e0-a878-9322d91086b3",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07c9d29a-bf42-55b1-9d6b-1893a521d6e0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "402a5d36-29d5-50db-aecb-22b41df0ee91",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c85d5a9c-7c17-567b-852b-04d40c284235",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "118eb7a2-34bc-5caf-ad88-d3f07b879f05",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c17b9f0a-5ec0-5aa2-9029-232146c718aa",
+              "ingredientName": "Rote Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7efa4978-bb1a-5ebf-8222-7c99cf5cd15e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77de4e89-6a80-5b4f-9fc9-9d5d870698bb",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98fa8c6a-c40f-52a1-a58a-a5b883147c4d",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Kokosmilch, Hühnerbrühe, rote Currypaste, Ingwer und Knoblauch in einem Topf. Bring die Suppe bei mittlerer Hitze zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hähnchen und Pilze dazu und lass alles 10 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Fischsauce und Limettensaft. Probiere die Suppe und passe die Würzung an. Sie sollte süß, sauer, salzig und scharf zugleich schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Suppe mit frischem Koriander und Frühlingszwiebeln darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Fzt6xaz3F7sfdv5IUPJnjTQdC30=/4000x2667/filters:fill(auto,1)/thai-chicken-soup-with-coconut-milk-recipe-3217654-hero-01-d14d621f54f14c83a0bb131dde35f041.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Fzt6xaz3F7sfdv5IUPJnjTQdC30=/4000x2667/filters:fill(auto,1)/thai-chicken-soup-with-coconut-milk-recipe-3217654-hero-01-d14d621f54f14c83a0bb131dde35f041.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

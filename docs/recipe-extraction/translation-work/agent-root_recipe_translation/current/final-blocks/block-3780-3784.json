@@ -1,0 +1,1088 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-daube-proven-ale",
+      "slug": "gen-daube-proven-ale",
+      "title": "Daube Provençale",
+      "instructions": "Provenzalisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter statt teurerer Fleischstücke.",
+        "Kaufe Perlzwiebeln tiefgekühlt, um Vorbereitungszeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "provenzalisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3780,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-daube-proven-ale/",
+      "components": [
+        {
+          "key": "f9fb8807-150f-5df7-b51a-36417473ea6f",
+          "name": "Zutaten",
+          "servingGrams": 177,
+          "position": 0,
+          "items": [
+            {
+              "key": "79d56408-7fc9-5607-8729-dfeadec05ef5",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "ee75704d-f896-56b0-8dfb-92e93d57e677",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c45c9237-4991-5b57-8bf7-345fa4afb735",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d1c687e3-31bd-5e3e-a924-31b4109ecc25",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "57f1733b-012f-50c1-9d02-a0783104f1ca",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92272366-1b44-58d3-86ae-0700f5b861ce",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cd7717b6-3b87-5b0f-bded-ba43c3faf14b",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "ec9ba744-c8c5-5df2-8453-8eb3b2f4e279",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "2e4cfa60-694b-5708-9d37-31041a1584dd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5807a515-98fa-5be3-99b1-486547b815c3",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "b3b156de-124c-5e90-a585-65add6f4a363",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4409aedf-b5ed-52b7-9354-360db83c477c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Speck und brate ihn in einem Schmortopf knusprig. Nimm ihn heraus und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Rindfleisch in 1.5-inch große Würfel und bräune es portionsweise im Speckfett an. Nimm es dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Perlzwiebeln und Pilze goldbraun und schiebe sie dann an den Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und Tomatenmark dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lösche mit Rotwein ab und löse die Röstspuren vom Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Rindfleisch und Speck zurück in den Topf und füge Karotten, Thymian und Lorbeerblätter hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Topf ab und schmoren alles im Ofen bei 325°F 2-2.5 Stunden, bis das Rindfleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/03/Daube-Provencale-Recipe.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/03/Daube-Provencale-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brandade-de-morue",
+      "slug": "gen-brandade-de-morue",
+      "title": "Brandade de Morue",
+      "instructions": "Provenzalisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Stockfisch in größeren Mengen auf internationalen Märkten.",
+        "Bereite das Gericht einen Tag im Voraus zu, um Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "provenzalisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3781,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brandade-de-morue/",
+      "components": [
+        {
+          "key": "904e5157-5e51-5909-99d9-bb76775f8b66",
+          "name": "Zutaten",
+          "servingGrams": 116,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d20592f-ec80-5b49-8254-c2bfb1d0014a",
+              "ingredientName": "Stockfisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8039c619-7b0e-5f19-8953-ca5faf979a8f",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "39bb53f4-a2e9-5ed1-9139-5287cc4604f3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "415225ee-af61-5656-be6c-dbb739ce1cd5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "6a5e439f-f3fa-5073-aa22-9fcb53072753",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "ff6508ac-ec44-5cc5-b689-47d151d98c65",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5835d7e8-9536-5ed1-9231-1da808c72671",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "67defbae-7763-55bf-8aaf-8b7b7f7fbd9a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3abd4aac-53bb-5f49-a362-a6fbe56ebce8",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Stockfisch 24 Stunden in kaltem Wasser ein und wechsle das Wasser mehrmals.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Kartoffeln und Stockfisch getrennt jeweils etwa 20 Minuten weich und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerpflücke den gegarten Stockfisch und entferne alle übrigen Gräten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schäle heiße Kartoffeln und zerdrücke sie mit gehacktem Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme Olivenöl und Milch zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Kartoffeln und Stockfisch und schlage dann nach und nach die warme Öl-Milch-Mischung unter, bis alles luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Zitronensaft, Muskatnuss, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht warm mit gerösteten Brotscheiben oder Crackern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2014/04/09/dining/brandade/brandade-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2014/04/09/dining/brandade/brandade-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tapenade",
+      "slug": "gen-tapenade",
+      "title": "Tapenade",
+      "instructions": "Provenzalischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Oliven und Kapern aus der Dose statt frischer.",
+        "Bereite eine große Menge zu und bewahre sie bis zu 2 Wochen in Öl auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "provenzalisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3782,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tapenade/",
+      "components": [
+        {
+          "key": "93528ed5-4409-5c13-b746-69d1db5fe925",
+          "name": "Zutaten",
+          "servingGrams": 852.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "1691402e-b1cc-5207-bb67-e1b27ab2b1df",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 750,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a29734b2-5021-5c1b-bba2-22df2d7e22de",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e1e12db6-2622-549d-bdef-3a56a351e1a1",
+              "ingredientName": "Sardellenpaste",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d30e8c94-8045-5ad7-afb5-bc605bbdd017",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84958757-04d6-523b-9efc-5db4ef61db7e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "75ba9c29-241c-5c43-83e3-6eb8cb32117d",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7a8b0319-7581-516d-8a0c-13dd70954861",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "05732afe-1d96-5100-af81-8cfbdbf6005d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "91740886-eedc-5b1f-b313-1a83fde3df8e",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entsteine Kalamata-Oliven, falls sie noch Kerne enthalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Oliven, Kapern, Sardellen und gehackten Knoblauch in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pulse alles grob, ohne es vollständig glatt zu pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Olivenöl und Zitronensaft dazu und pulse noch einige Male, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Tapenade in eine Schüssel und rühre frischen Thymian und schwarzen Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere die Mischung und würze sie nach Bedarf nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie mit Crackern, Brot oder Rohkost.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/TY0Y54qWIAWR4659yc4kOC3h2NE=/5497x3665/filters:fill(auto,1)/homemade-mixed-olive-tapenade-473366140-5a9f6431fa6bcc00373314af.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/TY0Y54qWIAWR4659yc4kOC3h2NE=/5497x3665/filters:fill(auto,1)/homemade-mixed-olive-tapenade-473366140-5a9f6431fa6bcc00373314af.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pissaladi-re",
+      "slug": "gen-pissaladi-re",
+      "title": "Pissaladière",
+      "instructions": "Provenzalischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Sardellen aus der Dose statt frischer, um mehr fürs Geld zu bekommen.",
+        "Kaufe Zwiebeln im Angebot in größeren Mengen und karamellisiere eine große Portion zum Einfrieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "provenzalisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3783,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pissaladi-re/",
+      "components": [
+        {
+          "key": "b5b5f5ca-c430-5c62-957b-ce4592696ab5",
+          "name": "Zutaten",
+          "servingGrams": 549.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "06e91e84-8221-515d-9521-9c496af14fb6",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "29430187-c33b-5b55-8b55-666727686913",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "06256df7-690a-5dba-a810-1ff1062aa425",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "58fe03ef-d483-5a34-9bb1-d96b1ac4b3b8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "baec6716-a1a2-5269-8515-36f3dd51a58f",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "c840ff82-b67f-5a26-9ff1-42d69ad55d37",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bf9d2f8-ac83-5f1c-8371-0d0a742fbffc",
+              "ingredientName": "Sardellen in Olivenöl (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "28cc4d4e-b33b-5c51-9913-551e5ce3d898",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ce5f010b-41d6-53df-9f14-cdf4deab1e3a",
+              "ingredientName": "Thymian (getrocknet)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Wasser, 2 tablespoons Olivenöl und Salz zu einem weichen Teig und lasse ihn 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Zwiebeln und Knoblauch dünn und dünste sie in 2 tablespoons Olivenöl bei niedriger bis mittlerer Hitze 25 Minuten, bis sie sehr weich und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze karamellisierte Zwiebeln mit Thymian, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke den Teig in eine geölte 9x13 inch große Backform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile karamellisierte Zwiebeln gleichmäßig auf dem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Sardellen im Rautenmuster auf die Zwiebeln und verteile Oliven zwischen den Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Tarte bei 425°F 15 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie 5 Minuten abkühlen, schneide sie in Quadrate und serviere sie warm oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DOvBoPoDlbpf2siq3CEhs1vewc0=/4928x3280/filters:fill(auto,1)/GettyImages-668776343-2--5860f10d3df78ce2c32ff8c8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DOvBoPoDlbpf2siq3CEhs1vewc0=/4928x3280/filters:fill(auto,1)/GettyImages-668776343-2--5860f10d3df78ce2c32ff8c8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-socca",
+      "slug": "gen-socca",
+      "title": "Socca",
+      "instructions": "Provenzalischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsenmehl im Großgebinde statt abgepackt.",
+        "Verwende getrockneten Rosmarin, falls frischer nicht erhältlich oder teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "provenzalisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3784,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-socca/",
+      "components": [
+        {
+          "key": "c945c1b4-a94b-5227-bcab-bb8f0d483a93",
+          "name": "Zutaten",
+          "servingGrams": 163,
+          "position": 0,
+          "items": [
+            {
+              "key": "e7a12181-73ac-5251-944d-1ec898c85519",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "17c2ed1f-ddee-5b5e-80c2-097afce080aa",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/4 Tassen"
+            },
+            {
+              "key": "c38ed31f-40eb-52e8-9847-186586007bfc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "69799136-02aa-5f59-b782-9d4255c379e4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "50711991-ae61-5ca4-b2d2-c04cc03726b7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ef7dcc19-31e4-5cc2-a14f-6166f71b4534",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "51f421a1-6c9c-524d-afbc-5d4feb109f5c",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Kichererbsenmehl, Wasser, Salz, Pfeffer und Zwiebelpulver glatt und lasse den Teig 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1.5 tablespoons Olivenöl in einer 10-inch gusseisernen oder beschichteten Pfanne bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Hälfte des Teigs in die heiße Pfanne und verstreiche ihn mit einem Pfannenwender dünn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue ihn mit Rosmarin und gare ihn 3-4 Minuten, bis sich die Ränder lösen und die Unterseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende den Fladen und gare ihn weitere 2 Minuten, bis er fest ist. Lege ihn dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wiederhole den Vorgang mit dem restlichen Öl und Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide den Fladen in Spalten und serviere ihn heiß mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2012/04/3c77898a6aab85fb837b44fb9b7444523fb2591a.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2012/04/3c77898a6aab85fb837b44fb9b7444523fb2591a.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

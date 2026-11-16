@@ -1,0 +1,1119 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chicken-veggie-sheet-pan",
+      "slug": "mfr-chicken-veggie-sheet-pan",
+      "title": "Hähnchen und Ofengemüse vom Blech",
+      "instructions": "Hähnchenschenkel mit Knochen werden zusammen mit einer bunten Mischung saisonaler Gemüse im Ofen geröstet: ein Blech, wenig Vorbereitung, voller Geschmack.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen sind das günstigste Stück und gelingen beim Rösten besonders zuverlässig.",
+        "Verwende Gemüse, das gerade im Angebot ist. Das ist ein Grundrezept, keine starre Vorgabe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffeln oder Butternusskürbis"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenkeulen für eine noch günstigere Variante; Hähnchenbrust mit Knochen für eine magerere Option"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-veggie-sheet-pan",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Essensvorbereitung",
+        "Ein-Blech-Gericht",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 775,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-veggie-sheet-pan/",
+      "components": [
+        {
+          "key": "48239c2a-b8fe-5140-bbb0-f510d2e6d3d5",
+          "name": "Zutaten",
+          "servingGrams": 352.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "b375b955-c645-5173-8647-00269a958978",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df42d816-f7ee-5a1e-a4bc-2ed3a89ac883",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8730d51-4cd9-52cd-b39a-bba4db2b6f55",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eca7497-1ba2-52ea-9b7a-9e69f4e317ca",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31a6fdf2-025c-557b-93d0-e864805c5583",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebb39771-6872-5c3a-b23e-c1a27602816b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b647cf9-16dd-505f-be1a-fecc1a2777f9",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fff0955-351b-5ca7-9f91-54b7c6bc96c1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56f01fdd-135e-58ca-b831-8db96eb588b7",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f64690c7-da89-528b-81c6-0b1094f4febb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor. Würfle die Süßkartoffel und schneide die übrigen Gemüse in große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge alles Gemüse mit 1 tbsp Olivenöl, der Hälfte der Gewürze, Salz und Pfeffer auf einem großen Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Hähnchenschenkel mit dem restlichen Olivenöl, italienischen Kräutern, geräuchertem Paprikapulver, Knoblauch, Salz und Pfeffer. Lege sie zwischen das Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste alles 30–35 Minuten, bis das Hähnchen goldbraun und das Gemüse karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass das Hähnchen vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/07/688ce7cd5584512c4a46c589a7862be4ad9bfb6f.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/07/688ce7cd5584512c4a46c589a7862be4ad9bfb6f.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-black-bean-quinoa-bowl",
+      "slug": "mfr-black-bean-quinoa-bowl",
+      "title": "Gewürzte Schale mit schwarzen Bohnen und Quinoa",
+      "instructions": "Proteinreiche Quinoa mit aromatisch gewürzten schwarzen Bohnen, Mais, Avocado und einem frischen Limetten-Dressing: eine vollwertige pflanzliche Mahlzeit in 25 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Quinoa und schwarze Bohnen ergänzen sich zu einer vollständigen Proteinquelle und kosten weniger als $3 pro Portion.",
+        "Lass die Avocado weg, um Kosten und Kalorien zu senken, wenn das Budget knapp ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Naturreis als günstigere Basis aus vollwertigen Kohlenhydraten"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Hummus für Cremigkeit und geringere Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-black-bean-quinoa-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Essensvorbereitung",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 776,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-black-bean-quinoa-bowl/",
+      "components": [
+        {
+          "key": "3cae8945-f974-5d60-b0f5-f1047401c86c",
+          "name": "Zutaten",
+          "servingGrams": 329.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d85c827-3408-5304-9040-eda8a2a6e677",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0e7f996-43c0-5e4a-aa65-e128e5f739cf",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7479a621-920c-5cb4-8971-3d1d2429a9b4",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f3c0621-567c-50e9-be02-81ba1c3f58de",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26aaff0f-c7b9-5810-9284-b8ce6eb97280",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "282cb5c7-d871-57d3-a56a-af1c42c42339",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff058c6d-d05b-5b09-b4c0-2fc272c0e09a",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f2c4461-cd15-5338-9de6-6c897d928be2",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be1b12ac-a745-5974-92bf-c625d735027b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f23cc098-c013-5f08-8a45-8720ab08a996",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9406265-0218-5b93-a817-c9afd77f35df",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Quinoa in Gemüsebrühe oder Wasser mit einer Prise Salz 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme schwarze Bohnen in einer kleinen Pfanne mit Kreuzkümmel, Chilipulver, Knoblauchpulver und einem Spritzer Limettensaft. Koche alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme tiefgekühlten oder Dosenmais. Bereite das Limetten-Dressing aus Limettensaft, Olivenöl und Salz zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Quinoa auf Schalen. Belege sie mit gewürzten Bohnen, Mais und aufgeschnittener Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle alles mit Limetten-Dressing und streue frischen Koriander darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Y-zikX0-yEtk1EtmLjNx0tC4wcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ewl-black-bean-quinoa-bowl-beauty-260726-4000x4000-8e1a3ece48d946f6b12eb1663959c42e.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Y-zikX0-yEtk1EtmLjNx0tC4wcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ewl-black-bean-quinoa-bowl-beauty-260726-4000x4000-8e1a3ece48d946f6b12eb1663959c42e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-teriyaki-salmon-broccoli",
+      "slug": "mfr-teriyaki-salmon-broccoli",
+      "title": "Teriyaki-Lachs mit gedämpftem Brokkoli",
+      "instructions": "Glasierte Lachsfilets mit hausgemachter Teriyaki-Sauce, dazu lockerer Reis und knackiger gedämpfter Brokkoli: ein japanisch-amerikanischer Klassiker in 25 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Teriyaki-Sauce aus der Flasche ist günstig und macht Mirin und Sake überflüssig.",
+        "Tiefgekühlte Lachsfilets kosten halb so viel wie frischer Lachs und schmecken glasiert genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Dünn geklopfte Hähnchenbrust, pro Seite 6 Minuten garen"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Pak Choi oder Zuckerschoten als anderes grünes Gemüse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-teriyaki-salmon-broccoli",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "japanisch-amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 777,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-teriyaki-salmon-broccoli/",
+      "components": [
+        {
+          "key": "412ace8a-6404-5071-aac0-77327640a4a7",
+          "name": "Zutaten",
+          "servingGrams": 505.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bdacfe43-29cd-510b-905d-f71814e3cc2b",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1de3b70-5874-559b-991f-da663b3955e5",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5497990c-aa66-5af5-8807-397fb105f2a9",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6b2cb6e-a4b1-5240-a3aa-fe94dad1030d",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d9aa85c-3d82-5c7c-9443-86811302ffc6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94145f46-1ed5-559c-83c9-5de29e3b4346",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f0c3744-305b-50f1-a6cd-4d1e6970a8a3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2be7a84d-9562-5ffb-aae8-ed646586a303",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a000d9cd-a266-5c20-9d11-12cb437138ad",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Verrühre Teriyaki-Sauce mit geriebenem Ingwer und gehacktem Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Sesamöl in einer beschichteten Pfanne bei mittelhoher Hitze. Gare den Lachs 3–4 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße in der letzten Minute die Teriyaki-Glasur über den Lachs. Lass sie 30 Sekunden pro Seite karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe den Brokkoli 4–5 Minuten, bis er hellgrün und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Lachs auf Reis und garniere ihn mit Sesamsamen und aufgeschnittener Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/pan-seared-Teriyaki-salmon-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/pan-seared-Teriyaki-salmon-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ground-turkey-taco-salad",
+      "slug": "mfr-ground-turkey-taco-salad",
+      "title": "Taco-Salat mit Putenhack",
+      "instructions": "Mageres, gewürztes Putenhack auf geschnittenem Römersalat mit schwarzen Bohnen, Mais, Pico de Gallo, Avocado und Chili-Limetten-Dressing: ein Taco ohne Tortilla, der trotzdem satt und zufrieden macht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhack ist mager und günstig, etwa $4–5/lb.",
+        "Lass die Avocado weg, um Kosten zu senken und pro Portion 80 kcal zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tortilla-chips",
+          "swap": "Für eine vollständig kohlenhydratarme Variante weglassen"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Guacamole aus einem Portionspäckchen für bessere Portionskontrolle"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ground-turkey-taco-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch-amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 778,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ground-turkey-taco-salad/",
+      "components": [
+        {
+          "key": "177653a3-35a1-5778-99f6-36e6b74b2d5b",
+          "name": "Zutaten",
+          "servingGrams": 419.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "61718bcb-aafc-5bca-a060-d6c6feddd722",
+              "ingredientName": "Putenhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d5c28a3-b809-5549-a1d2-897789cfb96c",
+              "ingredientName": "Römersalat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "037adb00-c62a-5b41-9e6f-965cf3cc20eb",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc6aa16c-8e51-57ad-bbe2-7aaa3b78599b",
+              "ingredientName": "Frischer Mais",
+              "grams": 45,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bfa0b80-5369-5225-8282-530814e1ec4d",
+              "ingredientName": "Pico de Gallo",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df6cb01b-7eb1-50e6-84d0-d08be8d52ccf",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ef20719-122f-5146-9b29-e1a94d5e047d",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df5ad86d-ca97-5a46-b448-89e11acf3a7e",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e200a6f6-2c92-5f8d-8493-c82e02c2c9ec",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec16e421-5f8d-5468-a5c0-93958104da9b",
+              "ingredientName": "Tortilla-Chips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Putenhack in Olivenöl bei mittelhoher Hitze 6–8 Minuten an. Gieße das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Taco-Gewürz und ¼ cup Wasser dazu; lass alles 2 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Römersalat auf drei Schüsseln. Belege ihn mit warmem Putenhack, schwarzen Bohnen, Mais und Pico de Gallo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Avocadoscheiben und einen Spritzer Limettensaft dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Salat mit einer kleinen Handvoll Tortilla-Chips für den Crunch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/Turkey-Taco-Salad_exps167536_SD2847494D02_15_5bC_RMS.jpg",
+          "sourcePageUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/Turkey-Taco-Salad_exps167536_SD2847494D02_15_5bC_RMS.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chickpea-coconut-curry",
+      "slug": "mfr-chickpea-coconut-curry",
+      "title": "Kichererbsen-Curry mit Kokosmilch",
+      "instructions": "Cremiges, wärmendes Kichererbsen-Curry in einer duftenden Kokos-Tomaten-Sauce mit Spinat: ein sättigendes veganes Abendessen für $2 pro Portion.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen und eine Dose Kokosmilch bilden die Protein-Fett-Basis und kosten zusammen weniger als $4.",
+        "Bereite die doppelte Menge zu und friere Portionen für die Woche ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Leichte Kokosmilch verwenden, um den Fettgehalt um die Hälfte zu senken"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Aufgetauter und ausgedrückter TK-Spinat funktioniert ebenfalls sehr gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chickpea-coconut-curry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Essensvorbereitung",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 779,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chickpea-coconut-curry/",
+      "components": [
+        {
+          "key": "e5025504-8d96-568e-ad17-5ae829f245a3",
+          "name": "Zutaten",
+          "servingGrams": 691.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "2076154f-a2e3-505c-8549-6b0d269ca732",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "564b71ca-f426-5f6d-aa1c-c2ec372b722f",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47798d00-b0ae-5efe-8ef6-41b58b4dee20",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58adee39-ba89-5920-8be2-45a0356a1d1d",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed2bf4f0-27d3-5936-8201-7cebb99738cb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f036528-6c86-5865-aa10-881d44fc4bb0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b3c0c0f-3a91-5673-8662-5279216b5877",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39e14c3f-386d-5c29-afa3-005ea49a79e8",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62c80676-0c60-5295-b379-49783f7ab083",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e624783c-f15d-5229-aba2-e7735f2fe83e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46e16b9f-8d3d-55f6-add9-d9674f1ca472",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5b55aa5-6629-5ba6-b9ff-49491329b7ce",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf. Dünste gewürfelte Zwiebel 5 Minuten an. Gib gehackten Knoblauch und Ingwer dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Currypulver und Kreuzkümmel dazu und röste sie 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge die gehackten Tomaten hinzu und koche sie 3 Minuten. Gieße die Kokosmilch dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abgetropfte Kichererbsen dazu. Lass alles 12 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre den Spinat ein, bis er zusammenfällt. Serviere das Curry mit Reis und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/01/chickpea-curry-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/01/chickpea-curry-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

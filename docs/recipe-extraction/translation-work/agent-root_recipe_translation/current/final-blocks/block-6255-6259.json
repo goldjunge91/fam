@@ -1,0 +1,1094 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-b-nh-kho-i",
+      "slug": "gen-b-nh-kho-i",
+      "title": "Bánh Khoái",
+      "instructions": "Vietnamesischer Snack aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Garnelenpaste statt ganzer Garnelen, um mit dem Eiweiß noch weiter zu kommen.",
+        "Kaufe getrocknete Mungbohnen und koche größere Mengen für mehrere Gerichte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch-aus-hue",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6255,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-nh-kho-i/",
+      "components": [
+        {
+          "key": "88a6c8cb-6110-55f8-8b2c-53bd7f434bad",
+          "name": "Zutaten",
+          "servingGrams": 387.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "094f34f0-b5f4-59d6-94ee-979645600b2c",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "92260e6f-0963-5fe7-9398-c22c48c60500",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e1d27d9f-3d57-5bcc-bf77-e41b682c148a",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d892b5b0-124f-54db-8006-bce0017d041c",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "14066b1f-43b3-5b71-a455-080ea0054c89",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "f47d4a95-5e5e-504d-a182-18a9877c06e7",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Pfund in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "ca4f16c0-d1d2-50fc-b0cc-ebbbf43e7182",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "e19d31ce-3ebd-5eda-afdc-a344520f8f87",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "fdc5beae-9087-5e8b-bcdd-939e37a93cb7",
+              "ingredientName": "Mungbohnen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse gekocht"
+            },
+            {
+              "key": "bd62f8bd-e3f0-5287-b904-3238b85b30c4",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl, Kurkuma, Salz, Kokosmilch und Wasser in einer Schüssel zu einem dünnflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 tbsp Öl in einer beschichteten Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße eine dünne Teigschicht in die Pfanne und schwenke sie, sodass ein kleiner Crêpe von etwa 4-5 Zoll entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib rasch einige Garnelen und Schweinebauchscheiben auf eine Hälfte des Crêpes, streue gekochte Mungbohnen darüber und klappe ihn zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Crêpe etwa 2-3 Minuten pro Seite, bis die Ränder knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege ihn auf eine Servierplatte und wiederhole den Vorgang mit dem restlichen Teig und der Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß mit frischem Salat, Kräutern und Dip aus Fischsauce, Wasser, Zucker und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kinhdofood.com/wp-content/uploads/2022/06/img_62bc074316fe8-1000x1000.jpg",
+          "sourcePageUrl": "https://kinhdofood.com/wp-content/uploads/2022/06/img_62bc074316fe8-1000x1000.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-nh-n-c-l-o",
+      "slug": "gen-b-nh-n-c-l-o",
+      "title": "Bánh Nước Lèo",
+      "instructions": "Vietnamesisches Frühstück aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende einen einfachen Dämpfeinsatz in einem abgedeckten Topf mit Wasser, statt einen Dampfgarer zu kaufen.",
+        "Kaufe Garnelen und Schweinefleisch im Angebot und friere sie für die Frühstücksvorbereitung ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch-aus-hue",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6256,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-nh-n-c-l-o/",
+      "components": [
+        {
+          "key": "21eff6cf-7458-5780-8134-341625eae1cd",
+          "name": "Zutaten",
+          "servingGrams": 473,
+          "position": 0,
+          "items": [
+            {
+              "key": "06c8304b-f9af-5474-91cb-13736437e741",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "000bf1e2-8b09-5789-b47d-18c1d91199d7",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e4056999-e0e7-53ff-93ac-d07b5df96a46",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "0b3f74ff-33b6-5f38-88d6-68b8ebb05e78",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Pfund gewolft"
+            },
+            {
+              "key": "f4fbed6e-7941-5371-aa16-bc5a40dd9869",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "15e0eb88-7c8c-5e78-acb0-89e84cd981b7",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "49e70a18-a5d2-5109-a054-a9e535a42928",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "4962397e-5501-5af1-a42c-89568cc2bf65",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "391eb371-a116-5c42-9df0-f7fdc9b069a9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "3a6b06b8-f945-5655-9bb1-e931f08f4f6d",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl mit 2 Tassen Wasser zu einem glatten Teig und seihe ihn durch ein feines Sieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße den Teig in eine gefettete runde Form von 9 Zoll und dämpfe ihn 15–20 Minuten, bis er gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig leicht abkühlen und schneide ihn dann in mundgerechte Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem Topf und dünste Knoblauch 1 Minute an. Gib dann Schweinehackfleisch und Garnelen dazu und zerkleinere das Fleisch beim Braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare alles 5 Minuten, bis das Schweinefleisch nicht mehr rosa ist. Rühre Fischsauce und Kokosmilch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Sauce 5 Minuten köcheln, bis sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Bánh-Nước-Stücke auf Schalen und schöpfe die Schweinefleisch-Garnelen-Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere mit Frühlingszwiebeln und Röstschalotten und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://statics.didau.com/image/2025/11/28/9dd710db4bfe4502bd0f370477f1e37a.jpg",
+          "sourcePageUrl": "https://statics.didau.com/image/2025/11/28/9dd710db4bfe4502bd0f370477f1e37a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-nh-b-o",
+      "slug": "gen-b-nh-b-o",
+      "title": "Bánh Bèo",
+      "instructions": "Vietnamesischer Snack aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Garnelen sind sehr günstig und halten sich monatelang im Vorratsschrank.",
+        "Verwende Silikon-Muffinförmchen oder Souffléförmchen, statt spezielle Bánh-Bèo-Formen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch-aus-hue",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6257,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-nh-b-o/",
+      "components": [
+        {
+          "key": "eaabb247-9eba-55ff-8846-30f662f1f311",
+          "name": "Zutaten",
+          "servingGrams": 327.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc85e279-3798-5210-9ec7-c7e62615a6c6",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "664146b5-d401-5b74-9e73-efa1309e9753",
+              "ingredientName": "Wasser",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.75 Tassen"
+            },
+            {
+              "key": "a693ab60-1da7-513a-bf88-ebec8fbaa0c2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6c875902-d231-50c7-80b8-f01c290077a4",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Pfund getrocknet"
+            },
+            {
+              "key": "e0129c6b-10c5-5f2a-8fdb-c9f1648a2c5d",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Pfund gewolft"
+            },
+            {
+              "key": "d36b0d0a-a17a-5d78-9c0b-80481ccc4227",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "f067cb17-666d-5b98-a159-db37268a5498",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7356216a-aff9-505b-96c6-0e23e5d65f07",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "119cf456-7e05-5d36-970f-c19f50f4b89a",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl, Wasser und Salz in einer Schüssel zu einem dünnen, glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle kleine flache Schälchen oder runde Förmchen (etwa 3 Zoll breit) bis zur Hälfte mit Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dämpfe die Bánh Bèo 10-12 Minuten, bis die Küchlein fest und blass sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weiche währenddessen getrocknete Garnelen 5 Minuten in warmem Wasser ein und hacke sie anschließend fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer Pfanne und brate Schweinehackfleisch etwa 4 Minuten durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gehackte Garnelen, Fischsauce und Frühlingszwiebeln dazu und gare alles 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jedes Bánh-Bèo-Küchlein mit einem Löffel der Schweinefleisch-Garnelen-Mischung und Röstschalotten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Küchlein sofort warm mit frischen Kräutern und eingelegtem Gemüse als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/mmbonappetit.com/wp-content/uploads/2023/03/Banh-beo-3.jpg?w=1500&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/mmbonappetit.com/wp-content/uploads/2023/03/Banh-beo-3.jpg?w=1500&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-nh-cu-n-hue",
+      "slug": "gen-b-nh-cu-n-hue",
+      "title": "Bánh Cuốn nach Hue-Art",
+      "instructions": "Vietnamesisches Frühstück aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Champignons statt spezieller Pilzsorten, um Kosten zu sparen.",
+        "Bereite die Füllung am Vorabend zu und bewahre sie im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch-aus-hue",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6258,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-nh-cu-n-hue/",
+      "components": [
+        {
+          "key": "e3d1bd2a-6d15-5905-8eac-b22d736075df",
+          "name": "Zutaten",
+          "servingGrams": 236.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a615673f-c973-59c0-8717-944c9c0c2525",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5be0872e-0e2e-5259-a0c0-916faedde3fa",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "cdb72b65-c72c-5848-b7a2-827f3d3da87e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "ba1a12ea-d5de-5110-8fed-41e39fafda7b",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Pfund gewolft"
+            },
+            {
+              "key": "3f30dc10-8869-5979-b8ad-b185ebaec109",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 oz gehackt"
+            },
+            {
+              "key": "8fce00ea-9e8e-5e48-b184-4207f9fd19e2",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "b5c51a21-9894-5597-846a-e1e1a5d04f35",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4b8fc60f-3eaa-53d1-8f64-b1780b9881c6",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5a03057b-698d-5b16-a888-38b811dc91fc",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "c0baecad-8c1e-53a3-beba-5ccdfea2eae3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl, Wasser und Salz zu einem dünnen, glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne bei mittelhoher Hitze und dünste gewürfelte Zwiebel 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Schweinehackfleisch dazu und brate es unter Zerteilen, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gehackte Pilze, Fischsauce und schwarzen Pfeffer ein und gare alles weitere 3 Minuten. Stelle die Füllung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öle eine beschichtete Pfanne leicht ein und erhitze sie bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße eine dünne Teigschicht in die Pfanne, schwenke sie gleichmäßig und gare sie 1-2 Minuten, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib eine Linie Füllung in die Mitte des Crêpes, rolle ihn fest auf und lege ihn auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wiederhole den Vorgang mit dem restlichen Teig und der Füllung. Serviere die Röllchen heiß mit Dip aus Fischsauce, Limette und Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/643719b9b72065f808cac74d/1:1/w_2560%2Cc_limit/Recipe_Beauty_Mushroom_Pork_Shrimp_Bahn_Cuon_4143.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/643719b9b72065f808cac74d/1:1/w_2560%2Cc_limit/Recipe_Beauty_Mushroom_Pork_Shrimp_Bahn_Cuon_4143.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-c-m-h-n",
+      "slug": "gen-c-m-h-n",
+      "title": "Cơm Hến",
+      "instructions": "Vietnamesisches Mittagessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Venusmuscheln auf dem Wochenmarkt oder asiatischen Märkten günstiger als im Supermarkt.",
+        "Wenn nötig, verwende Venusmuscheln aus der Dose; für den authentischen Geschmack sind frische vorzuziehen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch-aus-hue",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6259,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-c-m-h-n/",
+      "components": [
+        {
+          "key": "5270e27c-5598-5c52-8b46-8718ecde3744",
+          "name": "Zutaten",
+          "servingGrams": 334.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc793c58-c30b-5532-8af2-71acffdaad68",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "5daea478-49be-5f5c-addf-f4f7fd609154",
+              "ingredientName": "Venusmuscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d980791e-3a80-5e4f-b842-fe4364b26734",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Pfund gewürfelt"
+            },
+            {
+              "key": "9bd0ac55-4568-52f5-aab0-c5f9a6449e73",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "29dfd613-2854-52d0-8683-77feb53d2b64",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "7487b201-eda5-50ec-be61-ccd49cca334b",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1d27a298-c66c-548b-9342-520b3af672a5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6326dcbd-71df-5dd0-8b92-f5452b9f5860",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "f9ffdd08-8fc4-54ea-8e36-074fcefeefcc",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und dünste gehackten Knoblauch und gewürfelte Zwiebel 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelten Schweinebauch dazu und brate ihn etwa 4 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Venusmuscheln und Wasser dazu, decke den Topf ab und gare alles 8-10 Minuten, bis sich die Muscheln öffnen. Entsorge geschlossene Muscheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Muscheln heraus und stelle sie beiseite. Rühre Fischsauce in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den gekochten Reis auf Schalen und schöpfe die Muschelbrühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gegarten Muscheln darauf und gieße die übrige Sauce über den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere großzügig mit Frühlingszwiebeln und frischem Dill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß mit Limettenspalten und zusätzlicher Fischsauce als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/12/best-cornish-cornsih-hen-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/12/best-cornish-cornsih-hen-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

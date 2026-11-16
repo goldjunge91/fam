@@ -1,0 +1,1096 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sheet-pan-shrimp-fried-rice",
+      "slug": "gen-sheet-pan-shrimp-fried-rice",
+      "title": "Gebratener Garnelenreis vom Blech",
+      "instructions": "Ein beliebtes chinesisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte statt frischer Garnelen, das ist günstiger.",
+        "Bereite den Reis vorab zu und bewahre ihn im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4675,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-shrimp-fried-rice/",
+      "components": [
+        {
+          "key": "d8f5bd70-65d1-5570-a192-778d8a50c460",
+          "name": "Zutaten",
+          "servingGrams": 609.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "68e09db9-b685-54fb-a3eb-478bb3e96d13",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ef372932-72a4-5d82-9b32-d5323af27b3f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "4dbddc8d-f778-51ef-9c87-f727b1fd9d86",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "595d8761-87d3-507d-b0cd-f47865dc1126",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "dc4656f7-4e35-5354-be23-0dd8dc76feb4",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "320a970b-e646-5241-92c8-4135d2458f16",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7d4ad6c0-dcdb-5fba-b9c3-04a0f4960fd3",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9c2f72c5-9818-59ac-8dd8-dcf70fffd7a4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04f7083b-64ca-566a-9639-9e5f6b43b55b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2a62f267-3beb-58ea-8672-4553502cd1da",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Backofen auf 425°F vorheizen und den Reis auf einem Blech verteilen, damit er 5 Minuten leicht trocknet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelen mit Salz und Pfeffer würzen und um den Reis herum auf dem Blech verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5-7 Minuten braten, bis die Garnelen rosa werden, dann zur Seite schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier in einer Schüssel verquirlen, dann auf das Blech geben und in kleine Stücke zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tiefgekühlte Erbsen und Karotten, gehackten Knoblauch und Ingwer auf das Blech geben und gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasoße und Sesamöl über alles träufeln und vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 3-4 Minuten braten, bis das Gemüse vollständig erhitzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren mit gehackten Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/sCMRoR4VHB759ZBMfIjy24_9cSU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7671171-53b40aa123b248509481d4f6ff89840c.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/sCMRoR4VHB759ZBMfIjy24_9cSU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7671171-53b40aa123b248509481d4f6ff89840c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-chicken-marsala",
+      "slug": "gen-sheet-pan-chicken-marsala",
+      "title": "Hähnchen-Marsala vom Blech",
+      "instructions": "Ein beliebtes italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kochwein statt Marsala, um Kosten zu sparen.",
+        "Kaufe Hähnchen im Angebot und friere es ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4676,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-chicken-marsala/",
+      "components": [
+        {
+          "key": "aca71e4f-fc68-561d-bf31-8ed5ce977da6",
+          "name": "Zutaten",
+          "servingGrams": 230.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa45182b-8378-5c36-b76a-7f06c63fa5b4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27f7e51b-7f53-56ac-9a81-700f9f3a9d56",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "29c5b658-58f6-579c-b215-8cd5afe29086",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "9aaaec7a-98e5-5529-9c6c-8caa95d74aa4",
+              "ingredientName": "Marsala-Wein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bf3745b0-281f-50bb-9326-c5e6afb5f818",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "595f7a87-5194-5b06-b21c-a10ce85255b3",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2d302c44-d251-56d8-b9c8-2ff45b7dedd1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2e894f08-ee5d-5b37-8c52-950cc6a767a6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe3504c6-eb9a-5bbd-957e-ed19df951623",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "fe252900-bf85-593d-bfaf-ab54734485f5",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrüste auf 1/4-inch Dicke klopfen und leicht mit Mehl bestäuben, das mit Salz und Pfeffer vermischt wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl und Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenbrüste pro Seite 3-4 Minuten scharf anbraten, dann auf ein Blech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In derselben Pfanne die in Scheiben geschnittenen Champignons und den gehackten Knoblauch 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Pfanne mit Marsalawein ablöschen und dann die Hühnerbrühe dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Champignonsoße über das Hähnchen auf dem Blech gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375°F 12-15 Minuten backen, bis das Hähnchen durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/10/1200-Easy-Chicken-Marsala-Recipe-2-SpendWithPennies.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/10/1200-Easy-Chicken-Marsala-Recipe-2-SpendWithPennies.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-tofu-stir-fry",
+      "slug": "gen-sheet-pan-tofu-stir-fry",
+      "title": "Tofu-Gemüsepfanne vom Blech",
+      "instructions": "Ein beliebtes chinesisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu in größeren Mengen und friere den Rest für später ein.",
+        "Verwende tiefgekühlten Brokkoli, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Abendessen",
+        "vegan",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4677,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-tofu-stir-fry/",
+      "components": [
+        {
+          "key": "c6ac15da-3fa7-524f-8f17-67bf71091d20",
+          "name": "Zutaten",
+          "servingGrams": 495.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "da9d47a0-e6d2-5fde-8f7d-4b79efd6ab45",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "a8ae3010-d0cc-57e5-a778-1776a31f85b7",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0f08c836-d7d2-5681-abee-63247a229e6b",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c04c52f-ed8f-51ed-afda-8119b506620c",
+              "ingredientName": "Zuckererbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3a5e0340-3432-5a5b-8cae-183da7f9aa9c",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f6ba5d5c-2b77-5403-b6b1-531d62ff7c08",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3b92dc86-cbca-58c4-8cb4-196c6949f4a9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "53fe45ea-351e-590e-8f94-68759d1f86d8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cbb5d80-4abf-57e7-9685-31cbcdf14a14",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "04e7d31d-1f2f-57a4-93ba-029dceaa62c1",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tofu 10 Minuten zwischen Küchenpapier pressen, um überschüssige Flüssigkeit zu entfernen, dann in 3/4-inch große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tofewürfel in einer Schüssel mit Maisstärke, Sojasoße und Sesamöl vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tofu und das gesamte gehackte Gemüse auf einem Blech verteilen und mit Pflanzenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch und Ingwer darüberstreuen und alles gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 425°F 20-25 Minuten braten, nach der Hälfte der Zeit umrühren, bis das Gemüse weich und der Tofu goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß servieren, nach Belieben mit zusätzlicher Sojasoße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fannetasticfood.com/wp-content/uploads/2021/04/Tofu-Stir-Fry-featured-image.png",
+          "sourcePageUrl": "https://www.fannetasticfood.com/wp-content/uploads/2021/04/Tofu-Stir-Fry-featured-image.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-baked-cod-with-vegetables",
+      "slug": "gen-sheet-pan-baked-cod-with-vegetables",
+      "title": "Gebackener Kabeljau mit Gemüse vom Blech",
+      "instructions": "Ein beliebtes amerikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kabeljau im Angebot und friere ihn ein.",
+        "Verwende saisonales Gemüse, um günstiger einzukaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4678,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-baked-cod-with-vegetables/",
+      "components": [
+        {
+          "key": "4b47add5-b3f4-598c-a1f6-aca4dd8201e9",
+          "name": "Zutaten",
+          "servingGrams": 286.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "1ffa155b-14ba-56b1-912b-64845478e58e",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d56bd5dd-f48a-5f25-9a5f-b6612810c3b4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7a862252-f27e-5664-ac0a-a9d606fc9918",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b257b62b-8b3e-5445-8b8a-385adc6434cf",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05b209e0-9a91-5e99-be0f-ffb2189adfa3",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a504511c-f1c6-5ba3-aa5a-cb70b95df3ba",
+              "ingredientName": "Spargel",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cc06c026-dcc0-5ed5-9eea-2eabf7adbb00",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e20a5286-56df-5601-be7b-56209806fff9",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bed66487-90bd-59b3-930b-57a1f8e74062",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "38a18127-610b-52ec-a00d-e8c9fae69131",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Backofen auf 400°F vorheizen und ein Blech mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucchini und Spargel in 2-inch große Stücke schneiden und die Zitrone in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Gemüse auf dem Blech verteilen und mit Olivenöl beträufeln, dann mit Salz, Pfeffer, Thymian und gehacktem Knoblauch würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Gemüse 10 Minuten braten, dann an den Rand schieben und die Kabeljaufilets in die Mitte legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Kabeljau mit Salz, Pfeffer und Thymian würzen und mit Zitronenscheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 10-12 Minuten braten, bis sich der Kabeljau leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit dem Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2022/04/EASY-Baked-Cod-with-Spring-Vegetables-30-minutes-1-sheet-pan-SO-satisfying-minimalistbaker-recipe-cod-sheetpan-4-1365x2048.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2022/04/EASY-Baked-Cod-with-Spring-Vegetables-30-minutes-1-sheet-pan-SO-satisfying-minimalistbaker-recipe-cod-sheetpan-4-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-sausage-and-potatoes",
+      "slug": "gen-sheet-pan-sausage-and-potatoes",
+      "title": "Würstchen und Kartoffeln vom Blech",
+      "instructions": "Ein beliebtes amerikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Würstchen im Angebot und friere sie für später ein.",
+        "Verwende klein geschnittene Russet-Kartoffeln statt kleiner Kartoffeln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4679,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-sausage-and-potatoes/",
+      "components": [
+        {
+          "key": "5dfc9948-a03c-5721-a9db-b1e7ece89dbb",
+          "name": "Zutaten",
+          "servingGrams": 155.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4e82a31-04a0-517f-b1c6-705725d19d12",
+              "ingredientName": "Italienische Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1d4d8b1b-0244-5e41-b3b7-f2309f0e3bc2",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "401847c8-4424-521a-8bb2-741d41a53758",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d811e2d-853f-5a01-9720-3ec48b3855a8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ee35f19-842f-55eb-aca7-463d587663c0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cb0bd57e-9bcd-50b1-a8b1-decf0401eec1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ef6f10a-e97e-5e60-ad57-82ed4c48d001",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "edf2bf0b-a2cc-5b75-8dce-93593dd4c60a",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "9f282543-4918-5c95-9933-68cc3a5bcce5",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Backofen auf 425°F vorheizen und die kleinen Kartoffeln halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Kartoffeln auf einem Blech mit Olivenöl, gehacktem Knoblauch, italienischer Gewürzmischung, Salz und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Kartoffeln 15 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würstchen sowie gehackte Paprika und Zwiebeln rund um die Kartoffeln auf das Blech geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 15-20 Minuten braten, bis die Würstchen durchgegart und die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren mit geriebenem Parmesan bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/10/sausage-and-potato-sheet-pan-dinner-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/10/sausage-and-potato-sheet-pan-dinner-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

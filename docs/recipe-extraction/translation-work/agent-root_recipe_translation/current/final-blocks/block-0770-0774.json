@@ -1,0 +1,1133 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-tofu-veggie-stir-fry",
+      "slug": "mfr-tofu-veggie-stir-fry",
+      "title": "Knusprige Tofu-Gemüse-Pfanne",
+      "instructions": "Extra-fester Tofu wird in der Pfanne goldbraun gebraten und mit Brokkoli, Paprika und einer herzhaften Ingwer-Soja-Sauce vermengt: ein veganes Abendessen, das genauso zufrieden macht wie Essen zum Mitnehmen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fester Tofu kostet etwa $2–3 und liefert 20g Protein pro Tofublock.",
+        "Auspressen ist entscheidend für knusprigen Tofu. Lass diesen Schritt nicht aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Tempeh für einen nussigeren Geschmack und mehr Protein"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Honig oder Ahornsirup eignen sich gleichermaßen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tofu-veggie-stir-fry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "schnell",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 770,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tofu-veggie-stir-fry/",
+      "components": [
+        {
+          "key": "72a1bfaf-f444-57f9-bf2d-985a8b2c67a4",
+          "name": "Zutaten",
+          "servingGrams": 383.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "1eca6df9-9538-55b6-b656-d4b81cb94b4d",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18b92c31-d899-51c3-bf1d-3c05eaa1621f",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab4dc04f-1988-55b5-9882-7615f516f3e7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "532ab007-ac22-5524-962d-9b3a43a94798",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24cb620e-9062-5f51-9d84-b6fa31e9864e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1b2e557-e332-50a6-a898-8869c39db89b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73521c2f-b589-5dd2-9cd9-cab78c381b16",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8836d147-2ab3-5735-93c9-169500272cd6",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b8f425f-b0be-5858-9db9-34fb4bd8beec",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f1062ce-9a2f-5854-b0ab-b4c349ee47c9",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2313fbfc-92fb-52bf-a611-6b8fcd9d3f6f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 10 Minuten zwischen Küchenpapier aus. Schneide ihn in ½-inch-Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den Reis. Verrühre Sojasauce, Ingwer, Knoblauch, Reisessig und braunen Zucker zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Tofu in Sesamöl bei mittelhoher bis hoher Hitze 3–4 Minuten pro Seite, bis er goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Brokkoli und Paprika in die Pfanne und brate sie unter Rühren 3–4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Sauce darüber und vermenge alles 1–2 Minuten. Serviere es auf Reis und bestreue es mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/stir-fry-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/stir-fry-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-black-bean-tacos",
+      "slug": "mfr-salmon-black-bean-tacos",
+      "title": "Tacos mit Lachs und schwarzen Bohnen",
+      "instructions": "Zarte, mit Chili und Limette gewürzte Lachsstücke in Maistortillas mit schwarzen Bohnen, Avocado-Crema und knackigem Kohl: ein besonderer Taco-Abend für $4 pro Portion.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs aus der Dose ist ein hervorragender preisgünstiger Ersatz und kostet nur die Hälfte.",
+        "Eine halbe Dose schwarze Bohnen rundet die Tacos ab, ohne den Fischgeschmack zu überdecken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Lachs aus der Dose oder Tilapia als günstigere Option"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Griechischer Joghurt, mit Limettensaft verdünnt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-black-bean-tacos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 771,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-black-bean-tacos/",
+      "components": [
+        {
+          "key": "35ede890-0ea4-5b40-b609-07fcc2f494b2",
+          "name": "Zutaten",
+          "servingGrams": 558.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "18fc0a1a-33f8-52b6-8062-f3515e239297",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5df3c21a-7410-5944-9c2c-2d48c4ac38dc",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d11c2393-e9ae-5c47-8c26-42e691c1238d",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f189096-6e7a-53f6-81fb-1fcf3310d3d9",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "923c93d5-1e38-5646-8b30-fc59f3b755bc",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7df0053c-60f1-5e8d-85e7-4b90c89f60dd",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74a2dcb3-04d5-5ff3-a589-f59a07de4d06",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19a69d32-d0be-5a3b-bb22-9a8b06522a5b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc904871-6f1b-54a1-b260-89dfd928c0a5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8e69a7e-6530-53dd-ac1b-6fbb56d5bca8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2aa78f33-2ba5-5a61-8a1e-65a18684021d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze den Lachs mit Chilipulver, Kreuzkümmel, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare den Lachs in Olivenöl 3–4 Minuten pro Seite, bis er sich leicht zerteilen lässt. Teile ihn in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke die Avocado mit Limettensaft und Salz zu einer schnellen Crema.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide den Kohl in feine Streifen und vermenge ihn mit Limettensaft und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Tortillas. Fülle die Tacos mit schwarzen Bohnen, Lachs, Krautsalat und Avocado-Crema.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2014/07/IMG_0029-cropped1.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2014/07/IMG_0029-cropped1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-kale-soup",
+      "slug": "mfr-turkey-kale-soup",
+      "title": "Suppe mit Putenhack und Grünkohl",
+      "instructions": "Herzhafte Brühe mit gewürztem Putenhack, weißen Bohnen und kräftigem Grünkohl: eine sättigende, nährstoffreiche Suppe, ideal zur Vorbereitung mehrerer Mahlzeiten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Grünkohl gehört zu den günstigsten nährstoffreichen Blattgemüsen.",
+        "Weiße Bohnen liefern Protein und Ballaststoffe für weniger als $1 pro Dose."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat oder Mangold. In den letzten 2 Minuten hinzufügen, damit das Gemüse nicht zu lange gart"
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder Linsen eignen sich ebenso gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-kale-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 772,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-kale-soup/",
+      "components": [
+        {
+          "key": "ec45bc68-1343-5e2e-b143-de53ce731c94",
+          "name": "Zutaten",
+          "servingGrams": 622.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a5d49e05-23dd-50aa-91b6-eea9cf1888a7",
+              "ingredientName": "Putenhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "967dffc1-bbd4-5eed-916d-b5263e96470f",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d02bb1c3-010e-5e92-a4e2-06797b8c5318",
+              "ingredientName": "Grünkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b76cea9-4ec2-5823-b643-70972a8baba6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42a6da6e-de45-5084-8f29-8a15072b3002",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c495677-f955-5227-96ba-38f6a2d6fbe0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a253c0c-6fb6-52d9-8e6c-0d7a54e7a7d3",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7aecfbc-fd33-57ba-937f-2aeb9463ac96",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b82c9c40-5c80-5005-ae4e-26cf7ae96475",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f8d75cb-d4da-55ef-9ad8-407db10c46b2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel und Karotte 5 Minuten in Olivenöl an. Gib Knoblauch dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Putenhack dazu, zerteile es und brate es 5–6 Minuten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe dazu und würze mit italienischen Kräutern. Bringe die Suppe zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abgetropfte weiße Bohnen und gehackten Grünkohl dazu. Lass alles 10 Minuten köcheln, bis der Grünkohl zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmecke die Suppe mit Salz und Pfeffer ab. Nach Belieben mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i1.wp.com/positivelystacey.com/wp-content/uploads/2016/11/IMG_9845.jpg?ssl=1",
+          "sourcePageUrl": "https://i1.wp.com/positivelystacey.com/wp-content/uploads/2016/11/IMG_9845.jpg?ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-egg-white-veggie-frittata",
+      "slug": "mfr-egg-white-veggie-frittata",
+      "title": "Frittata aus Eiweiß und geröstetem Gemüse",
+      "instructions": "Goldbraune, fluffige Frittata aus Eiweiß, gefüllt mit gerösteter Paprika, Zucchini und Feta: fettarm, proteinreich und in 20 Minuten im Ofen gestockt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten vollständigen Proteinquellen.",
+        "Mit überwiegend Eiweiß sinken Fett und Kalorien, während das Volumen erhalten bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse oder Mozzarella für eine andere Geschmacksrichtung"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Pilze, Spargel oder beliebiges Gemüse, das aufgebraucht werden muss"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-white-veggie-frittata",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 773,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-white-veggie-frittata/",
+      "components": [
+        {
+          "key": "7c5d1d89-5d57-58f2-a999-1f6e54756090",
+          "name": "Zutaten",
+          "servingGrams": 409.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c24df32-339e-55d9-ae63-834c82f08c82",
+              "ingredientName": "Eier",
+              "grams": 500,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc1bdcc5-eb5e-53c3-ba23-ae65b040a212",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a7a6505-ced6-5af8-80b6-bfea7c195968",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "916cf15d-f1c2-54d2-89de-2f93ed4799fc",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee04664a-826d-5961-bd29-3a2c9b9a41fc",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "359ca539-2cbf-506a-aed0-611c3970fc22",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "556227cb-4d6d-59f2-b81c-18195d776c21",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fd9ad80-0302-5146-a802-c0f415f36a9f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bba16250-adda-507b-b570-69df7617864c",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37d0b308-39e8-54e5-bbec-2c326292a40e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor. Dünste die Zwiebel 3 Minuten in Olivenöl an; gib Knoblauch und Paprika dazu und gare sie 3 Minuten; füge Zucchini und Spinat hinzu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Trenne 6 Eier. Verquirle 6 Eiweiß mit 4 ganzen Eiern, italienischen Kräutern, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eiermischung in eine ofenfeste Pfanne über das Gemüse. Zerbrösele Feta darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles auf dem Herd 2 Minuten, bis die Ränder stocken. Stelle die Pfanne dann für 12–15 Minuten in den Ofen, bis die Frittata vollständig gestockt und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Frittata vor dem Schneiden in Stücke 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2014/11/28/WomansDayBR109680/roast-vegetable-frittata.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2014/11/28/WomansDayBR109680/roast-vegetable-frittata.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lentil-shepherds-pie",
+      "slug": "mfr-lentil-shepherds-pie",
+      "title": "Linsenauflauf nach Shepherd's-Pie-Art mit Blumenkohlstampf",
+      "instructions": "Herzhafte Linsen-Gemüse-Füllung unter einer Schicht cremigem Blumenkohlstampf: pflanzliches Wohlfühlessen vom Feinsten.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen gehören mit $1–2/lb zu den günstigsten pflanzlichen Proteinquellen.",
+        "Das ganze Gericht kostet etwa $1.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Gedämpfter und gestampfter Blumenkohl als kohlenhydratärmerer Belag"
+        },
+        {
+          "forIngredientId": "worcestershire",
+          "swap": "Sojasauce für eine vegane Umami-Note"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lentil-shepherds-pie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "britisch",
+        "Essensvorbereitung",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 774,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lentil-shepherds-pie/",
+      "components": [
+        {
+          "key": "cda73cb5-d7a9-57ad-8b7d-663bf4501b59",
+          "name": "Zutaten",
+          "servingGrams": 328.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "02a5d069-6204-5fe1-81bb-ef3b4c7b4799",
+              "ingredientName": "Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "029036a8-b922-5578-bb40-7742a3dc1c67",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2f2397d-3c25-5c51-95c2-aacb6b371738",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b5f7d32-e96e-526e-859f-d7ee87b5e9cc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cecdf98-1c98-5e2c-8c2d-5418cc89a8a7",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "678ca3cd-435a-5fba-bd3c-5d8648b5fcc7",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0da4a6e-a4af-5e8f-915a-346484ca16a7",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b3d0ba0-d477-54f9-b0a9-aafbff25bfd6",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17325370-a85f-50b9-b6f4-579a26bbbc81",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4864487e-66f7-5d5e-bed9-6d1631c5296f",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69c592c5-9a78-5d05-9b1c-75928acff22f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4296318f-0dfb-5d83-acf4-1c8299933890",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Linsen 20 Minuten in Gemüsebrühe, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel, Karotte und Knoblauch 8 Minuten in Olivenöl an. Gib Tomatenmark und Thymian dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gekochte Linsen, tiefgekühlte Erbsen, Worcestershire-Sauce und Brühe dazu. Lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe und zerstampfe die Kartoffeln oder verwende für weniger Kalorien Blumenkohl. Rühre Olivenöl und Salz unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Mischung in eine Auflaufform, verteile den Stampf darauf und grille alles 5 Minuten, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.destinationdelish.com/wp-content/uploads/2020/03/mashed-cauliflower-shepherds-pie-bowl-1.jpg",
+          "sourcePageUrl": "https://www.destinationdelish.com/wp-content/uploads/2020/03/mashed-cauliflower-shepherds-pie-bowl-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

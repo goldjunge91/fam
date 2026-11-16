@@ -1,0 +1,1052 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-migas-alentejana",
+      "slug": "gen-migas-alentejana",
+      "title": "Migas à alentejana",
+      "instructions": "Portugiesisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Übrig gebliebenes Brot verwenden, statt neues zu kaufen, ideal für altbackenes Brot.",
+        "Koriander weglassen und Petersilie aus dem Garten oder aus dem Tiefkühler verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "portugiesisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4390,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-migas-alentejana/",
+      "components": [
+        {
+          "key": "aec2ca3a-8526-5759-9a44-f18caef62bfe",
+          "name": "Zutaten",
+          "servingGrams": 232.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "95f61311-5069-5a6e-8354-6a1f12e59427",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "41e303c8-0591-5007-bf6c-f3573762ae3b",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30f97922-80a5-5397-84fc-b15a35cc81f4",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "08951abf-e928-5443-bdf0-8af9f76b0846",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7d13e40f-e47b-54ff-b9c0-9d54835d6998",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "945b8885-927c-5edb-8e8e-079c36e61e5d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "03719d7e-b8a6-52e1-a7da-3ec307dcfe16",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bddbea0-a34b-5c3f-a7b9-f6fd48caf712",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Altbackenes Brot in mundgerechte Würfel schneiden und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen und gehackten Knoblauch hinzufügen; anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wasser oder Brühe in die Pfanne geben und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brotwürfel hinzufügen und 5-7 Minuten ständig rühren, bis das Brot die Flüssigkeit aufgesogen hat und cremig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer würzen, dann die Migas an den Rand der Pfanne schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eier in die Mitte der Pfanne schlagen und braten, bis das Eiweiß fest, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Migas mit den Spiegeleiern darauf servieren und mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/09/Mediterranean-Dish-Migas-METHOD-4-1024x683.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/09/Mediterranean-Dish-Migas-METHOD-4-1024x683.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-a-orda-de-marisco",
+      "slug": "gen-a-orda-de-marisco",
+      "title": "Açorda de Marisco",
+      "instructions": "Portugiesisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Garnelen und Muscheln statt frischer, um deutlich zu sparen.",
+        "Verwenden Sie selbst gemachte Meeresfrüchtebrühe aus Fischköpfen und -gräten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4391,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-a-orda-de-marisco/",
+      "components": [
+        {
+          "key": "46b3c57c-5506-527a-9de1-0f3f074c0d2b",
+          "name": "Zutaten",
+          "servingGrams": 528.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "d16309ce-f639-52ad-9ec1-8180f9c52258",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1cf9c8b2-9e18-509a-a156-5ff8d8fddf16",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1f141c34-3ecb-53b9-ad69-81152b6bb86a",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "ee593a62-3f18-5adf-bc73-eaa002cd0f05",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "840af089-d19a-5985-bc7b-eb3b3f793803",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ac55588a-7113-512a-a23f-20e350b68176",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "bf958d47-40da-560c-8503-3f5643157b4b",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4c204dd2-1e6e-5b04-a916-aa1eb041fe42",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccbd899a-c5fe-5ae6-b26c-797ddd3e44f5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "aed6dcfd-b69a-5ab8-b4c1-db9964aca5bf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7524fdf3-5f75-5a1c-a8e4-7fd34c8ef279",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fischbrühe und Weißwein in einem großen Topf zum Kochen bringen, dann Garnelen und Muscheln hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "4-5 Minuten kochen, bis die Garnelen rosa sind und sich die Muscheln öffnen, dann die Meeresfrüchte herausnehmen und die Brühe abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Altbackenes Brot in Würfel schneiden und Olivenöl in einem Topf bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch ins Öl geben und 1 Minute anbraten, dann die Brotwürfel hinzufügen und schwenken, bis sie vollständig mit Öl bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die abgesiebte Brühe über die Brotmischung gießen und 5 Minuten köcheln lassen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer würzen, dann die Eier direkt in den Topf schlagen und vorsichtig rühren, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garnelen und Muscheln zurück in den Topf geben, den Koriander unterrühren und in tiefen Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/d0/9d/48/d09d4813fe8e39f4579c41c5f04b035c.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/d0/9d/48/d09d4813fe8e39f4579c41c5f04b035c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pato-no-vinho-d-alhos",
+      "slug": "gen-pato-no-vinho-d-alhos",
+      "title": "Pato no Vinho d'alhos",
+      "instructions": "Portugiesisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Entenkeulen und -schenkel statt einer ganzen Ente, da sie günstiger sind und sich besser zum Schmoren eignen.",
+        "Verwenden Sie Rotweinessig und Wasser statt teuren Weins."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4392,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pato-no-vinho-d-alhos/",
+      "components": [
+        {
+          "key": "733686ad-2a0a-5067-86ae-60f6ac704000",
+          "name": "Zutaten",
+          "servingGrams": 57.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "694008a3-b7df-53ad-9ed5-584b81f0c292",
+              "ingredientName": "Ententeile",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Pfund"
+            },
+            {
+              "key": "f9eadb77-e765-57a5-85ab-e506b49d60ad",
+              "ingredientName": "Knoblauch",
+              "grams": 36,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e58afec2-5315-5a57-9968-cab855ff7205",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a695daf4-4071-53ed-8d74-46003fd2dff7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a0326e96-2849-5a48-bf02-4e395fd5281a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6ed36bc-dc3f-5e8e-b185-a42eea270efa",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7c938671-59b8-51b7-a578-cbdf8e9b7db4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "247aa409-6db2-5cde-88f9-47b73c17ef37",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e495dd8b-dd67-5cda-b49f-829d4f2c7b5e",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rotwein, Essig, Knoblauchzehen, Lorbeerblätter und Pfefferkörner in einer Schüssel vermengen, um die Marinade zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Entenstücke in einen großen Behälter legen, die Marinade darübergießen, abdecken und über Nacht oder mindestens 4 Stunden im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Ente aus der Marinade nehmen, trocken tupfen und die Marinade separat aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und die Entenstücke von allen Seiten anbraten, insgesamt etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die beiseitegestellte Marinade über die Ente gießen, zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 45 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kartoffeln schälen und vierteln, mit der Ente in den Topf geben und weitere 25 Minuten köcheln lassen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz würzen, mit frischer Petersilie garnieren und heiß servieren, dabei die kräftige Sauce darüberlöffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fabulousfusionfood.com/Images/carne-porco-vinho-d-alhos.png",
+          "sourcePageUrl": "https://www.fabulousfusionfood.com/Images/carne-porco-vinho-d-alhos.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tripe-moda-do-porto",
+      "slug": "gen-tripe-moda-do-porto",
+      "title": "Kutteln à moda do Porto",
+      "instructions": "Portugiesisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kutteln bei einem Spezialitätenmetzger, wo sie günstiger sind als in gewöhnlichen Supermärkten.",
+        "Getrocknete Bohnen kosten im Vergleich zu Dosenbohnen nur wenig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "portugiesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4393,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tripe-moda-do-porto/",
+      "components": [
+        {
+          "key": "cc181b3f-763f-5c3a-8149-46dc11b36a7f",
+          "name": "Zutaten",
+          "servingGrams": 610.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "28e02fab-bb86-5733-8bc9-8e4676acb0e8",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "85db2f45-f3af-5d03-97f8-769a98acb15c",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "48628c7f-aa5b-530a-ac8c-0a58cdad2663",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d583379d-c9c4-577a-91da-ff1ee64e42ad",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "0a6dc410-db0c-58b3-916b-35eb576b3f43",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "513c93ac-933b-50a6-a890-311387bb6397",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "0cfb1c1c-fd65-53be-a063-b09cc6c914c0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58a0c2e9-3683-507b-a4ac-32346b662ba8",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c9e4bb32-2904-5f5d-82bd-6f3387c8d5b4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7dd674f2-7962-5164-bd84-6e7eeb2b4206",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5747c66a-73e4-5de9-b4bd-0902753ce6f2",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kutteln unter kaltem, fließendem Wasser gründlich säubern und in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Getrocknete Bohnen 8 Stunden oder über Nacht in Wasser einweichen, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebel und Knoblauch anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kutteln und Stücke der Rinderschulter hinzufügen und 10 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Weißwein ablöschen, dann Brühe, Bohnen, Karotten und Lorbeerblätter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 2.5 Stunden köcheln lassen, bis die Kutteln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lorincookslegumes.com/wp-content/uploads/2022/04/img_4860.jpeg",
+          "sourcePageUrl": "https://lorincookslegumes.com/wp-content/uploads/2022/04/img_4860.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-broa-de-milho",
+      "slug": "gen-broa-de-milho",
+      "title": "Broa de Milho",
+      "instructions": "Portugiesisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maisgrieß und Mehl in Großpackungen im Discounter.",
+        "Dieses Brot bleibt mehrere Tage frisch und senkt so die täglichen Frühstückskosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "portugiesisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4394,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-broa-de-milho/",
+      "components": [
+        {
+          "key": "41dfc5d5-6207-55fc-8cc4-33bf55932547",
+          "name": "Zutaten",
+          "servingGrams": 190.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "33bc341f-560e-5476-98a2-81d5c8693e27",
+              "ingredientName": "Polenta",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0e3bda69-2305-5e0b-8cab-3dacb8e076fe",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1444cb4a-6608-5046-8776-62ca1329c746",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a28f86fa-c20f-536f-a11a-dc22a8f96563",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "11b2be0b-9cf8-5c32-a79b-23d4f9dd4d3c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5d83a262-5961-5556-81e0-266505505294",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Backofen auf 400°F vorheizen und ein Backblech mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maisgrieß, Weizenmehl, Vollkornmehl und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Langsam kochendes Wasser zugießen und dabei ständig rühren, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl hinzufügen und rühren, bis es vollständig eingearbeitet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig auf dem vorbereiteten Backblech zu einem runden Laib formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Oberseite mit einem Messer kreuzförmig einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "35-40 Minuten backen, bis das Brot goldbraun ist und ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://foodgeek.io/wp-content/uploads/2018/07/IMG_0365.jpg",
+          "sourcePageUrl": "https://foodgeek.io/wp-content/uploads/2018/07/IMG_0365.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1107 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-katsudon",
+      "slug": "gen-katsudon",
+      "title": "Katsudon (japanische Schweineschnitzel-Reisschüssel)",
+      "instructions": "Japanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter und schneide sie selbst günstiger in Schnitzel",
+        "Verwende Speiseöl erneut, indem du es durch ein Seihtuch filterst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2390,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-katsudon/",
+      "components": [
+        {
+          "key": "d1bd477f-b860-569b-9b2b-d373faaa8e64",
+          "name": "Zutaten",
+          "servingGrams": 768.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a59c3fd-69f3-5397-8be8-4585e8400162",
+              "ingredientName": "Schweinebratwurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Stücke (6 Unzen je)"
+            },
+            {
+              "key": "55bbd36a-b16e-5870-8a1e-a998e0773db6",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2f62dd07-ef18-5f30-8325-ec3e96f840a3",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c2d08ea-12ce-5282-8e13-b4e7a878f76b",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "c22cec7e-3c4c-5413-81e1-d8cc8fa61183",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "cdb65440-68a8-5cf5-94e8-1429eb32ded9",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1f98249f-b650-5152-b400-e7983b22d6c9",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1a200fa7-33c1-56fa-aa41-401ec29f48c5",
+              "ingredientName": "Mirin",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "7a56e2b1-89fb-5490-b35a-ee0c3830beec",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3b9f4cd2-3c3a-5b3b-af69-f2869d27d8bd",
+              "ingredientName": "Reis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "cde3e0a8-367a-5ffb-a7d4-e3b4827f9dd2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Schweineschnitzel trocken und klopfe sie mit einem Fleischklopfer dünn und gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln bereit: eine mit Mehl, eine mit verquirltem Ei und eine mit Panko-Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Schnitzel zuerst in Mehl, tauche es dann in Ei und drücke es anschließend in die Panko-Brösel, bis es vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere die Schnitzel 3-4 Minuten pro Seite goldbraun. Lasse sie auf Küchenpapier abtropfen und schneide sie in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Zwiebel und lasse sie in einer Soße aus Dashi, Sojasoße, Mirin und Zucker 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Reis auf zwei Schüsseln und richte die Schweineschnitzelstreifen darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Zwiebelsauce über die Schnitzel und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/65240f5e76f7410dfc169249/1:1/w_2560%2Cc_limit/Katsudon-RECIPE.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/65240f5e76f7410dfc169249/1:1/w_2560%2Cc_limit/Katsudon-RECIPE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oyakodon",
+      "slug": "gen-oyakodon",
+      "title": "Oyakodon (japanische Hähnchen-Ei-Reisschüssel)",
+      "instructions": "Japanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier bei Angeboten in größeren Mengen und bewahre sie im Kühlschrank auf",
+        "Verwende günstige Hähnchenbrust aus preiswerten Supermärkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2391,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oyakodon/",
+      "components": [
+        {
+          "key": "008c404c-311b-5ead-8cce-74ae9df811b9",
+          "name": "Zutaten",
+          "servingGrams": 717.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "11318a7a-2891-581a-b281-3753e68637f6",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "35b21de5-4c48-51d5-8fe3-269ea0d1407a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4b26bfb9-c82e-575c-8c89-60c57227cf65",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0aedad8e-25a2-50e2-a9c9-7c61ab77c464",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3613e868-0fc0-51dd-8369-54e24bc07cbb",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e54871d9-9791-52b9-bf29-eacbecc805ef",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "561ad82d-e0f2-579c-980a-fa90a520af7e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "20f308a5-39b2-528a-9195-ec61b63c2ae4",
+              "ingredientName": "Reis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in mundgerechte Stücke und die Zwiebel in dünne Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Dashi-Brühe, Sojasoße, Mirin und Zucker in einer Pfanne und bringe die Mischung zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hähnchen und Zwiebelscheiben in die köchelnde Brühe und gare sie 5 Minuten, bis das Hähnchen fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage 3 Eier in einer Schüssel auf und gieße sie langsam unter sanftem Rühren in die Pfanne, sodass Fäden entstehen und etwas Ei noch nicht ganz stockt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage das restliche Ei auf und gieße es ohne Rühren darüber, damit es eine Schicht bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne nach etwa 1-2 Minuten vom Herd, wenn die Eier gerade gestockt, aber noch leicht flüssig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den Reis auf zwei Schüsseln und gib die Hähnchen-Ei-Mischung vorsichtig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit geschnittenen Frühlingszwiebeln garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/67be6e14459ae136c052fc6a/1:1/w_2560%2Cc_limit/oyakodon_RECIPE_V1_021325_1169_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/67be6e14459ae136c052fc6a/1:1/w_2560%2Cc_limit/oyakodon_RECIPE_V1_021325_1169_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-okonomiyaki",
+      "slug": "gen-okonomiyaki",
+      "title": "Okonomiyaki (japanischer Kohlpfannkuchen)",
+      "instructions": "Japanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Okonomiyaki-Soße selbst aus Ketchup, Worcestershire-Soße und Sojasoße zu",
+        "Lasse das Schweinefleisch weg und bereite eine vegetarische Variante mit Pilzen und Käse zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2392,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-okonomiyaki/",
+      "components": [
+        {
+          "key": "66c95386-75e4-5096-9577-6f8ca19a3cd5",
+          "name": "Zutaten",
+          "servingGrams": 741.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "336e3e0f-a892-5476-b0ae-dd02e6908a0b",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "edcf03f3-105a-5b83-8b6a-c883db6d53c6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ea90de4-7372-5d93-9619-e8c4b6c5fbce",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "e4ab0e19-eab2-5b9d-993b-5d8af84d6eb6",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen geraspelt"
+            },
+            {
+              "key": "5ea45f60-77a2-526e-ba4c-02ceee4e20ab",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "94c7d9b3-66c1-5022-8d34-5942abe361b0",
+              "ingredientName": "Tomatensoße",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9ef8cc13-9a12-59d1-8eb2-53e0a5237885",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0ee2ff58-16c0-50ae-a669-e9f4641320c8",
+              "ingredientName": "Bonitoflocken",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Unze"
+            },
+            {
+              "key": "953fd0a1-caee-5fc4-8654-795af03c7331",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4f5e6407-92d7-560c-93a2-e696d79077d4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Eier und Wasser in einer Schüssel zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hebe den fein geschnittenen Kohl unter, bis er gleichmäßig mit Teig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne oder auf einer Grillplatte bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Hälfte des Teigs in die Pfanne und forme daraus einen dicken Pfannkuchen von etwa 8 inches Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege 2 Scheiben Schweinebauch auf den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe den Pfannkuchen 5-6 Minuten, bis die Unterseite goldbraun ist. Wende ihn vorsichtig und backe die andere Seite weitere 4-5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege ihn auf einen Teller und beträufle ihn kreuzweise mit Okonomiyaki-Soße und Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue Bonitoflocken und Aonori-Pulver darüber und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Wiederhole den Vorgang mit dem restlichen Teig und Schweinebauch für den zweiten Okonomiyaki.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/NtAqAVK5J5V5mX3tr0RuEco8zl4=/6016x4016/filters:fill(auto,1)/japanese-okonomiyaki-recipe-2031053-hero-01-293512c5a3754df18ce39f32b9a5c0fa.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/NtAqAVK5J5V5mX3tr0RuEco8zl4=/6016x4016/filters:fill(auto,1)/japanese-okonomiyaki-recipe-2031053-hero-01-293512c5a3754df18ce39f32b9a5c0fa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yakitori",
+      "slug": "gen-yakitori",
+      "title": "Yakitori (gegrillte Hähnchenspieße)",
+      "instructions": "Japanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel im Angebot in größeren Mengen und friere sie für später ein",
+        "Lasse Hähnchenleber weg, falls sie nicht erhältlich ist, und verwende nur Schenkel"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2393,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yakitori/",
+      "components": [
+        {
+          "key": "6fc162da-eed8-550e-8796-a0db22272bd3",
+          "name": "Zutaten",
+          "servingGrams": 404.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1cdb787d-86b3-598b-a64b-e20e8c17c372",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f0056f1c-8206-57d8-80dc-5677a960884c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "4b04b666-5d76-529d-9dea-662ee8cbf4e7",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9b0d790-e415-5e20-99ad-e540037eddc8",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "28946371-6a93-54f5-9158-c168087b35b6",
+              "ingredientName": "Mirin",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "daadfbfe-5326-5303-819b-4c9f9418ee49",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "91e889b3-74f9-5f9d-9ea5-9a0bfa31bbb1",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1f18654c-9610-5afb-be63-76326a758705",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc521875-5b22-5f41-adcf-de864ca3cfb8",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenschenkel in 1.5-inch große Würfel und die Hähnchenleber in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Frühlingszwiebeln in 1.5-inch lange Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasoße, Mirin, Zucker, Sake, gehackten Knoblauch und Ingwer in einem kleinen Topf. Lasse die Mischung 3 Minuten köcheln, um eine Yakitori-Glasur herzustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stecke Hähnchenstücke und Frühlingszwiebeln abwechselnd auf zuvor in Wasser eingeweichte Holzspieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine Grillpfanne oder den Außengrill auf mittlere bis hohe Hitze und gare die Spieße 8-10 Minuten. Dabei gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die Spieße während der letzten 2 Minuten großzügig mit Yakitori-Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte die Spieße auf einem Teller an und träufle vor dem Servieren die restliche Glasur darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-yakitori-index-65e738c4f032e.jpg?crop=0.891xw:1.00xh;0.0554xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-yakitori-index-65e738c4f032e.jpg?crop=0.891xw:1.00xh;0.0554xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sukiyaki",
+      "slug": "gen-sukiyaki",
+      "title": "Sukiyaki (japanischer Eintopf)",
+      "instructions": "Japanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte den Metzger, das Rindfleisch dünn zu schneiden, oder friere es teilweise an und verwende ein scharfes Messer",
+        "Kaufe vorgeschnittenes Gemüse aus der Salatabteilung, um Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2394,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sukiyaki/",
+      "components": [
+        {
+          "key": "dfa3cc95-f2c7-546a-b263-8f8b8b2604b0",
+          "name": "Zutaten",
+          "servingGrams": 596.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ff7cee2-c35b-5b04-9d9d-522b89ed43a3",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "1af0c333-3917-586c-9423-f68d6c1f5d76",
+              "ingredientName": "Chinakohl",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen gehackt"
+            },
+            {
+              "key": "e384e721-a5c9-5ce3-855a-361e0f00bd56",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "7666d1f4-e71a-5d58-b208-edb1c707129f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "d188f1ea-354e-58d4-833b-5763fa00429e",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "c4565a43-e2d1-5e1f-9ef6-1d70276677d3",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "a7e8f92a-3df6-558e-82f0-91234f3fec17",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "898c11f2-c4ee-5aad-8bf1-e884f7404452",
+              "ingredientName": "Mirin",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "96e17a91-1ce2-5db0-a8a7-c11fef804074",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "32cf4681-38f4-552d-a5bd-4e544c2a9989",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "89d3418a-ee18-5253-8439-c7dc9e1b7c0e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Karotte in feine Stifte und die Zwiebel in dicke Spalten. Hacke den Chinakohl und schneide die Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Tofu in 1-inch große Würfel und halbiere die Pilze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasoße, Mirin, Zucker und Dashi-Brühe in einer Schüssel zur Sukiyaki-Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine große flache Pfanne oder einen Sukiyaki-Topf bei mittlerer bis hoher Hitze. Brate die Rindfleischscheiben kurz an, bis sie leicht gegart sind. Nimm sie heraus und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das vorbereitete Gemüse und den Tofu in einzelnen Bereichen der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Sukiyaki-Brühe über alle Zutaten und lasse alles 8-10 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Rindfleischscheiben zurück in die Pfanne und lasse sie weitere 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schlage Eier in kleine Schüsseln und serviere sie als Dip für Fleisch und Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/02/28/multimedia/VC-sukiyaki-vmcq/VC-sukiyaki-vmcq-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/02/28/multimedia/VC-sukiyaki-vmcq/VC-sukiyaki-vmcq-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

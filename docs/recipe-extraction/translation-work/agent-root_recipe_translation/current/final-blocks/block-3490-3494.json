@@ -1,0 +1,1107 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chholar-dal",
+      "slug": "gen-chholar-dal",
+      "title": "Chholar Dal",
+      "instructions": "Bengalisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Kichererbsen in großen Mengen in indischen oder internationalen Lebensmittelgeschäften kaufen",
+        "Ungesüßtes Kokospulver statt frischer Kokosnuss verwenden, das ist praktisch"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "bengalisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3490,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chholar-dal/",
+      "components": [
+        {
+          "key": "ba103b8c-070c-5929-8aac-9a35d51b2148",
+          "name": "Zutaten",
+          "servingGrams": 506.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "aa66698a-e4cd-5a4b-86ab-08ba7d8dcf6e",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "89aa3b24-7699-578b-b49f-f9d5ebaa326d",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse, gerieben"
+            },
+            {
+              "key": "9d746f96-cb5a-563a-92d2-1a65ff8e3b05",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "5628164c-2b6f-5b0f-ab5c-a23db35a8ab1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "c93e130b-ff08-5e27-a41d-6d986c6e71c1",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a93a765-07ad-501a-a1ad-57c686baf192",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "420a252d-61bf-50c7-8f18-02cccf434feb",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7ccd6902-844e-5cc8-9931-9c6f27c24cde",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4a0f6b61-cd64-5a7c-90cf-547d456334b7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3ed8bc34-3a05-5dbf-9835-132c2542614c",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Kichererbsen über Nacht oder mindestens 8 Stunden einweichen und dann gut abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kichererbsen mit Wasser und Kurkuma etwa 30 Minuten kochen, bis sie ganz weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ghee in einem separaten Topf erhitzen und Kreuzkümmelsamen darin anrösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Ingwer und grüne Chilis hinzufügen und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Zwiebel hinzufügen und etwa 3 Minuten glasig dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geriebene Kokosnuss einrühren und 2 Minuten anbraten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gekochte Kichererbsen samt Kochflüssigkeit zur Gewürzmischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "8-10 Minuten köcheln lassen und dabei einige Kichererbsen zerdrücken, damit das Dal leicht eindickt; heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spoonforkandfood.com/wp-content/uploads/2016/07/cholar-dal-bengal-gram-lentils-cooked-in-coconut-spices.1024x1024.jpg",
+          "sourcePageUrl": "https://www.spoonforkandfood.com/wp-content/uploads/2016/07/cholar-dal-bengal-gram-lentils-cooked-in-coconut-spices.1024x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lau-bhaja",
+      "slug": "gen-lau-bhaja",
+      "title": "Lau Bhaja",
+      "instructions": "Bengalischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flaschenkürbis in der Saison kaufen, wenn er 50% günstiger ist",
+        "Frittieröl mehrfach wiederverwenden und sorgfältig filtern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "bengalisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3491,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lau-bhaja/",
+      "components": [
+        {
+          "key": "92a08204-6e2c-5d62-becc-01193cae0cf2",
+          "name": "Zutaten",
+          "servingGrams": 194.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "85e155eb-2266-55a9-9e5e-b8917baad155",
+              "ingredientName": "Flaschenkürbis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "29f07e7a-8b91-5470-bf59-acc40486ed2e",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b97a699f-57e7-58d8-96b4-772a691d8d15",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "95846da6-1d94-5ec1-9553-751ad0d0b093",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "5af89a24-64cf-56cd-8c17-a99d9afd90e0",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44fa86ec-2bef-5efb-a10e-af87e30ffdce",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "6e7a30c4-5056-5996-8413-e52461a32139",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "00dc8b20-39ca-55b1-95cd-20c2a40dc893",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e9609a3d-1e41-5960-bca0-e6bf73e8e59f",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Flaschenkürbis schälen und in 0.25-inch dicke runde Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kichererbsenmehl, Reismehl, Kurkuma und Salz in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte grüne Chili und Zwiebel zur Mehlmischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach und nach Wasser einrühren, bis ein dicker, klümpchenfreier Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einer tiefen Pfanne auf 350°F erhitzen, bis ein kleiner Teigtropfen sofort zischt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Kürbisscheibe in den Teig tauchen und von beiden Seiten vollständig überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Portionsweise je 4-5 Scheiben frittieren, bis sie von beiden Seiten goldbraun sind, etwa 3-4 Minuten pro Portion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einer Schaumkelle herausnehmen, auf Küchenpapier abtropfen lassen und heiß mit Chutney servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/71/87/de/7187defa5565682338cf1ab0040224bf.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/71/87/de/7187defa5565682338cf1ab0040224bf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kosha-mangsho",
+      "slug": "gen-kosha-mangsho",
+      "title": "Kosha Mangsho",
+      "instructions": "Bengalisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fleisch bei internationalen Metzgern kaufen, wo es meist 20-30% günstiger ist",
+        "Eine größere Menge zubereiten und Portionen für spätere Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bengalisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3492,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kosha-mangsho/",
+      "components": [
+        {
+          "key": "c09ef181-0487-547b-8df7-6d611a50c2a0",
+          "name": "Zutaten",
+          "servingGrams": 338.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "50b46969-58bd-54c7-b253-9958b5579583",
+              "ingredientName": "Rindergulasch",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "329bebe9-f624-5aa1-9b72-9b2e87ab3161",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "f6ae2df1-f2f6-59d4-92c9-90e840bc5176",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "83ead783-71d8-54aa-a744-f99ea7fb8c7b",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b80e7cf6-a02f-522a-9a63-514db8a2723c",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "9d20f58d-57d5-5020-8e72-106189132351",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "20f91707-897e-57cc-b41b-f9b23563751a",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e5e9f950-eb2f-5884-bbca-c1c903a7298e",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "af71fbeb-4911-51f9-8916-1ea7ac43636d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f589f925-9e0c-5604-a398-e783def37248",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f27eb36c-13ce-56d4-ac00-f54765c6c468",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ghee in einem Topf mit schwerem Boden erhitzen und Kreuzkümmelsamen sowie Lorbeerblätter darin anrösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "3 geschnittene Zwiebeln hinzufügen und etwa 8 Minuten dunkelgolden braten, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Im selben Topf das übrige Ghee erhitzen und die restliche geschnittene Zwiebel goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ingwer-Knoblauch-Paste hinzufügen und 2 Minuten anbraten, bis sie duftet und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fleischstücke hinzufügen und bei hoher Hitze 5-7 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze reduzieren und Joghurt mit rotem Chili und Kurkumapulver einrühren; 3 Minuten gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wasser und die gebratenen Zwiebeln hinzufügen, abdecken und bei mittelniedriger Hitze 45-50 Minuten köcheln lassen, bis das Fleisch sehr zart und die Sauce dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz abschmecken und heiß auf gedämpftem Reis oder mit warmem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spoonforkandfood.com/wp-content/uploads/2018/08/DSC_0579-e1534398993488.jpg",
+          "sourcePageUrl": "https://www.spoonforkandfood.com/wp-content/uploads/2018/08/DSC_0579-e1534398993488.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-phirni",
+      "slug": "gen-phirni",
+      "title": "Phirni",
+      "instructions": "Bengalischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nüsse im Angebot in größeren Mengen kaufen und luftdicht aufbewahren",
+        "Das Silberblatt weglassen, da es nur dekorativ ist und die Kosten deutlich erhöht"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bengalisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3493,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-phirni/",
+      "components": [
+        {
+          "key": "81d043ba-8474-52db-840c-b3fb89645763",
+          "name": "Zutaten",
+          "servingGrams": 386.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "68500341-70b9-550f-9153-59bec63d56c7",
+              "ingredientName": "Basmatireis",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "dc78707d-6ac1-5af4-a524-abc458df1ad0",
+              "ingredientName": "Milch",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "edfafc87-2ea5-50e6-a91c-abfd83d44165",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6570a12d-7cfc-5052-b6bf-7dbb7930e742",
+              "ingredientName": "Ghee",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b971685b-aeaf-571a-a5a2-c026a6f68fd6",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a02d32e4-e852-506c-8131-0d7ebed1e584",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5c69d76-dbb3-5041-9d07-23df02edd8d0",
+              "ingredientName": "Silberblatt",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stück, optional"
+            },
+            {
+              "key": "9f0c1318-1de8-55f1-907b-292d04cc856b",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis 20 Minuten einweichen und dann mit möglichst wenig Wasser zu einer glatten, feinen Paste mahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ghee in einem Topf mit schwerem Boden erhitzen und die Reispaste unter ständigem Rühren 5-7 Minuten anbraten, bis sie leicht goldbraun und aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Milch separat erhitzen und unter Rühren langsam zur Reispaste geben, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei mittlerer Hitze unter häufigem Rühren etwa 15 Minuten kochen, bis die Mischung eindickt und cremig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerstoßenes Kardamompulver und Mandelpulver hinzufügen und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zucker hinzufügen und unter Rühren weitere 2-3 Minuten kochen, bis er sich vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die warme Phirni in Tonschalen oder Dessertbecher füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Pistazien, den übrigen Mandeln und Rosenwasser garnieren und vor dem gekühlten Servieren mindestens 2 Stunden kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/QUheel6k9KT6MSVh1p0VKXpaMeQ=/3840x0/filters:quality(85)/images.kitchenstories.io/communityImages/99b31e6561f1bd63f6f5208eb0733382_2afc4c1e-7cb4-4cd9-9c25-775c1bc6d494.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/QUheel6k9KT6MSVh1p0VKXpaMeQ=/3840x0/filters:quality(85)/images.kitchenstories.io/communityImages/99b31e6561f1bd63f6f5208eb0733382_2afc4c1e-7cb4-4cd9-9c25-775c1bc6d494.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-buff-momo",
+      "slug": "gen-buff-momo",
+      "title": "Buff Momo",
+      "instructions": "Nepalesischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack im Angebot kaufen und für später einfrieren",
+        "Einen Topf mit Siebeinsatz statt eines Bambusdämpfers verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "nepalesisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3494,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buff-momo/",
+      "components": [
+        {
+          "key": "ba809ad9-d1c5-5d27-add7-d970133939b0",
+          "name": "Zutaten",
+          "servingGrams": 323,
+          "position": 0,
+          "items": [
+            {
+              "key": "968a3ee0-3986-5f22-aa75-d48785080a19",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6644e749-bba2-54bf-af23-7da26e344531",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "ed5226bd-f654-5b3c-822a-d381df53b83c",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7610fa40-64a2-51fc-b597-55c8cf7a8bc3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "1288b4dd-518f-5502-bc7b-feede9382305",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "3ddc7188-9c8b-57d7-b382-3ab1ab810689",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "00749588-b95c-5915-b49d-f4fb2710fe2d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "69d927bd-b0a0-501c-aa9c-9cbdfe42e575",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "db83394b-56d4-5b8d-ad8b-b1748fcf263a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "665c5ec3-c503-5404-a0fe-091e114e52d5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl mit Wasser und Salz zu einem weichen Teig vermengen, 5 Minuten kneten und abgedeckt 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer Pfanne erhitzen und Zwiebeln, Knoblauch sowie Ingwer anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhack hinzufügen und bräunen, dann Sojasauce, Salz, Pfeffer und Koriander einrühren und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 12 gleiche Stücke teilen und jedes zu einem dünnen Kreis ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1 Esslöffel Füllung in die Mitte jedes Kreises geben, zu einer Tasche falten und oben zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wasser in einem Topf zum Kochen bringen und Momos in einem Bambusdämpfer oder Siebeinsatz 10 Minuten dämpfen, bis sie gar sind und an die Oberfläche steigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Sojasauce oder Chili-Öl-Dip servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Buff-Momo-with-Himalayan-Herbs.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Buff-Momo-with-Himalayan-Herbs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}
